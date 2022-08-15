@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview.Inputs
     /// <summary>
     /// The properties that make up the expected REST response
     /// </summary>
-    public sealed class RestResponseArgs : global::Pulumi.ResourceArgs
+    public sealed class RestResponseArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The regular expressions to match the response content with.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview.Inputs
         public RestResponseArgs()
         {
         }
-        public static new RestResponseArgs Empty => new RestResponseArgs();
     }
 }

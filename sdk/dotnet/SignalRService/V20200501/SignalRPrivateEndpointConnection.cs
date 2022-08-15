@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SignalRService.V20200501
     /// A private endpoint connection to SignalR resource
     /// </summary>
     [AzureNativeResourceType("azure-native:signalrservice/v20200501:SignalRPrivateEndpointConnection")]
-    public partial class SignalRPrivateEndpointConnection : global::Pulumi.CustomResource
+    public partial class SignalRPrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource.
@@ -70,13 +70,13 @@ namespace Pulumi.AzureNative.SignalRService.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice:SignalRPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20200701preview:SignalRPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20210401preview:SignalRPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20210601preview:SignalRPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20210901preview:SignalRPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20211001:SignalRPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20220201:SignalRPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice:SignalRPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/v20200701preview:SignalRPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/v20210401preview:SignalRPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/v20210601preview:SignalRPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/v20210901preview:SignalRPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/v20211001:SignalRPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/v20220201:SignalRPrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.SignalRService.V20200501
         }
     }
 
-    public sealed class SignalRPrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class SignalRPrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Private endpoint associated with the private endpoint connection
@@ -133,6 +133,5 @@ namespace Pulumi.AzureNative.SignalRService.V20200501
         public SignalRPrivateEndpointConnectionArgs()
         {
         }
-        public static new SignalRPrivateEndpointConnectionArgs Empty => new SignalRPrivateEndpointConnectionArgs();
     }
 }

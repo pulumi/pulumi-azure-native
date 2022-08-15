@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AnalysisServices.Inputs
     /// <summary>
     /// An array of administrator user identities.
     /// </summary>
-    public sealed class ServerAdministratorsArgs : global::Pulumi.ResourceArgs
+    public sealed class ServerAdministratorsArgs : Pulumi.ResourceArgs
     {
         [Input("members")]
         private InputList<string>? _members;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.AnalysisServices.Inputs
         public ServerAdministratorsArgs()
         {
         }
-        public static new ServerAdministratorsArgs Empty => new ServerAdministratorsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201Preview
     /// Represents a Configuration.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20171201preview:Configuration")]
-    public partial class Configuration : global::Pulumi.CustomResource
+    public partial class Configuration : Pulumi.CustomResource
     {
         /// <summary>
         /// Allowed values of the configuration.
@@ -88,8 +88,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql:Configuration"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201:Configuration"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql:Configuration"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201:Configuration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201Preview
         }
     }
 
-    public sealed class ConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class ConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the server configuration.
@@ -146,6 +146,5 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201Preview
         public ConfigurationArgs()
         {
         }
-        public static new ConfigurationArgs Empty => new ConfigurationArgs();
     }
 }

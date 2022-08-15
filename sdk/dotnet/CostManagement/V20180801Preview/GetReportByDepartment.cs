@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.CostManagement.V20180801Preview
     }
 
 
-    public sealed class GetReportByDepartmentArgs : global::Pulumi.InvokeArgs
+    public sealed class GetReportByDepartmentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Department ID
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.CostManagement.V20180801Preview
         public GetReportByDepartmentArgs()
         {
         }
-        public static new GetReportByDepartmentArgs Empty => new GetReportByDepartmentArgs();
     }
 
-    public sealed class GetReportByDepartmentInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetReportByDepartmentInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Department ID
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.CostManagement.V20180801Preview
         public GetReportByDepartmentInvokeArgs()
         {
         }
-        public static new GetReportByDepartmentInvokeArgs Empty => new GetReportByDepartmentInvokeArgs();
     }
 
 

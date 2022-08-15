@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.EventGrid
     }
 
 
-    public sealed class GetPartnerTopicEventSubscriptionDeliveryAttributesArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPartnerTopicEventSubscriptionDeliveryAttributesArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.EventGrid
         public GetPartnerTopicEventSubscriptionDeliveryAttributesArgs()
         {
         }
-        public static new GetPartnerTopicEventSubscriptionDeliveryAttributesArgs Empty => new GetPartnerTopicEventSubscriptionDeliveryAttributesArgs();
     }
 
-    public sealed class GetPartnerTopicEventSubscriptionDeliveryAttributesInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPartnerTopicEventSubscriptionDeliveryAttributesInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.EventGrid
         public GetPartnerTopicEventSubscriptionDeliveryAttributesInvokeArgs()
         {
         }
-        public static new GetPartnerTopicEventSubscriptionDeliveryAttributesInvokeArgs Empty => new GetPartnerTopicEventSubscriptionDeliveryAttributesInvokeArgs();
     }
 
 

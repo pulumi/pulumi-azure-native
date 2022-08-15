@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview.Inputs
     /// <summary>
     /// Loaded certificate payload
     /// </summary>
-    public sealed class LoadedCertificateArgs : global::Pulumi.ResourceArgs
+    public sealed class LoadedCertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicate whether the certificate will be loaded into default trust store, only work for Java runtime.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview.Inputs
         {
             LoadTrustStore = false;
         }
-        public static new LoadedCertificateArgs Empty => new LoadedCertificateArgs();
     }
 }

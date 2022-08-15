@@ -20,7 +20,7 @@ namespace Pulumi.AzureNative.Scheduler.V20160101
     }
 
 
-    public sealed class GetJobCollectionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetJobCollectionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The job collection name.
@@ -37,10 +37,9 @@ namespace Pulumi.AzureNative.Scheduler.V20160101
         public GetJobCollectionArgs()
         {
         }
-        public static new GetJobCollectionArgs Empty => new GetJobCollectionArgs();
     }
 
-    public sealed class GetJobCollectionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetJobCollectionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The job collection name.
@@ -57,7 +56,6 @@ namespace Pulumi.AzureNative.Scheduler.V20160101
         public GetJobCollectionInvokeArgs()
         {
         }
-        public static new GetJobCollectionInvokeArgs Empty => new GetJobCollectionInvokeArgs();
     }
 
 

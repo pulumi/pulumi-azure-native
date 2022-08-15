@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Chaos.Inputs
     /// <summary>
     /// The managed identity of a resource.
     /// </summary>
-    public sealed class ResourceIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class ResourceIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// String of the resource identity type.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Chaos.Inputs
         public ResourceIdentityArgs()
         {
         }
-        public static new ResourceIdentityArgs Empty => new ResourceIdentityArgs();
     }
 }

@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20151001Preview
     }
 
 
-    public sealed class GetFirewallRuleArgs : global::Pulumi.InvokeArgs
+    public sealed class GetFirewallRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Data Lake Analytics account.
@@ -49,10 +49,9 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20151001Preview
         public GetFirewallRuleArgs()
         {
         }
-        public static new GetFirewallRuleArgs Empty => new GetFirewallRuleArgs();
     }
 
-    public sealed class GetFirewallRuleInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetFirewallRuleInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Data Lake Analytics account.
@@ -75,7 +74,6 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20151001Preview
         public GetFirewallRuleInvokeArgs()
         {
         }
-        public static new GetFirewallRuleInvokeArgs Empty => new GetFirewallRuleInvokeArgs();
     }
 
 

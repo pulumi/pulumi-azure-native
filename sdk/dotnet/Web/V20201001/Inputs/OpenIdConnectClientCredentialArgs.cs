@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20201001.Inputs
 {
 
-    public sealed class OpenIdConnectClientCredentialArgs : global::Pulumi.ResourceArgs
+    public sealed class OpenIdConnectClientCredentialArgs : Pulumi.ResourceArgs
     {
         [Input("clientSecretSettingName")]
         public Input<string>? ClientSecretSettingName { get; set; }
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.Web.V20201001.Inputs
         public OpenIdConnectClientCredentialArgs()
         {
         }
-        public static new OpenIdConnectClientCredentialArgs Empty => new OpenIdConnectClientCredentialArgs();
     }
 }

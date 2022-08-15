@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DomainRegistration
     }
 
 
-    public sealed class GetDomainArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDomainArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the domain.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.DomainRegistration
         public GetDomainArgs()
         {
         }
-        public static new GetDomainArgs Empty => new GetDomainArgs();
     }
 
-    public sealed class GetDomainInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDomainInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the domain.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.DomainRegistration
         public GetDomainInvokeArgs()
         {
         }
-        public static new GetDomainInvokeArgs Empty => new GetDomainInvokeArgs();
     }
 
 

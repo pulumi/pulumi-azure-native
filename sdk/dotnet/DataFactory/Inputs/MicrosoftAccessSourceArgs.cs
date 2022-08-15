@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity source for Microsoft Access.
     /// </summary>
-    public sealed class MicrosoftAccessSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class MicrosoftAccessSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -61,6 +61,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public MicrosoftAccessSourceArgs()
         {
         }
-        public static new MicrosoftAccessSourceArgs Empty => new MicrosoftAccessSourceArgs();
     }
 }

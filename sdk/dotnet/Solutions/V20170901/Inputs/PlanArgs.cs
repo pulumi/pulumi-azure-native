@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Solutions.V20170901.Inputs
     /// <summary>
     /// Plan for the managed application.
     /// </summary>
-    public sealed class PlanArgs : global::Pulumi.ResourceArgs
+    public sealed class PlanArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The plan name.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.Solutions.V20170901.Inputs
         public PlanArgs()
         {
         }
-        public static new PlanArgs Empty => new PlanArgs();
     }
 }

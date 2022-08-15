@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview.Inputs
     /// <summary>
     /// User identity details.
     /// </summary>
-    public sealed class UserIdentityContractArgs : global::Pulumi.ResourceArgs
+    public sealed class UserIdentityContractArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identifier value within provider.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview.Inputs
         public UserIdentityContractArgs()
         {
         }
-        public static new UserIdentityContractArgs Empty => new UserIdentityContractArgs();
     }
 }

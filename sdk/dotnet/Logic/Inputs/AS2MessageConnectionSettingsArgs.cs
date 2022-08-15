@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.Inputs
     /// <summary>
     /// The AS2 agreement message connection settings.
     /// </summary>
-    public sealed class AS2MessageConnectionSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class AS2MessageConnectionSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value indicating whether to ignore mismatch in certificate name.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Logic.Inputs
         public AS2MessageConnectionSettingsArgs()
         {
         }
-        public static new AS2MessageConnectionSettingsArgs Empty => new AS2MessageConnectionSettingsArgs();
     }
 }

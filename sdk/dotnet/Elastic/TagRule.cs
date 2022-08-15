@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Elastic
     /// API Version: 2020-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:elastic:TagRule")]
-    public partial class TagRule : global::Pulumi.CustomResource
+    public partial class TagRule : Pulumi.CustomResource
     {
         /// <summary>
         /// Name of the rule set.
@@ -65,10 +65,10 @@ namespace Pulumi.AzureNative.Elastic
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:elastic/v20200701:TagRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:elastic/v20200701preview:TagRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:elastic/v20210901preview:TagRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:elastic/v20211001preview:TagRule"},
+                    new Pulumi.Alias { Type = "azure-native:elastic/v20200701:TagRule"},
+                    new Pulumi.Alias { Type = "azure-native:elastic/v20200701preview:TagRule"},
+                    new Pulumi.Alias { Type = "azure-native:elastic/v20210901preview:TagRule"},
+                    new Pulumi.Alias { Type = "azure-native:elastic/v20211001preview:TagRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.Elastic
         }
     }
 
-    public sealed class TagRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class TagRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Monitor resource name
@@ -119,6 +119,5 @@ namespace Pulumi.AzureNative.Elastic
         public TagRuleArgs()
         {
         }
-        public static new TagRuleArgs Empty => new TagRuleArgs();
     }
 }

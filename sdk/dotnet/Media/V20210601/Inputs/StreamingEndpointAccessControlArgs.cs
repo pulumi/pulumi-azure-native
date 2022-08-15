@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20210601.Inputs
     /// <summary>
     /// Streaming endpoint access control definition.
     /// </summary>
-    public sealed class StreamingEndpointAccessControlArgs : global::Pulumi.ResourceArgs
+    public sealed class StreamingEndpointAccessControlArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access control of Akamai
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Media.V20210601.Inputs
         public StreamingEndpointAccessControlArgs()
         {
         }
-        public static new StreamingEndpointAccessControlArgs Empty => new StreamingEndpointAccessControlArgs();
     }
 }

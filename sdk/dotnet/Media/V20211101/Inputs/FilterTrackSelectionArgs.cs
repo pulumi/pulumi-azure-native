@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20211101.Inputs
     /// <summary>
     /// Representing a list of FilterTrackPropertyConditions to select a track.  The filters are combined using a logical AND operation.
     /// </summary>
-    public sealed class FilterTrackSelectionArgs : global::Pulumi.ResourceArgs
+    public sealed class FilterTrackSelectionArgs : Pulumi.ResourceArgs
     {
         [Input("trackSelections", required: true)]
         private InputList<Inputs.FilterTrackPropertyConditionArgs>? _trackSelections;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Media.V20211101.Inputs
         public FilterTrackSelectionArgs()
         {
         }
-        public static new FilterTrackSelectionArgs Empty => new FilterTrackSelectionArgs();
     }
 }

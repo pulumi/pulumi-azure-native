@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.Inputs
     /// <summary>
     /// The live event input.
     /// </summary>
-    public sealed class LiveEventInputArgs : global::Pulumi.ResourceArgs
+    public sealed class LiveEventInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Access control for live event input.
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.Media.Inputs
         public LiveEventInputArgs()
         {
         }
-        public static new LiveEventInputArgs Empty => new LiveEventInputArgs();
     }
 }

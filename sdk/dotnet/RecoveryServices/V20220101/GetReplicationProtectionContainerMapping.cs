@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220101
     }
 
 
-    public sealed class GetReplicationProtectionContainerMappingArgs : global::Pulumi.InvokeArgs
+    public sealed class GetReplicationProtectionContainerMappingArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Fabric name.
@@ -60,10 +60,9 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220101
         public GetReplicationProtectionContainerMappingArgs()
         {
         }
-        public static new GetReplicationProtectionContainerMappingArgs Empty => new GetReplicationProtectionContainerMappingArgs();
     }
 
-    public sealed class GetReplicationProtectionContainerMappingInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetReplicationProtectionContainerMappingInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Fabric name.
@@ -98,7 +97,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220101
         public GetReplicationProtectionContainerMappingInvokeArgs()
         {
         }
-        public static new GetReplicationProtectionContainerMappingInvokeArgs Empty => new GetReplicationProtectionContainerMappingInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// Optimization objective.
     /// </summary>
-    public sealed class ObjectiveArgs : global::Pulumi.ResourceArgs
+    public sealed class ObjectiveArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] Defines supported metric goals for hyperparameter tuning
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         public ObjectiveArgs()
         {
         }
-        public static new ObjectiveArgs Empty => new ObjectiveArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20201201.Inputs
     /// <summary>
     /// The configuration settings of the login flow of the custom Open ID Connect provider.
     /// </summary>
-    public sealed class OpenIdConnectLoginArgs : global::Pulumi.ResourceArgs
+    public sealed class OpenIdConnectLoginArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the claim that contains the users name.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Web.V20201201.Inputs
         public OpenIdConnectLoginArgs()
         {
         }
-        public static new OpenIdConnectLoginArgs Empty => new OpenIdConnectLoginArgs();
     }
 }

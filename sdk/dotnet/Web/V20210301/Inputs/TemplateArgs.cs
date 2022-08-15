@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Web.V20210301.Inputs
     /// Defines the desired state of an immutable revision.
     /// Any changes to this section Will result in a new revision being created
     /// </summary>
-    public sealed class TemplateArgs : global::Pulumi.ResourceArgs
+    public sealed class TemplateArgs : Pulumi.ResourceArgs
     {
         [Input("containers")]
         private InputList<Inputs.ContainerArgs>? _containers;
@@ -50,6 +50,5 @@ namespace Pulumi.AzureNative.Web.V20210301.Inputs
         public TemplateArgs()
         {
         }
-        public static new TemplateArgs Empty => new TemplateArgs();
     }
 }

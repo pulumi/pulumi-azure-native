@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
     }
 
 
-    public sealed class GetInputArgs : global::Pulumi.InvokeArgs
+    public sealed class GetInputArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the input.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.StreamAnalytics
         public GetInputArgs()
         {
         }
-        public static new GetInputArgs Empty => new GetInputArgs();
     }
 
-    public sealed class GetInputInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetInputInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the input.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.StreamAnalytics
         public GetInputInvokeArgs()
         {
         }
-        public static new GetInputInvokeArgs Empty => new GetInputInvokeArgs();
     }
 
 

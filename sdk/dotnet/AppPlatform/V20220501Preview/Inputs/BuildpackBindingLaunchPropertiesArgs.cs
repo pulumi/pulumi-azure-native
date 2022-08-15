@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
     /// <summary>
     /// Buildpack Binding Launch Properties
     /// </summary>
-    public sealed class BuildpackBindingLaunchPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class BuildpackBindingLaunchPropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("properties")]
         private InputMap<string>? _properties;
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
         public BuildpackBindingLaunchPropertiesArgs()
         {
         }
-        public static new BuildpackBindingLaunchPropertiesArgs Empty => new BuildpackBindingLaunchPropertiesArgs();
     }
 }

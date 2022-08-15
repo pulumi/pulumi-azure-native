@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Linked service for Oracle Cloud Storage.
     /// </summary>
-    public sealed class OracleCloudStorageLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class OracleCloudStorageLinkedServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access key identifier of the Oracle Cloud Storage Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
@@ -85,6 +85,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public OracleCloudStorageLinkedServiceArgs()
         {
         }
-        public static new OracleCloudStorageLinkedServiceArgs Empty => new OracleCloudStorageLinkedServiceArgs();
     }
 }

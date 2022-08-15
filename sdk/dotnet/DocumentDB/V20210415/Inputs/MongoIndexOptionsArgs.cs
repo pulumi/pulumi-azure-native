@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210415.Inputs
     /// <summary>
     /// Cosmos DB MongoDB collection index options
     /// </summary>
-    public sealed class MongoIndexOptionsArgs : global::Pulumi.ResourceArgs
+    public sealed class MongoIndexOptionsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Expire after seconds
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20210415.Inputs
         public MongoIndexOptionsArgs()
         {
         }
-        public static new MongoIndexOptionsArgs Empty => new MongoIndexOptionsArgs();
     }
 }

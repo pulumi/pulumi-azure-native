@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20200202.Inputs
     /// <summary>
     /// The details of the identity used for CMK
     /// </summary>
-    public sealed class CmkKekIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class CmkKekIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicate that system assigned identity should be used. Mutually exclusive with 'userAssignedIdentity' field
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20200202.Inputs
         public CmkKekIdentityArgs()
         {
         }
-        public static new CmkKekIdentityArgs Empty => new CmkKekIdentityArgs();
     }
 }

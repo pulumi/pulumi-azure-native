@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.LabServices.V20181015
     }
 
 
-    public sealed class GetGlobalUserOperationStatusArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGlobalUserOperationStatusArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The operation url of long running operation
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.LabServices.V20181015
         public GetGlobalUserOperationStatusArgs()
         {
         }
-        public static new GetGlobalUserOperationStatusArgs Empty => new GetGlobalUserOperationStatusArgs();
     }
 
-    public sealed class GetGlobalUserOperationStatusInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGlobalUserOperationStatusInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The operation url of long running operation
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.LabServices.V20181015
         public GetGlobalUserOperationStatusInvokeArgs()
         {
         }
-        public static new GetGlobalUserOperationStatusInvokeArgs Empty => new GetGlobalUserOperationStatusInvokeArgs();
     }
 
 

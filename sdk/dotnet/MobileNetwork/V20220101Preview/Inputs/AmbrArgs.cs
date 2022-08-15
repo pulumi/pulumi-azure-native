@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220101Preview.Inputs
     /// <summary>
     /// Aggregate Maximum Bit Rate.
     /// </summary>
-    public sealed class AmbrArgs : global::Pulumi.ResourceArgs
+    public sealed class AmbrArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Downlink bit rate.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220101Preview.Inputs
         public AmbrArgs()
         {
         }
-        public static new AmbrArgs Empty => new AmbrArgs();
     }
 }

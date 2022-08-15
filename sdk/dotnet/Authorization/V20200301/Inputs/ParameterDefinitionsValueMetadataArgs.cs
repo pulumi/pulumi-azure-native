@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization.V20200301.Inputs
     /// <summary>
     /// General metadata for the parameter.
     /// </summary>
-    public sealed class ParameterDefinitionsValueMetadataArgs : global::Pulumi.ResourceArgs
+    public sealed class ParameterDefinitionsValueMetadataArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the parameter.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Authorization.V20200301.Inputs
         public ParameterDefinitionsValueMetadataArgs()
         {
         }
-        public static new ParameterDefinitionsValueMetadataArgs Empty => new ParameterDefinitionsValueMetadataArgs();
     }
 }

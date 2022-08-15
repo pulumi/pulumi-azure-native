@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
     /// <summary>
     /// OS image profile
     /// </summary>
-    public sealed class OsImageProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class OsImageProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// OS image offer
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
         public OsImageProfileArgs()
         {
         }
-        public static new OsImageProfileArgs Empty => new OsImageProfileArgs();
     }
 }

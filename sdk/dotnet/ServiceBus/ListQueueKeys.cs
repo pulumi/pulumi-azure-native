@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ServiceBus
     }
 
 
-    public sealed class ListQueueKeysArgs : global::Pulumi.InvokeArgs
+    public sealed class ListQueueKeysArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The authorization rule name.
@@ -56,10 +56,9 @@ namespace Pulumi.AzureNative.ServiceBus
         public ListQueueKeysArgs()
         {
         }
-        public static new ListQueueKeysArgs Empty => new ListQueueKeysArgs();
     }
 
-    public sealed class ListQueueKeysInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListQueueKeysInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The authorization rule name.
@@ -88,7 +87,6 @@ namespace Pulumi.AzureNative.ServiceBus
         public ListQueueKeysInvokeArgs()
         {
         }
-        public static new ListQueueKeysInvokeArgs Empty => new ListQueueKeysInvokeArgs();
     }
 
 

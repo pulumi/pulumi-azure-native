@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20201201
     /// IoT Addon.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge/v20201201:IoTAddon")]
-    public partial class IoTAddon : global::Pulumi.CustomResource
+    public partial class IoTAddon : Pulumi.CustomResource
     {
         /// <summary>
         /// Host OS supported by the IoT addon.
@@ -108,15 +108,15 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20201201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:IoTAddon"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:IoTAddon"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:IoTAddon"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:IoTAddon"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:IoTAddon"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:IoTAddon"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:IoTAddon"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:IoTAddon"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:IoTAddon"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge:IoTAddon"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:IoTAddon"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:IoTAddon"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:IoTAddon"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:IoTAddon"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:IoTAddon"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:IoTAddon"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:IoTAddon"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:IoTAddon"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -138,7 +138,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20201201
         }
     }
 
-    public sealed class IoTAddonArgs : global::Pulumi.ResourceArgs
+    public sealed class IoTAddonArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The addon name.
@@ -186,6 +186,5 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20201201
         public IoTAddonArgs()
         {
         }
-        public static new IoTAddonArgs Empty => new IoTAddonArgs();
     }
 }

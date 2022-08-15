@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
 {
 
-    public sealed class VirtualMachineSchemaPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualMachineSchemaPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Public IP address of the virtual machine.
@@ -51,6 +51,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         public VirtualMachineSchemaPropertiesArgs()
         {
         }
-        public static new VirtualMachineSchemaPropertiesArgs Empty => new VirtualMachineSchemaPropertiesArgs();
     }
 }

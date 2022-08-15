@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
     }
 
 
-    public sealed class GetDatastoreArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDatastoreArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the datastore.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         public GetDatastoreArgs()
         {
         }
-        public static new GetDatastoreArgs Empty => new GetDatastoreArgs();
     }
 
-    public sealed class GetDatastoreInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDatastoreInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the datastore.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         public GetDatastoreInvokeArgs()
         {
         }
-        public static new GetDatastoreInvokeArgs Empty => new GetDatastoreInvokeArgs();
     }
 
 

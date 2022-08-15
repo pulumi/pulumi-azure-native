@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20140401.Inputs
     /// <summary>
     /// The parameters for the scaling action.
     /// </summary>
-    public sealed class ScaleActionArgs : global::Pulumi.ResourceArgs
+    public sealed class ScaleActionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// the amount of time to wait since the last scaling action before this action occurs. It must be between 1 week and 1 minute in ISO 8601 format.
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.Insights.V20140401.Inputs
         {
             Value = "1";
         }
-        public static new ScaleActionArgs Empty => new ScaleActionArgs();
     }
 }

@@ -16,13 +16,13 @@ require (
 	github.com/google/uuid v1.3.0
 	github.com/hashicorp/go-azure-helpers v0.12.0
 	github.com/hashicorp/go-multierror v1.1.1
-	github.com/hashicorp/hcl/v2 v2.12.0
+	github.com/hashicorp/hcl/v2 v2.11.1
 	github.com/olekukonko/tablewriter v0.0.5
 	github.com/pkg/errors v0.9.1
-	github.com/pulumi/pulumi-java/pkg v0.5.0
-	github.com/pulumi/pulumi-yaml v0.5.3
-	github.com/pulumi/pulumi/pkg/v3 v3.37.2
-	github.com/pulumi/pulumi/sdk/v3 v3.37.2
+	github.com/pulumi/pulumi-java/pkg v0.2.0
+	github.com/pulumi/pulumi-yaml v0.5.1
+	github.com/pulumi/pulumi/pkg/v3 v3.34.0
+	github.com/pulumi/pulumi/sdk/v3 v3.34.0
 	github.com/schollz/progressbar/v3 v3.5.0
 	github.com/segmentio/encoding v0.3.5
 	github.com/sourcegraph/jsonx v0.0.0-20200629203448-1a936bd500cf
@@ -56,7 +56,6 @@ require (
 	github.com/Microsoft/go-winio v0.5.2 // indirect
 	github.com/PuerkitoBio/purell v1.1.1 // indirect
 	github.com/PuerkitoBio/urlesc v0.0.0-20170810143723-de5bf2ad4578 // indirect
-	github.com/aead/chacha20 v0.0.0-20180709150244-8b13a72661da // indirect
 	github.com/agext/levenshtein v1.2.3 // indirect
 	github.com/apparentlymart/go-textseg/v13 v13.0.0 // indirect
 	github.com/aws/aws-sdk-go v1.40.34 // indirect
@@ -76,7 +75,6 @@ require (
 	github.com/dimchansky/utfbom v1.1.1 // indirect
 	github.com/djherbis/times v1.5.0 // indirect
 	github.com/dustin/go-humanize v1.0.0 // indirect
-	github.com/edsrzf/mmap-go v1.1.0 // indirect
 	github.com/emirpasic/gods v1.12.0 // indirect
 	github.com/ettle/strcase v0.1.1 // indirect
 	github.com/go-openapi/jsonpointer v0.19.3 // indirect
@@ -123,7 +121,6 @@ require (
 	github.com/mitchellh/mapstructure v1.4.3 // indirect
 	github.com/mitchellh/reflectwalk v1.0.0 // indirect
 	github.com/moby/term v0.0.0-20210619224110-3f7ff695adc6 // indirect
-	github.com/natefinch/atomic v1.0.1 // indirect
 	github.com/opentracing/basictracer-go v1.1.0 // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
 	github.com/pgavlin/goldmark v1.1.33-0.20200616210433-b5eb04559386 // indirect
@@ -175,7 +172,6 @@ require (
 	gopkg.in/src-d/go-git.v4 v4.13.1 // indirect
 	gopkg.in/warnings.v0 v0.1.2 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
-	lukechampine.com/frand v1.4.2 // indirect
 	modernc.org/cc/v3 v3.31.5-0.20210308123301-7a3e9dab9009 // indirect
 	modernc.org/ccgo/v3 v3.9.0 // indirect
 	modernc.org/libc v1.8.0 // indirect

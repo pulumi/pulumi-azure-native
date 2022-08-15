@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210301
     /// Virtual Appliance Site resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20210301:VirtualApplianceSite")]
-    public partial class VirtualApplianceSite : global::Pulumi.CustomResource
+    public partial class VirtualApplianceSite : Pulumi.CustomResource
     {
         /// <summary>
         /// Address Prefix.
@@ -76,16 +76,16 @@ namespace Pulumi.AzureNative.Network.V20210301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:VirtualApplianceSite"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:VirtualApplianceSite"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualApplianceSite"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:VirtualApplianceSite"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:VirtualApplianceSite"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:VirtualApplianceSite"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:VirtualApplianceSite"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:VirtualApplianceSite"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:VirtualApplianceSite"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:VirtualApplianceSite"},
+                    new Pulumi.Alias { Type = "azure-native:network:VirtualApplianceSite"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:VirtualApplianceSite"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualApplianceSite"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:VirtualApplianceSite"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:VirtualApplianceSite"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:VirtualApplianceSite"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:VirtualApplianceSite"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501:VirtualApplianceSite"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:VirtualApplianceSite"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:VirtualApplianceSite"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.Network.V20210301
         }
     }
 
-    public sealed class VirtualApplianceSiteArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualApplianceSiteArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Address Prefix.
@@ -154,6 +154,5 @@ namespace Pulumi.AzureNative.Network.V20210301
         public VirtualApplianceSiteArgs()
         {
         }
-        public static new VirtualApplianceSiteArgs Empty => new VirtualApplianceSiteArgs();
     }
 }

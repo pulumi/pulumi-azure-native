@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20181001.Inputs
     /// <summary>
     /// Specifies Windows operating system settings on the virtual machine.
     /// </summary>
-    public sealed class WindowsConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class WindowsConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("additionalUnattendContent")]
         private InputList<Inputs.AdditionalUnattendContentArgs>? _additionalUnattendContent;
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.Compute.V20181001.Inputs
         public WindowsConfigurationArgs()
         {
         }
-        public static new WindowsConfigurationArgs Empty => new WindowsConfigurationArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20220201Preview
     }
 
 
-    public sealed class ListEffectiveVirtualNetworkByNetworkManagerArgs : global::Pulumi.InvokeArgs
+    public sealed class ListEffectiveVirtualNetworkByNetworkManagerArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Conditional Members.
@@ -60,10 +60,9 @@ namespace Pulumi.AzureNative.Network.V20220201Preview
         public ListEffectiveVirtualNetworkByNetworkManagerArgs()
         {
         }
-        public static new ListEffectiveVirtualNetworkByNetworkManagerArgs Empty => new ListEffectiveVirtualNetworkByNetworkManagerArgs();
     }
 
-    public sealed class ListEffectiveVirtualNetworkByNetworkManagerInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListEffectiveVirtualNetworkByNetworkManagerInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Conditional Members.
@@ -98,7 +97,6 @@ namespace Pulumi.AzureNative.Network.V20220201Preview
         public ListEffectiveVirtualNetworkByNetworkManagerInvokeArgs()
         {
         }
-        public static new ListEffectiveVirtualNetworkByNetworkManagerInvokeArgs Empty => new ListEffectiveVirtualNetworkByNetworkManagerInvokeArgs();
     }
 
 

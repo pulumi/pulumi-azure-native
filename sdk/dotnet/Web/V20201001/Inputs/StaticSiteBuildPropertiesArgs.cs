@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20201001.Inputs
     /// <summary>
     /// Build properties for the static site.
     /// </summary>
-    public sealed class StaticSiteBuildPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class StaticSiteBuildPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The path to the api code within the repository.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Web.V20201001.Inputs
         public StaticSiteBuildPropertiesArgs()
         {
         }
-        public static new StaticSiteBuildPropertiesArgs Empty => new StaticSiteBuildPropertiesArgs();
     }
 }

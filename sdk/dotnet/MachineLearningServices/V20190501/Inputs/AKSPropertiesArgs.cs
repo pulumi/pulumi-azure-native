@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20190501.Inputs
     /// <summary>
     /// AKS properties
     /// </summary>
-    public sealed class AKSPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class AKSPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Number of agents
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20190501.Inputs
         public AKSPropertiesArgs()
         {
         }
-        public static new AKSPropertiesArgs Empty => new AKSPropertiesArgs();
     }
 }

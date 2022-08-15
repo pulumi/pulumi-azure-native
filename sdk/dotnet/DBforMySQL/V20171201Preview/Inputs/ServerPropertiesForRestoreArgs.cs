@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20171201Preview.Inputs
     /// <summary>
     /// The properties used to create a new server by restoring from a backup.
     /// </summary>
-    public sealed class ServerPropertiesForRestoreArgs : global::Pulumi.ResourceArgs
+    public sealed class ServerPropertiesForRestoreArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The mode to create a new server.
@@ -61,6 +61,5 @@ namespace Pulumi.AzureNative.DBforMySQL.V20171201Preview.Inputs
         public ServerPropertiesForRestoreArgs()
         {
         }
-        public static new ServerPropertiesForRestoreArgs Empty => new ServerPropertiesForRestoreArgs();
     }
 }

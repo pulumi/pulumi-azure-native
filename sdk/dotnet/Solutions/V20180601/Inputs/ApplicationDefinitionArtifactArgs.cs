@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Solutions.V20180601.Inputs
     /// <summary>
     /// Application definition artifact.
     /// </summary>
-    public sealed class ApplicationDefinitionArtifactArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplicationDefinitionArtifactArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The managed application definition artifact name.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Solutions.V20180601.Inputs
         public ApplicationDefinitionArtifactArgs()
         {
         }
-        public static new ApplicationDefinitionArtifactArgs Empty => new ApplicationDefinitionArtifactArgs();
     }
 }

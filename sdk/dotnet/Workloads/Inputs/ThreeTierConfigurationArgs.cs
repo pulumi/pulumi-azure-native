@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.Inputs
     /// <summary>
     /// Gets or sets the three tier SAP configuration.
     /// </summary>
-    public sealed class ThreeTierConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class ThreeTierConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application resource group where SAP system resources will be deployed.
@@ -61,6 +61,5 @@ namespace Pulumi.AzureNative.Workloads.Inputs
         public ThreeTierConfigurationArgs()
         {
         }
-        public static new ThreeTierConfigurationArgs Empty => new ThreeTierConfigurationArgs();
     }
 }

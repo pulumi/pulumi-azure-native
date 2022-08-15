@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
-    public sealed class AS2AcknowledgementConnectionSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class AS2AcknowledgementConnectionSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value indicating whether to ignore mismatch in certificate name.
@@ -39,6 +39,5 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
         public AS2AcknowledgementConnectionSettingsArgs()
         {
         }
-        public static new AS2AcknowledgementConnectionSettingsArgs Empty => new AS2AcknowledgementConnectionSettingsArgs();
     }
 }

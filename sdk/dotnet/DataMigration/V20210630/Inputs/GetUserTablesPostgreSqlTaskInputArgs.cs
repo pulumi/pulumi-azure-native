@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20210630.Inputs
     /// <summary>
     /// Input for the task that gets the list of tables for a provided list of PostgreSQL databases.
     /// </summary>
-    public sealed class GetUserTablesPostgreSqlTaskInputArgs : global::Pulumi.ResourceArgs
+    public sealed class GetUserTablesPostgreSqlTaskInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Information for connecting to PostgreSQL source
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DataMigration.V20210630.Inputs
         public GetUserTablesPostgreSqlTaskInputArgs()
         {
         }
-        public static new GetUserTablesPostgreSqlTaskInputArgs Empty => new GetUserTablesPostgreSqlTaskInputArgs();
     }
 }

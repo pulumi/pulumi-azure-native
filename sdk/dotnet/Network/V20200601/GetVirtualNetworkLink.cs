@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20200601
     }
 
 
-    public sealed class GetVirtualNetworkLinkArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkLinkArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Private DNS zone (without a terminating dot).
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Network.V20200601
         public GetVirtualNetworkLinkArgs()
         {
         }
-        public static new GetVirtualNetworkLinkArgs Empty => new GetVirtualNetworkLinkArgs();
     }
 
-    public sealed class GetVirtualNetworkLinkInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkLinkInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Private DNS zone (without a terminating dot).
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Network.V20200601
         public GetVirtualNetworkLinkInvokeArgs()
         {
         }
-        public static new GetVirtualNetworkLinkInvokeArgs Empty => new GetVirtualNetworkLinkInvokeArgs();
     }
 
 

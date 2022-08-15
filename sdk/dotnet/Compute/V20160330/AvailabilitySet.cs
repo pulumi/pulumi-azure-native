@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Compute.V20160330
     /// </summary>
     [Obsolete(@"Version 2016-03-30 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:compute/v20160330:AvailabilitySet")]
-    public partial class AvailabilitySet : global::Pulumi.CustomResource
+    public partial class AvailabilitySet : Pulumi.CustomResource
     {
         /// <summary>
         /// Resource location
@@ -89,24 +89,24 @@ namespace Pulumi.AzureNative.Compute.V20160330
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:compute:AvailabilitySet"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20150615:AvailabilitySet"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20160430preview:AvailabilitySet"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20170330:AvailabilitySet"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20171201:AvailabilitySet"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180401:AvailabilitySet"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180601:AvailabilitySet"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20181001:AvailabilitySet"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190301:AvailabilitySet"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190701:AvailabilitySet"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20191201:AvailabilitySet"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200601:AvailabilitySet"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20201201:AvailabilitySet"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210301:AvailabilitySet"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:AvailabilitySet"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:AvailabilitySet"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211101:AvailabilitySet"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220301:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azure-native:compute:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20150615:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20160430preview:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20170330:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20171201:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20180401:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20180601:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20181001:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20190301:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20191201:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20200601:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20201201:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20210301:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20210401:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20210701:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20211101:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20220301:AvailabilitySet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNative.Compute.V20160330
         }
     }
 
-    public sealed class AvailabilitySetArgs : global::Pulumi.ResourceArgs
+    public sealed class AvailabilitySetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource location
@@ -187,6 +187,5 @@ namespace Pulumi.AzureNative.Compute.V20160330
         public AvailabilitySetArgs()
         {
         }
-        public static new AvailabilitySetArgs Empty => new AvailabilitySetArgs();
     }
 }

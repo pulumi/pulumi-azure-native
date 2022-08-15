@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network
     }
 
 
-    public sealed class GetDefaultUserRuleArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDefaultUserRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the network manager security Configuration.
@@ -62,10 +62,9 @@ namespace Pulumi.AzureNative.Network
         public GetDefaultUserRuleArgs()
         {
         }
-        public static new GetDefaultUserRuleArgs Empty => new GetDefaultUserRuleArgs();
     }
 
-    public sealed class GetDefaultUserRuleInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDefaultUserRuleInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the network manager security Configuration.
@@ -100,7 +99,6 @@ namespace Pulumi.AzureNative.Network
         public GetDefaultUserRuleInvokeArgs()
         {
         }
-        public static new GetDefaultUserRuleInvokeArgs Empty => new GetDefaultUserRuleInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200401.Inputs
     /// <summary>
     /// Load balancer backend addresses.
     /// </summary>
-    public sealed class LoadBalancerBackendAddressArgs : global::Pulumi.ResourceArgs
+    public sealed class LoadBalancerBackendAddressArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// IP Address belonging to the referenced virtual network.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Network.V20200401.Inputs
         public LoadBalancerBackendAddressArgs()
         {
         }
-        public static new LoadBalancerBackendAddressArgs Empty => new LoadBalancerBackendAddressArgs();
     }
 }

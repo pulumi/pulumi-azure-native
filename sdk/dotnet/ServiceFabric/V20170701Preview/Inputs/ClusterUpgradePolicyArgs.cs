@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20170701Preview.Inputs
     /// <summary>
     /// Describes the policy used when upgrading the cluster.
     /// </summary>
-    public sealed class ClusterUpgradePolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class ClusterUpgradePolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The delta health policy used when upgrading the cluster.
@@ -72,6 +72,5 @@ namespace Pulumi.AzureNative.ServiceFabric.V20170701Preview.Inputs
         public ClusterUpgradePolicyArgs()
         {
         }
-        public static new ClusterUpgradePolicyArgs Empty => new ClusterUpgradePolicyArgs();
     }
 }

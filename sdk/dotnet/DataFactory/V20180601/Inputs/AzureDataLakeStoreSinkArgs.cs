@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A copy activity Azure Data Lake Store sink.
     /// </summary>
-    public sealed class AzureDataLakeStoreSinkArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureDataLakeStoreSinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of copy behavior for copy sink.
@@ -73,6 +73,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public AzureDataLakeStoreSinkArgs()
         {
         }
-        public static new AzureDataLakeStoreSinkArgs Empty => new AzureDataLakeStoreSinkArgs();
     }
 }

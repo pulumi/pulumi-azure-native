@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
     /// <summary>
     /// The properties that are associated with a SKU.
     /// </summary>
-    public sealed class SkuArgs : global::Pulumi.ResourceArgs
+    public sealed class SkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the SKU. Required on PUT (CreateOrReplace) requests.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
         public SkuArgs()
         {
         }
-        public static new SkuArgs Empty => new SkuArgs();
     }
 }

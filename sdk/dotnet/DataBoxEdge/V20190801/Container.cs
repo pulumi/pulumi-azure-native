@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190801
     /// </summary>
     [Obsolete(@"Version 2019-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:databoxedge/v20190801:Container")]
-    public partial class Container : global::Pulumi.CustomResource
+    public partial class Container : Pulumi.CustomResource
     {
         /// <summary>
         /// Current status of the container.
@@ -77,17 +77,17 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:Container"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:Container"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:Container"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:Container"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:Container"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:Container"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:Container"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:Container"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:Container"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:Container"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:Container"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge:Container"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:Container"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:Container"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:Container"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:Container"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:Container"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:Container"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:Container"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:Container"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:Container"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:Container"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -109,7 +109,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190801
         }
     }
 
-    public sealed class ContainerArgs : global::Pulumi.ResourceArgs
+    public sealed class ContainerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The container name.
@@ -144,6 +144,5 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190801
         public ContainerArgs()
         {
         }
-        public static new ContainerArgs Empty => new ContainerArgs();
     }
 }

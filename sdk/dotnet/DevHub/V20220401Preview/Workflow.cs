@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevHub.V20220401Preview
     /// Resource representation of a workflow
     /// </summary>
     [AzureNativeResourceType("azure-native:devhub/v20220401preview:Workflow")]
-    public partial class Workflow : global::Pulumi.CustomResource
+    public partial class Workflow : Pulumi.CustomResource
     {
         /// <summary>
         /// Information on the azure container registry
@@ -154,7 +154,7 @@ namespace Pulumi.AzureNative.DevHub.V20220401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devhub:Workflow"},
+                    new Pulumi.Alias { Type = "azure-native:devhub:Workflow"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -176,7 +176,7 @@ namespace Pulumi.AzureNative.DevHub.V20220401Preview
         }
     }
 
-    public sealed class WorkflowArgs : global::Pulumi.ResourceArgs
+    public sealed class WorkflowArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Information on the azure container registry
@@ -268,6 +268,5 @@ namespace Pulumi.AzureNative.DevHub.V20220401Preview
         public WorkflowArgs()
         {
         }
-        public static new WorkflowArgs Empty => new WorkflowArgs();
     }
 }

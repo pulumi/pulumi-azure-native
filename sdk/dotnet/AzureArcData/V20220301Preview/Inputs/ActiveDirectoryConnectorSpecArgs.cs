@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview.Inputs
     /// <summary>
     /// The specifications of the AD Kubernetes resource.
     /// </summary>
-    public sealed class ActiveDirectoryConnectorSpecArgs : global::Pulumi.ResourceArgs
+    public sealed class ActiveDirectoryConnectorSpecArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// null
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview.Inputs
         public ActiveDirectoryConnectorSpecArgs()
         {
         }
-        public static new ActiveDirectoryConnectorSpecArgs Empty => new ActiveDirectoryConnectorSpecArgs();
     }
 }

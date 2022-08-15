@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview
     /// Bot resource definition
     /// </summary>
     [AzureNativeResourceType("azure-native:botservice/v20220615preview:Bot")]
-    public partial class Bot : global::Pulumi.CustomResource
+    public partial class Bot : Pulumi.CustomResource
     {
         /// <summary>
         /// Entity Tag
@@ -94,12 +94,12 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:botservice:Bot"},
-                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20171201:Bot"},
-                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20180712:Bot"},
-                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20200602:Bot"},
-                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20210301:Bot"},
-                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20210501preview:Bot"},
+                    new Pulumi.Alias { Type = "azure-native:botservice:Bot"},
+                    new Pulumi.Alias { Type = "azure-native:botservice/v20171201:Bot"},
+                    new Pulumi.Alias { Type = "azure-native:botservice/v20180712:Bot"},
+                    new Pulumi.Alias { Type = "azure-native:botservice/v20200602:Bot"},
+                    new Pulumi.Alias { Type = "azure-native:botservice/v20210301:Bot"},
+                    new Pulumi.Alias { Type = "azure-native:botservice/v20210501preview:Bot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -121,7 +121,7 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview
         }
     }
 
-    public sealed class BotArgs : global::Pulumi.ResourceArgs
+    public sealed class BotArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Required. Gets or sets the Kind of the resource.
@@ -174,6 +174,5 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview
         public BotArgs()
         {
         }
-        public static new BotArgs Empty => new BotArgs();
     }
 }

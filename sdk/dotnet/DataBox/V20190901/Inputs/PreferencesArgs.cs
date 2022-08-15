@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBox.V20190901.Inputs
     /// <summary>
     /// Preferences related to the order
     /// </summary>
-    public sealed class PreferencesArgs : global::Pulumi.ResourceArgs
+    public sealed class PreferencesArgs : Pulumi.ResourceArgs
     {
         [Input("preferredDataCenterRegion")]
         private InputList<string>? _preferredDataCenterRegion;
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DataBox.V20190901.Inputs
         public PreferencesArgs()
         {
         }
-        public static new PreferencesArgs Empty => new PreferencesArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.V20220201Preview.Inputs
 {
 
-    public sealed class KeyVaultPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class KeyVaultPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The client id of the identity which will be used to access key vault.
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20220201Preview.Inputs
         public KeyVaultPropertiesArgs()
         {
         }
-        public static new KeyVaultPropertiesArgs Empty => new KeyVaultPropertiesArgs();
     }
 }

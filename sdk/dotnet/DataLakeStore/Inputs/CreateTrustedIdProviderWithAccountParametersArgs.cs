@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataLakeStore.Inputs
     /// <summary>
     /// The parameters used to create a new trusted identity provider while creating a new Data Lake Store account.
     /// </summary>
-    public sealed class CreateTrustedIdProviderWithAccountParametersArgs : global::Pulumi.ResourceArgs
+    public sealed class CreateTrustedIdProviderWithAccountParametersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The URL of this trusted identity provider.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DataLakeStore.Inputs
         public CreateTrustedIdProviderWithAccountParametersArgs()
         {
         }
-        public static new CreateTrustedIdProviderWithAccountParametersArgs Empty => new CreateTrustedIdProviderWithAccountParametersArgs();
     }
 }

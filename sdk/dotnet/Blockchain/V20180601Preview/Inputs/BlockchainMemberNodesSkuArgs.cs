@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Blockchain.V20180601Preview.Inputs
     /// <summary>
     /// Payload of the blockchain member nodes Sku for a blockchain member.
     /// </summary>
-    public sealed class BlockchainMemberNodesSkuArgs : global::Pulumi.ResourceArgs
+    public sealed class BlockchainMemberNodesSkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the nodes capacity.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Blockchain.V20180601Preview.Inputs
         public BlockchainMemberNodesSkuArgs()
         {
         }
-        public static new BlockchainMemberNodesSkuArgs Empty => new BlockchainMemberNodesSkuArgs();
     }
 }

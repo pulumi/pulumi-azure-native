@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
     }
 
 
-    public sealed class GetLabResourceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetLabResourceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the lab.
@@ -43,10 +43,9 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         public GetLabResourceArgs()
         {
         }
-        public static new GetLabResourceArgs Empty => new GetLabResourceArgs();
     }
 
-    public sealed class GetLabResourceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetLabResourceInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the lab.
@@ -63,7 +62,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         public GetLabResourceInvokeArgs()
         {
         }
-        public static new GetLabResourceInvokeArgs Empty => new GetLabResourceInvokeArgs();
     }
 
 

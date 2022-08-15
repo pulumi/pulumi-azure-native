@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Sql
     }
 
 
-    public sealed class GetServerTrustCertificateArgs : global::Pulumi.InvokeArgs
+    public sealed class GetServerTrustCertificateArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of of the certificate to get.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Sql
         public GetServerTrustCertificateArgs()
         {
         }
-        public static new GetServerTrustCertificateArgs Empty => new GetServerTrustCertificateArgs();
     }
 
-    public sealed class GetServerTrustCertificateInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetServerTrustCertificateInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of of the certificate to get.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Sql
         public GetServerTrustCertificateInvokeArgs()
         {
         }
-        public static new GetServerTrustCertificateInvokeArgs Empty => new GetServerTrustCertificateInvokeArgs();
     }
 
 

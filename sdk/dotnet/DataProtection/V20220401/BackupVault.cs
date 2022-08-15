@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataProtection.V20220401
     /// Backup Vault Resource
     /// </summary>
     [AzureNativeResourceType("azure-native:dataprotection/v20220401:BackupVault")]
-    public partial class BackupVault : global::Pulumi.CustomResource
+    public partial class BackupVault : Pulumi.CustomResource
     {
         /// <summary>
         /// Optional ETag.
@@ -88,18 +88,18 @@ namespace Pulumi.AzureNative.DataProtection.V20220401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dataprotection:BackupVault"},
-                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20210101:BackupVault"},
-                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20210201preview:BackupVault"},
-                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20210601preview:BackupVault"},
-                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20210701:BackupVault"},
-                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20211001preview:BackupVault"},
-                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20211201preview:BackupVault"},
-                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20220101:BackupVault"},
-                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20220201preview:BackupVault"},
-                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20220301:BackupVault"},
-                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20220331preview:BackupVault"},
-                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20220501:BackupVault"},
+                    new Pulumi.Alias { Type = "azure-native:dataprotection:BackupVault"},
+                    new Pulumi.Alias { Type = "azure-native:dataprotection/v20210101:BackupVault"},
+                    new Pulumi.Alias { Type = "azure-native:dataprotection/v20210201preview:BackupVault"},
+                    new Pulumi.Alias { Type = "azure-native:dataprotection/v20210601preview:BackupVault"},
+                    new Pulumi.Alias { Type = "azure-native:dataprotection/v20210701:BackupVault"},
+                    new Pulumi.Alias { Type = "azure-native:dataprotection/v20211001preview:BackupVault"},
+                    new Pulumi.Alias { Type = "azure-native:dataprotection/v20211201preview:BackupVault"},
+                    new Pulumi.Alias { Type = "azure-native:dataprotection/v20220101:BackupVault"},
+                    new Pulumi.Alias { Type = "azure-native:dataprotection/v20220201preview:BackupVault"},
+                    new Pulumi.Alias { Type = "azure-native:dataprotection/v20220301:BackupVault"},
+                    new Pulumi.Alias { Type = "azure-native:dataprotection/v20220331preview:BackupVault"},
+                    new Pulumi.Alias { Type = "azure-native:dataprotection/v20220501:BackupVault"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -121,7 +121,7 @@ namespace Pulumi.AzureNative.DataProtection.V20220401
         }
     }
 
-    public sealed class BackupVaultArgs : global::Pulumi.ResourceArgs
+    public sealed class BackupVaultArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Optional ETag.
@@ -174,6 +174,5 @@ namespace Pulumi.AzureNative.DataProtection.V20220401
         public BackupVaultArgs()
         {
         }
-        public static new BackupVaultArgs Empty => new BackupVaultArgs();
     }
 }

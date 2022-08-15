@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210901PrivatePreview.Inputs
     /// <summary>
     /// Service Fabric managed cluster Sku definition
     /// </summary>
-    public sealed class SkuArgs : global::Pulumi.ResourceArgs
+    public sealed class SkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Sku Name.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210901PrivatePreview.Inputs
         public SkuArgs()
         {
         }
-        public static new SkuArgs Empty => new SkuArgs();
     }
 }

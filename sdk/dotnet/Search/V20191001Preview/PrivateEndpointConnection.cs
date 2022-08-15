@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Search.V20191001Preview
     /// </summary>
     [Obsolete(@"Version 2019-10-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:search/v20191001preview:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the private endpoint connection.
@@ -59,11 +59,11 @@ namespace Pulumi.AzureNative.Search.V20191001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:search:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:search/v20200313:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:search/v20200801:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:search/v20200801preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:search/v20210401preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:search:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:search/v20200313:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:search/v20200801:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:search/v20200801preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:search/v20210401preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -85,7 +85,7 @@ namespace Pulumi.AzureNative.Search.V20191001Preview
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the private endpoint connection. This can be used with the Azure Resource Manager to link resources together.
@@ -120,6 +120,5 @@ namespace Pulumi.AzureNative.Search.V20191001Preview
         public PrivateEndpointConnectionArgs()
         {
         }
-        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

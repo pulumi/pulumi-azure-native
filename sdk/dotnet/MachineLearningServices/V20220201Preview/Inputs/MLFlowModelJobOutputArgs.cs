@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
 {
 
-    public sealed class MLFlowModelJobOutputArgs : global::Pulumi.ResourceArgs
+    public sealed class MLFlowModelJobOutputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description for the output.
@@ -41,6 +41,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         {
             Mode = "ReadWriteMount";
         }
-        public static new MLFlowModelJobOutputArgs Empty => new MLFlowModelJobOutputArgs();
     }
 }

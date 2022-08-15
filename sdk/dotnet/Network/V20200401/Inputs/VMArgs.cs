@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200401.Inputs
     /// <summary>
     /// Describes a Virtual Machine.
     /// </summary>
-    public sealed class VMArgs : global::Pulumi.ResourceArgs
+    public sealed class VMArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Network.V20200401.Inputs
         public VMArgs()
         {
         }
-        public static new VMArgs Empty => new VMArgs();
     }
 }

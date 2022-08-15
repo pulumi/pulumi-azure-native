@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity source for various relational databases.
     /// </summary>
-    public sealed class RelationalSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class RelationalSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Database query. Type: string (or Expression with resultType string).
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public RelationalSourceArgs()
         {
         }
-        public static new RelationalSourceArgs Empty => new RelationalSourceArgs();
     }
 }

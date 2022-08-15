@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Addons.V20170515
     }
 
 
-    public sealed class GetSupportPlanTypeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSupportPlanTypeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Canonical support plan type.
@@ -43,10 +43,9 @@ namespace Pulumi.AzureNative.Addons.V20170515
         public GetSupportPlanTypeArgs()
         {
         }
-        public static new GetSupportPlanTypeArgs Empty => new GetSupportPlanTypeArgs();
     }
 
-    public sealed class GetSupportPlanTypeInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSupportPlanTypeInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Canonical support plan type.
@@ -63,7 +62,6 @@ namespace Pulumi.AzureNative.Addons.V20170515
         public GetSupportPlanTypeInvokeArgs()
         {
         }
-        public static new GetSupportPlanTypeInvokeArgs Empty => new GetSupportPlanTypeInvokeArgs();
     }
 
 

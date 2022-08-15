@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity Salesforce Service Cloud sink.
     /// </summary>
-    public sealed class SalesforceServiceCloudSinkArgs : global::Pulumi.ResourceArgs
+    public sealed class SalesforceServiceCloudSinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -79,6 +79,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public SalesforceServiceCloudSinkArgs()
         {
         }
-        public static new SalesforceServiceCloudSinkArgs Empty => new SalesforceServiceCloudSinkArgs();
     }
 }

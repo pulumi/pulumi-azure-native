@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Inputs
     /// <summary>
     /// Describes one input parameter of a function.
     /// </summary>
-    public sealed class FunctionInputArgs : global::Pulumi.ResourceArgs
+    public sealed class FunctionInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The (Azure Stream Analytics supported) data type of the function input parameter. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Inputs
         public FunctionInputArgs()
         {
         }
-        public static new FunctionInputArgs Empty => new FunctionInputArgs();
     }
 }

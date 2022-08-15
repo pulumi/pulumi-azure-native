@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview.Inputs
     /// <summary>
     /// The properties that determine the run agent configuration.
     /// </summary>
-    public sealed class AgentPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class AgentPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The CPU configuration in terms of number of cores required for the run.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview.Inputs
         public AgentPropertiesArgs()
         {
         }
-        public static new AgentPropertiesArgs Empty => new AgentPropertiesArgs();
     }
 }

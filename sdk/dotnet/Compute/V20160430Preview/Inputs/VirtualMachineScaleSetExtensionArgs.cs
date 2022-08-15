@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20160430Preview.Inputs
     /// <summary>
     /// Describes a Virtual Machine Scale Set Extension.
     /// </summary>
-    public sealed class VirtualMachineScaleSetExtensionArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualMachineScaleSetExtensionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.Compute.V20160430Preview.Inputs
         public VirtualMachineScaleSetExtensionArgs()
         {
         }
-        public static new VirtualMachineScaleSetExtensionArgs Empty => new VirtualMachineScaleSetExtensionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20171101.Inputs
     /// <summary>
     /// VpnClientConfiguration for P2S client.
     /// </summary>
-    public sealed class VpnClientConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class VpnClientConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The radius server address property of the VirtualNetworkGateway resource for vpn client connection.
@@ -72,6 +72,5 @@ namespace Pulumi.AzureNative.Network.V20171101.Inputs
         public VpnClientConfigurationArgs()
         {
         }
-        public static new VpnClientConfigurationArgs Empty => new VpnClientConfigurationArgs();
     }
 }

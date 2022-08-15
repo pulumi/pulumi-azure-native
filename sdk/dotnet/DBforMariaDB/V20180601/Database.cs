@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601
     /// Represents a Database.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformariadb/v20180601:Database")]
-    public partial class Database : global::Pulumi.CustomResource
+    public partial class Database : Pulumi.CustomResource
     {
         /// <summary>
         /// The charset of the database.
@@ -64,8 +64,8 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dbformariadb:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601preview:Database"},
+                    new Pulumi.Alias { Type = "azure-native:dbformariadb:Database"},
+                    new Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601preview:Database"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -87,7 +87,7 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601
         }
     }
 
-    public sealed class DatabaseArgs : global::Pulumi.ResourceArgs
+    public sealed class DatabaseArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The charset of the database.
@@ -122,6 +122,5 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601
         public DatabaseArgs()
         {
         }
-        public static new DatabaseArgs Empty => new DatabaseArgs();
     }
 }

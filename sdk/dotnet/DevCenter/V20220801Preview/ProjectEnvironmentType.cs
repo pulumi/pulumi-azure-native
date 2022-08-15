@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
     /// Represents an environment type.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter/v20220801preview:ProjectEnvironmentType")]
-    public partial class ProjectEnvironmentType : global::Pulumi.CustomResource
+    public partial class ProjectEnvironmentType : Pulumi.CustomResource
     {
         /// <summary>
         /// The role definition assigned to the environment creator on backing resources.
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         }
     }
 
-    public sealed class ProjectEnvironmentTypeArgs : global::Pulumi.ResourceArgs
+    public sealed class ProjectEnvironmentTypeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The role definition assigned to the environment creator on backing resources.
@@ -201,6 +201,5 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         public ProjectEnvironmentTypeArgs()
         {
         }
-        public static new ProjectEnvironmentTypeArgs Empty => new ProjectEnvironmentTypeArgs();
     }
 }

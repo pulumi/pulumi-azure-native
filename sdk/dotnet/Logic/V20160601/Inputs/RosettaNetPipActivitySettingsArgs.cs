@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20160601.Inputs
     /// <summary>
     /// The integration account RosettaNet ProcessConfiguration activity settings.
     /// </summary>
-    public sealed class RosettaNetPipActivitySettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class RosettaNetPipActivitySettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The RosettaNet ProcessConfiguration acknowledgement settings.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Logic.V20160601.Inputs
         public RosettaNetPipActivitySettingsArgs()
         {
         }
-        public static new RosettaNetPipActivitySettingsArgs Empty => new RosettaNetPipActivitySettingsArgs();
     }
 }

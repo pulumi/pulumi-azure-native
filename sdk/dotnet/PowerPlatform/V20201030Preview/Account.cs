@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview
     /// Definition of the account.
     /// </summary>
     [AzureNativeResourceType("azure-native:powerplatform/v20201030preview:Account")]
-    public partial class Account : global::Pulumi.CustomResource
+    public partial class Account : Pulumi.CustomResource
     {
         /// <summary>
         /// The description of the account.
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:powerplatform:Account"},
+                    new Pulumi.Alias { Type = "azure-native:powerplatform:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview
         }
     }
 
-    public sealed class AccountArgs : global::Pulumi.ResourceArgs
+    public sealed class AccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the account.
@@ -145,6 +145,5 @@ namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview
         public AccountArgs()
         {
         }
-        public static new AccountArgs Empty => new AccountArgs();
     }
 }

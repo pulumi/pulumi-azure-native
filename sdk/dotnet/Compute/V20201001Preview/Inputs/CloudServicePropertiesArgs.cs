@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20201001Preview.Inputs
     /// <summary>
     /// Cloud service properties
     /// </summary>
-    public sealed class CloudServicePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class CloudServicePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the XML service configuration (.cscfg) for the cloud service.
@@ -77,6 +77,5 @@ namespace Pulumi.AzureNative.Compute.V20201001Preview.Inputs
         public CloudServicePropertiesArgs()
         {
         }
-        public static new CloudServicePropertiesArgs Empty => new CloudServicePropertiesArgs();
     }
 }

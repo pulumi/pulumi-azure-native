@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.Inputs
     /// <summary>
     /// Represents a ContentKeyPolicyRestriction that is unavailable in the current API version.
     /// </summary>
-    public sealed class ContentKeyPolicyUnknownRestrictionArgs : global::Pulumi.ResourceArgs
+    public sealed class ContentKeyPolicyUnknownRestrictionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The discriminator for derived types.
@@ -25,6 +25,5 @@ namespace Pulumi.AzureNative.Media.Inputs
         public ContentKeyPolicyUnknownRestrictionArgs()
         {
         }
-        public static new ContentKeyPolicyUnknownRestrictionArgs Empty => new ContentKeyPolicyUnknownRestrictionArgs();
     }
 }

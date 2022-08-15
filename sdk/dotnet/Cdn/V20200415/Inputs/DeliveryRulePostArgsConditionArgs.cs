@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200415.Inputs
     /// <summary>
     /// Defines the PostArgs condition for the delivery rule.
     /// </summary>
-    public sealed class DeliveryRulePostArgsConditionArgs : global::Pulumi.ResourceArgs
+    public sealed class DeliveryRulePostArgsConditionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the condition for the delivery rule.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.Cdn.V20200415.Inputs
         public DeliveryRulePostArgsConditionArgs()
         {
         }
-        public static new DeliveryRulePostArgsConditionArgs Empty => new DeliveryRulePostArgsConditionArgs();
     }
 }

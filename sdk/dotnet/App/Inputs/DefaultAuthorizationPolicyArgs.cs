@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.Inputs
     /// <summary>
     /// The configuration settings of the Azure Active Directory default authorization policy.
     /// </summary>
-    public sealed class DefaultAuthorizationPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class DefaultAuthorizationPolicyArgs : Pulumi.ResourceArgs
     {
         [Input("allowedApplications")]
         private InputList<string>? _allowedApplications;
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.App.Inputs
         public DefaultAuthorizationPolicyArgs()
         {
         }
-        public static new DefaultAuthorizationPolicyArgs Empty => new DefaultAuthorizationPolicyArgs();
     }
 }

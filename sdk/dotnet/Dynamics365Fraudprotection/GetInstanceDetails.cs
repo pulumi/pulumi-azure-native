@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Dynamics365Fraudprotection
     }
 
 
-    public sealed class GetInstanceDetailsArgs : global::Pulumi.InvokeArgs
+    public sealed class GetInstanceDetailsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the instance. It must be a minimum of 3 characters, and a maximum of 63.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.Dynamics365Fraudprotection
         public GetInstanceDetailsArgs()
         {
         }
-        public static new GetInstanceDetailsArgs Empty => new GetInstanceDetailsArgs();
     }
 
-    public sealed class GetInstanceDetailsInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetInstanceDetailsInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the instance. It must be a minimum of 3 characters, and a maximum of 63.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.Dynamics365Fraudprotection
         public GetInstanceDetailsInvokeArgs()
         {
         }
-        public static new GetInstanceDetailsInvokeArgs Empty => new GetInstanceDetailsInvokeArgs();
     }
 
 

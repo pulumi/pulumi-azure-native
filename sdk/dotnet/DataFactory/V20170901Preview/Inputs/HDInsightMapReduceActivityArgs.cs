@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// HDInsight MapReduce activity type.
     /// </summary>
-    public sealed class HDInsightMapReduceActivityArgs : global::Pulumi.ResourceArgs
+    public sealed class HDInsightMapReduceActivityArgs : Pulumi.ResourceArgs
     {
         [Input("arguments")]
         private InputList<object>? _arguments;
@@ -133,6 +133,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public HDInsightMapReduceActivityArgs()
         {
         }
-        public static new HDInsightMapReduceActivityArgs Empty => new HDInsightMapReduceActivityArgs();
     }
 }

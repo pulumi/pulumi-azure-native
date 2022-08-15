@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// API Version: 2020-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:AwsCloudTrailDataConnector")]
-    public partial class AwsCloudTrailDataConnector : global::Pulumi.CustomResource
+    public partial class AwsCloudTrailDataConnector : Pulumi.CustomResource
     {
         /// <summary>
         /// The Aws Role Arn (with CloudTrailReadOnly policy) that is used to access the Aws account.
@@ -85,18 +85,18 @@ namespace Pulumi.AzureNative.SecurityInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:AwsCloudTrailDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:AwsCloudTrailDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:AwsCloudTrailDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:AwsCloudTrailDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:AwsCloudTrailDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:AwsCloudTrailDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:AwsCloudTrailDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:AwsCloudTrailDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:AwsCloudTrailDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:AwsCloudTrailDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:AwsCloudTrailDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:AwsCloudTrailDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:AwsCloudTrailDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:AwsCloudTrailDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:AwsCloudTrailDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:AwsCloudTrailDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:AwsCloudTrailDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:AwsCloudTrailDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:AwsCloudTrailDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:AwsCloudTrailDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:AwsCloudTrailDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:AwsCloudTrailDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:AwsCloudTrailDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:AwsCloudTrailDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         }
     }
 
-    public sealed class AwsCloudTrailDataConnectorArgs : global::Pulumi.ResourceArgs
+    public sealed class AwsCloudTrailDataConnectorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Aws Role Arn (with CloudTrailReadOnly policy) that is used to access the Aws account.
@@ -160,6 +160,5 @@ namespace Pulumi.AzureNative.SecurityInsights
         public AwsCloudTrailDataConnectorArgs()
         {
         }
-        public static new AwsCloudTrailDataConnectorArgs Empty => new AwsCloudTrailDataConnectorArgs();
     }
 }

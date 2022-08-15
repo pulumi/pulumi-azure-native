@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
     /// <summary>
     /// Describes an input column for the Azure Machine Learning Studio endpoint.
     /// </summary>
-    public sealed class AzureMachineLearningStudioInputColumnArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureMachineLearningStudioInputColumnArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The (Azure Machine Learning supported) data type of the input column. A list of valid  Azure Machine Learning data types are described at https://msdn.microsoft.com/en-us/library/azure/dn905923.aspx .
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
         public AzureMachineLearningStudioInputColumnArgs()
         {
         }
-        public static new AzureMachineLearningStudioInputColumnArgs Empty => new AzureMachineLearningStudioInputColumnArgs();
     }
 }

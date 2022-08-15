@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20210601Preview.Inputs
 {
 
-    public sealed class DefaultRolloutSpecificationProviderRegistrationArgs : global::Pulumi.ResourceArgs
+    public sealed class DefaultRolloutSpecificationProviderRegistrationArgs : Pulumi.ResourceArgs
     {
         [Input("properties")]
         public Input<Inputs.ProviderRegistrationPropertiesArgs>? Properties { get; set; }
@@ -18,6 +18,5 @@ namespace Pulumi.AzureNative.ProviderHub.V20210601Preview.Inputs
         public DefaultRolloutSpecificationProviderRegistrationArgs()
         {
         }
-        public static new DefaultRolloutSpecificationProviderRegistrationArgs Empty => new DefaultRolloutSpecificationProviderRegistrationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101
     /// External OAuth authorization server settings.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20190101:AuthorizationServer")]
-    public partial class AuthorizationServer : global::Pulumi.CustomResource
+    public partial class AuthorizationServer : Pulumi.CustomResource
     {
         /// <summary>
         /// OAuth authorization endpoint. See http://tools.ietf.org/html/rfc6749#section-3.2.
@@ -148,20 +148,20 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:AuthorizationServer"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:AuthorizationServer"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:AuthorizationServer"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:AuthorizationServer"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:AuthorizationServer"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:AuthorizationServer"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:AuthorizationServer"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:AuthorizationServer"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:AuthorizationServer"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:AuthorizationServer"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:AuthorizationServer"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:AuthorizationServer"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:AuthorizationServer"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:AuthorizationServer"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:AuthorizationServer"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:AuthorizationServer"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:AuthorizationServer"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:AuthorizationServer"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:AuthorizationServer"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:AuthorizationServer"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:AuthorizationServer"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:AuthorizationServer"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:AuthorizationServer"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:AuthorizationServer"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:AuthorizationServer"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:AuthorizationServer"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:AuthorizationServer"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:AuthorizationServer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -183,7 +183,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101
         }
     }
 
-    public sealed class AuthorizationServerArgs : global::Pulumi.ResourceArgs
+    public sealed class AuthorizationServerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// OAuth authorization endpoint. See http://tools.ietf.org/html/rfc6749#section-3.2.
@@ -332,6 +332,5 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101
         public AuthorizationServerArgs()
         {
         }
-        public static new AuthorizationServerArgs Empty => new AuthorizationServerArgs();
     }
 }

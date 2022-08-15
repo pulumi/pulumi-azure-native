@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.MobileNetwork
     }
 
 
-    public sealed class GetSliceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSliceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the mobile network.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.MobileNetwork
         public GetSliceArgs()
         {
         }
-        public static new GetSliceArgs Empty => new GetSliceArgs();
     }
 
-    public sealed class GetSliceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSliceInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the mobile network.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.MobileNetwork
         public GetSliceInvokeArgs()
         {
         }
-        public static new GetSliceInvokeArgs Empty => new GetSliceInvokeArgs();
     }
 
 

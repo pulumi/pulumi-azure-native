@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.V20150801
     /// </summary>
     [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:web/v20150801:SiteMetadata")]
-    public partial class SiteMetadata : global::Pulumi.CustomResource
+    public partial class SiteMetadata : Pulumi.CustomResource
     {
         /// <summary>
         /// Kind of resource
@@ -77,20 +77,20 @@ namespace Pulumi.AzureNative.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:SiteMetadata"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:SiteMetadata"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:SiteMetadata"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:SiteMetadata"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:SiteMetadata"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:SiteMetadata"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:SiteMetadata"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:SiteMetadata"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:SiteMetadata"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:SiteMetadata"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:SiteMetadata"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:SiteMetadata"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:SiteMetadata"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:SiteMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web:SiteMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:SiteMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:SiteMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:SiteMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:SiteMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:SiteMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:SiteMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:SiteMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:SiteMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:SiteMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:SiteMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:SiteMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:SiteMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:SiteMetadata"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.Web.V20150801
         }
     }
 
-    public sealed class SiteMetadataArgs : global::Pulumi.ResourceArgs
+    public sealed class SiteMetadataArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource Id
@@ -177,6 +177,5 @@ namespace Pulumi.AzureNative.Web.V20150801
         public SiteMetadataArgs()
         {
         }
-        public static new SiteMetadataArgs Empty => new SiteMetadataArgs();
     }
 }

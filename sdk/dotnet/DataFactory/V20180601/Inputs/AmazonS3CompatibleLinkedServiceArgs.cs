@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Linked service for Amazon S3 Compatible.
     /// </summary>
-    public sealed class AmazonS3CompatibleLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class AmazonS3CompatibleLinkedServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access key identifier of the Amazon S3 Compatible Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
@@ -91,6 +91,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public AmazonS3CompatibleLinkedServiceArgs()
         {
         }
-        public static new AmazonS3CompatibleLinkedServiceArgs Empty => new AmazonS3CompatibleLinkedServiceArgs();
     }
 }

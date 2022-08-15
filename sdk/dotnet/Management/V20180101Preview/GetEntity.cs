@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Management.V20180101Preview
     }
 
 
-    public sealed class GetEntityArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEntityArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// A filter which allows the call to be filtered for a specific group.
@@ -43,10 +43,9 @@ namespace Pulumi.AzureNative.Management.V20180101Preview
         public GetEntityArgs()
         {
         }
-        public static new GetEntityArgs Empty => new GetEntityArgs();
     }
 
-    public sealed class GetEntityInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEntityInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// A filter which allows the call to be filtered for a specific group.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.Management.V20180101Preview
         public GetEntityInvokeArgs()
         {
         }
-        public static new GetEntityInvokeArgs Empty => new GetEntityInvokeArgs();
     }
 
 

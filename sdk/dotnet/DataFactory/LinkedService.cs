@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataFactory
     /// API Version: 2018-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:datafactory:LinkedService")]
-    public partial class LinkedService : global::Pulumi.CustomResource
+    public partial class LinkedService : Pulumi.CustomResource
     {
         /// <summary>
         /// Etag identifies change in the resource.
@@ -65,8 +65,8 @@ namespace Pulumi.AzureNative.DataFactory
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datafactory/v20170901preview:LinkedService"},
-                    new global::Pulumi.Alias { Type = "azure-native:datafactory/v20180601:LinkedService"},
+                    new Pulumi.Alias { Type = "azure-native:datafactory/v20170901preview:LinkedService"},
+                    new Pulumi.Alias { Type = "azure-native:datafactory/v20180601:LinkedService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.DataFactory
         }
     }
 
-    public sealed class LinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class LinkedServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The factory name.
@@ -117,6 +117,5 @@ namespace Pulumi.AzureNative.DataFactory
         public LinkedServiceArgs()
         {
         }
-        public static new LinkedServiceArgs Empty => new LinkedServiceArgs();
     }
 }

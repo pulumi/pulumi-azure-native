@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview.Inputs
     /// <summary>
     /// The available data types for Office Microsoft PowerBI data connector.
     /// </summary>
-    public sealed class OfficePowerBIConnectorDataTypesArgs : global::Pulumi.ResourceArgs
+    public sealed class OfficePowerBIConnectorDataTypesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Logs data type.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview.Inputs
         public OfficePowerBIConnectorDataTypesArgs()
         {
         }
-        public static new OfficePowerBIConnectorDataTypesArgs Empty => new OfficePowerBIConnectorDataTypesArgs();
     }
 }

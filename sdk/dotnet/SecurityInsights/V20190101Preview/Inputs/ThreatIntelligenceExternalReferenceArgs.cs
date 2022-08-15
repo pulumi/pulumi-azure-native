@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview.Inputs
     /// <summary>
     /// Describes external reference
     /// </summary>
-    public sealed class ThreatIntelligenceExternalReferenceArgs : global::Pulumi.ResourceArgs
+    public sealed class ThreatIntelligenceExternalReferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// External reference description
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview.Inputs
         public ThreatIntelligenceExternalReferenceArgs()
         {
         }
-        public static new ThreatIntelligenceExternalReferenceArgs Empty => new ThreatIntelligenceExternalReferenceArgs();
     }
 }

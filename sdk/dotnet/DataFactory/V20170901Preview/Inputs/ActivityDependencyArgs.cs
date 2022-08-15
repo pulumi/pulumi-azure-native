@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Activity dependency information.
     /// </summary>
-    public sealed class ActivityDependencyArgs : global::Pulumi.ResourceArgs
+    public sealed class ActivityDependencyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Activity name.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public ActivityDependencyArgs()
         {
         }
-        public static new ActivityDependencyArgs Empty => new ActivityDependencyArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601
     /// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn/v20210601:AFDCustomDomain")]
-    public partial class AFDCustomDomain : global::Pulumi.CustomResource
+    public partial class AFDCustomDomain : Pulumi.CustomResource
     {
         /// <summary>
         /// Resource reference to the Azure DNS zone
@@ -109,8 +109,8 @@ namespace Pulumi.AzureNative.Cdn.V20210601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cdn:AFDCustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:AFDCustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:cdn:AFDCustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200901:AFDCustomDomain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         }
     }
 
-    public sealed class AFDCustomDomainArgs : global::Pulumi.ResourceArgs
+    public sealed class AFDCustomDomainArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource reference to the Azure DNS zone
@@ -179,6 +179,5 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         public AFDCustomDomainArgs()
         {
         }
-        public static new AFDCustomDomainArgs Empty => new AFDCustomDomainArgs();
     }
 }

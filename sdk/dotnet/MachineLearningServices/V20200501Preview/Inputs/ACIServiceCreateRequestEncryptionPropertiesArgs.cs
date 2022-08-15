@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview.Inputs
     /// <summary>
     /// The encryption properties.
     /// </summary>
-    public sealed class ACIServiceCreateRequestEncryptionPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ACIServiceCreateRequestEncryptionPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Encryption Key name
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview.Inputs
         public ACIServiceCreateRequestEncryptionPropertiesArgs()
         {
         }
-        public static new ACIServiceCreateRequestEncryptionPropertiesArgs Empty => new ACIServiceCreateRequestEncryptionPropertiesArgs();
     }
 }

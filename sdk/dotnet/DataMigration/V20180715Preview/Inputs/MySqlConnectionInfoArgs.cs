@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20180715Preview.Inputs
     /// <summary>
     /// Information for connecting to MySQL server
     /// </summary>
-    public sealed class MySqlConnectionInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class MySqlConnectionInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Password credential.
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.DataMigration.V20180715Preview.Inputs
         public MySqlConnectionInfoArgs()
         {
         }
-        public static new MySqlConnectionInfoArgs Empty => new MySqlConnectionInfoArgs();
     }
 }

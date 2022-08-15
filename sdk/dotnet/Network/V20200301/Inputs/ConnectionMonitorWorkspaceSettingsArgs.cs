@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200301.Inputs
     /// <summary>
     /// Describes the settings for producing output into a log analytics workspace.
     /// </summary>
-    public sealed class ConnectionMonitorWorkspaceSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class ConnectionMonitorWorkspaceSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Log analytics workspace resource ID.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Network.V20200301.Inputs
         public ConnectionMonitorWorkspaceSettingsArgs()
         {
         }
-        public static new ConnectionMonitorWorkspaceSettingsArgs Empty => new ConnectionMonitorWorkspaceSettingsArgs();
     }
 }

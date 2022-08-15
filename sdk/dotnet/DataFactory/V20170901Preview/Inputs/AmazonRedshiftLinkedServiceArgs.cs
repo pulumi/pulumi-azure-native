@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Linked service for Amazon Redshift.
     /// </summary>
-    public sealed class AmazonRedshiftLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class AmazonRedshiftLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -97,6 +97,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public AmazonRedshiftLinkedServiceArgs()
         {
         }
-        public static new AmazonRedshiftLinkedServiceArgs Empty => new AmazonRedshiftLinkedServiceArgs();
     }
 }

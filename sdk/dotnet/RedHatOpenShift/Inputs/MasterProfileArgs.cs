@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift.Inputs
     /// <summary>
     /// MasterProfile represents a master profile.
     /// </summary>
-    public sealed class MasterProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class MasterProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure resource ID of the master subnet (immutable).
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.RedHatOpenShift.Inputs
         public MasterProfileArgs()
         {
         }
-        public static new MasterProfileArgs Empty => new MasterProfileArgs();
     }
 }

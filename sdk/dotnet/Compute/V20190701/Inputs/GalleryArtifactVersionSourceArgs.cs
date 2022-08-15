@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20190701.Inputs
     /// <summary>
     /// The gallery artifact version source.
     /// </summary>
-    public sealed class GalleryArtifactVersionSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class GalleryArtifactVersionSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, or user image.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Compute.V20190701.Inputs
         public GalleryArtifactVersionSourceArgs()
         {
         }
-        public static new GalleryArtifactVersionSourceArgs Empty => new GalleryArtifactVersionSourceArgs();
     }
 }

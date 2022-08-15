@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network
     /// API Version: 2018-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:Zone")]
-    public partial class Zone : global::Pulumi.CustomResource
+    public partial class Zone : Pulumi.CustomResource
     {
         /// <summary>
         /// The etag of the zone.
@@ -113,12 +113,12 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20150504preview:Zone"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20160401:Zone"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170901:Zone"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20171001:Zone"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180301preview:Zone"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180501:Zone"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20150504preview:Zone"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160401:Zone"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170901:Zone"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20171001:Zone"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180301preview:Zone"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180501:Zone"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNative.Network
         }
     }
 
-    public sealed class ZoneArgs : global::Pulumi.ResourceArgs
+    public sealed class ZoneArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource location.
@@ -206,6 +206,5 @@ namespace Pulumi.AzureNative.Network
         {
             ZoneType = Pulumi.AzureNative.Network.ZoneType.Public;
         }
-        public static new ZoneArgs Empty => new ZoneArgs();
     }
 }

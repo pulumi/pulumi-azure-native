@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Inputs
 {
 
-    public sealed class ResourceTypeExtensionArgs : global::Pulumi.ResourceArgs
+    public sealed class ResourceTypeExtensionArgs : Pulumi.ResourceArgs
     {
         [Input("endpointUri")]
         public Input<string>? EndpointUri { get; set; }
@@ -29,6 +29,5 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
         public ResourceTypeExtensionArgs()
         {
         }
-        public static new ResourceTypeExtensionArgs Empty => new ResourceTypeExtensionArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Storage
     }
 
 
-    public sealed class GetBlobContainerArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBlobContainerArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Storage
         public GetBlobContainerArgs()
         {
         }
-        public static new GetBlobContainerArgs Empty => new GetBlobContainerArgs();
     }
 
-    public sealed class GetBlobContainerInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBlobContainerInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Storage
         public GetBlobContainerInvokeArgs()
         {
         }
-        public static new GetBlobContainerInvokeArgs Empty => new GetBlobContainerInvokeArgs();
     }
 
 

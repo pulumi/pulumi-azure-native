@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20211201Preview.Inputs
     /// <summary>
     /// configuration for Vulnerability Assessment autoprovisioning
     /// </summary>
-    public sealed class DefenderForServersGcpOfferingConfigurationConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class DefenderForServersGcpOfferingConfigurationConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Vulnerability Assessment solution to be provisioned. Can be either 'TVM' or 'Qualys'
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Security.V20211201Preview.Inputs
         public DefenderForServersGcpOfferingConfigurationConfigurationArgs()
         {
         }
-        public static new DefenderForServersGcpOfferingConfigurationConfigurationArgs Empty => new DefenderForServersGcpOfferingConfigurationConfigurationArgs();
     }
 }

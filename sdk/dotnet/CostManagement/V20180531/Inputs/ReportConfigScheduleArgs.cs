@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.V20180531.Inputs
     /// <summary>
     /// The schedule associated with a report config.
     /// </summary>
-    public sealed class ReportConfigScheduleArgs : global::Pulumi.ResourceArgs
+    public sealed class ReportConfigScheduleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The schedule recurrence.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.CostManagement.V20180531.Inputs
         public ReportConfigScheduleArgs()
         {
         }
-        public static new ReportConfigScheduleArgs Empty => new ReportConfigScheduleArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview.Inputs
 {
 
-    public sealed class SharedPrivateLinkResourceArgs : global::Pulumi.ResourceArgs
+    public sealed class SharedPrivateLinkResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The private link resource group id.
@@ -45,6 +45,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview.Inputs
         public SharedPrivateLinkResourceArgs()
         {
         }
-        public static new SharedPrivateLinkResourceArgs Empty => new SharedPrivateLinkResourceArgs();
     }
 }

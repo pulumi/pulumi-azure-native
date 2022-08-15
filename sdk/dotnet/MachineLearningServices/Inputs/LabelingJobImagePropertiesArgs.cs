@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 {
 
-    public sealed class LabelingJobImagePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class LabelingJobImagePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Annotation type of image labeling tasks.
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public LabelingJobImagePropertiesArgs()
         {
         }
-        public static new LabelingJobImagePropertiesArgs Empty => new LabelingJobImagePropertiesArgs();
     }
 }

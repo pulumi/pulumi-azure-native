@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.EventGrid
     }
 
 
-    public sealed class GetPrivateEndpointConnectionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPrivateEndpointConnectionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the parent resource (namely, either, the topic name or domain name).
@@ -56,10 +56,9 @@ namespace Pulumi.AzureNative.EventGrid
         public GetPrivateEndpointConnectionArgs()
         {
         }
-        public static new GetPrivateEndpointConnectionArgs Empty => new GetPrivateEndpointConnectionArgs();
     }
 
-    public sealed class GetPrivateEndpointConnectionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPrivateEndpointConnectionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the parent resource (namely, either, the topic name or domain name).
@@ -88,7 +87,6 @@ namespace Pulumi.AzureNative.EventGrid
         public GetPrivateEndpointConnectionInvokeArgs()
         {
         }
-        public static new GetPrivateEndpointConnectionInvokeArgs Empty => new GetPrivateEndpointConnectionInvokeArgs();
     }
 
 

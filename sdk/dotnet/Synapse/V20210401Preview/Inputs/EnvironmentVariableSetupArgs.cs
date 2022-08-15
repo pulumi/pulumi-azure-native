@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview.Inputs
     /// <summary>
     /// The custom setup of setting environment variable.
     /// </summary>
-    public sealed class EnvironmentVariableSetupArgs : global::Pulumi.ResourceArgs
+    public sealed class EnvironmentVariableSetupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of custom setup.
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview.Inputs
         public EnvironmentVariableSetupArgs()
         {
         }
-        public static new EnvironmentVariableSetupArgs Empty => new EnvironmentVariableSetupArgs();
     }
 }

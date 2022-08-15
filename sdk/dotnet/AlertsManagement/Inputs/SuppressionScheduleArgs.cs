@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AlertsManagement.Inputs
     /// <summary>
     /// Schedule for a given suppression configuration.
     /// </summary>
-    public sealed class SuppressionScheduleArgs : global::Pulumi.ResourceArgs
+    public sealed class SuppressionScheduleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// End date for suppression
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.AlertsManagement.Inputs
         public SuppressionScheduleArgs()
         {
         }
-        public static new SuppressionScheduleArgs Empty => new SuppressionScheduleArgs();
     }
 }

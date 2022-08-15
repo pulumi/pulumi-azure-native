@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210701.Inputs
     /// <summary>
     /// A user that can be assigned to a compute instance.
     /// </summary>
-    public sealed class AssignedUserArgs : global::Pulumi.ResourceArgs
+    public sealed class AssignedUserArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// User’s AAD Object Id.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210701.Inputs
         public AssignedUserArgs()
         {
         }
-        public static new AssignedUserArgs Empty => new AssignedUserArgs();
     }
 }

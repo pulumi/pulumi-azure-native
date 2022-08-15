@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
 {
 
-    public sealed class FlavorDataArgs : global::Pulumi.ResourceArgs
+    public sealed class FlavorDataArgs : Pulumi.ResourceArgs
     {
         [Input("data")]
         private InputMap<string>? _data;
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
         public FlavorDataArgs()
         {
         }
-        public static new FlavorDataArgs Empty => new FlavorDataArgs();
     }
 }

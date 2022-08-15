@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20220214.Inputs
     /// <summary>
     /// Runs the specified PowerShell script during the validation phase (Windows). Corresponds to Packer powershell provisioner. Exactly one of 'scriptUri' or 'inline' can be specified.
     /// </summary>
-    public sealed class ImageTemplatePowerShellValidatorArgs : global::Pulumi.ResourceArgs
+    public sealed class ImageTemplatePowerShellValidatorArgs : Pulumi.ResourceArgs
     {
         [Input("inline")]
         private InputList<string>? _inline;
@@ -82,6 +82,5 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20220214.Inputs
             RunElevated = false;
             Sha256Checksum = "";
         }
-        public static new ImageTemplatePowerShellValidatorArgs Empty => new ImageTemplatePowerShellValidatorArgs();
     }
 }

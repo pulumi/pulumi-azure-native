@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220501.Inputs
     /// <summary>
     /// Defines contents of a web application rule
     /// </summary>
-    public sealed class CustomRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class CustomRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes what action to be applied when rule matches.
@@ -72,6 +72,5 @@ namespace Pulumi.AzureNative.Network.V20220501.Inputs
         public CustomRuleArgs()
         {
         }
-        public static new CustomRuleArgs Empty => new CustomRuleArgs();
     }
 }

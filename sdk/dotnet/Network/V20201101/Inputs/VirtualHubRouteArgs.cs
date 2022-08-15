@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20201101.Inputs
     /// <summary>
     /// VirtualHub route.
     /// </summary>
-    public sealed class VirtualHubRouteArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualHubRouteArgs : Pulumi.ResourceArgs
     {
         [Input("addressPrefixes")]
         private InputList<string>? _addressPrefixes;
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Network.V20201101.Inputs
         public VirtualHubRouteArgs()
         {
         }
-        public static new VirtualHubRouteArgs Empty => new VirtualHubRouteArgs();
     }
 }

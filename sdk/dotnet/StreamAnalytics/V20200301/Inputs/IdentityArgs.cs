@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Inputs
     /// <summary>
     /// Describes how identity is verified
     /// </summary>
-    public sealed class IdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class IdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity type
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Inputs
         public IdentityArgs()
         {
         }
-        public static new IdentityArgs Empty => new IdentityArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20190501
     /// The integration account schema.
     /// </summary>
     [AzureNativeResourceType("azure-native:logic/v20190501:IntegrationAccountSchema")]
-    public partial class IntegrationAccountSchema : global::Pulumi.CustomResource
+    public partial class IntegrationAccountSchema : Pulumi.CustomResource
     {
         /// <summary>
         /// The changed time.
@@ -124,10 +124,10 @@ namespace Pulumi.AzureNative.Logic.V20190501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:logic:IntegrationAccountSchema"},
-                    new global::Pulumi.Alias { Type = "azure-native:logic/v20150801preview:IntegrationAccountSchema"},
-                    new global::Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountSchema"},
-                    new global::Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccountSchema"},
+                    new Pulumi.Alias { Type = "azure-native:logic:IntegrationAccountSchema"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20150801preview:IntegrationAccountSchema"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountSchema"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccountSchema"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -149,7 +149,7 @@ namespace Pulumi.AzureNative.Logic.V20190501
         }
     }
 
-    public sealed class IntegrationAccountSchemaArgs : global::Pulumi.ResourceArgs
+    public sealed class IntegrationAccountSchemaArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The content.
@@ -232,6 +232,5 @@ namespace Pulumi.AzureNative.Logic.V20190501
         public IntegrationAccountSchemaArgs()
         {
         }
-        public static new IntegrationAccountSchemaArgs Empty => new IntegrationAccountSchemaArgs();
     }
 }

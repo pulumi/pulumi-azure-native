@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20220103.Inputs
     /// <summary>
     /// The publishing profile of a gallery image version.
     /// </summary>
-    public sealed class GalleryApplicationVersionPublishingProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class GalleryApplicationVersionPublishingProfileArgs : Pulumi.ResourceArgs
     {
         [Input("advancedSettings")]
         private InputMap<string>? _advancedSettings;
@@ -105,6 +105,5 @@ namespace Pulumi.AzureNative.Compute.V20220103.Inputs
         public GalleryApplicationVersionPublishingProfileArgs()
         {
         }
-        public static new GalleryApplicationVersionPublishingProfileArgs Empty => new GalleryApplicationVersionPublishingProfileArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview
     }
 
 
-    public sealed class GetBindingArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBindingArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the App resource.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview
         public GetBindingArgs()
         {
         }
-        public static new GetBindingArgs Empty => new GetBindingArgs();
     }
 
-    public sealed class GetBindingInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBindingInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the App resource.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview
         public GetBindingInvokeArgs()
         {
         }
-        public static new GetBindingInvokeArgs Empty => new GetBindingInvokeArgs();
     }
 
 

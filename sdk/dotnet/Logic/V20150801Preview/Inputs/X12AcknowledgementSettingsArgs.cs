@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
-    public sealed class X12AcknowledgementSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class X12AcknowledgementSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The acknowledgement control number lower bound.
@@ -105,6 +105,5 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
         public X12AcknowledgementSettingsArgs()
         {
         }
-        public static new X12AcknowledgementSettingsArgs Empty => new X12AcknowledgementSettingsArgs();
     }
 }

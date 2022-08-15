@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20210301.Inputs
 {
 
-    public sealed class ContainerAppsConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class ContainerAppsConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in appSubnetResourceId. Must not overlap with the IP range defined in platformReservedCidr, if defined.
@@ -51,6 +51,5 @@ namespace Pulumi.AzureNative.Web.V20210301.Inputs
         public ContainerAppsConfigurationArgs()
         {
         }
-        public static new ContainerAppsConfigurationArgs Empty => new ContainerAppsConfigurationArgs();
     }
 }

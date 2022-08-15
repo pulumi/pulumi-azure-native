@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview.Inputs
     /// <summary>
     /// Single-Network Slice Selection Assistance Information (S-NSSAI).
     /// </summary>
-    public sealed class SnssaiArgs : global::Pulumi.ResourceArgs
+    public sealed class SnssaiArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Slice Differentiator (SD).
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview.Inputs
         public SnssaiArgs()
         {
         }
-        public static new SnssaiArgs Empty => new SnssaiArgs();
     }
 }

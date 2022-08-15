@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20200808Preview
     }
 
 
-    public sealed class GetOrchestratorInstanceServiceDetailsArgs : global::Pulumi.InvokeArgs
+    public sealed class GetOrchestratorInstanceServiceDetailsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -43,10 +43,9 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20200808Preview
         public GetOrchestratorInstanceServiceDetailsArgs()
         {
         }
-        public static new GetOrchestratorInstanceServiceDetailsArgs Empty => new GetOrchestratorInstanceServiceDetailsArgs();
     }
 
-    public sealed class GetOrchestratorInstanceServiceDetailsInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetOrchestratorInstanceServiceDetailsInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -63,7 +62,6 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20200808Preview
         public GetOrchestratorInstanceServiceDetailsInvokeArgs()
         {
         }
-        public static new GetOrchestratorInstanceServiceDetailsInvokeArgs Empty => new GetOrchestratorInstanceServiceDetailsInvokeArgs();
     }
 
 

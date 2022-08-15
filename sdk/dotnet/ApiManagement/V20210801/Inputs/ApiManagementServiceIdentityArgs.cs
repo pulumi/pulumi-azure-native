@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801.Inputs
     /// <summary>
     /// Identity properties of the Api Management service resource.
     /// </summary>
-    public sealed class ApiManagementServiceIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class ApiManagementServiceIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
@@ -39,6 +39,5 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801.Inputs
         public ApiManagementServiceIdentityArgs()
         {
         }
-        public static new ApiManagementServiceIdentityArgs Empty => new ApiManagementServiceIdentityArgs();
     }
 }

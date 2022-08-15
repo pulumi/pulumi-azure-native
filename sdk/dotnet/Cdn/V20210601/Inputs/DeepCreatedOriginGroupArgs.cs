@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
     /// <summary>
     /// The origin group for CDN content which is added when creating a CDN endpoint. Traffic is sent to the origins within the origin group based on origin health.
     /// </summary>
-    public sealed class DeepCreatedOriginGroupArgs : global::Pulumi.ResourceArgs
+    public sealed class DeepCreatedOriginGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Health probe settings to the origin that is used to determine the health of the origin.
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
         public DeepCreatedOriginGroupArgs()
         {
         }
-        public static new DeepCreatedOriginGroupArgs Empty => new DeepCreatedOriginGroupArgs();
     }
 }

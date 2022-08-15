@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801.Inputs
     /// <summary>
     /// The cluster sku definition.
     /// </summary>
-    public sealed class ClusterSkuArgs : global::Pulumi.ResourceArgs
+    public sealed class ClusterSkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The capacity value
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801.Inputs
         public ClusterSkuArgs()
         {
         }
-        public static new ClusterSkuArgs Empty => new ClusterSkuArgs();
     }
 }

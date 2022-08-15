@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Inputs
 {
 
-    public sealed class LoggingRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class LoggingRuleArgs : Pulumi.ResourceArgs
     {
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
         public LoggingRuleArgs()
         {
         }
-        public static new LoggingRuleArgs Empty => new LoggingRuleArgs();
     }
 }

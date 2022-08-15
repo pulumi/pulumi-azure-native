@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
     /// <summary>
     /// The AS2 agreement protocol settings.
     /// </summary>
-    public sealed class AS2ProtocolSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class AS2ProtocolSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The acknowledgement connection settings.
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
         public AS2ProtocolSettingsArgs()
         {
         }
-        public static new AS2ProtocolSettingsArgs Empty => new AS2ProtocolSettingsArgs();
     }
 }

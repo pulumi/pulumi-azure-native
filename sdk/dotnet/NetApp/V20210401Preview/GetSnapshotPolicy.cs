@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.NetApp.V20210401Preview
     }
 
 
-    public sealed class GetSnapshotPolicyArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSnapshotPolicyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the NetApp account
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.NetApp.V20210401Preview
         public GetSnapshotPolicyArgs()
         {
         }
-        public static new GetSnapshotPolicyArgs Empty => new GetSnapshotPolicyArgs();
     }
 
-    public sealed class GetSnapshotPolicyInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSnapshotPolicyInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the NetApp account
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.NetApp.V20210401Preview
         public GetSnapshotPolicyInvokeArgs()
         {
         }
-        public static new GetSnapshotPolicyInvokeArgs Empty => new GetSnapshotPolicyInvokeArgs();
     }
 
 

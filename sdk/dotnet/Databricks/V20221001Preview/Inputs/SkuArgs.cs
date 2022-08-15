@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Databricks.V20221001Preview.Inputs
     /// <summary>
     /// SKU for the resource.
     /// </summary>
-    public sealed class SkuArgs : global::Pulumi.ResourceArgs
+    public sealed class SkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The SKU name.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Databricks.V20221001Preview.Inputs
         public SkuArgs()
         {
         }
-        public static new SkuArgs Empty => new SkuArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20211201.Inputs
     /// <summary>
     /// Configuration filters
     /// </summary>
-    public sealed class ConfigurationFilters : global::Pulumi.InvokeArgs
+    public sealed class ConfigurationFilters : Pulumi.InvokeArgs
     {
         [Input("filterableProperty")]
         private List<Inputs.FilterableProperty>? _filterableProperty;
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.EdgeOrder.V20211201.Inputs
         public ConfigurationFilters()
         {
         }
-        public static new ConfigurationFilters Empty => new ConfigurationFilters();
     }
 }

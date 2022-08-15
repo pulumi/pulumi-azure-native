@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.V20150801
     /// </summary>
     [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:web/v20150801:SiteSourceControlSlot")]
-    public partial class SiteSourceControlSlot : global::Pulumi.CustomResource
+    public partial class SiteSourceControlSlot : Pulumi.CustomResource
     {
         /// <summary>
         /// Name of branch to use for deployment
@@ -101,20 +101,20 @@ namespace Pulumi.AzureNative.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:SiteSourceControlSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:SiteSourceControlSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:SiteSourceControlSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:SiteSourceControlSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:SiteSourceControlSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:SiteSourceControlSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:SiteSourceControlSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:SiteSourceControlSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:SiteSourceControlSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:SiteSourceControlSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:SiteSourceControlSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:SiteSourceControlSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:SiteSourceControlSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:SiteSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web:SiteSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:SiteSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:SiteSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:SiteSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:SiteSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:SiteSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:SiteSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:SiteSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:SiteSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:SiteSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:SiteSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:SiteSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:SiteSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:SiteSourceControlSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.Web.V20150801
         }
     }
 
-    public sealed class SiteSourceControlSlotArgs : global::Pulumi.ResourceArgs
+    public sealed class SiteSourceControlSlotArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of branch to use for deployment
@@ -225,6 +225,5 @@ namespace Pulumi.AzureNative.Web.V20150801
         public SiteSourceControlSlotArgs()
         {
         }
-        public static new SiteSourceControlSlotArgs Empty => new SiteSourceControlSlotArgs();
     }
 }

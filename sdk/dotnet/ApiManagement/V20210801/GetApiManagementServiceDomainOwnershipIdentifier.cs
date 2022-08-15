@@ -19,12 +19,11 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801
     }
 
 
-    public sealed class GetApiManagementServiceDomainOwnershipIdentifierArgs : global::Pulumi.InvokeArgs
+    public sealed class GetApiManagementServiceDomainOwnershipIdentifierArgs : Pulumi.InvokeArgs
     {
         public GetApiManagementServiceDomainOwnershipIdentifierArgs()
         {
         }
-        public static new GetApiManagementServiceDomainOwnershipIdentifierArgs Empty => new GetApiManagementServiceDomainOwnershipIdentifierArgs();
     }
 
 

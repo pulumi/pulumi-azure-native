@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.Inputs
     /// <summary>
     /// Connection provider parameters
     /// </summary>
-    public sealed class ConnectionParameterArgs : global::Pulumi.ResourceArgs
+    public sealed class ConnectionParameterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// OAuth settings for the connection provider
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Web.Inputs
         public ConnectionParameterArgs()
         {
         }
-        public static new ConnectionParameterArgs Empty => new ConnectionParameterArgs();
     }
 }

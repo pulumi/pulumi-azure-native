@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Scheduler.Inputs
 {
 
-    public sealed class SkuArgs : global::Pulumi.ResourceArgs
+    public sealed class SkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or set the SKU.
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.Scheduler.Inputs
         public SkuArgs()
         {
         }
-        public static new SkuArgs Empty => new SkuArgs();
     }
 }

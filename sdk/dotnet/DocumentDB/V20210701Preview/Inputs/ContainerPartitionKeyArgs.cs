@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210701Preview.Inputs
     /// <summary>
     /// The configuration of the partition key to be used for partitioning data into multiple partitions
     /// </summary>
-    public sealed class ContainerPartitionKeyArgs : global::Pulumi.ResourceArgs
+    public sealed class ContainerPartitionKeyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20210701Preview.Inputs
         {
             Kind = "Hash";
         }
-        public static new ContainerPartitionKeyArgs Empty => new ContainerPartitionKeyArgs();
     }
 }

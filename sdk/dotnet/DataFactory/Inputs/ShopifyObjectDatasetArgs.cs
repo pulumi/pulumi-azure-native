@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Shopify Service dataset.
     /// </summary>
-    public sealed class ShopifyObjectDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class ShopifyObjectDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,6 +85,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public ShopifyObjectDatasetArgs()
         {
         }
-        public static new ShopifyObjectDatasetArgs Empty => new ShopifyObjectDatasetArgs();
     }
 }

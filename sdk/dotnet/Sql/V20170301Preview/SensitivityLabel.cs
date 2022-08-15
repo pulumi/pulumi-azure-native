@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20170301Preview
     /// A sensitivity label.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20170301preview:SensitivityLabel")]
-    public partial class SensitivityLabel : global::Pulumi.CustomResource
+    public partial class SensitivityLabel : Pulumi.CustomResource
     {
         /// <summary>
         /// The information type.
@@ -85,16 +85,16 @@ namespace Pulumi.AzureNative.Sql.V20170301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql:SensitivityLabel"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:SensitivityLabel"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:SensitivityLabel"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:SensitivityLabel"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:SensitivityLabel"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:SensitivityLabel"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:SensitivityLabel"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:SensitivityLabel"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:SensitivityLabel"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:SensitivityLabel"},
+                    new Pulumi.Alias { Type = "azure-native:sql:SensitivityLabel"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:SensitivityLabel"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:SensitivityLabel"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:SensitivityLabel"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:SensitivityLabel"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:SensitivityLabel"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:SensitivityLabel"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101:SensitivityLabel"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:SensitivityLabel"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:SensitivityLabel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.Sql.V20170301Preview
         }
     }
 
-    public sealed class SensitivityLabelArgs : global::Pulumi.ResourceArgs
+    public sealed class SensitivityLabelArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the column.
@@ -190,6 +190,5 @@ namespace Pulumi.AzureNative.Sql.V20170301Preview
         public SensitivityLabelArgs()
         {
         }
-        public static new SensitivityLabelArgs Empty => new SensitivityLabelArgs();
     }
 }

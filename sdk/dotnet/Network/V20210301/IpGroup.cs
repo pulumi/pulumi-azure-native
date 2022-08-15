@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210301
     /// The IpGroups resource information.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20210301:IpGroup")]
-    public partial class IpGroup : global::Pulumi.CustomResource
+    public partial class IpGroup : Pulumi.CustomResource
     {
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -94,21 +94,21 @@ namespace Pulumi.AzureNative.Network.V20210301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:IpGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:IpGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:IpGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:IpGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:IpGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:IpGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:IpGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:IpGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:IpGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:IpGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:IpGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:IpGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:IpGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:IpGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:IpGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network:IpGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:IpGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:IpGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:IpGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:IpGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:IpGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:IpGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:IpGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:IpGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:IpGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:IpGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:IpGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501:IpGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:IpGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:IpGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.Network.V20210301
         }
     }
 
-    public sealed class IpGroupArgs : global::Pulumi.ResourceArgs
+    public sealed class IpGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID.
@@ -183,6 +183,5 @@ namespace Pulumi.AzureNative.Network.V20210301
         public IpGroupArgs()
         {
         }
-        public static new IpGroupArgs Empty => new IpGroupArgs();
     }
 }

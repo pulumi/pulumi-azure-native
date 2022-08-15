@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Scheduler.V20140801Preview
 {
     [Obsolete(@"Version 2014-08-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:scheduler/v20140801preview:JobCollection")]
-    public partial class JobCollection : global::Pulumi.CustomResource
+    public partial class JobCollection : Pulumi.CustomResource
     {
         /// <summary>
         /// Gets or sets the storage account location.
@@ -68,9 +68,9 @@ namespace Pulumi.AzureNative.Scheduler.V20140801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:scheduler:JobCollection"},
-                    new global::Pulumi.Alias { Type = "azure-native:scheduler/v20160101:JobCollection"},
-                    new global::Pulumi.Alias { Type = "azure-native:scheduler/v20160301:JobCollection"},
+                    new Pulumi.Alias { Type = "azure-native:scheduler:JobCollection"},
+                    new Pulumi.Alias { Type = "azure-native:scheduler/v20160101:JobCollection"},
+                    new Pulumi.Alias { Type = "azure-native:scheduler/v20160301:JobCollection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.Scheduler.V20140801Preview
         }
     }
 
-    public sealed class JobCollectionArgs : global::Pulumi.ResourceArgs
+    public sealed class JobCollectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The job collection name.
@@ -139,6 +139,5 @@ namespace Pulumi.AzureNative.Scheduler.V20140801Preview
         public JobCollectionArgs()
         {
         }
-        public static new JobCollectionArgs Empty => new JobCollectionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220302Preview.Inputs
     /// <summary>
     /// Access profile for managed cluster API server.
     /// </summary>
-    public sealed class ManagedClusterAPIServerAccessProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedClusterAPIServerAccessProfileArgs : Pulumi.ResourceArgs
     {
         [Input("authorizedIPRanges")]
         private InputList<string>? _authorizedIPRanges;
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.ContainerService.V20220302Preview.Inputs
         public ManagedClusterAPIServerAccessProfileArgs()
         {
         }
-        public static new ManagedClusterAPIServerAccessProfileArgs Empty => new ManagedClusterAPIServerAccessProfileArgs();
     }
 }

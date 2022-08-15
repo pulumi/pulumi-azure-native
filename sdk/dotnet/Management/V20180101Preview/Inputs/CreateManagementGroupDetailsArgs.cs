@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Management.V20180101Preview.Inputs
     /// <summary>
     /// The details of a management group used during creation.
     /// </summary>
-    public sealed class CreateManagementGroupDetailsArgs : global::Pulumi.ResourceArgs
+    public sealed class CreateManagementGroupDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// (Optional) The ID of the parent management group used during creation.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Management.V20180101Preview.Inputs
         public CreateManagementGroupDetailsArgs()
         {
         }
-        public static new CreateManagementGroupDetailsArgs Empty => new CreateManagementGroupDetailsArgs();
     }
 }

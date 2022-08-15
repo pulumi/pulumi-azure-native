@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20210630.Inputs
     /// <summary>
     /// Input for task that validates migration input for SQL sync migrations
     /// </summary>
-    public sealed class ValidateSyncMigrationInputSqlServerTaskInputArgs : global::Pulumi.ResourceArgs
+    public sealed class ValidateSyncMigrationInputSqlServerTaskInputArgs : Pulumi.ResourceArgs
     {
         [Input("selectedDatabases", required: true)]
         private InputList<Inputs.MigrateSqlServerSqlDbSyncDatabaseInputArgs>? _selectedDatabases;
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.DataMigration.V20210630.Inputs
         public ValidateSyncMigrationInputSqlServerTaskInputArgs()
         {
         }
-        public static new ValidateSyncMigrationInputSqlServerTaskInputArgs Empty => new ValidateSyncMigrationInputSqlServerTaskInputArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Resources
     /// API Version: 2021-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:resources:DeploymentAtSubscriptionScope")]
-    public partial class DeploymentAtSubscriptionScope : global::Pulumi.CustomResource
+    public partial class DeploymentAtSubscriptionScope : Pulumi.CustomResource
     {
         /// <summary>
         /// the location of the deployment.
@@ -71,18 +71,18 @@ namespace Pulumi.AzureNative.Resources
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20180501:DeploymentAtSubscriptionScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20190301:DeploymentAtSubscriptionScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20190501:DeploymentAtSubscriptionScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20190510:DeploymentAtSubscriptionScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20190701:DeploymentAtSubscriptionScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20190801:DeploymentAtSubscriptionScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20191001:DeploymentAtSubscriptionScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20200601:DeploymentAtSubscriptionScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20200801:DeploymentAtSubscriptionScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20201001:DeploymentAtSubscriptionScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20210101:DeploymentAtSubscriptionScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20210401:DeploymentAtSubscriptionScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20180501:DeploymentAtSubscriptionScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20190301:DeploymentAtSubscriptionScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20190501:DeploymentAtSubscriptionScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20190510:DeploymentAtSubscriptionScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20190701:DeploymentAtSubscriptionScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20190801:DeploymentAtSubscriptionScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20191001:DeploymentAtSubscriptionScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20200601:DeploymentAtSubscriptionScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20200801:DeploymentAtSubscriptionScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20201001:DeploymentAtSubscriptionScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20210101:DeploymentAtSubscriptionScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20210401:DeploymentAtSubscriptionScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.Resources
         }
     }
 
-    public sealed class DeploymentAtSubscriptionScopeArgs : global::Pulumi.ResourceArgs
+    public sealed class DeploymentAtSubscriptionScopeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the deployment.
@@ -139,6 +139,5 @@ namespace Pulumi.AzureNative.Resources
         public DeploymentAtSubscriptionScopeArgs()
         {
         }
-        public static new DeploymentAtSubscriptionScopeArgs Empty => new DeploymentAtSubscriptionScopeArgs();
     }
 }

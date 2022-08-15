@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
-    public sealed class EdifactOneWayAgreementArgs : global::Pulumi.ResourceArgs
+    public sealed class EdifactOneWayAgreementArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The EDIFACT protocol settings.
@@ -33,6 +33,5 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
         public EdifactOneWayAgreementArgs()
         {
         }
-        public static new EdifactOneWayAgreementArgs Empty => new EdifactOneWayAgreementArgs();
     }
 }

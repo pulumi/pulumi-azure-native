@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Education.V20211201Preview
     /// Student details.
     /// </summary>
     [AzureNativeResourceType("azure-native:education/v20211201preview:Student")]
-    public partial class Student : global::Pulumi.CustomResource
+    public partial class Student : Pulumi.CustomResource
     {
         /// <summary>
         /// Student Budget
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.Education.V20211201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:education:Student"},
+                    new Pulumi.Alias { Type = "azure-native:education:Student"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -146,7 +146,7 @@ namespace Pulumi.AzureNative.Education.V20211201Preview
         }
     }
 
-    public sealed class StudentArgs : global::Pulumi.ResourceArgs
+    public sealed class StudentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Billing account name.
@@ -223,6 +223,5 @@ namespace Pulumi.AzureNative.Education.V20211201Preview
         public StudentArgs()
         {
         }
-        public static new StudentArgs Empty => new StudentArgs();
     }
 }

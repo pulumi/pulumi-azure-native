@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.V20200601
     /// States and configurations of Cost Analysis.
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement/v20200601:View")]
-    public partial class View : global::Pulumi.CustomResource
+    public partial class View : Pulumi.CustomResource
     {
         /// <summary>
         /// Show costs accumulated over time.
@@ -130,10 +130,10 @@ namespace Pulumi.AzureNative.CostManagement.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement:View"},
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20190401preview:View"},
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20191101:View"},
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20211001:View"},
+                    new Pulumi.Alias { Type = "azure-native:costmanagement:View"},
+                    new Pulumi.Alias { Type = "azure-native:costmanagement/v20190401preview:View"},
+                    new Pulumi.Alias { Type = "azure-native:costmanagement/v20191101:View"},
+                    new Pulumi.Alias { Type = "azure-native:costmanagement/v20211001:View"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -155,7 +155,7 @@ namespace Pulumi.AzureNative.CostManagement.V20200601
         }
     }
 
-    public sealed class ViewArgs : global::Pulumi.ResourceArgs
+    public sealed class ViewArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Show costs accumulated over time.
@@ -250,6 +250,5 @@ namespace Pulumi.AzureNative.CostManagement.V20200601
         public ViewArgs()
         {
         }
-        public static new ViewArgs Empty => new ViewArgs();
     }
 }

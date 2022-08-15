@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
     }
 
 
-    public sealed class ListRegistryCredentialsArgs : global::Pulumi.InvokeArgs
+    public sealed class ListRegistryCredentialsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the container registry.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public ListRegistryCredentialsArgs()
         {
         }
-        public static new ListRegistryCredentialsArgs Empty => new ListRegistryCredentialsArgs();
     }
 
-    public sealed class ListRegistryCredentialsInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListRegistryCredentialsInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the container registry.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public ListRegistryCredentialsInvokeArgs()
         {
         }
-        public static new ListRegistryCredentialsInvokeArgs Empty => new ListRegistryCredentialsInvokeArgs();
     }
 
 

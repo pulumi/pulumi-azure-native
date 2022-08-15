@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20180419.Inputs
     /// <summary>
     /// Properties for the task that migrates MySQL databases to Azure Database for MySQL for online migrations
     /// </summary>
-    public sealed class MigrateMySqlAzureDbForMySqlSyncTaskPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class MigrateMySqlAzureDbForMySqlSyncTaskPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Task input
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.DataMigration.V20180419.Inputs
         public MigrateMySqlAzureDbForMySqlSyncTaskPropertiesArgs()
         {
         }
-        public static new MigrateMySqlAzureDbForMySqlSyncTaskPropertiesArgs Empty => new MigrateMySqlAzureDbForMySqlSyncTaskPropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The PostgreSQL table dataset.
     /// </summary>
-    public sealed class PostgreSqlTableDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class PostgreSqlTableDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -91,6 +91,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public PostgreSqlTableDatasetArgs()
         {
         }
-        public static new PostgreSqlTableDatasetArgs Empty => new PostgreSqlTableDatasetArgs();
     }
 }

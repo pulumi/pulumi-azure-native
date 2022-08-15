@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network
     }
 
 
-    public sealed class GetNetworkManagerArgs : global::Pulumi.InvokeArgs
+    public sealed class GetNetworkManagerArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the network manager.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.Network
         public GetNetworkManagerArgs()
         {
         }
-        public static new GetNetworkManagerArgs Empty => new GetNetworkManagerArgs();
     }
 
-    public sealed class GetNetworkManagerInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetNetworkManagerInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the network manager.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.Network
         public GetNetworkManagerInvokeArgs()
         {
         }
-        public static new GetNetworkManagerInvokeArgs Empty => new GetNetworkManagerInvokeArgs();
     }
 
 

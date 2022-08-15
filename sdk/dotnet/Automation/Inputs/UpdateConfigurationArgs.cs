@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.Inputs
     /// <summary>
     /// Update specific properties of the software update configuration.
     /// </summary>
-    public sealed class UpdateConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class UpdateConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("azureVirtualMachines")]
         private InputList<string>? _azureVirtualMachines;
@@ -72,6 +72,5 @@ namespace Pulumi.AzureNative.Automation.Inputs
         public UpdateConfigurationArgs()
         {
         }
-        public static new UpdateConfigurationArgs Empty => new UpdateConfigurationArgs();
     }
 }

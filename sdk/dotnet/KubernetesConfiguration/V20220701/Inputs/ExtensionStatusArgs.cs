@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220701.Inputs
     /// <summary>
     /// Status from the extension.
     /// </summary>
-    public sealed class ExtensionStatusArgs : global::Pulumi.ResourceArgs
+    public sealed class ExtensionStatusArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Status code provided by the Extension
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220701.Inputs
         {
             Level = "Information";
         }
-        public static new ExtensionStatusArgs Empty => new ExtensionStatusArgs();
     }
 }

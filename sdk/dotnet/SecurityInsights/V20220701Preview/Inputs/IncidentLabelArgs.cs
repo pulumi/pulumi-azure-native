@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview.Inputs
     /// <summary>
     /// Represents an incident label
     /// </summary>
-    public sealed class IncidentLabelArgs : global::Pulumi.ResourceArgs
+    public sealed class IncidentLabelArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the label
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview.Inputs
         public IncidentLabelArgs()
         {
         }
-        public static new IncidentLabelArgs Empty => new IncidentLabelArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.App
     /// API Version: 2022-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:ManagedEnvironment")]
-    public partial class ManagedEnvironment : global::Pulumi.CustomResource
+    public partial class ManagedEnvironment : Pulumi.CustomResource
     {
         /// <summary>
         /// Cluster configuration which enables the log daemon to export
@@ -127,8 +127,8 @@ namespace Pulumi.AzureNative.App
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20220101preview:ManagedEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20220301:ManagedEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:app/v20220101preview:ManagedEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:app/v20220301:ManagedEnvironment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -150,7 +150,7 @@ namespace Pulumi.AzureNative.App
         }
     }
 
-    public sealed class ManagedEnvironmentArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedEnvironmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cluster configuration which enables the log daemon to export
@@ -217,6 +217,5 @@ namespace Pulumi.AzureNative.App
         public ManagedEnvironmentArgs()
         {
         }
-        public static new ManagedEnvironmentArgs Empty => new ManagedEnvironmentArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20210401.Inputs
     /// <summary>
     /// Describes a virtual machine network interface configurations.
     /// </summary>
-    public sealed class VirtualMachineNetworkInterfaceConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualMachineNetworkInterfaceConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specify what happens to the network interface when the VM is deleted
@@ -81,6 +81,5 @@ namespace Pulumi.AzureNative.Compute.V20210401.Inputs
         public VirtualMachineNetworkInterfaceConfigurationArgs()
         {
         }
-        public static new VirtualMachineNetworkInterfaceConfigurationArgs Empty => new VirtualMachineNetworkInterfaceConfigurationArgs();
     }
 }

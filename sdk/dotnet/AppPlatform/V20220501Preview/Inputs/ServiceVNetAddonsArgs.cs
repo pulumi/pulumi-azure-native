@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
     /// <summary>
     /// Additional Service settings in vnet injection instance
     /// </summary>
-    public sealed class ServiceVNetAddonsArgs : global::Pulumi.ResourceArgs
+    public sealed class ServiceVNetAddonsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether the log stream in vnet injection instance could be accessed from internet.
@@ -25,6 +25,5 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
         {
             LogStreamPublicEndpoint = false;
         }
-        public static new ServiceVNetAddonsArgs Empty => new ServiceVNetAddonsArgs();
     }
 }

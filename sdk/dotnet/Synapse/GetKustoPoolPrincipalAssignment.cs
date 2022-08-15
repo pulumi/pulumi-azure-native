@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Synapse
     }
 
 
-    public sealed class GetKustoPoolPrincipalAssignmentArgs : global::Pulumi.InvokeArgs
+    public sealed class GetKustoPoolPrincipalAssignmentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kusto pool.
@@ -56,10 +56,9 @@ namespace Pulumi.AzureNative.Synapse
         public GetKustoPoolPrincipalAssignmentArgs()
         {
         }
-        public static new GetKustoPoolPrincipalAssignmentArgs Empty => new GetKustoPoolPrincipalAssignmentArgs();
     }
 
-    public sealed class GetKustoPoolPrincipalAssignmentInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetKustoPoolPrincipalAssignmentInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kusto pool.
@@ -88,7 +87,6 @@ namespace Pulumi.AzureNative.Synapse
         public GetKustoPoolPrincipalAssignmentInvokeArgs()
         {
         }
-        public static new GetKustoPoolPrincipalAssignmentInvokeArgs Empty => new GetKustoPoolPrincipalAssignmentInvokeArgs();
     }
 
 

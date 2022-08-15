@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515Preview
     }
 
 
-    public sealed class GetSqlResourceSqlTriggerArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSqlResourceSqlTriggerArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Cosmos DB database account name.
@@ -60,10 +60,9 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515Preview
         public GetSqlResourceSqlTriggerArgs()
         {
         }
-        public static new GetSqlResourceSqlTriggerArgs Empty => new GetSqlResourceSqlTriggerArgs();
     }
 
-    public sealed class GetSqlResourceSqlTriggerInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSqlResourceSqlTriggerInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Cosmos DB database account name.
@@ -98,7 +97,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515Preview
         public GetSqlResourceSqlTriggerInvokeArgs()
         {
         }
-        public static new GetSqlResourceSqlTriggerInvokeArgs Empty => new GetSqlResourceSqlTriggerInvokeArgs();
     }
 
 

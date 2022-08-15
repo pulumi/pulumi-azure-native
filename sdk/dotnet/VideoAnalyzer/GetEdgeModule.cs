@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
     }
 
 
-    public sealed class GetEdgeModuleArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEdgeModuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Azure Video Analyzer account name.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         public GetEdgeModuleArgs()
         {
         }
-        public static new GetEdgeModuleArgs Empty => new GetEdgeModuleArgs();
     }
 
-    public sealed class GetEdgeModuleInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEdgeModuleInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Azure Video Analyzer account name.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         public GetEdgeModuleInvokeArgs()
         {
         }
-        public static new GetEdgeModuleInvokeArgs Empty => new GetEdgeModuleInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Batch.V20220601.Inputs
     /// <summary>
     /// Network profile for Batch account, which contains network rule settings for each endpoint.
     /// </summary>
-    public sealed class NetworkProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class NetworkProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Network access profile for batchAccount endpoint (Batch account data plane API).
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Batch.V20220601.Inputs
         public NetworkProfileArgs()
         {
         }
-        public static new NetworkProfileArgs Empty => new NetworkProfileArgs();
     }
 }

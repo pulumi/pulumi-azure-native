@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ScVmm.Inputs
     /// <summary>
     /// Credentials to connect to VMMServer.
     /// </summary>
-    public sealed class VMMServerPropertiesCredentialsArgs : global::Pulumi.ResourceArgs
+    public sealed class VMMServerPropertiesCredentialsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Credentials to use to connect to VMMServer.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ScVmm.Inputs
         public VMMServerPropertiesCredentialsArgs()
         {
         }
-        public static new VMMServerPropertiesCredentialsArgs Empty => new VMMServerPropertiesCredentialsArgs();
     }
 }

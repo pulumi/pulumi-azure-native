@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20200501.Inputs
     /// <summary>
     /// Specifies the clip time as an absolute time position in the media file.  The absolute time can point to a different position depending on whether the media file starts from a timestamp of zero or not.
     /// </summary>
-    public sealed class AbsoluteClipTimeArgs : global::Pulumi.ResourceArgs
+    public sealed class AbsoluteClipTimeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The discriminator for derived types.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.Media.V20200501.Inputs
         public AbsoluteClipTimeArgs()
         {
         }
-        public static new AbsoluteClipTimeArgs Empty => new AbsoluteClipTimeArgs();
     }
 }

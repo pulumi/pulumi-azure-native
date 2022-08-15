@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview.Inputs
     /// <summary>
     /// The kubernetes ingress configuration to control access to packet core diagnostics over local APIs.
     /// </summary>
-    public sealed class LocalDiagnosticsAccessConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class LocalDiagnosticsAccessConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The HTTPS server TLS certificate used to secure local access to diagnostics.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview.Inputs
         public LocalDiagnosticsAccessConfigurationArgs()
         {
         }
-        public static new LocalDiagnosticsAccessConfigurationArgs Empty => new LocalDiagnosticsAccessConfigurationArgs();
     }
 }

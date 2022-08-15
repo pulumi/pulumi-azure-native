@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20201001.Inputs
     /// <summary>
     /// Describes the capabilities/features allowed for a specific SKU.
     /// </summary>
-    public sealed class CapabilityArgs : global::Pulumi.ResourceArgs
+    public sealed class CapabilityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the SKU capability.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Web.V20201001.Inputs
         public CapabilityArgs()
         {
         }
-        public static new CapabilityArgs Empty => new CapabilityArgs();
     }
 }

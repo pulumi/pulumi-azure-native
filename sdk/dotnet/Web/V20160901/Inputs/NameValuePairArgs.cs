@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20160901.Inputs
     /// <summary>
     /// Name value pair.
     /// </summary>
-    public sealed class NameValuePairArgs : global::Pulumi.ResourceArgs
+    public sealed class NameValuePairArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Pair name.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Web.V20160901.Inputs
         public NameValuePairArgs()
         {
         }
-        public static new NameValuePairArgs Empty => new NameValuePairArgs();
     }
 }

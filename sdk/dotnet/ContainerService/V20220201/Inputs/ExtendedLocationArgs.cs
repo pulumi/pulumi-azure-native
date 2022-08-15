@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220201.Inputs
     /// <summary>
     /// The complex type of the extended location.
     /// </summary>
-    public sealed class ExtendedLocationArgs : global::Pulumi.ResourceArgs
+    public sealed class ExtendedLocationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the extended location.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ContainerService.V20220201.Inputs
         public ExtendedLocationArgs()
         {
         }
-        public static new ExtendedLocationArgs Empty => new ExtendedLocationArgs();
     }
 }

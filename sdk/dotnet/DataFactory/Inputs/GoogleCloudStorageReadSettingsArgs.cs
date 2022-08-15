@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Google Cloud Storage read settings.
     /// </summary>
-    public sealed class GoogleCloudStorageReadSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class GoogleCloudStorageReadSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -97,6 +97,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public GoogleCloudStorageReadSettingsArgs()
         {
         }
-        public static new GoogleCloudStorageReadSettingsArgs Empty => new GoogleCloudStorageReadSettingsArgs();
     }
 }

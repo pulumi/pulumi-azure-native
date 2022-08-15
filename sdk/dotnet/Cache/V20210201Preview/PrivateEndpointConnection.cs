@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cache.V20210201Preview
     /// The Private Endpoint Connection resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:cache/v20210201preview:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -70,11 +70,11 @@ namespace Pulumi.AzureNative.Cache.V20210201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cache:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20201001preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20210301:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20210801:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20220101:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:cache:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20201001preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20210301:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20210801:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20220101:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.Cache.V20210201Preview
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the RedisEnterprise cluster.
@@ -125,6 +125,5 @@ namespace Pulumi.AzureNative.Cache.V20210201Preview
         public PrivateEndpointConnectionArgs()
         {
         }
-        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

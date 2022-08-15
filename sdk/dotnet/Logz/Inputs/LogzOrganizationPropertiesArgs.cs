@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logz.Inputs
 {
 
-    public sealed class LogzOrganizationPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class LogzOrganizationPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Logz organization.
@@ -33,6 +33,5 @@ namespace Pulumi.AzureNative.Logz.Inputs
         public LogzOrganizationPropertiesArgs()
         {
         }
-        public static new LogzOrganizationPropertiesArgs Empty => new LogzOrganizationPropertiesArgs();
     }
 }

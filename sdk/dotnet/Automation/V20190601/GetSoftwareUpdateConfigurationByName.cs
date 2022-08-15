@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Automation.V20190601
     }
 
 
-    public sealed class GetSoftwareUpdateConfigurationByNameArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSoftwareUpdateConfigurationByNameArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Automation.V20190601
         public GetSoftwareUpdateConfigurationByNameArgs()
         {
         }
-        public static new GetSoftwareUpdateConfigurationByNameArgs Empty => new GetSoftwareUpdateConfigurationByNameArgs();
     }
 
-    public sealed class GetSoftwareUpdateConfigurationByNameInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSoftwareUpdateConfigurationByNameInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Automation.V20190601
         public GetSoftwareUpdateConfigurationByNameInvokeArgs()
         {
         }
-        public static new GetSoftwareUpdateConfigurationByNameInvokeArgs Empty => new GetSoftwareUpdateConfigurationByNameInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.Inputs
     /// <summary>
     /// Defines the move collection properties.
     /// </summary>
-    public sealed class MoveCollectionPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class MoveCollectionPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the source region.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Migrate.Inputs
         public MoveCollectionPropertiesArgs()
         {
         }
-        public static new MoveCollectionPropertiesArgs Empty => new MoveCollectionPropertiesArgs();
     }
 }

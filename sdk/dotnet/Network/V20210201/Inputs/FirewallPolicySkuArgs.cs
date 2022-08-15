@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210201.Inputs
     /// <summary>
     /// SKU of Firewall policy.
     /// </summary>
-    public sealed class FirewallPolicySkuArgs : global::Pulumi.ResourceArgs
+    public sealed class FirewallPolicySkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Tier of Firewall Policy.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Network.V20210201.Inputs
         public FirewallPolicySkuArgs()
         {
         }
-        public static new FirewallPolicySkuArgs Empty => new FirewallPolicySkuArgs();
     }
 }

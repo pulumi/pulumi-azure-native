@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
     /// The bandwidth setting.
     /// </summary>
     [AzureNativeResourceType("azure-native:storsimple/v20170601:BandwidthSetting")]
-    public partial class BandwidthSetting : global::Pulumi.CustomResource
+    public partial class BandwidthSetting : Pulumi.CustomResource
     {
         /// <summary>
         /// The Kind of the object. Currently only Series8000 is supported
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:storsimple:BandwidthSetting"},
+                    new Pulumi.Alias { Type = "azure-native:storsimple:BandwidthSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         }
     }
 
-    public sealed class BandwidthSettingArgs : global::Pulumi.ResourceArgs
+    public sealed class BandwidthSettingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The bandwidth setting name.
@@ -133,6 +133,5 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         public BandwidthSettingArgs()
         {
         }
-        public static new BandwidthSettingArgs Empty => new BandwidthSettingArgs();
     }
 }

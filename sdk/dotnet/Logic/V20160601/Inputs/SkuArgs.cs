@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20160601.Inputs
     /// <summary>
     /// The sku type.
     /// </summary>
-    public sealed class SkuArgs : global::Pulumi.ResourceArgs
+    public sealed class SkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Logic.V20160601.Inputs
         public SkuArgs()
         {
         }
-        public static new SkuArgs Empty => new SkuArgs();
     }
 }

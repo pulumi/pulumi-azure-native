@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HybridCompute.Inputs
 {
 
-    public sealed class MachineIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class MachineIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity type.
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.HybridCompute.Inputs
         public MachineIdentityArgs()
         {
         }
-        public static new MachineIdentityArgs Empty => new MachineIdentityArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NetApp.V20220301.Inputs
     /// <summary>
     /// Replication properties
     /// </summary>
-    public sealed class ReplicationObjectArgs : global::Pulumi.ResourceArgs
+    public sealed class ReplicationObjectArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether the local volume is the source or destination for the Volume Replication
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.NetApp.V20220301.Inputs
         public ReplicationObjectArgs()
         {
         }
-        public static new ReplicationObjectArgs Empty => new ReplicationObjectArgs();
     }
 }

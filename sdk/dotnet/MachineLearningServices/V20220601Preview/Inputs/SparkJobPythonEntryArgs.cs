@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
 {
 
-    public sealed class SparkJobPythonEntryArgs : global::Pulumi.ResourceArgs
+    public sealed class SparkJobPythonEntryArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] Relative python file path for job entry point.
@@ -28,6 +28,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         public SparkJobPythonEntryArgs()
         {
         }
-        public static new SparkJobPythonEntryArgs Empty => new SparkJobPythonEntryArgs();
     }
 }

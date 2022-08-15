@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview.Inputs
     /// <summary>
     /// Properties for the task that migrates MySQL databases to Azure Database for MySQL for offline migrations
     /// </summary>
-    public sealed class MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("clientData")]
         private InputMap<string>? _clientData;
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview.Inputs
         public MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesArgs()
         {
         }
-        public static new MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesArgs Empty => new MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesArgs();
     }
 }

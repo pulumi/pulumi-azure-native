@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// Resource requirements for each container instance within an online deployment.
     /// </summary>
-    public sealed class ContainerResourceRequirementsArgs : global::Pulumi.ResourceArgs
+    public sealed class ContainerResourceRequirementsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Container resource limit info:
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         public ContainerResourceRequirementsArgs()
         {
         }
-        public static new ContainerResourceRequirementsArgs Empty => new ContainerResourceRequirementsArgs();
     }
 }

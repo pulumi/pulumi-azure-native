@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DeploymentManager.Inputs
     /// <summary>
     /// Defines the REST health check step properties.
     /// </summary>
-    public sealed class RestHealthCheckStepAttributesArgs : global::Pulumi.ResourceArgs
+    public sealed class RestHealthCheckStepAttributesArgs : Pulumi.ResourceArgs
     {
         [Input("healthChecks", required: true)]
         private InputList<Inputs.RestHealthCheckArgs>? _healthChecks;
@@ -55,6 +55,5 @@ namespace Pulumi.AzureNative.DeploymentManager.Inputs
         public RestHealthCheckStepAttributesArgs()
         {
         }
-        public static new RestHealthCheckStepAttributesArgs Empty => new RestHealthCheckStepAttributesArgs();
     }
 }

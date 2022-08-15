@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.Inputs
     /// <summary>
     /// Describes a container endpoint.
     /// </summary>
-    public sealed class EndpointPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class EndpointPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the endpoint.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.Inputs
         public EndpointPropertiesArgs()
         {
         }
-        public static new EndpointPropertiesArgs Empty => new EndpointPropertiesArgs();
     }
 }

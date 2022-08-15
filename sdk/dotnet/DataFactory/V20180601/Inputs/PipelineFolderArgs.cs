@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
     /// </summary>
-    public sealed class PipelineFolderArgs : global::Pulumi.ResourceArgs
+    public sealed class PipelineFolderArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the folder that this Pipeline is in.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public PipelineFolderArgs()
         {
         }
-        public static new PipelineFolderArgs Empty => new PipelineFolderArgs();
     }
 }

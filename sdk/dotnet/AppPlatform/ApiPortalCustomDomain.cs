@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AppPlatform
     /// API Version: 2022-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:ApiPortalCustomDomain")]
-    public partial class ApiPortalCustomDomain : global::Pulumi.CustomResource
+    public partial class ApiPortalCustomDomain : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource.
@@ -65,9 +65,9 @@ namespace Pulumi.AzureNative.AppPlatform
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:ApiPortalCustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:ApiPortalCustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:ApiPortalCustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:ApiPortalCustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:ApiPortalCustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:ApiPortalCustomDomain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.AppPlatform
         }
     }
 
-    public sealed class ApiPortalCustomDomainArgs : global::Pulumi.ResourceArgs
+    public sealed class ApiPortalCustomDomainArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of API portal.
@@ -124,6 +124,5 @@ namespace Pulumi.AzureNative.AppPlatform
         public ApiPortalCustomDomainArgs()
         {
         }
-        public static new ApiPortalCustomDomainArgs Empty => new ApiPortalCustomDomainArgs();
     }
 }

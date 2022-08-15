@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network
     /// API Version: 2018-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:Profile")]
-    public partial class Profile : global::Pulumi.CustomResource
+    public partial class Profile : Pulumi.CustomResource
     {
         /// <summary>
         /// The list of allowed endpoint record types.
@@ -113,13 +113,13 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20151101:Profile"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170301:Profile"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170501:Profile"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180201:Profile"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180301:Profile"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180401:Profile"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180801:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20151101:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170301:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170501:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180201:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180301:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180401:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:Profile"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -141,7 +141,7 @@ namespace Pulumi.AzureNative.Network
         }
     }
 
-    public sealed class ProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class ProfileArgs : Pulumi.ResourceArgs
     {
         [Input("allowedEndpointRecordTypes")]
         private InputList<Union<string, Pulumi.AzureNative.Network.AllowedEndpointRecordType>>? _allowedEndpointRecordTypes;
@@ -254,6 +254,5 @@ namespace Pulumi.AzureNative.Network
         public ProfileArgs()
         {
         }
-        public static new ProfileArgs Empty => new ProfileArgs();
     }
 }

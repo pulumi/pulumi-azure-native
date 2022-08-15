@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview
     }
 
 
-    public sealed class GetDomainTopicEventSubscriptionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDomainTopicEventSubscriptionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the top level domain.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview
         public GetDomainTopicEventSubscriptionArgs()
         {
         }
-        public static new GetDomainTopicEventSubscriptionArgs Empty => new GetDomainTopicEventSubscriptionArgs();
     }
 
-    public sealed class GetDomainTopicEventSubscriptionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDomainTopicEventSubscriptionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the top level domain.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview
         public GetDomainTopicEventSubscriptionInvokeArgs()
         {
         }
-        public static new GetDomainTopicEventSubscriptionInvokeArgs Empty => new GetDomainTopicEventSubscriptionInvokeArgs();
     }
 
 

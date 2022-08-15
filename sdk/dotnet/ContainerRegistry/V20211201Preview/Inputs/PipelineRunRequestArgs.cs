@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20211201Preview.Inputs
     /// <summary>
     /// The request properties provided for a pipeline run.
     /// </summary>
-    public sealed class PipelineRunRequestArgs : global::Pulumi.ResourceArgs
+    public sealed class PipelineRunRequestArgs : Pulumi.ResourceArgs
     {
         [Input("artifacts")]
         private InputList<string>? _artifacts;
@@ -57,6 +57,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20211201Preview.Inputs
         public PipelineRunRequestArgs()
         {
         }
-        public static new PipelineRunRequestArgs Empty => new PipelineRunRequestArgs();
     }
 }

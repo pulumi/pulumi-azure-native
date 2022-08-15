@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
     /// <summary>
     /// The JSON object that contains the properties to determine origin health using real requests/responses.
     /// </summary>
-    public sealed class ResponseBasedOriginErrorDetectionParametersArgs : global::Pulumi.ResourceArgs
+    public sealed class ResponseBasedOriginErrorDetectionParametersArgs : Pulumi.ResourceArgs
     {
         [Input("httpErrorRanges")]
         private InputList<Inputs.HttpErrorRangeParametersArgs>? _httpErrorRanges;
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
         public ResponseBasedOriginErrorDetectionParametersArgs()
         {
         }
-        public static new ResponseBasedOriginErrorDetectionParametersArgs Empty => new ResponseBasedOriginErrorDetectionParametersArgs();
     }
 }

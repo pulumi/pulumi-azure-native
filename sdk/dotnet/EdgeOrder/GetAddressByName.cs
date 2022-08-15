@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.EdgeOrder
     }
 
 
-    public sealed class GetAddressByNameArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAddressByNameArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.EdgeOrder
         public GetAddressByNameArgs()
         {
         }
-        public static new GetAddressByNameArgs Empty => new GetAddressByNameArgs();
     }
 
-    public sealed class GetAddressByNameInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAddressByNameInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.EdgeOrder
         public GetAddressByNameInvokeArgs()
         {
         }
-        public static new GetAddressByNameInvokeArgs Empty => new GetAddressByNameInvokeArgs();
     }
 
 

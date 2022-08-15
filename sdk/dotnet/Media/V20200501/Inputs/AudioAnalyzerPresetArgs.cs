@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20200501.Inputs
     /// <summary>
     /// The Audio Analyzer preset applies a pre-defined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing of content with a single audio track.
     /// </summary>
-    public sealed class AudioAnalyzerPresetArgs : global::Pulumi.ResourceArgs
+    public sealed class AudioAnalyzerPresetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US').  If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode::Basic, since automatic language detection is not included in basic mode. If the language isn't specified or set to null, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernable speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.Media.V20200501.Inputs
         public AudioAnalyzerPresetArgs()
         {
         }
-        public static new AudioAnalyzerPresetArgs Empty => new AudioAnalyzerPresetArgs();
     }
 }

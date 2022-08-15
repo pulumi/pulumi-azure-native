@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.V20210801.Inputs
     /// <summary>
     /// Defines the disk encryption set resource settings.
     /// </summary>
-    public sealed class DiskEncryptionSetResourceSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class DiskEncryptionSetResourceSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.Migrate.V20210801.Inputs
         public DiskEncryptionSetResourceSettingsArgs()
         {
         }
-        public static new DiskEncryptionSetResourceSettingsArgs Empty => new DiskEncryptionSetResourceSettingsArgs();
     }
 }

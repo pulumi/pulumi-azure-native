@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Sql.V20220201Preview
     }
 
 
-    public sealed class GetDistributedAvailabilityGroupArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDistributedAvailabilityGroupArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The distributed availability group name.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Sql.V20220201Preview
         public GetDistributedAvailabilityGroupArgs()
         {
         }
-        public static new GetDistributedAvailabilityGroupArgs Empty => new GetDistributedAvailabilityGroupArgs();
     }
 
-    public sealed class GetDistributedAvailabilityGroupInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDistributedAvailabilityGroupInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The distributed availability group name.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Sql.V20220201Preview
         public GetDistributedAvailabilityGroupInvokeArgs()
         {
         }
-        public static new GetDistributedAvailabilityGroupInvokeArgs Empty => new GetDistributedAvailabilityGroupInvokeArgs();
     }
 
 

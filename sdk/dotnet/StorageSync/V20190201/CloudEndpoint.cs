@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.StorageSync.V20190201
     /// </summary>
     [Obsolete(@"Version 2019-02-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storagesync/v20190201:CloudEndpoint")]
-    public partial class CloudEndpoint : global::Pulumi.CustomResource
+    public partial class CloudEndpoint : Pulumi.CustomResource
     {
         /// <summary>
         /// Azure file share name
@@ -107,16 +107,16 @@ namespace Pulumi.AzureNative.StorageSync.V20190201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync:CloudEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20170605preview:CloudEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20180402:CloudEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20180701:CloudEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20181001:CloudEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20190301:CloudEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20190601:CloudEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20191001:CloudEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20200301:CloudEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20200901:CloudEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync:CloudEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20170605preview:CloudEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20180402:CloudEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20180701:CloudEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20181001:CloudEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20190301:CloudEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20190601:CloudEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20191001:CloudEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20200301:CloudEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20200901:CloudEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -138,7 +138,7 @@ namespace Pulumi.AzureNative.StorageSync.V20190201
         }
     }
 
-    public sealed class CloudEndpointArgs : global::Pulumi.ResourceArgs
+    public sealed class CloudEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure file share name
@@ -185,6 +185,5 @@ namespace Pulumi.AzureNative.StorageSync.V20190201
         public CloudEndpointArgs()
         {
         }
-        public static new CloudEndpointArgs Empty => new CloudEndpointArgs();
     }
 }

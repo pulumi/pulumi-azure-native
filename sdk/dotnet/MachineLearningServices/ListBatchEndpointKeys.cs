@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
 
-    public sealed class ListBatchEndpointKeysArgs : global::Pulumi.InvokeArgs
+    public sealed class ListBatchEndpointKeysArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Inference Endpoint name.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public ListBatchEndpointKeysArgs()
         {
         }
-        public static new ListBatchEndpointKeysArgs Empty => new ListBatchEndpointKeysArgs();
     }
 
-    public sealed class ListBatchEndpointKeysInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListBatchEndpointKeysInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Inference Endpoint name.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public ListBatchEndpointKeysInvokeArgs()
         {
         }
-        public static new ListBatchEndpointKeysInvokeArgs Empty => new ListBatchEndpointKeysInvokeArgs();
     }
 
 

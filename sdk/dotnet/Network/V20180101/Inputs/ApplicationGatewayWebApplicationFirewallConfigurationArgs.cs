@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20180101.Inputs
     /// <summary>
     /// Application gateway web application firewall configuration.
     /// </summary>
-    public sealed class ApplicationGatewayWebApplicationFirewallConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayWebApplicationFirewallConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("disabledRuleGroups")]
         private InputList<Inputs.ApplicationGatewayFirewallDisabledRuleGroupArgs>? _disabledRuleGroups;
@@ -66,6 +66,5 @@ namespace Pulumi.AzureNative.Network.V20180101.Inputs
         public ApplicationGatewayWebApplicationFirewallConfigurationArgs()
         {
         }
-        public static new ApplicationGatewayWebApplicationFirewallConfigurationArgs Empty => new ApplicationGatewayWebApplicationFirewallConfigurationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20220201Preview.Inputs
     /// <summary>
     /// The execution options of a job step.
     /// </summary>
-    public sealed class JobStepExecutionOptionsArgs : global::Pulumi.ResourceArgs
+    public sealed class JobStepExecutionOptionsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Initial delay between retries for job step execution.
@@ -53,6 +53,5 @@ namespace Pulumi.AzureNative.Sql.V20220201Preview.Inputs
             RetryIntervalBackoffMultiplier = 2;
             TimeoutSeconds = 43200;
         }
-        public static new JobStepExecutionOptionsArgs Empty => new JobStepExecutionOptionsArgs();
     }
 }

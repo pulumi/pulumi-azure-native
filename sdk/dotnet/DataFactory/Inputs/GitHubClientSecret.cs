@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Client secret information for factory's bring your own app repository configuration.
     /// </summary>
-    public sealed class GitHubClientSecret : global::Pulumi.InvokeArgs
+    public sealed class GitHubClientSecret : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Bring your own app client secret AKV URL.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public GitHubClientSecret()
         {
         }
-        public static new GitHubClientSecret Empty => new GitHubClientSecret();
     }
 }

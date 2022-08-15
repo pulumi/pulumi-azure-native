@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Authorization
     }
 
 
-    public sealed class GetAccessReviewHistoryDefinitionByIdArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAccessReviewHistoryDefinitionByIdArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The id of the access review history definition.
@@ -38,10 +38,9 @@ namespace Pulumi.AzureNative.Authorization
         public GetAccessReviewHistoryDefinitionByIdArgs()
         {
         }
-        public static new GetAccessReviewHistoryDefinitionByIdArgs Empty => new GetAccessReviewHistoryDefinitionByIdArgs();
     }
 
-    public sealed class GetAccessReviewHistoryDefinitionByIdInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAccessReviewHistoryDefinitionByIdInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The id of the access review history definition.
@@ -52,7 +51,6 @@ namespace Pulumi.AzureNative.Authorization
         public GetAccessReviewHistoryDefinitionByIdInvokeArgs()
         {
         }
-        public static new GetAccessReviewHistoryDefinitionByIdInvokeArgs Empty => new GetAccessReviewHistoryDefinitionByIdInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20210115.Inputs
     /// <summary>
     /// The configuration settings of the paths HTTP requests.
     /// </summary>
-    public sealed class HttpSettingsRoutesArgs : global::Pulumi.ResourceArgs
+    public sealed class HttpSettingsRoutesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The prefix that should precede all the authentication/authorization paths.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Web.V20210115.Inputs
         public HttpSettingsRoutesArgs()
         {
         }
-        public static new HttpSettingsRoutesArgs Empty => new HttpSettingsRoutesArgs();
     }
 }

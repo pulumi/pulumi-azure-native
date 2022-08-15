@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20210301.Inputs
     /// <summary>
     /// The parameters to provide for the Direct Line channel.
     /// </summary>
-    public sealed class DirectLineChannelPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class DirectLineChannelPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Direct Line embed code of the resource
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.BotService.V20210301.Inputs
         public DirectLineChannelPropertiesArgs()
         {
         }
-        public static new DirectLineChannelPropertiesArgs Empty => new DirectLineChannelPropertiesArgs();
     }
 }

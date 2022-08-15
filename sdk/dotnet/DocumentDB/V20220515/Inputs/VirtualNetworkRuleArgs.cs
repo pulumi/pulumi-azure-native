@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515.Inputs
     /// <summary>
     /// Virtual Network ACL Rule object
     /// </summary>
-    public sealed class VirtualNetworkRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualNetworkRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515.Inputs
         public VirtualNetworkRuleArgs()
         {
         }
-        public static new VirtualNetworkRuleArgs Empty => new VirtualNetworkRuleArgs();
     }
 }

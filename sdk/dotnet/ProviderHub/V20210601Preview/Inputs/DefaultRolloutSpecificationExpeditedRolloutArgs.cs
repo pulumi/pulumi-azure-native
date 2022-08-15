@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20210601Preview.Inputs
 {
 
-    public sealed class DefaultRolloutSpecificationExpeditedRolloutArgs : global::Pulumi.ResourceArgs
+    public sealed class DefaultRolloutSpecificationExpeditedRolloutArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether expedited rollout is enabled/disabled
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.ProviderHub.V20210601Preview.Inputs
         public DefaultRolloutSpecificationExpeditedRolloutArgs()
         {
         }
-        public static new DefaultRolloutSpecificationExpeditedRolloutArgs Empty => new DefaultRolloutSpecificationExpeditedRolloutArgs();
     }
 }

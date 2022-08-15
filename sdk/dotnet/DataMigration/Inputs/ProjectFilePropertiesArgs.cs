@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
     /// <summary>
     /// Base class for file properties.
     /// </summary>
-    public sealed class ProjectFilePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ProjectFilePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Optional File extension. If submitted it should not have a leading period and must match the extension from filePath.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
         public ProjectFilePropertiesArgs()
         {
         }
-        public static new ProjectFilePropertiesArgs Empty => new ProjectFilePropertiesArgs();
     }
 }

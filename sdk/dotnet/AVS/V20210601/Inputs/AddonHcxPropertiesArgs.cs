@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS.V20210601.Inputs
     /// <summary>
     /// The properties of an HCX addon
     /// </summary>
-    public sealed class AddonHcxPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class AddonHcxPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of private cloud addon
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.AVS.V20210601.Inputs
         public AddonHcxPropertiesArgs()
         {
         }
-        public static new AddonHcxPropertiesArgs Empty => new AddonHcxPropertiesArgs();
     }
 }

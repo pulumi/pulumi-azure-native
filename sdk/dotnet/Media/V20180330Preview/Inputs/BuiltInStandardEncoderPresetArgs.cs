@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180330Preview.Inputs
     /// <summary>
     /// Describes a built-in preset for encoding the input video with the Standard Encoder.
     /// </summary>
-    public sealed class BuiltInStandardEncoderPresetArgs : global::Pulumi.ResourceArgs
+    public sealed class BuiltInStandardEncoderPresetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The discriminator for derived types.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.Media.V20180330Preview.Inputs
         public BuiltInStandardEncoderPresetArgs()
         {
         }
-        public static new BuiltInStandardEncoderPresetArgs Empty => new BuiltInStandardEncoderPresetArgs();
     }
 }

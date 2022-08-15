@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Search.V20200313.Inputs
     /// <summary>
     /// The IP restriction rule of the Azure Cognitive Search service.
     /// </summary>
-    public sealed class IpRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class IpRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Value corresponding to a single IPv4 address (eg., 123.1.2.3) or an IP range in CIDR format (eg., 123.1.2.3/24) to be allowed.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Search.V20200313.Inputs
         public IpRuleArgs()
         {
         }
-        public static new IpRuleArgs Empty => new IpRuleArgs();
     }
 }

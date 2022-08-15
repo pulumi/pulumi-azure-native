@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
 {
 
-    public sealed class KerberosKeytabCredentialsArgs : global::Pulumi.ResourceArgs
+    public sealed class KerberosKeytabCredentialsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enum to determine the datastore credentials type.
@@ -46,6 +46,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         public KerberosKeytabCredentialsArgs()
         {
         }
-        public static new KerberosKeytabCredentialsArgs Empty => new KerberosKeytabCredentialsArgs();
     }
 }

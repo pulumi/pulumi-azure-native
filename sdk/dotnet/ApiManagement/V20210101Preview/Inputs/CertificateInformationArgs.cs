@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview.Inputs
     /// <summary>
     /// SSL certificate information.
     /// </summary>
-    public sealed class CertificateInformationArgs : global::Pulumi.ResourceArgs
+    public sealed class CertificateInformationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview.Inputs
         public CertificateInformationArgs()
         {
         }
-        public static new CertificateInformationArgs Empty => new CertificateInformationArgs();
     }
 }

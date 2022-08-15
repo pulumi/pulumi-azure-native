@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Kusto.V20170907PrivatePreview.Inputs
 {
 
-    public sealed class AzureSkuArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureSkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// SKU capacity.
@@ -33,6 +33,5 @@ namespace Pulumi.AzureNative.Kusto.V20170907PrivatePreview.Inputs
         public AzureSkuArgs()
         {
         }
-        public static new AzureSkuArgs Empty => new AzureSkuArgs();
     }
 }

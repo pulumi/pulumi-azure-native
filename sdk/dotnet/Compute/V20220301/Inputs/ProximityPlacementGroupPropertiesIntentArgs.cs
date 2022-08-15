@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20220301.Inputs
     /// <summary>
     /// Specifies the user intent of the proximity placement group.
     /// </summary>
-    public sealed class ProximityPlacementGroupPropertiesIntentArgs : global::Pulumi.ResourceArgs
+    public sealed class ProximityPlacementGroupPropertiesIntentArgs : Pulumi.ResourceArgs
     {
         [Input("vmSizes")]
         private InputList<string>? _vmSizes;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Compute.V20220301.Inputs
         public ProximityPlacementGroupPropertiesIntentArgs()
         {
         }
-        public static new ProximityPlacementGroupPropertiesIntentArgs Empty => new ProximityPlacementGroupPropertiesIntentArgs();
     }
 }

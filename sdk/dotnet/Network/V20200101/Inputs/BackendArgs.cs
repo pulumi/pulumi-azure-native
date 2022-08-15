@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200101.Inputs
     /// <summary>
     /// Backend address of a frontDoor load balancer.
     /// </summary>
-    public sealed class BackendArgs : global::Pulumi.ResourceArgs
+    public sealed class BackendArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Location of the backend (IP address or FQDN)
@@ -72,6 +72,5 @@ namespace Pulumi.AzureNative.Network.V20200101.Inputs
         public BackendArgs()
         {
         }
-        public static new BackendArgs Empty => new BackendArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
     /// </summary>
     [Obsolete(@"Version 2015-05-21-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:devtestlab/v20150521preview:LabResource")]
-    public partial class LabResource : global::Pulumi.CustomResource
+    public partial class LabResource : Pulumi.CustomResource
     {
         /// <summary>
         /// The artifact storage account of the lab.
@@ -113,9 +113,9 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab:LabResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:LabResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:LabResource"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab:LabResource"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:LabResource"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:LabResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -137,7 +137,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         }
     }
 
-    public sealed class LabResourceArgs : global::Pulumi.ResourceArgs
+    public sealed class LabResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The artifact storage account of the lab.
@@ -238,6 +238,5 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         public LabResourceArgs()
         {
         }
-        public static new LabResourceArgs Empty => new LabResourceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
     /// <summary>
     /// The storage account where the custom code artifacts are located.
     /// </summary>
-    public sealed class ExternalArgs : global::Pulumi.ResourceArgs
+    public sealed class ExternalArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The UserCustomCode container.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
         public ExternalArgs()
         {
         }
-        public static new ExternalArgs Empty => new ExternalArgs();
     }
 }

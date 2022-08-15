@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KeyVault.Inputs
     /// <summary>
     /// SKU details
     /// </summary>
-    public sealed class ManagedHsmSkuArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedHsmSkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// SKU Family of the managed HSM Pool
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.KeyVault.Inputs
         public ManagedHsmSkuArgs()
         {
         }
-        public static new ManagedHsmSkuArgs Empty => new ManagedHsmSkuArgs();
     }
 }

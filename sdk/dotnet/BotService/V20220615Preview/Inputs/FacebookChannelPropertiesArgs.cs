@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Inputs
     /// <summary>
     /// The parameters to provide for the Facebook channel.
     /// </summary>
-    public sealed class FacebookChannelPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class FacebookChannelPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Facebook application id
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Inputs
         public FacebookChannelPropertiesArgs()
         {
         }
-        public static new FacebookChannelPropertiesArgs Empty => new FacebookChannelPropertiesArgs();
     }
 }

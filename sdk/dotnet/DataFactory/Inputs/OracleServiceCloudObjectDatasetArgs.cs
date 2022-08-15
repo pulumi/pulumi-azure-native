@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Oracle Service Cloud dataset.
     /// </summary>
-    public sealed class OracleServiceCloudObjectDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class OracleServiceCloudObjectDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,6 +85,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public OracleServiceCloudObjectDatasetArgs()
         {
         }
-        public static new OracleServiceCloudObjectDatasetArgs Empty => new OracleServiceCloudObjectDatasetArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview.Inputs
     /// <summary>
     /// Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
     /// </summary>
-    public sealed class WsfcDomainCredentialsArgs : global::Pulumi.ResourceArgs
+    public sealed class WsfcDomainCredentialsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cluster bootstrap account password.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview.Inputs
         public WsfcDomainCredentialsArgs()
         {
         }
-        public static new WsfcDomainCredentialsArgs Empty => new WsfcDomainCredentialsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210401.Inputs
     /// <summary>
     /// Describes threat kill chain phase entity
     /// </summary>
-    public sealed class ThreatIntelligenceKillChainPhaseArgs : global::Pulumi.ResourceArgs
+    public sealed class ThreatIntelligenceKillChainPhaseArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Kill chainName name
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210401.Inputs
         public ThreatIntelligenceKillChainPhaseArgs()
         {
         }
-        public static new ThreatIntelligenceKillChainPhaseArgs Empty => new ThreatIntelligenceKillChainPhaseArgs();
     }
 }

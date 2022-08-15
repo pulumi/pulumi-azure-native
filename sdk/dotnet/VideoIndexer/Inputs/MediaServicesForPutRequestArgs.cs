@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoIndexer.Inputs
     /// <summary>
     /// The media services details
     /// </summary>
-    public sealed class MediaServicesForPutRequestArgs : global::Pulumi.ResourceArgs
+    public sealed class MediaServicesForPutRequestArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The media services resource id
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.VideoIndexer.Inputs
         public MediaServicesForPutRequestArgs()
         {
         }
-        public static new MediaServicesForPutRequestArgs Empty => new MediaServicesForPutRequestArgs();
     }
 }

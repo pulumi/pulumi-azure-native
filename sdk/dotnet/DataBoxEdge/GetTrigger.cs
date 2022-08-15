@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
     }
 
 
-    public sealed class GetTriggerArgs : global::Pulumi.InvokeArgs
+    public sealed class GetTriggerArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name.
@@ -51,10 +51,9 @@ namespace Pulumi.AzureNative.DataBoxEdge
         public GetTriggerArgs()
         {
         }
-        public static new GetTriggerArgs Empty => new GetTriggerArgs();
     }
 
-    public sealed class GetTriggerInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetTriggerInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name.
@@ -77,7 +76,6 @@ namespace Pulumi.AzureNative.DataBoxEdge
         public GetTriggerInvokeArgs()
         {
         }
-        public static new GetTriggerInvokeArgs Empty => new GetTriggerInvokeArgs();
     }
 
 

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// Image Instance Segmentation. Instance segmentation is used to identify objects in an image at the pixel level,
     /// drawing a polygon around each object in the image.
     /// </summary>
-    public sealed class ImageInstanceSegmentationArgs : global::Pulumi.ResourceArgs
+    public sealed class ImageInstanceSegmentationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] Limit settings for the AutoML job.
@@ -97,6 +97,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
             LogVerbosity = "Info";
             PrimaryMetric = "MeanAveragePrecision";
         }
-        public static new ImageInstanceSegmentationArgs Empty => new ImageInstanceSegmentationArgs();
     }
 }

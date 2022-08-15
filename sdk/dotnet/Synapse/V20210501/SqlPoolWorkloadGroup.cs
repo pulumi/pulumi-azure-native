@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20210501
     /// Workload group operations for a sql pool
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse/v20210501:SqlPoolWorkloadGroup")]
-    public partial class SqlPoolWorkloadGroup : global::Pulumi.CustomResource
+    public partial class SqlPoolWorkloadGroup : Pulumi.CustomResource
     {
         /// <summary>
         /// The workload group importance level.
@@ -88,13 +88,13 @@ namespace Pulumi.AzureNative.Synapse.V20210501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:synapse:SqlPoolWorkloadGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:SqlPoolWorkloadGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20201201:SqlPoolWorkloadGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210301:SqlPoolWorkloadGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:SqlPoolWorkloadGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601:SqlPoolWorkloadGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:SqlPoolWorkloadGroup"},
+                    new Pulumi.Alias { Type = "azure-native:synapse:SqlPoolWorkloadGroup"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:SqlPoolWorkloadGroup"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20201201:SqlPoolWorkloadGroup"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210301:SqlPoolWorkloadGroup"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:SqlPoolWorkloadGroup"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601:SqlPoolWorkloadGroup"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:SqlPoolWorkloadGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.Synapse.V20210501
         }
     }
 
-    public sealed class SqlPoolWorkloadGroupArgs : global::Pulumi.ResourceArgs
+    public sealed class SqlPoolWorkloadGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The workload group importance level.
@@ -181,6 +181,5 @@ namespace Pulumi.AzureNative.Synapse.V20210501
         public SqlPoolWorkloadGroupArgs()
         {
         }
-        public static new SqlPoolWorkloadGroupArgs Empty => new SqlPoolWorkloadGroupArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20200301.Inputs
 {
 
-    public sealed class ContainerRegistryArgs : global::Pulumi.ResourceArgs
+    public sealed class ContainerRegistryArgs : Pulumi.ResourceArgs
     {
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.Batch.V20200301.Inputs
         public ContainerRegistryArgs()
         {
         }
-        public static new ContainerRegistryArgs Empty => new ContainerRegistryArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20190801.Inputs
     /// <summary>
     /// Configuration of an App Service app.
     /// </summary>
-    public sealed class SiteConfigArgs : global::Pulumi.ResourceArgs
+    public sealed class SiteConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Flag to use Managed Identity Creds for ACR pull
@@ -400,6 +400,5 @@ namespace Pulumi.AzureNative.Web.V20190801.Inputs
             LocalMySqlEnabled = false;
             NetFrameworkVersion = "v4.6";
         }
-        public static new SiteConfigArgs Empty => new SiteConfigArgs();
     }
 }

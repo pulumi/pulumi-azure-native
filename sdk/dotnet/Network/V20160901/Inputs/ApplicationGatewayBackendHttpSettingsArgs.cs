@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20160901.Inputs
     /// <summary>
     /// Backend address pool settings of an application gateway.
     /// </summary>
-    public sealed class ApplicationGatewayBackendHttpSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayBackendHttpSettingsArgs : Pulumi.ResourceArgs
     {
         [Input("authenticationCertificates")]
         private InputList<Inputs.SubResourceArgs>? _authenticationCertificates;
@@ -84,6 +84,5 @@ namespace Pulumi.AzureNative.Network.V20160901.Inputs
         public ApplicationGatewayBackendHttpSettingsArgs()
         {
         }
-        public static new ApplicationGatewayBackendHttpSettingsArgs Empty => new ApplicationGatewayBackendHttpSettingsArgs();
     }
 }

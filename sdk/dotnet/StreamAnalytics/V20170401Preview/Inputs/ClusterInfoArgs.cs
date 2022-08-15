@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
     /// <summary>
     /// The properties associated with a Stream Analytics cluster.
     /// </summary>
-    public sealed class ClusterInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class ClusterInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource id of cluster.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
         public ClusterInfoArgs()
         {
         }
-        public static new ClusterInfoArgs Empty => new ClusterInfoArgs();
     }
 }

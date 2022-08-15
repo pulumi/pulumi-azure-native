@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview
     }
 
 
-    public sealed class GetTestResultVideoDownloadURLArgs : global::Pulumi.InvokeArgs
+    public sealed class GetTestResultVideoDownloadURLArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource name of the Test Base Package.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview
         public GetTestResultVideoDownloadURLArgs()
         {
         }
-        public static new GetTestResultVideoDownloadURLArgs Empty => new GetTestResultVideoDownloadURLArgs();
     }
 
-    public sealed class GetTestResultVideoDownloadURLInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetTestResultVideoDownloadURLInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource name of the Test Base Package.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview
         public GetTestResultVideoDownloadURLInvokeArgs()
         {
         }
-        public static new GetTestResultVideoDownloadURLInvokeArgs Empty => new GetTestResultVideoDownloadURLInvokeArgs();
     }
 
 

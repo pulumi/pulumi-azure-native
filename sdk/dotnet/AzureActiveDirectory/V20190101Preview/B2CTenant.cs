@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureActiveDirectory.V20190101Preview
 {
     [AzureNativeResourceType("azure-native:azureactivedirectory/v20190101preview:B2CTenant")]
-    public partial class B2CTenant : global::Pulumi.CustomResource
+    public partial class B2CTenant : Pulumi.CustomResource
     {
         /// <summary>
         /// The billing configuration for the tenant.
@@ -79,8 +79,8 @@ namespace Pulumi.AzureNative.AzureActiveDirectory.V20190101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azureactivedirectory:B2CTenant"},
-                    new global::Pulumi.Alias { Type = "azure-native:azureactivedirectory/v20210401:B2CTenant"},
+                    new Pulumi.Alias { Type = "azure-native:azureactivedirectory:B2CTenant"},
+                    new Pulumi.Alias { Type = "azure-native:azureactivedirectory/v20210401:B2CTenant"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory.V20190101Preview
         }
     }
 
-    public sealed class B2CTenantArgs : global::Pulumi.ResourceArgs
+    public sealed class B2CTenantArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia' (preview). Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
@@ -146,6 +146,5 @@ namespace Pulumi.AzureNative.AzureActiveDirectory.V20190101Preview
         public B2CTenantArgs()
         {
         }
-        public static new B2CTenantArgs Empty => new B2CTenantArgs();
     }
 }

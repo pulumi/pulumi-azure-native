@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview.Inputs
     /// <summary>
     /// The Activity query definitions
     /// </summary>
-    public sealed class ActivityEntityQueriesPropertiesQueryDefinitionsArgs : global::Pulumi.ResourceArgs
+    public sealed class ActivityEntityQueriesPropertiesQueryDefinitionsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Activity query to run on a given entity
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview.Inputs
         public ActivityEntityQueriesPropertiesQueryDefinitionsArgs()
         {
         }
-        public static new ActivityEntityQueriesPropertiesQueryDefinitionsArgs Empty => new ActivityEntityQueriesPropertiesQueryDefinitionsArgs();
     }
 }

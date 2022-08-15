@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.Inputs
     /// <summary>
     /// Gets or sets the high availability configuration.
     /// </summary>
-    public sealed class HighAvailabilityConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class HighAvailabilityConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The high availability type.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Workloads.Inputs
         public HighAvailabilityConfigurationArgs()
         {
         }
-        public static new HighAvailabilityConfigurationArgs Empty => new HighAvailabilityConfigurationArgs();
     }
 }

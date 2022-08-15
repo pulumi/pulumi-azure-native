@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Log location settings.
     /// </summary>
-    public sealed class LogLocationSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class LogLocationSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Log storage linked service reference.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public LogLocationSettingsArgs()
         {
         }
-        public static new LogLocationSettingsArgs Empty => new LogLocationSettingsArgs();
     }
 }

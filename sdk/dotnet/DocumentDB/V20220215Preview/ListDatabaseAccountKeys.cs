@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20220215Preview
     }
 
 
-    public sealed class ListDatabaseAccountKeysArgs : global::Pulumi.InvokeArgs
+    public sealed class ListDatabaseAccountKeysArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Cosmos DB database account name.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.DocumentDB.V20220215Preview
         public ListDatabaseAccountKeysArgs()
         {
         }
-        public static new ListDatabaseAccountKeysArgs Empty => new ListDatabaseAccountKeysArgs();
     }
 
-    public sealed class ListDatabaseAccountKeysInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListDatabaseAccountKeysInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Cosmos DB database account name.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20220215Preview
         public ListDatabaseAccountKeysInvokeArgs()
         {
         }
-        public static new ListDatabaseAccountKeysInvokeArgs Empty => new ListDatabaseAccountKeysInvokeArgs();
     }
 
 

@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20151106
     }
 
 
-    public sealed class GetDatabaseAccountGremlinDatabaseArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDatabaseAccountGremlinDatabaseArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Cosmos DB database account name.
@@ -49,10 +49,9 @@ namespace Pulumi.AzureNative.DocumentDB.V20151106
         public GetDatabaseAccountGremlinDatabaseArgs()
         {
         }
-        public static new GetDatabaseAccountGremlinDatabaseArgs Empty => new GetDatabaseAccountGremlinDatabaseArgs();
     }
 
-    public sealed class GetDatabaseAccountGremlinDatabaseInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDatabaseAccountGremlinDatabaseInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Cosmos DB database account name.
@@ -75,7 +74,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20151106
         public GetDatabaseAccountGremlinDatabaseInvokeArgs()
         {
         }
-        public static new GetDatabaseAccountGremlinDatabaseInvokeArgs Empty => new GetDatabaseAccountGremlinDatabaseInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Trigger that schedules pipeline runs for all fixed time interval windows from a start time without gaps and also supports backfill scenarios (when start time is in the past).
     /// </summary>
-    public sealed class TumblingWindowTriggerArgs : global::Pulumi.ResourceArgs
+    public sealed class TumblingWindowTriggerArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -103,6 +103,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public TumblingWindowTriggerArgs()
         {
         }
-        public static new TumblingWindowTriggerArgs Empty => new TumblingWindowTriggerArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Security
     /// API Version: 2020-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:SecurityContact")]
-    public partial class SecurityContact : global::Pulumi.CustomResource
+    public partial class SecurityContact : Pulumi.CustomResource
     {
         /// <summary>
         /// Defines whether to send email notifications about new security alerts
@@ -77,8 +77,8 @@ namespace Pulumi.AzureNative.Security
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:security/v20170801preview:SecurityContact"},
-                    new global::Pulumi.Alias { Type = "azure-native:security/v20200101preview:SecurityContact"},
+                    new Pulumi.Alias { Type = "azure-native:security/v20170801preview:SecurityContact"},
+                    new Pulumi.Alias { Type = "azure-native:security/v20200101preview:SecurityContact"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.Security
         }
     }
 
-    public sealed class SecurityContactArgs : global::Pulumi.ResourceArgs
+    public sealed class SecurityContactArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Defines whether to send email notifications about new security alerts
@@ -135,6 +135,5 @@ namespace Pulumi.AzureNative.Security
         public SecurityContactArgs()
         {
         }
-        public static new SecurityContactArgs Empty => new SecurityContactArgs();
     }
 }

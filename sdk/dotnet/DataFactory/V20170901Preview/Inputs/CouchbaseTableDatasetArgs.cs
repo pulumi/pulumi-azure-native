@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Couchbase server dataset.
     /// </summary>
-    public sealed class CouchbaseTableDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class CouchbaseTableDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -67,6 +67,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public CouchbaseTableDatasetArgs()
         {
         }
-        public static new CouchbaseTableDatasetArgs Empty => new CouchbaseTableDatasetArgs();
     }
 }

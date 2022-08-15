@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20170401
     /// An activity log alert resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights/v20170401:ActivityLogAlert")]
-    public partial class ActivityLogAlert : global::Pulumi.CustomResource
+    public partial class ActivityLogAlert : Pulumi.CustomResource
     {
         /// <summary>
         /// The actions that will activate when the condition is met.
@@ -94,8 +94,8 @@ namespace Pulumi.AzureNative.Insights.V20170401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:insights:ActivityLogAlert"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20201001:ActivityLogAlert"},
+                    new Pulumi.Alias { Type = "azure-native:insights:ActivityLogAlert"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20201001:ActivityLogAlert"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.Insights.V20170401
         }
     }
 
-    public sealed class ActivityLogAlertArgs : global::Pulumi.ResourceArgs
+    public sealed class ActivityLogAlertArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The actions that will activate when the condition is met.
@@ -189,6 +189,5 @@ namespace Pulumi.AzureNative.Insights.V20170401
         {
             Enabled = true;
         }
-        public static new ActivityLogAlertArgs Empty => new ActivityLogAlertArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logz.V20201001Preview
     /// Capture logs and metrics of Azure resources based on ARM tags.
     /// </summary>
     [AzureNativeResourceType("azure-native:logz/v20201001preview:SubAccountTagRule")]
-    public partial class SubAccountTagRule : global::Pulumi.CustomResource
+    public partial class SubAccountTagRule : Pulumi.CustomResource
     {
         /// <summary>
         /// Name of the rule set.
@@ -64,9 +64,9 @@ namespace Pulumi.AzureNative.Logz.V20201001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:logz:SubAccountTagRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:logz/v20201001:SubAccountTagRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:logz/v20220101preview:SubAccountTagRule"},
+                    new Pulumi.Alias { Type = "azure-native:logz:SubAccountTagRule"},
+                    new Pulumi.Alias { Type = "azure-native:logz/v20201001:SubAccountTagRule"},
+                    new Pulumi.Alias { Type = "azure-native:logz/v20220101preview:SubAccountTagRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.Logz.V20201001Preview
         }
     }
 
-    public sealed class SubAccountTagRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class SubAccountTagRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Monitor resource name
@@ -120,6 +120,5 @@ namespace Pulumi.AzureNative.Logz.V20201001Preview
         public SubAccountTagRuleArgs()
         {
         }
-        public static new SubAccountTagRuleArgs Empty => new SubAccountTagRuleArgs();
     }
 }

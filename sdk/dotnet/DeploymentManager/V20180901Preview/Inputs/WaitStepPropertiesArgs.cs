@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview.Inputs
     /// <summary>
     /// Defines the properties of a Wait step.
     /// </summary>
-    public sealed class WaitStepPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class WaitStepPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Wait attributes
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview.Inputs
         public WaitStepPropertiesArgs()
         {
         }
-        public static new WaitStepPropertiesArgs Empty => new WaitStepPropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Batch.V20200901.Inputs
     /// <summary>
     /// Identifies the Azure key vault associated with a Batch account.
     /// </summary>
-    public sealed class KeyVaultReferenceArgs : global::Pulumi.ResourceArgs
+    public sealed class KeyVaultReferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource ID of the Azure key vault associated with the Batch account.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Batch.V20200901.Inputs
         public KeyVaultReferenceArgs()
         {
         }
-        public static new KeyVaultReferenceArgs Empty => new KeyVaultReferenceArgs();
     }
 }

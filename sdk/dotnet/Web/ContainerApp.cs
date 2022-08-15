@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web
     /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:ContainerApp")]
-    public partial class ContainerApp : global::Pulumi.CustomResource
+    public partial class ContainerApp : Pulumi.CustomResource
     {
         /// <summary>
         /// Non versioned Container App configuration properties.
@@ -107,8 +107,8 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:ContainerApp"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:ContainerApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:ContainerApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:ContainerApp"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.Web
         }
     }
 
-    public sealed class ContainerAppArgs : global::Pulumi.ResourceArgs
+    public sealed class ContainerAppArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Non versioned Container App configuration properties.
@@ -189,6 +189,5 @@ namespace Pulumi.AzureNative.Web
         public ContainerAppArgs()
         {
         }
-        public static new ContainerAppArgs Empty => new ContainerAppArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Compute.V20170330
     /// </summary>
     [Obsolete(@"Version 2017-03-30 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:compute/v20170330:Disk")]
-    public partial class Disk : global::Pulumi.CustomResource
+    public partial class Disk : Pulumi.CustomResource
     {
         /// <summary>
         /// Disk source information. CreationData information cannot be changed after the disk has been created.
@@ -119,22 +119,22 @@ namespace Pulumi.AzureNative.Compute.V20170330
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:compute:Disk"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20160430preview:Disk"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180401:Disk"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180601:Disk"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180930:Disk"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190301:Disk"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190701:Disk"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20191101:Disk"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200501:Disk"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200630:Disk"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200930:Disk"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20201201:Disk"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:Disk"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210801:Disk"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211201:Disk"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220302:Disk"},
+                    new Pulumi.Alias { Type = "azure-native:compute:Disk"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20160430preview:Disk"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20180401:Disk"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20180601:Disk"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20180930:Disk"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20190301:Disk"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:Disk"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20191101:Disk"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20200501:Disk"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20200630:Disk"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20200930:Disk"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20201201:Disk"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20210401:Disk"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20210801:Disk"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20211201:Disk"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20220302:Disk"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -156,7 +156,7 @@ namespace Pulumi.AzureNative.Compute.V20170330
         }
     }
 
-    public sealed class DiskArgs : global::Pulumi.ResourceArgs
+    public sealed class DiskArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Disk source information. CreationData information cannot be changed after the disk has been created.
@@ -233,6 +233,5 @@ namespace Pulumi.AzureNative.Compute.V20170330
         public DiskArgs()
         {
         }
-        public static new DiskArgs Empty => new DiskArgs();
     }
 }

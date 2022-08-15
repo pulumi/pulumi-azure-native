@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20150801.Inputs
     /// <summary>
     /// Class containing stamp capacity information
     /// </summary>
-    public sealed class StampCapacityArgs : global::Pulumi.ResourceArgs
+    public sealed class StampCapacityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Available capacity (# of machines, bytes of storage etc...)
@@ -82,6 +82,5 @@ namespace Pulumi.AzureNative.Web.V20150801.Inputs
         public StampCapacityArgs()
         {
         }
-        public static new StampCapacityArgs Empty => new StampCapacityArgs();
     }
 }

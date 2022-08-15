@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
     /// A user-defined logical grouping of machines.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights/v20151101preview:MachineGroup")]
-    public partial class MachineGroup : global::Pulumi.CustomResource
+    public partial class MachineGroup : Pulumi.CustomResource
     {
         /// <summary>
         /// Count of machines in this group. The value of count may be bigger than the number of machines in case of the group has been truncated due to exceeding the max number of machines a group can handle.
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights:MachineGroup"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights:MachineGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
         }
     }
 
-    public sealed class MachineGroupArgs : global::Pulumi.ResourceArgs
+    public sealed class MachineGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Count of machines in this group. The value of count may be bigger than the number of machines in case of the group has been truncated due to exceeding the max number of machines a group can handle.
@@ -178,6 +178,5 @@ namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
         public MachineGroupArgs()
         {
         }
-        public static new MachineGroupArgs Empty => new MachineGroupArgs();
     }
 }

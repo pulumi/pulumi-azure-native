@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ImportExport.Inputs
     /// <summary>
     /// Provides information about the drive's status
     /// </summary>
-    public sealed class DriveStatusArgs : global::Pulumi.ResourceArgs
+    public sealed class DriveStatusArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The BitLocker key used to encrypt the drive.
@@ -91,6 +91,5 @@ namespace Pulumi.AzureNative.ImportExport.Inputs
         {
             State = "Specified";
         }
-        public static new DriveStatusArgs Empty => new DriveStatusArgs();
     }
 }

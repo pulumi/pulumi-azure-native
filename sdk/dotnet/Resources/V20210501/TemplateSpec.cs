@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Resources.V20210501
     /// Template Spec object.
     /// </summary>
     [AzureNativeResourceType("azure-native:resources/v20210501:TemplateSpec")]
-    public partial class TemplateSpec : global::Pulumi.CustomResource
+    public partial class TemplateSpec : Pulumi.CustomResource
     {
         /// <summary>
         /// Template Spec description.
@@ -94,10 +94,10 @@ namespace Pulumi.AzureNative.Resources.V20210501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:resources:TemplateSpec"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20190601preview:TemplateSpec"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20210301preview:TemplateSpec"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20220201:TemplateSpec"},
+                    new Pulumi.Alias { Type = "azure-native:resources:TemplateSpec"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20190601preview:TemplateSpec"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20210301preview:TemplateSpec"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20220201:TemplateSpec"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -119,7 +119,7 @@ namespace Pulumi.AzureNative.Resources.V20210501
         }
     }
 
-    public sealed class TemplateSpecArgs : global::Pulumi.ResourceArgs
+    public sealed class TemplateSpecArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Template Spec description.
@@ -172,6 +172,5 @@ namespace Pulumi.AzureNative.Resources.V20210501
         public TemplateSpecArgs()
         {
         }
-        public static new TemplateSpecArgs Empty => new TemplateSpecArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.WebPubSub
     /// API Version: 2021-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:webpubsub:WebPubSub")]
-    public partial class WebPubSub : global::Pulumi.CustomResource
+    public partial class WebPubSub : Pulumi.CustomResource
     {
         /// <summary>
         /// The settings for event handler in webpubsub service.
@@ -168,10 +168,10 @@ namespace Pulumi.AzureNative.WebPubSub
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20210401preview:WebPubSub"},
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20210601preview:WebPubSub"},
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20210901preview:WebPubSub"},
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20211001:WebPubSub"},
+                    new Pulumi.Alias { Type = "azure-native:webpubsub/v20210401preview:WebPubSub"},
+                    new Pulumi.Alias { Type = "azure-native:webpubsub/v20210601preview:WebPubSub"},
+                    new Pulumi.Alias { Type = "azure-native:webpubsub/v20210901preview:WebPubSub"},
+                    new Pulumi.Alias { Type = "azure-native:webpubsub/v20211001:WebPubSub"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -193,7 +193,7 @@ namespace Pulumi.AzureNative.WebPubSub
         }
     }
 
-    public sealed class WebPubSubArgs : global::Pulumi.ResourceArgs
+    public sealed class WebPubSubArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The settings for event handler in webpubsub service.
@@ -284,6 +284,5 @@ namespace Pulumi.AzureNative.WebPubSub
         {
             PublicNetworkAccess = "Enabled";
         }
-        public static new WebPubSubArgs Empty => new WebPubSubArgs();
     }
 }

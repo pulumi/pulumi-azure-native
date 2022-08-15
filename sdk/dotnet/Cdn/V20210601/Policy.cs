@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601
     /// Defines web application firewall policy for Azure CDN.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn/v20210601:Policy")]
-    public partial class Policy : global::Pulumi.CustomResource
+    public partial class Policy : Pulumi.CustomResource
     {
         /// <summary>
         /// Describes custom rules inside the policy.
@@ -121,12 +121,12 @@ namespace Pulumi.AzureNative.Cdn.V20210601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cdn:Policy"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20190615:Policy"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20190615preview:Policy"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200331:Policy"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200415:Policy"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:Policy"},
+                    new Pulumi.Alias { Type = "azure-native:cdn:Policy"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20190615:Policy"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20190615preview:Policy"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200331:Policy"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200415:Policy"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200901:Policy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         }
     }
 
-    public sealed class PolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class PolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes custom rules inside the policy.
@@ -213,6 +213,5 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         public PolicyArgs()
         {
         }
-        public static new PolicyArgs Empty => new PolicyArgs();
     }
 }

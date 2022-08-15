@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Blueprint.Inputs
     /// <summary>
     /// Represents an Azure resource group in a blueprint definition.
     /// </summary>
-    public sealed class ResourceGroupDefinitionArgs : global::Pulumi.ResourceArgs
+    public sealed class ResourceGroupDefinitionArgs : Pulumi.ResourceArgs
     {
         [Input("dependsOn")]
         private InputList<string>? _dependsOn;
@@ -72,6 +72,5 @@ namespace Pulumi.AzureNative.Blueprint.Inputs
         public ResourceGroupDefinitionArgs()
         {
         }
-        public static new ResourceGroupDefinitionArgs Empty => new ResourceGroupDefinitionArgs();
     }
 }

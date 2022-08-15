@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20210601.Inputs
 {
 
-    public sealed class ApplicationTypeVersionsCleanupPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplicationTypeVersionsCleanupPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Number of unused versions per application type to keep.
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210601.Inputs
         public ApplicationTypeVersionsCleanupPolicyArgs()
         {
         }
-        public static new ApplicationTypeVersionsCleanupPolicyArgs Empty => new ApplicationTypeVersionsCleanupPolicyArgs();
     }
 }

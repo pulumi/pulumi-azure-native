@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// Labeling MLAssist configuration definition when MLAssist is enabled
     /// </summary>
-    public sealed class MLAssistConfigurationEnabledArgs : global::Pulumi.ResourceArgs
+    public sealed class MLAssistConfigurationEnabledArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] AML compute binding used in inferencing.
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         public MLAssistConfigurationEnabledArgs()
         {
         }
-        public static new MLAssistConfigurationEnabledArgs Empty => new MLAssistConfigurationEnabledArgs();
     }
 }

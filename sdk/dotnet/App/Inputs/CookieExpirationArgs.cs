@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.Inputs
     /// <summary>
     /// The configuration settings of the session cookie's expiration.
     /// </summary>
-    public sealed class CookieExpirationArgs : global::Pulumi.ResourceArgs
+    public sealed class CookieExpirationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The convention used when determining the session cookie's expiration.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.App.Inputs
         public CookieExpirationArgs()
         {
         }
-        public static new CookieExpirationArgs Empty => new CookieExpirationArgs();
     }
 }

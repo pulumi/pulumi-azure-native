@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
     /// API Version: 2020-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:ExportPipeline")]
-    public partial class ExportPipeline : global::Pulumi.CustomResource
+    public partial class ExportPipeline : Pulumi.CustomResource
     {
         /// <summary>
         /// The identity of the export pipeline.
@@ -89,12 +89,12 @@ namespace Pulumi.AzureNative.ContainerRegistry
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:ExportPipeline"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:ExportPipeline"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:ExportPipeline"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:ExportPipeline"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:ExportPipeline"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:ExportPipeline"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:ExportPipeline"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:ExportPipeline"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:ExportPipeline"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:ExportPipeline"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:ExportPipeline"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:ExportPipeline"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         }
     }
 
-    public sealed class ExportPipelineArgs : global::Pulumi.ResourceArgs
+    public sealed class ExportPipelineArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the export pipeline.
@@ -169,6 +169,5 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public ExportPipelineArgs()
         {
         }
-        public static new ExportPipelineArgs Empty => new ExportPipelineArgs();
     }
 }

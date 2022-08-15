@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.V20210601.Inputs
     /// <summary>
     /// The security profile which contains Ssh public key for the HDInsight cluster.
     /// </summary>
-    public sealed class SecurityProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class SecurityProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource ID of the user's Azure Active Directory Domain Service.
@@ -84,6 +84,5 @@ namespace Pulumi.AzureNative.HDInsight.V20210601.Inputs
         public SecurityProfileArgs()
         {
         }
-        public static new SecurityProfileArgs Empty => new SecurityProfileArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20180930Preview.Inputs
     /// <summary>
     /// Defines the Identity provider for MS AAD.
     /// </summary>
-    public sealed class OpenShiftManagedClusterAADIdentityProviderArgs : global::Pulumi.ResourceArgs
+    public sealed class OpenShiftManagedClusterAADIdentityProviderArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The clientId password associated with the provider.
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.ContainerService.V20180930Preview.Inputs
         public OpenShiftManagedClusterAADIdentityProviderArgs()
         {
         }
-        public static new OpenShiftManagedClusterAADIdentityProviderArgs Empty => new OpenShiftManagedClusterAADIdentityProviderArgs();
     }
 }

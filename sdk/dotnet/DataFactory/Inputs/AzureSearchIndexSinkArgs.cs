@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity Azure Search Index sink.
     /// </summary>
-    public sealed class AzureSearchIndexSinkArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureSearchIndexSinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -67,6 +67,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public AzureSearchIndexSinkArgs()
         {
         }
-        public static new AzureSearchIndexSinkArgs Empty => new AzureSearchIndexSinkArgs();
     }
 }

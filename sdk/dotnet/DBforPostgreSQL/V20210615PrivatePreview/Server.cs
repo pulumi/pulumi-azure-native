@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview
     /// Represents a server.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20210615privatepreview:Server")]
-    public partial class Server : global::Pulumi.CustomResource
+    public partial class Server : Pulumi.CustomResource
     {
         /// <summary>
         /// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
@@ -148,12 +148,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20200214preview:Server"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20200214privatepreview:Server"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210410privatepreview:Server"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601:Server"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601preview:Server"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20220120preview:Server"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20200214preview:Server"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20200214privatepreview:Server"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210410privatepreview:Server"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601:Server"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601preview:Server"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20220120preview:Server"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -175,7 +175,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview
         }
     }
 
-    public sealed class ServerArgs : global::Pulumi.ResourceArgs
+    public sealed class ServerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
@@ -294,6 +294,5 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview
         public ServerArgs()
         {
         }
-        public static new ServerArgs Empty => new ServerArgs();
     }
 }

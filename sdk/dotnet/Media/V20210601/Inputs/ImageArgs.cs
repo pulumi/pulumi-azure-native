@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20210601.Inputs
     /// <summary>
     /// Describes the basic properties for generating thumbnails from the input video
     /// </summary>
-    public sealed class ImageArgs : global::Pulumi.ResourceArgs
+    public sealed class ImageArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The distance between two key frames. The value should be non-zero in the range [0.5, 20] seconds, specified in ISO 8601 format. The default is 2 seconds(PT2S). Note that this setting is ignored if VideoSyncMode.Passthrough is set, where the KeyFrameInterval value will follow the input source setting.
@@ -67,6 +67,5 @@ namespace Pulumi.AzureNative.Media.V20210601.Inputs
         public ImageArgs()
         {
         }
-        public static new ImageArgs Empty => new ImageArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview.Inputs
     /// <summary>
     /// The SKU type.
     /// </summary>
-    public sealed class SkuArgs : global::Pulumi.ResourceArgs
+    public sealed class SkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// SKU name.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview.Inputs
         public SkuArgs()
         {
         }
-        public static new SkuArgs Empty => new SkuArgs();
     }
 }

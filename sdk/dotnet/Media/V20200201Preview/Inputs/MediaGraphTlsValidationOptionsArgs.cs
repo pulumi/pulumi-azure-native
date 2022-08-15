@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20200201Preview.Inputs
     /// <summary>
     /// Options for controlling the authentication of TLS endpoints.
     /// </summary>
-    public sealed class MediaGraphTlsValidationOptionsArgs : global::Pulumi.ResourceArgs
+    public sealed class MediaGraphTlsValidationOptionsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Ignore the host name (common name) during validation.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Media.V20200201Preview.Inputs
         public MediaGraphTlsValidationOptionsArgs()
         {
         }
-        public static new MediaGraphTlsValidationOptionsArgs Empty => new MediaGraphTlsValidationOptionsArgs();
     }
 }

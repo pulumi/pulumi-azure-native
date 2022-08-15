@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NotificationHubs.V20160301.Inputs
     /// <summary>
     /// Description of a NotificationHub GcmCredential.
     /// </summary>
-    public sealed class GcmCredentialArgs : global::Pulumi.ResourceArgs
+    public sealed class GcmCredentialArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The GCM endpoint.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.NotificationHubs.V20160301.Inputs
         public GcmCredentialArgs()
         {
         }
-        public static new GcmCredentialArgs Empty => new GcmCredentialArgs();
     }
 }

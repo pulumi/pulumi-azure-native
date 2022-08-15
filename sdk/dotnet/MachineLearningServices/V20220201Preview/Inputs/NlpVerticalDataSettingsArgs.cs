@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// Class for data inputs.
     /// NLP - Natural Language Processing.
     /// </summary>
-    public sealed class NlpVerticalDataSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class NlpVerticalDataSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] Target column name: This is prediction values column.
@@ -44,6 +44,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         public NlpVerticalDataSettingsArgs()
         {
         }
-        public static new NlpVerticalDataSettingsArgs Empty => new NlpVerticalDataSettingsArgs();
     }
 }

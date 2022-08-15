@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20201201.Inputs
     /// <summary>
     /// Cross-Origin Resource Sharing (CORS) settings for the app.
     /// </summary>
-    public sealed class CorsSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class CorsSettingsArgs : Pulumi.ResourceArgs
     {
         [Input("allowedOrigins")]
         private InputList<string>? _allowedOrigins;
@@ -39,6 +39,5 @@ namespace Pulumi.AzureNative.Web.V20201201.Inputs
         public CorsSettingsArgs()
         {
         }
-        public static new CorsSettingsArgs Empty => new CorsSettingsArgs();
     }
 }

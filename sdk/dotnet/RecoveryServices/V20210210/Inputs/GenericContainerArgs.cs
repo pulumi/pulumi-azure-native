@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210210.Inputs
     /// <summary>
     /// Base class for generic container of backup items
     /// </summary>
-    public sealed class GenericContainerArgs : global::Pulumi.ResourceArgs
+    public sealed class GenericContainerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of backup management for the container.
@@ -64,6 +64,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210210.Inputs
         public GenericContainerArgs()
         {
         }
-        public static new GenericContainerArgs Empty => new GenericContainerArgs();
     }
 }

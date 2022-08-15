@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.StorSimple
     }
 
 
-    public sealed class GetBackupScheduleArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBackupScheduleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The backup policy name.
@@ -62,10 +62,9 @@ namespace Pulumi.AzureNative.StorSimple
         public GetBackupScheduleArgs()
         {
         }
-        public static new GetBackupScheduleArgs Empty => new GetBackupScheduleArgs();
     }
 
-    public sealed class GetBackupScheduleInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBackupScheduleInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The backup policy name.
@@ -100,7 +99,6 @@ namespace Pulumi.AzureNative.StorSimple
         public GetBackupScheduleInvokeArgs()
         {
         }
-        public static new GetBackupScheduleInvokeArgs Empty => new GetBackupScheduleInvokeArgs();
     }
 
 

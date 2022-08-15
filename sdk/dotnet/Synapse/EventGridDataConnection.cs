@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Synapse
     /// API Version: 2021-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:EventGridDataConnection")]
-    public partial class EventGridDataConnection : global::Pulumi.CustomResource
+    public partial class EventGridDataConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of blob storage event type to process.
@@ -133,8 +133,8 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:EventGridDataConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:EventGridDataConnection"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:EventGridDataConnection"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:EventGridDataConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -156,7 +156,7 @@ namespace Pulumi.AzureNative.Synapse
         }
     }
 
-    public sealed class EventGridDataConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class EventGridDataConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of blob storage event type to process.
@@ -252,6 +252,5 @@ namespace Pulumi.AzureNative.Synapse
         public EventGridDataConnectionArgs()
         {
         }
-        public static new EventGridDataConnectionArgs Empty => new EventGridDataConnectionArgs();
     }
 }

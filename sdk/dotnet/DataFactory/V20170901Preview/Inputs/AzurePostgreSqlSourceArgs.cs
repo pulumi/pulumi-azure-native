@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity Azure PostgreSQL source.
     /// </summary>
-    public sealed class AzurePostgreSqlSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class AzurePostgreSqlSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public AzurePostgreSqlSourceArgs()
         {
         }
-        public static new AzurePostgreSqlSourceArgs Empty => new AzurePostgreSqlSourceArgs();
     }
 }

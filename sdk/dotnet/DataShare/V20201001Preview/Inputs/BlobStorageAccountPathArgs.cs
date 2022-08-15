@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview.Inputs
     /// <summary>
     /// Defines a single blob storage account path.
     /// </summary>
-    public sealed class BlobStorageAccountPathArgs : global::Pulumi.ResourceArgs
+    public sealed class BlobStorageAccountPathArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the path on the consumer side where the dataset is to be mapped.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview.Inputs
         public BlobStorageAccountPathArgs()
         {
         }
-        public static new BlobStorageAccountPathArgs Empty => new BlobStorageAccountPathArgs();
     }
 }

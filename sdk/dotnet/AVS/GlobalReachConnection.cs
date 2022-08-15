@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AVS
     /// API Version: 2020-07-17-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:GlobalReachConnection")]
-    public partial class GlobalReachConnection : global::Pulumi.CustomResource
+    public partial class GlobalReachConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// The network used for global reach carved out from the original network block provided for the private cloud
@@ -83,10 +83,10 @@ namespace Pulumi.AzureNative.AVS
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200717preview:GlobalReachConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210101preview:GlobalReachConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:GlobalReachConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:GlobalReachConnection"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20200717preview:GlobalReachConnection"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20210101preview:GlobalReachConnection"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20210601:GlobalReachConnection"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20211201:GlobalReachConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.AVS
         }
     }
 
-    public sealed class GlobalReachConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class GlobalReachConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authorization key from the peer express route used for the global reach connection
@@ -143,6 +143,5 @@ namespace Pulumi.AzureNative.AVS
         public GlobalReachConnectionArgs()
         {
         }
-        public static new GlobalReachConnectionArgs Empty => new GlobalReachConnectionArgs();
     }
 }

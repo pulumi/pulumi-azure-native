@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StoragePool.V20200315Preview.Inputs
     /// <summary>
     /// LUN to expose the Azure Managed Disk.
     /// </summary>
-    public sealed class IscsiLunArgs : global::Pulumi.ResourceArgs
+    public sealed class IscsiLunArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure Resource ID of the Managed Disk.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.StoragePool.V20200315Preview.Inputs
         public IscsiLunArgs()
         {
         }
-        public static new IscsiLunArgs Empty => new IscsiLunArgs();
     }
 }

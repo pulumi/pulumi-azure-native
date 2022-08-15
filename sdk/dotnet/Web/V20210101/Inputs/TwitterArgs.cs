@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20210101.Inputs
     /// <summary>
     /// The configuration settings of the Twitter provider.
     /// </summary>
-    public sealed class TwitterArgs : global::Pulumi.ResourceArgs
+    public sealed class TwitterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;code&gt;false&lt;/code&gt; if the Twitter provider should not be enabled despite the set registration; otherwise, &lt;code&gt;true&lt;/code&gt;.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Web.V20210101.Inputs
         public TwitterArgs()
         {
         }
-        public static new TwitterArgs Empty => new TwitterArgs();
     }
 }

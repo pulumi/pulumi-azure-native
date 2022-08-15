@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Synapse
     }
 
 
-    public sealed class GetDatabasePrincipalAssignmentArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDatabasePrincipalAssignmentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the database in the Kusto pool.
@@ -62,10 +62,9 @@ namespace Pulumi.AzureNative.Synapse
         public GetDatabasePrincipalAssignmentArgs()
         {
         }
-        public static new GetDatabasePrincipalAssignmentArgs Empty => new GetDatabasePrincipalAssignmentArgs();
     }
 
-    public sealed class GetDatabasePrincipalAssignmentInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDatabasePrincipalAssignmentInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the database in the Kusto pool.
@@ -100,7 +99,6 @@ namespace Pulumi.AzureNative.Synapse
         public GetDatabasePrincipalAssignmentInvokeArgs()
         {
         }
-        public static new GetDatabasePrincipalAssignmentInvokeArgs Empty => new GetDatabasePrincipalAssignmentInvokeArgs();
     }
 
 

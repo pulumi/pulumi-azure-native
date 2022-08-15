@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20220801
     /// The Live Output.
     /// </summary>
     [AzureNativeResourceType("azure-native:media/v20220801:LiveOutput")]
-    public partial class LiveOutput : global::Pulumi.CustomResource
+    public partial class LiveOutput : Pulumi.CustomResource
     {
         /// <summary>
         /// ISO 8601 time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use PT1H30M to indicate 1 hour and 30 minutes of archive window.
@@ -124,14 +124,14 @@ namespace Pulumi.AzureNative.Media.V20220801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:media:LiveOutput"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180330preview:LiveOutput"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180601preview:LiveOutput"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180701:LiveOutput"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20190501preview:LiveOutput"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20200501:LiveOutput"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20210601:LiveOutput"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20211101:LiveOutput"},
+                    new Pulumi.Alias { Type = "azure-native:media:LiveOutput"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180330preview:LiveOutput"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180601preview:LiveOutput"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180701:LiveOutput"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20190501preview:LiveOutput"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20200501:LiveOutput"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20210601:LiveOutput"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20211101:LiveOutput"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -153,7 +153,7 @@ namespace Pulumi.AzureNative.Media.V20220801
         }
     }
 
-    public sealed class LiveOutputArgs : global::Pulumi.ResourceArgs
+    public sealed class LiveOutputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -224,6 +224,5 @@ namespace Pulumi.AzureNative.Media.V20220801
         public LiveOutputArgs()
         {
         }
-        public static new LiveOutputArgs Empty => new LiveOutputArgs();
     }
 }

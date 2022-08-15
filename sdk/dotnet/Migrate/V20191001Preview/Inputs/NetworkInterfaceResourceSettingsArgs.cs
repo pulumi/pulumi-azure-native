@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.V20191001Preview.Inputs
     /// <summary>
     /// Defines the network interface resource settings.
     /// </summary>
-    public sealed class NetworkInterfaceResourceSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class NetworkInterfaceResourceSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets a value indicating whether accelerated networking is enabled.
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.Migrate.V20191001Preview.Inputs
         public NetworkInterfaceResourceSettingsArgs()
         {
         }
-        public static new NetworkInterfaceResourceSettingsArgs Empty => new NetworkInterfaceResourceSettingsArgs();
     }
 }

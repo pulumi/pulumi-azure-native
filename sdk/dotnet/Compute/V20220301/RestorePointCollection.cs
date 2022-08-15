@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20220301
     /// Create or update Restore Point collection parameters.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute/v20220301:RestorePointCollection")]
-    public partial class RestorePointCollection : global::Pulumi.CustomResource
+    public partial class RestorePointCollection : Pulumi.CustomResource
     {
         /// <summary>
         /// Resource location
@@ -88,11 +88,11 @@ namespace Pulumi.AzureNative.Compute.V20220301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:compute:RestorePointCollection"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210301:RestorePointCollection"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:RestorePointCollection"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:RestorePointCollection"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211101:RestorePointCollection"},
+                    new Pulumi.Alias { Type = "azure-native:compute:RestorePointCollection"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20210301:RestorePointCollection"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20210401:RestorePointCollection"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20210701:RestorePointCollection"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20211101:RestorePointCollection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.Compute.V20220301
         }
     }
 
-    public sealed class RestorePointCollectionArgs : global::Pulumi.ResourceArgs
+    public sealed class RestorePointCollectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource location
@@ -155,6 +155,5 @@ namespace Pulumi.AzureNative.Compute.V20220301
         public RestorePointCollectionArgs()
         {
         }
-        public static new RestorePointCollectionArgs Empty => new RestorePointCollectionArgs();
     }
 }

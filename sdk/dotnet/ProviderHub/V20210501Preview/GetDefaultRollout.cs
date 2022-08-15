@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ProviderHub.V20210501Preview
     }
 
 
-    public sealed class GetDefaultRolloutArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDefaultRolloutArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource provider hosted within ProviderHub.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.ProviderHub.V20210501Preview
         public GetDefaultRolloutArgs()
         {
         }
-        public static new GetDefaultRolloutArgs Empty => new GetDefaultRolloutArgs();
     }
 
-    public sealed class GetDefaultRolloutInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDefaultRolloutInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource provider hosted within ProviderHub.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.ProviderHub.V20210501Preview
         public GetDefaultRolloutInvokeArgs()
         {
         }
-        public static new GetDefaultRolloutInvokeArgs Empty => new GetDefaultRolloutInvokeArgs();
     }
 
 

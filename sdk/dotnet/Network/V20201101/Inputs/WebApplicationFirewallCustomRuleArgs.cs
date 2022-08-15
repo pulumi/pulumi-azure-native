@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20201101.Inputs
     /// <summary>
     /// Defines contents of a web application rule.
     /// </summary>
-    public sealed class WebApplicationFirewallCustomRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class WebApplicationFirewallCustomRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of Actions.
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.Network.V20201101.Inputs
         public WebApplicationFirewallCustomRuleArgs()
         {
         }
-        public static new WebApplicationFirewallCustomRuleArgs Empty => new WebApplicationFirewallCustomRuleArgs();
     }
 }

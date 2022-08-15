@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization.Inputs
     /// <summary>
     /// Descriptor for what needs to be reviewed
     /// </summary>
-    public sealed class AccessReviewScopeArgs : global::Pulumi.ResourceArgs
+    public sealed class AccessReviewScopeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// This is used to indicate the resource id(s) to exclude
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.Authorization.Inputs
         public AccessReviewScopeArgs()
         {
         }
-        public static new AccessReviewScopeArgs Empty => new AccessReviewScopeArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
     /// <summary>
     /// Container liveness and readiness probe settings
     /// </summary>
-    public sealed class ContainerProbeSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class ContainerProbeSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether disable the liveness and readiness probe
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
         public ContainerProbeSettingsArgs()
         {
         }
-        public static new ContainerProbeSettingsArgs Empty => new ContainerProbeSettingsArgs();
     }
 }

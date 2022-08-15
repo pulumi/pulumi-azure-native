@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HardwareSecurityModules.Inputs
 {
 
-    public sealed class NetworkProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class NetworkProfileArgs : Pulumi.ResourceArgs
     {
         [Input("networkInterfaces")]
         private InputList<Inputs.NetworkInterfaceArgs>? _networkInterfaces;
@@ -33,6 +33,5 @@ namespace Pulumi.AzureNative.HardwareSecurityModules.Inputs
         public NetworkProfileArgs()
         {
         }
-        public static new NetworkProfileArgs Empty => new NetworkProfileArgs();
     }
 }

@@ -20,7 +20,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20220101.Inputs
     /// or datacenter boundaries. Note that since this is an optimization it is possible that the Primary replica
     /// may not end up located in this domain due to failures, capacity limits, or other constraints.
     /// </summary>
-    public sealed class ServicePlacementPreferPrimaryDomainPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class ServicePlacementPreferPrimaryDomainPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the domain that should used for placement as per this policy.
@@ -38,6 +38,5 @@ namespace Pulumi.AzureNative.ServiceFabric.V20220101.Inputs
         public ServicePlacementPreferPrimaryDomainPolicyArgs()
         {
         }
-        public static new ServicePlacementPreferPrimaryDomainPolicyArgs Empty => new ServicePlacementPreferPrimaryDomainPolicyArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
     /// <summary>
     /// Describes the threshold for declaring a test successful.
     /// </summary>
-    public sealed class ConnectionMonitorSuccessThresholdArgs : global::Pulumi.ResourceArgs
+    public sealed class ConnectionMonitorSuccessThresholdArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum percentage of failed checks permitted for a test to evaluate as successful.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
         public ConnectionMonitorSuccessThresholdArgs()
         {
         }
-        public static new ConnectionMonitorSuccessThresholdArgs Empty => new ConnectionMonitorSuccessThresholdArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
     /// Azure Resource Manager resource envelope.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20220501:ComponentVersion")]
-    public partial class ComponentVersion : global::Pulumi.CustomResource
+    public partial class ComponentVersion : Pulumi.CustomResource
     {
         /// <summary>
         /// [Required] Additional attributes of the entity.
@@ -64,9 +64,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:ComponentVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:ComponentVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:ComponentVersion"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:ComponentVersion"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:ComponentVersion"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:ComponentVersion"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
         }
     }
 
-    public sealed class ComponentVersionArgs : global::Pulumi.ResourceArgs
+    public sealed class ComponentVersionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] Additional attributes of the entity.
@@ -123,6 +123,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
         public ComponentVersionArgs()
         {
         }
-        public static new ComponentVersionArgs Empty => new ComponentVersionArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network
     }
 
 
-    public sealed class ListEffectiveVirtualNetworkByNetworkGroupArgs : global::Pulumi.InvokeArgs
+    public sealed class ListEffectiveVirtualNetworkByNetworkGroupArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the network group to get.
@@ -56,10 +56,9 @@ namespace Pulumi.AzureNative.Network
         public ListEffectiveVirtualNetworkByNetworkGroupArgs()
         {
         }
-        public static new ListEffectiveVirtualNetworkByNetworkGroupArgs Empty => new ListEffectiveVirtualNetworkByNetworkGroupArgs();
     }
 
-    public sealed class ListEffectiveVirtualNetworkByNetworkGroupInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListEffectiveVirtualNetworkByNetworkGroupInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the network group to get.
@@ -88,7 +87,6 @@ namespace Pulumi.AzureNative.Network
         public ListEffectiveVirtualNetworkByNetworkGroupInvokeArgs()
         {
         }
-        public static new ListEffectiveVirtualNetworkByNetworkGroupInvokeArgs Empty => new ListEffectiveVirtualNetworkByNetworkGroupInvokeArgs();
     }
 
 

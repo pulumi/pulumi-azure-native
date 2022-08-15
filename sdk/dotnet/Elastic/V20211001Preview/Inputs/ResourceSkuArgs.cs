@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Elastic.V20211001Preview.Inputs
     /// <summary>
     /// Microsoft.Elastic SKU.
     /// </summary>
-    public sealed class ResourceSkuArgs : global::Pulumi.ResourceArgs
+    public sealed class ResourceSkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the SKU.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Elastic.V20211001Preview.Inputs
         public ResourceSkuArgs()
         {
         }
-        public static new ResourceSkuArgs Empty => new ResourceSkuArgs();
     }
 }

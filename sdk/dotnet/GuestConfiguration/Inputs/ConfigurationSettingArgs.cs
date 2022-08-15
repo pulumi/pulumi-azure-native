@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.GuestConfiguration.Inputs
     /// <summary>
     /// Configuration setting of LCM (Local Configuration Manager).
     /// </summary>
-    public sealed class ConfigurationSettingArgs : global::Pulumi.ResourceArgs
+    public sealed class ConfigurationSettingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
@@ -56,6 +56,5 @@ namespace Pulumi.AzureNative.GuestConfiguration.Inputs
             ConfigurationModeFrequencyMins = 15;
             RefreshFrequencyMins = 30;
         }
-        public static new ConfigurationSettingArgs Empty => new ConfigurationSettingArgs();
     }
 }

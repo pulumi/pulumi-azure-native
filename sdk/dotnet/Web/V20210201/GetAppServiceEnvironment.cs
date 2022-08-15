@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Web.V20210201
     }
 
 
-    public sealed class GetAppServiceEnvironmentArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAppServiceEnvironmentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the App Service Environment.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.Web.V20210201
         public GetAppServiceEnvironmentArgs()
         {
         }
-        public static new GetAppServiceEnvironmentArgs Empty => new GetAppServiceEnvironmentArgs();
     }
 
-    public sealed class GetAppServiceEnvironmentInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAppServiceEnvironmentInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the App Service Environment.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.Web.V20210201
         public GetAppServiceEnvironmentInvokeArgs()
         {
         }
-        public static new GetAppServiceEnvironmentInvokeArgs Empty => new GetAppServiceEnvironmentInvokeArgs();
     }
 
 

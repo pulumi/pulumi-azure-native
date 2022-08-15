@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview.Inputs
     /// <summary>
     /// metadata of a repository.
     /// </summary>
-    public sealed class RepositoryArgs : global::Pulumi.ResourceArgs
+    public sealed class RepositoryArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Branch name of repository.
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview.Inputs
         public RepositoryArgs()
         {
         }
-        public static new RepositoryArgs Empty => new RepositoryArgs();
     }
 }

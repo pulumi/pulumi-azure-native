@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Aad.V20210501.Inputs
     /// <summary>
     /// Configuration Diagnostics
     /// </summary>
-    public sealed class ConfigDiagnosticsArgs : global::Pulumi.ResourceArgs
+    public sealed class ConfigDiagnosticsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Last domain configuration diagnostics DateTime
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Aad.V20210501.Inputs
         public ConfigDiagnosticsArgs()
         {
         }
-        public static new ConfigDiagnosticsArgs Empty => new ConfigDiagnosticsArgs();
     }
 }

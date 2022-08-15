@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The custom setup of installing 3rd party components.
     /// </summary>
-    public sealed class ComponentSetupArgs : global::Pulumi.ResourceArgs
+    public sealed class ComponentSetupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the 3rd party component.
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public ComponentSetupArgs()
         {
         }
-        public static new ComponentSetupArgs Empty => new ComponentSetupArgs();
     }
 }

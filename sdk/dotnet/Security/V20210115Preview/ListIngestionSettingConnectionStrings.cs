@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Security.V20210115Preview
     }
 
 
-    public sealed class ListIngestionSettingConnectionStringsArgs : global::Pulumi.InvokeArgs
+    public sealed class ListIngestionSettingConnectionStringsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the ingestion setting
@@ -36,10 +36,9 @@ namespace Pulumi.AzureNative.Security.V20210115Preview
         public ListIngestionSettingConnectionStringsArgs()
         {
         }
-        public static new ListIngestionSettingConnectionStringsArgs Empty => new ListIngestionSettingConnectionStringsArgs();
     }
 
-    public sealed class ListIngestionSettingConnectionStringsInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListIngestionSettingConnectionStringsInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the ingestion setting
@@ -50,7 +49,6 @@ namespace Pulumi.AzureNative.Security.V20210115Preview
         public ListIngestionSettingConnectionStringsInvokeArgs()
         {
         }
-        public static new ListIngestionSettingConnectionStringsInvokeArgs Empty => new ListIngestionSettingConnectionStringsInvokeArgs();
     }
 
 

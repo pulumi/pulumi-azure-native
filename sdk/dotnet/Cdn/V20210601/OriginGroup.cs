@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601
     /// Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn/v20210601:OriginGroup")]
-    public partial class OriginGroup : global::Pulumi.CustomResource
+    public partial class OriginGroup : Pulumi.CustomResource
     {
         /// <summary>
         /// Health probe settings to the origin that is used to determine the health of the origin.
@@ -94,11 +94,11 @@ namespace Pulumi.AzureNative.Cdn.V20210601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cdn:OriginGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20191231:OriginGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200331:OriginGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200415:OriginGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:OriginGroup"},
+                    new Pulumi.Alias { Type = "azure-native:cdn:OriginGroup"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20191231:OriginGroup"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200331:OriginGroup"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200415:OriginGroup"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200901:OriginGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         }
     }
 
-    public sealed class OriginGroupArgs : global::Pulumi.ResourceArgs
+    public sealed class OriginGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the endpoint under the profile which is unique globally.
@@ -179,6 +179,5 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         public OriginGroupArgs()
         {
         }
-        public static new OriginGroupArgs Empty => new OriginGroupArgs();
     }
 }

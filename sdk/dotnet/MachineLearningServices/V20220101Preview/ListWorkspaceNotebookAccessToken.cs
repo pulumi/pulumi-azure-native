@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220101Preview
     }
 
 
-    public sealed class ListWorkspaceNotebookAccessTokenArgs : global::Pulumi.InvokeArgs
+    public sealed class ListWorkspaceNotebookAccessTokenArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -36,10 +36,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220101Preview
         public ListWorkspaceNotebookAccessTokenArgs()
         {
         }
-        public static new ListWorkspaceNotebookAccessTokenArgs Empty => new ListWorkspaceNotebookAccessTokenArgs();
     }
 
-    public sealed class ListWorkspaceNotebookAccessTokenInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListWorkspaceNotebookAccessTokenInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -56,7 +55,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220101Preview
         public ListWorkspaceNotebookAccessTokenInvokeArgs()
         {
         }
-        public static new ListWorkspaceNotebookAccessTokenInvokeArgs Empty => new ListWorkspaceNotebookAccessTokenInvokeArgs();
     }
 
 

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network
     }
 
 
-    public sealed class GetFlowLogArgs : global::Pulumi.InvokeArgs
+    public sealed class GetFlowLogArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the flow log resource.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Network
         public GetFlowLogArgs()
         {
         }
-        public static new GetFlowLogArgs Empty => new GetFlowLogArgs();
     }
 
-    public sealed class GetFlowLogInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetFlowLogInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the flow log resource.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Network
         public GetFlowLogInvokeArgs()
         {
         }
-        public static new GetFlowLogInvokeArgs Empty => new GetFlowLogInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cache.V20201001Preview
     /// Describes a database on the RedisEnterprise cluster
     /// </summary>
     [AzureNativeResourceType("azure-native:cache/v20201001preview:Database")]
-    public partial class Database : global::Pulumi.CustomResource
+    public partial class Database : Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted.
@@ -94,11 +94,11 @@ namespace Pulumi.AzureNative.Cache.V20201001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cache:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20210201preview:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20210301:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20210801:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20220101:Database"},
+                    new Pulumi.Alias { Type = "azure-native:cache:Database"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20210201preview:Database"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20210301:Database"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20210801:Database"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20220101:Database"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.Cache.V20201001Preview
         }
     }
 
-    public sealed class DatabaseArgs : global::Pulumi.ResourceArgs
+    public sealed class DatabaseArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted.
@@ -179,6 +179,5 @@ namespace Pulumi.AzureNative.Cache.V20201001Preview
         public DatabaseArgs()
         {
         }
-        public static new DatabaseArgs Empty => new DatabaseArgs();
     }
 }

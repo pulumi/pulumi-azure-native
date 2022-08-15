@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Maps.V20210701Preview.Inputs
     /// <summary>
     /// Linked resource is reference to a resource deployed in an Azure subscription, add the linked resource `uniqueName` value as an optional parameter for operations on Azure Maps Geospatial REST APIs.
     /// </summary>
-    public sealed class LinkedResourceArgs : global::Pulumi.ResourceArgs
+    public sealed class LinkedResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/accounts/{storageName}'.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Maps.V20210701Preview.Inputs
         public LinkedResourceArgs()
         {
         }
-        public static new LinkedResourceArgs Empty => new LinkedResourceArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Resources
     }
 
 
-    public sealed class GetTemplateSpecArgs : global::Pulumi.InvokeArgs
+    public sealed class GetTemplateSpecArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Allows for expansion of additional Template Spec details in the response. Optional.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Resources
         public GetTemplateSpecArgs()
         {
         }
-        public static new GetTemplateSpecArgs Empty => new GetTemplateSpecArgs();
     }
 
-    public sealed class GetTemplateSpecInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetTemplateSpecInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Allows for expansion of additional Template Spec details in the response. Optional.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Resources
         public GetTemplateSpecInvokeArgs()
         {
         }
-        public static new GetTemplateSpecInvokeArgs Empty => new GetTemplateSpecInvokeArgs();
     }
 
 

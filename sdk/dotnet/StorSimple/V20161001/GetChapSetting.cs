@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     }
 
 
-    public sealed class GetChapSettingArgs : global::Pulumi.InvokeArgs
+    public sealed class GetChapSettingArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The user name of chap to be fetched.
@@ -55,10 +55,9 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public GetChapSettingArgs()
         {
         }
-        public static new GetChapSettingArgs Empty => new GetChapSettingArgs();
     }
 
-    public sealed class GetChapSettingInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetChapSettingInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The user name of chap to be fetched.
@@ -87,7 +86,6 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public GetChapSettingInvokeArgs()
         {
         }
-        public static new GetChapSettingInvokeArgs Empty => new GetChapSettingInvokeArgs();
     }
 
 

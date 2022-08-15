@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataShare
     /// API Version: 2020-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare:BlobDataSetMapping")]
-    public partial class BlobDataSetMapping : global::Pulumi.CustomResource
+    public partial class BlobDataSetMapping : Pulumi.CustomResource
     {
         /// <summary>
         /// Container that has the file path.
@@ -127,11 +127,11 @@ namespace Pulumi.AzureNative.DataShare
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:BlobDataSetMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:BlobDataSetMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:BlobDataSetMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:BlobDataSetMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:BlobDataSetMapping"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:BlobDataSetMapping"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:BlobDataSetMapping"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20200901:BlobDataSetMapping"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:BlobDataSetMapping"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20210801:BlobDataSetMapping"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -153,7 +153,7 @@ namespace Pulumi.AzureNative.DataShare
         }
     }
 
-    public sealed class BlobDataSetMappingArgs : global::Pulumi.ResourceArgs
+    public sealed class BlobDataSetMappingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -231,6 +231,5 @@ namespace Pulumi.AzureNative.DataShare
         public BlobDataSetMappingArgs()
         {
         }
-        public static new BlobDataSetMappingArgs Empty => new BlobDataSetMappingArgs();
     }
 }

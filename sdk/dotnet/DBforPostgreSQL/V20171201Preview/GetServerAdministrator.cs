@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201Preview
     }
 
 
-    public sealed class GetServerAdministratorArgs : global::Pulumi.InvokeArgs
+    public sealed class GetServerAdministratorArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201Preview
         public GetServerAdministratorArgs()
         {
         }
-        public static new GetServerAdministratorArgs Empty => new GetServerAdministratorArgs();
     }
 
-    public sealed class GetServerAdministratorInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetServerAdministratorInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201Preview
         public GetServerAdministratorInvokeArgs()
         {
         }
-        public static new GetServerAdministratorInvokeArgs Empty => new GetServerAdministratorInvokeArgs();
     }
 
 

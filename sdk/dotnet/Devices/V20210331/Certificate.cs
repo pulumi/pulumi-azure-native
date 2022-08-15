@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20210331
     /// The X509 Certificate.
     /// </summary>
     [AzureNativeResourceType("azure-native:devices/v20210331:Certificate")]
-    public partial class Certificate : global::Pulumi.CustomResource
+    public partial class Certificate : Pulumi.CustomResource
     {
         /// <summary>
         /// The entity tag.
@@ -64,29 +64,29 @@ namespace Pulumi.AzureNative.Devices.V20210331
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devices:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20170701:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20180122:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20180401:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20181201preview:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20190322:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20190322preview:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20190701preview:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20191104:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200301:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200401:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200615:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200710preview:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200801:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200831:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200831preview:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210201preview:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210303preview:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210701:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210701preview:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210702:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210702preview:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20220430preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20170701:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20180122:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20180401:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20181201preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20190322:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20190322preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20190701preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20191104:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200301:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200401:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200615:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200710preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200801:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200831:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200831preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20210201preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20210303preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20210701:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20210701preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20210702:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20210702preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20220430preview:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.Devices.V20210331
         }
     }
 
-    public sealed class CertificateArgs : global::Pulumi.ResourceArgs
+    public sealed class CertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the certificate
@@ -137,6 +137,5 @@ namespace Pulumi.AzureNative.Devices.V20210331
         public CertificateArgs()
         {
         }
-        public static new CertificateArgs Empty => new CertificateArgs();
     }
 }

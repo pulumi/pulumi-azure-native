@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Microsoft Azure Cosmos Database (CosmosDB) linked service.
     /// </summary>
-    public sealed class CosmosDbLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class CosmosDbLinkedServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The endpoint of the Azure CosmosDB account. Type: string (or Expression with resultType string)
@@ -133,6 +133,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public CosmosDbLinkedServiceArgs()
         {
         }
-        public static new CosmosDbLinkedServiceArgs Empty => new CosmosDbLinkedServiceArgs();
     }
 }

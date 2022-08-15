@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Search.V20210401Preview.Inputs
     /// <summary>
     /// Network specific rules that determine how the Azure Cognitive Search service may be reached.
     /// </summary>
-    public sealed class NetworkRuleSetArgs : global::Pulumi.ResourceArgs
+    public sealed class NetworkRuleSetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Possible origins of inbound traffic that can bypass the rules defined in the 'ipRules' section.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Search.V20210401Preview.Inputs
         public NetworkRuleSetArgs()
         {
         }
-        public static new NetworkRuleSetArgs Empty => new NetworkRuleSetArgs();
     }
 }

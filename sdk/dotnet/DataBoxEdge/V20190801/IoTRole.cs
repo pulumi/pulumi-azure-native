@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190801
     /// Compute role.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge/v20190801:IoTRole")]
-    public partial class IoTRole : global::Pulumi.CustomResource
+    public partial class IoTRole : Pulumi.CustomResource
     {
         /// <summary>
         /// Host OS supported by the IoT role.
@@ -96,19 +96,19 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:IoTRole"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:IoTRole"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:IoTRole"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:IoTRole"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:IoTRole"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:IoTRole"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:IoTRole"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:IoTRole"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:IoTRole"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:IoTRole"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:IoTRole"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:IoTRole"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:IoTRole"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge:IoTRole"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:IoTRole"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:IoTRole"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:IoTRole"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:IoTRole"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:IoTRole"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:IoTRole"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:IoTRole"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:IoTRole"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:IoTRole"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:IoTRole"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:IoTRole"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:IoTRole"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190801
         }
     }
 
-    public sealed class IoTRoleArgs : global::Pulumi.ResourceArgs
+    public sealed class IoTRoleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The device name.
@@ -196,6 +196,5 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190801
         public IoTRoleArgs()
         {
         }
-        public static new IoTRoleArgs Empty => new IoTRoleArgs();
     }
 }

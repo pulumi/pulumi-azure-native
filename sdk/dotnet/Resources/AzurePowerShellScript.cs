@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Resources
     /// API Version: 2020-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:resources:AzurePowerShellScript")]
-    public partial class AzurePowerShellScript : global::Pulumi.CustomResource
+    public partial class AzurePowerShellScript : Pulumi.CustomResource
     {
         /// <summary>
         /// Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2' 
@@ -181,8 +181,8 @@ namespace Pulumi.AzureNative.Resources
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20191001preview:AzurePowerShellScript"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20201001:AzurePowerShellScript"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20191001preview:AzurePowerShellScript"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20201001:AzurePowerShellScript"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -204,7 +204,7 @@ namespace Pulumi.AzureNative.Resources
         }
     }
 
-    public sealed class AzurePowerShellScriptArgs : global::Pulumi.ResourceArgs
+    public sealed class AzurePowerShellScriptArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2' 
@@ -338,6 +338,5 @@ namespace Pulumi.AzureNative.Resources
             CleanupPreference = "Always";
             Timeout = "P1D";
         }
-        public static new AzurePowerShellScriptArgs Empty => new AzurePowerShellScriptArgs();
     }
 }

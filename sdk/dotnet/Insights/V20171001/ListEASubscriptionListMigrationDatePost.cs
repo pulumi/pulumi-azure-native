@@ -19,12 +19,11 @@ namespace Pulumi.AzureNative.Insights.V20171001
     }
 
 
-    public sealed class ListEASubscriptionListMigrationDatePostArgs : global::Pulumi.InvokeArgs
+    public sealed class ListEASubscriptionListMigrationDatePostArgs : Pulumi.InvokeArgs
     {
         public ListEASubscriptionListMigrationDatePostArgs()
         {
         }
-        public static new ListEASubscriptionListMigrationDatePostArgs Empty => new ListEASubscriptionListMigrationDatePostArgs();
     }
 
 

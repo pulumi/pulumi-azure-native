@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20170901.Inputs
 {
 
-    public sealed class NetworkSecurityGroupRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class NetworkSecurityGroupRuleArgs : Pulumi.ResourceArgs
     {
         [Input("access", required: true)]
         public Input<Pulumi.AzureNative.Batch.V20170901.NetworkSecurityGroupRuleAccess> Access { get; set; } = null!;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Batch.V20170901.Inputs
         public NetworkSecurityGroupRuleArgs()
         {
         }
-        public static new NetworkSecurityGroupRuleArgs Empty => new NetworkSecurityGroupRuleArgs();
     }
 }

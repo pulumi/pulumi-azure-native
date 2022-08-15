@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.IoTSecurity
     /// API Version: 2021-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:iotsecurity:DeviceGroup")]
-    public partial class DeviceGroup : global::Pulumi.CustomResource
+    public partial class DeviceGroup : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.IoTSecurity
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:iotsecurity/v20210201preview:DeviceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:iotsecurity/v20210201preview:DeviceGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -81,7 +81,7 @@ namespace Pulumi.AzureNative.IoTSecurity
         }
     }
 
-    public sealed class DeviceGroupArgs : global::Pulumi.ResourceArgs
+    public sealed class DeviceGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Device group name
@@ -98,6 +98,5 @@ namespace Pulumi.AzureNative.IoTSecurity
         public DeviceGroupArgs()
         {
         }
-        public static new DeviceGroupArgs Empty => new DeviceGroupArgs();
     }
 }

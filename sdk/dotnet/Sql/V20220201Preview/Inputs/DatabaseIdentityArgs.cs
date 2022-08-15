@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20220201Preview.Inputs
     /// <summary>
     /// Azure Active Directory identity configuration for a resource.
     /// </summary>
-    public sealed class DatabaseIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class DatabaseIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity type
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Sql.V20220201Preview.Inputs
         public DatabaseIdentityArgs()
         {
         }
-        public static new DatabaseIdentityArgs Empty => new DatabaseIdentityArgs();
     }
 }

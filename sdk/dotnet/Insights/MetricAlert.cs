@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Insights
     /// API Version: 2018-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:MetricAlert")]
-    public partial class MetricAlert : global::Pulumi.CustomResource
+    public partial class MetricAlert : Pulumi.CustomResource
     {
         /// <summary>
         /// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
@@ -143,7 +143,7 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20180301:MetricAlert"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20180301:MetricAlert"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -165,7 +165,7 @@ namespace Pulumi.AzureNative.Insights
         }
     }
 
-    public sealed class MetricAlertArgs : global::Pulumi.ResourceArgs
+    public sealed class MetricAlertArgs : Pulumi.ResourceArgs
     {
         [Input("actions")]
         private InputList<Inputs.MetricAlertActionArgs>? _actions;
@@ -278,6 +278,5 @@ namespace Pulumi.AzureNative.Insights
         public MetricAlertArgs()
         {
         }
-        public static new MetricAlertArgs Empty => new MetricAlertArgs();
     }
 }

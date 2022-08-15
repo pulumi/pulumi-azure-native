@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearning.V20160501Preview.Inputs
     /// <summary>
     /// Information about the machine learning workspace containing the experiment that is source for the web service.
     /// </summary>
-    public sealed class MachineLearningWorkspaceArgs : global::Pulumi.ResourceArgs
+    public sealed class MachineLearningWorkspaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the workspace ID of the machine learning workspace associated with the web service
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.MachineLearning.V20160501Preview.Inputs
         public MachineLearningWorkspaceArgs()
         {
         }
-        public static new MachineLearningWorkspaceArgs Empty => new MachineLearningWorkspaceArgs();
     }
 }

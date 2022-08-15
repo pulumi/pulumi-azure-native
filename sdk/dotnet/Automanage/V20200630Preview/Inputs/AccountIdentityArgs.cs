@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automanage.V20200630Preview.Inputs
     /// <summary>
     /// Identity for the Automanage account.
     /// </summary>
-    public sealed class AccountIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class AccountIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of identity used for the Automanage account. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Automanage.V20200630Preview.Inputs
         public AccountIdentityArgs()
         {
         }
-        public static new AccountIdentityArgs Empty => new AccountIdentityArgs();
     }
 }

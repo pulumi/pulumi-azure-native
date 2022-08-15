@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20201201.Inputs
     /// <summary>
     /// Auto-scaling properties of a Big Data pool powered by Apache Spark
     /// </summary>
-    public sealed class AutoScalePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class AutoScalePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether automatic scaling is enabled for the Big Data pool.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Synapse.V20201201.Inputs
         public AutoScalePropertiesArgs()
         {
         }
-        public static new AutoScalePropertiesArgs Empty => new AutoScalePropertiesArgs();
     }
 }

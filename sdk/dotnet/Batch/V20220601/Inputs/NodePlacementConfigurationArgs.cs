@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Batch.V20220601.Inputs
     /// <summary>
     /// Allocation configuration used by Batch Service to provision the nodes.
     /// </summary>
-    public sealed class NodePlacementConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class NodePlacementConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Allocation policy used by Batch Service to provision the nodes. If not specified, Batch will use the regional policy.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Batch.V20220601.Inputs
         public NodePlacementConfigurationArgs()
         {
         }
-        public static new NodePlacementConfigurationArgs Empty => new NodePlacementConfigurationArgs();
     }
 }

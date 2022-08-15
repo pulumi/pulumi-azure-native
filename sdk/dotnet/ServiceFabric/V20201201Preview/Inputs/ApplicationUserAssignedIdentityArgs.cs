@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20201201Preview.Inputs
 {
 
-    public sealed class ApplicationUserAssignedIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplicationUserAssignedIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The friendly name of user assigned identity.
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.ServiceFabric.V20201201Preview.Inputs
         public ApplicationUserAssignedIdentityArgs()
         {
         }
-        public static new ApplicationUserAssignedIdentityArgs Empty => new ApplicationUserAssignedIdentityArgs();
     }
 }

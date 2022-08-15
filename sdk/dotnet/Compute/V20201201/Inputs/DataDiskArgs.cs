@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20201201.Inputs
     /// <summary>
     /// Describes a data disk.
     /// </summary>
-    public sealed class DataDiskArgs : global::Pulumi.ResourceArgs
+    public sealed class DataDiskArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the caching requirements. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **None** &lt;br&gt;&lt;br&gt; **ReadOnly** &lt;br&gt;&lt;br&gt; **ReadWrite** &lt;br&gt;&lt;br&gt; Default: **None for Standard storage. ReadOnly for Premium storage**
@@ -84,6 +84,5 @@ namespace Pulumi.AzureNative.Compute.V20201201.Inputs
         public DataDiskArgs()
         {
         }
-        public static new DataDiskArgs Empty => new DataDiskArgs();
     }
 }

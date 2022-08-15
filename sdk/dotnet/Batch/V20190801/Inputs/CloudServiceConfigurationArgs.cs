@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20190801.Inputs
 {
 
-    public sealed class CloudServiceConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class CloudServiceConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Possible values are: 2 - OS Family 2, equivalent to Windows Server 2008 R2 SP1. 3 - OS Family 3, equivalent to Windows Server 2012. 4 - OS Family 4, equivalent to Windows Server 2012 R2. 5 - OS Family 5, equivalent to Windows Server 2016. 6 - OS Family 6, equivalent to Windows Server 2019. For more information, see Azure Guest OS Releases (https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.Batch.V20190801.Inputs
         public CloudServiceConfigurationArgs()
         {
         }
-        public static new CloudServiceConfigurationArgs Empty => new CloudServiceConfigurationArgs();
     }
 }

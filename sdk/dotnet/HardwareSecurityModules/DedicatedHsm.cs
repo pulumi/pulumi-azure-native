@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
     /// API Version: 2018-10-31-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hardwaresecuritymodules:DedicatedHsm")]
-    public partial class DedicatedHsm : global::Pulumi.CustomResource
+    public partial class DedicatedHsm : Pulumi.CustomResource
     {
         /// <summary>
         /// The supported Azure location where the dedicated HSM should be created.
@@ -101,8 +101,8 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:hardwaresecuritymodules/v20181031preview:DedicatedHsm"},
-                    new global::Pulumi.Alias { Type = "azure-native:hardwaresecuritymodules/v20211130:DedicatedHsm"},
+                    new Pulumi.Alias { Type = "azure-native:hardwaresecuritymodules/v20181031preview:DedicatedHsm"},
+                    new Pulumi.Alias { Type = "azure-native:hardwaresecuritymodules/v20211130:DedicatedHsm"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
         }
     }
 
-    public sealed class DedicatedHsmArgs : global::Pulumi.ResourceArgs
+    public sealed class DedicatedHsmArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The supported Azure location where the dedicated HSM should be created.
@@ -189,6 +189,5 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
         public DedicatedHsmArgs()
         {
         }
-        public static new DedicatedHsmArgs Empty => new DedicatedHsmArgs();
     }
 }

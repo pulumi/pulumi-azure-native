@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization.V20150701.Inputs
     /// <summary>
     /// Role assignment properties.
     /// </summary>
-    public sealed class RoleAssignmentPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class RoleAssignmentPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Authorization.V20150701.Inputs
         public RoleAssignmentPropertiesArgs()
         {
         }
-        public static new RoleAssignmentPropertiesArgs Empty => new RoleAssignmentPropertiesArgs();
     }
 }

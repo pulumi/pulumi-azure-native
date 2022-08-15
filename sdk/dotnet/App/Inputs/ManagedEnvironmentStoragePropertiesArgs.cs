@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.Inputs
     /// <summary>
     /// Storage properties
     /// </summary>
-    public sealed class ManagedEnvironmentStoragePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedEnvironmentStoragePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure file properties
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.App.Inputs
         public ManagedEnvironmentStoragePropertiesArgs()
         {
         }
-        public static new ManagedEnvironmentStoragePropertiesArgs Empty => new ManagedEnvironmentStoragePropertiesArgs();
     }
 }

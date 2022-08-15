@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Solutions.V20180901Preview.Inputs
     /// <summary>
     /// Managed application policy.
     /// </summary>
-    public sealed class ApplicationPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplicationPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The policy name
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Solutions.V20180901Preview.Inputs
         public ApplicationPolicyArgs()
         {
         }
-        public static new ApplicationPolicyArgs Empty => new ApplicationPolicyArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.CustomProviders
     }
 
 
-    public sealed class GetAssociationArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAssociationArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the association.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.CustomProviders
         public GetAssociationArgs()
         {
         }
-        public static new GetAssociationArgs Empty => new GetAssociationArgs();
     }
 
-    public sealed class GetAssociationInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAssociationInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the association.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.CustomProviders
         public GetAssociationInvokeArgs()
         {
         }
-        public static new GetAssociationInvokeArgs Empty => new GetAssociationInvokeArgs();
     }
 
 

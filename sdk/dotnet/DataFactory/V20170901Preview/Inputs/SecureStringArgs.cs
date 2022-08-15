@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Azure Data Factory secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
     /// </summary>
-    public sealed class SecureStringArgs : global::Pulumi.ResourceArgs
+    public sealed class SecureStringArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of the secret.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public SecureStringArgs()
         {
         }
-        public static new SecureStringArgs Empty => new SecureStringArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.Inputs
     /// <summary>
     /// Workload database profile
     /// </summary>
-    public sealed class DatabaseProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class DatabaseProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Backup retention days for the server
@@ -84,6 +84,5 @@ namespace Pulumi.AzureNative.Workloads.Inputs
         public DatabaseProfileArgs()
         {
         }
-        public static new DatabaseProfileArgs Empty => new DatabaseProfileArgs();
     }
 }

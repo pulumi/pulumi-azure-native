@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210712.Inputs
     /// <summary>
     /// Properties for arm migration.
     /// </summary>
-    public sealed class MigrationRequestPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class MigrationRequestPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The path to the legacy object to migrate.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210712.Inputs
         public MigrationRequestPropertiesArgs()
         {
         }
-        public static new MigrationRequestPropertiesArgs Empty => new MigrationRequestPropertiesArgs();
     }
 }

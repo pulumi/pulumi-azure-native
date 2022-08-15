@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview.Inputs
     /// <summary>
     /// Exchange data type connection.
     /// </summary>
-    public sealed class OfficeDataConnectorDataTypesExchangeArgs : global::Pulumi.ResourceArgs
+    public sealed class OfficeDataConnectorDataTypesExchangeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describe whether this data type connection is enabled or not.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview.Inputs
         public OfficeDataConnectorDataTypesExchangeArgs()
         {
         }
-        public static new OfficeDataConnectorDataTypesExchangeArgs Empty => new OfficeDataConnectorDataTypesExchangeArgs();
     }
 }

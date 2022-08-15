@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// PolyBase settings.
     /// </summary>
-    public sealed class PolybaseSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class PolybaseSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines the number of rows to attempt to retrieve before the PolyBase recalculates the percentage of rejected rows. Type: integer (or Expression with resultType integer), minimum: 0.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public PolybaseSettingsArgs()
         {
         }
-        public static new PolybaseSettingsArgs Empty => new PolybaseSettingsArgs();
     }
 }

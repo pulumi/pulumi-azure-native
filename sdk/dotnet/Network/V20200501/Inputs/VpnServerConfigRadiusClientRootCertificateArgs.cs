@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200501.Inputs
     /// <summary>
     /// Properties of the Radius client root certificate of VpnServerConfiguration.
     /// </summary>
-    public sealed class VpnServerConfigRadiusClientRootCertificateArgs : global::Pulumi.ResourceArgs
+    public sealed class VpnServerConfigRadiusClientRootCertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The certificate name.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Network.V20200501.Inputs
         public VpnServerConfigRadiusClientRootCertificateArgs()
         {
         }
-        public static new VpnServerConfigRadiusClientRootCertificateArgs Empty => new VpnServerConfigRadiusClientRootCertificateArgs();
     }
 }

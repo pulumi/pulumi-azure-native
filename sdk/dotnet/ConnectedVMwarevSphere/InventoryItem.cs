@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     /// API Version: 2020-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere:InventoryItem")]
-    public partial class InventoryItem : global::Pulumi.CustomResource
+    public partial class InventoryItem : Pulumi.CustomResource
     {
         /// <summary>
         /// They inventory type.
@@ -95,8 +95,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20201001preview:InventoryItem"},
-                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220110preview:InventoryItem"},
+                    new Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20201001preview:InventoryItem"},
+                    new Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220110preview:InventoryItem"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         }
     }
 
-    public sealed class InventoryItemArgs : global::Pulumi.ResourceArgs
+    public sealed class InventoryItemArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the inventoryItem.
@@ -171,6 +171,5 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public InventoryItemArgs()
         {
         }
-        public static new InventoryItemArgs Empty => new InventoryItemArgs();
     }
 }

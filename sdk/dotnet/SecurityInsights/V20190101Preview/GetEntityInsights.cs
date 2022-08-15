@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
     }
 
 
-    public sealed class GetEntityInsightsArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEntityInsightsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Indicates if query time range should be extended with default time range of the query. Default value is false
@@ -84,10 +84,9 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         public GetEntityInsightsArgs()
         {
         }
-        public static new GetEntityInsightsArgs Empty => new GetEntityInsightsArgs();
     }
 
-    public sealed class GetEntityInsightsInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEntityInsightsInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Indicates if query time range should be extended with default time range of the query. Default value is false
@@ -146,7 +145,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         public GetEntityInsightsInvokeArgs()
         {
         }
-        public static new GetEntityInsightsInvokeArgs Empty => new GetEntityInsightsInvokeArgs();
     }
 
 

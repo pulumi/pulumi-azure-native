@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.Inputs
     /// <summary>
     /// Describes the connection monitor test group.
     /// </summary>
-    public sealed class ConnectionMonitorTestGroupArgs : global::Pulumi.ResourceArgs
+    public sealed class ConnectionMonitorTestGroupArgs : Pulumi.ResourceArgs
     {
         [Input("destinations", required: true)]
         private InputList<string>? _destinations;
@@ -66,6 +66,5 @@ namespace Pulumi.AzureNative.Network.Inputs
         public ConnectionMonitorTestGroupArgs()
         {
         }
-        public static new ConnectionMonitorTestGroupArgs Empty => new ConnectionMonitorTestGroupArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20200501.Inputs
     /// <summary>
     /// Select video tracks from the input by specifying an attribute and an attribute filter.
     /// </summary>
-    public sealed class SelectVideoTrackByAttributeArgs : global::Pulumi.ResourceArgs
+    public sealed class SelectVideoTrackByAttributeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The TrackAttribute to filter the tracks by.
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.Media.V20200501.Inputs
         public SelectVideoTrackByAttributeArgs()
         {
         }
-        public static new SelectVideoTrackByAttributeArgs Empty => new SelectVideoTrackByAttributeArgs();
     }
 }

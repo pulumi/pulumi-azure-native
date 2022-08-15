@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.Inputs
     /// <summary>
     /// The integration service environment access endpoint.
     /// </summary>
-    public sealed class IntegrationServiceEnvironmentAccessEndpointArgs : global::Pulumi.ResourceArgs
+    public sealed class IntegrationServiceEnvironmentAccessEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access endpoint type.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Logic.Inputs
         public IntegrationServiceEnvironmentAccessEndpointArgs()
         {
         }
-        public static new IntegrationServiceEnvironmentAccessEndpointArgs Empty => new IntegrationServiceEnvironmentAccessEndpointArgs();
     }
 }

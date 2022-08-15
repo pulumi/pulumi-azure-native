@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.AppPlatform
     }
 
 
-    public sealed class GetStorageArgs : global::Pulumi.InvokeArgs
+    public sealed class GetStorageArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.AppPlatform
         public GetStorageArgs()
         {
         }
-        public static new GetStorageArgs Empty => new GetStorageArgs();
     }
 
-    public sealed class GetStorageInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetStorageInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.AppPlatform
         public GetStorageInvokeArgs()
         {
         }
-        public static new GetStorageInvokeArgs Empty => new GetStorageInvokeArgs();
     }
 
 

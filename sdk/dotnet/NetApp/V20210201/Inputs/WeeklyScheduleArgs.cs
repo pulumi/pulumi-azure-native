@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NetApp.V20210201.Inputs
     /// <summary>
     /// Weekly Schedule properties, make a snapshot every week at a specific day or days
     /// </summary>
-    public sealed class WeeklyScheduleArgs : global::Pulumi.ResourceArgs
+    public sealed class WeeklyScheduleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates which weekdays snapshot should be taken, accepts a comma separated list of week day names in english
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.NetApp.V20210201.Inputs
         public WeeklyScheduleArgs()
         {
         }
-        public static new WeeklyScheduleArgs Empty => new WeeklyScheduleArgs();
     }
 }

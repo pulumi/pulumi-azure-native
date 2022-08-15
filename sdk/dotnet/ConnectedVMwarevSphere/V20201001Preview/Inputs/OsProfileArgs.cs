@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview.Inputs
     /// <summary>
     /// Defines the resource properties.
     /// </summary>
-    public sealed class OsProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class OsProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets administrator password.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview.Inputs
         public OsProfileArgs()
         {
         }
-        public static new OsProfileArgs Empty => new OsProfileArgs();
     }
 }

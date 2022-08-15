@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Notebook parameter.
     /// </summary>
-    public sealed class NotebookParameterArgs : global::Pulumi.ResourceArgs
+    public sealed class NotebookParameterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Notebook parameter type.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public NotebookParameterArgs()
         {
         }
-        public static new NotebookParameterArgs Empty => new NotebookParameterArgs();
     }
 }

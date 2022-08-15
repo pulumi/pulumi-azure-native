@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Elastic.V20211001Preview
     }
 
 
-    public sealed class ListUpgradableVersionDetailsArgs : global::Pulumi.InvokeArgs
+    public sealed class ListUpgradableVersionDetailsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Monitor resource name
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.Elastic.V20211001Preview
         public ListUpgradableVersionDetailsArgs()
         {
         }
-        public static new ListUpgradableVersionDetailsArgs Empty => new ListUpgradableVersionDetailsArgs();
     }
 
-    public sealed class ListUpgradableVersionDetailsInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListUpgradableVersionDetailsInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Monitor resource name
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.Elastic.V20211001Preview
         public ListUpgradableVersionDetailsInvokeArgs()
         {
         }
-        public static new ListUpgradableVersionDetailsInvokeArgs Empty => new ListUpgradableVersionDetailsInvokeArgs();
     }
 
 

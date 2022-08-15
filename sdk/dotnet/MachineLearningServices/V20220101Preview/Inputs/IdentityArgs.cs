@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220101Preview.Inputs
     /// <summary>
     /// Identity for the resource.
     /// </summary>
-    public sealed class IdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class IdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity type.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220101Preview.Inputs
         public IdentityArgs()
         {
         }
-        public static new IdentityArgs Empty => new IdentityArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
     /// <summary>
     /// Describes a Gateway Message Bus output data source.
     /// </summary>
-    public sealed class GatewayMessageBusOutputDataSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class GatewayMessageBusOutputDataSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Service Bus topic.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
         public GatewayMessageBusOutputDataSourceArgs()
         {
         }
-        public static new GatewayMessageBusOutputDataSourceArgs Empty => new GatewayMessageBusOutputDataSourceArgs();
     }
 }

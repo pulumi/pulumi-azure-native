@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20190501Preview.Inputs
     /// <summary>
     /// Distribute as a Managed Disk Image.
     /// </summary>
-    public sealed class ImageTemplateManagedImageDistributorArgs : global::Pulumi.ResourceArgs
+    public sealed class ImageTemplateManagedImageDistributorArgs : Pulumi.ResourceArgs
     {
         [Input("artifactTags")]
         private InputMap<string>? _artifactTags;
@@ -55,6 +55,5 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20190501Preview.Inputs
         public ImageTemplateManagedImageDistributorArgs()
         {
         }
-        public static new ImageTemplateManagedImageDistributorArgs Empty => new ImageTemplateManagedImageDistributorArgs();
     }
 }

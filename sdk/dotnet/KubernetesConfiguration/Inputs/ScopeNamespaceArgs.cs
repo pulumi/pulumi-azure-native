@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.Inputs
     /// <summary>
     /// Specifies that the scope of the extensionInstance is Namespace
     /// </summary>
-    public sealed class ScopeNamespaceArgs : global::Pulumi.ResourceArgs
+    public sealed class ScopeNamespaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.Inputs
         public ScopeNamespaceArgs()
         {
         }
-        public static new ScopeNamespaceArgs Empty => new ScopeNamespaceArgs();
     }
 }

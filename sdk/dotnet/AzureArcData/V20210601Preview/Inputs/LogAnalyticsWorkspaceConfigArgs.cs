@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20210601Preview.Inputs
     /// <summary>
     /// Log analytics workspace id and primary key
     /// </summary>
-    public sealed class LogAnalyticsWorkspaceConfigArgs : global::Pulumi.ResourceArgs
+    public sealed class LogAnalyticsWorkspaceConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Primary key of the workspace
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.AzureArcData.V20210601Preview.Inputs
         public LogAnalyticsWorkspaceConfigArgs()
         {
         }
-        public static new LogAnalyticsWorkspaceConfigArgs Empty => new LogAnalyticsWorkspaceConfigArgs();
     }
 }

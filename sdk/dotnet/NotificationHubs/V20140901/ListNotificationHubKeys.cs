@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.NotificationHubs.V20140901
     }
 
 
-    public sealed class ListNotificationHubKeysArgs : global::Pulumi.InvokeArgs
+    public sealed class ListNotificationHubKeysArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The connection string of the NotificationHub for the specified authorizationRule.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.NotificationHubs.V20140901
         public ListNotificationHubKeysArgs()
         {
         }
-        public static new ListNotificationHubKeysArgs Empty => new ListNotificationHubKeysArgs();
     }
 
-    public sealed class ListNotificationHubKeysInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListNotificationHubKeysInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The connection string of the NotificationHub for the specified authorizationRule.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.NotificationHubs.V20140901
         public ListNotificationHubKeysInvokeArgs()
         {
         }
-        public static new ListNotificationHubKeysInvokeArgs Empty => new ListNotificationHubKeysInvokeArgs();
     }
 
 

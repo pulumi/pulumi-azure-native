@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210101Preview.Inputs
     /// <summary>
     /// Describes the policy to be used for placement of a Service Fabric service where a particular fault or upgrade domain should not be used for placement of the instances or replicas of that service.
     /// </summary>
-    public sealed class ServicePlacementInvalidDomainPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class ServicePlacementInvalidDomainPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the domain that should not be used for placement.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210101Preview.Inputs
         public ServicePlacementInvalidDomainPolicyArgs()
         {
         }
-        public static new ServicePlacementInvalidDomainPolicyArgs Empty => new ServicePlacementInvalidDomainPolicyArgs();
     }
 }

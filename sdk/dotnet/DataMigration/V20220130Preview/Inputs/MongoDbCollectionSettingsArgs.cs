@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220130Preview.Inputs
     /// <summary>
     /// Describes how an individual MongoDB collection should be migrated
     /// </summary>
-    public sealed class MongoDbCollectionSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class MongoDbCollectionSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the migrator is allowed to drop the target collection in the course of performing a migration. The default is true.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DataMigration.V20220130Preview.Inputs
         public MongoDbCollectionSettingsArgs()
         {
         }
-        public static new MongoDbCollectionSettingsArgs Empty => new MongoDbCollectionSettingsArgs();
     }
 }

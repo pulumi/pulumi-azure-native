@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20200401
     }
 
 
-    public sealed class GetVpnServerConfigurationArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVpnServerConfigurationArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource group name of the VpnServerConfiguration.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.Network.V20200401
         public GetVpnServerConfigurationArgs()
         {
         }
-        public static new GetVpnServerConfigurationArgs Empty => new GetVpnServerConfigurationArgs();
     }
 
-    public sealed class GetVpnServerConfigurationInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVpnServerConfigurationInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource group name of the VpnServerConfiguration.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.Network.V20200401
         public GetVpnServerConfigurationInvokeArgs()
         {
         }
-        public static new GetVpnServerConfigurationInvokeArgs Empty => new GetVpnServerConfigurationInvokeArgs();
     }
 
 

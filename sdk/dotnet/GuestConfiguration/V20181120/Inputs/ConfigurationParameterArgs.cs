@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20181120.Inputs
     /// <summary>
     /// Represents a configuration parameter.
     /// </summary>
-    public sealed class ConfigurationParameterArgs : global::Pulumi.ResourceArgs
+    public sealed class ConfigurationParameterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the configuration parameter.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20181120.Inputs
         public ConfigurationParameterArgs()
         {
         }
-        public static new ConfigurationParameterArgs Empty => new ConfigurationParameterArgs();
     }
 }

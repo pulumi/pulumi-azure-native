@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Netezza linked service.
     /// </summary>
-    public sealed class NetezzaLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class NetezzaLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -79,6 +79,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public NetezzaLinkedServiceArgs()
         {
         }
-        public static new NetezzaLinkedServiceArgs Empty => new NetezzaLinkedServiceArgs();
     }
 }

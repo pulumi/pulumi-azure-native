@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20160330.Inputs
     /// <summary>
     /// Inbound NAT pool of the loadbalancer
     /// </summary>
-    public sealed class InboundNatPoolArgs : global::Pulumi.ResourceArgs
+    public sealed class InboundNatPoolArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets a port used for internal connections on the endpoint. The localPort attribute maps the eternal port of the endpoint to an internal port on a role. This is useful in scenarios where a role must communicate to an internal component on a port that is different from the one that is exposed externally. If not specified, the value of localPort is the same as the port attribute. Set the value of localPort to '*' to automatically assign an unallocated port that is discoverable using the runtime API
@@ -72,6 +72,5 @@ namespace Pulumi.AzureNative.Network.V20160330.Inputs
         public InboundNatPoolArgs()
         {
         }
-        public static new InboundNatPoolArgs Empty => new InboundNatPoolArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20200501.Inputs
     /// <summary>
     /// Filter First Quality
     /// </summary>
-    public sealed class FirstQualityArgs : global::Pulumi.ResourceArgs
+    public sealed class FirstQualityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The first quality bitrate.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Media.V20200501.Inputs
         public FirstQualityArgs()
         {
         }
-        public static new FirstQualityArgs Empty => new FirstQualityArgs();
     }
 }

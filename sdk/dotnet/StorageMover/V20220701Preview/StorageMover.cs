@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageMover.V20220701Preview
     /// The Storage Mover resource, which is a container for a group of Agents, Projects, and Endpoints.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagemover/v20220701preview:StorageMover")]
-    public partial class StorageMover : global::Pulumi.CustomResource
+    public partial class StorageMover : Pulumi.CustomResource
     {
         /// <summary>
         /// A description for the Storage Mover.
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.StorageMover.V20220701Preview
         }
     }
 
-    public sealed class StorageMoverArgs : global::Pulumi.ResourceArgs
+    public sealed class StorageMoverArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description for the Storage Mover.
@@ -141,6 +141,5 @@ namespace Pulumi.AzureNative.StorageMover.V20220701Preview
         public StorageMoverArgs()
         {
         }
-        public static new StorageMoverArgs Empty => new StorageMoverArgs();
     }
 }

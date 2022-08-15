@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20151101Preview.Inputs
     /// <summary>
     /// Profile for Windows jumpbox
     /// </summary>
-    public sealed class ContainerServiceWindowsProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class ContainerServiceWindowsProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The administrator password to use for Windows jumpbox
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ContainerService.V20151101Preview.Inputs
         public ContainerServiceWindowsProfileArgs()
         {
         }
-        public static new ContainerServiceWindowsProfileArgs Empty => new ContainerServiceWindowsProfileArgs();
     }
 }

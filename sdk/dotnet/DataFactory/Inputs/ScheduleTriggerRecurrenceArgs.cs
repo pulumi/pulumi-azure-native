@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The workflow trigger recurrence.
     /// </summary>
-    public sealed class ScheduleTriggerRecurrenceArgs : global::Pulumi.ResourceArgs
+    public sealed class ScheduleTriggerRecurrenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The end time.
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public ScheduleTriggerRecurrenceArgs()
         {
         }
-        public static new ScheduleTriggerRecurrenceArgs Empty => new ScheduleTriggerRecurrenceArgs();
     }
 }

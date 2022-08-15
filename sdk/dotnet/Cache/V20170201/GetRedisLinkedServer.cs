@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Cache.V20170201
     }
 
 
-    public sealed class GetRedisLinkedServerArgs : global::Pulumi.InvokeArgs
+    public sealed class GetRedisLinkedServerArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the linked server.
@@ -49,10 +49,9 @@ namespace Pulumi.AzureNative.Cache.V20170201
         public GetRedisLinkedServerArgs()
         {
         }
-        public static new GetRedisLinkedServerArgs Empty => new GetRedisLinkedServerArgs();
     }
 
-    public sealed class GetRedisLinkedServerInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetRedisLinkedServerInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the linked server.
@@ -75,7 +74,6 @@ namespace Pulumi.AzureNative.Cache.V20170201
         public GetRedisLinkedServerInvokeArgs()
         {
         }
-        public static new GetRedisLinkedServerInvokeArgs Empty => new GetRedisLinkedServerInvokeArgs();
     }
 
 

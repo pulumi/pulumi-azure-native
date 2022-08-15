@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20220310.Inputs
     /// <summary>
     /// Reports the state and behavior of dependent services.
     /// </summary>
-    public sealed class ServiceStatusesArgs : global::Pulumi.ResourceArgs
+    public sealed class ServiceStatusesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The state of the extension service on the Arc-enabled machine.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.HybridCompute.V20220310.Inputs
         public ServiceStatusesArgs()
         {
         }
-        public static new ServiceStatusesArgs Empty => new ServiceStatusesArgs();
     }
 }

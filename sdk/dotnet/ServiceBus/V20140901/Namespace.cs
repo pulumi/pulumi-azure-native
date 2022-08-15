@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20140901
     /// </summary>
     [Obsolete(@"Version 2014-09-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:servicebus/v20140901:Namespace")]
-    public partial class Namespace : global::Pulumi.CustomResource
+    public partial class Namespace : Pulumi.CustomResource
     {
         /// <summary>
         /// Indicates whether to create an ACS namespace.
@@ -113,14 +113,14 @@ namespace Pulumi.AzureNative.ServiceBus.V20140901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20150801:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20150801:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20170401:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20211101:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:Namespace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20140901
         }
     }
 
-    public sealed class NamespaceArgs : global::Pulumi.ResourceArgs
+    public sealed class NamespaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether to create an ACS namespace.
@@ -201,6 +201,5 @@ namespace Pulumi.AzureNative.ServiceBus.V20140901
         public NamespaceArgs()
         {
         }
-        public static new NamespaceArgs Empty => new NamespaceArgs();
     }
 }

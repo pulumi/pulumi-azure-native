@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20201001
     /// The top level Log Analytics cluster resource container.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights/v20201001:Cluster")]
-    public partial class Cluster : global::Pulumi.CustomResource
+    public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>
         /// The list of Log Analytics workspaces associated with the cluster
@@ -130,11 +130,11 @@ namespace Pulumi.AzureNative.OperationalInsights.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights:Cluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20190801preview:Cluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:Cluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:Cluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20210601:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20190801preview:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20210601:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -156,7 +156,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20201001
         }
     }
 
-    public sealed class ClusterArgs : global::Pulumi.ResourceArgs
+    public sealed class ClusterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The cluster's billing type.
@@ -227,6 +227,5 @@ namespace Pulumi.AzureNative.OperationalInsights.V20201001
         public ClusterArgs()
         {
         }
-        public static new ClusterArgs Empty => new ClusterArgs();
     }
 }

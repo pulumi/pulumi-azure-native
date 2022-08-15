@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// The Open Data Protocol (OData) resource dataset.
     /// </summary>
-    public sealed class ODataResourceDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class ODataResourceDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,6 +85,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public ODataResourceDatasetArgs()
         {
         }
-        public static new ODataResourceDatasetArgs Empty => new ODataResourceDatasetArgs();
     }
 }

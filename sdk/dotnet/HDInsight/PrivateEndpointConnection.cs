@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.HDInsight
     /// API Version: 2021-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:hdinsight:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// The link identifier.
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.HDInsight
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20210601:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:hdinsight/v20210601:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -105,7 +105,7 @@ namespace Pulumi.AzureNative.HDInsight
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the cluster.
@@ -134,6 +134,5 @@ namespace Pulumi.AzureNative.HDInsight
         public PrivateEndpointConnectionArgs()
         {
         }
-        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

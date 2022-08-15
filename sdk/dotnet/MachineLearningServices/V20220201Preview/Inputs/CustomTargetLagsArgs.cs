@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
 {
 
-    public sealed class CustomTargetLagsArgs : global::Pulumi.ResourceArgs
+    public sealed class CustomTargetLagsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Target lags selection modes.
@@ -34,6 +34,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         public CustomTargetLagsArgs()
         {
         }
-        public static new CustomTargetLagsArgs Empty => new CustomTargetLagsArgs();
     }
 }

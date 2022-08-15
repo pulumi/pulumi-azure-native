@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.WebPubSub.Inputs
     /// <summary>
     /// Network ACL
     /// </summary>
-    public sealed class NetworkACLArgs : global::Pulumi.ResourceArgs
+    public sealed class NetworkACLArgs : Pulumi.ResourceArgs
     {
         [Input("allow")]
         private InputList<Union<string, Pulumi.AzureNative.WebPubSub.WebPubSubRequestType>>? _allow;
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.WebPubSub.Inputs
         public NetworkACLArgs()
         {
         }
-        public static new NetworkACLArgs Empty => new NetworkACLArgs();
     }
 }

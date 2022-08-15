@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.V20150801
     /// </summary>
     [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:web/v20150801:SiteVNETConnection")]
-    public partial class SiteVNETConnection : global::Pulumi.CustomResource
+    public partial class SiteVNETConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
@@ -108,20 +108,20 @@ namespace Pulumi.AzureNative.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:SiteVNETConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:SiteVNETConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:SiteVNETConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:SiteVNETConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:SiteVNETConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:SiteVNETConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:SiteVNETConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:SiteVNETConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:SiteVNETConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:SiteVNETConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:SiteVNETConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:SiteVNETConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:SiteVNETConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:SiteVNETConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web:SiteVNETConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:SiteVNETConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:SiteVNETConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:SiteVNETConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:SiteVNETConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:SiteVNETConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:SiteVNETConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:SiteVNETConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:SiteVNETConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:SiteVNETConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:SiteVNETConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:SiteVNETConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:SiteVNETConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:SiteVNETConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -143,7 +143,7 @@ namespace Pulumi.AzureNative.Web.V20150801
         }
     }
 
-    public sealed class SiteVNETConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class SiteVNETConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
@@ -245,6 +245,5 @@ namespace Pulumi.AzureNative.Web.V20150801
         public SiteVNETConnectionArgs()
         {
         }
-        public static new SiteVNETConnectionArgs Empty => new SiteVNETConnectionArgs();
     }
 }

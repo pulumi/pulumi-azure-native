@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Sql.V20140401
     }
 
 
-    public sealed class GetTransparentDataEncryptionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetTransparentDataEncryptionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the database for which the transparent data encryption applies.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.Sql.V20140401
         public GetTransparentDataEncryptionArgs()
         {
         }
-        public static new GetTransparentDataEncryptionArgs Empty => new GetTransparentDataEncryptionArgs();
     }
 
-    public sealed class GetTransparentDataEncryptionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetTransparentDataEncryptionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the database for which the transparent data encryption applies.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.Sql.V20140401
         public GetTransparentDataEncryptionInvokeArgs()
         {
         }
-        public static new GetTransparentDataEncryptionInvokeArgs Empty => new GetTransparentDataEncryptionInvokeArgs();
     }
 
 

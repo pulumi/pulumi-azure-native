@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataProtection.V20211001Preview.Inputs
     /// <summary>
     /// Policy Info in backupInstance
     /// </summary>
-    public sealed class PolicyInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class PolicyInfoArgs : Pulumi.ResourceArgs
     {
         [Input("policyId", required: true)]
         public Input<string> PolicyId { get; set; } = null!;
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.DataProtection.V20211001Preview.Inputs
         public PolicyInfoArgs()
         {
         }
-        public static new PolicyInfoArgs Empty => new PolicyInfoArgs();
     }
 }

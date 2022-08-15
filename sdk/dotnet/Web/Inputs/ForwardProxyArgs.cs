@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.Inputs
     /// <summary>
     /// The configuration settings of a forward proxy used to make the requests.
     /// </summary>
-    public sealed class ForwardProxyArgs : global::Pulumi.ResourceArgs
+    public sealed class ForwardProxyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The convention used to determine the url of the request made.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Web.Inputs
         public ForwardProxyArgs()
         {
         }
-        public static new ForwardProxyArgs Empty => new ForwardProxyArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.IoTCentral
     }
 
 
-    public sealed class GetAppArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAppArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the IoT Central application.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.IoTCentral
         public GetAppArgs()
         {
         }
-        public static new GetAppArgs Empty => new GetAppArgs();
     }
 
-    public sealed class GetAppInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAppInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the IoT Central application.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.IoTCentral
         public GetAppInvokeArgs()
         {
         }
-        public static new GetAppInvokeArgs Empty => new GetAppInvokeArgs();
     }
 
 

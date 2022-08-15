@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
-    public sealed class X12MessageFilterArgs : global::Pulumi.ResourceArgs
+    public sealed class X12MessageFilterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The message filter type.
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
         public X12MessageFilterArgs()
         {
         }
-        public static new X12MessageFilterArgs Empty => new X12MessageFilterArgs();
     }
 }

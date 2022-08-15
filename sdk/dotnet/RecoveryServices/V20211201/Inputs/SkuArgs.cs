@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201.Inputs
     /// <summary>
     /// Identifies the unique system identifier for each Azure resource.
     /// </summary>
-    public sealed class SkuArgs : global::Pulumi.ResourceArgs
+    public sealed class SkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The sku capacity
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201.Inputs
         public SkuArgs()
         {
         }
-        public static new SkuArgs Empty => new SkuArgs();
     }
 }

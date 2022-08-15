@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A copy activity Avro sink.
     /// </summary>
-    public sealed class AvroSinkArgs : global::Pulumi.ResourceArgs
+    public sealed class AvroSinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -73,6 +73,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public AvroSinkArgs()
         {
         }
-        public static new AvroSinkArgs Empty => new AvroSinkArgs();
     }
 }

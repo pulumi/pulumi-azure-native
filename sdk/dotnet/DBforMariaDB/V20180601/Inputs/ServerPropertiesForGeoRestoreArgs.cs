@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601.Inputs
     /// <summary>
     /// The properties used to create a new server by restoring to a different region from a geo replicated backup.
     /// </summary>
-    public sealed class ServerPropertiesForGeoRestoreArgs : global::Pulumi.ResourceArgs
+    public sealed class ServerPropertiesForGeoRestoreArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The mode to create a new server.
@@ -61,6 +61,5 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601.Inputs
         public ServerPropertiesForGeoRestoreArgs()
         {
         }
-        public static new ServerPropertiesForGeoRestoreArgs Empty => new ServerPropertiesForGeoRestoreArgs();
     }
 }

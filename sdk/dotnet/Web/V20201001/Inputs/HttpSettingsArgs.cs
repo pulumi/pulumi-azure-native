@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20201001.Inputs
 {
 
-    public sealed class HttpSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class HttpSettingsArgs : Pulumi.ResourceArgs
     {
         [Input("forwardProxy")]
         public Input<Inputs.ForwardProxyArgs>? ForwardProxy { get; set; }
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Web.V20201001.Inputs
         public HttpSettingsArgs()
         {
         }
-        public static new HttpSettingsArgs Empty => new HttpSettingsArgs();
     }
 }

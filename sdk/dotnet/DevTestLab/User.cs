@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DevTestLab
     /// API Version: 2018-09-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab:User")]
-    public partial class User : global::Pulumi.CustomResource
+    public partial class User : Pulumi.CustomResource
     {
         /// <summary>
         /// The creation date of the user profile.
@@ -95,8 +95,8 @@ namespace Pulumi.AzureNative.DevTestLab
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:User"},
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:User"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:User"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:User"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.DevTestLab
         }
     }
 
-    public sealed class UserArgs : global::Pulumi.ResourceArgs
+    public sealed class UserArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity of the user.
@@ -171,6 +171,5 @@ namespace Pulumi.AzureNative.DevTestLab
         public UserArgs()
         {
         }
-        public static new UserArgs Empty => new UserArgs();
     }
 }

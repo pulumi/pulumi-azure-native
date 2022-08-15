@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200501.Inputs
     /// <summary>
     /// PrivateDnsZoneConfig resource.
     /// </summary>
-    public sealed class PrivateDnsZoneConfigArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateDnsZoneConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Network.V20200501.Inputs
         public PrivateDnsZoneConfigArgs()
         {
         }
-        public static new PrivateDnsZoneConfigArgs Empty => new PrivateDnsZoneConfigArgs();
     }
 }

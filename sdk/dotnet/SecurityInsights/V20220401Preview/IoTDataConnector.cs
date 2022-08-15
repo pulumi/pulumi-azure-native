@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
     /// Represents IoT data connector.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20220401preview:IoTDataConnector")]
-    public partial class IoTDataConnector : global::Pulumi.CustomResource
+    public partial class IoTDataConnector : Pulumi.CustomResource
     {
         /// <summary>
         /// The available data types for the connector.
@@ -90,18 +90,18 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:IoTDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:IoTDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:IoTDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:IoTDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:IoTDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:IoTDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:IoTDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:IoTDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:IoTDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:IoTDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:IoTDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:IoTDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights:IoTDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:IoTDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:IoTDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:IoTDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:IoTDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:IoTDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:IoTDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:IoTDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:IoTDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:IoTDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:IoTDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:IoTDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -123,7 +123,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
         }
     }
 
-    public sealed class IoTDataConnectorArgs : global::Pulumi.ResourceArgs
+    public sealed class IoTDataConnectorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Connector ID
@@ -165,6 +165,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
         public IoTDataConnectorArgs()
         {
         }
-        public static new IoTDataConnectorArgs Empty => new IoTDataConnectorArgs();
     }
 }

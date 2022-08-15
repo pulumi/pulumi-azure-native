@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.TestBase
     }
 
 
-    public sealed class GetBillingHubServiceFreeHourBalanceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBillingHubServiceFreeHourBalanceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the resource.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.TestBase
         public GetBillingHubServiceFreeHourBalanceArgs()
         {
         }
-        public static new GetBillingHubServiceFreeHourBalanceArgs Empty => new GetBillingHubServiceFreeHourBalanceArgs();
     }
 
-    public sealed class GetBillingHubServiceFreeHourBalanceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBillingHubServiceFreeHourBalanceInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the resource.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.TestBase
         public GetBillingHubServiceFreeHourBalanceInvokeArgs()
         {
         }
-        public static new GetBillingHubServiceFreeHourBalanceInvokeArgs Empty => new GetBillingHubServiceFreeHourBalanceInvokeArgs();
     }
 
 

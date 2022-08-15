@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601Preview
     /// Trigger details.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge/v20210601preview:FileEventTrigger")]
-    public partial class FileEventTrigger : global::Pulumi.CustomResource
+    public partial class FileEventTrigger : Pulumi.CustomResource
     {
         /// <summary>
         /// A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
@@ -90,19 +90,19 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:FileEventTrigger"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:FileEventTrigger"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:FileEventTrigger"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:FileEventTrigger"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:FileEventTrigger"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:FileEventTrigger"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:FileEventTrigger"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:FileEventTrigger"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:FileEventTrigger"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:FileEventTrigger"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:FileEventTrigger"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:FileEventTrigger"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:FileEventTrigger"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge:FileEventTrigger"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:FileEventTrigger"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:FileEventTrigger"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:FileEventTrigger"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:FileEventTrigger"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:FileEventTrigger"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:FileEventTrigger"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:FileEventTrigger"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:FileEventTrigger"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:FileEventTrigger"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:FileEventTrigger"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:FileEventTrigger"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:FileEventTrigger"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601Preview
         }
     }
 
-    public sealed class FileEventTriggerArgs : global::Pulumi.ResourceArgs
+    public sealed class FileEventTriggerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
@@ -172,6 +172,5 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601Preview
         public FileEventTriggerArgs()
         {
         }
-        public static new FileEventTriggerArgs Empty => new FileEventTriggerArgs();
     }
 }

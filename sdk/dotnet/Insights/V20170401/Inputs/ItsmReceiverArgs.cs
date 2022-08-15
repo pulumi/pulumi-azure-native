@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20170401.Inputs
     /// <summary>
     /// An Itsm receiver.
     /// </summary>
-    public sealed class ItsmReceiverArgs : global::Pulumi.ResourceArgs
+    public sealed class ItsmReceiverArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Unique identification of ITSM connection among multiple defined in above workspace.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.Insights.V20170401.Inputs
         public ItsmReceiverArgs()
         {
         }
-        public static new ItsmReceiverArgs Empty => new ItsmReceiverArgs();
     }
 }

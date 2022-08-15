@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.AzureStack.V20200601Preview
     }
 
 
-    public sealed class GetLinkedSubscriptionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetLinkedSubscriptionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Linked Subscription resource.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.AzureStack.V20200601Preview
         public GetLinkedSubscriptionArgs()
         {
         }
-        public static new GetLinkedSubscriptionArgs Empty => new GetLinkedSubscriptionArgs();
     }
 
-    public sealed class GetLinkedSubscriptionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetLinkedSubscriptionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Linked Subscription resource.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.AzureStack.V20200601Preview
         public GetLinkedSubscriptionInvokeArgs()
         {
         }
-        public static new GetLinkedSubscriptionInvokeArgs Empty => new GetLinkedSubscriptionInvokeArgs();
     }
 
 

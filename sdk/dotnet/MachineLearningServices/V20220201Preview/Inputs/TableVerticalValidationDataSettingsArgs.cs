@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// Validation settings for AutoML Table vertical tasks - Classification/Regression/Forecasting.
     /// </summary>
-    public sealed class TableVerticalValidationDataSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class TableVerticalValidationDataSettingsArgs : Pulumi.ResourceArgs
     {
         [Input("cvSplitColumnNames")]
         private InputList<string>? _cvSplitColumnNames;
@@ -51,6 +51,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         public TableVerticalValidationDataSettingsArgs()
         {
         }
-        public static new TableVerticalValidationDataSettingsArgs Empty => new TableVerticalValidationDataSettingsArgs();
     }
 }

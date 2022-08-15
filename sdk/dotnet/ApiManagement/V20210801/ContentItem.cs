@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801
     /// Content type contract details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20210801:ContentItem")]
-    public partial class ContentItem : global::Pulumi.CustomResource
+    public partial class ContentItem : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -58,13 +58,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:ContentItem"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ContentItem"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ContentItem"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ContentItem"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:ContentItem"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:ContentItem"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ContentItem"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:ContentItem"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ContentItem"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ContentItem"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ContentItem"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:ContentItem"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:ContentItem"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ContentItem"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801
         }
     }
 
-    public sealed class ContentItemArgs : global::Pulumi.ResourceArgs
+    public sealed class ContentItemArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Content item identifier.
@@ -115,6 +115,5 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801
         public ContentItemArgs()
         {
         }
-        public static new ContentItemArgs Empty => new ContentItemArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SoftwarePlan.V20190601Preview
     /// Response on GET of a hybrid use benefit
     /// </summary>
     [AzureNativeResourceType("azure-native:softwareplan/v20190601preview:HybridUseBenefit")]
-    public partial class HybridUseBenefit : global::Pulumi.CustomResource
+    public partial class HybridUseBenefit : Pulumi.CustomResource
     {
         /// <summary>
         /// Created date
@@ -82,8 +82,8 @@ namespace Pulumi.AzureNative.SoftwarePlan.V20190601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:softwareplan:HybridUseBenefit"},
-                    new global::Pulumi.Alias { Type = "azure-native:softwareplan/v20191201:HybridUseBenefit"},
+                    new Pulumi.Alias { Type = "azure-native:softwareplan:HybridUseBenefit"},
+                    new Pulumi.Alias { Type = "azure-native:softwareplan/v20191201:HybridUseBenefit"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -105,7 +105,7 @@ namespace Pulumi.AzureNative.SoftwarePlan.V20190601Preview
         }
     }
 
-    public sealed class HybridUseBenefitArgs : global::Pulumi.ResourceArgs
+    public sealed class HybridUseBenefitArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// This is a unique identifier for a plan. Should be a guid.
@@ -128,6 +128,5 @@ namespace Pulumi.AzureNative.SoftwarePlan.V20190601Preview
         public HybridUseBenefitArgs()
         {
         }
-        public static new HybridUseBenefitArgs Empty => new HybridUseBenefitArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.V20220301.Inputs
     /// <summary>
     /// The configuration settings of the app registration for providers that have client ids and client secrets
     /// </summary>
-    public sealed class ClientRegistrationArgs : global::Pulumi.ResourceArgs
+    public sealed class ClientRegistrationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Client ID of the app used for login.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.App.V20220301.Inputs
         public ClientRegistrationArgs()
         {
         }
-        public static new ClientRegistrationArgs Empty => new ClientRegistrationArgs();
     }
 }

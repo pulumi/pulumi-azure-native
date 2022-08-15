@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataProtection.V20220401.Inputs
     /// <summary>
     /// Parameters for Operational-Tier DataStore
     /// </summary>
-    public sealed class AzureOperationalStoreParametersArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureOperationalStoreParametersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// type of datastore; Operational/Vault/Archive
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.DataProtection.V20220401.Inputs
         public AzureOperationalStoreParametersArgs()
         {
         }
-        public static new AzureOperationalStoreParametersArgs Empty => new AzureOperationalStoreParametersArgs();
     }
 }

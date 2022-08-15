@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.Inputs
     /// <summary>
     /// Location of a Data Pool
     /// </summary>
-    public sealed class DataPoolLocationArgs : global::Pulumi.ResourceArgs
+    public sealed class DataPoolLocationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Encryption properties of a Data Pool location
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.Inputs
         public DataPoolLocationArgs()
         {
         }
-        public static new DataPoolLocationArgs Empty => new DataPoolLocationArgs();
     }
 }

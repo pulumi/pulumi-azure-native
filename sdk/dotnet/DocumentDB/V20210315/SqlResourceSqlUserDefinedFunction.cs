@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210315
     /// An Azure Cosmos DB userDefinedFunction.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb/v20210315:SqlResourceSqlUserDefinedFunction")]
-    public partial class SqlResourceSqlUserDefinedFunction : global::Pulumi.CustomResource
+    public partial class SqlResourceSqlUserDefinedFunction : Pulumi.CustomResource
     {
         /// <summary>
         /// The location of the resource group to which the resource belongs.
@@ -67,26 +67,26 @@ namespace Pulumi.AzureNative.DocumentDB.V20210315
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb:SqlResourceSqlUserDefinedFunction"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20190801:SqlResourceSqlUserDefinedFunction"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20191212:SqlResourceSqlUserDefinedFunction"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200301:SqlResourceSqlUserDefinedFunction"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200401:SqlResourceSqlUserDefinedFunction"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200901:SqlResourceSqlUserDefinedFunction"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210115:SqlResourceSqlUserDefinedFunction"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:SqlResourceSqlUserDefinedFunction"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:SqlResourceSqlUserDefinedFunction"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210415:SqlResourceSqlUserDefinedFunction"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210515:SqlResourceSqlUserDefinedFunction"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210615:SqlResourceSqlUserDefinedFunction"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:SqlResourceSqlUserDefinedFunction"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015:SqlResourceSqlUserDefinedFunction"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:SqlResourceSqlUserDefinedFunction"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:SqlResourceSqlUserDefinedFunction"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:SqlResourceSqlUserDefinedFunction"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515:SqlResourceSqlUserDefinedFunction"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:SqlResourceSqlUserDefinedFunction"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb:SqlResourceSqlUserDefinedFunction"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20190801:SqlResourceSqlUserDefinedFunction"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20191212:SqlResourceSqlUserDefinedFunction"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200301:SqlResourceSqlUserDefinedFunction"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200401:SqlResourceSqlUserDefinedFunction"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200901:SqlResourceSqlUserDefinedFunction"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210115:SqlResourceSqlUserDefinedFunction"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:SqlResourceSqlUserDefinedFunction"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:SqlResourceSqlUserDefinedFunction"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210415:SqlResourceSqlUserDefinedFunction"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210515:SqlResourceSqlUserDefinedFunction"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210615:SqlResourceSqlUserDefinedFunction"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:SqlResourceSqlUserDefinedFunction"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211015:SqlResourceSqlUserDefinedFunction"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:SqlResourceSqlUserDefinedFunction"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:SqlResourceSqlUserDefinedFunction"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:SqlResourceSqlUserDefinedFunction"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220515:SqlResourceSqlUserDefinedFunction"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:SqlResourceSqlUserDefinedFunction"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210315
         }
     }
 
-    public sealed class SqlResourceSqlUserDefinedFunctionArgs : global::Pulumi.ResourceArgs
+    public sealed class SqlResourceSqlUserDefinedFunctionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cosmos DB database account name.
@@ -173,6 +173,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20210315
         public SqlResourceSqlUserDefinedFunctionArgs()
         {
         }
-        public static new SqlResourceSqlUserDefinedFunctionArgs Empty => new SqlResourceSqlUserDefinedFunctionArgs();
     }
 }

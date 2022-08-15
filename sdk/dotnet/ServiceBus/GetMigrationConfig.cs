@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ServiceBus
     }
 
 
-    public sealed class GetMigrationConfigArgs : global::Pulumi.InvokeArgs
+    public sealed class GetMigrationConfigArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The configuration name. Should always be "$default".
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.ServiceBus
         public GetMigrationConfigArgs()
         {
         }
-        public static new GetMigrationConfigArgs Empty => new GetMigrationConfigArgs();
     }
 
-    public sealed class GetMigrationConfigInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetMigrationConfigInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The configuration name. Should always be "$default".
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.ServiceBus
         public GetMigrationConfigInvokeArgs()
         {
         }
-        public static new GetMigrationConfigInvokeArgs Empty => new GetMigrationConfigInvokeArgs();
     }
 
 

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ResourceGraph.V20200401Preview
     }
 
 
-    public sealed class GetGraphQueryArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGraphQueryArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.ResourceGraph.V20200401Preview
         public GetGraphQueryArgs()
         {
         }
-        public static new GetGraphQueryArgs Empty => new GetGraphQueryArgs();
     }
 
-    public sealed class GetGraphQueryInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGraphQueryInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.ResourceGraph.V20200401Preview
         public GetGraphQueryInvokeArgs()
         {
         }
-        public static new GetGraphQueryInvokeArgs Empty => new GetGraphQueryInvokeArgs();
     }
 
 

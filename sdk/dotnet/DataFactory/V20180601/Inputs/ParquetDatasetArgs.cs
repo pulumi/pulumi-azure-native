@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Parquet dataset.
     /// </summary>
-    public sealed class ParquetDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class ParquetDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -91,6 +91,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public ParquetDatasetArgs()
         {
         }
-        public static new ParquetDatasetArgs Empty => new ParquetDatasetArgs();
     }
 }

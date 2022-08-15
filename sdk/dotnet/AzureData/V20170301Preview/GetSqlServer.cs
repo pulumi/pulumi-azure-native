@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.AzureData.V20170301Preview
     }
 
 
-    public sealed class GetSqlServerArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSqlServerArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The child resources to include in the response.
@@ -55,10 +55,9 @@ namespace Pulumi.AzureNative.AzureData.V20170301Preview
         public GetSqlServerArgs()
         {
         }
-        public static new GetSqlServerArgs Empty => new GetSqlServerArgs();
     }
 
-    public sealed class GetSqlServerInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSqlServerInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The child resources to include in the response.
@@ -87,7 +86,6 @@ namespace Pulumi.AzureNative.AzureData.V20170301Preview
         public GetSqlServerInvokeArgs()
         {
         }
-        public static new GetSqlServerInvokeArgs Empty => new GetSqlServerInvokeArgs();
     }
 
 

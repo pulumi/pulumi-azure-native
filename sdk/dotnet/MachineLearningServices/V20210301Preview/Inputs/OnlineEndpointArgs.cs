@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// <summary>
     /// Online endpoint configuration
     /// </summary>
-    public sealed class OnlineEndpointArgs : global::Pulumi.ResourceArgs
+    public sealed class OnlineEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] Inference endpoint authentication mode type
@@ -68,6 +68,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public OnlineEndpointArgs()
         {
         }
-        public static new OnlineEndpointArgs Empty => new OnlineEndpointArgs();
     }
 }

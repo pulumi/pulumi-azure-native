@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.V20220601Preview
     /// Scheduled action definition.
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement/v20220601preview:ScheduledActionByScope")]
-    public partial class ScheduledActionByScope : global::Pulumi.CustomResource
+    public partial class ScheduledActionByScope : Pulumi.CustomResource
     {
         /// <summary>
         /// Scheduled action name.
@@ -112,8 +112,8 @@ namespace Pulumi.AzureNative.CostManagement.V20220601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement:ScheduledActionByScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20220401preview:ScheduledActionByScope"},
+                    new Pulumi.Alias { Type = "azure-native:costmanagement:ScheduledActionByScope"},
+                    new Pulumi.Alias { Type = "azure-native:costmanagement/v20220401preview:ScheduledActionByScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -135,7 +135,7 @@ namespace Pulumi.AzureNative.CostManagement.V20220601Preview
         }
     }
 
-    public sealed class ScheduledActionByScopeArgs : global::Pulumi.ResourceArgs
+    public sealed class ScheduledActionByScopeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Scheduled action name.
@@ -194,6 +194,5 @@ namespace Pulumi.AzureNative.CostManagement.V20220601Preview
         public ScheduledActionByScopeArgs()
         {
         }
-        public static new ScheduledActionByScopeArgs Empty => new ScheduledActionByScopeArgs();
     }
 }

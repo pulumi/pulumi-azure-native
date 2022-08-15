@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// Label category definition
     /// </summary>
-    public sealed class LabelCategoryArgs : global::Pulumi.ResourceArgs
+    public sealed class LabelCategoryArgs : Pulumi.ResourceArgs
     {
         [Input("classes")]
         private InputMap<Inputs.LabelClassArgs>? _classes;
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         {
             MultiSelectEnabled = false;
         }
-        public static new LabelCategoryArgs Empty => new LabelCategoryArgs();
     }
 }

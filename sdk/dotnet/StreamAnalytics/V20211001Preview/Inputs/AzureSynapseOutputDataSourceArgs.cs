@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
     /// <summary>
     /// Describes an Azure Synapse output data source.
     /// </summary>
-    public sealed class AzureSynapseOutputDataSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureSynapseOutputDataSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authentication Mode.
@@ -61,6 +61,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
         public AzureSynapseOutputDataSourceArgs()
         {
         }
-        public static new AzureSynapseOutputDataSourceArgs Empty => new AzureSynapseOutputDataSourceArgs();
     }
 }

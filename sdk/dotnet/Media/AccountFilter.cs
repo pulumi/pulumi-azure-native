@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Media
     /// API Version: 2020-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:media:AccountFilter")]
-    public partial class AccountFilter : global::Pulumi.CustomResource
+    public partial class AccountFilter : Pulumi.CustomResource
     {
         /// <summary>
         /// The first quality.
@@ -77,10 +77,10 @@ namespace Pulumi.AzureNative.Media
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180701:AccountFilter"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20200501:AccountFilter"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20210601:AccountFilter"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20211101:AccountFilter"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180701:AccountFilter"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20200501:AccountFilter"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20210601:AccountFilter"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20211101:AccountFilter"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.Media
         }
     }
 
-    public sealed class AccountFilterArgs : global::Pulumi.ResourceArgs
+    public sealed class AccountFilterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -149,6 +149,5 @@ namespace Pulumi.AzureNative.Media
         public AccountFilterArgs()
         {
         }
-        public static new AccountFilterArgs Empty => new AccountFilterArgs();
     }
 }

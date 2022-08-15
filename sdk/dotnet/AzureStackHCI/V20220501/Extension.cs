@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20220501
     /// Details of a particular extension in HCI Cluster.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci/v20220501:Extension")]
-    public partial class Extension : global::Pulumi.CustomResource
+    public partial class Extension : Pulumi.CustomResource
     {
         /// <summary>
         /// Aggregate state of Arc Extensions across the nodes in this HCI cluster.
@@ -142,11 +142,11 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20220501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:Extension"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210101preview:Extension"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901:Extension"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20220101:Extension"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20220301:Extension"},
+                    new Pulumi.Alias { Type = "azure-native:azurestackhci:Extension"},
+                    new Pulumi.Alias { Type = "azure-native:azurestackhci/v20210101preview:Extension"},
+                    new Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901:Extension"},
+                    new Pulumi.Alias { Type = "azure-native:azurestackhci/v20220101:Extension"},
+                    new Pulumi.Alias { Type = "azure-native:azurestackhci/v20220301:Extension"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -168,7 +168,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20220501
         }
     }
 
-    public sealed class ExtensionArgs : global::Pulumi.ResourceArgs
+    public sealed class ExtensionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the proxy resource holding details of HCI ArcSetting information.
@@ -275,6 +275,5 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20220501
         public ExtensionArgs()
         {
         }
-        public static new ExtensionArgs Empty => new ExtensionArgs();
     }
 }

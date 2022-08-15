@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Marketplace.V20220301.Inputs
 {
 
-    public sealed class PlanArgs : global::Pulumi.ResourceArgs
+    public sealed class PlanArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Plan accessibility
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.Marketplace.V20220301.Inputs
         public PlanArgs()
         {
         }
-        public static new PlanArgs Empty => new PlanArgs();
     }
 }

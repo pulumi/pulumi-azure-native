@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20210101.Inputs
     /// <summary>
     /// Template Options for the static site.
     /// </summary>
-    public sealed class StaticSiteTemplateOptionsArgs : global::Pulumi.ResourceArgs
+    public sealed class StaticSiteTemplateOptionsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the newly generated repository.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.Web.V20210101.Inputs
         public StaticSiteTemplateOptionsArgs()
         {
         }
-        public static new StaticSiteTemplateOptionsArgs Empty => new StaticSiteTemplateOptionsArgs();
     }
 }

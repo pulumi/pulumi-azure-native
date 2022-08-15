@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20180801.Inputs
     /// <summary>
     /// Container network interface configuration child resource.
     /// </summary>
-    public sealed class ContainerNetworkInterfaceConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class ContainerNetworkInterfaceConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("containerNetworkInterfaces")]
         private InputList<Inputs.ContainerNetworkInterfaceArgs>? _containerNetworkInterfaces;
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.Network.V20180801.Inputs
         public ContainerNetworkInterfaceConfigurationArgs()
         {
         }
-        public static new ContainerNetworkInterfaceConfigurationArgs Empty => new ContainerNetworkInterfaceConfigurationArgs();
     }
 }

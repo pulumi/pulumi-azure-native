@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.Inputs
     /// <summary>
     /// Intrusion detection bypass traffic specification.
     /// </summary>
-    public sealed class FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsArgs : global::Pulumi.ResourceArgs
+    public sealed class FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the bypass traffic rule.
@@ -96,6 +96,5 @@ namespace Pulumi.AzureNative.Network.Inputs
         public FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsArgs()
         {
         }
-        public static new FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsArgs Empty => new FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsArgs();
     }
 }

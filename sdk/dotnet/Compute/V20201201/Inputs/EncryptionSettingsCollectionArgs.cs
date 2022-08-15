@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20201201.Inputs
     /// <summary>
     /// Encryption settings for disk or snapshot
     /// </summary>
-    public sealed class EncryptionSettingsCollectionArgs : global::Pulumi.ResourceArgs
+    public sealed class EncryptionSettingsCollectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Compute.V20201201.Inputs
         public EncryptionSettingsCollectionArgs()
         {
         }
-        public static new EncryptionSettingsCollectionArgs Empty => new EncryptionSettingsCollectionArgs();
     }
 }

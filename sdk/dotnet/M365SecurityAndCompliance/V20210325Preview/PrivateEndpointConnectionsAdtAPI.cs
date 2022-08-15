@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
     /// The Private Endpoint Connection resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:m365securityandcompliance/v20210325preview:PrivateEndpointConnectionsAdtAPI")]
-    public partial class PrivateEndpointConnectionsAdtAPI : global::Pulumi.CustomResource
+    public partial class PrivateEndpointConnectionsAdtAPI : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:m365securityandcompliance:PrivateEndpointConnectionsAdtAPI"},
+                    new Pulumi.Alias { Type = "azure-native:m365securityandcompliance:PrivateEndpointConnectionsAdtAPI"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
         }
     }
 
-    public sealed class PrivateEndpointConnectionsAdtAPIArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionsAdtAPIArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the private endpoint connection associated with the Azure resource
@@ -127,6 +127,5 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
         public PrivateEndpointConnectionsAdtAPIArgs()
         {
         }
-        public static new PrivateEndpointConnectionsAdtAPIArgs Empty => new PrivateEndpointConnectionsAdtAPIArgs();
     }
 }

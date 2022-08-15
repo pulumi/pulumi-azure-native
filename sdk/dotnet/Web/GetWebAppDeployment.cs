@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Web
     }
 
 
-    public sealed class GetWebAppDeploymentArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWebAppDeploymentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Deployment ID.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Web
         public GetWebAppDeploymentArgs()
         {
         }
-        public static new GetWebAppDeploymentArgs Empty => new GetWebAppDeploymentArgs();
     }
 
-    public sealed class GetWebAppDeploymentInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWebAppDeploymentInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Deployment ID.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Web
         public GetWebAppDeploymentInvokeArgs()
         {
         }
-        public static new GetWebAppDeploymentInvokeArgs Empty => new GetWebAppDeploymentInvokeArgs();
     }
 
 

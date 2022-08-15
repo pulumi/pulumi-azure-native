@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Authorization
     /// API Version: 2017-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:ManagementLockAtResourceLevel")]
-    public partial class ManagementLockAtResourceLevel : global::Pulumi.CustomResource
+    public partial class ManagementLockAtResourceLevel : Pulumi.CustomResource
     {
         /// <summary>
         /// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
@@ -71,9 +71,9 @@ namespace Pulumi.AzureNative.Authorization
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20160901:ManagementLockAtResourceLevel"},
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20170401:ManagementLockAtResourceLevel"},
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20200501:ManagementLockAtResourceLevel"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20160901:ManagementLockAtResourceLevel"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20170401:ManagementLockAtResourceLevel"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20200501:ManagementLockAtResourceLevel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.Authorization
         }
     }
 
-    public sealed class ManagementLockAtResourceLevelArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagementLockAtResourceLevelArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
@@ -160,6 +160,5 @@ namespace Pulumi.AzureNative.Authorization
         public ManagementLockAtResourceLevelArgs()
         {
         }
-        public static new ManagementLockAtResourceLevelArgs Empty => new ManagementLockAtResourceLevelArgs();
     }
 }

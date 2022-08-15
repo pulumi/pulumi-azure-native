@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.RecoveryServices
     /// API Version: 2018-07-10.
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:ReplicationProtectionContainerMapping")]
-    public partial class ReplicationProtectionContainerMapping : global::Pulumi.CustomResource
+    public partial class ReplicationProtectionContainerMapping : Pulumi.CustomResource
     {
         /// <summary>
         /// Resource Location
@@ -65,23 +65,23 @@ namespace Pulumi.AzureNative.RecoveryServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20160810:ReplicationProtectionContainerMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationProtectionContainerMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20180710:ReplicationProtectionContainerMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210210:ReplicationProtectionContainerMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210301:ReplicationProtectionContainerMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210401:ReplicationProtectionContainerMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210601:ReplicationProtectionContainerMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210701:ReplicationProtectionContainerMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210801:ReplicationProtectionContainerMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20211001:ReplicationProtectionContainerMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20211101:ReplicationProtectionContainerMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20211201:ReplicationProtectionContainerMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220101:ReplicationProtectionContainerMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220201:ReplicationProtectionContainerMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220301:ReplicationProtectionContainerMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220401:ReplicationProtectionContainerMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220501:ReplicationProtectionContainerMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20160810:ReplicationProtectionContainerMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationProtectionContainerMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180710:ReplicationProtectionContainerMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210210:ReplicationProtectionContainerMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210301:ReplicationProtectionContainerMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210401:ReplicationProtectionContainerMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210601:ReplicationProtectionContainerMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210701:ReplicationProtectionContainerMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210801:ReplicationProtectionContainerMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20211001:ReplicationProtectionContainerMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20211101:ReplicationProtectionContainerMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20211201:ReplicationProtectionContainerMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220101:ReplicationProtectionContainerMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220201:ReplicationProtectionContainerMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220301:ReplicationProtectionContainerMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220401:ReplicationProtectionContainerMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220501:ReplicationProtectionContainerMapping"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -103,7 +103,7 @@ namespace Pulumi.AzureNative.RecoveryServices
         }
     }
 
-    public sealed class ReplicationProtectionContainerMappingArgs : global::Pulumi.ResourceArgs
+    public sealed class ReplicationProtectionContainerMappingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Fabric name.
@@ -144,6 +144,5 @@ namespace Pulumi.AzureNative.RecoveryServices
         public ReplicationProtectionContainerMappingArgs()
         {
         }
-        public static new ReplicationProtectionContainerMappingArgs Empty => new ReplicationProtectionContainerMappingArgs();
     }
 }

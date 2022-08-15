@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
     /// <summary>
     /// Defines the parameters for the route configuration override action.
     /// </summary>
-    public sealed class RouteConfigurationOverrideActionParametersArgs : global::Pulumi.ResourceArgs
+    public sealed class RouteConfigurationOverrideActionParametersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The caching configuration associated with this rule. To disable caching, do not provide a cacheConfiguration object.
@@ -33,6 +33,5 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
         public RouteConfigurationOverrideActionParametersArgs()
         {
         }
-        public static new RouteConfigurationOverrideActionParametersArgs Empty => new RouteConfigurationOverrideActionParametersArgs();
     }
 }

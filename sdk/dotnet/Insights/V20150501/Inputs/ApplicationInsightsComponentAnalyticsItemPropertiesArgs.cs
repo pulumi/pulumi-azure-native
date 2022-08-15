@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20150501.Inputs
     /// <summary>
     /// A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
     /// </summary>
-    public sealed class ApplicationInsightsComponentAnalyticsItemPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplicationInsightsComponentAnalyticsItemPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A function alias, used when the type of the item is Function
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Insights.V20150501.Inputs
         public ApplicationInsightsComponentAnalyticsItemPropertiesArgs()
         {
         }
-        public static new ApplicationInsightsComponentAnalyticsItemPropertiesArgs Empty => new ApplicationInsightsComponentAnalyticsItemPropertiesArgs();
     }
 }

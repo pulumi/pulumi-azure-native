@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Synapse
     /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:SqlPoolSensitivityLabel")]
-    public partial class SqlPoolSensitivityLabel : global::Pulumi.CustomResource
+    public partial class SqlPoolSensitivityLabel : Pulumi.CustomResource
     {
         /// <summary>
         /// The column name.
@@ -110,13 +110,13 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:SqlPoolSensitivityLabel"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20201201:SqlPoolSensitivityLabel"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210301:SqlPoolSensitivityLabel"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:SqlPoolSensitivityLabel"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210501:SqlPoolSensitivityLabel"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601:SqlPoolSensitivityLabel"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:SqlPoolSensitivityLabel"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:SqlPoolSensitivityLabel"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20201201:SqlPoolSensitivityLabel"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210301:SqlPoolSensitivityLabel"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:SqlPoolSensitivityLabel"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210501:SqlPoolSensitivityLabel"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601:SqlPoolSensitivityLabel"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:SqlPoolSensitivityLabel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -138,7 +138,7 @@ namespace Pulumi.AzureNative.Synapse
         }
     }
 
-    public sealed class SqlPoolSensitivityLabelArgs : global::Pulumi.ResourceArgs
+    public sealed class SqlPoolSensitivityLabelArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the column.
@@ -212,6 +212,5 @@ namespace Pulumi.AzureNative.Synapse
         public SqlPoolSensitivityLabelArgs()
         {
         }
-        public static new SqlPoolSensitivityLabelArgs Empty => new SqlPoolSensitivityLabelArgs();
     }
 }

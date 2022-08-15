@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Insights.V20150501
     }
 
 
-    public sealed class GetProactiveDetectionConfigurationArgs : global::Pulumi.InvokeArgs
+    public sealed class GetProactiveDetectionConfigurationArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ProactiveDetection configuration ID. This is unique within a Application Insights component.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Insights.V20150501
         public GetProactiveDetectionConfigurationArgs()
         {
         }
-        public static new GetProactiveDetectionConfigurationArgs Empty => new GetProactiveDetectionConfigurationArgs();
     }
 
-    public sealed class GetProactiveDetectionConfigurationInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetProactiveDetectionConfigurationInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ProactiveDetection configuration ID. This is unique within a Application Insights component.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Insights.V20150501
         public GetProactiveDetectionConfigurationInvokeArgs()
         {
         }
-        public static new GetProactiveDetectionConfigurationInvokeArgs Empty => new GetProactiveDetectionConfigurationInvokeArgs();
     }
 
 

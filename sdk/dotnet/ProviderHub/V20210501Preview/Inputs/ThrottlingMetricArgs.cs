@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20210501Preview.Inputs
 {
 
-    public sealed class ThrottlingMetricArgs : global::Pulumi.ResourceArgs
+    public sealed class ThrottlingMetricArgs : Pulumi.ResourceArgs
     {
         [Input("interval")]
         public Input<string>? Interval { get; set; }
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.ProviderHub.V20210501Preview.Inputs
         public ThrottlingMetricArgs()
         {
         }
-        public static new ThrottlingMetricArgs Empty => new ThrottlingMetricArgs();
     }
 }

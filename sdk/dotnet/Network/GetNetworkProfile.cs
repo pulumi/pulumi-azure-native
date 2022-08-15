@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network
     }
 
 
-    public sealed class GetNetworkProfileArgs : global::Pulumi.InvokeArgs
+    public sealed class GetNetworkProfileArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Expands referenced resources.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Network
         public GetNetworkProfileArgs()
         {
         }
-        public static new GetNetworkProfileArgs Empty => new GetNetworkProfileArgs();
     }
 
-    public sealed class GetNetworkProfileInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetNetworkProfileInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Expands referenced resources.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Network
         public GetNetworkProfileInvokeArgs()
         {
         }
-        public static new GetNetworkProfileInvokeArgs Empty => new GetNetworkProfileInvokeArgs();
     }
 
 

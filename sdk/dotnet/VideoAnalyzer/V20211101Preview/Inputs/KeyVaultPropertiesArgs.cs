@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
     /// <summary>
     /// The details for accessing the encryption keys in Key Vault.
     /// </summary>
-    public sealed class KeyVaultPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class KeyVaultPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
         public KeyVaultPropertiesArgs()
         {
         }
-        public static new KeyVaultPropertiesArgs Empty => new KeyVaultPropertiesArgs();
     }
 }

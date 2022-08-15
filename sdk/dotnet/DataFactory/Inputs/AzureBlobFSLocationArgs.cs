@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The location of azure blobFS dataset.
     /// </summary>
-    public sealed class AzureBlobFSLocationArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureBlobFSLocationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specify the file name of dataset. Type: string (or Expression with resultType string).
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public AzureBlobFSLocationArgs()
         {
         }
-        public static new AzureBlobFSLocationArgs Empty => new AzureBlobFSLocationArgs();
     }
 }

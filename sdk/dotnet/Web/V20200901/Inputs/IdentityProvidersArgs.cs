@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20200901.Inputs
 {
 
-    public sealed class IdentityProvidersArgs : global::Pulumi.ResourceArgs
+    public sealed class IdentityProvidersArgs : Pulumi.ResourceArgs
     {
         [Input("azureActiveDirectory")]
         public Input<Inputs.AzureActiveDirectoryArgs>? AzureActiveDirectory { get; set; }
@@ -44,6 +44,5 @@ namespace Pulumi.AzureNative.Web.V20200901.Inputs
         public IdentityProvidersArgs()
         {
         }
-        public static new IdentityProvidersArgs Empty => new IdentityProvidersArgs();
     }
 }

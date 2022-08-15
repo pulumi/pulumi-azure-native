@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20210601.Inputs
     /// <summary>
     /// Settings for Azure Files identity based authentication.
     /// </summary>
-    public sealed class AzureFilesIdentityBasedAuthenticationArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureFilesIdentityBasedAuthenticationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Required if choose AD.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Storage.V20210601.Inputs
         public AzureFilesIdentityBasedAuthenticationArgs()
         {
         }
-        public static new AzureFilesIdentityBasedAuthenticationArgs Empty => new AzureFilesIdentityBasedAuthenticationArgs();
     }
 }

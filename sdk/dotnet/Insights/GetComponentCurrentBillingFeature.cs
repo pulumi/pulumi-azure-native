@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Insights
     }
 
 
-    public sealed class GetComponentCurrentBillingFeatureArgs : global::Pulumi.InvokeArgs
+    public sealed class GetComponentCurrentBillingFeatureArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.Insights
         public GetComponentCurrentBillingFeatureArgs()
         {
         }
-        public static new GetComponentCurrentBillingFeatureArgs Empty => new GetComponentCurrentBillingFeatureArgs();
     }
 
-    public sealed class GetComponentCurrentBillingFeatureInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetComponentCurrentBillingFeatureInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.Insights
         public GetComponentCurrentBillingFeatureInvokeArgs()
         {
         }
-        public static new GetComponentCurrentBillingFeatureInvokeArgs Empty => new GetComponentCurrentBillingFeatureInvokeArgs();
     }
 
 

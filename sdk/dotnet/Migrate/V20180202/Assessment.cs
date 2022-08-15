@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.V20180202
     /// An assessment created for a group in the Migration project.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate/v20180202:Assessment")]
-    public partial class Assessment : global::Pulumi.CustomResource
+    public partial class Assessment : Pulumi.CustomResource
     {
         /// <summary>
         /// AHUB discount on windows virtual machines.
@@ -184,7 +184,7 @@ namespace Pulumi.AzureNative.Migrate.V20180202
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20171111preview:Assessment"},
+                    new Pulumi.Alias { Type = "azure-native:migrate/v20171111preview:Assessment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -206,7 +206,7 @@ namespace Pulumi.AzureNative.Migrate.V20180202
         }
     }
 
-    public sealed class AssessmentArgs : global::Pulumi.ResourceArgs
+    public sealed class AssessmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Unique name of an assessment within a project.
@@ -313,6 +313,5 @@ namespace Pulumi.AzureNative.Migrate.V20180202
         public AssessmentArgs()
         {
         }
-        public static new AssessmentArgs Empty => new AssessmentArgs();
     }
 }

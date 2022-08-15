@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity Azure CosmosDB (SQL API) Collection source.
     /// </summary>
-    public sealed class CosmosDbSqlApiSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class CosmosDbSqlApiSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -79,6 +79,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public CosmosDbSqlApiSourceArgs()
         {
         }
-        public static new CosmosDbSqlApiSourceArgs Empty => new CosmosDbSqlApiSourceArgs();
     }
 }

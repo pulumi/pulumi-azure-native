@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20180915Preview.Inputs
     /// <summary>
     /// Filter for the Event Subscription
     /// </summary>
-    public sealed class EventSubscriptionFilterArgs : global::Pulumi.ResourceArgs
+    public sealed class EventSubscriptionFilterArgs : Pulumi.ResourceArgs
     {
         [Input("advancedFilters")]
         private InputList<object>? _advancedFilters;
@@ -66,6 +66,5 @@ namespace Pulumi.AzureNative.EventGrid.V20180915Preview.Inputs
         {
             IsSubjectCaseSensitive = false;
         }
-        public static new EventSubscriptionFilterArgs Empty => new EventSubscriptionFilterArgs();
     }
 }

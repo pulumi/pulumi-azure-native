@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
     /// <summary>
     /// Properties for task that validates migration input for SQL to Azure SQL DB sync migrations
     /// </summary>
-    public sealed class ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Task input
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
         public ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgs()
         {
         }
-        public static new ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgs Empty => new ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgs();
     }
 }

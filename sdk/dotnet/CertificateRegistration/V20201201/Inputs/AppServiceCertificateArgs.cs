@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CertificateRegistration.V20201201.Inputs
     /// <summary>
     /// Key Vault container for a certificate that is purchased through Azure.
     /// </summary>
-    public sealed class AppServiceCertificateArgs : global::Pulumi.ResourceArgs
+    public sealed class AppServiceCertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Key Vault resource Id.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.CertificateRegistration.V20201201.Inputs
         public AppServiceCertificateArgs()
         {
         }
-        public static new AppServiceCertificateArgs Empty => new AppServiceCertificateArgs();
     }
 }

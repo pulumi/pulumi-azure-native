@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
     /// A provider instance associated with SAP monitor.
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads/v20211201preview:ProviderInstance")]
-    public partial class ProviderInstance : global::Pulumi.CustomResource
+    public partial class ProviderInstance : Pulumi.CustomResource
     {
         /// <summary>
         /// Defines the provider instance errors.
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:workloads:ProviderInstance"},
+                    new Pulumi.Alias { Type = "azure-native:workloads:ProviderInstance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
         }
     }
 
-    public sealed class ProviderInstanceArgs : global::Pulumi.ResourceArgs
+    public sealed class ProviderInstanceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Managed service identity (user assigned identities)
@@ -139,6 +139,5 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
         public ProviderInstanceArgs()
         {
         }
-        public static new ProviderInstanceArgs Empty => new ProviderInstanceArgs();
     }
 }

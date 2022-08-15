@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
     /// <summary>
     /// Cognitive Services account commitment period.
     /// </summary>
-    public sealed class CommitmentPeriodArgs : global::Pulumi.ResourceArgs
+    public sealed class CommitmentPeriodArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Commitment period commitment count.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
         public CommitmentPeriodArgs()
         {
         }
-        public static new CommitmentPeriodArgs Empty => new CommitmentPeriodArgs();
     }
 }

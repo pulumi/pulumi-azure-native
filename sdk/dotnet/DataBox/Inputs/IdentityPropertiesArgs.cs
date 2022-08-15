@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBox.Inputs
     /// <summary>
     /// Managed identity properties.
     /// </summary>
-    public sealed class IdentityPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class IdentityPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Managed service identity type.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DataBox.Inputs
         public IdentityPropertiesArgs()
         {
         }
-        public static new IdentityPropertiesArgs Empty => new IdentityPropertiesArgs();
     }
 }

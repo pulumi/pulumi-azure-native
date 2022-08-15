@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220201Preview
     /// The Scope Connections resource
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20220201preview:ScopeConnection")]
-    public partial class ScopeConnection : global::Pulumi.CustomResource
+    public partial class ScopeConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// A description of the scope connection.
@@ -82,10 +82,10 @@ namespace Pulumi.AzureNative.Network.V20220201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:ScopeConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:ScopeConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:ScopeConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:ScopeConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network:ScopeConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501preview:ScopeConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:ScopeConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220401preview:ScopeConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.Network.V20220201Preview
         }
     }
 
-    public sealed class ScopeConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class ScopeConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the scope connection.
@@ -148,6 +148,5 @@ namespace Pulumi.AzureNative.Network.V20220201Preview
         public ScopeConnectionArgs()
         {
         }
-        public static new ScopeConnectionArgs Empty => new ScopeConnectionArgs();
     }
 }

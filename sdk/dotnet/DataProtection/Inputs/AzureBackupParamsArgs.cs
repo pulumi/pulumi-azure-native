@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataProtection.Inputs
     /// <summary>
     /// Azure backup parameters
     /// </summary>
-    public sealed class AzureBackupParamsArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureBackupParamsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// BackupType ; Full/Incremental etc
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.DataProtection.Inputs
         public AzureBackupParamsArgs()
         {
         }
-        public static new AzureBackupParamsArgs Empty => new AzureBackupParamsArgs();
     }
 }

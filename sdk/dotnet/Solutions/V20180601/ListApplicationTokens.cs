@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Solutions.V20180601
     }
 
 
-    public sealed class ListApplicationTokensArgs : global::Pulumi.InvokeArgs
+    public sealed class ListApplicationTokensArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the managed application.
@@ -60,10 +60,9 @@ namespace Pulumi.AzureNative.Solutions.V20180601
         public ListApplicationTokensArgs()
         {
         }
-        public static new ListApplicationTokensArgs Empty => new ListApplicationTokensArgs();
     }
 
-    public sealed class ListApplicationTokensInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListApplicationTokensInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the managed application.
@@ -98,7 +97,6 @@ namespace Pulumi.AzureNative.Solutions.V20180601
         public ListApplicationTokensInvokeArgs()
         {
         }
-        public static new ListApplicationTokensInvokeArgs Empty => new ListApplicationTokensInvokeArgs();
     }
 
 

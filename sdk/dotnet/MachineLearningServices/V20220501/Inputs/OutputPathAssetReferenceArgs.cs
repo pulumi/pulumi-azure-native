@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
     /// <summary>
     /// Reference to an asset via its path in a job output.
     /// </summary>
-    public sealed class OutputPathAssetReferenceArgs : global::Pulumi.ResourceArgs
+    public sealed class OutputPathAssetReferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARM resource ID of the job.
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
         public OutputPathAssetReferenceArgs()
         {
         }
-        public static new OutputPathAssetReferenceArgs Empty => new OutputPathAssetReferenceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426.Inputs
     /// <summary>
     /// Connector mapping property availability.
     /// </summary>
-    public sealed class ConnectorMappingAvailabilityArgs : global::Pulumi.ResourceArgs
+    public sealed class ConnectorMappingAvailabilityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The frequency to update.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426.Inputs
         public ConnectorMappingAvailabilityArgs()
         {
         }
-        public static new ConnectorMappingAvailabilityArgs Empty => new ConnectorMappingAvailabilityArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210301Preview.Inputs
     /// <summary>
     /// Properties for non-restore Azure Cosmos DB database account requests.
     /// </summary>
-    public sealed class DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// API specific properties. Currently, supported only for MongoDB API.
@@ -188,6 +188,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20210301Preview.Inputs
         {
             CreateMode = "Default";
         }
-        public static new DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs Empty => new DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The data stored in Parquet format.
     /// </summary>
-    public sealed class ParquetFormatArgs : global::Pulumi.ResourceArgs
+    public sealed class ParquetFormatArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Deserializer. Type: string (or Expression with resultType string).
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public ParquetFormatArgs()
         {
         }
-        public static new ParquetFormatArgs Empty => new ParquetFormatArgs();
     }
 }

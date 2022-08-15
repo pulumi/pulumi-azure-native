@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.HanaOnAzure
     /// API Version: 2020-02-07-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hanaonazure:ProviderInstance")]
-    public partial class ProviderInstance : global::Pulumi.CustomResource
+    public partial class ProviderInstance : Pulumi.CustomResource
     {
         /// <summary>
         /// A JSON string containing metadata of the provider instance.
@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.HanaOnAzure
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:hanaonazure/v20200207preview:ProviderInstance"},
+                    new Pulumi.Alias { Type = "azure-native:hanaonazure/v20200207preview:ProviderInstance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.HanaOnAzure
         }
     }
 
-    public sealed class ProviderInstanceArgs : global::Pulumi.ResourceArgs
+    public sealed class ProviderInstanceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A JSON string containing metadata of the provider instance.
@@ -134,6 +134,5 @@ namespace Pulumi.AzureNative.HanaOnAzure
         public ProviderInstanceArgs()
         {
         }
-        public static new ProviderInstanceArgs Empty => new ProviderInstanceArgs();
     }
 }

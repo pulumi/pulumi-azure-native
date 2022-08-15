@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.CostManagement.V20180531
     /// </summary>
     [Obsolete(@"Version 2018-05-31 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:costmanagement/v20180531:ReportConfigByResourceGroupName")]
-    public partial class ReportConfigByResourceGroupName : global::Pulumi.CustomResource
+    public partial class ReportConfigByResourceGroupName : Pulumi.CustomResource
     {
         /// <summary>
         /// Has definition for the report config.
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.CostManagement.V20180531
         }
     }
 
-    public sealed class ReportConfigByResourceGroupNameArgs : global::Pulumi.ResourceArgs
+    public sealed class ReportConfigByResourceGroupNameArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Has definition for the report config.
@@ -142,6 +142,5 @@ namespace Pulumi.AzureNative.CostManagement.V20180531
         public ReportConfigByResourceGroupNameArgs()
         {
         }
-        public static new ReportConfigByResourceGroupNameArgs Empty => new ReportConfigByResourceGroupNameArgs();
     }
 }

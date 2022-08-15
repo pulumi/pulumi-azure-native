@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// Forecasting specific parameters.
     /// </summary>
-    public sealed class ForecastingSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class ForecastingSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Country or region for holidays for forecasting tasks.
@@ -112,6 +112,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
             TargetAggregateFunction = "None";
             UseStl = "None";
         }
-        public static new ForecastingSettingsArgs Empty => new ForecastingSettingsArgs();
     }
 }

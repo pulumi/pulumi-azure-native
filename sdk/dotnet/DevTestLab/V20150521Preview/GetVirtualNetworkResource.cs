@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
     }
 
 
-    public sealed class GetVirtualNetworkResourceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkResourceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the lab.
@@ -49,10 +49,9 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         public GetVirtualNetworkResourceArgs()
         {
         }
-        public static new GetVirtualNetworkResourceArgs Empty => new GetVirtualNetworkResourceArgs();
     }
 
-    public sealed class GetVirtualNetworkResourceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkResourceInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the lab.
@@ -75,7 +74,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         public GetVirtualNetworkResourceInvokeArgs()
         {
         }
-        public static new GetVirtualNetworkResourceInvokeArgs Empty => new GetVirtualNetworkResourceInvokeArgs();
     }
 
 

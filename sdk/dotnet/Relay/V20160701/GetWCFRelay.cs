@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Relay.V20160701
     }
 
 
-    public sealed class GetWCFRelayArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWCFRelayArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Namespace Name
@@ -49,10 +49,9 @@ namespace Pulumi.AzureNative.Relay.V20160701
         public GetWCFRelayArgs()
         {
         }
-        public static new GetWCFRelayArgs Empty => new GetWCFRelayArgs();
     }
 
-    public sealed class GetWCFRelayInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWCFRelayInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Namespace Name
@@ -75,7 +74,6 @@ namespace Pulumi.AzureNative.Relay.V20160701
         public GetWCFRelayInvokeArgs()
         {
         }
-        public static new GetWCFRelayInvokeArgs Empty => new GetWCFRelayInvokeArgs();
     }
 
 

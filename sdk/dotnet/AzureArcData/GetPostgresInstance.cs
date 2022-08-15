@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.AzureArcData
     }
 
 
-    public sealed class GetPostgresInstanceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPostgresInstanceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of Postgres Instance
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.AzureArcData
         public GetPostgresInstanceArgs()
         {
         }
-        public static new GetPostgresInstanceArgs Empty => new GetPostgresInstanceArgs();
     }
 
-    public sealed class GetPostgresInstanceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPostgresInstanceInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of Postgres Instance
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.AzureArcData
         public GetPostgresInstanceInvokeArgs()
         {
         }
-        public static new GetPostgresInstanceInvokeArgs Empty => new GetPostgresInstanceInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.LoadTestService.V20220415Preview.Inputs
     /// <summary>
     /// All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
     /// </summary>
-    public sealed class EncryptionPropertiesIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class EncryptionPropertiesIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/&lt;resource group&gt;/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.LoadTestService.V20220415Preview.Inputs
         public EncryptionPropertiesIdentityArgs()
         {
         }
-        public static new EncryptionPropertiesIdentityArgs Empty => new EncryptionPropertiesIdentityArgs();
     }
 }

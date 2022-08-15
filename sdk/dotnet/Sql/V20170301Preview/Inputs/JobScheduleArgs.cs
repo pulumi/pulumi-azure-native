@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20170301Preview.Inputs
     /// <summary>
     /// Scheduling properties of a job.
     /// </summary>
-    public sealed class JobScheduleArgs : global::Pulumi.ResourceArgs
+    public sealed class JobScheduleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether or not the schedule is enabled.
@@ -51,6 +51,5 @@ namespace Pulumi.AzureNative.Sql.V20170301Preview.Inputs
             StartTime = "0001-01-01T00:00:00Z";
             Type = Pulumi.AzureNative.Sql.V20170301Preview.JobScheduleType.Once;
         }
-        public static new JobScheduleArgs Empty => new JobScheduleArgs();
     }
 }

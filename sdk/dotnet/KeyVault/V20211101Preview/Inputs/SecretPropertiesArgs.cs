@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KeyVault.V20211101Preview.Inputs
     /// <summary>
     /// Properties of the secret
     /// </summary>
-    public sealed class SecretPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class SecretPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The attributes of the secret.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.KeyVault.V20211101Preview.Inputs
         public SecretPropertiesArgs()
         {
         }
-        public static new SecretPropertiesArgs Empty => new SecretPropertiesArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview
     }
 
 
-    public sealed class ListEdgeModuleProvisioningTokenArgs : global::Pulumi.InvokeArgs
+    public sealed class ListEdgeModuleProvisioningTokenArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Azure Video Analyzer account name.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview
         public ListEdgeModuleProvisioningTokenArgs()
         {
         }
-        public static new ListEdgeModuleProvisioningTokenArgs Empty => new ListEdgeModuleProvisioningTokenArgs();
     }
 
-    public sealed class ListEdgeModuleProvisioningTokenInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListEdgeModuleProvisioningTokenInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Azure Video Analyzer account name.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview
         public ListEdgeModuleProvisioningTokenInvokeArgs()
         {
         }
-        public static new ListEdgeModuleProvisioningTokenInvokeArgs Empty => new ListEdgeModuleProvisioningTokenInvokeArgs();
     }
 
 

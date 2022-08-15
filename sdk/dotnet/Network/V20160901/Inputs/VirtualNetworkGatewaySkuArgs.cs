@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20160901.Inputs
     /// <summary>
     /// VirtualNetworkGatewaySku details
     /// </summary>
-    public sealed class VirtualNetworkGatewaySkuArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualNetworkGatewaySkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The capacity.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Network.V20160901.Inputs
         public VirtualNetworkGatewaySkuArgs()
         {
         }
-        public static new VirtualNetworkGatewaySkuArgs Empty => new VirtualNetworkGatewaySkuArgs();
     }
 }

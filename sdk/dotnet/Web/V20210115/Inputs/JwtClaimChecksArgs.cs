@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20210115.Inputs
     /// <summary>
     /// The configuration settings of the checks that should be made while validating the JWT Claims.
     /// </summary>
-    public sealed class JwtClaimChecksArgs : global::Pulumi.ResourceArgs
+    public sealed class JwtClaimChecksArgs : Pulumi.ResourceArgs
     {
         [Input("allowedClientApplications")]
         private InputList<string>? _allowedClientApplications;
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Web.V20210115.Inputs
         public JwtClaimChecksArgs()
         {
         }
-        public static new JwtClaimChecksArgs Empty => new JwtClaimChecksArgs();
     }
 }

@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Cache.V20160401
     }
 
 
-    public sealed class GetRedisFirewallRuleArgs : global::Pulumi.InvokeArgs
+    public sealed class GetRedisFirewallRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Redis cache.
@@ -49,10 +49,9 @@ namespace Pulumi.AzureNative.Cache.V20160401
         public GetRedisFirewallRuleArgs()
         {
         }
-        public static new GetRedisFirewallRuleArgs Empty => new GetRedisFirewallRuleArgs();
     }
 
-    public sealed class GetRedisFirewallRuleInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetRedisFirewallRuleInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Redis cache.
@@ -75,7 +74,6 @@ namespace Pulumi.AzureNative.Cache.V20160401
         public GetRedisFirewallRuleInvokeArgs()
         {
         }
-        public static new GetRedisFirewallRuleInvokeArgs Empty => new GetRedisFirewallRuleInvokeArgs();
     }
 
 

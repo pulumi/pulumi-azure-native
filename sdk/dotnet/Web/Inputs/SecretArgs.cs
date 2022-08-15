@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.Inputs
     /// <summary>
     /// Container App Secret.
     /// </summary>
-    public sealed class SecretArgs : global::Pulumi.ResourceArgs
+    public sealed class SecretArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Secret Name.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Web.Inputs
         public SecretArgs()
         {
         }
-        public static new SecretArgs Empty => new SecretArgs();
     }
 }

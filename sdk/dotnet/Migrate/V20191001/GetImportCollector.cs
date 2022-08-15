@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Migrate.V20191001
     }
 
 
-    public sealed class GetImportCollectorArgs : global::Pulumi.InvokeArgs
+    public sealed class GetImportCollectorArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Unique name of a Import collector within a project.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.Migrate.V20191001
         public GetImportCollectorArgs()
         {
         }
-        public static new GetImportCollectorArgs Empty => new GetImportCollectorArgs();
     }
 
-    public sealed class GetImportCollectorInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetImportCollectorInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Unique name of a Import collector within a project.
@@ -68,7 +67,6 @@ namespace Pulumi.AzureNative.Migrate.V20191001
         public GetImportCollectorInvokeArgs()
         {
         }
-        public static new GetImportCollectorInvokeArgs Empty => new GetImportCollectorInvokeArgs();
     }
 
 

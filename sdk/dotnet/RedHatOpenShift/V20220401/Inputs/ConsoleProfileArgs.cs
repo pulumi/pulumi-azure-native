@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20220401.Inputs
     /// <summary>
     /// ConsoleProfile represents a console profile.
     /// </summary>
-    public sealed class ConsoleProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class ConsoleProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The URL to access the cluster console.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20220401.Inputs
         public ConsoleProfileArgs()
         {
         }
-        public static new ConsoleProfileArgs Empty => new ConsoleProfileArgs();
     }
 }

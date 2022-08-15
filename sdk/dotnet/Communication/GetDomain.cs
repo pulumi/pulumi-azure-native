@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Communication
     }
 
 
-    public sealed class GetDomainArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDomainArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Domains resource.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Communication
         public GetDomainArgs()
         {
         }
-        public static new GetDomainArgs Empty => new GetDomainArgs();
     }
 
-    public sealed class GetDomainInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDomainInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Domains resource.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Communication
         public GetDomainInvokeArgs()
         {
         }
-        public static new GetDomainInvokeArgs Empty => new GetDomainInvokeArgs();
     }
 
 

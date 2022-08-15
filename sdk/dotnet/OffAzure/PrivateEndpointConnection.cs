@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.OffAzure
     /// API Version: 2020-07-07.
     /// </summary>
     [AzureNativeResourceType("azure-native:offazure:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// Gets the tag for optimistic concurrency control.
@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.OffAzure
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20200707:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:offazure/v20200707:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.OffAzure
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Private link resource name.
@@ -116,6 +116,5 @@ namespace Pulumi.AzureNative.OffAzure
         public PrivateEndpointConnectionArgs()
         {
         }
-        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

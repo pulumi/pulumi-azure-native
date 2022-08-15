@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ManagedIdentity.V20150831Preview
     /// </summary>
     [Obsolete(@"Version 2015-08-31-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:managedidentity/v20150831preview:UserAssignedIdentity")]
-    public partial class UserAssignedIdentity : global::Pulumi.CustomResource
+    public partial class UserAssignedIdentity : Pulumi.CustomResource
     {
         /// <summary>
         /// The id of the app associated with the identity. This is a random generated UUID by MSI.
@@ -89,10 +89,10 @@ namespace Pulumi.AzureNative.ManagedIdentity.V20150831Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:managedidentity:UserAssignedIdentity"},
-                    new global::Pulumi.Alias { Type = "azure-native:managedidentity/v20181130:UserAssignedIdentity"},
-                    new global::Pulumi.Alias { Type = "azure-native:managedidentity/v20210930preview:UserAssignedIdentity"},
-                    new global::Pulumi.Alias { Type = "azure-native:managedidentity/v20220131preview:UserAssignedIdentity"},
+                    new Pulumi.Alias { Type = "azure-native:managedidentity:UserAssignedIdentity"},
+                    new Pulumi.Alias { Type = "azure-native:managedidentity/v20181130:UserAssignedIdentity"},
+                    new Pulumi.Alias { Type = "azure-native:managedidentity/v20210930preview:UserAssignedIdentity"},
+                    new Pulumi.Alias { Type = "azure-native:managedidentity/v20220131preview:UserAssignedIdentity"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.ManagedIdentity.V20150831Preview
         }
     }
 
-    public sealed class UserAssignedIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class UserAssignedIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -149,6 +149,5 @@ namespace Pulumi.AzureNative.ManagedIdentity.V20150831Preview
         public UserAssignedIdentityArgs()
         {
         }
-        public static new UserAssignedIdentityArgs Empty => new UserAssignedIdentityArgs();
     }
 }

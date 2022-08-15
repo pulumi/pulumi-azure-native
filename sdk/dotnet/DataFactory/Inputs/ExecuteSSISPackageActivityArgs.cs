@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Execute SSIS package activity.
     /// </summary>
-    public sealed class ExecuteSSISPackageActivityArgs : global::Pulumi.ResourceArgs
+    public sealed class ExecuteSSISPackageActivityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The integration runtime reference.
@@ -175,6 +175,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public ExecuteSSISPackageActivityArgs()
         {
         }
-        public static new ExecuteSSISPackageActivityArgs Empty => new ExecuteSSISPackageActivityArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HealthBot.V20210824.Inputs
     /// <summary>
     /// Identity for the resource.
     /// </summary>
-    public sealed class IdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class IdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity type. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the Azure Health Bot
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.HealthBot.V20210824.Inputs
         public IdentityArgs()
         {
         }
-        public static new IdentityArgs Empty => new IdentityArgs();
     }
 }

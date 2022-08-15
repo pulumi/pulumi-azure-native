@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Solutions.V20160901Preview
     }
 
 
-    public sealed class GetApplianceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetApplianceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the appliance.
@@ -43,10 +43,9 @@ namespace Pulumi.AzureNative.Solutions.V20160901Preview
         public GetApplianceArgs()
         {
         }
-        public static new GetApplianceArgs Empty => new GetApplianceArgs();
     }
 
-    public sealed class GetApplianceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetApplianceInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the appliance.
@@ -63,7 +62,6 @@ namespace Pulumi.AzureNative.Solutions.V20160901Preview
         public GetApplianceInvokeArgs()
         {
         }
-        public static new GetApplianceInvokeArgs Empty => new GetApplianceInvokeArgs();
     }
 
 

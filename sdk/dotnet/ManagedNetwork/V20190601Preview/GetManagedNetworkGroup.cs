@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ManagedNetwork.V20190601Preview
     }
 
 
-    public sealed class GetManagedNetworkGroupArgs : global::Pulumi.InvokeArgs
+    public sealed class GetManagedNetworkGroupArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Managed Network Group.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.ManagedNetwork.V20190601Preview
         public GetManagedNetworkGroupArgs()
         {
         }
-        public static new GetManagedNetworkGroupArgs Empty => new GetManagedNetworkGroupArgs();
     }
 
-    public sealed class GetManagedNetworkGroupInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetManagedNetworkGroupInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Managed Network Group.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.ManagedNetwork.V20190601Preview
         public GetManagedNetworkGroupInvokeArgs()
         {
         }
-        public static new GetManagedNetworkGroupInvokeArgs Empty => new GetManagedNetworkGroupInvokeArgs();
     }
 
 

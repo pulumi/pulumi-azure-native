@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
     /// Azure Resource Manager resource envelope.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20220501:Job")]
-    public partial class Job : global::Pulumi.CustomResource
+    public partial class Job : Pulumi.CustomResource
     {
         /// <summary>
         /// [Required] Additional attributes of the entity.
@@ -64,10 +64,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:Job"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:Job"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:Job"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:Job"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:Job"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:Job"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:Job"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:Job"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
         }
     }
 
-    public sealed class JobArgs : global::Pulumi.ResourceArgs
+    public sealed class JobArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name and identifier for the Job. This is case-sensitive.
@@ -118,6 +118,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
         public JobArgs()
         {
         }
-        public static new JobArgs Empty => new JobArgs();
     }
 }

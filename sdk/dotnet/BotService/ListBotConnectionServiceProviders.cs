@@ -20,12 +20,11 @@ namespace Pulumi.AzureNative.BotService
     }
 
 
-    public sealed class ListBotConnectionServiceProvidersArgs : global::Pulumi.InvokeArgs
+    public sealed class ListBotConnectionServiceProvidersArgs : Pulumi.InvokeArgs
     {
         public ListBotConnectionServiceProvidersArgs()
         {
         }
-        public static new ListBotConnectionServiceProvidersArgs Empty => new ListBotConnectionServiceProvidersArgs();
     }
 
 

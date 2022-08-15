@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.V20180531.Inputs
     /// <summary>
     /// The definition of a report config.
     /// </summary>
-    public sealed class ReportConfigDefinitionArgs : global::Pulumi.ResourceArgs
+    public sealed class ReportConfigDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Has definition for data in this report config.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.CostManagement.V20180531.Inputs
         public ReportConfigDefinitionArgs()
         {
         }
-        public static new ReportConfigDefinitionArgs Empty => new ReportConfigDefinitionArgs();
     }
 }

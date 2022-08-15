@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20210101.Inputs
     /// <summary>
     /// The service properties for soft delete.
     /// </summary>
-    public sealed class DeleteRetentionPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class DeleteRetentionPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Storage.V20210101.Inputs
         public DeleteRetentionPolicyArgs()
         {
         }
-        public static new DeleteRetentionPolicyArgs Empty => new DeleteRetentionPolicyArgs();
     }
 }

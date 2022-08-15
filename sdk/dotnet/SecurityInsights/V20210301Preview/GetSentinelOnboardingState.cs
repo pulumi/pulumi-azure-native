@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
     }
 
 
-    public sealed class GetSentinelOnboardingStateArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSentinelOnboardingStateArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         public GetSentinelOnboardingStateArgs()
         {
         }
-        public static new GetSentinelOnboardingStateArgs Empty => new GetSentinelOnboardingStateArgs();
     }
 
-    public sealed class GetSentinelOnboardingStateInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSentinelOnboardingStateInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         public GetSentinelOnboardingStateInvokeArgs()
         {
         }
-        public static new GetSentinelOnboardingStateInvokeArgs Empty => new GetSentinelOnboardingStateInvokeArgs();
     }
 
 

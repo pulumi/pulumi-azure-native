@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// API Version: 2021-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:ArcSetting")]
-    public partial class ArcSetting : global::Pulumi.CustomResource
+    public partial class ArcSetting : Pulumi.CustomResource
     {
         /// <summary>
         /// Aggregate state of Arc agent across the nodes in this HCI cluster.
@@ -113,11 +113,11 @@ namespace Pulumi.AzureNative.AzureStackHCI
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210101preview:ArcSetting"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901:ArcSetting"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20220101:ArcSetting"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20220301:ArcSetting"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20220501:ArcSetting"},
+                    new Pulumi.Alias { Type = "azure-native:azurestackhci/v20210101preview:ArcSetting"},
+                    new Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901:ArcSetting"},
+                    new Pulumi.Alias { Type = "azure-native:azurestackhci/v20220101:ArcSetting"},
+                    new Pulumi.Alias { Type = "azure-native:azurestackhci/v20220301:ArcSetting"},
+                    new Pulumi.Alias { Type = "azure-native:azurestackhci/v20220501:ArcSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -139,7 +139,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         }
     }
 
-    public sealed class ArcSettingArgs : global::Pulumi.ResourceArgs
+    public sealed class ArcSettingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the proxy resource holding details of HCI ArcSetting information.
@@ -198,6 +198,5 @@ namespace Pulumi.AzureNative.AzureStackHCI
         public ArcSettingArgs()
         {
         }
-        public static new ArcSettingArgs Empty => new ArcSettingArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.V20210601.Inputs
     /// <summary>
     /// The ip configurations for the private link service.
     /// </summary>
-    public sealed class IPConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class IPConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of private link IP configuration.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.HDInsight.V20210601.Inputs
         public IPConfigurationArgs()
         {
         }
-        public static new IPConfigurationArgs Empty => new IPConfigurationArgs();
     }
 }

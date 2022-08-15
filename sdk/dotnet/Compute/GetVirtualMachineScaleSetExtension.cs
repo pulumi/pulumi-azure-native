@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Compute
     }
 
 
-    public sealed class GetVirtualMachineScaleSetExtensionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualMachineScaleSetExtensionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The expand expression to apply on the operation.
@@ -56,10 +56,9 @@ namespace Pulumi.AzureNative.Compute
         public GetVirtualMachineScaleSetExtensionArgs()
         {
         }
-        public static new GetVirtualMachineScaleSetExtensionArgs Empty => new GetVirtualMachineScaleSetExtensionArgs();
     }
 
-    public sealed class GetVirtualMachineScaleSetExtensionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualMachineScaleSetExtensionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The expand expression to apply on the operation.
@@ -88,7 +87,6 @@ namespace Pulumi.AzureNative.Compute
         public GetVirtualMachineScaleSetExtensionInvokeArgs()
         {
         }
-        public static new GetVirtualMachineScaleSetExtensionInvokeArgs Empty => new GetVirtualMachineScaleSetExtensionInvokeArgs();
     }
 
 

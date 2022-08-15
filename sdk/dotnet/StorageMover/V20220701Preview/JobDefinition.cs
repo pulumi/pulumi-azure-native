@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageMover.V20220701Preview
     /// The Job Definition resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagemover/v20220701preview:JobDefinition")]
-    public partial class JobDefinition : global::Pulumi.CustomResource
+    public partial class JobDefinition : Pulumi.CustomResource
     {
         /// <summary>
         /// Name of the Agent to assign for new Job Runs of this Job Definition.
@@ -160,7 +160,7 @@ namespace Pulumi.AzureNative.StorageMover.V20220701Preview
         }
     }
 
-    public sealed class JobDefinitionArgs : global::Pulumi.ResourceArgs
+    public sealed class JobDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Agent to assign for new Job Runs of this Job Definition.
@@ -231,6 +231,5 @@ namespace Pulumi.AzureNative.StorageMover.V20220701Preview
         public JobDefinitionArgs()
         {
         }
-        public static new JobDefinitionArgs Empty => new JobDefinitionArgs();
     }
 }

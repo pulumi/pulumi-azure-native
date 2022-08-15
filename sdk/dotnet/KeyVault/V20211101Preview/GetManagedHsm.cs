@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.KeyVault.V20211101Preview
     }
 
 
-    public sealed class GetManagedHsmArgs : global::Pulumi.InvokeArgs
+    public sealed class GetManagedHsmArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the managed HSM Pool.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.KeyVault.V20211101Preview
         public GetManagedHsmArgs()
         {
         }
-        public static new GetManagedHsmArgs Empty => new GetManagedHsmArgs();
     }
 
-    public sealed class GetManagedHsmInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetManagedHsmInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the managed HSM Pool.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.KeyVault.V20211101Preview
         public GetManagedHsmInvokeArgs()
         {
         }
-        public static new GetManagedHsmInvokeArgs Empty => new GetManagedHsmInvokeArgs();
     }
 
 

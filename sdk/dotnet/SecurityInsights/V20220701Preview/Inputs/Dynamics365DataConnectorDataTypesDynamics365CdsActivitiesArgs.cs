@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview.Inputs
     /// <summary>
     /// Common Data Service data type connection.
     /// </summary>
-    public sealed class Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesArgs : global::Pulumi.ResourceArgs
+    public sealed class Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describe whether this data type connection is enabled or not.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview.Inputs
         public Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesArgs()
         {
         }
-        public static new Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesArgs Empty => new Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesArgs();
     }
 }

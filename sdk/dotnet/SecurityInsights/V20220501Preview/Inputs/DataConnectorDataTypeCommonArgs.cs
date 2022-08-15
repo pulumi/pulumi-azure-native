@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview.Inputs
     /// <summary>
     /// Common field for data type in data connectors.
     /// </summary>
-    public sealed class DataConnectorDataTypeCommonArgs : global::Pulumi.ResourceArgs
+    public sealed class DataConnectorDataTypeCommonArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describe whether this data type connection is enabled or not.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview.Inputs
         public DataConnectorDataTypeCommonArgs()
         {
         }
-        public static new DataConnectorDataTypeCommonArgs Empty => new DataConnectorDataTypeCommonArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.AVS
     }
 
 
-    public sealed class GetClusterArgs : global::Pulumi.InvokeArgs
+    public sealed class GetClusterArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the cluster in the private cloud
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.AVS
         public GetClusterArgs()
         {
         }
-        public static new GetClusterArgs Empty => new GetClusterArgs();
     }
 
-    public sealed class GetClusterInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetClusterInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the cluster in the private cloud
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.AVS
         public GetClusterInvokeArgs()
         {
         }
-        public static new GetClusterInvokeArgs Empty => new GetClusterInvokeArgs();
     }
 
 

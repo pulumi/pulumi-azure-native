@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationsManagement.V20151101Preview.Inputs
     /// <summary>
     /// ManagementAssociation properties supported by the OperationsManagement resource provider.
     /// </summary>
-    public sealed class ManagementAssociationPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagementAssociationPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The applicationId of the appliance for this association.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.OperationsManagement.V20151101Preview.Inputs
         public ManagementAssociationPropertiesArgs()
         {
         }
-        public static new ManagementAssociationPropertiesArgs Empty => new ManagementAssociationPropertiesArgs();
     }
 }

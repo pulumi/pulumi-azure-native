@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OffAzure.V20200707
     /// Site REST Resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:offazure/v20200707:Site")]
-    public partial class Site : global::Pulumi.CustomResource
+    public partial class Site : Pulumi.CustomResource
     {
         /// <summary>
         /// eTag for concurrency control.
@@ -79,8 +79,8 @@ namespace Pulumi.AzureNative.OffAzure.V20200707
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:offazure:Site"},
-                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20200101:Site"},
+                    new Pulumi.Alias { Type = "azure-native:offazure:Site"},
+                    new Pulumi.Alias { Type = "azure-native:offazure/v20200101:Site"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.OffAzure.V20200707
         }
     }
 
-    public sealed class SiteArgs : global::Pulumi.ResourceArgs
+    public sealed class SiteArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// eTag for concurrency control.
@@ -151,6 +151,5 @@ namespace Pulumi.AzureNative.OffAzure.V20200707
         public SiteArgs()
         {
         }
-        public static new SiteArgs Empty => new SiteArgs();
     }
 }

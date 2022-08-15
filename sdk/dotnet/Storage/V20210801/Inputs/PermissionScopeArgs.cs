@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20210801.Inputs
 {
 
-    public sealed class PermissionScopeArgs : global::Pulumi.ResourceArgs
+    public sealed class PermissionScopeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The permissions for the local user. Possible values include: Read (r), Write (w), Delete (d), List (l), and Create (c).
@@ -33,6 +33,5 @@ namespace Pulumi.AzureNative.Storage.V20210801.Inputs
         public PermissionScopeArgs()
         {
         }
-        public static new PermissionScopeArgs Empty => new PermissionScopeArgs();
     }
 }

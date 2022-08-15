@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20220430Preview.Inputs
     /// <summary>
     /// The properties of the Managed identity.
     /// </summary>
-    public sealed class ManagedIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The user assigned identity.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Devices.V20220430Preview.Inputs
         public ManagedIdentityArgs()
         {
         }
-        public static new ManagedIdentityArgs Empty => new ManagedIdentityArgs();
     }
 }

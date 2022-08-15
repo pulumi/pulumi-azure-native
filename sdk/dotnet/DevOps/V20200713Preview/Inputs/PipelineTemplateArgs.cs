@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevOps.V20200713Preview.Inputs
     /// <summary>
     /// Template used to bootstrap the pipeline.
     /// </summary>
-    public sealed class PipelineTemplateArgs : global::Pulumi.ResourceArgs
+    public sealed class PipelineTemplateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Unique identifier of the pipeline template.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DevOps.V20200713Preview.Inputs
         public PipelineTemplateArgs()
         {
         }
-        public static new PipelineTemplateArgs Empty => new PipelineTemplateArgs();
     }
 }

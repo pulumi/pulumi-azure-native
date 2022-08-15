@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20151001Preview.Inputs
     /// <summary>
     /// The parameters used to create a new compute policy while creating a new Data Lake Analytics account.
     /// </summary>
-    public sealed class CreateComputePolicyWithAccountParametersArgs : global::Pulumi.ResourceArgs
+    public sealed class CreateComputePolicyWithAccountParametersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20151001Preview.Inputs
         public CreateComputePolicyWithAccountParametersArgs()
         {
         }
-        public static new CreateComputePolicyWithAccountParametersArgs Empty => new CreateComputePolicyWithAccountParametersArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
     /// <summary>
     /// Defines the parameters for RequestMethod match conditions
     /// </summary>
-    public sealed class RequestMethodMatchConditionParametersArgs : global::Pulumi.ResourceArgs
+    public sealed class RequestMethodMatchConditionParametersArgs : Pulumi.ResourceArgs
     {
         [Input("matchValues")]
         private InputList<string>? _matchValues;
@@ -57,6 +57,5 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
         public RequestMethodMatchConditionParametersArgs()
         {
         }
-        public static new RequestMethodMatchConditionParametersArgs Empty => new RequestMethodMatchConditionParametersArgs();
     }
 }

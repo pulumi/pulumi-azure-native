@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200501.Inputs
     /// <summary>
     /// Defines the Web Application Firewall policy for each routing rule (if applicable)
     /// </summary>
-    public sealed class RoutingRuleUpdateParametersWebApplicationFirewallPolicyLinkArgs : global::Pulumi.ResourceArgs
+    public sealed class RoutingRuleUpdateParametersWebApplicationFirewallPolicyLinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Network.V20200501.Inputs
         public RoutingRuleUpdateParametersWebApplicationFirewallPolicyLinkArgs()
         {
         }
-        public static new RoutingRuleUpdateParametersWebApplicationFirewallPolicyLinkArgs Empty => new RoutingRuleUpdateParametersWebApplicationFirewallPolicyLinkArgs();
     }
 }

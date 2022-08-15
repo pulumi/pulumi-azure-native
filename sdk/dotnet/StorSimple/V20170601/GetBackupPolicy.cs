@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
     }
 
 
-    public sealed class GetBackupPolicyArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBackupPolicyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of backup policy to be fetched.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         public GetBackupPolicyArgs()
         {
         }
-        public static new GetBackupPolicyArgs Empty => new GetBackupPolicyArgs();
     }
 
-    public sealed class GetBackupPolicyInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBackupPolicyInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of backup policy to be fetched.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         public GetBackupPolicyInvokeArgs()
         {
         }
-        public static new GetBackupPolicyInvokeArgs Empty => new GetBackupPolicyInvokeArgs();
     }
 
 

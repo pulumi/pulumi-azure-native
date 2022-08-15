@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.V20211101Preview.Inpu
     /// <summary>
     /// The Storage SKU.
     /// </summary>
-    public sealed class StorageSkuArgs : global::Pulumi.ResourceArgs
+    public sealed class StorageSkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The SKU name
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.V20211101Preview.Inpu
         public StorageSkuArgs()
         {
         }
-        public static new StorageSkuArgs Empty => new StorageSkuArgs();
     }
 }

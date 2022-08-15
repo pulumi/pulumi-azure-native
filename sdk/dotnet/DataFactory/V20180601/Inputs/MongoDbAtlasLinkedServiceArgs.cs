@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Linked service for MongoDB Atlas data source.
     /// </summary>
-    public sealed class MongoDbAtlasLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class MongoDbAtlasLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -73,6 +73,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public MongoDbAtlasLinkedServiceArgs()
         {
         }
-        public static new MongoDbAtlasLinkedServiceArgs Empty => new MongoDbAtlasLinkedServiceArgs();
     }
 }

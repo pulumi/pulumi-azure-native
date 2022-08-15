@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Blockchain
     }
 
 
-    public sealed class ListTransactionNodeApiKeysArgs : global::Pulumi.InvokeArgs
+    public sealed class ListTransactionNodeApiKeysArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Blockchain member name.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Blockchain
         public ListTransactionNodeApiKeysArgs()
         {
         }
-        public static new ListTransactionNodeApiKeysArgs Empty => new ListTransactionNodeApiKeysArgs();
     }
 
-    public sealed class ListTransactionNodeApiKeysInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListTransactionNodeApiKeysInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Blockchain member name.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Blockchain
         public ListTransactionNodeApiKeysInvokeArgs()
         {
         }
-        public static new ListTransactionNodeApiKeysInvokeArgs Empty => new ListTransactionNodeApiKeysInvokeArgs();
     }
 
 

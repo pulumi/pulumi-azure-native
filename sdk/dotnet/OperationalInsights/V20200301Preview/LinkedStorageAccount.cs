@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
     /// Linked storage accounts top level resource container.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights/v20200301preview:LinkedStorageAccount")]
-    public partial class LinkedStorageAccount : global::Pulumi.CustomResource
+    public partial class LinkedStorageAccount : Pulumi.CustomResource
     {
         /// <summary>
         /// Linked storage accounts type.
@@ -64,9 +64,9 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights:LinkedStorageAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20190801preview:LinkedStorageAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:LinkedStorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights:LinkedStorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20190801preview:LinkedStorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:LinkedStorageAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
         }
     }
 
-    public sealed class LinkedStorageAccountArgs : global::Pulumi.ResourceArgs
+    public sealed class LinkedStorageAccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Linked storage accounts type.
@@ -123,6 +123,5 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
         public LinkedStorageAccountArgs()
         {
         }
-        public static new LinkedStorageAccountArgs Empty => new LinkedStorageAccountArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
 {
 
-    public sealed class SparkResourceConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class SparkResourceConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Optional type of VM used as supported by the compute target.
@@ -28,6 +28,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         {
             RuntimeVersion = "3.1";
         }
-        public static new SparkResourceConfigurationArgs Empty => new SparkResourceConfigurationArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Kusto.V20180907Preview
     }
 
 
-    public sealed class GetDatabaseArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDatabaseArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Kusto.V20180907Preview
         public GetDatabaseArgs()
         {
         }
-        public static new GetDatabaseArgs Empty => new GetDatabaseArgs();
     }
 
-    public sealed class GetDatabaseInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDatabaseInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Kusto.V20180907Preview
         public GetDatabaseInvokeArgs()
         {
         }
-        public static new GetDatabaseInvokeArgs Empty => new GetDatabaseInvokeArgs();
     }
 
 

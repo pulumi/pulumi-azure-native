@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Pipeline that needs to be triggered with the given parameters.
     /// </summary>
-    public sealed class TriggerPipelineReferenceArgs : global::Pulumi.ResourceArgs
+    public sealed class TriggerPipelineReferenceArgs : Pulumi.ResourceArgs
     {
         [Input("parameters")]
         private InputMap<object>? _parameters;
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public TriggerPipelineReferenceArgs()
         {
         }
-        public static new TriggerPipelineReferenceArgs Empty => new TriggerPipelineReferenceArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ApiManagement
     }
 
 
-    public sealed class GetGatewayHostnameConfigurationArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGatewayHostnameConfigurationArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
@@ -56,10 +56,9 @@ namespace Pulumi.AzureNative.ApiManagement
         public GetGatewayHostnameConfigurationArgs()
         {
         }
-        public static new GetGatewayHostnameConfigurationArgs Empty => new GetGatewayHostnameConfigurationArgs();
     }
 
-    public sealed class GetGatewayHostnameConfigurationInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGatewayHostnameConfigurationInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
@@ -88,7 +87,6 @@ namespace Pulumi.AzureNative.ApiManagement
         public GetGatewayHostnameConfigurationInvokeArgs()
         {
         }
-        public static new GetGatewayHostnameConfigurationInvokeArgs Empty => new GetGatewayHostnameConfigurationInvokeArgs();
     }
 
 

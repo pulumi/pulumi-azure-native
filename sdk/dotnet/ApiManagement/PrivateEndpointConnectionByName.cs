@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ApiManagement
     /// API Version: 2021-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:PrivateEndpointConnectionByName")]
-    public partial class PrivateEndpointConnectionByName : global::Pulumi.CustomResource
+    public partial class PrivateEndpointConnectionByName : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -71,9 +71,9 @@ namespace Pulumi.AzureNative.ApiManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:PrivateEndpointConnectionByName"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:PrivateEndpointConnectionByName"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:PrivateEndpointConnectionByName"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:PrivateEndpointConnectionByName"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:PrivateEndpointConnectionByName"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:PrivateEndpointConnectionByName"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.ApiManagement
         }
     }
 
-    public sealed class PrivateEndpointConnectionByNameArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionByNameArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Private Endpoint Connection Resource Id.
@@ -130,6 +130,5 @@ namespace Pulumi.AzureNative.ApiManagement
         public PrivateEndpointConnectionByNameArgs()
         {
         }
-        public static new PrivateEndpointConnectionByNameArgs Empty => new PrivateEndpointConnectionByNameArgs();
     }
 }

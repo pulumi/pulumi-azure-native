@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview.Inputs
     /// <summary>
     /// Event grouping settings property bag.
     /// </summary>
-    public sealed class EventGroupingSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class EventGroupingSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The event grouping aggregation kinds
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview.Inputs
         public EventGroupingSettingsArgs()
         {
         }
-        public static new EventGroupingSettingsArgs Empty => new EventGroupingSettingsArgs();
     }
 }

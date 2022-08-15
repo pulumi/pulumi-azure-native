@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
     /// Description of a namespace authorization rule.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus/v20180101preview:QueueAuthorizationRule")]
-    public partial class QueueAuthorizationRule : global::Pulumi.CustomResource
+    public partial class QueueAuthorizationRule : Pulumi.CustomResource
     {
         /// <summary>
         /// Resource name
@@ -58,14 +58,14 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus:QueueAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20140901:QueueAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20150801:QueueAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:QueueAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:QueueAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:QueueAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:QueueAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:QueueAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus:QueueAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20140901:QueueAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20150801:QueueAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20170401:QueueAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:QueueAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:QueueAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20211101:QueueAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:QueueAuthorizationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -87,7 +87,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
         }
     }
 
-    public sealed class QueueAuthorizationRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class QueueAuthorizationRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The authorization rule name.
@@ -128,6 +128,5 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
         public QueueAuthorizationRuleArgs()
         {
         }
-        public static new QueueAuthorizationRuleArgs Empty => new QueueAuthorizationRuleArgs();
     }
 }

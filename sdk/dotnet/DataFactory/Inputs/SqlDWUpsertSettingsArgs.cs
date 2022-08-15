@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Sql DW upsert option settings
     /// </summary>
-    public sealed class SqlDWUpsertSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class SqlDWUpsertSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Schema name for interim table. Type: string (or Expression with resultType string).
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public SqlDWUpsertSettingsArgs()
         {
         }
-        public static new SqlDWUpsertSettingsArgs Empty => new SqlDWUpsertSettingsArgs();
     }
 }

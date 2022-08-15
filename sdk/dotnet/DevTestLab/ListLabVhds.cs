@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DevTestLab
     }
 
 
-    public sealed class ListLabVhdsArgs : global::Pulumi.InvokeArgs
+    public sealed class ListLabVhdsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the lab.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.DevTestLab
         public ListLabVhdsArgs()
         {
         }
-        public static new ListLabVhdsArgs Empty => new ListLabVhdsArgs();
     }
 
-    public sealed class ListLabVhdsInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListLabVhdsInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the lab.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.DevTestLab
         public ListLabVhdsInvokeArgs()
         {
         }
-        public static new ListLabVhdsInvokeArgs Empty => new ListLabVhdsInvokeArgs();
     }
 
 

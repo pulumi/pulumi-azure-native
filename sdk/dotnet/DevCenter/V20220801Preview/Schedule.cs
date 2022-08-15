@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
     /// Represents a Schedule to execute a task.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter/v20220801preview:Schedule")]
-    public partial class Schedule : global::Pulumi.CustomResource
+    public partial class Schedule : Pulumi.CustomResource
     {
         /// <summary>
         /// The frequency of this scheduled task.
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         }
     }
 
-    public sealed class ScheduleArgs : global::Pulumi.ResourceArgs
+    public sealed class ScheduleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The frequency of this scheduled task.
@@ -171,6 +171,5 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         public ScheduleArgs()
         {
         }
-        public static new ScheduleArgs Empty => new ScheduleArgs();
     }
 }

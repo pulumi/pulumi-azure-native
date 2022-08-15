@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Blueprint
     }
 
 
-    public sealed class GetAssignmentArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAssignmentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the blueprint assignment.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.Blueprint
         public GetAssignmentArgs()
         {
         }
-        public static new GetAssignmentArgs Empty => new GetAssignmentArgs();
     }
 
-    public sealed class GetAssignmentInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAssignmentInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the blueprint assignment.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.Blueprint
         public GetAssignmentInvokeArgs()
         {
         }
-        public static new GetAssignmentInvokeArgs Empty => new GetAssignmentInvokeArgs();
     }
 
 

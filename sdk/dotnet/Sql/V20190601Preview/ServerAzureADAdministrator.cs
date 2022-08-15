@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20190601Preview
     /// Azure Active Directory administrator.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20190601preview:ServerAzureADAdministrator")]
-    public partial class ServerAzureADAdministrator : global::Pulumi.CustomResource
+    public partial class ServerAzureADAdministrator : Pulumi.CustomResource
     {
         /// <summary>
         /// Type of the sever administrator.
@@ -82,18 +82,18 @@ namespace Pulumi.AzureNative.Sql.V20190601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql:ServerAzureADAdministrator"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20140401:ServerAzureADAdministrator"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20180601preview:ServerAzureADAdministrator"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ServerAzureADAdministrator"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ServerAzureADAdministrator"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ServerAzureADAdministrator"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ServerAzureADAdministrator"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ServerAzureADAdministrator"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ServerAzureADAdministrator"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:ServerAzureADAdministrator"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ServerAzureADAdministrator"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ServerAzureADAdministrator"},
+                    new Pulumi.Alias { Type = "azure-native:sql:ServerAzureADAdministrator"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20140401:ServerAzureADAdministrator"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20180601preview:ServerAzureADAdministrator"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ServerAzureADAdministrator"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ServerAzureADAdministrator"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ServerAzureADAdministrator"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ServerAzureADAdministrator"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ServerAzureADAdministrator"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ServerAzureADAdministrator"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101:ServerAzureADAdministrator"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ServerAzureADAdministrator"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ServerAzureADAdministrator"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNative.Sql.V20190601Preview
         }
     }
 
-    public sealed class ServerAzureADAdministratorArgs : global::Pulumi.ResourceArgs
+    public sealed class ServerAzureADAdministratorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of server active directory administrator.
@@ -162,6 +162,5 @@ namespace Pulumi.AzureNative.Sql.V20190601Preview
         public ServerAzureADAdministratorArgs()
         {
         }
-        public static new ServerAzureADAdministratorArgs Empty => new ServerAzureADAdministratorArgs();
     }
 }

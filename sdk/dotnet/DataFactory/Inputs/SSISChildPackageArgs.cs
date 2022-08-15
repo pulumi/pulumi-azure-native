@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// SSIS embedded child package.
     /// </summary>
-    public sealed class SSISChildPackageArgs : global::Pulumi.ResourceArgs
+    public sealed class SSISChildPackageArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Content for embedded child package. Type: string (or Expression with resultType string).
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public SSISChildPackageArgs()
         {
         }
-        public static new SSISChildPackageArgs Empty => new SSISChildPackageArgs();
     }
 }

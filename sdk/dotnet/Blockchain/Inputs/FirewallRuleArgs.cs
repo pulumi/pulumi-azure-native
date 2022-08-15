@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Blockchain.Inputs
     /// <summary>
     /// Ip range for firewall rules
     /// </summary>
-    public sealed class FirewallRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class FirewallRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the end IP address of the firewall rule range.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Blockchain.Inputs
         public FirewallRuleArgs()
         {
         }
-        public static new FirewallRuleArgs Empty => new FirewallRuleArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview.Inputs
 {
 
-    public sealed class DatasetCreateRequestPathArgs : global::Pulumi.ResourceArgs
+    public sealed class DatasetCreateRequestPathArgs : Pulumi.ResourceArgs
     {
         [Input("dataPath")]
         public Input<Inputs.DatasetCreateRequestDataPathArgs>? DataPath { get; set; }
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview.Inputs
         public DatasetCreateRequestPathArgs()
         {
         }
-        public static new DatasetCreateRequestPathArgs Empty => new DatasetCreateRequestPathArgs();
     }
 }

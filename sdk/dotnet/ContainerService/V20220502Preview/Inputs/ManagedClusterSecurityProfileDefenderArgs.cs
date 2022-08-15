@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220502Preview.Inputs
     /// <summary>
     /// Microsoft Defender settings for the security profile.
     /// </summary>
-    public sealed class ManagedClusterSecurityProfileDefenderArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedClusterSecurityProfileDefenderArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID of the Log Analytics workspace to be associated with Microsoft Defender. When Microsoft Defender is enabled, this field is required and must be a valid workspace resource ID. When Microsoft Defender is disabled, leave the field empty.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ContainerService.V20220502Preview.Inputs
         public ManagedClusterSecurityProfileDefenderArgs()
         {
         }
-        public static new ManagedClusterSecurityProfileDefenderArgs Empty => new ManagedClusterSecurityProfileDefenderArgs();
     }
 }

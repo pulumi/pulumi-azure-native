@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Web.V20210201
     }
 
 
-    public sealed class ListWebAppSitePushSettingsSlotArgs : global::Pulumi.InvokeArgs
+    public sealed class ListWebAppSitePushSettingsSlotArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of web app.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Web.V20210201
         public ListWebAppSitePushSettingsSlotArgs()
         {
         }
-        public static new ListWebAppSitePushSettingsSlotArgs Empty => new ListWebAppSitePushSettingsSlotArgs();
     }
 
-    public sealed class ListWebAppSitePushSettingsSlotInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListWebAppSitePushSettingsSlotInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of web app.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Web.V20210201
         public ListWebAppSitePushSettingsSlotInvokeArgs()
         {
         }
-        public static new ListWebAppSitePushSettingsSlotInvokeArgs Empty => new ListWebAppSitePushSettingsSlotInvokeArgs();
     }
 
 

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Logz.V20220101Preview
     }
 
 
-    public sealed class GetMetricsSourceTagRuleArgs : global::Pulumi.InvokeArgs
+    public sealed class GetMetricsSourceTagRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Metrics Account resource name
@@ -51,10 +51,9 @@ namespace Pulumi.AzureNative.Logz.V20220101Preview
         public GetMetricsSourceTagRuleArgs()
         {
         }
-        public static new GetMetricsSourceTagRuleArgs Empty => new GetMetricsSourceTagRuleArgs();
     }
 
-    public sealed class GetMetricsSourceTagRuleInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetMetricsSourceTagRuleInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Metrics Account resource name
@@ -80,7 +79,6 @@ namespace Pulumi.AzureNative.Logz.V20220101Preview
         public GetMetricsSourceTagRuleInvokeArgs()
         {
         }
-        public static new GetMetricsSourceTagRuleInvokeArgs Empty => new GetMetricsSourceTagRuleInvokeArgs();
     }
 
 

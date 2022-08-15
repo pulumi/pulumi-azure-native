@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Compute.V20181001
     }
 
 
-    public sealed class GetImageArgs : global::Pulumi.InvokeArgs
+    public sealed class GetImageArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The expand expression to apply on the operation.
@@ -49,10 +49,9 @@ namespace Pulumi.AzureNative.Compute.V20181001
         public GetImageArgs()
         {
         }
-        public static new GetImageArgs Empty => new GetImageArgs();
     }
 
-    public sealed class GetImageInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetImageInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The expand expression to apply on the operation.
@@ -75,7 +74,6 @@ namespace Pulumi.AzureNative.Compute.V20181001
         public GetImageInvokeArgs()
         {
         }
-        public static new GetImageInvokeArgs Empty => new GetImageInvokeArgs();
     }
 
 

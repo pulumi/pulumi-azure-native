@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network.V20170901Preview
     /// </summary>
     [Obsolete(@"Version 2017-09-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:network/v20170901preview:TrafficManagerUserMetricsKey")]
-    public partial class TrafficManagerUserMetricsKey : global::Pulumi.CustomResource
+    public partial class TrafficManagerUserMetricsKey : Pulumi.CustomResource
     {
         /// <summary>
         /// The key returned by the Real User Metrics operation.
@@ -77,11 +77,10 @@ namespace Pulumi.AzureNative.Network.V20170901Preview
         }
     }
 
-    public sealed class TrafficManagerUserMetricsKeyArgs : global::Pulumi.ResourceArgs
+    public sealed class TrafficManagerUserMetricsKeyArgs : Pulumi.ResourceArgs
     {
         public TrafficManagerUserMetricsKeyArgs()
         {
         }
-        public static new TrafficManagerUserMetricsKeyArgs Empty => new TrafficManagerUserMetricsKeyArgs();
     }
 }

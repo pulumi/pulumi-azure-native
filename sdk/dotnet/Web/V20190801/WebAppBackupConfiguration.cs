@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20190801
     /// Description of a backup which will be performed.
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20190801:WebAppBackupConfiguration")]
-    public partial class WebAppBackupConfiguration : global::Pulumi.CustomResource
+    public partial class WebAppBackupConfiguration : Pulumi.CustomResource
     {
         /// <summary>
         /// Name of the backup.
@@ -88,20 +88,20 @@ namespace Pulumi.AzureNative.Web.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppBackupConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppBackupConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppBackupConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppBackupConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppBackupConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppBackupConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppBackupConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppBackupConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppBackupConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppBackupConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppBackupConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppBackupConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppBackupConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppBackupConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:web:WebAppBackupConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppBackupConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppBackupConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppBackupConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppBackupConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppBackupConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppBackupConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppBackupConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppBackupConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppBackupConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppBackupConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppBackupConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppBackupConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppBackupConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -123,7 +123,7 @@ namespace Pulumi.AzureNative.Web.V20190801
         }
     }
 
-    public sealed class WebAppBackupConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class WebAppBackupConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the backup.
@@ -182,6 +182,5 @@ namespace Pulumi.AzureNative.Web.V20190801
         public WebAppBackupConfigurationArgs()
         {
         }
-        public static new WebAppBackupConfigurationArgs Empty => new WebAppBackupConfigurationArgs();
     }
 }

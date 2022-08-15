@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity Azure MySql sink.
     /// </summary>
-    public sealed class AzureMySqlSinkArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureMySqlSinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -67,6 +67,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public AzureMySqlSinkArgs()
         {
         }
-        public static new AzureMySqlSinkArgs Empty => new AzureMySqlSinkArgs();
     }
 }

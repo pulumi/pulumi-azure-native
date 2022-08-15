@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20180201
     /// Virtual Network information contract.
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20180201:WebAppVnetConnection")]
-    public partial class WebAppVnetConnection : global::Pulumi.CustomResource
+    public partial class WebAppVnetConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
@@ -101,20 +101,20 @@ namespace Pulumi.AzureNative.Web.V20180201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppVnetConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppVnetConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppVnetConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppVnetConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppVnetConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppVnetConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppVnetConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppVnetConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppVnetConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppVnetConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppVnetConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppVnetConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppVnetConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppVnetConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web:WebAppVnetConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppVnetConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppVnetConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppVnetConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppVnetConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppVnetConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppVnetConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppVnetConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppVnetConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppVnetConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppVnetConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppVnetConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppVnetConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppVnetConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.Web.V20180201
         }
     }
 
-    public sealed class WebAppVnetConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class WebAppVnetConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
@@ -190,6 +190,5 @@ namespace Pulumi.AzureNative.Web.V20180201
         public WebAppVnetConnectionArgs()
         {
         }
-        public static new WebAppVnetConnectionArgs Empty => new WebAppVnetConnectionArgs();
     }
 }

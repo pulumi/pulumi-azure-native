@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Storage
     /// API Version: 2021-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:LocalUser")]
-    public partial class LocalUser : global::Pulumi.CustomResource
+    public partial class LocalUser : Pulumi.CustomResource
     {
         /// <summary>
         /// Indicates whether shared key exists. Set it to false to remove existing shared key.
@@ -101,9 +101,9 @@ namespace Pulumi.AzureNative.Storage
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210801:LocalUser"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210901:LocalUser"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20220501:LocalUser"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210801:LocalUser"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210901:LocalUser"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20220501:LocalUser"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.Storage
         }
     }
 
-    public sealed class LocalUserArgs : global::Pulumi.ResourceArgs
+    public sealed class LocalUserArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -196,6 +196,5 @@ namespace Pulumi.AzureNative.Storage
         public LocalUserArgs()
         {
         }
-        public static new LocalUserArgs Empty => new LocalUserArgs();
     }
 }

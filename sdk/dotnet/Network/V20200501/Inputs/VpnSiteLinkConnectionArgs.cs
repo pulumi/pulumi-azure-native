@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200501.Inputs
     /// <summary>
     /// VpnSiteLinkConnection Resource.
     /// </summary>
-    public sealed class VpnSiteLinkConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class VpnSiteLinkConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Expected bandwidth in MBPS.
@@ -96,6 +96,5 @@ namespace Pulumi.AzureNative.Network.V20200501.Inputs
         public VpnSiteLinkConnectionArgs()
         {
         }
-        public static new VpnSiteLinkConnectionArgs Empty => new VpnSiteLinkConnectionArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Security
     /// API Version: 2021-07-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:CustomEntityStoreAssignment")]
-    public partial class CustomEntityStoreAssignment : global::Pulumi.CustomResource
+    public partial class CustomEntityStoreAssignment : Pulumi.CustomResource
     {
         /// <summary>
         /// The link to entity store database.
@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.Security
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:security/v20210701preview:CustomEntityStoreAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:security/v20210701preview:CustomEntityStoreAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.Security
         }
     }
 
-    public sealed class CustomEntityStoreAssignmentArgs : global::Pulumi.ResourceArgs
+    public sealed class CustomEntityStoreAssignmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the custom entity store assignment. Generated name is GUID.
@@ -116,6 +116,5 @@ namespace Pulumi.AzureNative.Security
         public CustomEntityStoreAssignmentArgs()
         {
         }
-        public static new CustomEntityStoreAssignmentArgs Empty => new CustomEntityStoreAssignmentArgs();
     }
 }

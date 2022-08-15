@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview.Inputs
     /// <summary>
     /// Image registry that contains the base image.
     /// </summary>
-    public sealed class ModelDockerSectionBaseImageRegistryArgs : global::Pulumi.ResourceArgs
+    public sealed class ModelDockerSectionBaseImageRegistryArgs : Pulumi.ResourceArgs
     {
         [Input("address")]
         public Input<string>? Address { get; set; }
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview.Inputs
         public ModelDockerSectionBaseImageRegistryArgs()
         {
         }
-        public static new ModelDockerSectionBaseImageRegistryArgs Empty => new ModelDockerSectionBaseImageRegistryArgs();
     }
 }

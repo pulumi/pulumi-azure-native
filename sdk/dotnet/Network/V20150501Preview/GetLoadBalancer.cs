@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
     }
 
 
-    public sealed class GetLoadBalancerArgs : global::Pulumi.InvokeArgs
+    public sealed class GetLoadBalancerArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the loadBalancer.
@@ -43,10 +43,9 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
         public GetLoadBalancerArgs()
         {
         }
-        public static new GetLoadBalancerArgs Empty => new GetLoadBalancerArgs();
     }
 
-    public sealed class GetLoadBalancerInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetLoadBalancerInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the loadBalancer.
@@ -63,7 +62,6 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
         public GetLoadBalancerInvokeArgs()
         {
         }
-        public static new GetLoadBalancerInvokeArgs Empty => new GetLoadBalancerInvokeArgs();
     }
 
 

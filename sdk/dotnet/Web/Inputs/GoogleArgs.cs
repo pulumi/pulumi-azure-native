@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.Inputs
     /// <summary>
     /// The configuration settings of the Google provider.
     /// </summary>
-    public sealed class GoogleArgs : global::Pulumi.ResourceArgs
+    public sealed class GoogleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;code&gt;false&lt;/code&gt; if the Google provider should not be enabled despite the set registration; otherwise, &lt;code&gt;true&lt;/code&gt;.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Web.Inputs
         public GoogleArgs()
         {
         }
-        public static new GoogleArgs Empty => new GoogleArgs();
     }
 }

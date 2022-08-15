@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Dashboard.V20220801.Inputs
     /// <summary>
     /// Properties specific to the grafana resource.
     /// </summary>
-    public sealed class ManagedGrafanaPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedGrafanaPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The api key setting of the Grafana instance.
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.Dashboard.V20220801.Inputs
         public ManagedGrafanaPropertiesArgs()
         {
         }
-        public static new ManagedGrafanaPropertiesArgs Empty => new ManagedGrafanaPropertiesArgs();
     }
 }

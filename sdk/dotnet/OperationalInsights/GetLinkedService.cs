@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.OperationalInsights
     }
 
 
-    public sealed class GetLinkedServiceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetLinkedServiceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the linked service.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.OperationalInsights
         public GetLinkedServiceArgs()
         {
         }
-        public static new GetLinkedServiceArgs Empty => new GetLinkedServiceArgs();
     }
 
-    public sealed class GetLinkedServiceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetLinkedServiceInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the linked service.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.OperationalInsights
         public GetLinkedServiceInvokeArgs()
         {
         }
-        public static new GetLinkedServiceInvokeArgs Empty => new GetLinkedServiceInvokeArgs();
     }
 
 

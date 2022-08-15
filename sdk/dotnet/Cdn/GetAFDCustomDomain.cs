@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Cdn
     }
 
 
-    public sealed class GetAFDCustomDomainArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAFDCustomDomainArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the domain under the profile which is unique globally.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Cdn
         public GetAFDCustomDomainArgs()
         {
         }
-        public static new GetAFDCustomDomainArgs Empty => new GetAFDCustomDomainArgs();
     }
 
-    public sealed class GetAFDCustomDomainInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAFDCustomDomainInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the domain under the profile which is unique globally.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Cdn
         public GetAFDCustomDomainInvokeArgs()
         {
         }
-        public static new GetAFDCustomDomainInvokeArgs Empty => new GetAFDCustomDomainInvokeArgs();
     }
 
 

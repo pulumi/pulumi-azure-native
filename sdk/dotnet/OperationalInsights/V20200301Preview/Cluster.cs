@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
     /// The top level Log Analytics cluster resource container.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights/v20200301preview:Cluster")]
-    public partial class Cluster : global::Pulumi.CustomResource
+    public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>
         /// The ID associated with the cluster.
@@ -100,11 +100,11 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights:Cluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20190801preview:Cluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:Cluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20201001:Cluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20210601:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20190801preview:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20201001:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20210601:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
         }
     }
 
-    public sealed class ClusterArgs : global::Pulumi.ResourceArgs
+    public sealed class ClusterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Log Analytics cluster.
@@ -185,6 +185,5 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
         public ClusterArgs()
         {
         }
-        public static new ClusterArgs Empty => new ClusterArgs();
     }
 }

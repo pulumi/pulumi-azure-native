@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20190430.Inputs
     /// <summary>
     /// Defines the configuration of the identity providers to be used in the OpenShift cluster.
     /// </summary>
-    public sealed class OpenShiftManagedClusterIdentityProviderArgs : global::Pulumi.ResourceArgs
+    public sealed class OpenShiftManagedClusterIdentityProviderArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the provider.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ContainerService.V20190430.Inputs
         public OpenShiftManagedClusterIdentityProviderArgs()
         {
         }
-        public static new OpenShiftManagedClusterIdentityProviderArgs Empty => new OpenShiftManagedClusterIdentityProviderArgs();
     }
 }

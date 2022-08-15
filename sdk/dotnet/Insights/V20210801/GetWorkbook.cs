@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Insights.V20210801
     }
 
 
-    public sealed class GetWorkbookArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWorkbookArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Flag indicating whether or not to return the full content for each applicable workbook. If false, only return summary content for workbooks.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Insights.V20210801
         public GetWorkbookArgs()
         {
         }
-        public static new GetWorkbookArgs Empty => new GetWorkbookArgs();
     }
 
-    public sealed class GetWorkbookInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWorkbookInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Flag indicating whether or not to return the full content for each applicable workbook. If false, only return summary content for workbooks.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Insights.V20210801
         public GetWorkbookInvokeArgs()
         {
         }
-        public static new GetWorkbookInvokeArgs Empty => new GetWorkbookInvokeArgs();
     }
 
 

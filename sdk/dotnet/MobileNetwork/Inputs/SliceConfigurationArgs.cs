@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MobileNetwork.Inputs
     /// <summary>
     /// Per-slice settings
     /// </summary>
-    public sealed class SliceConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class SliceConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("dataNetworkConfigurations", required: true)]
         private InputList<Inputs.DataNetworkConfigurationArgs>? _dataNetworkConfigurations;
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.MobileNetwork.Inputs
         public SliceConfigurationArgs()
         {
         }
-        public static new SliceConfigurationArgs Empty => new SliceConfigurationArgs();
     }
 }

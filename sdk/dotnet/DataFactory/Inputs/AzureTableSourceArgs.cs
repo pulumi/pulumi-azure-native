@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity Azure Table source.
     /// </summary>
-    public sealed class AzureTableSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureTableSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -73,6 +73,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public AzureTableSourceArgs()
         {
         }
-        public static new AzureTableSourceArgs Empty => new AzureTableSourceArgs();
     }
 }

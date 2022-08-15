@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
     /// Cache details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20200601preview:Cache")]
-    public partial class Cache : global::Pulumi.CustomResource
+    public partial class Cache : Pulumi.CustomResource
     {
         /// <summary>
         /// Runtime connection string to cache
@@ -76,16 +76,16 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:Cache"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:Cache"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:Cache"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:Cache"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:Cache"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:Cache"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:Cache"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:Cache"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:Cache"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:Cache"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:Cache"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:Cache"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:Cache"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:Cache"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:Cache"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:Cache"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:Cache"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:Cache"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:Cache"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:Cache"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
         }
     }
 
-    public sealed class CacheArgs : global::Pulumi.ResourceArgs
+    public sealed class CacheArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
@@ -154,6 +154,5 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
         public CacheArgs()
         {
         }
-        public static new CacheArgs Empty => new CacheArgs();
     }
 }

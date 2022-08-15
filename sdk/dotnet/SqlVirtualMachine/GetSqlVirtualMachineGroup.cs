@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
     }
 
 
-    public sealed class GetSqlVirtualMachineGroupArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSqlVirtualMachineGroupArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         public GetSqlVirtualMachineGroupArgs()
         {
         }
-        public static new GetSqlVirtualMachineGroupArgs Empty => new GetSqlVirtualMachineGroupArgs();
     }
 
-    public sealed class GetSqlVirtualMachineGroupInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSqlVirtualMachineGroupInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         public GetSqlVirtualMachineGroupInvokeArgs()
         {
         }
-        public static new GetSqlVirtualMachineGroupInvokeArgs Empty => new GetSqlVirtualMachineGroupInvokeArgs();
     }
 
 

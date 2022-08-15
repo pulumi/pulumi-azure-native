@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Storage.V20181101
     /// </summary>
     [Obsolete(@"Version 2018-11-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storage/v20181101:BlobContainerImmutabilityPolicy")]
-    public partial class BlobContainerImmutabilityPolicy : global::Pulumi.CustomResource
+    public partial class BlobContainerImmutabilityPolicy : Pulumi.CustomResource
     {
         /// <summary>
         /// Resource Etag.
@@ -71,20 +71,20 @@ namespace Pulumi.AzureNative.Storage.V20181101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:storage:BlobContainerImmutabilityPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20180201:BlobContainerImmutabilityPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20180301preview:BlobContainerImmutabilityPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20180701:BlobContainerImmutabilityPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20190401:BlobContainerImmutabilityPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20190601:BlobContainerImmutabilityPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20200801preview:BlobContainerImmutabilityPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210101:BlobContainerImmutabilityPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210201:BlobContainerImmutabilityPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210401:BlobContainerImmutabilityPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210601:BlobContainerImmutabilityPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210801:BlobContainerImmutabilityPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210901:BlobContainerImmutabilityPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20220501:BlobContainerImmutabilityPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage:BlobContainerImmutabilityPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20180201:BlobContainerImmutabilityPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20180301preview:BlobContainerImmutabilityPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20180701:BlobContainerImmutabilityPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20190401:BlobContainerImmutabilityPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20190601:BlobContainerImmutabilityPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:BlobContainerImmutabilityPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210101:BlobContainerImmutabilityPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210201:BlobContainerImmutabilityPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210401:BlobContainerImmutabilityPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210601:BlobContainerImmutabilityPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210801:BlobContainerImmutabilityPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210901:BlobContainerImmutabilityPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20220501:BlobContainerImmutabilityPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.Storage.V20181101
         }
     }
 
-    public sealed class BlobContainerImmutabilityPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class BlobContainerImmutabilityPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -141,6 +141,5 @@ namespace Pulumi.AzureNative.Storage.V20181101
         public BlobContainerImmutabilityPolicyArgs()
         {
         }
-        public static new BlobContainerImmutabilityPolicyArgs Empty => new BlobContainerImmutabilityPolicyArgs();
     }
 }

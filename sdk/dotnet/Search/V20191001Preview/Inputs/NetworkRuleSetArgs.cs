@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Search.V20191001Preview.Inputs
     /// <summary>
     /// Network specific rules that determine how the Azure Cognitive Search service may be reached.
     /// </summary>
-    public sealed class NetworkRuleSetArgs : global::Pulumi.ResourceArgs
+    public sealed class NetworkRuleSetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The level of access to the search service endpoint. Public, the search service endpoint is reachable from the internet. Private, the search service endpoint can only be accessed via private endpoints. Default is Public.
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.Search.V20191001Preview.Inputs
         {
             EndpointAccess = Pulumi.AzureNative.Search.V20191001Preview.EndpointAccess.Public;
         }
-        public static new NetworkRuleSetArgs Empty => new NetworkRuleSetArgs();
     }
 }

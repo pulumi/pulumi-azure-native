@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.V20210101.Inputs
     /// <summary>
     /// Defines the move resource properties.
     /// </summary>
-    public sealed class MoveResourcePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class MoveResourcePropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("dependsOnOverrides")]
         private InputList<Inputs.MoveResourceDependencyOverrideArgs>? _dependsOnOverrides;
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.Migrate.V20210101.Inputs
         public MoveResourcePropertiesArgs()
         {
         }
-        public static new MoveResourcePropertiesArgs Empty => new MoveResourcePropertiesArgs();
     }
 }

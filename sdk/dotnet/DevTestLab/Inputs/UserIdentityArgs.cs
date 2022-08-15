@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.Inputs
     /// <summary>
     /// Identity attributes of a lab user.
     /// </summary>
-    public sealed class UserIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class UserIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Set to the app Id of the client JWT making the request.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.DevTestLab.Inputs
         public UserIdentityArgs()
         {
         }
-        public static new UserIdentityArgs Empty => new UserIdentityArgs();
     }
 }

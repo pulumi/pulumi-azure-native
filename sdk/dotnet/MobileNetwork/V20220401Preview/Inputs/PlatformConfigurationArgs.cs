@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview.Inputs
     /// <summary>
     /// The platform where the packet core is deployed.
     /// </summary>
-    public sealed class PlatformConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class PlatformConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Stack Edge device where where the packet core is deployed. If the device is part of a fault tolerant pair, either device in the pair can be specified.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview.Inputs
         public PlatformConfigurationArgs()
         {
         }
-        public static new PlatformConfigurationArgs Empty => new PlatformConfigurationArgs();
     }
 }

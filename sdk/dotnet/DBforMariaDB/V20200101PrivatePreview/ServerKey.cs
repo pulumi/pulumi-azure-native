@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20200101PrivatePreview
     /// A MariaDB Server key.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformariadb/v20200101privatepreview:ServerKey")]
-    public partial class ServerKey : global::Pulumi.CustomResource
+    public partial class ServerKey : Pulumi.CustomResource
     {
         /// <summary>
         /// The key creation date.
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20200101PrivatePreview
         }
     }
 
-    public sealed class ServerKeyArgs : global::Pulumi.ResourceArgs
+    public sealed class ServerKeyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the MariaDB Server key to be operated on (updated or created).
@@ -129,6 +129,5 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20200101PrivatePreview
         public ServerKeyArgs()
         {
         }
-        public static new ServerKeyArgs Empty => new ServerKeyArgs();
     }
 }

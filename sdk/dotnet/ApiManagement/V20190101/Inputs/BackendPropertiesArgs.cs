@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101.Inputs
     /// <summary>
     /// Properties specific to the Backend Type.
     /// </summary>
-    public sealed class BackendPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class BackendPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Backend Service Fabric Cluster Properties
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101.Inputs
         public BackendPropertiesArgs()
         {
         }
-        public static new BackendPropertiesArgs Empty => new BackendPropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity Oracle source.
     /// </summary>
-    public sealed class OracleSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class OracleSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -79,6 +79,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public OracleSourceArgs()
         {
         }
-        public static new OracleSourceArgs Empty => new OracleSourceArgs();
     }
 }

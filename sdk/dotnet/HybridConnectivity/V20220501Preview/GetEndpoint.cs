@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.HybridConnectivity.V20220501Preview
     }
 
 
-    public sealed class GetEndpointArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEndpointArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The endpoint name.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.HybridConnectivity.V20220501Preview
         public GetEndpointArgs()
         {
         }
-        public static new GetEndpointArgs Empty => new GetEndpointArgs();
     }
 
-    public sealed class GetEndpointInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEndpointInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The endpoint name.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.HybridConnectivity.V20220501Preview
         public GetEndpointInvokeArgs()
         {
         }
-        public static new GetEndpointInvokeArgs Empty => new GetEndpointInvokeArgs();
     }
 
 

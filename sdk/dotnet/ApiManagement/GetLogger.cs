@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ApiManagement
     }
 
 
-    public sealed class GetLoggerArgs : global::Pulumi.InvokeArgs
+    public sealed class GetLoggerArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Logger identifier. Must be unique in the API Management service instance.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.ApiManagement
         public GetLoggerArgs()
         {
         }
-        public static new GetLoggerArgs Empty => new GetLoggerArgs();
     }
 
-    public sealed class GetLoggerInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetLoggerInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Logger identifier. Must be unique in the API Management service instance.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.ApiManagement
         public GetLoggerInvokeArgs()
         {
         }
-        public static new GetLoggerInvokeArgs Empty => new GetLoggerInvokeArgs();
     }
 
 

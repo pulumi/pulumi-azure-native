@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201.Inputs
     /// <summary>
     /// Authorization header information.
     /// </summary>
-    public sealed class BackendAuthorizationHeaderCredentialsArgs : global::Pulumi.ResourceArgs
+    public sealed class BackendAuthorizationHeaderCredentialsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authentication Parameter value.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201.Inputs
         public BackendAuthorizationHeaderCredentialsArgs()
         {
         }
-        public static new BackendAuthorizationHeaderCredentialsArgs Empty => new BackendAuthorizationHeaderCredentialsArgs();
     }
 }

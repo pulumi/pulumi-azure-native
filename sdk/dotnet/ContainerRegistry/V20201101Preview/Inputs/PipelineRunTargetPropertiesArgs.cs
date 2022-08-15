@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview.Inputs
 {
 
-    public sealed class PipelineRunTargetPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class PipelineRunTargetPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the target.
@@ -28,6 +28,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview.Inputs
         {
             Type = "AzureStorageBlob";
         }
-        public static new PipelineRunTargetPropertiesArgs Empty => new PipelineRunTargetPropertiesArgs();
     }
 }

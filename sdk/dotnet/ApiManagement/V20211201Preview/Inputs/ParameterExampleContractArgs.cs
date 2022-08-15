@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview.Inputs
     /// <summary>
     /// Parameter example.
     /// </summary>
-    public sealed class ParameterExampleContractArgs : global::Pulumi.ResourceArgs
+    public sealed class ParameterExampleContractArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Long description for the example
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview.Inputs
         public ParameterExampleContractArgs()
         {
         }
-        public static new ParameterExampleContractArgs Empty => new ParameterExampleContractArgs();
     }
 }

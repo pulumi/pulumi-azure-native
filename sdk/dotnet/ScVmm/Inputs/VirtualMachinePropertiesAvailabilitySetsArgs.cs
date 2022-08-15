@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ScVmm.Inputs
     /// <summary>
     /// Availability Set model
     /// </summary>
-    public sealed class VirtualMachinePropertiesAvailabilitySetsArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualMachinePropertiesAvailabilitySetsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets the ARM Id of the microsoft.scvmm/availabilitySets resource.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ScVmm.Inputs
         public VirtualMachinePropertiesAvailabilitySetsArgs()
         {
         }
-        public static new VirtualMachinePropertiesAvailabilitySetsArgs Empty => new VirtualMachinePropertiesAvailabilitySetsArgs();
     }
 }

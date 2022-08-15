@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20201201.Inputs
     /// <summary>
     /// The configuration settings of the Azure Active Directory token validation flow.
     /// </summary>
-    public sealed class AzureActiveDirectoryValidationArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureActiveDirectoryValidationArgs : Pulumi.ResourceArgs
     {
         [Input("allowedAudiences")]
         private InputList<string>? _allowedAudiences;
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Web.V20201201.Inputs
         public AzureActiveDirectoryValidationArgs()
         {
         }
-        public static new AzureActiveDirectoryValidationArgs Empty => new AzureActiveDirectoryValidationArgs();
     }
 }

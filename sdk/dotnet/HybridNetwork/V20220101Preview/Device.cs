@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridNetwork.V20220101Preview
     /// Device resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridnetwork/v20220101preview:Device")]
-    public partial class Device : global::Pulumi.CustomResource
+    public partial class Device : Pulumi.CustomResource
     {
         /// <summary>
         /// The type of the device.
@@ -94,9 +94,9 @@ namespace Pulumi.AzureNative.HybridNetwork.V20220101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:hybridnetwork:Device"},
-                    new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20200101preview:Device"},
-                    new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20210501:Device"},
+                    new Pulumi.Alias { Type = "azure-native:hybridnetwork:Device"},
+                    new Pulumi.Alias { Type = "azure-native:hybridnetwork/v20200101preview:Device"},
+                    new Pulumi.Alias { Type = "azure-native:hybridnetwork/v20210501:Device"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.HybridNetwork.V20220101Preview
         }
     }
 
-    public sealed class DeviceArgs : global::Pulumi.ResourceArgs
+    public sealed class DeviceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource name for the device resource.
@@ -159,6 +159,5 @@ namespace Pulumi.AzureNative.HybridNetwork.V20220101Preview
         public DeviceArgs()
         {
         }
-        public static new DeviceArgs Empty => new DeviceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// HDInsight linked service.
     /// </summary>
-    public sealed class HDInsightLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class HDInsightLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -109,6 +109,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public HDInsightLinkedServiceArgs()
         {
         }
-        public static new HDInsightLinkedServiceArgs Empty => new HDInsightLinkedServiceArgs();
     }
 }

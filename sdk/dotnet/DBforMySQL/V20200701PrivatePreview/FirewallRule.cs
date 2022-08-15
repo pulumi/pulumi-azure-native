@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview
     /// Represents a server firewall rule.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql/v20200701privatepreview:FirewallRule")]
-    public partial class FirewallRule : global::Pulumi.CustomResource
+    public partial class FirewallRule : Pulumi.CustomResource
     {
         /// <summary>
         /// The end IP address of the server firewall rule. Must be IPv4 format.
@@ -64,10 +64,10 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20200701preview:FirewallRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20210501:FirewallRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20210501preview:FirewallRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20211201preview:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20200701preview:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20210501:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20210501preview:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20211201preview:FirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview
         }
     }
 
-    public sealed class FirewallRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class FirewallRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The end IP address of the server firewall rule. Must be IPv4 format.
@@ -124,6 +124,5 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview
         public FirewallRuleArgs()
         {
         }
-        public static new FirewallRuleArgs Empty => new FirewallRuleArgs();
     }
 }

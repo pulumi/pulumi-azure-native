@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.Inputs
     /// <summary>
     /// Defines the parameters for HttpVersion match conditions
     /// </summary>
-    public sealed class HttpVersionMatchConditionParametersArgs : global::Pulumi.ResourceArgs
+    public sealed class HttpVersionMatchConditionParametersArgs : Pulumi.ResourceArgs
     {
         [Input("matchValues")]
         private InputList<string>? _matchValues;
@@ -45,6 +45,5 @@ namespace Pulumi.AzureNative.Cdn.Inputs
         public HttpVersionMatchConditionParametersArgs()
         {
         }
-        public static new HttpVersionMatchConditionParametersArgs Empty => new HttpVersionMatchConditionParametersArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview.Inputs
     /// <summary>
     /// A REST based health check
     /// </summary>
-    public sealed class RestHealthCheckArgs : global::Pulumi.ResourceArgs
+    public sealed class RestHealthCheckArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A unique name for this check.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview.Inputs
         public RestHealthCheckArgs()
         {
         }
-        public static new RestHealthCheckArgs Empty => new RestHealthCheckArgs();
     }
 }

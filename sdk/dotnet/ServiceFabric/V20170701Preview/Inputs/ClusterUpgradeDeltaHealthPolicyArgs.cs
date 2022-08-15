@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20170701Preview.Inputs
     /// <summary>
     /// Describes the delta health policies for the cluster upgrade.
     /// </summary>
-    public sealed class ClusterUpgradeDeltaHealthPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class ClusterUpgradeDeltaHealthPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum allowed percentage of applications health degradation allowed during cluster upgrades. The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation. The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. System services are not included in this.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.ServiceFabric.V20170701Preview.Inputs
         public ClusterUpgradeDeltaHealthPolicyArgs()
         {
         }
-        public static new ClusterUpgradeDeltaHealthPolicyArgs Empty => new ClusterUpgradeDeltaHealthPolicyArgs();
     }
 }

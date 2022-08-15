@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
     }
 
 
-    public sealed class GetRolloutArgs : global::Pulumi.InvokeArgs
+    public sealed class GetRolloutArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -49,10 +49,9 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
         public GetRolloutArgs()
         {
         }
-        public static new GetRolloutArgs Empty => new GetRolloutArgs();
     }
 
-    public sealed class GetRolloutInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetRolloutInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -75,7 +74,6 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
         public GetRolloutInvokeArgs()
         {
         }
-        public static new GetRolloutInvokeArgs Empty => new GetRolloutInvokeArgs();
     }
 
 

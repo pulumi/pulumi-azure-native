@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
     }
 
 
-    public sealed class GetGlobalScheduleArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGlobalScheduleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specify the $expand query. Example: 'properties($select=status)'
@@ -49,10 +49,9 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         public GetGlobalScheduleArgs()
         {
         }
-        public static new GetGlobalScheduleArgs Empty => new GetGlobalScheduleArgs();
     }
 
-    public sealed class GetGlobalScheduleInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGlobalScheduleInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specify the $expand query. Example: 'properties($select=status)'
@@ -75,7 +74,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         public GetGlobalScheduleInvokeArgs()
         {
         }
-        public static new GetGlobalScheduleInvokeArgs Empty => new GetGlobalScheduleInvokeArgs();
     }
 
 

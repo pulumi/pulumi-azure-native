@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Batch
     }
 
 
-    public sealed class ListBatchAccountKeysArgs : global::Pulumi.InvokeArgs
+    public sealed class ListBatchAccountKeysArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Batch account.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.Batch
         public ListBatchAccountKeysArgs()
         {
         }
-        public static new ListBatchAccountKeysArgs Empty => new ListBatchAccountKeysArgs();
     }
 
-    public sealed class ListBatchAccountKeysInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListBatchAccountKeysInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Batch account.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.Batch
         public ListBatchAccountKeysInvokeArgs()
         {
         }
-        public static new ListBatchAccountKeysInvokeArgs Empty => new ListBatchAccountKeysInvokeArgs();
     }
 
 

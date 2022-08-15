@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Compute.V20211201
     }
 
 
-    public sealed class GetDiskEncryptionSetArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDiskEncryptionSetArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.Compute.V20211201
         public GetDiskEncryptionSetArgs()
         {
         }
-        public static new GetDiskEncryptionSetArgs Empty => new GetDiskEncryptionSetArgs();
     }
 
-    public sealed class GetDiskEncryptionSetInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDiskEncryptionSetInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.Compute.V20211201
         public GetDiskEncryptionSetInvokeArgs()
         {
         }
-        public static new GetDiskEncryptionSetInvokeArgs Empty => new GetDiskEncryptionSetInvokeArgs();
     }
 
 

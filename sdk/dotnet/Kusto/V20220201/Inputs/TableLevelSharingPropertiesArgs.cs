@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Kusto.V20220201.Inputs
     /// <summary>
     /// Tables that will be included and excluded in the follower database
     /// </summary>
-    public sealed class TableLevelSharingPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class TableLevelSharingPropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("externalTablesToExclude")]
         private InputList<string>? _externalTablesToExclude;
@@ -90,6 +90,5 @@ namespace Pulumi.AzureNative.Kusto.V20220201.Inputs
         public TableLevelSharingPropertiesArgs()
         {
         }
-        public static new TableLevelSharingPropertiesArgs Empty => new TableLevelSharingPropertiesArgs();
     }
 }

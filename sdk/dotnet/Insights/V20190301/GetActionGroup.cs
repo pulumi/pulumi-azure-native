@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Insights.V20190301
     }
 
 
-    public sealed class GetActionGroupArgs : global::Pulumi.InvokeArgs
+    public sealed class GetActionGroupArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the action group.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.Insights.V20190301
         public GetActionGroupArgs()
         {
         }
-        public static new GetActionGroupArgs Empty => new GetActionGroupArgs();
     }
 
-    public sealed class GetActionGroupInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetActionGroupInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the action group.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.Insights.V20190301
         public GetActionGroupInvokeArgs()
         {
         }
-        public static new GetActionGroupInvokeArgs Empty => new GetActionGroupInvokeArgs();
     }
 
 

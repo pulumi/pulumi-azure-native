@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cache.V20210201Preview.Inputs
     /// <summary>
     /// Specifies details of a linked database resource.
     /// </summary>
-    public sealed class LinkedDatabaseArgs : global::Pulumi.ResourceArgs
+    public sealed class LinkedDatabaseArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID of a database resource to link with this database.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Cache.V20210201Preview.Inputs
         public LinkedDatabaseArgs()
         {
         }
-        public static new LinkedDatabaseArgs Empty => new LinkedDatabaseArgs();
     }
 }

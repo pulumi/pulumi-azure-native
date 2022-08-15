@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220601Preview.Inputs
     /// <summary>
     /// Azure SQL workload-specific backup item.
     /// </summary>
-    public sealed class AzureSqlProtectedItemArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureSqlProtectedItemArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the backup set the backup item belongs to
@@ -133,6 +133,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220601Preview.Inputs
         public AzureSqlProtectedItemArgs()
         {
         }
-        public static new AzureSqlProtectedItemArgs Empty => new AzureSqlProtectedItemArgs();
     }
 }

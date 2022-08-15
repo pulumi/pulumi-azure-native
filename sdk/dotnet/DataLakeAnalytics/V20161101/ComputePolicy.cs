@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
     /// Data Lake Analytics compute policy information.
     /// </summary>
     [AzureNativeResourceType("azure-native:datalakeanalytics/v20161101:ComputePolicy")]
-    public partial class ComputePolicy : global::Pulumi.CustomResource
+    public partial class ComputePolicy : Pulumi.CustomResource
     {
         /// <summary>
         /// The maximum degree of parallelism per job this user can use to submit jobs.
@@ -76,9 +76,9 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datalakeanalytics:ComputePolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20151001preview:ComputePolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20191101preview:ComputePolicy"},
+                    new Pulumi.Alias { Type = "azure-native:datalakeanalytics:ComputePolicy"},
+                    new Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20151001preview:ComputePolicy"},
+                    new Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20191101preview:ComputePolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
         }
     }
 
-    public sealed class ComputePolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class ComputePolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Data Lake Analytics account.
@@ -147,6 +147,5 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
         public ComputePolicyArgs()
         {
         }
-        public static new ComputePolicyArgs Empty => new ComputePolicyArgs();
     }
 }

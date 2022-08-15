@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20210201.Inputs
     /// <summary>
     /// Blob index tag based filtering for blob objects
     /// </summary>
-    public sealed class TagFilterArgs : global::Pulumi.ResourceArgs
+    public sealed class TagFilterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// This is the filter tag name, it can have 1 - 128 characters
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Storage.V20210201.Inputs
         public TagFilterArgs()
         {
         }
-        public static new TagFilterArgs Empty => new TagFilterArgs();
     }
 }

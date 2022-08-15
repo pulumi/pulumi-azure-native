@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210601.Inputs
     /// <summary>
     /// Describes the notification channel for cluster events.
     /// </summary>
-    public sealed class NotificationArgs : global::Pulumi.ResourceArgs
+    public sealed class NotificationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates if the notification is enabled.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210601.Inputs
         public NotificationArgs()
         {
         }
-        public static new NotificationArgs Empty => new NotificationArgs();
     }
 }

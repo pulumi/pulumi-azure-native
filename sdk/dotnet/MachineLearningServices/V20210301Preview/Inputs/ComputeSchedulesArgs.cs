@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// <summary>
     /// The list of schedules to be applied on the computes
     /// </summary>
-    public sealed class ComputeSchedulesArgs : global::Pulumi.ResourceArgs
+    public sealed class ComputeSchedulesArgs : Pulumi.ResourceArgs
     {
         [Input("computeStartStop")]
         private InputList<Inputs.ComputeStartStopScheduleArgs>? _computeStartStop;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public ComputeSchedulesArgs()
         {
         }
-        public static new ComputeSchedulesArgs Empty => new ComputeSchedulesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20170228Preview.Inputs
     /// <summary>
     /// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
     /// </summary>
-    public sealed class SkuArgs : global::Pulumi.ResourceArgs
+    public sealed class SkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20170228Preview.Inputs
         public SkuArgs()
         {
         }
-        public static new SkuArgs Empty => new SkuArgs();
     }
 }

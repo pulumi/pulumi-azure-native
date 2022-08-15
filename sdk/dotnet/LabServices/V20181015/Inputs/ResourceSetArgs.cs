@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.LabServices.V20181015.Inputs
     /// <summary>
     /// Represents a VM and the setting Id it was created for.
     /// </summary>
-    public sealed class ResourceSetArgs : global::Pulumi.ResourceArgs
+    public sealed class ResourceSetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// resourceSettingId for the environment
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.LabServices.V20181015.Inputs
         public ResourceSetArgs()
         {
         }
-        public static new ResourceSetArgs Empty => new ResourceSetArgs();
     }
 }

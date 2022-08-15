@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview.Inputs
     /// <summary>
     /// Email Template Parameter contract.
     /// </summary>
-    public sealed class EmailTemplateParametersContractPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class EmailTemplateParametersContractPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Template parameter description.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview.Inputs
         public EmailTemplateParametersContractPropertiesArgs()
         {
         }
-        public static new EmailTemplateParametersContractPropertiesArgs Empty => new EmailTemplateParametersContractPropertiesArgs();
     }
 }

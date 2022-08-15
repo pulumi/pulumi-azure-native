@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.Inputs
     /// <summary>
     /// Azure action group
     /// </summary>
-    public sealed class AzNsActionGroupArgs : global::Pulumi.ResourceArgs
+    public sealed class AzNsActionGroupArgs : Pulumi.ResourceArgs
     {
         [Input("actionGroup")]
         private InputList<string>? _actionGroup;
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Insights.Inputs
         public AzNsActionGroupArgs()
         {
         }
-        public static new AzNsActionGroupArgs Empty => new AzNsActionGroupArgs();
     }
 }

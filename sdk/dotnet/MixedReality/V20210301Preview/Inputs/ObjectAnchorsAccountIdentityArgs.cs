@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MixedReality.V20210301Preview.Inputs
 {
 
-    public sealed class ObjectAnchorsAccountIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class ObjectAnchorsAccountIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity type.
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.MixedReality.V20210301Preview.Inputs
         public ObjectAnchorsAccountIdentityArgs()
         {
         }
-        public static new ObjectAnchorsAccountIdentityArgs Empty => new ObjectAnchorsAccountIdentityArgs();
     }
 }

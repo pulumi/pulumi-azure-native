@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20170131.Inputs
     /// <summary>
     /// Profile for diagnostics on the container service VMs.
     /// </summary>
-    public sealed class ContainerServiceVMDiagnosticsArgs : global::Pulumi.ResourceArgs
+    public sealed class ContainerServiceVMDiagnosticsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the VM diagnostic agent is provisioned on the VM.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.ContainerService.V20170131.Inputs
         public ContainerServiceVMDiagnosticsArgs()
         {
         }
-        public static new ContainerServiceVMDiagnosticsArgs Empty => new ContainerServiceVMDiagnosticsArgs();
     }
 }

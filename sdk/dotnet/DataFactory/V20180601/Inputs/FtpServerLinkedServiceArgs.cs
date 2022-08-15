@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A FTP server Linked Service.
     /// </summary>
-    public sealed class FtpServerLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class FtpServerLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -109,6 +109,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public FtpServerLinkedServiceArgs()
         {
         }
-        public static new FtpServerLinkedServiceArgs Empty => new FtpServerLinkedServiceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.Inputs
     /// <summary>
     /// Connection status
     /// </summary>
-    public sealed class ConnectionStatusDefinitionArgs : global::Pulumi.ResourceArgs
+    public sealed class ConnectionStatusDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Connection error
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Web.Inputs
         public ConnectionStatusDefinitionArgs()
         {
         }
-        public static new ConnectionStatusDefinitionArgs Empty => new ConnectionStatusDefinitionArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20190801Preview
     }
 
 
-    public sealed class GetLinkedStorageAccountArgs : global::Pulumi.InvokeArgs
+    public sealed class GetLinkedStorageAccountArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Linked storage accounts type.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.OperationalInsights.V20190801Preview
         public GetLinkedStorageAccountArgs()
         {
         }
-        public static new GetLinkedStorageAccountArgs Empty => new GetLinkedStorageAccountArgs();
     }
 
-    public sealed class GetLinkedStorageAccountInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetLinkedStorageAccountInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Linked storage accounts type.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.OperationalInsights.V20190801Preview
         public GetLinkedStorageAccountInvokeArgs()
         {
         }
-        public static new GetLinkedStorageAccountInvokeArgs Empty => new GetLinkedStorageAccountInvokeArgs();
     }
 
 

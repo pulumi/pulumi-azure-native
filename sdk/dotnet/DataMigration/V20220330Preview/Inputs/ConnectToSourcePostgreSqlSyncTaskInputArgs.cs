@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Inputs
     /// <summary>
     /// Input for the task that validates connection to PostgreSQL and source server requirements
     /// </summary>
-    public sealed class ConnectToSourcePostgreSqlSyncTaskInputArgs : global::Pulumi.ResourceArgs
+    public sealed class ConnectToSourcePostgreSqlSyncTaskInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Connection information for source PostgreSQL server
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Inputs
         public ConnectToSourcePostgreSqlSyncTaskInputArgs()
         {
         }
-        public static new ConnectToSourcePostgreSqlSyncTaskInputArgs Empty => new ConnectToSourcePostgreSqlSyncTaskInputArgs();
     }
 }

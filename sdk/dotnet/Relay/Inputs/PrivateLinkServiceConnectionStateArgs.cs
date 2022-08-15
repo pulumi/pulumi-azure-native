@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Relay.Inputs
     /// <summary>
     /// An object that represents the approval state of the private link connection.
     /// </summary>
-    public sealed class PrivateLinkServiceConnectionStateArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateLinkServiceConnectionStateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A message indicating if changes on the service provider require any updates on the consumer.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Relay.Inputs
         public PrivateLinkServiceConnectionStateArgs()
         {
         }
-        public static new PrivateLinkServiceConnectionStateArgs Empty => new PrivateLinkServiceConnectionStateArgs();
     }
 }

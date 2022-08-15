@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automanage.V20210430Preview
     /// Configuration profile assignment is an association between a VM and automanage profile configuration.
     /// </summary>
     [AzureNativeResourceType("azure-native:automanage/v20210430preview:ConfigurationProfileHCRPAssignment")]
-    public partial class ConfigurationProfileHCRPAssignment : global::Pulumi.CustomResource
+    public partial class ConfigurationProfileHCRPAssignment : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNative.Automanage.V20210430Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:automanage/v20220504:ConfigurationProfileHCRPAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:automanage/v20220504:ConfigurationProfileHCRPAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNative.Automanage.V20210430Preview
         }
     }
 
-    public sealed class ConfigurationProfileHCRPAssignmentArgs : global::Pulumi.ResourceArgs
+    public sealed class ConfigurationProfileHCRPAssignmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the configuration profile assignment. Only default is supported.
@@ -115,6 +115,5 @@ namespace Pulumi.AzureNative.Automanage.V20210430Preview
         public ConfigurationProfileHCRPAssignmentArgs()
         {
         }
-        public static new ConfigurationProfileHCRPAssignmentArgs Empty => new ConfigurationProfileHCRPAssignmentArgs();
     }
 }

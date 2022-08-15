@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.Inputs
     /// <summary>
     /// Scope of the extensionInstance. It can be either Cluster or Namespace; but not both.
     /// </summary>
-    public sealed class ScopeArgs : global::Pulumi.ResourceArgs
+    public sealed class ScopeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies that the scope of the extensionInstance is Cluster
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.Inputs
         public ScopeArgs()
         {
         }
-        public static new ScopeArgs Empty => new ScopeArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The MongoDB Atlas database dataset.
     /// </summary>
-    public sealed class MongoDbAtlasCollectionDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class MongoDbAtlasCollectionDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,6 +85,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public MongoDbAtlasCollectionDatasetArgs()
         {
         }
-        public static new MongoDbAtlasCollectionDatasetArgs Empty => new MongoDbAtlasCollectionDatasetArgs();
     }
 }

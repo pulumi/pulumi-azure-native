@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview.Inputs
     /// <summary>
     /// Describes how a volume is attached to a container.
     /// </summary>
-    public sealed class ContainerVolumeArgs : global::Pulumi.ResourceArgs
+    public sealed class ContainerVolumeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The path within the container at which the volume should be mounted. Only valid path characters are allowed.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview.Inputs
         public ContainerVolumeArgs()
         {
         }
-        public static new ContainerVolumeArgs Empty => new ContainerVolumeArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20201005Preview.Inputs
     /// <summary>
     /// The collection of content validation properties
     /// </summary>
-    public sealed class WebTestPropertiesContentValidationArgs : global::Pulumi.ResourceArgs
+    public sealed class WebTestPropertiesContentValidationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Content to look for in the return of the WebTest.  Must not be null or empty.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Insights.V20201005Preview.Inputs
         public WebTestPropertiesContentValidationArgs()
         {
         }
-        public static new WebTestPropertiesContentValidationArgs Empty => new WebTestPropertiesContentValidationArgs();
     }
 }

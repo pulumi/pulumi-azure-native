@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20210601Preview.Inputs
 {
 
-    public sealed class NotificationRegistrationPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class NotificationRegistrationPropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("includedEvents")]
         private InputList<string>? _includedEvents;
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.ProviderHub.V20210601Preview.Inputs
         public NotificationRegistrationPropertiesArgs()
         {
         }
-        public static new NotificationRegistrationPropertiesArgs Empty => new NotificationRegistrationPropertiesArgs();
     }
 }

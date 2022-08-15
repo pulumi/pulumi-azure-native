@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20150615.Inputs
     /// <summary>
     /// A common class for general resource information
     /// </summary>
-    public sealed class LocalNetworkGatewayArgs : global::Pulumi.ResourceArgs
+    public sealed class LocalNetworkGatewayArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Local network gateway's BGP speaker settings.
@@ -78,6 +78,5 @@ namespace Pulumi.AzureNative.Network.V20150615.Inputs
         public LocalNetworkGatewayArgs()
         {
         }
-        public static new LocalNetworkGatewayArgs Empty => new LocalNetworkGatewayArgs();
     }
 }

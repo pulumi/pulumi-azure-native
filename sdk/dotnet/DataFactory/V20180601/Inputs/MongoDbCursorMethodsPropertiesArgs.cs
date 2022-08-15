@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Cursor methods for Mongodb query
     /// </summary>
-    public sealed class MongoDbCursorMethodsPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class MongoDbCursorMethodsPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the maximum number of documents the server returns. limit() is analogous to the LIMIT statement in a SQL database. Type: integer (or Expression with resultType integer).
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public MongoDbCursorMethodsPropertiesArgs()
         {
         }
-        public static new MongoDbCursorMethodsPropertiesArgs Empty => new MongoDbCursorMethodsPropertiesArgs();
     }
 }

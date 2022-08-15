@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.Inputs
     /// <summary>
     /// TCPSocket specifies an action involving a TCP port. TCP hooks not yet supported.
     /// </summary>
-    public sealed class ContainerAppProbeTcpSocketArgs : global::Pulumi.ResourceArgs
+    public sealed class ContainerAppProbeTcpSocketArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Optional: Host name to connect to, defaults to the pod IP.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.App.Inputs
         public ContainerAppProbeTcpSocketArgs()
         {
         }
-        public static new ContainerAppProbeTcpSocketArgs Empty => new ContainerAppProbeTcpSocketArgs();
     }
 }

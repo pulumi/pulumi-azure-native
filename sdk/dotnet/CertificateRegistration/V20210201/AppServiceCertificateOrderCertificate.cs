@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CertificateRegistration.V20210201
     /// Key Vault container ARM resource for a certificate that is purchased through Azure.
     /// </summary>
     [AzureNativeResourceType("azure-native:certificateregistration/v20210201:AppServiceCertificateOrderCertificate")]
-    public partial class AppServiceCertificateOrderCertificate : global::Pulumi.CustomResource
+    public partial class AppServiceCertificateOrderCertificate : Pulumi.CustomResource
     {
         /// <summary>
         /// Key Vault resource Id.
@@ -88,18 +88,18 @@ namespace Pulumi.AzureNative.CertificateRegistration.V20210201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:certificateregistration:AppServiceCertificateOrderCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20150801:AppServiceCertificateOrderCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20180201:AppServiceCertificateOrderCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20190801:AppServiceCertificateOrderCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20200601:AppServiceCertificateOrderCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20200901:AppServiceCertificateOrderCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20201001:AppServiceCertificateOrderCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20201201:AppServiceCertificateOrderCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20210101:AppServiceCertificateOrderCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20210115:AppServiceCertificateOrderCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20210301:AppServiceCertificateOrderCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20220301:AppServiceCertificateOrderCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration:AppServiceCertificateOrderCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20150801:AppServiceCertificateOrderCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20180201:AppServiceCertificateOrderCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20190801:AppServiceCertificateOrderCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20200601:AppServiceCertificateOrderCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20200901:AppServiceCertificateOrderCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20201001:AppServiceCertificateOrderCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20201201:AppServiceCertificateOrderCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20210101:AppServiceCertificateOrderCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20210115:AppServiceCertificateOrderCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20210301:AppServiceCertificateOrderCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20220301:AppServiceCertificateOrderCertificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -121,7 +121,7 @@ namespace Pulumi.AzureNative.CertificateRegistration.V20210201
         }
     }
 
-    public sealed class AppServiceCertificateOrderCertificateArgs : global::Pulumi.ResourceArgs
+    public sealed class AppServiceCertificateOrderCertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the certificate order.
@@ -180,6 +180,5 @@ namespace Pulumi.AzureNative.CertificateRegistration.V20210201
         public AppServiceCertificateOrderCertificateArgs()
         {
         }
-        public static new AppServiceCertificateOrderCertificateArgs Empty => new AppServiceCertificateOrderCertificateArgs();
     }
 }

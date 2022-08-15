@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20201101
     }
 
 
-    public sealed class GetApplicationGatewayBackendHealthOnDemandArgs : global::Pulumi.InvokeArgs
+    public sealed class GetApplicationGatewayBackendHealthOnDemandArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the application gateway.
@@ -96,10 +96,9 @@ namespace Pulumi.AzureNative.Network.V20201101
         public GetApplicationGatewayBackendHealthOnDemandArgs()
         {
         }
-        public static new GetApplicationGatewayBackendHealthOnDemandArgs Empty => new GetApplicationGatewayBackendHealthOnDemandArgs();
     }
 
-    public sealed class GetApplicationGatewayBackendHealthOnDemandInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetApplicationGatewayBackendHealthOnDemandInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the application gateway.
@@ -170,7 +169,6 @@ namespace Pulumi.AzureNative.Network.V20201101
         public GetApplicationGatewayBackendHealthOnDemandInvokeArgs()
         {
         }
-        public static new GetApplicationGatewayBackendHealthOnDemandInvokeArgs Empty => new GetApplicationGatewayBackendHealthOnDemandInvokeArgs();
     }
 
 

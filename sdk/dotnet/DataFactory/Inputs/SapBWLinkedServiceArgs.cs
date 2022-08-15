@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// SAP Business Warehouse Linked Service.
     /// </summary>
-    public sealed class SapBWLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class SapBWLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -97,6 +97,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public SapBWLinkedServiceArgs()
         {
         }
-        public static new SapBWLinkedServiceArgs Empty => new SapBWLinkedServiceArgs();
     }
 }

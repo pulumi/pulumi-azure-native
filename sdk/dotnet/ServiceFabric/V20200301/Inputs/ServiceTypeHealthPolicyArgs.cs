@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20200301.Inputs
     /// <summary>
     /// Represents the health policy used to evaluate the health of services belonging to a service type.
     /// </summary>
-    public sealed class ServiceTypeHealthPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class ServiceTypeHealthPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum percentage of services allowed to be unhealthy before your application is considered in error.
@@ -25,6 +25,5 @@ namespace Pulumi.AzureNative.ServiceFabric.V20200301.Inputs
         {
             MaxPercentUnhealthyServices = 0;
         }
-        public static new ServiceTypeHealthPolicyArgs Empty => new ServiceTypeHealthPolicyArgs();
     }
 }

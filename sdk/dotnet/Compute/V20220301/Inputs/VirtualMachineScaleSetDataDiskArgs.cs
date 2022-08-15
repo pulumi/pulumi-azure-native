@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20220301.Inputs
     /// <summary>
     /// Describes a virtual machine scale set data disk.
     /// </summary>
-    public sealed class VirtualMachineScaleSetDataDiskArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualMachineScaleSetDataDiskArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the caching requirements. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **None** &lt;br&gt;&lt;br&gt; **ReadOnly** &lt;br&gt;&lt;br&gt; **ReadWrite** &lt;br&gt;&lt;br&gt; Default: **None for Standard storage. ReadOnly for Premium storage**
@@ -78,6 +78,5 @@ namespace Pulumi.AzureNative.Compute.V20220301.Inputs
         public VirtualMachineScaleSetDataDiskArgs()
         {
         }
-        public static new VirtualMachineScaleSetDataDiskArgs Empty => new VirtualMachineScaleSetDataDiskArgs();
     }
 }

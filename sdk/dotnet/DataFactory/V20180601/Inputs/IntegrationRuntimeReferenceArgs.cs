@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Integration runtime reference type.
     /// </summary>
-    public sealed class IntegrationRuntimeReferenceArgs : global::Pulumi.ResourceArgs
+    public sealed class IntegrationRuntimeReferenceArgs : Pulumi.ResourceArgs
     {
         [Input("parameters")]
         private InputMap<object>? _parameters;
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public IntegrationRuntimeReferenceArgs()
         {
         }
-        public static new IntegrationRuntimeReferenceArgs Empty => new IntegrationRuntimeReferenceArgs();
     }
 }

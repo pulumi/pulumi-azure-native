@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210712
     }
 
 
-    public sealed class GetWorkspaceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWorkspaceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210712
         public GetWorkspaceArgs()
         {
         }
-        public static new GetWorkspaceArgs Empty => new GetWorkspaceArgs();
     }
 
-    public sealed class GetWorkspaceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWorkspaceInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210712
         public GetWorkspaceInvokeArgs()
         {
         }
-        public static new GetWorkspaceInvokeArgs Empty => new GetWorkspaceInvokeArgs();
     }
 
 

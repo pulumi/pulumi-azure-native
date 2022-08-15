@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20190601.Inputs
     /// <summary>
     /// An object that wraps the blob inventory rule. Each rule is uniquely defined by name.
     /// </summary>
-    public sealed class BlobInventoryPolicyRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class BlobInventoryPolicyRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// An object that defines the blob inventory policy rule.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Storage.V20190601.Inputs
         public BlobInventoryPolicyRuleArgs()
         {
         }
-        public static new BlobInventoryPolicyRuleArgs Empty => new BlobInventoryPolicyRuleArgs();
     }
 }

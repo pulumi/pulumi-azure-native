@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.LabServices.V20220801
     /// Schedule for automatically turning virtual machines in a lab on and off at specified times.
     /// </summary>
     [AzureNativeResourceType("azure-native:labservices/v20220801:Schedule")]
-    public partial class Schedule : global::Pulumi.CustomResource
+    public partial class Schedule : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -94,9 +94,9 @@ namespace Pulumi.AzureNative.LabServices.V20220801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:labservices:Schedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:labservices/v20211001preview:Schedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:labservices/v20211115preview:Schedule"},
+                    new Pulumi.Alias { Type = "azure-native:labservices:Schedule"},
+                    new Pulumi.Alias { Type = "azure-native:labservices/v20211001preview:Schedule"},
+                    new Pulumi.Alias { Type = "azure-native:labservices/v20211115preview:Schedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.LabServices.V20220801
         }
     }
 
-    public sealed class ScheduleArgs : global::Pulumi.ResourceArgs
+    public sealed class ScheduleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
@@ -171,6 +171,5 @@ namespace Pulumi.AzureNative.LabServices.V20220801
         public ScheduleArgs()
         {
         }
-        public static new ScheduleArgs Empty => new ScheduleArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Chaos.V20220701Preview
     /// Model that represents a Experiment resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:chaos/v20220701preview:Experiment")]
-    public partial class Experiment : global::Pulumi.CustomResource
+    public partial class Experiment : Pulumi.CustomResource
     {
         /// <summary>
         /// The identity of the experiment resource.
@@ -82,8 +82,8 @@ namespace Pulumi.AzureNative.Chaos.V20220701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:chaos:Experiment"},
-                    new global::Pulumi.Alias { Type = "azure-native:chaos/v20210915preview:Experiment"},
+                    new Pulumi.Alias { Type = "azure-native:chaos:Experiment"},
+                    new Pulumi.Alias { Type = "azure-native:chaos/v20210915preview:Experiment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -105,7 +105,7 @@ namespace Pulumi.AzureNative.Chaos.V20220701Preview
         }
     }
 
-    public sealed class ExperimentArgs : global::Pulumi.ResourceArgs
+    public sealed class ExperimentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// String that represents a Experiment resource name.
@@ -152,6 +152,5 @@ namespace Pulumi.AzureNative.Chaos.V20220701Preview
         public ExperimentArgs()
         {
         }
-        public static new ExperimentArgs Empty => new ExperimentArgs();
     }
 }

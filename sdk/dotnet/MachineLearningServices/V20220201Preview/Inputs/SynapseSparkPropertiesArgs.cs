@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
 {
 
-    public sealed class SynapseSparkPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class SynapseSparkPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Auto pause properties.
@@ -75,6 +75,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         public SynapseSparkPropertiesArgs()
         {
         }
-        public static new SynapseSparkPropertiesArgs Empty => new SynapseSparkPropertiesArgs();
     }
 }

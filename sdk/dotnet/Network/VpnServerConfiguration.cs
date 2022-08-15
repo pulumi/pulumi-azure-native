@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network
     /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VpnServerConfiguration")]
-    public partial class VpnServerConfiguration : global::Pulumi.CustomResource
+    public partial class VpnServerConfiguration : Pulumi.CustomResource
     {
         /// <summary>
         /// The set of aad vpn authentication parameters.
@@ -149,22 +149,22 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190801:VpnServerConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:VpnServerConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:VpnServerConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:VpnServerConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:VpnServerConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:VpnServerConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:VpnServerConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:VpnServerConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:VpnServerConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:VpnServerConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:VpnServerConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:VpnServerConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:VpnServerConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:VpnServerConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:VpnServerConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:VpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:VpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:VpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:VpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:VpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:VpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:VpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:VpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:VpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:VpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:VpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:VpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:VpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210301:VpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501:VpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:VpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:VpnServerConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -186,7 +186,7 @@ namespace Pulumi.AzureNative.Network
         }
     }
 
-    public sealed class VpnServerConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class VpnServerConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The set of aad vpn authentication parameters.
@@ -347,6 +347,5 @@ namespace Pulumi.AzureNative.Network
         public VpnServerConfigurationArgs()
         {
         }
-        public static new VpnServerConfigurationArgs Empty => new VpnServerConfigurationArgs();
     }
 }

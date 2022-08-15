@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.V20150801
     /// </summary>
     [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:web/v20150801:ServerFarmRouteForVnet")]
-    public partial class ServerFarmRouteForVnet : global::Pulumi.CustomResource
+    public partial class ServerFarmRouteForVnet : Pulumi.CustomResource
     {
         /// <summary>
         /// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
@@ -95,19 +95,19 @@ namespace Pulumi.AzureNative.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:ServerFarmRouteForVnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20160901:ServerFarmRouteForVnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:ServerFarmRouteForVnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:ServerFarmRouteForVnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:ServerFarmRouteForVnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:ServerFarmRouteForVnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:ServerFarmRouteForVnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:ServerFarmRouteForVnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:ServerFarmRouteForVnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:ServerFarmRouteForVnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:ServerFarmRouteForVnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:ServerFarmRouteForVnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:ServerFarmRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web:ServerFarmRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160901:ServerFarmRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:ServerFarmRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:ServerFarmRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:ServerFarmRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:ServerFarmRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:ServerFarmRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:ServerFarmRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:ServerFarmRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:ServerFarmRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:ServerFarmRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:ServerFarmRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:ServerFarmRouteForVnet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -129,7 +129,7 @@ namespace Pulumi.AzureNative.Web.V20150801
         }
     }
 
-    public sealed class ServerFarmRouteForVnetArgs : global::Pulumi.ResourceArgs
+    public sealed class ServerFarmRouteForVnetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
@@ -218,6 +218,5 @@ namespace Pulumi.AzureNative.Web.V20150801
         public ServerFarmRouteForVnetArgs()
         {
         }
-        public static new ServerFarmRouteForVnetArgs Empty => new ServerFarmRouteForVnetArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity source for an HTTP file.
     /// </summary>
-    public sealed class HttpSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class HttpSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -55,6 +55,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public HttpSourceArgs()
         {
         }
-        public static new HttpSourceArgs Empty => new HttpSourceArgs();
     }
 }

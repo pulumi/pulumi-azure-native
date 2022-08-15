@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
     /// <summary>
     /// Probe describes a health check to be performed against an App Instance to determine whether it is alive or ready to receive traffic.
     /// </summary>
-    public sealed class ProbeArgs : global::Pulumi.ResourceArgs
+    public sealed class ProbeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicate whether the probe is disabled.
@@ -61,6 +61,5 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
         {
             DisableProbe = false;
         }
-        public static new ProbeArgs Empty => new ProbeArgs();
     }
 }

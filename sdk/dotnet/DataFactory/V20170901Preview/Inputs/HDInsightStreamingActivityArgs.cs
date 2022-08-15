@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// HDInsight streaming activity type.
     /// </summary>
-    public sealed class HDInsightStreamingActivityArgs : global::Pulumi.ResourceArgs
+    public sealed class HDInsightStreamingActivityArgs : Pulumi.ResourceArgs
     {
         [Input("arguments")]
         private InputList<object>? _arguments;
@@ -163,6 +163,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public HDInsightStreamingActivityArgs()
         {
         }
-        public static new HDInsightStreamingActivityArgs Empty => new HDInsightStreamingActivityArgs();
     }
 }

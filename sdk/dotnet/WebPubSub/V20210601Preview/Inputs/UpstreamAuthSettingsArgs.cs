@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20210601Preview.Inputs
     /// <summary>
     /// Upstream auth settings.
     /// </summary>
-    public sealed class UpstreamAuthSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class UpstreamAuthSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the managed identity settings. It's required if the auth type is set to ManagedIdentity.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.WebPubSub.V20210601Preview.Inputs
         public UpstreamAuthSettingsArgs()
         {
         }
-        public static new UpstreamAuthSettingsArgs Empty => new UpstreamAuthSettingsArgs();
     }
 }

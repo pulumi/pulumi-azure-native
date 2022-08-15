@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601.Inputs
     /// <summary>
     /// The metric dimension
     /// </summary>
-    public sealed class MetricDimensionArgs : global::Pulumi.ResourceArgs
+    public sealed class MetricDimensionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The dimension value.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601.Inputs
         public MetricDimensionArgs()
         {
         }
-        public static new MetricDimensionArgs Empty => new MetricDimensionArgs();
     }
 }

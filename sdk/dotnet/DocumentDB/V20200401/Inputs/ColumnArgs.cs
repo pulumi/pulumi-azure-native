@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20200401.Inputs
     /// <summary>
     /// Cosmos DB Cassandra table column
     /// </summary>
-    public sealed class ColumnArgs : global::Pulumi.ResourceArgs
+    public sealed class ColumnArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Cosmos DB Cassandra table column
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20200401.Inputs
         public ColumnArgs()
         {
         }
-        public static new ColumnArgs Empty => new ColumnArgs();
     }
 }

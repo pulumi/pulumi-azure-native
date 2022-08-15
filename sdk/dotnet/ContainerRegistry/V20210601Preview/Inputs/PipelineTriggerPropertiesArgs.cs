@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.V20210601Preview.Inputs
 {
 
-    public sealed class PipelineTriggerPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class PipelineTriggerPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The source trigger properties of the pipeline.
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210601Preview.Inputs
         public PipelineTriggerPropertiesArgs()
         {
         }
-        public static new PipelineTriggerPropertiesArgs Empty => new PipelineTriggerPropertiesArgs();
     }
 }

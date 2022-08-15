@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.ContainerService.V20160330
     }
 
 
-    public sealed class GetContainerServiceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetContainerServiceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the container service in the specified subscription and resource group.
@@ -43,10 +43,9 @@ namespace Pulumi.AzureNative.ContainerService.V20160330
         public GetContainerServiceArgs()
         {
         }
-        public static new GetContainerServiceArgs Empty => new GetContainerServiceArgs();
     }
 
-    public sealed class GetContainerServiceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetContainerServiceInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the container service in the specified subscription and resource group.
@@ -63,7 +62,6 @@ namespace Pulumi.AzureNative.ContainerService.V20160330
         public GetContainerServiceInvokeArgs()
         {
         }
-        public static new GetContainerServiceInvokeArgs Empty => new GetContainerServiceInvokeArgs();
     }
 
 

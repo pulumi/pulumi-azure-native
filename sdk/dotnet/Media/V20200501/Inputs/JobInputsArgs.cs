@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20200501.Inputs
     /// <summary>
     /// Describes a list of inputs to a Job.
     /// </summary>
-    public sealed class JobInputsArgs : global::Pulumi.ResourceArgs
+    public sealed class JobInputsArgs : Pulumi.ResourceArgs
     {
         [Input("inputs")]
         private InputList<object>? _inputs;
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.Media.V20200501.Inputs
         public JobInputsArgs()
         {
         }
-        public static new JobInputsArgs Empty => new JobInputsArgs();
     }
 }

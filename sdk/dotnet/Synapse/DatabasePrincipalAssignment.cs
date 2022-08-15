@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Synapse
     /// API Version: 2021-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:DatabasePrincipalAssignment")]
-    public partial class DatabasePrincipalAssignment : global::Pulumi.CustomResource
+    public partial class DatabasePrincipalAssignment : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -101,8 +101,8 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:DatabasePrincipalAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:DatabasePrincipalAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:DatabasePrincipalAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:DatabasePrincipalAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.Synapse
         }
     }
 
-    public sealed class DatabasePrincipalAssignmentArgs : global::Pulumi.ResourceArgs
+    public sealed class DatabasePrincipalAssignmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the database in the Kusto pool.
@@ -183,6 +183,5 @@ namespace Pulumi.AzureNative.Synapse
         public DatabasePrincipalAssignmentArgs()
         {
         }
-        public static new DatabasePrincipalAssignmentArgs Empty => new DatabasePrincipalAssignmentArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.NotificationHubs.V20140901
     /// </summary>
     [Obsolete(@"Version 2014-09-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:notificationhubs/v20140901:Namespace")]
-    public partial class Namespace : global::Pulumi.CustomResource
+    public partial class Namespace : Pulumi.CustomResource
     {
         /// <summary>
         /// Gets or sets datacenter location of the Namespace.
@@ -71,9 +71,9 @@ namespace Pulumi.AzureNative.NotificationHubs.V20140901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:notificationhubs:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20160301:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20170401:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:notificationhubs:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:notificationhubs/v20160301:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:notificationhubs/v20170401:Namespace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.NotificationHubs.V20140901
         }
     }
 
-    public sealed class NamespaceArgs : global::Pulumi.ResourceArgs
+    public sealed class NamespaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets Namespace data center location.
@@ -136,6 +136,5 @@ namespace Pulumi.AzureNative.NotificationHubs.V20140901
         public NamespaceArgs()
         {
         }
-        public static new NamespaceArgs Empty => new NamespaceArgs();
     }
 }

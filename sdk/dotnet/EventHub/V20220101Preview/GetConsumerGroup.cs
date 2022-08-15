@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.EventHub.V20220101Preview
     }
 
 
-    public sealed class GetConsumerGroupArgs : global::Pulumi.InvokeArgs
+    public sealed class GetConsumerGroupArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The consumer group name
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.EventHub.V20220101Preview
         public GetConsumerGroupArgs()
         {
         }
-        public static new GetConsumerGroupArgs Empty => new GetConsumerGroupArgs();
     }
 
-    public sealed class GetConsumerGroupInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetConsumerGroupInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The consumer group name
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.EventHub.V20220101Preview
         public GetConsumerGroupInvokeArgs()
         {
         }
-        public static new GetConsumerGroupInvokeArgs Empty => new GetConsumerGroupInvokeArgs();
     }
 
 

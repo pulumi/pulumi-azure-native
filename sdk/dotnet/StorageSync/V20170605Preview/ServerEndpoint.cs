@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.StorageSync.V20170605Preview
     /// </summary>
     [Obsolete(@"Version 2017-06-05-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storagesync/v20170605preview:ServerEndpoint")]
-    public partial class ServerEndpoint : global::Pulumi.CustomResource
+    public partial class ServerEndpoint : Pulumi.CustomResource
     {
         /// <summary>
         /// Bytes in progress
@@ -173,16 +173,16 @@ namespace Pulumi.AzureNative.StorageSync.V20170605Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync:ServerEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20180402:ServerEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20180701:ServerEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20181001:ServerEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20190201:ServerEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20190301:ServerEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20190601:ServerEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20191001:ServerEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20200301:ServerEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20200901:ServerEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync:ServerEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20180402:ServerEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20180701:ServerEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20181001:ServerEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20190201:ServerEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20190301:ServerEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20190601:ServerEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20191001:ServerEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20200301:ServerEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20200901:ServerEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -204,7 +204,7 @@ namespace Pulumi.AzureNative.StorageSync.V20170605Preview
         }
     }
 
-    public sealed class ServerEndpointArgs : global::Pulumi.ResourceArgs
+    public sealed class ServerEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Bytes in progress
@@ -353,6 +353,5 @@ namespace Pulumi.AzureNative.StorageSync.V20170605Preview
         public ServerEndpointArgs()
         {
         }
-        public static new ServerEndpointArgs Empty => new ServerEndpointArgs();
     }
 }

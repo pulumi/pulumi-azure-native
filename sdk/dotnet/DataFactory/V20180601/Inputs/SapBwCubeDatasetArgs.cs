@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// The SAP BW cube dataset.
     /// </summary>
-    public sealed class SapBwCubeDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class SapBwCubeDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -79,6 +79,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public SapBwCubeDatasetArgs()
         {
         }
-        public static new SapBwCubeDatasetArgs Empty => new SapBwCubeDatasetArgs();
     }
 }

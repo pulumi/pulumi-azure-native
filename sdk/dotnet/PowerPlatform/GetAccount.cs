@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.PowerPlatform
     }
 
 
-    public sealed class GetAccountArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAccountArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the account.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.PowerPlatform
         public GetAccountArgs()
         {
         }
-        public static new GetAccountArgs Empty => new GetAccountArgs();
     }
 
-    public sealed class GetAccountInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAccountInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the account.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.PowerPlatform
         public GetAccountInvokeArgs()
         {
         }
-        public static new GetAccountInvokeArgs Empty => new GetAccountInvokeArgs();
     }
 
 

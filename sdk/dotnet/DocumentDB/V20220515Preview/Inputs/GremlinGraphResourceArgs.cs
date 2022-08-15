@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515Preview.Inputs
     /// <summary>
     /// Cosmos DB Gremlin graph resource object
     /// </summary>
-    public sealed class GremlinGraphResourceArgs : global::Pulumi.ResourceArgs
+    public sealed class GremlinGraphResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Analytical TTL.
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515Preview.Inputs
         public GremlinGraphResourceArgs()
         {
         }
-        public static new GremlinGraphResourceArgs Empty => new GremlinGraphResourceArgs();
     }
 }

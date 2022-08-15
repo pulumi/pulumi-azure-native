@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
     /// A job.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20201101preview:Job")]
-    public partial class Job : global::Pulumi.CustomResource
+    public partial class Job : Pulumi.CustomResource
     {
         /// <summary>
         /// User-defined description of the job.
@@ -70,16 +70,16 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql:Job"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20170301preview:Job"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:Job"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:Job"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:Job"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:Job"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:Job"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:Job"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:Job"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:Job"},
+                    new Pulumi.Alias { Type = "azure-native:sql:Job"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20170301preview:Job"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:Job"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:Job"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:Job"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:Job"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:Job"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101:Job"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:Job"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:Job"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         }
     }
 
-    public sealed class JobArgs : global::Pulumi.ResourceArgs
+    public sealed class JobArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// User-defined description of the job.
@@ -143,6 +143,5 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         {
             Description = "";
         }
-        public static new JobArgs Empty => new JobArgs();
     }
 }

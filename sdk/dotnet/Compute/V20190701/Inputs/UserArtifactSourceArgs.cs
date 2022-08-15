@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20190701.Inputs
     /// <summary>
     /// The source image from which the Image Version is going to be created.
     /// </summary>
-    public sealed class UserArtifactSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class UserArtifactSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Optional. The defaultConfigurationLink of the artifact, must be a readable storage page blob.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Compute.V20190701.Inputs
         public UserArtifactSourceArgs()
         {
         }
-        public static new UserArtifactSourceArgs Empty => new UserArtifactSourceArgs();
     }
 }

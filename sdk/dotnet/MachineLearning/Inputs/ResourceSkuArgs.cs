@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearning.Inputs
     /// <summary>
     /// The SKU of a resource.
     /// </summary>
-    public sealed class ResourceSkuArgs : global::Pulumi.ResourceArgs
+    public sealed class ResourceSkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The scale-out capacity of the resource. 1 is 1x, 2 is 2x, etc. This impacts the quantities and cost of any commitment plan resource.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.MachineLearning.Inputs
         public ResourceSkuArgs()
         {
         }
-        public static new ResourceSkuArgs Empty => new ResourceSkuArgs();
     }
 }

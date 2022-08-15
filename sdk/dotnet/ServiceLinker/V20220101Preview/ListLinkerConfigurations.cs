@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ServiceLinker.V20220101Preview
     }
 
 
-    public sealed class ListLinkerConfigurationsArgs : global::Pulumi.InvokeArgs
+    public sealed class ListLinkerConfigurationsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name Linker resource.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.ServiceLinker.V20220101Preview
         public ListLinkerConfigurationsArgs()
         {
         }
-        public static new ListLinkerConfigurationsArgs Empty => new ListLinkerConfigurationsArgs();
     }
 
-    public sealed class ListLinkerConfigurationsInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListLinkerConfigurationsInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name Linker resource.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.ServiceLinker.V20220101Preview
         public ListLinkerConfigurationsInvokeArgs()
         {
         }
-        public static new ListLinkerConfigurationsInvokeArgs Empty => new ListLinkerConfigurationsInvokeArgs();
     }
 
 

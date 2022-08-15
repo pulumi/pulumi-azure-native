@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview.Inputs
     /// <summary>
     /// Mapping of user object ID to role assignments.
     /// </summary>
-    public sealed class UserRoleAssignmentArgs : global::Pulumi.ResourceArgs
+    public sealed class UserRoleAssignmentArgs : Pulumi.ResourceArgs
     {
         [Input("roles")]
         private InputMap<object>? _roles;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview.Inputs
         public UserRoleAssignmentArgs()
         {
         }
-        public static new UserRoleAssignmentArgs Empty => new UserRoleAssignmentArgs();
     }
 }

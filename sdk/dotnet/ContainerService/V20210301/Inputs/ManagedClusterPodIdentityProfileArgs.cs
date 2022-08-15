@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20210301.Inputs
 {
 
-    public sealed class ManagedClusterPodIdentityProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedClusterPodIdentityProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Customer consent for enabling AAD pod identity addon in cluster using Kubenet network plugin.
@@ -51,6 +51,5 @@ namespace Pulumi.AzureNative.ContainerService.V20210301.Inputs
         public ManagedClusterPodIdentityProfileArgs()
         {
         }
-        public static new ManagedClusterPodIdentityProfileArgs Empty => new ManagedClusterPodIdentityProfileArgs();
     }
 }

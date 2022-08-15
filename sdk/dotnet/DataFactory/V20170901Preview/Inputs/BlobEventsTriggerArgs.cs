@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Trigger that runs every time a Blob event occurs.
     /// </summary>
-    public sealed class BlobEventsTriggerArgs : global::Pulumi.ResourceArgs
+    public sealed class BlobEventsTriggerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The blob path must begin with the pattern provided for trigger to fire. For example, '/records/blobs/december/' will only fire the trigger for blobs in the december folder under the records container. At least one of these must be provided: blobPathBeginsWith, blobPathEndsWith.
@@ -79,6 +79,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public BlobEventsTriggerArgs()
         {
         }
-        public static new BlobEventsTriggerArgs Empty => new BlobEventsTriggerArgs();
     }
 }

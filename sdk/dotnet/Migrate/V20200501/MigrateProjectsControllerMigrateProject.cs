@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.V20200501
     /// Migrate project.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate/v20200501:MigrateProjectsControllerMigrateProject")]
-    public partial class MigrateProjectsControllerMigrateProject : global::Pulumi.CustomResource
+    public partial class MigrateProjectsControllerMigrateProject : Pulumi.CustomResource
     {
         /// <summary>
         /// For optimistic concurrency control.
@@ -76,8 +76,8 @@ namespace Pulumi.AzureNative.Migrate.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:migrate:MigrateProjectsControllerMigrateProject"},
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20180901preview:MigrateProjectsControllerMigrateProject"},
+                    new Pulumi.Alias { Type = "azure-native:migrate:MigrateProjectsControllerMigrateProject"},
+                    new Pulumi.Alias { Type = "azure-native:migrate/v20180901preview:MigrateProjectsControllerMigrateProject"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.Migrate.V20200501
         }
     }
 
-    public sealed class MigrateProjectsControllerMigrateProjectArgs : global::Pulumi.ResourceArgs
+    public sealed class MigrateProjectsControllerMigrateProjectArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// For optimistic concurrency control.
@@ -134,6 +134,5 @@ namespace Pulumi.AzureNative.Migrate.V20200501
         public MigrateProjectsControllerMigrateProjectArgs()
         {
         }
-        public static new MigrateProjectsControllerMigrateProjectArgs Empty => new MigrateProjectsControllerMigrateProjectArgs();
     }
 }

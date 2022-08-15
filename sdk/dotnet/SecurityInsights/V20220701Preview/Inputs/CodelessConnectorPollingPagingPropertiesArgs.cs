@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview.Inputs
     /// <summary>
     /// Describe the properties needed to make a pagination call
     /// </summary>
-    public sealed class CodelessConnectorPollingPagingPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class CodelessConnectorPollingPagingPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Defines the name of a next page attribute
@@ -72,6 +72,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview.Inputs
         public CodelessConnectorPollingPagingPropertiesArgs()
         {
         }
-        public static new CodelessConnectorPollingPagingPropertiesArgs Empty => new CodelessConnectorPollingPagingPropertiesArgs();
     }
 }

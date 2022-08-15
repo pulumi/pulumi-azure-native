@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearning.Inputs
     /// <summary>
     /// Parameter definition for a module asset.
     /// </summary>
-    public sealed class ModuleAssetParameterArgs : global::Pulumi.ResourceArgs
+    public sealed class ModuleAssetParameterArgs : Pulumi.ResourceArgs
     {
         [Input("modeValuesInfo")]
         private InputMap<Inputs.ModeValueInfoArgs>? _modeValuesInfo;
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.MachineLearning.Inputs
         public ModuleAssetParameterArgs()
         {
         }
-        public static new ModuleAssetParameterArgs Empty => new ModuleAssetParameterArgs();
     }
 }

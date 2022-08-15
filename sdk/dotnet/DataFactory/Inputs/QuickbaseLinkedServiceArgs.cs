@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Linked service for Quickbase.
     /// </summary>
-    public sealed class QuickbaseLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class QuickbaseLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -79,6 +79,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public QuickbaseLinkedServiceArgs()
         {
         }
-        public static new QuickbaseLinkedServiceArgs Empty => new QuickbaseLinkedServiceArgs();
     }
 }

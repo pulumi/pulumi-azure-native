@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20150801Preview
 {
     [AzureNativeResourceType("azure-native:logic/v20150801preview:IntegrationAccountCertificate")]
-    public partial class IntegrationAccountCertificate : global::Pulumi.CustomResource
+    public partial class IntegrationAccountCertificate : Pulumi.CustomResource
     {
         /// <summary>
         /// The changed time.
@@ -91,10 +91,10 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:logic:IntegrationAccountCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccountCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:logic/v20190501:IntegrationAccountCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:logic:IntegrationAccountCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccountCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20190501:IntegrationAccountCertificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview
         }
     }
 
-    public sealed class IntegrationAccountCertificateArgs : global::Pulumi.ResourceArgs
+    public sealed class IntegrationAccountCertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The integration account certificate name.
@@ -193,6 +193,5 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview
         public IntegrationAccountCertificateArgs()
         {
         }
-        public static new IntegrationAccountCertificateArgs Empty => new IntegrationAccountCertificateArgs();
     }
 }

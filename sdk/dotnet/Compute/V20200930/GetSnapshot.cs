@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Compute.V20200930
     }
 
 
-    public sealed class GetSnapshotArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSnapshotArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.Compute.V20200930
         public GetSnapshotArgs()
         {
         }
-        public static new GetSnapshotArgs Empty => new GetSnapshotArgs();
     }
 
-    public sealed class GetSnapshotInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSnapshotInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.Compute.V20200930
         public GetSnapshotInvokeArgs()
         {
         }
-        public static new GetSnapshotInvokeArgs Empty => new GetSnapshotInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Inputs
 {
 
-    public sealed class ResourceTypeRegistrationPropertiesResourceMovePolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class ResourceTypeRegistrationPropertiesResourceMovePolicyArgs : Pulumi.ResourceArgs
     {
         [Input("crossResourceGroupMoveEnabled")]
         public Input<bool>? CrossResourceGroupMoveEnabled { get; set; }
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
         public ResourceTypeRegistrationPropertiesResourceMovePolicyArgs()
         {
         }
-        public static new ResourceTypeRegistrationPropertiesResourceMovePolicyArgs Empty => new ResourceTypeRegistrationPropertiesResourceMovePolicyArgs();
     }
 }

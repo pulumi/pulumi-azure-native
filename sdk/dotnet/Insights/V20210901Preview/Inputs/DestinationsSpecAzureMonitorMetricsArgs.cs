@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20210901Preview.Inputs
     /// <summary>
     /// Azure Monitor Metrics destination.
     /// </summary>
-    public sealed class DestinationsSpecAzureMonitorMetricsArgs : global::Pulumi.ResourceArgs
+    public sealed class DestinationsSpecAzureMonitorMetricsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A friendly name for the destination. 
@@ -25,6 +25,5 @@ namespace Pulumi.AzureNative.Insights.V20210901Preview.Inputs
         public DestinationsSpecAzureMonitorMetricsArgs()
         {
         }
-        public static new DestinationsSpecAzureMonitorMetricsArgs Empty => new DestinationsSpecAzureMonitorMetricsArgs();
     }
 }

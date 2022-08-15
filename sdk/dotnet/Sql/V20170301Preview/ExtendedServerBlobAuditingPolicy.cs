@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20170301Preview
     /// An extended server blob auditing policy.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20170301preview:ExtendedServerBlobAuditingPolicy")]
-    public partial class ExtendedServerBlobAuditingPolicy : global::Pulumi.CustomResource
+    public partial class ExtendedServerBlobAuditingPolicy : Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the Actions-Groups and Actions to audit.
@@ -176,16 +176,16 @@ namespace Pulumi.AzureNative.Sql.V20170301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql:ExtendedServerBlobAuditingPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ExtendedServerBlobAuditingPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ExtendedServerBlobAuditingPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ExtendedServerBlobAuditingPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ExtendedServerBlobAuditingPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ExtendedServerBlobAuditingPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ExtendedServerBlobAuditingPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:ExtendedServerBlobAuditingPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ExtendedServerBlobAuditingPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ExtendedServerBlobAuditingPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:sql:ExtendedServerBlobAuditingPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ExtendedServerBlobAuditingPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ExtendedServerBlobAuditingPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ExtendedServerBlobAuditingPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ExtendedServerBlobAuditingPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ExtendedServerBlobAuditingPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ExtendedServerBlobAuditingPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101:ExtendedServerBlobAuditingPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ExtendedServerBlobAuditingPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ExtendedServerBlobAuditingPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -207,7 +207,7 @@ namespace Pulumi.AzureNative.Sql.V20170301Preview
         }
     }
 
-    public sealed class ExtendedServerBlobAuditingPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class ExtendedServerBlobAuditingPolicyArgs : Pulumi.ResourceArgs
     {
         [Input("auditActionsAndGroups")]
         private InputList<string>? _auditActionsAndGroups;
@@ -371,6 +371,5 @@ namespace Pulumi.AzureNative.Sql.V20170301Preview
         public ExtendedServerBlobAuditingPolicyArgs()
         {
         }
-        public static new ExtendedServerBlobAuditingPolicyArgs Empty => new ExtendedServerBlobAuditingPolicyArgs();
     }
 }

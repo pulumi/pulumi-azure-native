@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ProviderHub
     /// API Version: 2020-11-20.
     /// </summary>
     [AzureNativeResourceType("azure-native:providerhub:SkusNestedResourceTypeFirst")]
-    public partial class SkusNestedResourceTypeFirst : global::Pulumi.CustomResource
+    public partial class SkusNestedResourceTypeFirst : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -55,10 +55,10 @@ namespace Pulumi.AzureNative.ProviderHub
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20201120:SkusNestedResourceTypeFirst"},
-                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210501preview:SkusNestedResourceTypeFirst"},
-                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210601preview:SkusNestedResourceTypeFirst"},
-                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210901preview:SkusNestedResourceTypeFirst"},
+                    new Pulumi.Alias { Type = "azure-native:providerhub/v20201120:SkusNestedResourceTypeFirst"},
+                    new Pulumi.Alias { Type = "azure-native:providerhub/v20210501preview:SkusNestedResourceTypeFirst"},
+                    new Pulumi.Alias { Type = "azure-native:providerhub/v20210601preview:SkusNestedResourceTypeFirst"},
+                    new Pulumi.Alias { Type = "azure-native:providerhub/v20210901preview:SkusNestedResourceTypeFirst"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNative.ProviderHub
         }
     }
 
-    public sealed class SkusNestedResourceTypeFirstArgs : global::Pulumi.ResourceArgs
+    public sealed class SkusNestedResourceTypeFirstArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The first child resource type.
@@ -112,6 +112,5 @@ namespace Pulumi.AzureNative.ProviderHub
         public SkusNestedResourceTypeFirstArgs()
         {
         }
-        public static new SkusNestedResourceTypeFirstArgs Empty => new SkusNestedResourceTypeFirstArgs();
     }
 }

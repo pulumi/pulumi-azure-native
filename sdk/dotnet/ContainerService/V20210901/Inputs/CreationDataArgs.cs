@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20210901.Inputs
     /// <summary>
     /// Data used when creating a target resource from a source resource.
     /// </summary>
-    public sealed class CreationDataArgs : global::Pulumi.ResourceArgs
+    public sealed class CreationDataArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// This is the ARM ID of the source object to be used to create the target object.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.ContainerService.V20210901.Inputs
         public CreationDataArgs()
         {
         }
-        public static new CreationDataArgs Empty => new CreationDataArgs();
     }
 }

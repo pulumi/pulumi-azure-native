@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview.Inputs
     /// <summary>
     /// Information on the user an incident is assigned to
     /// </summary>
-    public sealed class IncidentOwnerInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class IncidentOwnerInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the user the incident is assigned to.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview.Inputs
         public IncidentOwnerInfoArgs()
         {
         }
-        public static new IncidentOwnerInfoArgs Empty => new IncidentOwnerInfoArgs();
     }
 }

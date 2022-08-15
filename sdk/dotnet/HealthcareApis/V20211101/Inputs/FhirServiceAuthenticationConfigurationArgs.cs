@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20211101.Inputs
     /// <summary>
     /// Authentication configuration information
     /// </summary>
-    public sealed class FhirServiceAuthenticationConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class FhirServiceAuthenticationConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The audience url for the service
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.HealthcareApis.V20211101.Inputs
         public FhirServiceAuthenticationConfigurationArgs()
         {
         }
-        public static new FhirServiceAuthenticationConfigurationArgs Empty => new FhirServiceAuthenticationConfigurationArgs();
     }
 }

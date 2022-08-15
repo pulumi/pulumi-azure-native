@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Security
     /// API Version: 2021-08-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:Standard")]
-    public partial class Standard : global::Pulumi.CustomResource
+    public partial class Standard : Pulumi.CustomResource
     {
         /// <summary>
         /// category of the standard provided
@@ -119,7 +119,7 @@ namespace Pulumi.AzureNative.Security
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:security/v20210801preview:Standard"},
+                    new Pulumi.Alias { Type = "azure-native:security/v20210801preview:Standard"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -141,7 +141,7 @@ namespace Pulumi.AzureNative.Security
         }
     }
 
-    public sealed class StandardArgs : global::Pulumi.ResourceArgs
+    public sealed class StandardArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// category of the standard provided
@@ -224,6 +224,5 @@ namespace Pulumi.AzureNative.Security
         public StandardArgs()
         {
         }
-        public static new StandardArgs Empty => new StandardArgs();
     }
 }

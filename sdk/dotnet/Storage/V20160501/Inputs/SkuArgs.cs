@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20160501.Inputs
     /// <summary>
     /// The SKU of the storage account.
     /// </summary>
-    public sealed class SkuArgs : global::Pulumi.ResourceArgs
+    public sealed class SkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Storage.V20160501.Inputs
         public SkuArgs()
         {
         }
-        public static new SkuArgs Empty => new SkuArgs();
     }
 }

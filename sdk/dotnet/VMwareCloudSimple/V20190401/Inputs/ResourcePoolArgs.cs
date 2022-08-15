@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VMwareCloudSimple.V20190401.Inputs
     /// <summary>
     /// Resource pool model
     /// </summary>
-    public sealed class ResourcePoolArgs : global::Pulumi.ResourceArgs
+    public sealed class ResourcePoolArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// resource pool id (privateCloudId:vsphereId)
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.VMwareCloudSimple.V20190401.Inputs
         public ResourcePoolArgs()
         {
         }
-        public static new ResourcePoolArgs Empty => new ResourcePoolArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.Inputs
     /// <summary>
     /// A remote tunnel securely established using IoT Hub device information.
     /// </summary>
-    public sealed class SecureIotDeviceRemoteTunnelArgs : global::Pulumi.ResourceArgs
+    public sealed class SecureIotDeviceRemoteTunnelArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IoT device id to use when establishing the remote tunnel. This string is case-sensitive.
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.VideoAnalyzer.Inputs
         public SecureIotDeviceRemoteTunnelArgs()
         {
         }
-        public static new SecureIotDeviceRemoteTunnelArgs Empty => new SecureIotDeviceRemoteTunnelArgs();
     }
 }

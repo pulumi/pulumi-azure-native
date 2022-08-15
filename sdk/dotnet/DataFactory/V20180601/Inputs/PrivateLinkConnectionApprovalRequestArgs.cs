@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A request to approve or reject a private endpoint connection
     /// </summary>
-    public sealed class PrivateLinkConnectionApprovalRequestArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateLinkConnectionApprovalRequestArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource of private endpoint.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public PrivateLinkConnectionApprovalRequestArgs()
         {
         }
-        public static new PrivateLinkConnectionApprovalRequestArgs Empty => new PrivateLinkConnectionApprovalRequestArgs();
     }
 }

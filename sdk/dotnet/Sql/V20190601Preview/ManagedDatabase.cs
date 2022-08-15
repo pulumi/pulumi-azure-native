@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20190601Preview
     /// A managed database resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20190601preview:ManagedDatabase")]
-    public partial class ManagedDatabase : global::Pulumi.CustomResource
+    public partial class ManagedDatabase : Pulumi.CustomResource
     {
         /// <summary>
         /// Collation of the metadata catalog.
@@ -106,18 +106,18 @@ namespace Pulumi.AzureNative.Sql.V20190601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql:ManagedDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20170301preview:ManagedDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20180601preview:ManagedDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ManagedDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ManagedDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ManagedDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ManagedDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ManagedDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ManagedDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:ManagedDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ManagedDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ManagedDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:sql:ManagedDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20170301preview:ManagedDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20180601preview:ManagedDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ManagedDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ManagedDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ManagedDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ManagedDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ManagedDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ManagedDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101:ManagedDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ManagedDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ManagedDatabase"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -139,7 +139,7 @@ namespace Pulumi.AzureNative.Sql.V20190601Preview
         }
     }
 
-    public sealed class ManagedDatabaseArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedDatabaseArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Collation of the metadata catalog.
@@ -240,6 +240,5 @@ namespace Pulumi.AzureNative.Sql.V20190601Preview
         public ManagedDatabaseArgs()
         {
         }
-        public static new ManagedDatabaseArgs Empty => new ManagedDatabaseArgs();
     }
 }

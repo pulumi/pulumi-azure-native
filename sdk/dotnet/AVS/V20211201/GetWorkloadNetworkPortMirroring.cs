@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.AVS.V20211201
     }
 
 
-    public sealed class GetWorkloadNetworkPortMirroringArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWorkloadNetworkPortMirroringArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// NSX Port Mirroring identifier. Generally the same as the Port Mirroring display name
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.AVS.V20211201
         public GetWorkloadNetworkPortMirroringArgs()
         {
         }
-        public static new GetWorkloadNetworkPortMirroringArgs Empty => new GetWorkloadNetworkPortMirroringArgs();
     }
 
-    public sealed class GetWorkloadNetworkPortMirroringInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWorkloadNetworkPortMirroringInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// NSX Port Mirroring identifier. Generally the same as the Port Mirroring display name
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.AVS.V20211201
         public GetWorkloadNetworkPortMirroringInvokeArgs()
         {
         }
-        public static new GetWorkloadNetworkPortMirroringInvokeArgs Empty => new GetWorkloadNetworkPortMirroringInvokeArgs();
     }
 
 

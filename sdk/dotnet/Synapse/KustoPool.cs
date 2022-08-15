@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Synapse
     /// API Version: 2021-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:kustoPool")]
-    public partial class KustoPool : global::Pulumi.CustomResource
+    public partial class KustoPool : Pulumi.CustomResource
     {
         /// <summary>
         /// The Kusto Pool data ingestion URI.
@@ -125,8 +125,8 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:kustoPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:kustoPool"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:kustoPool"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:kustoPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNative.Synapse
         }
     }
 
-    public sealed class KustoPoolArgs : global::Pulumi.ResourceArgs
+    public sealed class KustoPoolArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The engine type
@@ -207,6 +207,5 @@ namespace Pulumi.AzureNative.Synapse
         public KustoPoolArgs()
         {
         }
-        public static new KustoPoolArgs Empty => new KustoPoolArgs();
     }
 }

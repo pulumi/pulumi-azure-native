@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DataFactory
     }
 
 
-    public sealed class GetTriggerEventSubscriptionStatusArgs : global::Pulumi.InvokeArgs
+    public sealed class GetTriggerEventSubscriptionStatusArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The factory name.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.DataFactory
         public GetTriggerEventSubscriptionStatusArgs()
         {
         }
-        public static new GetTriggerEventSubscriptionStatusArgs Empty => new GetTriggerEventSubscriptionStatusArgs();
     }
 
-    public sealed class GetTriggerEventSubscriptionStatusInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetTriggerEventSubscriptionStatusInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The factory name.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.DataFactory
         public GetTriggerEventSubscriptionStatusInvokeArgs()
         {
         }
-        public static new GetTriggerEventSubscriptionStatusInvokeArgs Empty => new GetTriggerEventSubscriptionStatusInvokeArgs();
     }
 
 

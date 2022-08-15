@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20211101.Inputs
     /// <summary>
     /// The kubernetes resource limits and requests used to restrict or reserve resource usage.
     /// </summary>
-    public sealed class K8sResourceRequirementsArgs : global::Pulumi.ResourceArgs
+    public sealed class K8sResourceRequirementsArgs : Pulumi.ResourceArgs
     {
         [Input("limits")]
         private InputMap<string>? _limits;
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.AzureArcData.V20211101.Inputs
         public K8sResourceRequirementsArgs()
         {
         }
-        public static new K8sResourceRequirementsArgs Empty => new K8sResourceRequirementsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.PolicyInsights.V20190701
     /// The remediation definition.
     /// </summary>
     [AzureNativeResourceType("azure-native:policyinsights/v20190701:RemediationAtResourceGroup")]
-    public partial class RemediationAtResourceGroup : global::Pulumi.CustomResource
+    public partial class RemediationAtResourceGroup : Pulumi.CustomResource
     {
         /// <summary>
         /// The time at which the remediation was created.
@@ -100,9 +100,9 @@ namespace Pulumi.AzureNative.PolicyInsights.V20190701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:policyinsights:RemediationAtResourceGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:policyinsights/v20180701preview:RemediationAtResourceGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:policyinsights/v20211001:RemediationAtResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:policyinsights:RemediationAtResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:policyinsights/v20180701preview:RemediationAtResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:policyinsights/v20211001:RemediationAtResourceGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.PolicyInsights.V20190701
         }
     }
 
-    public sealed class RemediationAtResourceGroupArgs : global::Pulumi.ResourceArgs
+    public sealed class RemediationAtResourceGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The filters that will be applied to determine which resources to remediate.
@@ -165,6 +165,5 @@ namespace Pulumi.AzureNative.PolicyInsights.V20190701
         public RemediationAtResourceGroupArgs()
         {
         }
-        public static new RemediationAtResourceGroupArgs Empty => new RemediationAtResourceGroupArgs();
     }
 }

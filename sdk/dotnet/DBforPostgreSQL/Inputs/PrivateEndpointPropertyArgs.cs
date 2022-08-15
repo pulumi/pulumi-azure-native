@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
 {
 
-    public sealed class PrivateEndpointPropertyArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointPropertyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource id of the private endpoint.
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
         public PrivateEndpointPropertyArgs()
         {
         }
-        public static new PrivateEndpointPropertyArgs Empty => new PrivateEndpointPropertyArgs();
     }
 }

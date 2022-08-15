@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.Inputs
     /// <summary>
     /// This type describes the requested resources for a given container. It describes the least amount of resources required for the container. A container can consume more than requested resources up to the specified limits before being restarted. Currently, the requested resources are treated as limits.
     /// </summary>
-    public sealed class ResourceRequestsArgs : global::Pulumi.ResourceArgs
+    public sealed class ResourceRequestsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Requested number of CPU cores. At present, only full cores are supported.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.Inputs
         public ResourceRequestsArgs()
         {
         }
-        public static new ResourceRequestsArgs Empty => new ResourceRequestsArgs();
     }
 }

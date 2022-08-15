@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200401.Inputs
     /// <summary>
     /// IPv6 Circuit Connection properties for global reach.
     /// </summary>
-    public sealed class Ipv6CircuitConnectionConfigArgs : global::Pulumi.ResourceArgs
+    public sealed class Ipv6CircuitConnectionConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// /125 IP address space to carve out customer addresses for global reach.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Network.V20200401.Inputs
         public Ipv6CircuitConnectionConfigArgs()
         {
         }
-        public static new Ipv6CircuitConnectionConfigArgs Empty => new Ipv6CircuitConnectionConfigArgs();
     }
 }

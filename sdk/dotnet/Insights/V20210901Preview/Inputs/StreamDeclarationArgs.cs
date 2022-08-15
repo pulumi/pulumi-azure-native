@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20210901Preview.Inputs
     /// <summary>
     /// Declaration of a custom stream.
     /// </summary>
-    public sealed class StreamDeclarationArgs : global::Pulumi.ResourceArgs
+    public sealed class StreamDeclarationArgs : Pulumi.ResourceArgs
     {
         [Input("columns")]
         private InputList<Inputs.ColumnDefinitionArgs>? _columns;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Insights.V20210901Preview.Inputs
         public StreamDeclarationArgs()
         {
         }
-        public static new StreamDeclarationArgs Empty => new StreamDeclarationArgs();
     }
 }

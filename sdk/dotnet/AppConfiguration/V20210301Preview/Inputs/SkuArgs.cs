@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppConfiguration.V20210301Preview.Inputs
     /// <summary>
     /// Describes a configuration store SKU.
     /// </summary>
-    public sealed class SkuArgs : global::Pulumi.ResourceArgs
+    public sealed class SkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The SKU name of the configuration store.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.AppConfiguration.V20210301Preview.Inputs
         public SkuArgs()
         {
         }
-        public static new SkuArgs Empty => new SkuArgs();
     }
 }

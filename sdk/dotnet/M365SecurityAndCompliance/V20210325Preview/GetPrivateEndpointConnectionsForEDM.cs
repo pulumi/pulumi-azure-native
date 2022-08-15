@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
     }
 
 
-    public sealed class GetPrivateEndpointConnectionsForEDMArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPrivateEndpointConnectionsForEDMArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the private endpoint connection associated with the Azure resource
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
         public GetPrivateEndpointConnectionsForEDMArgs()
         {
         }
-        public static new GetPrivateEndpointConnectionsForEDMArgs Empty => new GetPrivateEndpointConnectionsForEDMArgs();
     }
 
-    public sealed class GetPrivateEndpointConnectionsForEDMInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPrivateEndpointConnectionsForEDMInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the private endpoint connection associated with the Azure resource
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
         public GetPrivateEndpointConnectionsForEDMInvokeArgs()
         {
         }
-        public static new GetPrivateEndpointConnectionsForEDMInvokeArgs Empty => new GetPrivateEndpointConnectionsForEDMInvokeArgs();
     }
 
 

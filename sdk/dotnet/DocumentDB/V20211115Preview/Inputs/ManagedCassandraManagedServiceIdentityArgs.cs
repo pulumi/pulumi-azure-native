@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20211115Preview.Inputs
     /// <summary>
     /// Identity for the resource.
     /// </summary>
-    public sealed class ManagedCassandraManagedServiceIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedCassandraManagedServiceIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of the resource.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20211115Preview.Inputs
         public ManagedCassandraManagedServiceIdentityArgs()
         {
         }
-        public static new ManagedCassandraManagedServiceIdentityArgs Empty => new ManagedCassandraManagedServiceIdentityArgs();
     }
 }

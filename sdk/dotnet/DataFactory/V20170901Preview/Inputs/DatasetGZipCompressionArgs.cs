@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// The GZip compression method used on a dataset.
     /// </summary>
-    public sealed class DatasetGZipCompressionArgs : global::Pulumi.ResourceArgs
+    public sealed class DatasetGZipCompressionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The GZip compression level.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public DatasetGZipCompressionArgs()
         {
         }
-        public static new DatasetGZipCompressionArgs Empty => new DatasetGZipCompressionArgs();
     }
 }

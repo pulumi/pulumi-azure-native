@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210501
     /// VirtualNetworkGatewayNatRule Resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20210501:VirtualNetworkGatewayNatRule")]
-    public partial class VirtualNetworkGatewayNatRule : global::Pulumi.CustomResource
+    public partial class VirtualNetworkGatewayNatRule : Pulumi.CustomResource
     {
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -88,11 +88,11 @@ namespace Pulumi.AzureNative.Network.V20210501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:VirtualNetworkGatewayNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:VirtualNetworkGatewayNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:VirtualNetworkGatewayNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:VirtualNetworkGatewayNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:VirtualNetworkGatewayNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network:VirtualNetworkGatewayNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:VirtualNetworkGatewayNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210301:VirtualNetworkGatewayNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:VirtualNetworkGatewayNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:VirtualNetworkGatewayNatRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.Network.V20210501
         }
     }
 
-    public sealed class VirtualNetworkGatewayNatRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualNetworkGatewayNatRuleArgs : Pulumi.ResourceArgs
     {
         [Input("externalMappings")]
         private InputList<Inputs.VpnNatRuleMappingArgs>? _externalMappings;
@@ -191,6 +191,5 @@ namespace Pulumi.AzureNative.Network.V20210501
         public VirtualNetworkGatewayNatRuleArgs()
         {
         }
-        public static new VirtualNetworkGatewayNatRuleArgs Empty => new VirtualNetworkGatewayNatRuleArgs();
     }
 }

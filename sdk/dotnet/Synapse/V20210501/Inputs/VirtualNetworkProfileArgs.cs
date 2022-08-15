@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20210501.Inputs
     /// <summary>
     /// Virtual Network Profile
     /// </summary>
-    public sealed class VirtualNetworkProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualNetworkProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Subnet ID used for computes in workspace
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Synapse.V20210501.Inputs
         public VirtualNetworkProfileArgs()
         {
         }
-        public static new VirtualNetworkProfileArgs Empty => new VirtualNetworkProfileArgs();
     }
 }

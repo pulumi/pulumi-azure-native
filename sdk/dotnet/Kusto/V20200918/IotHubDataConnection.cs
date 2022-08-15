@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Kusto.V20200918
     /// Class representing an iot hub data connection.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto/v20200918:IotHubDataConnection")]
-    public partial class IotHubDataConnection : global::Pulumi.CustomResource
+    public partial class IotHubDataConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// The iot hub consumer group.
@@ -120,16 +120,16 @@ namespace Pulumi.AzureNative.Kusto.V20200918
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:kusto:IotHubDataConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20190121:IotHubDataConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20190515:IotHubDataConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20190907:IotHubDataConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20191109:IotHubDataConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20200215:IotHubDataConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20200614:IotHubDataConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20210101:IotHubDataConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20210827:IotHubDataConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20220201:IotHubDataConnection"},
+                    new Pulumi.Alias { Type = "azure-native:kusto:IotHubDataConnection"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20190121:IotHubDataConnection"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20190515:IotHubDataConnection"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20190907:IotHubDataConnection"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20191109:IotHubDataConnection"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20200215:IotHubDataConnection"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20200614:IotHubDataConnection"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20210101:IotHubDataConnection"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20210827:IotHubDataConnection"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20220201:IotHubDataConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -151,7 +151,7 @@ namespace Pulumi.AzureNative.Kusto.V20200918
         }
     }
 
-    public sealed class IotHubDataConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class IotHubDataConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -241,6 +241,5 @@ namespace Pulumi.AzureNative.Kusto.V20200918
         public IotHubDataConnectionArgs()
         {
         }
-        public static new IotHubDataConnectionArgs Empty => new IotHubDataConnectionArgs();
     }
 }

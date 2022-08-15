@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.PolicyInsights.V20190701
     /// The remediation definition.
     /// </summary>
     [AzureNativeResourceType("azure-native:policyinsights/v20190701:RemediationAtSubscription")]
-    public partial class RemediationAtSubscription : global::Pulumi.CustomResource
+    public partial class RemediationAtSubscription : Pulumi.CustomResource
     {
         /// <summary>
         /// The time at which the remediation was created.
@@ -100,9 +100,9 @@ namespace Pulumi.AzureNative.PolicyInsights.V20190701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:policyinsights:RemediationAtSubscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:policyinsights/v20180701preview:RemediationAtSubscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:policyinsights/v20211001:RemediationAtSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:policyinsights:RemediationAtSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:policyinsights/v20180701preview:RemediationAtSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:policyinsights/v20211001:RemediationAtSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.PolicyInsights.V20190701
         }
     }
 
-    public sealed class RemediationAtSubscriptionArgs : global::Pulumi.ResourceArgs
+    public sealed class RemediationAtSubscriptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The filters that will be applied to determine which resources to remediate.
@@ -159,6 +159,5 @@ namespace Pulumi.AzureNative.PolicyInsights.V20190701
         public RemediationAtSubscriptionArgs()
         {
         }
-        public static new RemediationAtSubscriptionArgs Empty => new RemediationAtSubscriptionArgs();
     }
 }

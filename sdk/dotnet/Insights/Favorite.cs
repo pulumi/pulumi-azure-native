@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Insights
     /// API Version: 2015-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:Favorite")]
-    public partial class Favorite : global::Pulumi.CustomResource
+    public partial class Favorite : Pulumi.CustomResource
     {
         /// <summary>
         /// Favorite category, as defined by the user at creation time.
@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20150501:Favorite"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20150501:Favorite"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -129,7 +129,7 @@ namespace Pulumi.AzureNative.Insights
         }
     }
 
-    public sealed class FavoriteArgs : global::Pulumi.ResourceArgs
+    public sealed class FavoriteArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Favorite category, as defined by the user at creation time.
@@ -206,6 +206,5 @@ namespace Pulumi.AzureNative.Insights
         public FavoriteArgs()
         {
         }
-        public static new FavoriteArgs Empty => new FavoriteArgs();
     }
 }

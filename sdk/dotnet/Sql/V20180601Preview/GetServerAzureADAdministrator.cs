@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Sql.V20180601Preview
     }
 
 
-    public sealed class GetServerAzureADAdministratorArgs : global::Pulumi.InvokeArgs
+    public sealed class GetServerAzureADAdministratorArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of server active directory administrator.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Sql.V20180601Preview
         public GetServerAzureADAdministratorArgs()
         {
         }
-        public static new GetServerAzureADAdministratorArgs Empty => new GetServerAzureADAdministratorArgs();
     }
 
-    public sealed class GetServerAzureADAdministratorInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetServerAzureADAdministratorInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of server active directory administrator.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Sql.V20180601Preview
         public GetServerAzureADAdministratorInvokeArgs()
         {
         }
-        public static new GetServerAzureADAdministratorInvokeArgs Empty => new GetServerAzureADAdministratorInvokeArgs();
     }
 
 

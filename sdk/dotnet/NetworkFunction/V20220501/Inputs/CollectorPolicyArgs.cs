@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NetworkFunction.V20220501.Inputs
     /// <summary>
     /// Collector policy resource.
     /// </summary>
-    public sealed class CollectorPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class CollectorPolicyArgs : Pulumi.ResourceArgs
     {
         [Input("emissionPolicies")]
         private InputList<Inputs.EmissionPoliciesPropertiesFormatArgs>? _emissionPolicies;
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.NetworkFunction.V20220501.Inputs
         public CollectorPolicyArgs()
         {
         }
-        public static new CollectorPolicyArgs Empty => new CollectorPolicyArgs();
     }
 }

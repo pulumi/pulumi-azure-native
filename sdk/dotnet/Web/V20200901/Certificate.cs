@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20200901
     /// SSL certificate for an app.
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20200901:Certificate")]
-    public partial class Certificate : global::Pulumi.CustomResource
+    public partial class Certificate : Pulumi.CustomResource
     {
         /// <summary>
         /// CNAME of the certificate to be issued via free certificate
@@ -190,20 +190,20 @@ namespace Pulumi.AzureNative.Web.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20160301:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:web:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160301:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -225,7 +225,7 @@ namespace Pulumi.AzureNative.Web.V20200901
         }
     }
 
-    public sealed class CertificateArgs : global::Pulumi.ResourceArgs
+    public sealed class CertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// CNAME of the certificate to be issued via free certificate
@@ -314,6 +314,5 @@ namespace Pulumi.AzureNative.Web.V20200901
         public CertificateArgs()
         {
         }
-        public static new CertificateArgs Empty => new CertificateArgs();
     }
 }

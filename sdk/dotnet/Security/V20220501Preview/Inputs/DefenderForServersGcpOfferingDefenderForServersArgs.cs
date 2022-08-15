@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
     /// <summary>
     /// The Defender for servers connection configuration
     /// </summary>
-    public sealed class DefenderForServersGcpOfferingDefenderForServersArgs : global::Pulumi.ResourceArgs
+    public sealed class DefenderForServersGcpOfferingDefenderForServersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The service account email address in GCP for this feature
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
         public DefenderForServersGcpOfferingDefenderForServersArgs()
         {
         }
-        public static new DefenderForServersGcpOfferingDefenderForServersArgs Empty => new DefenderForServersGcpOfferingDefenderForServersArgs();
     }
 }

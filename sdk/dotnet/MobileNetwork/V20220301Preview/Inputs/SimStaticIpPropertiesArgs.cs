@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview.Inputs
     /// <summary>
     /// Static IP configuration for a sim, scoped to a particular attached data network and slice.
     /// </summary>
-    public sealed class SimStaticIpPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class SimStaticIpPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The attached data network on which the static IP address will be used. The combination of attachedDataNetwork and slice defines the network scope of the IP address.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview.Inputs
         public SimStaticIpPropertiesArgs()
         {
         }
-        public static new SimStaticIpPropertiesArgs Empty => new SimStaticIpPropertiesArgs();
     }
 }

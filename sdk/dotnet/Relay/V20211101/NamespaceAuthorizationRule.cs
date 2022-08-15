@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Relay.V20211101
     /// Single item in a List or Get AuthorizationRule operation
     /// </summary>
     [AzureNativeResourceType("azure-native:relay/v20211101:NamespaceAuthorizationRule")]
-    public partial class NamespaceAuthorizationRule : global::Pulumi.CustomResource
+    public partial class NamespaceAuthorizationRule : Pulumi.CustomResource
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -70,9 +70,9 @@ namespace Pulumi.AzureNative.Relay.V20211101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:relay:NamespaceAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:relay/v20160701:NamespaceAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:relay/v20170401:NamespaceAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:relay:NamespaceAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:relay/v20160701:NamespaceAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:relay/v20170401:NamespaceAuthorizationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.Relay.V20211101
         }
     }
 
-    public sealed class NamespaceAuthorizationRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class NamespaceAuthorizationRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The authorization rule name.
@@ -129,6 +129,5 @@ namespace Pulumi.AzureNative.Relay.V20211101
         public NamespaceAuthorizationRuleArgs()
         {
         }
-        public static new NamespaceAuthorizationRuleArgs Empty => new NamespaceAuthorizationRuleArgs();
     }
 }

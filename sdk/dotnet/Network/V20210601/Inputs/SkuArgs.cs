@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210601.Inputs
     /// <summary>
     /// The pricing tier of the web application firewall policy.
     /// </summary>
-    public sealed class SkuArgs : global::Pulumi.ResourceArgs
+    public sealed class SkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the pricing tier.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Network.V20210601.Inputs
         public SkuArgs()
         {
         }
-        public static new SkuArgs Empty => new SkuArgs();
     }
 }

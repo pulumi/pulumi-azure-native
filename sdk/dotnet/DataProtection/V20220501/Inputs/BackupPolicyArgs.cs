@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataProtection.V20220501.Inputs
     /// <summary>
     /// Rule based backup policy
     /// </summary>
-    public sealed class BackupPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class BackupPolicyArgs : Pulumi.ResourceArgs
     {
         [Input("datasourceTypes", required: true)]
         private InputList<string>? _datasourceTypes;
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.DataProtection.V20220501.Inputs
         public BackupPolicyArgs()
         {
         }
-        public static new BackupPolicyArgs Empty => new BackupPolicyArgs();
     }
 }

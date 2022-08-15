@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
     /// The connector resource format.
     /// </summary>
     [AzureNativeResourceType("azure-native:customerinsights/v20170426:Connector")]
-    public partial class Connector : global::Pulumi.CustomResource
+    public partial class Connector : Pulumi.CustomResource
     {
         /// <summary>
         /// ID of the connector.
@@ -118,8 +118,8 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:customerinsights:Connector"},
-                    new global::Pulumi.Alias { Type = "azure-native:customerinsights/v20170101:Connector"},
+                    new Pulumi.Alias { Type = "azure-native:customerinsights:Connector"},
+                    new Pulumi.Alias { Type = "azure-native:customerinsights/v20170101:Connector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -141,7 +141,7 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
         }
     }
 
-    public sealed class ConnectorArgs : global::Pulumi.ResourceArgs
+    public sealed class ConnectorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the connector.
@@ -200,6 +200,5 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
         public ConnectorArgs()
         {
         }
-        public static new ConnectorArgs Empty => new ConnectorArgs();
     }
 }

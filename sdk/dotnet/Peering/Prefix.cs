@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Peering
     /// API Version: 2021-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:peering:Prefix")]
-    public partial class Prefix : global::Pulumi.CustomResource
+    public partial class Prefix : Pulumi.CustomResource
     {
         /// <summary>
         /// The error message for validation state
@@ -95,15 +95,15 @@ namespace Pulumi.AzureNative.Peering
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20190801preview:Prefix"},
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20190901preview:Prefix"},
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20200101preview:Prefix"},
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20200401:Prefix"},
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20201001:Prefix"},
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20210101:Prefix"},
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20210601:Prefix"},
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20220101:Prefix"},
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20220601:Prefix"},
+                    new Pulumi.Alias { Type = "azure-native:peering/v20190801preview:Prefix"},
+                    new Pulumi.Alias { Type = "azure-native:peering/v20190901preview:Prefix"},
+                    new Pulumi.Alias { Type = "azure-native:peering/v20200101preview:Prefix"},
+                    new Pulumi.Alias { Type = "azure-native:peering/v20200401:Prefix"},
+                    new Pulumi.Alias { Type = "azure-native:peering/v20201001:Prefix"},
+                    new Pulumi.Alias { Type = "azure-native:peering/v20210101:Prefix"},
+                    new Pulumi.Alias { Type = "azure-native:peering/v20210601:Prefix"},
+                    new Pulumi.Alias { Type = "azure-native:peering/v20220101:Prefix"},
+                    new Pulumi.Alias { Type = "azure-native:peering/v20220601:Prefix"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.Peering
         }
     }
 
-    public sealed class PrefixArgs : global::Pulumi.ResourceArgs
+    public sealed class PrefixArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the peering service.
@@ -160,6 +160,5 @@ namespace Pulumi.AzureNative.Peering
         public PrefixArgs()
         {
         }
-        public static new PrefixArgs Empty => new PrefixArgs();
     }
 }

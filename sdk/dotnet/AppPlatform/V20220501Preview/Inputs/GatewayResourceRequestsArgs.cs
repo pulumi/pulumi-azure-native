@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
     /// <summary>
     /// Resource request payload of Spring Cloud Gateway.
     /// </summary>
-    public sealed class GatewayResourceRequestsArgs : global::Pulumi.ResourceArgs
+    public sealed class GatewayResourceRequestsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cpu allocated to each Spring Cloud Gateway instance.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
         public GatewayResourceRequestsArgs()
         {
         }
-        public static new GatewayResourceRequestsArgs Empty => new GatewayResourceRequestsArgs();
     }
 }

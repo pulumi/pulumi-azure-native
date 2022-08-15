@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.Inputs
     /// <summary>
     /// Properties that define a Azure Arc PrivateLinkScope resource.
     /// </summary>
-    public sealed class KubernetesConfigurationPrivateLinkScopePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class KubernetesConfigurationPrivateLinkScopePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Managed Cluster ARM ID for the private link scope  (Required)
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.Inputs
         public KubernetesConfigurationPrivateLinkScopePropertiesArgs()
         {
         }
-        public static new KubernetesConfigurationPrivateLinkScopePropertiesArgs Empty => new KubernetesConfigurationPrivateLinkScopePropertiesArgs();
     }
 }

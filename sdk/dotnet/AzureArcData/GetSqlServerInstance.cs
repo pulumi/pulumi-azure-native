@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.AzureArcData
     }
 
 
-    public sealed class GetSqlServerInstanceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSqlServerInstanceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Azure resource group
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.AzureArcData
         public GetSqlServerInstanceArgs()
         {
         }
-        public static new GetSqlServerInstanceArgs Empty => new GetSqlServerInstanceArgs();
     }
 
-    public sealed class GetSqlServerInstanceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSqlServerInstanceInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Azure resource group
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.AzureArcData
         public GetSqlServerInstanceInvokeArgs()
         {
         }
-        public static new GetSqlServerInstanceInvokeArgs Empty => new GetSqlServerInstanceInvokeArgs();
     }
 
 

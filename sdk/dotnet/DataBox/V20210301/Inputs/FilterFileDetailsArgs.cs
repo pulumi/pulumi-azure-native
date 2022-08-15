@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBox.V20210301.Inputs
     /// <summary>
     /// Details of the filter files to be used for data transfer.
     /// </summary>
-    public sealed class FilterFileDetailsArgs : global::Pulumi.ResourceArgs
+    public sealed class FilterFileDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Path of the file that contains the details of all items to transfer.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DataBox.V20210301.Inputs
         public FilterFileDetailsArgs()
         {
         }
-        public static new FilterFileDetailsArgs Empty => new FilterFileDetailsArgs();
     }
 }

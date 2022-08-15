@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.EngagementFabric
     }
 
 
-    public sealed class ListAccountKeysArgs : global::Pulumi.InvokeArgs
+    public sealed class ListAccountKeysArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Account Name
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.EngagementFabric
         public ListAccountKeysArgs()
         {
         }
-        public static new ListAccountKeysArgs Empty => new ListAccountKeysArgs();
     }
 
-    public sealed class ListAccountKeysInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListAccountKeysInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Account Name
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.EngagementFabric
         public ListAccountKeysInvokeArgs()
         {
         }
-        public static new ListAccountKeysInvokeArgs Empty => new ListAccountKeysInvokeArgs();
     }
 
 

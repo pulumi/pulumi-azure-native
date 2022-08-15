@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20180630Preview
     /// </summary>
     [Obsolete(@"Version 2018-06-30-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:guestconfiguration/v20180630preview:GuestConfigurationAssignment")]
-    public partial class GuestConfigurationAssignment : global::Pulumi.CustomResource
+    public partial class GuestConfigurationAssignment : Pulumi.CustomResource
     {
         /// <summary>
         /// Region where the VM is located.
@@ -65,11 +65,11 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20180630Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:guestconfiguration:GuestConfigurationAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:guestconfiguration/v20181120:GuestConfigurationAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:guestconfiguration/v20200625:GuestConfigurationAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:guestconfiguration/v20210125:GuestConfigurationAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:guestconfiguration/v20220125:GuestConfigurationAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:guestconfiguration:GuestConfigurationAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:guestconfiguration/v20181120:GuestConfigurationAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:guestconfiguration/v20200625:GuestConfigurationAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:guestconfiguration/v20210125:GuestConfigurationAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:guestconfiguration/v20220125:GuestConfigurationAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -91,7 +91,7 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20180630Preview
         }
     }
 
-    public sealed class GuestConfigurationAssignmentArgs : global::Pulumi.ResourceArgs
+    public sealed class GuestConfigurationAssignmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the guest configuration assignment.
@@ -132,6 +132,5 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20180630Preview
         public GuestConfigurationAssignmentArgs()
         {
         }
-        public static new GuestConfigurationAssignmentArgs Empty => new GuestConfigurationAssignmentArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview.Inputs
     /// <summary>
     /// The data disks groups for the role.
     /// </summary>
-    public sealed class DataDisksGroupsArgs : global::Pulumi.ResourceArgs
+    public sealed class DataDisksGroupsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of disks per node.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview.Inputs
         public DataDisksGroupsArgs()
         {
         }
-        public static new DataDisksGroupsArgs Empty => new DataDisksGroupsArgs();
     }
 }

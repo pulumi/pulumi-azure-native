@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ChangeAnalysis
     /// API Version: 2020-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:changeanalysis:ConfigurationProfile")]
-    public partial class ConfigurationProfile : global::Pulumi.CustomResource
+    public partial class ConfigurationProfile : Pulumi.CustomResource
     {
         /// <summary>
         /// The identity block returned by ARM resource that supports managed identity.
@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.ChangeAnalysis
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:changeanalysis/v20200401preview:ConfigurationProfile"},
+                    new Pulumi.Alias { Type = "azure-native:changeanalysis/v20200401preview:ConfigurationProfile"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.ChangeAnalysis
         }
     }
 
-    public sealed class ConfigurationProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class ConfigurationProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity block returned by ARM resource that supports managed identity.
@@ -128,6 +128,5 @@ namespace Pulumi.AzureNative.ChangeAnalysis
         public ConfigurationProfileArgs()
         {
         }
-        public static new ConfigurationProfileArgs Empty => new ConfigurationProfileArgs();
     }
 }

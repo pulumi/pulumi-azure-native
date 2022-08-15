@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20180110.Inputs
     /// <summary>
     /// Azure VM managed disk input details.
     /// </summary>
-    public sealed class A2AVmManagedDiskInputDetailsArgs : global::Pulumi.ResourceArgs
+    public sealed class A2AVmManagedDiskInputDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The disk Id.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20180110.Inputs
         public A2AVmManagedDiskInputDetailsArgs()
         {
         }
-        public static new A2AVmManagedDiskInputDetailsArgs Empty => new A2AVmManagedDiskInputDetailsArgs();
     }
 }

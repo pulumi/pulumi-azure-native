@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20211101.Inputs
     /// <summary>
     /// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
     /// </summary>
-    public sealed class VaultCertificateArgs : global::Pulumi.ResourceArgs
+    public sealed class VaultCertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. &lt;br&gt;&lt;br&gt;For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name &amp;lt;UppercaseThumbprint&amp;gt;.crt for the X509 certificate file and &amp;lt;UppercaseThumbprint&amp;gt;.prv for private key. Both of these files are .pem formatted.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Compute.V20211101.Inputs
         public VaultCertificateArgs()
         {
         }
-        public static new VaultCertificateArgs Empty => new VaultCertificateArgs();
     }
 }

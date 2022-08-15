@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.BotService.V20171201
     }
 
 
-    public sealed class GetBotConnectionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBotConnectionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Bot Service Connection Setting resource
@@ -49,10 +49,9 @@ namespace Pulumi.AzureNative.BotService.V20171201
         public GetBotConnectionArgs()
         {
         }
-        public static new GetBotConnectionArgs Empty => new GetBotConnectionArgs();
     }
 
-    public sealed class GetBotConnectionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBotConnectionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Bot Service Connection Setting resource
@@ -75,7 +74,6 @@ namespace Pulumi.AzureNative.BotService.V20171201
         public GetBotConnectionInvokeArgs()
         {
         }
-        public static new GetBotConnectionInvokeArgs Empty => new GetBotConnectionInvokeArgs();
     }
 
 

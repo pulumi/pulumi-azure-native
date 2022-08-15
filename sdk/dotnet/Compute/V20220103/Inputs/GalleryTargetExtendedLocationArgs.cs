@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20220103.Inputs
 {
 
-    public sealed class GalleryTargetExtendedLocationArgs : global::Pulumi.ResourceArgs
+    public sealed class GalleryTargetExtendedLocationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
@@ -45,6 +45,5 @@ namespace Pulumi.AzureNative.Compute.V20220103.Inputs
         public GalleryTargetExtendedLocationArgs()
         {
         }
-        public static new GalleryTargetExtendedLocationArgs Empty => new GalleryTargetExtendedLocationArgs();
     }
 }

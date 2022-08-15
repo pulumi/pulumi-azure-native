@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
     /// <summary>
     /// Describes a PostgreSQL output data source.
     /// </summary>
-    public sealed class PostgreSQLOutputDataSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class PostgreSQLOutputDataSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authentication Mode.
@@ -67,6 +67,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
         public PostgreSQLOutputDataSourceArgs()
         {
         }
-        public static new PostgreSQLOutputDataSourceArgs Empty => new PostgreSQLOutputDataSourceArgs();
     }
 }

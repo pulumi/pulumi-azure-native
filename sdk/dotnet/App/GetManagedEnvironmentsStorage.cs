@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.App
     }
 
 
-    public sealed class GetManagedEnvironmentsStorageArgs : global::Pulumi.InvokeArgs
+    public sealed class GetManagedEnvironmentsStorageArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Environment.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.App
         public GetManagedEnvironmentsStorageArgs()
         {
         }
-        public static new GetManagedEnvironmentsStorageArgs Empty => new GetManagedEnvironmentsStorageArgs();
     }
 
-    public sealed class GetManagedEnvironmentsStorageInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetManagedEnvironmentsStorageInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Environment.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.App
         public GetManagedEnvironmentsStorageInvokeArgs()
         {
         }
-        public static new GetManagedEnvironmentsStorageInvokeArgs Empty => new GetManagedEnvironmentsStorageInvokeArgs();
     }
 
 

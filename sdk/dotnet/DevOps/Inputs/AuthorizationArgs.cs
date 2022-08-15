@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevOps.Inputs
     /// <summary>
     /// Authorization info used to access a resource (like code repository).
     /// </summary>
-    public sealed class AuthorizationArgs : global::Pulumi.ResourceArgs
+    public sealed class AuthorizationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of authorization.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DevOps.Inputs
         public AuthorizationArgs()
         {
         }
-        public static new AuthorizationArgs Empty => new AuthorizationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NetworkFunction.Inputs
     /// <summary>
     /// Emission policy properties.
     /// </summary>
-    public sealed class EmissionPoliciesPropertiesFormatArgs : global::Pulumi.ResourceArgs
+    public sealed class EmissionPoliciesPropertiesFormatArgs : Pulumi.ResourceArgs
     {
         [Input("emissionDestinations")]
         private InputList<Inputs.EmissionPolicyDestinationArgs>? _emissionDestinations;
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.NetworkFunction.Inputs
         public EmissionPoliciesPropertiesFormatArgs()
         {
         }
-        public static new EmissionPoliciesPropertiesFormatArgs Empty => new EmissionPoliciesPropertiesFormatArgs();
     }
 }

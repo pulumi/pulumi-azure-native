@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network.V20171001
     /// </summary>
     [Obsolete(@"Version 2017-10-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:network/v20171001:ExpressRouteCircuit")]
-    public partial class ExpressRouteCircuit : global::Pulumi.CustomResource
+    public partial class ExpressRouteCircuit : Pulumi.CustomResource
     {
         /// <summary>
         /// Allow classic operations
@@ -137,47 +137,47 @@ namespace Pulumi.AzureNative.Network.V20171001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20150501preview:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20150615:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20160330:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20160601:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20160901:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20161201:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170301:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170601:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170801:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170901:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20171101:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180101:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180201:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180401:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180601:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180701:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180801:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181001:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181101:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181201:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190201:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190601:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190801:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:ExpressRouteCircuit"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20150501preview:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20150615:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160330:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160601:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160901:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20161201:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170301:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170601:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170801:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170901:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20171101:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180101:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180201:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180401:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180601:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180701:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181001:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181101:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181201:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190201:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210301:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:ExpressRouteCircuit"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -199,7 +199,7 @@ namespace Pulumi.AzureNative.Network.V20171001
         }
     }
 
-    public sealed class ExpressRouteCircuitArgs : global::Pulumi.ResourceArgs
+    public sealed class ExpressRouteCircuitArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Allow classic operations
@@ -318,6 +318,5 @@ namespace Pulumi.AzureNative.Network.V20171001
         public ExpressRouteCircuitArgs()
         {
         }
-        public static new ExpressRouteCircuitArgs Empty => new ExpressRouteCircuitArgs();
     }
 }

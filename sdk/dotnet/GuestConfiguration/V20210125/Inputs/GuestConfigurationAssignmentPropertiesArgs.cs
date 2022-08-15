@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20210125.Inputs
     /// <summary>
     /// Guest configuration assignment properties.
     /// </summary>
-    public sealed class GuestConfigurationAssignmentPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class GuestConfigurationAssignmentPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The source which initiated the guest configuration assignment. Ex: Azure Policy
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20210125.Inputs
         public GuestConfigurationAssignmentPropertiesArgs()
         {
         }
-        public static new GuestConfigurationAssignmentPropertiesArgs Empty => new GuestConfigurationAssignmentPropertiesArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20210901Preview.Inputs
 {
 
-    public sealed class ResourceTypeEndpointArgs : global::Pulumi.ResourceArgs
+    public sealed class ResourceTypeEndpointArgs : Pulumi.ResourceArgs
     {
         [Input("apiVersions")]
         private InputList<string>? _apiVersions;
@@ -59,6 +59,5 @@ namespace Pulumi.AzureNative.ProviderHub.V20210901Preview.Inputs
         public ResourceTypeEndpointArgs()
         {
         }
-        public static new ResourceTypeEndpointArgs Empty => new ResourceTypeEndpointArgs();
     }
 }

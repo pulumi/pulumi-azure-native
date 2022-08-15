@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
     /// <summary>
     /// The X12 agreement content.
     /// </summary>
-    public sealed class X12AgreementContentArgs : global::Pulumi.ResourceArgs
+    public sealed class X12AgreementContentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The X12 one-way receive agreement.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
         public X12AgreementContentArgs()
         {
         }
-        public static new X12AgreementContentArgs Empty => new X12AgreementContentArgs();
     }
 }

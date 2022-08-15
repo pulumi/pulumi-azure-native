@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20190401.Inputs
     /// <summary>
     /// An object that defines the Lifecycle rule. Each definition is made up with a filters set and an actions set.
     /// </summary>
-    public sealed class ManagementPolicyDefinitionArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagementPolicyDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// An object that defines the action set.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Storage.V20190401.Inputs
         public ManagementPolicyDefinitionArgs()
         {
         }
-        public static new ManagementPolicyDefinitionArgs Empty => new ManagementPolicyDefinitionArgs();
     }
 }

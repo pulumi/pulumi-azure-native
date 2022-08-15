@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
     ///     API Version: 2021-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:videoanalyzer:PipelineTopology")]
-    public partial class PipelineTopology : global::Pulumi.CustomResource
+    public partial class PipelineTopology : Pulumi.CustomResource
     {
         /// <summary>
         /// An optional description of the pipeline topology. It is recommended that the expected use of the topology to be described here.
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:videoanalyzer/v20211101preview:PipelineTopology"},
+                    new Pulumi.Alias { Type = "azure-native:videoanalyzer/v20211101preview:PipelineTopology"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         }
     }
 
-    public sealed class PipelineTopologyArgs : global::Pulumi.ResourceArgs
+    public sealed class PipelineTopologyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Video Analyzer account name.
@@ -217,6 +217,5 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         public PipelineTopologyArgs()
         {
         }
-        public static new PipelineTopologyArgs Empty => new PipelineTopologyArgs();
     }
 }

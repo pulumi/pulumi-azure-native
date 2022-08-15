@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180601Preview.Inputs
     /// <summary>
     /// Class to select a track
     /// </summary>
-    public sealed class TrackSelectionArgs : global::Pulumi.ResourceArgs
+    public sealed class TrackSelectionArgs : Pulumi.ResourceArgs
     {
         [Input("trackSelections")]
         private InputList<Inputs.TrackPropertyConditionArgs>? _trackSelections;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Media.V20180601Preview.Inputs
         public TrackSelectionArgs()
         {
         }
-        public static new TrackSelectionArgs Empty => new TrackSelectionArgs();
     }
 }

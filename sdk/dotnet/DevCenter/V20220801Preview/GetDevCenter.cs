@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
     }
 
 
-    public sealed class GetDevCenterArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDevCenterArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the devcenter.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         public GetDevCenterArgs()
         {
         }
-        public static new GetDevCenterArgs Empty => new GetDevCenterArgs();
     }
 
-    public sealed class GetDevCenterInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDevCenterInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the devcenter.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         public GetDevCenterInvokeArgs()
         {
         }
-        public static new GetDevCenterInvokeArgs Empty => new GetDevCenterInvokeArgs();
     }
 
 

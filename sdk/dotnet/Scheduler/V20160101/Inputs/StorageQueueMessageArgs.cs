@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Scheduler.V20160101.Inputs
 {
 
-    public sealed class StorageQueueMessageArgs : global::Pulumi.ResourceArgs
+    public sealed class StorageQueueMessageArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the message.
@@ -39,6 +39,5 @@ namespace Pulumi.AzureNative.Scheduler.V20160101.Inputs
         public StorageQueueMessageArgs()
         {
         }
-        public static new StorageQueueMessageArgs Empty => new StorageQueueMessageArgs();
     }
 }

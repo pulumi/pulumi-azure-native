@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Azure ML Batch Execution activity.
     /// </summary>
-    public sealed class AzureMLBatchExecutionActivityArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureMLBatchExecutionActivityArgs : Pulumi.ResourceArgs
     {
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
@@ -109,6 +109,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public AzureMLBatchExecutionActivityArgs()
         {
         }
-        public static new AzureMLBatchExecutionActivityArgs Empty => new AzureMLBatchExecutionActivityArgs();
     }
 }

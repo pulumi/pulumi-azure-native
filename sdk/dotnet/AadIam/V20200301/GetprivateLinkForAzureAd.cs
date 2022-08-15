@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.AadIam.V20200301
     }
 
 
-    public sealed class GetprivateLinkForAzureAdArgs : global::Pulumi.InvokeArgs
+    public sealed class GetprivateLinkForAzureAdArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the private link policy in Azure AD.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.AadIam.V20200301
         public GetprivateLinkForAzureAdArgs()
         {
         }
-        public static new GetprivateLinkForAzureAdArgs Empty => new GetprivateLinkForAzureAdArgs();
     }
 
-    public sealed class GetprivateLinkForAzureAdInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetprivateLinkForAzureAdInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the private link policy in Azure AD.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.AadIam.V20200301
         public GetprivateLinkForAzureAdInvokeArgs()
         {
         }
-        public static new GetprivateLinkForAzureAdInvokeArgs Empty => new GetprivateLinkForAzureAdInvokeArgs();
     }
 
 

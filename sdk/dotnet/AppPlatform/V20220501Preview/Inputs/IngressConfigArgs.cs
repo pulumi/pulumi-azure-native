@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
     /// <summary>
     /// Ingress configuration payload for Azure Spring Apps resource.
     /// </summary>
-    public sealed class IngressConfigArgs : global::Pulumi.ResourceArgs
+    public sealed class IngressConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Ingress read time out in seconds.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
         public IngressConfigArgs()
         {
         }
-        public static new IngressConfigArgs Empty => new IngressConfigArgs();
     }
 }

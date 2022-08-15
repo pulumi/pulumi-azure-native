@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Relay.V20180101Preview
     /// Private endpoint connection resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:relay/v20180101preview:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// Resource location.
@@ -82,8 +82,8 @@ namespace Pulumi.AzureNative.Relay.V20180101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:relay:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:relay/v20211101:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:relay:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:relay/v20211101:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -105,7 +105,7 @@ namespace Pulumi.AzureNative.Relay.V20180101Preview
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource location.
@@ -158,6 +158,5 @@ namespace Pulumi.AzureNative.Relay.V20180101Preview
         public PrivateEndpointConnectionArgs()
         {
         }
-        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.Inputs
     /// <summary>
     /// Rule condition of type nat.
     /// </summary>
-    public sealed class NatRuleConditionArgs : global::Pulumi.ResourceArgs
+    public sealed class NatRuleConditionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the rule condition.
@@ -97,6 +97,5 @@ namespace Pulumi.AzureNative.Network.Inputs
         public NatRuleConditionArgs()
         {
         }
-        public static new NatRuleConditionArgs Empty => new NatRuleConditionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20180915Preview.Inputs
     /// <summary>
     /// StringContains Filter
     /// </summary>
-    public sealed class StringContainsAdvancedFilterArgs : global::Pulumi.ResourceArgs
+    public sealed class StringContainsAdvancedFilterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The filter key. Represents an event property with up to two levels of nesting.
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.EventGrid.V20180915Preview.Inputs
         public StringContainsAdvancedFilterArgs()
         {
         }
-        public static new StringContainsAdvancedFilterArgs Empty => new StringContainsAdvancedFilterArgs();
     }
 }

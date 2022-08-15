@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
     }
 
 
-    public sealed class GetTagByOperationArgs : global::Pulumi.InvokeArgs
+    public sealed class GetTagByOperationArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// API identifier. Must be unique in the current API Management service instance.
@@ -60,10 +60,9 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
         public GetTagByOperationArgs()
         {
         }
-        public static new GetTagByOperationArgs Empty => new GetTagByOperationArgs();
     }
 
-    public sealed class GetTagByOperationInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetTagByOperationInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// API identifier. Must be unique in the current API Management service instance.
@@ -98,7 +97,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
         public GetTagByOperationInvokeArgs()
         {
         }
-        public static new GetTagByOperationInvokeArgs Empty => new GetTagByOperationInvokeArgs();
     }
 
 

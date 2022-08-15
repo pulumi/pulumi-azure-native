@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.Inputs
     /// <summary>
     /// Rule of type application.
     /// </summary>
-    public sealed class ApplicationRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplicationRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the rule.
@@ -139,6 +139,5 @@ namespace Pulumi.AzureNative.Network.Inputs
         public ApplicationRuleArgs()
         {
         }
-        public static new ApplicationRuleArgs Empty => new ApplicationRuleArgs();
     }
 }

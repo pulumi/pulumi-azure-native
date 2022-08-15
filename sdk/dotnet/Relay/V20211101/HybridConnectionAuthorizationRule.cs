@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Relay.V20211101
     /// Single item in a List or Get AuthorizationRule operation
     /// </summary>
     [AzureNativeResourceType("azure-native:relay/v20211101:HybridConnectionAuthorizationRule")]
-    public partial class HybridConnectionAuthorizationRule : global::Pulumi.CustomResource
+    public partial class HybridConnectionAuthorizationRule : Pulumi.CustomResource
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -70,9 +70,9 @@ namespace Pulumi.AzureNative.Relay.V20211101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:relay:HybridConnectionAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:relay/v20160701:HybridConnectionAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:relay/v20170401:HybridConnectionAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:relay:HybridConnectionAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:relay/v20160701:HybridConnectionAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:relay/v20170401:HybridConnectionAuthorizationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.Relay.V20211101
         }
     }
 
-    public sealed class HybridConnectionAuthorizationRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class HybridConnectionAuthorizationRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The authorization rule name.
@@ -135,6 +135,5 @@ namespace Pulumi.AzureNative.Relay.V20211101
         public HybridConnectionAuthorizationRuleArgs()
         {
         }
-        public static new HybridConnectionAuthorizationRuleArgs Empty => new HybridConnectionAuthorizationRuleArgs();
     }
 }

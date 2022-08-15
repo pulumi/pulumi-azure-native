@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview
     }
 
 
-    public sealed class GetActiveDirectoryConnectorArgs : global::Pulumi.InvokeArgs
+    public sealed class GetActiveDirectoryConnectorArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Active Directory connector instance
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview
         public GetActiveDirectoryConnectorArgs()
         {
         }
-        public static new GetActiveDirectoryConnectorArgs Empty => new GetActiveDirectoryConnectorArgs();
     }
 
-    public sealed class GetActiveDirectoryConnectorInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetActiveDirectoryConnectorInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Active Directory connector instance
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview
         public GetActiveDirectoryConnectorInvokeArgs()
         {
         }
-        public static new GetActiveDirectoryConnectorInvokeArgs Empty => new GetActiveDirectoryConnectorInvokeArgs();
     }
 
 

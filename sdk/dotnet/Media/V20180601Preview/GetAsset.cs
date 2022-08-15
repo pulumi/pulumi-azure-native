@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Media.V20180601Preview
     }
 
 
-    public sealed class GetAssetArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAssetArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Media.V20180601Preview
         public GetAssetArgs()
         {
         }
-        public static new GetAssetArgs Empty => new GetAssetArgs();
     }
 
-    public sealed class GetAssetInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAssetInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Media.V20180601Preview
         public GetAssetInvokeArgs()
         {
         }
-        public static new GetAssetInvokeArgs Empty => new GetAssetInvokeArgs();
     }
 
 

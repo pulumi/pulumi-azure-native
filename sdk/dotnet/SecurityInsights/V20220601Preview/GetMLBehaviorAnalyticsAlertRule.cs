@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
     }
 
 
-    public sealed class GetMLBehaviorAnalyticsAlertRuleArgs : global::Pulumi.InvokeArgs
+    public sealed class GetMLBehaviorAnalyticsAlertRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
         public GetMLBehaviorAnalyticsAlertRuleArgs()
         {
         }
-        public static new GetMLBehaviorAnalyticsAlertRuleArgs Empty => new GetMLBehaviorAnalyticsAlertRuleArgs();
     }
 
-    public sealed class GetMLBehaviorAnalyticsAlertRuleInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetMLBehaviorAnalyticsAlertRuleInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
         public GetMLBehaviorAnalyticsAlertRuleInvokeArgs()
         {
         }
-        public static new GetMLBehaviorAnalyticsAlertRuleInvokeArgs Empty => new GetMLBehaviorAnalyticsAlertRuleInvokeArgs();
     }
 
 

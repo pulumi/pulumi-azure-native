@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801
     }
 
 
-    public sealed class GetGroupArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGroupArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Group identifier. Must be unique in the current API Management service instance.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801
         public GetGroupArgs()
         {
         }
-        public static new GetGroupArgs Empty => new GetGroupArgs();
     }
 
-    public sealed class GetGroupInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGroupInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Group identifier. Must be unique in the current API Management service instance.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801
         public GetGroupInvokeArgs()
         {
         }
-        public static new GetGroupInvokeArgs Empty => new GetGroupInvokeArgs();
     }
 
 

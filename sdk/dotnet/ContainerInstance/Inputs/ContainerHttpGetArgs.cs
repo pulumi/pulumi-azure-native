@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerInstance.Inputs
     /// <summary>
     /// The container Http Get settings, for liveness or readiness probe
     /// </summary>
-    public sealed class ContainerHttpGetArgs : global::Pulumi.ResourceArgs
+    public sealed class ContainerHttpGetArgs : Pulumi.ResourceArgs
     {
         [Input("httpHeaders")]
         private InputList<Inputs.HttpHeaderArgs>? _httpHeaders;
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.ContainerInstance.Inputs
         public ContainerHttpGetArgs()
         {
         }
-        public static new ContainerHttpGetArgs Empty => new ContainerHttpGetArgs();
     }
 }

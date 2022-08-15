@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network
     /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ExpressRouteGateway")]
-    public partial class ExpressRouteGateway : global::Pulumi.CustomResource
+    public partial class ExpressRouteGateway : Pulumi.CustomResource
     {
         /// <summary>
         /// Configuration for auto scaling.
@@ -95,30 +95,30 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180801:ExpressRouteGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181001:ExpressRouteGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181101:ExpressRouteGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181201:ExpressRouteGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190201:ExpressRouteGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:ExpressRouteGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190601:ExpressRouteGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:ExpressRouteGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190801:ExpressRouteGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:ExpressRouteGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:ExpressRouteGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:ExpressRouteGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:ExpressRouteGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:ExpressRouteGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:ExpressRouteGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:ExpressRouteGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:ExpressRouteGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:ExpressRouteGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:ExpressRouteGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:ExpressRouteGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:ExpressRouteGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:ExpressRouteGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:ExpressRouteGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:ExpressRouteGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:ExpressRouteGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181001:ExpressRouteGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181101:ExpressRouteGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181201:ExpressRouteGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190201:ExpressRouteGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:ExpressRouteGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:ExpressRouteGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:ExpressRouteGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:ExpressRouteGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:ExpressRouteGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:ExpressRouteGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:ExpressRouteGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:ExpressRouteGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:ExpressRouteGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:ExpressRouteGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:ExpressRouteGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:ExpressRouteGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:ExpressRouteGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:ExpressRouteGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:ExpressRouteGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210301:ExpressRouteGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501:ExpressRouteGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:ExpressRouteGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:ExpressRouteGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNative.Network
         }
     }
 
-    public sealed class ExpressRouteGatewayArgs : global::Pulumi.ResourceArgs
+    public sealed class ExpressRouteGatewayArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration for auto scaling.
@@ -193,6 +193,5 @@ namespace Pulumi.AzureNative.Network
         public ExpressRouteGatewayArgs()
         {
         }
-        public static new ExpressRouteGatewayArgs Empty => new ExpressRouteGatewayArgs();
     }
 }

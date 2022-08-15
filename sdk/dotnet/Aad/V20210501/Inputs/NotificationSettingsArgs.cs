@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Aad.V20210501.Inputs
     /// <summary>
     /// Settings for notification
     /// </summary>
-    public sealed class NotificationSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class NotificationSettingsArgs : Pulumi.ResourceArgs
     {
         [Input("additionalRecipients")]
         private InputList<string>? _additionalRecipients;
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Aad.V20210501.Inputs
         public NotificationSettingsArgs()
         {
         }
-        public static new NotificationSettingsArgs Empty => new NotificationSettingsArgs();
     }
 }

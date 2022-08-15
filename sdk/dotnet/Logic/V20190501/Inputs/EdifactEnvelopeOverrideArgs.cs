@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
     /// <summary>
     /// The Edifact envelope override settings.
     /// </summary>
-    public sealed class EdifactEnvelopeOverrideArgs : global::Pulumi.ResourceArgs
+    public sealed class EdifactEnvelopeOverrideArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application password.
@@ -108,6 +108,5 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
         public EdifactEnvelopeOverrideArgs()
         {
         }
-        public static new EdifactEnvelopeOverrideArgs Empty => new EdifactEnvelopeOverrideArgs();
     }
 }

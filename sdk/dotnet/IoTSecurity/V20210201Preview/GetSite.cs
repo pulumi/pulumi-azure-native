@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.IoTSecurity.V20210201Preview
     }
 
 
-    public sealed class GetSiteArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSiteArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
@@ -36,10 +36,9 @@ namespace Pulumi.AzureNative.IoTSecurity.V20210201Preview
         public GetSiteArgs()
         {
         }
-        public static new GetSiteArgs Empty => new GetSiteArgs();
     }
 
-    public sealed class GetSiteInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSiteInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
@@ -50,7 +49,6 @@ namespace Pulumi.AzureNative.IoTSecurity.V20210201Preview
         public GetSiteInvokeArgs()
         {
         }
-        public static new GetSiteInvokeArgs Empty => new GetSiteInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20211201Preview.Inputs
     /// <summary>
     /// The Vulnerability Assessment autoprovisioning configuration
     /// </summary>
-    public sealed class DefenderForServersAwsOfferingVaAutoProvisioningArgs : global::Pulumi.ResourceArgs
+    public sealed class DefenderForServersAwsOfferingVaAutoProvisioningArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// configuration for Vulnerability Assessment autoprovisioning
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Security.V20211201Preview.Inputs
         public DefenderForServersAwsOfferingVaAutoProvisioningArgs()
         {
         }
-        public static new DefenderForServersAwsOfferingVaAutoProvisioningArgs Empty => new DefenderForServersAwsOfferingVaAutoProvisioningArgs();
     }
 }

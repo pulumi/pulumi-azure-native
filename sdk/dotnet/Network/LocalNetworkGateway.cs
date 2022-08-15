@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network
     /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:LocalNetworkGateway")]
-    public partial class LocalNetworkGateway : global::Pulumi.CustomResource
+    public partial class LocalNetworkGateway : Pulumi.CustomResource
     {
         /// <summary>
         /// Local network gateway's BGP speaker settings.
@@ -107,46 +107,46 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20150615:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20160330:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20160601:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20160901:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20161201:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170301:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170601:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170801:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170901:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20171001:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20171101:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180101:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180201:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180401:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180601:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180701:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180801:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181001:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181101:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181201:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190201:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190601:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190801:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:LocalNetworkGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20150615:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160330:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160601:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160901:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20161201:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170301:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170601:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170801:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170901:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20171001:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20171101:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180101:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180201:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180401:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180601:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180701:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181001:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181101:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181201:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190201:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210301:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:LocalNetworkGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -168,7 +168,7 @@ namespace Pulumi.AzureNative.Network
         }
     }
 
-    public sealed class LocalNetworkGatewayArgs : global::Pulumi.ResourceArgs
+    public sealed class LocalNetworkGatewayArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Local network gateway's BGP speaker settings.
@@ -233,6 +233,5 @@ namespace Pulumi.AzureNative.Network
         public LocalNetworkGatewayArgs()
         {
         }
-        public static new LocalNetworkGatewayArgs Empty => new LocalNetworkGatewayArgs();
     }
 }

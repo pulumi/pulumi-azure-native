@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network.V20180401
     /// </summary>
     [Obsolete(@"Version 2018-04-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:network/v20180401:TrafficManagerUserMetricsKey")]
-    public partial class TrafficManagerUserMetricsKey : global::Pulumi.CustomResource
+    public partial class TrafficManagerUserMetricsKey : Pulumi.CustomResource
     {
         /// <summary>
         /// The key returned by the User Metrics operation.
@@ -59,8 +59,8 @@ namespace Pulumi.AzureNative.Network.V20180401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:TrafficManagerUserMetricsKey"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180801:TrafficManagerUserMetricsKey"},
+                    new Pulumi.Alias { Type = "azure-native:network:TrafficManagerUserMetricsKey"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:TrafficManagerUserMetricsKey"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -82,11 +82,10 @@ namespace Pulumi.AzureNative.Network.V20180401
         }
     }
 
-    public sealed class TrafficManagerUserMetricsKeyArgs : global::Pulumi.ResourceArgs
+    public sealed class TrafficManagerUserMetricsKeyArgs : Pulumi.ResourceArgs
     {
         public TrafficManagerUserMetricsKeyArgs()
         {
         }
-        public static new TrafficManagerUserMetricsKeyArgs Empty => new TrafficManagerUserMetricsKeyArgs();
     }
 }

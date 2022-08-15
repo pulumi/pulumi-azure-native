@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
     /// </summary>
     [Obsolete(@"Version 2020-09-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:databoxedge/v20200901preview:BandwidthSchedule")]
-    public partial class BandwidthSchedule : global::Pulumi.CustomResource
+    public partial class BandwidthSchedule : Pulumi.CustomResource
     {
         /// <summary>
         /// The days of the week when this schedule is applicable.
@@ -83,19 +83,19 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:BandwidthSchedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:BandwidthSchedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:BandwidthSchedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:BandwidthSchedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:BandwidthSchedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:BandwidthSchedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:BandwidthSchedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:BandwidthSchedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:BandwidthSchedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:BandwidthSchedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:BandwidthSchedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:BandwidthSchedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:BandwidthSchedule"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge:BandwidthSchedule"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:BandwidthSchedule"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:BandwidthSchedule"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:BandwidthSchedule"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:BandwidthSchedule"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:BandwidthSchedule"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:BandwidthSchedule"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:BandwidthSchedule"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:BandwidthSchedule"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:BandwidthSchedule"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:BandwidthSchedule"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:BandwidthSchedule"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:BandwidthSchedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
         }
     }
 
-    public sealed class BandwidthScheduleArgs : global::Pulumi.ResourceArgs
+    public sealed class BandwidthScheduleArgs : Pulumi.ResourceArgs
     {
         [Input("days", required: true)]
         private InputList<Union<string, Pulumi.AzureNative.DataBoxEdge.V20200901Preview.DayOfWeek>>? _days;
@@ -170,6 +170,5 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
         public BandwidthScheduleArgs()
         {
         }
-        public static new BandwidthScheduleArgs Empty => new BandwidthScheduleArgs();
     }
 }

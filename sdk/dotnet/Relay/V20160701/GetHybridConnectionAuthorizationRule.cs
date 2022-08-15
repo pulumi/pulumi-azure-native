@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Relay.V20160701
     }
 
 
-    public sealed class GetHybridConnectionAuthorizationRuleArgs : global::Pulumi.InvokeArgs
+    public sealed class GetHybridConnectionAuthorizationRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The authorizationRule name.
@@ -55,10 +55,9 @@ namespace Pulumi.AzureNative.Relay.V20160701
         public GetHybridConnectionAuthorizationRuleArgs()
         {
         }
-        public static new GetHybridConnectionAuthorizationRuleArgs Empty => new GetHybridConnectionAuthorizationRuleArgs();
     }
 
-    public sealed class GetHybridConnectionAuthorizationRuleInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetHybridConnectionAuthorizationRuleInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The authorizationRule name.
@@ -87,7 +86,6 @@ namespace Pulumi.AzureNative.Relay.V20160701
         public GetHybridConnectionAuthorizationRuleInvokeArgs()
         {
         }
-        public static new GetHybridConnectionAuthorizationRuleInvokeArgs Empty => new GetHybridConnectionAuthorizationRuleInvokeArgs();
     }
 
 

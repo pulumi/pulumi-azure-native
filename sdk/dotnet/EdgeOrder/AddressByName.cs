@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.EdgeOrder
     /// API Version: 2021-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:edgeorder:AddressByName")]
-    public partial class AddressByName : global::Pulumi.CustomResource
+    public partial class AddressByName : Pulumi.CustomResource
     {
         /// <summary>
         /// Status of address validation
@@ -89,8 +89,8 @@ namespace Pulumi.AzureNative.EdgeOrder
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20201201preview:AddressByName"},
-                    new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20211201:AddressByName"},
+                    new Pulumi.Alias { Type = "azure-native:edgeorder/v20201201preview:AddressByName"},
+                    new Pulumi.Alias { Type = "azure-native:edgeorder/v20211201:AddressByName"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.EdgeOrder
         }
     }
 
-    public sealed class AddressByNameArgs : global::Pulumi.ResourceArgs
+    public sealed class AddressByNameArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
@@ -159,6 +159,5 @@ namespace Pulumi.AzureNative.EdgeOrder
         public AddressByNameArgs()
         {
         }
-        public static new AddressByNameArgs Empty => new AddressByNameArgs();
     }
 }

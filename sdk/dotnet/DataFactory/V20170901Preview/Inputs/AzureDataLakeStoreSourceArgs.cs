@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity Azure Data Lake source.
     /// </summary>
-    public sealed class AzureDataLakeStoreSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureDataLakeStoreSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, files under the folder path will be read recursively. Default is true. Type: boolean (or Expression with resultType boolean).
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public AzureDataLakeStoreSourceArgs()
         {
         }
-        public static new AzureDataLakeStoreSourceArgs Empty => new AzureDataLakeStoreSourceArgs();
     }
 }

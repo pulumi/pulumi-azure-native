@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20211101.Inputs
     /// <summary>
     /// The instance view of a virtual machine extension.
     /// </summary>
-    public sealed class VirtualMachineExtensionInstanceViewArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualMachineExtensionInstanceViewArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The virtual machine extension name.
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.Compute.V20211101.Inputs
         public VirtualMachineExtensionInstanceViewArgs()
         {
         }
-        public static new VirtualMachineExtensionInstanceViewArgs Empty => new VirtualMachineExtensionInstanceViewArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network
     /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VirtualHubRouteTableV2")]
-    public partial class VirtualHubRouteTableV2 : global::Pulumi.CustomResource
+    public partial class VirtualHubRouteTableV2 : Pulumi.CustomResource
     {
         /// <summary>
         /// List of all connections attached to this route table v2.
@@ -71,21 +71,21 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:VirtualHubRouteTableV2"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:VirtualHubRouteTableV2"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:VirtualHubRouteTableV2"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:VirtualHubRouteTableV2"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:VirtualHubRouteTableV2"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:VirtualHubRouteTableV2"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualHubRouteTableV2"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:VirtualHubRouteTableV2"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:VirtualHubRouteTableV2"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:VirtualHubRouteTableV2"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:VirtualHubRouteTableV2"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:VirtualHubRouteTableV2"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:VirtualHubRouteTableV2"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:VirtualHubRouteTableV2"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:VirtualHubRouteTableV2"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:VirtualHubRouteTableV2"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:VirtualHubRouteTableV2"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:VirtualHubRouteTableV2"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:VirtualHubRouteTableV2"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:VirtualHubRouteTableV2"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:VirtualHubRouteTableV2"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualHubRouteTableV2"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:VirtualHubRouteTableV2"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:VirtualHubRouteTableV2"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:VirtualHubRouteTableV2"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:VirtualHubRouteTableV2"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210301:VirtualHubRouteTableV2"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501:VirtualHubRouteTableV2"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:VirtualHubRouteTableV2"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:VirtualHubRouteTableV2"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.Network
         }
     }
 
-    public sealed class VirtualHubRouteTableV2Args : global::Pulumi.ResourceArgs
+    public sealed class VirtualHubRouteTableV2Args : Pulumi.ResourceArgs
     {
         [Input("attachedConnections")]
         private InputList<string>? _attachedConnections;
@@ -166,6 +166,5 @@ namespace Pulumi.AzureNative.Network
         public VirtualHubRouteTableV2Args()
         {
         }
-        public static new VirtualHubRouteTableV2Args Empty => new VirtualHubRouteTableV2Args();
     }
 }

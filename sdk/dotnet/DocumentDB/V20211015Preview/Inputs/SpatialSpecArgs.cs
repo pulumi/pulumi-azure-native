@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.V20211015Preview.Inputs
 {
 
-    public sealed class SpatialSpecArgs : global::Pulumi.ResourceArgs
+    public sealed class SpatialSpecArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
@@ -33,6 +33,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20211015Preview.Inputs
         public SpatialSpecArgs()
         {
         }
-        public static new SpatialSpecArgs Empty => new SpatialSpecArgs();
     }
 }

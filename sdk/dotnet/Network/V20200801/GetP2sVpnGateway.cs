@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20200801
     }
 
 
-    public sealed class GetP2sVpnGatewayArgs : global::Pulumi.InvokeArgs
+    public sealed class GetP2sVpnGatewayArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the gateway.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.Network.V20200801
         public GetP2sVpnGatewayArgs()
         {
         }
-        public static new GetP2sVpnGatewayArgs Empty => new GetP2sVpnGatewayArgs();
     }
 
-    public sealed class GetP2sVpnGatewayInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetP2sVpnGatewayInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the gateway.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.Network.V20200801
         public GetP2sVpnGatewayInvokeArgs()
         {
         }
-        public static new GetP2sVpnGatewayInvokeArgs Empty => new GetP2sVpnGatewayInvokeArgs();
     }
 
 

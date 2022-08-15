@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
     /// <summary>
     /// Database Migration Resource properties for SQL database.
     /// </summary>
-    public sealed class DatabaseMigrationPropertiesSqlDbArgs : global::Pulumi.ResourceArgs
+    public sealed class DatabaseMigrationPropertiesSqlDbArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// 
@@ -85,6 +85,5 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
         public DatabaseMigrationPropertiesSqlDbArgs()
         {
         }
-        public static new DatabaseMigrationPropertiesSqlDbArgs Empty => new DatabaseMigrationPropertiesSqlDbArgs();
     }
 }

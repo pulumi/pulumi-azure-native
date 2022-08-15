@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20150501Preview.Inputs
     /// <summary>
     /// Route resource
     /// </summary>
-    public sealed class RouteArgs : global::Pulumi.ResourceArgs
+    public sealed class RouteArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the destination CIDR to which the route applies.
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.Network.V20150501Preview.Inputs
         public RouteArgs()
         {
         }
-        public static new RouteArgs Empty => new RouteArgs();
     }
 }

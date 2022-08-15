@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Pipeline Policy.
     /// </summary>
-    public sealed class PipelinePolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class PipelinePolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Pipeline ElapsedTime Metric Policy.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public PipelinePolicyArgs()
         {
         }
-        public static new PipelinePolicyArgs Empty => new PipelinePolicyArgs();
     }
 }

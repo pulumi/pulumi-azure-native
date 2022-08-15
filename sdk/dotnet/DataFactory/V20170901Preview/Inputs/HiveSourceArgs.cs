@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity Hive Server source.
     /// </summary>
-    public sealed class HiveSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class HiveSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public HiveSourceArgs()
         {
         }
-        public static new HiveSourceArgs Empty => new HiveSourceArgs();
     }
 }

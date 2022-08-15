@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.Inputs
     /// <summary>
     /// The condition that results in the Log Search rule.
     /// </summary>
-    public sealed class TriggerConditionArgs : global::Pulumi.ResourceArgs
+    public sealed class TriggerConditionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Trigger condition for metric query rule
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Insights.Inputs
         public TriggerConditionArgs()
         {
         }
-        public static new TriggerConditionArgs Empty => new TriggerConditionArgs();
     }
 }

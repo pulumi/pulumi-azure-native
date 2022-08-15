@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ApiManagement
     }
 
 
-    public sealed class GetPolicyFragmentArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPolicyFragmentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Policy fragment content format.
@@ -56,10 +56,9 @@ namespace Pulumi.AzureNative.ApiManagement
         public GetPolicyFragmentArgs()
         {
         }
-        public static new GetPolicyFragmentArgs Empty => new GetPolicyFragmentArgs();
     }
 
-    public sealed class GetPolicyFragmentInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPolicyFragmentInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Policy fragment content format.
@@ -88,7 +87,6 @@ namespace Pulumi.AzureNative.ApiManagement
         public GetPolicyFragmentInvokeArgs()
         {
         }
-        public static new GetPolicyFragmentInvokeArgs Empty => new GetPolicyFragmentInvokeArgs();
     }
 
 

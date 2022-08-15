@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DigitalTwins.V20201031.Inputs
     /// <summary>
     /// Properties related to EventHub.
     /// </summary>
-    public sealed class EventHubArgs : global::Pulumi.ResourceArgs
+    public sealed class EventHubArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// PrimaryConnectionString of the endpoint. Will be obfuscated during read.
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.DigitalTwins.V20201031.Inputs
         public EventHubArgs()
         {
         }
-        public static new EventHubArgs Empty => new EventHubArgs();
     }
 }

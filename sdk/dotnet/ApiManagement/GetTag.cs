@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ApiManagement
     }
 
 
-    public sealed class GetTagArgs : global::Pulumi.InvokeArgs
+    public sealed class GetTagArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.ApiManagement
         public GetTagArgs()
         {
         }
-        public static new GetTagArgs Empty => new GetTagArgs();
     }
 
-    public sealed class GetTagInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetTagInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.ApiManagement
         public GetTagInvokeArgs()
         {
         }
-        public static new GetTagInvokeArgs Empty => new GetTagInvokeArgs();
     }
 
 

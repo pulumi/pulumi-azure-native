@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ServiceBus
     /// API Version: 2018-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus:NamespaceIpFilterRule")]
-    public partial class NamespaceIpFilterRule : global::Pulumi.CustomResource
+    public partial class NamespaceIpFilterRule : Pulumi.CustomResource
     {
         /// <summary>
         /// The IP Filter Action
@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.ServiceBus
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:NamespaceIpFilterRule"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:NamespaceIpFilterRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.ServiceBus
         }
     }
 
-    public sealed class NamespaceIpFilterRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class NamespaceIpFilterRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IP Filter Action
@@ -134,6 +134,5 @@ namespace Pulumi.AzureNative.ServiceBus
         public NamespaceIpFilterRuleArgs()
         {
         }
-        public static new NamespaceIpFilterRuleArgs Empty => new NamespaceIpFilterRuleArgs();
     }
 }

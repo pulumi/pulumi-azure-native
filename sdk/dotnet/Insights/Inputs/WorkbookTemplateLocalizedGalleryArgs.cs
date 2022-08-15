@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.Inputs
     /// <summary>
     /// Localized template data and gallery information.
     /// </summary>
-    public sealed class WorkbookTemplateLocalizedGalleryArgs : global::Pulumi.ResourceArgs
+    public sealed class WorkbookTemplateLocalizedGalleryArgs : Pulumi.ResourceArgs
     {
         [Input("galleries")]
         private InputList<Inputs.WorkbookTemplateGalleryArgs>? _galleries;
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Insights.Inputs
         public WorkbookTemplateLocalizedGalleryArgs()
         {
         }
-        public static new WorkbookTemplateLocalizedGalleryArgs Empty => new WorkbookTemplateLocalizedGalleryArgs();
     }
 }

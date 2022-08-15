@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
     /// <summary>
     /// VpnServerConfiguration PolicyGroup member
     /// </summary>
-    public sealed class VpnServerConfigurationPolicyGroupMemberArgs : global::Pulumi.ResourceArgs
+    public sealed class VpnServerConfigurationPolicyGroupMemberArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Vpn Policy member attribute type.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
         public VpnServerConfigurationPolicyGroupMemberArgs()
         {
         }
-        public static new VpnServerConfigurationPolicyGroupMemberArgs Empty => new VpnServerConfigurationPolicyGroupMemberArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// Spark job definition.
     /// </summary>
-    public sealed class SparkJobArgs : global::Pulumi.ResourceArgs
+    public sealed class SparkJobArgs : Pulumi.ResourceArgs
     {
         [Input("archives")]
         private InputList<string>? _archives;
@@ -221,6 +221,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
             ExperimentName = "Default";
             IsArchived = false;
         }
-        public static new SparkJobArgs Empty => new SparkJobArgs();
     }
 }

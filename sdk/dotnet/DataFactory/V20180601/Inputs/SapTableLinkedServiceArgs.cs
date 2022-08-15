@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// SAP Table Linked Service.
     /// </summary>
-    public sealed class SapTableLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class SapTableLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -157,6 +157,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public SapTableLinkedServiceArgs()
         {
         }
-        public static new SapTableLinkedServiceArgs Empty => new SapTableLinkedServiceArgs();
     }
 }

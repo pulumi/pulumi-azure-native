@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Portal
     }
 
 
-    public sealed class GetTenantConfigurationArgs : global::Pulumi.InvokeArgs
+    public sealed class GetTenantConfigurationArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The configuration name. Value must be 'default'
@@ -38,10 +38,9 @@ namespace Pulumi.AzureNative.Portal
         public GetTenantConfigurationArgs()
         {
         }
-        public static new GetTenantConfigurationArgs Empty => new GetTenantConfigurationArgs();
     }
 
-    public sealed class GetTenantConfigurationInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetTenantConfigurationInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The configuration name. Value must be 'default'
@@ -52,7 +51,6 @@ namespace Pulumi.AzureNative.Portal
         public GetTenantConfigurationInvokeArgs()
         {
         }
-        public static new GetTenantConfigurationInvokeArgs Empty => new GetTenantConfigurationInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Factory's VSTS repo information.
     /// </summary>
-    public sealed class FactoryVSTSConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class FactoryVSTSConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// VSTS account name.
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public FactoryVSTSConfigurationArgs()
         {
         }
-        public static new FactoryVSTSConfigurationArgs Empty => new FactoryVSTSConfigurationArgs();
     }
 }

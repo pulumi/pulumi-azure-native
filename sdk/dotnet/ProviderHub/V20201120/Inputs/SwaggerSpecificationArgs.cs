@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20201120.Inputs
 {
 
-    public sealed class SwaggerSpecificationArgs : global::Pulumi.ResourceArgs
+    public sealed class SwaggerSpecificationArgs : Pulumi.ResourceArgs
     {
         [Input("apiVersions")]
         private InputList<string>? _apiVersions;
@@ -26,6 +26,5 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120.Inputs
         public SwaggerSpecificationArgs()
         {
         }
-        public static new SwaggerSpecificationArgs Empty => new SwaggerSpecificationArgs();
     }
 }

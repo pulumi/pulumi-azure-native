@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210401.Inputs
     /// <summary>
     /// Validation for inquired protectable items under a given container.
     /// </summary>
-    public sealed class InquiryValidationArgs : global::Pulumi.ResourceArgs
+    public sealed class InquiryValidationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Status for the Inquiry Validation.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210401.Inputs
         public InquiryValidationArgs()
         {
         }
-        public static new InquiryValidationArgs Empty => new InquiryValidationArgs();
     }
 }

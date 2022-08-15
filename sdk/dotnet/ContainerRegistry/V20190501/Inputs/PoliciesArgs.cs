@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190501.Inputs
     /// <summary>
     /// The policies for a container registry.
     /// </summary>
-    public sealed class PoliciesArgs : global::Pulumi.ResourceArgs
+    public sealed class PoliciesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The quarantine policy for a container registry.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190501.Inputs
         public PoliciesArgs()
         {
         }
-        public static new PoliciesArgs Empty => new PoliciesArgs();
     }
 }

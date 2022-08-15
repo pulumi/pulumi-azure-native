@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20220301.Inputs
     /// <summary>
     /// Properties of Cognitive Services account commitment plan.
     /// </summary>
-    public sealed class CommitmentPlanPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class CommitmentPlanPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// AutoRenew commitment plan.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.CognitiveServices.V20220301.Inputs
         public CommitmentPlanPropertiesArgs()
         {
         }
-        public static new CommitmentPlanPropertiesArgs Empty => new CommitmentPlanPropertiesArgs();
     }
 }

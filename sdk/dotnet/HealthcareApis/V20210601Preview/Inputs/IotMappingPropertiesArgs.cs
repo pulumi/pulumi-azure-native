@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview.Inputs
     /// <summary>
     /// The mapping content.
     /// </summary>
-    public sealed class IotMappingPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class IotMappingPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The mapping.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview.Inputs
         public IotMappingPropertiesArgs()
         {
         }
-        public static new IotMappingPropertiesArgs Empty => new IotMappingPropertiesArgs();
     }
 }

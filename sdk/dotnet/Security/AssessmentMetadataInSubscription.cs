@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Security
     /// API Version: 2020-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:AssessmentMetadataInSubscription")]
-    public partial class AssessmentMetadataInSubscription : global::Pulumi.CustomResource
+    public partial class AssessmentMetadataInSubscription : Pulumi.CustomResource
     {
         /// <summary>
         /// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
@@ -119,9 +119,9 @@ namespace Pulumi.AzureNative.Security
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:security/v20190101preview:AssessmentMetadataInSubscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:security/v20200101:AssessmentMetadataInSubscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:security/v20210601:AssessmentMetadataInSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:security/v20190101preview:AssessmentMetadataInSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:security/v20200101:AssessmentMetadataInSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:security/v20210601:AssessmentMetadataInSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -143,7 +143,7 @@ namespace Pulumi.AzureNative.Security
         }
     }
 
-    public sealed class AssessmentMetadataInSubscriptionArgs : global::Pulumi.ResourceArgs
+    public sealed class AssessmentMetadataInSubscriptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Assessment Key - Unique key for the assessment type
@@ -224,6 +224,5 @@ namespace Pulumi.AzureNative.Security
         public AssessmentMetadataInSubscriptionArgs()
         {
         }
-        public static new AssessmentMetadataInSubscriptionArgs Empty => new AssessmentMetadataInSubscriptionArgs();
     }
 }

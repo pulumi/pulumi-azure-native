@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20200101Preview.Inputs
     /// <summary>
     /// Settings for hybrid compute management
     /// </summary>
-    public sealed class HybridComputeSettingsPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class HybridComputeSettingsPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.Security.V20200101Preview.Inputs
         public HybridComputeSettingsPropertiesArgs()
         {
         }
-        public static new HybridComputeSettingsPropertiesArgs Empty => new HybridComputeSettingsPropertiesArgs();
     }
 }

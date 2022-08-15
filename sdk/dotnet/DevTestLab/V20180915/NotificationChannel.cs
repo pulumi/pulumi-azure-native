@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
     /// A notification.
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab/v20180915:NotificationChannel")]
-    public partial class NotificationChannel : global::Pulumi.CustomResource
+    public partial class NotificationChannel : Pulumi.CustomResource
     {
         /// <summary>
         /// The creation date of the notification channel.
@@ -112,8 +112,8 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab:NotificationChannel"},
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:NotificationChannel"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab:NotificationChannel"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:NotificationChannel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -135,7 +135,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         }
     }
 
-    public sealed class NotificationChannelArgs : global::Pulumi.ResourceArgs
+    public sealed class NotificationChannelArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of notification.
@@ -212,6 +212,5 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         public NotificationChannelArgs()
         {
         }
-        public static new NotificationChannelArgs Empty => new NotificationChannelArgs();
     }
 }

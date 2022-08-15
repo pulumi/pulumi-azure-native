@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NetApp.V20200901.Inputs
     /// <summary>
     /// Monthly Schedule properties
     /// </summary>
-    public sealed class MonthlyScheduleArgs : global::Pulumi.ResourceArgs
+    public sealed class MonthlyScheduleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates which days of the month snapshot should be taken. A comma delimited string.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.NetApp.V20200901.Inputs
         public MonthlyScheduleArgs()
         {
         }
-        public static new MonthlyScheduleArgs Empty => new MonthlyScheduleArgs();
     }
 }

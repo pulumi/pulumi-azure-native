@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Delimited text dataset.
     /// </summary>
-    public sealed class DelimitedTextDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class DelimitedTextDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -139,6 +139,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public DelimitedTextDatasetArgs()
         {
         }
-        public static new DelimitedTextDatasetArgs Empty => new DelimitedTextDatasetArgs();
     }
 }

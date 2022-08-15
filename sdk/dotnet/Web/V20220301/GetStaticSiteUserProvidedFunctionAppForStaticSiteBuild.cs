@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Web.V20220301
     }
 
 
-    public sealed class GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildArgs : global::Pulumi.InvokeArgs
+    public sealed class GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The stage site identifier.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.Web.V20220301
         public GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildArgs()
         {
         }
-        public static new GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildArgs Empty => new GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildArgs();
     }
 
-    public sealed class GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The stage site identifier.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.Web.V20220301
         public GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildInvokeArgs()
         {
         }
-        public static new GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildInvokeArgs Empty => new GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildInvokeArgs();
     }
 
 

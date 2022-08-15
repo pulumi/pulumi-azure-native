@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview.Inputs
     /// <summary>
     /// Input for the task that validates connection to Azure Database for PostgreSQL and target server requirements for Oracle source.
     /// </summary>
-    public sealed class ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputArgs : global::Pulumi.ResourceArgs
+    public sealed class ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Connection information for target Azure Database for PostgreSQL server
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview.Inputs
         public ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputArgs()
         {
         }
-        public static new ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputArgs Empty => new ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputArgs();
     }
 }

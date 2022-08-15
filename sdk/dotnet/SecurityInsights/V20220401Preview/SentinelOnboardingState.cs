@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
     /// Sentinel onboarding state
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20220401preview:SentinelOnboardingState")]
-    public partial class SentinelOnboardingState : global::Pulumi.CustomResource
+    public partial class SentinelOnboardingState : Pulumi.CustomResource
     {
         /// <summary>
         /// Flag that indicates the status of the CMK setting
@@ -70,16 +70,16 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:SentinelOnboardingState"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:SentinelOnboardingState"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:SentinelOnboardingState"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:SentinelOnboardingState"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:SentinelOnboardingState"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:SentinelOnboardingState"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:SentinelOnboardingState"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:SentinelOnboardingState"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:SentinelOnboardingState"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:SentinelOnboardingState"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights:SentinelOnboardingState"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:SentinelOnboardingState"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:SentinelOnboardingState"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:SentinelOnboardingState"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:SentinelOnboardingState"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:SentinelOnboardingState"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:SentinelOnboardingState"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:SentinelOnboardingState"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:SentinelOnboardingState"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:SentinelOnboardingState"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
         }
     }
 
-    public sealed class SentinelOnboardingStateArgs : global::Pulumi.ResourceArgs
+    public sealed class SentinelOnboardingStateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Flag that indicates the status of the CMK setting
@@ -130,6 +130,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
         public SentinelOnboardingStateArgs()
         {
         }
-        public static new SentinelOnboardingStateArgs Empty => new SentinelOnboardingStateArgs();
     }
 }

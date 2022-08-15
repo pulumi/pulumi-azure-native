@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview
     }
 
 
-    public sealed class GetBuildServiceBuildResultLogArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBuildServiceBuildResultLogArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the build resource.
@@ -60,10 +60,9 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview
         public GetBuildServiceBuildResultLogArgs()
         {
         }
-        public static new GetBuildServiceBuildResultLogArgs Empty => new GetBuildServiceBuildResultLogArgs();
     }
 
-    public sealed class GetBuildServiceBuildResultLogInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBuildServiceBuildResultLogInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the build resource.
@@ -98,7 +97,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview
         public GetBuildServiceBuildResultLogInvokeArgs()
         {
         }
-        public static new GetBuildServiceBuildResultLogInvokeArgs Empty => new GetBuildServiceBuildResultLogInvokeArgs();
     }
 
 

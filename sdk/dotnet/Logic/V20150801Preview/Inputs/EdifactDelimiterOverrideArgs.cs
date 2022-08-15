@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
-    public sealed class EdifactDelimiterOverrideArgs : global::Pulumi.ResourceArgs
+    public sealed class EdifactDelimiterOverrideArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The component separator.
@@ -87,6 +87,5 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
         public EdifactDelimiterOverrideArgs()
         {
         }
-        public static new EdifactDelimiterOverrideArgs Empty => new EdifactDelimiterOverrideArgs();
     }
 }

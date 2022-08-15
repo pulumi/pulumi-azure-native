@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Web activity authentication properties.
     /// </summary>
-    public sealed class WebActivityAuthenticationArgs : global::Pulumi.ResourceArgs
+    public sealed class WebActivityAuthenticationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Password for the PFX file or basic authentication.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public WebActivityAuthenticationArgs()
         {
         }
-        public static new WebActivityAuthenticationArgs Empty => new WebActivityAuthenticationArgs();
     }
 }

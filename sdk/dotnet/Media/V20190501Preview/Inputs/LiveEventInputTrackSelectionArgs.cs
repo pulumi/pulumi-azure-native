@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20190501Preview.Inputs
     /// <summary>
     /// A track selection condition.
     /// </summary>
-    public sealed class LiveEventInputTrackSelectionArgs : global::Pulumi.ResourceArgs
+    public sealed class LiveEventInputTrackSelectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Comparing operation.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Media.V20190501Preview.Inputs
         public LiveEventInputTrackSelectionArgs()
         {
         }
-        public static new LiveEventInputTrackSelectionArgs Empty => new LiveEventInputTrackSelectionArgs();
     }
 }

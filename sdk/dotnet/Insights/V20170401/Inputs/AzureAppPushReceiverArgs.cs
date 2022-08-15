@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20170401.Inputs
     /// <summary>
     /// The Azure mobile App push notification receiver.
     /// </summary>
-    public sealed class AzureAppPushReceiverArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureAppPushReceiverArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The email address registered for the Azure mobile app.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Insights.V20170401.Inputs
         public AzureAppPushReceiverArgs()
         {
         }
-        public static new AzureAppPushReceiverArgs Empty => new AzureAppPushReceiverArgs();
     }
 }

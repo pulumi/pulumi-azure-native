@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20180701.Inputs
     /// <summary>
     /// Service End point policy resource.
     /// </summary>
-    public sealed class ServiceEndpointPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class ServiceEndpointPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -72,6 +72,5 @@ namespace Pulumi.AzureNative.Network.V20180701.Inputs
         public ServiceEndpointPolicyArgs()
         {
         }
-        public static new ServiceEndpointPolicyArgs Empty => new ServiceEndpointPolicyArgs();
     }
 }

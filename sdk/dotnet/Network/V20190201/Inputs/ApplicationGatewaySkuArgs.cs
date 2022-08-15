@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190201.Inputs
     /// <summary>
     /// SKU of an application gateway
     /// </summary>
-    public sealed class ApplicationGatewaySkuArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplicationGatewaySkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Capacity (instance count) of an application gateway.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Network.V20190201.Inputs
         public ApplicationGatewaySkuArgs()
         {
         }
-        public static new ApplicationGatewaySkuArgs Empty => new ApplicationGatewaySkuArgs();
     }
 }

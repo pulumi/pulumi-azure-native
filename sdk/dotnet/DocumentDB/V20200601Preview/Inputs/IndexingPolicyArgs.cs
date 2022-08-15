@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20200601Preview.Inputs
     /// <summary>
     /// Cosmos DB indexing policy
     /// </summary>
-    public sealed class IndexingPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class IndexingPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates if the indexing policy is automatic
@@ -79,6 +79,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20200601Preview.Inputs
         {
             IndexingMode = "Consistent";
         }
-        public static new IndexingPolicyArgs Empty => new IndexingPolicyArgs();
     }
 }

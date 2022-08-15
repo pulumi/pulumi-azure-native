@@ -361,7 +361,7 @@ func (k *azureNativeProvider) Check(ctx context.Context, req *rpc.CheckRequest) 
 		return nil, errors.Errorf("Resource type %s not found", resourceKey)
 	}
 
-	k.applyDefaults(ctx, req.Urn, req.RandomSeed, res, olds, news)
+	k.applyDefaults(ctx, req.Urn, res, olds, news)
 	inputMap := news.Mappable()
 
 	// Validate inputs against PUT parameters.
@@ -457,7 +457,7 @@ func (k *azureNativeProvider) getDefaultLocation(ctx context.Context, olds, news
 	return result(v)
 }
 
-func (k *azureNativeProvider) getDefaultName(urn string, randomSeed []byte, strategy resources.AutoNameKind,
+func (k *azureNativeProvider) getDefaultName(urn string, strategy resources.AutoNameKind,
 	key resource.PropertyKey, olds resource.PropertyMap) (resource.PropertyValue, bool) {
 	if v, ok := olds[key]; ok {
 		if vf, ok := olds[createBeforeDeleteFlag]; ok && vf.IsBool() {
@@ -471,15 +471,12 @@ func (k *azureNativeProvider) getDefaultName(urn string, randomSeed []byte, stra
 	switch strategy {
 	case resources.AutoNameRandom:
 		// Resource name is URN name + random suffix.
-		random, err := resource.NewUniqueName(randomSeed, name, 8, 0, nil)
+		random, err := resource.NewUniqueHex(name, 8, 0)
 		contract.AssertNoError(err)
 		return resource.NewStringProperty(random), true
 	case resources.AutoNameUuid:
-		// Resource name is a random UUID. We need to do a similar trick as NewUniqueName so that this is
-		// deterministic by randomSeed. We simply ask NewUniqueName for a 32 byte random hex name.
-		hexID, err := resource.NewUniqueName(randomSeed, "", 32, 0, nil)
-		contract.AssertNoError(err)
-		return resource.NewStringProperty(uuid.MustParse(hexID).String()), true
+		// Resource name is a random UUID.
+		return resource.NewStringProperty(uuid.New().String()), true
 	case resources.AutoNameCopy:
 		// Resource name is just a copy of the URN name.
 		return resource.NewStringProperty(name), false
@@ -489,7 +486,7 @@ func (k *azureNativeProvider) getDefaultName(urn string, randomSeed []byte, stra
 }
 
 // Apply default values (e.g., location) to user's inputs.
-func (k *azureNativeProvider) applyDefaults(ctx context.Context, urn string, randomSeed []byte,
+func (k *azureNativeProvider) applyDefaults(ctx context.Context, urn string,
 	res resources.AzureAPIResource, olds, news resource.PropertyMap) {
 	for _, par := range res.PutParameters {
 		sdkName := par.Name
@@ -500,7 +497,7 @@ func (k *azureNativeProvider) applyDefaults(ctx context.Context, urn string, ran
 		// Auto-naming.
 		key := resource.PropertyKey(sdkName)
 		if !news.HasValue(key) && par.Value != nil && par.Value.AutoName != "" {
-			name, randomlyNamed := k.getDefaultName(urn, randomSeed, par.Value.AutoName, key, olds)
+			name, randomlyNamed := k.getDefaultName(urn, par.Value.AutoName, key, olds)
 			news[key] = name
 			if randomlyNamed {
 				news[createBeforeDeleteFlag] = resource.NewBoolProperty(true)

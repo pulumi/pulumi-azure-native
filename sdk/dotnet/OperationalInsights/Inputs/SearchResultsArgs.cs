@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationalInsights.Inputs
     /// <summary>
     /// Parameters of the search job that initiated this table.
     /// </summary>
-    public sealed class SearchResultsArgs : global::Pulumi.ResourceArgs
+    public sealed class SearchResultsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Search job Description.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.OperationalInsights.Inputs
         public SearchResultsArgs()
         {
         }
-        public static new SearchResultsArgs Empty => new SearchResultsArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.NetApp
     }
 
 
-    public sealed class GetVolumeQuotaRuleArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVolumeQuotaRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the NetApp account
@@ -62,10 +62,9 @@ namespace Pulumi.AzureNative.NetApp
         public GetVolumeQuotaRuleArgs()
         {
         }
-        public static new GetVolumeQuotaRuleArgs Empty => new GetVolumeQuotaRuleArgs();
     }
 
-    public sealed class GetVolumeQuotaRuleInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVolumeQuotaRuleInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the NetApp account
@@ -100,7 +99,6 @@ namespace Pulumi.AzureNative.NetApp
         public GetVolumeQuotaRuleInvokeArgs()
         {
         }
-        public static new GetVolumeQuotaRuleInvokeArgs Empty => new GetVolumeQuotaRuleInvokeArgs();
     }
 
 

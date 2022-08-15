@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// API Version: 2020-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:LinkedService")]
-    public partial class LinkedService : global::Pulumi.CustomResource
+    public partial class LinkedService : Pulumi.CustomResource
     {
         /// <summary>
         /// Identity for the resource.
@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200901preview:LinkedService"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200901preview:LinkedService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         }
     }
 
-    public sealed class LinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class LinkedServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identity for the resource.
@@ -140,6 +140,5 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public LinkedServiceArgs()
         {
         }
-        public static new LinkedServiceArgs Empty => new LinkedServiceArgs();
     }
 }

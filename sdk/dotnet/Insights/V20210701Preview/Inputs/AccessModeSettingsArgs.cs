@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20210701Preview.Inputs
     /// <summary>
     /// Properties that define the scope private link mode settings.
     /// </summary>
-    public sealed class AccessModeSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class AccessModeSettingsArgs : Pulumi.ResourceArgs
     {
         [Input("exclusions")]
         private InputList<Inputs.AccessModeSettingsExclusionArgs>? _exclusions;
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Insights.V20210701Preview.Inputs
         public AccessModeSettingsArgs()
         {
         }
-        public static new AccessModeSettingsArgs Empty => new AccessModeSettingsArgs();
     }
 }

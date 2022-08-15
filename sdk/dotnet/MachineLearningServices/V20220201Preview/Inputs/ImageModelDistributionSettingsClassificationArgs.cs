@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// For more information on the available settings please visit the official documentation:
     /// https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.
     /// </summary>
-    public sealed class ImageModelDistributionSettingsClassificationArgs : global::Pulumi.ResourceArgs
+    public sealed class ImageModelDistributionSettingsClassificationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable AMSGrad when optimizer is 'adam' or 'adamw'.
@@ -238,6 +238,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         public ImageModelDistributionSettingsClassificationArgs()
         {
         }
-        public static new ImageModelDistributionSettingsClassificationArgs Empty => new ImageModelDistributionSettingsClassificationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.LabServices.V20220801.Inputs
     /// <summary>
     /// Image reference information. Used in the virtual machine profile.
     /// </summary>
-    public sealed class ImageReferenceArgs : global::Pulumi.ResourceArgs
+    public sealed class ImageReferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Image resource ID
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.LabServices.V20220801.Inputs
         public ImageReferenceArgs()
         {
         }
-        public static new ImageReferenceArgs Empty => new ImageReferenceArgs();
     }
 }

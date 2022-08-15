@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Attestation.V20180901Preview.Inputs
 {
 
-    public sealed class JSONWebKeySetArgs : global::Pulumi.ResourceArgs
+    public sealed class JSONWebKeySetArgs : Pulumi.ResourceArgs
     {
         [Input("keys")]
         private InputList<Inputs.JSONWebKeyArgs>? _keys;
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.Attestation.V20180901Preview.Inputs
         public JSONWebKeySetArgs()
         {
         }
-        public static new JSONWebKeySetArgs Empty => new JSONWebKeySetArgs();
     }
 }

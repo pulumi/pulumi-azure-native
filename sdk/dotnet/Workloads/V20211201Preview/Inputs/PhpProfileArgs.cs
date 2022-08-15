@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
     /// <summary>
     /// PHP profile
     /// </summary>
-    public sealed class PhpProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class PhpProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// PHP version
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
         public PhpProfileArgs()
         {
         }
-        public static new PhpProfileArgs Empty => new PhpProfileArgs();
     }
 }

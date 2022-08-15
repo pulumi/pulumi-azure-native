@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20200201Preview
     /// The Media Graph.
     /// </summary>
     [AzureNativeResourceType("azure-native:media/v20200201preview:MediaGraph")]
-    public partial class MediaGraph : global::Pulumi.CustomResource
+    public partial class MediaGraph : Pulumi.CustomResource
     {
         /// <summary>
         /// Date the Media Graph was created.
@@ -88,8 +88,8 @@ namespace Pulumi.AzureNative.Media.V20200201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:media:MediaGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20190901preview:MediaGraph"},
+                    new Pulumi.Alias { Type = "azure-native:media:MediaGraph"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20190901preview:MediaGraph"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNative.Media.V20200201Preview
         }
     }
 
-    public sealed class MediaGraphArgs : global::Pulumi.ResourceArgs
+    public sealed class MediaGraphArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -164,6 +164,5 @@ namespace Pulumi.AzureNative.Media.V20200201Preview
         public MediaGraphArgs()
         {
         }
-        public static new MediaGraphArgs Empty => new MediaGraphArgs();
     }
 }

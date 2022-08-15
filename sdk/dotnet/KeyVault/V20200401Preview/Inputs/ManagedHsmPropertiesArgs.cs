@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KeyVault.V20200401Preview.Inputs
     /// <summary>
     /// Properties of the managed HSM Pool
     /// </summary>
-    public sealed class ManagedHsmPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedHsmPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
@@ -63,6 +63,5 @@ namespace Pulumi.AzureNative.KeyVault.V20200401Preview.Inputs
             EnableSoftDelete = true;
             SoftDeleteRetentionInDays = 90;
         }
-        public static new ManagedHsmPropertiesArgs Empty => new ManagedHsmPropertiesArgs();
     }
 }

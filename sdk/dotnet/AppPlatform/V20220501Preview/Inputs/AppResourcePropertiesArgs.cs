@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
     /// <summary>
     /// App resource properties payload
     /// </summary>
-    public sealed class AppResourcePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class AppResourcePropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("addonConfigs")]
         private InputMap<ImmutableDictionary<string, object>>? _addonConfigs;
@@ -98,6 +98,5 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
             EnableEndToEndTLS = false;
             HttpsOnly = false;
         }
-        public static new AppResourcePropertiesArgs Empty => new AppResourcePropertiesArgs();
     }
 }

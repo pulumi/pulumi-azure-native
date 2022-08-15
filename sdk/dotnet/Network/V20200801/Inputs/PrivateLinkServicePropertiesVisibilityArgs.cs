@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200801.Inputs
     /// <summary>
     /// The visibility list of the private link service.
     /// </summary>
-    public sealed class PrivateLinkServicePropertiesVisibilityArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateLinkServicePropertiesVisibilityArgs : Pulumi.ResourceArgs
     {
         [Input("subscriptions")]
         private InputList<string>? _subscriptions;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Network.V20200801.Inputs
         public PrivateLinkServicePropertiesVisibilityArgs()
         {
         }
-        public static new PrivateLinkServicePropertiesVisibilityArgs Empty => new PrivateLinkServicePropertiesVisibilityArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Consumption.V20181001.Inputs
     /// <summary>
     /// The start and end date for a budget.
     /// </summary>
-    public sealed class BudgetTimePeriodArgs : global::Pulumi.ResourceArgs
+    public sealed class BudgetTimePeriodArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The end date for the budget. If not provided, we default this to 10 years from the start date.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Consumption.V20181001.Inputs
         public BudgetTimePeriodArgs()
         {
         }
-        public static new BudgetTimePeriodArgs Empty => new BudgetTimePeriodArgs();
     }
 }

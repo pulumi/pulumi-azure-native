@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataProtection.V20220401.Inputs
 {
 
-    public sealed class ResourceGuardArgs : global::Pulumi.ResourceArgs
+    public sealed class ResourceGuardArgs : Pulumi.ResourceArgs
     {
         [Input("vaultCriticalOperationExclusionList")]
         private InputList<string>? _vaultCriticalOperationExclusionList;
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.DataProtection.V20220401.Inputs
         public ResourceGuardArgs()
         {
         }
-        public static new ResourceGuardArgs Empty => new ResourceGuardArgs();
     }
 }

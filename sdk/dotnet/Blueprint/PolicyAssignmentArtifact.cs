@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Blueprint
     /// API Version: 2018-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:blueprint:PolicyAssignmentArtifact")]
-    public partial class PolicyAssignmentArtifact : global::Pulumi.CustomResource
+    public partial class PolicyAssignmentArtifact : Pulumi.CustomResource
     {
         /// <summary>
         /// Artifacts which need to be deployed before the specified artifact.
@@ -103,7 +103,7 @@ namespace Pulumi.AzureNative.Blueprint
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:blueprint/v20181101preview:PolicyAssignmentArtifact"},
+                    new Pulumi.Alias { Type = "azure-native:blueprint/v20181101preview:PolicyAssignmentArtifact"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.Blueprint
         }
     }
 
-    public sealed class PolicyAssignmentArtifactArgs : global::Pulumi.ResourceArgs
+    public sealed class PolicyAssignmentArtifactArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the blueprint artifact.
@@ -203,6 +203,5 @@ namespace Pulumi.AzureNative.Blueprint
         public PolicyAssignmentArtifactArgs()
         {
         }
-        public static new PolicyAssignmentArtifactArgs Empty => new PolicyAssignmentArtifactArgs();
     }
 }

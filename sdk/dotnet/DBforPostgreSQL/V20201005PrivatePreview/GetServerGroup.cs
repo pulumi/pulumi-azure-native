@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
     }
 
 
-    public sealed class GetServerGroupArgs : global::Pulumi.InvokeArgs
+    public sealed class GetServerGroupArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
         public GetServerGroupArgs()
         {
         }
-        public static new GetServerGroupArgs Empty => new GetServerGroupArgs();
     }
 
-    public sealed class GetServerGroupInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetServerGroupInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
         public GetServerGroupInvokeArgs()
         {
         }
-        public static new GetServerGroupInvokeArgs Empty => new GetServerGroupInvokeArgs();
     }
 
 

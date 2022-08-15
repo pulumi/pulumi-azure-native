@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate
     /// API Version: 2019-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:VMwareCollector")]
-    public partial class VMwareCollector : global::Pulumi.CustomResource
+    public partial class VMwareCollector : Pulumi.CustomResource
     {
         [Output("eTag")]
         public Output<string?> ETag { get; private set; } = null!;
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.Migrate
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:VMwareCollector"},
+                    new Pulumi.Alias { Type = "azure-native:migrate/v20191001:VMwareCollector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNative.Migrate
         }
     }
 
-    public sealed class VMwareCollectorArgs : global::Pulumi.ResourceArgs
+    public sealed class VMwareCollectorArgs : Pulumi.ResourceArgs
     {
         [Input("eTag")]
         public Input<string>? ETag { get; set; }
@@ -103,6 +103,5 @@ namespace Pulumi.AzureNative.Migrate
         public VMwareCollectorArgs()
         {
         }
-        public static new VMwareCollectorArgs Empty => new VMwareCollectorArgs();
     }
 }

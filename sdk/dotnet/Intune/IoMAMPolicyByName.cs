@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Intune
     /// API Version: 2015-01-14-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:intune:IoMAMPolicyByName")]
-    public partial class IoMAMPolicyByName : global::Pulumi.CustomResource
+    public partial class IoMAMPolicyByName : Pulumi.CustomResource
     {
         [Output("accessRecheckOfflineTimeout")]
         public Output<string?> AccessRecheckOfflineTimeout { get; private set; } = null!;
@@ -125,8 +125,8 @@ namespace Pulumi.AzureNative.Intune
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:intune/v20150114preview:IoMAMPolicyByName"},
-                    new global::Pulumi.Alias { Type = "azure-native:intune/v20150114privatepreview:IoMAMPolicyByName"},
+                    new Pulumi.Alias { Type = "azure-native:intune/v20150114preview:IoMAMPolicyByName"},
+                    new Pulumi.Alias { Type = "azure-native:intune/v20150114privatepreview:IoMAMPolicyByName"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNative.Intune
         }
     }
 
-    public sealed class IoMAMPolicyByNameArgs : global::Pulumi.ResourceArgs
+    public sealed class IoMAMPolicyByNameArgs : Pulumi.ResourceArgs
     {
         [Input("accessRecheckOfflineTimeout")]
         public Input<string>? AccessRecheckOfflineTimeout { get; set; }
@@ -245,6 +245,5 @@ namespace Pulumi.AzureNative.Intune
             Pin = "required";
             TouchId = "enable";
         }
-        public static new IoMAMPolicyByNameArgs Empty => new IoMAMPolicyByNameArgs();
     }
 }

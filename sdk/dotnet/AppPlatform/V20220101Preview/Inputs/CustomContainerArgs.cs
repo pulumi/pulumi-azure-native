@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview.Inputs
     /// <summary>
     /// Custom container payload
     /// </summary>
-    public sealed class CustomContainerArgs : global::Pulumi.ResourceArgs
+    public sealed class CustomContainerArgs : Pulumi.ResourceArgs
     {
         [Input("args")]
         private InputList<string>? _args;
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview.Inputs
         public CustomContainerArgs()
         {
         }
-        public static new CustomContainerArgs Empty => new CustomContainerArgs();
     }
 }

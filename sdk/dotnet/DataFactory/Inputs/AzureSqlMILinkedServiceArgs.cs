@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Azure SQL Managed Instance linked service.
     /// </summary>
-    public sealed class AzureSqlMILinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureSqlMILinkedServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Sql always encrypted properties.
@@ -115,6 +115,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public AzureSqlMILinkedServiceArgs()
         {
         }
-        public static new AzureSqlMILinkedServiceArgs Empty => new AzureSqlMILinkedServiceArgs();
     }
 }

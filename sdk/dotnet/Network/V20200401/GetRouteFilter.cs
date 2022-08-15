@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20200401
     }
 
 
-    public sealed class GetRouteFilterArgs : global::Pulumi.InvokeArgs
+    public sealed class GetRouteFilterArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Expands referenced express route bgp peering resources.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Network.V20200401
         public GetRouteFilterArgs()
         {
         }
-        public static new GetRouteFilterArgs Empty => new GetRouteFilterArgs();
     }
 
-    public sealed class GetRouteFilterInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetRouteFilterInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Expands referenced express route bgp peering resources.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Network.V20200401
         public GetRouteFilterInvokeArgs()
         {
         }
-        public static new GetRouteFilterInvokeArgs Empty => new GetRouteFilterInvokeArgs();
     }
 
 

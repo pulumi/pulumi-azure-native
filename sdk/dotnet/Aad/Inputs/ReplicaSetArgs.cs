@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Aad.Inputs
     /// <summary>
     /// Replica Set Definition
     /// </summary>
-    public sealed class ReplicaSetArgs : global::Pulumi.ResourceArgs
+    public sealed class ReplicaSetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Virtual network location
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Aad.Inputs
         public ReplicaSetArgs()
         {
         }
-        public static new ReplicaSetArgs Empty => new ReplicaSetArgs();
     }
 }

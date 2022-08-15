@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
     /// <summary>
     /// Properties of Cognitive Services account deployment model.
     /// </summary>
-    public sealed class DeploymentScaleSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class DeploymentScaleSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Deployment capacity.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
         public DeploymentScaleSettingsArgs()
         {
         }
-        public static new DeploymentScaleSettingsArgs Empty => new DeploymentScaleSettingsArgs();
     }
 }

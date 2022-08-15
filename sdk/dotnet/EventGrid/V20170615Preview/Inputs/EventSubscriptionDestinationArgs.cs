@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20170615Preview.Inputs
     /// <summary>
     /// Information about the destination for an event subscription
     /// </summary>
-    public sealed class EventSubscriptionDestinationArgs : global::Pulumi.ResourceArgs
+    public sealed class EventSubscriptionDestinationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of the endpoint for the event subscription destination
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.EventGrid.V20170615Preview.Inputs
         public EventSubscriptionDestinationArgs()
         {
         }
-        public static new EventSubscriptionDestinationArgs Empty => new EventSubscriptionDestinationArgs();
     }
 }

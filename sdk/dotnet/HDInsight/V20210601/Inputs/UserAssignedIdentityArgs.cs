@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.V20210601.Inputs
     /// <summary>
     /// The User Assigned Identity
     /// </summary>
-    public sealed class UserAssignedIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class UserAssignedIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The tenant id of user assigned identity.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.HDInsight.V20210601.Inputs
         public UserAssignedIdentityArgs()
         {
         }
-        public static new UserAssignedIdentityArgs Empty => new UserAssignedIdentityArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.Inputs
     /// <summary>
     /// Contains a list of match conditions, and an action on how to modify the request/response. If multiple rules match, the actions from one rule that conflict with a previous rule overwrite for a singular action, or append in the case of headers manipulation.
     /// </summary>
-    public sealed class RulesEngineRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class RulesEngineRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Actions to perform on the request and response if all of the match conditions are met.
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.Network.Inputs
         public RulesEngineRuleArgs()
         {
         }
-        public static new RulesEngineRuleArgs Empty => new RulesEngineRuleArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20150615.Inputs
     /// <summary>
     /// Azure resource manager sub resource properties.
     /// </summary>
-    public sealed class SubResourceArgs : global::Pulumi.ResourceArgs
+    public sealed class SubResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource Identifier.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Network.V20150615.Inputs
         public SubResourceArgs()
         {
         }
-        public static new SubResourceArgs Empty => new SubResourceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
     /// The backup policy.
     /// </summary>
     [AzureNativeResourceType("azure-native:storsimple/v20170601:BackupPolicy")]
-    public partial class BackupPolicy : global::Pulumi.CustomResource
+    public partial class BackupPolicy : Pulumi.CustomResource
     {
         /// <summary>
         /// The backup policy creation type. Indicates whether this was created through SaaS or through StorSimple Snapshot Manager.
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:storsimple:BackupPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storsimple:BackupPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         }
     }
 
-    public sealed class BackupPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class BackupPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the backup policy to be created/updated.
@@ -169,6 +169,5 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         public BackupPolicyArgs()
         {
         }
-        public static new BackupPolicyArgs Empty => new BackupPolicyArgs();
     }
 }

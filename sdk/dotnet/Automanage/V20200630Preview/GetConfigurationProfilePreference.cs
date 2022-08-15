@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Automanage.V20200630Preview
     }
 
 
-    public sealed class GetConfigurationProfilePreferenceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetConfigurationProfilePreferenceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The configuration profile preference name.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.Automanage.V20200630Preview
         public GetConfigurationProfilePreferenceArgs()
         {
         }
-        public static new GetConfigurationProfilePreferenceArgs Empty => new GetConfigurationProfilePreferenceArgs();
     }
 
-    public sealed class GetConfigurationProfilePreferenceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetConfigurationProfilePreferenceInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The configuration profile preference name.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.Automanage.V20200630Preview
         public GetConfigurationProfilePreferenceInvokeArgs()
         {
         }
-        public static new GetConfigurationProfilePreferenceInvokeArgs Empty => new GetConfigurationProfilePreferenceInvokeArgs();
     }
 
 

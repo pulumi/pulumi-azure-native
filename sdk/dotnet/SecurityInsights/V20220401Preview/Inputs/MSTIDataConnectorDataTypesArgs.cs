@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview.Inputs
     /// <summary>
     /// The available data types for Microsoft Threat Intelligence Platforms data connector.
     /// </summary>
-    public sealed class MSTIDataConnectorDataTypesArgs : global::Pulumi.ResourceArgs
+    public sealed class MSTIDataConnectorDataTypesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Data type for Microsoft Threat Intelligence Platforms data connector.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview.Inputs
         public MSTIDataConnectorDataTypesArgs()
         {
         }
-        public static new MSTIDataConnectorDataTypesArgs Empty => new MSTIDataConnectorDataTypesArgs();
     }
 }

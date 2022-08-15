@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20191101
     /// VpnConnection Resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20191101:VpnConnection")]
-    public partial class VpnConnection : global::Pulumi.CustomResource
+    public partial class VpnConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// Expected bandwidth in MBPS.
@@ -148,33 +148,33 @@ namespace Pulumi.AzureNative.Network.V20191101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:VpnConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180401:VpnConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180601:VpnConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180701:VpnConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180801:VpnConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181001:VpnConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181101:VpnConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181201:VpnConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190201:VpnConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:VpnConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190601:VpnConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:VpnConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190801:VpnConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:VpnConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:VpnConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:VpnConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:VpnConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:VpnConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:VpnConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:VpnConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:VpnConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:VpnConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:VpnConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:VpnConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:VpnConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:VpnConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180401:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180601:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180701:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181001:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181101:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181201:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190201:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210301:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:VpnConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -196,7 +196,7 @@ namespace Pulumi.AzureNative.Network.V20191101
         }
     }
 
-    public sealed class VpnConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class VpnConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Expected bandwidth in MBPS.
@@ -315,6 +315,5 @@ namespace Pulumi.AzureNative.Network.V20191101
         public VpnConnectionArgs()
         {
         }
-        public static new VpnConnectionArgs Empty => new VpnConnectionArgs();
     }
 }

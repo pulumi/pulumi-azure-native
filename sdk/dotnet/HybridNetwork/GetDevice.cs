@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.HybridNetwork
     }
 
 
-    public sealed class GetDeviceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDeviceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the device resource.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.HybridNetwork
         public GetDeviceArgs()
         {
         }
-        public static new GetDeviceArgs Empty => new GetDeviceArgs();
     }
 
-    public sealed class GetDeviceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDeviceInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the device resource.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.HybridNetwork
         public GetDeviceInvokeArgs()
         {
         }
-        public static new GetDeviceInvokeArgs Empty => new GetDeviceInvokeArgs();
     }
 
 

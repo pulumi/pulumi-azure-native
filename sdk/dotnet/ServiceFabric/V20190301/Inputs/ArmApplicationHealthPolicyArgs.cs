@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20190301.Inputs
     /// <summary>
     /// Defines a health policy used to evaluate the health of an application or one of its children entities.
     /// </summary>
-    public sealed class ArmApplicationHealthPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class ArmApplicationHealthPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether warnings are treated with the same severity as errors.
@@ -53,6 +53,5 @@ namespace Pulumi.AzureNative.ServiceFabric.V20190301.Inputs
             ConsiderWarningAsError = false;
             MaxPercentUnhealthyDeployedApplications = 0;
         }
-        public static new ArmApplicationHealthPolicyArgs Empty => new ArmApplicationHealthPolicyArgs();
     }
 }

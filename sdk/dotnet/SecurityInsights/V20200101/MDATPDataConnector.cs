@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20200101
     /// Represents MDATP (Microsoft Defender Advanced Threat Protection) data connector.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20200101:MDATPDataConnector")]
-    public partial class MDATPDataConnector : global::Pulumi.CustomResource
+    public partial class MDATPDataConnector : Pulumi.CustomResource
     {
         /// <summary>
         /// The available data types for the connector.
@@ -84,18 +84,18 @@ namespace Pulumi.AzureNative.SecurityInsights.V20200101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:MDATPDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:MDATPDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:MDATPDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:MDATPDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:MDATPDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:MDATPDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:MDATPDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:MDATPDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:MDATPDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:MDATPDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:MDATPDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:MDATPDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights:MDATPDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:MDATPDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:MDATPDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:MDATPDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:MDATPDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:MDATPDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:MDATPDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:MDATPDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:MDATPDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:MDATPDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:MDATPDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:MDATPDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20200101
         }
     }
 
-    public sealed class MDATPDataConnectorArgs : global::Pulumi.ResourceArgs
+    public sealed class MDATPDataConnectorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Connector ID
@@ -159,6 +159,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20200101
         public MDATPDataConnectorArgs()
         {
         }
-        public static new MDATPDataConnectorArgs Empty => new MDATPDataConnectorArgs();
     }
 }

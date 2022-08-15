@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20170330.Inputs
     /// <summary>
     /// Describes a virtual machine scale set sku.
     /// </summary>
-    public sealed class SkuArgs : global::Pulumi.ResourceArgs
+    public sealed class SkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the number of virtual machines in the scale set. NOTE: If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Compute.V20170330.Inputs
         public SkuArgs()
         {
         }
-        public static new SkuArgs Empty => new SkuArgs();
     }
 }

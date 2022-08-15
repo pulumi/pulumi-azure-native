@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Linked service for Salesforce.
     /// </summary>
-    public sealed class SalesforceLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class SalesforceLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -97,6 +97,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public SalesforceLinkedServiceArgs()
         {
         }
-        public static new SalesforceLinkedServiceArgs Empty => new SalesforceLinkedServiceArgs();
     }
 }

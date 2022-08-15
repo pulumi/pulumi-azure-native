@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701Preview.Inputs
     /// <summary>
     /// Private DNS zone arguments of a server
     /// </summary>
-    public sealed class PrivateDnsZoneArgumentsArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateDnsZoneArgumentsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// private dns zone arm resource id.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701Preview.Inputs
         public PrivateDnsZoneArgumentsArgs()
         {
         }
-        public static new PrivateDnsZoneArgumentsArgs Empty => new PrivateDnsZoneArgumentsArgs();
     }
 }

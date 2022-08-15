@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
     /// An environment, which is essentially an ARM template deployment.
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab/v20180915:Environment")]
-    public partial class Environment : global::Pulumi.CustomResource
+    public partial class Environment : Pulumi.CustomResource
     {
         /// <summary>
         /// The display name of the Azure Resource Manager template that produced the environment.
@@ -100,8 +100,8 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab:Environment"},
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:Environment"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab:Environment"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:Environment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -123,7 +123,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         }
     }
 
-    public sealed class EnvironmentArgs : global::Pulumi.ResourceArgs
+    public sealed class EnvironmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The display name of the Azure Resource Manager template that produced the environment.
@@ -182,6 +182,5 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         public EnvironmentArgs()
         {
         }
-        public static new EnvironmentArgs Empty => new EnvironmentArgs();
     }
 }

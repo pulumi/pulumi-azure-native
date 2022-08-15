@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview
     /// EventGrid Partner Namespace.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid/v20211015preview:PartnerNamespace")]
-    public partial class PartnerNamespace : global::Pulumi.CustomResource
+    public partial class PartnerNamespace : Pulumi.CustomResource
     {
         /// <summary>
         /// This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the partner namespace.
@@ -118,11 +118,11 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid:PartnerNamespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:PartnerNamespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:PartnerNamespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:PartnerNamespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:PartnerNamespace"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid:PartnerNamespace"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:PartnerNamespace"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:PartnerNamespace"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:PartnerNamespace"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:PartnerNamespace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -144,7 +144,7 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview
         }
     }
 
-    public sealed class PartnerNamespaceArgs : global::Pulumi.ResourceArgs
+    public sealed class PartnerNamespaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the partner namespace.
@@ -221,6 +221,5 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview
             PartnerTopicRoutingMode = "SourceEventAttribute";
             PublicNetworkAccess = "Enabled";
         }
-        public static new PartnerNamespaceArgs Empty => new PartnerNamespaceArgs();
     }
 }

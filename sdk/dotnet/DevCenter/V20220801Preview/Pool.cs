@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
     /// A pool of Virtual Machines.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter/v20220801preview:Pool")]
-    public partial class Pool : global::Pulumi.CustomResource
+    public partial class Pool : Pulumi.CustomResource
     {
         /// <summary>
         /// Name of a Dev Box definition in parent Project of this Pool
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         }
     }
 
-    public sealed class PoolArgs : global::Pulumi.ResourceArgs
+    public sealed class PoolArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of a Dev Box definition in parent Project of this Pool
@@ -183,6 +183,5 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         public PoolArgs()
         {
         }
-        public static new PoolArgs Empty => new PoolArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.V20220515.Inputs
 {
 
-    public sealed class ExcludedPathArgs : global::Pulumi.ResourceArgs
+    public sealed class ExcludedPathArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515.Inputs
         public ExcludedPathArgs()
         {
         }
-        public static new ExcludedPathArgs Empty => new ExcludedPathArgs();
     }
 }

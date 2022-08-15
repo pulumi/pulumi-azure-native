@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MobileNetwork.Inputs
     /// <summary>
     /// Settings controlling Data Network use
     /// </summary>
-    public sealed class DataNetworkConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class DataNetworkConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("additionalAllowedSessionTypes")]
         private InputList<Union<string, Pulumi.AzureNative.MobileNetwork.PduSessionType>>? _additionalAllowedSessionTypes;
@@ -89,6 +89,5 @@ namespace Pulumi.AzureNative.MobileNetwork.Inputs
             PreemptionCapability = "NotPreempt";
             PreemptionVulnerability = "Preemptable";
         }
-        public static new DataNetworkConfigurationArgs Empty => new DataNetworkConfigurationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     /// <summary>
     /// Batch endpoint configuration.
     /// </summary>
-    public sealed class BatchEndpointArgs : global::Pulumi.ResourceArgs
+    public sealed class BatchEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] Inference endpoint authentication mode type
@@ -61,6 +61,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public BatchEndpointArgs()
         {
         }
-        public static new BatchEndpointArgs Empty => new BatchEndpointArgs();
     }
 }

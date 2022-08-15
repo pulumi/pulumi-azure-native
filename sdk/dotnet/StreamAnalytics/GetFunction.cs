@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
     }
 
 
-    public sealed class GetFunctionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetFunctionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the function.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.StreamAnalytics
         public GetFunctionArgs()
         {
         }
-        public static new GetFunctionArgs Empty => new GetFunctionArgs();
     }
 
-    public sealed class GetFunctionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetFunctionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the function.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.StreamAnalytics
         public GetFunctionInvokeArgs()
         {
         }
-        public static new GetFunctionInvokeArgs Empty => new GetFunctionInvokeArgs();
     }
 
 

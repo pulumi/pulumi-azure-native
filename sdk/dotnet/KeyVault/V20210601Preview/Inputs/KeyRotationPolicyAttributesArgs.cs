@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.KeyVault.V20210601Preview.Inputs
 {
 
-    public sealed class KeyRotationPolicyAttributesArgs : global::Pulumi.ResourceArgs
+    public sealed class KeyRotationPolicyAttributesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The expiration time for the new key version. It should be in ISO8601 format. Eg: 'P90D', 'P1Y'.
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.KeyVault.V20210601Preview.Inputs
         public KeyRotationPolicyAttributesArgs()
         {
         }
-        public static new KeyRotationPolicyAttributesArgs Empty => new KeyRotationPolicyAttributesArgs();
     }
 }

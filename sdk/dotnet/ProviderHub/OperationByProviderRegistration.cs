@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ProviderHub
     /// API Version: 2020-11-20.
     /// </summary>
     [AzureNativeResourceType("azure-native:providerhub:OperationByProviderRegistration")]
-    public partial class OperationByProviderRegistration : global::Pulumi.CustomResource
+    public partial class OperationByProviderRegistration : Pulumi.CustomResource
     {
         [Output("actionType")]
         public Output<string?> ActionType { get; private set; } = null!;
@@ -73,10 +73,10 @@ namespace Pulumi.AzureNative.ProviderHub
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20201120:OperationByProviderRegistration"},
-                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210501preview:OperationByProviderRegistration"},
-                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210601preview:OperationByProviderRegistration"},
-                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210901preview:OperationByProviderRegistration"},
+                    new Pulumi.Alias { Type = "azure-native:providerhub/v20201120:OperationByProviderRegistration"},
+                    new Pulumi.Alias { Type = "azure-native:providerhub/v20210501preview:OperationByProviderRegistration"},
+                    new Pulumi.Alias { Type = "azure-native:providerhub/v20210601preview:OperationByProviderRegistration"},
+                    new Pulumi.Alias { Type = "azure-native:providerhub/v20210901preview:OperationByProviderRegistration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.ProviderHub
         }
     }
 
-    public sealed class OperationByProviderRegistrationArgs : global::Pulumi.ResourceArgs
+    public sealed class OperationByProviderRegistrationArgs : Pulumi.ResourceArgs
     {
         [Input("contents", required: true)]
         private InputList<Inputs.OperationsDefinitionArgs>? _contents;
@@ -117,6 +117,5 @@ namespace Pulumi.AzureNative.ProviderHub
         public OperationByProviderRegistrationArgs()
         {
         }
-        public static new OperationByProviderRegistrationArgs Empty => new OperationByProviderRegistrationArgs();
     }
 }

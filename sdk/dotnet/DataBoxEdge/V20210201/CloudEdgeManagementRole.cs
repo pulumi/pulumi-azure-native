@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201
     /// By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/ for additional details.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge/v20210201:CloudEdgeManagementRole")]
-    public partial class CloudEdgeManagementRole : global::Pulumi.CustomResource
+    public partial class CloudEdgeManagementRole : Pulumi.CustomResource
     {
         /// <summary>
         /// Edge Profile of the resource
@@ -92,19 +92,19 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:CloudEdgeManagementRole"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:CloudEdgeManagementRole"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:CloudEdgeManagementRole"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:CloudEdgeManagementRole"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:CloudEdgeManagementRole"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:CloudEdgeManagementRole"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:CloudEdgeManagementRole"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:CloudEdgeManagementRole"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:CloudEdgeManagementRole"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:CloudEdgeManagementRole"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:CloudEdgeManagementRole"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:CloudEdgeManagementRole"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:CloudEdgeManagementRole"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge:CloudEdgeManagementRole"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:CloudEdgeManagementRole"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:CloudEdgeManagementRole"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:CloudEdgeManagementRole"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:CloudEdgeManagementRole"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:CloudEdgeManagementRole"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:CloudEdgeManagementRole"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:CloudEdgeManagementRole"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:CloudEdgeManagementRole"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:CloudEdgeManagementRole"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:CloudEdgeManagementRole"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:CloudEdgeManagementRole"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:CloudEdgeManagementRole"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201
         }
     }
 
-    public sealed class CloudEdgeManagementRoleArgs : global::Pulumi.ResourceArgs
+    public sealed class CloudEdgeManagementRoleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The device name.
@@ -162,6 +162,5 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201
         public CloudEdgeManagementRoleArgs()
         {
         }
-        public static new CloudEdgeManagementRoleArgs Empty => new CloudEdgeManagementRoleArgs();
     }
 }

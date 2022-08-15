@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
     /// <summary>
     /// Keys for endpoint authentication.
     /// </summary>
-    public sealed class EndpointAuthKeysArgs : global::Pulumi.ResourceArgs
+    public sealed class EndpointAuthKeysArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The primary key.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
         public EndpointAuthKeysArgs()
         {
         }
-        public static new EndpointAuthKeysArgs Empty => new EndpointAuthKeysArgs();
     }
 }

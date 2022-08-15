@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Synapse
     /// </summary>
     [Obsolete(@"Please use one of the variants: ReadWriteDatabase.")]
     [AzureNativeResourceType("azure-native:synapse:Database")]
-    public partial class Database : global::Pulumi.CustomResource
+    public partial class Database : Pulumi.CustomResource
     {
         /// <summary>
         /// Kind of the database
@@ -72,8 +72,8 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:Database"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:Database"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:Database"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.Synapse
         }
     }
 
-    public sealed class DatabaseArgs : global::Pulumi.ResourceArgs
+    public sealed class DatabaseArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the database in the Kusto pool.
@@ -136,6 +136,5 @@ namespace Pulumi.AzureNative.Synapse
         public DatabaseArgs()
         {
         }
-        public static new DatabaseArgs Empty => new DatabaseArgs();
     }
 }

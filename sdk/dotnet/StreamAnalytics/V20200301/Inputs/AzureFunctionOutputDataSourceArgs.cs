@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Inputs
     /// <summary>
     /// Defines the metadata of AzureFunctionOutputDataSource
     /// </summary>
-    public sealed class AzureFunctionOutputDataSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureFunctionOutputDataSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// If you want to use an Azure Function from another subscription, you can do so by providing the key to access your function.
@@ -55,6 +55,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Inputs
         public AzureFunctionOutputDataSourceArgs()
         {
         }
-        public static new AzureFunctionOutputDataSourceArgs Empty => new AzureFunctionOutputDataSourceArgs();
     }
 }

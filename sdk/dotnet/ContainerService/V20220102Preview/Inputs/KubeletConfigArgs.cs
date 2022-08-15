@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220102Preview.Inputs
     /// <summary>
     /// See [AKS custom node configuration](https://docs.microsoft.com/azure/aks/custom-node-configuration) for more details.
     /// </summary>
-    public sealed class KubeletConfigArgs : global::Pulumi.ResourceArgs
+    public sealed class KubeletConfigArgs : Pulumi.ResourceArgs
     {
         [Input("allowedUnsafeSysctls")]
         private InputList<string>? _allowedUnsafeSysctls;
@@ -90,6 +90,5 @@ namespace Pulumi.AzureNative.ContainerService.V20220102Preview.Inputs
         public KubeletConfigArgs()
         {
         }
-        public static new KubeletConfigArgs Empty => new KubeletConfigArgs();
     }
 }

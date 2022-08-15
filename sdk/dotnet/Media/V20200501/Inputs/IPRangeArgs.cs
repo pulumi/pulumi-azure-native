@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20200501.Inputs
     /// <summary>
     /// The IP address range in the CIDR scheme.
     /// </summary>
-    public sealed class IPRangeArgs : global::Pulumi.ResourceArgs
+    public sealed class IPRangeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IP address.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Media.V20200501.Inputs
         public IPRangeArgs()
         {
         }
-        public static new IPRangeArgs Empty => new IPRangeArgs();
     }
 }

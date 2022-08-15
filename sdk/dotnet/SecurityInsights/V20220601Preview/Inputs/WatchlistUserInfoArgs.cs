@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview.Inputs
     /// <summary>
     /// User information that made some action
     /// </summary>
-    public sealed class WatchlistUserInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class WatchlistUserInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The object id of the user.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview.Inputs
         public WatchlistUserInfoArgs()
         {
         }
-        public static new WatchlistUserInfoArgs Empty => new WatchlistUserInfoArgs();
     }
 }

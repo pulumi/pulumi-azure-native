@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBox.V20201101.Inputs
     /// <summary>
     /// Details of the filtering the transfer of data.
     /// </summary>
-    public sealed class TransferFilterDetailsArgs : global::Pulumi.ResourceArgs
+    public sealed class TransferFilterDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Filter details to transfer Azure files.
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.DataBox.V20201101.Inputs
         {
             DataAccountType = "StorageAccount";
         }
-        public static new TransferFilterDetailsArgs Empty => new TransferFilterDetailsArgs();
     }
 }

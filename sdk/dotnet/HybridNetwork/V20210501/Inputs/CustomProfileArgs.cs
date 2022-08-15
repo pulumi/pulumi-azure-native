@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridNetwork.V20210501.Inputs
     /// <summary>
     /// Specifies the custom settings for the virtual machine.
     /// </summary>
-    public sealed class CustomProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class CustomProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Path for metadata configuration.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.HybridNetwork.V20210501.Inputs
         public CustomProfileArgs()
         {
         }
-        public static new CustomProfileArgs Empty => new CustomProfileArgs();
     }
 }

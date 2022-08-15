@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201Preview.Inputs
     /// <summary>
     /// The mapping between a particular user and the access type on the SMB share.
     /// </summary>
-    public sealed class UserAccessRightArgs : global::Pulumi.ResourceArgs
+    public sealed class UserAccessRightArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of access to be allowed for the user.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201Preview.Inputs
         public UserAccessRightArgs()
         {
         }
-        public static new UserAccessRightArgs Empty => new UserAccessRightArgs();
     }
 }

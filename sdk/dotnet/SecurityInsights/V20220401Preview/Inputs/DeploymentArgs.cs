@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview.Inputs
     /// <summary>
     /// Description about a deployment.
     /// </summary>
-    public sealed class DeploymentArgs : global::Pulumi.ResourceArgs
+    public sealed class DeploymentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Deployment identifier.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview.Inputs
         public DeploymentArgs()
         {
         }
-        public static new DeploymentArgs Empty => new DeploymentArgs();
     }
 }

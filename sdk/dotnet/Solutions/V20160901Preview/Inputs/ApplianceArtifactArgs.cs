@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Solutions.V20160901Preview.Inputs
     /// <summary>
     /// Appliance artifact.
     /// </summary>
-    public sealed class ApplianceArtifactArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplianceArtifactArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The appliance artifact name.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Solutions.V20160901Preview.Inputs
         public ApplianceArtifactArgs()
         {
         }
-        public static new ApplianceArtifactArgs Empty => new ApplianceArtifactArgs();
     }
 }

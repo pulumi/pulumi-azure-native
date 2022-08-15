@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
-    public sealed class EdifactProtocolSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class EdifactProtocolSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The EDIFACT acknowledgement settings.
@@ -111,6 +111,5 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
         public EdifactProtocolSettingsArgs()
         {
         }
-        public static new EdifactProtocolSettingsArgs Empty => new EdifactProtocolSettingsArgs();
     }
 }

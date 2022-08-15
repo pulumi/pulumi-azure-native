@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.MixedReality.V20191202Preview
     /// </summary>
     [Obsolete(@"Version 2019-12-02-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:mixedreality/v20191202preview:RemoteRenderingAccount")]
-    public partial class RemoteRenderingAccount : global::Pulumi.CustomResource
+    public partial class RemoteRenderingAccount : Pulumi.CustomResource
     {
         /// <summary>
         /// Correspond domain name of certain Spatial Anchors Account
@@ -83,10 +83,10 @@ namespace Pulumi.AzureNative.MixedReality.V20191202Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:mixedreality:RemoteRenderingAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:mixedreality/v20200406preview:RemoteRenderingAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:mixedreality/v20210101:RemoteRenderingAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:mixedreality/v20210301preview:RemoteRenderingAccount"},
+                    new Pulumi.Alias { Type = "azure-native:mixedreality:RemoteRenderingAccount"},
+                    new Pulumi.Alias { Type = "azure-native:mixedreality/v20200406preview:RemoteRenderingAccount"},
+                    new Pulumi.Alias { Type = "azure-native:mixedreality/v20210101:RemoteRenderingAccount"},
+                    new Pulumi.Alias { Type = "azure-native:mixedreality/v20210301preview:RemoteRenderingAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.MixedReality.V20191202Preview
         }
     }
 
-    public sealed class RemoteRenderingAccountArgs : global::Pulumi.ResourceArgs
+    public sealed class RemoteRenderingAccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of an Mixed Reality Account.
@@ -149,6 +149,5 @@ namespace Pulumi.AzureNative.MixedReality.V20191202Preview
         public RemoteRenderingAccountArgs()
         {
         }
-        public static new RemoteRenderingAccountArgs Empty => new RemoteRenderingAccountArgs();
     }
 }

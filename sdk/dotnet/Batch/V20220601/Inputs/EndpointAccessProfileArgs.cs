@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Batch.V20220601.Inputs
     /// <summary>
     /// Network access profile for Batch endpoint.
     /// </summary>
-    public sealed class EndpointAccessProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class EndpointAccessProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Default action for endpoint access. It is only applicable when publicNetworkAccess is enabled.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Batch.V20220601.Inputs
         public EndpointAccessProfileArgs()
         {
         }
-        public static new EndpointAccessProfileArgs Empty => new EndpointAccessProfileArgs();
     }
 }

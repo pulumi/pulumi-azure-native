@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview
     }
 
 
-    public sealed class GetOrderItemByNameArgs : global::Pulumi.InvokeArgs
+    public sealed class GetOrderItemByNameArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// $expand is supported on device details, forward shipping details and reverse shipping details parameters. Each of these can be provided as a comma separated list. Device Details for order item provides details on the devices of the product, Forward and Reverse Shipping details provide forward and reverse shipping details respectively.
@@ -49,10 +49,9 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview
         public GetOrderItemByNameArgs()
         {
         }
-        public static new GetOrderItemByNameArgs Empty => new GetOrderItemByNameArgs();
     }
 
-    public sealed class GetOrderItemByNameInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetOrderItemByNameInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// $expand is supported on device details, forward shipping details and reverse shipping details parameters. Each of these can be provided as a comma separated list. Device Details for order item provides details on the devices of the product, Forward and Reverse Shipping details provide forward and reverse shipping details respectively.
@@ -75,7 +74,6 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview
         public GetOrderItemByNameInvokeArgs()
         {
         }
-        public static new GetOrderItemByNameInvokeArgs Empty => new GetOrderItemByNameInvokeArgs();
     }
 
 

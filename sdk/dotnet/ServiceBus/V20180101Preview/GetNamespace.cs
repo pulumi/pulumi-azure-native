@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
     }
 
 
-    public sealed class GetNamespaceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetNamespaceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The namespace name
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
         public GetNamespaceArgs()
         {
         }
-        public static new GetNamespaceArgs Empty => new GetNamespaceArgs();
     }
 
-    public sealed class GetNamespaceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetNamespaceInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The namespace name
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
         public GetNamespaceInvokeArgs()
         {
         }
-        public static new GetNamespaceInvokeArgs Empty => new GetNamespaceInvokeArgs();
     }
 
 

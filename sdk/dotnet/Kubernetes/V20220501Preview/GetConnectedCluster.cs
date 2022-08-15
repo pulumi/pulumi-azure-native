@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Kubernetes.V20220501Preview
     }
 
 
-    public sealed class GetConnectedClusterArgs : global::Pulumi.InvokeArgs
+    public sealed class GetConnectedClusterArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kubernetes cluster on which get is called.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.Kubernetes.V20220501Preview
         public GetConnectedClusterArgs()
         {
         }
-        public static new GetConnectedClusterArgs Empty => new GetConnectedClusterArgs();
     }
 
-    public sealed class GetConnectedClusterInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetConnectedClusterInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kubernetes cluster on which get is called.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.Kubernetes.V20220501Preview
         public GetConnectedClusterInvokeArgs()
         {
         }
-        public static new GetConnectedClusterInvokeArgs Empty => new GetConnectedClusterInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview.Inputs
     /// <summary>
     /// The command used in the test
     /// </summary>
-    public sealed class CommandArgs : global::Pulumi.ResourceArgs
+    public sealed class CommandArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action of the command.
@@ -78,6 +78,5 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview.Inputs
         public CommandArgs()
         {
         }
-        public static new CommandArgs Empty => new CommandArgs();
     }
 }

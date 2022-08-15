@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Inputs
     /// <summary>
     /// Set workload type to optimize storage for SQL Server.
     /// </summary>
-    public sealed class SqlWorkloadTypeUpdateSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class SqlWorkloadTypeUpdateSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// SQL Server workload type.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Inputs
         public SqlWorkloadTypeUpdateSettingsArgs()
         {
         }
-        public static new SqlWorkloadTypeUpdateSettingsArgs Empty => new SqlWorkloadTypeUpdateSettingsArgs();
     }
 }

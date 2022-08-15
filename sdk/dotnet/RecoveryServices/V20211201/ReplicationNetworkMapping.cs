@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201
     /// Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices/v20211201:ReplicationNetworkMapping")]
-    public partial class ReplicationNetworkMapping : global::Pulumi.CustomResource
+    public partial class ReplicationNetworkMapping : Pulumi.CustomResource
     {
         /// <summary>
         /// Resource Location
@@ -64,23 +64,23 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices:ReplicationNetworkMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20160810:ReplicationNetworkMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationNetworkMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20180710:ReplicationNetworkMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210210:ReplicationNetworkMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210301:ReplicationNetworkMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210401:ReplicationNetworkMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210601:ReplicationNetworkMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210701:ReplicationNetworkMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210801:ReplicationNetworkMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20211001:ReplicationNetworkMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20211101:ReplicationNetworkMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220101:ReplicationNetworkMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220201:ReplicationNetworkMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220301:ReplicationNetworkMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220401:ReplicationNetworkMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220501:ReplicationNetworkMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices:ReplicationNetworkMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20160810:ReplicationNetworkMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationNetworkMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180710:ReplicationNetworkMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210210:ReplicationNetworkMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210301:ReplicationNetworkMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210401:ReplicationNetworkMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210601:ReplicationNetworkMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210701:ReplicationNetworkMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210801:ReplicationNetworkMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20211001:ReplicationNetworkMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20211101:ReplicationNetworkMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220101:ReplicationNetworkMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220201:ReplicationNetworkMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220301:ReplicationNetworkMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220401:ReplicationNetworkMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220501:ReplicationNetworkMapping"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201
         }
     }
 
-    public sealed class ReplicationNetworkMappingArgs : global::Pulumi.ResourceArgs
+    public sealed class ReplicationNetworkMappingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Primary fabric name.
@@ -143,6 +143,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201
         public ReplicationNetworkMappingArgs()
         {
         }
-        public static new ReplicationNetworkMappingArgs Empty => new ReplicationNetworkMappingArgs();
     }
 }

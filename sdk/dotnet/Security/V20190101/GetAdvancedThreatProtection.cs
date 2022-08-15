@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Security.V20190101
     }
 
 
-    public sealed class GetAdvancedThreatProtectionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAdvancedThreatProtectionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier of the resource.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.Security.V20190101
         public GetAdvancedThreatProtectionArgs()
         {
         }
-        public static new GetAdvancedThreatProtectionArgs Empty => new GetAdvancedThreatProtectionArgs();
     }
 
-    public sealed class GetAdvancedThreatProtectionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAdvancedThreatProtectionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier of the resource.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.Security.V20190101
         public GetAdvancedThreatProtectionInvokeArgs()
         {
         }
-        public static new GetAdvancedThreatProtectionInvokeArgs Empty => new GetAdvancedThreatProtectionInvokeArgs();
     }
 
 

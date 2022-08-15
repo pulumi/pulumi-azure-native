@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Management.V20180101Preview
     }
 
 
-    public sealed class GetManagementGroupArgs : global::Pulumi.InvokeArgs
+    public sealed class GetManagementGroupArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The $expand=children query string parameter allows clients to request inclusion of children in the response payload.
@@ -55,10 +55,9 @@ namespace Pulumi.AzureNative.Management.V20180101Preview
         public GetManagementGroupArgs()
         {
         }
-        public static new GetManagementGroupArgs Empty => new GetManagementGroupArgs();
     }
 
-    public sealed class GetManagementGroupInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetManagementGroupInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The $expand=children query string parameter allows clients to request inclusion of children in the response payload.
@@ -87,7 +86,6 @@ namespace Pulumi.AzureNative.Management.V20180101Preview
         public GetManagementGroupInvokeArgs()
         {
         }
-        public static new GetManagementGroupInvokeArgs Empty => new GetManagementGroupInvokeArgs();
     }
 
 

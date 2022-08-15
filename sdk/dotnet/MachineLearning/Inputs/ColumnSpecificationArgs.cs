@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearning.Inputs
     /// <summary>
     /// Swagger 2.0 schema for a column within the data table representing a web service input or output. See Swagger specification: http://swagger.io/specification/
     /// </summary>
-    public sealed class ColumnSpecificationArgs : global::Pulumi.ResourceArgs
+    public sealed class ColumnSpecificationArgs : Pulumi.ResourceArgs
     {
         [Input("enum")]
         private InputList<object>? _enum;
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.MachineLearning.Inputs
         public ColumnSpecificationArgs()
         {
         }
-        public static new ColumnSpecificationArgs Empty => new ColumnSpecificationArgs();
     }
 }

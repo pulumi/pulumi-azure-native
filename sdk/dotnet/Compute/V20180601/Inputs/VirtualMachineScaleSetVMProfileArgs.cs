@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20180601.Inputs
     /// <summary>
     /// Describes a virtual machine scale set virtual machine profile.
     /// </summary>
-    public sealed class VirtualMachineScaleSetVMProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualMachineScaleSetVMProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies additional capabilities enabled or disabled on the virtual machine in the scale set. For instance: whether the virtual machine has the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
@@ -72,6 +72,5 @@ namespace Pulumi.AzureNative.Compute.V20180601.Inputs
         public VirtualMachineScaleSetVMProfileArgs()
         {
         }
-        public static new VirtualMachineScaleSetVMProfileArgs Empty => new VirtualMachineScaleSetVMProfileArgs();
     }
 }

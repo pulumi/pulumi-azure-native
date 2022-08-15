@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview.Inputs
     /// <summary>
     /// Defines the resource properties.
     /// </summary>
-    public sealed class PlacementProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class PlacementProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the ARM Id of the cluster resource on which this virtual machine will deploy.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview.Inputs
         public PlacementProfileArgs()
         {
         }
-        public static new PlacementProfileArgs Empty => new PlacementProfileArgs();
     }
 }

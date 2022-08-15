@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Inputs
     /// <summary>
     /// Information for connecting to SQL database server
     /// </summary>
-    public sealed class SqlConnectionInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class SqlConnectionInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Additional connection settings
@@ -105,6 +105,5 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Inputs
             EncryptConnection = true;
             TrustServerCertificate = false;
         }
-        public static new SqlConnectionInfoArgs Empty => new SqlConnectionInfoArgs();
     }
 }

@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.ManagedIdentity.V20150831Preview
     }
 
 
-    public sealed class GetUserAssignedIdentityArgs : global::Pulumi.InvokeArgs
+    public sealed class GetUserAssignedIdentityArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Resource Group to which the identity belongs.
@@ -43,10 +43,9 @@ namespace Pulumi.AzureNative.ManagedIdentity.V20150831Preview
         public GetUserAssignedIdentityArgs()
         {
         }
-        public static new GetUserAssignedIdentityArgs Empty => new GetUserAssignedIdentityArgs();
     }
 
-    public sealed class GetUserAssignedIdentityInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetUserAssignedIdentityInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Resource Group to which the identity belongs.
@@ -63,7 +62,6 @@ namespace Pulumi.AzureNative.ManagedIdentity.V20150831Preview
         public GetUserAssignedIdentityInvokeArgs()
         {
         }
-        public static new GetUserAssignedIdentityInvokeArgs Empty => new GetUserAssignedIdentityInvokeArgs();
     }
 
 

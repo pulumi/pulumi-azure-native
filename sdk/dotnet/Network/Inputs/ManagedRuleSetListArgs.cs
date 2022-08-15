@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.Inputs
     /// <summary>
     /// Defines the list of managed rule sets for the policy.
     /// </summary>
-    public sealed class ManagedRuleSetListArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedRuleSetListArgs : Pulumi.ResourceArgs
     {
         [Input("managedRuleSets")]
         private InputList<Inputs.FrontDoorManagedRuleSetArgs>? _managedRuleSets;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Network.Inputs
         public ManagedRuleSetListArgs()
         {
         }
-        public static new ManagedRuleSetListArgs Empty => new ManagedRuleSetListArgs();
     }
 }

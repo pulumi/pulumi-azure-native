@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.NotificationHubs
     }
 
 
-    public sealed class GetNotificationHubPnsCredentialsArgs : global::Pulumi.InvokeArgs
+    public sealed class GetNotificationHubPnsCredentialsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The namespace name.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.NotificationHubs
         public GetNotificationHubPnsCredentialsArgs()
         {
         }
-        public static new GetNotificationHubPnsCredentialsArgs Empty => new GetNotificationHubPnsCredentialsArgs();
     }
 
-    public sealed class GetNotificationHubPnsCredentialsInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetNotificationHubPnsCredentialsInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The namespace name.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.NotificationHubs
         public GetNotificationHubPnsCredentialsInvokeArgs()
         {
         }
-        public static new GetNotificationHubPnsCredentialsInvokeArgs Empty => new GetNotificationHubPnsCredentialsInvokeArgs();
     }
 
 

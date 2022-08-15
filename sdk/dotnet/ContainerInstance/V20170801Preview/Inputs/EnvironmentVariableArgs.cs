@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20170801Preview.Inputs
     /// <summary>
     /// The environment variable to set within the container instance.
     /// </summary>
-    public sealed class EnvironmentVariableArgs : global::Pulumi.ResourceArgs
+    public sealed class EnvironmentVariableArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the environment variable.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ContainerInstance.V20170801Preview.Inputs
         public EnvironmentVariableArgs()
         {
         }
-        public static new EnvironmentVariableArgs Empty => new EnvironmentVariableArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network
     /// API Version: 2020-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:PrivateZone")]
-    public partial class PrivateZone : global::Pulumi.CustomResource
+    public partial class PrivateZone : Pulumi.CustomResource
     {
         /// <summary>
         /// The ETag of the zone.
@@ -119,9 +119,9 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180901:PrivateZone"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200101:PrivateZone"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:PrivateZone"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180901:PrivateZone"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200101:PrivateZone"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:PrivateZone"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -143,7 +143,7 @@ namespace Pulumi.AzureNative.Network
         }
     }
 
-    public sealed class PrivateZoneArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateZoneArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Region where the resource lives
@@ -178,6 +178,5 @@ namespace Pulumi.AzureNative.Network
         public PrivateZoneArgs()
         {
         }
-        public static new PrivateZoneArgs Empty => new PrivateZoneArgs();
     }
 }

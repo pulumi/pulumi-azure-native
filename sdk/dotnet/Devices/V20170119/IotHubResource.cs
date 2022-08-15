@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Devices.V20170119
     /// </summary>
     [Obsolete(@"Version 2017-01-19 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:devices/v20170119:IotHubResource")]
-    public partial class IotHubResource : global::Pulumi.CustomResource
+    public partial class IotHubResource : Pulumi.CustomResource
     {
         /// <summary>
         /// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
@@ -95,31 +95,31 @@ namespace Pulumi.AzureNative.Devices.V20170119
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devices:IotHubResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20160203:IotHubResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20170701:IotHubResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20180122:IotHubResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20180401:IotHubResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20181201preview:IotHubResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20190322:IotHubResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20190322preview:IotHubResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20190701preview:IotHubResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20191104:IotHubResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200301:IotHubResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200401:IotHubResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200615:IotHubResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200710preview:IotHubResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200801:IotHubResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200831:IotHubResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200831preview:IotHubResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210201preview:IotHubResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210303preview:IotHubResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210331:IotHubResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210701:IotHubResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210701preview:IotHubResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210702:IotHubResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210702preview:IotHubResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20220430preview:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20160203:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20170701:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20180122:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20180401:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20181201preview:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20190322:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20190322preview:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20190701preview:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20191104:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200301:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200401:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200615:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200710preview:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200801:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200831:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200831preview:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20210201preview:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20210303preview:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20210331:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20210701:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20210701preview:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20210702:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20210702preview:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20220430preview:IotHubResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -141,7 +141,7 @@ namespace Pulumi.AzureNative.Devices.V20170119
         }
     }
 
-    public sealed class IotHubResourceArgs : global::Pulumi.ResourceArgs
+    public sealed class IotHubResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource location.
@@ -200,6 +200,5 @@ namespace Pulumi.AzureNative.Devices.V20170119
         public IotHubResourceArgs()
         {
         }
-        public static new IotHubResourceArgs Empty => new IotHubResourceArgs();
     }
 }

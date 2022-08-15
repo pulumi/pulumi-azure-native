@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220602Preview.Inputs
     /// <summary>
     /// Ingress profile for the container service cluster.
     /// </summary>
-    public sealed class ManagedClusterIngressProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedClusterIngressProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Web App Routing settings for the ingress profile.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.ContainerService.V20220602Preview.Inputs
         public ManagedClusterIngressProfileArgs()
         {
         }
-        public static new ManagedClusterIngressProfileArgs Empty => new ManagedClusterIngressProfileArgs();
     }
 }

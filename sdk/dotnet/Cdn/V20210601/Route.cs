@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601
     /// Friendly Routes name mapping to the any Routes or secret related information.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn/v20210601:Route")]
-    public partial class Route : global::Pulumi.CustomResource
+    public partial class Route : Pulumi.CustomResource
     {
         /// <summary>
         /// The caching configuration for this route. To disable caching, do not provide a cacheConfiguration object.
@@ -139,8 +139,8 @@ namespace Pulumi.AzureNative.Cdn.V20210601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cdn:Route"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:Route"},
+                    new Pulumi.Alias { Type = "azure-native:cdn:Route"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200901:Route"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -162,7 +162,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         }
     }
 
-    public sealed class RouteArgs : global::Pulumi.ResourceArgs
+    public sealed class RouteArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The caching configuration for this route. To disable caching, do not provide a cacheConfiguration object.
@@ -281,6 +281,5 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         public RouteArgs()
         {
         }
-        public static new RouteArgs Empty => new RouteArgs();
     }
 }

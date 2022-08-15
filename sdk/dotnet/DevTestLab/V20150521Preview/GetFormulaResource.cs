@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
     }
 
 
-    public sealed class GetFormulaResourceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetFormulaResourceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the lab.
@@ -49,10 +49,9 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         public GetFormulaResourceArgs()
         {
         }
-        public static new GetFormulaResourceArgs Empty => new GetFormulaResourceArgs();
     }
 
-    public sealed class GetFormulaResourceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetFormulaResourceInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the lab.
@@ -75,7 +74,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         public GetFormulaResourceInvokeArgs()
         {
         }
-        public static new GetFormulaResourceInvokeArgs Empty => new GetFormulaResourceInvokeArgs();
     }
 
 

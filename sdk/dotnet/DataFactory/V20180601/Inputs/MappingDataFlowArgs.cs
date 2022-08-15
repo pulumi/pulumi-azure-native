@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Mapping data flow.
     /// </summary>
-    public sealed class MappingDataFlowArgs : global::Pulumi.ResourceArgs
+    public sealed class MappingDataFlowArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -103,6 +103,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public MappingDataFlowArgs()
         {
         }
-        public static new MappingDataFlowArgs Empty => new MappingDataFlowArgs();
     }
 }

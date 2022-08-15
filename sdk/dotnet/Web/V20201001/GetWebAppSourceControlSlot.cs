@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Web.V20201001
     }
 
 
-    public sealed class GetWebAppSourceControlSlotArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWebAppSourceControlSlotArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the app.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Web.V20201001
         public GetWebAppSourceControlSlotArgs()
         {
         }
-        public static new GetWebAppSourceControlSlotArgs Empty => new GetWebAppSourceControlSlotArgs();
     }
 
-    public sealed class GetWebAppSourceControlSlotInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWebAppSourceControlSlotInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the app.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Web.V20201001
         public GetWebAppSourceControlSlotInvokeArgs()
         {
         }
-        public static new GetWebAppSourceControlSlotInvokeArgs Empty => new GetWebAppSourceControlSlotInvokeArgs();
     }
 
 

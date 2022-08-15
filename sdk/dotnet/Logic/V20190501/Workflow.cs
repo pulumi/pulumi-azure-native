@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20190501
     /// The workflow type.
     /// </summary>
     [AzureNativeResourceType("azure-native:logic/v20190501:Workflow")]
-    public partial class Workflow : global::Pulumi.CustomResource
+    public partial class Workflow : Pulumi.CustomResource
     {
         /// <summary>
         /// The access control configuration.
@@ -148,10 +148,10 @@ namespace Pulumi.AzureNative.Logic.V20190501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:logic:Workflow"},
-                    new global::Pulumi.Alias { Type = "azure-native:logic/v20150201preview:Workflow"},
-                    new global::Pulumi.Alias { Type = "azure-native:logic/v20160601:Workflow"},
-                    new global::Pulumi.Alias { Type = "azure-native:logic/v20180701preview:Workflow"},
+                    new Pulumi.Alias { Type = "azure-native:logic:Workflow"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20150201preview:Workflow"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20160601:Workflow"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20180701preview:Workflow"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -173,7 +173,7 @@ namespace Pulumi.AzureNative.Logic.V20190501
         }
     }
 
-    public sealed class WorkflowArgs : global::Pulumi.ResourceArgs
+    public sealed class WorkflowArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access control configuration.
@@ -262,6 +262,5 @@ namespace Pulumi.AzureNative.Logic.V20190501
         public WorkflowArgs()
         {
         }
-        public static new WorkflowArgs Empty => new WorkflowArgs();
     }
 }

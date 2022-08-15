@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220301.Inputs
     /// <summary>
     /// Monitoring Settings of the vault
     /// </summary>
-    public sealed class MonitoringSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class MonitoringSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Settings for Azure Monitor based alerts
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220301.Inputs
         public MonitoringSettingsArgs()
         {
         }
-        public static new MonitoringSettingsArgs Empty => new MonitoringSettingsArgs();
     }
 }

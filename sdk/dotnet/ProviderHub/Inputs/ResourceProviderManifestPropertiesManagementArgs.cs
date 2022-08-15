@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Inputs
 {
 
-    public sealed class ResourceProviderManifestPropertiesManagementArgs : global::Pulumi.ResourceArgs
+    public sealed class ResourceProviderManifestPropertiesManagementArgs : Pulumi.ResourceArgs
     {
         [Input("incidentContactEmail")]
         public Input<string>? IncidentContactEmail { get; set; }
@@ -59,6 +59,5 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
         public ResourceProviderManifestPropertiesManagementArgs()
         {
         }
-        public static new ResourceProviderManifestPropertiesManagementArgs Empty => new ResourceProviderManifestPropertiesManagementArgs();
     }
 }

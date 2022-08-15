@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ManagementPartner
     /// API Version: 2018-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:managementpartner:Partner")]
-    public partial class Partner : global::Pulumi.CustomResource
+    public partial class Partner : Pulumi.CustomResource
     {
         /// <summary>
         /// This is the DateTime when the partner was created.
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.ManagementPartner
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:managementpartner/v20180201:Partner"},
+                    new Pulumi.Alias { Type = "azure-native:managementpartner/v20180201:Partner"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -123,7 +123,7 @@ namespace Pulumi.AzureNative.ManagementPartner
         }
     }
 
-    public sealed class PartnerArgs : global::Pulumi.ResourceArgs
+    public sealed class PartnerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Id of the Partner
@@ -134,6 +134,5 @@ namespace Pulumi.AzureNative.ManagementPartner
         public PartnerArgs()
         {
         }
-        public static new PartnerArgs Empty => new PartnerArgs();
     }
 }

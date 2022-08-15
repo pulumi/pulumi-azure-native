@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.Inputs
 {
 
-    public sealed class JitNetworkAccessRequestPortArgs : global::Pulumi.ResourceArgs
+    public sealed class JitNetworkAccessRequestPortArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.Security.Inputs
         public JitNetworkAccessRequestPortArgs()
         {
         }
-        public static new JitNetworkAccessRequestPortArgs Empty => new JitNetworkAccessRequestPortArgs();
     }
 }

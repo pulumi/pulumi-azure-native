@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataMigration
     /// API Version: 2018-04-19.
     /// </summary>
     [AzureNativeResourceType("azure-native:datamigration:Task")]
-    public partial class Task : global::Pulumi.CustomResource
+    public partial class Task : Pulumi.CustomResource
     {
         /// <summary>
         /// HTTP strong entity tag value. This is ignored if submitted.
@@ -65,15 +65,15 @@ namespace Pulumi.AzureNative.DataMigration
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20171115preview:Task"},
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20180315preview:Task"},
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20180331preview:Task"},
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20180419:Task"},
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20180715preview:Task"},
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20210630:Task"},
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20211030preview:Task"},
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20220130preview:Task"},
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20220330preview:Task"},
+                    new Pulumi.Alias { Type = "azure-native:datamigration/v20171115preview:Task"},
+                    new Pulumi.Alias { Type = "azure-native:datamigration/v20180315preview:Task"},
+                    new Pulumi.Alias { Type = "azure-native:datamigration/v20180331preview:Task"},
+                    new Pulumi.Alias { Type = "azure-native:datamigration/v20180419:Task"},
+                    new Pulumi.Alias { Type = "azure-native:datamigration/v20180715preview:Task"},
+                    new Pulumi.Alias { Type = "azure-native:datamigration/v20210630:Task"},
+                    new Pulumi.Alias { Type = "azure-native:datamigration/v20211030preview:Task"},
+                    new Pulumi.Alias { Type = "azure-native:datamigration/v20220130preview:Task"},
+                    new Pulumi.Alias { Type = "azure-native:datamigration/v20220330preview:Task"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.DataMigration
         }
     }
 
-    public sealed class TaskArgs : global::Pulumi.ResourceArgs
+    public sealed class TaskArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the resource group
@@ -130,6 +130,5 @@ namespace Pulumi.AzureNative.DataMigration
         public TaskArgs()
         {
         }
-        public static new TaskArgs Empty => new TaskArgs();
     }
 }

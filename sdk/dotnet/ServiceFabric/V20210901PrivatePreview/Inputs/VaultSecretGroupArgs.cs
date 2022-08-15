@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210901PrivatePreview.Inputs
     /// <summary>
     /// Specifies set of certificates that should be installed onto the virtual machines.
     /// </summary>
-    public sealed class VaultSecretGroupArgs : global::Pulumi.ResourceArgs
+    public sealed class VaultSecretGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210901PrivatePreview.Inputs
         public VaultSecretGroupArgs()
         {
         }
-        public static new VaultSecretGroupArgs Empty => new VaultSecretGroupArgs();
     }
 }

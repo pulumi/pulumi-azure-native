@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210801Preview.Inputs
     /// <summary>
     /// The Private Endpoint resource.
     /// </summary>
-    public sealed class PrivateEndpointArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// This is private endpoint resource created with Microsoft.Network resource provider.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210801Preview.Inputs
         public PrivateEndpointArgs()
         {
         }
-        public static new PrivateEndpointArgs Empty => new PrivateEndpointArgs();
     }
 }

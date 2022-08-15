@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.V20211001.Inputs
     /// <summary>
     /// The definition of data present in the report.
     /// </summary>
-    public sealed class ReportConfigDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class ReportConfigDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("aggregation")]
         private InputMap<Inputs.ReportConfigAggregationArgs>? _aggregation;
@@ -72,6 +72,5 @@ namespace Pulumi.AzureNative.CostManagement.V20211001.Inputs
         public ReportConfigDatasetArgs()
         {
         }
-        public static new ReportConfigDatasetArgs Empty => new ReportConfigDatasetArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200701
     /// Peerings in a virtual network resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20200701:VirtualNetworkPeering")]
-    public partial class VirtualNetworkPeering : global::Pulumi.CustomResource
+    public partial class VirtualNetworkPeering : Pulumi.CustomResource
     {
         /// <summary>
         /// Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
@@ -118,44 +118,44 @@ namespace Pulumi.AzureNative.Network.V20200701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20160601:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20160901:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20161201:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170301:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170601:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170801:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170901:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20171001:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20171101:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180101:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180201:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180401:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180601:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180701:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180801:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181001:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181101:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181201:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190201:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190601:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190801:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:VirtualNetworkPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160601:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160901:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20161201:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170301:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170601:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170801:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170901:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20171001:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20171101:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180101:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180201:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180401:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180601:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180701:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181001:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181101:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181201:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190201:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210301:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:VirtualNetworkPeering"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -177,7 +177,7 @@ namespace Pulumi.AzureNative.Network.V20200701
         }
     }
 
-    public sealed class VirtualNetworkPeeringArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualNetworkPeeringArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
@@ -266,6 +266,5 @@ namespace Pulumi.AzureNative.Network.V20200701
         public VirtualNetworkPeeringArgs()
         {
         }
-        public static new VirtualNetworkPeeringArgs Empty => new VirtualNetworkPeeringArgs();
     }
 }

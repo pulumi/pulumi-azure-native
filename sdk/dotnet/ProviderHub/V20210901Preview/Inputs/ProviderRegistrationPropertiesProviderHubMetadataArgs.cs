@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20210901Preview.Inputs
 {
 
-    public sealed class ProviderRegistrationPropertiesProviderHubMetadataArgs : global::Pulumi.ResourceArgs
+    public sealed class ProviderRegistrationPropertiesProviderHubMetadataArgs : Pulumi.ResourceArgs
     {
         [Input("providerAuthentication")]
         public Input<Inputs.ProviderHubMetadataProviderAuthenticationArgs>? ProviderAuthentication { get; set; }
@@ -29,6 +29,5 @@ namespace Pulumi.AzureNative.ProviderHub.V20210901Preview.Inputs
         public ProviderRegistrationPropertiesProviderHubMetadataArgs()
         {
         }
-        public static new ProviderRegistrationPropertiesProviderHubMetadataArgs Empty => new ProviderRegistrationPropertiesProviderHubMetadataArgs();
     }
 }

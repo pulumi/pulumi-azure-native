@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
     /// Data connector to pull Threat intelligence data from TAXII 2.0/2.1 server
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20190101preview:TiTaxiiDataConnector")]
-    public partial class TiTaxiiDataConnector : global::Pulumi.CustomResource
+    public partial class TiTaxiiDataConnector : Pulumi.CustomResource
     {
         /// <summary>
         /// The collection id of the TAXII server.
@@ -132,18 +132,18 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:TiTaxiiDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:TiTaxiiDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:TiTaxiiDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:TiTaxiiDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:TiTaxiiDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:TiTaxiiDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:TiTaxiiDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:TiTaxiiDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:TiTaxiiDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:TiTaxiiDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:TiTaxiiDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:TiTaxiiDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights:TiTaxiiDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:TiTaxiiDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:TiTaxiiDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:TiTaxiiDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:TiTaxiiDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:TiTaxiiDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:TiTaxiiDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:TiTaxiiDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:TiTaxiiDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:TiTaxiiDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:TiTaxiiDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:TiTaxiiDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -165,7 +165,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         }
     }
 
-    public sealed class TiTaxiiDataConnectorArgs : global::Pulumi.ResourceArgs
+    public sealed class TiTaxiiDataConnectorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The collection id of the TAXII server.
@@ -261,6 +261,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         public TiTaxiiDataConnectorArgs()
         {
         }
-        public static new TiTaxiiDataConnectorArgs Empty => new TiTaxiiDataConnectorArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20180419.Inputs
     /// <summary>
     /// Input for the task that validates connection to Azure SQL Database Managed Instance online scenario.
     /// </summary>
-    public sealed class ConnectToTargetSqlMISyncTaskInputArgs : global::Pulumi.ResourceArgs
+    public sealed class ConnectToTargetSqlMISyncTaskInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DataMigration.V20180419.Inputs
         public ConnectToTargetSqlMISyncTaskInputArgs()
         {
         }
-        public static new ConnectToTargetSqlMISyncTaskInputArgs Empty => new ConnectToTargetSqlMISyncTaskInputArgs();
     }
 }

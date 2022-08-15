@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
     /// Network related settings
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter/v20220801preview:NetworkConnection")]
-    public partial class NetworkConnection : global::Pulumi.CustomResource
+    public partial class NetworkConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// AAD Join type.
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         }
     }
 
-    public sealed class NetworkConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class NetworkConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// AAD Join type.
@@ -219,6 +219,5 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         public NetworkConnectionArgs()
         {
         }
-        public static new NetworkConnectionArgs Empty => new NetworkConnectionArgs();
     }
 }

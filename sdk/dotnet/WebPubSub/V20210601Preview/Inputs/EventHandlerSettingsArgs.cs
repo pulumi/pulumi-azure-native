@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20210601Preview.Inputs
     /// <summary>
     /// The settings for event handler in webpubsub service
     /// </summary>
-    public sealed class EventHandlerSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class EventHandlerSettingsArgs : Pulumi.ResourceArgs
     {
         [Input("items")]
         private InputMap<ImmutableArray<Inputs.EventHandlerTemplateArgs>>? _items;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.WebPubSub.V20210601Preview.Inputs
         public EventHandlerSettingsArgs()
         {
         }
-        public static new EventHandlerSettingsArgs Empty => new EventHandlerSettingsArgs();
     }
 }

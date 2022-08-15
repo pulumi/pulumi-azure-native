@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
     }
 
 
-    public sealed class GetWorkspaceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWorkspaceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource group name of the workspace.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
         public GetWorkspaceArgs()
         {
         }
-        public static new GetWorkspaceArgs Empty => new GetWorkspaceArgs();
     }
 
-    public sealed class GetWorkspaceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWorkspaceInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource group name of the workspace.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
         public GetWorkspaceInvokeArgs()
         {
         }
-        public static new GetWorkspaceInvokeArgs Empty => new GetWorkspaceInvokeArgs();
     }
 
 

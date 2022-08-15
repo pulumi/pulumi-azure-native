@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20200901.Inputs
 {
 
-    public sealed class ForwardProxyArgs : global::Pulumi.ResourceArgs
+    public sealed class ForwardProxyArgs : Pulumi.ResourceArgs
     {
         [Input("convention")]
         public Input<Pulumi.AzureNative.Web.V20200901.ForwardProxyConvention>? Convention { get; set; }
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Web.V20200901.Inputs
         public ForwardProxyArgs()
         {
         }
-        public static new ForwardProxyArgs Empty => new ForwardProxyArgs();
     }
 }

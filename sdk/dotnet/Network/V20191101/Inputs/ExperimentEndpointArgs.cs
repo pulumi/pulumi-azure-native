@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20191101.Inputs
     /// <summary>
     /// Defines the endpoint properties
     /// </summary>
-    public sealed class ExperimentEndpointArgs : global::Pulumi.ResourceArgs
+    public sealed class ExperimentEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The endpoint URL
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Network.V20191101.Inputs
         public ExperimentEndpointArgs()
         {
         }
-        public static new ExperimentEndpointArgs Empty => new ExperimentEndpointArgs();
     }
 }

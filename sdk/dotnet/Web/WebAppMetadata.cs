@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web
     /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppMetadata")]
-    public partial class WebAppMetadata : global::Pulumi.CustomResource
+    public partial class WebAppMetadata : Pulumi.CustomResource
     {
         /// <summary>
         /// Kind of resource.
@@ -65,20 +65,20 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppMetadata"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppMetadata"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppMetadata"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppMetadata"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppMetadata"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppMetadata"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppMetadata"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppMetadata"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppMetadata"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppMetadata"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppMetadata"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppMetadata"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppMetadata"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppMetadata"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.Web
         }
     }
 
-    public sealed class WebAppMetadataArgs : global::Pulumi.ResourceArgs
+    public sealed class WebAppMetadataArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Kind of resource.
@@ -135,6 +135,5 @@ namespace Pulumi.AzureNative.Web
         public WebAppMetadataArgs()
         {
         }
-        public static new WebAppMetadataArgs Empty => new WebAppMetadataArgs();
     }
 }

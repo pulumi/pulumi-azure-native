@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20201120.Inputs
 {
 
-    public sealed class ProviderHubMetadataThirdPartyProviderAuthorizationArgs : global::Pulumi.ResourceArgs
+    public sealed class ProviderHubMetadataThirdPartyProviderAuthorizationArgs : Pulumi.ResourceArgs
     {
         [Input("authorizations")]
         private InputList<Inputs.LightHouseAuthorizationArgs>? _authorizations;
@@ -26,6 +26,5 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120.Inputs
         public ProviderHubMetadataThirdPartyProviderAuthorizationArgs()
         {
         }
-        public static new ProviderHubMetadataThirdPartyProviderAuthorizationArgs Empty => new ProviderHubMetadataThirdPartyProviderAuthorizationArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210401Preview
     }
 
 
-    public sealed class GetPrivateEndpointConnectionByHostPoolArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPrivateEndpointConnectionByHostPoolArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the host pool within the specified resource group
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210401Preview
         public GetPrivateEndpointConnectionByHostPoolArgs()
         {
         }
-        public static new GetPrivateEndpointConnectionByHostPoolArgs Empty => new GetPrivateEndpointConnectionByHostPoolArgs();
     }
 
-    public sealed class GetPrivateEndpointConnectionByHostPoolInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPrivateEndpointConnectionByHostPoolInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the host pool within the specified resource group
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210401Preview
         public GetPrivateEndpointConnectionByHostPoolInvokeArgs()
         {
         }
-        public static new GetPrivateEndpointConnectionByHostPoolInvokeArgs Empty => new GetPrivateEndpointConnectionByHostPoolInvokeArgs();
     }
 
 

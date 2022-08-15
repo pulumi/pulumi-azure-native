@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview.Inputs
     /// <summary>
     /// Config to describe the polling config for API poller connector
     /// </summary>
-    public sealed class CodelessConnectorPollingConfigPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class CodelessConnectorPollingConfigPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describe the authentication type of the poller
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview.Inputs
         public CodelessConnectorPollingConfigPropertiesArgs()
         {
         }
-        public static new CodelessConnectorPollingConfigPropertiesArgs Empty => new CodelessConnectorPollingConfigPropertiesArgs();
     }
 }

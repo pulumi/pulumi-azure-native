@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Devices
     /// API Version: 2020-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:devices:DpsCertificate")]
-    public partial class DpsCertificate : global::Pulumi.CustomResource
+    public partial class DpsCertificate : Pulumi.CustomResource
     {
         /// <summary>
         /// The entity tag.
@@ -65,14 +65,14 @@ namespace Pulumi.AzureNative.Devices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20170821preview:DpsCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20171115:DpsCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20180122:DpsCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200101:DpsCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200301:DpsCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200901preview:DpsCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20211015:DpsCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20220205:DpsCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20170821preview:DpsCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20171115:DpsCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20180122:DpsCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200101:DpsCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200301:DpsCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200901preview:DpsCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20211015:DpsCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20220205:DpsCertificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.Devices
         }
     }
 
-    public sealed class DpsCertificateArgs : global::Pulumi.ResourceArgs
+    public sealed class DpsCertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Base-64 representation of the X509 leaf certificate .cer file or just .pem file content.
@@ -129,6 +129,5 @@ namespace Pulumi.AzureNative.Devices
         public DpsCertificateArgs()
         {
         }
-        public static new DpsCertificateArgs Empty => new DpsCertificateArgs();
     }
 }

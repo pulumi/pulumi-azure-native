@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
     }
 
 
-    public sealed class GetAttachedNetworkByDevCenterArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAttachedNetworkByDevCenterArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the attached NetworkConnection.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         public GetAttachedNetworkByDevCenterArgs()
         {
         }
-        public static new GetAttachedNetworkByDevCenterArgs Empty => new GetAttachedNetworkByDevCenterArgs();
     }
 
-    public sealed class GetAttachedNetworkByDevCenterInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAttachedNetworkByDevCenterInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the attached NetworkConnection.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         public GetAttachedNetworkByDevCenterInvokeArgs()
         {
         }
-        public static new GetAttachedNetworkByDevCenterInvokeArgs Empty => new GetAttachedNetworkByDevCenterInvokeArgs();
     }
 
 

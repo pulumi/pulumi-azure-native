@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20210601.Inputs
     /// <summary>
     /// Describes all the properties for encoding a video with the H.265 codec.
     /// </summary>
-    public sealed class H265VideoArgs : global::Pulumi.ResourceArgs
+    public sealed class H265VideoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Tells the encoder how to choose its encoding settings.  Quality will provide for a higher compression ratio but at a higher cost and longer compute time.  Speed will produce a relatively larger file but is faster and more economical. The default value is Balanced.
@@ -73,6 +73,5 @@ namespace Pulumi.AzureNative.Media.V20210601.Inputs
         public H265VideoArgs()
         {
         }
-        public static new H265VideoArgs Empty => new H265VideoArgs();
     }
 }

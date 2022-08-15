@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.HealthcareApis
     }
 
 
-    public sealed class GetWorkspacePrivateEndpointConnectionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWorkspacePrivateEndpointConnectionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the private endpoint connection associated with the Azure resource
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.HealthcareApis
         public GetWorkspacePrivateEndpointConnectionArgs()
         {
         }
-        public static new GetWorkspacePrivateEndpointConnectionArgs Empty => new GetWorkspacePrivateEndpointConnectionArgs();
     }
 
-    public sealed class GetWorkspacePrivateEndpointConnectionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWorkspacePrivateEndpointConnectionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the private endpoint connection associated with the Azure resource
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.HealthcareApis
         public GetWorkspacePrivateEndpointConnectionInvokeArgs()
         {
         }
-        public static new GetWorkspacePrivateEndpointConnectionInvokeArgs Empty => new GetWorkspacePrivateEndpointConnectionInvokeArgs();
     }
 
 

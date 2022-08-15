@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20210201
     /// App Service plan.
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20210201:AppServicePlan")]
-    public partial class AppServicePlan : global::Pulumi.CustomResource
+    public partial class AppServicePlan : Pulumi.CustomResource
     {
         /// <summary>
         /// ServerFarm supports ElasticScale. Apps in this plan will scale as if the ServerFarm was ElasticPremium sku
@@ -216,19 +216,19 @@ namespace Pulumi.AzureNative.Web.V20210201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:AppServicePlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:AppServicePlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20160901:AppServicePlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:AppServicePlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:AppServicePlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:AppServicePlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:AppServicePlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:AppServicePlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:AppServicePlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:AppServicePlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:AppServicePlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:AppServicePlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-native:web:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160901:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:AppServicePlan"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -250,7 +250,7 @@ namespace Pulumi.AzureNative.Web.V20210201
         }
     }
 
-    public sealed class AppServicePlanArgs : global::Pulumi.ResourceArgs
+    public sealed class AppServicePlanArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// ServerFarm supports ElasticScale. Apps in this plan will scale as if the ServerFarm was ElasticPremium sku
@@ -400,6 +400,5 @@ namespace Pulumi.AzureNative.Web.V20210201
             Reserved = false;
             ZoneRedundant = false;
         }
-        public static new AppServicePlanArgs Empty => new AppServicePlanArgs();
     }
 }

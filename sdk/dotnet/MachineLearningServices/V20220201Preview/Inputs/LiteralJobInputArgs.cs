@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// Literal input type.
     /// </summary>
-    public sealed class LiteralJobInputArgs : global::Pulumi.ResourceArgs
+    public sealed class LiteralJobInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description for the input.
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         public LiteralJobInputArgs()
         {
         }
-        public static new LiteralJobInputArgs Empty => new LiteralJobInputArgs();
     }
 }

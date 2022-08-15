@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20190615Preview.Inputs
     /// <summary>
     /// Defines the parameters for QueryString match conditions
     /// </summary>
-    public sealed class QueryStringMatchConditionParametersArgs : global::Pulumi.ResourceArgs
+    public sealed class QueryStringMatchConditionParametersArgs : Pulumi.ResourceArgs
     {
         [Input("matchValues", required: true)]
         private InputList<string>? _matchValues;
@@ -57,6 +57,5 @@ namespace Pulumi.AzureNative.Cdn.V20190615Preview.Inputs
         public QueryStringMatchConditionParametersArgs()
         {
         }
-        public static new QueryStringMatchConditionParametersArgs Empty => new QueryStringMatchConditionParametersArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.CostManagement
     }
 
 
-    public sealed class GetCloudConnectorArgs : global::Pulumi.InvokeArgs
+    public sealed class GetCloudConnectorArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Connector Name.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.CostManagement
         public GetCloudConnectorArgs()
         {
         }
-        public static new GetCloudConnectorArgs Empty => new GetCloudConnectorArgs();
     }
 
-    public sealed class GetCloudConnectorInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetCloudConnectorInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Connector Name.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.CostManagement
         public GetCloudConnectorInvokeArgs()
         {
         }
-        public static new GetCloudConnectorInvokeArgs Empty => new GetCloudConnectorInvokeArgs();
     }
 
 

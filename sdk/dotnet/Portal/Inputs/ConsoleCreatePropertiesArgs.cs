@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Portal.Inputs
     /// <summary>
     /// Cloud shell properties for creating a console.
     /// </summary>
-    public sealed class ConsoleCreatePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ConsoleCreatePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The operating system type of the cloud shell.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Portal.Inputs
         public ConsoleCreatePropertiesArgs()
         {
         }
-        public static new ConsoleCreatePropertiesArgs Empty => new ConsoleCreatePropertiesArgs();
     }
 }

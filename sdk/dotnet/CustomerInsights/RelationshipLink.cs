@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.CustomerInsights
     /// API Version: 2017-04-26.
     /// </summary>
     [AzureNativeResourceType("azure-native:customerinsights:RelationshipLink")]
-    public partial class RelationshipLink : global::Pulumi.CustomResource
+    public partial class RelationshipLink : Pulumi.CustomResource
     {
         /// <summary>
         /// Localized descriptions for the Relationship Link.
@@ -119,8 +119,8 @@ namespace Pulumi.AzureNative.CustomerInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:customerinsights/v20170101:RelationshipLink"},
-                    new global::Pulumi.Alias { Type = "azure-native:customerinsights/v20170426:RelationshipLink"},
+                    new Pulumi.Alias { Type = "azure-native:customerinsights/v20170101:RelationshipLink"},
+                    new Pulumi.Alias { Type = "azure-native:customerinsights/v20170426:RelationshipLink"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNative.CustomerInsights
         }
     }
 
-    public sealed class RelationshipLinkArgs : global::Pulumi.ResourceArgs
+    public sealed class RelationshipLinkArgs : Pulumi.ResourceArgs
     {
         [Input("description")]
         private InputMap<string>? _description;
@@ -237,6 +237,5 @@ namespace Pulumi.AzureNative.CustomerInsights
         public RelationshipLinkArgs()
         {
         }
-        public static new RelationshipLinkArgs Empty => new RelationshipLinkArgs();
     }
 }

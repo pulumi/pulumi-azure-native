@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20181001.Inputs
     /// <summary>
     /// Describes the parameters of a ScaleSet managed disk.
     /// </summary>
-    public sealed class VirtualMachineScaleSetManagedDiskParametersArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualMachineScaleSetManagedDiskParametersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Compute.V20181001.Inputs
         public VirtualMachineScaleSetManagedDiskParametersArgs()
         {
         }
-        public static new VirtualMachineScaleSetManagedDiskParametersArgs Empty => new VirtualMachineScaleSetManagedDiskParametersArgs();
     }
 }

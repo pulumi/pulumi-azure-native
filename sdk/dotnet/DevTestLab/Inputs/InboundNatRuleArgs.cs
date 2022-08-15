@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.Inputs
     /// <summary>
     /// A rule for NAT - exposing a VM's port (backendPort) on the public IP address using a load balancer.
     /// </summary>
-    public sealed class InboundNatRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class InboundNatRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The port to which the external traffic will be redirected.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DevTestLab.Inputs
         public InboundNatRuleArgs()
         {
         }
-        public static new InboundNatRuleArgs Empty => new InboundNatRuleArgs();
     }
 }

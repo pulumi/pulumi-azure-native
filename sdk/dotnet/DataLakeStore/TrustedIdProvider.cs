@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataLakeStore
     /// API Version: 2016-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:datalakestore:TrustedIdProvider")]
-    public partial class TrustedIdProvider : global::Pulumi.CustomResource
+    public partial class TrustedIdProvider : Pulumi.CustomResource
     {
         /// <summary>
         /// The URL of this trusted identity provider.
@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.DataLakeStore
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datalakestore/v20161101:TrustedIdProvider"},
+                    new Pulumi.Alias { Type = "azure-native:datalakestore/v20161101:TrustedIdProvider"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -81,7 +81,7 @@ namespace Pulumi.AzureNative.DataLakeStore
         }
     }
 
-    public sealed class TrustedIdProviderArgs : global::Pulumi.ResourceArgs
+    public sealed class TrustedIdProviderArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Data Lake Store account.
@@ -110,6 +110,5 @@ namespace Pulumi.AzureNative.DataLakeStore
         public TrustedIdProviderArgs()
         {
         }
-        public static new TrustedIdProviderArgs Empty => new TrustedIdProviderArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Inputs
     /// <summary>
     /// Input for the task that gets TDE certificates in Base64 encoded format.
     /// </summary>
-    public sealed class GetTdeCertificatesSqlTaskInputArgs : global::Pulumi.ResourceArgs
+    public sealed class GetTdeCertificatesSqlTaskInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Backup file share information for file share to be used for temporarily storing files.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Inputs
         public GetTdeCertificatesSqlTaskInputArgs()
         {
         }
-        public static new GetTdeCertificatesSqlTaskInputArgs Empty => new GetTdeCertificatesSqlTaskInputArgs();
     }
 }

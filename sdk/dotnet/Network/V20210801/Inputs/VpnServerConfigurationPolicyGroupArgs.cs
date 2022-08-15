@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
     /// <summary>
     /// VpnServerConfigurationPolicyGroup Resource.
     /// </summary>
-    public sealed class VpnServerConfigurationPolicyGroupArgs : global::Pulumi.ResourceArgs
+    public sealed class VpnServerConfigurationPolicyGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID.
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
         public VpnServerConfigurationPolicyGroupArgs()
         {
         }
-        public static new VpnServerConfigurationPolicyGroupArgs Empty => new VpnServerConfigurationPolicyGroupArgs();
     }
 }

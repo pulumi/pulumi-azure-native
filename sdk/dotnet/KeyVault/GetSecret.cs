@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.KeyVault
     }
 
 
-    public sealed class GetSecretArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSecretArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Resource Group to which the vault belongs.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.KeyVault
         public GetSecretArgs()
         {
         }
-        public static new GetSecretArgs Empty => new GetSecretArgs();
     }
 
-    public sealed class GetSecretInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSecretInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Resource Group to which the vault belongs.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.KeyVault
         public GetSecretInvokeArgs()
         {
         }
-        public static new GetSecretInvokeArgs Empty => new GetSecretInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20210101.Inputs
     /// <summary>
     /// Application logs to file system configuration.
     /// </summary>
-    public sealed class FileSystemApplicationLogsConfigArgs : global::Pulumi.ResourceArgs
+    public sealed class FileSystemApplicationLogsConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Log level.
@@ -25,6 +25,5 @@ namespace Pulumi.AzureNative.Web.V20210101.Inputs
         {
             Level = Pulumi.AzureNative.Web.V20210101.LogLevel.Off;
         }
-        public static new FileSystemApplicationLogsConfigArgs Empty => new FileSystemApplicationLogsConfigArgs();
     }
 }

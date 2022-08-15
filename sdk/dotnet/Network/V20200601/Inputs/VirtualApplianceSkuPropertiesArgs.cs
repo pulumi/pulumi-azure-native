@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200601.Inputs
     /// <summary>
     /// Network Virtual Appliance Sku Properties.
     /// </summary>
-    public sealed class VirtualApplianceSkuPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualApplianceSkuPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Virtual Appliance Scale Unit.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Network.V20200601.Inputs
         public VirtualApplianceSkuPropertiesArgs()
         {
         }
-        public static new VirtualApplianceSkuPropertiesArgs Empty => new VirtualApplianceSkuPropertiesArgs();
     }
 }

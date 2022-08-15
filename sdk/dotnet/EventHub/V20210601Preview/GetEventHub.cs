@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview
     }
 
 
-    public sealed class GetEventHubArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEventHubArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Event Hub name
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview
         public GetEventHubArgs()
         {
         }
-        public static new GetEventHubArgs Empty => new GetEventHubArgs();
     }
 
-    public sealed class GetEventHubInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEventHubInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Event Hub name
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview
         public GetEventHubInvokeArgs()
         {
         }
-        public static new GetEventHubInvokeArgs Empty => new GetEventHubInvokeArgs();
     }
 
 

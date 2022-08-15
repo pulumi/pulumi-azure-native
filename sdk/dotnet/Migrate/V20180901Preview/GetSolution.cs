@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Migrate.V20180901Preview
     }
 
 
-    public sealed class GetSolutionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSolutionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Azure Migrate project.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Migrate.V20180901Preview
         public GetSolutionArgs()
         {
         }
-        public static new GetSolutionArgs Empty => new GetSolutionArgs();
     }
 
-    public sealed class GetSolutionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSolutionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Azure Migrate project.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Migrate.V20180901Preview
         public GetSolutionInvokeArgs()
         {
         }
-        public static new GetSolutionInvokeArgs Empty => new GetSolutionInvokeArgs();
     }
 
 

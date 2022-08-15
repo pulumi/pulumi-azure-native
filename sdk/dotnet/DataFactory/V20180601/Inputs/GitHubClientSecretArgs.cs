@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Client secret information for factory's bring your own app repository configuration.
     /// </summary>
-    public sealed class GitHubClientSecretArgs : global::Pulumi.ResourceArgs
+    public sealed class GitHubClientSecretArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Bring your own app client secret AKV URL.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public GitHubClientSecretArgs()
         {
         }
-        public static new GitHubClientSecretArgs Empty => new GitHubClientSecretArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.IoTCentral.V20210601.Inputs
     /// <summary>
     /// Information about the SKU of the IoT Central application.
     /// </summary>
-    public sealed class AppSkuInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class AppSkuInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the SKU.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.IoTCentral.V20210601.Inputs
         public AppSkuInfoArgs()
         {
         }
-        public static new AppSkuInfoArgs Empty => new AppSkuInfoArgs();
     }
 }

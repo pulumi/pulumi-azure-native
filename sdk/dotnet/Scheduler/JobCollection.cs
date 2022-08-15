@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Scheduler
     /// API Version: 2016-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:scheduler:JobCollection")]
-    public partial class JobCollection : global::Pulumi.CustomResource
+    public partial class JobCollection : Pulumi.CustomResource
     {
         /// <summary>
         /// Gets or sets the storage account location.
@@ -70,9 +70,9 @@ namespace Pulumi.AzureNative.Scheduler
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:scheduler/v20140801preview:JobCollection"},
-                    new global::Pulumi.Alias { Type = "azure-native:scheduler/v20160101:JobCollection"},
-                    new global::Pulumi.Alias { Type = "azure-native:scheduler/v20160301:JobCollection"},
+                    new Pulumi.Alias { Type = "azure-native:scheduler/v20140801preview:JobCollection"},
+                    new Pulumi.Alias { Type = "azure-native:scheduler/v20160101:JobCollection"},
+                    new Pulumi.Alias { Type = "azure-native:scheduler/v20160301:JobCollection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.Scheduler
         }
     }
 
-    public sealed class JobCollectionArgs : global::Pulumi.ResourceArgs
+    public sealed class JobCollectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The job collection name.
@@ -141,6 +141,5 @@ namespace Pulumi.AzureNative.Scheduler
         public JobCollectionArgs()
         {
         }
-        public static new JobCollectionArgs Empty => new JobCollectionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph.V20181203.Inputs
     /// <summary>
     /// The parameters to provide for the EnterpriseKnowledgeGraph.
     /// </summary>
-    public sealed class EnterpriseKnowledgeGraphPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class EnterpriseKnowledgeGraphPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the EnterpriseKnowledgeGraph
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph.V20181203.Inputs
         public EnterpriseKnowledgeGraphPropertiesArgs()
         {
         }
-        public static new EnterpriseKnowledgeGraphPropertiesArgs Empty => new EnterpriseKnowledgeGraphPropertiesArgs();
     }
 }

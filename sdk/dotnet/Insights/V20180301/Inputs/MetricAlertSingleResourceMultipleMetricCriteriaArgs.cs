@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20180301.Inputs
     /// <summary>
     /// Specifies the metric alert criteria for a single resource that has multiple metric criteria.
     /// </summary>
-    public sealed class MetricAlertSingleResourceMultipleMetricCriteriaArgs : global::Pulumi.ResourceArgs
+    public sealed class MetricAlertSingleResourceMultipleMetricCriteriaArgs : Pulumi.ResourceArgs
     {
         [Input("allOf")]
         private InputList<Inputs.MetricCriteriaArgs>? _allOf;
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.Insights.V20180301.Inputs
         public MetricAlertSingleResourceMultipleMetricCriteriaArgs()
         {
         }
-        public static new MetricAlertSingleResourceMultipleMetricCriteriaArgs Empty => new MetricAlertSingleResourceMultipleMetricCriteriaArgs();
     }
 }

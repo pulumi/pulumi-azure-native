@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20190513.Inputs
     /// <summary>
     /// Azure VM workload-specific protected item representing SQL Database.
     /// </summary>
-    public sealed class AzureVmWorkloadSQLDatabaseProtectedItemArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureVmWorkloadSQLDatabaseProtectedItemArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of backup management for the backed up item.
@@ -169,6 +169,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20190513.Inputs
         public AzureVmWorkloadSQLDatabaseProtectedItemArgs()
         {
         }
-        public static new AzureVmWorkloadSQLDatabaseProtectedItemArgs Empty => new AzureVmWorkloadSQLDatabaseProtectedItemArgs();
     }
 }

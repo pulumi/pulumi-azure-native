@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20200901
     /// App Service Environment ARM resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20200901:AppServiceEnvironment")]
-    public partial class AppServiceEnvironment : global::Pulumi.CustomResource
+    public partial class AppServiceEnvironment : Pulumi.CustomResource
     {
         /// <summary>
         /// List of comma separated strings describing which VM sizes are allowed for front-ends.
@@ -300,19 +300,19 @@ namespace Pulumi.AzureNative.Web.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:AppServiceEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:AppServiceEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20160901:AppServiceEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:AppServiceEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:AppServiceEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:AppServiceEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:AppServiceEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:AppServiceEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:AppServiceEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:AppServiceEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:AppServiceEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:AppServiceEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:AppServiceEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web:AppServiceEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:AppServiceEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160901:AppServiceEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:AppServiceEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:AppServiceEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:AppServiceEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:AppServiceEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:AppServiceEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:AppServiceEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:AppServiceEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:AppServiceEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:AppServiceEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:AppServiceEnvironment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -334,7 +334,7 @@ namespace Pulumi.AzureNative.Web.V20200901
         }
     }
 
-    public sealed class AppServiceEnvironmentArgs : global::Pulumi.ResourceArgs
+    public sealed class AppServiceEnvironmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// API Management Account associated with the App Service Environment.
@@ -521,6 +521,5 @@ namespace Pulumi.AzureNative.Web.V20200901
         public AppServiceEnvironmentArgs()
         {
         }
-        public static new AppServiceEnvironmentArgs Empty => new AppServiceEnvironmentArgs();
     }
 }

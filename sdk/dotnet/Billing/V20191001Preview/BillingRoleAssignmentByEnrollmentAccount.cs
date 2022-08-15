@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Billing.V20191001Preview
     /// The role assignment
     /// </summary>
     [AzureNativeResourceType("azure-native:billing/v20191001preview:BillingRoleAssignmentByEnrollmentAccount")]
-    public partial class BillingRoleAssignmentByEnrollmentAccount : global::Pulumi.CustomResource
+    public partial class BillingRoleAssignmentByEnrollmentAccount : Pulumi.CustomResource
     {
         /// <summary>
         /// The principal Id of the user who created the role assignment.
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.Billing.V20191001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:billing:BillingRoleAssignmentByEnrollmentAccount"},
+                    new Pulumi.Alias { Type = "azure-native:billing:BillingRoleAssignmentByEnrollmentAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.Billing.V20191001Preview
         }
     }
 
-    public sealed class BillingRoleAssignmentByEnrollmentAccountArgs : global::Pulumi.ResourceArgs
+    public sealed class BillingRoleAssignmentByEnrollmentAccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID that uniquely identifies a billing account.
@@ -187,6 +187,5 @@ namespace Pulumi.AzureNative.Billing.V20191001Preview
         public BillingRoleAssignmentByEnrollmentAccountArgs()
         {
         }
-        public static new BillingRoleAssignmentByEnrollmentAccountArgs Empty => new BillingRoleAssignmentByEnrollmentAccountArgs();
     }
 }

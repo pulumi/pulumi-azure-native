@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.EventGrid.V20180101
     }
 
 
-    public sealed class ListTopicSharedAccessKeysArgs : global::Pulumi.InvokeArgs
+    public sealed class ListTopicSharedAccessKeysArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group within the user's subscription.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.EventGrid.V20180101
         public ListTopicSharedAccessKeysArgs()
         {
         }
-        public static new ListTopicSharedAccessKeysArgs Empty => new ListTopicSharedAccessKeysArgs();
     }
 
-    public sealed class ListTopicSharedAccessKeysInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListTopicSharedAccessKeysInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group within the user's subscription.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.EventGrid.V20180101
         public ListTopicSharedAccessKeysInvokeArgs()
         {
         }
-        public static new ListTopicSharedAccessKeysInvokeArgs Empty => new ListTopicSharedAccessKeysInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200701.Inputs
     /// <summary>
     /// Details the service to which the subnet is delegated.
     /// </summary>
-    public sealed class DelegationArgs : global::Pulumi.ResourceArgs
+    public sealed class DelegationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Network.V20200701.Inputs
         public DelegationArgs()
         {
         }
-        public static new DelegationArgs Empty => new DelegationArgs();
     }
 }

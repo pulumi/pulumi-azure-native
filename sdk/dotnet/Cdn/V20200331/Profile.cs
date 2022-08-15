@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Cdn.V20200331
     /// </summary>
     [Obsolete(@"Version 2020-03-31 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:cdn/v20200331:Profile")]
-    public partial class Profile : global::Pulumi.CustomResource
+    public partial class Profile : Pulumi.CustomResource
     {
         /// <summary>
         /// Resource location.
@@ -83,19 +83,19 @@ namespace Pulumi.AzureNative.Cdn.V20200331
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cdn:Profile"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20150601:Profile"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20160402:Profile"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20161002:Profile"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20170402:Profile"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20171012:Profile"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20190415:Profile"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20190615:Profile"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20190615preview:Profile"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20191231:Profile"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200415:Profile"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:Profile"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:cdn:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20150601:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20160402:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20161002:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20170402:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20171012:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20190415:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20190615:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20190615preview:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20191231:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200415:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200901:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20210601:Profile"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.Cdn.V20200331
         }
     }
 
-    public sealed class ProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class ProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource location.
@@ -158,6 +158,5 @@ namespace Pulumi.AzureNative.Cdn.V20200331
         public ProfileArgs()
         {
         }
-        public static new ProfileArgs Empty => new ProfileArgs();
     }
 }

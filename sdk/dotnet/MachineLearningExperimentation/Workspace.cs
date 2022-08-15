@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.MachineLearningExperimentation
     /// API Version: 2017-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningexperimentation:Workspace")]
-    public partial class Workspace : global::Pulumi.CustomResource
+    public partial class Workspace : Pulumi.CustomResource
     {
         /// <summary>
         /// The immutable id of the team account which contains this workspace.
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.MachineLearningExperimentation
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningexperimentation/v20170501preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningexperimentation/v20170501preview:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -123,7 +123,7 @@ namespace Pulumi.AzureNative.MachineLearningExperimentation
         }
     }
 
-    public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
+    public sealed class WorkspaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the machine learning team account.
@@ -176,6 +176,5 @@ namespace Pulumi.AzureNative.MachineLearningExperimentation
         public WorkspaceArgs()
         {
         }
-        public static new WorkspaceArgs Empty => new WorkspaceArgs();
     }
 }

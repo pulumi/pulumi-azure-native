@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity Responsys source.
     /// </summary>
-    public sealed class ResponsysSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class ResponsysSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public ResponsysSourceArgs()
         {
         }
-        public static new ResponsysSourceArgs Empty => new ResponsysSourceArgs();
     }
 }

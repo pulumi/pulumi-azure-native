@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210701.Inputs
     /// <summary>
     /// Auto scale properties
     /// </summary>
-    public sealed class AutoScalePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class AutoScalePropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210701.Inputs
         public AutoScalePropertiesArgs()
         {
         }
-        public static new AutoScalePropertiesArgs Empty => new AutoScalePropertiesArgs();
     }
 }

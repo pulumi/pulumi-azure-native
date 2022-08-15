@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A WebLinkedService that uses basic authentication to communicate with an HTTP endpoint.
     /// </summary>
-    public sealed class WebBasicAuthenticationArgs : global::Pulumi.ResourceArgs
+    public sealed class WebBasicAuthenticationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of authentication used to connect to the web table source.
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public WebBasicAuthenticationArgs()
         {
         }
-        public static new WebBasicAuthenticationArgs Empty => new WebBasicAuthenticationArgs();
     }
 }

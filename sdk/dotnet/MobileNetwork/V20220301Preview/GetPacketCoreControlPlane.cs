@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
     }
 
 
-    public sealed class GetPacketCoreControlPlaneArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPacketCoreControlPlaneArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the packet core control plane.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
         public GetPacketCoreControlPlaneArgs()
         {
         }
-        public static new GetPacketCoreControlPlaneArgs Empty => new GetPacketCoreControlPlaneArgs();
     }
 
-    public sealed class GetPacketCoreControlPlaneInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPacketCoreControlPlaneInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the packet core control plane.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
         public GetPacketCoreControlPlaneInvokeArgs()
         {
         }
-        public static new GetPacketCoreControlPlaneInvokeArgs Empty => new GetPacketCoreControlPlaneInvokeArgs();
     }
 
 

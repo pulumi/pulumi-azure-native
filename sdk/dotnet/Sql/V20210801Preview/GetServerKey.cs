@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
     }
 
 
-    public sealed class GetServerKeyArgs : global::Pulumi.InvokeArgs
+    public sealed class GetServerKeyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the server key to be retrieved.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
         public GetServerKeyArgs()
         {
         }
-        public static new GetServerKeyArgs Empty => new GetServerKeyArgs();
     }
 
-    public sealed class GetServerKeyInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetServerKeyInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the server key to be retrieved.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
         public GetServerKeyInvokeArgs()
         {
         }
-        public static new GetServerKeyInvokeArgs Empty => new GetServerKeyInvokeArgs();
     }
 
 

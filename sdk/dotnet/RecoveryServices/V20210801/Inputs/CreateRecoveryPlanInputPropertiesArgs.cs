@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210801.Inputs
     /// <summary>
     /// Recovery plan creation properties.
     /// </summary>
-    public sealed class CreateRecoveryPlanInputPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class CreateRecoveryPlanInputPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The failover deployment model.
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210801.Inputs
         public CreateRecoveryPlanInputPropertiesArgs()
         {
         }
-        public static new CreateRecoveryPlanInputPropertiesArgs Empty => new CreateRecoveryPlanInputPropertiesArgs();
     }
 }

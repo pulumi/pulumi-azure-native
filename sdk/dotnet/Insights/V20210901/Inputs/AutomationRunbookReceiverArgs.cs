@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20210901.Inputs
     /// <summary>
     /// The Azure Automation Runbook notification receiver.
     /// </summary>
-    public sealed class AutomationRunbookReceiverArgs : global::Pulumi.ResourceArgs
+    public sealed class AutomationRunbookReceiverArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure automation account Id which holds this runbook and authenticate to Azure resource.
@@ -61,6 +61,5 @@ namespace Pulumi.AzureNative.Insights.V20210901.Inputs
         {
             UseCommonAlertSchema = false;
         }
-        public static new AutomationRunbookReceiverArgs Empty => new AutomationRunbookReceiverArgs();
     }
 }

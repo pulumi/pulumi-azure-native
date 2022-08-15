@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.V20210622.Inputs
     /// <summary>
     /// The encryption settings for automation account
     /// </summary>
-    public sealed class EncryptionPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class EncryptionPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// User identity used for CMK.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Automation.V20210622.Inputs
         public EncryptionPropertiesArgs()
         {
         }
-        public static new EncryptionPropertiesArgs Empty => new EncryptionPropertiesArgs();
     }
 }

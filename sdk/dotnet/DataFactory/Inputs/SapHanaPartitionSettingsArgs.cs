@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The settings that will be leveraged for SAP HANA source partitioning.
     /// </summary>
-    public sealed class SapHanaPartitionSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class SapHanaPartitionSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the column that will be used for proceeding range partitioning. Type: string (or Expression with resultType string).
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public SapHanaPartitionSettingsArgs()
         {
         }
-        public static new SapHanaPartitionSettingsArgs Empty => new SapHanaPartitionSettingsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview
     /// A SqlManagedInstance.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurearcdata/v20220301preview:SqlManagedInstance")]
-    public partial class SqlManagedInstance : global::Pulumi.CustomResource
+    public partial class SqlManagedInstance : Pulumi.CustomResource
     {
         /// <summary>
         /// The extendedLocation of the resource.
@@ -88,11 +88,11 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata:SqlManagedInstance"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20210601preview:SqlManagedInstance"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20210701preview:SqlManagedInstance"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20210801:SqlManagedInstance"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20211101:SqlManagedInstance"},
+                    new Pulumi.Alias { Type = "azure-native:azurearcdata:SqlManagedInstance"},
+                    new Pulumi.Alias { Type = "azure-native:azurearcdata/v20210601preview:SqlManagedInstance"},
+                    new Pulumi.Alias { Type = "azure-native:azurearcdata/v20210701preview:SqlManagedInstance"},
+                    new Pulumi.Alias { Type = "azure-native:azurearcdata/v20210801:SqlManagedInstance"},
+                    new Pulumi.Alias { Type = "azure-native:azurearcdata/v20211101:SqlManagedInstance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview
         }
     }
 
-    public sealed class SqlManagedInstanceArgs : global::Pulumi.ResourceArgs
+    public sealed class SqlManagedInstanceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The extendedLocation of the resource.
@@ -167,6 +167,5 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview
         public SqlManagedInstanceArgs()
         {
         }
-        public static new SqlManagedInstanceArgs Empty => new SqlManagedInstanceArgs();
     }
 }

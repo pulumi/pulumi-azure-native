@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
     /// <summary>
     /// Preferences related to the double encryption
     /// </summary>
-    public sealed class EncryptionPreferencesArgs : global::Pulumi.ResourceArgs
+    public sealed class EncryptionPreferencesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Double encryption status as entered by the customer. It is compulsory to give this parameter if the 'Deny' or 'Disabled' policy is configured.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
         public EncryptionPreferencesArgs()
         {
         }
-        public static new EncryptionPreferencesArgs Empty => new EncryptionPreferencesArgs();
     }
 }

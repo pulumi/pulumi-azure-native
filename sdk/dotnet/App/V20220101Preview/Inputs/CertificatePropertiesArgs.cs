@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
     /// <summary>
     /// Certificate resource specific properties
     /// </summary>
-    public sealed class CertificatePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class CertificatePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Certificate password.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
         public CertificatePropertiesArgs()
         {
         }
-        public static new CertificatePropertiesArgs Empty => new CertificatePropertiesArgs();
     }
 }

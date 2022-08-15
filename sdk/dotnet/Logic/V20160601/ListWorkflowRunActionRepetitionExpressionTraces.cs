@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Logic.V20160601
     }
 
 
-    public sealed class ListWorkflowRunActionRepetitionExpressionTracesArgs : global::Pulumi.InvokeArgs
+    public sealed class ListWorkflowRunActionRepetitionExpressionTracesArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The workflow action name.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.Logic.V20160601
         public ListWorkflowRunActionRepetitionExpressionTracesArgs()
         {
         }
-        public static new ListWorkflowRunActionRepetitionExpressionTracesArgs Empty => new ListWorkflowRunActionRepetitionExpressionTracesArgs();
     }
 
-    public sealed class ListWorkflowRunActionRepetitionExpressionTracesInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListWorkflowRunActionRepetitionExpressionTracesInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The workflow action name.
@@ -92,7 +91,6 @@ namespace Pulumi.AzureNative.Logic.V20160601
         public ListWorkflowRunActionRepetitionExpressionTracesInvokeArgs()
         {
         }
-        public static new ListWorkflowRunActionRepetitionExpressionTracesInvokeArgs Empty => new ListWorkflowRunActionRepetitionExpressionTracesInvokeArgs();
     }
 
 

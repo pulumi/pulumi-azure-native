@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210201Preview.Inputs
     /// <summary>
     /// Container for the workloads running inside Azure Compute or Classic Compute.
     /// </summary>
-    public sealed class AzureWorkloadContainerArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureWorkloadContainerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of backup management for the container.
@@ -82,6 +82,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210201Preview.Inputs
         public AzureWorkloadContainerArgs()
         {
         }
-        public static new AzureWorkloadContainerArgs Empty => new AzureWorkloadContainerArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20190505Preview.Inputs
     /// <summary>
     /// Suppression logic for a given action rule
     /// </summary>
-    public sealed class SuppressionConfigArgs : global::Pulumi.ResourceArgs
+    public sealed class SuppressionConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies when the suppression should be applied
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.AlertsManagement.V20190505Preview.Inputs
         public SuppressionConfigArgs()
         {
         }
-        public static new SuppressionConfigArgs Empty => new SuppressionConfigArgs();
     }
 }

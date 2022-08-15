@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview
     }
 
 
-    public sealed class GetSqlVirtualMachineArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSqlVirtualMachineArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The child resources to include in the response.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview
         public GetSqlVirtualMachineArgs()
         {
         }
-        public static new GetSqlVirtualMachineArgs Empty => new GetSqlVirtualMachineArgs();
     }
 
-    public sealed class GetSqlVirtualMachineInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSqlVirtualMachineInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The child resources to include in the response.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview
         public GetSqlVirtualMachineInvokeArgs()
         {
         }
-        public static new GetSqlVirtualMachineInvokeArgs Empty => new GetSqlVirtualMachineInvokeArgs();
     }
 
 

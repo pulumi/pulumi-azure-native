@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20200601.Inputs
 {
 
-    public sealed class FacebookArgs : global::Pulumi.ResourceArgs
+    public sealed class FacebookArgs : Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -33,6 +33,5 @@ namespace Pulumi.AzureNative.Web.V20200601.Inputs
         public FacebookArgs()
         {
         }
-        public static new FacebookArgs Empty => new FacebookArgs();
     }
 }

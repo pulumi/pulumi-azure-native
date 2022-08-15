@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220401Preview.Inputs
     /// <summary>
     /// Hub Item.
     /// </summary>
-    public sealed class HubArgs : global::Pulumi.ResourceArgs
+    public sealed class HubArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource Id.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Network.V20220401Preview.Inputs
         public HubArgs()
         {
         }
-        public static new HubArgs Empty => new HubArgs();
     }
 }

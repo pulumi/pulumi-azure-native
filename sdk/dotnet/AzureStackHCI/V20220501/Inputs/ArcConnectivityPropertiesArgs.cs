@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20220501.Inputs
     /// <summary>
     /// Connectivity related configuration required by arc server.
     /// </summary>
-    public sealed class ArcConnectivityPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ArcConnectivityPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// True indicates ARC connectivity is enabled
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20220501.Inputs
         public ArcConnectivityPropertiesArgs()
         {
         }
-        public static new ArcConnectivityPropertiesArgs Empty => new ArcConnectivityPropertiesArgs();
     }
 }

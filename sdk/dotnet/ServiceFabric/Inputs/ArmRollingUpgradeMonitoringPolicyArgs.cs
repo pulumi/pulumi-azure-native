@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.Inputs
     /// <summary>
     /// The policy used for monitoring the application upgrade
     /// </summary>
-    public sealed class ArmRollingUpgradeMonitoringPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class ArmRollingUpgradeMonitoringPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The activation Mode of the service package
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.ServiceFabric.Inputs
         public ArmRollingUpgradeMonitoringPolicyArgs()
         {
         }
-        public static new ArmRollingUpgradeMonitoringPolicyArgs Empty => new ArmRollingUpgradeMonitoringPolicyArgs();
     }
 }

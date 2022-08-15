@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.PowerBI.Inputs
 {
 
-    public sealed class AzureSkuArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureSkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// SKU name
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.PowerBI.Inputs
         public AzureSkuArgs()
         {
         }
-        public static new AzureSkuArgs Empty => new AzureSkuArgs();
     }
 }

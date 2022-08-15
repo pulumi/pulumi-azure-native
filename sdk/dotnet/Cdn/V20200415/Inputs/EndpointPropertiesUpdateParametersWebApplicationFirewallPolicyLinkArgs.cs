@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200415.Inputs
     /// <summary>
     /// Defines the Web Application Firewall policy for the endpoint (if applicable)
     /// </summary>
-    public sealed class EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkArgs : global::Pulumi.ResourceArgs
+    public sealed class EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Cdn.V20200415.Inputs
         public EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkArgs()
         {
         }
-        public static new EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkArgs Empty => new EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkArgs();
     }
 }

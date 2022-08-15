@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
     /// Security Solution
     /// </summary>
     [AzureNativeResourceType("azure-native:security/v20170801preview:IotSecuritySolution")]
-    public partial class IotSecuritySolution : global::Pulumi.CustomResource
+    public partial class IotSecuritySolution : Pulumi.CustomResource
     {
         /// <summary>
         /// List of resources that were automatically discovered as relevant to the security solution.
@@ -118,8 +118,8 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:security:IotSecuritySolution"},
-                    new global::Pulumi.Alias { Type = "azure-native:security/v20190801:IotSecuritySolution"},
+                    new Pulumi.Alias { Type = "azure-native:security:IotSecuritySolution"},
+                    new Pulumi.Alias { Type = "azure-native:security/v20190801:IotSecuritySolution"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -141,7 +141,7 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
         }
     }
 
-    public sealed class IotSecuritySolutionArgs : global::Pulumi.ResourceArgs
+    public sealed class IotSecuritySolutionArgs : Pulumi.ResourceArgs
     {
         [Input("disabledDataSources")]
         private InputList<Union<string, Pulumi.AzureNative.Security.V20170801Preview.DataSource>>? _disabledDataSources;
@@ -249,6 +249,5 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
         {
             Status = "Enabled";
         }
-        public static new IotSecuritySolutionArgs Empty => new IotSecuritySolutionArgs();
     }
 }

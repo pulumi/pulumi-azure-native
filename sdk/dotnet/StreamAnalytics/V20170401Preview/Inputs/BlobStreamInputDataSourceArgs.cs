@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
     /// <summary>
     /// Describes a blob input data source that contains stream data.
     /// </summary>
-    public sealed class BlobStreamInputDataSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class BlobStreamInputDataSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authentication Mode. 
@@ -73,6 +73,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
         public BlobStreamInputDataSourceArgs()
         {
         }
-        public static new BlobStreamInputDataSourceArgs Empty => new BlobStreamInputDataSourceArgs();
     }
 }

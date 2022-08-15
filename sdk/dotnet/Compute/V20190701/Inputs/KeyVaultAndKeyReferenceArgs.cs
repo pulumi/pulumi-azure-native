@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20190701.Inputs
     /// <summary>
     /// Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
     /// </summary>
-    public sealed class KeyVaultAndKeyReferenceArgs : global::Pulumi.ResourceArgs
+    public sealed class KeyVaultAndKeyReferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Url pointing to a key or secret in KeyVault
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Compute.V20190701.Inputs
         public KeyVaultAndKeyReferenceArgs()
         {
         }
-        public static new KeyVaultAndKeyReferenceArgs Empty => new KeyVaultAndKeyReferenceArgs();
     }
 }

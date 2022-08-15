@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20220101.Inputs
     /// <summary>
     /// Describes the policy to be used for placement of a Service Fabric service where the instances or replicas of that service must be placed in a particular domain.
     /// </summary>
-    public sealed class ServicePlacementRequiredDomainPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class ServicePlacementRequiredDomainPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the domain that should used for placement as per this policy.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.ServiceFabric.V20220101.Inputs
         public ServicePlacementRequiredDomainPolicyArgs()
         {
         }
-        public static new ServicePlacementRequiredDomainPolicyArgs Empty => new ServicePlacementRequiredDomainPolicyArgs();
     }
 }

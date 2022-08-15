@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
     }
 
 
-    public sealed class GetFusionAlertRuleArgs : global::Pulumi.InvokeArgs
+    public sealed class GetFusionAlertRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         public GetFusionAlertRuleArgs()
         {
         }
-        public static new GetFusionAlertRuleArgs Empty => new GetFusionAlertRuleArgs();
     }
 
-    public sealed class GetFusionAlertRuleInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetFusionAlertRuleInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         public GetFusionAlertRuleInvokeArgs()
         {
         }
-        public static new GetFusionAlertRuleInvokeArgs Empty => new GetFusionAlertRuleInvokeArgs();
     }
 
 

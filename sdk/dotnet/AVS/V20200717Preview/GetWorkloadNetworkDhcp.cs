@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.AVS.V20200717Preview
     }
 
 
-    public sealed class GetWorkloadNetworkDhcpArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWorkloadNetworkDhcpArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// NSX DHCP identifier. Generally the same as the DHCP display name
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.AVS.V20200717Preview
         public GetWorkloadNetworkDhcpArgs()
         {
         }
-        public static new GetWorkloadNetworkDhcpArgs Empty => new GetWorkloadNetworkDhcpArgs();
     }
 
-    public sealed class GetWorkloadNetworkDhcpInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWorkloadNetworkDhcpInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// NSX DHCP identifier. Generally the same as the DHCP display name
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.AVS.V20200717Preview
         public GetWorkloadNetworkDhcpInvokeArgs()
         {
         }
-        public static new GetWorkloadNetworkDhcpInvokeArgs Empty => new GetWorkloadNetworkDhcpInvokeArgs();
     }
 
 

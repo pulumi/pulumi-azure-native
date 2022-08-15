@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS.V20210101Preview.Inputs
     /// <summary>
     /// vCenter Single Sign On Identity Source
     /// </summary>
-    public sealed class IdentitySourceArgs : global::Pulumi.ResourceArgs
+    public sealed class IdentitySourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The domain's NetBIOS name
@@ -78,6 +78,5 @@ namespace Pulumi.AzureNative.AVS.V20210101Preview.Inputs
         public IdentitySourceArgs()
         {
         }
-        public static new IdentitySourceArgs Empty => new IdentitySourceArgs();
     }
 }

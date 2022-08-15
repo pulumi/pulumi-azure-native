@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200501Preview
     /// </summary>
     [Obsolete(@"Version 2020-05-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:databoxedge/v20200501preview:Order")]
-    public partial class Order : global::Pulumi.CustomResource
+    public partial class Order : Pulumi.CustomResource
     {
         /// <summary>
         /// The contact details.
@@ -95,19 +95,19 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:Order"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:Order"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:Order"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:Order"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:Order"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:Order"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:Order"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:Order"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:Order"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:Order"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:Order"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:Order"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:Order"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge:Order"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:Order"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:Order"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:Order"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:Order"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:Order"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:Order"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:Order"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:Order"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:Order"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:Order"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:Order"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:Order"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -129,7 +129,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200501Preview
         }
     }
 
-    public sealed class OrderArgs : global::Pulumi.ResourceArgs
+    public sealed class OrderArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The contact details.
@@ -164,6 +164,5 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200501Preview
         public OrderArgs()
         {
         }
-        public static new OrderArgs Empty => new OrderArgs();
     }
 }

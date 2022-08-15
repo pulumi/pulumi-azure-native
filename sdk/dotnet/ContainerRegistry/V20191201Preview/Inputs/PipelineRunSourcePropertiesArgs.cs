@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.V20191201Preview.Inputs
 {
 
-    public sealed class PipelineRunSourcePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class PipelineRunSourcePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the source.
@@ -28,6 +28,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20191201Preview.Inputs
         {
             Type = "AzureStorageBlob";
         }
-        public static new PipelineRunSourcePropertiesArgs Empty => new PipelineRunSourcePropertiesArgs();
     }
 }

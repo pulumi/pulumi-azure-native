@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20171103Preview
     }
 
 
-    public sealed class GetHanaInstanceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetHanaInstanceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the SAP HANA on Azure instance.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20171103Preview
         public GetHanaInstanceArgs()
         {
         }
-        public static new GetHanaInstanceArgs Empty => new GetHanaInstanceArgs();
     }
 
-    public sealed class GetHanaInstanceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetHanaInstanceInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the SAP HANA on Azure instance.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20171103Preview
         public GetHanaInstanceInvokeArgs()
         {
         }
-        public static new GetHanaInstanceInvokeArgs Empty => new GetHanaInstanceInvokeArgs();
     }
 
 

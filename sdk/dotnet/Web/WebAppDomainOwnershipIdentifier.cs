@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web
     /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppDomainOwnershipIdentifier")]
-    public partial class WebAppDomainOwnershipIdentifier : global::Pulumi.CustomResource
+    public partial class WebAppDomainOwnershipIdentifier : Pulumi.CustomResource
     {
         /// <summary>
         /// Kind of resource.
@@ -65,19 +65,19 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppDomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppDomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppDomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppDomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppDomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppDomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppDomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppDomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppDomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppDomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppDomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppDomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppDomainOwnershipIdentifier"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppDomainOwnershipIdentifier"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppDomainOwnershipIdentifier"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppDomainOwnershipIdentifier"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppDomainOwnershipIdentifier"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppDomainOwnershipIdentifier"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppDomainOwnershipIdentifier"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppDomainOwnershipIdentifier"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppDomainOwnershipIdentifier"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppDomainOwnershipIdentifier"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppDomainOwnershipIdentifier"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppDomainOwnershipIdentifier"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppDomainOwnershipIdentifier"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppDomainOwnershipIdentifier"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.Web
         }
     }
 
-    public sealed class WebAppDomainOwnershipIdentifierArgs : global::Pulumi.ResourceArgs
+    public sealed class WebAppDomainOwnershipIdentifierArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of domain ownership identifier.
@@ -134,6 +134,5 @@ namespace Pulumi.AzureNative.Web
         public WebAppDomainOwnershipIdentifierArgs()
         {
         }
-        public static new WebAppDomainOwnershipIdentifierArgs Empty => new WebAppDomainOwnershipIdentifierArgs();
     }
 }

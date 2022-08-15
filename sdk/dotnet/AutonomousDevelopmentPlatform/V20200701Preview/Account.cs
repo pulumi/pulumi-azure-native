@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.V20200701Preview
     /// </summary>
     [Obsolete(@"Version 2020-07-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:autonomousdevelopmentplatform/v20200701preview:Account")]
-    public partial class Account : global::Pulumi.CustomResource
+    public partial class Account : Pulumi.CustomResource
     {
         /// <summary>
         /// The account's data-plane ID
@@ -83,9 +83,9 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.V20200701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform/v20210201preview:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform/v20211101preview:Account"},
+                    new Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform:Account"},
+                    new Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform/v20210201preview:Account"},
+                    new Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform/v20211101preview:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.V20200701Preview
         }
     }
 
-    public sealed class AccountArgs : global::Pulumi.ResourceArgs
+    public sealed class AccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the ADP account.
@@ -142,6 +142,5 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.V20200701Preview
         public AccountArgs()
         {
         }
-        public static new AccountArgs Empty => new AccountArgs();
     }
 }

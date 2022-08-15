@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20210301
     }
 
 
-    public sealed class GetVirtualRouterPeeringArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualRouterPeeringArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Virtual Router Peering.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Network.V20210301
         public GetVirtualRouterPeeringArgs()
         {
         }
-        public static new GetVirtualRouterPeeringArgs Empty => new GetVirtualRouterPeeringArgs();
     }
 
-    public sealed class GetVirtualRouterPeeringInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualRouterPeeringInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Virtual Router Peering.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Network.V20210301
         public GetVirtualRouterPeeringInvokeArgs()
         {
         }
-        public static new GetVirtualRouterPeeringInvokeArgs Empty => new GetVirtualRouterPeeringInvokeArgs();
     }
 
 

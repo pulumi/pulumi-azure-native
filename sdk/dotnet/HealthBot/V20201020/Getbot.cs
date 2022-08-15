@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.HealthBot.V20201020
     /// </summary>
     [Obsolete(@"Version 2020-10-20 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:healthbot/v20201020:getbot")]
-    public partial class Getbot : global::Pulumi.CustomResource
+    public partial class Getbot : Pulumi.CustomResource
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -83,12 +83,12 @@ namespace Pulumi.AzureNative.HealthBot.V20201020
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:healthbot:getbot"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthbot/v20201020preview:getbot"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthbot/v20201208:getbot"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthbot/v20201208preview:getbot"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthbot/v20210610:getbot"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthbot/v20210824:getbot"},
+                    new Pulumi.Alias { Type = "azure-native:healthbot:getbot"},
+                    new Pulumi.Alias { Type = "azure-native:healthbot/v20201020preview:getbot"},
+                    new Pulumi.Alias { Type = "azure-native:healthbot/v20201208:getbot"},
+                    new Pulumi.Alias { Type = "azure-native:healthbot/v20201208preview:getbot"},
+                    new Pulumi.Alias { Type = "azure-native:healthbot/v20210610:getbot"},
+                    new Pulumi.Alias { Type = "azure-native:healthbot/v20210824:getbot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.HealthBot.V20201020
         }
     }
 
-    public sealed class GetbotArgs : global::Pulumi.ResourceArgs
+    public sealed class GetbotArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -151,6 +151,5 @@ namespace Pulumi.AzureNative.HealthBot.V20201020
         public GetbotArgs()
         {
         }
-        public static new GetbotArgs Empty => new GetbotArgs();
     }
 }

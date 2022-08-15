@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
-    public sealed class X12AgreementContentArgs : global::Pulumi.ResourceArgs
+    public sealed class X12AgreementContentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The X12 one-way receive agreement.
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
         public X12AgreementContentArgs()
         {
         }
-        public static new X12AgreementContentArgs Empty => new X12AgreementContentArgs();
     }
 }

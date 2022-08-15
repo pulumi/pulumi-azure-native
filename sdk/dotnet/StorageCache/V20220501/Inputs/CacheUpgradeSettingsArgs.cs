@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageCache.V20220501.Inputs
     /// <summary>
     /// Cache Upgrade Settings.
     /// </summary>
-    public sealed class CacheUpgradeSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class CacheUpgradeSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// When upgradeScheduleEnabled is true, this field holds the user-chosen upgrade time. At the user-chosen time, the firmware update will automatically be installed on the cache.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.StorageCache.V20220501.Inputs
         public CacheUpgradeSettingsArgs()
         {
         }
-        public static new CacheUpgradeSettingsArgs Empty => new CacheUpgradeSettingsArgs();
     }
 }

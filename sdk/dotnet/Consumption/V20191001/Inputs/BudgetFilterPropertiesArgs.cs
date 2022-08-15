@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Consumption.V20191001.Inputs
     /// <summary>
     /// The Dimensions or Tags to filter a budget by.
     /// </summary>
-    public sealed class BudgetFilterPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class BudgetFilterPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Has comparison expression for a dimension
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Consumption.V20191001.Inputs
         public BudgetFilterPropertiesArgs()
         {
         }
-        public static new BudgetFilterPropertiesArgs Empty => new BudgetFilterPropertiesArgs();
     }
 }

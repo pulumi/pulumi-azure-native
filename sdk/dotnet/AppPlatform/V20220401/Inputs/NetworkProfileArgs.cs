@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220401.Inputs
     /// <summary>
     /// Service network profile payload
     /// </summary>
-    public sealed class NetworkProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class NetworkProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the resource group containing network resources for customer apps in Azure Spring Apps
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.AppPlatform.V20220401.Inputs
         public NetworkProfileArgs()
         {
         }
-        public static new NetworkProfileArgs Empty => new NetworkProfileArgs();
     }
 }

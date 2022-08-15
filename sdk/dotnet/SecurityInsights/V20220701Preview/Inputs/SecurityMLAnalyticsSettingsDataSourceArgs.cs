@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview.Inputs
     /// <summary>
     /// security ml analytics settings data sources
     /// </summary>
-    public sealed class SecurityMLAnalyticsSettingsDataSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class SecurityMLAnalyticsSettingsDataSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The connector id that provides the following data types
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview.Inputs
         public SecurityMLAnalyticsSettingsDataSourceArgs()
         {
         }
-        public static new SecurityMLAnalyticsSettingsDataSourceArgs Empty => new SecurityMLAnalyticsSettingsDataSourceArgs();
     }
 }

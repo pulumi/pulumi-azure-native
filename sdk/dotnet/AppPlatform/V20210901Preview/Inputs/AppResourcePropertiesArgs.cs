@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20210901Preview.Inputs
     /// <summary>
     /// App resource properties payload
     /// </summary>
-    public sealed class AppResourcePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class AppResourcePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the active deployment of the App
@@ -86,6 +86,5 @@ namespace Pulumi.AzureNative.AppPlatform.V20210901Preview.Inputs
             EnableEndToEndTLS = false;
             HttpsOnly = false;
         }
-        public static new AppResourcePropertiesArgs Empty => new AppResourcePropertiesArgs();
     }
 }

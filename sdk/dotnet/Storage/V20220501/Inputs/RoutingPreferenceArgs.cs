@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20220501.Inputs
     /// <summary>
     /// Routing preference defines the type of network, either microsoft or internet routing to be used to deliver the user data, the default option is microsoft routing
     /// </summary>
-    public sealed class RoutingPreferenceArgs : global::Pulumi.ResourceArgs
+    public sealed class RoutingPreferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A boolean flag which indicates whether internet routing storage endpoints are to be published
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Storage.V20220501.Inputs
         public RoutingPreferenceArgs()
         {
         }
-        public static new RoutingPreferenceArgs Empty => new RoutingPreferenceArgs();
     }
 }

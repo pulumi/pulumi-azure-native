@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20180301Preview.Inputs
     /// <summary>
     /// BatchAI properties
     /// </summary>
-    public sealed class BatchAIPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class BatchAIPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Scale settings for BatchAI
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20180301Preview.Inputs
         public BatchAIPropertiesArgs()
         {
         }
-        public static new BatchAIPropertiesArgs Empty => new BatchAIPropertiesArgs();
     }
 }

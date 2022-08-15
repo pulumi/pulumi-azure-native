@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20211201.Inputs
     /// <summary>
     /// Notification preference for a job stage.
     /// </summary>
-    public sealed class NotificationPreferenceArgs : global::Pulumi.ResourceArgs
+    public sealed class NotificationPreferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Notification is required or not.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.EdgeOrder.V20211201.Inputs
         public NotificationPreferenceArgs()
         {
         }
-        public static new NotificationPreferenceArgs Empty => new NotificationPreferenceArgs();
     }
 }

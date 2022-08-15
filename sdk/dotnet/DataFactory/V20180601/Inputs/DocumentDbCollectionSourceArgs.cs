@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A copy activity Document Database Collection source.
     /// </summary>
-    public sealed class DocumentDbCollectionSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class DocumentDbCollectionSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -73,6 +73,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public DocumentDbCollectionSourceArgs()
         {
         }
-        public static new DocumentDbCollectionSourceArgs Empty => new DocumentDbCollectionSourceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190701.Inputs
     /// <summary>
     /// Firewall Policy Filter Rule.
     /// </summary>
-    public sealed class FirewallPolicyFilterRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class FirewallPolicyFilterRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action type of a Filter rule.
@@ -55,6 +55,5 @@ namespace Pulumi.AzureNative.Network.V20190701.Inputs
         public FirewallPolicyFilterRuleArgs()
         {
         }
-        public static new FirewallPolicyFilterRuleArgs Empty => new FirewallPolicyFilterRuleArgs();
     }
 }

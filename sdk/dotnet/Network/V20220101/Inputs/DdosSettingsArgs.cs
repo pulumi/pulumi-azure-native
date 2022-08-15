@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
     /// <summary>
     /// Contains the DDoS protection settings of the public IP.
     /// </summary>
-    public sealed class DdosSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class DdosSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The DDoS custom policy associated with the public IP.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
         public DdosSettingsArgs()
         {
         }
-        public static new DdosSettingsArgs Empty => new DdosSettingsArgs();
     }
 }

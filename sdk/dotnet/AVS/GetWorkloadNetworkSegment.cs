@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.AVS
     }
 
 
-    public sealed class GetWorkloadNetworkSegmentArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWorkloadNetworkSegmentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the private cloud
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.AVS
         public GetWorkloadNetworkSegmentArgs()
         {
         }
-        public static new GetWorkloadNetworkSegmentArgs Empty => new GetWorkloadNetworkSegmentArgs();
     }
 
-    public sealed class GetWorkloadNetworkSegmentInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWorkloadNetworkSegmentInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the private cloud
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.AVS
         public GetWorkloadNetworkSegmentInvokeArgs()
         {
         }
-        public static new GetWorkloadNetworkSegmentInvokeArgs Empty => new GetWorkloadNetworkSegmentInvokeArgs();
     }
 
 

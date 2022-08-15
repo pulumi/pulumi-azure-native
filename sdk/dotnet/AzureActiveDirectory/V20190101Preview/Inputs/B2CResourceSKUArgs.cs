@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory.V20190101Preview.Inputs
     /// <summary>
     /// SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
     /// </summary>
-    public sealed class B2CResourceSKUArgs : global::Pulumi.ResourceArgs
+    public sealed class B2CResourceSKUArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the SKU for the tenant.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.AzureActiveDirectory.V20190101Preview.Inputs
         public B2CResourceSKUArgs()
         {
         }
-        public static new B2CResourceSKUArgs Empty => new B2CResourceSKUArgs();
     }
 }

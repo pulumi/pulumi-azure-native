@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190601.Inputs
     /// <summary>
     /// The auto-approval list of the private link service.
     /// </summary>
-    public sealed class PrivateLinkServicePropertiesAutoApprovalArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateLinkServicePropertiesAutoApprovalArgs : Pulumi.ResourceArgs
     {
         [Input("subscriptions")]
         private InputList<string>? _subscriptions;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Network.V20190601.Inputs
         public PrivateLinkServicePropertiesAutoApprovalArgs()
         {
         }
-        public static new PrivateLinkServicePropertiesAutoApprovalArgs Empty => new PrivateLinkServicePropertiesAutoApprovalArgs();
     }
 }

@@ -19,12 +19,11 @@ namespace Pulumi.AzureNative.Portal.V20200901Preview
     }
 
 
-    public sealed class ListListTenantConfigurationViolationArgs : global::Pulumi.InvokeArgs
+    public sealed class ListListTenantConfigurationViolationArgs : Pulumi.InvokeArgs
     {
         public ListListTenantConfigurationViolationArgs()
         {
         }
-        public static new ListListTenantConfigurationViolationArgs Empty => new ListListTenantConfigurationViolationArgs();
     }
 
 

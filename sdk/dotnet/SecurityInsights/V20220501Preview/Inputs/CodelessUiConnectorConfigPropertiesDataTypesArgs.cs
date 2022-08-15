@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview.Inputs
 {
 
-    public sealed class CodelessUiConnectorConfigPropertiesDataTypesArgs : global::Pulumi.ResourceArgs
+    public sealed class CodelessUiConnectorConfigPropertiesDataTypesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Query for indicate last data received
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview.Inputs
         public CodelessUiConnectorConfigPropertiesDataTypesArgs()
         {
         }
-        public static new CodelessUiConnectorConfigPropertiesDataTypesArgs Empty => new CodelessUiConnectorConfigPropertiesDataTypesArgs();
     }
 }

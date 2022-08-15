@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.LabServices.V20181015.Inputs
     /// <summary>
     /// Details of a Reference Vm
     /// </summary>
-    public sealed class ReferenceVmArgs : global::Pulumi.ResourceArgs
+    public sealed class ReferenceVmArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The password of the virtual machine. This will be set to null in GET resource API
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.LabServices.V20181015.Inputs
         public ReferenceVmArgs()
         {
         }
-        public static new ReferenceVmArgs Empty => new ReferenceVmArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Security
     }
 
 
-    public sealed class GetSecurityConnectorArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSecurityConnectorArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.Security
         public GetSecurityConnectorArgs()
         {
         }
-        public static new GetSecurityConnectorArgs Empty => new GetSecurityConnectorArgs();
     }
 
-    public sealed class GetSecurityConnectorInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSecurityConnectorInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.Security
         public GetSecurityConnectorInvokeArgs()
         {
         }
-        public static new GetSecurityConnectorInvokeArgs Empty => new GetSecurityConnectorInvokeArgs();
     }
 
 

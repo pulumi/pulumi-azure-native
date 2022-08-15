@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220401.Inputs
     /// <summary>
     /// Deployment resource properties payload
     /// </summary>
-    public sealed class DeploymentResourcePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class DeploymentResourcePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether the Deployment is active
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.AppPlatform.V20220401.Inputs
         public DeploymentResourcePropertiesArgs()
         {
         }
-        public static new DeploymentResourcePropertiesArgs Empty => new DeploymentResourcePropertiesArgs();
     }
 }

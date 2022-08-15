@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview.Inputs
     /// <summary>
     /// Alerts data type for data connectors.
     /// </summary>
-    public sealed class AlertsDataTypeOfDataConnectorArgs : global::Pulumi.ResourceArgs
+    public sealed class AlertsDataTypeOfDataConnectorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Alerts data type connection.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview.Inputs
         public AlertsDataTypeOfDataConnectorArgs()
         {
         }
-        public static new AlertsDataTypeOfDataConnectorArgs Empty => new AlertsDataTypeOfDataConnectorArgs();
     }
 }

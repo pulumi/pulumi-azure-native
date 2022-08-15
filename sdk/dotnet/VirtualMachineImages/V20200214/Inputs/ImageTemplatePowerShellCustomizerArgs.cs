@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20200214.Inputs
     /// <summary>
     /// Runs the specified PowerShell on the VM (Windows). Corresponds to Packer powershell provisioner. Exactly one of 'scriptUri' or 'inline' can be specified.
     /// </summary>
-    public sealed class ImageTemplatePowerShellCustomizerArgs : global::Pulumi.ResourceArgs
+    public sealed class ImageTemplatePowerShellCustomizerArgs : Pulumi.ResourceArgs
     {
         [Input("inline")]
         private InputList<string>? _inline;
@@ -82,6 +82,5 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20200214.Inputs
             RunElevated = false;
             Sha256Checksum = "";
         }
-        public static new ImageTemplatePowerShellCustomizerArgs Empty => new ImageTemplatePowerShellCustomizerArgs();
     }
 }

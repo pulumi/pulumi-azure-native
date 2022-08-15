@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20200901.Inputs
 {
 
-    public sealed class TwitterRegistrationArgs : global::Pulumi.ResourceArgs
+    public sealed class TwitterRegistrationArgs : Pulumi.ResourceArgs
     {
         [Input("consumerKey")]
         public Input<string>? ConsumerKey { get; set; }
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.Web.V20200901.Inputs
         public TwitterRegistrationArgs()
         {
         }
-        public static new TwitterRegistrationArgs Empty => new TwitterRegistrationArgs();
     }
 }

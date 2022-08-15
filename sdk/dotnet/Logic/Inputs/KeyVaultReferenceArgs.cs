@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.Inputs
     /// <summary>
     /// The key vault reference.
     /// </summary>
-    public sealed class KeyVaultReferenceArgs : global::Pulumi.ResourceArgs
+    public sealed class KeyVaultReferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource id.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Logic.Inputs
         public KeyVaultReferenceArgs()
         {
         }
-        public static new KeyVaultReferenceArgs Empty => new KeyVaultReferenceArgs();
     }
 }

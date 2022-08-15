@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.PolicyInsights
     /// API Version: 2021-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:policyinsights:AttestationAtResource")]
-    public partial class AttestationAtResource : global::Pulumi.CustomResource
+    public partial class AttestationAtResource : Pulumi.CustomResource
     {
         /// <summary>
         /// Comments describing why this attestation was created.
@@ -113,7 +113,7 @@ namespace Pulumi.AzureNative.PolicyInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:policyinsights/v20210101:AttestationAtResource"},
+                    new Pulumi.Alias { Type = "azure-native:policyinsights/v20210101:AttestationAtResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -135,7 +135,7 @@ namespace Pulumi.AzureNative.PolicyInsights
         }
     }
 
-    public sealed class AttestationAtResourceArgs : global::Pulumi.ResourceArgs
+    public sealed class AttestationAtResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the attestation.
@@ -200,6 +200,5 @@ namespace Pulumi.AzureNative.PolicyInsights
         public AttestationAtResourceArgs()
         {
         }
-        public static new AttestationAtResourceArgs Empty => new AttestationAtResourceArgs();
     }
 }

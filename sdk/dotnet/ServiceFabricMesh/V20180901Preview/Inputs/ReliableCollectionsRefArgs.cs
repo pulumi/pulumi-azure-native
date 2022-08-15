@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Inputs
     /// <summary>
     /// Specifying this parameter adds support for reliable collections
     /// </summary>
-    public sealed class ReliableCollectionsRefArgs : global::Pulumi.ResourceArgs
+    public sealed class ReliableCollectionsRefArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// False (the default) if ReliableCollections state is persisted to disk as usual. True if you do not want to persist state, in which case replication is still enabled and you can use ReliableCollections as distributed cache.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Inputs
         public ReliableCollectionsRefArgs()
         {
         }
-        public static new ReliableCollectionsRefArgs Empty => new ReliableCollectionsRefArgs();
     }
 }

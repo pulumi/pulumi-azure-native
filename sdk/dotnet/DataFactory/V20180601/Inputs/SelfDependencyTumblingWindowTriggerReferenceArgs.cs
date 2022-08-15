@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Self referenced tumbling window trigger dependency.
     /// </summary>
-    public sealed class SelfDependencyTumblingWindowTriggerReferenceArgs : global::Pulumi.ResourceArgs
+    public sealed class SelfDependencyTumblingWindowTriggerReferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Timespan applied to the start time of a tumbling window when evaluating dependency.
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public SelfDependencyTumblingWindowTriggerReferenceArgs()
         {
         }
-        public static new SelfDependencyTumblingWindowTriggerReferenceArgs Empty => new SelfDependencyTumblingWindowTriggerReferenceArgs();
     }
 }

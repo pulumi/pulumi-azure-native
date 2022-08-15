@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Inputs
     /// <summary>
     /// The parameters to provide for the Sms channel.
     /// </summary>
-    public sealed class SmsChannelPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class SmsChannelPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Sms account SID. Value only returned through POST to the action Channel List API, otherwise empty.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Inputs
         public SmsChannelPropertiesArgs()
         {
         }
-        public static new SmsChannelPropertiesArgs Empty => new SmsChannelPropertiesArgs();
     }
 }

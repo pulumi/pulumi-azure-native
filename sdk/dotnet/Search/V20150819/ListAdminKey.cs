@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Search.V20150819
     }
 
 
-    public sealed class ListAdminKeyArgs : global::Pulumi.InvokeArgs
+    public sealed class ListAdminKeyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.Search.V20150819
         public ListAdminKeyArgs()
         {
         }
-        public static new ListAdminKeyArgs Empty => new ListAdminKeyArgs();
     }
 
-    public sealed class ListAdminKeyInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListAdminKeyInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.Search.V20150819
         public ListAdminKeyInvokeArgs()
         {
         }
-        public static new ListAdminKeyInvokeArgs Empty => new ListAdminKeyInvokeArgs();
     }
 
 

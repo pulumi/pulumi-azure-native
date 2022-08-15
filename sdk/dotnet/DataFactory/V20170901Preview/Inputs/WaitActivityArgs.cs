@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// This activity suspends pipeline execution for the specified interval.
     /// </summary>
-    public sealed class WaitActivityArgs : global::Pulumi.ResourceArgs
+    public sealed class WaitActivityArgs : Pulumi.ResourceArgs
     {
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
@@ -55,6 +55,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public WaitActivityArgs()
         {
         }
-        public static new WaitActivityArgs Empty => new WaitActivityArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20180101.Inputs
     /// <summary>
     /// Outbound NAT pool of the load balancer.
     /// </summary>
-    public sealed class OutboundNatRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class OutboundNatRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of outbound ports to be used for NAT.
@@ -66,6 +66,5 @@ namespace Pulumi.AzureNative.Network.V20180101.Inputs
         public OutboundNatRuleArgs()
         {
         }
-        public static new OutboundNatRuleArgs Empty => new OutboundNatRuleArgs();
     }
 }

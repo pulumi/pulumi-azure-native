@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageCache.V20190801Preview.Inputs
     /// <summary>
     /// An NFS mount point for use as a StorageTarget.
     /// </summary>
-    public sealed class Nfs3TargetArgs : global::Pulumi.ResourceArgs
+    public sealed class Nfs3TargetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// IP or name of an NFS Storage Target host, ie: 10.0.44.44
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.StorageCache.V20190801Preview.Inputs
         public Nfs3TargetArgs()
         {
         }
-        public static new Nfs3TargetArgs Empty => new Nfs3TargetArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
     /// A virtual network.
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab/v20180915:VirtualNetwork")]
-    public partial class VirtualNetwork : global::Pulumi.CustomResource
+    public partial class VirtualNetwork : Pulumi.CustomResource
     {
         /// <summary>
         /// The allowed subnets of the virtual network.
@@ -112,9 +112,9 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab:VirtualNetwork"},
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20150521preview:VirtualNetwork"},
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20150521preview:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:VirtualNetwork"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         }
     }
 
-    public sealed class VirtualNetworkArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualNetworkArgs : Pulumi.ResourceArgs
     {
         [Input("allowedSubnets")]
         private InputList<Inputs.SubnetArgs>? _allowedSubnets;
@@ -213,6 +213,5 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         public VirtualNetworkArgs()
         {
         }
-        public static new VirtualNetworkArgs Empty => new VirtualNetworkArgs();
     }
 }

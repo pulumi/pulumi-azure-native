@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20200601.Inputs
 {
 
-    public sealed class EncryptionPropertyArgs : global::Pulumi.ResourceArgs
+    public sealed class EncryptionPropertyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Customer Key vault properties.
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200601.Inputs
         public EncryptionPropertyArgs()
         {
         }
-        public static new EncryptionPropertyArgs Empty => new EncryptionPropertyArgs();
     }
 }

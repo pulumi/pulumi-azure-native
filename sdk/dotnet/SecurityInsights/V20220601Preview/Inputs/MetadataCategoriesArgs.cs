@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview.Inputs
     /// <summary>
     /// ies for the solution content item
     /// </summary>
-    public sealed class MetadataCategoriesArgs : global::Pulumi.ResourceArgs
+    public sealed class MetadataCategoriesArgs : Pulumi.ResourceArgs
     {
         [Input("domains")]
         private InputList<string>? _domains;
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview.Inputs
         public MetadataCategoriesArgs()
         {
         }
-        public static new MetadataCategoriesArgs Empty => new MetadataCategoriesArgs();
     }
 }

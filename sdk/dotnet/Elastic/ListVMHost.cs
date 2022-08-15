@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Elastic
     }
 
 
-    public sealed class ListVMHostArgs : global::Pulumi.InvokeArgs
+    public sealed class ListVMHostArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Monitor resource name
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.Elastic
         public ListVMHostArgs()
         {
         }
-        public static new ListVMHostArgs Empty => new ListVMHostArgs();
     }
 
-    public sealed class ListVMHostInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListVMHostInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Monitor resource name
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.Elastic
         public ListVMHostInvokeArgs()
         {
         }
-        public static new ListVMHostInvokeArgs Empty => new ListVMHostInvokeArgs();
     }
 
 

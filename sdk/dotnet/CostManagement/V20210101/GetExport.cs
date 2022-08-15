@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.CostManagement.V20210101
     }
 
 
-    public sealed class GetExportArgs : global::Pulumi.InvokeArgs
+    public sealed class GetExportArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// May be used to expand the properties within an export. Currently only 'runHistory' is supported and will return information for the last 10 executions of the export.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.CostManagement.V20210101
         public GetExportArgs()
         {
         }
-        public static new GetExportArgs Empty => new GetExportArgs();
     }
 
-    public sealed class GetExportInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetExportInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// May be used to expand the properties within an export. Currently only 'runHistory' is supported and will return information for the last 10 executions of the export.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.CostManagement.V20210101
         public GetExportInvokeArgs()
         {
         }
-        public static new GetExportInvokeArgs Empty => new GetExportInvokeArgs();
     }
 
 

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Logic
     }
 
 
-    public sealed class GetRosettaNetProcessConfigurationArgs : global::Pulumi.InvokeArgs
+    public sealed class GetRosettaNetProcessConfigurationArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The integration account name.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Logic
         public GetRosettaNetProcessConfigurationArgs()
         {
         }
-        public static new GetRosettaNetProcessConfigurationArgs Empty => new GetRosettaNetProcessConfigurationArgs();
     }
 
-    public sealed class GetRosettaNetProcessConfigurationInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetRosettaNetProcessConfigurationInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The integration account name.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Logic
         public GetRosettaNetProcessConfigurationInvokeArgs()
         {
         }
-        public static new GetRosettaNetProcessConfigurationInvokeArgs Empty => new GetRosettaNetProcessConfigurationInvokeArgs();
     }
 
 

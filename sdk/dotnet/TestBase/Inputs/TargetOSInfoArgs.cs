@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.TestBase.Inputs
     /// <summary>
     /// The information of the target OS to be tested.
     /// </summary>
-    public sealed class TargetOSInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class TargetOSInfoArgs : Pulumi.ResourceArgs
     {
         [Input("baselineOSs")]
         private InputList<string>? _baselineOSs;
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.TestBase.Inputs
         public TargetOSInfoArgs()
         {
         }
-        public static new TargetOSInfoArgs Empty => new TargetOSInfoArgs();
     }
 }

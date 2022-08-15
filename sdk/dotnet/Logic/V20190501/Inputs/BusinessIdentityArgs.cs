@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
     /// <summary>
     /// The integration account partner's business identity.
     /// </summary>
-    public sealed class BusinessIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class BusinessIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The business identity qualifier e.g. as2identity, ZZ, ZZZ, 31, 32
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
         public BusinessIdentityArgs()
         {
         }
-        public static new BusinessIdentityArgs Empty => new BusinessIdentityArgs();
     }
 }

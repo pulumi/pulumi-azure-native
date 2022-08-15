@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.App
     /// API Version: 2022-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:ContainerAppsAuthConfig")]
-    public partial class ContainerAppsAuthConfig : global::Pulumi.CustomResource
+    public partial class ContainerAppsAuthConfig : Pulumi.CustomResource
     {
         /// <summary>
         /// The configuration settings that determines the validation flow of users using  Service Authentication/Authorization.
@@ -89,8 +89,8 @@ namespace Pulumi.AzureNative.App
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20220101preview:ContainerAppsAuthConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20220301:ContainerAppsAuthConfig"},
+                    new Pulumi.Alias { Type = "azure-native:app/v20220101preview:ContainerAppsAuthConfig"},
+                    new Pulumi.Alias { Type = "azure-native:app/v20220301:ContainerAppsAuthConfig"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.App
         }
     }
 
-    public sealed class ContainerAppsAuthConfigArgs : global::Pulumi.ResourceArgs
+    public sealed class ContainerAppsAuthConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Container App AuthConfig.
@@ -165,6 +165,5 @@ namespace Pulumi.AzureNative.App
         public ContainerAppsAuthConfigArgs()
         {
         }
-        public static new ContainerAppsAuthConfigArgs Empty => new ContainerAppsAuthConfigArgs();
     }
 }

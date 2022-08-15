@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DevTestLab
     }
 
 
-    public sealed class GetSecretArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSecretArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specify the $expand query. Example: 'properties($select=value)'
@@ -62,10 +62,9 @@ namespace Pulumi.AzureNative.DevTestLab
         public GetSecretArgs()
         {
         }
-        public static new GetSecretArgs Empty => new GetSecretArgs();
     }
 
-    public sealed class GetSecretInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSecretInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specify the $expand query. Example: 'properties($select=value)'
@@ -100,7 +99,6 @@ namespace Pulumi.AzureNative.DevTestLab
         public GetSecretInvokeArgs()
         {
         }
-        public static new GetSecretInvokeArgs Empty => new GetSecretInvokeArgs();
     }
 
 

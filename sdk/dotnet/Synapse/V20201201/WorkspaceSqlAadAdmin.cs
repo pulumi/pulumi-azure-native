@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Synapse.V20201201
     /// </summary>
     [Obsolete(@"Version 2020-12-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:synapse/v20201201:WorkspaceSqlAadAdmin")]
-    public partial class WorkspaceSqlAadAdmin : global::Pulumi.CustomResource
+    public partial class WorkspaceSqlAadAdmin : Pulumi.CustomResource
     {
         /// <summary>
         /// Workspace active directory administrator type
@@ -77,13 +77,13 @@ namespace Pulumi.AzureNative.Synapse.V20201201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:synapse:WorkspaceSqlAadAdmin"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:WorkspaceSqlAadAdmin"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210301:WorkspaceSqlAadAdmin"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:WorkspaceSqlAadAdmin"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210501:WorkspaceSqlAadAdmin"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601:WorkspaceSqlAadAdmin"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:WorkspaceSqlAadAdmin"},
+                    new Pulumi.Alias { Type = "azure-native:synapse:WorkspaceSqlAadAdmin"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:WorkspaceSqlAadAdmin"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210301:WorkspaceSqlAadAdmin"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:WorkspaceSqlAadAdmin"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210501:WorkspaceSqlAadAdmin"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601:WorkspaceSqlAadAdmin"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:WorkspaceSqlAadAdmin"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -105,7 +105,7 @@ namespace Pulumi.AzureNative.Synapse.V20201201
         }
     }
 
-    public sealed class WorkspaceSqlAadAdminArgs : global::Pulumi.ResourceArgs
+    public sealed class WorkspaceSqlAadAdminArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Workspace active directory administrator type
@@ -146,6 +146,5 @@ namespace Pulumi.AzureNative.Synapse.V20201201
         public WorkspaceSqlAadAdminArgs()
         {
         }
-        public static new WorkspaceSqlAadAdminArgs Empty => new WorkspaceSqlAadAdminArgs();
     }
 }

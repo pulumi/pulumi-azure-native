@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210712.Inputs
     /// <summary>
     /// Schema for MSIX Package Application properties.
     /// </summary>
-    public sealed class MsixPackageApplicationsArgs : global::Pulumi.ResourceArgs
+    public sealed class MsixPackageApplicationsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Package Application Id, found in appxmanifest.xml.
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210712.Inputs
         public MsixPackageApplicationsArgs()
         {
         }
-        public static new MsixPackageApplicationsArgs Empty => new MsixPackageApplicationsArgs();
     }
 }

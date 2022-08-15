@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.V20180801Preview.Inputs
     /// <summary>
     /// The configuration of dataset in the report.
     /// </summary>
-    public sealed class ReportDatasetConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class ReportDatasetConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("columns")]
         private InputList<string>? _columns;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.CostManagement.V20180801Preview.Inputs
         public ReportDatasetConfigurationArgs()
         {
         }
-        public static new ReportDatasetConfigurationArgs Empty => new ReportDatasetConfigurationArgs();
     }
 }

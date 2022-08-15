@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Package store for the SSIS integration runtime.
     /// </summary>
-    public sealed class PackageStoreArgs : global::Pulumi.ResourceArgs
+    public sealed class PackageStoreArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the package store
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public PackageStoreArgs()
         {
         }
-        public static new PackageStoreArgs Empty => new PackageStoreArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Management
     }
 
 
-    public sealed class GetManagementGroupSubscriptionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetManagementGroupSubscriptionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Management Group ID.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.Management
         public GetManagementGroupSubscriptionArgs()
         {
         }
-        public static new GetManagementGroupSubscriptionArgs Empty => new GetManagementGroupSubscriptionArgs();
     }
 
-    public sealed class GetManagementGroupSubscriptionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetManagementGroupSubscriptionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Management Group ID.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.Management
         public GetManagementGroupSubscriptionInvokeArgs()
         {
         }
-        public static new GetManagementGroupSubscriptionInvokeArgs Empty => new GetManagementGroupSubscriptionInvokeArgs();
     }
 
 

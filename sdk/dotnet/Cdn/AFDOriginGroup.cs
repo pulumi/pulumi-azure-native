@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Cdn
     /// API Version: 2020-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:AFDOriginGroup")]
-    public partial class AFDOriginGroup : global::Pulumi.CustomResource
+    public partial class AFDOriginGroup : Pulumi.CustomResource
     {
         [Output("deploymentStatus")]
         public Output<string> DeploymentStatus { get; private set; } = null!;
@@ -98,8 +98,8 @@ namespace Pulumi.AzureNative.Cdn
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:AFDOriginGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:AFDOriginGroup"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200901:AFDOriginGroup"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20210601:AFDOriginGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -121,7 +121,7 @@ namespace Pulumi.AzureNative.Cdn
         }
     }
 
-    public sealed class AFDOriginGroupArgs : global::Pulumi.ResourceArgs
+    public sealed class AFDOriginGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Health probe settings to the origin that is used to determine the health of the origin.
@@ -174,6 +174,5 @@ namespace Pulumi.AzureNative.Cdn
         public AFDOriginGroupArgs()
         {
         }
-        public static new AFDOriginGroupArgs Empty => new AFDOriginGroupArgs();
     }
 }

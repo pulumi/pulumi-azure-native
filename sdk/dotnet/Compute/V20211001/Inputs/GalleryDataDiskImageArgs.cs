@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20211001.Inputs
     /// <summary>
     /// This is the data disk image.
     /// </summary>
-    public sealed class GalleryDataDiskImageArgs : global::Pulumi.ResourceArgs
+    public sealed class GalleryDataDiskImageArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Compute.V20211001.Inputs
         public GalleryDataDiskImageArgs()
         {
         }
-        public static new GalleryDataDiskImageArgs Empty => new GalleryDataDiskImageArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// Labeling job definition
     /// </summary>
-    public sealed class LabelingJobArgs : global::Pulumi.ResourceArgs
+    public sealed class LabelingJobArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARM resource ID of the component resource.
@@ -143,6 +143,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
             ExperimentName = "Default";
             IsArchived = false;
         }
-        public static new LabelingJobArgs Empty => new LabelingJobArgs();
     }
 }

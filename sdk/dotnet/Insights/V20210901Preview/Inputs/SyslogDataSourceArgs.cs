@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Insights.V20210901Preview.Inputs
     /// Definition of which syslog data will be collected and how it will be collected.
     /// Only collected from Linux machines.
     /// </summary>
-    public sealed class SyslogDataSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class SyslogDataSourceArgs : Pulumi.ResourceArgs
     {
         [Input("facilityNames")]
         private InputList<Union<string, Pulumi.AzureNative.Insights.V20210901Preview.KnownSyslogDataSourceFacilityNames>>? _facilityNames;
@@ -63,6 +63,5 @@ namespace Pulumi.AzureNative.Insights.V20210901Preview.Inputs
         public SyslogDataSourceArgs()
         {
         }
-        public static new SyslogDataSourceArgs Empty => new SyslogDataSourceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
     /// <summary>
     /// Describes a blob output data source.
     /// </summary>
-    public sealed class BlobOutputDataSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class BlobOutputDataSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authentication Mode. 
@@ -67,6 +67,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
         public BlobOutputDataSourceArgs()
         {
         }
-        public static new BlobOutputDataSourceArgs Empty => new BlobOutputDataSourceArgs();
     }
 }

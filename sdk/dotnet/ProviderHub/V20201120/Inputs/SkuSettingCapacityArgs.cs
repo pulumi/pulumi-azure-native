@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20201120.Inputs
 {
 
-    public sealed class SkuSettingCapacityArgs : global::Pulumi.ResourceArgs
+    public sealed class SkuSettingCapacityArgs : Pulumi.ResourceArgs
     {
         [Input("default")]
         public Input<int>? Default { get; set; }
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120.Inputs
         public SkuSettingCapacityArgs()
         {
         }
-        public static new SkuSettingCapacityArgs Empty => new SkuSettingCapacityArgs();
     }
 }

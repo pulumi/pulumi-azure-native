@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20140401.Inputs
     /// <summary>
     /// Webhook notification of an autoscale event.
     /// </summary>
-    public sealed class WebhookNotificationArgs : global::Pulumi.ResourceArgs
+    public sealed class WebhookNotificationArgs : Pulumi.ResourceArgs
     {
         [Input("properties")]
         private InputMap<string>? _properties;
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Insights.V20140401.Inputs
         public WebhookNotificationArgs()
         {
         }
-        public static new WebhookNotificationArgs Empty => new WebhookNotificationArgs();
     }
 }

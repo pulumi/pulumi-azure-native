@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.Inputs
 {
 
-    public sealed class FrontEndConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class FrontEndConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("kind")]
         public Input<Pulumi.AzureNative.Web.FrontEndServiceType>? Kind { get; set; }
@@ -18,6 +18,5 @@ namespace Pulumi.AzureNative.Web.Inputs
         public FrontEndConfigurationArgs()
         {
         }
-        public static new FrontEndConfigurationArgs Empty => new FrontEndConfigurationArgs();
     }
 }

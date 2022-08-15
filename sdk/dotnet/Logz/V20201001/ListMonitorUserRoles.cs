@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Logz.V20201001
     }
 
 
-    public sealed class ListMonitorUserRolesArgs : global::Pulumi.InvokeArgs
+    public sealed class ListMonitorUserRolesArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Email of the user used by Logz for contacting them if needed
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Logz.V20201001
         public ListMonitorUserRolesArgs()
         {
         }
-        public static new ListMonitorUserRolesArgs Empty => new ListMonitorUserRolesArgs();
     }
 
-    public sealed class ListMonitorUserRolesInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListMonitorUserRolesInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Email of the user used by Logz for contacting them if needed
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Logz.V20201001
         public ListMonitorUserRolesInvokeArgs()
         {
         }
-        public static new ListMonitorUserRolesInvokeArgs Empty => new ListMonitorUserRolesInvokeArgs();
     }
 
 

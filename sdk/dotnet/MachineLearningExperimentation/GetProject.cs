@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.MachineLearningExperimentation
     }
 
 
-    public sealed class GetProjectArgs : global::Pulumi.InvokeArgs
+    public sealed class GetProjectArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the machine learning team account.
@@ -56,10 +56,9 @@ namespace Pulumi.AzureNative.MachineLearningExperimentation
         public GetProjectArgs()
         {
         }
-        public static new GetProjectArgs Empty => new GetProjectArgs();
     }
 
-    public sealed class GetProjectInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetProjectInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the machine learning team account.
@@ -88,7 +87,6 @@ namespace Pulumi.AzureNative.MachineLearningExperimentation
         public GetProjectInvokeArgs()
         {
         }
-        public static new GetProjectInvokeArgs Empty => new GetProjectInvokeArgs();
     }
 
 

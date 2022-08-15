@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// <summary>
     /// Compute start stop schedule properties
     /// </summary>
-    public sealed class ComputeStartStopScheduleArgs : global::Pulumi.ResourceArgs
+    public sealed class ComputeStartStopScheduleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The compute power action.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public ComputeStartStopScheduleArgs()
         {
         }
-        public static new ComputeStartStopScheduleArgs Empty => new ComputeStartStopScheduleArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Scheduler.Inputs
 {
 
-    public sealed class OAuthAuthenticationArgs : global::Pulumi.ResourceArgs
+    public sealed class OAuthAuthenticationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the audience.
@@ -46,6 +46,5 @@ namespace Pulumi.AzureNative.Scheduler.Inputs
         public OAuthAuthenticationArgs()
         {
         }
-        public static new OAuthAuthenticationArgs Empty => new OAuthAuthenticationArgs();
     }
 }

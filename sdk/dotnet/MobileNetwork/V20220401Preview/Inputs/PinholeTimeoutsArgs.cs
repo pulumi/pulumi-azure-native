@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview.Inputs
     /// <summary>
     /// Expiry times of inactive NAPT pinholes, in seconds. All timers must be at least 1 second.
     /// </summary>
-    public sealed class PinholeTimeoutsArgs : global::Pulumi.ResourceArgs
+    public sealed class PinholeTimeoutsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Pinhole timeout for ICMP pinholes in seconds. Default for ICMP Echo is 60 seconds, as per RFC 5508 section 3.2.
@@ -39,6 +39,5 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview.Inputs
             Tcp = 180;
             Udp = 30;
         }
-        public static new PinholeTimeoutsArgs Empty => new PinholeTimeoutsArgs();
     }
 }

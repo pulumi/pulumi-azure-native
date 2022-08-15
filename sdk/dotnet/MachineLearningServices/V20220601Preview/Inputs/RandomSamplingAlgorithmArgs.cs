@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// Defines a Sampling Algorithm that generates values randomly
     /// </summary>
-    public sealed class RandomSamplingAlgorithmArgs : global::Pulumi.ResourceArgs
+    public sealed class RandomSamplingAlgorithmArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The specific type of random algorithm
@@ -38,6 +38,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         {
             Rule = "Random";
         }
-        public static new RandomSamplingAlgorithmArgs Empty => new RandomSamplingAlgorithmArgs();
     }
 }

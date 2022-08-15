@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview
     }
 
 
-    public sealed class GetSyncAgentArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSyncAgentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview
         public GetSyncAgentArgs()
         {
         }
-        public static new GetSyncAgentArgs Empty => new GetSyncAgentArgs();
     }
 
-    public sealed class GetSyncAgentInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSyncAgentInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview
         public GetSyncAgentInvokeArgs()
         {
         }
-        public static new GetSyncAgentInvokeArgs Empty => new GetSyncAgentInvokeArgs();
     }
 
 

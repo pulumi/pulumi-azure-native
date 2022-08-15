@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Jira Service dataset.
     /// </summary>
-    public sealed class JiraObjectDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class JiraObjectDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -67,6 +67,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public JiraObjectDatasetArgs()
         {
         }
-        public static new JiraObjectDatasetArgs Empty => new JiraObjectDatasetArgs();
     }
 }

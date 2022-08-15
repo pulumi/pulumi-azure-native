@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190801
     /// </summary>
     [Obsolete(@"Version 2019-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:databoxedge/v20190801:Share")]
-    public partial class Share : global::Pulumi.CustomResource
+    public partial class Share : Pulumi.CustomResource
     {
         /// <summary>
         /// Access protocol to be used by the share.
@@ -113,19 +113,19 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:Share"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:Share"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:Share"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:Share"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:Share"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:Share"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:Share"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:Share"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:Share"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:Share"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:Share"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:Share"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:Share"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge:Share"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:Share"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:Share"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:Share"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:Share"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:Share"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:Share"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:Share"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:Share"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:Share"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:Share"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:Share"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:Share"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -147,7 +147,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190801
         }
     }
 
-    public sealed class ShareArgs : global::Pulumi.ResourceArgs
+    public sealed class ShareArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Access protocol to be used by the share.
@@ -236,6 +236,5 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190801
         public ShareArgs()
         {
         }
-        public static new ShareArgs Empty => new ShareArgs();
     }
 }

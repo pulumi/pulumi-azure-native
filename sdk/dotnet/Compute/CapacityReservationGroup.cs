@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Compute
     /// API Version: 2021-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:CapacityReservationGroup")]
-    public partial class CapacityReservationGroup : global::Pulumi.CustomResource
+    public partial class CapacityReservationGroup : Pulumi.CustomResource
     {
         /// <summary>
         /// A list of all capacity reservation resource ids that belong to capacity reservation group.
@@ -89,10 +89,10 @@ namespace Pulumi.AzureNative.Compute
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:CapacityReservationGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:CapacityReservationGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211101:CapacityReservationGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220301:CapacityReservationGroup"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20210401:CapacityReservationGroup"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20210701:CapacityReservationGroup"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20211101:CapacityReservationGroup"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20220301:CapacityReservationGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.Compute
         }
     }
 
-    public sealed class CapacityReservationGroupArgs : global::Pulumi.ResourceArgs
+    public sealed class CapacityReservationGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the capacity reservation group.
@@ -161,6 +161,5 @@ namespace Pulumi.AzureNative.Compute
         public CapacityReservationGroupArgs()
         {
         }
-        public static new CapacityReservationGroupArgs Empty => new CapacityReservationGroupArgs();
     }
 }

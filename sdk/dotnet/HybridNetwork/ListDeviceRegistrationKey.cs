@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.HybridNetwork
     }
 
 
-    public sealed class ListDeviceRegistrationKeyArgs : global::Pulumi.InvokeArgs
+    public sealed class ListDeviceRegistrationKeyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the device resource.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.HybridNetwork
         public ListDeviceRegistrationKeyArgs()
         {
         }
-        public static new ListDeviceRegistrationKeyArgs Empty => new ListDeviceRegistrationKeyArgs();
     }
 
-    public sealed class ListDeviceRegistrationKeyInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListDeviceRegistrationKeyInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the device resource.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.HybridNetwork
         public ListDeviceRegistrationKeyInvokeArgs()
         {
         }
-        public static new ListDeviceRegistrationKeyInvokeArgs Empty => new ListDeviceRegistrationKeyInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataProtection.V20210701.Inputs
     /// <summary>
     /// Immediate copy Option
     /// </summary>
-    public sealed class ImmediateCopyOptionArgs : global::Pulumi.ResourceArgs
+    public sealed class ImmediateCopyOptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of the specific object - used for deserializing
@@ -25,6 +25,5 @@ namespace Pulumi.AzureNative.DataProtection.V20210701.Inputs
         public ImmediateCopyOptionArgs()
         {
         }
-        public static new ImmediateCopyOptionArgs Empty => new ImmediateCopyOptionArgs();
     }
 }

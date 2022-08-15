@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ScVmm
     /// API Version: 2020-06-05-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:scvmm:AvailabilitySet")]
-    public partial class AvailabilitySet : global::Pulumi.CustomResource
+    public partial class AvailabilitySet : Pulumi.CustomResource
     {
         /// <summary>
         /// Name of the availability set.
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.ScVmm
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:scvmm/v20200605preview:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azure-native:scvmm/v20200605preview:AvailabilitySet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.ScVmm
         }
     }
 
-    public sealed class AvailabilitySetArgs : global::Pulumi.ResourceArgs
+    public sealed class AvailabilitySetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the availability set.
@@ -164,6 +164,5 @@ namespace Pulumi.AzureNative.ScVmm
         public AvailabilitySetArgs()
         {
         }
-        public static new AvailabilitySetArgs Empty => new AvailabilitySetArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Solutions
     /// API Version: 2019-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:solutions:ApplicationDefinition")]
-    public partial class ApplicationDefinition : global::Pulumi.CustomResource
+    public partial class ApplicationDefinition : Pulumi.CustomResource
     {
         /// <summary>
         /// The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
@@ -167,17 +167,17 @@ namespace Pulumi.AzureNative.Solutions
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20160901preview:ApplicationDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20170901:ApplicationDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20171201:ApplicationDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20180201:ApplicationDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20180301:ApplicationDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20180601:ApplicationDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20180901preview:ApplicationDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20190701:ApplicationDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20200821preview:ApplicationDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20210201preview:ApplicationDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20210701:ApplicationDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20160901preview:ApplicationDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20170901:ApplicationDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20171201:ApplicationDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20180201:ApplicationDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20180301:ApplicationDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20180601:ApplicationDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20180901preview:ApplicationDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20190701:ApplicationDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20200821preview:ApplicationDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20210201preview:ApplicationDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20210701:ApplicationDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -199,7 +199,7 @@ namespace Pulumi.AzureNative.Solutions
         }
     }
 
-    public sealed class ApplicationDefinitionArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplicationDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the managed application definition.
@@ -354,6 +354,5 @@ namespace Pulumi.AzureNative.Solutions
         public ApplicationDefinitionArgs()
         {
         }
-        public static new ApplicationDefinitionArgs Empty => new ApplicationDefinitionArgs();
     }
 }

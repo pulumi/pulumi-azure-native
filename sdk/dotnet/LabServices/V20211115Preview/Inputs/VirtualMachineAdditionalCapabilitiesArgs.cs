@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.LabServices.V20211115Preview.Inputs
     /// <summary>
     /// The additional capabilities for a lab VM.
     /// </summary>
-    public sealed class VirtualMachineAdditionalCapabilitiesArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualMachineAdditionalCapabilitiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Flag to pre-install dedicated GPU drivers.
@@ -25,6 +25,5 @@ namespace Pulumi.AzureNative.LabServices.V20211115Preview.Inputs
         {
             InstallGpuDrivers = Pulumi.AzureNative.LabServices.V20211115Preview.EnableState.Disabled;
         }
-        public static new VirtualMachineAdditionalCapabilitiesArgs Empty => new VirtualMachineAdditionalCapabilitiesArgs();
     }
 }

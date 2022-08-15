@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// The Azure Blob storage.
     /// </summary>
-    public sealed class AzureBlobDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureBlobDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -97,6 +97,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public AzureBlobDatasetArgs()
         {
         }
-        public static new AzureBlobDatasetArgs Empty => new AzureBlobDatasetArgs();
     }
 }

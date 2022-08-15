@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageCache.V20210901.Inputs
     /// <summary>
     /// Cache security settings.
     /// </summary>
-    public sealed class CacheSecuritySettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class CacheSecuritySettingsArgs : Pulumi.ResourceArgs
     {
         [Input("accessPolicies")]
         private InputList<Inputs.NfsAccessPolicyArgs>? _accessPolicies;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.StorageCache.V20210901.Inputs
         public CacheSecuritySettingsArgs()
         {
         }
-        public static new CacheSecuritySettingsArgs Empty => new CacheSecuritySettingsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20210401.Inputs
     /// <summary>
     /// The configuration parameters used while performing a rolling upgrade.
     /// </summary>
-    public sealed class RollingUpgradePolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class RollingUpgradePolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Allow VMSS to ignore AZ boundaries when constructing upgrade batches. Take into consideration the Update Domain and maxBatchInstancePercent to determine the batch size.
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.Compute.V20210401.Inputs
         public RollingUpgradePolicyArgs()
         {
         }
-        public static new RollingUpgradePolicyArgs Empty => new RollingUpgradePolicyArgs();
     }
 }

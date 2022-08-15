@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
     /// Class representing a Kusto kusto pool.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse/v20210601preview:KustoPool")]
-    public partial class KustoPool : global::Pulumi.CustomResource
+    public partial class KustoPool : Pulumi.CustomResource
     {
         /// <summary>
         /// The Kusto Pool data ingestion URI.
@@ -142,8 +142,8 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:synapse:KustoPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:KustoPool"},
+                    new Pulumi.Alias { Type = "azure-native:synapse:KustoPool"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:KustoPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -165,7 +165,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         }
     }
 
-    public sealed class KustoPoolArgs : global::Pulumi.ResourceArgs
+    public sealed class KustoPoolArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A boolean value that indicates if the purge operations are enabled.
@@ -238,6 +238,5 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
             EnablePurge = false;
             EnableStreamingIngest = false;
         }
-        public static new KustoPoolArgs Empty => new KustoPoolArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network
     }
 
 
-    public sealed class GetP2sVpnGatewayP2sVpnConnectionHealthArgs : global::Pulumi.InvokeArgs
+    public sealed class GetP2sVpnGatewayP2sVpnConnectionHealthArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the P2SVpnGateway.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.Network
         public GetP2sVpnGatewayP2sVpnConnectionHealthArgs()
         {
         }
-        public static new GetP2sVpnGatewayP2sVpnConnectionHealthArgs Empty => new GetP2sVpnGatewayP2sVpnConnectionHealthArgs();
     }
 
-    public sealed class GetP2sVpnGatewayP2sVpnConnectionHealthInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetP2sVpnGatewayP2sVpnConnectionHealthInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the P2SVpnGateway.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.Network
         public GetP2sVpnGatewayP2sVpnConnectionHealthInvokeArgs()
         {
         }
-        public static new GetP2sVpnGatewayP2sVpnConnectionHealthInvokeArgs Empty => new GetP2sVpnGatewayP2sVpnConnectionHealthInvokeArgs();
     }
 
 

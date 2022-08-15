@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Azure Databricks Delta Lake export command settings.
     /// </summary>
-    public sealed class AzureDatabricksDeltaLakeExportCommandArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureDatabricksDeltaLakeExportCommandArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specify the date format for the csv in Azure Databricks Delta Lake Copy. Type: string (or Expression with resultType string).
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public AzureDatabricksDeltaLakeExportCommandArgs()
         {
         }
-        public static new AzureDatabricksDeltaLakeExportCommandArgs Empty => new AzureDatabricksDeltaLakeExportCommandArgs();
     }
 }

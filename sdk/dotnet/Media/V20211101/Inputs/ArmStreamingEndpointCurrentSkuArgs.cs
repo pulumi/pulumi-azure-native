@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20211101.Inputs
     /// <summary>
     /// The streaming endpoint current sku.
     /// </summary>
-    public sealed class ArmStreamingEndpointCurrentSkuArgs : global::Pulumi.ResourceArgs
+    public sealed class ArmStreamingEndpointCurrentSkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The streaming endpoint sku capacity.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Media.V20211101.Inputs
         public ArmStreamingEndpointCurrentSkuArgs()
         {
         }
-        public static new ArmStreamingEndpointCurrentSkuArgs Empty => new ArmStreamingEndpointCurrentSkuArgs();
     }
 }

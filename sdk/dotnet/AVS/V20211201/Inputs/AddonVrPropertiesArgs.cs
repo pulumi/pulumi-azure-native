@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS.V20211201.Inputs
     /// <summary>
     /// The properties of a vSphere Replication (VR) addon
     /// </summary>
-    public sealed class AddonVrPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class AddonVrPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of private cloud addon
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.AVS.V20211201.Inputs
         public AddonVrPropertiesArgs()
         {
         }
-        public static new AddonVrPropertiesArgs Empty => new AddonVrPropertiesArgs();
     }
 }

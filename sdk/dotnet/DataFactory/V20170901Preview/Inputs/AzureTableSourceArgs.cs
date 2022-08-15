@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity Azure Table source.
     /// </summary>
-    public sealed class AzureTableSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureTableSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure Table source ignore table not found. Type: boolean (or Expression with resultType boolean).
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public AzureTableSourceArgs()
         {
         }
-        public static new AzureTableSourceArgs Empty => new AzureTableSourceArgs();
     }
 }

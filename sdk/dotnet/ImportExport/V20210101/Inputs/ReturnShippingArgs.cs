@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ImportExport.V20210101.Inputs
     /// <summary>
     /// Specifies the return carrier and customer's account with the carrier.
     /// </summary>
-    public sealed class ReturnShippingArgs : global::Pulumi.ResourceArgs
+    public sealed class ReturnShippingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The customer's account number with the carrier.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ImportExport.V20210101.Inputs
         public ReturnShippingArgs()
         {
         }
-        public static new ReturnShippingArgs Empty => new ReturnShippingArgs();
     }
 }

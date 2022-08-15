@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20200501.Inputs
     /// <summary>
     /// Describes all the settings to be used when analyzing a video in order to detect (and optionally redact) all the faces present.
     /// </summary>
-    public sealed class FaceDetectorPresetArgs : global::Pulumi.ResourceArgs
+    public sealed class FaceDetectorPresetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Blur type
@@ -55,6 +55,5 @@ namespace Pulumi.AzureNative.Media.V20200501.Inputs
         public FaceDetectorPresetArgs()
         {
         }
-        public static new FaceDetectorPresetArgs Empty => new FaceDetectorPresetArgs();
     }
 }

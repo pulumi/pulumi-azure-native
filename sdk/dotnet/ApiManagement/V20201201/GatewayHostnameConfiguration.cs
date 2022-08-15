@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
     /// Gateway hostname configuration details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20201201:GatewayHostnameConfiguration")]
-    public partial class GatewayHostnameConfiguration : global::Pulumi.CustomResource
+    public partial class GatewayHostnameConfiguration : Pulumi.CustomResource
     {
         /// <summary>
         /// Identifier of Certificate entity that will be used for TLS connection establishment
@@ -88,14 +88,14 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:GatewayHostnameConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:GatewayHostnameConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:GatewayHostnameConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:GatewayHostnameConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:GatewayHostnameConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:GatewayHostnameConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:GatewayHostnameConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:GatewayHostnameConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:GatewayHostnameConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:GatewayHostnameConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:GatewayHostnameConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:GatewayHostnameConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:GatewayHostnameConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:GatewayHostnameConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:GatewayHostnameConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:GatewayHostnameConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
         }
     }
 
-    public sealed class GatewayHostnameConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class GatewayHostnameConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identifier of Certificate entity that will be used for TLS connection establishment
@@ -182,6 +182,5 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
         public GatewayHostnameConfigurationArgs()
         {
         }
-        public static new GatewayHostnameConfigurationArgs Empty => new GatewayHostnameConfigurationArgs();
     }
 }

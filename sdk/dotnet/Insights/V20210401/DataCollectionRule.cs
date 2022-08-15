@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20210401
     /// Definition of ARM tracked top level resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights/v20210401:DataCollectionRule")]
-    public partial class DataCollectionRule : global::Pulumi.CustomResource
+    public partial class DataCollectionRule : Pulumi.CustomResource
     {
         /// <summary>
         /// The specification of data flows.
@@ -119,9 +119,9 @@ namespace Pulumi.AzureNative.Insights.V20210401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:insights:DataCollectionRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20191101preview:DataCollectionRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20210901preview:DataCollectionRule"},
+                    new Pulumi.Alias { Type = "azure-native:insights:DataCollectionRule"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20191101preview:DataCollectionRule"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20210901preview:DataCollectionRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -143,7 +143,7 @@ namespace Pulumi.AzureNative.Insights.V20210401
         }
     }
 
-    public sealed class DataCollectionRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class DataCollectionRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the data collection rule. The name is case insensitive.
@@ -215,6 +215,5 @@ namespace Pulumi.AzureNative.Insights.V20210401
         public DataCollectionRuleArgs()
         {
         }
-        public static new DataCollectionRuleArgs Empty => new DataCollectionRuleArgs();
     }
 }

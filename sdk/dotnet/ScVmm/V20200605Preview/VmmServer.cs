@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview
     /// The VmmServers resource definition.
     /// </summary>
     [AzureNativeResourceType("azure-native:scvmm/v20200605preview:VmmServer")]
-    public partial class VmmServer : global::Pulumi.CustomResource
+    public partial class VmmServer : Pulumi.CustomResource
     {
         /// <summary>
         /// Gets or sets the connection status to the vmmServer.
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:scvmm:VmmServer"},
+                    new Pulumi.Alias { Type = "azure-native:scvmm:VmmServer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -146,7 +146,7 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview
         }
     }
 
-    public sealed class VmmServerArgs : global::Pulumi.ResourceArgs
+    public sealed class VmmServerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Credentials to connect to VMMServer.
@@ -205,6 +205,5 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview
         public VmmServerArgs()
         {
         }
-        public static new VmmServerArgs Empty => new VmmServerArgs();
     }
 }

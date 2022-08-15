@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201.Inputs
     /// <summary>
     /// Description of an additional API Management resource location.
     /// </summary>
-    public sealed class AdditionalLocationArgs : global::Pulumi.ResourceArgs
+    public sealed class AdditionalLocationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
@@ -55,6 +55,5 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201.Inputs
         {
             DisableGateway = false;
         }
-        public static new AdditionalLocationArgs Empty => new AdditionalLocationArgs();
     }
 }

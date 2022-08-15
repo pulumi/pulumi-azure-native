@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190201.Inputs
     /// <summary>
     /// VpnConnection Resource.
     /// </summary>
-    public sealed class VpnConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class VpnConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Expected bandwidth in MBPS.
@@ -96,6 +96,5 @@ namespace Pulumi.AzureNative.Network.V20190201.Inputs
         public VpnConnectionArgs()
         {
         }
-        public static new VpnConnectionArgs Empty => new VpnConnectionArgs();
     }
 }

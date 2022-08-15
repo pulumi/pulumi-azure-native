@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Insights
     /// API Version: 2018-04-16.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:ScheduledQueryRule")]
-    public partial class ScheduledQueryRule : global::Pulumi.CustomResource
+    public partial class ScheduledQueryRule : Pulumi.CustomResource
     {
         /// <summary>
         /// Action needs to be taken on rule execution.
@@ -143,10 +143,10 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20180416:ScheduledQueryRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20200501preview:ScheduledQueryRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20210201preview:ScheduledQueryRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20210801:ScheduledQueryRule"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20180416:ScheduledQueryRule"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20200501preview:ScheduledQueryRule"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20210201preview:ScheduledQueryRule"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20210801:ScheduledQueryRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -168,7 +168,7 @@ namespace Pulumi.AzureNative.Insights
         }
     }
 
-    public sealed class ScheduledQueryRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class ScheduledQueryRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Action needs to be taken on rule execution.
@@ -246,6 +246,5 @@ namespace Pulumi.AzureNative.Insights
         {
             AutoMitigate = false;
         }
-        public static new ScheduledQueryRuleArgs Empty => new ScheduledQueryRuleArgs();
     }
 }

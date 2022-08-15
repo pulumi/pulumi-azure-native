@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20210201.Inputs
     /// <summary>
     /// Auto upgrade profile for a managed cluster.
     /// </summary>
-    public sealed class ManagedClusterAutoUpgradeProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedClusterAutoUpgradeProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// upgrade channel for auto upgrade.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.ContainerService.V20210201.Inputs
         public ManagedClusterAutoUpgradeProfileArgs()
         {
         }
-        public static new ManagedClusterAutoUpgradeProfileArgs Empty => new ManagedClusterAutoUpgradeProfileArgs();
     }
 }

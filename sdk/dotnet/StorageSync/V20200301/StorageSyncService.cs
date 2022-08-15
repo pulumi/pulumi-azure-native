@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageSync.V20200301
     /// Storage Sync Service object.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagesync/v20200301:StorageSyncService")]
-    public partial class StorageSyncService : global::Pulumi.CustomResource
+    public partial class StorageSyncService : Pulumi.CustomResource
     {
         /// <summary>
         /// Incoming Traffic Policy
@@ -106,16 +106,16 @@ namespace Pulumi.AzureNative.StorageSync.V20200301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync:StorageSyncService"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20170605preview:StorageSyncService"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20180402:StorageSyncService"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20180701:StorageSyncService"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20181001:StorageSyncService"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20190201:StorageSyncService"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20190301:StorageSyncService"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20190601:StorageSyncService"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20191001:StorageSyncService"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20200901:StorageSyncService"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync:StorageSyncService"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20170605preview:StorageSyncService"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20180402:StorageSyncService"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20180701:StorageSyncService"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20181001:StorageSyncService"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20190201:StorageSyncService"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20190301:StorageSyncService"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20190601:StorageSyncService"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20191001:StorageSyncService"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20200901:StorageSyncService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -137,7 +137,7 @@ namespace Pulumi.AzureNative.StorageSync.V20200301
         }
     }
 
-    public sealed class StorageSyncServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class StorageSyncServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Incoming Traffic Policy
@@ -178,6 +178,5 @@ namespace Pulumi.AzureNative.StorageSync.V20200301
         public StorageSyncServiceArgs()
         {
         }
-        public static new StorageSyncServiceArgs Empty => new StorageSyncServiceArgs();
     }
 }

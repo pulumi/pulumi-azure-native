@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ManagedServices.V20190901.Inputs
     /// <summary>
     /// Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.
     /// </summary>
-    public sealed class AuthorizationArgs : global::Pulumi.ResourceArgs
+    public sealed class AuthorizationArgs : Pulumi.ResourceArgs
     {
         [Input("delegatedRoleDefinitionIds")]
         private InputList<string>? _delegatedRoleDefinitionIds;
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.ManagedServices.V20190901.Inputs
         public AuthorizationArgs()
         {
         }
-        public static new AuthorizationArgs Empty => new AuthorizationArgs();
     }
 }

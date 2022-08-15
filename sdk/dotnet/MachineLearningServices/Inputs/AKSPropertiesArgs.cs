@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     /// <summary>
     /// AKS properties
     /// </summary>
-    public sealed class AKSPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class AKSPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Number of agents
@@ -55,6 +55,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         {
             ClusterPurpose = "FastProd";
         }
-        public static new AKSPropertiesArgs Empty => new AKSPropertiesArgs();
     }
 }

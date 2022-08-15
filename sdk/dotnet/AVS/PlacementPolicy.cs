@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AVS
     /// API Version: 2021-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:PlacementPolicy")]
-    public partial class PlacementPolicy : global::Pulumi.CustomResource
+    public partial class PlacementPolicy : Pulumi.CustomResource
     {
         /// <summary>
         /// Resource name.
@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.AVS
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:PlacementPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20211201:PlacementPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -81,7 +81,7 @@ namespace Pulumi.AzureNative.AVS
         }
     }
 
-    public sealed class PlacementPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class PlacementPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the cluster in the private cloud
@@ -116,6 +116,5 @@ namespace Pulumi.AzureNative.AVS
         public PlacementPolicyArgs()
         {
         }
-        public static new PlacementPolicyArgs Empty => new PlacementPolicyArgs();
     }
 }

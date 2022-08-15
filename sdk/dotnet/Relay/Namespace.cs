@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Relay
     /// API Version: 2017-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:relay:Namespace")]
-    public partial class Namespace : global::Pulumi.CustomResource
+    public partial class Namespace : Pulumi.CustomResource
     {
         /// <summary>
         /// The time the namespace was created.
@@ -98,10 +98,10 @@ namespace Pulumi.AzureNative.Relay
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:relay/v20160701:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:relay/v20170401:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:relay/v20180101preview:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:relay/v20211101:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:relay/v20160701:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:relay/v20170401:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:relay/v20180101preview:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:relay/v20211101:Namespace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -123,7 +123,7 @@ namespace Pulumi.AzureNative.Relay
         }
     }
 
-    public sealed class NamespaceArgs : global::Pulumi.ResourceArgs
+    public sealed class NamespaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource location.
@@ -164,6 +164,5 @@ namespace Pulumi.AzureNative.Relay
         public NamespaceArgs()
         {
         }
-        public static new NamespaceArgs Empty => new NamespaceArgs();
     }
 }

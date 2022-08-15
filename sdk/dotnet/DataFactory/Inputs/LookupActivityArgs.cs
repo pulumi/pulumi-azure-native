@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Lookup activity.
     /// </summary>
-    public sealed class LookupActivityArgs : global::Pulumi.ResourceArgs
+    public sealed class LookupActivityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Lookup activity dataset reference.
@@ -91,6 +91,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public LookupActivityArgs()
         {
         }
-        public static new LookupActivityArgs Empty => new LookupActivityArgs();
     }
 }

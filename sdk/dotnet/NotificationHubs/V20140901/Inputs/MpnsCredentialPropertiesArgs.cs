@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NotificationHubs.V20140901.Inputs
     /// <summary>
     /// Description of a NotificationHub MpnsCredential.
     /// </summary>
-    public sealed class MpnsCredentialPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class MpnsCredentialPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the certificate key for this credential.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.NotificationHubs.V20140901.Inputs
         public MpnsCredentialPropertiesArgs()
         {
         }
-        public static new MpnsCredentialPropertiesArgs Empty => new MpnsCredentialPropertiesArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20200901.Inputs
 {
 
-    public sealed class DeploymentConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class DeploymentConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// This property and virtualMachineConfiguration are mutually exclusive and one of the properties must be specified. This property cannot be specified if the Batch account was created with its poolAllocationMode property set to 'UserSubscription'.
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.Batch.V20200901.Inputs
         public DeploymentConfigurationArgs()
         {
         }
-        public static new DeploymentConfigurationArgs Empty => new DeploymentConfigurationArgs();
     }
 }

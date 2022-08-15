@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Insights
     /// API Version: 2015-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:Component")]
-    public partial class Component : global::Pulumi.CustomResource
+    public partial class Component : Pulumi.CustomResource
     {
         /// <summary>
         /// Application Insights Unique ID for your Application.
@@ -179,10 +179,10 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20150501:Component"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20180501preview:Component"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20200202:Component"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20200202preview:Component"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20150501:Component"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20180501preview:Component"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20200202:Component"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20200202preview:Component"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -204,7 +204,7 @@ namespace Pulumi.AzureNative.Insights
         }
     }
 
-    public sealed class ComponentArgs : global::Pulumi.ResourceArgs
+    public sealed class ComponentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of application being monitored.
@@ -304,6 +304,5 @@ namespace Pulumi.AzureNative.Insights
             RequestSource = "rest";
             RetentionInDays = 90;
         }
-        public static new ComponentArgs Empty => new ComponentArgs();
     }
 }

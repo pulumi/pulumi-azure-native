@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20191101.Inputs
     /// <summary>
     /// AAD Vpn authentication type related parameters.
     /// </summary>
-    public sealed class AadAuthenticationParametersArgs : global::Pulumi.ResourceArgs
+    public sealed class AadAuthenticationParametersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// AAD Vpn authentication parameter AAD audience.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Network.V20191101.Inputs
         public AadAuthenticationParametersArgs()
         {
         }
-        public static new AadAuthenticationParametersArgs Empty => new AadAuthenticationParametersArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Maintenance.V20220701Preview
     /// Configuration Assignment
     /// </summary>
     [AzureNativeResourceType("azure-native:maintenance/v20220701preview:ConfigurationAssignment")]
-    public partial class ConfigurationAssignment : global::Pulumi.CustomResource
+    public partial class ConfigurationAssignment : Pulumi.CustomResource
     {
         /// <summary>
         /// Location of the resource
@@ -76,9 +76,9 @@ namespace Pulumi.AzureNative.Maintenance.V20220701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:maintenance:ConfigurationAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20210401preview:ConfigurationAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20210901preview:ConfigurationAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:maintenance:ConfigurationAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:maintenance/v20210401preview:ConfigurationAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:maintenance/v20210901preview:ConfigurationAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.Maintenance.V20220701Preview
         }
     }
 
-    public sealed class ConfigurationAssignmentArgs : global::Pulumi.ResourceArgs
+    public sealed class ConfigurationAssignmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration assignment name
@@ -153,6 +153,5 @@ namespace Pulumi.AzureNative.Maintenance.V20220701Preview
         public ConfigurationAssignmentArgs()
         {
         }
-        public static new ConfigurationAssignmentArgs Empty => new ConfigurationAssignmentArgs();
     }
 }

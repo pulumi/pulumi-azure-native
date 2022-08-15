@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview.Inputs
     /// <summary>
     /// Information about the retry policy for an event subscription.
     /// </summary>
-    public sealed class RetryPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class RetryPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Time To Live (in minutes) for events.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview.Inputs
         public RetryPolicyArgs()
         {
         }
-        public static new RetryPolicyArgs Empty => new RetryPolicyArgs();
     }
 }

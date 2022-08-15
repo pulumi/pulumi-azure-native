@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
 {
 
-    public sealed class UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authentication type of the connection target
@@ -46,6 +46,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         public UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs()
         {
         }
-        public static new UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs Empty => new UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs();
     }
 }

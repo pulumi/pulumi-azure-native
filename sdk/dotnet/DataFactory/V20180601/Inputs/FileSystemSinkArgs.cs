@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A copy activity file system sink.
     /// </summary>
-    public sealed class FileSystemSinkArgs : global::Pulumi.ResourceArgs
+    public sealed class FileSystemSinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of copy behavior for copy sink.
@@ -67,6 +67,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public FileSystemSinkArgs()
         {
         }
-        public static new FileSystemSinkArgs Empty => new FileSystemSinkArgs();
     }
 }

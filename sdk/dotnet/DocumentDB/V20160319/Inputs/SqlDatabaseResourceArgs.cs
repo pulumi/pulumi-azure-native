@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20160319.Inputs
     /// <summary>
     /// Cosmos DB SQL database id object
     /// </summary>
-    public sealed class SqlDatabaseResourceArgs : global::Pulumi.ResourceArgs
+    public sealed class SqlDatabaseResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Cosmos DB SQL database
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20160319.Inputs
         public SqlDatabaseResourceArgs()
         {
         }
-        public static new SqlDatabaseResourceArgs Empty => new SqlDatabaseResourceArgs();
     }
 }

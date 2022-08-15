@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// Model asset version details.
     /// </summary>
-    public sealed class ModelVersionArgs : global::Pulumi.ResourceArgs
+    public sealed class ModelVersionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The asset description text.
@@ -92,6 +92,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
             IsAnonymous = false;
             IsArchived = false;
         }
-        public static new ModelVersionArgs Empty => new ModelVersionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KeyVault.V20211001.Inputs
     /// <summary>
     /// A set of rules governing the network accessibility of a managed hsm pool.
     /// </summary>
-    public sealed class MHSMNetworkRuleSetArgs : global::Pulumi.ResourceArgs
+    public sealed class MHSMNetworkRuleSetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.KeyVault.V20211001.Inputs
         public MHSMNetworkRuleSetArgs()
         {
         }
-        public static new MHSMNetworkRuleSetArgs Empty => new MHSMNetworkRuleSetArgs();
     }
 }

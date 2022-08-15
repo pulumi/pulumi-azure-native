@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Microsoft Azure CosmosDB (SQL API) Collection dataset.
     /// </summary>
-    public sealed class CosmosDbSqlApiCollectionDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class CosmosDbSqlApiCollectionDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,6 +85,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public CosmosDbSqlApiCollectionDatasetArgs()
         {
         }
-        public static new CosmosDbSqlApiCollectionDatasetArgs Empty => new CosmosDbSqlApiCollectionDatasetArgs();
     }
 }

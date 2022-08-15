@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210901PrivatePreview
     /// An application type version resource for the specified application type name resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabric/v20210901privatepreview:ApplicationTypeVersion")]
-    public partial class ApplicationTypeVersion : global::Pulumi.CustomResource
+    public partial class ApplicationTypeVersion : Pulumi.CustomResource
     {
         /// <summary>
         /// The URL to the application package
@@ -82,13 +82,13 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210901PrivatePreview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210101preview:ApplicationTypeVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210501:ApplicationTypeVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210701preview:ApplicationTypeVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20211101preview:ApplicationTypeVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220101:ApplicationTypeVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220201preview:ApplicationTypeVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220601preview:ApplicationTypeVersion"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20210101preview:ApplicationTypeVersion"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20210501:ApplicationTypeVersion"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20210701preview:ApplicationTypeVersion"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20211101preview:ApplicationTypeVersion"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20220101:ApplicationTypeVersion"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20220201preview:ApplicationTypeVersion"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20220601preview:ApplicationTypeVersion"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210901PrivatePreview
         }
     }
 
-    public sealed class ApplicationTypeVersionArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplicationTypeVersionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The URL to the application package
@@ -163,6 +163,5 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210901PrivatePreview
         public ApplicationTypeVersionArgs()
         {
         }
-        public static new ApplicationTypeVersionArgs Empty => new ApplicationTypeVersionArgs();
     }
 }

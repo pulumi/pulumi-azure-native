@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.EventGrid
     /// API Version: 2020-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:Topic")]
-    public partial class Topic : global::Pulumi.CustomResource
+    public partial class Topic : Pulumi.CustomResource
     {
         /// <summary>
         /// Endpoint for the topic.
@@ -117,22 +117,22 @@ namespace Pulumi.AzureNative.EventGrid
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20170615preview:Topic"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20170915preview:Topic"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20180101:Topic"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20180501preview:Topic"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20180915preview:Topic"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20190101:Topic"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20190201preview:Topic"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20190601:Topic"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20200101preview:Topic"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:Topic"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20200601:Topic"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:Topic"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:Topic"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:Topic"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211201:Topic"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20170615preview:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20170915preview:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20180101:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20180501preview:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20180915preview:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20190101:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20190201preview:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20190601:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200101preview:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200601:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20211201:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:Topic"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -154,7 +154,7 @@ namespace Pulumi.AzureNative.EventGrid
         }
     }
 
-    public sealed class TopicArgs : global::Pulumi.ResourceArgs
+    public sealed class TopicArgs : Pulumi.ResourceArgs
     {
         [Input("inboundIpRules")]
         private InputList<Inputs.InboundIpRuleArgs>? _inboundIpRules;
@@ -222,6 +222,5 @@ namespace Pulumi.AzureNative.EventGrid
             InputSchema = "EventGridSchema";
             PublicNetworkAccess = "Enabled";
         }
-        public static new TopicArgs Empty => new TopicArgs();
     }
 }

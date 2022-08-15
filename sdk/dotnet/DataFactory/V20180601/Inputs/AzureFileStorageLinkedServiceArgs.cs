@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Azure File Storage linked service.
     /// </summary>
-    public sealed class AzureFileStorageLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureFileStorageLinkedServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure key vault secret reference of accountKey in connection string.
@@ -121,6 +121,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public AzureFileStorageLinkedServiceArgs()
         {
         }
-        public static new AzureFileStorageLinkedServiceArgs Empty => new AzureFileStorageLinkedServiceArgs();
     }
 }

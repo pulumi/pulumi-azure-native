@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101
     /// User details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20190101:GroupUser")]
-    public partial class GroupUser : global::Pulumi.CustomResource
+    public partial class GroupUser : Pulumi.CustomResource
     {
         /// <summary>
         /// Email address.
@@ -100,18 +100,18 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:GroupUser"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:GroupUser"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:GroupUser"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:GroupUser"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:GroupUser"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:GroupUser"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:GroupUser"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:GroupUser"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:GroupUser"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:GroupUser"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:GroupUser"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:GroupUser"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:GroupUser"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:GroupUser"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:GroupUser"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:GroupUser"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:GroupUser"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:GroupUser"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:GroupUser"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:GroupUser"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:GroupUser"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:GroupUser"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:GroupUser"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:GroupUser"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -133,7 +133,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101
         }
     }
 
-    public sealed class GroupUserArgs : global::Pulumi.ResourceArgs
+    public sealed class GroupUserArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Group identifier. Must be unique in the current API Management service instance.
@@ -162,6 +162,5 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101
         public GroupUserArgs()
         {
         }
-        public static new GroupUserArgs Empty => new GroupUserArgs();
     }
 }

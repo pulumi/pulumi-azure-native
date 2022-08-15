@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180701.Inputs
     /// <summary>
     /// The PlayReady license
     /// </summary>
-    public sealed class ContentKeyPolicyPlayReadyLicenseArgs : global::Pulumi.ResourceArgs
+    public sealed class ContentKeyPolicyPlayReadyLicenseArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag indicating whether test devices can use the license.
@@ -78,6 +78,5 @@ namespace Pulumi.AzureNative.Media.V20180701.Inputs
         public ContentKeyPolicyPlayReadyLicenseArgs()
         {
         }
-        public static new ContentKeyPolicyPlayReadyLicenseArgs Empty => new ContentKeyPolicyPlayReadyLicenseArgs();
     }
 }

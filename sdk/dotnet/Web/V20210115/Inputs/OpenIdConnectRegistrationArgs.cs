@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20210115.Inputs
     /// <summary>
     /// The configuration settings of the app registration for the custom Open ID Connect provider.
     /// </summary>
-    public sealed class OpenIdConnectRegistrationArgs : global::Pulumi.ResourceArgs
+    public sealed class OpenIdConnectRegistrationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The authentication credentials of the custom Open ID Connect provider.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Web.V20210115.Inputs
         public OpenIdConnectRegistrationArgs()
         {
         }
-        public static new OpenIdConnectRegistrationArgs Empty => new OpenIdConnectRegistrationArgs();
     }
 }

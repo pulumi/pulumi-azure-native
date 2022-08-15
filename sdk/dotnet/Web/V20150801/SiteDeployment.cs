@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.V20150801
     /// </summary>
     [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:web/v20150801:SiteDeployment")]
-    public partial class SiteDeployment : global::Pulumi.CustomResource
+    public partial class SiteDeployment : Pulumi.CustomResource
     {
         /// <summary>
         /// Active
@@ -125,20 +125,20 @@ namespace Pulumi.AzureNative.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:SiteDeployment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:SiteDeployment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:SiteDeployment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:SiteDeployment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:SiteDeployment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:SiteDeployment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:SiteDeployment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:SiteDeployment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:SiteDeployment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:SiteDeployment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:SiteDeployment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:SiteDeployment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:SiteDeployment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:SiteDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web:SiteDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:SiteDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:SiteDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:SiteDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:SiteDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:SiteDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:SiteDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:SiteDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:SiteDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:SiteDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:SiteDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:SiteDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:SiteDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:SiteDeployment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -160,7 +160,7 @@ namespace Pulumi.AzureNative.Web.V20150801
         }
     }
 
-    public sealed class SiteDeploymentArgs : global::Pulumi.ResourceArgs
+    public sealed class SiteDeploymentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Active
@@ -267,6 +267,5 @@ namespace Pulumi.AzureNative.Web.V20150801
         public SiteDeploymentArgs()
         {
         }
-        public static new SiteDeploymentArgs Empty => new SiteDeploymentArgs();
     }
 }

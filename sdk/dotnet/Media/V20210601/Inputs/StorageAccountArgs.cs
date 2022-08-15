@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20210601.Inputs
     /// <summary>
     /// The storage account details.
     /// </summary>
-    public sealed class StorageAccountArgs : global::Pulumi.ResourceArgs
+    public sealed class StorageAccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Media.V20210601.Inputs
         public StorageAccountArgs()
         {
         }
-        public static new StorageAccountArgs Empty => new StorageAccountArgs();
     }
 }

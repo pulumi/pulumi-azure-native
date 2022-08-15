@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
     }
 
 
-    public sealed class GetGuestUsageArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGuestUsageArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
         public GetGuestUsageArgs()
         {
         }
-        public static new GetGuestUsageArgs Empty => new GetGuestUsageArgs();
     }
 
-    public sealed class GetGuestUsageInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGuestUsageInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
         public GetGuestUsageInvokeArgs()
         {
         }
-        public static new GetGuestUsageInvokeArgs Empty => new GetGuestUsageInvokeArgs();
     }
 
 

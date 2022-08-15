@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.TestBase
     /// API Version: 2022-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:testbase:CustomerEvent")]
-    public partial class CustomerEvent : global::Pulumi.CustomResource
+    public partial class CustomerEvent : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the event subscribed to.
@@ -71,8 +71,8 @@ namespace Pulumi.AzureNative.TestBase
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:testbase/v20201216preview:CustomerEvent"},
-                    new global::Pulumi.Alias { Type = "azure-native:testbase/v20220401preview:CustomerEvent"},
+                    new Pulumi.Alias { Type = "azure-native:testbase/v20201216preview:CustomerEvent"},
+                    new Pulumi.Alias { Type = "azure-native:testbase/v20220401preview:CustomerEvent"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.TestBase
         }
     }
 
-    public sealed class CustomerEventArgs : global::Pulumi.ResourceArgs
+    public sealed class CustomerEventArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource name of the Test Base Customer event.
@@ -135,6 +135,5 @@ namespace Pulumi.AzureNative.TestBase
         public CustomerEventArgs()
         {
         }
-        public static new CustomerEventArgs Empty => new CustomerEventArgs();
     }
 }

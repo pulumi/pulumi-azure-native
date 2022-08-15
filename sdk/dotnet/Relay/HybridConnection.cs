@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Relay
     /// API Version: 2017-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:relay:HybridConnection")]
-    public partial class HybridConnection : global::Pulumi.CustomResource
+    public partial class HybridConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// The time the hybrid connection was created.
@@ -83,9 +83,9 @@ namespace Pulumi.AzureNative.Relay
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:relay/v20160701:HybridConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:relay/v20170401:HybridConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:relay/v20211101:HybridConnection"},
+                    new Pulumi.Alias { Type = "azure-native:relay/v20160701:HybridConnection"},
+                    new Pulumi.Alias { Type = "azure-native:relay/v20170401:HybridConnection"},
+                    new Pulumi.Alias { Type = "azure-native:relay/v20211101:HybridConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.Relay
         }
     }
 
-    public sealed class HybridConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class HybridConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The hybrid connection name.
@@ -142,6 +142,5 @@ namespace Pulumi.AzureNative.Relay
         public HybridConnectionArgs()
         {
         }
-        public static new HybridConnectionArgs Empty => new HybridConnectionArgs();
     }
 }

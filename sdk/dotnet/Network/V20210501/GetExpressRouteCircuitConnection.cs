@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20210501
     }
 
 
-    public sealed class GetExpressRouteCircuitConnectionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetExpressRouteCircuitConnectionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the express route circuit.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.Network.V20210501
         public GetExpressRouteCircuitConnectionArgs()
         {
         }
-        public static new GetExpressRouteCircuitConnectionArgs Empty => new GetExpressRouteCircuitConnectionArgs();
     }
 
-    public sealed class GetExpressRouteCircuitConnectionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetExpressRouteCircuitConnectionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the express route circuit.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.Network.V20210501
         public GetExpressRouteCircuitConnectionInvokeArgs()
         {
         }
-        public static new GetExpressRouteCircuitConnectionInvokeArgs Empty => new GetExpressRouteCircuitConnectionInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210630Preview.Inputs
     /// <summary>
     /// The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
     /// </summary>
-    public sealed class WarmStoreConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class WarmStoreConfigurationPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// ISO8601 timespan specifying the number of days the environment's events will be available for query from the warm store.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210630Preview.Inputs
         public WarmStoreConfigurationPropertiesArgs()
         {
         }
-        public static new WarmStoreConfigurationPropertiesArgs Empty => new WarmStoreConfigurationPropertiesArgs();
     }
 }

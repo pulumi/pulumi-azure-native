@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20190123Preview
     /// </summary>
     [Obsolete(@"Version 2019-01-23-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:desktopvirtualization/v20190123preview:HostPool")]
-    public partial class HostPool : global::Pulumi.CustomResource
+    public partial class HostPool : Pulumi.CustomResource
     {
         /// <summary>
         /// List of applicationGroup links.
@@ -149,21 +149,21 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20190123Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization:HostPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20190924preview:HostPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20191210preview:HostPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20200921preview:HostPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201019preview:HostPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201102preview:HostPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201110preview:HostPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210114preview:HostPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210201preview:HostPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210309preview:HostPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210401preview:HostPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210712:HostPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210903preview:HostPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220210preview:HostPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:HostPool"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization:HostPool"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20190924preview:HostPool"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20191210preview:HostPool"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20200921preview:HostPool"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201019preview:HostPool"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201102preview:HostPool"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201110preview:HostPool"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210114preview:HostPool"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210201preview:HostPool"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210309preview:HostPool"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210401preview:HostPool"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210712:HostPool"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210903preview:HostPool"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220210preview:HostPool"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:HostPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -185,7 +185,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20190123Preview
         }
     }
 
-    public sealed class HostPoolArgs : global::Pulumi.ResourceArgs
+    public sealed class HostPoolArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Custom rdp property of HostPool.
@@ -298,6 +298,5 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20190123Preview
         public HostPoolArgs()
         {
         }
-        public static new HostPoolArgs Empty => new HostPoolArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
     }
 
 
-    public sealed class ListKustoPoolFollowerDatabasesArgs : global::Pulumi.InvokeArgs
+    public sealed class ListKustoPoolFollowerDatabasesArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kusto pool.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         public ListKustoPoolFollowerDatabasesArgs()
         {
         }
-        public static new ListKustoPoolFollowerDatabasesArgs Empty => new ListKustoPoolFollowerDatabasesArgs();
     }
 
-    public sealed class ListKustoPoolFollowerDatabasesInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListKustoPoolFollowerDatabasesInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kusto pool.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         public ListKustoPoolFollowerDatabasesInvokeArgs()
         {
         }
-        public static new ListKustoPoolFollowerDatabasesInvokeArgs Empty => new ListKustoPoolFollowerDatabasesInvokeArgs();
     }
 
 

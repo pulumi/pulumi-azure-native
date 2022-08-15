@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Inputs
 {
 
-    public sealed class SkuLocationInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class SkuLocationInfoArgs : Pulumi.ResourceArgs
     {
         [Input("extendedLocations")]
         private InputList<string>? _extendedLocations;
@@ -45,6 +45,5 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
         public SkuLocationInfoArgs()
         {
         }
-        public static new SkuLocationInfoArgs Empty => new SkuLocationInfoArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20200601.Inputs
     /// <summary>
     /// Application logs to Azure table storage configuration.
     /// </summary>
-    public sealed class AzureTableStorageApplicationLogsConfigArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureTableStorageApplicationLogsConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Log level.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Web.V20200601.Inputs
         public AzureTableStorageApplicationLogsConfigArgs()
         {
         }
-        public static new AzureTableStorageApplicationLogsConfigArgs Empty => new AzureTableStorageApplicationLogsConfigArgs();
     }
 }

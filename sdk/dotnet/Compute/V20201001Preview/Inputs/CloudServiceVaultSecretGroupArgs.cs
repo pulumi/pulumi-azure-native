@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20201001Preview.Inputs
     /// <summary>
     /// Describes a set of certificates which are all in the same Key Vault.
     /// </summary>
-    public sealed class CloudServiceVaultSecretGroupArgs : global::Pulumi.ResourceArgs
+    public sealed class CloudServiceVaultSecretGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Compute.V20201001Preview.Inputs
         public CloudServiceVaultSecretGroupArgs()
         {
         }
-        public static new CloudServiceVaultSecretGroupArgs Empty => new CloudServiceVaultSecretGroupArgs();
     }
 }

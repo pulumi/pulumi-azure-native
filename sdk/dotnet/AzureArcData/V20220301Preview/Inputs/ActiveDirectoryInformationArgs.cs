@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview.Inputs
     /// <summary>
     /// Active Directory information that related to the resource.
     /// </summary>
-    public sealed class ActiveDirectoryInformationArgs : global::Pulumi.ResourceArgs
+    public sealed class ActiveDirectoryInformationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Keytab information that is used for the Sql Managed Instance when Active Directory authentication is used.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview.Inputs
         public ActiveDirectoryInformationArgs()
         {
         }
-        public static new ActiveDirectoryInformationArgs Empty => new ActiveDirectoryInformationArgs();
     }
 }

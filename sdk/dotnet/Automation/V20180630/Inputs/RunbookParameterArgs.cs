@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.V20180630.Inputs
     /// <summary>
     /// Definition of the runbook parameter type.
     /// </summary>
-    public sealed class RunbookParameterArgs : global::Pulumi.ResourceArgs
+    public sealed class RunbookParameterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the default value of parameter.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Automation.V20180630.Inputs
         public RunbookParameterArgs()
         {
         }
-        public static new RunbookParameterArgs Empty => new RunbookParameterArgs();
     }
 }

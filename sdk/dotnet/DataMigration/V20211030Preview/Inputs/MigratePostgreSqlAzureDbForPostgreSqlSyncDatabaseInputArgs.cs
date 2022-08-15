@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview.Inputs
     /// <summary>
     /// Database specific information for PostgreSQL to Azure Database for PostgreSQL migration task inputs
     /// </summary>
-    public sealed class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgs : global::Pulumi.ResourceArgs
+    public sealed class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgs : Pulumi.ResourceArgs
     {
         [Input("migrationSetting")]
         private InputMap<string>? _migrationSetting;
@@ -78,6 +78,5 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview.Inputs
         public MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgs()
         {
         }
-        public static new MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgs Empty => new MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgs();
     }
 }

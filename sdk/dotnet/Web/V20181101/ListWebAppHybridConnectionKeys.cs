@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Web.V20181101
     }
 
 
-    public sealed class ListWebAppHybridConnectionKeysArgs : global::Pulumi.InvokeArgs
+    public sealed class ListWebAppHybridConnectionKeysArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the web app.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.Web.V20181101
         public ListWebAppHybridConnectionKeysArgs()
         {
         }
-        public static new ListWebAppHybridConnectionKeysArgs Empty => new ListWebAppHybridConnectionKeysArgs();
     }
 
-    public sealed class ListWebAppHybridConnectionKeysInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListWebAppHybridConnectionKeysInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the web app.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.Web.V20181101
         public ListWebAppHybridConnectionKeysInvokeArgs()
         {
         }
-        public static new ListWebAppHybridConnectionKeysInvokeArgs Empty => new ListWebAppHybridConnectionKeysInvokeArgs();
     }
 
 

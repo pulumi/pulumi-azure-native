@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview.Inputs
     /// <summary>
     /// Properties to configure Identity for Bring your Own Keys
     /// </summary>
-    public sealed class IdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class IdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// ObjectId from the KeyVault
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview.Inputs
         {
             Type = Pulumi.AzureNative.ServiceBus.V20180101Preview.IdentityType.SystemAssigned;
         }
-        public static new IdentityArgs Empty => new IdentityArgs();
     }
 }

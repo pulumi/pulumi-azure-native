@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ManagedServices.V20220101Preview
     }
 
 
-    public sealed class GetRegistrationAssignmentArgs : global::Pulumi.InvokeArgs
+    public sealed class GetRegistrationAssignmentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The flag indicating whether to return the registration definition details along with the registration assignment details.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.ManagedServices.V20220101Preview
         public GetRegistrationAssignmentArgs()
         {
         }
-        public static new GetRegistrationAssignmentArgs Empty => new GetRegistrationAssignmentArgs();
     }
 
-    public sealed class GetRegistrationAssignmentInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetRegistrationAssignmentInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The flag indicating whether to return the registration definition details along with the registration assignment details.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.ManagedServices.V20220101Preview
         public GetRegistrationAssignmentInvokeArgs()
         {
         }
-        public static new GetRegistrationAssignmentInvokeArgs Empty => new GetRegistrationAssignmentInvokeArgs();
     }
 
 

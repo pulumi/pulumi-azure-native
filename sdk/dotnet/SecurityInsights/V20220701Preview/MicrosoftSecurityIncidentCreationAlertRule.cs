@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview
     /// Represents MicrosoftSecurityIncidentCreation rule.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20220701preview:MicrosoftSecurityIncidentCreationAlertRule")]
-    public partial class MicrosoftSecurityIncidentCreationAlertRule : global::Pulumi.CustomResource
+    public partial class MicrosoftSecurityIncidentCreationAlertRule : Pulumi.CustomResource
     {
         /// <summary>
         /// The Name of the alert rule template used to create this rule.
@@ -132,18 +132,18 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:MicrosoftSecurityIncidentCreationAlertRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:MicrosoftSecurityIncidentCreationAlertRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:MicrosoftSecurityIncidentCreationAlertRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:MicrosoftSecurityIncidentCreationAlertRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:MicrosoftSecurityIncidentCreationAlertRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:MicrosoftSecurityIncidentCreationAlertRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:MicrosoftSecurityIncidentCreationAlertRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:MicrosoftSecurityIncidentCreationAlertRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:MicrosoftSecurityIncidentCreationAlertRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:MicrosoftSecurityIncidentCreationAlertRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:MicrosoftSecurityIncidentCreationAlertRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:MicrosoftSecurityIncidentCreationAlertRule"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights:MicrosoftSecurityIncidentCreationAlertRule"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:MicrosoftSecurityIncidentCreationAlertRule"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:MicrosoftSecurityIncidentCreationAlertRule"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:MicrosoftSecurityIncidentCreationAlertRule"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:MicrosoftSecurityIncidentCreationAlertRule"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:MicrosoftSecurityIncidentCreationAlertRule"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:MicrosoftSecurityIncidentCreationAlertRule"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:MicrosoftSecurityIncidentCreationAlertRule"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:MicrosoftSecurityIncidentCreationAlertRule"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:MicrosoftSecurityIncidentCreationAlertRule"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:MicrosoftSecurityIncidentCreationAlertRule"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:MicrosoftSecurityIncidentCreationAlertRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -165,7 +165,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview
         }
     }
 
-    public sealed class MicrosoftSecurityIncidentCreationAlertRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class MicrosoftSecurityIncidentCreationAlertRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Name of the alert rule template used to create this rule.
@@ -261,6 +261,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview
         public MicrosoftSecurityIncidentCreationAlertRuleArgs()
         {
         }
-        public static new MicrosoftSecurityIncidentCreationAlertRuleArgs Empty => new MicrosoftSecurityIncidentCreationAlertRuleArgs();
     }
 }

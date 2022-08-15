@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20190501Preview.Inputs
     /// <summary>
     /// Uploads files to VMs (Linux, Windows). Corresponds to Packer file provisioner
     /// </summary>
-    public sealed class ImageTemplateFileCustomizerArgs : global::Pulumi.ResourceArgs
+    public sealed class ImageTemplateFileCustomizerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The absolute path to a file (with nested directory structures already created) where the file (from sourceUri) will be uploaded to in the VM
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20190501Preview.Inputs
         public ImageTemplateFileCustomizerArgs()
         {
         }
-        public static new ImageTemplateFileCustomizerArgs Empty => new ImageTemplateFileCustomizerArgs();
     }
 }

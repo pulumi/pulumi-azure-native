@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataMigration.V20210630
     }
 
 
-    public sealed class GetFileArgs : global::Pulumi.InvokeArgs
+    public sealed class GetFileArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the File
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.DataMigration.V20210630
         public GetFileArgs()
         {
         }
-        public static new GetFileArgs Empty => new GetFileArgs();
     }
 
-    public sealed class GetFileInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetFileInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the File
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.DataMigration.V20210630
         public GetFileInvokeArgs()
         {
         }
-        public static new GetFileInvokeArgs Empty => new GetFileInvokeArgs();
     }
 
 

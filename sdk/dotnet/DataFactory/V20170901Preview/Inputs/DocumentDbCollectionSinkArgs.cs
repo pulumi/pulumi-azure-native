@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity Document Database Collection sink.
     /// </summary>
-    public sealed class DocumentDbCollectionSinkArgs : global::Pulumi.ResourceArgs
+    public sealed class DocumentDbCollectionSinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Nested properties separator. Default is . (dot). Type: string (or Expression with resultType string).
@@ -55,6 +55,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public DocumentDbCollectionSinkArgs()
         {
         }
-        public static new DocumentDbCollectionSinkArgs Empty => new DocumentDbCollectionSinkArgs();
     }
 }

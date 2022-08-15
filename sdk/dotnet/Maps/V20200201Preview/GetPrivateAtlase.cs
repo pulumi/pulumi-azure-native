@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Maps.V20200201Preview
     }
 
 
-    public sealed class GetPrivateAtlaseArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPrivateAtlaseArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Maps Account.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Maps.V20200201Preview
         public GetPrivateAtlaseArgs()
         {
         }
-        public static new GetPrivateAtlaseArgs Empty => new GetPrivateAtlaseArgs();
     }
 
-    public sealed class GetPrivateAtlaseInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPrivateAtlaseInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Maps Account.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Maps.V20200201Preview
         public GetPrivateAtlaseInvokeArgs()
         {
         }
-        public static new GetPrivateAtlaseInvokeArgs Empty => new GetPrivateAtlaseInvokeArgs();
     }
 
 

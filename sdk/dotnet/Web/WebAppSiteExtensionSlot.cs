@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web
     /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppSiteExtensionSlot")]
-    public partial class WebAppSiteExtensionSlot : global::Pulumi.CustomResource
+    public partial class WebAppSiteExtensionSlot : Pulumi.CustomResource
     {
         /// <summary>
         /// List of authors.
@@ -176,19 +176,19 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppSiteExtensionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppSiteExtensionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppSiteExtensionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppSiteExtensionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppSiteExtensionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppSiteExtensionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppSiteExtensionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppSiteExtensionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppSiteExtensionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppSiteExtensionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppSiteExtensionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppSiteExtensionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppSiteExtensionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppSiteExtensionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppSiteExtensionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppSiteExtensionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppSiteExtensionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppSiteExtensionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppSiteExtensionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppSiteExtensionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppSiteExtensionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppSiteExtensionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppSiteExtensionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppSiteExtensionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppSiteExtensionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppSiteExtensionSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -210,7 +210,7 @@ namespace Pulumi.AzureNative.Web
         }
     }
 
-    public sealed class WebAppSiteExtensionSlotArgs : global::Pulumi.ResourceArgs
+    public sealed class WebAppSiteExtensionSlotArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Site name.
@@ -239,6 +239,5 @@ namespace Pulumi.AzureNative.Web
         public WebAppSiteExtensionSlotArgs()
         {
         }
-        public static new WebAppSiteExtensionSlotArgs Empty => new WebAppSiteExtensionSlotArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20191101
     /// Defines an Network Experiment Profile and lists of Experiments
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20191101:NetworkExperimentProfile")]
-    public partial class NetworkExperimentProfile : global::Pulumi.CustomResource
+    public partial class NetworkExperimentProfile : Pulumi.CustomResource
     {
         /// <summary>
         /// The state of the Experiment
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.Network.V20191101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:NetworkExperimentProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network:NetworkExperimentProfile"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.Network.V20191101
         }
     }
 
-    public sealed class NetworkExperimentProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class NetworkExperimentProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The state of the Experiment
@@ -151,6 +151,5 @@ namespace Pulumi.AzureNative.Network.V20191101
         public NetworkExperimentProfileArgs()
         {
         }
-        public static new NetworkExperimentProfileArgs Empty => new NetworkExperimentProfileArgs();
     }
 }

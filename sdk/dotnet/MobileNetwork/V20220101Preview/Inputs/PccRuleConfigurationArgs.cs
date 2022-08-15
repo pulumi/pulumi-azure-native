@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220101Preview.Inputs
     /// <summary>
     /// PCC rule configuration
     /// </summary>
-    public sealed class PccRuleConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class PccRuleConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the rule. This must be unique within the parent Service. You must not use any of the following reserved strings - `default`, `requested` or `service`.
@@ -55,6 +55,5 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220101Preview.Inputs
         {
             TrafficControl = "Enabled";
         }
-        public static new PccRuleConfigurationArgs Empty => new PccRuleConfigurationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20150801.Inputs
     /// <summary>
     /// VnetRoute contract used to pass routing information for a vnet.
     /// </summary>
-    public sealed class VnetRouteArgs : global::Pulumi.ResourceArgs
+    public sealed class VnetRouteArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
@@ -84,6 +84,5 @@ namespace Pulumi.AzureNative.Web.V20150801.Inputs
         public VnetRouteArgs()
         {
         }
-        public static new VnetRouteArgs Empty => new VnetRouteArgs();
     }
 }

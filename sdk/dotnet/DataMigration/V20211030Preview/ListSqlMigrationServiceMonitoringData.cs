@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview
     }
 
 
-    public sealed class ListSqlMigrationServiceMonitoringDataArgs : global::Pulumi.InvokeArgs
+    public sealed class ListSqlMigrationServiceMonitoringDataArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview
         public ListSqlMigrationServiceMonitoringDataArgs()
         {
         }
-        public static new ListSqlMigrationServiceMonitoringDataArgs Empty => new ListSqlMigrationServiceMonitoringDataArgs();
     }
 
-    public sealed class ListSqlMigrationServiceMonitoringDataInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListSqlMigrationServiceMonitoringDataInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview
         public ListSqlMigrationServiceMonitoringDataInvokeArgs()
         {
         }
-        public static new ListSqlMigrationServiceMonitoringDataInvokeArgs Empty => new ListSqlMigrationServiceMonitoringDataInvokeArgs();
     }
 
 

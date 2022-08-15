@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190401.Inputs
     /// <summary>
     /// The properties of a run argument.
     /// </summary>
-    public sealed class ArgumentArgs : global::Pulumi.ResourceArgs
+    public sealed class ArgumentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Flag to indicate whether the argument represents a secret and want to be removed from build logs.
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190401.Inputs
         {
             IsSecret = false;
         }
-        public static new ArgumentArgs Empty => new ArgumentArgs();
     }
 }

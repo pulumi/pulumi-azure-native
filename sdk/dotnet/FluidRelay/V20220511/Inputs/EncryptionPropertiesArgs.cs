@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.FluidRelay.V20220511.Inputs
     /// <summary>
     /// All encryption configuration for a resource.
     /// </summary>
-    public sealed class EncryptionPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class EncryptionPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// All Customer-managed key encryption properties for the resource.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.FluidRelay.V20220511.Inputs
         public EncryptionPropertiesArgs()
         {
         }
-        public static new EncryptionPropertiesArgs Empty => new EncryptionPropertiesArgs();
     }
 }

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.ProviderHub.V20210901Preview
     }
 
 
-    public sealed class GetSkusArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSkusArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource provider hosted within ProviderHub.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.ProviderHub.V20210901Preview
         public GetSkusArgs()
         {
         }
-        public static new GetSkusArgs Empty => new GetSkusArgs();
     }
 
-    public sealed class GetSkusInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSkusInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource provider hosted within ProviderHub.
@@ -68,7 +67,6 @@ namespace Pulumi.AzureNative.ProviderHub.V20210901Preview
         public GetSkusInvokeArgs()
         {
         }
-        public static new GetSkusInvokeArgs Empty => new GetSkusInvokeArgs();
     }
 
 

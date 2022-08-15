@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20220501.Inputs
     /// <summary>
     /// Object to define snapshot and version action conditions.
     /// </summary>
-    public sealed class DateAfterCreationArgs : global::Pulumi.ResourceArgs
+    public sealed class DateAfterCreationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Value indicating the age in days after creation
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Storage.V20220501.Inputs
         public DateAfterCreationArgs()
         {
         }
-        public static new DateAfterCreationArgs Empty => new DateAfterCreationArgs();
     }
 }

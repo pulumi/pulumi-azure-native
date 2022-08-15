@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization.V20180501Preview.Inputs
     /// <summary>
     /// Access Review Instance.
     /// </summary>
-    public sealed class AccessReviewInstanceArgs : global::Pulumi.ResourceArgs
+    public sealed class AccessReviewInstanceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The DateTime when the review instance is scheduled to end.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Authorization.V20180501Preview.Inputs
         public AccessReviewInstanceArgs()
         {
         }
-        public static new AccessReviewInstanceArgs Empty => new AccessReviewInstanceArgs();
     }
 }

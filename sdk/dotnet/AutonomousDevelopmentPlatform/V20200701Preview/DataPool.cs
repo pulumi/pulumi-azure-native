@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.V20200701Preview
     /// </summary>
     [Obsolete(@"Version 2020-07-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:autonomousdevelopmentplatform/v20200701preview:DataPool")]
-    public partial class DataPool : global::Pulumi.CustomResource
+    public partial class DataPool : Pulumi.CustomResource
     {
         /// <summary>
         /// The Data Pool's data-plane ID
@@ -77,9 +77,9 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.V20200701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform:DataPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform/v20210201preview:DataPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform/v20211101preview:DataPool"},
+                    new Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform:DataPool"},
+                    new Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform/v20210201preview:DataPool"},
+                    new Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform/v20211101preview:DataPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.V20200701Preview
         }
     }
 
-    public sealed class DataPoolArgs : global::Pulumi.ResourceArgs
+    public sealed class DataPoolArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the ADP account.
@@ -136,6 +136,5 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.V20200701Preview
         public DataPoolArgs()
         {
         }
-        public static new DataPoolArgs Empty => new DataPoolArgs();
     }
 }

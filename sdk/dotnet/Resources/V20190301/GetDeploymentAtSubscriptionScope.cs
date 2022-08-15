@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Resources.V20190301
     }
 
 
-    public sealed class GetDeploymentAtSubscriptionScopeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDeploymentAtSubscriptionScopeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the deployment to get.
@@ -37,10 +37,9 @@ namespace Pulumi.AzureNative.Resources.V20190301
         public GetDeploymentAtSubscriptionScopeArgs()
         {
         }
-        public static new GetDeploymentAtSubscriptionScopeArgs Empty => new GetDeploymentAtSubscriptionScopeArgs();
     }
 
-    public sealed class GetDeploymentAtSubscriptionScopeInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDeploymentAtSubscriptionScopeInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the deployment to get.
@@ -51,7 +50,6 @@ namespace Pulumi.AzureNative.Resources.V20190301
         public GetDeploymentAtSubscriptionScopeInvokeArgs()
         {
         }
-        public static new GetDeploymentAtSubscriptionScopeInvokeArgs Empty => new GetDeploymentAtSubscriptionScopeInvokeArgs();
     }
 
 

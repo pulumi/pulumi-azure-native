@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageCache.V20201001.Inputs
     /// <summary>
     /// Properties pertaining to the UnknownTarget
     /// </summary>
-    public sealed class UnknownTargetArgs : global::Pulumi.ResourceArgs
+    public sealed class UnknownTargetArgs : Pulumi.ResourceArgs
     {
         [Input("unknownMap")]
         private InputMap<string>? _unknownMap;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.StorageCache.V20201001.Inputs
         public UnknownTargetArgs()
         {
         }
-        public static new UnknownTargetArgs Empty => new UnknownTargetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20150201Preview.Inputs
 {
 
-    public sealed class ResourceReferenceArgs : global::Pulumi.ResourceArgs
+    public sealed class ResourceReferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the resource id.
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.Logic.V20150201Preview.Inputs
         public ResourceReferenceArgs()
         {
         }
-        public static new ResourceReferenceArgs Empty => new ResourceReferenceArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview
     }
 
 
-    public sealed class GetProjectArgs : global::Pulumi.InvokeArgs
+    public sealed class GetProjectArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the resource group
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview
         public GetProjectArgs()
         {
         }
-        public static new GetProjectArgs Empty => new GetProjectArgs();
     }
 
-    public sealed class GetProjectInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetProjectInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the resource group
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview
         public GetProjectInvokeArgs()
         {
         }
-        public static new GetProjectInvokeArgs Empty => new GetProjectInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
     /// <summary>
     /// Configure pairing input properties.
     /// </summary>
-    public sealed class CreateProtectionContainerMappingInputPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class CreateProtectionContainerMappingInputPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Applicable policy.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public CreateProtectionContainerMappingInputPropertiesArgs()
         {
         }
-        public static new CreateProtectionContainerMappingInputPropertiesArgs Empty => new CreateProtectionContainerMappingInputPropertiesArgs();
     }
 }

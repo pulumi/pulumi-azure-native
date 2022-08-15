@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ApiManagement
     }
 
 
-    public sealed class GetApiIssueCommentArgs : global::Pulumi.InvokeArgs
+    public sealed class GetApiIssueCommentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// API identifier. Must be unique in the current API Management service instance.
@@ -62,10 +62,9 @@ namespace Pulumi.AzureNative.ApiManagement
         public GetApiIssueCommentArgs()
         {
         }
-        public static new GetApiIssueCommentArgs Empty => new GetApiIssueCommentArgs();
     }
 
-    public sealed class GetApiIssueCommentInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetApiIssueCommentInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// API identifier. Must be unique in the current API Management service instance.
@@ -100,7 +99,6 @@ namespace Pulumi.AzureNative.ApiManagement
         public GetApiIssueCommentInvokeArgs()
         {
         }
-        public static new GetApiIssueCommentInvokeArgs Empty => new GetApiIssueCommentInvokeArgs();
     }
 
 

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.AnalysisServices.V20170801Beta
     }
 
 
-    public sealed class ListServerGatewayStatusArgs : global::Pulumi.InvokeArgs
+    public sealed class ListServerGatewayStatusArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.AnalysisServices.V20170801Beta
         public ListServerGatewayStatusArgs()
         {
         }
-        public static new ListServerGatewayStatusArgs Empty => new ListServerGatewayStatusArgs();
     }
 
-    public sealed class ListServerGatewayStatusInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListServerGatewayStatusInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.AnalysisServices.V20170801Beta
         public ListServerGatewayStatusInvokeArgs()
         {
         }
-        public static new ListServerGatewayStatusInvokeArgs Empty => new ListServerGatewayStatusInvokeArgs();
     }
 
 

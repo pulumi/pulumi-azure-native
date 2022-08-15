@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20220215Preview.Inputs
     /// <summary>
     /// Cosmos DB Cassandra view resource object
     /// </summary>
-    public sealed class CassandraViewResourceArgs : global::Pulumi.ResourceArgs
+    public sealed class CassandraViewResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Cosmos DB Cassandra view
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20220215Preview.Inputs
         public CassandraViewResourceArgs()
         {
         }
-        public static new CassandraViewResourceArgs Empty => new CassandraViewResourceArgs();
     }
 }

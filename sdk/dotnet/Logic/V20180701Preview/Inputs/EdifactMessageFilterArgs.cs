@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview.Inputs
     /// <summary>
     /// The Edifact message filter for odata query.
     /// </summary>
-    public sealed class EdifactMessageFilterArgs : global::Pulumi.ResourceArgs
+    public sealed class EdifactMessageFilterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The message filter type.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview.Inputs
         public EdifactMessageFilterArgs()
         {
         }
-        public static new EdifactMessageFilterArgs Empty => new EdifactMessageFilterArgs();
     }
 }

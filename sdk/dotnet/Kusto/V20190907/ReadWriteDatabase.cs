@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Kusto.V20190907
     /// Class representing a read write database.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto/v20190907:ReadWriteDatabase")]
-    public partial class ReadWriteDatabase : global::Pulumi.CustomResource
+    public partial class ReadWriteDatabase : Pulumi.CustomResource
     {
         /// <summary>
         /// The time the data should be kept in cache for fast queries in TimeSpan.
@@ -96,18 +96,18 @@ namespace Pulumi.AzureNative.Kusto.V20190907
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:kusto:ReadWriteDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20170907privatepreview:ReadWriteDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20180907preview:ReadWriteDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20190121:ReadWriteDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20190515:ReadWriteDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20191109:ReadWriteDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20200215:ReadWriteDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20200614:ReadWriteDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20200918:ReadWriteDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20210101:ReadWriteDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20210827:ReadWriteDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20220201:ReadWriteDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:kusto:ReadWriteDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20170907privatepreview:ReadWriteDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20180907preview:ReadWriteDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20190121:ReadWriteDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20190515:ReadWriteDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20191109:ReadWriteDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20200215:ReadWriteDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20200614:ReadWriteDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20200918:ReadWriteDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20210101:ReadWriteDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20210827:ReadWriteDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20220201:ReadWriteDatabase"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -129,7 +129,7 @@ namespace Pulumi.AzureNative.Kusto.V20190907
         }
     }
 
-    public sealed class ReadWriteDatabaseArgs : global::Pulumi.ResourceArgs
+    public sealed class ReadWriteDatabaseArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -177,6 +177,5 @@ namespace Pulumi.AzureNative.Kusto.V20190907
         public ReadWriteDatabaseArgs()
         {
         }
-        public static new ReadWriteDatabaseArgs Empty => new ReadWriteDatabaseArgs();
     }
 }

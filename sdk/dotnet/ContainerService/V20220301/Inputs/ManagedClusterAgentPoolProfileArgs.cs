@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220301.Inputs
     /// <summary>
     /// Profile for the container service agent pool.
     /// </summary>
-    public sealed class ManagedClusterAgentPoolProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedClusterAgentPoolProfileArgs : Pulumi.ResourceArgs
     {
         [Input("availabilityZones")]
         private InputList<string>? _availabilityZones;
@@ -270,6 +270,5 @@ namespace Pulumi.AzureNative.ContainerService.V20220301.Inputs
         public ManagedClusterAgentPoolProfileArgs()
         {
         }
-        public static new ManagedClusterAgentPoolProfileArgs Empty => new ManagedClusterAgentPoolProfileArgs();
     }
 }

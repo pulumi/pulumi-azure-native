@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Kubernetes.V20200101Preview
     /// </summary>
     [Obsolete(@"Version 2020-01-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:kubernetes/v20200101preview:ConnectedCluster")]
-    public partial class ConnectedCluster : global::Pulumi.CustomResource
+    public partial class ConnectedCluster : Pulumi.CustomResource
     {
         /// <summary>
         /// AAD profile of the connected cluster.
@@ -149,11 +149,11 @@ namespace Pulumi.AzureNative.Kubernetes.V20200101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetes:ConnectedCluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20210301:ConnectedCluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20210401preview:ConnectedCluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20211001:ConnectedCluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20220501preview:ConnectedCluster"},
+                    new Pulumi.Alias { Type = "azure-native:kubernetes:ConnectedCluster"},
+                    new Pulumi.Alias { Type = "azure-native:kubernetes/v20210301:ConnectedCluster"},
+                    new Pulumi.Alias { Type = "azure-native:kubernetes/v20210401preview:ConnectedCluster"},
+                    new Pulumi.Alias { Type = "azure-native:kubernetes/v20211001:ConnectedCluster"},
+                    new Pulumi.Alias { Type = "azure-native:kubernetes/v20220501preview:ConnectedCluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -175,7 +175,7 @@ namespace Pulumi.AzureNative.Kubernetes.V20200101Preview
         }
     }
 
-    public sealed class ConnectedClusterArgs : global::Pulumi.ResourceArgs
+    public sealed class ConnectedClusterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// AAD profile of the connected cluster.
@@ -252,6 +252,5 @@ namespace Pulumi.AzureNative.Kubernetes.V20200101Preview
         public ConnectedClusterArgs()
         {
         }
-        public static new ConnectedClusterArgs Empty => new ConnectedClusterArgs();
     }
 }

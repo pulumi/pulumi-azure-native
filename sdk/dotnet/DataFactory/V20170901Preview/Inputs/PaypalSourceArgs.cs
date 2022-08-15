@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity Paypal Service source.
     /// </summary>
-    public sealed class PaypalSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class PaypalSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public PaypalSourceArgs()
         {
         }
-        public static new PaypalSourceArgs Empty => new PaypalSourceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20211015.Inputs
     /// <summary>
     /// the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
     /// </summary>
-    public sealed class IotDpsPropertiesDescriptionArgs : global::Pulumi.ResourceArgs
+    public sealed class IotDpsPropertiesDescriptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Allocation policy to be used by this provisioning service.
@@ -97,6 +97,5 @@ namespace Pulumi.AzureNative.Devices.V20211015.Inputs
         public IotDpsPropertiesDescriptionArgs()
         {
         }
-        public static new IotDpsPropertiesDescriptionArgs Empty => new IotDpsPropertiesDescriptionArgs();
     }
 }

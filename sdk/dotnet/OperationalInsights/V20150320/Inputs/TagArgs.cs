@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20150320.Inputs
     /// <summary>
     /// A tag of a saved search.
     /// </summary>
-    public sealed class TagArgs : global::Pulumi.ResourceArgs
+    public sealed class TagArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The tag name.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.OperationalInsights.V20150320.Inputs
         public TagArgs()
         {
         }
-        public static new TagArgs Empty => new TagArgs();
     }
 }

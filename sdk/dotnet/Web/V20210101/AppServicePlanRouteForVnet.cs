@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20210101
     /// Virtual Network route contract used to pass routing information for a Virtual Network.
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20210101:AppServicePlanRouteForVnet")]
-    public partial class AppServicePlanRouteForVnet : global::Pulumi.CustomResource
+    public partial class AppServicePlanRouteForVnet : Pulumi.CustomResource
     {
         /// <summary>
         /// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
@@ -81,19 +81,19 @@ namespace Pulumi.AzureNative.Web.V20210101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:AppServicePlanRouteForVnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:AppServicePlanRouteForVnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20160901:AppServicePlanRouteForVnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:AppServicePlanRouteForVnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:AppServicePlanRouteForVnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:AppServicePlanRouteForVnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:AppServicePlanRouteForVnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:AppServicePlanRouteForVnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:AppServicePlanRouteForVnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:AppServicePlanRouteForVnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:AppServicePlanRouteForVnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:AppServicePlanRouteForVnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:AppServicePlanRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web:AppServicePlanRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:AppServicePlanRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160901:AppServicePlanRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:AppServicePlanRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:AppServicePlanRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:AppServicePlanRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:AppServicePlanRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:AppServicePlanRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:AppServicePlanRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:AppServicePlanRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:AppServicePlanRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:AppServicePlanRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:AppServicePlanRouteForVnet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNative.Web.V20210101
         }
     }
 
-    public sealed class AppServicePlanRouteForVnetArgs : global::Pulumi.ResourceArgs
+    public sealed class AppServicePlanRouteForVnetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
@@ -173,6 +173,5 @@ namespace Pulumi.AzureNative.Web.V20210101
         public AppServicePlanRouteForVnetArgs()
         {
         }
-        public static new AppServicePlanRouteForVnetArgs Empty => new AppServicePlanRouteForVnetArgs();
     }
 }

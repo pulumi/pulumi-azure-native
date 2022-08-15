@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
-    public sealed class X12MessageIdentifierArgs : global::Pulumi.ResourceArgs
+    public sealed class X12MessageIdentifierArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The message id.
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
         public X12MessageIdentifierArgs()
         {
         }
-        public static new X12MessageIdentifierArgs Empty => new X12MessageIdentifierArgs();
     }
 }

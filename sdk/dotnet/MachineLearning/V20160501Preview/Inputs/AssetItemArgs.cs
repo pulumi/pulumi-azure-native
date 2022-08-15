@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearning.V20160501Preview.Inputs
     /// <summary>
     /// Information about an asset associated with the web service.
     /// </summary>
-    public sealed class AssetItemArgs : global::Pulumi.ResourceArgs
+    public sealed class AssetItemArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Asset's Id.
@@ -90,6 +90,5 @@ namespace Pulumi.AzureNative.MachineLearning.V20160501Preview.Inputs
         public AssetItemArgs()
         {
         }
-        public static new AssetItemArgs Empty => new AssetItemArgs();
     }
 }

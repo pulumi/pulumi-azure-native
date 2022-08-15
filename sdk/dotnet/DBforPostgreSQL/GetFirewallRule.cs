@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
 
-    public sealed class GetFirewallRuleArgs : global::Pulumi.InvokeArgs
+    public sealed class GetFirewallRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the server firewall rule.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public GetFirewallRuleArgs()
         {
         }
-        public static new GetFirewallRuleArgs Empty => new GetFirewallRuleArgs();
     }
 
-    public sealed class GetFirewallRuleInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetFirewallRuleInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the server firewall rule.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public GetFirewallRuleInvokeArgs()
         {
         }
-        public static new GetFirewallRuleInvokeArgs Empty => new GetFirewallRuleInvokeArgs();
     }
 
 

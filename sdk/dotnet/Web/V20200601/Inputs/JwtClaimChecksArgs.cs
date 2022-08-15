@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20200601.Inputs
 {
 
-    public sealed class JwtClaimChecksArgs : global::Pulumi.ResourceArgs
+    public sealed class JwtClaimChecksArgs : Pulumi.ResourceArgs
     {
         [Input("allowedClientApplications")]
         private InputList<string>? _allowedClientApplications;
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.Web.V20200601.Inputs
         public JwtClaimChecksArgs()
         {
         }
-        public static new JwtClaimChecksArgs Empty => new JwtClaimChecksArgs();
     }
 }

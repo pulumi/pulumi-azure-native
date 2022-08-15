@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview.Inputs
     /// <summary>
     /// The SKU (tier) of a workspace.
     /// </summary>
-    public sealed class SkuArgs : global::Pulumi.ResourceArgs
+    public sealed class SkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the SKU.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview.Inputs
         public SkuArgs()
         {
         }
-        public static new SkuArgs Empty => new SkuArgs();
     }
 }

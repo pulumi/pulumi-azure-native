@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Inputs
 {
 
-    public sealed class ResourceProviderManifestPropertiesFeaturesRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class ResourceProviderManifestPropertiesFeaturesRuleArgs : Pulumi.ResourceArgs
     {
         [Input("requiredFeaturesPolicy", required: true)]
         public InputUnion<string, Pulumi.AzureNative.ProviderHub.FeaturesPolicy> RequiredFeaturesPolicy { get; set; } = null!;
@@ -18,6 +18,5 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
         public ResourceProviderManifestPropertiesFeaturesRuleArgs()
         {
         }
-        public static new ResourceProviderManifestPropertiesFeaturesRuleArgs Empty => new ResourceProviderManifestPropertiesFeaturesRuleArgs();
     }
 }

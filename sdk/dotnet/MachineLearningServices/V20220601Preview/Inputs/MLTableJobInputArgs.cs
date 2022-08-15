@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
 {
 
-    public sealed class MLTableJobInputArgs : global::Pulumi.ResourceArgs
+    public sealed class MLTableJobInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description for the input.
@@ -41,6 +41,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         {
             Mode = "ReadOnlyMount";
         }
-        public static new MLTableJobInputArgs Empty => new MLTableJobInputArgs();
     }
 }

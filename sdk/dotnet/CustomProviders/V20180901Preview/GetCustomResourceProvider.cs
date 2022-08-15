@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.CustomProviders.V20180901Preview
     }
 
 
-    public sealed class GetCustomResourceProviderArgs : global::Pulumi.InvokeArgs
+    public sealed class GetCustomResourceProviderArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.CustomProviders.V20180901Preview
         public GetCustomResourceProviderArgs()
         {
         }
-        public static new GetCustomResourceProviderArgs Empty => new GetCustomResourceProviderArgs();
     }
 
-    public sealed class GetCustomResourceProviderInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetCustomResourceProviderInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.CustomProviders.V20180901Preview
         public GetCustomResourceProviderInvokeArgs()
         {
         }
-        public static new GetCustomResourceProviderInvokeArgs Empty => new GetCustomResourceProviderInvokeArgs();
     }
 
 

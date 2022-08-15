@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataShare
     /// API Version: 2020-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare:Share")]
-    public partial class Share : global::Pulumi.CustomResource
+    public partial class Share : Pulumi.CustomResource
     {
         /// <summary>
         /// Time at which the share was created.
@@ -101,11 +101,11 @@ namespace Pulumi.AzureNative.DataShare
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:Share"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:Share"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:Share"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:Share"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:Share"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:Share"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:Share"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20200901:Share"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:Share"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20210801:Share"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -127,7 +127,7 @@ namespace Pulumi.AzureNative.DataShare
         }
     }
 
-    public sealed class ShareArgs : global::Pulumi.ResourceArgs
+    public sealed class ShareArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -168,6 +168,5 @@ namespace Pulumi.AzureNative.DataShare
         public ShareArgs()
         {
         }
-        public static new ShareArgs Empty => new ShareArgs();
     }
 }

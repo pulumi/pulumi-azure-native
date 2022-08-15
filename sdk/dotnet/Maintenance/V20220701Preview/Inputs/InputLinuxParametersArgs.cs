@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Maintenance.V20220701Preview.Inputs
     /// <summary>
     /// Input properties for patching a Linux machine.
     /// </summary>
-    public sealed class InputLinuxParametersArgs : global::Pulumi.ResourceArgs
+    public sealed class InputLinuxParametersArgs : Pulumi.ResourceArgs
     {
         [Input("classificationsToInclude")]
         private InputList<string>? _classificationsToInclude;
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.Maintenance.V20220701Preview.Inputs
         public InputLinuxParametersArgs()
         {
         }
-        public static new InputLinuxParametersArgs Empty => new InputLinuxParametersArgs();
     }
 }

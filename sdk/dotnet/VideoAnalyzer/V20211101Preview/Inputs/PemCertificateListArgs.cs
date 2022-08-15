@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
     /// <summary>
     /// A list of PEM formatted certificates.
     /// </summary>
-    public sealed class PemCertificateListArgs : global::Pulumi.ResourceArgs
+    public sealed class PemCertificateListArgs : Pulumi.ResourceArgs
     {
         [Input("certificates", required: true)]
         private InputList<string>? _certificates;
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
         public PemCertificateListArgs()
         {
         }
-        public static new PemCertificateListArgs Empty => new PemCertificateListArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ScVmm
     }
 
 
-    public sealed class GetAvailabilitySetArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAvailabilitySetArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the AvailabilitySet.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.ScVmm
         public GetAvailabilitySetArgs()
         {
         }
-        public static new GetAvailabilitySetArgs Empty => new GetAvailabilitySetArgs();
     }
 
-    public sealed class GetAvailabilitySetInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAvailabilitySetInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the AvailabilitySet.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.ScVmm
         public GetAvailabilitySetInvokeArgs()
         {
         }
-        public static new GetAvailabilitySetInvokeArgs Empty => new GetAvailabilitySetInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.Inputs
     /// <summary>
     /// Details of the customer managed key associated with the workspace
     /// </summary>
-    public sealed class WorkspaceKeyDetailsArgs : global::Pulumi.ResourceArgs
+    public sealed class WorkspaceKeyDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Workspace Key sub-resource key vault url
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Synapse.Inputs
         public WorkspaceKeyDetailsArgs()
         {
         }
-        public static new WorkspaceKeyDetailsArgs Empty => new WorkspaceKeyDetailsArgs();
     }
 }

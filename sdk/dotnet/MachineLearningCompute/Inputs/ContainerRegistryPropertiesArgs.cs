@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningCompute.Inputs
     /// <summary>
     /// Properties of Azure Container Registry.
     /// </summary>
-    public sealed class ContainerRegistryPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ContainerRegistryPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARM resource ID of the Azure Container Registry used to store Docker images for web services in the cluster. If not provided one will be created. This cannot be changed once the cluster is created.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.MachineLearningCompute.Inputs
         public ContainerRegistryPropertiesArgs()
         {
         }
-        public static new ContainerRegistryPropertiesArgs Empty => new ContainerRegistryPropertiesArgs();
     }
 }

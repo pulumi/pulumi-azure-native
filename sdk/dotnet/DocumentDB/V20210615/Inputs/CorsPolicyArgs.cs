@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210615.Inputs
     /// <summary>
     /// The CORS policy for the Cosmos DB database account.
     /// </summary>
-    public sealed class CorsPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class CorsPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The request headers that the origin domain may specify on the CORS request.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20210615.Inputs
         public CorsPolicyArgs()
         {
         }
-        public static new CorsPolicyArgs Empty => new CorsPolicyArgs();
     }
 }

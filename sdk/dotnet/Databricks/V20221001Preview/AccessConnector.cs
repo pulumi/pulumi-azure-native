@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Databricks.V20221001Preview
     /// Information about azure databricks accessConnector.
     /// </summary>
     [AzureNativeResourceType("azure-native:databricks/v20221001preview:AccessConnector")]
-    public partial class AccessConnector : global::Pulumi.CustomResource
+    public partial class AccessConnector : Pulumi.CustomResource
     {
         /// <summary>
         /// Managed service identity (system assigned and/or user assigned identities)
@@ -76,8 +76,8 @@ namespace Pulumi.AzureNative.Databricks.V20221001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:databricks:AccessConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20220401preview:AccessConnector"},
+                    new Pulumi.Alias { Type = "azure-native:databricks:AccessConnector"},
+                    new Pulumi.Alias { Type = "azure-native:databricks/v20220401preview:AccessConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.Databricks.V20221001Preview
         }
     }
 
-    public sealed class AccessConnectorArgs : global::Pulumi.ResourceArgs
+    public sealed class AccessConnectorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the azure databricks accessConnector.
@@ -140,6 +140,5 @@ namespace Pulumi.AzureNative.Databricks.V20221001Preview
         public AccessConnectorArgs()
         {
         }
-        public static new AccessConnectorArgs Empty => new AccessConnectorArgs();
     }
 }

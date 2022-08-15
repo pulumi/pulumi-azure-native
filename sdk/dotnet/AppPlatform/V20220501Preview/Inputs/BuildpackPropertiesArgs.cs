@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
     /// <summary>
     /// Buildpack properties payload
     /// </summary>
-    public sealed class BuildpackPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class BuildpackPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Id of the buildpack
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
         public BuildpackPropertiesArgs()
         {
         }
-        public static new BuildpackPropertiesArgs Empty => new BuildpackPropertiesArgs();
     }
 }

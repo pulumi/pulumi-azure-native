@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210301.Inputs
     /// <summary>
     /// Identity provider input.
     /// </summary>
-    public sealed class IdentityProviderInputArgs : global::Pulumi.ResourceArgs
+    public sealed class IdentityProviderInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The base authority for Azure Active Directory authentication.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210301.Inputs
         public IdentityProviderInputArgs()
         {
         }
-        public static new IdentityProviderInputArgs Empty => new IdentityProviderInputArgs();
     }
 }

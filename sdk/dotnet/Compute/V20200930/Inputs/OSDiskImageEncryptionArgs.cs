@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20200930.Inputs
     /// <summary>
     /// Contains encryption settings for an OS disk image.
     /// </summary>
-    public sealed class OSDiskImageEncryptionArgs : global::Pulumi.ResourceArgs
+    public sealed class OSDiskImageEncryptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A relative URI containing the resource ID of the disk encryption set.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Compute.V20200930.Inputs
         public OSDiskImageEncryptionArgs()
         {
         }
-        public static new OSDiskImageEncryptionArgs Empty => new OSDiskImageEncryptionArgs();
     }
 }

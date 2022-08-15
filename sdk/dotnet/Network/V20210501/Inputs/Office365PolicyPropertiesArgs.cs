@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210501.Inputs
     /// <summary>
     /// Network Virtual Appliance Sku Properties.
     /// </summary>
-    public sealed class Office365PolicyPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class Office365PolicyPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Office 365 breakout categories.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Network.V20210501.Inputs
         public Office365PolicyPropertiesArgs()
         {
         }
-        public static new Office365PolicyPropertiesArgs Empty => new Office365PolicyPropertiesArgs();
     }
 }

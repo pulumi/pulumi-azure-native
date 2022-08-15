@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901
     /// </summary>
     [Obsolete(@"Version 2020-09-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:databoxedge/v20200901:StorageAccount")]
-    public partial class StorageAccount : global::Pulumi.CustomResource
+    public partial class StorageAccount : Pulumi.CustomResource
     {
         /// <summary>
         /// BlobEndpoint of Storage Account
@@ -95,17 +95,17 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:StorageAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:StorageAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:StorageAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:StorageAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:StorageAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:StorageAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:StorageAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:StorageAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:StorageAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:StorageAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:StorageAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -127,7 +127,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901
         }
     }
 
-    public sealed class StorageAccountArgs : global::Pulumi.ResourceArgs
+    public sealed class StorageAccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Data policy of the storage Account.
@@ -174,6 +174,5 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901
         public StorageAccountArgs()
         {
         }
-        public static new StorageAccountArgs Empty => new StorageAccountArgs();
     }
 }

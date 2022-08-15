@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Sql.V20140401
     }
 
 
-    public sealed class GetDatabaseThreatDetectionPolicyArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDatabaseThreatDetectionPolicyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the database for which database Threat Detection policy is defined.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.Sql.V20140401
         public GetDatabaseThreatDetectionPolicyArgs()
         {
         }
-        public static new GetDatabaseThreatDetectionPolicyArgs Empty => new GetDatabaseThreatDetectionPolicyArgs();
     }
 
-    public sealed class GetDatabaseThreatDetectionPolicyInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDatabaseThreatDetectionPolicyInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the database for which database Threat Detection policy is defined.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.Sql.V20140401
         public GetDatabaseThreatDetectionPolicyInvokeArgs()
         {
         }
-        public static new GetDatabaseThreatDetectionPolicyInvokeArgs Empty => new GetDatabaseThreatDetectionPolicyInvokeArgs();
     }
 
 

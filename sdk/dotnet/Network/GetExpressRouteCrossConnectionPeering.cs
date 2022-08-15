@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network
     }
 
 
-    public sealed class GetExpressRouteCrossConnectionPeeringArgs : global::Pulumi.InvokeArgs
+    public sealed class GetExpressRouteCrossConnectionPeeringArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the ExpressRouteCrossConnection.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Network
         public GetExpressRouteCrossConnectionPeeringArgs()
         {
         }
-        public static new GetExpressRouteCrossConnectionPeeringArgs Empty => new GetExpressRouteCrossConnectionPeeringArgs();
     }
 
-    public sealed class GetExpressRouteCrossConnectionPeeringInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetExpressRouteCrossConnectionPeeringInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the ExpressRouteCrossConnection.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Network
         public GetExpressRouteCrossConnectionPeeringInvokeArgs()
         {
         }
-        public static new GetExpressRouteCrossConnectionPeeringInvokeArgs Empty => new GetExpressRouteCrossConnectionPeeringInvokeArgs();
     }
 
 

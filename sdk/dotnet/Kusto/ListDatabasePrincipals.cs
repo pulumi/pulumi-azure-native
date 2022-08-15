@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Kusto
     }
 
 
-    public sealed class ListDatabasePrincipalsArgs : global::Pulumi.InvokeArgs
+    public sealed class ListDatabasePrincipalsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Kusto
         public ListDatabasePrincipalsArgs()
         {
         }
-        public static new ListDatabasePrincipalsArgs Empty => new ListDatabasePrincipalsArgs();
     }
 
-    public sealed class ListDatabasePrincipalsInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListDatabasePrincipalsInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Kusto
         public ListDatabasePrincipalsInvokeArgs()
         {
         }
-        public static new ListDatabasePrincipalsInvokeArgs Empty => new ListDatabasePrincipalsInvokeArgs();
     }
 
 

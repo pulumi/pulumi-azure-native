@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20190101Preview
     /// The security automation resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:security/v20190101preview:Automation")]
-    public partial class Automation : global::Pulumi.CustomResource
+    public partial class Automation : Pulumi.CustomResource
     {
         /// <summary>
         /// A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.Security.V20190101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:security:Automation"},
+                    new Pulumi.Alias { Type = "azure-native:security:Automation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNative.Security.V20190101Preview
         }
     }
 
-    public sealed class AutomationArgs : global::Pulumi.ResourceArgs
+    public sealed class AutomationArgs : Pulumi.ResourceArgs
     {
         [Input("actions")]
         private InputList<object>? _actions;
@@ -217,6 +217,5 @@ namespace Pulumi.AzureNative.Security.V20190101Preview
         public AutomationArgs()
         {
         }
-        public static new AutomationArgs Empty => new AutomationArgs();
     }
 }

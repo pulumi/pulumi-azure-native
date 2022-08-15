@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.EventGrid
     /// API Version: 2020-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:PartnerTopicEventSubscription")]
-    public partial class PartnerTopicEventSubscription : global::Pulumi.CustomResource
+    public partial class PartnerTopicEventSubscription : Pulumi.CustomResource
     {
         /// <summary>
         /// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
@@ -129,11 +129,11 @@ namespace Pulumi.AzureNative.EventGrid
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:PartnerTopicEventSubscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:PartnerTopicEventSubscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:PartnerTopicEventSubscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:PartnerTopicEventSubscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:PartnerTopicEventSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:PartnerTopicEventSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:PartnerTopicEventSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:PartnerTopicEventSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:PartnerTopicEventSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:PartnerTopicEventSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -155,7 +155,7 @@ namespace Pulumi.AzureNative.EventGrid
         }
     }
 
-    public sealed class PartnerTopicEventSubscriptionArgs : global::Pulumi.ResourceArgs
+    public sealed class PartnerTopicEventSubscriptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
@@ -243,6 +243,5 @@ namespace Pulumi.AzureNative.EventGrid
         {
             EventDeliverySchema = "EventGridSchema";
         }
-        public static new PartnerTopicEventSubscriptionArgs Empty => new PartnerTopicEventSubscriptionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
     /// <summary>
     /// Discovery Details.
     /// </summary>
-    public sealed class DiscoveryConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class DiscoveryConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The virtual machine ID of the Central Server.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
         public DiscoveryConfigurationArgs()
         {
         }
-        public static new DiscoveryConfigurationArgs Empty => new DiscoveryConfigurationArgs();
     }
 }

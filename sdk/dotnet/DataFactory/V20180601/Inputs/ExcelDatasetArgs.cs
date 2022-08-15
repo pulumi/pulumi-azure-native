@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Excel dataset.
     /// </summary>
-    public sealed class ExcelDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class ExcelDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -121,6 +121,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public ExcelDatasetArgs()
         {
         }
-        public static new ExcelDatasetArgs Empty => new ExcelDatasetArgs();
     }
 }

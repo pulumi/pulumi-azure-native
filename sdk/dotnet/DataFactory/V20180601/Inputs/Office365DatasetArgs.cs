@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// The Office365 account.
     /// </summary>
-    public sealed class Office365DatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class Office365DatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -91,6 +91,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Office365DatasetArgs()
         {
         }
-        public static new Office365DatasetArgs Empty => new Office365DatasetArgs();
     }
 }

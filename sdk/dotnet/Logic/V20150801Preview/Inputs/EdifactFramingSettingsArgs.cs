@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
-    public sealed class EdifactFramingSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class EdifactFramingSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The character encoding.
@@ -81,6 +81,5 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
         public EdifactFramingSettingsArgs()
         {
         }
-        public static new EdifactFramingSettingsArgs Empty => new EdifactFramingSettingsArgs();
     }
 }

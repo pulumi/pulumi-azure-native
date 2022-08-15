@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20220301.Inputs
     /// <summary>
     /// Dapr component configuration
     /// </summary>
-    public sealed class DaprComponentArgs : global::Pulumi.ResourceArgs
+    public sealed class DaprComponentArgs : Pulumi.ResourceArgs
     {
         [Input("metadata")]
         private InputList<Inputs.DaprMetadataArgs>? _metadata;
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.Web.V20220301.Inputs
         public DaprComponentArgs()
         {
         }
-        public static new DaprComponentArgs Empty => new DaprComponentArgs();
     }
 }

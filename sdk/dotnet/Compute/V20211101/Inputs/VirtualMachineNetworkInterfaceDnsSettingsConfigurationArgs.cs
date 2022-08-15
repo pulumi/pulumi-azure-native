@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20211101.Inputs
     /// <summary>
     /// Describes a virtual machines network configuration's DNS settings.
     /// </summary>
-    public sealed class VirtualMachineNetworkInterfaceDnsSettingsConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualMachineNetworkInterfaceDnsSettingsConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("dnsServers")]
         private InputList<string>? _dnsServers;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Compute.V20211101.Inputs
         public VirtualMachineNetworkInterfaceDnsSettingsConfigurationArgs()
         {
         }
-        public static new VirtualMachineNetworkInterfaceDnsSettingsConfigurationArgs Empty => new VirtualMachineNetworkInterfaceDnsSettingsConfigurationArgs();
     }
 }

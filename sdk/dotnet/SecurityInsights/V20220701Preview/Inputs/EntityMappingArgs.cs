@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview.Inputs
     /// <summary>
     /// Single entity mapping for the alert rule
     /// </summary>
-    public sealed class EntityMappingArgs : global::Pulumi.ResourceArgs
+    public sealed class EntityMappingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The V3 type of the mapped entity
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview.Inputs
         public EntityMappingArgs()
         {
         }
-        public static new EntityMappingArgs Empty => new EntityMappingArgs();
     }
 }

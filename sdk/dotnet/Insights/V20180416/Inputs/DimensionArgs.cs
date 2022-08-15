@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20180416.Inputs
     /// <summary>
     /// Specifies the criteria for converting log to metric.
     /// </summary>
-    public sealed class DimensionArgs : global::Pulumi.ResourceArgs
+    public sealed class DimensionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the dimension
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Insights.V20180416.Inputs
         public DimensionArgs()
         {
         }
-        public static new DimensionArgs Empty => new DimensionArgs();
     }
 }

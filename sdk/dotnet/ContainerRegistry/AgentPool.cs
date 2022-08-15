@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
     /// API Version: 2019-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:AgentPool")]
-    public partial class AgentPool : global::Pulumi.CustomResource
+    public partial class AgentPool : Pulumi.CustomResource
     {
         /// <summary>
         /// The count of agent machine
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20190601preview:AgentPool"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20190601preview:AgentPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         }
     }
 
-    public sealed class AgentPoolArgs : global::Pulumi.ResourceArgs
+    public sealed class AgentPoolArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the agent pool.
@@ -189,6 +189,5 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public AgentPoolArgs()
         {
         }
-        public static new AgentPoolArgs Empty => new AgentPoolArgs();
     }
 }

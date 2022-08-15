@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview.Inputs
     /// <summary>
     /// Support information for the content item.
     /// </summary>
-    public sealed class MetadataSupportArgs : global::Pulumi.ResourceArgs
+    public sealed class MetadataSupportArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Email of support contact
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview.Inputs
         public MetadataSupportArgs()
         {
         }
-        public static new MetadataSupportArgs Empty => new MetadataSupportArgs();
     }
 }

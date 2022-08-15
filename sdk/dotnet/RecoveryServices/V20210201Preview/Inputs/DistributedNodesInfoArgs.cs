@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210201Preview.Inputs
     /// <summary>
     /// This is used to represent the various nodes of the distributed container.
     /// </summary>
-    public sealed class DistributedNodesInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class DistributedNodesInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the node under a distributed container.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210201Preview.Inputs
         public DistributedNodesInfoArgs()
         {
         }
-        public static new DistributedNodesInfoArgs Empty => new DistributedNodesInfoArgs();
     }
 }

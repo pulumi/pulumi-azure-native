@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Authorization
     }
 
 
-    public sealed class GetClientTokenArgs : global::Pulumi.InvokeArgs
+    public sealed class GetClientTokenArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Optional authentication endpoint. Defaults to the endpoint of Azure Resource Manager.
@@ -36,10 +36,9 @@ namespace Pulumi.AzureNative.Authorization
         public GetClientTokenArgs()
         {
         }
-        public static new GetClientTokenArgs Empty => new GetClientTokenArgs();
     }
 
-    public sealed class GetClientTokenInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetClientTokenInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Optional authentication endpoint. Defaults to the endpoint of Azure Resource Manager.
@@ -50,7 +49,6 @@ namespace Pulumi.AzureNative.Authorization
         public GetClientTokenInvokeArgs()
         {
         }
-        public static new GetClientTokenInvokeArgs Empty => new GetClientTokenInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210201.Inputs
     /// <summary>
     /// The sku of this Bastion Host.
     /// </summary>
-    public sealed class SkuArgs : global::Pulumi.ResourceArgs
+    public sealed class SkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of this Bastion Host.
@@ -25,6 +25,5 @@ namespace Pulumi.AzureNative.Network.V20210201.Inputs
         {
             Name = "Standard";
         }
-        public static new SkuArgs Empty => new SkuArgs();
     }
 }

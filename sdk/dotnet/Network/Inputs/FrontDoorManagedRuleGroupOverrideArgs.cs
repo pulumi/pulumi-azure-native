@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.Inputs
     /// <summary>
     /// Defines a managed rule group override setting.
     /// </summary>
-    public sealed class FrontDoorManagedRuleGroupOverrideArgs : global::Pulumi.ResourceArgs
+    public sealed class FrontDoorManagedRuleGroupOverrideArgs : Pulumi.ResourceArgs
     {
         [Input("exclusions")]
         private InputList<Inputs.ManagedRuleExclusionArgs>? _exclusions;
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.Network.Inputs
         public FrontDoorManagedRuleGroupOverrideArgs()
         {
         }
-        public static new FrontDoorManagedRuleGroupOverrideArgs Empty => new FrontDoorManagedRuleGroupOverrideArgs();
     }
 }

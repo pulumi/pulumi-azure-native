@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Purview.V20210701.Inputs
     /// <summary>
     /// A private endpoint class.
     /// </summary>
-    public sealed class PrivateEndpointArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The private endpoint identifier.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Purview.V20210701.Inputs
         public PrivateEndpointArgs()
         {
         }
-        public static new PrivateEndpointArgs Empty => new PrivateEndpointArgs();
     }
 }

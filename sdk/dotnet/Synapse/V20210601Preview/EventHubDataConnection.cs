@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
     /// Class representing an event hub data connection.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse/v20210601preview:EventHubDataConnection")]
-    public partial class EventHubDataConnection : global::Pulumi.CustomResource
+    public partial class EventHubDataConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// The event hub messages compression type
@@ -132,8 +132,8 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:synapse:EventHubDataConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:EventHubDataConnection"},
+                    new Pulumi.Alias { Type = "azure-native:synapse:EventHubDataConnection"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:EventHubDataConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -155,7 +155,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         }
     }
 
-    public sealed class EventHubDataConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class EventHubDataConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The event hub messages compression type
@@ -257,6 +257,5 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         public EventHubDataConnectionArgs()
         {
         }
-        public static new EventHubDataConnectionArgs Empty => new EventHubDataConnectionArgs();
     }
 }

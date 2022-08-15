@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
     /// ApiRelease details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20211201preview:ApiRelease")]
-    public partial class ApiRelease : global::Pulumi.CustomResource
+    public partial class ApiRelease : Pulumi.CustomResource
     {
         /// <summary>
         /// Identifier of the API the release belongs to.
@@ -76,18 +76,18 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:ApiRelease"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiRelease"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiRelease"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiRelease"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiRelease"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiRelease"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiRelease"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiRelease"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ApiRelease"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:ApiRelease"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:ApiRelease"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ApiRelease"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:ApiRelease"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiRelease"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiRelease"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiRelease"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiRelease"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiRelease"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiRelease"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiRelease"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ApiRelease"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:ApiRelease"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:ApiRelease"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ApiRelease"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -109,7 +109,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
         }
     }
 
-    public sealed class ApiReleaseArgs : global::Pulumi.ResourceArgs
+    public sealed class ApiReleaseArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identifier of the API the release belongs to.
@@ -144,6 +144,5 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
         public ApiReleaseArgs()
         {
         }
-        public static new ApiReleaseArgs Empty => new ApiReleaseArgs();
     }
 }

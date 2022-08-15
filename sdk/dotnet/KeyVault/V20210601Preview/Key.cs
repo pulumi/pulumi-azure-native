@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KeyVault.V20210601Preview
     /// The key resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:keyvault/v20210601preview:Key")]
-    public partial class Key : global::Pulumi.CustomResource
+    public partial class Key : Pulumi.CustomResource
     {
         /// <summary>
         /// The attributes of the key.
@@ -115,13 +115,13 @@ namespace Pulumi.AzureNative.KeyVault.V20210601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault:Key"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20190901:Key"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20200401preview:Key"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20210401preview:Key"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20211001:Key"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20211101preview:Key"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20220701:Key"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault:Key"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20190901:Key"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20200401preview:Key"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20210401preview:Key"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20211001:Key"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20211101preview:Key"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20220701:Key"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -143,7 +143,7 @@ namespace Pulumi.AzureNative.KeyVault.V20210601Preview
         }
     }
 
-    public sealed class KeyArgs : global::Pulumi.ResourceArgs
+    public sealed class KeyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the key to be created.
@@ -184,6 +184,5 @@ namespace Pulumi.AzureNative.KeyVault.V20210601Preview
         public KeyArgs()
         {
         }
-        public static new KeyArgs Empty => new KeyArgs();
     }
 }

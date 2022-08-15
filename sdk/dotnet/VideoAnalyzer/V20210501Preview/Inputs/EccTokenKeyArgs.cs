@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview.Inputs
     /// <summary>
     /// Required validation properties for tokens generated with Elliptical Curve algorithm.
     /// </summary>
-    public sealed class EccTokenKeyArgs : global::Pulumi.ResourceArgs
+    public sealed class EccTokenKeyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Elliptical curve algorithm to be used: ES256, ES384 or ES512.
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview.Inputs
         public EccTokenKeyArgs()
         {
         }
-        public static new EccTokenKeyArgs Empty => new EccTokenKeyArgs();
     }
 }

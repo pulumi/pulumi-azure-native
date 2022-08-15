@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Search.V20210401Preview.Inputs
     /// <summary>
     /// Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
     /// </summary>
-    public sealed class PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of any extra actions that may be required.
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.Search.V20210401Preview.Inputs
         {
             ActionsRequired = "None";
         }
-        public static new PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs Empty => new PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs();
     }
 }

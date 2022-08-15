@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20150801Preview.Inputs
     /// <summary>
     /// Custom logging setting value
     /// </summary>
-    public sealed class CustomLoginSettingValueArgs : global::Pulumi.ResourceArgs
+    public sealed class CustomLoginSettingValueArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource Id
@@ -66,6 +66,5 @@ namespace Pulumi.AzureNative.Web.V20150801Preview.Inputs
         public CustomLoginSettingValueArgs()
         {
         }
-        public static new CustomLoginSettingValueArgs Empty => new CustomLoginSettingValueArgs();
     }
 }

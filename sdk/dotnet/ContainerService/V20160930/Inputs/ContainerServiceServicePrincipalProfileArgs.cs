@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20160930.Inputs
     /// <summary>
     /// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
     /// </summary>
-    public sealed class ContainerServiceServicePrincipalProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class ContainerServiceServicePrincipalProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID for the service principal.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ContainerService.V20160930.Inputs
         public ContainerServiceServicePrincipalProfileArgs()
         {
         }
-        public static new ContainerServiceServicePrincipalProfileArgs Empty => new ContainerServiceServicePrincipalProfileArgs();
     }
 }

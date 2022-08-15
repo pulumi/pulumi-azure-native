@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview.Inputs
     /// <summary>
     /// Describes an EventGrid Resource Sku.
     /// </summary>
-    public sealed class ResourceSkuArgs : global::Pulumi.ResourceArgs
+    public sealed class ResourceSkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Sku name of the resource. The possible values are: Basic or Premium.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview.Inputs
         public ResourceSkuArgs()
         {
         }
-        public static new ResourceSkuArgs Empty => new ResourceSkuArgs();
     }
 }

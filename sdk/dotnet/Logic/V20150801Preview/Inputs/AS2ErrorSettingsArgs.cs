@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
-    public sealed class AS2ErrorSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class AS2ErrorSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value indicating whether to resend message If MDN is not received.
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
         public AS2ErrorSettingsArgs()
         {
         }
-        public static new AS2ErrorSettingsArgs Empty => new AS2ErrorSettingsArgs();
     }
 }

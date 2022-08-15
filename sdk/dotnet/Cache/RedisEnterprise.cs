@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Cache
     /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:cache:RedisEnterprise")]
-    public partial class RedisEnterprise : global::Pulumi.CustomResource
+    public partial class RedisEnterprise : Pulumi.CustomResource
     {
         /// <summary>
         /// DNS name of the cluster endpoint
@@ -113,11 +113,11 @@ namespace Pulumi.AzureNative.Cache
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20201001preview:RedisEnterprise"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20210201preview:RedisEnterprise"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20210301:RedisEnterprise"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20210801:RedisEnterprise"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20220101:RedisEnterprise"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20201001preview:RedisEnterprise"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20210201preview:RedisEnterprise"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20210301:RedisEnterprise"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20210801:RedisEnterprise"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20220101:RedisEnterprise"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -139,7 +139,7 @@ namespace Pulumi.AzureNative.Cache
         }
     }
 
-    public sealed class RedisEnterpriseArgs : global::Pulumi.ResourceArgs
+    public sealed class RedisEnterpriseArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the RedisEnterprise cluster.
@@ -198,6 +198,5 @@ namespace Pulumi.AzureNative.Cache
         public RedisEnterpriseArgs()
         {
         }
-        public static new RedisEnterpriseArgs Empty => new RedisEnterpriseArgs();
     }
 }

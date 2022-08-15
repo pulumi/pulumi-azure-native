@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     }
 
 
-    public sealed class GetFileServerArgs : global::Pulumi.InvokeArgs
+    public sealed class GetFileServerArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name.
@@ -55,10 +55,9 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public GetFileServerArgs()
         {
         }
-        public static new GetFileServerArgs Empty => new GetFileServerArgs();
     }
 
-    public sealed class GetFileServerInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetFileServerInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name.
@@ -87,7 +86,6 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public GetFileServerInvokeArgs()
         {
         }
-        public static new GetFileServerInvokeArgs Empty => new GetFileServerInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NetApp.V20200601.Inputs
     /// <summary>
     /// Volume Export Policy Rule
     /// </summary>
-    public sealed class ExportPolicyRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class ExportPolicyRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
@@ -111,6 +111,5 @@ namespace Pulumi.AzureNative.NetApp.V20200601.Inputs
             Kerberos5pReadWrite = false;
             UnixReadOnly = false;
         }
-        public static new ExportPolicyRuleArgs Empty => new ExportPolicyRuleArgs();
     }
 }

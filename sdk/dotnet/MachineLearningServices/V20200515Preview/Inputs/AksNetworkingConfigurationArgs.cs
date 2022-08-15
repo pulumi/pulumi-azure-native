@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200515Preview.Inputs
     /// <summary>
     /// Advance configuration for AKS networking
     /// </summary>
-    public sealed class AksNetworkingConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class AksNetworkingConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200515Preview.Inputs
         public AksNetworkingConfigurationArgs()
         {
         }
-        public static new AksNetworkingConfigurationArgs Empty => new AksNetworkingConfigurationArgs();
     }
 }

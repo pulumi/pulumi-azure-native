@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20170701.Inputs
     /// <summary>
     /// The properties related to an event hub endpoint.
     /// </summary>
-    public sealed class RoutingEventHubPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class RoutingEventHubPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The connection string of the event hub endpoint. 
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Devices.V20170701.Inputs
         public RoutingEventHubPropertiesArgs()
         {
         }
-        public static new RoutingEventHubPropertiesArgs Empty => new RoutingEventHubPropertiesArgs();
     }
 }

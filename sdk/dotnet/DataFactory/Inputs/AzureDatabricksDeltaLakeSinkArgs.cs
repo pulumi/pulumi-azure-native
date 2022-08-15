@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity Azure Databricks Delta Lake sink.
     /// </summary>
-    public sealed class AzureDatabricksDeltaLakeSinkArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureDatabricksDeltaLakeSinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -73,6 +73,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public AzureDatabricksDeltaLakeSinkArgs()
         {
         }
-        public static new AzureDatabricksDeltaLakeSinkArgs Empty => new AzureDatabricksDeltaLakeSinkArgs();
     }
 }

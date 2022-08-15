@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationsManagement.V20151101Preview.Inputs
     /// <summary>
     /// ManagementConfiguration properties supported by the OperationsManagement resource provider.
     /// </summary>
-    public sealed class ManagementConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagementConfigurationPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The applicationId of the appliance for this Management.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.OperationsManagement.V20151101Preview.Inputs
         public ManagementConfigurationPropertiesArgs()
         {
         }
-        public static new ManagementConfigurationPropertiesArgs Empty => new ManagementConfigurationPropertiesArgs();
     }
 }

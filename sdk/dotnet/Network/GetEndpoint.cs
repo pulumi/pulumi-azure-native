@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network
     }
 
 
-    public sealed class GetEndpointArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEndpointArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Traffic Manager endpoint.
@@ -56,10 +56,9 @@ namespace Pulumi.AzureNative.Network
         public GetEndpointArgs()
         {
         }
-        public static new GetEndpointArgs Empty => new GetEndpointArgs();
     }
 
-    public sealed class GetEndpointInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEndpointInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Traffic Manager endpoint.
@@ -88,7 +87,6 @@ namespace Pulumi.AzureNative.Network
         public GetEndpointInvokeArgs()
         {
         }
-        public static new GetEndpointInvokeArgs Empty => new GetEndpointInvokeArgs();
     }
 
 

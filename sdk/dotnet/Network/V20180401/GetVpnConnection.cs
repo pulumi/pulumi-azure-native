@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Network.V20180401
     }
 
 
-    public sealed class GetVpnConnectionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVpnConnectionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the vpn connection.
@@ -49,10 +49,9 @@ namespace Pulumi.AzureNative.Network.V20180401
         public GetVpnConnectionArgs()
         {
         }
-        public static new GetVpnConnectionArgs Empty => new GetVpnConnectionArgs();
     }
 
-    public sealed class GetVpnConnectionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVpnConnectionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the vpn connection.
@@ -75,7 +74,6 @@ namespace Pulumi.AzureNative.Network.V20180401
         public GetVpnConnectionInvokeArgs()
         {
         }
-        public static new GetVpnConnectionInvokeArgs Empty => new GetVpnConnectionInvokeArgs();
     }
 
 

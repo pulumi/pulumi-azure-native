@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220602Preview
     }
 
 
-    public sealed class GetFleetMemberArgs : global::Pulumi.InvokeArgs
+    public sealed class GetFleetMemberArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Fleet member resource.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.ContainerService.V20220602Preview
         public GetFleetMemberArgs()
         {
         }
-        public static new GetFleetMemberArgs Empty => new GetFleetMemberArgs();
     }
 
-    public sealed class GetFleetMemberInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetFleetMemberInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Fleet member resource.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.ContainerService.V20220602Preview
         public GetFleetMemberInvokeArgs()
         {
         }
-        public static new GetFleetMemberInvokeArgs Empty => new GetFleetMemberInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
     /// An Azure blob storage account data set.
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare/v20201001preview:BlobStorageAccountDataSet")]
-    public partial class BlobStorageAccountDataSet : global::Pulumi.CustomResource
+    public partial class BlobStorageAccountDataSet : Pulumi.CustomResource
     {
         /// <summary>
         /// Unique id for identifying a data set resource
@@ -96,11 +96,11 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datashare:BlobStorageAccountDataSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:BlobStorageAccountDataSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:BlobStorageAccountDataSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:BlobStorageAccountDataSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:BlobStorageAccountDataSet"},
+                    new Pulumi.Alias { Type = "azure-native:datashare:BlobStorageAccountDataSet"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:BlobStorageAccountDataSet"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:BlobStorageAccountDataSet"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20200901:BlobStorageAccountDataSet"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20210801:BlobStorageAccountDataSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         }
     }
 
-    public sealed class BlobStorageAccountDataSetArgs : global::Pulumi.ResourceArgs
+    public sealed class BlobStorageAccountDataSetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -176,6 +176,5 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         public BlobStorageAccountDataSetArgs()
         {
         }
-        public static new BlobStorageAccountDataSetArgs Empty => new BlobStorageAccountDataSetArgs();
     }
 }

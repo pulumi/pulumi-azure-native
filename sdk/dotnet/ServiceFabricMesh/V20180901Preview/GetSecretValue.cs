@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
     }
 
 
-    public sealed class GetSecretValueArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSecretValueArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Azure resource group name
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
         public GetSecretValueArgs()
         {
         }
-        public static new GetSecretValueArgs Empty => new GetSecretValueArgs();
     }
 
-    public sealed class GetSecretValueInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSecretValueInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Azure resource group name
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
         public GetSecretValueInvokeArgs()
         {
         }
-        public static new GetSecretValueInvokeArgs Empty => new GetSecretValueInvokeArgs();
     }
 
 

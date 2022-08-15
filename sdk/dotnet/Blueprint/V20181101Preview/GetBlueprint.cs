@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
     }
 
 
-    public sealed class GetBlueprintArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBlueprintArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the blueprint definition.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
         public GetBlueprintArgs()
         {
         }
-        public static new GetBlueprintArgs Empty => new GetBlueprintArgs();
     }
 
-    public sealed class GetBlueprintInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBlueprintInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the blueprint definition.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
         public GetBlueprintInvokeArgs()
         {
         }
-        public static new GetBlueprintInvokeArgs Empty => new GetBlueprintInvokeArgs();
     }
 
 

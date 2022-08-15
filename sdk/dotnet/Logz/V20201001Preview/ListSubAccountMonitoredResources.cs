@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Logz.V20201001Preview
     }
 
 
-    public sealed class ListSubAccountMonitoredResourcesArgs : global::Pulumi.InvokeArgs
+    public sealed class ListSubAccountMonitoredResourcesArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Monitor resource name
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Logz.V20201001Preview
         public ListSubAccountMonitoredResourcesArgs()
         {
         }
-        public static new ListSubAccountMonitoredResourcesArgs Empty => new ListSubAccountMonitoredResourcesArgs();
     }
 
-    public sealed class ListSubAccountMonitoredResourcesInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListSubAccountMonitoredResourcesInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Monitor resource name
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Logz.V20201001Preview
         public ListSubAccountMonitoredResourcesInvokeArgs()
         {
         }
-        public static new ListSubAccountMonitoredResourcesInvokeArgs Empty => new ListSubAccountMonitoredResourcesInvokeArgs();
     }
 
 

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.NetApp.V20220101
     }
 
 
-    public sealed class GetSubvolumeMetadataArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSubvolumeMetadataArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the NetApp account
@@ -60,10 +60,9 @@ namespace Pulumi.AzureNative.NetApp.V20220101
         public GetSubvolumeMetadataArgs()
         {
         }
-        public static new GetSubvolumeMetadataArgs Empty => new GetSubvolumeMetadataArgs();
     }
 
-    public sealed class GetSubvolumeMetadataInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSubvolumeMetadataInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the NetApp account
@@ -98,7 +97,6 @@ namespace Pulumi.AzureNative.NetApp.V20220101
         public GetSubvolumeMetadataInvokeArgs()
         {
         }
-        public static new GetSubvolumeMetadataInvokeArgs Empty => new GetSubvolumeMetadataInvokeArgs();
     }
 
 

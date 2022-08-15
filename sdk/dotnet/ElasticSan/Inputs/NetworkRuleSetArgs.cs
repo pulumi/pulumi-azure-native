@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ElasticSan.Inputs
     /// <summary>
     /// A set of rules governing the network accessibility.
     /// </summary>
-    public sealed class NetworkRuleSetArgs : global::Pulumi.ResourceArgs
+    public sealed class NetworkRuleSetArgs : Pulumi.ResourceArgs
     {
         [Input("virtualNetworkRules")]
         private InputList<Inputs.VirtualNetworkRuleArgs>? _virtualNetworkRules;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ElasticSan.Inputs
         public NetworkRuleSetArgs()
         {
         }
-        public static new NetworkRuleSetArgs Empty => new NetworkRuleSetArgs();
     }
 }

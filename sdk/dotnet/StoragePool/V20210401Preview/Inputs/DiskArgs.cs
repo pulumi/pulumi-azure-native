@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StoragePool.V20210401Preview.Inputs
     /// <summary>
     /// Azure Managed Disk to attach to the Disk Pool.
     /// </summary>
-    public sealed class DiskArgs : global::Pulumi.ResourceArgs
+    public sealed class DiskArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Unique Azure Resource ID of the Managed Disk.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.StoragePool.V20210401Preview.Inputs
         public DiskArgs()
         {
         }
-        public static new DiskArgs Empty => new DiskArgs();
     }
 }

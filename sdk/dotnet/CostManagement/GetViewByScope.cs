@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.CostManagement
     }
 
 
-    public sealed class GetViewByScopeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetViewByScopeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The scope associated with view operations. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, 'providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for External Billing Account scope and 'providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for External Subscription scope.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.CostManagement
         public GetViewByScopeArgs()
         {
         }
-        public static new GetViewByScopeArgs Empty => new GetViewByScopeArgs();
     }
 
-    public sealed class GetViewByScopeInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetViewByScopeInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The scope associated with view operations. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, 'providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for External Billing Account scope and 'providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for External Subscription scope.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.CostManagement
         public GetViewByScopeInvokeArgs()
         {
         }
-        public static new GetViewByScopeInvokeArgs Empty => new GetViewByScopeInvokeArgs();
     }
 
 

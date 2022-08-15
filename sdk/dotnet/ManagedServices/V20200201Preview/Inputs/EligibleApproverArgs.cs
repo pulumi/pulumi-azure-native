@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Inputs
     /// <summary>
     /// Defines the Azure Active Directory principal that can approve any just-in-time access requests by the principal defined in the EligibleAuthorization.
     /// </summary>
-    public sealed class EligibleApproverArgs : global::Pulumi.ResourceArgs
+    public sealed class EligibleApproverArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identifier of the Azure Active Directory principal.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Inputs
         public EligibleApproverArgs()
         {
         }
-        public static new EligibleApproverArgs Empty => new EligibleApproverArgs();
     }
 }

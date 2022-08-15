@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NetApp.V20220101.Inputs
     /// <summary>
     /// Volume resource
     /// </summary>
-    public sealed class VolumeGroupVolumePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class VolumeGroupVolumePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
@@ -253,6 +253,5 @@ namespace Pulumi.AzureNative.NetApp.V20220101.Inputs
             UnixPermissions = "0770";
             UsageThreshold = 107374182400;
         }
-        public static new VolumeGroupVolumePropertiesArgs Empty => new VolumeGroupVolumePropertiesArgs();
     }
 }

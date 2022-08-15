@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.PolicyInsights.V20211001.Inputs
     /// <summary>
     /// The remediation failure threshold settings
     /// </summary>
-    public sealed class RemediationPropertiesFailureThresholdArgs : global::Pulumi.ResourceArgs
+    public sealed class RemediationPropertiesFailureThresholdArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.PolicyInsights.V20211001.Inputs
         public RemediationPropertiesFailureThresholdArgs()
         {
         }
-        public static new RemediationPropertiesFailureThresholdArgs Empty => new RemediationPropertiesFailureThresholdArgs();
     }
 }

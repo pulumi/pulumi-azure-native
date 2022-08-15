@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearning.V20160501Preview.Inputs
     /// <summary>
     /// Access information for a storage account.
     /// </summary>
-    public sealed class StorageAccountArgs : global::Pulumi.ResourceArgs
+    public sealed class StorageAccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the key used to access the storage account.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.MachineLearning.V20160501Preview.Inputs
         public StorageAccountArgs()
         {
         }
-        public static new StorageAccountArgs Empty => new StorageAccountArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.TestBase.Inputs
     /// <summary>
     /// The subscription role receiver value.
     /// </summary>
-    public sealed class SubscriptionReceiverValueArgs : global::Pulumi.ResourceArgs
+    public sealed class SubscriptionReceiverValueArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The role of the notification receiver.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.TestBase.Inputs
         public SubscriptionReceiverValueArgs()
         {
         }
-        public static new SubscriptionReceiverValueArgs Empty => new SubscriptionReceiverValueArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
 {
 
-    public sealed class BindOptionsArgs : global::Pulumi.ResourceArgs
+    public sealed class BindOptionsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicate whether to create host path.
@@ -33,6 +33,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         public BindOptionsArgs()
         {
         }
-        public static new BindOptionsArgs Empty => new BindOptionsArgs();
     }
 }

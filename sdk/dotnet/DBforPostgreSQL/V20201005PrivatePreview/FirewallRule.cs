@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
     /// Represents a server group firewall rule.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20201005privatepreview:FirewallRule")]
-    public partial class FirewallRule : global::Pulumi.CustomResource
+    public partial class FirewallRule : Pulumi.CustomResource
     {
         /// <summary>
         /// The end IP address of the server group firewall rule. Must be IPv4 format.
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
         }
     }
 
-    public sealed class FirewallRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class FirewallRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The end IP address of the server group firewall rule. Must be IPv4 format.
@@ -123,6 +123,5 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
         public FirewallRuleArgs()
         {
         }
-        public static new FirewallRuleArgs Empty => new FirewallRuleArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview.Inputs
     /// <summary>
     /// Azure Active Directory identity configuration for a resource.
     /// </summary>
-    public sealed class ResourceIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class ResourceIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview.Inputs
         public ResourceIdentityArgs()
         {
         }
-        public static new ResourceIdentityArgs Empty => new ResourceIdentityArgs();
     }
 }

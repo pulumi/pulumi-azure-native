@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.VMwareCloudSimple
     }
 
 
-    public sealed class GetVirtualMachineArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualMachineArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.VMwareCloudSimple
         public GetVirtualMachineArgs()
         {
         }
-        public static new GetVirtualMachineArgs Empty => new GetVirtualMachineArgs();
     }
 
-    public sealed class GetVirtualMachineInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualMachineInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.VMwareCloudSimple
         public GetVirtualMachineInvokeArgs()
         {
         }
-        public static new GetVirtualMachineInvokeArgs Empty => new GetVirtualMachineInvokeArgs();
     }
 
 

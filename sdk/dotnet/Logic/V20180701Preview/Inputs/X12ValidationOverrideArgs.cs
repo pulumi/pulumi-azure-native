@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview.Inputs
     /// <summary>
     /// The X12 validation override settings.
     /// </summary>
-    public sealed class X12ValidationOverrideArgs : global::Pulumi.ResourceArgs
+    public sealed class X12ValidationOverrideArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value indicating whether to allow leading and trailing spaces and zeroes.
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview.Inputs
         public X12ValidationOverrideArgs()
         {
         }
-        public static new X12ValidationOverrideArgs Empty => new X12ValidationOverrideArgs();
     }
 }

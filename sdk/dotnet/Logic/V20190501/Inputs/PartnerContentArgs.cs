@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
     /// <summary>
     /// The integration account partner content.
     /// </summary>
-    public sealed class PartnerContentArgs : global::Pulumi.ResourceArgs
+    public sealed class PartnerContentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The B2B partner content.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
         public PartnerContentArgs()
         {
         }
-        public static new PartnerContentArgs Empty => new PartnerContentArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// Datastore certificate secrets.
     /// </summary>
-    public sealed class CertificateDatastoreSecretsArgs : global::Pulumi.ResourceArgs
+    public sealed class CertificateDatastoreSecretsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Service principal certificate.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         public CertificateDatastoreSecretsArgs()
         {
         }
-        public static new CertificateDatastoreSecretsArgs Empty => new CertificateDatastoreSecretsArgs();
     }
 }

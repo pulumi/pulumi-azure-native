@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20191101Preview
     /// A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
     /// </summary>
     [AzureNativeResourceType("azure-native:datalakeanalytics/v20191101preview:Account")]
-    public partial class Account : global::Pulumi.CustomResource
+    public partial class Account : Pulumi.CustomResource
     {
         /// <summary>
         /// The unique identifier associated with this Data Lake Analytics account.
@@ -244,9 +244,9 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20191101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datalakeanalytics:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20151001preview:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20161101:Account"},
+                    new Pulumi.Alias { Type = "azure-native:datalakeanalytics:Account"},
+                    new Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20151001preview:Account"},
+                    new Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20161101:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -268,7 +268,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20191101Preview
         }
     }
 
-    public sealed class AccountArgs : global::Pulumi.ResourceArgs
+    public sealed class AccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Data Lake Analytics account.
@@ -412,6 +412,5 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20191101Preview
             NewTier = Pulumi.AzureNative.DataLakeAnalytics.V20191101Preview.TierType.Consumption;
             QueryStoreRetention = 30;
         }
-        public static new AccountArgs Empty => new AccountArgs();
     }
 }

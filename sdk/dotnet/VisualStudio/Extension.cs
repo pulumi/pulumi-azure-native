@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.VisualStudio
     /// API Version: 2014-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:visualstudio:Extension")]
-    public partial class Extension : global::Pulumi.CustomResource
+    public partial class Extension : Pulumi.CustomResource
     {
         /// <summary>
         /// Resource location.
@@ -77,8 +77,8 @@ namespace Pulumi.AzureNative.VisualStudio
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:visualstudio/v20140401preview:Extension"},
-                    new global::Pulumi.Alias { Type = "azure-native:visualstudio/v20171101preview:Extension"},
+                    new Pulumi.Alias { Type = "azure-native:visualstudio/v20140401preview:Extension"},
+                    new Pulumi.Alias { Type = "azure-native:visualstudio/v20171101preview:Extension"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.VisualStudio
         }
     }
 
-    public sealed class ExtensionArgs : global::Pulumi.ResourceArgs
+    public sealed class ExtensionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Visual Studio Team Services account resource.
@@ -159,6 +159,5 @@ namespace Pulumi.AzureNative.VisualStudio
         public ExtensionArgs()
         {
         }
-        public static new ExtensionArgs Empty => new ExtensionArgs();
     }
 }

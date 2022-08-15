@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The folder that this data flow is in. If not specified, Data flow will appear at the root level.
     /// </summary>
-    public sealed class DataFlowFolderArgs : global::Pulumi.ResourceArgs
+    public sealed class DataFlowFolderArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the folder that this data flow is in.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public DataFlowFolderArgs()
         {
         }
-        public static new DataFlowFolderArgs Empty => new DataFlowFolderArgs();
     }
 }

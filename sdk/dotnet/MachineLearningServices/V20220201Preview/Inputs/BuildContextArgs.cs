@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// Configuration settings for Docker build context
     /// </summary>
-    public sealed class BuildContextArgs : global::Pulumi.ResourceArgs
+    public sealed class BuildContextArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] URI of the Docker build context used to build the image. Supports blob URIs on environment creation and may return blob or Git URIs.
@@ -33,6 +33,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         {
             DockerfilePath = "Dockerfile";
         }
-        public static new BuildContextArgs Empty => new BuildContextArgs();
     }
 }

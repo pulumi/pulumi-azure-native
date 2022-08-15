@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.Inputs
     /// <summary>
     /// The properties of a trigger.
     /// </summary>
-    public sealed class TriggerPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class TriggerPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The trigger based on base image dependencies.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.Inputs
         public TriggerPropertiesArgs()
         {
         }
-        public static new TriggerPropertiesArgs Empty => new TriggerPropertiesArgs();
     }
 }

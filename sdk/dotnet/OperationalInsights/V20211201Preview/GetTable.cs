@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20211201Preview
     }
 
 
-    public sealed class GetTableArgs : global::Pulumi.InvokeArgs
+    public sealed class GetTableArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.OperationalInsights.V20211201Preview
         public GetTableArgs()
         {
         }
-        public static new GetTableArgs Empty => new GetTableArgs();
     }
 
-    public sealed class GetTableInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetTableInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.OperationalInsights.V20211201Preview
         public GetTableInvokeArgs()
         {
         }
-        public static new GetTableInvokeArgs Empty => new GetTableInvokeArgs();
     }
 
 

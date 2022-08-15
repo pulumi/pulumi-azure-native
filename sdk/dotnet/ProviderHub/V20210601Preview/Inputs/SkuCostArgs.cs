@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20210601Preview.Inputs
 {
 
-    public sealed class SkuCostArgs : global::Pulumi.ResourceArgs
+    public sealed class SkuCostArgs : Pulumi.ResourceArgs
     {
         [Input("extendedUnit")]
         public Input<string>? ExtendedUnit { get; set; }
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.ProviderHub.V20210601Preview.Inputs
         public SkuCostArgs()
         {
         }
-        public static new SkuCostArgs Empty => new SkuCostArgs();
     }
 }

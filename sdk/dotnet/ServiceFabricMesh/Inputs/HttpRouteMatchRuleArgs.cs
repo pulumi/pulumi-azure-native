@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.Inputs
     /// <summary>
     /// Describes a rule for http route matching.
     /// </summary>
-    public sealed class HttpRouteMatchRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class HttpRouteMatchRuleArgs : Pulumi.ResourceArgs
     {
         [Input("headers")]
         private InputList<Inputs.HttpRouteMatchHeaderArgs>? _headers;
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.Inputs
         public HttpRouteMatchRuleArgs()
         {
         }
-        public static new HttpRouteMatchRuleArgs Empty => new HttpRouteMatchRuleArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210501.Inputs
     /// <summary>
     /// SKU of an Azure Firewall.
     /// </summary>
-    public sealed class AzureFirewallSkuArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureFirewallSkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of an Azure Firewall SKU.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Network.V20210501.Inputs
         public AzureFirewallSkuArgs()
         {
         }
-        public static new AzureFirewallSkuArgs Empty => new AzureFirewallSkuArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Security
     /// API Version: 2017-08-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:WorkspaceSetting")]
-    public partial class WorkspaceSetting : global::Pulumi.CustomResource
+    public partial class WorkspaceSetting : Pulumi.CustomResource
     {
         /// <summary>
         /// Resource name
@@ -65,7 +65,7 @@ namespace Pulumi.AzureNative.Security
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:security/v20170801preview:WorkspaceSetting"},
+                    new Pulumi.Alias { Type = "azure-native:security/v20170801preview:WorkspaceSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -87,7 +87,7 @@ namespace Pulumi.AzureNative.Security
         }
     }
 
-    public sealed class WorkspaceSettingArgs : global::Pulumi.ResourceArgs
+    public sealed class WorkspaceSettingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// All the VMs in this scope will send their security data to the mentioned workspace unless overridden by a setting with more specific scope
@@ -110,6 +110,5 @@ namespace Pulumi.AzureNative.Security
         public WorkspaceSettingArgs()
         {
         }
-        public static new WorkspaceSettingArgs Empty => new WorkspaceSettingArgs();
     }
 }

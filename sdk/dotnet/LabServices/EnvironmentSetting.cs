@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.LabServices
     /// API Version: 2018-10-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:labservices:EnvironmentSetting")]
-    public partial class EnvironmentSetting : global::Pulumi.CustomResource
+    public partial class EnvironmentSetting : Pulumi.CustomResource
     {
         /// <summary>
         /// Describes the user's progress in configuring their environment setting
@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.LabServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:labservices/v20181015:EnvironmentSetting"},
+                    new Pulumi.Alias { Type = "azure-native:labservices/v20181015:EnvironmentSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -147,7 +147,7 @@ namespace Pulumi.AzureNative.LabServices
         }
     }
 
-    public sealed class EnvironmentSettingArgs : global::Pulumi.ResourceArgs
+    public sealed class EnvironmentSettingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes the user's progress in configuring their environment setting
@@ -230,6 +230,5 @@ namespace Pulumi.AzureNative.LabServices
         public EnvironmentSettingArgs()
         {
         }
-        public static new EnvironmentSettingArgs Empty => new EnvironmentSettingArgs();
     }
 }

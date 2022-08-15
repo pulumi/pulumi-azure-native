@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Activity to get metadata of dataset
     /// </summary>
-    public sealed class GetMetadataActivityArgs : global::Pulumi.ResourceArgs
+    public sealed class GetMetadataActivityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// GetMetadata activity dataset reference.
@@ -103,6 +103,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public GetMetadataActivityArgs()
         {
         }
-        public static new GetMetadataActivityArgs Empty => new GetMetadataActivityArgs();
     }
 }

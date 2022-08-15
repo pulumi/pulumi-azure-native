@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20200701Preview
     }
 
 
-    public sealed class GetSourceControlConfigurationArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSourceControlConfigurationArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the kubernetes cluster.
@@ -60,10 +60,9 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20200701Preview
         public GetSourceControlConfigurationArgs()
         {
         }
-        public static new GetSourceControlConfigurationArgs Empty => new GetSourceControlConfigurationArgs();
     }
 
-    public sealed class GetSourceControlConfigurationInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSourceControlConfigurationInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the kubernetes cluster.
@@ -98,7 +97,6 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20200701Preview
         public GetSourceControlConfigurationInvokeArgs()
         {
         }
-        public static new GetSourceControlConfigurationInvokeArgs Empty => new GetSourceControlConfigurationInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20200901Preview.Inputs
     /// <summary>
     /// The customer-managed encryption key (CMK) properties for the IoT DPS instance.
     /// </summary>
-    public sealed class EncryptionPropertiesDescriptionArgs : global::Pulumi.ResourceArgs
+    public sealed class EncryptionPropertiesDescriptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity used to access the encryption key in KeyVault.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Devices.V20200901Preview.Inputs
         public EncryptionPropertiesDescriptionArgs()
         {
         }
-        public static new EncryptionPropertiesDescriptionArgs Empty => new EncryptionPropertiesDescriptionArgs();
     }
 }

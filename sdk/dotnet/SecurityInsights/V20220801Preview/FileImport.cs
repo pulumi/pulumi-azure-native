@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview
     /// Represents a file import in Azure Security Insights.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20220801preview:FileImport")]
-    public partial class FileImport : global::Pulumi.CustomResource
+    public partial class FileImport : Pulumi.CustomResource
     {
         /// <summary>
         /// The content type of this file.
@@ -154,7 +154,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview
         }
     }
 
-    public sealed class FileImportArgs : global::Pulumi.ResourceArgs
+    public sealed class FileImportArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The content type of this file.
@@ -201,6 +201,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview
         public FileImportArgs()
         {
         }
-        public static new FileImportArgs Empty => new FileImportArgs();
     }
 }

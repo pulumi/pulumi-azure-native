@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20191201.Inputs
     /// <summary>
     /// Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
     /// </summary>
-    public sealed class ExpressRouteCircuitConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class ExpressRouteCircuitConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// /29 IP address space to carve out Customer addresses for tunnels.
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.Network.V20191201.Inputs
         public ExpressRouteCircuitConnectionArgs()
         {
         }
-        public static new ExpressRouteCircuitConnectionArgs Empty => new ExpressRouteCircuitConnectionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A copy activity MongoDB sink.
     /// </summary>
-    public sealed class MongoDbV2SinkArgs : global::Pulumi.ResourceArgs
+    public sealed class MongoDbV2SinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -67,6 +67,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public MongoDbV2SinkArgs()
         {
         }
-        public static new MongoDbV2SinkArgs Empty => new MongoDbV2SinkArgs();
     }
 }

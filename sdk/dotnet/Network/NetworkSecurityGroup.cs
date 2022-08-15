@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network
     /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkSecurityGroup")]
-    public partial class NetworkSecurityGroup : global::Pulumi.CustomResource
+    public partial class NetworkSecurityGroup : Pulumi.CustomResource
     {
         /// <summary>
         /// The default security rules of network security group.
@@ -113,47 +113,47 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20150501preview:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20150615:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20160330:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20160601:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20160901:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20161201:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170301:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170601:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170801:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170901:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20171001:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20171101:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180101:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180201:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180401:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180601:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180701:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180801:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181001:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181101:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181201:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190201:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190601:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190801:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:NetworkSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20150501preview:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20150615:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160330:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160601:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160901:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20161201:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170301:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170601:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170801:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170901:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20171001:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20171101:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180101:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180201:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180401:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180601:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180701:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181001:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181101:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181201:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190201:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210301:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:NetworkSecurityGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -175,7 +175,7 @@ namespace Pulumi.AzureNative.Network
         }
     }
 
-    public sealed class NetworkSecurityGroupArgs : global::Pulumi.ResourceArgs
+    public sealed class NetworkSecurityGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID.
@@ -228,6 +228,5 @@ namespace Pulumi.AzureNative.Network
         public NetworkSecurityGroupArgs()
         {
         }
-        public static new NetworkSecurityGroupArgs Empty => new NetworkSecurityGroupArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecommendationsService.V20220201.Inputs
     /// <summary>
     /// The configuration to raw CDM data to be used as Modeling resource input.
     /// </summary>
-    public sealed class ModelingInputDataArgs : global::Pulumi.ResourceArgs
+    public sealed class ModelingInputDataArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Connection string to raw input data.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.RecommendationsService.V20220201.Inputs
         public ModelingInputDataArgs()
         {
         }
-        public static new ModelingInputDataArgs Empty => new ModelingInputDataArgs();
     }
 }

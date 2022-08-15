@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220130Preview.Inputs
     /// <summary>
     /// Input for the task that collects user tables for the given list of databases
     /// </summary>
-    public sealed class GetUserTablesMySqlTaskInputArgs : global::Pulumi.ResourceArgs
+    public sealed class GetUserTablesMySqlTaskInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Connection information for SQL Server
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DataMigration.V20220130Preview.Inputs
         public GetUserTablesMySqlTaskInputArgs()
         {
         }
-        public static new GetUserTablesMySqlTaskInputArgs Empty => new GetUserTablesMySqlTaskInputArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20220601Preview.Inputs
     /// <summary>
     /// Azure resource identifier.
     /// </summary>
-    public sealed class SubResourceArgs : global::Pulumi.ResourceArgs
+    public sealed class SubResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure resource identifier.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.ServiceFabric.V20220601Preview.Inputs
         public SubResourceArgs()
         {
         }
-        public static new SubResourceArgs Empty => new SubResourceArgs();
     }
 }

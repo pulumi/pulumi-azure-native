@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.LabServices.V20220801.Inputs
     /// <summary>
     /// The lab security profile.
     /// </summary>
-    public sealed class SecurityProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class SecurityProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether any user or only specified users can register to a lab.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.LabServices.V20220801.Inputs
         public SecurityProfileArgs()
         {
         }
-        public static new SecurityProfileArgs Empty => new SecurityProfileArgs();
     }
 }

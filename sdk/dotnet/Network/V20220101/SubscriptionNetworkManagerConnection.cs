@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220101
     /// The Network Manager Connection resource
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20220101:SubscriptionNetworkManagerConnection")]
-    public partial class SubscriptionNetworkManagerConnection : global::Pulumi.CustomResource
+    public partial class SubscriptionNetworkManagerConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// A description of the network manager connection.
@@ -76,10 +76,10 @@ namespace Pulumi.AzureNative.Network.V20220101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:SubscriptionNetworkManagerConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:SubscriptionNetworkManagerConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:SubscriptionNetworkManagerConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:SubscriptionNetworkManagerConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network:SubscriptionNetworkManagerConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501preview:SubscriptionNetworkManagerConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220201preview:SubscriptionNetworkManagerConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220401preview:SubscriptionNetworkManagerConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.Network.V20220101
         }
     }
 
-    public sealed class SubscriptionNetworkManagerConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class SubscriptionNetworkManagerConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the network manager connection.
@@ -124,6 +124,5 @@ namespace Pulumi.AzureNative.Network.V20220101
         public SubscriptionNetworkManagerConnectionArgs()
         {
         }
-        public static new SubscriptionNetworkManagerConnectionArgs Empty => new SubscriptionNetworkManagerConnectionArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20210901Preview.Inputs
 {
 
-    public sealed class AuthorizationActionMappingArgs : global::Pulumi.ResourceArgs
+    public sealed class AuthorizationActionMappingArgs : Pulumi.ResourceArgs
     {
         [Input("desired")]
         public Input<string>? Desired { get; set; }
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.ProviderHub.V20210901Preview.Inputs
         public AuthorizationActionMappingArgs()
         {
         }
-        public static new AuthorizationActionMappingArgs Empty => new AuthorizationActionMappingArgs();
     }
 }

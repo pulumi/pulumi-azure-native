@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.V20180531.Inputs
     /// <summary>
     /// The destination information for the delivery of the report.
     /// </summary>
-    public sealed class ReportConfigDeliveryDestinationArgs : global::Pulumi.ResourceArgs
+    public sealed class ReportConfigDeliveryDestinationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the container where reports will be uploaded.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.CostManagement.V20180531.Inputs
         public ReportConfigDeliveryDestinationArgs()
         {
         }
-        public static new ReportConfigDeliveryDestinationArgs Empty => new ReportConfigDeliveryDestinationArgs();
     }
 }

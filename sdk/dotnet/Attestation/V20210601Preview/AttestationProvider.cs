@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Attestation.V20210601Preview
     /// Attestation service response message.
     /// </summary>
     [AzureNativeResourceType("azure-native:attestation/v20210601preview:AttestationProvider")]
-    public partial class AttestationProvider : global::Pulumi.CustomResource
+    public partial class AttestationProvider : Pulumi.CustomResource
     {
         /// <summary>
         /// Gets the uri of attestation service
@@ -100,9 +100,9 @@ namespace Pulumi.AzureNative.Attestation.V20210601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:attestation:AttestationProvider"},
-                    new global::Pulumi.Alias { Type = "azure-native:attestation/v20180901preview:AttestationProvider"},
-                    new global::Pulumi.Alias { Type = "azure-native:attestation/v20201001:AttestationProvider"},
+                    new Pulumi.Alias { Type = "azure-native:attestation:AttestationProvider"},
+                    new Pulumi.Alias { Type = "azure-native:attestation/v20180901preview:AttestationProvider"},
+                    new Pulumi.Alias { Type = "azure-native:attestation/v20201001:AttestationProvider"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.Attestation.V20210601Preview
         }
     }
 
-    public sealed class AttestationProviderArgs : global::Pulumi.ResourceArgs
+    public sealed class AttestationProviderArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The supported Azure location where the attestation provider should be created.
@@ -165,6 +165,5 @@ namespace Pulumi.AzureNative.Attestation.V20210601Preview
         public AttestationProviderArgs()
         {
         }
-        public static new AttestationProviderArgs Empty => new AttestationProviderArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220201Preview
     /// Defines the security user configuration
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20220201preview:SecurityUserConfiguration")]
-    public partial class SecurityUserConfiguration : global::Pulumi.CustomResource
+    public partial class SecurityUserConfiguration : Pulumi.CustomResource
     {
         /// <summary>
         /// Flag if need to delete existing network security groups.
@@ -82,10 +82,10 @@ namespace Pulumi.AzureNative.Network.V20220201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:SecurityUserConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:SecurityUserConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:SecurityUserConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:SecurityUserConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network:SecurityUserConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201preview:SecurityUserConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501preview:SecurityUserConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220401preview:SecurityUserConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.Network.V20220201Preview
         }
     }
 
-    public sealed class SecurityUserConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class SecurityUserConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the network manager Security Configuration.
@@ -142,6 +142,5 @@ namespace Pulumi.AzureNative.Network.V20220201Preview
         public SecurityUserConfigurationArgs()
         {
         }
-        public static new SecurityUserConfigurationArgs Empty => new SecurityUserConfigurationArgs();
     }
 }

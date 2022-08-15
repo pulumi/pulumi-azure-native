@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
     /// <summary>
     /// The endpoints configuration.
     /// </summary>
-    public sealed class FlowEndpointsConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class FlowEndpointsConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The connector endpoints.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
         public FlowEndpointsConfigurationArgs()
         {
         }
-        public static new FlowEndpointsConfigurationArgs Empty => new FlowEndpointsConfigurationArgs();
     }
 }

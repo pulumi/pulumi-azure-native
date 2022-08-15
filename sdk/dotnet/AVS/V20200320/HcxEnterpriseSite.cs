@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS.V20200320
     /// An HCX Enterprise Site resource
     /// </summary>
     [AzureNativeResourceType("azure-native:avs/v20200320:HcxEnterpriseSite")]
-    public partial class HcxEnterpriseSite : global::Pulumi.CustomResource
+    public partial class HcxEnterpriseSite : Pulumi.CustomResource
     {
         /// <summary>
         /// The activation key
@@ -64,11 +64,11 @@ namespace Pulumi.AzureNative.AVS.V20200320
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:avs:HcxEnterpriseSite"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200717preview:HcxEnterpriseSite"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210101preview:HcxEnterpriseSite"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:HcxEnterpriseSite"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:HcxEnterpriseSite"},
+                    new Pulumi.Alias { Type = "azure-native:avs:HcxEnterpriseSite"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20200717preview:HcxEnterpriseSite"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20210101preview:HcxEnterpriseSite"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20210601:HcxEnterpriseSite"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20211201:HcxEnterpriseSite"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.AVS.V20200320
         }
     }
 
-    public sealed class HcxEnterpriseSiteArgs : global::Pulumi.ResourceArgs
+    public sealed class HcxEnterpriseSiteArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the HCX Enterprise Site in the private cloud
@@ -113,6 +113,5 @@ namespace Pulumi.AzureNative.AVS.V20200320
         public HcxEnterpriseSiteArgs()
         {
         }
-        public static new HcxEnterpriseSiteArgs Empty => new HcxEnterpriseSiteArgs();
     }
 }

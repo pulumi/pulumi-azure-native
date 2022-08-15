@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logz.V20201001Preview
 {
     [AzureNativeResourceType("azure-native:logz/v20201001preview:Monitor")]
-    public partial class Monitor : global::Pulumi.CustomResource
+    public partial class Monitor : Pulumi.CustomResource
     {
         [Output("identity")]
         public Output<Outputs.IdentityPropertiesResponse?> Identity { get; private set; } = null!;
@@ -70,9 +70,9 @@ namespace Pulumi.AzureNative.Logz.V20201001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:logz:Monitor"},
-                    new global::Pulumi.Alias { Type = "azure-native:logz/v20201001:Monitor"},
-                    new global::Pulumi.Alias { Type = "azure-native:logz/v20220101preview:Monitor"},
+                    new Pulumi.Alias { Type = "azure-native:logz:Monitor"},
+                    new Pulumi.Alias { Type = "azure-native:logz/v20201001:Monitor"},
+                    new Pulumi.Alias { Type = "azure-native:logz/v20220101preview:Monitor"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.Logz.V20201001Preview
         }
     }
 
-    public sealed class MonitorArgs : global::Pulumi.ResourceArgs
+    public sealed class MonitorArgs : Pulumi.ResourceArgs
     {
         [Input("identity")]
         public Input<Inputs.IdentityPropertiesArgs>? Identity { get; set; }
@@ -131,6 +131,5 @@ namespace Pulumi.AzureNative.Logz.V20201001Preview
         public MonitorArgs()
         {
         }
-        public static new MonitorArgs Empty => new MonitorArgs();
     }
 }

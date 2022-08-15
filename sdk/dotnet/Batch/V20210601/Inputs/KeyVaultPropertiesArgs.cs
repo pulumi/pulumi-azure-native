@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Batch.V20210601.Inputs
     /// <summary>
     /// KeyVault configuration when using an encryption KeySource of Microsoft.KeyVault.
     /// </summary>
-    public sealed class KeyVaultPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class KeyVaultPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Full path to the versioned secret. Example https://mykeyvault.vault.azure.net/keys/testkey/6e34a81fef704045975661e297a4c053. To be usable the following prerequisites must be met:
@@ -28,6 +28,5 @@ namespace Pulumi.AzureNative.Batch.V20210601.Inputs
         public KeyVaultPropertiesArgs()
         {
         }
-        public static new KeyVaultPropertiesArgs Empty => new KeyVaultPropertiesArgs();
     }
 }

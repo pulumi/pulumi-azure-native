@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20210801.Inputs
     /// <summary>
     /// The resource model definition representing SKU for Azure Managed Instance - Azure Arc
     /// </summary>
-    public sealed class SqlManagedInstanceSkuArgs : global::Pulumi.ResourceArgs
+    public sealed class SqlManagedInstanceSkuArgs : Pulumi.ResourceArgs
     {
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }
@@ -50,6 +50,5 @@ namespace Pulumi.AzureNative.AzureArcData.V20210801.Inputs
             Dev = true;
             Tier = Pulumi.AzureNative.AzureArcData.V20210801.SqlManagedInstanceSkuTier.GeneralPurpose;
         }
-        public static new SqlManagedInstanceSkuArgs Empty => new SqlManagedInstanceSkuArgs();
     }
 }

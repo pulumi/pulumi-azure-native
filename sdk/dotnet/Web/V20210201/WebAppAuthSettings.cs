@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20210201
     /// Configuration settings for the Azure App Service Authentication / Authorization feature.
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20210201:WebAppAuthSettings")]
-    public partial class WebAppAuthSettings : global::Pulumi.CustomResource
+    public partial class WebAppAuthSettings : Pulumi.CustomResource
     {
         /// <summary>
         /// Gets a JSON string containing the Azure AD Acl settings.
@@ -338,20 +338,20 @@ namespace Pulumi.AzureNative.Web.V20210201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppAuthSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppAuthSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppAuthSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppAuthSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppAuthSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppAuthSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppAuthSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppAuthSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppAuthSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppAuthSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppAuthSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppAuthSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppAuthSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web:WebAppAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppAuthSettings"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -373,7 +373,7 @@ namespace Pulumi.AzureNative.Web.V20210201
         }
     }
 
-    public sealed class WebAppAuthSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class WebAppAuthSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets a JSON string containing the Azure AD Acl settings.
@@ -718,6 +718,5 @@ namespace Pulumi.AzureNative.Web.V20210201
         public WebAppAuthSettingsArgs()
         {
         }
-        public static new WebAppAuthSettingsArgs Empty => new WebAppAuthSettingsArgs();
     }
 }

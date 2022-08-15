@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20160301.Inputs
     /// <summary>
     /// Describes how data from an input is serialized or how data is serialized when written to an output in Avro format.
     /// </summary>
-    public sealed class AvroSerializationArgs : global::Pulumi.ResourceArgs
+    public sealed class AvroSerializationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
@@ -25,6 +25,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20160301.Inputs
         public AvroSerializationArgs()
         {
         }
-        public static new AvroSerializationArgs Empty => new AvroSerializationArgs();
     }
 }

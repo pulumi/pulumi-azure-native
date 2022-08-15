@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VMwareCloudSimple.V20190401
     /// Dedicated cloud service model
     /// </summary>
     [AzureNativeResourceType("azure-native:vmwarecloudsimple/v20190401:DedicatedCloudService")]
-    public partial class DedicatedCloudService : global::Pulumi.CustomResource
+    public partial class DedicatedCloudService : Pulumi.CustomResource
     {
         /// <summary>
         /// gateway Subnet for the account. It will collect the subnet address and always treat it as /28
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.VMwareCloudSimple.V20190401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:vmwarecloudsimple:DedicatedCloudService"},
+                    new Pulumi.Alias { Type = "azure-native:vmwarecloudsimple:DedicatedCloudService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.VMwareCloudSimple.V20190401
         }
     }
 
-    public sealed class DedicatedCloudServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class DedicatedCloudServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// dedicated cloud Service name
@@ -151,6 +151,5 @@ namespace Pulumi.AzureNative.VMwareCloudSimple.V20190401
         public DedicatedCloudServiceArgs()
         {
         }
-        public static new DedicatedCloudServiceArgs Empty => new DedicatedCloudServiceArgs();
     }
 }

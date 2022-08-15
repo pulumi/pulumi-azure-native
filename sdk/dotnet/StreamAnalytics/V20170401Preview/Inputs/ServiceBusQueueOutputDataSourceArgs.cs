@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
     /// <summary>
     /// Describes a Service Bus Queue output data source.
     /// </summary>
-    public sealed class ServiceBusQueueOutputDataSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class ServiceBusQueueOutputDataSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authentication Mode.
@@ -75,6 +75,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
         public ServiceBusQueueOutputDataSourceArgs()
         {
         }
-        public static new ServiceBusQueueOutputDataSourceArgs Empty => new ServiceBusQueueOutputDataSourceArgs();
     }
 }

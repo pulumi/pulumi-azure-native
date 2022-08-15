@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview.Inputs
     /// <summary>
     /// The properties of a source based trigger.
     /// </summary>
-    public sealed class SourceTriggerArgs : global::Pulumi.ResourceArgs
+    public sealed class SourceTriggerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the trigger.
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview.Inputs
         {
             Status = "Enabled";
         }
-        public static new SourceTriggerArgs Empty => new SourceTriggerArgs();
     }
 }

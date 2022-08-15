@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.EventGrid
     /// API Version: 2021-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:PartnerRegistration")]
-    public partial class PartnerRegistration : global::Pulumi.CustomResource
+    public partial class PartnerRegistration : Pulumi.CustomResource
     {
         /// <summary>
         /// List of Azure subscription Ids that are authorized to create a partner namespace
@@ -157,11 +157,11 @@ namespace Pulumi.AzureNative.EventGrid
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:PartnerRegistration"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:PartnerRegistration"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:PartnerRegistration"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:PartnerRegistration"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:PartnerRegistration"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:PartnerRegistration"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:PartnerRegistration"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:PartnerRegistration"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:PartnerRegistration"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:PartnerRegistration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -183,7 +183,7 @@ namespace Pulumi.AzureNative.EventGrid
         }
     }
 
-    public sealed class PartnerRegistrationArgs : global::Pulumi.ResourceArgs
+    public sealed class PartnerRegistrationArgs : Pulumi.ResourceArgs
     {
         [Input("authorizedAzureSubscriptionIds")]
         private InputList<string>? _authorizedAzureSubscriptionIds;
@@ -304,6 +304,5 @@ namespace Pulumi.AzureNative.EventGrid
         public PartnerRegistrationArgs()
         {
         }
-        public static new PartnerRegistrationArgs Empty => new PartnerRegistrationArgs();
     }
 }

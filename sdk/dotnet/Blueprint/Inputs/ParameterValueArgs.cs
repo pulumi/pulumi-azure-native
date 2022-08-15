@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Blueprint.Inputs
     /// <summary>
     /// Value for the specified parameter. Can be either 'value' or 'reference' but not both.
     /// </summary>
-    public sealed class ParameterValueArgs : global::Pulumi.ResourceArgs
+    public sealed class ParameterValueArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Parameter value as reference type.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Blueprint.Inputs
         public ParameterValueArgs()
         {
         }
-        public static new ParameterValueArgs Empty => new ParameterValueArgs();
     }
 }

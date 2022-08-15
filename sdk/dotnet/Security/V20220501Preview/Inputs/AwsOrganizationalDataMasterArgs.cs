@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
     /// <summary>
     /// The awsOrganization data for the master account
     /// </summary>
-    public sealed class AwsOrganizationalDataMasterArgs : global::Pulumi.ResourceArgs
+    public sealed class AwsOrganizationalDataMasterArgs : Pulumi.ResourceArgs
     {
         [Input("excludedAccountIds")]
         private InputList<string>? _excludedAccountIds;
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
         public AwsOrganizationalDataMasterArgs()
         {
         }
-        public static new AwsOrganizationalDataMasterArgs Empty => new AwsOrganizationalDataMasterArgs();
     }
 }

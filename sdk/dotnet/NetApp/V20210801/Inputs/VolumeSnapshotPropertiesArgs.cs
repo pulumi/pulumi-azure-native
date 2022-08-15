@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NetApp.V20210801.Inputs
     /// <summary>
     /// Volume Snapshot Properties
     /// </summary>
-    public sealed class VolumeSnapshotPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class VolumeSnapshotPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Snapshot Policy ResourceId
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.NetApp.V20210801.Inputs
         public VolumeSnapshotPropertiesArgs()
         {
         }
-        public static new VolumeSnapshotPropertiesArgs Empty => new VolumeSnapshotPropertiesArgs();
     }
 }

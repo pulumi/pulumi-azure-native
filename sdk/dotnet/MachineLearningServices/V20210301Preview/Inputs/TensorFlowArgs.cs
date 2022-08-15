@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// <summary>
     /// TensorFlow distribution configuration.
     /// </summary>
-    public sealed class TensorFlowArgs : global::Pulumi.ResourceArgs
+    public sealed class TensorFlowArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enum to determine the job distribution type.
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public TensorFlowArgs()
         {
         }
-        public static new TensorFlowArgs Empty => new TensorFlowArgs();
     }
 }

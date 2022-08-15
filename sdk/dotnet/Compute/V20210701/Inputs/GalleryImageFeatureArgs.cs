@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20210701.Inputs
     /// <summary>
     /// A feature for gallery image.
     /// </summary>
-    public sealed class GalleryImageFeatureArgs : global::Pulumi.ResourceArgs
+    public sealed class GalleryImageFeatureArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the gallery image feature.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Compute.V20210701.Inputs
         public GalleryImageFeatureArgs()
         {
         }
-        public static new GalleryImageFeatureArgs Empty => new GalleryImageFeatureArgs();
     }
 }

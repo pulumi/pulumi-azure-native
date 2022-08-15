@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20150504Preview.Inputs
     /// <summary>
     /// A PTR record.
     /// </summary>
-    public sealed class PtrRecordArgs : global::Pulumi.ResourceArgs
+    public sealed class PtrRecordArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the PTR target domain name for this record without a terminating dot.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Network.V20150504Preview.Inputs
         public PtrRecordArgs()
         {
         }
-        public static new PtrRecordArgs Empty => new PtrRecordArgs();
     }
 }

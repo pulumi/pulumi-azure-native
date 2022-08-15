@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview.Inputs
     /// <summary>
     /// The configuration for a Spark environment.
     /// </summary>
-    public sealed class ModelEnvironmentDefinitionSparkArgs : global::Pulumi.ResourceArgs
+    public sealed class ModelEnvironmentDefinitionSparkArgs : Pulumi.ResourceArgs
     {
         [Input("packages")]
         private InputList<Inputs.SparkMavenPackageArgs>? _packages;
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview.Inputs
         public ModelEnvironmentDefinitionSparkArgs()
         {
         }
-        public static new ModelEnvironmentDefinitionSparkArgs Empty => new ModelEnvironmentDefinitionSparkArgs();
     }
 }

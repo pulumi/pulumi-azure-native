@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Inputs
     /// <summary>
     /// Configure backups for databases in your SQL virtual machine.
     /// </summary>
-    public sealed class AutoBackupSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class AutoBackupSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Backup schedule type.
@@ -90,6 +90,5 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Inputs
         public AutoBackupSettingsArgs()
         {
         }
-        public static new AutoBackupSettingsArgs Empty => new AutoBackupSettingsArgs();
     }
 }

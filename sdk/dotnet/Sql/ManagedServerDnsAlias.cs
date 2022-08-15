@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Sql
     /// API Version: 2021-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ManagedServerDnsAlias")]
-    public partial class ManagedServerDnsAlias : global::Pulumi.CustomResource
+    public partial class ManagedServerDnsAlias : Pulumi.CustomResource
     {
         /// <summary>
         /// The fully qualified DNS record for managed server alias
@@ -65,9 +65,9 @@ namespace Pulumi.AzureNative.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:ManagedServerDnsAlias"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ManagedServerDnsAlias"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ManagedServerDnsAlias"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101:ManagedServerDnsAlias"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ManagedServerDnsAlias"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ManagedServerDnsAlias"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.Sql
         }
     }
 
-    public sealed class ManagedServerDnsAliasArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedServerDnsAliasArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether or not DNS record should be created for this alias.
@@ -116,6 +116,5 @@ namespace Pulumi.AzureNative.Sql
         {
             CreateDnsRecord = true;
         }
-        public static new ManagedServerDnsAliasArgs Empty => new ManagedServerDnsAliasArgs();
     }
 }

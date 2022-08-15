@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20210901Preview.Inputs
     /// <summary>
     /// Definition of which streams are sent to which destinations.
     /// </summary>
-    public sealed class DataFlowArgs : global::Pulumi.ResourceArgs
+    public sealed class DataFlowArgs : Pulumi.ResourceArgs
     {
         [Input("destinations")]
         private InputList<string>? _destinations;
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.Insights.V20210901Preview.Inputs
         public DataFlowArgs()
         {
         }
-        public static new DataFlowArgs Empty => new DataFlowArgs();
     }
 }

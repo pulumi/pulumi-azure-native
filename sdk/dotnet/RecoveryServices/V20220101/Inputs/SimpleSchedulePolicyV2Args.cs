@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220101.Inputs
     /// <summary>
     /// The V2 policy schedule for IaaS that supports hourly backups.
     /// </summary>
-    public sealed class SimpleSchedulePolicyV2Args : global::Pulumi.ResourceArgs
+    public sealed class SimpleSchedulePolicyV2Args : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Daily schedule of this policy
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220101.Inputs
         public SimpleSchedulePolicyV2Args()
         {
         }
-        public static new SimpleSchedulePolicyV2Args Empty => new SimpleSchedulePolicyV2Args();
     }
 }

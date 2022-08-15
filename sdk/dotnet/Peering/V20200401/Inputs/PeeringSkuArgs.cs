@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Peering.V20200401.Inputs
     /// <summary>
     /// The SKU that defines the tier and kind of the peering.
     /// </summary>
-    public sealed class PeeringSkuArgs : global::Pulumi.ResourceArgs
+    public sealed class PeeringSkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The family of the peering SKU.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Peering.V20200401.Inputs
         public PeeringSkuArgs()
         {
         }
-        public static new PeeringSkuArgs Empty => new PeeringSkuArgs();
     }
 }

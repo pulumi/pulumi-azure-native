@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Quantum.V20220110Preview.Inputs
     /// <summary>
     /// Information about a Provider. A Provider is an entity that offers Targets to run Azure Quantum Jobs.
     /// </summary>
-    public sealed class ProviderArgs : global::Pulumi.ResourceArgs
+    public sealed class ProviderArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The provider's marketplace application display name.
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.Quantum.V20220110Preview.Inputs
         public ProviderArgs()
         {
         }
-        public static new ProviderArgs Empty => new ProviderArgs();
     }
 }

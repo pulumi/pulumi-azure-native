@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20170330.Inputs
     /// <summary>
     /// Describes the parameters of a ScaleSet managed disk.
     /// </summary>
-    public sealed class VirtualMachineScaleSetManagedDiskParametersArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualMachineScaleSetManagedDiskParametersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. Possible values are: Standard_LRS or Premium_LRS.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Compute.V20170330.Inputs
         public VirtualMachineScaleSetManagedDiskParametersArgs()
         {
         }
-        public static new VirtualMachineScaleSetManagedDiskParametersArgs Empty => new VirtualMachineScaleSetManagedDiskParametersArgs();
     }
 }

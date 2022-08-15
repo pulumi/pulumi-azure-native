@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Resources.V20200601.Inputs
     /// <summary>
     /// Entity representing the reference to the template.
     /// </summary>
-    public sealed class TemplateLinkArgs : global::Pulumi.ResourceArgs
+    public sealed class TemplateLinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// If included, must match the ContentVersion in the template.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Resources.V20200601.Inputs
         public TemplateLinkArgs()
         {
         }
-        public static new TemplateLinkArgs Empty => new TemplateLinkArgs();
     }
 }

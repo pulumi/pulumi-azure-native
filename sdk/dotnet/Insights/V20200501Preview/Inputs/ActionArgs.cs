@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20200501Preview.Inputs
     /// <summary>
     /// Actions to invoke when the alert fires.
     /// </summary>
-    public sealed class ActionArgs : global::Pulumi.ResourceArgs
+    public sealed class ActionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Action Group resource Id to invoke when the alert fires.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Insights.V20200501Preview.Inputs
         public ActionArgs()
         {
         }
-        public static new ActionArgs Empty => new ActionArgs();
     }
 }

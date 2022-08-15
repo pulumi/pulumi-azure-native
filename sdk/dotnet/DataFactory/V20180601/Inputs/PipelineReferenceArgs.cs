@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Pipeline reference type.
     /// </summary>
-    public sealed class PipelineReferenceArgs : global::Pulumi.ResourceArgs
+    public sealed class PipelineReferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Reference name.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public PipelineReferenceArgs()
         {
         }
-        public static new PipelineReferenceArgs Empty => new PipelineReferenceArgs();
     }
 }

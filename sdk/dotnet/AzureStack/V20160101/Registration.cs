@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AzureStack.V20160101
     /// </summary>
     [Obsolete(@"Version 2016-01-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:azurestack/v20160101:Registration")]
-    public partial class Registration : global::Pulumi.CustomResource
+    public partial class Registration : Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the billing mode for the Azure Stack registration.
@@ -89,10 +89,10 @@ namespace Pulumi.AzureNative.AzureStack.V20160101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurestack:Registration"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestack/v20170601:Registration"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestack/v20200601preview:Registration"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestack/v20220601:Registration"},
+                    new Pulumi.Alias { Type = "azure-native:azurestack:Registration"},
+                    new Pulumi.Alias { Type = "azure-native:azurestack/v20170601:Registration"},
+                    new Pulumi.Alias { Type = "azure-native:azurestack/v20200601preview:Registration"},
+                    new Pulumi.Alias { Type = "azure-native:azurestack/v20220601:Registration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.AzureStack.V20160101
         }
     }
 
-    public sealed class RegistrationArgs : global::Pulumi.ResourceArgs
+    public sealed class RegistrationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Location of the resource.
@@ -143,6 +143,5 @@ namespace Pulumi.AzureNative.AzureStack.V20160101
         public RegistrationArgs()
         {
         }
-        public static new RegistrationArgs Empty => new RegistrationArgs();
     }
 }

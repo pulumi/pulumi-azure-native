@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CustomerInsights.Inputs
     /// <summary>
     /// Defines the KPI Threshold limits.
     /// </summary>
-    public sealed class KpiThresholdsArgs : global::Pulumi.ResourceArgs
+    public sealed class KpiThresholdsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether or not the KPI is an increasing KPI.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.CustomerInsights.Inputs
         public KpiThresholdsArgs()
         {
         }
-        public static new KpiThresholdsArgs Empty => new KpiThresholdsArgs();
     }
 }

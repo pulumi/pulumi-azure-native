@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20191212
     }
 
 
-    public sealed class GetMongoDBResourceMongoDBCollectionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetMongoDBResourceMongoDBCollectionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Cosmos DB database account name.
@@ -55,10 +55,9 @@ namespace Pulumi.AzureNative.DocumentDB.V20191212
         public GetMongoDBResourceMongoDBCollectionArgs()
         {
         }
-        public static new GetMongoDBResourceMongoDBCollectionArgs Empty => new GetMongoDBResourceMongoDBCollectionArgs();
     }
 
-    public sealed class GetMongoDBResourceMongoDBCollectionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetMongoDBResourceMongoDBCollectionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Cosmos DB database account name.
@@ -87,7 +86,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20191212
         public GetMongoDBResourceMongoDBCollectionInvokeArgs()
         {
         }
-        public static new GetMongoDBResourceMongoDBCollectionInvokeArgs Empty => new GetMongoDBResourceMongoDBCollectionInvokeArgs();
     }
 
 

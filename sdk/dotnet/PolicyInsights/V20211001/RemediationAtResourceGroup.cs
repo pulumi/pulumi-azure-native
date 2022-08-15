@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.PolicyInsights.V20211001
     /// The remediation definition.
     /// </summary>
     [AzureNativeResourceType("azure-native:policyinsights/v20211001:RemediationAtResourceGroup")]
-    public partial class RemediationAtResourceGroup : global::Pulumi.CustomResource
+    public partial class RemediationAtResourceGroup : Pulumi.CustomResource
     {
         /// <summary>
         /// The remediation correlation Id. Can be used to find events related to the remediation in the activity log.
@@ -136,9 +136,9 @@ namespace Pulumi.AzureNative.PolicyInsights.V20211001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:policyinsights:RemediationAtResourceGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:policyinsights/v20180701preview:RemediationAtResourceGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:policyinsights/v20190701:RemediationAtResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:policyinsights:RemediationAtResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:policyinsights/v20180701preview:RemediationAtResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:policyinsights/v20190701:RemediationAtResourceGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -160,7 +160,7 @@ namespace Pulumi.AzureNative.PolicyInsights.V20211001
         }
     }
 
-    public sealed class RemediationAtResourceGroupArgs : global::Pulumi.ResourceArgs
+    public sealed class RemediationAtResourceGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The remediation failure threshold settings
@@ -219,6 +219,5 @@ namespace Pulumi.AzureNative.PolicyInsights.V20211001
         public RemediationAtResourceGroupArgs()
         {
         }
-        public static new RemediationAtResourceGroupArgs Empty => new RemediationAtResourceGroupArgs();
     }
 }

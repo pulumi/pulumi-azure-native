@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20210701Preview.Inputs
     /// <summary>
     /// The properties of the provisioned Event Hub-compatible endpoint used by the IoT hub.
     /// </summary>
-    public sealed class EventHubPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class EventHubPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of partitions for receiving device-to-cloud messages in the Event Hub-compatible endpoint. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Devices.V20210701Preview.Inputs
         public EventHubPropertiesArgs()
         {
         }
-        public static new EventHubPropertiesArgs Empty => new EventHubPropertiesArgs();
     }
 }

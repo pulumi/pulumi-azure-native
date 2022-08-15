@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Batch.V20220101.Inputs
     /// <summary>
     /// Settings which will be used by the data disks associated to Compute Nodes in the Pool. When using attached data disks, you need to mount and format the disks from within a VM to use them.
     /// </summary>
-    public sealed class DataDiskArgs : global::Pulumi.ResourceArgs
+    public sealed class DataDiskArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Values are:
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.Batch.V20220101.Inputs
         public DataDiskArgs()
         {
         }
-        public static new DataDiskArgs Empty => new DataDiskArgs();
     }
 }

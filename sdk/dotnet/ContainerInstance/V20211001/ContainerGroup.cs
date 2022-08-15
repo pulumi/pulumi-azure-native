@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20211001
     /// A container group.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerinstance/v20211001:ContainerGroup")]
-    public partial class ContainerGroup : global::Pulumi.CustomResource
+    public partial class ContainerGroup : Pulumi.CustomResource
     {
         /// <summary>
         /// The containers within the container group.
@@ -163,20 +163,20 @@ namespace Pulumi.AzureNative.ContainerInstance.V20211001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerinstance:ContainerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20170801preview:ContainerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20171001preview:ContainerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20171201preview:ContainerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20180201preview:ContainerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20180401:ContainerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20180601:ContainerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20180901:ContainerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20181001:ContainerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20191201:ContainerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20201101:ContainerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20210301:ContainerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20210701:ContainerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20210901:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:containerinstance:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:containerinstance/v20170801preview:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:containerinstance/v20171001preview:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:containerinstance/v20171201preview:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:containerinstance/v20180201preview:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:containerinstance/v20180401:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:containerinstance/v20180601:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:containerinstance/v20180901:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:containerinstance/v20181001:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:containerinstance/v20191201:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:containerinstance/v20201101:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:containerinstance/v20210301:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:containerinstance/v20210701:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:containerinstance/v20210901:ContainerGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -198,7 +198,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20211001
         }
     }
 
-    public sealed class ContainerGroupArgs : global::Pulumi.ResourceArgs
+    public sealed class ContainerGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the container group.
@@ -356,6 +356,5 @@ namespace Pulumi.AzureNative.ContainerInstance.V20211001
         public ContainerGroupArgs()
         {
         }
-        public static new ContainerGroupArgs Empty => new ContainerGroupArgs();
     }
 }

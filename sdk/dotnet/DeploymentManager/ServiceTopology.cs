@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DeploymentManager
     /// API Version: 2019-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:deploymentmanager:ServiceTopology")]
-    public partial class ServiceTopology : global::Pulumi.CustomResource
+    public partial class ServiceTopology : Pulumi.CustomResource
     {
         /// <summary>
         /// The resource Id of the artifact source that contains the artifacts that can be referenced in the service units.
@@ -71,8 +71,8 @@ namespace Pulumi.AzureNative.DeploymentManager
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:deploymentmanager/v20180901preview:ServiceTopology"},
-                    new global::Pulumi.Alias { Type = "azure-native:deploymentmanager/v20191101preview:ServiceTopology"},
+                    new Pulumi.Alias { Type = "azure-native:deploymentmanager/v20180901preview:ServiceTopology"},
+                    new Pulumi.Alias { Type = "azure-native:deploymentmanager/v20191101preview:ServiceTopology"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.DeploymentManager
         }
     }
 
-    public sealed class ServiceTopologyArgs : global::Pulumi.ResourceArgs
+    public sealed class ServiceTopologyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource Id of the artifact source that contains the artifacts that can be referenced in the service units.
@@ -135,6 +135,5 @@ namespace Pulumi.AzureNative.DeploymentManager
         public ServiceTopologyArgs()
         {
         }
-        public static new ServiceTopologyArgs Empty => new ServiceTopologyArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Chaos.V20220701Preview.Inputs
     /// <summary>
     /// Model that represents a delay action.
     /// </summary>
-    public sealed class DelayActionArgs : global::Pulumi.ResourceArgs
+    public sealed class DelayActionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// ISO8601 formatted string that represents a duration.
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.Chaos.V20220701Preview.Inputs
         public DelayActionArgs()
         {
         }
-        public static new DelayActionArgs Empty => new DelayActionArgs();
     }
 }

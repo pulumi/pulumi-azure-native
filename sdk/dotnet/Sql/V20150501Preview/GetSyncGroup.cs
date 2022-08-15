@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Sql.V20150501Preview
     }
 
 
-    public sealed class GetSyncGroupArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSyncGroupArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the database on which the sync group is hosted.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.Sql.V20150501Preview
         public GetSyncGroupArgs()
         {
         }
-        public static new GetSyncGroupArgs Empty => new GetSyncGroupArgs();
     }
 
-    public sealed class GetSyncGroupInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSyncGroupInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the database on which the sync group is hosted.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.Sql.V20150501Preview
         public GetSyncGroupInvokeArgs()
         {
         }
-        public static new GetSyncGroupInvokeArgs Empty => new GetSyncGroupInvokeArgs();
     }
 
 

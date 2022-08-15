@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210601
     /// The application resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabric/v20210601:Application")]
-    public partial class Application : global::Pulumi.CustomResource
+    public partial class Application : Pulumi.CustomResource
     {
         /// <summary>
         /// Azure resource etag.
@@ -142,14 +142,14 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric:Application"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20170701preview:Application"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20190301:Application"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20190301preview:Application"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20190601preview:Application"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20191101preview:Application"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20200301:Application"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20201201preview:Application"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric:Application"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20170701preview:Application"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20190301:Application"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20190301preview:Application"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20190601preview:Application"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20191101preview:Application"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20200301:Application"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20201201preview:Application"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -171,7 +171,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210601
         }
     }
 
-    public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplicationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the application resource.
@@ -291,6 +291,5 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210601
         {
             MaximumNodes = 0;
         }
-        public static new ApplicationArgs Empty => new ApplicationArgs();
     }
 }

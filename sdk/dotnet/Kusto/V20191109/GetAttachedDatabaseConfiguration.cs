@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Kusto.V20191109
     }
 
 
-    public sealed class GetAttachedDatabaseConfigurationArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAttachedDatabaseConfigurationArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the attached database configuration.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Kusto.V20191109
         public GetAttachedDatabaseConfigurationArgs()
         {
         }
-        public static new GetAttachedDatabaseConfigurationArgs Empty => new GetAttachedDatabaseConfigurationArgs();
     }
 
-    public sealed class GetAttachedDatabaseConfigurationInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAttachedDatabaseConfigurationInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the attached database configuration.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Kusto.V20191109
         public GetAttachedDatabaseConfigurationInvokeArgs()
         {
         }
-        public static new GetAttachedDatabaseConfigurationInvokeArgs Empty => new GetAttachedDatabaseConfigurationInvokeArgs();
     }
 
 

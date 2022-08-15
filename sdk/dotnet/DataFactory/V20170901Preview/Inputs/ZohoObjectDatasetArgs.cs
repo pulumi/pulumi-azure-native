@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Zoho server dataset.
     /// </summary>
-    public sealed class ZohoObjectDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class ZohoObjectDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -67,6 +67,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public ZohoObjectDatasetArgs()
         {
         }
-        public static new ZohoObjectDatasetArgs Empty => new ZohoObjectDatasetArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Microsoft Azure SQL Database linked service.
     /// </summary>
-    public sealed class AzureSqlDatabaseLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureSqlDatabaseLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -91,6 +91,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public AzureSqlDatabaseLinkedServiceArgs()
         {
         }
-        public static new AzureSqlDatabaseLinkedServiceArgs Empty => new AzureSqlDatabaseLinkedServiceArgs();
     }
 }

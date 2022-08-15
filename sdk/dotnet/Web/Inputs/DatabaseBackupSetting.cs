@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.Inputs
     /// <summary>
     /// Database backup settings.
     /// </summary>
-    public sealed class DatabaseBackupSetting : global::Pulumi.InvokeArgs
+    public sealed class DatabaseBackupSetting : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Contains a connection string to a database which is being backed up or restored. If the restore should happen to a new database, the database name inside is the new one.
@@ -40,6 +40,5 @@ namespace Pulumi.AzureNative.Web.Inputs
         public DatabaseBackupSetting()
         {
         }
-        public static new DatabaseBackupSetting Empty => new DatabaseBackupSetting();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.Inputs
     /// <summary>
     /// Unsecured endpoint describes an endpoint that the pipeline can connect to over clear transport (no encryption in transit).
     /// </summary>
-    public sealed class UnsecuredEndpointArgs : global::Pulumi.ResourceArgs
+    public sealed class UnsecuredEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Credentials to be presented to the endpoint.
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.VideoAnalyzer.Inputs
         public UnsecuredEndpointArgs()
         {
         }
-        public static new UnsecuredEndpointArgs Empty => new UnsecuredEndpointArgs();
     }
 }

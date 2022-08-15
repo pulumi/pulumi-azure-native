@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Synapse.V20201201
     }
 
 
-    public sealed class GetSqlPoolArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSqlPoolArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -49,10 +49,9 @@ namespace Pulumi.AzureNative.Synapse.V20201201
         public GetSqlPoolArgs()
         {
         }
-        public static new GetSqlPoolArgs Empty => new GetSqlPoolArgs();
     }
 
-    public sealed class GetSqlPoolInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSqlPoolInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -75,7 +74,6 @@ namespace Pulumi.AzureNative.Synapse.V20201201
         public GetSqlPoolInvokeArgs()
         {
         }
-        public static new GetSqlPoolInvokeArgs Empty => new GetSqlPoolInvokeArgs();
     }
 
 

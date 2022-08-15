@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SignalRService.V20180301Preview.Inputs
     /// <summary>
     /// Settings used to provision or configure the resource.
     /// </summary>
-    public sealed class SignalRCreateOrUpdatePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class SignalRCreateOrUpdatePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Prefix for the hostName of the SignalR service. Retained for future use.
@@ -25,6 +25,5 @@ namespace Pulumi.AzureNative.SignalRService.V20180301Preview.Inputs
         public SignalRCreateOrUpdatePropertiesArgs()
         {
         }
-        public static new SignalRCreateOrUpdatePropertiesArgs Empty => new SignalRCreateOrUpdatePropertiesArgs();
     }
 }

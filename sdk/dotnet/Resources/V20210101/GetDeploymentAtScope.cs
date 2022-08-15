@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Resources.V20210101
     }
 
 
-    public sealed class GetDeploymentAtScopeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDeploymentAtScopeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the deployment.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.Resources.V20210101
         public GetDeploymentAtScopeArgs()
         {
         }
-        public static new GetDeploymentAtScopeArgs Empty => new GetDeploymentAtScopeArgs();
     }
 
-    public sealed class GetDeploymentAtScopeInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDeploymentAtScopeInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the deployment.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.Resources.V20210101
         public GetDeploymentAtScopeInvokeArgs()
         {
         }
-        public static new GetDeploymentAtScopeInvokeArgs Empty => new GetDeploymentAtScopeInvokeArgs();
     }
 
 

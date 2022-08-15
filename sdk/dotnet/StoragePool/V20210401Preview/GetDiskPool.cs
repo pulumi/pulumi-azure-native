@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.StoragePool.V20210401Preview
     }
 
 
-    public sealed class GetDiskPoolArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDiskPoolArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Disk Pool.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.StoragePool.V20210401Preview
         public GetDiskPoolArgs()
         {
         }
-        public static new GetDiskPoolArgs Empty => new GetDiskPoolArgs();
     }
 
-    public sealed class GetDiskPoolInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDiskPoolInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Disk Pool.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.StoragePool.V20210401Preview
         public GetDiskPoolInvokeArgs()
         {
         }
-        public static new GetDiskPoolInvokeArgs Empty => new GetDiskPoolInvokeArgs();
     }
 
 

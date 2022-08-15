@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
     /// <summary>
     /// The binding to an Azure Machine Learning Studio.
     /// </summary>
-    public sealed class AzureMachineLearningStudioFunctionBindingArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureMachineLearningStudioFunctionBindingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The API key used to authenticate with Request-Response endpoint.
@@ -61,6 +61,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
         public AzureMachineLearningStudioFunctionBindingArgs()
         {
         }
-        public static new AzureMachineLearningStudioFunctionBindingArgs Empty => new AzureMachineLearningStudioFunctionBindingArgs();
     }
 }

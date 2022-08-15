@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
     /// Represents a Sql pool transparent data encryption configuration.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse/v20210601preview:SqlPoolTransparentDataEncryption")]
-    public partial class SqlPoolTransparentDataEncryption : global::Pulumi.CustomResource
+    public partial class SqlPoolTransparentDataEncryption : Pulumi.CustomResource
     {
         /// <summary>
         /// Resource location.
@@ -64,13 +64,13 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:synapse:SqlPoolTransparentDataEncryption"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:SqlPoolTransparentDataEncryption"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20201201:SqlPoolTransparentDataEncryption"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210301:SqlPoolTransparentDataEncryption"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:SqlPoolTransparentDataEncryption"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210501:SqlPoolTransparentDataEncryption"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601:SqlPoolTransparentDataEncryption"},
+                    new Pulumi.Alias { Type = "azure-native:synapse:SqlPoolTransparentDataEncryption"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:SqlPoolTransparentDataEncryption"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20201201:SqlPoolTransparentDataEncryption"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210301:SqlPoolTransparentDataEncryption"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:SqlPoolTransparentDataEncryption"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210501:SqlPoolTransparentDataEncryption"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601:SqlPoolTransparentDataEncryption"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         }
     }
 
-    public sealed class SqlPoolTransparentDataEncryptionArgs : global::Pulumi.ResourceArgs
+    public sealed class SqlPoolTransparentDataEncryptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -127,6 +127,5 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         public SqlPoolTransparentDataEncryptionArgs()
         {
         }
-        public static new SqlPoolTransparentDataEncryptionArgs Empty => new SqlPoolTransparentDataEncryptionArgs();
     }
 }

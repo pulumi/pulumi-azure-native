@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview.Inputs
     /// <summary>
     /// The X12 delimiter override settings.
     /// </summary>
-    public sealed class X12DelimiterOverridesArgs : global::Pulumi.ResourceArgs
+    public sealed class X12DelimiterOverridesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The component separator.
@@ -72,6 +72,5 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview.Inputs
         public X12DelimiterOverridesArgs()
         {
         }
-        public static new X12DelimiterOverridesArgs Empty => new X12DelimiterOverridesArgs();
     }
 }

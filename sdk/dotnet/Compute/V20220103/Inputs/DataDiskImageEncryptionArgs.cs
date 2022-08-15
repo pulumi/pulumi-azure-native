@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20220103.Inputs
     /// <summary>
     /// Contains encryption settings for a data disk image.
     /// </summary>
-    public sealed class DataDiskImageEncryptionArgs : global::Pulumi.ResourceArgs
+    public sealed class DataDiskImageEncryptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A relative URI containing the resource ID of the disk encryption set.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Compute.V20220103.Inputs
         public DataDiskImageEncryptionArgs()
         {
         }
-        public static new DataDiskImageEncryptionArgs Empty => new DataDiskImageEncryptionArgs();
     }
 }

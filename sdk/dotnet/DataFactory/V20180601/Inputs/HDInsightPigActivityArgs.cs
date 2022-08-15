@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// HDInsight Pig activity type.
     /// </summary>
-    public sealed class HDInsightPigActivityArgs : global::Pulumi.ResourceArgs
+    public sealed class HDInsightPigActivityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// User specified arguments to HDInsightActivity. Type: array (or Expression with resultType array).
@@ -121,6 +121,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public HDInsightPigActivityArgs()
         {
         }
-        public static new HDInsightPigActivityArgs Empty => new HDInsightPigActivityArgs();
     }
 }

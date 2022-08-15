@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20220308PrivatePreview.Inputs
     /// <summary>
     /// Sku information related properties of a server.
     /// </summary>
-    public sealed class Sku : global::Pulumi.InvokeArgs
+    public sealed class Sku : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20220308PrivatePreview.Inputs
         public Sku()
         {
         }
-        public static new Sku Empty => new Sku();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Inputs
 {
 
-    public sealed class VMExtensionArgs : global::Pulumi.ResourceArgs
+    public sealed class VMExtensionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.Batch.Inputs
         public VMExtensionArgs()
         {
         }
-        public static new VMExtensionArgs Empty => new VMExtensionArgs();
     }
 }

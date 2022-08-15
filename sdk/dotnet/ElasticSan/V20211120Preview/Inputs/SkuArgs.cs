@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview.Inputs
     /// <summary>
     /// The SKU name. Required for account creation; optional for update.
     /// </summary>
-    public sealed class SkuArgs : global::Pulumi.ResourceArgs
+    public sealed class SkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The sku name.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview.Inputs
         public SkuArgs()
         {
         }
-        public static new SkuArgs Empty => new SkuArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20210801.Inputs
     /// <summary>
     /// This defines account-level immutability policy properties.
     /// </summary>
-    public sealed class AccountImmutabilityPolicyPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class AccountImmutabilityPolicyPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// This property can only be changed for disabled and unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Storage.V20210801.Inputs
         public AccountImmutabilityPolicyPropertiesArgs()
         {
         }
-        public static new AccountImmutabilityPolicyPropertiesArgs Empty => new AccountImmutabilityPolicyPropertiesArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Web.V20220301
     }
 
 
-    public sealed class GetStaticSiteLinkedBackendArgs : global::Pulumi.InvokeArgs
+    public sealed class GetStaticSiteLinkedBackendArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the linked backend that should be retrieved
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Web.V20220301
         public GetStaticSiteLinkedBackendArgs()
         {
         }
-        public static new GetStaticSiteLinkedBackendArgs Empty => new GetStaticSiteLinkedBackendArgs();
     }
 
-    public sealed class GetStaticSiteLinkedBackendInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetStaticSiteLinkedBackendInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the linked backend that should be retrieved
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Web.V20220301
         public GetStaticSiteLinkedBackendInvokeArgs()
         {
         }
-        public static new GetStaticSiteLinkedBackendInvokeArgs Empty => new GetStaticSiteLinkedBackendInvokeArgs();
     }
 
 

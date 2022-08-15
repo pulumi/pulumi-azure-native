@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.Inputs
     /// <summary>
     /// Path to match for routing.
     /// </summary>
-    public sealed class HttpRouteMatchPathArgs : global::Pulumi.ResourceArgs
+    public sealed class HttpRouteMatchPathArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// replacement string for matched part of the Uri.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.Inputs
         public HttpRouteMatchPathArgs()
         {
         }
-        public static new HttpRouteMatchPathArgs Empty => new HttpRouteMatchPathArgs();
     }
 }

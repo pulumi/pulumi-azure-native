@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180701.Inputs
     /// <summary>
     /// Represents HTTPS job input.
     /// </summary>
-    public sealed class JobInputHttpArgs : global::Pulumi.ResourceArgs
+    public sealed class JobInputHttpArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Base URI for HTTPS job input. It will be concatenated with provided file names. If no base uri is given, then the provided file list is assumed to be fully qualified uris. Maximum length of 4000 characters.
@@ -61,6 +61,5 @@ namespace Pulumi.AzureNative.Media.V20180701.Inputs
         public JobInputHttpArgs()
         {
         }
-        public static new JobInputHttpArgs Empty => new JobInputHttpArgs();
     }
 }

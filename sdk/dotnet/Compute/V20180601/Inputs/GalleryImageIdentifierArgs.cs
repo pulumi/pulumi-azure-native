@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20180601.Inputs
     /// <summary>
     /// This is the gallery Image Definition identifier.
     /// </summary>
-    public sealed class GalleryImageIdentifierArgs : global::Pulumi.ResourceArgs
+    public sealed class GalleryImageIdentifierArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the gallery Image Definition offer.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Compute.V20180601.Inputs
         public GalleryImageIdentifierArgs()
         {
         }
-        public static new GalleryImageIdentifierArgs Empty => new GalleryImageIdentifierArgs();
     }
 }

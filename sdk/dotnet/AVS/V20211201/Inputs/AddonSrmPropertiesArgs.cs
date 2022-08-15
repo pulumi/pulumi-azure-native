@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS.V20211201.Inputs
     /// <summary>
     /// The properties of a Site Recovery Manager (SRM) addon
     /// </summary>
-    public sealed class AddonSrmPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class AddonSrmPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of private cloud addon
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.AVS.V20211201.Inputs
         public AddonSrmPropertiesArgs()
         {
         }
-        public static new AddonSrmPropertiesArgs Empty => new AddonSrmPropertiesArgs();
     }
 }

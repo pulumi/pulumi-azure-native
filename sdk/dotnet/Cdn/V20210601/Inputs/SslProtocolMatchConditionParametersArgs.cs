@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
     /// <summary>
     /// Defines the parameters for SslProtocol match conditions
     /// </summary>
-    public sealed class SslProtocolMatchConditionParametersArgs : global::Pulumi.ResourceArgs
+    public sealed class SslProtocolMatchConditionParametersArgs : Pulumi.ResourceArgs
     {
         [Input("matchValues")]
         private InputList<Union<string, Pulumi.AzureNative.Cdn.V20210601.SslProtocol>>? _matchValues;
@@ -57,6 +57,5 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
         public SslProtocolMatchConditionParametersArgs()
         {
         }
-        public static new SslProtocolMatchConditionParametersArgs Empty => new SslProtocolMatchConditionParametersArgs();
     }
 }

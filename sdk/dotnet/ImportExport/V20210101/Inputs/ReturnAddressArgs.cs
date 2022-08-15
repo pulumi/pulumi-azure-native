@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ImportExport.V20210101.Inputs
     /// <summary>
     /// Specifies the return address information for the job.
     /// </summary>
-    public sealed class ReturnAddressArgs : global::Pulumi.ResourceArgs
+    public sealed class ReturnAddressArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The city name to use when returning the drives.
@@ -72,6 +72,5 @@ namespace Pulumi.AzureNative.ImportExport.V20210101.Inputs
         public ReturnAddressArgs()
         {
         }
-        public static new ReturnAddressArgs Empty => new ReturnAddressArgs();
     }
 }

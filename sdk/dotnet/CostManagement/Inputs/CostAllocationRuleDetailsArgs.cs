@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.Inputs
     /// <summary>
     /// Resource details of the cost allocation rule
     /// </summary>
-    public sealed class CostAllocationRuleDetailsArgs : global::Pulumi.ResourceArgs
+    public sealed class CostAllocationRuleDetailsArgs : Pulumi.ResourceArgs
     {
         [Input("sourceResources")]
         private InputList<Inputs.SourceCostAllocationResourceArgs>? _sourceResources;
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.CostManagement.Inputs
         public CostAllocationRuleDetailsArgs()
         {
         }
-        public static new CostAllocationRuleDetailsArgs Empty => new CostAllocationRuleDetailsArgs();
     }
 }

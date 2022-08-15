@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview.Inputs
     /// <summary>
     /// Describes an automation rule condition that evaluates a property's value change
     /// </summary>
-    public sealed class PropertyChangedConditionPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class PropertyChangedConditionPropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("conditionProperties")]
         public Input<Inputs.AutomationRulePropertyValuesChangedConditionArgs>? ConditionProperties { get; set; }
@@ -28,6 +28,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview.Inputs
         public PropertyChangedConditionPropertiesArgs()
         {
         }
-        public static new PropertyChangedConditionPropertiesArgs Empty => new PropertyChangedConditionPropertiesArgs();
     }
 }

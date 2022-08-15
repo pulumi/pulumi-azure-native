@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Logic.V20150201Preview
     }
 
 
-    public sealed class GetWorkflowArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWorkflowArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource group name.
@@ -36,10 +36,9 @@ namespace Pulumi.AzureNative.Logic.V20150201Preview
         public GetWorkflowArgs()
         {
         }
-        public static new GetWorkflowArgs Empty => new GetWorkflowArgs();
     }
 
-    public sealed class GetWorkflowInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWorkflowInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource group name.
@@ -56,7 +55,6 @@ namespace Pulumi.AzureNative.Logic.V20150201Preview
         public GetWorkflowInvokeArgs()
         {
         }
-        public static new GetWorkflowInvokeArgs Empty => new GetWorkflowInvokeArgs();
     }
 
 

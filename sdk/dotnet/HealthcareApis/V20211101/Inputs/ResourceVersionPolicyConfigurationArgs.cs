@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20211101.Inputs
     /// <summary>
     /// The settings for history tracking for FHIR resources.
     /// </summary>
-    public sealed class ResourceVersionPolicyConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class ResourceVersionPolicyConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The default value for tracking history across all resources.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.HealthcareApis.V20211101.Inputs
         public ResourceVersionPolicyConfigurationArgs()
         {
         }
-        public static new ResourceVersionPolicyConfigurationArgs Empty => new ResourceVersionPolicyConfigurationArgs();
     }
 }

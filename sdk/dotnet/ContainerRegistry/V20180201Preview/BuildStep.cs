@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview
     /// Build step resource properties
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry/v20180201preview:BuildStep")]
-    public partial class BuildStep : global::Pulumi.CustomResource
+    public partial class BuildStep : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource.
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview
         }
     }
 
-    public sealed class BuildStepArgs : global::Pulumi.ResourceArgs
+    public sealed class BuildStepArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the container registry build task.
@@ -105,6 +105,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview
         public BuildStepArgs()
         {
         }
-        public static new BuildStepArgs Empty => new BuildStepArgs();
     }
 }

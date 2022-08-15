@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The relational table dataset.
     /// </summary>
-    public sealed class RelationalTableDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class RelationalTableDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,6 +85,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public RelationalTableDatasetArgs()
         {
         }
-        public static new RelationalTableDatasetArgs Empty => new RelationalTableDatasetArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20180701.Inputs
     /// <summary>
     /// Policies for vpn gateway.
     /// </summary>
-    public sealed class PoliciesArgs : global::Pulumi.ResourceArgs
+    public sealed class PoliciesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// True if branch to branch traffic is allowed.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Network.V20180701.Inputs
         public PoliciesArgs()
         {
         }
-        public static new PoliciesArgs Empty => new PoliciesArgs();
     }
 }

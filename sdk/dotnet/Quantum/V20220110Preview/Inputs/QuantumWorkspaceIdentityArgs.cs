@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Quantum.V20220110Preview.Inputs
     /// <summary>
     /// Managed Identity information.
     /// </summary>
-    public sealed class QuantumWorkspaceIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class QuantumWorkspaceIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity type.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Quantum.V20220110Preview.Inputs
         public QuantumWorkspaceIdentityArgs()
         {
         }
-        public static new QuantumWorkspaceIdentityArgs Empty => new QuantumWorkspaceIdentityArgs();
     }
 }

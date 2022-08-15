@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.SignalRService.V20181001
     /// </summary>
     [Obsolete(@"Version 2018-10-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:signalrservice/v20181001:SignalR")]
-    public partial class SignalR : global::Pulumi.CustomResource
+    public partial class SignalR : Pulumi.CustomResource
     {
         /// <summary>
         /// Cross-Origin Resource Sharing (CORS) settings.
@@ -131,15 +131,15 @@ namespace Pulumi.AzureNative.SignalRService.V20181001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice:SignalR"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20180301preview:SignalR"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20200501:SignalR"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20200701preview:SignalR"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20210401preview:SignalR"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20210601preview:SignalR"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20210901preview:SignalR"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20211001:SignalR"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20220201:SignalR"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice:SignalR"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/v20180301preview:SignalR"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/v20200501:SignalR"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/v20200701preview:SignalR"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/v20210401preview:SignalR"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/v20210601preview:SignalR"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/v20210901preview:SignalR"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/v20211001:SignalR"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/v20220201:SignalR"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -161,7 +161,7 @@ namespace Pulumi.AzureNative.SignalRService.V20181001
         }
     }
 
-    public sealed class SignalRArgs : global::Pulumi.ResourceArgs
+    public sealed class SignalRArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure GEO region: e.g. West US | East US | North Central US | South Central US | West Europe | North Europe | East Asia | Southeast Asia | etc. 
@@ -209,6 +209,5 @@ namespace Pulumi.AzureNative.SignalRService.V20181001
         public SignalRArgs()
         {
         }
-        public static new SignalRArgs Empty => new SignalRArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DigitalTwins.V20220531
     /// Describes a time series database connection resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:digitaltwins/v20220531:TimeSeriesDatabaseConnection")]
-    public partial class TimeSeriesDatabaseConnection : global::Pulumi.CustomResource
+    public partial class TimeSeriesDatabaseConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// Extension resource name.
@@ -64,8 +64,8 @@ namespace Pulumi.AzureNative.DigitalTwins.V20220531
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:digitaltwins:TimeSeriesDatabaseConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:digitaltwins/v20210630preview:TimeSeriesDatabaseConnection"},
+                    new Pulumi.Alias { Type = "azure-native:digitaltwins:TimeSeriesDatabaseConnection"},
+                    new Pulumi.Alias { Type = "azure-native:digitaltwins/v20210630preview:TimeSeriesDatabaseConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -87,7 +87,7 @@ namespace Pulumi.AzureNative.DigitalTwins.V20220531
         }
     }
 
-    public sealed class TimeSeriesDatabaseConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class TimeSeriesDatabaseConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Properties of a specific time series database connection.
@@ -116,6 +116,5 @@ namespace Pulumi.AzureNative.DigitalTwins.V20220531
         public TimeSeriesDatabaseConnectionArgs()
         {
         }
-        public static new TimeSeriesDatabaseConnectionArgs Empty => new TimeSeriesDatabaseConnectionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview.Inputs
     /// <summary>
     /// Azure container mapping of the endpoint.
     /// </summary>
-    public sealed class AzureContainerInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureContainerInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Container name (Based on the data format specified, this represents the name of Azure Files/Page blob/Block blob).
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview.Inputs
         public AzureContainerInfoArgs()
         {
         }
-        public static new AzureContainerInfoArgs Empty => new AzureContainerInfoArgs();
     }
 }

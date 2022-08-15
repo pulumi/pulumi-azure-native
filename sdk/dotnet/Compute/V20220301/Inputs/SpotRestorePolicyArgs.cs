@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20220301.Inputs
     /// <summary>
     /// Specifies the Spot-Try-Restore properties for the virtual machine scale set. &lt;br&gt;&lt;br&gt; With this property customer can enable or disable automatic restore of the evicted Spot VMSS VM instances opportunistically based on capacity availability and pricing constraint.
     /// </summary>
-    public sealed class SpotRestorePolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class SpotRestorePolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enables the Spot-Try-Restore feature where evicted VMSS SPOT instances will be tried to be restored opportunistically based on capacity availability and pricing constraints
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Compute.V20220301.Inputs
         public SpotRestorePolicyArgs()
         {
         }
-        public static new SpotRestorePolicyArgs Empty => new SpotRestorePolicyArgs();
     }
 }

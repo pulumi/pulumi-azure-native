@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Datadog.Inputs
 {
 
-    public sealed class ResourceSkuArgs : global::Pulumi.ResourceArgs
+    public sealed class ResourceSkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the SKU.
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.Datadog.Inputs
         public ResourceSkuArgs()
         {
         }
-        public static new ResourceSkuArgs Empty => new ResourceSkuArgs();
     }
 }

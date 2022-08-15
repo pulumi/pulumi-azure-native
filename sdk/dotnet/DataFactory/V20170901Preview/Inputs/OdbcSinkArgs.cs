@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity ODBC sink.
     /// </summary>
-    public sealed class OdbcSinkArgs : global::Pulumi.ResourceArgs
+    public sealed class OdbcSinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A query to execute before starting the copy. Type: string (or Expression with resultType string).
@@ -55,6 +55,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public OdbcSinkArgs()
         {
         }
-        public static new OdbcSinkArgs Empty => new OdbcSinkArgs();
     }
 }

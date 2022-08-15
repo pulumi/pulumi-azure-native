@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.V20210601.Inputs
     /// <summary>
     /// The ssh username, password, and ssh public key.
     /// </summary>
-    public sealed class LinuxOperatingSystemProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class LinuxOperatingSystemProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The password.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.HDInsight.V20210601.Inputs
         public LinuxOperatingSystemProfileArgs()
         {
         }
-        public static new LinuxOperatingSystemProfileArgs Empty => new LinuxOperatingSystemProfileArgs();
     }
 }

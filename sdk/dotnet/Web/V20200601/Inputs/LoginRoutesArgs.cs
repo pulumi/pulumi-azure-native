@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20200601.Inputs
 {
 
-    public sealed class LoginRoutesArgs : global::Pulumi.ResourceArgs
+    public sealed class LoginRoutesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Kind of resource.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Web.V20200601.Inputs
         public LoginRoutesArgs()
         {
         }
-        public static new LoginRoutesArgs Empty => new LoginRoutesArgs();
     }
 }

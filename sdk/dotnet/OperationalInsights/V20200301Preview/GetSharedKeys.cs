@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
     }
 
 
-    public sealed class GetSharedKeysArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSharedKeysArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
         public GetSharedKeysArgs()
         {
         }
-        public static new GetSharedKeysArgs Empty => new GetSharedKeysArgs();
     }
 
-    public sealed class GetSharedKeysInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSharedKeysInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
         public GetSharedKeysInvokeArgs()
         {
         }
-        public static new GetSharedKeysInvokeArgs Empty => new GetSharedKeysInvokeArgs();
     }
 
 

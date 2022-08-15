@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20191201.Inputs
     /// <summary>
     /// An traffic selector policy for a virtual network gateway connection.
     /// </summary>
-    public sealed class TrafficSelectorPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class TrafficSelectorPolicyArgs : Pulumi.ResourceArgs
     {
         [Input("localAddressRanges", required: true)]
         private InputList<string>? _localAddressRanges;
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Network.V20191201.Inputs
         public TrafficSelectorPolicyArgs()
         {
         }
-        public static new TrafficSelectorPolicyArgs Empty => new TrafficSelectorPolicyArgs();
     }
 }

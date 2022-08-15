@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// API Version: 2021-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:DataContainer")]
-    public partial class DataContainer : global::Pulumi.CustomResource
+    public partial class DataContainer : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -65,10 +65,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:DataContainer"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:DataContainer"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:DataContainer"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:DataContainer"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:DataContainer"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:DataContainer"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:DataContainer"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:DataContainer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         }
     }
 
-    public sealed class DataContainerArgs : global::Pulumi.ResourceArgs
+    public sealed class DataContainerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Container name.
@@ -119,6 +119,5 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public DataContainerArgs()
         {
         }
-        public static new DataContainerArgs Empty => new DataContainerArgs();
     }
 }

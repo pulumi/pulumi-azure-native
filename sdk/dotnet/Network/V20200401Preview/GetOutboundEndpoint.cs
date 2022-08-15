@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20200401Preview
     }
 
 
-    public sealed class GetOutboundEndpointArgs : global::Pulumi.InvokeArgs
+    public sealed class GetOutboundEndpointArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the DNS resolver.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Network.V20200401Preview
         public GetOutboundEndpointArgs()
         {
         }
-        public static new GetOutboundEndpointArgs Empty => new GetOutboundEndpointArgs();
     }
 
-    public sealed class GetOutboundEndpointInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetOutboundEndpointInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the DNS resolver.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Network.V20200401Preview
         public GetOutboundEndpointInvokeArgs()
         {
         }
-        public static new GetOutboundEndpointInvokeArgs Empty => new GetOutboundEndpointInvokeArgs();
     }
 
 

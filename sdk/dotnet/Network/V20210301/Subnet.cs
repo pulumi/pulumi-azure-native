@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210301
     /// Subnet in a virtual network resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20210301:Subnet")]
-    public partial class Subnet : global::Pulumi.CustomResource
+    public partial class Subnet : Pulumi.CustomResource
     {
         /// <summary>
         /// The address prefix for the subnet.
@@ -172,47 +172,47 @@ namespace Pulumi.AzureNative.Network.V20210301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20150501preview:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20150615:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20160330:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20160601:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20160901:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20161201:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170301:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170601:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170801:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170901:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20171001:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20171101:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180101:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180201:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180401:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180601:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180701:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180801:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181001:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181101:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181201:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190201:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190601:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190801:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:Subnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20150501preview:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20150615:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160330:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160601:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160901:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20161201:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170301:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170601:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170801:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170901:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20171001:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20171101:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180101:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180201:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180401:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180601:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180701:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181001:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181101:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181201:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190201:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:Subnet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -234,7 +234,7 @@ namespace Pulumi.AzureNative.Network.V20210301
         }
     }
 
-    public sealed class SubnetArgs : global::Pulumi.ResourceArgs
+    public sealed class SubnetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The address prefix for the subnet.
@@ -385,6 +385,5 @@ namespace Pulumi.AzureNative.Network.V20210301
             PrivateEndpointNetworkPolicies = "Enabled";
             PrivateLinkServiceNetworkPolicies = "Enabled";
         }
-        public static new SubnetArgs Empty => new SubnetArgs();
     }
 }

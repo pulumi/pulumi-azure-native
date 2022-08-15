@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     }
 
 
-    public sealed class ListSourceControlRepositoriesArgs : global::Pulumi.InvokeArgs
+    public sealed class ListSourceControlRepositoriesArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.SecurityInsights
         public ListSourceControlRepositoriesArgs()
         {
         }
-        public static new ListSourceControlRepositoriesArgs Empty => new ListSourceControlRepositoriesArgs();
     }
 
-    public sealed class ListSourceControlRepositoriesInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListSourceControlRepositoriesInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         public ListSourceControlRepositoriesInvokeArgs()
         {
         }
-        public static new ListSourceControlRepositoriesInvokeArgs Empty => new ListSourceControlRepositoriesInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ImportExport.Inputs
     /// <summary>
     /// Contains information about the Microsoft datacenter to which the drives should be shipped.
     /// </summary>
-    public sealed class ShippingInformationArgs : global::Pulumi.ResourceArgs
+    public sealed class ShippingInformationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The city name to use when returning the drives.
@@ -66,6 +66,5 @@ namespace Pulumi.AzureNative.ImportExport.Inputs
         public ShippingInformationArgs()
         {
         }
-        public static new ShippingInformationArgs Empty => new ShippingInformationArgs();
     }
 }

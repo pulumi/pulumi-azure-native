@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Inputs
 {
 
-    public sealed class PerimeterBasedAccessRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class PerimeterBasedAccessRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// NSP id in the ARM id format.
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.Network.Inputs
         public PerimeterBasedAccessRuleArgs()
         {
         }
-        public static new PerimeterBasedAccessRuleArgs Empty => new PerimeterBasedAccessRuleArgs();
     }
 }

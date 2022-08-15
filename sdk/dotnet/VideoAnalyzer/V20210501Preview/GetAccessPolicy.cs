@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview
     }
 
 
-    public sealed class GetAccessPolicyArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAccessPolicyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the access policy to retrieve.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview
         public GetAccessPolicyArgs()
         {
         }
-        public static new GetAccessPolicyArgs Empty => new GetAccessPolicyArgs();
     }
 
-    public sealed class GetAccessPolicyInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAccessPolicyInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the access policy to retrieve.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview
         public GetAccessPolicyInvokeArgs()
         {
         }
-        public static new GetAccessPolicyInvokeArgs Empty => new GetAccessPolicyInvokeArgs();
     }
 
 

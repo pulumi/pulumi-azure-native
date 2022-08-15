@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20190701.Inputs
     /// <summary>
     /// Describes the target region information.
     /// </summary>
-    public sealed class TargetRegionArgs : global::Pulumi.ResourceArgs
+    public sealed class TargetRegionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the region.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Compute.V20190701.Inputs
         public TargetRegionArgs()
         {
         }
-        public static new TargetRegionArgs Empty => new TargetRegionArgs();
     }
 }

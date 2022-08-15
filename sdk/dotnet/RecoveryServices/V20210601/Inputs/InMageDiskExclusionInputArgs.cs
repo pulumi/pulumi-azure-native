@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210601.Inputs
     /// <summary>
     /// DiskExclusionInput when doing enable protection of virtual machine in InMage provider.
     /// </summary>
-    public sealed class InMageDiskExclusionInputArgs : global::Pulumi.ResourceArgs
+    public sealed class InMageDiskExclusionInputArgs : Pulumi.ResourceArgs
     {
         [Input("diskSignatureOptions")]
         private InputList<Inputs.InMageDiskSignatureExclusionOptionsArgs>? _diskSignatureOptions;
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210601.Inputs
         public InMageDiskExclusionInputArgs()
         {
         }
-        public static new InMageDiskExclusionInputArgs Empty => new InMageDiskExclusionInputArgs();
     }
 }

@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.StorageSync.V20181001
     }
 
 
-    public sealed class GetRegisteredServerArgs : global::Pulumi.InvokeArgs
+    public sealed class GetRegisteredServerArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -49,10 +49,9 @@ namespace Pulumi.AzureNative.StorageSync.V20181001
         public GetRegisteredServerArgs()
         {
         }
-        public static new GetRegisteredServerArgs Empty => new GetRegisteredServerArgs();
     }
 
-    public sealed class GetRegisteredServerInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetRegisteredServerInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -75,7 +74,6 @@ namespace Pulumi.AzureNative.StorageSync.V20181001
         public GetRegisteredServerInvokeArgs()
         {
         }
-        public static new GetRegisteredServerInvokeArgs Empty => new GetRegisteredServerInvokeArgs();
     }
 
 

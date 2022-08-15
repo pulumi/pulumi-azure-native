@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.StorageSync.V20180701
     /// </summary>
     [Obsolete(@"Version 2018-07-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storagesync/v20180701:SyncGroup")]
-    public partial class SyncGroup : global::Pulumi.CustomResource
+    public partial class SyncGroup : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -65,16 +65,16 @@ namespace Pulumi.AzureNative.StorageSync.V20180701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync:SyncGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20170605preview:SyncGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20180402:SyncGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20181001:SyncGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20190201:SyncGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20190301:SyncGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20190601:SyncGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20191001:SyncGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20200301:SyncGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20200901:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20170605preview:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20180402:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20181001:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20190201:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20190301:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20190601:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20191001:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20200301:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20200901:SyncGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.StorageSync.V20180701
         }
     }
 
-    public sealed class SyncGroupArgs : global::Pulumi.ResourceArgs
+    public sealed class SyncGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -119,6 +119,5 @@ namespace Pulumi.AzureNative.StorageSync.V20180701
         public SyncGroupArgs()
         {
         }
-        public static new SyncGroupArgs Empty => new SyncGroupArgs();
     }
 }

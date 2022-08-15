@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.V20170515Preview.Inputs
     /// <summary>
     /// The properties of the create advanced schedule monthly occurrence.
     /// </summary>
-    public sealed class AdvancedScheduleMonthlyOccurrenceArgs : global::Pulumi.ResourceArgs
+    public sealed class AdvancedScheduleMonthlyOccurrenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Automation.V20170515Preview.Inputs
         public AdvancedScheduleMonthlyOccurrenceArgs()
         {
         }
-        public static new AdvancedScheduleMonthlyOccurrenceArgs Empty => new AdvancedScheduleMonthlyOccurrenceArgs();
     }
 }

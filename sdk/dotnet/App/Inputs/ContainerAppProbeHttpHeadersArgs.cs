@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.Inputs
     /// <summary>
     /// HTTPHeader describes a custom header to be used in HTTP probes
     /// </summary>
-    public sealed class ContainerAppProbeHttpHeadersArgs : global::Pulumi.ResourceArgs
+    public sealed class ContainerAppProbeHttpHeadersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The header field name
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.App.Inputs
         public ContainerAppProbeHttpHeadersArgs()
         {
         }
-        public static new ContainerAppProbeHttpHeadersArgs Empty => new ContainerAppProbeHttpHeadersArgs();
     }
 }

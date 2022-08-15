@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Authorization
     /// API Version: 2020-07-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:PolicyExemption")]
-    public partial class PolicyExemption : global::Pulumi.CustomResource
+    public partial class PolicyExemption : Pulumi.CustomResource
     {
         /// <summary>
         /// The description of the policy exemption.
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.Authorization
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20200701preview:PolicyExemption"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20200701preview:PolicyExemption"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -123,7 +123,7 @@ namespace Pulumi.AzureNative.Authorization
         }
     }
 
-    public sealed class PolicyExemptionArgs : global::Pulumi.ResourceArgs
+    public sealed class PolicyExemptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the policy exemption.
@@ -188,6 +188,5 @@ namespace Pulumi.AzureNative.Authorization
         public PolicyExemptionArgs()
         {
         }
-        public static new PolicyExemptionArgs Empty => new PolicyExemptionArgs();
     }
 }

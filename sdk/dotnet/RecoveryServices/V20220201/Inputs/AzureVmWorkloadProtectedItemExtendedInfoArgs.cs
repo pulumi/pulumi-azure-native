@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220201.Inputs
     /// <summary>
     /// Additional information on Azure Workload for SQL specific backup item.
     /// </summary>
-    public sealed class AzureVmWorkloadProtectedItemExtendedInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureVmWorkloadProtectedItemExtendedInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The oldest backup copy available for this backup item.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220201.Inputs
         public AzureVmWorkloadProtectedItemExtendedInfoArgs()
         {
         }
-        public static new AzureVmWorkloadProtectedItemExtendedInfoArgs Empty => new AzureVmWorkloadProtectedItemExtendedInfoArgs();
     }
 }

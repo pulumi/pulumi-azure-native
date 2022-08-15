@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Web.V20181101
     }
 
 
-    public sealed class GetWebAppSwiftVirtualNetworkConnectionSlotArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWebAppSwiftVirtualNetworkConnectionSlotArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the app.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Web.V20181101
         public GetWebAppSwiftVirtualNetworkConnectionSlotArgs()
         {
         }
-        public static new GetWebAppSwiftVirtualNetworkConnectionSlotArgs Empty => new GetWebAppSwiftVirtualNetworkConnectionSlotArgs();
     }
 
-    public sealed class GetWebAppSwiftVirtualNetworkConnectionSlotInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWebAppSwiftVirtualNetworkConnectionSlotInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the app.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Web.V20181101
         public GetWebAppSwiftVirtualNetworkConnectionSlotInvokeArgs()
         {
         }
-        public static new GetWebAppSwiftVirtualNetworkConnectionSlotInvokeArgs Empty => new GetWebAppSwiftVirtualNetworkConnectionSlotInvokeArgs();
     }
 
 

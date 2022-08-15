@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NotificationHubs.V20170401.Inputs
     /// <summary>
     /// SharedAccessAuthorizationRule properties.
     /// </summary>
-    public sealed class SharedAccessAuthorizationRulePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class SharedAccessAuthorizationRulePropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("rights")]
         private InputList<Pulumi.AzureNative.NotificationHubs.V20170401.AccessRights>? _rights;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.NotificationHubs.V20170401.Inputs
         public SharedAccessAuthorizationRulePropertiesArgs()
         {
         }
-        public static new SharedAccessAuthorizationRulePropertiesArgs Empty => new SharedAccessAuthorizationRulePropertiesArgs();
     }
 }

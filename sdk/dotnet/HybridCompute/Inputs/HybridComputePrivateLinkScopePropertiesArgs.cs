@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridCompute.Inputs
     /// <summary>
     /// Properties that define a Azure Arc PrivateLinkScope resource.
     /// </summary>
-    public sealed class HybridComputePrivateLinkScopePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class HybridComputePrivateLinkScopePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.HybridCompute.Inputs
         public HybridComputePrivateLinkScopePropertiesArgs()
         {
         }
-        public static new HybridComputePrivateLinkScopePropertiesArgs Empty => new HybridComputePrivateLinkScopePropertiesArgs();
     }
 }

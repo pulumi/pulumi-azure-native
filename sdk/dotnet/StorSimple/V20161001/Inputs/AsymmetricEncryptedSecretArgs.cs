@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorSimple.V20161001.Inputs
     /// <summary>
     /// This class can be used as the Type for any secret entity represented as Password, CertThumbprint, Algorithm. This class is intended to be used when the secret is encrypted with an asymmetric key pair. The encryptionAlgorithm field is mainly for future usage to potentially allow different entities encrypted using different algorithms.
     /// </summary>
-    public sealed class AsymmetricEncryptedSecretArgs : global::Pulumi.ResourceArgs
+    public sealed class AsymmetricEncryptedSecretArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Algorithm used to encrypt "Value"
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.StorSimple.V20161001.Inputs
         public AsymmetricEncryptedSecretArgs()
         {
         }
-        public static new AsymmetricEncryptedSecretArgs Empty => new AsymmetricEncryptedSecretArgs();
     }
 }

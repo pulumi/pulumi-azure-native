@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20150801.Inputs
     /// <summary>
     /// Class that represents a VIP mapping
     /// </summary>
-    public sealed class VirtualIPMappingArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualIPMappingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is VIP mapping in use
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Web.V20150801.Inputs
         public VirtualIPMappingArgs()
         {
         }
-        public static new VirtualIPMappingArgs Empty => new VirtualIPMappingArgs();
     }
 }

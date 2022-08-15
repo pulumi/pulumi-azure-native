@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
     /// <summary>
     /// Defines the ClientPort condition for the delivery rule.
     /// </summary>
-    public sealed class DeliveryRuleClientPortConditionArgs : global::Pulumi.ResourceArgs
+    public sealed class DeliveryRuleClientPortConditionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the condition for the delivery rule.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
         public DeliveryRuleClientPortConditionArgs()
         {
         }
-        public static new DeliveryRuleClientPortConditionArgs Empty => new DeliveryRuleClientPortConditionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
     /// A private endpoint connection
     /// </summary>
     [AzureNativeResourceType("azure-native:automation/v20200113preview:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// Gets the groupIds.
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:automation:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:automation:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -139,6 +139,5 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
         public PrivateEndpointConnectionArgs()
         {
         }
-        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

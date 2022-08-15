@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network.V20180401
     /// </summary>
     [Obsolete(@"Version 2018-04-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:network/v20180401:VirtualWAN")]
-    public partial class VirtualWAN : global::Pulumi.CustomResource
+    public partial class VirtualWAN : Pulumi.CustomResource
     {
         /// <summary>
         /// Vpn encryption to be disabled or not.
@@ -92,33 +92,33 @@ namespace Pulumi.AzureNative.Network.V20180401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:VirtualWAN"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180601:VirtualWAN"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180701:VirtualWAN"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180801:VirtualWAN"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181001:VirtualWAN"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181101:VirtualWAN"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181201:VirtualWAN"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190201:VirtualWAN"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:VirtualWAN"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190601:VirtualWAN"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:VirtualWAN"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190801:VirtualWAN"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:VirtualWAN"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:VirtualWAN"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:VirtualWAN"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:VirtualWAN"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:VirtualWAN"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:VirtualWAN"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualWAN"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:VirtualWAN"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:VirtualWAN"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:VirtualWAN"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:VirtualWAN"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:VirtualWAN"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:VirtualWAN"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:VirtualWAN"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:VirtualWAN"},
+                    new Pulumi.Alias { Type = "azure-native:network:VirtualWAN"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180601:VirtualWAN"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180701:VirtualWAN"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:VirtualWAN"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181001:VirtualWAN"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181101:VirtualWAN"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181201:VirtualWAN"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190201:VirtualWAN"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:VirtualWAN"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:VirtualWAN"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:VirtualWAN"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:VirtualWAN"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:VirtualWAN"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:VirtualWAN"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:VirtualWAN"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:VirtualWAN"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:VirtualWAN"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:VirtualWAN"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualWAN"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:VirtualWAN"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:VirtualWAN"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:VirtualWAN"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:VirtualWAN"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210301:VirtualWAN"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501:VirtualWAN"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:VirtualWAN"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:VirtualWAN"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNative.Network.V20180401
         }
     }
 
-    public sealed class VirtualWANArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualWANArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Vpn encryption to be disabled or not.
@@ -187,6 +187,5 @@ namespace Pulumi.AzureNative.Network.V20180401
         public VirtualWANArgs()
         {
         }
-        public static new VirtualWANArgs Empty => new VirtualWANArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20190415.Inputs
     /// <summary>
     /// Defines the parameters for RequestHeader match conditions
     /// </summary>
-    public sealed class RequestHeaderMatchConditionParametersArgs : global::Pulumi.ResourceArgs
+    public sealed class RequestHeaderMatchConditionParametersArgs : Pulumi.ResourceArgs
     {
         [Input("matchValues")]
         private InputList<string>? _matchValues;
@@ -63,6 +63,5 @@ namespace Pulumi.AzureNative.Cdn.V20190415.Inputs
         public RequestHeaderMatchConditionParametersArgs()
         {
         }
-        public static new RequestHeaderMatchConditionParametersArgs Empty => new RequestHeaderMatchConditionParametersArgs();
     }
 }

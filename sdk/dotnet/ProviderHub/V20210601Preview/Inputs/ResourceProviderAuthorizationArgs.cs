@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20210601Preview.Inputs
 {
 
-    public sealed class ResourceProviderAuthorizationArgs : global::Pulumi.ResourceArgs
+    public sealed class ResourceProviderAuthorizationArgs : Pulumi.ResourceArgs
     {
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.ProviderHub.V20210601Preview.Inputs
         public ResourceProviderAuthorizationArgs()
         {
         }
-        public static new ResourceProviderAuthorizationArgs Empty => new ResourceProviderAuthorizationArgs();
     }
 }

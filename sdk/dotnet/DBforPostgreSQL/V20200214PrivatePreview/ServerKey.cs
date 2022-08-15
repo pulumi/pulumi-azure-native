@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214PrivatePreview
     /// A PostgreSQL Server key.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20200214privatepreview:ServerKey")]
-    public partial class ServerKey : global::Pulumi.CustomResource
+    public partial class ServerKey : Pulumi.CustomResource
     {
         /// <summary>
         /// The key creation date.
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214PrivatePreview
         }
     }
 
-    public sealed class ServerKeyArgs : global::Pulumi.ResourceArgs
+    public sealed class ServerKeyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the PostgreSQL Server key to be operated on (updated or created).
@@ -129,6 +129,5 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214PrivatePreview
         public ServerKeyArgs()
         {
         }
-        public static new ServerKeyArgs Empty => new ServerKeyArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataProtection.V20211001Preview.Inputs
     /// <summary>
     /// Identity details
     /// </summary>
-    public sealed class DppIdentityDetailsArgs : global::Pulumi.ResourceArgs
+    public sealed class DppIdentityDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identityType which can be either SystemAssigned or None
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DataProtection.V20211001Preview.Inputs
         public DppIdentityDetailsArgs()
         {
         }
-        public static new DppIdentityDetailsArgs Empty => new DppIdentityDetailsArgs();
     }
 }

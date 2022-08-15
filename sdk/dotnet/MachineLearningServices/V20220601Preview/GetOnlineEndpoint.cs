@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
     }
 
 
-    public sealed class GetOnlineEndpointArgs : global::Pulumi.InvokeArgs
+    public sealed class GetOnlineEndpointArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Online Endpoint name.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
         public GetOnlineEndpointArgs()
         {
         }
-        public static new GetOnlineEndpointArgs Empty => new GetOnlineEndpointArgs();
     }
 
-    public sealed class GetOnlineEndpointInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetOnlineEndpointInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Online Endpoint name.
@@ -68,7 +67,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
         public GetOnlineEndpointInvokeArgs()
         {
         }
-        public static new GetOnlineEndpointInvokeArgs Empty => new GetOnlineEndpointInvokeArgs();
     }
 
 

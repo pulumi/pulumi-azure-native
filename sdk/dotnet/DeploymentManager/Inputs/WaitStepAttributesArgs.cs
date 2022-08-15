@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DeploymentManager.Inputs
     /// <summary>
     /// The parameters for the wait step.
     /// </summary>
-    public sealed class WaitStepAttributesArgs : global::Pulumi.ResourceArgs
+    public sealed class WaitStepAttributesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The duration in ISO 8601 format of how long the wait should be.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DeploymentManager.Inputs
         public WaitStepAttributesArgs()
         {
         }
-        public static new WaitStepAttributesArgs Empty => new WaitStepAttributesArgs();
     }
 }

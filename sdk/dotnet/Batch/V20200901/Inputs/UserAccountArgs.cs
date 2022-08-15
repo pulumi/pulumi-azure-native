@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20200901.Inputs
 {
 
-    public sealed class UserAccountArgs : global::Pulumi.ResourceArgs
+    public sealed class UserAccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
@@ -39,6 +39,5 @@ namespace Pulumi.AzureNative.Batch.V20200901.Inputs
         public UserAccountArgs()
         {
         }
-        public static new UserAccountArgs Empty => new UserAccountArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DigitalTwins.V20201031.Inputs
     /// <summary>
     /// Properties related to EventGrid.
     /// </summary>
-    public sealed class EventGridArgs : global::Pulumi.ResourceArgs
+    public sealed class EventGridArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// EventGrid secondary accesskey. Will be obfuscated during read.
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.DigitalTwins.V20201031.Inputs
         public EventGridArgs()
         {
         }
-        public static new EventGridArgs Empty => new EventGridArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VMwareCloudSimple.V20190401.Inputs
     /// <summary>
     /// Virtual NIC model
     /// </summary>
-    public sealed class VirtualNicArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualNicArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// guest OS customization for nic
@@ -66,6 +66,5 @@ namespace Pulumi.AzureNative.VMwareCloudSimple.V20190401.Inputs
         public VirtualNicArgs()
         {
         }
-        public static new VirtualNicArgs Empty => new VirtualNicArgs();
     }
 }

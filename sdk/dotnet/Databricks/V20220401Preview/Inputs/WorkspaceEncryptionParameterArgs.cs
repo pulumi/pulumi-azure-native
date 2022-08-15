@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Databricks.V20220401Preview.Inputs
     /// <summary>
     /// The object that contains details of encryption used on the workspace.
     /// </summary>
-    public sealed class WorkspaceEncryptionParameterArgs : global::Pulumi.ResourceArgs
+    public sealed class WorkspaceEncryptionParameterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value which should be used for this field.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Databricks.V20220401Preview.Inputs
         public WorkspaceEncryptionParameterArgs()
         {
         }
-        public static new WorkspaceEncryptionParameterArgs Empty => new WorkspaceEncryptionParameterArgs();
     }
 }

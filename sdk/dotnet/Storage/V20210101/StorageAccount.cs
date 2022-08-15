@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20210101
     /// The storage account.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage/v20210101:StorageAccount")]
-    public partial class StorageAccount : global::Pulumi.CustomResource
+    public partial class StorageAccount : Pulumi.CustomResource
     {
         /// <summary>
         /// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
@@ -244,27 +244,27 @@ namespace Pulumi.AzureNative.Storage.V20210101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:storage:StorageAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20150501preview:StorageAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20150615:StorageAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20160101:StorageAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20160501:StorageAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20161201:StorageAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20170601:StorageAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20171001:StorageAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20180201:StorageAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20180301preview:StorageAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20180701:StorageAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20181101:StorageAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20190401:StorageAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20190601:StorageAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20200801preview:StorageAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210201:StorageAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210401:StorageAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210601:StorageAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210801:StorageAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210901:StorageAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20220501:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20150501preview:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20150615:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20160101:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20160501:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20161201:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20170601:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20171001:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20180201:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20180301preview:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20180701:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20181101:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20190401:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20190601:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210201:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210401:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210601:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210801:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210901:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20220501:StorageAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -286,7 +286,7 @@ namespace Pulumi.AzureNative.Storage.V20210101
         }
     }
 
-    public sealed class StorageAccountArgs : global::Pulumi.ResourceArgs
+    public sealed class StorageAccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
@@ -423,6 +423,5 @@ namespace Pulumi.AzureNative.Storage.V20210101
         public StorageAccountArgs()
         {
         }
-        public static new StorageAccountArgs Empty => new StorageAccountArgs();
     }
 }

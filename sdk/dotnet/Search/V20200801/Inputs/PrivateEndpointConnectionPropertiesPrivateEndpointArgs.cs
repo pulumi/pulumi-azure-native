@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Search.V20200801.Inputs
     /// <summary>
     /// The private endpoint resource from Microsoft.Network provider.
     /// </summary>
-    public sealed class PrivateEndpointConnectionPropertiesPrivateEndpointArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionPropertiesPrivateEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource id of the private endpoint resource from Microsoft.Network provider.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Search.V20200801.Inputs
         public PrivateEndpointConnectionPropertiesPrivateEndpointArgs()
         {
         }
-        public static new PrivateEndpointConnectionPropertiesPrivateEndpointArgs Empty => new PrivateEndpointConnectionPropertiesPrivateEndpointArgs();
     }
 }

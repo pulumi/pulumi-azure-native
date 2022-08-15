@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Web.V20210201
     }
 
 
-    public sealed class ListStaticSiteUsersArgs : global::Pulumi.InvokeArgs
+    public sealed class ListStaticSiteUsersArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The auth provider for the users.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Web.V20210201
         public ListStaticSiteUsersArgs()
         {
         }
-        public static new ListStaticSiteUsersArgs Empty => new ListStaticSiteUsersArgs();
     }
 
-    public sealed class ListStaticSiteUsersInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListStaticSiteUsersInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The auth provider for the users.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Web.V20210201
         public ListStaticSiteUsersInvokeArgs()
         {
         }
-        public static new ListStaticSiteUsersInvokeArgs Empty => new ListStaticSiteUsersInvokeArgs();
     }
 
 

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ApiManagement
     /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:NamedValue")]
-    public partial class NamedValue : global::Pulumi.CustomResource
+    public partial class NamedValue : Pulumi.CustomResource
     {
         /// <summary>
         /// Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
@@ -83,14 +83,14 @@ namespace Pulumi.AzureNative.ApiManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:NamedValue"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:NamedValue"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:NamedValue"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:NamedValue"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:NamedValue"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:NamedValue"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:NamedValue"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:NamedValue"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:NamedValue"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:NamedValue"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:NamedValue"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:NamedValue"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:NamedValue"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:NamedValue"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:NamedValue"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:NamedValue"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.ApiManagement
         }
     }
 
-    public sealed class NamedValueArgs : global::Pulumi.ResourceArgs
+    public sealed class NamedValueArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
@@ -171,6 +171,5 @@ namespace Pulumi.AzureNative.ApiManagement
         public NamedValueArgs()
         {
         }
-        public static new NamedValueArgs Empty => new NamedValueArgs();
     }
 }

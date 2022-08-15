@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ContainerInstance
     }
 
 
-    public sealed class GetContainerGroupArgs : global::Pulumi.InvokeArgs
+    public sealed class GetContainerGroupArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the container group.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.ContainerInstance
         public GetContainerGroupArgs()
         {
         }
-        public static new GetContainerGroupArgs Empty => new GetContainerGroupArgs();
     }
 
-    public sealed class GetContainerGroupInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetContainerGroupInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the container group.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.ContainerInstance
         public GetContainerGroupInvokeArgs()
         {
         }
-        public static new GetContainerGroupInvokeArgs Empty => new GetContainerGroupInvokeArgs();
     }
 
 

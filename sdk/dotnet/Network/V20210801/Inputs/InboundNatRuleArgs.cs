@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
     /// <summary>
     /// Inbound NAT rule of the load balancer.
     /// </summary>
-    public sealed class InboundNatRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class InboundNatRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A reference to backendAddressPool resource.
@@ -90,6 +90,5 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
         public InboundNatRuleArgs()
         {
         }
-        public static new InboundNatRuleArgs Empty => new InboundNatRuleArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20181119.Inputs
     /// <summary>
     /// AML Compute properties
     /// </summary>
-    public sealed class AmlComputePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class AmlComputePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Scale settings for AML Compute
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20181119.Inputs
         public AmlComputePropertiesArgs()
         {
         }
-        public static new AmlComputePropertiesArgs Empty => new AmlComputePropertiesArgs();
     }
 }

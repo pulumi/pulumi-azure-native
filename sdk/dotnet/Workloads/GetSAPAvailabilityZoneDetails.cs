@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Workloads
     }
 
 
-    public sealed class GetSAPAvailabilityZoneDetailsArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSAPAvailabilityZoneDetailsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The geo-location where the SAP resources will be created.
@@ -56,10 +56,9 @@ namespace Pulumi.AzureNative.Workloads
         public GetSAPAvailabilityZoneDetailsArgs()
         {
         }
-        public static new GetSAPAvailabilityZoneDetailsArgs Empty => new GetSAPAvailabilityZoneDetailsArgs();
     }
 
-    public sealed class GetSAPAvailabilityZoneDetailsInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSAPAvailabilityZoneDetailsInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The geo-location where the SAP resources will be created.
@@ -88,7 +87,6 @@ namespace Pulumi.AzureNative.Workloads
         public GetSAPAvailabilityZoneDetailsInvokeArgs()
         {
         }
-        public static new GetSAPAvailabilityZoneDetailsInvokeArgs Empty => new GetSAPAvailabilityZoneDetailsInvokeArgs();
     }
 
 

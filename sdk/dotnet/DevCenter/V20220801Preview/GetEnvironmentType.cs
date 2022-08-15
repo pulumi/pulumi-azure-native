@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
     }
 
 
-    public sealed class GetEnvironmentTypeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEnvironmentTypeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the devcenter.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         public GetEnvironmentTypeArgs()
         {
         }
-        public static new GetEnvironmentTypeArgs Empty => new GetEnvironmentTypeArgs();
     }
 
-    public sealed class GetEnvironmentTypeInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEnvironmentTypeInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the devcenter.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         public GetEnvironmentTypeInvokeArgs()
         {
         }
-        public static new GetEnvironmentTypeInvokeArgs Empty => new GetEnvironmentTypeInvokeArgs();
     }
 
 

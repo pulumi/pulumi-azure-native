@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
     /// <summary>
     /// The workflow trigger recurrence.
     /// </summary>
-    public sealed class WorkflowTriggerRecurrenceArgs : global::Pulumi.ResourceArgs
+    public sealed class WorkflowTriggerRecurrenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The end time.
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
         public WorkflowTriggerRecurrenceArgs()
         {
         }
-        public static new WorkflowTriggerRecurrenceArgs Empty => new WorkflowTriggerRecurrenceArgs();
     }
 }

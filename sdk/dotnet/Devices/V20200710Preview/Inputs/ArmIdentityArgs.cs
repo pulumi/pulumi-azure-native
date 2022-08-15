@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Devices.V20200710Preview.Inputs
 {
 
-    public sealed class ArmIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class ArmIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned
@@ -29,6 +29,5 @@ namespace Pulumi.AzureNative.Devices.V20200710Preview.Inputs
         public ArmIdentityArgs()
         {
         }
-        public static new ArmIdentityArgs Empty => new ArmIdentityArgs();
     }
 }

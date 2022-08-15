@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20150501
     /// Properties that define a Continuous Export configuration.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights/v20150501:ExportConfiguration")]
-    public partial class ExportConfiguration : global::Pulumi.CustomResource
+    public partial class ExportConfiguration : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Application Insights component.
@@ -154,7 +154,7 @@ namespace Pulumi.AzureNative.Insights.V20150501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:insights:ExportConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:insights:ExportConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -176,7 +176,7 @@ namespace Pulumi.AzureNative.Insights.V20150501
         }
     }
 
-    public sealed class ExportConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class ExportConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of destination storage account.
@@ -253,6 +253,5 @@ namespace Pulumi.AzureNative.Insights.V20150501
         public ExportConfigurationArgs()
         {
         }
-        public static new ExportConfigurationArgs Empty => new ExportConfigurationArgs();
     }
 }

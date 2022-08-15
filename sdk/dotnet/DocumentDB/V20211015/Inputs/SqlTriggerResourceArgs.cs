@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20211015.Inputs
     /// <summary>
     /// Cosmos DB SQL trigger resource object
     /// </summary>
-    public sealed class SqlTriggerResourceArgs : global::Pulumi.ResourceArgs
+    public sealed class SqlTriggerResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Body of the Trigger
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20211015.Inputs
         public SqlTriggerResourceArgs()
         {
         }
-        public static new SqlTriggerResourceArgs Empty => new SqlTriggerResourceArgs();
     }
 }

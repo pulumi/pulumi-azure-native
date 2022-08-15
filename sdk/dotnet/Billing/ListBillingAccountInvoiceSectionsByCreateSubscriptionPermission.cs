@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Billing
     }
 
 
-    public sealed class ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionArgs : global::Pulumi.InvokeArgs
+    public sealed class ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID that uniquely identifies a billing account.
@@ -38,10 +38,9 @@ namespace Pulumi.AzureNative.Billing
         public ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionArgs()
         {
         }
-        public static new ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionArgs Empty => new ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionArgs();
     }
 
-    public sealed class ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID that uniquely identifies a billing account.
@@ -52,7 +51,6 @@ namespace Pulumi.AzureNative.Billing
         public ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionInvokeArgs()
         {
         }
-        public static new ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionInvokeArgs Empty => new ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionInvokeArgs();
     }
 
 

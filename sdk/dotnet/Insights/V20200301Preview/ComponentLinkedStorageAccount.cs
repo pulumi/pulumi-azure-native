@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20200301Preview
     /// An Application Insights component linked storage accounts
     /// </summary>
     [AzureNativeResourceType("azure-native:insights/v20200301preview:ComponentLinkedStorageAccount")]
-    public partial class ComponentLinkedStorageAccount : global::Pulumi.CustomResource
+    public partial class ComponentLinkedStorageAccount : Pulumi.CustomResource
     {
         /// <summary>
         /// Linked storage account resource ID
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.Insights.V20200301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:insights:ComponentLinkedStorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:insights:ComponentLinkedStorageAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNative.Insights.V20200301Preview
         }
     }
 
-    public sealed class ComponentLinkedStorageAccountArgs : global::Pulumi.ResourceArgs
+    public sealed class ComponentLinkedStorageAccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Linked storage account resource ID
@@ -109,6 +109,5 @@ namespace Pulumi.AzureNative.Insights.V20200301Preview
         public ComponentLinkedStorageAccountArgs()
         {
         }
-        public static new ComponentLinkedStorageAccountArgs Empty => new ComponentLinkedStorageAccountArgs();
     }
 }

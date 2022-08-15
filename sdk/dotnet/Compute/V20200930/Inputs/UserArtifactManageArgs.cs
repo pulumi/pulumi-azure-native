@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20200930.Inputs
 {
 
-    public sealed class UserArtifactManageArgs : global::Pulumi.ResourceArgs
+    public sealed class UserArtifactManageArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Required. The path and arguments to install the gallery application. This is limited to 4096 characters.
@@ -33,6 +33,5 @@ namespace Pulumi.AzureNative.Compute.V20200930.Inputs
         public UserArtifactManageArgs()
         {
         }
-        public static new UserArtifactManageArgs Empty => new UserArtifactManageArgs();
     }
 }

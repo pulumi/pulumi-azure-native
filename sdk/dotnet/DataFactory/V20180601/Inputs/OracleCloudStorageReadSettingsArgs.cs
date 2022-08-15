@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Oracle Cloud Storage read settings.
     /// </summary>
-    public sealed class OracleCloudStorageReadSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class OracleCloudStorageReadSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -97,6 +97,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public OracleCloudStorageReadSettingsArgs()
         {
         }
-        public static new OracleCloudStorageReadSettingsArgs Empty => new OracleCloudStorageReadSettingsArgs();
     }
 }

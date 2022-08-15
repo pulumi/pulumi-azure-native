@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101.Inputs
     /// <summary>
     /// Details of the Credentials used to connect to Backend.
     /// </summary>
-    public sealed class BackendCredentialsContractArgs : global::Pulumi.ResourceArgs
+    public sealed class BackendCredentialsContractArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authorization header authentication
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101.Inputs
         public BackendCredentialsContractArgs()
         {
         }
-        public static new BackendCredentialsContractArgs Empty => new BackendCredentialsContractArgs();
     }
 }

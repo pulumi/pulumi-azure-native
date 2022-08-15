@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DeviceUpdate.Inputs
     /// <summary>
     /// Device Update account integration with IoT Hub settings.
     /// </summary>
-    public sealed class IotHubSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class IotHubSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// EventHub connection string.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DeviceUpdate.Inputs
         public IotHubSettingsArgs()
         {
         }
-        public static new IotHubSettingsArgs Empty => new IotHubSettingsArgs();
     }
 }

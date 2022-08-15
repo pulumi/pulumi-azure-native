@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Devices.V20191104
     }
 
 
-    public sealed class GetIotHubResourceEventHubConsumerGroupArgs : global::Pulumi.InvokeArgs
+    public sealed class GetIotHubResourceEventHubConsumerGroupArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Event Hub-compatible endpoint in the IoT hub.
@@ -55,10 +55,9 @@ namespace Pulumi.AzureNative.Devices.V20191104
         public GetIotHubResourceEventHubConsumerGroupArgs()
         {
         }
-        public static new GetIotHubResourceEventHubConsumerGroupArgs Empty => new GetIotHubResourceEventHubConsumerGroupArgs();
     }
 
-    public sealed class GetIotHubResourceEventHubConsumerGroupInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetIotHubResourceEventHubConsumerGroupInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Event Hub-compatible endpoint in the IoT hub.
@@ -87,7 +86,6 @@ namespace Pulumi.AzureNative.Devices.V20191104
         public GetIotHubResourceEventHubConsumerGroupInvokeArgs()
         {
         }
-        public static new GetIotHubResourceEventHubConsumerGroupInvokeArgs Empty => new GetIotHubResourceEventHubConsumerGroupInvokeArgs();
     }
 
 

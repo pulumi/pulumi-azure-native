@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
     }
 
 
-    public sealed class GetSAPCentralInstanceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSAPCentralInstanceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Central Instance name string modeled as parameter for auto generation to work correctly.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
         public GetSAPCentralInstanceArgs()
         {
         }
-        public static new GetSAPCentralInstanceArgs Empty => new GetSAPCentralInstanceArgs();
     }
 
-    public sealed class GetSAPCentralInstanceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSAPCentralInstanceInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Central Instance name string modeled as parameter for auto generation to work correctly.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
         public GetSAPCentralInstanceInvokeArgs()
         {
         }
-        public static new GetSAPCentralInstanceInvokeArgs Empty => new GetSAPCentralInstanceInvokeArgs();
     }
 
 

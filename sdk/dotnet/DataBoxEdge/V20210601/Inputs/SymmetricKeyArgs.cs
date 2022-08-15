@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601.Inputs
     /// <summary>
     /// Symmetric key for authentication.
     /// </summary>
-    public sealed class SymmetricKeyArgs : global::Pulumi.ResourceArgs
+    public sealed class SymmetricKeyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Connection string based on the symmetric key.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601.Inputs
         public SymmetricKeyArgs()
         {
         }
-        public static new SymmetricKeyArgs Empty => new SymmetricKeyArgs();
     }
 }

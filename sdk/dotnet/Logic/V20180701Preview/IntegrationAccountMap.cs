@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview
     /// The integration account map.
     /// </summary>
     [AzureNativeResourceType("azure-native:logic/v20180701preview:IntegrationAccountMap")]
-    public partial class IntegrationAccountMap : global::Pulumi.CustomResource
+    public partial class IntegrationAccountMap : Pulumi.CustomResource
     {
         /// <summary>
         /// The changed time.
@@ -112,10 +112,10 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:logic:IntegrationAccountMap"},
-                    new global::Pulumi.Alias { Type = "azure-native:logic/v20150801preview:IntegrationAccountMap"},
-                    new global::Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountMap"},
-                    new global::Pulumi.Alias { Type = "azure-native:logic/v20190501:IntegrationAccountMap"},
+                    new Pulumi.Alias { Type = "azure-native:logic:IntegrationAccountMap"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20150801preview:IntegrationAccountMap"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountMap"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20190501:IntegrationAccountMap"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -137,7 +137,7 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview
         }
     }
 
-    public sealed class IntegrationAccountMapArgs : global::Pulumi.ResourceArgs
+    public sealed class IntegrationAccountMapArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The content.
@@ -208,6 +208,5 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview
         public IntegrationAccountMapArgs()
         {
         }
-        public static new IntegrationAccountMapArgs Empty => new IntegrationAccountMapArgs();
     }
 }

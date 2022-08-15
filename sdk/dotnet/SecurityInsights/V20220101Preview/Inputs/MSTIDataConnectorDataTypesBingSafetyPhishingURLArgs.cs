@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview.Inputs
     /// <summary>
     /// Data type for Microsoft Threat Intelligence Platforms data connector.
     /// </summary>
-    public sealed class MSTIDataConnectorDataTypesBingSafetyPhishingURLArgs : global::Pulumi.ResourceArgs
+    public sealed class MSTIDataConnectorDataTypesBingSafetyPhishingURLArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// lookback period
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview.Inputs
         public MSTIDataConnectorDataTypesBingSafetyPhishingURLArgs()
         {
         }
-        public static new MSTIDataConnectorDataTypesBingSafetyPhishingURLArgs Empty => new MSTIDataConnectorDataTypesBingSafetyPhishingURLArgs();
     }
 }

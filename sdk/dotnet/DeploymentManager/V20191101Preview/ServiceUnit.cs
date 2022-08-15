@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview
     /// Represents the response of a service unit resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:deploymentmanager/v20191101preview:ServiceUnit")]
-    public partial class ServiceUnit : global::Pulumi.CustomResource
+    public partial class ServiceUnit : Pulumi.CustomResource
     {
         /// <summary>
         /// The artifacts for the service unit.
@@ -82,8 +82,8 @@ namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:deploymentmanager:ServiceUnit"},
-                    new global::Pulumi.Alias { Type = "azure-native:deploymentmanager/v20180901preview:ServiceUnit"},
+                    new Pulumi.Alias { Type = "azure-native:deploymentmanager:ServiceUnit"},
+                    new Pulumi.Alias { Type = "azure-native:deploymentmanager/v20180901preview:ServiceUnit"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -105,7 +105,7 @@ namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview
         }
     }
 
-    public sealed class ServiceUnitArgs : global::Pulumi.ResourceArgs
+    public sealed class ServiceUnitArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The artifacts for the service unit.
@@ -170,6 +170,5 @@ namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview
         public ServiceUnitArgs()
         {
         }
-        public static new ServiceUnitArgs Empty => new ServiceUnitArgs();
     }
 }

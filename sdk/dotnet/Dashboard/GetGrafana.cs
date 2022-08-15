@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Dashboard
     }
 
 
-    public sealed class GetGrafanaArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGrafanaArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.Dashboard
         public GetGrafanaArgs()
         {
         }
-        public static new GetGrafanaArgs Empty => new GetGrafanaArgs();
     }
 
-    public sealed class GetGrafanaInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGrafanaInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.Dashboard
         public GetGrafanaInvokeArgs()
         {
         }
-        public static new GetGrafanaInvokeArgs Empty => new GetGrafanaInvokeArgs();
     }
 
 

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DataFactory
     }
 
 
-    public sealed class GetPipelineArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPipelineArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The factory name.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.DataFactory
         public GetPipelineArgs()
         {
         }
-        public static new GetPipelineArgs Empty => new GetPipelineArgs();
     }
 
-    public sealed class GetPipelineInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPipelineInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The factory name.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.DataFactory
         public GetPipelineInvokeArgs()
         {
         }
-        public static new GetPipelineInvokeArgs Empty => new GetPipelineInvokeArgs();
     }
 
 

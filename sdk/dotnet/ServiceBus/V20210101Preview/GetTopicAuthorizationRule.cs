@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20210101Preview
     }
 
 
-    public sealed class GetTopicAuthorizationRuleArgs : global::Pulumi.InvokeArgs
+    public sealed class GetTopicAuthorizationRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The authorization rule name.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.ServiceBus.V20210101Preview
         public GetTopicAuthorizationRuleArgs()
         {
         }
-        public static new GetTopicAuthorizationRuleArgs Empty => new GetTopicAuthorizationRuleArgs();
     }
 
-    public sealed class GetTopicAuthorizationRuleInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetTopicAuthorizationRuleInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The authorization rule name.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20210101Preview
         public GetTopicAuthorizationRuleInvokeArgs()
         {
         }
-        public static new GetTopicAuthorizationRuleInvokeArgs Empty => new GetTopicAuthorizationRuleInvokeArgs();
     }
 
 

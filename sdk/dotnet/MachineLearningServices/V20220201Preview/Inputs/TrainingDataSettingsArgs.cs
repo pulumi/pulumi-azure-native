@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// Training data input.
     /// </summary>
-    public sealed class TrainingDataSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class TrainingDataSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] Training data MLTable.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         public TrainingDataSettingsArgs()
         {
         }
-        public static new TrainingDataSettingsArgs Empty => new TrainingDataSettingsArgs();
     }
 }

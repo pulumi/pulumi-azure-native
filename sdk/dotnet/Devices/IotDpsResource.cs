@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Devices
     /// API Version: 2020-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:devices:IotDpsResource")]
-    public partial class IotDpsResource : global::Pulumi.CustomResource
+    public partial class IotDpsResource : Pulumi.CustomResource
     {
         /// <summary>
         /// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
@@ -83,14 +83,14 @@ namespace Pulumi.AzureNative.Devices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20170821preview:IotDpsResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20171115:IotDpsResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20180122:IotDpsResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200101:IotDpsResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200301:IotDpsResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200901preview:IotDpsResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20211015:IotDpsResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20220205:IotDpsResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20170821preview:IotDpsResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20171115:IotDpsResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20180122:IotDpsResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200101:IotDpsResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200301:IotDpsResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200901preview:IotDpsResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20211015:IotDpsResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20220205:IotDpsResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.Devices
         }
     }
 
-    public sealed class IotDpsResourceArgs : global::Pulumi.ResourceArgs
+    public sealed class IotDpsResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource location.
@@ -159,6 +159,5 @@ namespace Pulumi.AzureNative.Devices
         public IotDpsResourceArgs()
         {
         }
-        public static new IotDpsResourceArgs Empty => new IotDpsResourceArgs();
     }
 }

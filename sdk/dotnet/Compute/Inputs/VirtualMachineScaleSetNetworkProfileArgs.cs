@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
     /// <summary>
     /// Describes a virtual machine scale set network profile.
     /// </summary>
-    public sealed class VirtualMachineScaleSetNetworkProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualMachineScaleSetNetworkProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A reference to a load balancer probe used to determine the health of an instance in the virtual machine scale set. The reference will be in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/probes/{probeName}'.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public VirtualMachineScaleSetNetworkProfileArgs()
         {
         }
-        public static new VirtualMachineScaleSetNetworkProfileArgs Empty => new VirtualMachineScaleSetNetworkProfileArgs();
     }
 }

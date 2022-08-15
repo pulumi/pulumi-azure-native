@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20220301
     /// Virtual Network information ARM resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20220301:WebAppVnetConnectionSlot")]
-    public partial class WebAppVnetConnectionSlot : global::Pulumi.CustomResource
+    public partial class WebAppVnetConnectionSlot : Pulumi.CustomResource
     {
         /// <summary>
         /// A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
@@ -101,20 +101,20 @@ namespace Pulumi.AzureNative.Web.V20220301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppVnetConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppVnetConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppVnetConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppVnetConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppVnetConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppVnetConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppVnetConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppVnetConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppVnetConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppVnetConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppVnetConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppVnetConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppVnetConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppVnetConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web:WebAppVnetConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppVnetConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppVnetConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppVnetConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppVnetConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppVnetConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppVnetConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppVnetConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppVnetConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppVnetConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppVnetConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppVnetConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppVnetConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppVnetConnectionSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.Web.V20220301
         }
     }
 
-    public sealed class WebAppVnetConnectionSlotArgs : global::Pulumi.ResourceArgs
+    public sealed class WebAppVnetConnectionSlotArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
@@ -196,6 +196,5 @@ namespace Pulumi.AzureNative.Web.V20220301
         public WebAppVnetConnectionSlotArgs()
         {
         }
-        public static new WebAppVnetConnectionSlotArgs Empty => new WebAppVnetConnectionSlotArgs();
     }
 }

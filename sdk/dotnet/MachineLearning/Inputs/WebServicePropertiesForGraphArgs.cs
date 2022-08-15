@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearning.Inputs
     /// <summary>
     /// Properties specific to a Graph based web service.
     /// </summary>
-    public sealed class WebServicePropertiesForGraphArgs : global::Pulumi.ResourceArgs
+    public sealed class WebServicePropertiesForGraphArgs : Pulumi.ResourceArgs
     {
         [Input("assets")]
         private InputMap<Inputs.AssetItemArgs>? _assets;
@@ -145,6 +145,5 @@ namespace Pulumi.AzureNative.MachineLearning.Inputs
         public WebServicePropertiesForGraphArgs()
         {
         }
-        public static new WebServicePropertiesForGraphArgs Empty => new WebServicePropertiesForGraphArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ScVmm.Inputs
     /// <summary>
     /// Defines the resource properties.
     /// </summary>
-    public sealed class NetworkProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class NetworkProfileArgs : Pulumi.ResourceArgs
     {
         [Input("networkInterfaces")]
         private InputList<Inputs.NetworkInterfacesArgs>? _networkInterfaces;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ScVmm.Inputs
         public NetworkProfileArgs()
         {
         }
-        public static new NetworkProfileArgs Empty => new NetworkProfileArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20210630
     /// A task resource
     /// </summary>
     [AzureNativeResourceType("azure-native:datamigration/v20210630:ServiceTask")]
-    public partial class ServiceTask : global::Pulumi.CustomResource
+    public partial class ServiceTask : Pulumi.CustomResource
     {
         /// <summary>
         /// HTTP strong entity tag value. This is ignored if submitted.
@@ -70,10 +70,10 @@ namespace Pulumi.AzureNative.DataMigration.V20210630
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20180715preview:ServiceTask"},
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20211030preview:ServiceTask"},
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20220130preview:ServiceTask"},
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20220330preview:ServiceTask"},
+                    new Pulumi.Alias { Type = "azure-native:datamigration/v20180715preview:ServiceTask"},
+                    new Pulumi.Alias { Type = "azure-native:datamigration/v20211030preview:ServiceTask"},
+                    new Pulumi.Alias { Type = "azure-native:datamigration/v20220130preview:ServiceTask"},
+                    new Pulumi.Alias { Type = "azure-native:datamigration/v20220330preview:ServiceTask"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.DataMigration.V20210630
         }
     }
 
-    public sealed class ServiceTaskArgs : global::Pulumi.ResourceArgs
+    public sealed class ServiceTaskArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the resource group
@@ -124,6 +124,5 @@ namespace Pulumi.AzureNative.DataMigration.V20210630
         public ServiceTaskArgs()
         {
         }
-        public static new ServiceTaskArgs Empty => new ServiceTaskArgs();
     }
 }

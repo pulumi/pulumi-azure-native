@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A copy activity Azure SQL sink.
     /// </summary>
-    public sealed class AzureSqlSinkArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureSqlSinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -121,6 +121,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public AzureSqlSinkArgs()
         {
         }
-        public static new AzureSqlSinkArgs Empty => new AzureSqlSinkArgs();
     }
 }

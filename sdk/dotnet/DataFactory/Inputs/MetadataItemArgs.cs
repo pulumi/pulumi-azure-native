@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Specify the name and value of custom metadata item.
     /// </summary>
-    public sealed class MetadataItemArgs : global::Pulumi.ResourceArgs
+    public sealed class MetadataItemArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Metadata item key name. Type: string (or Expression with resultType string).
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public MetadataItemArgs()
         {
         }
-        public static new MetadataItemArgs Empty => new MetadataItemArgs();
     }
 }

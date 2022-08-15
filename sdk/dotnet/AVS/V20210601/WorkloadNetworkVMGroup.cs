@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS.V20210601
     /// NSX VM Group
     /// </summary>
     [AzureNativeResourceType("azure-native:avs/v20210601:WorkloadNetworkVMGroup")]
-    public partial class WorkloadNetworkVMGroup : global::Pulumi.CustomResource
+    public partial class WorkloadNetworkVMGroup : Pulumi.CustomResource
     {
         /// <summary>
         /// Display name of the VM group.
@@ -82,10 +82,10 @@ namespace Pulumi.AzureNative.AVS.V20210601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:avs:WorkloadNetworkVMGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200717preview:WorkloadNetworkVMGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210101preview:WorkloadNetworkVMGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:WorkloadNetworkVMGroup"},
+                    new Pulumi.Alias { Type = "azure-native:avs:WorkloadNetworkVMGroup"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20200717preview:WorkloadNetworkVMGroup"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20210101preview:WorkloadNetworkVMGroup"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20211201:WorkloadNetworkVMGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.AVS.V20210601
         }
     }
 
-    public sealed class WorkloadNetworkVMGroupArgs : global::Pulumi.ResourceArgs
+    public sealed class WorkloadNetworkVMGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Display name of the VM group.
@@ -154,6 +154,5 @@ namespace Pulumi.AzureNative.AVS.V20210601
         public WorkloadNetworkVMGroupArgs()
         {
         }
-        public static new WorkloadNetworkVMGroupArgs Empty => new WorkloadNetworkVMGroupArgs();
     }
 }

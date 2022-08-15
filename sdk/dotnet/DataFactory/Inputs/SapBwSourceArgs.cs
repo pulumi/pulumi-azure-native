@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity source for SapBW server via MDX.
     /// </summary>
-    public sealed class SapBwSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class SapBwSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -67,6 +67,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public SapBwSourceArgs()
         {
         }
-        public static new SapBwSourceArgs Empty => new SapBwSourceArgs();
     }
 }

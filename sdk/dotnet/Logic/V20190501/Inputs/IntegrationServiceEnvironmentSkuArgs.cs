@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
     /// <summary>
     /// The integration service environment sku.
     /// </summary>
-    public sealed class IntegrationServiceEnvironmentSkuArgs : global::Pulumi.ResourceArgs
+    public sealed class IntegrationServiceEnvironmentSkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The sku capacity.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
         public IntegrationServiceEnvironmentSkuArgs()
         {
         }
-        public static new IntegrationServiceEnvironmentSkuArgs Empty => new IntegrationServiceEnvironmentSkuArgs();
     }
 }

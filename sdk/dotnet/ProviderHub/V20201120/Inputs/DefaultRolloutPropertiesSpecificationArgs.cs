@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20201120.Inputs
 {
 
-    public sealed class DefaultRolloutPropertiesSpecificationArgs : global::Pulumi.ResourceArgs
+    public sealed class DefaultRolloutPropertiesSpecificationArgs : Pulumi.ResourceArgs
     {
         [Input("canary")]
         public Input<Inputs.DefaultRolloutSpecificationCanaryArgs>? Canary { get; set; }
@@ -44,6 +44,5 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120.Inputs
         public DefaultRolloutPropertiesSpecificationArgs()
         {
         }
-        public static new DefaultRolloutPropertiesSpecificationArgs Empty => new DefaultRolloutPropertiesSpecificationArgs();
     }
 }

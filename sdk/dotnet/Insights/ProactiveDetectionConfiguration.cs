@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Insights
     /// API Version: 2015-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:ProactiveDetectionConfiguration")]
-    public partial class ProactiveDetectionConfiguration : global::Pulumi.CustomResource
+    public partial class ProactiveDetectionConfiguration : Pulumi.CustomResource
     {
         /// <summary>
         /// Custom email addresses for this rule notifications
@@ -77,8 +77,8 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20150501:ProactiveDetectionConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20180501preview:ProactiveDetectionConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20150501:ProactiveDetectionConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20180501preview:ProactiveDetectionConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.Insights
         }
     }
 
-    public sealed class ProactiveDetectionConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class ProactiveDetectionConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ProactiveDetection configuration ID. This is unique within a Application Insights component.
@@ -165,6 +165,5 @@ namespace Pulumi.AzureNative.Insights
         public ProactiveDetectionConfigurationArgs()
         {
         }
-        public static new ProactiveDetectionConfigurationArgs Empty => new ProactiveDetectionConfigurationArgs();
     }
 }

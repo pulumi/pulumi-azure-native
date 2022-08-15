@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20170131.Inputs
 {
 
-    public sealed class ContainerServiceDiagnosticsProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class ContainerServiceDiagnosticsProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Profile for the container service VM diagnostic agent.
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.ContainerService.V20170131.Inputs
         public ContainerServiceDiagnosticsProfileArgs()
         {
         }
-        public static new ContainerServiceDiagnosticsProfileArgs Empty => new ContainerServiceDiagnosticsProfileArgs();
     }
 }

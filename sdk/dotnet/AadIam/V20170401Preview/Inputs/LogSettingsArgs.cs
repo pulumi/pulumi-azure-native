@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AadIam.V20170401Preview.Inputs
     /// <summary>
     /// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
     /// </summary>
-    public sealed class LogSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class LogSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.AadIam.V20170401Preview.Inputs
         public LogSettingsArgs()
         {
         }
-        public static new LogSettingsArgs Empty => new LogSettingsArgs();
     }
 }

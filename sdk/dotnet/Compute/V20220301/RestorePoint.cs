@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20220301
     /// Restore Point details.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute/v20220301:RestorePoint")]
-    public partial class RestorePoint : global::Pulumi.CustomResource
+    public partial class RestorePoint : Pulumi.CustomResource
     {
         /// <summary>
         /// ConsistencyMode of the RestorePoint. Can be specified in the input while creating a restore point. For now, only CrashConsistent is accepted as a valid input. Please refer to https://aka.ms/RestorePoints for more details.
@@ -94,11 +94,11 @@ namespace Pulumi.AzureNative.Compute.V20220301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:compute:RestorePoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210301:RestorePoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:RestorePoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:RestorePoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211101:RestorePoint"},
+                    new Pulumi.Alias { Type = "azure-native:compute:RestorePoint"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20210301:RestorePoint"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20210401:RestorePoint"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20210701:RestorePoint"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20211101:RestorePoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.Compute.V20220301
         }
     }
 
-    public sealed class RestorePointArgs : global::Pulumi.ResourceArgs
+    public sealed class RestorePointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// ConsistencyMode of the RestorePoint. Can be specified in the input while creating a restore point. For now, only CrashConsistent is accepted as a valid input. Please refer to https://aka.ms/RestorePoints for more details.
@@ -173,6 +173,5 @@ namespace Pulumi.AzureNative.Compute.V20220301
         public RestorePointArgs()
         {
         }
-        public static new RestorePointArgs Empty => new RestorePointArgs();
     }
 }

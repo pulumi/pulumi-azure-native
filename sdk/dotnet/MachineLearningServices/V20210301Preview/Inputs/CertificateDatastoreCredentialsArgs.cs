@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// <summary>
     /// Certificate datastore credentials configuration.
     /// </summary>
-    public sealed class CertificateDatastoreCredentialsArgs : global::Pulumi.ResourceArgs
+    public sealed class CertificateDatastoreCredentialsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authority URL used for authentication.
@@ -61,6 +61,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public CertificateDatastoreCredentialsArgs()
         {
         }
-        public static new CertificateDatastoreCredentialsArgs Empty => new CertificateDatastoreCredentialsArgs();
     }
 }

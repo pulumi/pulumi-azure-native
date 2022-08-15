@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
     }
 
 
-    public sealed class GetScheduleArgs : global::Pulumi.InvokeArgs
+    public sealed class GetScheduleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the pool.
@@ -60,10 +60,9 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         public GetScheduleArgs()
         {
         }
-        public static new GetScheduleArgs Empty => new GetScheduleArgs();
     }
 
-    public sealed class GetScheduleInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetScheduleInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the pool.
@@ -98,7 +97,6 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         public GetScheduleInvokeArgs()
         {
         }
-        public static new GetScheduleInvokeArgs Empty => new GetScheduleInvokeArgs();
     }
 
 

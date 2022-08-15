@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.StorageSync.V20170605Preview
     }
 
 
-    public sealed class GetCloudEndpointArgs : global::Pulumi.InvokeArgs
+    public sealed class GetCloudEndpointArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of Cloud Endpoint object.
@@ -55,10 +55,9 @@ namespace Pulumi.AzureNative.StorageSync.V20170605Preview
         public GetCloudEndpointArgs()
         {
         }
-        public static new GetCloudEndpointArgs Empty => new GetCloudEndpointArgs();
     }
 
-    public sealed class GetCloudEndpointInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetCloudEndpointInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of Cloud Endpoint object.
@@ -87,7 +86,6 @@ namespace Pulumi.AzureNative.StorageSync.V20170605Preview
         public GetCloudEndpointInvokeArgs()
         {
         }
-        public static new GetCloudEndpointInvokeArgs Empty => new GetCloudEndpointInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.Inputs
     /// <summary>
     /// This type describes the resource requirements for a container or a service.
     /// </summary>
-    public sealed class ResourceRequirementsArgs : global::Pulumi.ResourceArgs
+    public sealed class ResourceRequirementsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes the maximum limits on the resources for a given container.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.Inputs
         public ResourceRequirementsArgs()
         {
         }
-        public static new ResourceRequirementsArgs Empty => new ResourceRequirementsArgs();
     }
 }

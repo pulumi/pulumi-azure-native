@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBox.V20200401.Inputs
     /// <summary>
     /// Details of the managed disks.
     /// </summary>
-    public sealed class ManagedDiskDetailsArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedDiskDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Account Type of the data to be transferred.
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.DataBox.V20200401.Inputs
         public ManagedDiskDetailsArgs()
         {
         }
-        public static new ManagedDiskDetailsArgs Empty => new ManagedDiskDetailsArgs();
     }
 }

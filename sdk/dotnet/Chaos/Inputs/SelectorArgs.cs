@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Chaos.Inputs
     /// <summary>
     /// Model that represents a selector in the Experiment resource.
     /// </summary>
-    public sealed class SelectorArgs : global::Pulumi.ResourceArgs
+    public sealed class SelectorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// String of the selector ID.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Chaos.Inputs
         public SelectorArgs()
         {
         }
-        public static new SelectorArgs Empty => new SelectorArgs();
     }
 }

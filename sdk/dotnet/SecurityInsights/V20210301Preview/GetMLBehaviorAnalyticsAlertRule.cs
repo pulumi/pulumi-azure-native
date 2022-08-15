@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
     }
 
 
-    public sealed class GetMLBehaviorAnalyticsAlertRuleArgs : global::Pulumi.InvokeArgs
+    public sealed class GetMLBehaviorAnalyticsAlertRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         public GetMLBehaviorAnalyticsAlertRuleArgs()
         {
         }
-        public static new GetMLBehaviorAnalyticsAlertRuleArgs Empty => new GetMLBehaviorAnalyticsAlertRuleArgs();
     }
 
-    public sealed class GetMLBehaviorAnalyticsAlertRuleInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetMLBehaviorAnalyticsAlertRuleInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         public GetMLBehaviorAnalyticsAlertRuleInvokeArgs()
         {
         }
-        public static new GetMLBehaviorAnalyticsAlertRuleInvokeArgs Empty => new GetMLBehaviorAnalyticsAlertRuleInvokeArgs();
     }
 
 

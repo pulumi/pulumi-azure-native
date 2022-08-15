@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200501.Inputs
     /// <summary>
     /// The list of RouteTables to advertise the routes to.
     /// </summary>
-    public sealed class PropagatedRouteTableArgs : global::Pulumi.ResourceArgs
+    public sealed class PropagatedRouteTableArgs : Pulumi.ResourceArgs
     {
         [Input("ids")]
         private InputList<Inputs.SubResourceArgs>? _ids;
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Network.V20200501.Inputs
         public PropagatedRouteTableArgs()
         {
         }
-        public static new PropagatedRouteTableArgs Empty => new PropagatedRouteTableArgs();
     }
 }

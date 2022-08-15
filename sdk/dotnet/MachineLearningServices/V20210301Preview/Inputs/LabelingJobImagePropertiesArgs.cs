@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// <summary>
     /// Properties of a labeling job for image data
     /// </summary>
-    public sealed class LabelingJobImagePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class LabelingJobImagePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Annotation type of image labeling job.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public LabelingJobImagePropertiesArgs()
         {
         }
-        public static new LabelingJobImagePropertiesArgs Empty => new LabelingJobImagePropertiesArgs();
     }
 }

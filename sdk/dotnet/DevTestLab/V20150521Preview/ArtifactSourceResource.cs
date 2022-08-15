@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
     /// </summary>
     [Obsolete(@"Version 2015-05-21-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:devtestlab/v20150521preview:ArtifactSourceResource")]
-    public partial class ArtifactSourceResource : global::Pulumi.CustomResource
+    public partial class ArtifactSourceResource : Pulumi.CustomResource
     {
         /// <summary>
         /// The branch reference of the artifact source.
@@ -113,9 +113,9 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab:ArtifactSourceResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:ArtifactSourceResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:ArtifactSourceResource"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab:ArtifactSourceResource"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:ArtifactSourceResource"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:ArtifactSourceResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -137,7 +137,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         }
     }
 
-    public sealed class ArtifactSourceResourceArgs : global::Pulumi.ResourceArgs
+    public sealed class ArtifactSourceResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The branch reference of the artifact source.
@@ -238,6 +238,5 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         public ArtifactSourceResourceArgs()
         {
         }
-        public static new ArtifactSourceResourceArgs Empty => new ArtifactSourceResourceArgs();
     }
 }

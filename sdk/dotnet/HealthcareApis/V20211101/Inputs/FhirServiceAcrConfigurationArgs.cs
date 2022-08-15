@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20211101.Inputs
     /// <summary>
     /// Azure container registry configuration information
     /// </summary>
-    public sealed class FhirServiceAcrConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class FhirServiceAcrConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("loginServers")]
         private InputList<string>? _loginServers;
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.HealthcareApis.V20211101.Inputs
         public FhirServiceAcrConfigurationArgs()
         {
         }
-        public static new FhirServiceAcrConfigurationArgs Empty => new FhirServiceAcrConfigurationArgs();
     }
 }

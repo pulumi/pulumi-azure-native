@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.PowerPlatform
     }
 
 
-    public sealed class GetEnterprisePolicyArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEnterprisePolicyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The EnterprisePolicy name.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.PowerPlatform
         public GetEnterprisePolicyArgs()
         {
         }
-        public static new GetEnterprisePolicyArgs Empty => new GetEnterprisePolicyArgs();
     }
 
-    public sealed class GetEnterprisePolicyInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEnterprisePolicyInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The EnterprisePolicy name.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.PowerPlatform
         public GetEnterprisePolicyInvokeArgs()
         {
         }
-        public static new GetEnterprisePolicyInvokeArgs Empty => new GetEnterprisePolicyInvokeArgs();
     }
 
 

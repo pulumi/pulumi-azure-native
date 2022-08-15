@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
     /// </summary>
     [Obsolete(@"Version 2016-05-15 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:devtestlab/v20160515:VirtualMachineSchedule")]
-    public partial class VirtualMachineSchedule : global::Pulumi.CustomResource
+    public partial class VirtualMachineSchedule : Pulumi.CustomResource
     {
         /// <summary>
         /// The creation date of the schedule.
@@ -131,8 +131,8 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab:VirtualMachineSchedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:VirtualMachineSchedule"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab:VirtualMachineSchedule"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:VirtualMachineSchedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -154,7 +154,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         }
     }
 
-    public sealed class VirtualMachineScheduleArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualMachineScheduleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// If the schedule will occur once each day of the week, specify the daily recurrence.
@@ -261,6 +261,5 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         public VirtualMachineScheduleArgs()
         {
         }
-        public static new VirtualMachineScheduleArgs Empty => new VirtualMachineScheduleArgs();
     }
 }

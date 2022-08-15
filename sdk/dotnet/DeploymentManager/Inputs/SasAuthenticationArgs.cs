@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DeploymentManager.Inputs
     /// <summary>
     /// Defines the properties to access the artifacts using an Azure Storage SAS URI.
     /// </summary>
-    public sealed class SasAuthenticationArgs : global::Pulumi.ResourceArgs
+    public sealed class SasAuthenticationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.DeploymentManager.Inputs
         public SasAuthenticationArgs()
         {
         }
-        public static new SasAuthenticationArgs Empty => new SasAuthenticationArgs();
     }
 }

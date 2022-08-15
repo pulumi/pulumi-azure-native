@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.Inputs
     /// <summary>
     /// Definition of the runbook property type.
     /// </summary>
-    public sealed class ContentHashArgs : global::Pulumi.ResourceArgs
+    public sealed class ContentHashArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the content hash algorithm used to hash the content.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Automation.Inputs
         public ContentHashArgs()
         {
         }
-        public static new ContentHashArgs Empty => new ContentHashArgs();
     }
 }

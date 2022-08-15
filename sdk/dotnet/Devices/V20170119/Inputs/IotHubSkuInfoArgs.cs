@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20170119.Inputs
     /// <summary>
     /// Information about the SKU of the IoT hub.
     /// </summary>
-    public sealed class IotHubSkuInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class IotHubSkuInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Devices.V20170119.Inputs
         public IotHubSkuInfoArgs()
         {
         }
-        public static new IotHubSkuInfoArgs Empty => new IotHubSkuInfoArgs();
     }
 }

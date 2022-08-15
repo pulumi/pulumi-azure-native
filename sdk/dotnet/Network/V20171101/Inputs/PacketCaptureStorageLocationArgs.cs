@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20171101.Inputs
     /// <summary>
     /// Describes the storage location for a packet capture session.
     /// </summary>
-    public sealed class PacketCaptureStorageLocationArgs : global::Pulumi.ResourceArgs
+    public sealed class PacketCaptureStorageLocationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with /var/captures. Required if no storage ID is provided, otherwise optional.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Network.V20171101.Inputs
         public PacketCaptureStorageLocationArgs()
         {
         }
-        public static new PacketCaptureStorageLocationArgs Empty => new PacketCaptureStorageLocationArgs();
     }
 }

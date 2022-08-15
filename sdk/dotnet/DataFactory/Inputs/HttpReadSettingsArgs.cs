@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Sftp read settings.
     /// </summary>
-    public sealed class HttpReadSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class HttpReadSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The additional HTTP headers in the request to the RESTful API. Type: string (or Expression with resultType string).
@@ -73,6 +73,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public HttpReadSettingsArgs()
         {
         }
-        public static new HttpReadSettingsArgs Empty => new HttpReadSettingsArgs();
     }
 }

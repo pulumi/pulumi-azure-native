@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Automation.V20210622
     }
 
 
-    public sealed class GetHybridRunbookWorkerArgs : global::Pulumi.InvokeArgs
+    public sealed class GetHybridRunbookWorkerArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.Automation.V20210622
         public GetHybridRunbookWorkerArgs()
         {
         }
-        public static new GetHybridRunbookWorkerArgs Empty => new GetHybridRunbookWorkerArgs();
     }
 
-    public sealed class GetHybridRunbookWorkerInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetHybridRunbookWorkerInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.Automation.V20210622
         public GetHybridRunbookWorkerInvokeArgs()
         {
         }
-        public static new GetHybridRunbookWorkerInvokeArgs Empty => new GetHybridRunbookWorkerInvokeArgs();
     }
 
 

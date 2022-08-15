@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview.Inputs
     /// <summary>
     /// Storage Profile properties of a server
     /// </summary>
-    public sealed class StorageArgs : global::Pulumi.ResourceArgs
+    public sealed class StorageArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable Storage Auto Grow or not.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview.Inputs
         public StorageArgs()
         {
         }
-        public static new StorageArgs Empty => new StorageArgs();
     }
 }

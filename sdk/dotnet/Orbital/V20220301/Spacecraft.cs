@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Orbital.V20220301
     /// Customer creates a spacecraft resource to schedule a contact.
     /// </summary>
     [AzureNativeResourceType("azure-native:orbital/v20220301:Spacecraft")]
-    public partial class Spacecraft : global::Pulumi.CustomResource
+    public partial class Spacecraft : Pulumi.CustomResource
     {
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -106,8 +106,8 @@ namespace Pulumi.AzureNative.Orbital.V20220301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:orbital:Spacecraft"},
-                    new global::Pulumi.Alias { Type = "azure-native:orbital/v20210404preview:Spacecraft"},
+                    new Pulumi.Alias { Type = "azure-native:orbital:Spacecraft"},
+                    new Pulumi.Alias { Type = "azure-native:orbital/v20210404preview:Spacecraft"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -129,7 +129,7 @@ namespace Pulumi.AzureNative.Orbital.V20220301
         }
     }
 
-    public sealed class SpacecraftArgs : global::Pulumi.ResourceArgs
+    public sealed class SpacecraftArgs : Pulumi.ResourceArgs
     {
         [Input("links")]
         private InputList<Inputs.SpacecraftLinkArgs>? _links;
@@ -200,6 +200,5 @@ namespace Pulumi.AzureNative.Orbital.V20220301
         public SpacecraftArgs()
         {
         }
-        public static new SpacecraftArgs Empty => new SpacecraftArgs();
     }
 }

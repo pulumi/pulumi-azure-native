@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200501Preview.Inputs
     /// <summary>
     /// Periodic timer event source.
     /// </summary>
-    public sealed class PeriodicTimerSourceInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class PeriodicTimerSourceInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Periodic frequency at which timer event needs to be raised. Supports daily, hourly, minutes, and seconds.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200501Preview.Inputs
         public PeriodicTimerSourceInfoArgs()
         {
         }
-        public static new PeriodicTimerSourceInfoArgs Empty => new PeriodicTimerSourceInfoArgs();
     }
 }

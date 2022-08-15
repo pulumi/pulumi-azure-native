@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Distcp settings.
     /// </summary>
-    public sealed class DistcpSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class DistcpSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Distcp options. Type: string (or Expression with resultType string).
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public DistcpSettingsArgs()
         {
         }
-        public static new DistcpSettingsArgs Empty => new DistcpSettingsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20201005Preview.Inputs
     /// <summary>
     /// The collection of request properties
     /// </summary>
-    public sealed class WebTestPropertiesRequestArgs : global::Pulumi.ResourceArgs
+    public sealed class WebTestPropertiesRequestArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Follow redirects for this web test.
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.Insights.V20201005Preview.Inputs
         public WebTestPropertiesRequestArgs()
         {
         }
-        public static new WebTestPropertiesRequestArgs Empty => new WebTestPropertiesRequestArgs();
     }
 }

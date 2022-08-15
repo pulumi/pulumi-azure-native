@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StoragePool.V20210801.Inputs
     /// <summary>
     /// Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
     /// </summary>
-    public sealed class AclArgs : global::Pulumi.ResourceArgs
+    public sealed class AclArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// iSCSI initiator IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:client".
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.StoragePool.V20210801.Inputs
         public AclArgs()
         {
         }
-        public static new AclArgs Empty => new AclArgs();
     }
 }

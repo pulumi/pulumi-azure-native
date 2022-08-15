@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Linked service for Twilio.
     /// </summary>
-    public sealed class TwilioLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class TwilioLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -73,6 +73,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public TwilioLinkedServiceArgs()
         {
         }
-        public static new TwilioLinkedServiceArgs Empty => new TwilioLinkedServiceArgs();
     }
 }

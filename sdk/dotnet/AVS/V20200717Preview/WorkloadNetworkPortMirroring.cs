@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS.V20200717Preview
     /// NSX Port Mirroring
     /// </summary>
     [AzureNativeResourceType("azure-native:avs/v20200717preview:WorkloadNetworkPortMirroring")]
-    public partial class WorkloadNetworkPortMirroring : global::Pulumi.CustomResource
+    public partial class WorkloadNetworkPortMirroring : Pulumi.CustomResource
     {
         /// <summary>
         /// Destination VM Group.
@@ -94,10 +94,10 @@ namespace Pulumi.AzureNative.AVS.V20200717Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:avs:WorkloadNetworkPortMirroring"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210101preview:WorkloadNetworkPortMirroring"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:WorkloadNetworkPortMirroring"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:WorkloadNetworkPortMirroring"},
+                    new Pulumi.Alias { Type = "azure-native:avs:WorkloadNetworkPortMirroring"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20210101preview:WorkloadNetworkPortMirroring"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20210601:WorkloadNetworkPortMirroring"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20211201:WorkloadNetworkPortMirroring"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -119,7 +119,7 @@ namespace Pulumi.AzureNative.AVS.V20200717Preview
         }
     }
 
-    public sealed class WorkloadNetworkPortMirroringArgs : global::Pulumi.ResourceArgs
+    public sealed class WorkloadNetworkPortMirroringArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Destination VM Group.
@@ -172,6 +172,5 @@ namespace Pulumi.AzureNative.AVS.V20200717Preview
         public WorkloadNetworkPortMirroringArgs()
         {
         }
-        public static new WorkloadNetworkPortMirroringArgs Empty => new WorkloadNetworkPortMirroringArgs();
     }
 }

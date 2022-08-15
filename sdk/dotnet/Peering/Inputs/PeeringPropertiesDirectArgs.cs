@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Peering.Inputs
     /// <summary>
     /// The properties that define a direct peering.
     /// </summary>
-    public sealed class PeeringPropertiesDirectArgs : global::Pulumi.ResourceArgs
+    public sealed class PeeringPropertiesDirectArgs : Pulumi.ResourceArgs
     {
         [Input("connections")]
         private InputList<Inputs.DirectConnectionArgs>? _connections;
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Peering.Inputs
         public PeeringPropertiesDirectArgs()
         {
         }
-        public static new PeeringPropertiesDirectArgs Empty => new PeeringPropertiesDirectArgs();
     }
 }

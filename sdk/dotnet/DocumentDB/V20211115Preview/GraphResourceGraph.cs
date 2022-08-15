@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20211115Preview
     /// An Azure Cosmos DB Graph resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb/v20211115preview:GraphResourceGraph")]
-    public partial class GraphResourceGraph : global::Pulumi.CustomResource
+    public partial class GraphResourceGraph : Pulumi.CustomResource
     {
         /// <summary>
         /// Identity for the resource.
@@ -76,11 +76,11 @@ namespace Pulumi.AzureNative.DocumentDB.V20211115Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb:GraphResourceGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:GraphResourceGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:GraphResourceGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:GraphResourceGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:GraphResourceGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb:GraphResourceGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:GraphResourceGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:GraphResourceGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:GraphResourceGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:GraphResourceGraph"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20211115Preview
         }
     }
 
-    public sealed class GraphResourceGraphArgs : global::Pulumi.ResourceArgs
+    public sealed class GraphResourceGraphArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cosmos DB database account name.
@@ -161,6 +161,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20211115Preview
         public GraphResourceGraphArgs()
         {
         }
-        public static new GraphResourceGraphArgs Empty => new GraphResourceGraphArgs();
     }
 }

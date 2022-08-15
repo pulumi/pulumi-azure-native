@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20191101Preview
     }
 
 
-    public sealed class ListStorageAccountSasTokensArgs : global::Pulumi.InvokeArgs
+    public sealed class ListStorageAccountSasTokensArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Data Lake Analytics account.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20191101Preview
         public ListStorageAccountSasTokensArgs()
         {
         }
-        public static new ListStorageAccountSasTokensArgs Empty => new ListStorageAccountSasTokensArgs();
     }
 
-    public sealed class ListStorageAccountSasTokensInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListStorageAccountSasTokensInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Data Lake Analytics account.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20191101Preview
         public ListStorageAccountSasTokensInvokeArgs()
         {
         }
-        public static new ListStorageAccountSasTokensInvokeArgs Empty => new ListStorageAccountSasTokensInvokeArgs();
     }
 
 

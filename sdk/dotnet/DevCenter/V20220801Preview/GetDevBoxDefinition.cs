@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
     }
 
 
-    public sealed class GetDevBoxDefinitionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDevBoxDefinitionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Dev Box definition.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         public GetDevBoxDefinitionArgs()
         {
         }
-        public static new GetDevBoxDefinitionArgs Empty => new GetDevBoxDefinitionArgs();
     }
 
-    public sealed class GetDevBoxDefinitionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDevBoxDefinitionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Dev Box definition.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         public GetDevBoxDefinitionInvokeArgs()
         {
         }
-        public static new GetDevBoxDefinitionInvokeArgs Empty => new GetDevBoxDefinitionInvokeArgs();
     }
 
 

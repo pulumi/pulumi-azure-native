@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network
     /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:PrivateLinkService")]
-    public partial class PrivateLinkService : global::Pulumi.CustomResource
+    public partial class PrivateLinkService : Pulumi.CustomResource
     {
         /// <summary>
         /// The alias of the private link service.
@@ -137,25 +137,25 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:PrivateLinkService"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190601:PrivateLinkService"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:PrivateLinkService"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190801:PrivateLinkService"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:PrivateLinkService"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:PrivateLinkService"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:PrivateLinkService"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:PrivateLinkService"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:PrivateLinkService"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:PrivateLinkService"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:PrivateLinkService"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:PrivateLinkService"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:PrivateLinkService"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:PrivateLinkService"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:PrivateLinkService"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:PrivateLinkService"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:PrivateLinkService"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:PrivateLinkService"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210301:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:PrivateLinkService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -177,7 +177,7 @@ namespace Pulumi.AzureNative.Network
         }
     }
 
-    public sealed class PrivateLinkServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateLinkServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The auto-approval list of the private link service.
@@ -278,6 +278,5 @@ namespace Pulumi.AzureNative.Network
         public PrivateLinkServiceArgs()
         {
         }
-        public static new PrivateLinkServiceArgs Empty => new PrivateLinkServiceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// The TarGZip compression read settings.
     /// </summary>
-    public sealed class TarGZipReadSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class TarGZipReadSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Preserve the compression file name as folder path. Type: boolean (or Expression with resultType boolean).
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public TarGZipReadSettingsArgs()
         {
         }
-        public static new TarGZipReadSettingsArgs Empty => new TarGZipReadSettingsArgs();
     }
 }

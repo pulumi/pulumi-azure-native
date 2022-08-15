@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Logic.V20150201Preview
     }
 
 
-    public sealed class GetWorkflowAccessKeyArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWorkflowAccessKeyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The workflow access key name.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.Logic.V20150201Preview
         public GetWorkflowAccessKeyArgs()
         {
         }
-        public static new GetWorkflowAccessKeyArgs Empty => new GetWorkflowAccessKeyArgs();
     }
 
-    public sealed class GetWorkflowAccessKeyInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWorkflowAccessKeyInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The workflow access key name.
@@ -68,7 +67,6 @@ namespace Pulumi.AzureNative.Logic.V20150201Preview
         public GetWorkflowAccessKeyInvokeArgs()
         {
         }
-        public static new GetWorkflowAccessKeyInvokeArgs Empty => new GetWorkflowAccessKeyInvokeArgs();
     }
 
 

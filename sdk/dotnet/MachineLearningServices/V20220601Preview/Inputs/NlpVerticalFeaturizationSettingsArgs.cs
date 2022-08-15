@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
 {
 
-    public sealed class NlpVerticalFeaturizationSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class NlpVerticalFeaturizationSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Dataset language, useful for the text data.
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         public NlpVerticalFeaturizationSettingsArgs()
         {
         }
-        public static new NlpVerticalFeaturizationSettingsArgs Empty => new NlpVerticalFeaturizationSettingsArgs();
     }
 }

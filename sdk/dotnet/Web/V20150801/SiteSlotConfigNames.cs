@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.V20150801
     /// </summary>
     [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:web/v20150801:SiteSlotConfigNames")]
-    public partial class SiteSlotConfigNames : global::Pulumi.CustomResource
+    public partial class SiteSlotConfigNames : Pulumi.CustomResource
     {
         /// <summary>
         /// List of application settings names
@@ -83,20 +83,20 @@ namespace Pulumi.AzureNative.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:SiteSlotConfigNames"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:SiteSlotConfigNames"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:SiteSlotConfigNames"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:SiteSlotConfigNames"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:SiteSlotConfigNames"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:SiteSlotConfigNames"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:SiteSlotConfigNames"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:SiteSlotConfigNames"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:SiteSlotConfigNames"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:SiteSlotConfigNames"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:SiteSlotConfigNames"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:SiteSlotConfigNames"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:SiteSlotConfigNames"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:SiteSlotConfigNames"},
+                    new Pulumi.Alias { Type = "azure-native:web:SiteSlotConfigNames"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:SiteSlotConfigNames"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:SiteSlotConfigNames"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:SiteSlotConfigNames"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:SiteSlotConfigNames"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:SiteSlotConfigNames"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:SiteSlotConfigNames"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:SiteSlotConfigNames"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:SiteSlotConfigNames"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:SiteSlotConfigNames"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:SiteSlotConfigNames"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:SiteSlotConfigNames"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:SiteSlotConfigNames"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:SiteSlotConfigNames"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.Web.V20150801
         }
     }
 
-    public sealed class SiteSlotConfigNamesArgs : global::Pulumi.ResourceArgs
+    public sealed class SiteSlotConfigNamesArgs : Pulumi.ResourceArgs
     {
         [Input("appSettingNames")]
         private InputList<string>? _appSettingNames;
@@ -195,6 +195,5 @@ namespace Pulumi.AzureNative.Web.V20150801
         public SiteSlotConfigNamesArgs()
         {
         }
-        public static new SiteSlotConfigNamesArgs Empty => new SiteSlotConfigNamesArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Aad
     }
 
 
-    public sealed class GetDomainServiceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDomainServiceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the domain service.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.Aad
         public GetDomainServiceArgs()
         {
         }
-        public static new GetDomainServiceArgs Empty => new GetDomainServiceArgs();
     }
 
-    public sealed class GetDomainServiceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDomainServiceInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the domain service.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.Aad
         public GetDomainServiceInvokeArgs()
         {
         }
-        public static new GetDomainServiceInvokeArgs Empty => new GetDomainServiceInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220502Preview
     /// A managed cluster snapshot resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice/v20220502preview:ManagedClusterSnapshot")]
-    public partial class ManagedClusterSnapshot : global::Pulumi.CustomResource
+    public partial class ManagedClusterSnapshot : Pulumi.CustomResource
     {
         /// <summary>
         /// CreationData to be used to specify the source resource ID to create this snapshot.
@@ -88,11 +88,11 @@ namespace Pulumi.AzureNative.ContainerService.V20220502Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerservice:ManagedClusterSnapshot"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220202preview:ManagedClusterSnapshot"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220302preview:ManagedClusterSnapshot"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220402preview:ManagedClusterSnapshot"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220602preview:ManagedClusterSnapshot"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice:ManagedClusterSnapshot"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220202preview:ManagedClusterSnapshot"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220302preview:ManagedClusterSnapshot"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220402preview:ManagedClusterSnapshot"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220602preview:ManagedClusterSnapshot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220502Preview
         }
     }
 
-    public sealed class ManagedClusterSnapshotArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedClusterSnapshotArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// CreationData to be used to specify the source resource ID to create this snapshot.
@@ -161,6 +161,5 @@ namespace Pulumi.AzureNative.ContainerService.V20220502Preview
         public ManagedClusterSnapshotArgs()
         {
         }
-        public static new ManagedClusterSnapshotArgs Empty => new ManagedClusterSnapshotArgs();
     }
 }

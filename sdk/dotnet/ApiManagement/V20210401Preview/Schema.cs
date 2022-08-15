@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
     /// Schema Contract details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20210401preview:Schema")]
-    public partial class Schema : global::Pulumi.CustomResource
+    public partial class Schema : Pulumi.CustomResource
     {
         /// <summary>
         /// Free-form schema entity description.
@@ -70,9 +70,9 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:Schema"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:Schema"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:Schema"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:Schema"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:Schema"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:Schema"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
         }
     }
 
-    public sealed class SchemaArgs : global::Pulumi.ResourceArgs
+    public sealed class SchemaArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Free-form schema entity description.
@@ -135,6 +135,5 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
         public SchemaArgs()
         {
         }
-        public static new SchemaArgs Empty => new SchemaArgs();
     }
 }

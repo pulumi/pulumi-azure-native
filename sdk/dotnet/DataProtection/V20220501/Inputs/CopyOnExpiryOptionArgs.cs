@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataProtection.V20220501.Inputs
     /// <summary>
     /// Copy on Expiry Option
     /// </summary>
-    public sealed class CopyOnExpiryOptionArgs : global::Pulumi.ResourceArgs
+    public sealed class CopyOnExpiryOptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of the specific object - used for deserializing
@@ -25,6 +25,5 @@ namespace Pulumi.AzureNative.DataProtection.V20220501.Inputs
         public CopyOnExpiryOptionArgs()
         {
         }
-        public static new CopyOnExpiryOptionArgs Empty => new CopyOnExpiryOptionArgs();
     }
 }

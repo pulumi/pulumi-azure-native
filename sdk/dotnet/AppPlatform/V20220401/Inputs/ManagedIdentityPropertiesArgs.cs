@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220401.Inputs
     /// <summary>
     /// Managed identity properties retrieved from ARM request headers.
     /// </summary>
-    public sealed class ManagedIdentityPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedIdentityPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Principal Id of system-assigned managed identity.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.AppPlatform.V20220401.Inputs
         public ManagedIdentityPropertiesArgs()
         {
         }
-        public static new ManagedIdentityPropertiesArgs Empty => new ManagedIdentityPropertiesArgs();
     }
 }

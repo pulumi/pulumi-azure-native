@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.Inputs
     /// <summary>
     /// A list of PEM formatted certificates.
     /// </summary>
-    public sealed class MediaGraphPemCertificateListArgs : global::Pulumi.ResourceArgs
+    public sealed class MediaGraphPemCertificateListArgs : Pulumi.ResourceArgs
     {
         [Input("certificates", required: true)]
         private InputList<string>? _certificates;
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.Media.Inputs
         public MediaGraphPemCertificateListArgs()
         {
         }
-        public static new MediaGraphPemCertificateListArgs Empty => new MediaGraphPemCertificateListArgs();
     }
 }

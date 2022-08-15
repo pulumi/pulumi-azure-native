@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// A SynapseSpark compute.
     /// </summary>
-    public sealed class SynapseSparkArgs : global::Pulumi.ResourceArgs
+    public sealed class SynapseSparkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of compute
@@ -46,6 +46,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         public SynapseSparkArgs()
         {
         }
-        public static new SynapseSparkArgs Empty => new SynapseSparkArgs();
     }
 }

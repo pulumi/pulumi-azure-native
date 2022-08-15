@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// Classification Training related configuration.
     /// </summary>
-    public sealed class ClassificationTrainingSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class ClassificationTrainingSettingsArgs : Pulumi.ResourceArgs
     {
         [Input("allowedTrainingAlgorithms")]
         private InputList<Union<string, Pulumi.AzureNative.MachineLearningServices.V20220601Preview.ClassificationModels>>? _allowedTrainingAlgorithms;
@@ -91,6 +91,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
             EnableVoteEnsemble = true;
             EnsembleModelDownloadTimeout = "PT5M";
         }
-        public static new ClassificationTrainingSettingsArgs Empty => new ClassificationTrainingSettingsArgs();
     }
 }

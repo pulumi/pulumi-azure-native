@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview.Inputs
     /// <summary>
     /// Spring Cloud Gateway properties payload
     /// </summary>
-    public sealed class GatewayPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class GatewayPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// API metadata property for Spring Cloud Gateway
@@ -56,6 +56,5 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview.Inputs
             HttpsOnly = false;
             Public = false;
         }
-        public static new GatewayPropertiesArgs Empty => new GatewayPropertiesArgs();
     }
 }

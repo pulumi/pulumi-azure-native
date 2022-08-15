@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.Inputs
     /// <summary>
     /// Describes the properties of an existing Shared Private Link Resource to use when connecting to a private origin.
     /// </summary>
-    public sealed class SharedPrivateLinkResourcePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class SharedPrivateLinkResourcePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The group id from the provider of resource the shared private link resource is for.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.Cdn.Inputs
         public SharedPrivateLinkResourcePropertiesArgs()
         {
         }
-        public static new SharedPrivateLinkResourcePropertiesArgs Empty => new SharedPrivateLinkResourcePropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.V20220301.Inputs
     /// <summary>
     /// The configuration settings of the Azure Active Directory allowed principals.
     /// </summary>
-    public sealed class AllowedPrincipalsArgs : global::Pulumi.ResourceArgs
+    public sealed class AllowedPrincipalsArgs : Pulumi.ResourceArgs
     {
         [Input("groups")]
         private InputList<string>? _groups;
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.App.V20220301.Inputs
         public AllowedPrincipalsArgs()
         {
         }
-        public static new AllowedPrincipalsArgs Empty => new AllowedPrincipalsArgs();
     }
 }

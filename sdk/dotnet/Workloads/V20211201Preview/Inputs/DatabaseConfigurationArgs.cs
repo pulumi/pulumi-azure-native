@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
     /// <summary>
     /// Gets or sets the database configuration.
     /// </summary>
-    public sealed class DatabaseConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class DatabaseConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The database type.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
         public DatabaseConfigurationArgs()
         {
         }
-        public static new DatabaseConfigurationArgs Empty => new DatabaseConfigurationArgs();
     }
 }

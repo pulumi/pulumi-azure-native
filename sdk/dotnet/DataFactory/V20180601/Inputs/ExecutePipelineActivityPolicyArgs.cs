@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Execution policy for an execute pipeline activity.
     /// </summary>
-    public sealed class ExecutePipelineActivityPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class ExecutePipelineActivityPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set to true, Input from activity is considered as secure and will not be logged to monitoring.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public ExecutePipelineActivityPolicyArgs()
         {
         }
-        public static new ExecutePipelineActivityPolicyArgs Empty => new ExecutePipelineActivityPolicyArgs();
     }
 }

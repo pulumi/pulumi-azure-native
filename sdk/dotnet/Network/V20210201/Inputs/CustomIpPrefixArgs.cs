@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210201.Inputs
     /// <summary>
     /// Custom IP prefix resource.
     /// </summary>
-    public sealed class CustomIpPrefixArgs : global::Pulumi.ResourceArgs
+    public sealed class CustomIpPrefixArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authorization message for WAN validation.
@@ -90,6 +90,5 @@ namespace Pulumi.AzureNative.Network.V20210201.Inputs
         public CustomIpPrefixArgs()
         {
         }
-        public static new CustomIpPrefixArgs Empty => new CustomIpPrefixArgs();
     }
 }

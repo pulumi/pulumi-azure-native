@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Storage.V20210401
     }
 
 
-    public sealed class ListStorageAccountSASArgs : global::Pulumi.InvokeArgs
+    public sealed class ListStorageAccountSASArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -90,10 +90,9 @@ namespace Pulumi.AzureNative.Storage.V20210401
         public ListStorageAccountSASArgs()
         {
         }
-        public static new ListStorageAccountSASArgs Empty => new ListStorageAccountSASArgs();
     }
 
-    public sealed class ListStorageAccountSASInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListStorageAccountSASInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -158,7 +157,6 @@ namespace Pulumi.AzureNative.Storage.V20210401
         public ListStorageAccountSASInvokeArgs()
         {
         }
-        public static new ListStorageAccountSASInvokeArgs Empty => new ListStorageAccountSASInvokeArgs();
     }
 
 

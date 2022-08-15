@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.Inputs
     /// <summary>
     /// API connection properties
     /// </summary>
-    public sealed class ApiConnectionTestLinkArgs : global::Pulumi.ResourceArgs
+    public sealed class ApiConnectionTestLinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// HTTP Method
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Web.Inputs
         public ApiConnectionTestLinkArgs()
         {
         }
-        public static new ApiConnectionTestLinkArgs Empty => new ApiConnectionTestLinkArgs();
     }
 }

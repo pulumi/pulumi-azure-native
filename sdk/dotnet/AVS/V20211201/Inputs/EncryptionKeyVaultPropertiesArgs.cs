@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS.V20211201.Inputs
     /// <summary>
     /// An Encryption Key
     /// </summary>
-    public sealed class EncryptionKeyVaultPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class EncryptionKeyVaultPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the key.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.AVS.V20211201.Inputs
         public EncryptionKeyVaultPropertiesArgs()
         {
         }
-        public static new EncryptionKeyVaultPropertiesArgs Empty => new EncryptionKeyVaultPropertiesArgs();
     }
 }

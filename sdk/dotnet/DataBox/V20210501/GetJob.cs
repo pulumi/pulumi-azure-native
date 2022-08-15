@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataBox.V20210501
     }
 
 
-    public sealed class GetJobArgs : global::Pulumi.InvokeArgs
+    public sealed class GetJobArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// $expand is supported on details parameter for job, which provides details on the job stages.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.DataBox.V20210501
         public GetJobArgs()
         {
         }
-        public static new GetJobArgs Empty => new GetJobArgs();
     }
 
-    public sealed class GetJobInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetJobInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// $expand is supported on details parameter for job, which provides details on the job stages.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.DataBox.V20210501
         public GetJobInvokeArgs()
         {
         }
-        public static new GetJobInvokeArgs Empty => new GetJobInvokeArgs();
     }
 
 

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20140901
     /// </summary>
     [Obsolete(@"Version 2014-09-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:servicebus/v20140901:TopicAuthorizationRule")]
-    public partial class TopicAuthorizationRule : global::Pulumi.CustomResource
+    public partial class TopicAuthorizationRule : Pulumi.CustomResource
     {
         /// <summary>
         /// A string that describes Claim Type for authorization rule.
@@ -107,14 +107,14 @@ namespace Pulumi.AzureNative.ServiceBus.V20140901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus:TopicAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20150801:TopicAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:TopicAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:TopicAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:TopicAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:TopicAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:TopicAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:TopicAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus:TopicAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20150801:TopicAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20170401:TopicAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:TopicAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:TopicAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:TopicAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20211101:TopicAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:TopicAuthorizationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20140901
         }
     }
 
-    public sealed class TopicAuthorizationRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class TopicAuthorizationRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The authorization rule name.
@@ -219,6 +219,5 @@ namespace Pulumi.AzureNative.ServiceBus.V20140901
         public TopicAuthorizationRuleArgs()
         {
         }
-        public static new TopicAuthorizationRuleArgs Empty => new TopicAuthorizationRuleArgs();
     }
 }

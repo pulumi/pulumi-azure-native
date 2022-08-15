@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
     /// API Version: 2020-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:ImportPipeline")]
-    public partial class ImportPipeline : global::Pulumi.CustomResource
+    public partial class ImportPipeline : Pulumi.CustomResource
     {
         /// <summary>
         /// The identity of the import pipeline.
@@ -95,12 +95,12 @@ namespace Pulumi.AzureNative.ContainerRegistry
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:ImportPipeline"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:ImportPipeline"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:ImportPipeline"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:ImportPipeline"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:ImportPipeline"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:ImportPipeline"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:ImportPipeline"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:ImportPipeline"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:ImportPipeline"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:ImportPipeline"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:ImportPipeline"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:ImportPipeline"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         }
     }
 
-    public sealed class ImportPipelineArgs : global::Pulumi.ResourceArgs
+    public sealed class ImportPipelineArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity of the import pipeline.
@@ -181,6 +181,5 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public ImportPipelineArgs()
         {
         }
-        public static new ImportPipelineArgs Empty => new ImportPipelineArgs();
     }
 }

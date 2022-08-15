@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// Image Object Detection. Object detection is used to identify objects in an image and locate each object with a
     /// bounding box e.g. locate all dogs and cats in an image and draw a bounding box around each.
     /// </summary>
-    public sealed class ImageObjectDetectionArgs : global::Pulumi.ResourceArgs
+    public sealed class ImageObjectDetectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] Collection of registered Tabular Dataset Ids and other data settings required for training and validating models.
@@ -76,6 +76,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
             LogVerbosity = "Info";
             PrimaryMetric = "MeanAveragePrecision";
         }
-        public static new ImageObjectDetectionArgs Empty => new ImageObjectDetectionArgs();
     }
 }

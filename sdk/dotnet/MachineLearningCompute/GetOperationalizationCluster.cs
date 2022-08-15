@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.MachineLearningCompute
     }
 
 
-    public sealed class GetOperationalizationClusterArgs : global::Pulumi.InvokeArgs
+    public sealed class GetOperationalizationClusterArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the cluster.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.MachineLearningCompute
         public GetOperationalizationClusterArgs()
         {
         }
-        public static new GetOperationalizationClusterArgs Empty => new GetOperationalizationClusterArgs();
     }
 
-    public sealed class GetOperationalizationClusterInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetOperationalizationClusterInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the cluster.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.MachineLearningCompute
         public GetOperationalizationClusterInvokeArgs()
         {
         }
-        public static new GetOperationalizationClusterInvokeArgs Empty => new GetOperationalizationClusterInvokeArgs();
     }
 
 

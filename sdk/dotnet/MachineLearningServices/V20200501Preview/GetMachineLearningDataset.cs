@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview
     }
 
 
-    public sealed class GetMachineLearningDatasetArgs : global::Pulumi.InvokeArgs
+    public sealed class GetMachineLearningDatasetArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Dataset name.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview
         public GetMachineLearningDatasetArgs()
         {
         }
-        public static new GetMachineLearningDatasetArgs Empty => new GetMachineLearningDatasetArgs();
     }
 
-    public sealed class GetMachineLearningDatasetInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetMachineLearningDatasetInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Dataset name.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview
         public GetMachineLearningDatasetInvokeArgs()
         {
         }
-        public static new GetMachineLearningDatasetInvokeArgs Empty => new GetMachineLearningDatasetInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
 {
 
-    public sealed class DeploymentResourceConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class DeploymentResourceConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Optional number of instances or nodes used by the compute target.
@@ -40,6 +40,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         {
             InstanceCount = 1;
         }
-        public static new DeploymentResourceConfigurationArgs Empty => new DeploymentResourceConfigurationArgs();
     }
 }

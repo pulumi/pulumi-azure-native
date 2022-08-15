@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Avro dataset.
     /// </summary>
-    public sealed class AvroDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class AvroDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -94,6 +94,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public AvroDatasetArgs()
         {
         }
-        public static new AvroDatasetArgs Empty => new AvroDatasetArgs();
     }
 }

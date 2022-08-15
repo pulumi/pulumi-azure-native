@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DataShare
     }
 
 
-    public sealed class GetSynapseWorkspaceSqlPoolTableDataSetMappingArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSynapseWorkspaceSqlPoolTableDataSetMappingArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -56,10 +56,9 @@ namespace Pulumi.AzureNative.DataShare
         public GetSynapseWorkspaceSqlPoolTableDataSetMappingArgs()
         {
         }
-        public static new GetSynapseWorkspaceSqlPoolTableDataSetMappingArgs Empty => new GetSynapseWorkspaceSqlPoolTableDataSetMappingArgs();
     }
 
-    public sealed class GetSynapseWorkspaceSqlPoolTableDataSetMappingInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSynapseWorkspaceSqlPoolTableDataSetMappingInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -88,7 +87,6 @@ namespace Pulumi.AzureNative.DataShare
         public GetSynapseWorkspaceSqlPoolTableDataSetMappingInvokeArgs()
         {
         }
-        public static new GetSynapseWorkspaceSqlPoolTableDataSetMappingInvokeArgs Empty => new GetSynapseWorkspaceSqlPoolTableDataSetMappingInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 {
 
-    public sealed class ServiceManagedResourcesSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class ServiceManagedResourcesSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The settings for the service managed cosmosdb account.
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public ServiceManagedResourcesSettingsArgs()
         {
         }
-        public static new ServiceManagedResourcesSettingsArgs Empty => new ServiceManagedResourcesSettingsArgs();
     }
 }

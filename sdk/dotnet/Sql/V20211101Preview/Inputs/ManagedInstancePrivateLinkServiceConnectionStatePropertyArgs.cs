@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Sql.V20211101Preview.Inputs
 {
 
-    public sealed class ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The private link service connection description.
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview.Inputs
         public ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs()
         {
         }
-        public static new ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs Empty => new ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs();
     }
 }

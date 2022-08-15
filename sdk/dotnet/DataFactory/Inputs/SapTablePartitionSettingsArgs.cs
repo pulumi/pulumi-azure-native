@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The settings that will be leveraged for SAP table source partitioning.
     /// </summary>
-    public sealed class SapTablePartitionSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class SapTablePartitionSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum value of partitions the table will be split into. Type: integer (or Expression with resultType string).
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public SapTablePartitionSettingsArgs()
         {
         }
-        public static new SapTablePartitionSettingsArgs Empty => new SapTablePartitionSettingsArgs();
     }
 }

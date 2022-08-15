@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Netezza dataset.
     /// </summary>
-    public sealed class NetezzaTableDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class NetezzaTableDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -91,6 +91,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public NetezzaTableDatasetArgs()
         {
         }
-        public static new NetezzaTableDatasetArgs Empty => new NetezzaTableDatasetArgs();
     }
 }

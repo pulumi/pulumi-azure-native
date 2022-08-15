@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20181001
     }
 
 
-    public sealed class GetServiceEndpointPolicyArgs : global::Pulumi.InvokeArgs
+    public sealed class GetServiceEndpointPolicyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Expands referenced resources.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Network.V20181001
         public GetServiceEndpointPolicyArgs()
         {
         }
-        public static new GetServiceEndpointPolicyArgs Empty => new GetServiceEndpointPolicyArgs();
     }
 
-    public sealed class GetServiceEndpointPolicyInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetServiceEndpointPolicyInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Expands referenced resources.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Network.V20181001
         public GetServiceEndpointPolicyInvokeArgs()
         {
         }
-        public static new GetServiceEndpointPolicyInvokeArgs Empty => new GetServiceEndpointPolicyInvokeArgs();
     }
 
 

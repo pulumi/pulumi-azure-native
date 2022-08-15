@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20190615Preview.Inputs
     /// <summary>
     /// Defines the RequestHeader condition for the delivery rule.
     /// </summary>
-    public sealed class DeliveryRuleRequestHeaderConditionArgs : global::Pulumi.ResourceArgs
+    public sealed class DeliveryRuleRequestHeaderConditionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the condition for the delivery rule.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.Cdn.V20190615Preview.Inputs
         public DeliveryRuleRequestHeaderConditionArgs()
         {
         }
-        public static new DeliveryRuleRequestHeaderConditionArgs Empty => new DeliveryRuleRequestHeaderConditionArgs();
     }
 }

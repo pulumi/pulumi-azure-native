@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
     /// <summary>
     /// Specifies the Linux operating system settings on the virtual machine. &lt;br&gt;&lt;br&gt;For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
     /// </summary>
-    public sealed class LinuxConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class LinuxConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether password authentication should be disabled.
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
         public LinuxConfigurationArgs()
         {
         }
-        public static new LinuxConfigurationArgs Empty => new LinuxConfigurationArgs();
     }
 }

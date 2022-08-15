@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DomainRegistration.V20210115
     /// Domain ownership Identifier.
     /// </summary>
     [AzureNativeResourceType("azure-native:domainregistration/v20210115:DomainOwnershipIdentifier")]
-    public partial class DomainOwnershipIdentifier : global::Pulumi.CustomResource
+    public partial class DomainOwnershipIdentifier : Pulumi.CustomResource
     {
         /// <summary>
         /// Kind of resource.
@@ -64,18 +64,18 @@ namespace Pulumi.AzureNative.DomainRegistration.V20210115
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:domainregistration:DomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20150401:DomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20180201:DomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20190801:DomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20200601:DomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20200901:DomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20201001:DomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20201201:DomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20210101:DomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20210201:DomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20210301:DomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20220301:DomainOwnershipIdentifier"},
+                    new Pulumi.Alias { Type = "azure-native:domainregistration:DomainOwnershipIdentifier"},
+                    new Pulumi.Alias { Type = "azure-native:domainregistration/v20150401:DomainOwnershipIdentifier"},
+                    new Pulumi.Alias { Type = "azure-native:domainregistration/v20180201:DomainOwnershipIdentifier"},
+                    new Pulumi.Alias { Type = "azure-native:domainregistration/v20190801:DomainOwnershipIdentifier"},
+                    new Pulumi.Alias { Type = "azure-native:domainregistration/v20200601:DomainOwnershipIdentifier"},
+                    new Pulumi.Alias { Type = "azure-native:domainregistration/v20200901:DomainOwnershipIdentifier"},
+                    new Pulumi.Alias { Type = "azure-native:domainregistration/v20201001:DomainOwnershipIdentifier"},
+                    new Pulumi.Alias { Type = "azure-native:domainregistration/v20201201:DomainOwnershipIdentifier"},
+                    new Pulumi.Alias { Type = "azure-native:domainregistration/v20210101:DomainOwnershipIdentifier"},
+                    new Pulumi.Alias { Type = "azure-native:domainregistration/v20210201:DomainOwnershipIdentifier"},
+                    new Pulumi.Alias { Type = "azure-native:domainregistration/v20210301:DomainOwnershipIdentifier"},
+                    new Pulumi.Alias { Type = "azure-native:domainregistration/v20220301:DomainOwnershipIdentifier"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -97,7 +97,7 @@ namespace Pulumi.AzureNative.DomainRegistration.V20210115
         }
     }
 
-    public sealed class DomainOwnershipIdentifierArgs : global::Pulumi.ResourceArgs
+    public sealed class DomainOwnershipIdentifierArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of domain.
@@ -132,6 +132,5 @@ namespace Pulumi.AzureNative.DomainRegistration.V20210115
         public DomainOwnershipIdentifierArgs()
         {
         }
-        public static new DomainOwnershipIdentifierArgs Empty => new DomainOwnershipIdentifierArgs();
     }
 }

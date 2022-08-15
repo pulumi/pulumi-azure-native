@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
 {
 
-    public sealed class JobResourceConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class JobResourceConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Extra arguments to pass to the Docker run command. This would override any parameters that have already been set by the system, or in this section. This parameter is only supported for Azure ML compute types.
@@ -53,6 +53,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
             InstanceCount = 1;
             ShmSize = "2g";
         }
-        public static new JobResourceConfigurationArgs Empty => new JobResourceConfigurationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20210601.Inputs
     /// <summary>
     /// An InputDefinition that looks across all of the files provided to select tracks specified by the IncludedTracks property. Generally used with the AudioTrackByAttribute and VideoTrackByAttribute to allow selection of a single track across a set of input files.
     /// </summary>
-    public sealed class FromAllInputFileArgs : global::Pulumi.ResourceArgs
+    public sealed class FromAllInputFileArgs : Pulumi.ResourceArgs
     {
         [Input("includedTracks")]
         private InputList<object>? _includedTracks;
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.Media.V20210601.Inputs
         public FromAllInputFileArgs()
         {
         }
-        public static new FromAllInputFileArgs Empty => new FromAllInputFileArgs();
     }
 }

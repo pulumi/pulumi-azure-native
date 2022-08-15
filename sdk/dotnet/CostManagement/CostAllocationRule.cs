@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.CostManagement
     /// API Version: 2020-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement:CostAllocationRule")]
-    public partial class CostAllocationRule : global::Pulumi.CustomResource
+    public partial class CostAllocationRule : Pulumi.CustomResource
     {
         /// <summary>
         /// Name of the rule. This is a read only value.
@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.CostManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20200301preview:CostAllocationRule"},
+                    new Pulumi.Alias { Type = "azure-native:costmanagement/v20200301preview:CostAllocationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -81,7 +81,7 @@ namespace Pulumi.AzureNative.CostManagement
         }
     }
 
-    public sealed class CostAllocationRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class CostAllocationRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// BillingAccount ID
@@ -104,6 +104,5 @@ namespace Pulumi.AzureNative.CostManagement
         public CostAllocationRuleArgs()
         {
         }
-        public static new CostAllocationRuleArgs Empty => new CostAllocationRuleArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
     }
 
 
-    public sealed class GetprivateLinkServicesForO365ManagementActivityAPIArgs : global::Pulumi.InvokeArgs
+    public sealed class GetprivateLinkServicesForO365ManagementActivityAPIArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the service instance.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
         public GetprivateLinkServicesForO365ManagementActivityAPIArgs()
         {
         }
-        public static new GetprivateLinkServicesForO365ManagementActivityAPIArgs Empty => new GetprivateLinkServicesForO365ManagementActivityAPIArgs();
     }
 
-    public sealed class GetprivateLinkServicesForO365ManagementActivityAPIInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetprivateLinkServicesForO365ManagementActivityAPIInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the service instance.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
         public GetprivateLinkServicesForO365ManagementActivityAPIInvokeArgs()
         {
         }
-        public static new GetprivateLinkServicesForO365ManagementActivityAPIInvokeArgs Empty => new GetprivateLinkServicesForO365ManagementActivityAPIInvokeArgs();
     }
 
 

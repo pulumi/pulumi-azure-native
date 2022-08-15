@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20211201Preview.Inputs
     /// <summary>
     /// Table column.
     /// </summary>
-    public sealed class ColumnArgs : global::Pulumi.ResourceArgs
+    public sealed class ColumnArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Column data type logical hint.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.OperationalInsights.V20211201Preview.Inputs
         public ColumnArgs()
         {
         }
-        public static new ColumnArgs Empty => new ColumnArgs();
     }
 }

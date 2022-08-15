@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190801.Inputs
     /// <summary>
     /// PrivateEndpointConnection resource.
     /// </summary>
-    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Network.V20190801.Inputs
         public PrivateEndpointConnectionArgs()
         {
         }
-        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

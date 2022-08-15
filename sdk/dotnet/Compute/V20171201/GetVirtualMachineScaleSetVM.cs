@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Compute.V20171201
     }
 
 
-    public sealed class GetVirtualMachineScaleSetVMArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualMachineScaleSetVMArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The instance ID of the virtual machine.
@@ -49,10 +49,9 @@ namespace Pulumi.AzureNative.Compute.V20171201
         public GetVirtualMachineScaleSetVMArgs()
         {
         }
-        public static new GetVirtualMachineScaleSetVMArgs Empty => new GetVirtualMachineScaleSetVMArgs();
     }
 
-    public sealed class GetVirtualMachineScaleSetVMInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualMachineScaleSetVMInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The instance ID of the virtual machine.
@@ -75,7 +74,6 @@ namespace Pulumi.AzureNative.Compute.V20171201
         public GetVirtualMachineScaleSetVMInvokeArgs()
         {
         }
-        public static new GetVirtualMachineScaleSetVMInvokeArgs Empty => new GetVirtualMachineScaleSetVMInvokeArgs();
     }
 
 

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.LabServices
     }
 
 
-    public sealed class ListGlobalUserEnvironmentsArgs : global::Pulumi.InvokeArgs
+    public sealed class ListGlobalUserEnvironmentsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource Id of the lab
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.LabServices
         public ListGlobalUserEnvironmentsArgs()
         {
         }
-        public static new ListGlobalUserEnvironmentsArgs Empty => new ListGlobalUserEnvironmentsArgs();
     }
 
-    public sealed class ListGlobalUserEnvironmentsInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListGlobalUserEnvironmentsInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource Id of the lab
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.LabServices
         public ListGlobalUserEnvironmentsInvokeArgs()
         {
         }
-        public static new ListGlobalUserEnvironmentsInvokeArgs Empty => new ListGlobalUserEnvironmentsInvokeArgs();
     }
 
 

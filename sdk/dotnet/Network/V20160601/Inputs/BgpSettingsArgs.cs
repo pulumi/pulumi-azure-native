@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20160601.Inputs
 {
 
-    public sealed class BgpSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class BgpSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets this BGP speaker's ASN
@@ -33,6 +33,5 @@ namespace Pulumi.AzureNative.Network.V20160601.Inputs
         public BgpSettingsArgs()
         {
         }
-        public static new BgpSettingsArgs Empty => new BgpSettingsArgs();
     }
 }

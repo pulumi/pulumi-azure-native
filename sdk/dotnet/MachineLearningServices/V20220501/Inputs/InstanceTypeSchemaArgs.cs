@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
     /// <summary>
     /// Instance type schema.
     /// </summary>
-    public sealed class InstanceTypeSchemaArgs : global::Pulumi.ResourceArgs
+    public sealed class InstanceTypeSchemaArgs : Pulumi.ResourceArgs
     {
         [Input("nodeSelector")]
         private InputMap<string>? _nodeSelector;
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
         public InstanceTypeSchemaArgs()
         {
         }
-        public static new InstanceTypeSchemaArgs Empty => new InstanceTypeSchemaArgs();
     }
 }

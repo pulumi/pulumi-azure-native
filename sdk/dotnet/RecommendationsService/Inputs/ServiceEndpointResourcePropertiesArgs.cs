@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecommendationsService.Inputs
     /// <summary>
     /// ServiceEndpoint resource properties.
     /// </summary>
-    public sealed class ServiceEndpointResourcePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ServiceEndpointResourcePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// ServiceEndpoint pre-allocated capacity controls the maximum requests-per-second allowed for that endpoint. Only applicable when Account configuration is Capacity.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.RecommendationsService.Inputs
         public ServiceEndpointResourcePropertiesArgs()
         {
         }
-        public static new ServiceEndpointResourcePropertiesArgs Empty => new ServiceEndpointResourcePropertiesArgs();
     }
 }

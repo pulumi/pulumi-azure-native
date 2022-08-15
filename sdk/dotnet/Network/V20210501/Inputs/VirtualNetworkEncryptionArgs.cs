@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210501.Inputs
     /// <summary>
     /// Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
     /// </summary>
-    public sealed class VirtualNetworkEncryptionArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualNetworkEncryptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates if encryption is enabled on the virtual network.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Network.V20210501.Inputs
         public VirtualNetworkEncryptionArgs()
         {
         }
-        public static new VirtualNetworkEncryptionArgs Empty => new VirtualNetworkEncryptionArgs();
     }
 }

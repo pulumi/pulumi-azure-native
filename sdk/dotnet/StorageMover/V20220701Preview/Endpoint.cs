@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageMover.V20220701Preview
     /// The Endpoint resource, which contains information about file sources and targets.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagemover/v20220701preview:Endpoint")]
-    public partial class Endpoint : global::Pulumi.CustomResource
+    public partial class Endpoint : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.StorageMover.V20220701Preview
         }
     }
 
-    public sealed class EndpointArgs : global::Pulumi.ResourceArgs
+    public sealed class EndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Endpoint resource.
@@ -111,6 +111,5 @@ namespace Pulumi.AzureNative.StorageMover.V20220701Preview
         public EndpointArgs()
         {
         }
-        public static new EndpointArgs Empty => new EndpointArgs();
     }
 }

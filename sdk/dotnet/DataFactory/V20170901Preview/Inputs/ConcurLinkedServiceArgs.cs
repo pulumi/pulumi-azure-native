@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Concur Service linked service.
     /// </summary>
-    public sealed class ConcurLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class ConcurLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -103,6 +103,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public ConcurLinkedServiceArgs()
         {
         }
-        public static new ConcurLinkedServiceArgs Empty => new ConcurLinkedServiceArgs();
     }
 }

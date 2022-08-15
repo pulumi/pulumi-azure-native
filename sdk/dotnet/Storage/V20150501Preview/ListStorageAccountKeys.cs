@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Storage.V20150501Preview
     }
 
 
-    public sealed class ListStorageAccountKeysArgs : global::Pulumi.InvokeArgs
+    public sealed class ListStorageAccountKeysArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the storage account.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.Storage.V20150501Preview
         public ListStorageAccountKeysArgs()
         {
         }
-        public static new ListStorageAccountKeysArgs Empty => new ListStorageAccountKeysArgs();
     }
 
-    public sealed class ListStorageAccountKeysInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListStorageAccountKeysInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the storage account.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.Storage.V20150501Preview
         public ListStorageAccountKeysInvokeArgs()
         {
         }
-        public static new ListStorageAccountKeysInvokeArgs Empty => new ListStorageAccountKeysInvokeArgs();
     }
 
 

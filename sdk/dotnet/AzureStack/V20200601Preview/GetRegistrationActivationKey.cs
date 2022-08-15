@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.AzureStack.V20200601Preview
     }
 
 
-    public sealed class GetRegistrationActivationKeyArgs : global::Pulumi.InvokeArgs
+    public sealed class GetRegistrationActivationKeyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Azure Stack registration.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.AzureStack.V20200601Preview
         public GetRegistrationActivationKeyArgs()
         {
         }
-        public static new GetRegistrationActivationKeyArgs Empty => new GetRegistrationActivationKeyArgs();
     }
 
-    public sealed class GetRegistrationActivationKeyInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetRegistrationActivationKeyInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Azure Stack registration.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.AzureStack.V20200601Preview
         public GetRegistrationActivationKeyInvokeArgs()
         {
         }
-        public static new GetRegistrationActivationKeyInvokeArgs Empty => new GetRegistrationActivationKeyInvokeArgs();
     }
 
 

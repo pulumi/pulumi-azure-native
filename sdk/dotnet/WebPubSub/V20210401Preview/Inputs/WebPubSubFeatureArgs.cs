@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20210401Preview.Inputs
     /// <summary>
     /// Feature of a resource, which controls the runtime behavior.
     /// </summary>
-    public sealed class WebPubSubFeatureArgs : global::Pulumi.ResourceArgs
+    public sealed class WebPubSubFeatureArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// FeatureFlags is the supported features of Azure SignalR service.
@@ -46,6 +46,5 @@ namespace Pulumi.AzureNative.WebPubSub.V20210401Preview.Inputs
         public WebPubSubFeatureArgs()
         {
         }
-        public static new WebPubSubFeatureArgs Empty => new WebPubSubFeatureArgs();
     }
 }

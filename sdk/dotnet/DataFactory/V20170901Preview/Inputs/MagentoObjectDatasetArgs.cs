@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Magento server dataset.
     /// </summary>
-    public sealed class MagentoObjectDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class MagentoObjectDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -67,6 +67,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public MagentoObjectDatasetArgs()
         {
         }
-        public static new MagentoObjectDatasetArgs Empty => new MagentoObjectDatasetArgs();
     }
 }

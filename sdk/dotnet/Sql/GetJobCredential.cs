@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Sql
     }
 
 
-    public sealed class GetJobCredentialArgs : global::Pulumi.InvokeArgs
+    public sealed class GetJobCredentialArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the credential.
@@ -56,10 +56,9 @@ namespace Pulumi.AzureNative.Sql
         public GetJobCredentialArgs()
         {
         }
-        public static new GetJobCredentialArgs Empty => new GetJobCredentialArgs();
     }
 
-    public sealed class GetJobCredentialInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetJobCredentialInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the credential.
@@ -88,7 +87,6 @@ namespace Pulumi.AzureNative.Sql
         public GetJobCredentialInvokeArgs()
         {
         }
-        public static new GetJobCredentialInvokeArgs Empty => new GetJobCredentialInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180330Preview
     /// A Media Services account.
     /// </summary>
     [AzureNativeResourceType("azure-native:media/v20180330preview:MediaService")]
-    public partial class MediaService : global::Pulumi.CustomResource
+    public partial class MediaService : Pulumi.CustomResource
     {
         /// <summary>
         /// The Azure Region of the resource.
@@ -76,14 +76,14 @@ namespace Pulumi.AzureNative.Media.V20180330Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:media:MediaService"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20151001:MediaService"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180601preview:MediaService"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180701:MediaService"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20200501:MediaService"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20210501:MediaService"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20210601:MediaService"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20211101:MediaService"},
+                    new Pulumi.Alias { Type = "azure-native:media:MediaService"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20151001:MediaService"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180601preview:MediaService"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180701:MediaService"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20200501:MediaService"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20210501:MediaService"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20210601:MediaService"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20211101:MediaService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -105,7 +105,7 @@ namespace Pulumi.AzureNative.Media.V20180330Preview
         }
     }
 
-    public sealed class MediaServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class MediaServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -152,6 +152,5 @@ namespace Pulumi.AzureNative.Media.V20180330Preview
         public MediaServiceArgs()
         {
         }
-        public static new MediaServiceArgs Empty => new MediaServiceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20181001.Inputs
     /// <summary>
     /// Identifies the service being brought into the virtual network.
     /// </summary>
-    public sealed class EndpointServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class EndpointServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A unique identifier of the service being referenced by the interface endpoint.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Network.V20181001.Inputs
         public EndpointServiceArgs()
         {
         }
-        public static new EndpointServiceArgs Empty => new EndpointServiceArgs();
     }
 }

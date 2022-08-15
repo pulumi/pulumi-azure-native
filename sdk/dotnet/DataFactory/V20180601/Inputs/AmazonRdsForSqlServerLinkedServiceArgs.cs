@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Amazon RDS for SQL Server linked service.
     /// </summary>
-    public sealed class AmazonRdsForSqlServerLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class AmazonRdsForSqlServerLinkedServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Sql always encrypted properties.
@@ -91,6 +91,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public AmazonRdsForSqlServerLinkedServiceArgs()
         {
         }
-        public static new AmazonRdsForSqlServerLinkedServiceArgs Empty => new AmazonRdsForSqlServerLinkedServiceArgs();
     }
 }

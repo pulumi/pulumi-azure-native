@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview
     /// A SQL virtual machine.
     /// </summary>
     [AzureNativeResourceType("azure-native:sqlvirtualmachine/v20211101preview:SqlVirtualMachine")]
-    public partial class SqlVirtualMachine : global::Pulumi.CustomResource
+    public partial class SqlVirtualMachine : Pulumi.CustomResource
     {
         /// <summary>
         /// Assessment Settings.
@@ -160,10 +160,10 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine:SqlVirtualMachine"},
-                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachine"},
-                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachine"},
-                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220201preview:SqlVirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-native:sqlvirtualmachine:SqlVirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220201preview:SqlVirtualMachine"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -185,7 +185,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview
         }
     }
 
-    public sealed class SqlVirtualMachineArgs : global::Pulumi.ResourceArgs
+    public sealed class SqlVirtualMachineArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Assessment Settings.
@@ -304,6 +304,5 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview
         public SqlVirtualMachineArgs()
         {
         }
-        public static new SqlVirtualMachineArgs Empty => new SqlVirtualMachineArgs();
     }
 }

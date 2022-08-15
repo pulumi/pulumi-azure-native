@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220102Preview.Inputs
     /// <summary>
     /// Profile of the managed outbound IP resources of the managed cluster.
     /// </summary>
-    public sealed class ManagedClusterManagedOutboundIPProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedClusterManagedOutboundIPProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The desired number of outbound IPs created/managed by Azure. Allowed values must be in the range of 1 to 16 (inclusive). The default value is 1. 
@@ -25,6 +25,5 @@ namespace Pulumi.AzureNative.ContainerService.V20220102Preview.Inputs
         {
             Count = 1;
         }
-        public static new ManagedClusterManagedOutboundIPProfileArgs Empty => new ManagedClusterManagedOutboundIPProfileArgs();
     }
 }

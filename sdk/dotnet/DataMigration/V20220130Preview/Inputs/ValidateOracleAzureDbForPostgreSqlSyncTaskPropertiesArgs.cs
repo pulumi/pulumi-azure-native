@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220130Preview.Inputs
     /// <summary>
     /// Properties for the task that validates a migration for Oracle to Azure Database for PostgreSQL for online migrations
     /// </summary>
-    public sealed class ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("clientData")]
         private InputMap<string>? _clientData;
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.DataMigration.V20220130Preview.Inputs
         public ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs()
         {
         }
-        public static new ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs Empty => new ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs();
     }
 }

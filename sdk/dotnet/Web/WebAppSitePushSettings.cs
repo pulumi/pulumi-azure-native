@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web
     /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppSitePushSettings")]
-    public partial class WebAppSitePushSettings : global::Pulumi.CustomResource
+    public partial class WebAppSitePushSettings : Pulumi.CustomResource
     {
         /// <summary>
         /// Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
@@ -86,19 +86,19 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppSitePushSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppSitePushSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppSitePushSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppSitePushSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppSitePushSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppSitePushSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppSitePushSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppSitePushSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppSitePushSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppSitePushSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppSitePushSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppSitePushSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppSitePushSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppSitePushSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppSitePushSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppSitePushSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppSitePushSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppSitePushSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppSitePushSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppSitePushSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppSitePushSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppSitePushSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppSitePushSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppSitePushSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppSitePushSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppSitePushSettings"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.Web
         }
     }
 
-    public sealed class WebAppSitePushSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class WebAppSitePushSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
@@ -170,6 +170,5 @@ namespace Pulumi.AzureNative.Web
         public WebAppSitePushSettingsArgs()
         {
         }
-        public static new WebAppSitePushSettingsArgs Empty => new WebAppSitePushSettingsArgs();
     }
 }

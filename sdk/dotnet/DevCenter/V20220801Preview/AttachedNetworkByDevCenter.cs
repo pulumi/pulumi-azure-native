@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
     /// Represents an attached NetworkConnection.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter/v20220801preview:AttachedNetworkByDevCenter")]
-    public partial class AttachedNetworkByDevCenter : global::Pulumi.CustomResource
+    public partial class AttachedNetworkByDevCenter : Pulumi.CustomResource
     {
         /// <summary>
         /// AAD Join type of the network. This is populated based on the referenced Network Connection.
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         }
     }
 
-    public sealed class AttachedNetworkByDevCenterArgs : global::Pulumi.ResourceArgs
+    public sealed class AttachedNetworkByDevCenterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the attached NetworkConnection.
@@ -135,6 +135,5 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         public AttachedNetworkByDevCenterArgs()
         {
         }
-        public static new AttachedNetworkByDevCenterArgs Empty => new AttachedNetworkByDevCenterArgs();
     }
 }

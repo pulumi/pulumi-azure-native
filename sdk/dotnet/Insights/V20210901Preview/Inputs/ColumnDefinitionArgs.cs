@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20210901Preview.Inputs
     /// <summary>
     /// Definition of custom data column.
     /// </summary>
-    public sealed class ColumnDefinitionArgs : global::Pulumi.ResourceArgs
+    public sealed class ColumnDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the column.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Insights.V20210901Preview.Inputs
         public ColumnDefinitionArgs()
         {
         }
-        public static new ColumnDefinitionArgs Empty => new ColumnDefinitionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211101.Inputs
     /// <summary>
     /// VMwareCbt specific enable migration input.
     /// </summary>
-    public sealed class VMwareCbtEnableMigrationInputArgs : global::Pulumi.ResourceArgs
+    public sealed class VMwareCbtEnableMigrationInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The data mover run as account Id.
@@ -175,6 +175,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211101.Inputs
         public VMwareCbtEnableMigrationInputArgs()
         {
         }
-        public static new VMwareCbtEnableMigrationInputArgs Empty => new VMwareCbtEnableMigrationInputArgs();
     }
 }

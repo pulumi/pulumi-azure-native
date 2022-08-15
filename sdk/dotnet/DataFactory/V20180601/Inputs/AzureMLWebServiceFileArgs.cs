@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Azure ML WebService Input/Output file
     /// </summary>
-    public sealed class AzureMLWebServiceFileArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureMLWebServiceFileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The relative file path, including container name, in the Azure Blob Storage specified by the LinkedService. Type: string (or Expression with resultType string).
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public AzureMLWebServiceFileArgs()
         {
         }
-        public static new AzureMLWebServiceFileArgs Empty => new AzureMLWebServiceFileArgs();
     }
 }

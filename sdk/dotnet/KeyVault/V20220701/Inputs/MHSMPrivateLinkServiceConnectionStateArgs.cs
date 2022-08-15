@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KeyVault.V20220701.Inputs
     /// <summary>
     /// An object that represents the approval state of the private link connection.
     /// </summary>
-    public sealed class MHSMPrivateLinkServiceConnectionStateArgs : global::Pulumi.ResourceArgs
+    public sealed class MHSMPrivateLinkServiceConnectionStateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A message indicating if changes on the service provider require any updates on the consumer.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.KeyVault.V20220701.Inputs
         public MHSMPrivateLinkServiceConnectionStateArgs()
         {
         }
-        public static new MHSMPrivateLinkServiceConnectionStateArgs Empty => new MHSMPrivateLinkServiceConnectionStateArgs();
     }
 }

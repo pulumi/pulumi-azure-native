@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Resources.V20190510.Inputs
     /// <summary>
     /// Deployment properties.
     /// </summary>
-    public sealed class DeploymentPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class DeploymentPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The debug setting of the deployment.
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.Resources.V20190510.Inputs
         public DeploymentPropertiesArgs()
         {
         }
-        public static new DeploymentPropertiesArgs Empty => new DeploymentPropertiesArgs();
     }
 }

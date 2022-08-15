@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ChangeAnalysis.V20200401Preview
     /// A profile object that contains change analysis configuration, such as notification settings, for this subscription
     /// </summary>
     [AzureNativeResourceType("azure-native:changeanalysis/v20200401preview:ConfigurationProfile")]
-    public partial class ConfigurationProfile : global::Pulumi.CustomResource
+    public partial class ConfigurationProfile : Pulumi.CustomResource
     {
         /// <summary>
         /// The identity block returned by ARM resource that supports managed identity.
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.ChangeAnalysis.V20200401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:changeanalysis:ConfigurationProfile"},
+                    new Pulumi.Alias { Type = "azure-native:changeanalysis:ConfigurationProfile"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.ChangeAnalysis.V20200401Preview
         }
     }
 
-    public sealed class ConfigurationProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class ConfigurationProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity block returned by ARM resource that supports managed identity.
@@ -127,6 +127,5 @@ namespace Pulumi.AzureNative.ChangeAnalysis.V20200401Preview
         public ConfigurationProfileArgs()
         {
         }
-        public static new ConfigurationProfileArgs Empty => new ConfigurationProfileArgs();
     }
 }

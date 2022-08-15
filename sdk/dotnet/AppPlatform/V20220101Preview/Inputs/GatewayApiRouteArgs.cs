@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview.Inputs
     /// <summary>
     /// API route config of the Spring Cloud Gateway
     /// </summary>
-    public sealed class GatewayApiRouteArgs : global::Pulumi.ResourceArgs
+    public sealed class GatewayApiRouteArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description, will be applied to methods in the generated OpenAPI documentation.
@@ -90,6 +90,5 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview.Inputs
         public GatewayApiRouteArgs()
         {
         }
-        public static new GatewayApiRouteArgs Empty => new GatewayApiRouteArgs();
     }
 }

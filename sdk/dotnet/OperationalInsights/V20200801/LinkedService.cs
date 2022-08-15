@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
     /// The top level Linked service resource container.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights/v20200801:LinkedService")]
-    public partial class LinkedService : global::Pulumi.CustomResource
+    public partial class LinkedService : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -76,10 +76,10 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights:LinkedService"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20151101preview:LinkedService"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20190801preview:LinkedService"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:LinkedService"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights:LinkedService"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20151101preview:LinkedService"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20190801preview:LinkedService"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:LinkedService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
         }
     }
 
-    public sealed class LinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class LinkedServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the linkedServices resource
@@ -154,6 +154,5 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
         public LinkedServiceArgs()
         {
         }
-        public static new LinkedServiceArgs Empty => new LinkedServiceArgs();
     }
 }

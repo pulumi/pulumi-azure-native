@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101.Inputs
     /// <summary>
     /// Connector mapping property format.
     /// </summary>
-    public sealed class ConnectorMappingFormatArgs : global::Pulumi.ResourceArgs
+    public sealed class ConnectorMappingFormatArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The oData language.
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101.Inputs
         public ConnectorMappingFormatArgs()
         {
         }
-        public static new ConnectorMappingFormatArgs Empty => new ConnectorMappingFormatArgs();
     }
 }

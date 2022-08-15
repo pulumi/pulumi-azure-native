@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601
     }
 
 
-    public sealed class GetMonitoringConfigArgs : global::Pulumi.InvokeArgs
+    public sealed class GetMonitoringConfigArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601
         public GetMonitoringConfigArgs()
         {
         }
-        public static new GetMonitoringConfigArgs Empty => new GetMonitoringConfigArgs();
     }
 
-    public sealed class GetMonitoringConfigInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetMonitoringConfigInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601
         public GetMonitoringConfigInvokeArgs()
         {
         }
-        public static new GetMonitoringConfigInvokeArgs Empty => new GetMonitoringConfigInvokeArgs();
     }
 
 

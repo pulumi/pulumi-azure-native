@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SignalRService.V20200701Preview
     /// A class represent a resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:signalrservice/v20200701preview:SignalR")]
-    public partial class SignalR : global::Pulumi.CustomResource
+    public partial class SignalR : Pulumi.CustomResource
     {
         /// <summary>
         /// Cross-Origin Resource Sharing (CORS) settings.
@@ -159,15 +159,15 @@ namespace Pulumi.AzureNative.SignalRService.V20200701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice:SignalR"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20180301preview:SignalR"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20181001:SignalR"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20200501:SignalR"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20210401preview:SignalR"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20210601preview:SignalR"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20210901preview:SignalR"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20211001:SignalR"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20220201:SignalR"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice:SignalR"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/v20180301preview:SignalR"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/v20181001:SignalR"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/v20200501:SignalR"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/v20210401preview:SignalR"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/v20210601preview:SignalR"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/v20210901preview:SignalR"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/v20211001:SignalR"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/v20220201:SignalR"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -189,7 +189,7 @@ namespace Pulumi.AzureNative.SignalRService.V20200701Preview
         }
     }
 
-    public sealed class SignalRArgs : global::Pulumi.ResourceArgs
+    public sealed class SignalRArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cross-Origin Resource Sharing (CORS) settings.
@@ -283,6 +283,5 @@ namespace Pulumi.AzureNative.SignalRService.V20200701Preview
         public SignalRArgs()
         {
         }
-        public static new SignalRArgs Empty => new SignalRArgs();
     }
 }

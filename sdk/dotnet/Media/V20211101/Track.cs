@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20211101
     /// An Asset Track resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:media/v20211101:Track")]
-    public partial class Track : global::Pulumi.CustomResource
+    public partial class Track : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNative.Media.V20211101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:media:Track"},
+                    new Pulumi.Alias { Type = "azure-native:media:Track"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNative.Media.V20211101
         }
     }
 
-    public sealed class TrackArgs : global::Pulumi.ResourceArgs
+    public sealed class TrackArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -121,6 +121,5 @@ namespace Pulumi.AzureNative.Media.V20211101
         public TrackArgs()
         {
         }
-        public static new TrackArgs Empty => new TrackArgs();
     }
 }

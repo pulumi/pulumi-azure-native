@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview.Inputs
     /// <summary>
     /// Body logging settings.
     /// </summary>
-    public sealed class BodyDiagnosticSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class BodyDiagnosticSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Number of request body bytes to log.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview.Inputs
         public BodyDiagnosticSettingsArgs()
         {
         }
-        public static new BodyDiagnosticSettingsArgs Empty => new BodyDiagnosticSettingsArgs();
     }
 }

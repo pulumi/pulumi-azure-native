@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Cdn
     /// API Version: 2020-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:Rule")]
-    public partial class Rule : global::Pulumi.CustomResource
+    public partial class Rule : Pulumi.CustomResource
     {
         /// <summary>
         /// A list of actions that are executed when all the conditions of a rule are satisfied.
@@ -92,8 +92,8 @@ namespace Pulumi.AzureNative.Cdn
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:Rule"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:Rule"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200901:Rule"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20210601:Rule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNative.Cdn
         }
     }
 
-    public sealed class RuleArgs : global::Pulumi.ResourceArgs
+    public sealed class RuleArgs : Pulumi.ResourceArgs
     {
         [Input("actions", required: true)]
         private InputList<object>? _actions;
@@ -180,6 +180,5 @@ namespace Pulumi.AzureNative.Cdn
         public RuleArgs()
         {
         }
-        public static new RuleArgs Empty => new RuleArgs();
     }
 }

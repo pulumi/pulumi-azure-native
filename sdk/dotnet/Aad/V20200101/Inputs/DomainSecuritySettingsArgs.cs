@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Aad.V20200101.Inputs
     /// <summary>
     /// Domain Security Settings
     /// </summary>
-    public sealed class DomainSecuritySettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class DomainSecuritySettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag to determine whether or not NtlmV1 is enabled or disabled.
@@ -53,6 +53,5 @@ namespace Pulumi.AzureNative.Aad.V20200101.Inputs
             SyncOnPremPasswords = "Enabled";
             TlsV1 = "Enabled";
         }
-        public static new DomainSecuritySettingsArgs Empty => new DomainSecuritySettingsArgs();
     }
 }

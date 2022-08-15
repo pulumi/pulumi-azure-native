@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20201101
     /// Defines web application firewall policy.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20201101:WebApplicationFirewallPolicy")]
-    public partial class WebApplicationFirewallPolicy : global::Pulumi.CustomResource
+    public partial class WebApplicationFirewallPolicy : Pulumi.CustomResource
     {
         /// <summary>
         /// A collection of references to application gateways.
@@ -118,27 +118,27 @@ namespace Pulumi.AzureNative.Network.V20201101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:WebApplicationFirewallPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181201:WebApplicationFirewallPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190201:WebApplicationFirewallPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:WebApplicationFirewallPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190601:WebApplicationFirewallPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:WebApplicationFirewallPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190801:WebApplicationFirewallPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:WebApplicationFirewallPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:WebApplicationFirewallPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:WebApplicationFirewallPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:WebApplicationFirewallPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:WebApplicationFirewallPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:WebApplicationFirewallPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:WebApplicationFirewallPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:WebApplicationFirewallPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:WebApplicationFirewallPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:WebApplicationFirewallPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:WebApplicationFirewallPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:WebApplicationFirewallPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:WebApplicationFirewallPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181201:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190201:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210301:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:WebApplicationFirewallPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -160,7 +160,7 @@ namespace Pulumi.AzureNative.Network.V20201101
         }
     }
 
-    public sealed class WebApplicationFirewallPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class WebApplicationFirewallPolicyArgs : Pulumi.ResourceArgs
     {
         [Input("customRules")]
         private InputList<Inputs.WebApplicationFirewallCustomRuleArgs>? _customRules;
@@ -225,6 +225,5 @@ namespace Pulumi.AzureNative.Network.V20201101
         public WebApplicationFirewallPolicyArgs()
         {
         }
-        public static new WebApplicationFirewallPolicyArgs Empty => new WebApplicationFirewallPolicyArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CustomProviders.Inputs
     /// <summary>
     /// A validation to apply on custom resource provider requests.
     /// </summary>
-    public sealed class CustomRPValidationsArgs : global::Pulumi.ResourceArgs
+    public sealed class CustomRPValidationsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A link to the validation specification. The specification must be hosted on raw.githubusercontent.com.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.CustomProviders.Inputs
         public CustomRPValidationsArgs()
         {
         }
-        public static new CustomRPValidationsArgs Empty => new CustomRPValidationsArgs();
     }
 }

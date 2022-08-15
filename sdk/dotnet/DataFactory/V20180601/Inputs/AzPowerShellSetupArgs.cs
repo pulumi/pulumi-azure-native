@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// The express custom setup of installing Azure PowerShell.
     /// </summary>
-    public sealed class AzPowerShellSetupArgs : global::Pulumi.ResourceArgs
+    public sealed class AzPowerShellSetupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of custom setup.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public AzPowerShellSetupArgs()
         {
         }
-        public static new AzPowerShellSetupArgs Empty => new AzPowerShellSetupArgs();
     }
 }

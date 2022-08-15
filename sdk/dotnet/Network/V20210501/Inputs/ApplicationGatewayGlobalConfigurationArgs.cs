@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210501.Inputs
     /// <summary>
     /// Application Gateway global configuration.
     /// </summary>
-    public sealed class ApplicationGatewayGlobalConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayGlobalConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable request buffering.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Network.V20210501.Inputs
         public ApplicationGatewayGlobalConfigurationArgs()
         {
         }
-        public static new ApplicationGatewayGlobalConfigurationArgs Empty => new ApplicationGatewayGlobalConfigurationArgs();
     }
 }

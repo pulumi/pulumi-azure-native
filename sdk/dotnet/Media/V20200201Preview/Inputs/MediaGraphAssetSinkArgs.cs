@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20200201Preview.Inputs
     /// <summary>
     /// Asset sink.
     /// </summary>
-    public sealed class MediaGraphAssetSinkArgs : global::Pulumi.ResourceArgs
+    public sealed class MediaGraphAssetSinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Asset name.
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.Media.V20200201Preview.Inputs
         public MediaGraphAssetSinkArgs()
         {
         }
-        public static new MediaGraphAssetSinkArgs Empty => new MediaGraphAssetSinkArgs();
     }
 }

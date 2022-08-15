@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview
     }
 
 
-    public sealed class GetBuildStepArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBuildStepArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the container registry build task.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview
         public GetBuildStepArgs()
         {
         }
-        public static new GetBuildStepArgs Empty => new GetBuildStepArgs();
     }
 
-    public sealed class GetBuildStepInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBuildStepInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the container registry build task.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview
         public GetBuildStepInvokeArgs()
         {
         }
-        public static new GetBuildStepInvokeArgs Empty => new GetBuildStepInvokeArgs();
     }
 
 

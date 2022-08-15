@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity Netezza source.
     /// </summary>
-    public sealed class NetezzaSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class NetezzaSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public NetezzaSourceArgs()
         {
         }
-        public static new NetezzaSourceArgs Empty => new NetezzaSourceArgs();
     }
 }

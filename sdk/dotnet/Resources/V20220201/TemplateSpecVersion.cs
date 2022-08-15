@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Resources.V20220201
     /// Template Spec Version object.
     /// </summary>
     [AzureNativeResourceType("azure-native:resources/v20220201:TemplateSpecVersion")]
-    public partial class TemplateSpecVersion : global::Pulumi.CustomResource
+    public partial class TemplateSpecVersion : Pulumi.CustomResource
     {
         /// <summary>
         /// Template Spec version description.
@@ -100,10 +100,10 @@ namespace Pulumi.AzureNative.Resources.V20220201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:resources:TemplateSpecVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20190601preview:TemplateSpecVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20210301preview:TemplateSpecVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20210501:TemplateSpecVersion"},
+                    new Pulumi.Alias { Type = "azure-native:resources:TemplateSpecVersion"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20190601preview:TemplateSpecVersion"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20210301preview:TemplateSpecVersion"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20210501:TemplateSpecVersion"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.Resources.V20220201
         }
     }
 
-    public sealed class TemplateSpecVersionArgs : global::Pulumi.ResourceArgs
+    public sealed class TemplateSpecVersionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Template Spec version description.
@@ -202,6 +202,5 @@ namespace Pulumi.AzureNative.Resources.V20220201
         public TemplateSpecVersionArgs()
         {
         }
-        public static new TemplateSpecVersionArgs Empty => new TemplateSpecVersionArgs();
     }
 }

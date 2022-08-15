@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Sql.V20170301Preview
     }
 
 
-    public sealed class GetBackupLongTermRetentionPolicyArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBackupLongTermRetentionPolicyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the database.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.Sql.V20170301Preview
         public GetBackupLongTermRetentionPolicyArgs()
         {
         }
-        public static new GetBackupLongTermRetentionPolicyArgs Empty => new GetBackupLongTermRetentionPolicyArgs();
     }
 
-    public sealed class GetBackupLongTermRetentionPolicyInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBackupLongTermRetentionPolicyInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the database.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.Sql.V20170301Preview
         public GetBackupLongTermRetentionPolicyInvokeArgs()
         {
         }
-        public static new GetBackupLongTermRetentionPolicyInvokeArgs Empty => new GetBackupLongTermRetentionPolicyInvokeArgs();
     }
 
 

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network
     /// API Version: 2020-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VirtualNetworkLink")]
-    public partial class VirtualNetworkLink : global::Pulumi.CustomResource
+    public partial class VirtualNetworkLink : Pulumi.CustomResource
     {
         /// <summary>
         /// The ETag of the virtual network link.
@@ -95,9 +95,9 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180901:VirtualNetworkLink"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200101:VirtualNetworkLink"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualNetworkLink"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180901:VirtualNetworkLink"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200101:VirtualNetworkLink"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualNetworkLink"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -119,7 +119,7 @@ namespace Pulumi.AzureNative.Network
         }
     }
 
-    public sealed class VirtualNetworkLinkArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualNetworkLinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Region where the resource lives
@@ -172,6 +172,5 @@ namespace Pulumi.AzureNative.Network
         public VirtualNetworkLinkArgs()
         {
         }
-        public static new VirtualNetworkLinkArgs Empty => new VirtualNetworkLinkArgs();
     }
 }

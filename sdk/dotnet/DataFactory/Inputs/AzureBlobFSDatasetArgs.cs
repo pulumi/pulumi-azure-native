@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The Azure Data Lake Storage Gen2 storage.
     /// </summary>
-    public sealed class AzureBlobFSDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureBlobFSDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -103,6 +103,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public AzureBlobFSDatasetArgs()
         {
         }
-        public static new AzureBlobFSDatasetArgs Empty => new AzureBlobFSDatasetArgs();
     }
 }

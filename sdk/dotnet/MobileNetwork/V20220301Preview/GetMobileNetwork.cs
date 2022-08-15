@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
     }
 
 
-    public sealed class GetMobileNetworkArgs : global::Pulumi.InvokeArgs
+    public sealed class GetMobileNetworkArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the mobile network.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
         public GetMobileNetworkArgs()
         {
         }
-        public static new GetMobileNetworkArgs Empty => new GetMobileNetworkArgs();
     }
 
-    public sealed class GetMobileNetworkInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetMobileNetworkInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the mobile network.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
         public GetMobileNetworkInvokeArgs()
         {
         }
-        public static new GetMobileNetworkInvokeArgs Empty => new GetMobileNetworkInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20201201
     /// Configuration settings for the Azure App Service Authentication / Authorization feature.
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20201201:WebAppAuthSettingsSlot")]
-    public partial class WebAppAuthSettingsSlot : global::Pulumi.CustomResource
+    public partial class WebAppAuthSettingsSlot : Pulumi.CustomResource
     {
         /// <summary>
         /// Gets a JSON string containing the Azure AD Acl settings.
@@ -338,20 +338,20 @@ namespace Pulumi.AzureNative.Web.V20201201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppAuthSettingsSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppAuthSettingsSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppAuthSettingsSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppAuthSettingsSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppAuthSettingsSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppAuthSettingsSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppAuthSettingsSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppAuthSettingsSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppAuthSettingsSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppAuthSettingsSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppAuthSettingsSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppAuthSettingsSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppAuthSettingsSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppAuthSettingsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web:WebAppAuthSettingsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppAuthSettingsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppAuthSettingsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppAuthSettingsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppAuthSettingsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppAuthSettingsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppAuthSettingsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppAuthSettingsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppAuthSettingsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppAuthSettingsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppAuthSettingsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppAuthSettingsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppAuthSettingsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppAuthSettingsSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -373,7 +373,7 @@ namespace Pulumi.AzureNative.Web.V20201201
         }
     }
 
-    public sealed class WebAppAuthSettingsSlotArgs : global::Pulumi.ResourceArgs
+    public sealed class WebAppAuthSettingsSlotArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets a JSON string containing the Azure AD Acl settings.
@@ -724,6 +724,5 @@ namespace Pulumi.AzureNative.Web.V20201201
         public WebAppAuthSettingsSlotArgs()
         {
         }
-        public static new WebAppAuthSettingsSlotArgs Empty => new WebAppAuthSettingsSlotArgs();
     }
 }

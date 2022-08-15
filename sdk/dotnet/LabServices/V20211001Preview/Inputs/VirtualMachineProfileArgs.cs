@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.LabServices.V20211001Preview.Inputs
     /// <summary>
     /// The base virtual machine configuration for a lab.
     /// </summary>
-    public sealed class VirtualMachineProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualMachineProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Additional VM capabilities.
@@ -67,6 +67,5 @@ namespace Pulumi.AzureNative.LabServices.V20211001Preview.Inputs
         {
             UseSharedPassword = Pulumi.AzureNative.LabServices.V20211001Preview.EnableState.Disabled;
         }
-        public static new VirtualMachineProfileArgs Empty => new VirtualMachineProfileArgs();
     }
 }

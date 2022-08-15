@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
     /// <summary>
     /// Cosmos DB capability object
     /// </summary>
-    public sealed class CapabilityArgs : global::Pulumi.ResourceArgs
+    public sealed class CapabilityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Cosmos DB capability. For example, "name": "EnableCassandra". Current values also include "EnableTable" and "EnableGremlin".
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
         public CapabilityArgs()
         {
         }
-        public static new CapabilityArgs Empty => new CapabilityArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
     /// <summary>
     /// Username and password credentials.
     /// </summary>
-    public sealed class UsernamePasswordCredentialsArgs : global::Pulumi.ResourceArgs
+    public sealed class UsernamePasswordCredentialsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Password to be presented as part of the credentials. It is recommended that this value is parameterized as a secret string in order to prevent this value to be returned as part of the resource on API requests.
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
         public UsernamePasswordCredentialsArgs()
         {
         }
-        public static new UsernamePasswordCredentialsArgs Empty => new UsernamePasswordCredentialsArgs();
     }
 }

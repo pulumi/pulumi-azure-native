@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Search.V20200801Preview.Inputs
     /// <summary>
     /// Describes the properties of an existing Shared Private Link Resource managed by the Azure Cognitive Search service.
     /// </summary>
-    public sealed class SharedPrivateLinkResourcePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class SharedPrivateLinkResourcePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The group id from the provider of resource the shared private link resource is for.
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.Search.V20200801Preview.Inputs
         public SharedPrivateLinkResourcePropertiesArgs()
         {
         }
-        public static new SharedPrivateLinkResourcePropertiesArgs Empty => new SharedPrivateLinkResourcePropertiesArgs();
     }
 }

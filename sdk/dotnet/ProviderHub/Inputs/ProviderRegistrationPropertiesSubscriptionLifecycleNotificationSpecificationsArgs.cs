@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Inputs
 {
 
-    public sealed class ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs : global::Pulumi.ResourceArgs
+    public sealed class ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs : Pulumi.ResourceArgs
     {
         [Input("softDeleteTTL")]
         public Input<string>? SoftDeleteTTL { get; set; }
@@ -26,6 +26,5 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
         public ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs()
         {
         }
-        public static new ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs Empty => new ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs();
     }
 }

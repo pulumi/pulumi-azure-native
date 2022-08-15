@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Devices.V20170821Preview.Inputs
 {
 
-    public sealed class IotDpsPropertiesDescriptionArgs : global::Pulumi.ResourceArgs
+    public sealed class IotDpsPropertiesDescriptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Allocation policy to be used by this provisioning service.
@@ -53,6 +53,5 @@ namespace Pulumi.AzureNative.Devices.V20170821Preview.Inputs
         public IotDpsPropertiesDescriptionArgs()
         {
         }
-        public static new IotDpsPropertiesDescriptionArgs Empty => new IotDpsPropertiesDescriptionArgs();
     }
 }

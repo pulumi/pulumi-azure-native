@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20150801.Inputs
     /// <summary>
     /// Specification for using a virtual network
     /// </summary>
-    public sealed class VirtualNetworkProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualNetworkProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource id of the virtual network
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Web.V20150801.Inputs
         public VirtualNetworkProfileArgs()
         {
         }
-        public static new VirtualNetworkProfileArgs Empty => new VirtualNetworkProfileArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
     }
 
 
-    public sealed class GetPrivateEndpointConnectionsSecArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPrivateEndpointConnectionsSecArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the private endpoint connection associated with the Azure resource
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
         public GetPrivateEndpointConnectionsSecArgs()
         {
         }
-        public static new GetPrivateEndpointConnectionsSecArgs Empty => new GetPrivateEndpointConnectionsSecArgs();
     }
 
-    public sealed class GetPrivateEndpointConnectionsSecInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPrivateEndpointConnectionsSecInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the private endpoint connection associated with the Azure resource
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
         public GetPrivateEndpointConnectionsSecInvokeArgs()
         {
         }
-        public static new GetPrivateEndpointConnectionsSecInvokeArgs Empty => new GetPrivateEndpointConnectionsSecInvokeArgs();
     }
 
 

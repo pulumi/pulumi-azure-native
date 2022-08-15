@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.LabServices
     }
 
 
-    public sealed class GetLabPlanArgs : global::Pulumi.InvokeArgs
+    public sealed class GetLabPlanArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.LabServices
         public GetLabPlanArgs()
         {
         }
-        public static new GetLabPlanArgs Empty => new GetLabPlanArgs();
     }
 
-    public sealed class GetLabPlanInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetLabPlanInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.LabServices
         public GetLabPlanInvokeArgs()
         {
         }
-        public static new GetLabPlanInvokeArgs Empty => new GetLabPlanInvokeArgs();
     }
 
 

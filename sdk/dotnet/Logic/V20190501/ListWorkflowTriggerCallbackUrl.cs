@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Logic.V20190501
     }
 
 
-    public sealed class ListWorkflowTriggerCallbackUrlArgs : global::Pulumi.InvokeArgs
+    public sealed class ListWorkflowTriggerCallbackUrlArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource group name.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Logic.V20190501
         public ListWorkflowTriggerCallbackUrlArgs()
         {
         }
-        public static new ListWorkflowTriggerCallbackUrlArgs Empty => new ListWorkflowTriggerCallbackUrlArgs();
     }
 
-    public sealed class ListWorkflowTriggerCallbackUrlInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListWorkflowTriggerCallbackUrlInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource group name.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Logic.V20190501
         public ListWorkflowTriggerCallbackUrlInvokeArgs()
         {
         }
-        public static new ListWorkflowTriggerCallbackUrlInvokeArgs Empty => new ListWorkflowTriggerCallbackUrlInvokeArgs();
     }
 
 

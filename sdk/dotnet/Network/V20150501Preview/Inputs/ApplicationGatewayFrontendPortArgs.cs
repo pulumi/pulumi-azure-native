@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20150501Preview.Inputs
     /// <summary>
     /// Frontend Port of application gateway
     /// </summary>
-    public sealed class ApplicationGatewayFrontendPortArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayFrontendPortArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.Network.V20150501Preview.Inputs
         public ApplicationGatewayFrontendPortArgs()
         {
         }
-        public static new ApplicationGatewayFrontendPortArgs Empty => new ApplicationGatewayFrontendPortArgs();
     }
 }

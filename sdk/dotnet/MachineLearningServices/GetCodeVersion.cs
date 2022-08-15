@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
 
-    public sealed class GetCodeVersionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetCodeVersionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Container name.
@@ -56,10 +56,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public GetCodeVersionArgs()
         {
         }
-        public static new GetCodeVersionArgs Empty => new GetCodeVersionArgs();
     }
 
-    public sealed class GetCodeVersionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetCodeVersionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Container name.
@@ -88,7 +87,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public GetCodeVersionInvokeArgs()
         {
         }
-        public static new GetCodeVersionInvokeArgs Empty => new GetCodeVersionInvokeArgs();
     }
 
 

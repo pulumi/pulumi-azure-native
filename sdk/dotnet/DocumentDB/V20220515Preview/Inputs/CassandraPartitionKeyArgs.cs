@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515Preview.Inputs
     /// <summary>
     /// Cosmos DB Cassandra table partition key
     /// </summary>
-    public sealed class CassandraPartitionKeyArgs : global::Pulumi.ResourceArgs
+    public sealed class CassandraPartitionKeyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Cosmos DB Cassandra table partition key
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515Preview.Inputs
         public CassandraPartitionKeyArgs()
         {
         }
-        public static new CassandraPartitionKeyArgs Empty => new CassandraPartitionKeyArgs();
     }
 }

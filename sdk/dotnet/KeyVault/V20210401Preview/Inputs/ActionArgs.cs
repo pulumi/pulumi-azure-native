@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.KeyVault.V20210401Preview.Inputs
 {
 
-    public sealed class ActionArgs : global::Pulumi.ResourceArgs
+    public sealed class ActionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of action.
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.KeyVault.V20210401Preview.Inputs
         public ActionArgs()
         {
         }
-        public static new ActionArgs Empty => new ActionArgs();
     }
 }

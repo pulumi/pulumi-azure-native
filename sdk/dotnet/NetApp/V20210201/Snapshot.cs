@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NetApp.V20210201
     /// Snapshot of a Volume
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp/v20210201:Snapshot")]
-    public partial class Snapshot : global::Pulumi.CustomResource
+    public partial class Snapshot : Pulumi.CustomResource
     {
         /// <summary>
         /// The creation date of the snapshot
@@ -76,30 +76,30 @@ namespace Pulumi.AzureNative.NetApp.V20210201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:netapp:Snapshot"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20170815:Snapshot"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20190501:Snapshot"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20190601:Snapshot"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20190701:Snapshot"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20190801:Snapshot"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20191001:Snapshot"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20191101:Snapshot"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200201:Snapshot"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200301:Snapshot"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200501:Snapshot"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200601:Snapshot"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200701:Snapshot"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200801:Snapshot"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200901:Snapshot"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20201101:Snapshot"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20201201:Snapshot"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210401:Snapshot"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210401preview:Snapshot"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210601:Snapshot"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210801:Snapshot"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20211001:Snapshot"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220101:Snapshot"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220301:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20170815:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20190501:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20190601:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20190701:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20190801:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20191001:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20191101:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200201:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200301:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200501:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200601:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200701:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200801:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200901:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20201101:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20201201:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20210401:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20210401preview:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20210601:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20210801:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20211001:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20220101:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20220301:Snapshot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -121,7 +121,7 @@ namespace Pulumi.AzureNative.NetApp.V20210201
         }
     }
 
-    public sealed class SnapshotArgs : global::Pulumi.ResourceArgs
+    public sealed class SnapshotArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the NetApp account
@@ -162,6 +162,5 @@ namespace Pulumi.AzureNative.NetApp.V20210201
         public SnapshotArgs()
         {
         }
-        public static new SnapshotArgs Empty => new SnapshotArgs();
     }
 }

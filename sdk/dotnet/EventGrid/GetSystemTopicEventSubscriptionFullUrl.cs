@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.EventGrid
     }
 
 
-    public sealed class GetSystemTopicEventSubscriptionFullUrlArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSystemTopicEventSubscriptionFullUrlArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.EventGrid
         public GetSystemTopicEventSubscriptionFullUrlArgs()
         {
         }
-        public static new GetSystemTopicEventSubscriptionFullUrlArgs Empty => new GetSystemTopicEventSubscriptionFullUrlArgs();
     }
 
-    public sealed class GetSystemTopicEventSubscriptionFullUrlInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSystemTopicEventSubscriptionFullUrlInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.EventGrid
         public GetSystemTopicEventSubscriptionFullUrlInvokeArgs()
         {
         }
-        public static new GetSystemTopicEventSubscriptionFullUrlInvokeArgs Empty => new GetSystemTopicEventSubscriptionFullUrlInvokeArgs();
     }
 
 

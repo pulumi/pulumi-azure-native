@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Quantum.V20191104Preview
     /// The resource proxy definition object for quantum workspace.
     /// </summary>
     [AzureNativeResourceType("azure-native:quantum/v20191104preview:Workspace")]
-    public partial class Workspace : global::Pulumi.CustomResource
+    public partial class Workspace : Pulumi.CustomResource
     {
         /// <summary>
         /// The URI of the workspace endpoint.
@@ -106,8 +106,8 @@ namespace Pulumi.AzureNative.Quantum.V20191104Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:quantum:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:quantum/v20220110preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:quantum:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:quantum/v20220110preview:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -129,7 +129,7 @@ namespace Pulumi.AzureNative.Quantum.V20191104Preview
         }
     }
 
-    public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
+    public sealed class WorkspaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Managed Identity information.
@@ -188,6 +188,5 @@ namespace Pulumi.AzureNative.Quantum.V20191104Preview
         public WorkspaceArgs()
         {
         }
-        public static new WorkspaceArgs Empty => new WorkspaceArgs();
     }
 }

@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.CertificateRegistration.V20200601
     }
 
 
-    public sealed class GetAppServiceCertificateOrderArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAppServiceCertificateOrderArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the certificate order..
@@ -43,10 +43,9 @@ namespace Pulumi.AzureNative.CertificateRegistration.V20200601
         public GetAppServiceCertificateOrderArgs()
         {
         }
-        public static new GetAppServiceCertificateOrderArgs Empty => new GetAppServiceCertificateOrderArgs();
     }
 
-    public sealed class GetAppServiceCertificateOrderInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAppServiceCertificateOrderInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the certificate order..
@@ -63,7 +62,6 @@ namespace Pulumi.AzureNative.CertificateRegistration.V20200601
         public GetAppServiceCertificateOrderInvokeArgs()
         {
         }
-        public static new GetAppServiceCertificateOrderInvokeArgs Empty => new GetAppServiceCertificateOrderInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808.Inputs
     /// <summary>
     /// Indicates if all action groups should be removed.
     /// </summary>
-    public sealed class RemoveAllActionGroupsArgs : global::Pulumi.ResourceArgs
+    public sealed class RemoveAllActionGroupsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Action that should be applied.
@@ -25,6 +25,5 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808.Inputs
         public RemoveAllActionGroupsArgs()
         {
         }
-        public static new RemoveAllActionGroupsArgs Empty => new RemoveAllActionGroupsArgs();
     }
 }

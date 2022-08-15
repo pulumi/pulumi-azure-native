@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Execute power query activity.
     /// </summary>
-    public sealed class ExecuteWranglingDataflowActivityArgs : global::Pulumi.ResourceArgs
+    public sealed class ExecuteWranglingDataflowActivityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Compute properties for data flow activity.
@@ -139,6 +139,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public ExecuteWranglingDataflowActivityArgs()
         {
         }
-        public static new ExecuteWranglingDataflowActivityArgs Empty => new ExecuteWranglingDataflowActivityArgs();
     }
 }

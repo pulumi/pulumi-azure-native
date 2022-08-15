@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     /// <summary>
     /// The virtual network configuration.
     /// </summary>
-    public sealed class ACIServiceCreateRequestVnetConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class ACIServiceCreateRequestVnetConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the virtual network subnet.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public ACIServiceCreateRequestVnetConfigurationArgs()
         {
         }
-        public static new ACIServiceCreateRequestVnetConfigurationArgs Empty => new ACIServiceCreateRequestVnetConfigurationArgs();
     }
 }

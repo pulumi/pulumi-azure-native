@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// The location of Oracle Cloud Storage dataset.
     /// </summary>
-    public sealed class OracleCloudStorageLocationArgs : global::Pulumi.ResourceArgs
+    public sealed class OracleCloudStorageLocationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specify the bucketName of Oracle Cloud Storage. Type: string (or Expression with resultType string)
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public OracleCloudStorageLocationArgs()
         {
         }
-        public static new OracleCloudStorageLocationArgs Empty => new OracleCloudStorageLocationArgs();
     }
 }

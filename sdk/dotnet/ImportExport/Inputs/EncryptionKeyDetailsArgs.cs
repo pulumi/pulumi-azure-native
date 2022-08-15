@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ImportExport.Inputs
     /// <summary>
     /// Specifies the encryption key properties
     /// </summary>
-    public sealed class EncryptionKeyDetailsArgs : global::Pulumi.ResourceArgs
+    public sealed class EncryptionKeyDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of kek encryption key
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.ImportExport.Inputs
         {
             KekType = "MicrosoftManaged";
         }
-        public static new EncryptionKeyDetailsArgs Empty => new EncryptionKeyDetailsArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.V20150601Preview.Inputs
 {
 
-    public sealed class JitNetworkAccessRequestArgs : global::Pulumi.ResourceArgs
+    public sealed class JitNetworkAccessRequestArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The justification for making the initiate request
@@ -41,6 +41,5 @@ namespace Pulumi.AzureNative.Security.V20150601Preview.Inputs
         public JitNetworkAccessRequestArgs()
         {
         }
-        public static new JitNetworkAccessRequestArgs Empty => new JitNetworkAccessRequestArgs();
     }
 }

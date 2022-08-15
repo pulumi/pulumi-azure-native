@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20210701Preview
     /// Custom Assessment Automation
     /// </summary>
     [AzureNativeResourceType("azure-native:security/v20210701preview:CustomAssessmentAutomation")]
-    public partial class CustomAssessmentAutomation : global::Pulumi.CustomResource
+    public partial class CustomAssessmentAutomation : Pulumi.CustomResource
     {
         /// <summary>
         /// The assessment metadata key used when an assessment is generated for this assessment automation.
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.Security.V20210701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:security:CustomAssessmentAutomation"},
+                    new Pulumi.Alias { Type = "azure-native:security:CustomAssessmentAutomation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.Security.V20210701Preview
         }
     }
 
-    public sealed class CustomAssessmentAutomationArgs : global::Pulumi.ResourceArgs
+    public sealed class CustomAssessmentAutomationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Base 64 encoded KQL query representing the assessment automation results required.
@@ -175,6 +175,5 @@ namespace Pulumi.AzureNative.Security.V20210701Preview
         public CustomAssessmentAutomationArgs()
         {
         }
-        public static new CustomAssessmentAutomationArgs Empty => new CustomAssessmentAutomationArgs();
     }
 }

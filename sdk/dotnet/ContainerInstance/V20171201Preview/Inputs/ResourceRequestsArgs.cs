@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20171201Preview.Inputs
     /// <summary>
     /// The resource requests.
     /// </summary>
-    public sealed class ResourceRequestsArgs : global::Pulumi.ResourceArgs
+    public sealed class ResourceRequestsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The CPU request of this container instance.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ContainerInstance.V20171201Preview.Inputs
         public ResourceRequestsArgs()
         {
         }
-        public static new ResourceRequestsArgs Empty => new ResourceRequestsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220601Preview
     /// Base class for backup policy. Workload-specific backup policies are derived from this class.
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices/v20220601preview:ProtectionPolicy")]
-    public partial class ProtectionPolicy : global::Pulumi.CustomResource
+    public partial class ProtectionPolicy : Pulumi.CustomResource
     {
         /// <summary>
         /// Optional ETag.
@@ -76,24 +76,24 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices:ProtectionPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20160601:ProtectionPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20201001:ProtectionPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20201201:ProtectionPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210101:ProtectionPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210201:ProtectionPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210201preview:ProtectionPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210210:ProtectionPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210301:ProtectionPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210401:ProtectionPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210601:ProtectionPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210701:ProtectionPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210801:ProtectionPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20211001:ProtectionPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20211201:ProtectionPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220101:ProtectionPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220201:ProtectionPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220301:ProtectionPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices:ProtectionPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20160601:ProtectionPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20201001:ProtectionPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20201201:ProtectionPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210101:ProtectionPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210201:ProtectionPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210201preview:ProtectionPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210210:ProtectionPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210301:ProtectionPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210401:ProtectionPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210601:ProtectionPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210701:ProtectionPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210801:ProtectionPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20211001:ProtectionPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20211201:ProtectionPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220101:ProtectionPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220201:ProtectionPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220301:ProtectionPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220601Preview
         }
     }
 
-    public sealed class ProtectionPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class ProtectionPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Optional ETag.
@@ -168,6 +168,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220601Preview
         public ProtectionPolicyArgs()
         {
         }
-        public static new ProtectionPolicyArgs Empty => new ProtectionPolicyArgs();
     }
 }

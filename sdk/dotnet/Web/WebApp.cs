@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web
     /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebApp")]
-    public partial class WebApp : global::Pulumi.CustomResource
+    public partial class WebApp : Pulumi.CustomResource
     {
         /// <summary>
         /// Management information availability state for the app.
@@ -325,20 +325,20 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebApp"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebApp"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebApp"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebApp"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebApp"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebApp"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebApp"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebApp"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebApp"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebApp"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebApp"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebApp"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebApp"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebApp"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -360,7 +360,7 @@ namespace Pulumi.AzureNative.Web
         }
     }
 
-    public sealed class WebAppArgs : global::Pulumi.ResourceArgs
+    public sealed class WebAppArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; to enable client affinity; &lt;code&gt;false&lt;/code&gt; to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is &lt;code&gt;true&lt;/code&gt;.
@@ -561,6 +561,5 @@ namespace Pulumi.AzureNative.Web
             Reserved = false;
             ScmSiteAlsoStopped = false;
         }
-        public static new WebAppArgs Empty => new WebAppArgs();
     }
 }

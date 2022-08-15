@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20180501Preview.Inputs
     /// <summary>
     /// A header to add to the WebTest.
     /// </summary>
-    public sealed class HeaderFieldArgs : global::Pulumi.ResourceArgs
+    public sealed class HeaderFieldArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the header.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Insights.V20180501Preview.Inputs
         public HeaderFieldArgs()
         {
         }
-        public static new HeaderFieldArgs Empty => new HeaderFieldArgs();
     }
 }

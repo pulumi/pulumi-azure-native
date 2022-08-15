@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.CustomerInsights
     }
 
 
-    public sealed class GetPredictionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPredictionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the hub.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.CustomerInsights
         public GetPredictionArgs()
         {
         }
-        public static new GetPredictionArgs Empty => new GetPredictionArgs();
     }
 
-    public sealed class GetPredictionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPredictionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the hub.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.CustomerInsights
         public GetPredictionInvokeArgs()
         {
         }
-        public static new GetPredictionInvokeArgs Empty => new GetPredictionInvokeArgs();
     }
 
 

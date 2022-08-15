@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20200602.Inputs
     /// <summary>
     /// A site for the Webchat channel
     /// </summary>
-    public sealed class WebChatSiteArgs : global::Pulumi.ResourceArgs
+    public sealed class WebChatSiteArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether this site is enabled for preview versions of Webchat
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.BotService.V20200602.Inputs
         public WebChatSiteArgs()
         {
         }
-        public static new WebChatSiteArgs Empty => new WebChatSiteArgs();
     }
 }

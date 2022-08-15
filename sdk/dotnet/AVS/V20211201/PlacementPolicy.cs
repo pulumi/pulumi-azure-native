@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS.V20211201
     /// A vSphere Distributed Resource Scheduler (DRS) placement policy
     /// </summary>
     [AzureNativeResourceType("azure-native:avs/v20211201:PlacementPolicy")]
-    public partial class PlacementPolicy : global::Pulumi.CustomResource
+    public partial class PlacementPolicy : Pulumi.CustomResource
     {
         /// <summary>
         /// Resource name.
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.AVS.V20211201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:avs:PlacementPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:avs:PlacementPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNative.AVS.V20211201
         }
     }
 
-    public sealed class PlacementPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class PlacementPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the cluster in the private cloud
@@ -115,6 +115,5 @@ namespace Pulumi.AzureNative.AVS.V20211201
         public PlacementPolicyArgs()
         {
         }
-        public static new PlacementPolicyArgs Empty => new PlacementPolicyArgs();
     }
 }

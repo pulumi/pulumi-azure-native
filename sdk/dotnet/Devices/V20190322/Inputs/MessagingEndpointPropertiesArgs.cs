@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20190322.Inputs
     /// <summary>
     /// The properties of the messaging endpoints used by this IoT hub.
     /// </summary>
-    public sealed class MessagingEndpointPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class MessagingEndpointPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The lock duration. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Devices.V20190322.Inputs
         public MessagingEndpointPropertiesArgs()
         {
         }
-        public static new MessagingEndpointPropertiesArgs Empty => new MessagingEndpointPropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20210301
     /// Remote Private Endpoint Connection ARM resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20210301:WebAppPrivateEndpointConnectionSlot")]
-    public partial class WebAppPrivateEndpointConnectionSlot : global::Pulumi.CustomResource
+    public partial class WebAppPrivateEndpointConnectionSlot : Pulumi.CustomResource
     {
         /// <summary>
         /// Private IPAddresses mapped to the remote private endpoint
@@ -79,12 +79,12 @@ namespace Pulumi.AzureNative.Web.V20210301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppPrivateEndpointConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppPrivateEndpointConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppPrivateEndpointConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppPrivateEndpointConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppPrivateEndpointConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppPrivateEndpointConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web:WebAppPrivateEndpointConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppPrivateEndpointConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppPrivateEndpointConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppPrivateEndpointConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppPrivateEndpointConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppPrivateEndpointConnectionSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.Web.V20210301
         }
     }
 
-    public sealed class WebAppPrivateEndpointConnectionSlotArgs : global::Pulumi.ResourceArgs
+    public sealed class WebAppPrivateEndpointConnectionSlotArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Kind of resource.
@@ -141,6 +141,5 @@ namespace Pulumi.AzureNative.Web.V20210301
         public WebAppPrivateEndpointConnectionSlotArgs()
         {
         }
-        public static new WebAppPrivateEndpointConnectionSlotArgs Empty => new WebAppPrivateEndpointConnectionSlotArgs();
     }
 }

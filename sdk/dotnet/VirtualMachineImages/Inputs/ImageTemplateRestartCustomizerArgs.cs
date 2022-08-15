@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Inputs
     /// <summary>
     /// Reboots a VM and waits for it to come back online (Windows). Corresponds to Packer windows-restart provisioner
     /// </summary>
-    public sealed class ImageTemplateRestartCustomizerArgs : global::Pulumi.ResourceArgs
+    public sealed class ImageTemplateRestartCustomizerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Friendly Name to provide context on what this customization step does
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Inputs
         public ImageTemplateRestartCustomizerArgs()
         {
         }
-        public static new ImageTemplateRestartCustomizerArgs Empty => new ImageTemplateRestartCustomizerArgs();
     }
 }

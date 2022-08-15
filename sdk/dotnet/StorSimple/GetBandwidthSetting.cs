@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.StorSimple
     }
 
 
-    public sealed class GetBandwidthSettingArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBandwidthSettingArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of bandwidth setting to be fetched.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.StorSimple
         public GetBandwidthSettingArgs()
         {
         }
-        public static new GetBandwidthSettingArgs Empty => new GetBandwidthSettingArgs();
     }
 
-    public sealed class GetBandwidthSettingInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBandwidthSettingInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of bandwidth setting to be fetched.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.StorSimple
         public GetBandwidthSettingInvokeArgs()
         {
         }
-        public static new GetBandwidthSettingInvokeArgs Empty => new GetBandwidthSettingInvokeArgs();
     }
 
 

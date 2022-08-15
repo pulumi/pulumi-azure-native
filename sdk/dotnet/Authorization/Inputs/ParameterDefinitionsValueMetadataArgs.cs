@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization.Inputs
     /// <summary>
     /// General metadata for the parameter.
     /// </summary>
-    public sealed class ParameterDefinitionsValueMetadataArgs : global::Pulumi.ResourceArgs
+    public sealed class ParameterDefinitionsValueMetadataArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Authorization.Inputs
         public ParameterDefinitionsValueMetadataArgs()
         {
         }
-        public static new ParameterDefinitionsValueMetadataArgs Empty => new ParameterDefinitionsValueMetadataArgs();
     }
 }

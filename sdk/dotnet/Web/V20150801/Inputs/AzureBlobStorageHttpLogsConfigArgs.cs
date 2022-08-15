@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20150801.Inputs
     /// <summary>
     /// Http logs to azure blob storage configuration
     /// </summary>
-    public sealed class AzureBlobStorageHttpLogsConfigArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureBlobStorageHttpLogsConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enabled
@@ -38,6 +38,5 @@ namespace Pulumi.AzureNative.Web.V20150801.Inputs
         public AzureBlobStorageHttpLogsConfigArgs()
         {
         }
-        public static new AzureBlobStorageHttpLogsConfigArgs Empty => new AzureBlobStorageHttpLogsConfigArgs();
     }
 }

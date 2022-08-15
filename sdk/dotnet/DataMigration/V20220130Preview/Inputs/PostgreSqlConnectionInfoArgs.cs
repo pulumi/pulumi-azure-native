@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220130Preview.Inputs
     /// <summary>
     /// Information for connecting to PostgreSQL server
     /// </summary>
-    public sealed class PostgreSqlConnectionInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class PostgreSqlConnectionInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Additional connection settings
@@ -99,6 +99,5 @@ namespace Pulumi.AzureNative.DataMigration.V20220130Preview.Inputs
             EncryptConnection = true;
             TrustServerCertificate = false;
         }
-        public static new PostgreSqlConnectionInfoArgs Empty => new PostgreSqlConnectionInfoArgs();
     }
 }

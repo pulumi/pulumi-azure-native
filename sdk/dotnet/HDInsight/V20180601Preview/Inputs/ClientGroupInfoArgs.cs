@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.V20180601Preview.Inputs
     /// <summary>
     /// The information of AAD security group.
     /// </summary>
-    public sealed class ClientGroupInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class ClientGroupInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AAD security group id.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.HDInsight.V20180601Preview.Inputs
         public ClientGroupInfoArgs()
         {
         }
-        public static new ClientGroupInfoArgs Empty => new ClientGroupInfoArgs();
     }
 }

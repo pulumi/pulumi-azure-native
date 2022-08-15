@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20160901.Inputs
     /// <summary>
     /// ServiceFabric section settings
     /// </summary>
-    public sealed class SettingsSectionDescriptionArgs : global::Pulumi.ResourceArgs
+    public sealed class SettingsSectionDescriptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of settings section
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.ServiceFabric.V20160901.Inputs
         public SettingsSectionDescriptionArgs()
         {
         }
-        public static new SettingsSectionDescriptionArgs Empty => new SettingsSectionDescriptionArgs();
     }
 }

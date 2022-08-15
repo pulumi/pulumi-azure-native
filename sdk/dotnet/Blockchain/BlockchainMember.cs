@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Blockchain
     /// API Version: 2018-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:blockchain:BlockchainMember")]
-    public partial class BlockchainMember : global::Pulumi.CustomResource
+    public partial class BlockchainMember : Pulumi.CustomResource
     {
         /// <summary>
         /// Gets or sets the consortium for the blockchain member.
@@ -155,7 +155,7 @@ namespace Pulumi.AzureNative.Blockchain
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:blockchain/v20180601preview:BlockchainMember"},
+                    new Pulumi.Alias { Type = "azure-native:blockchain/v20180601preview:BlockchainMember"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -177,7 +177,7 @@ namespace Pulumi.AzureNative.Blockchain
         }
     }
 
-    public sealed class BlockchainMemberArgs : global::Pulumi.ResourceArgs
+    public sealed class BlockchainMemberArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Blockchain member name.
@@ -272,6 +272,5 @@ namespace Pulumi.AzureNative.Blockchain
         public BlockchainMemberArgs()
         {
         }
-        public static new BlockchainMemberArgs Empty => new BlockchainMemberArgs();
     }
 }

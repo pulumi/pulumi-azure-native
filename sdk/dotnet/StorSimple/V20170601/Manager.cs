@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
     /// The StorSimple Manager.
     /// </summary>
     [AzureNativeResourceType("azure-native:storsimple/v20170601:Manager")]
-    public partial class Manager : global::Pulumi.CustomResource
+    public partial class Manager : Pulumi.CustomResource
     {
         /// <summary>
         /// Represents the type of StorSimple Manager.
@@ -88,8 +88,8 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:storsimple:Manager"},
-                    new global::Pulumi.Alias { Type = "azure-native:storsimple/v20161001:Manager"},
+                    new Pulumi.Alias { Type = "azure-native:storsimple:Manager"},
+                    new Pulumi.Alias { Type = "azure-native:storsimple/v20161001:Manager"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         }
     }
 
-    public sealed class ManagerArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Represents the type of StorSimple Manager.
@@ -164,6 +164,5 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         public ManagerArgs()
         {
         }
-        public static new ManagerArgs Empty => new ManagerArgs();
     }
 }

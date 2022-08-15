@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210601Preview.Inputs
     /// <summary>
     /// The logging properties of the connected registry.
     /// </summary>
-    public sealed class LoggingPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class LoggingPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether audit logs are enabled on the connected registry.
@@ -32,6 +32,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210601Preview.Inputs
             AuditLogStatus = "Disabled";
             LogLevel = "Information";
         }
-        public static new LoggingPropertiesArgs Empty => new LoggingPropertiesArgs();
     }
 }

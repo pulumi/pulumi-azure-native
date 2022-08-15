@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20160901.Inputs
     /// <summary>
     /// Public IP address resource.
     /// </summary>
-    public sealed class PublicIPAddressArgs : global::Pulumi.ResourceArgs
+    public sealed class PublicIPAddressArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The FQDN of the DNS record associated with the public IP address.
@@ -87,6 +87,5 @@ namespace Pulumi.AzureNative.Network.V20160901.Inputs
         public PublicIPAddressArgs()
         {
         }
-        public static new PublicIPAddressArgs Empty => new PublicIPAddressArgs();
     }
 }

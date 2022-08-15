@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// The path of the SAP Cloud for Customer OData entity.
     /// </summary>
-    public sealed class SapCloudForCustomerResourceDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class SapCloudForCustomerResourceDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -73,6 +73,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public SapCloudForCustomerResourceDatasetArgs()
         {
         }
-        public static new SapCloudForCustomerResourceDatasetArgs Empty => new SapCloudForCustomerResourceDatasetArgs();
     }
 }

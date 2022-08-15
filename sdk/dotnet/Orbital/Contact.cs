@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Orbital
     /// API Version: 2021-04-04-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:orbital:Contact")]
-    public partial class Contact : global::Pulumi.CustomResource
+    public partial class Contact : Pulumi.CustomResource
     {
         /// <summary>
         /// The reference to the contact profile resource.
@@ -155,8 +155,8 @@ namespace Pulumi.AzureNative.Orbital
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:orbital/v20210404preview:Contact"},
-                    new global::Pulumi.Alias { Type = "azure-native:orbital/v20220301:Contact"},
+                    new Pulumi.Alias { Type = "azure-native:orbital/v20210404preview:Contact"},
+                    new Pulumi.Alias { Type = "azure-native:orbital/v20220301:Contact"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -178,7 +178,7 @@ namespace Pulumi.AzureNative.Orbital
         }
     }
 
-    public sealed class ContactArgs : global::Pulumi.ResourceArgs
+    public sealed class ContactArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Contact Name
@@ -225,6 +225,5 @@ namespace Pulumi.AzureNative.Orbital
         public ContactArgs()
         {
         }
-        public static new ContactArgs Empty => new ContactArgs();
     }
 }

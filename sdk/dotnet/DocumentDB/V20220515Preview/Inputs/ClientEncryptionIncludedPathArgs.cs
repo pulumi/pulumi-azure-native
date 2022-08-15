@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515Preview.Inputs
     /// <summary>
     /// .
     /// </summary>
-    public sealed class ClientEncryptionIncludedPathArgs : global::Pulumi.ResourceArgs
+    public sealed class ClientEncryptionIncludedPathArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identifier of the Client Encryption Key to be used to encrypt the path.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515Preview.Inputs
         public ClientEncryptionIncludedPathArgs()
         {
         }
-        public static new ClientEncryptionIncludedPathArgs Empty => new ClientEncryptionIncludedPathArgs();
     }
 }

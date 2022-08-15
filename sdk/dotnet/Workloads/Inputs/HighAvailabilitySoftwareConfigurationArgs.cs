@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.Inputs
     /// <summary>
     /// Gets or sets the HA software configuration.
     /// </summary>
-    public sealed class HighAvailabilitySoftwareConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class HighAvailabilitySoftwareConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The fencing client id.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Workloads.Inputs
         public HighAvailabilitySoftwareConfigurationArgs()
         {
         }
-        public static new HighAvailabilitySoftwareConfigurationArgs Empty => new HighAvailabilitySoftwareConfigurationArgs();
     }
 }

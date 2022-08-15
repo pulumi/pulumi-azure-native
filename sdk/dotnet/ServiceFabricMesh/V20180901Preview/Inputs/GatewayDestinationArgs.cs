@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Inputs
     /// <summary>
     /// Describes destination endpoint for routing traffic.
     /// </summary>
-    public sealed class GatewayDestinationArgs : global::Pulumi.ResourceArgs
+    public sealed class GatewayDestinationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the service fabric Mesh application.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Inputs
         public GatewayDestinationArgs()
         {
         }
-        public static new GatewayDestinationArgs Empty => new GatewayDestinationArgs();
     }
 }

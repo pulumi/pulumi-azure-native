@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview
     /// Represents MTP (Microsoft Threat Protection) data connector.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20220801preview:MTPDataConnector")]
-    public partial class MTPDataConnector : global::Pulumi.CustomResource
+    public partial class MTPDataConnector : Pulumi.CustomResource
     {
         /// <summary>
         /// The available data types for the connector.
@@ -90,18 +90,18 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:MTPDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:MTPDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:MTPDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:MTPDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:MTPDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:MTPDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:MTPDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:MTPDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:MTPDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:MTPDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:MTPDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:MTPDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights:MTPDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:MTPDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:MTPDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:MTPDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:MTPDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:MTPDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:MTPDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:MTPDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:MTPDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:MTPDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:MTPDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:MTPDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -123,7 +123,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview
         }
     }
 
-    public sealed class MTPDataConnectorArgs : global::Pulumi.ResourceArgs
+    public sealed class MTPDataConnectorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Connector ID
@@ -165,6 +165,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview
         public MTPDataConnectorArgs()
         {
         }
-        public static new MTPDataConnectorArgs Empty => new MTPDataConnectorArgs();
     }
 }

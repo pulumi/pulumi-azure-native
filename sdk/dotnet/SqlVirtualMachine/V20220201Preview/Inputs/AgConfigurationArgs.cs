@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20220201Preview.Inputs
     /// <summary>
     /// Availability group configuration.
     /// </summary>
-    public sealed class AgConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class AgConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("replicas")]
         private InputList<Inputs.AgReplicaArgs>? _replicas;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20220201Preview.Inputs
         public AgConfigurationArgs()
         {
         }
-        public static new AgConfigurationArgs Empty => new AgConfigurationArgs();
     }
 }

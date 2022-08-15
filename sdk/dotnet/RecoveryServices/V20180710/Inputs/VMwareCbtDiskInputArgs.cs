@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20180710.Inputs
     /// <summary>
     /// VMwareCbt disk input.
     /// </summary>
-    public sealed class VMwareCbtDiskInputArgs : global::Pulumi.ResourceArgs
+    public sealed class VMwareCbtDiskInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The disk Id.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20180710.Inputs
         public VMwareCbtDiskInputArgs()
         {
         }
-        public static new VMwareCbtDiskInputArgs Empty => new VMwareCbtDiskInputArgs();
     }
 }

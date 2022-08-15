@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// The ZipDeflate compression method used on a dataset.
     /// </summary>
-    public sealed class DatasetZipDeflateCompressionArgs : global::Pulumi.ResourceArgs
+    public sealed class DatasetZipDeflateCompressionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ZipDeflate compression level.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public DatasetZipDeflateCompressionArgs()
         {
         }
-        public static new DatasetZipDeflateCompressionArgs Empty => new DatasetZipDeflateCompressionArgs();
     }
 }

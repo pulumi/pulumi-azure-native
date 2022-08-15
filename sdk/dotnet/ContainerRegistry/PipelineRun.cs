@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
     /// API Version: 2020-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:PipelineRun")]
-    public partial class PipelineRun : global::Pulumi.CustomResource
+    public partial class PipelineRun : Pulumi.CustomResource
     {
         /// <summary>
         /// How the pipeline run should be forced to recreate even if the pipeline run configuration has not changed.
@@ -83,12 +83,12 @@ namespace Pulumi.AzureNative.ContainerRegistry
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:PipelineRun"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:PipelineRun"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:PipelineRun"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:PipelineRun"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:PipelineRun"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:PipelineRun"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:PipelineRun"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:PipelineRun"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:PipelineRun"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:PipelineRun"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:PipelineRun"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:PipelineRun"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         }
     }
 
-    public sealed class PipelineRunArgs : global::Pulumi.ResourceArgs
+    public sealed class PipelineRunArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// How the pipeline run should be forced to recreate even if the pipeline run configuration has not changed.
@@ -145,6 +145,5 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public PipelineRunArgs()
         {
         }
-        public static new PipelineRunArgs Empty => new PipelineRunArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20201001.Inputs
     /// <summary>
     /// A list of Activity Log Alert rule actions.
     /// </summary>
-    public sealed class ActionListArgs : global::Pulumi.ResourceArgs
+    public sealed class ActionListArgs : Pulumi.ResourceArgs
     {
         [Input("actionGroups")]
         private InputList<Inputs.ActionGroupArgs>? _actionGroups;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Insights.V20201001.Inputs
         public ActionListArgs()
         {
         }
-        public static new ActionListArgs Empty => new ActionListArgs();
     }
 }

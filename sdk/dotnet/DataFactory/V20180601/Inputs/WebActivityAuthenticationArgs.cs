@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Web activity authentication properties.
     /// </summary>
-    public sealed class WebActivityAuthenticationArgs : global::Pulumi.ResourceArgs
+    public sealed class WebActivityAuthenticationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The credential reference containing authentication information.
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public WebActivityAuthenticationArgs()
         {
         }
-        public static new WebActivityAuthenticationArgs Empty => new WebActivityAuthenticationArgs();
     }
 }

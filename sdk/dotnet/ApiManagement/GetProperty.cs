@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ApiManagement
     }
 
 
-    public sealed class GetPropertyArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPropertyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Identifier of the property.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.ApiManagement
         public GetPropertyArgs()
         {
         }
-        public static new GetPropertyArgs Empty => new GetPropertyArgs();
     }
 
-    public sealed class GetPropertyInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPropertyInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Identifier of the property.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.ApiManagement
         public GetPropertyInvokeArgs()
         {
         }
-        public static new GetPropertyInvokeArgs Empty => new GetPropertyInvokeArgs();
     }
 
 

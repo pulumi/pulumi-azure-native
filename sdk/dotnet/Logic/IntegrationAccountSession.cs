@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Logic
     /// API Version: 2019-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:logic:IntegrationAccountSession")]
-    public partial class IntegrationAccountSession : global::Pulumi.CustomResource
+    public partial class IntegrationAccountSession : Pulumi.CustomResource
     {
         /// <summary>
         /// The changed time.
@@ -83,9 +83,9 @@ namespace Pulumi.AzureNative.Logic
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountSession"},
-                    new global::Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccountSession"},
-                    new global::Pulumi.Alias { Type = "azure-native:logic/v20190501:IntegrationAccountSession"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountSession"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccountSession"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20190501:IntegrationAccountSession"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.Logic
         }
     }
 
-    public sealed class IntegrationAccountSessionArgs : global::Pulumi.ResourceArgs
+    public sealed class IntegrationAccountSessionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The session content.
@@ -154,6 +154,5 @@ namespace Pulumi.AzureNative.Logic
         public IntegrationAccountSessionArgs()
         {
         }
-        public static new IntegrationAccountSessionArgs Empty => new IntegrationAccountSessionArgs();
     }
 }

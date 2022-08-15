@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview.Inputs
     /// <summary>
     /// Delegated subnet arguments of a server
     /// </summary>
-    public sealed class DelegatedSubnetArgumentsArgs : global::Pulumi.ResourceArgs
+    public sealed class DelegatedSubnetArgumentsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// delegated subnet arm resource id.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview.Inputs
         public DelegatedSubnetArgumentsArgs()
         {
         }
-        public static new DelegatedSubnetArgumentsArgs Empty => new DelegatedSubnetArgumentsArgs();
     }
 }

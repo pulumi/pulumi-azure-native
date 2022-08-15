@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     /// </summary>
     [Obsolete(@"Version 2016-10-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storsimple/v20161001:IscsiDisk")]
-    public partial class IscsiDisk : global::Pulumi.CustomResource
+    public partial class IscsiDisk : Pulumi.CustomResource
     {
         /// <summary>
         /// The access control records.
@@ -119,7 +119,7 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         }
     }
 
-    public sealed class IscsiDiskArgs : global::Pulumi.ResourceArgs
+    public sealed class IscsiDiskArgs : Pulumi.ResourceArgs
     {
         [Input("accessControlRecords", required: true)]
         private InputList<string>? _accessControlRecords;
@@ -196,6 +196,5 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public IscsiDiskArgs()
         {
         }
-        public static new IscsiDiskArgs Empty => new IscsiDiskArgs();
     }
 }

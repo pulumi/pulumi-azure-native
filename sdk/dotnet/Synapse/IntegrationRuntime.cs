@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Synapse
     /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:IntegrationRuntime")]
-    public partial class IntegrationRuntime : global::Pulumi.CustomResource
+    public partial class IntegrationRuntime : Pulumi.CustomResource
     {
         /// <summary>
         /// Resource Etag.
@@ -65,13 +65,13 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:IntegrationRuntime"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20201201:IntegrationRuntime"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210301:IntegrationRuntime"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:IntegrationRuntime"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210501:IntegrationRuntime"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601:IntegrationRuntime"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:IntegrationRuntime"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:IntegrationRuntime"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20201201:IntegrationRuntime"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210301:IntegrationRuntime"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:IntegrationRuntime"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210501:IntegrationRuntime"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601:IntegrationRuntime"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:IntegrationRuntime"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.Synapse
         }
     }
 
-    public sealed class IntegrationRuntimeArgs : global::Pulumi.ResourceArgs
+    public sealed class IntegrationRuntimeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Integration runtime name
@@ -122,6 +122,5 @@ namespace Pulumi.AzureNative.Synapse
         public IntegrationRuntimeArgs()
         {
         }
-        public static new IntegrationRuntimeArgs Empty => new IntegrationRuntimeArgs();
     }
 }

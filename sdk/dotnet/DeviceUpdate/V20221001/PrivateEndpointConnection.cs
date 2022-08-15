@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20221001
     /// The Private Endpoint Connection resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceupdate/v20221001:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// Array of group IDs.
@@ -82,9 +82,9 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20221001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:deviceupdate:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20200301preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20220401preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:deviceupdate:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:deviceupdate/v20200301preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:deviceupdate/v20220401preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20221001
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Account name.
@@ -147,6 +147,5 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20221001
         public PrivateEndpointConnectionArgs()
         {
         }
-        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

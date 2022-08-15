@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20220103.Inputs
     /// <summary>
     /// Contains security profile for an OS disk image.
     /// </summary>
-    public sealed class OSDiskImageSecurityProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class OSDiskImageSecurityProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// confidential VM encryption types
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Compute.V20220103.Inputs
         public OSDiskImageSecurityProfileArgs()
         {
         }
-        public static new OSDiskImageSecurityProfileArgs Empty => new OSDiskImageSecurityProfileArgs();
     }
 }

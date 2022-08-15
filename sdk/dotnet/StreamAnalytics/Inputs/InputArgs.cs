@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.Inputs
     /// <summary>
     /// An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
     /// </summary>
-    public sealed class InputArgs : global::Pulumi.ResourceArgs
+    public sealed class InputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource name
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.Inputs
         public InputArgs()
         {
         }
-        public static new InputArgs Empty => new InputArgs();
     }
 }

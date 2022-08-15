@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network.V20180301Preview
     /// </summary>
     [Obsolete(@"Version 2018-03-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:network/v20180301preview:RecordSet")]
-    public partial class RecordSet : global::Pulumi.CustomResource
+    public partial class RecordSet : Pulumi.CustomResource
     {
         /// <summary>
         /// The list of A records in the record set.
@@ -137,12 +137,12 @@ namespace Pulumi.AzureNative.Network.V20180301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:RecordSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20150504preview:RecordSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20160401:RecordSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170901:RecordSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20171001:RecordSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180501:RecordSet"},
+                    new Pulumi.Alias { Type = "azure-native:network:RecordSet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20150504preview:RecordSet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160401:RecordSet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170901:RecordSet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20171001:RecordSet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180501:RecordSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -164,7 +164,7 @@ namespace Pulumi.AzureNative.Network.V20180301Preview
         }
     }
 
-    public sealed class RecordSetArgs : global::Pulumi.ResourceArgs
+    public sealed class RecordSetArgs : Pulumi.ResourceArgs
     {
         [Input("aRecords")]
         private InputList<Inputs.ARecordArgs>? _aRecords;
@@ -319,6 +319,5 @@ namespace Pulumi.AzureNative.Network.V20180301Preview
         public RecordSetArgs()
         {
         }
-        public static new RecordSetArgs Empty => new RecordSetArgs();
     }
 }

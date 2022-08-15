@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
     }
 
 
-    public sealed class GetMicrosoftSecurityIncidentCreationAlertRuleArgs : global::Pulumi.InvokeArgs
+    public sealed class GetMicrosoftSecurityIncidentCreationAlertRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
         public GetMicrosoftSecurityIncidentCreationAlertRuleArgs()
         {
         }
-        public static new GetMicrosoftSecurityIncidentCreationAlertRuleArgs Empty => new GetMicrosoftSecurityIncidentCreationAlertRuleArgs();
     }
 
-    public sealed class GetMicrosoftSecurityIncidentCreationAlertRuleInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetMicrosoftSecurityIncidentCreationAlertRuleInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
         public GetMicrosoftSecurityIncidentCreationAlertRuleInvokeArgs()
         {
         }
-        public static new GetMicrosoftSecurityIncidentCreationAlertRuleInvokeArgs Empty => new GetMicrosoftSecurityIncidentCreationAlertRuleInvokeArgs();
     }
 
 

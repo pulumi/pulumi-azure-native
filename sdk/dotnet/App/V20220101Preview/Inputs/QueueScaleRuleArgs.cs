@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
     /// <summary>
     /// Container App container Azure Queue based scaling rule.
     /// </summary>
-    public sealed class QueueScaleRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class QueueScaleRuleArgs : Pulumi.ResourceArgs
     {
         [Input("auth")]
         private InputList<Inputs.ScaleRuleAuthArgs>? _auth;
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
         public QueueScaleRuleArgs()
         {
         }
-        public static new QueueScaleRuleArgs Empty => new QueueScaleRuleArgs();
     }
 }

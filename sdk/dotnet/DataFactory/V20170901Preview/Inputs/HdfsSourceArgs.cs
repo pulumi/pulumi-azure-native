@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity HDFS source.
     /// </summary>
-    public sealed class HdfsSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class HdfsSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies Distcp-related settings.
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public HdfsSourceArgs()
         {
         }
-        public static new HdfsSourceArgs Empty => new HdfsSourceArgs();
     }
 }

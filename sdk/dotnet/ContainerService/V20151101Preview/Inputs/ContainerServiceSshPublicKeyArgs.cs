@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20151101Preview.Inputs
     /// <summary>
     /// Contains information about SSH certificate public key data.
     /// </summary>
-    public sealed class ContainerServiceSshPublicKeyArgs : global::Pulumi.ResourceArgs
+    public sealed class ContainerServiceSshPublicKeyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets Certificate public key used to authenticate with VM through SSH. The certificate must be in Pem format with or without headers.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.ContainerService.V20151101Preview.Inputs
         public ContainerServiceSshPublicKeyArgs()
         {
         }
-        public static new ContainerServiceSshPublicKeyArgs Empty => new ContainerServiceSshPublicKeyArgs();
     }
 }

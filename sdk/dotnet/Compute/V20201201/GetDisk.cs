@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Compute.V20201201
     }
 
 
-    public sealed class GetDiskArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDiskArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.Compute.V20201201
         public GetDiskArgs()
         {
         }
-        public static new GetDiskArgs Empty => new GetDiskArgs();
     }
 
-    public sealed class GetDiskInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDiskInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.Compute.V20201201
         public GetDiskInvokeArgs()
         {
         }
-        public static new GetDiskInvokeArgs Empty => new GetDiskInvokeArgs();
     }
 
 

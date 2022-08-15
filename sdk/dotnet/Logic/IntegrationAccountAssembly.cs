@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Logic
     /// API Version: 2019-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:logic:IntegrationAccountAssembly")]
-    public partial class IntegrationAccountAssembly : global::Pulumi.CustomResource
+    public partial class IntegrationAccountAssembly : Pulumi.CustomResource
     {
         /// <summary>
         /// The resource location.
@@ -71,9 +71,9 @@ namespace Pulumi.AzureNative.Logic
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountAssembly"},
-                    new global::Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccountAssembly"},
-                    new global::Pulumi.Alias { Type = "azure-native:logic/v20190501:IntegrationAccountAssembly"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountAssembly"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccountAssembly"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20190501:IntegrationAccountAssembly"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.Logic
         }
     }
 
-    public sealed class IntegrationAccountAssemblyArgs : global::Pulumi.ResourceArgs
+    public sealed class IntegrationAccountAssemblyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The assembly artifact name.
@@ -142,6 +142,5 @@ namespace Pulumi.AzureNative.Logic
         public IntegrationAccountAssemblyArgs()
         {
         }
-        public static new IntegrationAccountAssemblyArgs Empty => new IntegrationAccountAssemblyArgs();
     }
 }

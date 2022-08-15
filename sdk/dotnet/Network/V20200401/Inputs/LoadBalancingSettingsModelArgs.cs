@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200401.Inputs
     /// <summary>
     /// Load balancing settings for a backend pool
     /// </summary>
-    public sealed class LoadBalancingSettingsModelArgs : global::Pulumi.ResourceArgs
+    public sealed class LoadBalancingSettingsModelArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The additional latency in milliseconds for probes to fall into the lowest latency bucket
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.Network.V20200401.Inputs
         public LoadBalancingSettingsModelArgs()
         {
         }
-        public static new LoadBalancingSettingsModelArgs Empty => new LoadBalancingSettingsModelArgs();
     }
 }

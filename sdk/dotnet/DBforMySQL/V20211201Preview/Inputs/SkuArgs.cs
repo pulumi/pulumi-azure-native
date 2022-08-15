@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview.Inputs
     /// <summary>
     /// Billing information related properties of a server.
     /// </summary>
-    public sealed class SkuArgs : global::Pulumi.ResourceArgs
+    public sealed class SkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the sku, e.g. Standard_D32s_v3.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview.Inputs
         public SkuArgs()
         {
         }
-        public static new SkuArgs Empty => new SkuArgs();
     }
 }

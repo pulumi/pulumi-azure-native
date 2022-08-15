@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20211101.Inputs
     /// <summary>
     /// Specifies settings related to VM Guest Patching on Windows.
     /// </summary>
-    public sealed class PatchSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class PatchSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.&lt;br /&gt;&lt;br /&gt; Possible values are:&lt;br /&gt;&lt;br /&gt; **ImageDefault** - You control the timing of patch assessments on a virtual machine.&lt;br /&gt;&lt;br /&gt; **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true. 
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Compute.V20211101.Inputs
         public PatchSettingsArgs()
         {
         }
-        public static new PatchSettingsArgs Empty => new PatchSettingsArgs();
     }
 }

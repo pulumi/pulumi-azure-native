@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Automation
     }
 
 
-    public sealed class GetVariableArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVariableArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Automation
         public GetVariableArgs()
         {
         }
-        public static new GetVariableArgs Empty => new GetVariableArgs();
     }
 
-    public sealed class GetVariableInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVariableInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Automation
         public GetVariableInvokeArgs()
         {
         }
-        public static new GetVariableInvokeArgs Empty => new GetVariableInvokeArgs();
     }
 
 

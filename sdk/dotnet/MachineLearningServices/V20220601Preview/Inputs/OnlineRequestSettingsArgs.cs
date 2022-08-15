@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// Online deployment scoring requests configuration.
     /// </summary>
-    public sealed class OnlineRequestSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class OnlineRequestSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of maximum concurrent requests per node allowed per deployment. Defaults to 1.
@@ -41,6 +41,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
             MaxQueueWait = "PT0.5S";
             RequestTimeout = "PT5S";
         }
-        public static new OnlineRequestSettingsArgs Empty => new OnlineRequestSettingsArgs();
     }
 }

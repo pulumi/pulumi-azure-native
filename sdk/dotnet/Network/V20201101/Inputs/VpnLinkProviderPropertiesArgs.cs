@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20201101.Inputs
     /// <summary>
     /// List of properties of a link provider.
     /// </summary>
-    public sealed class VpnLinkProviderPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class VpnLinkProviderPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the link provider.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Network.V20201101.Inputs
         public VpnLinkProviderPropertiesArgs()
         {
         }
-        public static new VpnLinkProviderPropertiesArgs Empty => new VpnLinkProviderPropertiesArgs();
     }
 }

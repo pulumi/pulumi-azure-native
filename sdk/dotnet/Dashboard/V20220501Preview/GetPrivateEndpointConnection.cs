@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Dashboard.V20220501Preview
     }
 
 
-    public sealed class GetPrivateEndpointConnectionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPrivateEndpointConnectionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The private endpoint connection name of Azure Managed Grafana.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Dashboard.V20220501Preview
         public GetPrivateEndpointConnectionArgs()
         {
         }
-        public static new GetPrivateEndpointConnectionArgs Empty => new GetPrivateEndpointConnectionArgs();
     }
 
-    public sealed class GetPrivateEndpointConnectionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPrivateEndpointConnectionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The private endpoint connection name of Azure Managed Grafana.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Dashboard.V20220501Preview
         public GetPrivateEndpointConnectionInvokeArgs()
         {
         }
-        public static new GetPrivateEndpointConnectionInvokeArgs Empty => new GetPrivateEndpointConnectionInvokeArgs();
     }
 
 

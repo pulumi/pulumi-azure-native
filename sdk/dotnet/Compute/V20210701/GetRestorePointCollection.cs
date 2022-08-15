@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Compute.V20210701
     }
 
 
-    public sealed class GetRestorePointCollectionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetRestorePointCollectionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The expand expression to apply on the operation. If expand=restorePoints, server will return all contained restore points in the restorePointCollection.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Compute.V20210701
         public GetRestorePointCollectionArgs()
         {
         }
-        public static new GetRestorePointCollectionArgs Empty => new GetRestorePointCollectionArgs();
     }
 
-    public sealed class GetRestorePointCollectionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetRestorePointCollectionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The expand expression to apply on the operation. If expand=restorePoints, server will return all contained restore points in the restorePointCollection.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Compute.V20210701
         public GetRestorePointCollectionInvokeArgs()
         {
         }
-        public static new GetRestorePointCollectionInvokeArgs Empty => new GetRestorePointCollectionInvokeArgs();
     }
 
 

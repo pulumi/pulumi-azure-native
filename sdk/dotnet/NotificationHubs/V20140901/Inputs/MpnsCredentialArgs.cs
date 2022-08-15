@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NotificationHubs.V20140901.Inputs
     /// <summary>
     /// Description of a NotificationHub MpnsCredential.
     /// </summary>
-    public sealed class MpnsCredentialArgs : global::Pulumi.ResourceArgs
+    public sealed class MpnsCredentialArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets properties of NotificationHub MpnsCredential.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.NotificationHubs.V20140901.Inputs
         public MpnsCredentialArgs()
         {
         }
-        public static new MpnsCredentialArgs Empty => new MpnsCredentialArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataCatalog.V20160330
     /// Azure Data Catalog.
     /// </summary>
     [AzureNativeResourceType("azure-native:datacatalog/v20160330:ADCCatalog")]
-    public partial class ADCCatalog : global::Pulumi.CustomResource
+    public partial class ADCCatalog : Pulumi.CustomResource
     {
         /// <summary>
         /// Azure data catalog admin list.
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.DataCatalog.V20160330
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datacatalog:ADCCatalog"},
+                    new Pulumi.Alias { Type = "azure-native:datacatalog:ADCCatalog"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNative.DataCatalog.V20160330
         }
     }
 
-    public sealed class ADCCatalogArgs : global::Pulumi.ResourceArgs
+    public sealed class ADCCatalogArgs : Pulumi.ResourceArgs
     {
         [Input("admins")]
         private InputList<Inputs.PrincipalsArgs>? _admins;
@@ -211,6 +211,5 @@ namespace Pulumi.AzureNative.DataCatalog.V20160330
         public ADCCatalogArgs()
         {
         }
-        public static new ADCCatalogArgs Empty => new ADCCatalogArgs();
     }
 }

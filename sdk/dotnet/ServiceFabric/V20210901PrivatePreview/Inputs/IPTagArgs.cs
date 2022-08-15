@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210901PrivatePreview.Inputs
     /// <summary>
     /// IPTag associated with the object.
     /// </summary>
-    public sealed class IPTagArgs : global::Pulumi.ResourceArgs
+    public sealed class IPTagArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IP tag type.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210901PrivatePreview.Inputs
         public IPTagArgs()
         {
         }
-        public static new IPTagArgs Empty => new IPTagArgs();
     }
 }

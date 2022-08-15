@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
     /// <summary>
     /// The settings of Application Configuration Service.
     /// </summary>
-    public sealed class ConfigurationServiceSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class ConfigurationServiceSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Property of git environment.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
         public ConfigurationServiceSettingsArgs()
         {
         }
-        public static new ConfigurationServiceSettingsArgs Empty => new ConfigurationServiceSettingsArgs();
     }
 }

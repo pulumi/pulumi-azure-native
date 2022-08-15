@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS.V20211201.Inputs
     /// <summary>
     /// An iSCSI volume from Microsoft.StoragePool provider
     /// </summary>
-    public sealed class DiskPoolVolumeArgs : global::Pulumi.ResourceArgs
+    public sealed class DiskPoolVolumeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the LUN to be used for datastore
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.AVS.V20211201.Inputs
         {
             MountOption = "MOUNT";
         }
-        public static new DiskPoolVolumeArgs Empty => new DiskPoolVolumeArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
     /// </summary>
     [Obsolete(@"Version 2018-09-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:deploymentmanager/v20180901preview:ArtifactSource")]
-    public partial class ArtifactSource : global::Pulumi.CustomResource
+    public partial class ArtifactSource : Pulumi.CustomResource
     {
         /// <summary>
         /// The path from the location that the 'authentication' property [say, a SAS URI to the blob container] refers to, to the location of the artifacts. This can be used to differentiate different versions of the artifacts. Or, different types of artifacts like binaries or templates. The location referenced by the authentication property concatenated with this optional artifactRoot path forms the artifact source location where the artifacts are expected to be found.
@@ -83,8 +83,8 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:deploymentmanager:ArtifactSource"},
-                    new global::Pulumi.Alias { Type = "azure-native:deploymentmanager/v20191101preview:ArtifactSource"},
+                    new Pulumi.Alias { Type = "azure-native:deploymentmanager:ArtifactSource"},
+                    new Pulumi.Alias { Type = "azure-native:deploymentmanager/v20191101preview:ArtifactSource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
         }
     }
 
-    public sealed class ArtifactSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class ArtifactSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The path from the location that the 'authentication' property [say, a SAS URI to the blob container] refers to, to the location of the artifacts. This can be used to differentiate different versions of the artifacts. Or, different types of artifacts like binaries or templates. The location referenced by the authentication property concatenated with this optional artifactRoot path forms the artifact source location where the artifacts are expected to be found.
@@ -159,6 +159,5 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
         public ArtifactSourceArgs()
         {
         }
-        public static new ArtifactSourceArgs Empty => new ArtifactSourceArgs();
     }
 }

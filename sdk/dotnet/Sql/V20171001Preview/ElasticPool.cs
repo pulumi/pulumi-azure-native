@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20171001Preview
     /// An elastic pool.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20171001preview:ElasticPool")]
-    public partial class ElasticPool : global::Pulumi.CustomResource
+    public partial class ElasticPool : Pulumi.CustomResource
     {
         /// <summary>
         /// The creation date of the elastic pool (ISO8601 format).
@@ -118,17 +118,17 @@ namespace Pulumi.AzureNative.Sql.V20171001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql:ElasticPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20140401:ElasticPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ElasticPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ElasticPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ElasticPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ElasticPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ElasticPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ElasticPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:ElasticPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ElasticPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ElasticPool"},
+                    new Pulumi.Alias { Type = "azure-native:sql:ElasticPool"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20140401:ElasticPool"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ElasticPool"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ElasticPool"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ElasticPool"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ElasticPool"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ElasticPool"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ElasticPool"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101:ElasticPool"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ElasticPool"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ElasticPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -150,7 +150,7 @@ namespace Pulumi.AzureNative.Sql.V20171001Preview
         }
     }
 
-    public sealed class ElasticPoolArgs : global::Pulumi.ResourceArgs
+    public sealed class ElasticPoolArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the elastic pool.
@@ -227,6 +227,5 @@ namespace Pulumi.AzureNative.Sql.V20171001Preview
         public ElasticPoolArgs()
         {
         }
-        public static new ElasticPoolArgs Empty => new ElasticPoolArgs();
     }
 }

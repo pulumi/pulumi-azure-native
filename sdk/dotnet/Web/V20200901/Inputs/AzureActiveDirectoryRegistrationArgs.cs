@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20200901.Inputs
 {
 
-    public sealed class AzureActiveDirectoryRegistrationArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureActiveDirectoryRegistrationArgs : Pulumi.ResourceArgs
     {
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
@@ -33,6 +33,5 @@ namespace Pulumi.AzureNative.Web.V20200901.Inputs
         public AzureActiveDirectoryRegistrationArgs()
         {
         }
-        public static new AzureActiveDirectoryRegistrationArgs Empty => new AzureActiveDirectoryRegistrationArgs();
     }
 }

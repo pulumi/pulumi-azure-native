@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20200901Preview.Inputs
     /// <summary>
     /// The properties of the identity used to access the key encryption key in KeyVault.
     /// </summary>
-    public sealed class EncryptionKeyIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class EncryptionKeyIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The user assigned identity.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Devices.V20200901Preview.Inputs
         public EncryptionKeyIdentityArgs()
         {
         }
-        public static new EncryptionKeyIdentityArgs Empty => new EncryptionKeyIdentityArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20150601Preview.Inputs
     /// <summary>
     /// Represents a machine that is part of a VM/server group
     /// </summary>
-    public sealed class VmRecommendationArgs : global::Pulumi.ResourceArgs
+    public sealed class VmRecommendationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The configuration status of the VM/server group or machine or rule on the machine
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Security.V20150601Preview.Inputs
         public VmRecommendationArgs()
         {
         }
-        public static new VmRecommendationArgs Empty => new VmRecommendationArgs();
     }
 }

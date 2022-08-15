@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20190801.Inputs
 {
 
-    public sealed class ImageReferenceArgs : global::Pulumi.ResourceArgs
+    public sealed class ImageReferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// This property is mutually exclusive with other properties. For Virtual Machine Image it must be in the same region and subscription as the Azure Batch account. For SIG image it must have replicas in the same region as the Azure Batch account. For information about the firewall settings for the Batch node agent to communicate with the Batch service see https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration.
@@ -45,6 +45,5 @@ namespace Pulumi.AzureNative.Batch.V20190801.Inputs
         public ImageReferenceArgs()
         {
         }
-        public static new ImageReferenceArgs Empty => new ImageReferenceArgs();
     }
 }

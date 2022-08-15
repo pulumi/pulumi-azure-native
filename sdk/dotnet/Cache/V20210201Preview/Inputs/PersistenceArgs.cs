@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cache.V20210201Preview.Inputs
     /// <summary>
     /// Persistence-related configuration for the RedisEnterprise database
     /// </summary>
-    public sealed class PersistenceArgs : global::Pulumi.ResourceArgs
+    public sealed class PersistenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Sets whether AOF is enabled.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Cache.V20210201Preview.Inputs
         public PersistenceArgs()
         {
         }
-        public static new PersistenceArgs Empty => new PersistenceArgs();
     }
 }

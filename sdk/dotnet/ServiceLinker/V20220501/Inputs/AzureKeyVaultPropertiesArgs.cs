@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceLinker.V20220501.Inputs
     /// <summary>
     /// The resource properties when type is Azure Key Vault
     /// </summary>
-    public sealed class AzureKeyVaultPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureKeyVaultPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// True if connect via Kubernetes CSI Driver.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.ServiceLinker.V20220501.Inputs
         public AzureKeyVaultPropertiesArgs()
         {
         }
-        public static new AzureKeyVaultPropertiesArgs Empty => new AzureKeyVaultPropertiesArgs();
     }
 }

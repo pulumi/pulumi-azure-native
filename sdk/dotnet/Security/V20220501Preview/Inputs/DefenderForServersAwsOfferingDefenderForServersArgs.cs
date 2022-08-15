@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
     /// <summary>
     /// The Defender for servers connection configuration
     /// </summary>
-    public sealed class DefenderForServersAwsOfferingDefenderForServersArgs : global::Pulumi.ResourceArgs
+    public sealed class DefenderForServersAwsOfferingDefenderForServersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The cloud role ARN in AWS for this feature
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
         public DefenderForServersAwsOfferingDefenderForServersArgs()
         {
         }
-        public static new DefenderForServersAwsOfferingDefenderForServersArgs Empty => new DefenderForServersAwsOfferingDefenderForServersArgs();
     }
 }

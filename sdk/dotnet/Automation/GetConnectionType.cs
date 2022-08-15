@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Automation
     }
 
 
-    public sealed class GetConnectionTypeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetConnectionTypeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Automation
         public GetConnectionTypeArgs()
         {
         }
-        public static new GetConnectionTypeArgs Empty => new GetConnectionTypeArgs();
     }
 
-    public sealed class GetConnectionTypeInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetConnectionTypeInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Automation
         public GetConnectionTypeInvokeArgs()
         {
         }
-        public static new GetConnectionTypeInvokeArgs Empty => new GetConnectionTypeInvokeArgs();
     }
 
 

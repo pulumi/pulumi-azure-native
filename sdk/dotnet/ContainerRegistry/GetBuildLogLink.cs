@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
     }
 
 
-    public sealed class GetBuildLogLinkArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBuildLogLinkArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The build ID.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public GetBuildLogLinkArgs()
         {
         }
-        public static new GetBuildLogLinkArgs Empty => new GetBuildLogLinkArgs();
     }
 
-    public sealed class GetBuildLogLinkInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBuildLogLinkInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The build ID.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public GetBuildLogLinkInvokeArgs()
         {
         }
-        public static new GetBuildLogLinkInvokeArgs Empty => new GetBuildLogLinkInvokeArgs();
     }
 
 

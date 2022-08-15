@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NetApp.V20201101.Inputs
     /// <summary>
     /// Encryption settings
     /// </summary>
-    public sealed class AccountEncryptionArgs : global::Pulumi.ResourceArgs
+    public sealed class AccountEncryptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Encryption Key Source. Possible values are: 'Microsoft.NetApp'.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.NetApp.V20201101.Inputs
         public AccountEncryptionArgs()
         {
         }
-        public static new AccountEncryptionArgs Empty => new AccountEncryptionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Base class for all control activities like IfCondition, ForEach , Until.
     /// </summary>
-    public sealed class ControlActivityArgs : global::Pulumi.ResourceArgs
+    public sealed class ControlActivityArgs : Pulumi.ResourceArgs
     {
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
@@ -61,6 +61,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public ControlActivityArgs()
         {
         }
-        public static new ControlActivityArgs Empty => new ControlActivityArgs();
     }
 }

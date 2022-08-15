@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Chaos.V20210915Preview.Inputs
     /// <summary>
     /// Model that represents a reference to a Target in the selector.
     /// </summary>
-    public sealed class TargetReferenceArgs : global::Pulumi.ResourceArgs
+    public sealed class TargetReferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// String of the resource ID of a Target resource.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Chaos.V20210915Preview.Inputs
         public TargetReferenceArgs()
         {
         }
-        public static new TargetReferenceArgs Empty => new TargetReferenceArgs();
     }
 }

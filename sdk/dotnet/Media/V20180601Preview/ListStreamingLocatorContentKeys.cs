@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Media.V20180601Preview
     }
 
 
-    public sealed class ListStreamingLocatorContentKeysArgs : global::Pulumi.InvokeArgs
+    public sealed class ListStreamingLocatorContentKeysArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Media.V20180601Preview
         public ListStreamingLocatorContentKeysArgs()
         {
         }
-        public static new ListStreamingLocatorContentKeysArgs Empty => new ListStreamingLocatorContentKeysArgs();
     }
 
-    public sealed class ListStreamingLocatorContentKeysInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListStreamingLocatorContentKeysInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Media.V20180601Preview
         public ListStreamingLocatorContentKeysInvokeArgs()
         {
         }
-        public static new ListStreamingLocatorContentKeysInvokeArgs Empty => new ListStreamingLocatorContentKeysInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// This activity evaluates a boolean expression and executes either the activities under the ifTrueActivities property or the ifFalseActivities property depending on the result of the expression.
     /// </summary>
-    public sealed class IfConditionActivityArgs : global::Pulumi.ResourceArgs
+    public sealed class IfConditionActivityArgs : Pulumi.ResourceArgs
     {
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
@@ -91,6 +91,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public IfConditionActivityArgs()
         {
         }
-        public static new IfConditionActivityArgs Empty => new IfConditionActivityArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20211101.Inputs
     /// <summary>
     /// An object of optional configuration settings for encoder.
     /// </summary>
-    public sealed class PresetConfigurationsArgs : global::Pulumi.ResourceArgs
+    public sealed class PresetConfigurationsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Allows you to configure the encoder settings to control the balance between speed and quality. Example: set Complexity as Speed for faster encoding but less compression efficiency.
@@ -66,6 +66,5 @@ namespace Pulumi.AzureNative.Media.V20211101.Inputs
         public PresetConfigurationsArgs()
         {
         }
-        public static new PresetConfigurationsArgs Empty => new PresetConfigurationsArgs();
     }
 }

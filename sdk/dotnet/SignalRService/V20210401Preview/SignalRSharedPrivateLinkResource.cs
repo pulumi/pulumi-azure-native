@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SignalRService.V20210401Preview
     /// Describes a Shared Private Link Resource
     /// </summary>
     [AzureNativeResourceType("azure-native:signalrservice/v20210401preview:SignalRSharedPrivateLinkResource")]
-    public partial class SignalRSharedPrivateLinkResource : global::Pulumi.CustomResource
+    public partial class SignalRSharedPrivateLinkResource : Pulumi.CustomResource
     {
         /// <summary>
         /// The group id from the provider of resource the shared private link resource is for
@@ -88,11 +88,11 @@ namespace Pulumi.AzureNative.SignalRService.V20210401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice:SignalRSharedPrivateLinkResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20210601preview:SignalRSharedPrivateLinkResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20210901preview:SignalRSharedPrivateLinkResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20211001:SignalRSharedPrivateLinkResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20220201:SignalRSharedPrivateLinkResource"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice:SignalRSharedPrivateLinkResource"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/v20210601preview:SignalRSharedPrivateLinkResource"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/v20210901preview:SignalRSharedPrivateLinkResource"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/v20211001:SignalRSharedPrivateLinkResource"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/v20220201:SignalRSharedPrivateLinkResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.SignalRService.V20210401Preview
         }
     }
 
-    public sealed class SignalRSharedPrivateLinkResourceArgs : global::Pulumi.ResourceArgs
+    public sealed class SignalRSharedPrivateLinkResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The group id from the provider of resource the shared private link resource is for
@@ -155,6 +155,5 @@ namespace Pulumi.AzureNative.SignalRService.V20210401Preview
         public SignalRSharedPrivateLinkResourceArgs()
         {
         }
-        public static new SignalRSharedPrivateLinkResourceArgs Empty => new SignalRSharedPrivateLinkResourceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200415.Inputs
     /// <summary>
     /// Defines the parameters for the Url Signing action.
     /// </summary>
-    public sealed class UrlSigningActionParametersArgs : global::Pulumi.ResourceArgs
+    public sealed class UrlSigningActionParametersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Algorithm to use for URL signing
@@ -57,6 +57,5 @@ namespace Pulumi.AzureNative.Cdn.V20200415.Inputs
         public UrlSigningActionParametersArgs()
         {
         }
-        public static new UrlSigningActionParametersArgs Empty => new UrlSigningActionParametersArgs();
     }
 }

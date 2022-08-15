@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network
     }
 
 
-    public sealed class GetNetworkInterfaceTapConfigurationArgs : global::Pulumi.InvokeArgs
+    public sealed class GetNetworkInterfaceTapConfigurationArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the network interface.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Network
         public GetNetworkInterfaceTapConfigurationArgs()
         {
         }
-        public static new GetNetworkInterfaceTapConfigurationArgs Empty => new GetNetworkInterfaceTapConfigurationArgs();
     }
 
-    public sealed class GetNetworkInterfaceTapConfigurationInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetNetworkInterfaceTapConfigurationInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the network interface.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Network
         public GetNetworkInterfaceTapConfigurationInvokeArgs()
         {
         }
-        public static new GetNetworkInterfaceTapConfigurationInvokeArgs Empty => new GetNetworkInterfaceTapConfigurationInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190401.Inputs
     /// <summary>
     /// The properties of a encoded task step.
     /// </summary>
-    public sealed class EncodedTaskStepArgs : global::Pulumi.ResourceArgs
+    public sealed class EncodedTaskStepArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
@@ -61,6 +61,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190401.Inputs
         public EncodedTaskStepArgs()
         {
         }
-        public static new EncodedTaskStepArgs Empty => new EncodedTaskStepArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
     /// Subscription details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20201201:Subscription")]
-    public partial class Subscription : global::Pulumi.CustomResource
+    public partial class Subscription : Pulumi.CustomResource
     {
         /// <summary>
         /// Determines whether tracing is enabled
@@ -130,20 +130,20 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:Subscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:Subscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:Subscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:Subscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:Subscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:Subscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:Subscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:Subscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:Subscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:Subscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:Subscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:Subscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:Subscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:Subscription"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:Subscription"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:Subscription"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:Subscription"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:Subscription"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:Subscription"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:Subscription"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:Subscription"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:Subscription"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:Subscription"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:Subscription"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:Subscription"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:Subscription"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:Subscription"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:Subscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -165,7 +165,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
         }
     }
 
-    public sealed class SubscriptionArgs : global::Pulumi.ResourceArgs
+    public sealed class SubscriptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines whether tracing can be enabled
@@ -244,6 +244,5 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
         public SubscriptionArgs()
         {
         }
-        public static new SubscriptionArgs Empty => new SubscriptionArgs();
     }
 }

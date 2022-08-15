@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Portal.V20200901Preview.Inputs
     /// <summary>
     /// The dashboard's part position.
     /// </summary>
-    public sealed class DashboardPartsPositionArgs : global::Pulumi.ResourceArgs
+    public sealed class DashboardPartsPositionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The dashboard's part column span.
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.Portal.V20200901Preview.Inputs
         public DashboardPartsPositionArgs()
         {
         }
-        public static new DashboardPartsPositionArgs Empty => new DashboardPartsPositionArgs();
     }
 }

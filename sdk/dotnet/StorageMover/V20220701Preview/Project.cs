@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageMover.V20220701Preview
     /// The Project resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagemover/v20220701preview:Project")]
-    public partial class Project : global::Pulumi.CustomResource
+    public partial class Project : Pulumi.CustomResource
     {
         /// <summary>
         /// A description for the Project.
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.StorageMover.V20220701Preview
         }
     }
 
-    public sealed class ProjectArgs : global::Pulumi.ResourceArgs
+    public sealed class ProjectArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description for the Project.
@@ -117,6 +117,5 @@ namespace Pulumi.AzureNative.StorageMover.V20220701Preview
         public ProjectArgs()
         {
         }
-        public static new ProjectArgs Empty => new ProjectArgs();
     }
 }

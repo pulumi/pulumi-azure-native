@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DigitalTwins.V20201031
     /// </summary>
     [Obsolete(@"Version 2020-10-31 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:digitaltwins/v20201031:DigitalTwinsEndpoint")]
-    public partial class DigitalTwinsEndpoint : global::Pulumi.CustomResource
+    public partial class DigitalTwinsEndpoint : Pulumi.CustomResource
     {
         /// <summary>
         /// Extension resource name.
@@ -59,11 +59,11 @@ namespace Pulumi.AzureNative.DigitalTwins.V20201031
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:digitaltwins:DigitalTwinsEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:digitaltwins/v20200301preview:DigitalTwinsEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:digitaltwins/v20201201:DigitalTwinsEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:digitaltwins/v20210630preview:DigitalTwinsEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:digitaltwins/v20220531:DigitalTwinsEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:digitaltwins:DigitalTwinsEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:digitaltwins/v20200301preview:DigitalTwinsEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:digitaltwins/v20201201:DigitalTwinsEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:digitaltwins/v20210630preview:DigitalTwinsEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:digitaltwins/v20220531:DigitalTwinsEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -85,7 +85,7 @@ namespace Pulumi.AzureNative.DigitalTwins.V20201031
         }
     }
 
-    public sealed class DigitalTwinsEndpointArgs : global::Pulumi.ResourceArgs
+    public sealed class DigitalTwinsEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of Endpoint Resource.
@@ -114,6 +114,5 @@ namespace Pulumi.AzureNative.DigitalTwins.V20201031
         public DigitalTwinsEndpointArgs()
         {
         }
-        public static new DigitalTwinsEndpointArgs Empty => new DigitalTwinsEndpointArgs();
     }
 }

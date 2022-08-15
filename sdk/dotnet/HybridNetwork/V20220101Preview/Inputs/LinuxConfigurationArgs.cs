@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridNetwork.V20220101Preview.Inputs
     /// <summary>
     /// Specifies the Linux operating system settings on the virtual machine.
     /// </summary>
-    public sealed class LinuxConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class LinuxConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the ssh key configuration for a Linux OS.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.HybridNetwork.V20220101Preview.Inputs
         public LinuxConfigurationArgs()
         {
         }
-        public static new LinuxConfigurationArgs Empty => new LinuxConfigurationArgs();
     }
 }

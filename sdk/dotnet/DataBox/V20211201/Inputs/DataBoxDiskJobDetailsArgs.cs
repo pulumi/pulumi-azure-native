@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBox.V20211201.Inputs
     /// <summary>
     /// DataBox Disk Job Details.
     /// </summary>
-    public sealed class DataBoxDiskJobDetailsArgs : global::Pulumi.ResourceArgs
+    public sealed class DataBoxDiskJobDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Contact details for notification and shipping.
@@ -97,6 +97,5 @@ namespace Pulumi.AzureNative.DataBox.V20211201.Inputs
         public DataBoxDiskJobDetailsArgs()
         {
         }
-        public static new DataBoxDiskJobDetailsArgs Empty => new DataBoxDiskJobDetailsArgs();
     }
 }

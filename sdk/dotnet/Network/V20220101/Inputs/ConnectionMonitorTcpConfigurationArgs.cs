@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
     /// <summary>
     /// Describes the TCP configuration.
     /// </summary>
-    public sealed class ConnectionMonitorTcpConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class ConnectionMonitorTcpConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Destination port behavior.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
         public ConnectionMonitorTcpConfigurationArgs()
         {
         }
-        public static new ConnectionMonitorTcpConfigurationArgs Empty => new ConnectionMonitorTcpConfigurationArgs();
     }
 }

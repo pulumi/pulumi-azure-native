@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20211001.Inputs
     /// <summary>
     /// The api properties for special APIs.
     /// </summary>
-    public sealed class ApiPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ApiPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// (Metrics Advisor Only) The Azure AD Client Id (Application Id).
@@ -78,6 +78,5 @@ namespace Pulumi.AzureNative.CognitiveServices.V20211001.Inputs
         public ApiPropertiesArgs()
         {
         }
-        public static new ApiPropertiesArgs Empty => new ApiPropertiesArgs();
     }
 }

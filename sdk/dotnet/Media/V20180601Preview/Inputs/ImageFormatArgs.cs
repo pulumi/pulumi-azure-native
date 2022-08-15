@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180601Preview.Inputs
     /// <summary>
     /// Describes the properties for an output image file.
     /// </summary>
-    public sealed class ImageFormatArgs : global::Pulumi.ResourceArgs
+    public sealed class ImageFormatArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.Media.V20180601Preview.Inputs
         public ImageFormatArgs()
         {
         }
-        public static new ImageFormatArgs Empty => new ImageFormatArgs();
     }
 }

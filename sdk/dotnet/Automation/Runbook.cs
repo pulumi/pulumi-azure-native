@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Automation
     /// API Version: 2019-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:Runbook")]
-    public partial class Runbook : global::Pulumi.CustomResource
+    public partial class Runbook : Pulumi.CustomResource
     {
         /// <summary>
         /// Gets or sets the creation time.
@@ -161,9 +161,9 @@ namespace Pulumi.AzureNative.Automation
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20151031:Runbook"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20180630:Runbook"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20190601:Runbook"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20151031:Runbook"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20180630:Runbook"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20190601:Runbook"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -185,7 +185,7 @@ namespace Pulumi.AzureNative.Automation
         }
     }
 
-    public sealed class RunbookArgs : global::Pulumi.ResourceArgs
+    public sealed class RunbookArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -274,6 +274,5 @@ namespace Pulumi.AzureNative.Automation
         public RunbookArgs()
         {
         }
-        public static new RunbookArgs Empty => new RunbookArgs();
     }
 }

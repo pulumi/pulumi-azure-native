@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Resources.V20210501.Inputs
     /// <summary>
     /// Represents a Template Spec artifact containing an embedded Azure Resource Manager template for use as a linked template.
     /// </summary>
-    public sealed class LinkedTemplateArtifactArgs : global::Pulumi.ResourceArgs
+    public sealed class LinkedTemplateArtifactArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A filesystem safe relative path of the artifact.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Resources.V20210501.Inputs
         public LinkedTemplateArtifactArgs()
         {
         }
-        public static new LinkedTemplateArtifactArgs Empty => new LinkedTemplateArtifactArgs();
     }
 }

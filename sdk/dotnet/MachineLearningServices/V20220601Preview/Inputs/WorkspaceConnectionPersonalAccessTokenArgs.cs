@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
 {
 
-    public sealed class WorkspaceConnectionPersonalAccessTokenArgs : global::Pulumi.ResourceArgs
+    public sealed class WorkspaceConnectionPersonalAccessTokenArgs : Pulumi.ResourceArgs
     {
         [Input("pat")]
         public Input<string>? Pat { get; set; }
@@ -18,6 +18,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         public WorkspaceConnectionPersonalAccessTokenArgs()
         {
         }
-        public static new WorkspaceConnectionPersonalAccessTokenArgs Empty => new WorkspaceConnectionPersonalAccessTokenArgs();
     }
 }

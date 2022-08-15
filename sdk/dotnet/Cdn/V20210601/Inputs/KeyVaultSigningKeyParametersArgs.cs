@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
     /// <summary>
     /// Describes the parameters for using a user's KeyVault for URL Signing Key.
     /// </summary>
-    public sealed class KeyVaultSigningKeyParametersArgs : global::Pulumi.ResourceArgs
+    public sealed class KeyVaultSigningKeyParametersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource group of the user's Key Vault containing the secret
@@ -51,6 +51,5 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
         public KeyVaultSigningKeyParametersArgs()
         {
         }
-        public static new KeyVaultSigningKeyParametersArgs Empty => new KeyVaultSigningKeyParametersArgs();
     }
 }

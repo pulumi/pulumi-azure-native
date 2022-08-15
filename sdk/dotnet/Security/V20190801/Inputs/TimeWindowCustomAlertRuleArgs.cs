@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20190801.Inputs
     /// <summary>
     /// A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
     /// </summary>
-    public sealed class TimeWindowCustomAlertRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class TimeWindowCustomAlertRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Status of the custom alert.
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.Security.V20190801.Inputs
         public TimeWindowCustomAlertRuleArgs()
         {
         }
-        public static new TimeWindowCustomAlertRuleArgs Empty => new TimeWindowCustomAlertRuleArgs();
     }
 }

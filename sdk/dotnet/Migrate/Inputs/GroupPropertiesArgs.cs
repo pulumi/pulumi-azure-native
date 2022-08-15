@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.Inputs
     /// <summary>
     /// Properties of group resource.
     /// </summary>
-    public sealed class GroupPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class GroupPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of group.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Migrate.Inputs
         public GroupPropertiesArgs()
         {
         }
-        public static new GroupPropertiesArgs Empty => new GroupPropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Azure Database for MariaDB dataset.
     /// </summary>
-    public sealed class AzureMariaDBTableDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureMariaDBTableDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,6 +85,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public AzureMariaDBTableDatasetArgs()
         {
         }
-        public static new AzureMariaDBTableDatasetArgs Empty => new AzureMariaDBTableDatasetArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Logic
     }
 
 
-    public sealed class ListIntegrationAccountPartnerContentCallbackUrlArgs : global::Pulumi.InvokeArgs
+    public sealed class ListIntegrationAccountPartnerContentCallbackUrlArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The integration account name.
@@ -62,10 +62,9 @@ namespace Pulumi.AzureNative.Logic
         public ListIntegrationAccountPartnerContentCallbackUrlArgs()
         {
         }
-        public static new ListIntegrationAccountPartnerContentCallbackUrlArgs Empty => new ListIntegrationAccountPartnerContentCallbackUrlArgs();
     }
 
-    public sealed class ListIntegrationAccountPartnerContentCallbackUrlInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListIntegrationAccountPartnerContentCallbackUrlInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The integration account name.
@@ -100,7 +99,6 @@ namespace Pulumi.AzureNative.Logic
         public ListIntegrationAccountPartnerContentCallbackUrlInvokeArgs()
         {
         }
-        public static new ListIntegrationAccountPartnerContentCallbackUrlInvokeArgs Empty => new ListIntegrationAccountPartnerContentCallbackUrlInvokeArgs();
     }
 
 

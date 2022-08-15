@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20170301Preview
     /// A job step.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20170301preview:JobStep")]
-    public partial class JobStep : global::Pulumi.CustomResource
+    public partial class JobStep : Pulumi.CustomResource
     {
         /// <summary>
         /// The action payload of the job step.
@@ -88,16 +88,16 @@ namespace Pulumi.AzureNative.Sql.V20170301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql:JobStep"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:JobStep"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:JobStep"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:JobStep"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:JobStep"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:JobStep"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:JobStep"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:JobStep"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:JobStep"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:JobStep"},
+                    new Pulumi.Alias { Type = "azure-native:sql:JobStep"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:JobStep"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:JobStep"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:JobStep"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:JobStep"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:JobStep"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:JobStep"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101:JobStep"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:JobStep"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:JobStep"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -119,7 +119,7 @@ namespace Pulumi.AzureNative.Sql.V20170301Preview
         }
     }
 
-    public sealed class JobStepArgs : global::Pulumi.ResourceArgs
+    public sealed class JobStepArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action payload of the job step.
@@ -190,6 +190,5 @@ namespace Pulumi.AzureNative.Sql.V20170301Preview
         public JobStepArgs()
         {
         }
-        public static new JobStepArgs Empty => new JobStepArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Hubspot Service linked service.
     /// </summary>
-    public sealed class HubspotLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class HubspotLinkedServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access token obtained when initially authenticating your OAuth integration.
@@ -109,6 +109,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public HubspotLinkedServiceArgs()
         {
         }
-        public static new HubspotLinkedServiceArgs Empty => new HubspotLinkedServiceArgs();
     }
 }

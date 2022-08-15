@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20150615.Inputs
     /// <summary>
     /// IP configuration for virtual network gateway
     /// </summary>
-    public sealed class VirtualNetworkGatewayIPConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualNetworkGatewayIPConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -66,6 +66,5 @@ namespace Pulumi.AzureNative.Network.V20150615.Inputs
         public VirtualNetworkGatewayIPConfigurationArgs()
         {
         }
-        public static new VirtualNetworkGatewayIPConfigurationArgs Empty => new VirtualNetworkGatewayIPConfigurationArgs();
     }
 }

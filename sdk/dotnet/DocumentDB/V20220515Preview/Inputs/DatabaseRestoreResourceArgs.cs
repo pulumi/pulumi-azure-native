@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515Preview.Inputs
     /// <summary>
     /// Specific Databases to restore.
     /// </summary>
-    public sealed class DatabaseRestoreResourceArgs : global::Pulumi.ResourceArgs
+    public sealed class DatabaseRestoreResourceArgs : Pulumi.ResourceArgs
     {
         [Input("collectionNames")]
         private InputList<string>? _collectionNames;
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515Preview.Inputs
         public DatabaseRestoreResourceArgs()
         {
         }
-        public static new DatabaseRestoreResourceArgs Empty => new DatabaseRestoreResourceArgs();
     }
 }

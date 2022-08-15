@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20200501Preview.Inputs
     /// <summary>
     /// Dimension splitting and filtering definition
     /// </summary>
-    public sealed class DimensionArgs : global::Pulumi.ResourceArgs
+    public sealed class DimensionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the dimension
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Insights.V20200501Preview.Inputs
         public DimensionArgs()
         {
         }
-        public static new DimensionArgs Empty => new DimensionArgs();
     }
 }

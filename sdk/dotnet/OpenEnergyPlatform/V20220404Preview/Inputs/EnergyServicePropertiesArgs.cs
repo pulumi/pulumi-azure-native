@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.OpenEnergyPlatform.V20220404Preview.Inputs
 {
 
-    public sealed class EnergyServicePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class EnergyServicePropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("authAppId")]
         public Input<string>? AuthAppId { get; set; }
@@ -26,6 +26,5 @@ namespace Pulumi.AzureNative.OpenEnergyPlatform.V20220404Preview.Inputs
         public EnergyServicePropertiesArgs()
         {
         }
-        public static new EnergyServicePropertiesArgs Empty => new EnergyServicePropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210501.Inputs
     /// <summary>
     /// Properties of a NAT rule.
     /// </summary>
-    public sealed class AzureFirewallNatRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureFirewallNatRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the rule.
@@ -108,6 +108,5 @@ namespace Pulumi.AzureNative.Network.V20210501.Inputs
         public AzureFirewallNatRuleArgs()
         {
         }
-        public static new AzureFirewallNatRuleArgs Empty => new AzureFirewallNatRuleArgs();
     }
 }

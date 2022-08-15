@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Workloads
     /// API Version: 2021-12-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads:ProviderInstance")]
-    public partial class ProviderInstance : global::Pulumi.CustomResource
+    public partial class ProviderInstance : Pulumi.CustomResource
     {
         /// <summary>
         /// Defines the provider instance errors.
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.Workloads
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:ProviderInstance"},
+                    new Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:ProviderInstance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -105,7 +105,7 @@ namespace Pulumi.AzureNative.Workloads
         }
     }
 
-    public sealed class ProviderInstanceArgs : global::Pulumi.ResourceArgs
+    public sealed class ProviderInstanceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Managed service identity (user assigned identities)
@@ -140,6 +140,5 @@ namespace Pulumi.AzureNative.Workloads
         public ProviderInstanceArgs()
         {
         }
-        public static new ProviderInstanceArgs Empty => new ProviderInstanceArgs();
     }
 }

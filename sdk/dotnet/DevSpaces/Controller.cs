@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevSpaces
     /// API Version: 2019-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:devspaces:Controller")]
-    public partial class Controller : global::Pulumi.CustomResource
+    public partial class Controller : Pulumi.CustomResource
     {
         /// <summary>
         /// DNS name for accessing DataPlane services
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.DevSpaces
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devspaces/v20190401:Controller"},
+                    new Pulumi.Alias { Type = "azure-native:devspaces/v20190401:Controller"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.DevSpaces
         }
     }
 
-    public sealed class ControllerArgs : global::Pulumi.ResourceArgs
+    public sealed class ControllerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Region where the Azure resource is located.
@@ -175,6 +175,5 @@ namespace Pulumi.AzureNative.DevSpaces
         public ControllerArgs()
         {
         }
-        public static new ControllerArgs Empty => new ControllerArgs();
     }
 }

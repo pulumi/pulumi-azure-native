@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20180715Preview.Inputs
     /// <summary>
     /// Input for the task that gets the list of tables contained within a provided list of Oracle schemas.
     /// </summary>
-    public sealed class GetUserTablesOracleTaskInputArgs : global::Pulumi.ResourceArgs
+    public sealed class GetUserTablesOracleTaskInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Information for connecting to Oracle source
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DataMigration.V20180715Preview.Inputs
         public GetUserTablesOracleTaskInputArgs()
         {
         }
-        public static new GetUserTablesOracleTaskInputArgs Empty => new GetUserTablesOracleTaskInputArgs();
     }
 }

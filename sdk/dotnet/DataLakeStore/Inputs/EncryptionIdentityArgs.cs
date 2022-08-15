@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataLakeStore.Inputs
     /// <summary>
     /// The encryption identity properties.
     /// </summary>
-    public sealed class EncryptionIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class EncryptionIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of encryption being used. Currently the only supported type is 'SystemAssigned'.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DataLakeStore.Inputs
         public EncryptionIdentityArgs()
         {
         }
-        public static new EncryptionIdentityArgs Empty => new EncryptionIdentityArgs();
     }
 }

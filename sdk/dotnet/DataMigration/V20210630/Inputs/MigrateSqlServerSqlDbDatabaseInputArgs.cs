@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20210630.Inputs
     /// <summary>
     /// Database specific information for SQL to Azure SQL DB migration task inputs
     /// </summary>
-    public sealed class MigrateSqlServerSqlDbDatabaseInputArgs : global::Pulumi.ResourceArgs
+    public sealed class MigrateSqlServerSqlDbDatabaseInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to set database read only before migration
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.DataMigration.V20210630.Inputs
         public MigrateSqlServerSqlDbDatabaseInputArgs()
         {
         }
-        public static new MigrateSqlServerSqlDbDatabaseInputArgs Empty => new MigrateSqlServerSqlDbDatabaseInputArgs();
     }
 }

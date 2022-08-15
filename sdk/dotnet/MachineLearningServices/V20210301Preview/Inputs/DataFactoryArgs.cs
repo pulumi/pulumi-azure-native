@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// <summary>
     /// A DataFactory compute.
     /// </summary>
-    public sealed class DataFactoryArgs : global::Pulumi.ResourceArgs
+    public sealed class DataFactoryArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Location for the underlying compute
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public DataFactoryArgs()
         {
         }
-        public static new DataFactoryArgs Empty => new DataFactoryArgs();
     }
 }

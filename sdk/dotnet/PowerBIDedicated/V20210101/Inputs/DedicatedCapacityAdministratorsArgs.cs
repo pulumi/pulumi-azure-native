@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.PowerBIDedicated.V20210101.Inputs
     /// <summary>
     /// An array of administrator user identities
     /// </summary>
-    public sealed class DedicatedCapacityAdministratorsArgs : global::Pulumi.ResourceArgs
+    public sealed class DedicatedCapacityAdministratorsArgs : Pulumi.ResourceArgs
     {
         [Input("members")]
         private InputList<string>? _members;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.PowerBIDedicated.V20210101.Inputs
         public DedicatedCapacityAdministratorsArgs()
         {
         }
-        public static new DedicatedCapacityAdministratorsArgs Empty => new DedicatedCapacityAdministratorsArgs();
     }
 }

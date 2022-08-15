@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A copy activity Xml source.
     /// </summary>
-    public sealed class XmlSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class XmlSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -67,6 +67,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public XmlSourceArgs()
         {
         }
-        public static new XmlSourceArgs Empty => new XmlSourceArgs();
     }
 }

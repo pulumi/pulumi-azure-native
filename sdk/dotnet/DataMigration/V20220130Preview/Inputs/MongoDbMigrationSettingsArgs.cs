@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220130Preview.Inputs
     /// <summary>
     /// Describes how a MongoDB data migration should be performed
     /// </summary>
-    public sealed class MongoDbMigrationSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class MongoDbMigrationSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The RU limit on a CosmosDB target that collections will be temporarily increased to (if lower) during the initial copy of a migration, from 10,000 to 1,000,000, or 0 to use the default boost (which is generally the maximum), or null to not boost the RUs. This setting has no effect on non-CosmosDB targets.
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.DataMigration.V20220130Preview.Inputs
         public MongoDbMigrationSettingsArgs()
         {
         }
-        public static new MongoDbMigrationSettingsArgs Empty => new MongoDbMigrationSettingsArgs();
     }
 }

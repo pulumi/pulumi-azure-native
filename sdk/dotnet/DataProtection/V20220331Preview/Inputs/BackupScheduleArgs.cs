@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataProtection.V20220331Preview.Inputs
     /// <summary>
     /// Schedule for backup
     /// </summary>
-    public sealed class BackupScheduleArgs : global::Pulumi.ResourceArgs
+    public sealed class BackupScheduleArgs : Pulumi.ResourceArgs
     {
         [Input("repeatingTimeIntervals", required: true)]
         private InputList<string>? _repeatingTimeIntervals;
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DataProtection.V20220331Preview.Inputs
         public BackupScheduleArgs()
         {
         }
-        public static new BackupScheduleArgs Empty => new BackupScheduleArgs();
     }
 }

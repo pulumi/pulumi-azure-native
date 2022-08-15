@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
     /// Email Template details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20191201:EmailTemplate")]
-    public partial class EmailTemplate : global::Pulumi.CustomResource
+    public partial class EmailTemplate : Pulumi.CustomResource
     {
         /// <summary>
         /// Email Template Body. This should be a valid XDocument
@@ -88,18 +88,18 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:EmailTemplate"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:EmailTemplate"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:EmailTemplate"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:EmailTemplate"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:EmailTemplate"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:EmailTemplate"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:EmailTemplate"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:EmailTemplate"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:EmailTemplate"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:EmailTemplate"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:EmailTemplate"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:EmailTemplate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:EmailTemplate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:EmailTemplate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:EmailTemplate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:EmailTemplate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:EmailTemplate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:EmailTemplate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:EmailTemplate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:EmailTemplate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:EmailTemplate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:EmailTemplate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:EmailTemplate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:EmailTemplate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -121,7 +121,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
         }
     }
 
-    public sealed class EmailTemplateArgs : global::Pulumi.ResourceArgs
+    public sealed class EmailTemplateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Email Template Body. This should be a valid XDocument
@@ -180,6 +180,5 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
         public EmailTemplateArgs()
         {
         }
-        public static new EmailTemplateArgs Empty => new EmailTemplateArgs();
     }
 }

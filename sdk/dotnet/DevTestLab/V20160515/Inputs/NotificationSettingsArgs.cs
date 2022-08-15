@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
     /// <summary>
     /// Notification settings for a schedule.
     /// </summary>
-    public sealed class NotificationSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class NotificationSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// If notifications are enabled for this schedule (i.e. Enabled, Disabled).
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
         public NotificationSettingsArgs()
         {
         }
-        public static new NotificationSettingsArgs Empty => new NotificationSettingsArgs();
     }
 }

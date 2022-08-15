@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventHub.Inputs
     /// <summary>
     /// Description of VirtualNetworkRules - NetworkRules resource.
     /// </summary>
-    public sealed class NWRuleSetVirtualNetworkRulesArgs : global::Pulumi.ResourceArgs
+    public sealed class NWRuleSetVirtualNetworkRulesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Value that indicates whether to ignore missing VNet Service Endpoint
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.EventHub.Inputs
         public NWRuleSetVirtualNetworkRulesArgs()
         {
         }
-        public static new NWRuleSetVirtualNetworkRulesArgs Empty => new NWRuleSetVirtualNetworkRulesArgs();
     }
 }

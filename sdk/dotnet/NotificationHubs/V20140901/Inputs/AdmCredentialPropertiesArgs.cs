@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NotificationHubs.V20140901.Inputs
     /// <summary>
     /// Description of a NotificationHub AdmCredential.
     /// </summary>
-    public sealed class AdmCredentialPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class AdmCredentialPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the URL of the authorization token.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.NotificationHubs.V20140901.Inputs
         public AdmCredentialPropertiesArgs()
         {
         }
-        public static new AdmCredentialPropertiesArgs Empty => new AdmCredentialPropertiesArgs();
     }
 }

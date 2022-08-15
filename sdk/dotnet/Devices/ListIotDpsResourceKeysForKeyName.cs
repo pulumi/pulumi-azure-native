@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Devices
     }
 
 
-    public sealed class ListIotDpsResourceKeysForKeyNameArgs : global::Pulumi.InvokeArgs
+    public sealed class ListIotDpsResourceKeysForKeyNameArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Logical key name to get key-values for.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Devices
         public ListIotDpsResourceKeysForKeyNameArgs()
         {
         }
-        public static new ListIotDpsResourceKeysForKeyNameArgs Empty => new ListIotDpsResourceKeysForKeyNameArgs();
     }
 
-    public sealed class ListIotDpsResourceKeysForKeyNameInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListIotDpsResourceKeysForKeyNameInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Logical key name to get key-values for.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Devices
         public ListIotDpsResourceKeysForKeyNameInvokeArgs()
         {
         }
-        public static new ListIotDpsResourceKeysForKeyNameInvokeArgs Empty => new ListIotDpsResourceKeysForKeyNameInvokeArgs();
     }
 
 

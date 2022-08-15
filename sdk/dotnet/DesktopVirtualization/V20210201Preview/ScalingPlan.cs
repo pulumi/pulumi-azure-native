@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
     /// Represents a scaling plan definition.
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization/v20210201preview:ScalingPlan")]
-    public partial class ScalingPlan : global::Pulumi.CustomResource
+    public partial class ScalingPlan : Pulumi.CustomResource
     {
         /// <summary>
         /// Description of scaling plan.
@@ -145,15 +145,15 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization:ScalingPlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201110preview:ScalingPlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210114preview:ScalingPlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210309preview:ScalingPlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210401preview:ScalingPlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210712:ScalingPlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210903preview:ScalingPlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220210preview:ScalingPlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:ScalingPlan"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization:ScalingPlan"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201110preview:ScalingPlan"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210114preview:ScalingPlan"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210309preview:ScalingPlan"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210401preview:ScalingPlan"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210712:ScalingPlan"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210903preview:ScalingPlan"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220210preview:ScalingPlan"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:ScalingPlan"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -175,7 +175,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
         }
     }
 
-    public sealed class ScalingPlanArgs : global::Pulumi.ResourceArgs
+    public sealed class ScalingPlanArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of scaling plan.
@@ -291,6 +291,5 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
         public ScalingPlanArgs()
         {
         }
-        public static new ScalingPlanArgs Empty => new ScalingPlanArgs();
     }
 }

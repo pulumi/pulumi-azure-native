@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
     /// <summary>
     /// The github scope connector's environment data
     /// </summary>
-    public sealed class GithubScopeEnvironmentDataArgs : global::Pulumi.ResourceArgs
+    public sealed class GithubScopeEnvironmentDataArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of the environment data.
@@ -25,6 +25,5 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
         public GithubScopeEnvironmentDataArgs()
         {
         }
-        public static new GithubScopeEnvironmentDataArgs Empty => new GithubScopeEnvironmentDataArgs();
     }
 }

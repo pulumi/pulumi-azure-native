@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20201201.Inputs
     /// <summary>
     /// The configuration settings of the storage of the tokens if blob storage is used.
     /// </summary>
-    public sealed class BlobStorageTokenStoreArgs : global::Pulumi.ResourceArgs
+    public sealed class BlobStorageTokenStoreArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the app setting containing the SAS URL of the blob storage containing the tokens.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Web.V20201201.Inputs
         public BlobStorageTokenStoreArgs()
         {
         }
-        public static new BlobStorageTokenStoreArgs Empty => new BlobStorageTokenStoreArgs();
     }
 }

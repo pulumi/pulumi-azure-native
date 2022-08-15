@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Cdn
     /// API Version: 2020-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:SecurityPolicy")]
-    public partial class SecurityPolicy : global::Pulumi.CustomResource
+    public partial class SecurityPolicy : Pulumi.CustomResource
     {
         [Output("deploymentStatus")]
         public Output<string> DeploymentStatus { get; private set; } = null!;
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Cdn
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:SecurityPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:SecurityPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200901:SecurityPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20210601:SecurityPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -97,7 +97,7 @@ namespace Pulumi.AzureNative.Cdn
         }
     }
 
-    public sealed class SecurityPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class SecurityPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// object which contains security policy parameters
@@ -126,6 +126,5 @@ namespace Pulumi.AzureNative.Cdn
         public SecurityPolicyArgs()
         {
         }
-        public static new SecurityPolicyArgs Empty => new SecurityPolicyArgs();
     }
 }

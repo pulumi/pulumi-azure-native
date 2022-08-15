@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// API Version: 2021-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:DataVersion")]
-    public partial class DataVersion : global::Pulumi.CustomResource
+    public partial class DataVersion : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -65,10 +65,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:DataVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:DataVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:DataVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:DataVersion"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:DataVersion"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:DataVersion"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:DataVersion"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:DataVersion"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         }
     }
 
-    public sealed class DataVersionArgs : global::Pulumi.ResourceArgs
+    public sealed class DataVersionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Container name.
@@ -125,6 +125,5 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public DataVersionArgs()
         {
         }
-        public static new DataVersionArgs Empty => new DataVersionArgs();
     }
 }

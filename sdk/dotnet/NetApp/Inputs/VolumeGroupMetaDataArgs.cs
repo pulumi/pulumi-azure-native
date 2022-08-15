@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NetApp.Inputs
     /// <summary>
     /// Volume group properties
     /// </summary>
-    public sealed class VolumeGroupMetaDataArgs : global::Pulumi.ResourceArgs
+    public sealed class VolumeGroupMetaDataArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Application specific identifier
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.NetApp.Inputs
         public VolumeGroupMetaDataArgs()
         {
         }
-        public static new VolumeGroupMetaDataArgs Empty => new VolumeGroupMetaDataArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureData.V20190724Preview
     /// A SQL server registration.
     /// </summary>
     [AzureNativeResourceType("azure-native:azuredata/v20190724preview:SqlServerRegistration")]
-    public partial class SqlServerRegistration : global::Pulumi.CustomResource
+    public partial class SqlServerRegistration : Pulumi.CustomResource
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -88,8 +88,8 @@ namespace Pulumi.AzureNative.AzureData.V20190724Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azuredata:SqlServerRegistration"},
-                    new global::Pulumi.Alias { Type = "azure-native:azuredata/v20170301preview:SqlServerRegistration"},
+                    new Pulumi.Alias { Type = "azure-native:azuredata:SqlServerRegistration"},
+                    new Pulumi.Alias { Type = "azure-native:azuredata/v20170301preview:SqlServerRegistration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNative.AzureData.V20190724Preview
         }
     }
 
-    public sealed class SqlServerRegistrationArgs : global::Pulumi.ResourceArgs
+    public sealed class SqlServerRegistrationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -164,6 +164,5 @@ namespace Pulumi.AzureNative.AzureData.V20190724Preview
         public SqlServerRegistrationArgs()
         {
         }
-        public static new SqlServerRegistrationArgs Empty => new SqlServerRegistrationArgs();
     }
 }

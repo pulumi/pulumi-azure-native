@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Datadog.Inputs
     /// <summary>
     /// Datadog organization properties
     /// </summary>
-    public sealed class DatadogOrganizationPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class DatadogOrganizationPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Api key associated to the Datadog organization.
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.Datadog.Inputs
         public DatadogOrganizationPropertiesArgs()
         {
         }
-        public static new DatadogOrganizationPropertiesArgs Empty => new DatadogOrganizationPropertiesArgs();
     }
 }

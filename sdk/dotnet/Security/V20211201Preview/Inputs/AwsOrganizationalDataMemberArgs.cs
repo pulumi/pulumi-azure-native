@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20211201Preview.Inputs
     /// <summary>
     /// The awsOrganization data for the member account
     /// </summary>
-    public sealed class AwsOrganizationalDataMemberArgs : global::Pulumi.ResourceArgs
+    public sealed class AwsOrganizationalDataMemberArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The multi cloud account's membership type in the organization
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.Security.V20211201Preview.Inputs
         public AwsOrganizationalDataMemberArgs()
         {
         }
-        public static new AwsOrganizationalDataMemberArgs Empty => new AwsOrganizationalDataMemberArgs();
     }
 }

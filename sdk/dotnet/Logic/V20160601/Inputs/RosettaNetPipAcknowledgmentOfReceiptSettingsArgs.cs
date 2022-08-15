@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20160601.Inputs
     /// <summary>
     /// The integration account RosettaNet ProcessConfiguration Acknowledgement settings.
     /// </summary>
-    public sealed class RosettaNetPipAcknowledgmentOfReceiptSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class RosettaNetPipAcknowledgmentOfReceiptSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The non-repudiation is required or not.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Logic.V20160601.Inputs
         public RosettaNetPipAcknowledgmentOfReceiptSettingsArgs()
         {
         }
-        public static new RosettaNetPipAcknowledgmentOfReceiptSettingsArgs Empty => new RosettaNetPipAcknowledgmentOfReceiptSettingsArgs();
     }
 }

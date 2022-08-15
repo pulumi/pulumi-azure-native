@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Chaos.V20210915Preview.Inputs
     /// <summary>
     /// Model that represents a continuous action.
     /// </summary>
-    public sealed class ContinuousActionArgs : global::Pulumi.ResourceArgs
+    public sealed class ContinuousActionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// ISO8601 formatted string that represents a duration.
@@ -55,6 +55,5 @@ namespace Pulumi.AzureNative.Chaos.V20210915Preview.Inputs
         public ContinuousActionArgs()
         {
         }
-        public static new ContinuousActionArgs Empty => new ContinuousActionArgs();
     }
 }

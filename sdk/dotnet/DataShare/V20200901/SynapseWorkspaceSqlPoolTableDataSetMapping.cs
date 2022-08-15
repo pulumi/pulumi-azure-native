@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataShare.V20200901
     /// A Synapse Workspace Sql Pool Table data set mapping
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare/v20200901:SynapseWorkspaceSqlPoolTableDataSetMapping")]
-    public partial class SynapseWorkspaceSqlPoolTableDataSetMapping : global::Pulumi.CustomResource
+    public partial class SynapseWorkspaceSqlPoolTableDataSetMapping : Pulumi.CustomResource
     {
         /// <summary>
         /// The id of the source data set.
@@ -96,11 +96,11 @@ namespace Pulumi.AzureNative.DataShare.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datashare:SynapseWorkspaceSqlPoolTableDataSetMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:SynapseWorkspaceSqlPoolTableDataSetMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:SynapseWorkspaceSqlPoolTableDataSetMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:SynapseWorkspaceSqlPoolTableDataSetMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSetMapping"},
+                    new Pulumi.Alias { Type = "azure-native:datashare:SynapseWorkspaceSqlPoolTableDataSetMapping"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:SynapseWorkspaceSqlPoolTableDataSetMapping"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:SynapseWorkspaceSqlPoolTableDataSetMapping"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:SynapseWorkspaceSqlPoolTableDataSetMapping"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSetMapping"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.DataShare.V20200901
         }
     }
 
-    public sealed class SynapseWorkspaceSqlPoolTableDataSetMappingArgs : global::Pulumi.ResourceArgs
+    public sealed class SynapseWorkspaceSqlPoolTableDataSetMappingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -170,6 +170,5 @@ namespace Pulumi.AzureNative.DataShare.V20200901
         public SynapseWorkspaceSqlPoolTableDataSetMappingArgs()
         {
         }
-        public static new SynapseWorkspaceSqlPoolTableDataSetMappingArgs Empty => new SynapseWorkspaceSqlPoolTableDataSetMappingArgs();
     }
 }

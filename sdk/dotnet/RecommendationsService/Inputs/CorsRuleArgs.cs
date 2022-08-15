@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecommendationsService.Inputs
     /// <summary>
     /// CORS details.
     /// </summary>
-    public sealed class CorsRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class CorsRuleArgs : Pulumi.ResourceArgs
     {
         [Input("allowedHeaders")]
         private InputList<string>? _allowedHeaders;
@@ -72,6 +72,5 @@ namespace Pulumi.AzureNative.RecommendationsService.Inputs
         public CorsRuleArgs()
         {
         }
-        public static new CorsRuleArgs Empty => new CorsRuleArgs();
     }
 }

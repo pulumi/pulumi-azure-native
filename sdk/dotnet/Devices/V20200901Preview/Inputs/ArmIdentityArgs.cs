@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20200901Preview.Inputs
     /// <summary>
     /// The set of ARM identities associated with the IoT DPS resource.
     /// </summary>
-    public sealed class ArmIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class ArmIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Devices.V20200901Preview.Inputs
         public ArmIdentityArgs()
         {
         }
-        public static new ArmIdentityArgs Empty => new ArmIdentityArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AnalysisServices.V20170801.Inputs
     /// <summary>
     /// An array of firewall rules.
     /// </summary>
-    public sealed class IPv4FirewallSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class IPv4FirewallSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The indicator of enabling PBI service.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.AnalysisServices.V20170801.Inputs
         public IPv4FirewallSettingsArgs()
         {
         }
-        public static new IPv4FirewallSettingsArgs Empty => new IPv4FirewallSettingsArgs();
     }
 }

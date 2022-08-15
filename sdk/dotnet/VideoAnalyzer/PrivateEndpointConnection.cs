@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
     /// API Version: 2021-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:videoanalyzer:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:videoanalyzer/v20211101preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:videoanalyzer/v20211101preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Video Analyzer account name.
@@ -128,6 +128,5 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         public PrivateEndpointConnectionArgs()
         {
         }
-        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

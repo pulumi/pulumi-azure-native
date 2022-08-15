@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Resources.V20201001
     /// Wrapper resource for tags API requests and responses.
     /// </summary>
     [AzureNativeResourceType("azure-native:resources/v20201001:TagAtScope")]
-    public partial class TagAtScope : global::Pulumi.CustomResource
+    public partial class TagAtScope : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the tags wrapper resource.
@@ -58,12 +58,12 @@ namespace Pulumi.AzureNative.Resources.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:resources:TagAtScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20191001:TagAtScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20200601:TagAtScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20200801:TagAtScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20210101:TagAtScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20210401:TagAtScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources:TagAtScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20191001:TagAtScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20200601:TagAtScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20200801:TagAtScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20210101:TagAtScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20210401:TagAtScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -85,7 +85,7 @@ namespace Pulumi.AzureNative.Resources.V20201001
         }
     }
 
-    public sealed class TagAtScopeArgs : global::Pulumi.ResourceArgs
+    public sealed class TagAtScopeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The set of tags.
@@ -102,6 +102,5 @@ namespace Pulumi.AzureNative.Resources.V20201001
         public TagAtScopeArgs()
         {
         }
-        public static new TagAtScopeArgs Empty => new TagAtScopeArgs();
     }
 }

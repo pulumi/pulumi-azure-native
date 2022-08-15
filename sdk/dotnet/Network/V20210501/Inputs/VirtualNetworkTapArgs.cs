@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210501.Inputs
     /// <summary>
     /// Virtual Network Tap resource.
     /// </summary>
-    public sealed class VirtualNetworkTapArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualNetworkTapArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The reference to the private IP address on the internal Load Balancer that will receive the tap.
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.Network.V20210501.Inputs
         public VirtualNetworkTapArgs()
         {
         }
-        public static new VirtualNetworkTapArgs Empty => new VirtualNetworkTapArgs();
     }
 }

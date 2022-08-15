@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Azure Databricks linked service.
     /// </summary>
-    public sealed class AzureDatabricksLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureDatabricksLinkedServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Access token for databricks REST API. Refer to https://docs.azuredatabricks.net/api/latest/authentication.html. Type: string (or Expression with resultType string).
@@ -193,6 +193,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public AzureDatabricksLinkedServiceArgs()
         {
         }
-        public static new AzureDatabricksLinkedServiceArgs Empty => new AzureDatabricksLinkedServiceArgs();
     }
 }

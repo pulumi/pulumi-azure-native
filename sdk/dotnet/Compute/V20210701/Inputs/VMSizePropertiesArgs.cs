@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20210701.Inputs
     /// <summary>
     /// Specifies VM Size Property settings on the virtual machine.
     /// </summary>
-    public sealed class VMSizePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class VMSizePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the number of vCPUs available for the VM. &lt;br&gt;&lt;br&gt; When this property is not specified in the request body the default behavior is to set it to the value of vCPUs available for that VM size exposed in api response of [List all available virtual machine sizes in a region](https://docs.microsoft.com/en-us/rest/api/compute/resource-skus/list) .
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Compute.V20210701.Inputs
         public VMSizePropertiesArgs()
         {
         }
-        public static new VMSizePropertiesArgs Empty => new VMSizePropertiesArgs();
     }
 }

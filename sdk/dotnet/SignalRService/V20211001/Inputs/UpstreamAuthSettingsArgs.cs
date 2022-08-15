@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SignalRService.V20211001.Inputs
     /// <summary>
     /// Upstream auth settings. If not set, no auth is used for upstream messages.
     /// </summary>
-    public sealed class UpstreamAuthSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class UpstreamAuthSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Managed identity settings for upstream.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.SignalRService.V20211001.Inputs
         public UpstreamAuthSettingsArgs()
         {
         }
-        public static new UpstreamAuthSettingsArgs Empty => new UpstreamAuthSettingsArgs();
     }
 }

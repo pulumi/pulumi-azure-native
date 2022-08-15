@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// The base definition of a secret type.
     /// </summary>
-    public sealed class LinkedIntegrationRuntimeRbacArgs : global::Pulumi.ResourceArgs
+    public sealed class LinkedIntegrationRuntimeRbacArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of the secret.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public LinkedIntegrationRuntimeRbacArgs()
         {
         }
-        public static new LinkedIntegrationRuntimeRbacArgs Empty => new LinkedIntegrationRuntimeRbacArgs();
     }
 }

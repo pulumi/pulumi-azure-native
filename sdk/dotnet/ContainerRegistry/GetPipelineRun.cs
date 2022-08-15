@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
     }
 
 
-    public sealed class GetPipelineRunArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPipelineRunArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the pipeline run.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public GetPipelineRunArgs()
         {
         }
-        public static new GetPipelineRunArgs Empty => new GetPipelineRunArgs();
     }
 
-    public sealed class GetPipelineRunInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPipelineRunInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the pipeline run.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public GetPipelineRunInvokeArgs()
         {
         }
-        public static new GetPipelineRunInvokeArgs Empty => new GetPipelineRunInvokeArgs();
     }
 
 

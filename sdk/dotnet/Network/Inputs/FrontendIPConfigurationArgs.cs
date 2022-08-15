@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.Inputs
     /// <summary>
     /// Frontend IP address of the load balancer.
     /// </summary>
-    public sealed class FrontendIPConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class FrontendIPConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID.
@@ -78,6 +78,5 @@ namespace Pulumi.AzureNative.Network.Inputs
         public FrontendIPConfigurationArgs()
         {
         }
-        public static new FrontendIPConfigurationArgs Empty => new FrontendIPConfigurationArgs();
     }
 }

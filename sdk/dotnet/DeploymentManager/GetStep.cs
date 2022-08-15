@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DeploymentManager
     }
 
 
-    public sealed class GetStepArgs : global::Pulumi.InvokeArgs
+    public sealed class GetStepArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.DeploymentManager
         public GetStepArgs()
         {
         }
-        public static new GetStepArgs Empty => new GetStepArgs();
     }
 
-    public sealed class GetStepInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetStepInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.DeploymentManager
         public GetStepInvokeArgs()
         {
         }
-        public static new GetStepInvokeArgs Empty => new GetStepInvokeArgs();
     }
 
 

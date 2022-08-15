@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201
     }
 
 
-    public sealed class GetServerSecurityAlertPolicyArgs : global::Pulumi.InvokeArgs
+    public sealed class GetServerSecurityAlertPolicyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201
         public GetServerSecurityAlertPolicyArgs()
         {
         }
-        public static new GetServerSecurityAlertPolicyArgs Empty => new GetServerSecurityAlertPolicyArgs();
     }
 
-    public sealed class GetServerSecurityAlertPolicyInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetServerSecurityAlertPolicyInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201
         public GetServerSecurityAlertPolicyInvokeArgs()
         {
         }
-        public static new GetServerSecurityAlertPolicyInvokeArgs Empty => new GetServerSecurityAlertPolicyInvokeArgs();
     }
 
 

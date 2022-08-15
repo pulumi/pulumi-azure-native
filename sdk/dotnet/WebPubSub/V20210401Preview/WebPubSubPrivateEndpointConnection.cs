@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20210401Preview
     /// A private endpoint connection to an azure resource
     /// </summary>
     [AzureNativeResourceType("azure-native:webpubsub/v20210401preview:WebPubSubPrivateEndpointConnection")]
-    public partial class WebPubSubPrivateEndpointConnection : global::Pulumi.CustomResource
+    public partial class WebPubSubPrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource.
@@ -76,10 +76,10 @@ namespace Pulumi.AzureNative.WebPubSub.V20210401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub:WebPubSubPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20210601preview:WebPubSubPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20210901preview:WebPubSubPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20211001:WebPubSubPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:webpubsub:WebPubSubPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:webpubsub/v20210601preview:WebPubSubPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:webpubsub/v20210901preview:WebPubSubPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:webpubsub/v20211001:WebPubSubPrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20210401Preview
         }
     }
 
-    public sealed class WebPubSubPrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class WebPubSubPrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Private endpoint associated with the private endpoint connection
@@ -136,6 +136,5 @@ namespace Pulumi.AzureNative.WebPubSub.V20210401Preview
         public WebPubSubPrivateEndpointConnectionArgs()
         {
         }
-        public static new WebPubSubPrivateEndpointConnectionArgs Empty => new WebPubSubPrivateEndpointConnectionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DomainRegistration.V20210301.Inputs
     /// <summary>
     /// Domain purchase consent object, representing acceptance of applicable legal agreements.
     /// </summary>
-    public sealed class DomainPurchaseConsentArgs : global::Pulumi.ResourceArgs
+    public sealed class DomainPurchaseConsentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Timestamp when the agreements were accepted.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.DomainRegistration.V20210301.Inputs
         public DomainPurchaseConsentArgs()
         {
         }
-        public static new DomainPurchaseConsentArgs Empty => new DomainPurchaseConsentArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.Inputs
     /// <summary>
     /// Network Interface model
     /// </summary>
-    public sealed class NetworkInterfaceArgs : global::Pulumi.ResourceArgs
+    public sealed class NetworkInterfaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the device key value.
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.Inputs
         public NetworkInterfaceArgs()
         {
         }
-        public static new NetworkInterfaceArgs Empty => new NetworkInterfaceArgs();
     }
 }

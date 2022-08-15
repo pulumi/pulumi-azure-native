@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20201201.Inputs
     /// <summary>
     /// Describes a virtual machine scale set virtual machine profile.
     /// </summary>
-    public sealed class VirtualMachineScaleSetVMProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualMachineScaleSetVMProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the billing related details of a Azure Spot VMSS. &lt;br&gt;&lt;br&gt;Minimum api-version: 2019-03-01.
@@ -84,6 +84,5 @@ namespace Pulumi.AzureNative.Compute.V20201201.Inputs
         public VirtualMachineScaleSetVMProfileArgs()
         {
         }
-        public static new VirtualMachineScaleSetVMProfileArgs Empty => new VirtualMachineScaleSetVMProfileArgs();
     }
 }

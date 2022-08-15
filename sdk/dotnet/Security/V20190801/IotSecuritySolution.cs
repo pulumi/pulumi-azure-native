@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20190801
     /// IoT Security solution configuration and resource information.
     /// </summary>
     [AzureNativeResourceType("azure-native:security/v20190801:IotSecuritySolution")]
-    public partial class IotSecuritySolution : global::Pulumi.CustomResource
+    public partial class IotSecuritySolution : Pulumi.CustomResource
     {
         /// <summary>
         /// List of additional workspaces
@@ -136,8 +136,8 @@ namespace Pulumi.AzureNative.Security.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:security:IotSecuritySolution"},
-                    new global::Pulumi.Alias { Type = "azure-native:security/v20170801preview:IotSecuritySolution"},
+                    new Pulumi.Alias { Type = "azure-native:security:IotSecuritySolution"},
+                    new Pulumi.Alias { Type = "azure-native:security/v20170801preview:IotSecuritySolution"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -159,7 +159,7 @@ namespace Pulumi.AzureNative.Security.V20190801
         }
     }
 
-    public sealed class IotSecuritySolutionArgs : global::Pulumi.ResourceArgs
+    public sealed class IotSecuritySolutionArgs : Pulumi.ResourceArgs
     {
         [Input("additionalWorkspaces")]
         private InputList<Inputs.AdditionalWorkspacesPropertiesArgs>? _additionalWorkspaces;
@@ -286,6 +286,5 @@ namespace Pulumi.AzureNative.Security.V20190801
             Status = "Enabled";
             UnmaskedIpLoggingStatus = "Disabled";
         }
-        public static new IotSecuritySolutionArgs Empty => new IotSecuritySolutionArgs();
     }
 }

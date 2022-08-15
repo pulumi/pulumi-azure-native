@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20170501Preview.Inputs
     /// <summary>
     /// Part of Subscription diagnostic setting. Specifies the settings for a particular log.
     /// </summary>
-    public sealed class SubscriptionLogSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class SubscriptionLogSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of a Subscription Diagnostic Log category for a resource type this setting is applied to.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Insights.V20170501Preview.Inputs
         public SubscriptionLogSettingsArgs()
         {
         }
-        public static new SubscriptionLogSettingsArgs Empty => new SubscriptionLogSettingsArgs();
     }
 }

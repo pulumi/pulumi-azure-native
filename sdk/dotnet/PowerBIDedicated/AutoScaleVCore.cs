@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.PowerBIDedicated
     /// API Version: 2021-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:powerbidedicated:AutoScaleVCore")]
-    public partial class AutoScaleVCore : global::Pulumi.CustomResource
+    public partial class AutoScaleVCore : Pulumi.CustomResource
     {
         /// <summary>
         /// The maximum capacity of an auto scale v-core resource.
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.PowerBIDedicated
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:powerbidedicated/v20210101:AutoScaleVCore"},
+                    new Pulumi.Alias { Type = "azure-native:powerbidedicated/v20210101:AutoScaleVCore"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.PowerBIDedicated
         }
     }
 
-    public sealed class AutoScaleVCoreArgs : global::Pulumi.ResourceArgs
+    public sealed class AutoScaleVCoreArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum capacity of an auto scale v-core resource.
@@ -176,6 +176,5 @@ namespace Pulumi.AzureNative.PowerBIDedicated
         public AutoScaleVCoreArgs()
         {
         }
-        public static new AutoScaleVCoreArgs Empty => new AutoScaleVCoreArgs();
     }
 }

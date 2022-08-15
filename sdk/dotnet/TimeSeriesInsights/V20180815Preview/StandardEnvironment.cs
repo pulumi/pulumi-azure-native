@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
     /// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Standard environments have data retention limits.
     /// </summary>
     [AzureNativeResourceType("azure-native:timeseriesinsights/v20180815preview:StandardEnvironment")]
-    public partial class StandardEnvironment : global::Pulumi.CustomResource
+    public partial class StandardEnvironment : Pulumi.CustomResource
     {
         /// <summary>
         /// The time the resource was created.
@@ -132,12 +132,12 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights:StandardEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:StandardEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:StandardEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:StandardEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:StandardEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:StandardEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights:StandardEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:StandardEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:StandardEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:StandardEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:StandardEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:StandardEnvironment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -159,7 +159,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
         }
     }
 
-    public sealed class StandardEnvironmentArgs : global::Pulumi.ResourceArgs
+    public sealed class StandardEnvironmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
@@ -231,6 +231,5 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
         public StandardEnvironmentArgs()
         {
         }
-        public static new StandardEnvironmentArgs Empty => new StandardEnvironmentArgs();
     }
 }

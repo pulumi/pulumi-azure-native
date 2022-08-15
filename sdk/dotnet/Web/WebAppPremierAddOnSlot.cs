@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web
     /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppPremierAddOnSlot")]
-    public partial class WebAppPremierAddOnSlot : global::Pulumi.CustomResource
+    public partial class WebAppPremierAddOnSlot : Pulumi.CustomResource
     {
         /// <summary>
         /// Kind of resource.
@@ -101,20 +101,20 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppPremierAddOnSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppPremierAddOnSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppPremierAddOnSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppPremierAddOnSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppPremierAddOnSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppPremierAddOnSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppPremierAddOnSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppPremierAddOnSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppPremierAddOnSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppPremierAddOnSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppPremierAddOnSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppPremierAddOnSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppPremierAddOnSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppPremierAddOnSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppPremierAddOnSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppPremierAddOnSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppPremierAddOnSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppPremierAddOnSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppPremierAddOnSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppPremierAddOnSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppPremierAddOnSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppPremierAddOnSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppPremierAddOnSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppPremierAddOnSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppPremierAddOnSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppPremierAddOnSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppPremierAddOnSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppPremierAddOnSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.Web
         }
     }
 
-    public sealed class WebAppPremierAddOnSlotArgs : global::Pulumi.ResourceArgs
+    public sealed class WebAppPremierAddOnSlotArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Kind of resource.
@@ -219,6 +219,5 @@ namespace Pulumi.AzureNative.Web
         public WebAppPremierAddOnSlotArgs()
         {
         }
-        public static new WebAppPremierAddOnSlotArgs Empty => new WebAppPremierAddOnSlotArgs();
     }
 }

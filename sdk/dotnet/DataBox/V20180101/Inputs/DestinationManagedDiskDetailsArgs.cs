@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBox.V20180101.Inputs
     /// <summary>
     /// Details for the destination compute disks.
     /// </summary>
-    public sealed class DestinationManagedDiskDetailsArgs : global::Pulumi.ResourceArgs
+    public sealed class DestinationManagedDiskDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Arm Id of the destination where the data has to be moved.
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.DataBox.V20180101.Inputs
         public DestinationManagedDiskDetailsArgs()
         {
         }
-        public static new DestinationManagedDiskDetailsArgs Empty => new DestinationManagedDiskDetailsArgs();
     }
 }

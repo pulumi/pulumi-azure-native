@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// The Teradata database dataset.
     /// </summary>
-    public sealed class TeradataTableDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class TeradataTableDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -91,6 +91,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public TeradataTableDatasetArgs()
         {
         }
-        public static new TeradataTableDatasetArgs Empty => new TeradataTableDatasetArgs();
     }
 }

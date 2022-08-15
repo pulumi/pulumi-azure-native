@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20200831Preview.Inputs
     /// <summary>
     /// Network Rule Set Properties of IotHub
     /// </summary>
-    public sealed class NetworkRuleSetPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class NetworkRuleSetPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// If True, then Network Rule Set is also applied to BuiltIn EventHub EndPoint of IotHub
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.Devices.V20200831Preview.Inputs
         {
             DefaultAction = "Deny";
         }
-        public static new NetworkRuleSetPropertiesArgs Empty => new NetworkRuleSetPropertiesArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20201001.Inputs
 {
 
-    public sealed class HttpSettingsRoutesArgs : global::Pulumi.ResourceArgs
+    public sealed class HttpSettingsRoutesArgs : Pulumi.ResourceArgs
     {
         [Input("apiPrefix")]
         public Input<string>? ApiPrefix { get; set; }
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Web.V20201001.Inputs
         public HttpSettingsRoutesArgs()
         {
         }
-        public static new HttpSettingsRoutesArgs Empty => new HttpSettingsRoutesArgs();
     }
 }

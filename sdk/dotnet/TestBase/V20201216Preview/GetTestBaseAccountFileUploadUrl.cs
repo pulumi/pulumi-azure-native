@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview
     }
 
 
-    public sealed class GetTestBaseAccountFileUploadUrlArgs : global::Pulumi.InvokeArgs
+    public sealed class GetTestBaseAccountFileUploadUrlArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The custom file name of the uploaded blob.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview
         public GetTestBaseAccountFileUploadUrlArgs()
         {
         }
-        public static new GetTestBaseAccountFileUploadUrlArgs Empty => new GetTestBaseAccountFileUploadUrlArgs();
     }
 
-    public sealed class GetTestBaseAccountFileUploadUrlInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetTestBaseAccountFileUploadUrlInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The custom file name of the uploaded blob.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview
         public GetTestBaseAccountFileUploadUrlInvokeArgs()
         {
         }
-        public static new GetTestBaseAccountFileUploadUrlInvokeArgs Empty => new GetTestBaseAccountFileUploadUrlInvokeArgs();
     }
 
 

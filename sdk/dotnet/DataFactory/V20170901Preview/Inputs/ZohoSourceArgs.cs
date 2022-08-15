@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity Zoho server source.
     /// </summary>
-    public sealed class ZohoSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class ZohoSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public ZohoSourceArgs()
         {
         }
-        public static new ZohoSourceArgs Empty => new ZohoSourceArgs();
     }
 }

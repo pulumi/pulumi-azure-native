@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
     /// <summary>
     /// Settings for upgrading an agentpool
     /// </summary>
-    public sealed class AgentPoolUpgradeSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class AgentPoolUpgradeSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Count or percentage of additional nodes to be added during upgrade. If empty uses AKS default
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public AgentPoolUpgradeSettingsArgs()
         {
         }
-        public static new AgentPoolUpgradeSettingsArgs Empty => new AgentPoolUpgradeSettingsArgs();
     }
 }

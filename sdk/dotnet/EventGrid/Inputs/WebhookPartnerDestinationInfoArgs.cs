@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.Inputs
     /// <summary>
     /// Information about the WebHook of the partner destination.
     /// </summary>
-    public sealed class WebhookPartnerDestinationInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class WebhookPartnerDestinationInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure subscription ID of the subscriber. The partner destination associated with the channel will be
@@ -82,6 +82,5 @@ namespace Pulumi.AzureNative.EventGrid.Inputs
         {
             EndpointType = "WebHook";
         }
-        public static new WebhookPartnerDestinationInfoArgs Empty => new WebhookPartnerDestinationInfoArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
     /// Represents a devcenter resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter/v20220801preview:DevCenter")]
-    public partial class DevCenter : global::Pulumi.CustomResource
+    public partial class DevCenter : Pulumi.CustomResource
     {
         /// <summary>
         /// Managed identity properties
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         }
     }
 
-    public sealed class DevCenterArgs : global::Pulumi.ResourceArgs
+    public sealed class DevCenterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the devcenter.
@@ -141,6 +141,5 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         public DevCenterArgs()
         {
         }
-        public static new DevCenterArgs Empty => new DevCenterArgs();
     }
 }

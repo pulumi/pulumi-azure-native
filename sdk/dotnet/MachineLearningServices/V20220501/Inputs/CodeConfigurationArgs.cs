@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
     /// <summary>
     /// Configuration for a scoring code asset.
     /// </summary>
-    public sealed class CodeConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class CodeConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARM resource ID of the code asset.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
         public CodeConfigurationArgs()
         {
         }
-        public static new CodeConfigurationArgs Empty => new CodeConfigurationArgs();
     }
 }

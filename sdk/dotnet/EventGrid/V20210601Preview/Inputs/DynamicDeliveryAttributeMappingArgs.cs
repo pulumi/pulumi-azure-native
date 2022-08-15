@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20210601Preview.Inputs
     /// <summary>
     /// Dynamic delivery attribute mapping details.
     /// </summary>
-    public sealed class DynamicDeliveryAttributeMappingArgs : global::Pulumi.ResourceArgs
+    public sealed class DynamicDeliveryAttributeMappingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the delivery attribute or header.
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.EventGrid.V20210601Preview.Inputs
         public DynamicDeliveryAttributeMappingArgs()
         {
         }
-        public static new DynamicDeliveryAttributeMappingArgs Empty => new DynamicDeliveryAttributeMappingArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20160601.Inputs
     /// <summary>
     /// The API backend service
     /// </summary>
-    public sealed class ApiResourceBackendServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class ApiResourceBackendServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The service URL
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Web.V20160601.Inputs
         public ApiResourceBackendServiceArgs()
         {
         }
-        public static new ApiResourceBackendServiceArgs Empty => new ApiResourceBackendServiceArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
     }
 
 
-    public sealed class GetResourcePoolArgs : global::Pulumi.InvokeArgs
+    public sealed class GetResourcePoolArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Resource Group Name.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         public GetResourcePoolArgs()
         {
         }
-        public static new GetResourcePoolArgs Empty => new GetResourcePoolArgs();
     }
 
-    public sealed class GetResourcePoolInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetResourcePoolInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Resource Group Name.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         public GetResourcePoolInvokeArgs()
         {
         }
-        public static new GetResourcePoolInvokeArgs Empty => new GetResourcePoolInvokeArgs();
     }
 
 

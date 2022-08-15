@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
     /// Information about a partner registration.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid/v20220615:PartnerRegistration")]
-    public partial class PartnerRegistration : global::Pulumi.CustomResource
+    public partial class PartnerRegistration : Pulumi.CustomResource
     {
         /// <summary>
         /// Location of the resource.
@@ -83,11 +83,11 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid:PartnerRegistration"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:PartnerRegistration"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:PartnerRegistration"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:PartnerRegistration"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:PartnerRegistration"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid:PartnerRegistration"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:PartnerRegistration"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:PartnerRegistration"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:PartnerRegistration"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:PartnerRegistration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -109,7 +109,7 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
         }
     }
 
-    public sealed class PartnerRegistrationArgs : global::Pulumi.ResourceArgs
+    public sealed class PartnerRegistrationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Location of the resource.
@@ -151,6 +151,5 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
         public PartnerRegistrationArgs()
         {
         }
-        public static new PartnerRegistrationArgs Empty => new PartnerRegistrationArgs();
     }
 }

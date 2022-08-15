@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20210901Preview.Inputs
 {
 
-    public sealed class SubscriptionStateRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class SubscriptionStateRuleArgs : Pulumi.ResourceArgs
     {
         [Input("allowedActions")]
         private InputList<string>? _allowedActions;
@@ -26,6 +26,5 @@ namespace Pulumi.AzureNative.ProviderHub.V20210901Preview.Inputs
         public SubscriptionStateRuleArgs()
         {
         }
-        public static new SubscriptionStateRuleArgs Empty => new SubscriptionStateRuleArgs();
     }
 }

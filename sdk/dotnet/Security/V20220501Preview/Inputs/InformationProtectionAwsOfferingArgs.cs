@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
     /// <summary>
     /// The information protection for AWS offering
     /// </summary>
-    public sealed class InformationProtectionAwsOfferingArgs : global::Pulumi.ResourceArgs
+    public sealed class InformationProtectionAwsOfferingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The native cloud connection configuration
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
         public InformationProtectionAwsOfferingArgs()
         {
         }
-        public static new InformationProtectionAwsOfferingArgs Empty => new InformationProtectionAwsOfferingArgs();
     }
 }

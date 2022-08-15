@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200401.Inputs
     /// <summary>
     /// Describes Redirect Route.
     /// </summary>
-    public sealed class RedirectConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class RedirectConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Fragment to add to the redirect URL. Fragment is the part of the URL that comes after #. Do not include the #.
@@ -61,6 +61,5 @@ namespace Pulumi.AzureNative.Network.V20200401.Inputs
         public RedirectConfigurationArgs()
         {
         }
-        public static new RedirectConfigurationArgs Empty => new RedirectConfigurationArgs();
     }
 }

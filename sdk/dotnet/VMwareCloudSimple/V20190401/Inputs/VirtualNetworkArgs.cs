@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VMwareCloudSimple.V20190401.Inputs
     /// <summary>
     /// Virtual network model
     /// </summary>
-    public sealed class VirtualNetworkArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualNetworkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// virtual network id (privateCloudId:vsphereId)
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.VMwareCloudSimple.V20190401.Inputs
         public VirtualNetworkArgs()
         {
         }
-        public static new VirtualNetworkArgs Empty => new VirtualNetworkArgs();
     }
 }

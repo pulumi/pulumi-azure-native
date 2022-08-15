@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview.Inputs
     /// <summary>
     /// Logs data type.
     /// </summary>
-    public sealed class AwsS3DataConnectorDataTypesLogsArgs : global::Pulumi.ResourceArgs
+    public sealed class AwsS3DataConnectorDataTypesLogsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describe whether this data type connection is enabled or not.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview.Inputs
         public AwsS3DataConnectorDataTypesLogsArgs()
         {
         }
-        public static new AwsS3DataConnectorDataTypesLogsArgs Empty => new AwsS3DataConnectorDataTypesLogsArgs();
     }
 }

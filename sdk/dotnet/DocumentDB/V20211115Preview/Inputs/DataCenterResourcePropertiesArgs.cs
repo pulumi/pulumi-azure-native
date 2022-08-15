@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20211115Preview.Inputs
     /// <summary>
     /// Properties of a managed Cassandra data center.
     /// </summary>
-    public sealed class DataCenterResourcePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class DataCenterResourcePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Ldap authentication method properties. This feature is in preview.
@@ -90,6 +90,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20211115Preview.Inputs
         public DataCenterResourcePropertiesArgs()
         {
         }
-        public static new DataCenterResourcePropertiesArgs Empty => new DataCenterResourcePropertiesArgs();
     }
 }

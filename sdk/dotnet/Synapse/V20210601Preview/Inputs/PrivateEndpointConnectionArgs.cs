@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview.Inputs
     /// <summary>
     /// A private endpoint connection
     /// </summary>
-    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Connection state of the private endpoint connection.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview.Inputs
         public PrivateEndpointConnectionArgs()
         {
         }
-        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20180401.Inputs
     /// <summary>
     /// An application security group in a resource group.
     /// </summary>
-    public sealed class ApplicationSecurityGroupArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplicationSecurityGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Network.V20180401.Inputs
         public ApplicationSecurityGroupArgs()
         {
         }
-        public static new ApplicationSecurityGroupArgs Empty => new ApplicationSecurityGroupArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
     }
 
 
-    public sealed class GetEnvironmentVersionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEnvironmentVersionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Container name. This is case-sensitive.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
         public GetEnvironmentVersionArgs()
         {
         }
-        public static new GetEnvironmentVersionArgs Empty => new GetEnvironmentVersionArgs();
     }
 
-    public sealed class GetEnvironmentVersionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEnvironmentVersionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Container name. This is case-sensitive.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
         public GetEnvironmentVersionInvokeArgs()
         {
         }
-        public static new GetEnvironmentVersionInvokeArgs Empty => new GetEnvironmentVersionInvokeArgs();
     }
 
 

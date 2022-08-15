@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.Inputs
     /// <summary>
     /// Describes the resource that is used for triggering auto scaling.
     /// </summary>
-    public sealed class AutoScalingResourceMetricArgs : global::Pulumi.ResourceArgs
+    public sealed class AutoScalingResourceMetricArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enumerates the metrics that are used for triggering auto scaling.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.Inputs
         public AutoScalingResourceMetricArgs()
         {
         }
-        public static new AutoScalingResourceMetricArgs Empty => new AutoScalingResourceMetricArgs();
     }
 }

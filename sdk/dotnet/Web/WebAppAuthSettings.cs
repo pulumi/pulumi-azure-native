@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web
     /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppAuthSettings")]
-    public partial class WebAppAuthSettings : global::Pulumi.CustomResource
+    public partial class WebAppAuthSettings : Pulumi.CustomResource
     {
         /// <summary>
         /// Gets a JSON string containing the Azure AD Acl settings.
@@ -339,20 +339,20 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppAuthSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppAuthSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppAuthSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppAuthSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppAuthSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppAuthSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppAuthSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppAuthSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppAuthSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppAuthSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppAuthSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppAuthSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppAuthSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppAuthSettings"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -374,7 +374,7 @@ namespace Pulumi.AzureNative.Web
         }
     }
 
-    public sealed class WebAppAuthSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class WebAppAuthSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets a JSON string containing the Azure AD Acl settings.
@@ -719,6 +719,5 @@ namespace Pulumi.AzureNative.Web
         public WebAppAuthSettingsArgs()
         {
         }
-        public static new WebAppAuthSettingsArgs Empty => new WebAppAuthSettingsArgs();
     }
 }

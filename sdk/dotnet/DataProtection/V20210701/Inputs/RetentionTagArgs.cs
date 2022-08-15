@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataProtection.V20210701.Inputs
     /// <summary>
     /// Retention tag
     /// </summary>
-    public sealed class RetentionTagArgs : global::Pulumi.ResourceArgs
+    public sealed class RetentionTagArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Retention Tag Name to relate it to retention rule.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DataProtection.V20210701.Inputs
         public RetentionTagArgs()
         {
         }
-        public static new RetentionTagArgs Empty => new RetentionTagArgs();
     }
 }

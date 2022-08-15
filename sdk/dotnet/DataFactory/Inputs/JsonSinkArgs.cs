@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity Json sink.
     /// </summary>
-    public sealed class JsonSinkArgs : global::Pulumi.ResourceArgs
+    public sealed class JsonSinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -73,6 +73,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public JsonSinkArgs()
         {
         }
-        public static new JsonSinkArgs Empty => new JsonSinkArgs();
     }
 }

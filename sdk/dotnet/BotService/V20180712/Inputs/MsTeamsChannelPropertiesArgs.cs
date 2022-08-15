@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20180712.Inputs
     /// <summary>
     /// The parameters to provide for the Microsoft Teams channel.
     /// </summary>
-    public sealed class MsTeamsChannelPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class MsTeamsChannelPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Webhook for Microsoft Teams channel calls
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.BotService.V20180712.Inputs
         public MsTeamsChannelPropertiesArgs()
         {
         }
-        public static new MsTeamsChannelPropertiesArgs Empty => new MsTeamsChannelPropertiesArgs();
     }
 }

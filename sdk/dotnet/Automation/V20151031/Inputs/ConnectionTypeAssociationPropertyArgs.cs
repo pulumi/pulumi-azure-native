@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.V20151031.Inputs
     /// <summary>
     /// The connection type property associated with the entity.
     /// </summary>
-    public sealed class ConnectionTypeAssociationPropertyArgs : global::Pulumi.ResourceArgs
+    public sealed class ConnectionTypeAssociationPropertyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the name of the connection type.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Automation.V20151031.Inputs
         public ConnectionTypeAssociationPropertyArgs()
         {
         }
-        public static new ConnectionTypeAssociationPropertyArgs Empty => new ConnectionTypeAssociationPropertyArgs();
     }
 }

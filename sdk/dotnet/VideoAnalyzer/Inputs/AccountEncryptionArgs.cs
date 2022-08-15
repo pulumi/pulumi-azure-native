@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.Inputs
     /// <summary>
     /// Defines how the Video Analyzer account is (optionally) encrypted.
     /// </summary>
-    public sealed class AccountEncryptionArgs : global::Pulumi.ResourceArgs
+    public sealed class AccountEncryptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Key Vault identity.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.VideoAnalyzer.Inputs
         public AccountEncryptionArgs()
         {
         }
-        public static new AccountEncryptionArgs Empty => new AccountEncryptionArgs();
     }
 }

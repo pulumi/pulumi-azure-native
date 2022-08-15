@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20210501Preview.Inputs
 {
 
-    public sealed class SkuZoneDetailArgs : global::Pulumi.ResourceArgs
+    public sealed class SkuZoneDetailArgs : Pulumi.ResourceArgs
     {
         [Input("capabilities")]
         private InputList<Inputs.SkuCapabilityArgs>? _capabilities;
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.ProviderHub.V20210501Preview.Inputs
         public SkuZoneDetailArgs()
         {
         }
-        public static new SkuZoneDetailArgs Empty => new SkuZoneDetailArgs();
     }
 }

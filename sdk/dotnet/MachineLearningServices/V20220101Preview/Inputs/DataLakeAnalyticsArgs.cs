@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220101Preview.Inputs
     /// <summary>
     /// A DataLakeAnalytics compute.
     /// </summary>
-    public sealed class DataLakeAnalyticsArgs : global::Pulumi.ResourceArgs
+    public sealed class DataLakeAnalyticsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Location for the underlying compute
@@ -52,6 +52,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220101Preview.Inputs
         public DataLakeAnalyticsArgs()
         {
         }
-        public static new DataLakeAnalyticsArgs Empty => new DataLakeAnalyticsArgs();
     }
 }

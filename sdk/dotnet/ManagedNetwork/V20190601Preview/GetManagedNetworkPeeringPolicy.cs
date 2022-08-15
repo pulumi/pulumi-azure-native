@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ManagedNetwork.V20190601Preview
     }
 
 
-    public sealed class GetManagedNetworkPeeringPolicyArgs : global::Pulumi.InvokeArgs
+    public sealed class GetManagedNetworkPeeringPolicyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Managed Network.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.ManagedNetwork.V20190601Preview
         public GetManagedNetworkPeeringPolicyArgs()
         {
         }
-        public static new GetManagedNetworkPeeringPolicyArgs Empty => new GetManagedNetworkPeeringPolicyArgs();
     }
 
-    public sealed class GetManagedNetworkPeeringPolicyInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetManagedNetworkPeeringPolicyInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Managed Network.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.ManagedNetwork.V20190601Preview
         public GetManagedNetworkPeeringPolicyInvokeArgs()
         {
         }
-        public static new GetManagedNetworkPeeringPolicyInvokeArgs Empty => new GetManagedNetworkPeeringPolicyInvokeArgs();
     }
 
 

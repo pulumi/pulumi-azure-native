@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Scheduler.V20160301.Inputs
 {
 
-    public sealed class RetryPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class RetryPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the number of times a retry should be attempted.
@@ -33,6 +33,5 @@ namespace Pulumi.AzureNative.Scheduler.V20160301.Inputs
         public RetryPolicyArgs()
         {
         }
-        public static new RetryPolicyArgs Empty => new RetryPolicyArgs();
     }
 }

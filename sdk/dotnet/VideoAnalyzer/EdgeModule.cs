@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
     /// API Version: 2021-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:videoanalyzer:EdgeModule")]
-    public partial class EdgeModule : global::Pulumi.CustomResource
+    public partial class EdgeModule : Pulumi.CustomResource
     {
         /// <summary>
         /// Internal ID generated for the instance of the Video Analyzer edge module.
@@ -65,8 +65,8 @@ namespace Pulumi.AzureNative.VideoAnalyzer
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:videoanalyzer/v20210501preview:EdgeModule"},
-                    new global::Pulumi.Alias { Type = "azure-native:videoanalyzer/v20211101preview:EdgeModule"},
+                    new Pulumi.Alias { Type = "azure-native:videoanalyzer/v20210501preview:EdgeModule"},
+                    new Pulumi.Alias { Type = "azure-native:videoanalyzer/v20211101preview:EdgeModule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         }
     }
 
-    public sealed class EdgeModuleArgs : global::Pulumi.ResourceArgs
+    public sealed class EdgeModuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Video Analyzer account name.
@@ -111,6 +111,5 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         public EdgeModuleArgs()
         {
         }
-        public static new EdgeModuleArgs Empty => new EdgeModuleArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview
     /// Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
     /// </summary>
     [AzureNativeResourceType("azure-native:app/v20220101preview:Certificate")]
-    public partial class Certificate : global::Pulumi.CustomResource
+    public partial class Certificate : Pulumi.CustomResource
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -76,8 +76,8 @@ namespace Pulumi.AzureNative.App.V20220101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:app:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20220301:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:app:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:app/v20220301:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview
         }
     }
 
-    public sealed class CertificateArgs : global::Pulumi.ResourceArgs
+    public sealed class CertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -146,6 +146,5 @@ namespace Pulumi.AzureNative.App.V20220101Preview
         public CertificateArgs()
         {
         }
-        public static new CertificateArgs Empty => new CertificateArgs();
     }
 }

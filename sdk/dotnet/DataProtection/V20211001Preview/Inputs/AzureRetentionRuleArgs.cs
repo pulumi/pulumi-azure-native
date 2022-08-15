@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataProtection.V20211001Preview.Inputs
     /// <summary>
     /// Azure retention rule
     /// </summary>
-    public sealed class AzureRetentionRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureRetentionRuleArgs : Pulumi.ResourceArgs
     {
         [Input("isDefault")]
         public Input<bool>? IsDefault { get; set; }
@@ -39,6 +39,5 @@ namespace Pulumi.AzureNative.DataProtection.V20211001Preview.Inputs
         public AzureRetentionRuleArgs()
         {
         }
-        public static new AzureRetentionRuleArgs Empty => new AzureRetentionRuleArgs();
     }
 }

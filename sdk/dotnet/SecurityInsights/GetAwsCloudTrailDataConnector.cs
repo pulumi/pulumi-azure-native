@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     }
 
 
-    public sealed class GetAwsCloudTrailDataConnectorArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAwsCloudTrailDataConnectorArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Connector ID
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.SecurityInsights
         public GetAwsCloudTrailDataConnectorArgs()
         {
         }
-        public static new GetAwsCloudTrailDataConnectorArgs Empty => new GetAwsCloudTrailDataConnectorArgs();
     }
 
-    public sealed class GetAwsCloudTrailDataConnectorInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAwsCloudTrailDataConnectorInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Connector ID
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         public GetAwsCloudTrailDataConnectorInvokeArgs()
         {
         }
-        public static new GetAwsCloudTrailDataConnectorInvokeArgs Empty => new GetAwsCloudTrailDataConnectorInvokeArgs();
     }
 
 

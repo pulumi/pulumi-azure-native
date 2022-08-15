@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20180601Preview
     /// Virtual machine guest diagnostic settings resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights/v20180601preview:GuestDiagnosticsSettingsAssociation")]
-    public partial class GuestDiagnosticsSettingsAssociation : global::Pulumi.CustomResource
+    public partial class GuestDiagnosticsSettingsAssociation : Pulumi.CustomResource
     {
         /// <summary>
         /// The guest diagnostic settings name.
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.Insights.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:insights:GuestDiagnosticsSettingsAssociation"},
+                    new Pulumi.Alias { Type = "azure-native:insights:GuestDiagnosticsSettingsAssociation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.Insights.V20180601Preview
         }
     }
 
-    public sealed class GuestDiagnosticsSettingsAssociationArgs : global::Pulumi.ResourceArgs
+    public sealed class GuestDiagnosticsSettingsAssociationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the diagnostic settings association.
@@ -133,6 +133,5 @@ namespace Pulumi.AzureNative.Insights.V20180601Preview
         public GuestDiagnosticsSettingsAssociationArgs()
         {
         }
-        public static new GuestDiagnosticsSettingsAssociationArgs Empty => new GuestDiagnosticsSettingsAssociationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20180701
     /// Route table resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20180701:RouteTable")]
-    public partial class RouteTable : global::Pulumi.CustomResource
+    public partial class RouteTable : Pulumi.CustomResource
     {
         /// <summary>
         /// Gets or sets whether to disable the routes learned by BGP on that route table. True means disable.
@@ -94,47 +94,47 @@ namespace Pulumi.AzureNative.Network.V20180701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20150501preview:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20150615:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20160330:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20160601:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20160901:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20161201:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170301:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170601:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170801:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170901:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20171001:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20171101:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180101:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180201:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180401:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180601:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180801:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181001:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181101:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181201:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190201:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190601:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190801:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:RouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20150501preview:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20150615:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160330:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160601:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160901:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20161201:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170301:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170601:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170801:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170901:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20171001:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20171101:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180101:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180201:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180401:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180601:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181001:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181101:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181201:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190201:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210301:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:RouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:RouteTable"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -156,7 +156,7 @@ namespace Pulumi.AzureNative.Network.V20180701
         }
     }
 
-    public sealed class RouteTableArgs : global::Pulumi.ResourceArgs
+    public sealed class RouteTableArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets whether to disable the routes learned by BGP on that route table. True means disable.
@@ -221,6 +221,5 @@ namespace Pulumi.AzureNative.Network.V20180701
         public RouteTableArgs()
         {
         }
-        public static new RouteTableArgs Empty => new RouteTableArgs();
     }
 }

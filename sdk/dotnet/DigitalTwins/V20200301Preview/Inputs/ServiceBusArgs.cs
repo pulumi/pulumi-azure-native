@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DigitalTwins.V20200301Preview.Inputs
     /// <summary>
     /// properties related to servicebus.
     /// </summary>
-    public sealed class ServiceBusArgs : global::Pulumi.ResourceArgs
+    public sealed class ServiceBusArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of Digital Twins endpoint
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.DigitalTwins.V20200301Preview.Inputs
         public ServiceBusArgs()
         {
         }
-        public static new ServiceBusArgs Empty => new ServiceBusArgs();
     }
 }

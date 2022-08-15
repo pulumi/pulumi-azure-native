@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NetApp.V20210601.Inputs
     /// <summary>
     /// Active Directory
     /// </summary>
-    public sealed class ActiveDirectoryArgs : global::Pulumi.ResourceArgs
+    public sealed class ActiveDirectoryArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Id of the Active Directory
@@ -145,6 +145,5 @@ namespace Pulumi.AzureNative.NetApp.V20210601.Inputs
         {
             OrganizationalUnit = "CN=Computers";
         }
-        public static new ActiveDirectoryArgs Empty => new ActiveDirectoryArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210901PrivatePreview.Inputs
     /// <summary>
     /// Describes the named partition scheme of the service.
     /// </summary>
-    public sealed class NamedPartitionSchemeArgs : global::Pulumi.ResourceArgs
+    public sealed class NamedPartitionSchemeArgs : Pulumi.ResourceArgs
     {
         [Input("names", required: true)]
         private InputList<string>? _names;
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210901PrivatePreview.Inputs
         public NamedPartitionSchemeArgs()
         {
         }
-        public static new NamedPartitionSchemeArgs Empty => new NamedPartitionSchemeArgs();
     }
 }

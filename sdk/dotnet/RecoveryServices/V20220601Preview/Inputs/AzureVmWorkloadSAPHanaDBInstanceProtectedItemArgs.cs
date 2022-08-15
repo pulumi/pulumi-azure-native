@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220601Preview.Inputs
     /// <summary>
     /// Azure VM workload-specific protected item representing SAP HANA DBInstance.
     /// </summary>
-    public sealed class AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the backup set the backup item belongs to
@@ -181,6 +181,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220601Preview.Inputs
         public AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgs()
         {
         }
-        public static new AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgs Empty => new AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgs();
     }
 }

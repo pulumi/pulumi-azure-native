@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.Inputs
     /// <summary>
     /// Properties of an environment deployment.
     /// </summary>
-    public sealed class EnvironmentDeploymentPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class EnvironmentDeploymentPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Resource Manager template's identifier.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DevTestLab.Inputs
         public EnvironmentDeploymentPropertiesArgs()
         {
         }
-        public static new EnvironmentDeploymentPropertiesArgs Empty => new EnvironmentDeploymentPropertiesArgs();
     }
 }

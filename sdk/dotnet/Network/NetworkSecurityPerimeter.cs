@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network
     /// API Version: 2021-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkSecurityPerimeter")]
-    public partial class NetworkSecurityPerimeter : global::Pulumi.CustomResource
+    public partial class NetworkSecurityPerimeter : Pulumi.CustomResource
     {
         /// <summary>
         /// Resource location.
@@ -77,8 +77,8 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:NetworkSecurityPerimeter"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301preview:NetworkSecurityPerimeter"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201preview:NetworkSecurityPerimeter"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210301preview:NetworkSecurityPerimeter"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.Network
         }
     }
 
-    public sealed class NetworkSecurityPerimeterArgs : global::Pulumi.ResourceArgs
+    public sealed class NetworkSecurityPerimeterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID.
@@ -153,6 +153,5 @@ namespace Pulumi.AzureNative.Network
         public NetworkSecurityPerimeterArgs()
         {
         }
-        public static new NetworkSecurityPerimeterArgs Empty => new NetworkSecurityPerimeterArgs();
     }
 }

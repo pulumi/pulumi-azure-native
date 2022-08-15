@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataShare.V20210801
     /// A Invitation data transfer object.
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare/v20210801:Invitation")]
-    public partial class Invitation : global::Pulumi.CustomResource
+    public partial class Invitation : Pulumi.CustomResource
     {
         /// <summary>
         /// The expiration date for the invitation and share subscription.
@@ -120,11 +120,11 @@ namespace Pulumi.AzureNative.DataShare.V20210801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datashare:Invitation"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:Invitation"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:Invitation"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:Invitation"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:Invitation"},
+                    new Pulumi.Alias { Type = "azure-native:datashare:Invitation"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:Invitation"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:Invitation"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20200901:Invitation"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:Invitation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -146,7 +146,7 @@ namespace Pulumi.AzureNative.DataShare.V20210801
         }
     }
 
-    public sealed class InvitationArgs : global::Pulumi.ResourceArgs
+    public sealed class InvitationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -201,6 +201,5 @@ namespace Pulumi.AzureNative.DataShare.V20210801
         public InvitationArgs()
         {
         }
-        public static new InvitationArgs Empty => new InvitationArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Orbital.V20220301
     }
 
 
-    public sealed class GetContactArgs : global::Pulumi.InvokeArgs
+    public sealed class GetContactArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Contact name.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Orbital.V20220301
         public GetContactArgs()
         {
         }
-        public static new GetContactArgs Empty => new GetContactArgs();
     }
 
-    public sealed class GetContactInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetContactInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Contact name.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Orbital.V20220301
         public GetContactInvokeArgs()
         {
         }
-        public static new GetContactInvokeArgs Empty => new GetContactInvokeArgs();
     }
 
 

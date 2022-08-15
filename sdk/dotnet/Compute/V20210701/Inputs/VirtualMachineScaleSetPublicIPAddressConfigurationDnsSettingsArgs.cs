@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20210701.Inputs
     /// <summary>
     /// Describes a virtual machines scale sets network configuration's DNS settings.
     /// </summary>
-    public sealed class VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Domain name label.The concatenation of the domain name label and vm index will be the domain name labels of the PublicIPAddress resources that will be created
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Compute.V20210701.Inputs
         public VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsArgs()
         {
         }
-        public static new VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsArgs Empty => new VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsArgs();
     }
 }

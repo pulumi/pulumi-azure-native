@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.Inputs
     /// <summary>
     /// The network properties.
     /// </summary>
-    public sealed class NetworkPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class NetworkPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether or not private link is enabled.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.HDInsight.Inputs
         public NetworkPropertiesArgs()
         {
         }
-        public static new NetworkPropertiesArgs Empty => new NetworkPropertiesArgs();
     }
 }

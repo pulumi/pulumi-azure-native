@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.Inputs
     /// <summary>
     /// A policy that specifies the delivery rules to be used for an endpoint.
     /// </summary>
-    public sealed class EndpointPropertiesUpdateParametersDeliveryPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class EndpointPropertiesUpdateParametersDeliveryPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// User-friendly description of the policy.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Cdn.Inputs
         public EndpointPropertiesUpdateParametersDeliveryPolicyArgs()
         {
         }
-        public static new EndpointPropertiesUpdateParametersDeliveryPolicyArgs Empty => new EndpointPropertiesUpdateParametersDeliveryPolicyArgs();
     }
 }

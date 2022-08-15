@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Synapse spark job reference type.
     /// </summary>
-    public sealed class SynapseSparkJobReferenceArgs : global::Pulumi.ResourceArgs
+    public sealed class SynapseSparkJobReferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Reference spark job name.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public SynapseSparkJobReferenceArgs()
         {
         }
-        public static new SynapseSparkJobReferenceArgs Empty => new SynapseSparkJobReferenceArgs();
     }
 }

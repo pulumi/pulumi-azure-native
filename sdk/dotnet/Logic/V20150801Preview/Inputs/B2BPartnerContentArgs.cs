@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
-    public sealed class B2BPartnerContentArgs : global::Pulumi.ResourceArgs
+    public sealed class B2BPartnerContentArgs : Pulumi.ResourceArgs
     {
         [Input("businessIdentities")]
         private InputList<Inputs.BusinessIdentityArgs>? _businessIdentities;
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
         public B2BPartnerContentArgs()
         {
         }
-        public static new B2BPartnerContentArgs Empty => new B2BPartnerContentArgs();
     }
 }

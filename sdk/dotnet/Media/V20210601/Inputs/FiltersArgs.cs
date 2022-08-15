@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20210601.Inputs
     /// <summary>
     /// Describes all the filtering operations, such as de-interlacing, rotation etc. that are to be applied to the input media before encoding.
     /// </summary>
-    public sealed class FiltersArgs : global::Pulumi.ResourceArgs
+    public sealed class FiltersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The parameters for the rectangular window with which to crop the input video.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.Media.V20210601.Inputs
         public FiltersArgs()
         {
         }
-        public static new FiltersArgs Empty => new FiltersArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppConfiguration.V20220301Preview.Inputs
     /// <summary>
     /// Private endpoint which a connection belongs to.
     /// </summary>
-    public sealed class PrivateEndpointArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource Id for private endpoint
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.AppConfiguration.V20220301Preview.Inputs
         public PrivateEndpointArgs()
         {
         }
-        public static new PrivateEndpointArgs Empty => new PrivateEndpointArgs();
     }
 }

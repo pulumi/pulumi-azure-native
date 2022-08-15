@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceLinker.Inputs
     /// <summary>
     /// An option to store secret value in secure place
     /// </summary>
-    public sealed class SecretStoreArgs : global::Pulumi.ResourceArgs
+    public sealed class SecretStoreArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key vault id to store secret
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.ServiceLinker.Inputs
         public SecretStoreArgs()
         {
         }
-        public static new SecretStoreArgs Empty => new SecretStoreArgs();
     }
 }

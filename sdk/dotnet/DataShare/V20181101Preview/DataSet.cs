@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
     /// </summary>
     [Obsolete(@"Version 2018-11-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:datashare/v20181101preview:DataSet")]
-    public partial class DataSet : global::Pulumi.CustomResource
+    public partial class DataSet : Pulumi.CustomResource
     {
         /// <summary>
         /// Kind of data set.
@@ -59,11 +59,11 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datashare:DataSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:DataSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:DataSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:DataSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:DataSet"},
+                    new Pulumi.Alias { Type = "azure-native:datashare:DataSet"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:DataSet"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20200901:DataSet"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:DataSet"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20210801:DataSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -85,7 +85,7 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
         }
     }
 
-    public sealed class DataSetArgs : global::Pulumi.ResourceArgs
+    public sealed class DataSetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -120,6 +120,5 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
         public DataSetArgs()
         {
         }
-        public static new DataSetArgs Empty => new DataSetArgs();
     }
 }

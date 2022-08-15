@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview.Inputs
 {
 
-    public sealed class InstructionStepsInstructionsArgs : global::Pulumi.ResourceArgs
+    public sealed class InstructionStepsInstructionsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The parameters for the setting
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview.Inputs
         public InstructionStepsInstructionsArgs()
         {
         }
-        public static new InstructionStepsInstructionsArgs Empty => new InstructionStepsInstructionsArgs();
     }
 }

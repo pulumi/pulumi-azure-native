@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Maps.V20211201Preview.Inputs
     /// <summary>
     /// Additional Map account properties
     /// </summary>
-    public sealed class MapsAccountPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class MapsAccountPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.Maps.V20211201Preview.Inputs
         {
             DisableLocalAuth = false;
         }
-        public static new MapsAccountPropertiesArgs Empty => new MapsAccountPropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220301.Inputs
     /// <summary>
     /// Profile of the managed cluster load balancer.
     /// </summary>
-    public sealed class ManagedClusterLoadBalancerProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedClusterLoadBalancerProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The desired number of allocated SNAT ports per VM. Allowed values are in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
@@ -68,6 +68,5 @@ namespace Pulumi.AzureNative.ContainerService.V20220301.Inputs
             AllocatedOutboundPorts = 0;
             IdleTimeoutInMinutes = 30;
         }
-        public static new ManagedClusterLoadBalancerProfileArgs Empty => new ManagedClusterLoadBalancerProfileArgs();
     }
 }

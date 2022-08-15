@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20191104.Inputs
     /// <summary>
     /// The properties related to service bus topic endpoint types.
     /// </summary>
-    public sealed class RoutingServiceBusTopicEndpointPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class RoutingServiceBusTopicEndpointPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The connection string of the service bus topic endpoint.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Devices.V20191104.Inputs
         public RoutingServiceBusTopicEndpointPropertiesArgs()
         {
         }
-        public static new RoutingServiceBusTopicEndpointPropertiesArgs Empty => new RoutingServiceBusTopicEndpointPropertiesArgs();
     }
 }

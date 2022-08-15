@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20191201.Inputs
     /// <summary>
     /// Properties of the application rule protocol.
     /// </summary>
-    public sealed class FirewallPolicyRuleConditionApplicationProtocolArgs : global::Pulumi.ResourceArgs
+    public sealed class FirewallPolicyRuleConditionApplicationProtocolArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Port number for the protocol, cannot be greater than 64000.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Network.V20191201.Inputs
         public FirewallPolicyRuleConditionApplicationProtocolArgs()
         {
         }
-        public static new FirewallPolicyRuleConditionApplicationProtocolArgs Empty => new FirewallPolicyRuleConditionApplicationProtocolArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515
     }
 
 
-    public sealed class GetAccessPolicyArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAccessPolicyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Time Series Insights access policy associated with the specified environment.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515
         public GetAccessPolicyArgs()
         {
         }
-        public static new GetAccessPolicyArgs Empty => new GetAccessPolicyArgs();
     }
 
-    public sealed class GetAccessPolicyInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAccessPolicyInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Time Series Insights access policy associated with the specified environment.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515
         public GetAccessPolicyInvokeArgs()
         {
         }
-        public static new GetAccessPolicyInvokeArgs Empty => new GetAccessPolicyInvokeArgs();
     }
 
 

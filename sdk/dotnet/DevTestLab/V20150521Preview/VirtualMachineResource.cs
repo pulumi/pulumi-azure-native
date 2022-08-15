@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
     /// </summary>
     [Obsolete(@"Version 2015-05-21-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:devtestlab/v20150521preview:VirtualMachineResource")]
-    public partial class VirtualMachineResource : global::Pulumi.CustomResource
+    public partial class VirtualMachineResource : Pulumi.CustomResource
     {
         /// <summary>
         /// The artifact deployment status for the virtual machine.
@@ -185,9 +185,9 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab:VirtualMachineResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:VirtualMachineResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:VirtualMachineResource"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab:VirtualMachineResource"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:VirtualMachineResource"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:VirtualMachineResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -209,7 +209,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         }
     }
 
-    public sealed class VirtualMachineResourceArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualMachineResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The artifact deployment status for the virtual machine.
@@ -388,6 +388,5 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         public VirtualMachineResourceArgs()
         {
         }
-        public static new VirtualMachineResourceArgs Empty => new VirtualMachineResourceArgs();
     }
 }

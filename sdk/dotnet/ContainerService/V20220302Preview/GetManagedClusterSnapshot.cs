@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220302Preview
     }
 
 
-    public sealed class GetManagedClusterSnapshotArgs : global::Pulumi.InvokeArgs
+    public sealed class GetManagedClusterSnapshotArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.ContainerService.V20220302Preview
         public GetManagedClusterSnapshotArgs()
         {
         }
-        public static new GetManagedClusterSnapshotArgs Empty => new GetManagedClusterSnapshotArgs();
     }
 
-    public sealed class GetManagedClusterSnapshotInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetManagedClusterSnapshotInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.ContainerService.V20220302Preview
         public GetManagedClusterSnapshotInvokeArgs()
         {
         }
-        public static new GetManagedClusterSnapshotInvokeArgs Empty => new GetManagedClusterSnapshotInvokeArgs();
     }
 
 

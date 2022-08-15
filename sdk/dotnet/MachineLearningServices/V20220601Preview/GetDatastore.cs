@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
     }
 
 
-    public sealed class GetDatastoreArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDatastoreArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Datastore name.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
         public GetDatastoreArgs()
         {
         }
-        public static new GetDatastoreArgs Empty => new GetDatastoreArgs();
     }
 
-    public sealed class GetDatastoreInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDatastoreInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Datastore name.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
         public GetDatastoreInvokeArgs()
         {
         }
-        public static new GetDatastoreInvokeArgs Empty => new GetDatastoreInvokeArgs();
     }
 
 

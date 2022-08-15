@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
     }
 
 
-    public sealed class ListBuildTaskSourceRepositoryPropertiesArgs : global::Pulumi.InvokeArgs
+    public sealed class ListBuildTaskSourceRepositoryPropertiesArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the container registry build task.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public ListBuildTaskSourceRepositoryPropertiesArgs()
         {
         }
-        public static new ListBuildTaskSourceRepositoryPropertiesArgs Empty => new ListBuildTaskSourceRepositoryPropertiesArgs();
     }
 
-    public sealed class ListBuildTaskSourceRepositoryPropertiesInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListBuildTaskSourceRepositoryPropertiesInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the container registry build task.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public ListBuildTaskSourceRepositoryPropertiesInvokeArgs()
         {
         }
-        public static new ListBuildTaskSourceRepositoryPropertiesInvokeArgs Empty => new ListBuildTaskSourceRepositoryPropertiesInvokeArgs();
     }
 
 

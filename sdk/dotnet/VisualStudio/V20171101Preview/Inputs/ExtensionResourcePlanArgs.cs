@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VisualStudio.V20171101Preview.Inputs
     /// <summary>
     /// Plan data for an extension resource.
     /// </summary>
-    public sealed class ExtensionResourcePlanArgs : global::Pulumi.ResourceArgs
+    public sealed class ExtensionResourcePlanArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the plan.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.VisualStudio.V20171101Preview.Inputs
         public ExtensionResourcePlanArgs()
         {
         }
-        public static new ExtensionResourcePlanArgs Empty => new ExtensionResourcePlanArgs();
     }
 }

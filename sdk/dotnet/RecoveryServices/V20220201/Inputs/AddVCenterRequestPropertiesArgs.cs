@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220201.Inputs
     /// <summary>
     /// The properties of an add vCenter request.
     /// </summary>
-    public sealed class AddVCenterRequestPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class AddVCenterRequestPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The friendly name of the vCenter.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220201.Inputs
         public AddVCenterRequestPropertiesArgs()
         {
         }
-        public static new AddVCenterRequestPropertiesArgs Empty => new AddVCenterRequestPropertiesArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network
     }
 
 
-    public sealed class GetHubRouteTableArgs : global::Pulumi.InvokeArgs
+    public sealed class GetHubRouteTableArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource group name of the VirtualHub.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Network
         public GetHubRouteTableArgs()
         {
         }
-        public static new GetHubRouteTableArgs Empty => new GetHubRouteTableArgs();
     }
 
-    public sealed class GetHubRouteTableInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetHubRouteTableInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource group name of the VirtualHub.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Network
         public GetHubRouteTableInvokeArgs()
         {
         }
-        public static new GetHubRouteTableInvokeArgs Empty => new GetHubRouteTableInvokeArgs();
     }
 
 

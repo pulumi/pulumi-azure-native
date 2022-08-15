@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20211201
     }
 
 
-    public sealed class ListProductFamiliesArgs : global::Pulumi.InvokeArgs
+    public sealed class ListProductFamiliesArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details
@@ -60,10 +60,9 @@ namespace Pulumi.AzureNative.EdgeOrder.V20211201
         public ListProductFamiliesArgs()
         {
         }
-        public static new ListProductFamiliesArgs Empty => new ListProductFamiliesArgs();
     }
 
-    public sealed class ListProductFamiliesInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListProductFamiliesInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details
@@ -98,7 +97,6 @@ namespace Pulumi.AzureNative.EdgeOrder.V20211201
         public ListProductFamiliesInvokeArgs()
         {
         }
-        public static new ListProductFamiliesInvokeArgs Empty => new ListProductFamiliesInvokeArgs();
     }
 
 

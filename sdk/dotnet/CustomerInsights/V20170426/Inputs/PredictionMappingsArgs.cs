@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426.Inputs
     /// <summary>
     /// Definition of the link mapping of prediction.
     /// </summary>
-    public sealed class PredictionMappingsArgs : global::Pulumi.ResourceArgs
+    public sealed class PredictionMappingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The grade of the link mapping.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426.Inputs
         public PredictionMappingsArgs()
         {
         }
-        public static new PredictionMappingsArgs Empty => new PredictionMappingsArgs();
     }
 }

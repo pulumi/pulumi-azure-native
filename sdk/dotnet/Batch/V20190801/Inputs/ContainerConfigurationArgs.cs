@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20190801.Inputs
 {
 
-    public sealed class ContainerConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class ContainerConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("containerImageNames")]
         private InputList<string>? _containerImageNames;
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Batch.V20190801.Inputs
         public ContainerConfigurationArgs()
         {
         }
-        public static new ContainerConfigurationArgs Empty => new ContainerConfigurationArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20200808Preview
     /// </summary>
     [Obsolete(@"Version 2020-08-08-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails")]
-    public partial class OrchestratorInstanceServiceDetails : global::Pulumi.CustomResource
+    public partial class OrchestratorInstanceServiceDetails : Pulumi.CustomResource
     {
         /// <summary>
         /// K8s APIServer url
@@ -119,8 +119,8 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20200808Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:delegatednetwork:OrchestratorInstanceServiceDetails"},
-                    new global::Pulumi.Alias { Type = "azure-native:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails"},
+                    new Pulumi.Alias { Type = "azure-native:delegatednetwork:OrchestratorInstanceServiceDetails"},
+                    new Pulumi.Alias { Type = "azure-native:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20200808Preview
         }
     }
 
-    public sealed class OrchestratorInstanceServiceDetailsArgs : global::Pulumi.ResourceArgs
+    public sealed class OrchestratorInstanceServiceDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// K8s APIServer url
@@ -219,6 +219,5 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20200808Preview
         public OrchestratorInstanceServiceDetailsArgs()
         {
         }
-        public static new OrchestratorInstanceServiceDetailsArgs Empty => new OrchestratorInstanceServiceDetailsArgs();
     }
 }

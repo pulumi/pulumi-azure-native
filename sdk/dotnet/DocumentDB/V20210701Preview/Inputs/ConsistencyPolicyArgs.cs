@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210701Preview.Inputs
     /// <summary>
     /// The consistency policy for the Cosmos DB database account.
     /// </summary>
-    public sealed class ConsistencyPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class ConsistencyPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The default consistency level and configuration settings of the Cosmos DB account.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20210701Preview.Inputs
         public ConsistencyPolicyArgs()
         {
         }
-        public static new ConsistencyPolicyArgs Empty => new ConsistencyPolicyArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SqlVirtualMachine.V20220201.Inputs
 {
 
-    public sealed class SQLTempDbSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class SQLTempDbSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// SQL Server tempdb data file count
@@ -75,6 +75,5 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20220201.Inputs
         public SQLTempDbSettingsArgs()
         {
         }
-        public static new SQLTempDbSettingsArgs Empty => new SQLTempDbSettingsArgs();
     }
 }

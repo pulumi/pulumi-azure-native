@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
     /// </summary>
     [Obsolete(@"Version 2018-11-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:datashare/v20181101preview:DataSetMapping")]
-    public partial class DataSetMapping : global::Pulumi.CustomResource
+    public partial class DataSetMapping : Pulumi.CustomResource
     {
         /// <summary>
         /// Kind of data set mapping.
@@ -59,11 +59,11 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datashare:DataSetMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:DataSetMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:DataSetMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:DataSetMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:DataSetMapping"},
+                    new Pulumi.Alias { Type = "azure-native:datashare:DataSetMapping"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:DataSetMapping"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20200901:DataSetMapping"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:DataSetMapping"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20210801:DataSetMapping"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -85,7 +85,7 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
         }
     }
 
-    public sealed class DataSetMappingArgs : global::Pulumi.ResourceArgs
+    public sealed class DataSetMappingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -120,6 +120,5 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
         public DataSetMappingArgs()
         {
         }
-        public static new DataSetMappingArgs Empty => new DataSetMappingArgs();
     }
 }

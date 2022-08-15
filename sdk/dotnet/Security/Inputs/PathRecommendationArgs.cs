@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.Inputs
     /// <summary>
     /// Represents a path that is recommended to be allowed and its properties
     /// </summary>
-    public sealed class PathRecommendationArgs : global::Pulumi.ResourceArgs
+    public sealed class PathRecommendationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The recommendation action of the machine or rule
@@ -76,6 +76,5 @@ namespace Pulumi.AzureNative.Security.Inputs
         public PathRecommendationArgs()
         {
         }
-        public static new PathRecommendationArgs Empty => new PathRecommendationArgs();
     }
 }

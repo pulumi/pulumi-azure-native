@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// <summary>
     /// Datastore definition.
     /// </summary>
-    public sealed class DatastorePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class DatastorePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] Reference to the datastore storage contents.
@@ -66,6 +66,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public DatastorePropertiesArgs()
         {
         }
-        public static new DatastorePropertiesArgs Empty => new DatastorePropertiesArgs();
     }
 }

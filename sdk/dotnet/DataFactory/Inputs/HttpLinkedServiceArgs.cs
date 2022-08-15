@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Linked service for an HTTP source.
     /// </summary>
-    public sealed class HttpLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class HttpLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -115,6 +115,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public HttpLinkedServiceArgs()
         {
         }
-        public static new HttpLinkedServiceArgs Empty => new HttpLinkedServiceArgs();
     }
 }

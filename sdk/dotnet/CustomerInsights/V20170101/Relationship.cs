@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101
     /// </summary>
     [Obsolete(@"Version 2017-01-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:customerinsights/v20170101:Relationship")]
-    public partial class Relationship : global::Pulumi.CustomResource
+    public partial class Relationship : Pulumi.CustomResource
     {
         /// <summary>
         /// The Relationship Cardinality.
@@ -125,8 +125,8 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:customerinsights:Relationship"},
-                    new global::Pulumi.Alias { Type = "azure-native:customerinsights/v20170426:Relationship"},
+                    new Pulumi.Alias { Type = "azure-native:customerinsights:Relationship"},
+                    new Pulumi.Alias { Type = "azure-native:customerinsights/v20170426:Relationship"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101
         }
     }
 
-    public sealed class RelationshipArgs : global::Pulumi.ResourceArgs
+    public sealed class RelationshipArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Relationship Cardinality.
@@ -243,6 +243,5 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101
         public RelationshipArgs()
         {
         }
-        public static new RelationshipArgs Empty => new RelationshipArgs();
     }
 }

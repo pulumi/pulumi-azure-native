@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network
     }
 
 
-    public sealed class GetCustomIPPrefixArgs : global::Pulumi.InvokeArgs
+    public sealed class GetCustomIPPrefixArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the custom IP prefix.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Network
         public GetCustomIPPrefixArgs()
         {
         }
-        public static new GetCustomIPPrefixArgs Empty => new GetCustomIPPrefixArgs();
     }
 
-    public sealed class GetCustomIPPrefixInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetCustomIPPrefixInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the custom IP prefix.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Network
         public GetCustomIPPrefixInvokeArgs()
         {
         }
-        public static new GetCustomIPPrefixInvokeArgs Empty => new GetCustomIPPrefixInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview.Inputs
     /// <summary>
     /// The Private Endpoint Connection resource.
     /// </summary>
-    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A collection of information about the state of the connection between service consumer and provider.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview.Inputs
         public PrivateEndpointConnectionArgs()
         {
         }
-        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

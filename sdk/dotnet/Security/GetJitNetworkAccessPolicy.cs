@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Security
     }
 
 
-    public sealed class GetJitNetworkAccessPolicyArgs : global::Pulumi.InvokeArgs
+    public sealed class GetJitNetworkAccessPolicyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The location where ASC stores the data of the subscription. can be retrieved from Get locations
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Security
         public GetJitNetworkAccessPolicyArgs()
         {
         }
-        public static new GetJitNetworkAccessPolicyArgs Empty => new GetJitNetworkAccessPolicyArgs();
     }
 
-    public sealed class GetJitNetworkAccessPolicyInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetJitNetworkAccessPolicyInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The location where ASC stores the data of the subscription. can be retrieved from Get locations
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Security
         public GetJitNetworkAccessPolicyInvokeArgs()
         {
         }
-        public static new GetJitNetworkAccessPolicyInvokeArgs Empty => new GetJitNetworkAccessPolicyInvokeArgs();
     }
 
 

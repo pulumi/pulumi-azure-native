@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Azure Data Lake Store dataset.
     /// </summary>
-    public sealed class AzureDataLakeStoreDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureDataLakeStoreDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -103,6 +103,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public AzureDataLakeStoreDatasetArgs()
         {
         }
-        public static new AzureDataLakeStoreDatasetArgs Empty => new AzureDataLakeStoreDatasetArgs();
     }
 }

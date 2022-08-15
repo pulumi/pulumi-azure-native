@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.KeyVault.V20150601
     /// </summary>
     [Obsolete(@"Version 2015-06-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:keyvault/v20150601:Vault")]
-    public partial class Vault : global::Pulumi.CustomResource
+    public partial class Vault : Pulumi.CustomResource
     {
         /// <summary>
         /// The supported Azure location where the key vault should be created.
@@ -71,17 +71,17 @@ namespace Pulumi.AzureNative.KeyVault.V20150601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault:Vault"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20161001:Vault"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20180214:Vault"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20180214preview:Vault"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20190901:Vault"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20200401preview:Vault"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20210401preview:Vault"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20210601preview:Vault"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20211001:Vault"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20211101preview:Vault"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20220701:Vault"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault:Vault"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20161001:Vault"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20180214:Vault"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20180214preview:Vault"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20190901:Vault"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20200401preview:Vault"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20210401preview:Vault"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20210601preview:Vault"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20211001:Vault"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20211101preview:Vault"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20220701:Vault"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -103,7 +103,7 @@ namespace Pulumi.AzureNative.KeyVault.V20150601
         }
     }
 
-    public sealed class VaultArgs : global::Pulumi.ResourceArgs
+    public sealed class VaultArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The supported Azure location where the key vault should be created.
@@ -144,6 +144,5 @@ namespace Pulumi.AzureNative.KeyVault.V20150601
         public VaultArgs()
         {
         }
-        public static new VaultArgs Empty => new VaultArgs();
     }
 }

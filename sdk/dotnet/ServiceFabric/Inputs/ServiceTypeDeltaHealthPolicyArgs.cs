@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.Inputs
     /// <summary>
     /// Represents the delta health policy used to evaluate the health of services belonging to a service type when upgrading the cluster.
     /// </summary>
-    public sealed class ServiceTypeDeltaHealthPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class ServiceTypeDeltaHealthPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum allowed percentage of services health degradation allowed during cluster upgrades.
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.ServiceFabric.Inputs
         {
             MaxPercentDeltaUnhealthyServices = 0;
         }
-        public static new ServiceTypeDeltaHealthPolicyArgs Empty => new ServiceTypeDeltaHealthPolicyArgs();
     }
 }

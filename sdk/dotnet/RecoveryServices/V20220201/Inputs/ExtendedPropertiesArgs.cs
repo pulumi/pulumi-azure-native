@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220201.Inputs
     /// <summary>
     /// Extended Properties for Azure IaasVM Backup.
     /// </summary>
-    public sealed class ExtendedPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ExtendedPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Extended Properties for Disk Exclusion.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220201.Inputs
         public ExtendedPropertiesArgs()
         {
         }
-        public static new ExtendedPropertiesArgs Empty => new ExtendedPropertiesArgs();
     }
 }

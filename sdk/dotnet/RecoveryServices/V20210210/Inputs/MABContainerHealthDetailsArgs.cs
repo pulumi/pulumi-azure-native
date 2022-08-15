@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210210.Inputs
     /// <summary>
     /// MAB workload-specific Health Details.
     /// </summary>
-    public sealed class MABContainerHealthDetailsArgs : global::Pulumi.ResourceArgs
+    public sealed class MABContainerHealthDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Health Code
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210210.Inputs
         public MABContainerHealthDetailsArgs()
         {
         }
-        public static new MABContainerHealthDetailsArgs Empty => new MABContainerHealthDetailsArgs();
     }
 }

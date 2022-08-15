@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity MariaDB server source.
     /// </summary>
-    public sealed class MariaDBSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class MariaDBSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public MariaDBSourceArgs()
         {
         }
-        public static new MariaDBSourceArgs Empty => new MariaDBSourceArgs();
     }
 }

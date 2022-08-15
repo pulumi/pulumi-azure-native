@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataProtection.V20220201Preview.Inputs
     /// <summary>
     /// DataStoreInfo base
     /// </summary>
-    public sealed class DataStoreInfoBaseArgs : global::Pulumi.ResourceArgs
+    public sealed class DataStoreInfoBaseArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// type of datastore; Operational/Vault/Archive
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DataProtection.V20220201Preview.Inputs
         public DataStoreInfoBaseArgs()
         {
         }
-        public static new DataStoreInfoBaseArgs Empty => new DataStoreInfoBaseArgs();
     }
 }

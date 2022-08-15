@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DataLakeStore
     }
 
 
-    public sealed class GetTrustedIdProviderArgs : global::Pulumi.InvokeArgs
+    public sealed class GetTrustedIdProviderArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Data Lake Store account.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.DataLakeStore
         public GetTrustedIdProviderArgs()
         {
         }
-        public static new GetTrustedIdProviderArgs Empty => new GetTrustedIdProviderArgs();
     }
 
-    public sealed class GetTrustedIdProviderInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetTrustedIdProviderInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Data Lake Store account.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.DataLakeStore
         public GetTrustedIdProviderInvokeArgs()
         {
         }
-        public static new GetTrustedIdProviderInvokeArgs Empty => new GetTrustedIdProviderInvokeArgs();
     }
 
 

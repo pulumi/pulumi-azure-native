@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20210301.Inputs
     /// <summary>
     /// The container group encryption properties.
     /// </summary>
-    public sealed class EncryptionPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class EncryptionPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The encryption key name.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.ContainerInstance.V20210301.Inputs
         public EncryptionPropertiesArgs()
         {
         }
-        public static new EncryptionPropertiesArgs Empty => new EncryptionPropertiesArgs();
     }
 }

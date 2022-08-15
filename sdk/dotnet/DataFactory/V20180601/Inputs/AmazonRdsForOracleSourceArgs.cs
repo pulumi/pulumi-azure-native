@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A copy activity AmazonRdsForOracle source.
     /// </summary>
-    public sealed class AmazonRdsForOracleSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class AmazonRdsForOracleSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -79,6 +79,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public AmazonRdsForOracleSourceArgs()
         {
         }
-        public static new AmazonRdsForOracleSourceArgs Empty => new AmazonRdsForOracleSourceArgs();
     }
 }

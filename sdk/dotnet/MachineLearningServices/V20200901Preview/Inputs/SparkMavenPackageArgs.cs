@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview.Inputs
 {
 
-    public sealed class SparkMavenPackageArgs : global::Pulumi.ResourceArgs
+    public sealed class SparkMavenPackageArgs : Pulumi.ResourceArgs
     {
         [Input("artifact")]
         public Input<string>? Artifact { get; set; }
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview.Inputs
         public SparkMavenPackageArgs()
         {
         }
-        public static new SparkMavenPackageArgs Empty => new SparkMavenPackageArgs();
     }
 }

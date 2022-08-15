@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200401Preview.Inputs
     /// <summary>
     /// Describes a server to forward the DNS queries to.
     /// </summary>
-    public sealed class TargetDnsServerArgs : global::Pulumi.ResourceArgs
+    public sealed class TargetDnsServerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// DNS server IP address.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.Network.V20200401Preview.Inputs
         {
             Port = 53;
         }
-        public static new TargetDnsServerArgs Empty => new TargetDnsServerArgs();
     }
 }

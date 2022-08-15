@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.Inputs
     /// <summary>
     /// Kik channel definition
     /// </summary>
-    public sealed class KikChannelArgs : global::Pulumi.ResourceArgs
+    public sealed class KikChannelArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The channel name
@@ -44,6 +44,5 @@ namespace Pulumi.AzureNative.BotService.Inputs
         {
             Location = "global";
         }
-        public static new KikChannelArgs Empty => new KikChannelArgs();
     }
 }

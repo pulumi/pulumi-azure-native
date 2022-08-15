@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20190501Preview
     /// The Live Event.
     /// </summary>
     [AzureNativeResourceType("azure-native:media/v20190501preview:LiveEvent")]
-    public partial class LiveEvent : global::Pulumi.CustomResource
+    public partial class LiveEvent : Pulumi.CustomResource
     {
         /// <summary>
         /// The exact time the Live Event was created.
@@ -136,14 +136,14 @@ namespace Pulumi.AzureNative.Media.V20190501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:media:LiveEvent"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180330preview:LiveEvent"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180601preview:LiveEvent"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180701:LiveEvent"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20200501:LiveEvent"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20210601:LiveEvent"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20211101:LiveEvent"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20220801:LiveEvent"},
+                    new Pulumi.Alias { Type = "azure-native:media:LiveEvent"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180330preview:LiveEvent"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180601preview:LiveEvent"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180701:LiveEvent"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20200501:LiveEvent"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20210601:LiveEvent"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20211101:LiveEvent"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20220801:LiveEvent"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -165,7 +165,7 @@ namespace Pulumi.AzureNative.Media.V20190501Preview
         }
     }
 
-    public sealed class LiveEventArgs : global::Pulumi.ResourceArgs
+    public sealed class LiveEventArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -272,6 +272,5 @@ namespace Pulumi.AzureNative.Media.V20190501Preview
         public LiveEventArgs()
         {
         }
-        public static new LiveEventArgs Empty => new LiveEventArgs();
     }
 }

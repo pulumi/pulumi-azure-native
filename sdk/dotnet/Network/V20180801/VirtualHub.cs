@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20180801
     /// VirtualHub Resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20180801:VirtualHub")]
-    public partial class VirtualHub : global::Pulumi.CustomResource
+    public partial class VirtualHub : Pulumi.CustomResource
     {
         /// <summary>
         /// Address-prefix for this VirtualHub.
@@ -118,33 +118,33 @@ namespace Pulumi.AzureNative.Network.V20180801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:VirtualHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180401:VirtualHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180601:VirtualHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180701:VirtualHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181001:VirtualHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181101:VirtualHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181201:VirtualHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190201:VirtualHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:VirtualHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190601:VirtualHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:VirtualHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190801:VirtualHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:VirtualHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:VirtualHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:VirtualHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:VirtualHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:VirtualHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:VirtualHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:VirtualHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:VirtualHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:VirtualHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:VirtualHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:VirtualHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:VirtualHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:VirtualHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:VirtualHub"},
+                    new Pulumi.Alias { Type = "azure-native:network:VirtualHub"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180401:VirtualHub"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180601:VirtualHub"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180701:VirtualHub"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181001:VirtualHub"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181101:VirtualHub"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181201:VirtualHub"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190201:VirtualHub"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:VirtualHub"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:VirtualHub"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:VirtualHub"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:VirtualHub"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:VirtualHub"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:VirtualHub"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:VirtualHub"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:VirtualHub"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:VirtualHub"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:VirtualHub"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualHub"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:VirtualHub"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:VirtualHub"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:VirtualHub"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:VirtualHub"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210301:VirtualHub"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501:VirtualHub"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:VirtualHub"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:VirtualHub"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -166,7 +166,7 @@ namespace Pulumi.AzureNative.Network.V20180801
         }
     }
 
-    public sealed class VirtualHubArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualHubArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Address-prefix for this VirtualHub.
@@ -255,6 +255,5 @@ namespace Pulumi.AzureNative.Network.V20180801
         public VirtualHubArgs()
         {
         }
-        public static new VirtualHubArgs Empty => new VirtualHubArgs();
     }
 }

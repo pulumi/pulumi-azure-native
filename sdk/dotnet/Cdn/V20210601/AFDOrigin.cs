@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601
     /// CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn/v20210601:AFDOrigin")]
-    public partial class AFDOrigin : global::Pulumi.CustomResource
+    public partial class AFDOrigin : Pulumi.CustomResource
     {
         /// <summary>
         /// Resource reference to the Azure origin resource.
@@ -133,8 +133,8 @@ namespace Pulumi.AzureNative.Cdn.V20210601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cdn:AFDOrigin"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:AFDOrigin"},
+                    new Pulumi.Alias { Type = "azure-native:cdn:AFDOrigin"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200901:AFDOrigin"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -156,7 +156,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         }
     }
 
-    public sealed class AFDOriginArgs : global::Pulumi.ResourceArgs
+    public sealed class AFDOriginArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource reference to the Azure origin resource.
@@ -246,6 +246,5 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         {
             EnforceCertificateNameCheck = true;
         }
-        public static new AFDOriginArgs Empty => new AFDOriginArgs();
     }
 }

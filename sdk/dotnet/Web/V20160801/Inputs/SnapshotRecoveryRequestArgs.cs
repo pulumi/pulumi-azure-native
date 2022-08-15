@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20160801.Inputs
     /// <summary>
     /// Details about app recovery operation.
     /// </summary>
-    public sealed class SnapshotRecoveryRequestArgs : global::Pulumi.ResourceArgs
+    public sealed class SnapshotRecoveryRequestArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, custom hostname conflicts will be ignored when recovering to a target web app.
@@ -55,6 +55,5 @@ namespace Pulumi.AzureNative.Web.V20160801.Inputs
         public SnapshotRecoveryRequestArgs()
         {
         }
-        public static new SnapshotRecoveryRequestArgs Empty => new SnapshotRecoveryRequestArgs();
     }
 }

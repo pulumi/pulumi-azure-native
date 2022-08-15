@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     /// API Version: 2018-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -71,8 +71,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20180601:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20180601privatepreview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20180601:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20180601privatepreview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Private endpoint which the connection belongs to.
@@ -126,6 +126,5 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public PrivateEndpointConnectionArgs()
         {
         }
-        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

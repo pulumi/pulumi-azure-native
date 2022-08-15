@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808
     /// Alert processing rule object containing target scopes, conditions and scheduling logic.
     /// </summary>
     [AzureNativeResourceType("azure-native:alertsmanagement/v20210808:AlertProcessingRuleByName")]
-    public partial class AlertProcessingRuleByName : global::Pulumi.CustomResource
+    public partial class AlertProcessingRuleByName : Pulumi.CustomResource
     {
         /// <summary>
         /// Resource location
@@ -76,10 +76,10 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:alertsmanagement:AlertProcessingRuleByName"},
-                    new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20181102privatepreview:AlertProcessingRuleByName"},
-                    new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20190505preview:AlertProcessingRuleByName"},
-                    new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20210808preview:AlertProcessingRuleByName"},
+                    new Pulumi.Alias { Type = "azure-native:alertsmanagement:AlertProcessingRuleByName"},
+                    new Pulumi.Alias { Type = "azure-native:alertsmanagement/v20181102privatepreview:AlertProcessingRuleByName"},
+                    new Pulumi.Alias { Type = "azure-native:alertsmanagement/v20190505preview:AlertProcessingRuleByName"},
+                    new Pulumi.Alias { Type = "azure-native:alertsmanagement/v20210808preview:AlertProcessingRuleByName"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808
         }
     }
 
-    public sealed class AlertProcessingRuleByNameArgs : global::Pulumi.ResourceArgs
+    public sealed class AlertProcessingRuleByNameArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the alert processing rule that needs to be created/updated.
@@ -142,6 +142,5 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808
         public AlertProcessingRuleByNameArgs()
         {
         }
-        public static new AlertProcessingRuleByNameArgs Empty => new AlertProcessingRuleByNameArgs();
     }
 }

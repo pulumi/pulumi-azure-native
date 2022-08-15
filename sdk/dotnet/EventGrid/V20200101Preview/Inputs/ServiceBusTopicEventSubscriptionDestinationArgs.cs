@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200101Preview.Inputs
     /// <summary>
     /// Information about the service bus topic destination for an event subscription.
     /// </summary>
-    public sealed class ServiceBusTopicEventSubscriptionDestinationArgs : global::Pulumi.ResourceArgs
+    public sealed class ServiceBusTopicEventSubscriptionDestinationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of the endpoint for the event subscription destination
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.EventGrid.V20200101Preview.Inputs
         public ServiceBusTopicEventSubscriptionDestinationArgs()
         {
         }
-        public static new ServiceBusTopicEventSubscriptionDestinationArgs Empty => new ServiceBusTopicEventSubscriptionDestinationArgs();
     }
 }

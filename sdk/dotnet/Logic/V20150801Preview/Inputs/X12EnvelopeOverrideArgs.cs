@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
-    public sealed class X12EnvelopeOverrideArgs : global::Pulumi.ResourceArgs
+    public sealed class X12EnvelopeOverrideArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The date format.
@@ -75,6 +75,5 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
         public X12EnvelopeOverrideArgs()
         {
         }
-        public static new X12EnvelopeOverrideArgs Empty => new X12EnvelopeOverrideArgs();
     }
 }

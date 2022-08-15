@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
     /// <summary>
     /// Describes the role properties.
     /// </summary>
-    public sealed class CloudServiceRoleProfilePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class CloudServiceRoleProfilePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource name.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public CloudServiceRoleProfilePropertiesArgs()
         {
         }
-        public static new CloudServiceRoleProfilePropertiesArgs Empty => new CloudServiceRoleProfilePropertiesArgs();
     }
 }

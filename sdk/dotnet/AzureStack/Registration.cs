@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AzureStack
     /// API Version: 2017-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestack:Registration")]
-    public partial class Registration : global::Pulumi.CustomResource
+    public partial class Registration : Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the billing mode for the Azure Stack registration.
@@ -89,10 +89,10 @@ namespace Pulumi.AzureNative.AzureStack
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurestack/v20160101:Registration"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestack/v20170601:Registration"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestack/v20200601preview:Registration"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestack/v20220601:Registration"},
+                    new Pulumi.Alias { Type = "azure-native:azurestack/v20160101:Registration"},
+                    new Pulumi.Alias { Type = "azure-native:azurestack/v20170601:Registration"},
+                    new Pulumi.Alias { Type = "azure-native:azurestack/v20200601preview:Registration"},
+                    new Pulumi.Alias { Type = "azure-native:azurestack/v20220601:Registration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.AzureStack
         }
     }
 
-    public sealed class RegistrationArgs : global::Pulumi.ResourceArgs
+    public sealed class RegistrationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Location of the resource.
@@ -143,6 +143,5 @@ namespace Pulumi.AzureNative.AzureStack
         public RegistrationArgs()
         {
         }
-        public static new RegistrationArgs Empty => new RegistrationArgs();
     }
 }

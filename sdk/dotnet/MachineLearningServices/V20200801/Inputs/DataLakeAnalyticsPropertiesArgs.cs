@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20200801.Inputs
 {
 
-    public sealed class DataLakeAnalyticsPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class DataLakeAnalyticsPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// DataLake Store Account Name
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200801.Inputs
         public DataLakeAnalyticsPropertiesArgs()
         {
         }
-        public static new DataLakeAnalyticsPropertiesArgs Empty => new DataLakeAnalyticsPropertiesArgs();
     }
 }

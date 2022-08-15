@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBox.V20211201.Inputs
     /// <summary>
     /// Preferences related to the shipment logistics of the sku
     /// </summary>
-    public sealed class TransportPreferencesArgs : global::Pulumi.ResourceArgs
+    public sealed class TransportPreferencesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates Shipment Logistics type that the customer preferred.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DataBox.V20211201.Inputs
         public TransportPreferencesArgs()
         {
         }
-        public static new TransportPreferencesArgs Empty => new TransportPreferencesArgs();
     }
 }

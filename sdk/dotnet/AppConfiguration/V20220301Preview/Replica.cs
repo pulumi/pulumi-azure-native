@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppConfiguration.V20220301Preview
     /// The replica resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:appconfiguration/v20220301preview:Replica")]
-    public partial class Replica : global::Pulumi.CustomResource
+    public partial class Replica : Pulumi.CustomResource
     {
         /// <summary>
         /// The URI of the replica where the replica API will be available.
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.AppConfiguration.V20220301Preview
         }
     }
 
-    public sealed class ReplicaArgs : global::Pulumi.ResourceArgs
+    public sealed class ReplicaArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the configuration store.
@@ -123,6 +123,5 @@ namespace Pulumi.AzureNative.AppConfiguration.V20220301Preview
         public ReplicaArgs()
         {
         }
-        public static new ReplicaArgs Empty => new ReplicaArgs();
     }
 }

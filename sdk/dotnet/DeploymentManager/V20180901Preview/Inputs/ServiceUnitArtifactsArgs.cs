@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview.Inputs
     /// <summary>
     /// Defines the artifacts of a service unit.
     /// </summary>
-    public sealed class ServiceUnitArtifactsArgs : global::Pulumi.ResourceArgs
+    public sealed class ServiceUnitArtifactsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The path to the ARM parameters file relative to the artifact source.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview.Inputs
         public ServiceUnitArtifactsArgs()
         {
         }
-        public static new ServiceUnitArtifactsArgs Empty => new ServiceUnitArtifactsArgs();
     }
 }

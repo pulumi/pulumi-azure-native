@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Dashboard.V20210901Preview.Inputs
     /// <summary>
     /// The managed identity of a resource.
     /// </summary>
-    public sealed class ManagedIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the resource.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Dashboard.V20210901Preview.Inputs
         public ManagedIdentityArgs()
         {
         }
-        public static new ManagedIdentityArgs Empty => new ManagedIdentityArgs();
     }
 }

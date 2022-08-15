@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network
     /// API Version: 2022-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ConfigurationPolicyGroup")]
-    public partial class ConfigurationPolicyGroup : global::Pulumi.CustomResource
+    public partial class ConfigurationPolicyGroup : Pulumi.CustomResource
     {
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -89,8 +89,8 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:ConfigurationPolicyGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:ConfigurationPolicyGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:ConfigurationPolicyGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:ConfigurationPolicyGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.Network
         }
     }
 
-    public sealed class ConfigurationPolicyGroupArgs : global::Pulumi.ResourceArgs
+    public sealed class ConfigurationPolicyGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the ConfigurationPolicyGroup.
@@ -171,6 +171,5 @@ namespace Pulumi.AzureNative.Network
         public ConfigurationPolicyGroupArgs()
         {
         }
-        public static new ConfigurationPolicyGroupArgs Empty => new ConfigurationPolicyGroupArgs();
     }
 }

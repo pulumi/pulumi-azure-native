@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview.Inputs
     /// <summary>
     /// The available data types for Amazon Web Services CloudTrail data connector.
     /// </summary>
-    public sealed class AwsCloudTrailDataConnectorDataTypesArgs : global::Pulumi.ResourceArgs
+    public sealed class AwsCloudTrailDataConnectorDataTypesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Logs data type.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview.Inputs
         public AwsCloudTrailDataConnectorDataTypesArgs()
         {
         }
-        public static new AwsCloudTrailDataConnectorDataTypesArgs Empty => new AwsCloudTrailDataConnectorDataTypesArgs();
     }
 }

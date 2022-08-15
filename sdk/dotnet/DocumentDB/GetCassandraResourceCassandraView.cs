@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DocumentDB
     }
 
 
-    public sealed class GetCassandraResourceCassandraViewArgs : global::Pulumi.InvokeArgs
+    public sealed class GetCassandraResourceCassandraViewArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Cosmos DB database account name.
@@ -56,10 +56,9 @@ namespace Pulumi.AzureNative.DocumentDB
         public GetCassandraResourceCassandraViewArgs()
         {
         }
-        public static new GetCassandraResourceCassandraViewArgs Empty => new GetCassandraResourceCassandraViewArgs();
     }
 
-    public sealed class GetCassandraResourceCassandraViewInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetCassandraResourceCassandraViewInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Cosmos DB database account name.
@@ -88,7 +87,6 @@ namespace Pulumi.AzureNative.DocumentDB
         public GetCassandraResourceCassandraViewInvokeArgs()
         {
         }
-        public static new GetCassandraResourceCassandraViewInvokeArgs Empty => new GetCassandraResourceCassandraViewInvokeArgs();
     }
 
 

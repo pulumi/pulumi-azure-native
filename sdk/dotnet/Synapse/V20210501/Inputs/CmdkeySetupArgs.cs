@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20210501.Inputs
     /// <summary>
     /// The custom setup of running cmdkey commands.
     /// </summary>
-    public sealed class CmdkeySetupArgs : global::Pulumi.ResourceArgs
+    public sealed class CmdkeySetupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The password of data source access.
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.Synapse.V20210501.Inputs
         public CmdkeySetupArgs()
         {
         }
-        public static new CmdkeySetupArgs Empty => new CmdkeySetupArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20200301.Inputs
     /// <summary>
     /// Cosmos DB Gremlin graph resource object
     /// </summary>
-    public sealed class GremlinGraphResourceArgs : global::Pulumi.ResourceArgs
+    public sealed class GremlinGraphResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The conflict resolution policy for the graph.
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20200301.Inputs
         public GremlinGraphResourceArgs()
         {
         }
-        public static new GremlinGraphResourceArgs Empty => new GremlinGraphResourceArgs();
     }
 }

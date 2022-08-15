@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBox.V20201101.Inputs
     /// <summary>
     /// Shipping address where customer wishes to receive the device.
     /// </summary>
-    public sealed class ShippingAddressArgs : global::Pulumi.ResourceArgs
+    public sealed class ShippingAddressArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of address.
@@ -79,6 +79,5 @@ namespace Pulumi.AzureNative.DataBox.V20201101.Inputs
         {
             AddressType = "None";
         }
-        public static new ShippingAddressArgs Empty => new ShippingAddressArgs();
     }
 }

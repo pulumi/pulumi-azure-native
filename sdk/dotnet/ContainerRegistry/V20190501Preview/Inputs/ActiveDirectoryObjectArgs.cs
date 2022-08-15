@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190501Preview.Inputs
     /// <summary>
     /// The Active Directory Object that will be used for authenticating the token of a container registry.
     /// </summary>
-    public sealed class ActiveDirectoryObjectArgs : global::Pulumi.ResourceArgs
+    public sealed class ActiveDirectoryObjectArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The user/group/application object ID for Active Directory Object that will be used for authenticating the token of a container registry.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190501Preview.Inputs
         public ActiveDirectoryObjectArgs()
         {
         }
-        public static new ActiveDirectoryObjectArgs Empty => new ActiveDirectoryObjectArgs();
     }
 }

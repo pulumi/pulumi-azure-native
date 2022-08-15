@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Batch.V20220601.Inputs
     /// <summary>
     /// Rule to filter client IP address.
     /// </summary>
-    public sealed class IPRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class IPRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Action when client IP address is matched.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Batch.V20220601.Inputs
         public IPRuleArgs()
         {
         }
-        public static new IPRuleArgs Empty => new IPRuleArgs();
     }
 }

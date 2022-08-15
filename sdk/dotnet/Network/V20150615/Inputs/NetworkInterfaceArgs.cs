@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20150615.Inputs
     /// <summary>
     /// A network interface in a resource group.
     /// </summary>
-    public sealed class NetworkInterfaceArgs : global::Pulumi.ResourceArgs
+    public sealed class NetworkInterfaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The DNS settings in network interface.
@@ -108,6 +108,5 @@ namespace Pulumi.AzureNative.Network.V20150615.Inputs
         public NetworkInterfaceArgs()
         {
         }
-        public static new NetworkInterfaceArgs Empty => new NetworkInterfaceArgs();
     }
 }

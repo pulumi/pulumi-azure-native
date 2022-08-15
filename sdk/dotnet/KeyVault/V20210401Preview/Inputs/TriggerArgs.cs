@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.KeyVault.V20210401Preview.Inputs
 {
 
-    public sealed class TriggerArgs : global::Pulumi.ResourceArgs
+    public sealed class TriggerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The time duration after key creation to rotate the key. It should be in ISO8601 format. Eg: 'P90D', 'P1Y'.
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.KeyVault.V20210401Preview.Inputs
         public TriggerArgs()
         {
         }
-        public static new TriggerArgs Empty => new TriggerArgs();
     }
 }

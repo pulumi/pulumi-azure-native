@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageCache.V20200301.Inputs
     /// <summary>
     /// Cache security settings.
     /// </summary>
-    public sealed class CacheSecuritySettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class CacheSecuritySettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// root squash of cache property.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.StorageCache.V20200301.Inputs
         public CacheSecuritySettingsArgs()
         {
         }
-        public static new CacheSecuritySettingsArgs Empty => new CacheSecuritySettingsArgs();
     }
 }

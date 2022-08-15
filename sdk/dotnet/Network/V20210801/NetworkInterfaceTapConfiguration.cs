@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210801
     /// Tap configuration in a Network Interface.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20210801:NetworkInterfaceTapConfiguration")]
-    public partial class NetworkInterfaceTapConfiguration : global::Pulumi.CustomResource
+    public partial class NetworkInterfaceTapConfiguration : Pulumi.CustomResource
     {
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -70,30 +70,30 @@ namespace Pulumi.AzureNative.Network.V20210801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:NetworkInterfaceTapConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180801:NetworkInterfaceTapConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181001:NetworkInterfaceTapConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181101:NetworkInterfaceTapConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181201:NetworkInterfaceTapConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190201:NetworkInterfaceTapConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:NetworkInterfaceTapConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190601:NetworkInterfaceTapConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:NetworkInterfaceTapConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190801:NetworkInterfaceTapConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:NetworkInterfaceTapConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:NetworkInterfaceTapConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:NetworkInterfaceTapConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:NetworkInterfaceTapConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:NetworkInterfaceTapConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:NetworkInterfaceTapConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:NetworkInterfaceTapConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:NetworkInterfaceTapConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:NetworkInterfaceTapConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:NetworkInterfaceTapConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:NetworkInterfaceTapConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:NetworkInterfaceTapConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:NetworkInterfaceTapConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:NetworkInterfaceTapConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network:NetworkInterfaceTapConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:NetworkInterfaceTapConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181001:NetworkInterfaceTapConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181101:NetworkInterfaceTapConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181201:NetworkInterfaceTapConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190201:NetworkInterfaceTapConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:NetworkInterfaceTapConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:NetworkInterfaceTapConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:NetworkInterfaceTapConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:NetworkInterfaceTapConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:NetworkInterfaceTapConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:NetworkInterfaceTapConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:NetworkInterfaceTapConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:NetworkInterfaceTapConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:NetworkInterfaceTapConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:NetworkInterfaceTapConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:NetworkInterfaceTapConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:NetworkInterfaceTapConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:NetworkInterfaceTapConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:NetworkInterfaceTapConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:NetworkInterfaceTapConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210301:NetworkInterfaceTapConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501:NetworkInterfaceTapConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:NetworkInterfaceTapConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNative.Network.V20210801
         }
     }
 
-    public sealed class NetworkInterfaceTapConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class NetworkInterfaceTapConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID.
@@ -156,6 +156,5 @@ namespace Pulumi.AzureNative.Network.V20210801
         public NetworkInterfaceTapConfigurationArgs()
         {
         }
-        public static new NetworkInterfaceTapConfigurationArgs Empty => new NetworkInterfaceTapConfigurationArgs();
     }
 }

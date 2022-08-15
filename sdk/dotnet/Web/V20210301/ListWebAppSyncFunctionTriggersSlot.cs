@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Web.V20210301
     }
 
 
-    public sealed class ListWebAppSyncFunctionTriggersSlotArgs : global::Pulumi.InvokeArgs
+    public sealed class ListWebAppSyncFunctionTriggersSlotArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the app.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Web.V20210301
         public ListWebAppSyncFunctionTriggersSlotArgs()
         {
         }
-        public static new ListWebAppSyncFunctionTriggersSlotArgs Empty => new ListWebAppSyncFunctionTriggersSlotArgs();
     }
 
-    public sealed class ListWebAppSyncFunctionTriggersSlotInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListWebAppSyncFunctionTriggersSlotInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the app.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Web.V20210301
         public ListWebAppSyncFunctionTriggersSlotInvokeArgs()
         {
         }
-        public static new ListWebAppSyncFunctionTriggersSlotInvokeArgs Empty => new ListWebAppSyncFunctionTriggersSlotInvokeArgs();
     }
 
 

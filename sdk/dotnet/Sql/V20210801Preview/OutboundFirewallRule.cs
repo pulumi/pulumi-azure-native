@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
     /// An Azure SQL DB Server Outbound Firewall Rule.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20210801preview:OutboundFirewallRule")]
-    public partial class OutboundFirewallRule : global::Pulumi.CustomResource
+    public partial class OutboundFirewallRule : Pulumi.CustomResource
     {
         /// <summary>
         /// Resource name.
@@ -58,12 +58,12 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql:OutboundFirewallRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:OutboundFirewallRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:OutboundFirewallRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:OutboundFirewallRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:OutboundFirewallRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:OutboundFirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:sql:OutboundFirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:OutboundFirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:OutboundFirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101:OutboundFirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:OutboundFirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:OutboundFirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -85,7 +85,7 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
         }
     }
 
-    public sealed class OutboundFirewallRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class OutboundFirewallRuleArgs : Pulumi.ResourceArgs
     {
         [Input("outboundRuleFqdn")]
         public Input<string>? OutboundRuleFqdn { get; set; }
@@ -105,6 +105,5 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
         public OutboundFirewallRuleArgs()
         {
         }
-        public static new OutboundFirewallRuleArgs Empty => new OutboundFirewallRuleArgs();
     }
 }

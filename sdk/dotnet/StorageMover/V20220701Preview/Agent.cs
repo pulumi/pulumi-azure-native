@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageMover.V20220701Preview
     /// The Agent resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagemover/v20220701preview:Agent")]
-    public partial class Agent : global::Pulumi.CustomResource
+    public partial class Agent : Pulumi.CustomResource
     {
         /// <summary>
         /// The Agent status.
@@ -145,7 +145,7 @@ namespace Pulumi.AzureNative.StorageMover.V20220701Preview
         }
     }
 
-    public sealed class AgentArgs : global::Pulumi.ResourceArgs
+    public sealed class AgentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Agent resource.
@@ -186,6 +186,5 @@ namespace Pulumi.AzureNative.StorageMover.V20220701Preview
         public AgentArgs()
         {
         }
-        public static new AgentArgs Empty => new AgentArgs();
     }
 }

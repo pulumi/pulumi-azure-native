@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AlertsManagement.Inputs
     /// <summary>
     /// Action rule with suppression configuration
     /// </summary>
-    public sealed class SuppressionArgs : global::Pulumi.ResourceArgs
+    public sealed class SuppressionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// conditions on which alerts will be filtered
@@ -55,6 +55,5 @@ namespace Pulumi.AzureNative.AlertsManagement.Inputs
         public SuppressionArgs()
         {
         }
-        public static new SuppressionArgs Empty => new SuppressionArgs();
     }
 }

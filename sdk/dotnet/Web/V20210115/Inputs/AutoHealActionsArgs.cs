@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20210115.Inputs
     /// <summary>
     /// Actions which to take by the auto-heal module when a rule is triggered.
     /// </summary>
-    public sealed class AutoHealActionsArgs : global::Pulumi.ResourceArgs
+    public sealed class AutoHealActionsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Predefined action to be taken.
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.Web.V20210115.Inputs
         public AutoHealActionsArgs()
         {
         }
-        public static new AutoHealActionsArgs Empty => new AutoHealActionsArgs();
     }
 }

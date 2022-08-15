@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20211015Preview.Inputs
     /// <summary>
     /// Cosmos DB SQL storedProcedure resource object
     /// </summary>
-    public sealed class SqlStoredProcedureResourceArgs : global::Pulumi.ResourceArgs
+    public sealed class SqlStoredProcedureResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Body of the Stored Procedure
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20211015Preview.Inputs
         public SqlStoredProcedureResourceArgs()
         {
         }
-        public static new SqlStoredProcedureResourceArgs Empty => new SqlStoredProcedureResourceArgs();
     }
 }

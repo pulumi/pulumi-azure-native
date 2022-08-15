@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.Inputs
     /// <summary>
     /// Defines the virtual machine configuration.
     /// </summary>
-    public sealed class VirtualMachineConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualMachineConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The image reference.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Workloads.Inputs
         public VirtualMachineConfigurationArgs()
         {
         }
-        public static new VirtualMachineConfigurationArgs Empty => new VirtualMachineConfigurationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20191201.Inputs
     /// <summary>
     /// VirtualHub route table.
     /// </summary>
-    public sealed class VirtualHubRouteTableArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualHubRouteTableArgs : Pulumi.ResourceArgs
     {
         [Input("routes")]
         private InputList<Inputs.VirtualHubRouteArgs>? _routes;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Network.V20191201.Inputs
         public VirtualHubRouteTableArgs()
         {
         }
-        public static new VirtualHubRouteTableArgs Empty => new VirtualHubRouteTableArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20190101Preview
     /// Security assessment metadata
     /// </summary>
     [AzureNativeResourceType("azure-native:security/v20190101preview:AssessmentsMetadataSubscription")]
-    public partial class AssessmentsMetadataSubscription : global::Pulumi.CustomResource
+    public partial class AssessmentsMetadataSubscription : Pulumi.CustomResource
     {
         /// <summary>
         /// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
@@ -112,9 +112,9 @@ namespace Pulumi.AzureNative.Security.V20190101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:security:AssessmentsMetadataSubscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:security/v20200101:AssessmentsMetadataSubscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:security/v20210601:AssessmentsMetadataSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:security:AssessmentsMetadataSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:security/v20200101:AssessmentsMetadataSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:security/v20210601:AssessmentsMetadataSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.Security.V20190101Preview
         }
     }
 
-    public sealed class AssessmentsMetadataSubscriptionArgs : global::Pulumi.ResourceArgs
+    public sealed class AssessmentsMetadataSubscriptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Assessment Key - Unique key for the assessment type
@@ -211,6 +211,5 @@ namespace Pulumi.AzureNative.Security.V20190101Preview
         public AssessmentsMetadataSubscriptionArgs()
         {
         }
-        public static new AssessmentsMetadataSubscriptionArgs Empty => new AssessmentsMetadataSubscriptionArgs();
     }
 }

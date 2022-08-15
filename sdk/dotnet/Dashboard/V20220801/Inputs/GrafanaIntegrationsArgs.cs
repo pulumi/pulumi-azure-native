@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Dashboard.V20220801.Inputs
     /// <summary>
     /// GrafanaIntegrations is a bundled observability experience (e.g. pre-configured data source, tailored Grafana dashboards, alerting defaults) for common monitoring scenarios.
     /// </summary>
-    public sealed class GrafanaIntegrationsArgs : global::Pulumi.ResourceArgs
+    public sealed class GrafanaIntegrationsArgs : Pulumi.ResourceArgs
     {
         [Input("azureMonitorWorkspaceIntegrations")]
         private InputList<Inputs.AzureMonitorWorkspaceIntegrationArgs>? _azureMonitorWorkspaceIntegrations;
@@ -26,6 +26,5 @@ namespace Pulumi.AzureNative.Dashboard.V20220801.Inputs
         public GrafanaIntegrationsArgs()
         {
         }
-        public static new GrafanaIntegrationsArgs Empty => new GrafanaIntegrationsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220601.Inputs
     /// <summary>
     /// The settings for the Cosmos DB database backing the service.
     /// </summary>
-    public sealed class ServiceCosmosDbConfigurationInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class ServiceCosmosDbConfigurationInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The URI of the customer-managed key for the backing database.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220601.Inputs
         public ServiceCosmosDbConfigurationInfoArgs()
         {
         }
-        public static new ServiceCosmosDbConfigurationInfoArgs Empty => new ServiceCosmosDbConfigurationInfoArgs();
     }
 }

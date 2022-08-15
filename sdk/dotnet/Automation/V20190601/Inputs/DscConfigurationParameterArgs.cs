@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.V20190601.Inputs
     /// <summary>
     /// Definition of the configuration parameter type.
     /// </summary>
-    public sealed class DscConfigurationParameterArgs : global::Pulumi.ResourceArgs
+    public sealed class DscConfigurationParameterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the default value of parameter.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Automation.V20190601.Inputs
         public DscConfigurationParameterArgs()
         {
         }
-        public static new DscConfigurationParameterArgs Empty => new DscConfigurationParameterArgs();
     }
 }

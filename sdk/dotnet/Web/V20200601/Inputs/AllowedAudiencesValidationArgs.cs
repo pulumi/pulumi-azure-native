@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20200601.Inputs
 {
 
-    public sealed class AllowedAudiencesValidationArgs : global::Pulumi.ResourceArgs
+    public sealed class AllowedAudiencesValidationArgs : Pulumi.ResourceArgs
     {
         [Input("allowedAudiences")]
         private InputList<string>? _allowedAudiences;
@@ -29,6 +29,5 @@ namespace Pulumi.AzureNative.Web.V20200601.Inputs
         public AllowedAudiencesValidationArgs()
         {
         }
-        public static new AllowedAudiencesValidationArgs Empty => new AllowedAudiencesValidationArgs();
     }
 }

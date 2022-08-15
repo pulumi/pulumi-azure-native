@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// NER - Named Entity Recognition.
     /// NLP - Natural Language Processing.
     /// </summary>
-    public sealed class TextNerArgs : global::Pulumi.ResourceArgs
+    public sealed class TextNerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Data inputs for AutoMLJob.
@@ -52,6 +52,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         {
             LogVerbosity = "Info";
         }
-        public static new TextNerArgs Empty => new TextNerArgs();
     }
 }

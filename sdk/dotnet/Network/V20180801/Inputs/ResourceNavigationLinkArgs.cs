@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20180801.Inputs
     /// <summary>
     /// ResourceNavigationLink resource.
     /// </summary>
-    public sealed class ResourceNavigationLinkArgs : global::Pulumi.ResourceArgs
+    public sealed class ResourceNavigationLinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Network.V20180801.Inputs
         public ResourceNavigationLinkArgs()
         {
         }
-        public static new ResourceNavigationLinkArgs Empty => new ResourceNavigationLinkArgs();
     }
 }

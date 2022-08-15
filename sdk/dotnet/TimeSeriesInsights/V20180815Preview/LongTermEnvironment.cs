@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
     /// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. LongTerm environments do not have set data retention limits.
     /// </summary>
     [AzureNativeResourceType("azure-native:timeseriesinsights/v20180815preview:LongTermEnvironment")]
-    public partial class LongTermEnvironment : global::Pulumi.CustomResource
+    public partial class LongTermEnvironment : Pulumi.CustomResource
     {
         /// <summary>
         /// The time the resource was created.
@@ -132,12 +132,12 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights:LongTermEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:LongTermEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:LongTermEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:LongTermEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:LongTermEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:LongTermEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights:LongTermEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:LongTermEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:LongTermEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:LongTermEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:LongTermEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:LongTermEnvironment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -159,7 +159,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
         }
     }
 
-    public sealed class LongTermEnvironmentArgs : global::Pulumi.ResourceArgs
+    public sealed class LongTermEnvironmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the environment
@@ -231,6 +231,5 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
         public LongTermEnvironmentArgs()
         {
         }
-        public static new LongTermEnvironmentArgs Empty => new LongTermEnvironmentArgs();
     }
 }

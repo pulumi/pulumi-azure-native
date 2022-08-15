@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20190801
     /// Hybrid Connection for an App Service app.
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20190801:WebAppRelayServiceConnectionSlot")]
-    public partial class WebAppRelayServiceConnectionSlot : global::Pulumi.CustomResource
+    public partial class WebAppRelayServiceConnectionSlot : Pulumi.CustomResource
     {
         [Output("biztalkUri")]
         public Output<string?> BiztalkUri { get; private set; } = null!;
@@ -79,20 +79,20 @@ namespace Pulumi.AzureNative.Web.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppRelayServiceConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppRelayServiceConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppRelayServiceConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppRelayServiceConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppRelayServiceConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppRelayServiceConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppRelayServiceConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppRelayServiceConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppRelayServiceConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppRelayServiceConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppRelayServiceConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppRelayServiceConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppRelayServiceConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppRelayServiceConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web:WebAppRelayServiceConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppRelayServiceConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppRelayServiceConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppRelayServiceConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppRelayServiceConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppRelayServiceConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppRelayServiceConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppRelayServiceConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppRelayServiceConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppRelayServiceConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppRelayServiceConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppRelayServiceConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppRelayServiceConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppRelayServiceConnectionSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.Web.V20190801
         }
     }
 
-    public sealed class WebAppRelayServiceConnectionSlotArgs : global::Pulumi.ResourceArgs
+    public sealed class WebAppRelayServiceConnectionSlotArgs : Pulumi.ResourceArgs
     {
         [Input("biztalkUri")]
         public Input<string>? BiztalkUri { get; set; }
@@ -164,6 +164,5 @@ namespace Pulumi.AzureNative.Web.V20190801
         public WebAppRelayServiceConnectionSlotArgs()
         {
         }
-        public static new WebAppRelayServiceConnectionSlotArgs Empty => new WebAppRelayServiceConnectionSlotArgs();
     }
 }

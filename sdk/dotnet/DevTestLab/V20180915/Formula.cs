@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
     /// A formula for creating a VM, specifying an image base and other parameters
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab/v20180915:Formula")]
-    public partial class Formula : global::Pulumi.CustomResource
+    public partial class Formula : Pulumi.CustomResource
     {
         /// <summary>
         /// The author of the formula.
@@ -112,9 +112,9 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab:Formula"},
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20150521preview:Formula"},
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:Formula"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab:Formula"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20150521preview:Formula"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:Formula"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         }
     }
 
-    public sealed class FormulaArgs : global::Pulumi.ResourceArgs
+    public sealed class FormulaArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the formula.
@@ -201,6 +201,5 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         public FormulaArgs()
         {
         }
-        public static new FormulaArgs Empty => new FormulaArgs();
     }
 }

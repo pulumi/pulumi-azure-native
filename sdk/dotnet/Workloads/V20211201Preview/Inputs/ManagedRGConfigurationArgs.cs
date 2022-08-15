@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
     /// <summary>
     /// Managed resource group configuration
     /// </summary>
-    public sealed class ManagedRGConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedRGConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Managed resource group name
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
         public ManagedRGConfigurationArgs()
         {
         }
-        public static new ManagedRGConfigurationArgs Empty => new ManagedRGConfigurationArgs();
     }
 }

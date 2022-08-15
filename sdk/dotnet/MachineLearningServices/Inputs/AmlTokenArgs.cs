@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     /// <summary>
     /// AML Token identity configuration.
     /// </summary>
-    public sealed class AmlTokenArgs : global::Pulumi.ResourceArgs
+    public sealed class AmlTokenArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enum to determine identity framework.
@@ -25,6 +25,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public AmlTokenArgs()
         {
         }
-        public static new AmlTokenArgs Empty => new AmlTokenArgs();
     }
 }

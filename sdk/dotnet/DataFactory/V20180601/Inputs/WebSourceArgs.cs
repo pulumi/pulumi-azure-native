@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A copy activity source for web page table.
     /// </summary>
-    public sealed class WebSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class WebSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -55,6 +55,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public WebSourceArgs()
         {
         }
-        public static new WebSourceArgs Empty => new WebSourceArgs();
     }
 }

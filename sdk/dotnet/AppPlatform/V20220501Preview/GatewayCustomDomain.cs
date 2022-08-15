@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview
     /// Custom domain of the Spring Cloud Gateway
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform/v20220501preview:GatewayCustomDomain")]
-    public partial class GatewayCustomDomain : global::Pulumi.CustomResource
+    public partial class GatewayCustomDomain : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource.
@@ -64,9 +64,9 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform:GatewayCustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:GatewayCustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:GatewayCustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform:GatewayCustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:GatewayCustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:GatewayCustomDomain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview
         }
     }
 
-    public sealed class GatewayCustomDomainArgs : global::Pulumi.ResourceArgs
+    public sealed class GatewayCustomDomainArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Spring Cloud Gateway custom domain.
@@ -123,6 +123,5 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview
         public GatewayCustomDomainArgs()
         {
         }
-        public static new GatewayCustomDomainArgs Empty => new GatewayCustomDomainArgs();
     }
 }

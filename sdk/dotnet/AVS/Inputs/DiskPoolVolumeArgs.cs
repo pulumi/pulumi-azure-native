@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS.Inputs
     /// <summary>
     /// An iSCSI volume from Microsoft.StoragePool provider
     /// </summary>
-    public sealed class DiskPoolVolumeArgs : global::Pulumi.ResourceArgs
+    public sealed class DiskPoolVolumeArgs : Pulumi.ResourceArgs
     {
         [Input("endpoints")]
         private InputList<string>? _endpoints;
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.AVS.Inputs
         public DiskPoolVolumeArgs()
         {
         }
-        public static new DiskPoolVolumeArgs Empty => new DiskPoolVolumeArgs();
     }
 }

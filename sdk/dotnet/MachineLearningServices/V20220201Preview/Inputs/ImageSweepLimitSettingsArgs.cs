@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// Limit settings for model sweeping and hyperparameter sweeping.
     /// </summary>
-    public sealed class ImageSweepLimitSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class ImageSweepLimitSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Maximum number of concurrent iterations for the underlying Sweep job.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         public ImageSweepLimitSettingsArgs()
         {
         }
-        public static new ImageSweepLimitSettingsArgs Empty => new ImageSweepLimitSettingsArgs();
     }
 }

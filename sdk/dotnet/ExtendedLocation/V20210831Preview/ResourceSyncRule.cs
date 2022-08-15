@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ExtendedLocation.V20210831Preview
     /// Resource Sync Rules definition.
     /// </summary>
     [AzureNativeResourceType("azure-native:extendedlocation/v20210831preview:ResourceSyncRule")]
-    public partial class ResourceSyncRule : global::Pulumi.CustomResource
+    public partial class ResourceSyncRule : Pulumi.CustomResource
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.ExtendedLocation.V20210831Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:extendedlocation:ResourceSyncRule"},
+                    new Pulumi.Alias { Type = "azure-native:extendedlocation:ResourceSyncRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.ExtendedLocation.V20210831Preview
         }
     }
 
-    public sealed class ResourceSyncRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class ResourceSyncRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource Sync Rule name.
@@ -175,6 +175,5 @@ namespace Pulumi.AzureNative.ExtendedLocation.V20210831Preview
         public ResourceSyncRuleArgs()
         {
         }
-        public static new ResourceSyncRuleArgs Empty => new ResourceSyncRuleArgs();
     }
 }

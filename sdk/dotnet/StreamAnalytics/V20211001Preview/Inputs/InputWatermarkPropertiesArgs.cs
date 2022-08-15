@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
     /// <summary>
     /// Settings which determine whether to read watermark events.
     /// </summary>
-    public sealed class InputWatermarkPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class InputWatermarkPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The input watermark mode.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
         public InputWatermarkPropertiesArgs()
         {
         }
-        public static new InputWatermarkPropertiesArgs Empty => new InputWatermarkPropertiesArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph.V20181203
     }
 
 
-    public sealed class GetEnterpriseKnowledgeGraphArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEnterpriseKnowledgeGraphArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the EnterpriseKnowledgeGraph resource group in the user subscription.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph.V20181203
         public GetEnterpriseKnowledgeGraphArgs()
         {
         }
-        public static new GetEnterpriseKnowledgeGraphArgs Empty => new GetEnterpriseKnowledgeGraphArgs();
     }
 
-    public sealed class GetEnterpriseKnowledgeGraphInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEnterpriseKnowledgeGraphInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the EnterpriseKnowledgeGraph resource group in the user subscription.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph.V20181203
         public GetEnterpriseKnowledgeGraphInvokeArgs()
         {
         }
-        public static new GetEnterpriseKnowledgeGraphInvokeArgs Empty => new GetEnterpriseKnowledgeGraphInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200101
     /// A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20200101:RulesEngine")]
-    public partial class RulesEngine : global::Pulumi.CustomResource
+    public partial class RulesEngine : Pulumi.CustomResource
     {
         /// <summary>
         /// Resource name.
@@ -64,10 +64,10 @@ namespace Pulumi.AzureNative.Network.V20200101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:RulesEngine"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:RulesEngine"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:RulesEngine"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210601:RulesEngine"},
+                    new Pulumi.Alias { Type = "azure-native:network:RulesEngine"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:RulesEngine"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:RulesEngine"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210601:RulesEngine"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.Network.V20200101
         }
     }
 
-    public sealed class RulesEngineArgs : global::Pulumi.ResourceArgs
+    public sealed class RulesEngineArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Front Door which is globally unique.
@@ -124,6 +124,5 @@ namespace Pulumi.AzureNative.Network.V20200101
         public RulesEngineArgs()
         {
         }
-        public static new RulesEngineArgs Empty => new RulesEngineArgs();
     }
 }

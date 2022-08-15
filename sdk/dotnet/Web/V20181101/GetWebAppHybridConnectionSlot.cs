@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Web.V20181101
     }
 
 
-    public sealed class GetWebAppHybridConnectionSlotArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWebAppHybridConnectionSlotArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the web app.
@@ -60,10 +60,9 @@ namespace Pulumi.AzureNative.Web.V20181101
         public GetWebAppHybridConnectionSlotArgs()
         {
         }
-        public static new GetWebAppHybridConnectionSlotArgs Empty => new GetWebAppHybridConnectionSlotArgs();
     }
 
-    public sealed class GetWebAppHybridConnectionSlotInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWebAppHybridConnectionSlotInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the web app.
@@ -98,7 +97,6 @@ namespace Pulumi.AzureNative.Web.V20181101
         public GetWebAppHybridConnectionSlotInvokeArgs()
         {
         }
-        public static new GetWebAppHybridConnectionSlotInvokeArgs Empty => new GetWebAppHybridConnectionSlotInvokeArgs();
     }
 
 

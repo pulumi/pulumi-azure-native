@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Web.V20210101
     }
 
 
-    public sealed class ListWebAppFunctionSecretsSlotArgs : global::Pulumi.InvokeArgs
+    public sealed class ListWebAppFunctionSecretsSlotArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Function name.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.Web.V20210101
         public ListWebAppFunctionSecretsSlotArgs()
         {
         }
-        public static new ListWebAppFunctionSecretsSlotArgs Empty => new ListWebAppFunctionSecretsSlotArgs();
     }
 
-    public sealed class ListWebAppFunctionSecretsSlotInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListWebAppFunctionSecretsSlotInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Function name.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.Web.V20210101
         public ListWebAppFunctionSecretsSlotInvokeArgs()
         {
         }
-        public static new ListWebAppFunctionSecretsSlotInvokeArgs Empty => new ListWebAppFunctionSecretsSlotInvokeArgs();
     }
 
 

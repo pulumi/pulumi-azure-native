@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview
     /// Represents a server.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql/v20200701privatepreview:Server")]
-    public partial class Server : global::Pulumi.CustomResource
+    public partial class Server : Pulumi.CustomResource
     {
         /// <summary>
         /// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
@@ -184,10 +184,10 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20200701preview:Server"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20210501:Server"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20210501preview:Server"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20211201preview:Server"},
+                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20200701preview:Server"},
+                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20210501:Server"},
+                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20210501preview:Server"},
+                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20211201preview:Server"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -209,7 +209,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview
         }
     }
 
-    public sealed class ServerArgs : global::Pulumi.ResourceArgs
+    public sealed class ServerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
@@ -340,6 +340,5 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview
         public ServerArgs()
         {
         }
-        public static new ServerArgs Empty => new ServerArgs();
     }
 }

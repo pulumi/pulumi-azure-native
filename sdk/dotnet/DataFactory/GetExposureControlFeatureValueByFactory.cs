@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DataFactory
     }
 
 
-    public sealed class GetExposureControlFeatureValueByFactoryArgs : global::Pulumi.InvokeArgs
+    public sealed class GetExposureControlFeatureValueByFactoryArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The factory name.
@@ -56,10 +56,9 @@ namespace Pulumi.AzureNative.DataFactory
         public GetExposureControlFeatureValueByFactoryArgs()
         {
         }
-        public static new GetExposureControlFeatureValueByFactoryArgs Empty => new GetExposureControlFeatureValueByFactoryArgs();
     }
 
-    public sealed class GetExposureControlFeatureValueByFactoryInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetExposureControlFeatureValueByFactoryInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The factory name.
@@ -88,7 +87,6 @@ namespace Pulumi.AzureNative.DataFactory
         public GetExposureControlFeatureValueByFactoryInvokeArgs()
         {
         }
-        public static new GetExposureControlFeatureValueByFactoryInvokeArgs Empty => new GetExposureControlFeatureValueByFactoryInvokeArgs();
     }
 
 

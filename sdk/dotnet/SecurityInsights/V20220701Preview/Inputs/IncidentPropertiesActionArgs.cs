@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview.Inputs
 {
 
-    public sealed class IncidentPropertiesActionArgs : global::Pulumi.ResourceArgs
+    public sealed class IncidentPropertiesActionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The reason the incident was closed
@@ -63,6 +63,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview.Inputs
         public IncidentPropertiesActionArgs()
         {
         }
-        public static new IncidentPropertiesActionArgs Empty => new IncidentPropertiesActionArgs();
     }
 }

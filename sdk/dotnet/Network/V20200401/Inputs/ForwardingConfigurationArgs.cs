@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200401.Inputs
     /// <summary>
     /// Describes Forwarding Route.
     /// </summary>
-    public sealed class ForwardingConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class ForwardingConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A reference to the BackendPool which this rule routes to.
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.Network.V20200401.Inputs
         public ForwardingConfigurationArgs()
         {
         }
-        public static new ForwardingConfigurationArgs Empty => new ForwardingConfigurationArgs();
     }
 }

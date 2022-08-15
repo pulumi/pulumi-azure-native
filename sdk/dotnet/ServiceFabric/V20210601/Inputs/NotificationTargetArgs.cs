@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210601.Inputs
     /// <summary>
     /// Describes the notification target properties.
     /// </summary>
-    public sealed class NotificationTargetArgs : global::Pulumi.ResourceArgs
+    public sealed class NotificationTargetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The notification channel indicates the type of receivers subscribed to the notification, either user or subscription.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210601.Inputs
         public NotificationTargetArgs()
         {
         }
-        public static new NotificationTargetArgs Empty => new NotificationTargetArgs();
     }
 }

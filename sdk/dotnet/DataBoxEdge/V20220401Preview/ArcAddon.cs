@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview
     /// Arc Addon.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge/v20220401preview:ArcAddon")]
-    public partial class ArcAddon : global::Pulumi.CustomResource
+    public partial class ArcAddon : Pulumi.CustomResource
     {
         /// <summary>
         /// Host OS supported by the Arc addon.
@@ -120,15 +120,15 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:ArcAddon"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:ArcAddon"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:ArcAddon"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:ArcAddon"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:ArcAddon"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:ArcAddon"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:ArcAddon"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:ArcAddon"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:ArcAddon"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge:ArcAddon"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:ArcAddon"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:ArcAddon"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:ArcAddon"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:ArcAddon"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:ArcAddon"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:ArcAddon"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:ArcAddon"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:ArcAddon"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -150,7 +150,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview
         }
     }
 
-    public sealed class ArcAddonArgs : global::Pulumi.ResourceArgs
+    public sealed class ArcAddonArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The addon name.
@@ -204,6 +204,5 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview
         public ArcAddonArgs()
         {
         }
-        public static new ArcAddonArgs Empty => new ArcAddonArgs();
     }
 }

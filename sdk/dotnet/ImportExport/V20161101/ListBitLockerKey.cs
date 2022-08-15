@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ImportExport.V20161101
     }
 
 
-    public sealed class ListBitLockerKeyArgs : global::Pulumi.InvokeArgs
+    public sealed class ListBitLockerKeyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the import/export job.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.ImportExport.V20161101
         public ListBitLockerKeyArgs()
         {
         }
-        public static new ListBitLockerKeyArgs Empty => new ListBitLockerKeyArgs();
     }
 
-    public sealed class ListBitLockerKeyInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListBitLockerKeyInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the import/export job.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.ImportExport.V20161101
         public ListBitLockerKeyInvokeArgs()
         {
         }
-        public static new ListBitLockerKeyInvokeArgs Empty => new ListBitLockerKeyInvokeArgs();
     }
 
 

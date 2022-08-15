@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VMwareCloudSimple.V20190401.Inputs
     /// <summary>
     /// The purchase SKU for CloudSimple paid resources
     /// </summary>
-    public sealed class SkuArgs : global::Pulumi.ResourceArgs
+    public sealed class SkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The capacity of the SKU
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.VMwareCloudSimple.V20190401.Inputs
         public SkuArgs()
         {
         }
-        public static new SkuArgs Empty => new SkuArgs();
     }
 }

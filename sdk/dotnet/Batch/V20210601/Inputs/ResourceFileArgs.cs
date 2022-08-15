@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20210601.Inputs
 {
 
-    public sealed class ResourceFileArgs : global::Pulumi.ResourceArgs
+    public sealed class ResourceFileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified.
@@ -57,6 +57,5 @@ namespace Pulumi.AzureNative.Batch.V20210601.Inputs
         public ResourceFileArgs()
         {
         }
-        public static new ResourceFileArgs Empty => new ResourceFileArgs();
     }
 }

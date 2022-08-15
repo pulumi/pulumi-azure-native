@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20191101.Inputs
     /// <summary>
     /// Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
     /// </summary>
-    public sealed class VirtualNetworkBgpCommunitiesArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualNetworkBgpCommunitiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The BGP community associated with the virtual network.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Network.V20191101.Inputs
         public VirtualNetworkBgpCommunitiesArgs()
         {
         }
-        public static new VirtualNetworkBgpCommunitiesArgs Empty => new VirtualNetworkBgpCommunitiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Consumption.V20191001.Inputs
     /// <summary>
     /// The comparison expression to be used in the budgets.
     /// </summary>
-    public sealed class BudgetComparisonExpressionArgs : global::Pulumi.ResourceArgs
+    public sealed class BudgetComparisonExpressionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the column to use in comparison.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Consumption.V20191001.Inputs
         public BudgetComparisonExpressionArgs()
         {
         }
-        public static new BudgetComparisonExpressionArgs Empty => new BudgetComparisonExpressionArgs();
     }
 }

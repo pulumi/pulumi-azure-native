@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210801Preview
     /// An object that represents an import pipeline for a container registry.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry/v20210801preview:ImportPipeline")]
-    public partial class ImportPipeline : global::Pulumi.CustomResource
+    public partial class ImportPipeline : Pulumi.CustomResource
     {
         /// <summary>
         /// The identity of the import pipeline.
@@ -94,12 +94,12 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry:ImportPipeline"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:ImportPipeline"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:ImportPipeline"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:ImportPipeline"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:ImportPipeline"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:ImportPipeline"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry:ImportPipeline"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:ImportPipeline"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:ImportPipeline"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:ImportPipeline"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:ImportPipeline"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:ImportPipeline"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -121,7 +121,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210801Preview
         }
     }
 
-    public sealed class ImportPipelineArgs : global::Pulumi.ResourceArgs
+    public sealed class ImportPipelineArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity of the import pipeline.
@@ -180,6 +180,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210801Preview
         public ImportPipelineArgs()
         {
         }
-        public static new ImportPipelineArgs Empty => new ImportPipelineArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.MachineLearningExperimentation
     /// API Version: 2017-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningexperimentation:Project")]
-    public partial class Project : global::Pulumi.CustomResource
+    public partial class Project : Pulumi.CustomResource
     {
         /// <summary>
         /// The immutable id of the team account which contains this project.
@@ -113,7 +113,7 @@ namespace Pulumi.AzureNative.MachineLearningExperimentation
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningexperimentation/v20170501preview:Project"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningexperimentation/v20170501preview:Project"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -135,7 +135,7 @@ namespace Pulumi.AzureNative.MachineLearningExperimentation
         }
     }
 
-    public sealed class ProjectArgs : global::Pulumi.ResourceArgs
+    public sealed class ProjectArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the machine learning team account.
@@ -200,6 +200,5 @@ namespace Pulumi.AzureNative.MachineLearningExperimentation
         public ProjectArgs()
         {
         }
-        public static new ProjectArgs Empty => new ProjectArgs();
     }
 }

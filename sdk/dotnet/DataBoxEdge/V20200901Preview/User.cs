@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
     /// </summary>
     [Obsolete(@"Version 2020-09-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:databoxedge/v20200901preview:User")]
-    public partial class User : global::Pulumi.CustomResource
+    public partial class User : Pulumi.CustomResource
     {
         /// <summary>
         /// The password details.
@@ -77,19 +77,19 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:User"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:User"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:User"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:User"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:User"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:User"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:User"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:User"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:User"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:User"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:User"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:User"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:User"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge:User"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:User"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:User"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:User"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:User"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:User"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:User"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:User"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:User"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:User"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:User"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:User"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:User"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
         }
     }
 
-    public sealed class UserArgs : global::Pulumi.ResourceArgs
+    public sealed class UserArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The device name.
@@ -146,6 +146,5 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
         public UserArgs()
         {
         }
-        public static new UserArgs Empty => new UserArgs();
     }
 }

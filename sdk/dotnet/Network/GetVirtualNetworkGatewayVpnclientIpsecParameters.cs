@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network
     }
 
 
-    public sealed class GetVirtualNetworkGatewayVpnclientIpsecParametersArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkGatewayVpnclientIpsecParametersArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.Network
         public GetVirtualNetworkGatewayVpnclientIpsecParametersArgs()
         {
         }
-        public static new GetVirtualNetworkGatewayVpnclientIpsecParametersArgs Empty => new GetVirtualNetworkGatewayVpnclientIpsecParametersArgs();
     }
 
-    public sealed class GetVirtualNetworkGatewayVpnclientIpsecParametersInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkGatewayVpnclientIpsecParametersInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.Network
         public GetVirtualNetworkGatewayVpnclientIpsecParametersInvokeArgs()
         {
         }
-        public static new GetVirtualNetworkGatewayVpnclientIpsecParametersInvokeArgs Empty => new GetVirtualNetworkGatewayVpnclientIpsecParametersInvokeArgs();
     }
 
 

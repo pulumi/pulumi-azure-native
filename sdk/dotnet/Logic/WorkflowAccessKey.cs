@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic
     /// API Version: 2015-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:logic:WorkflowAccessKey")]
-    public partial class WorkflowAccessKey : global::Pulumi.CustomResource
+    public partial class WorkflowAccessKey : Pulumi.CustomResource
     {
         /// <summary>
         /// Gets the workflow access key name.
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNative.Logic
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:logic/v20150201preview:WorkflowAccessKey"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20150201preview:WorkflowAccessKey"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNative.Logic
         }
     }
 
-    public sealed class WorkflowAccessKeyArgs : global::Pulumi.ResourceArgs
+    public sealed class WorkflowAccessKeyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The workflow access key name.
@@ -127,6 +127,5 @@ namespace Pulumi.AzureNative.Logic
         public WorkflowAccessKeyArgs()
         {
         }
-        public static new WorkflowAccessKeyArgs Empty => new WorkflowAccessKeyArgs();
     }
 }

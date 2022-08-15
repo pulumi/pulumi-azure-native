@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.Inputs
     /// <summary>
     /// Properties of the destination of an event channel.
     /// </summary>
-    public sealed class EventChannelDestinationArgs : global::Pulumi.ResourceArgs
+    public sealed class EventChannelDestinationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure subscription ID of the customer creating the event channel. The partner topic
@@ -38,6 +38,5 @@ namespace Pulumi.AzureNative.EventGrid.Inputs
         public EventChannelDestinationArgs()
         {
         }
-        public static new EventChannelDestinationArgs Empty => new EventChannelDestinationArgs();
     }
 }

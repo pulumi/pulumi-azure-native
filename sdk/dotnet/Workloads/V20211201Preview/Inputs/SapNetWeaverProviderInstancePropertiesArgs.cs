@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
     /// <summary>
     /// Gets or sets the provider properties.
     /// </summary>
-    public sealed class SapNetWeaverProviderInstancePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class SapNetWeaverProviderInstancePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The provider type. For example, the value can be SapHana.
@@ -91,6 +91,5 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
         public SapNetWeaverProviderInstancePropertiesArgs()
         {
         }
-        public static new SapNetWeaverProviderInstancePropertiesArgs Empty => new SapNetWeaverProviderInstancePropertiesArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
     /// API Version: 2016-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:datalakeanalytics:FirewallRule")]
-    public partial class FirewallRule : global::Pulumi.CustomResource
+    public partial class FirewallRule : Pulumi.CustomResource
     {
         /// <summary>
         /// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
@@ -65,9 +65,9 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20151001preview:FirewallRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20161101:FirewallRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20191101preview:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20151001preview:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20161101:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20191101preview:FirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
         }
     }
 
-    public sealed class FirewallRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class FirewallRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Data Lake Analytics account.
@@ -124,6 +124,5 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
         public FirewallRuleArgs()
         {
         }
-        public static new FirewallRuleArgs Empty => new FirewallRuleArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20220101
     }
 
 
-    public sealed class GetConfigurationPolicyGroupArgs : global::Pulumi.InvokeArgs
+    public sealed class GetConfigurationPolicyGroupArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the ConfigurationPolicyGroup being retrieved.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Network.V20220101
         public GetConfigurationPolicyGroupArgs()
         {
         }
-        public static new GetConfigurationPolicyGroupArgs Empty => new GetConfigurationPolicyGroupArgs();
     }
 
-    public sealed class GetConfigurationPolicyGroupInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetConfigurationPolicyGroupInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the ConfigurationPolicyGroup being retrieved.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Network.V20220101
         public GetConfigurationPolicyGroupInvokeArgs()
         {
         }
-        public static new GetConfigurationPolicyGroupInvokeArgs Empty => new GetConfigurationPolicyGroupInvokeArgs();
     }
 
 

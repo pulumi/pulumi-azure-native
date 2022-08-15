@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Web
     }
 
 
-    public sealed class GetConnectionGatewayArgs : global::Pulumi.InvokeArgs
+    public sealed class GetConnectionGatewayArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The connection gateway name
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Web
         public GetConnectionGatewayArgs()
         {
         }
-        public static new GetConnectionGatewayArgs Empty => new GetConnectionGatewayArgs();
     }
 
-    public sealed class GetConnectionGatewayInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetConnectionGatewayInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The connection gateway name
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Web
         public GetConnectionGatewayInvokeArgs()
         {
         }
-        public static new GetConnectionGatewayInvokeArgs Empty => new GetConnectionGatewayInvokeArgs();
     }
 
 

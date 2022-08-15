@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Databricks.V20220401Preview.Inputs
     /// <summary>
     /// Identity for the resource.
     /// </summary>
-    public sealed class IdentityDataArgs : global::Pulumi.ResourceArgs
+    public sealed class IdentityDataArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity type.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Databricks.V20220401Preview.Inputs
         public IdentityDataArgs()
         {
         }
-        public static new IdentityDataArgs Empty => new IdentityDataArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211101.Inputs
     /// <summary>
     /// Hyper-V Replica specific policy Input.
     /// </summary>
-    public sealed class HyperVReplicaPolicyInputArgs : global::Pulumi.ResourceArgs
+    public sealed class HyperVReplicaPolicyInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A value indicating the authentication type.
@@ -85,6 +85,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211101.Inputs
         public HyperVReplicaPolicyInputArgs()
         {
         }
-        public static new HyperVReplicaPolicyInputArgs Empty => new HyperVReplicaPolicyInputArgs();
     }
 }

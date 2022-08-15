@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logz.V20220101Preview.Inputs
 {
 
-    public sealed class PlanDataArgs : global::Pulumi.ResourceArgs
+    public sealed class PlanDataArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// different billing cycles like MONTHLY/WEEKLY. this could be enum
@@ -39,6 +39,5 @@ namespace Pulumi.AzureNative.Logz.V20220101Preview.Inputs
         public PlanDataArgs()
         {
         }
-        public static new PlanDataArgs Empty => new PlanDataArgs();
     }
 }

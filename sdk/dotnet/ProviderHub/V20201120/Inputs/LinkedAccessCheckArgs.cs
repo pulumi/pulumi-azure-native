@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20201120.Inputs
 {
 
-    public sealed class LinkedAccessCheckArgs : global::Pulumi.ResourceArgs
+    public sealed class LinkedAccessCheckArgs : Pulumi.ResourceArgs
     {
         [Input("actionName")]
         public Input<string>? ActionName { get; set; }
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120.Inputs
         public LinkedAccessCheckArgs()
         {
         }
-        public static new LinkedAccessCheckArgs Empty => new LinkedAccessCheckArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization.V20190901.Inputs
     /// <summary>
     /// The definition of a parameter that can be provided to the policy.
     /// </summary>
-    public sealed class ParameterDefinitionsValueArgs : global::Pulumi.ResourceArgs
+    public sealed class ParameterDefinitionsValueArgs : Pulumi.ResourceArgs
     {
         [Input("allowedValues")]
         private InputList<object>? _allowedValues;
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.Authorization.V20190901.Inputs
         public ParameterDefinitionsValueArgs()
         {
         }
-        public static new ParameterDefinitionsValueArgs Empty => new ParameterDefinitionsValueArgs();
     }
 }

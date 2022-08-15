@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20190301Preview.Inputs
     /// <summary>
     /// Describes the server certificate details using common name.
     /// </summary>
-    public sealed class ServerCertificateCommonNameArgs : global::Pulumi.ResourceArgs
+    public sealed class ServerCertificateCommonNameArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The common name of the server certificate.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ServiceFabric.V20190301Preview.Inputs
         public ServerCertificateCommonNameArgs()
         {
         }
-        public static new ServerCertificateCommonNameArgs Empty => new ServerCertificateCommonNameArgs();
     }
 }

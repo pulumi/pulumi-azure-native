@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// For more information on the available settings please visit the official documentation:
     /// https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.
     /// </summary>
-    public sealed class ImageModelSettingsObjectDetectionArgs : global::Pulumi.ResourceArgs
+    public sealed class ImageModelSettingsObjectDetectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Settings for advanced scenarios.
@@ -320,6 +320,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
             Optimizer = "None";
             ValidationMetricType = "None";
         }
-        public static new ImageModelSettingsObjectDetectionArgs Empty => new ImageModelSettingsObjectDetectionArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.RecoveryServices
     }
 
 
-    public sealed class GetReplicationStorageClassificationMappingArgs : global::Pulumi.InvokeArgs
+    public sealed class GetReplicationStorageClassificationMappingArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Fabric name.
@@ -62,10 +62,9 @@ namespace Pulumi.AzureNative.RecoveryServices
         public GetReplicationStorageClassificationMappingArgs()
         {
         }
-        public static new GetReplicationStorageClassificationMappingArgs Empty => new GetReplicationStorageClassificationMappingArgs();
     }
 
-    public sealed class GetReplicationStorageClassificationMappingInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetReplicationStorageClassificationMappingInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Fabric name.
@@ -100,7 +99,6 @@ namespace Pulumi.AzureNative.RecoveryServices
         public GetReplicationStorageClassificationMappingInvokeArgs()
         {
         }
-        public static new GetReplicationStorageClassificationMappingInvokeArgs Empty => new GetReplicationStorageClassificationMappingInvokeArgs();
     }
 
 

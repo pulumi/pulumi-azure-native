@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
     }
 
 
-    public sealed class GetEntityQueryArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEntityQueryArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// entity query ID
@@ -55,10 +55,9 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         public GetEntityQueryArgs()
         {
         }
-        public static new GetEntityQueryArgs Empty => new GetEntityQueryArgs();
     }
 
-    public sealed class GetEntityQueryInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEntityQueryInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// entity query ID
@@ -87,7 +86,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         public GetEntityQueryInvokeArgs()
         {
         }
-        public static new GetEntityQueryInvokeArgs Empty => new GetEntityQueryInvokeArgs();
     }
 
 

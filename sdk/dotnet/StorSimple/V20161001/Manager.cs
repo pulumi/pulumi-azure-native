@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     /// </summary>
     [Obsolete(@"Version 2016-10-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storsimple/v20161001:Manager")]
-    public partial class Manager : global::Pulumi.CustomResource
+    public partial class Manager : Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies if the Manager is Garda or Helsinki
@@ -89,8 +89,8 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:storsimple:Manager"},
-                    new global::Pulumi.Alias { Type = "azure-native:storsimple/v20170601:Manager"},
+                    new Pulumi.Alias { Type = "azure-native:storsimple:Manager"},
+                    new Pulumi.Alias { Type = "azure-native:storsimple/v20170601:Manager"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         }
     }
 
-    public sealed class ManagerArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies if the Manager is Garda or Helsinki
@@ -159,6 +159,5 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public ManagerArgs()
         {
         }
-        public static new ManagerArgs Empty => new ManagerArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Cdn.V20190615
     /// </summary>
     [Obsolete(@"Version 2019-06-15 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:cdn/v20190615:Endpoint")]
-    public partial class Endpoint : global::Pulumi.CustomResource
+    public partial class Endpoint : Pulumi.CustomResource
     {
         /// <summary>
         /// List of content types on which compression applies. The value should be a valid MIME type.
@@ -161,19 +161,19 @@ namespace Pulumi.AzureNative.Cdn.V20190615
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cdn:Endpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20150601:Endpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20160402:Endpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20161002:Endpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20170402:Endpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20171012:Endpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20190415:Endpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20190615preview:Endpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20191231:Endpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200331:Endpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200415:Endpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:Endpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:cdn:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20150601:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20160402:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20161002:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20170402:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20171012:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20190415:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20190615preview:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20191231:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200331:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200415:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200901:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20210601:Endpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -195,7 +195,7 @@ namespace Pulumi.AzureNative.Cdn.V20190615
         }
     }
 
-    public sealed class EndpointArgs : global::Pulumi.ResourceArgs
+    public sealed class EndpointArgs : Pulumi.ResourceArgs
     {
         [Input("contentTypesToCompress")]
         private InputList<string>? _contentTypesToCompress;
@@ -332,6 +332,5 @@ namespace Pulumi.AzureNative.Cdn.V20190615
         public EndpointArgs()
         {
         }
-        public static new EndpointArgs Empty => new EndpointArgs();
     }
 }

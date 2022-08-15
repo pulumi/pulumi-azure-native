@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20220615.Inputs
     /// <summary>
     /// An XML configuration specification for a WebTest.
     /// </summary>
-    public sealed class WebTestPropertiesConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class WebTestPropertiesConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The XML specification of a WebTest to run against an application.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Insights.V20220615.Inputs
         public WebTestPropertiesConfigurationArgs()
         {
         }
-        public static new WebTestPropertiesConfigurationArgs Empty => new WebTestPropertiesConfigurationArgs();
     }
 }

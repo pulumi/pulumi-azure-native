@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HealthBot.V20210824.Inputs
     /// <summary>
     /// Properties of the key vault.
     /// </summary>
-    public sealed class KeyVaultPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class KeyVaultPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the key vault key.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.HealthBot.V20210824.Inputs
         public KeyVaultPropertiesArgs()
         {
         }
-        public static new KeyVaultPropertiesArgs Empty => new KeyVaultPropertiesArgs();
     }
 }

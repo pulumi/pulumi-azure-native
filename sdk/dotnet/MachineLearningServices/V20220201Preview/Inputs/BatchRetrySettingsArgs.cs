@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// Retry settings for a batch inference operation.
     /// </summary>
-    public sealed class BatchRetrySettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class BatchRetrySettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Maximum retry count for a mini-batch
@@ -32,6 +32,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
             MaxRetries = 3;
             Timeout = "PT30S";
         }
-        public static new BatchRetrySettingsArgs Empty => new BatchRetrySettingsArgs();
     }
 }

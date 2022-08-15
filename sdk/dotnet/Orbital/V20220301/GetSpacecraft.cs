@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Orbital.V20220301
     }
 
 
-    public sealed class GetSpacecraftArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSpacecraftArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.Orbital.V20220301
         public GetSpacecraftArgs()
         {
         }
-        public static new GetSpacecraftArgs Empty => new GetSpacecraftArgs();
     }
 
-    public sealed class GetSpacecraftInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSpacecraftInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.Orbital.V20220301
         public GetSpacecraftInvokeArgs()
         {
         }
-        public static new GetSpacecraftInvokeArgs Empty => new GetSpacecraftInvokeArgs();
     }
 
 

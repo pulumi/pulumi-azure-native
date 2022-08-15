@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20220501.Inputs
     /// <summary>
     /// Encryption identity for the storage account.
     /// </summary>
-    public sealed class EncryptionIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class EncryptionIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// ClientId of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Storage.V20220501.Inputs
         public EncryptionIdentityArgs()
         {
         }
-        public static new EncryptionIdentityArgs Empty => new EncryptionIdentityArgs();
     }
 }

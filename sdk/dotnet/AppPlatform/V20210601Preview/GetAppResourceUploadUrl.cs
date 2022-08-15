@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20210601Preview
     }
 
 
-    public sealed class GetAppResourceUploadUrlArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAppResourceUploadUrlArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the App resource.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.AppPlatform.V20210601Preview
         public GetAppResourceUploadUrlArgs()
         {
         }
-        public static new GetAppResourceUploadUrlArgs Empty => new GetAppResourceUploadUrlArgs();
     }
 
-    public sealed class GetAppResourceUploadUrlInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAppResourceUploadUrlInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the App resource.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20210601Preview
         public GetAppResourceUploadUrlInvokeArgs()
         {
         }
-        public static new GetAppResourceUploadUrlInvokeArgs Empty => new GetAppResourceUploadUrlInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20181101.Inputs
     /// <summary>
     /// AzureFirewall NAT Rule Collection Action.
     /// </summary>
-    public sealed class AzureFirewallNatRCActionArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureFirewallNatRCActionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of action.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Network.V20181101.Inputs
         public AzureFirewallNatRCActionArgs()
         {
         }
-        public static new AzureFirewallNatRCActionArgs Empty => new AzureFirewallNatRCActionArgs();
     }
 }

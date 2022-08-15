@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Sql.V20220201Preview.Inputs
 {
 
-    public sealed class ManagedInstancePrivateEndpointPropertyArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedInstancePrivateEndpointPropertyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource id of the private endpoint.
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.Sql.V20220201Preview.Inputs
         public ManagedInstancePrivateEndpointPropertyArgs()
         {
         }
-        public static new ManagedInstancePrivateEndpointPropertyArgs Empty => new ManagedInstancePrivateEndpointPropertyArgs();
     }
 }

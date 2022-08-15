@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Blueprint
     }
 
 
-    public sealed class GetPolicyAssignmentArtifactArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPolicyAssignmentArtifactArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the blueprint artifact.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Blueprint
         public GetPolicyAssignmentArtifactArgs()
         {
         }
-        public static new GetPolicyAssignmentArtifactArgs Empty => new GetPolicyAssignmentArtifactArgs();
     }
 
-    public sealed class GetPolicyAssignmentArtifactInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPolicyAssignmentArtifactInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the blueprint artifact.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Blueprint
         public GetPolicyAssignmentArtifactInvokeArgs()
         {
         }
-        public static new GetPolicyAssignmentArtifactInvokeArgs Empty => new GetPolicyAssignmentArtifactInvokeArgs();
     }
 
 

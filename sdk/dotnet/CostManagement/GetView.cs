@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.CostManagement
     }
 
 
-    public sealed class GetViewArgs : global::Pulumi.InvokeArgs
+    public sealed class GetViewArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// View name
@@ -38,10 +38,9 @@ namespace Pulumi.AzureNative.CostManagement
         public GetViewArgs()
         {
         }
-        public static new GetViewArgs Empty => new GetViewArgs();
     }
 
-    public sealed class GetViewInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetViewInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// View name
@@ -52,7 +51,6 @@ namespace Pulumi.AzureNative.CostManagement
         public GetViewInvokeArgs()
         {
         }
-        public static new GetViewInvokeArgs Empty => new GetViewInvokeArgs();
     }
 
 

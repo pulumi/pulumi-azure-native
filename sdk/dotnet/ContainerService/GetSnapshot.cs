@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
 
-    public sealed class GetSnapshotArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSnapshotArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.ContainerService
         public GetSnapshotArgs()
         {
         }
-        public static new GetSnapshotArgs Empty => new GetSnapshotArgs();
     }
 
-    public sealed class GetSnapshotInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSnapshotInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.ContainerService
         public GetSnapshotInvokeArgs()
         {
         }
-        public static new GetSnapshotInvokeArgs Empty => new GetSnapshotInvokeArgs();
     }
 
 

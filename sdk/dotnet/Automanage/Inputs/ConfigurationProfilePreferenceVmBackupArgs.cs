@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automanage.Inputs
     /// <summary>
     /// Automanage configuration profile VM Backup preferences.
     /// </summary>
-    public sealed class ConfigurationProfilePreferenceVmBackupArgs : global::Pulumi.ResourceArgs
+    public sealed class ConfigurationProfilePreferenceVmBackupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Instant RP retention policy range in days
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Automanage.Inputs
         public ConfigurationProfilePreferenceVmBackupArgs()
         {
         }
-        public static new ConfigurationProfilePreferenceVmBackupArgs Empty => new ConfigurationProfilePreferenceVmBackupArgs();
     }
 }

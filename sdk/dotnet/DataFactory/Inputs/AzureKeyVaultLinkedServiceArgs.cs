@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Azure Key Vault linked service.
     /// </summary>
-    public sealed class AzureKeyVaultLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureKeyVaultLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -73,6 +73,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public AzureKeyVaultLinkedServiceArgs()
         {
         }
-        public static new AzureKeyVaultLinkedServiceArgs Empty => new AzureKeyVaultLinkedServiceArgs();
     }
 }

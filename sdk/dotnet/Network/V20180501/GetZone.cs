@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20180501
     }
 
 
-    public sealed class GetZoneArgs : global::Pulumi.InvokeArgs
+    public sealed class GetZoneArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.Network.V20180501
         public GetZoneArgs()
         {
         }
-        public static new GetZoneArgs Empty => new GetZoneArgs();
     }
 
-    public sealed class GetZoneInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetZoneInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.Network.V20180501
         public GetZoneInvokeArgs()
         {
         }
-        public static new GetZoneInvokeArgs Empty => new GetZoneInvokeArgs();
     }
 
 

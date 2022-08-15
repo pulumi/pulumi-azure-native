@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20220201Preview.Inputs
     /// <summary>
     /// The soft delete policy for a container registry
     /// </summary>
-    public sealed class SoftDeletePolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class SoftDeletePolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of days after which a soft-deleted item is permanently deleted.
@@ -32,6 +32,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20220201Preview.Inputs
             RetentionDays = 7;
             Status = "disabled";
         }
-        public static new SoftDeletePolicyArgs Empty => new SoftDeletePolicyArgs();
     }
 }

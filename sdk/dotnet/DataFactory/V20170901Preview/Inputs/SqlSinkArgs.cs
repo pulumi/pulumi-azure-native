@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity SQL sink.
     /// </summary>
-    public sealed class SqlSinkArgs : global::Pulumi.ResourceArgs
+    public sealed class SqlSinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// SQL pre-copy script. Type: string (or Expression with resultType string).
@@ -79,6 +79,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public SqlSinkArgs()
         {
         }
-        public static new SqlSinkArgs Empty => new SqlSinkArgs();
     }
 }

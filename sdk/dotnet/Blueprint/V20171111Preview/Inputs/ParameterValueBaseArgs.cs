@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview.Inputs
     /// <summary>
     /// Base class for ParameterValue.
     /// </summary>
-    public sealed class ParameterValueBaseArgs : global::Pulumi.ResourceArgs
+    public sealed class ParameterValueBaseArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Optional property, just to establish ParameterValueBase as a BaseClass.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview.Inputs
         public ParameterValueBaseArgs()
         {
         }
-        public static new ParameterValueBaseArgs Empty => new ParameterValueBaseArgs();
     }
 }

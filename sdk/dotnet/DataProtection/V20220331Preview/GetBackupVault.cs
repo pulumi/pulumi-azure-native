@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataProtection.V20220331Preview
     }
 
 
-    public sealed class GetBackupVaultArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBackupVaultArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group where the backup vault is present.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.DataProtection.V20220331Preview
         public GetBackupVaultArgs()
         {
         }
-        public static new GetBackupVaultArgs Empty => new GetBackupVaultArgs();
     }
 
-    public sealed class GetBackupVaultInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBackupVaultInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group where the backup vault is present.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.DataProtection.V20220331Preview
         public GetBackupVaultInvokeArgs()
         {
         }
-        public static new GetBackupVaultInvokeArgs Empty => new GetBackupVaultInvokeArgs();
     }
 
 

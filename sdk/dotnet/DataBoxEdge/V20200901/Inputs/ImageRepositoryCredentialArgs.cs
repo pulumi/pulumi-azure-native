@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901.Inputs
     /// <summary>
     /// Image repository credential.
     /// </summary>
-    public sealed class ImageRepositoryCredentialArgs : global::Pulumi.ResourceArgs
+    public sealed class ImageRepositoryCredentialArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Image repository url (e.g.: mcr.microsoft.com).
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901.Inputs
         public ImageRepositoryCredentialArgs()
         {
         }
-        public static new ImageRepositoryCredentialArgs Empty => new ImageRepositoryCredentialArgs();
     }
 }

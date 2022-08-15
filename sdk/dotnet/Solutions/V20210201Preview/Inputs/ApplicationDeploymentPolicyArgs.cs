@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Solutions.V20210201Preview.Inputs
     /// <summary>
     /// Managed application deployment policy.
     /// </summary>
-    public sealed class ApplicationDeploymentPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplicationDeploymentPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The managed application deployment mode.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Solutions.V20210201Preview.Inputs
         public ApplicationDeploymentPolicyArgs()
         {
         }
-        public static new ApplicationDeploymentPolicyArgs Empty => new ApplicationDeploymentPolicyArgs();
     }
 }

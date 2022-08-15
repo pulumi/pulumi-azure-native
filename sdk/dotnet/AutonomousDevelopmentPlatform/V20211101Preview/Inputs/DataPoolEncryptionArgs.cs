@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.V20211101Preview.Inpu
     /// <summary>
     /// Encryption properties of a Data Pool
     /// </summary>
-    public sealed class DataPoolEncryptionArgs : global::Pulumi.ResourceArgs
+    public sealed class DataPoolEncryptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of Key Vault key
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.V20211101Preview.Inpu
         public DataPoolEncryptionArgs()
         {
         }
-        public static new DataPoolEncryptionArgs Empty => new DataPoolEncryptionArgs();
     }
 }

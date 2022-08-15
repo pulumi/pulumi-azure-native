@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190801.Inputs
     /// <summary>
     /// Inbound NAT rule of the load balancer.
     /// </summary>
-    public sealed class InboundNatRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class InboundNatRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The port used for the internal endpoint. Acceptable values range from 1 to 65535.
@@ -78,6 +78,5 @@ namespace Pulumi.AzureNative.Network.V20190801.Inputs
         public InboundNatRuleArgs()
         {
         }
-        public static new InboundNatRuleArgs Empty => new InboundNatRuleArgs();
     }
 }

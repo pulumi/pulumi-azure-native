@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ElasticSan
     /// API Version: 2021-11-20-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:elasticsan:Volume")]
-    public partial class Volume : global::Pulumi.CustomResource
+    public partial class Volume : Pulumi.CustomResource
     {
         /// <summary>
         /// State of the operation on the resource.
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.ElasticSan
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:elasticsan/v20211120preview:Volume"},
+                    new Pulumi.Alias { Type = "azure-native:elasticsan/v20211120preview:Volume"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNative.ElasticSan
         }
     }
 
-    public sealed class VolumeArgs : global::Pulumi.ResourceArgs
+    public sealed class VolumeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// State of the operation on the resource.
@@ -164,6 +164,5 @@ namespace Pulumi.AzureNative.ElasticSan
         public VolumeArgs()
         {
         }
-        public static new VolumeArgs Empty => new VolumeArgs();
     }
 }

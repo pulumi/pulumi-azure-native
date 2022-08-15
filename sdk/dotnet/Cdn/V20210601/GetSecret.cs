@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601
     }
 
 
-    public sealed class GetSecretArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSecretArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         public GetSecretArgs()
         {
         }
-        public static new GetSecretArgs Empty => new GetSecretArgs();
     }
 
-    public sealed class GetSecretInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSecretInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         public GetSecretInvokeArgs()
         {
         }
-        public static new GetSecretInvokeArgs Empty => new GetSecretInvokeArgs();
     }
 
 

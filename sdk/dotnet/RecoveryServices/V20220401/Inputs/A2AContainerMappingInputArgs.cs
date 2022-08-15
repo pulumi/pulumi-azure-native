@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220401.Inputs
     /// <summary>
     /// A2A container mapping input.
     /// </summary>
-    public sealed class A2AContainerMappingInputArgs : global::Pulumi.ResourceArgs
+    public sealed class A2AContainerMappingInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A value indicating whether the auto update is enabled.
@@ -44,6 +44,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220401.Inputs
         {
             AutomationAccountAuthenticationType = "RunAsAccount";
         }
-        public static new A2AContainerMappingInputArgs Empty => new A2AContainerMappingInputArgs();
     }
 }

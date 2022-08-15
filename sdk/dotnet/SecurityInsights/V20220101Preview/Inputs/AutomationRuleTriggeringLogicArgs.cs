@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview.Inputs
     /// <summary>
     /// Describes automation rule triggering logic
     /// </summary>
-    public sealed class AutomationRuleTriggeringLogicArgs : global::Pulumi.ResourceArgs
+    public sealed class AutomationRuleTriggeringLogicArgs : Pulumi.ResourceArgs
     {
         [Input("conditions")]
         private InputList<Inputs.PropertyConditionPropertiesArgs>? _conditions;
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview.Inputs
         public AutomationRuleTriggeringLogicArgs()
         {
         }
-        public static new AutomationRuleTriggeringLogicArgs Empty => new AutomationRuleTriggeringLogicArgs();
     }
 }

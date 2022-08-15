@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20160601
     /// A custom API
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20160601:CustomApi")]
-    public partial class CustomApi : global::Pulumi.CustomResource
+    public partial class CustomApi : Pulumi.CustomResource
     {
         /// <summary>
         /// Resource ETag
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.Web.V20160601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:CustomApi"},
+                    new Pulumi.Alias { Type = "azure-native:web:CustomApi"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.Web.V20160601
         }
     }
 
-    public sealed class CustomApiArgs : global::Pulumi.ResourceArgs
+    public sealed class CustomApiArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// API name
@@ -145,6 +145,5 @@ namespace Pulumi.AzureNative.Web.V20160601
         public CustomApiArgs()
         {
         }
-        public static new CustomApiArgs Empty => new CustomApiArgs();
     }
 }

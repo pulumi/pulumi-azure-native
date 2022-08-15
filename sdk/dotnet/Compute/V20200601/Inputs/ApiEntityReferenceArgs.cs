@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20200601.Inputs
     /// <summary>
     /// The API entity reference.
     /// </summary>
-    public sealed class ApiEntityReferenceArgs : global::Pulumi.ResourceArgs
+    public sealed class ApiEntityReferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Compute.V20200601.Inputs
         public ApiEntityReferenceArgs()
         {
         }
-        public static new ApiEntityReferenceArgs Empty => new ApiEntityReferenceArgs();
     }
 }

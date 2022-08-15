@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
     }
 
 
-    public sealed class GetProjectArgs : global::Pulumi.InvokeArgs
+    public sealed class GetProjectArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the project.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         public GetProjectArgs()
         {
         }
-        public static new GetProjectArgs Empty => new GetProjectArgs();
     }
 
-    public sealed class GetProjectInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetProjectInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the project.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         public GetProjectInvokeArgs()
         {
         }
-        public static new GetProjectInvokeArgs Empty => new GetProjectInvokeArgs();
     }
 
 

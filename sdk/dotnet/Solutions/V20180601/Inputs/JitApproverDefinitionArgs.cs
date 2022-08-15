@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Solutions.V20180601.Inputs
     /// <summary>
     /// JIT approver definition.
     /// </summary>
-    public sealed class JitApproverDefinitionArgs : global::Pulumi.ResourceArgs
+    public sealed class JitApproverDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The approver display name.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Solutions.V20180601.Inputs
         public JitApproverDefinitionArgs()
         {
         }
-        public static new JitApproverDefinitionArgs Empty => new JitApproverDefinitionArgs();
     }
 }

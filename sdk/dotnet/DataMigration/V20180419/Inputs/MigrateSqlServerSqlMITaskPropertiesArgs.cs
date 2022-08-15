@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20180419.Inputs
     /// <summary>
     /// Properties for task that migrates SQL Server databases to Azure SQL Database Managed Instance
     /// </summary>
-    public sealed class MigrateSqlServerSqlMITaskPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class MigrateSqlServerSqlMITaskPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Task input
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.DataMigration.V20180419.Inputs
         public MigrateSqlServerSqlMITaskPropertiesArgs()
         {
         }
-        public static new MigrateSqlServerSqlMITaskPropertiesArgs Empty => new MigrateSqlServerSqlMITaskPropertiesArgs();
     }
 }

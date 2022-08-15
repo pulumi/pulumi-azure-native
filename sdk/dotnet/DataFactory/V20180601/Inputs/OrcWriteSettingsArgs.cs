@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Orc write settings.
     /// </summary>
-    public sealed class OrcWriteSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class OrcWriteSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the file name pattern &lt;fileNamePrefix&gt;_&lt;fileIndex&gt;.&lt;fileExtension&gt; when copy from non-file based store without partitionOptions. Type: string (or Expression with resultType string).
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public OrcWriteSettingsArgs()
         {
         }
-        public static new OrcWriteSettingsArgs Empty => new OrcWriteSettingsArgs();
     }
 }

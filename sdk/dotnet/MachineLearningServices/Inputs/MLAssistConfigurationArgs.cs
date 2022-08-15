@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     /// <summary>
     /// Represents configuration for machine learning assisted features in a labeling job.
     /// </summary>
-    public sealed class MLAssistConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class MLAssistConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The compute designated for inferencing.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public MLAssistConfigurationArgs()
         {
         }
-        public static new MLAssistConfigurationArgs Empty => new MLAssistConfigurationArgs();
     }
 }

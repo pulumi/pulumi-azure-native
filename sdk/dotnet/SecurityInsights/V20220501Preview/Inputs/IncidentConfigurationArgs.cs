@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview.Inputs
     /// <summary>
     /// Incident Configuration property bag.
     /// </summary>
-    public sealed class IncidentConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class IncidentConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Create incidents from alerts triggered by this analytics rule
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview.Inputs
         public IncidentConfigurationArgs()
         {
         }
-        public static new IncidentConfigurationArgs Empty => new IncidentConfigurationArgs();
     }
 }

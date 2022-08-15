@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20210301
     }
 
 
-    public sealed class GetLoadBalancerBackendAddressPoolArgs : global::Pulumi.InvokeArgs
+    public sealed class GetLoadBalancerBackendAddressPoolArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the backend address pool.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Network.V20210301
         public GetLoadBalancerBackendAddressPoolArgs()
         {
         }
-        public static new GetLoadBalancerBackendAddressPoolArgs Empty => new GetLoadBalancerBackendAddressPoolArgs();
     }
 
-    public sealed class GetLoadBalancerBackendAddressPoolInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetLoadBalancerBackendAddressPoolInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the backend address pool.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Network.V20210301
         public GetLoadBalancerBackendAddressPoolInvokeArgs()
         {
         }
-        public static new GetLoadBalancerBackendAddressPoolInvokeArgs Empty => new GetLoadBalancerBackendAddressPoolInvokeArgs();
     }
 
 

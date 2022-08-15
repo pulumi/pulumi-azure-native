@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20210801.Inputs
     /// <summary>
     /// Settings properties for Active Directory (AD).
     /// </summary>
-    public sealed class ActiveDirectoryPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ActiveDirectoryPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Active Directory account type for Azure Storage.
@@ -66,6 +66,5 @@ namespace Pulumi.AzureNative.Storage.V20210801.Inputs
         public ActiveDirectoryPropertiesArgs()
         {
         }
-        public static new ActiveDirectoryPropertiesArgs Empty => new ActiveDirectoryPropertiesArgs();
     }
 }

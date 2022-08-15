@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Inputs
     /// <summary>
     /// Set disk storage settings for SQL Server.
     /// </summary>
-    public sealed class SQLStorageSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class SQLStorageSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// SQL Server default file path
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Inputs
         public SQLStorageSettingsArgs()
         {
         }
-        public static new SQLStorageSettingsArgs Empty => new SQLStorageSettingsArgs();
     }
 }

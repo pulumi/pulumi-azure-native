@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.Inputs
     /// <summary>
     /// Volume mount for the Container App.
     /// </summary>
-    public sealed class VolumeMountArgs : global::Pulumi.ResourceArgs
+    public sealed class VolumeMountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Path within the container at which the volume should be mounted.Must not contain ':'.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.App.Inputs
         public VolumeMountArgs()
         {
         }
-        public static new VolumeMountArgs Empty => new VolumeMountArgs();
     }
 }

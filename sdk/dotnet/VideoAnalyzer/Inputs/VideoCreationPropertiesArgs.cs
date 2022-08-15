@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.Inputs
     /// <summary>
     /// Optional properties to be used in case a new video resource needs to be created on the service. These will not take effect if the video already exists.
     /// </summary>
-    public sealed class VideoCreationPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class VideoCreationPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Optional description provided by the user. Value can be up to 2048 characters long.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.VideoAnalyzer.Inputs
         public VideoCreationPropertiesArgs()
         {
         }
-        public static new VideoCreationPropertiesArgs Empty => new VideoCreationPropertiesArgs();
     }
 }

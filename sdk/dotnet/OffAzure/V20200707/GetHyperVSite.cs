@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.OffAzure.V20200707
     }
 
 
-    public sealed class GetHyperVSiteArgs : global::Pulumi.InvokeArgs
+    public sealed class GetHyperVSiteArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.OffAzure.V20200707
         public GetHyperVSiteArgs()
         {
         }
-        public static new GetHyperVSiteArgs Empty => new GetHyperVSiteArgs();
     }
 
-    public sealed class GetHyperVSiteInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetHyperVSiteInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.OffAzure.V20200707
         public GetHyperVSiteInvokeArgs()
         {
         }
-        public static new GetHyperVSiteInvokeArgs Empty => new GetHyperVSiteInvokeArgs();
     }
 
 

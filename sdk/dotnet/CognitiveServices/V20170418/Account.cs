@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20170418
     /// Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices/v20170418:Account")]
-    public partial class Account : global::Pulumi.CustomResource
+    public partial class Account : Pulumi.CustomResource
     {
         /// <summary>
         /// Entity Tag
@@ -94,11 +94,11 @@ namespace Pulumi.AzureNative.CognitiveServices.V20170418
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20160201preview:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20210430:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20211001:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20220301:Account"},
+                    new Pulumi.Alias { Type = "azure-native:cognitiveservices:Account"},
+                    new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20160201preview:Account"},
+                    new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20210430:Account"},
+                    new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20211001:Account"},
+                    new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20220301:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20170418
         }
     }
 
-    public sealed class AccountArgs : global::Pulumi.ResourceArgs
+    public sealed class AccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of Cognitive Services account.
@@ -179,6 +179,5 @@ namespace Pulumi.AzureNative.CognitiveServices.V20170418
         public AccountArgs()
         {
         }
-        public static new AccountArgs Empty => new AccountArgs();
     }
 }

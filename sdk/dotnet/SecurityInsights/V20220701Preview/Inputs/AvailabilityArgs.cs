@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview.Inputs
     /// <summary>
     /// Connector Availability Status
     /// </summary>
-    public sealed class AvailabilityArgs : global::Pulumi.ResourceArgs
+    public sealed class AvailabilityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Set connector as preview
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview.Inputs
         public AvailabilityArgs()
         {
         }
-        public static new AvailabilityArgs Empty => new AvailabilityArgs();
     }
 }

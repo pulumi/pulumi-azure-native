@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
     /// <summary>
     /// The configuration settings of the Apple provider.
     /// </summary>
-    public sealed class AppleArgs : global::Pulumi.ResourceArgs
+    public sealed class AppleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;code&gt;false&lt;/code&gt; if the Apple provider should not be enabled despite the set registration; otherwise, &lt;code&gt;true&lt;/code&gt;.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
         public AppleArgs()
         {
         }
-        public static new AppleArgs Empty => new AppleArgs();
     }
 }

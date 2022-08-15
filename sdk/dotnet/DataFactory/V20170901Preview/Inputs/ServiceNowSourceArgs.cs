@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity ServiceNow server source.
     /// </summary>
-    public sealed class ServiceNowSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class ServiceNowSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public ServiceNowSourceArgs()
         {
         }
-        public static new ServiceNowSourceArgs Empty => new ServiceNowSourceArgs();
     }
 }

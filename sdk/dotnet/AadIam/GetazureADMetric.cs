@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.AadIam
     }
 
 
-    public sealed class GetazureADMetricArgs : global::Pulumi.InvokeArgs
+    public sealed class GetazureADMetricArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the azureADMetrics instance.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.AadIam
         public GetazureADMetricArgs()
         {
         }
-        public static new GetazureADMetricArgs Empty => new GetazureADMetricArgs();
     }
 
-    public sealed class GetazureADMetricInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetazureADMetricInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the azureADMetrics instance.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.AadIam
         public GetazureADMetricInvokeArgs()
         {
         }
-        public static new GetazureADMetricInvokeArgs Empty => new GetazureADMetricInvokeArgs();
     }
 
 

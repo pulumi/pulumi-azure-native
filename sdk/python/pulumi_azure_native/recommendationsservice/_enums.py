@@ -23,7 +23,7 @@ class AccountConfiguration(str, Enum):
 
 class ModelingFeatures(str, Enum):
     """
-    Modeling features controls the set of supported scenarios\\models being computed. This can only be set at Modeling creation.
+    Modeling features controls the set of supported scenarios\models being computed. This can only be set at Modeling creation.
     """
     BASIC = "Basic"
     STANDARD = "Standard"

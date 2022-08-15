@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210501.Inputs
     /// <summary>
     /// Gateway load balancer tunnel interface of a load balancer backend address pool.
     /// </summary>
-    public sealed class GatewayLoadBalancerTunnelInterfaceArgs : global::Pulumi.ResourceArgs
+    public sealed class GatewayLoadBalancerTunnelInterfaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identifier of gateway load balancer tunnel interface.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Network.V20210501.Inputs
         public GatewayLoadBalancerTunnelInterfaceArgs()
         {
         }
-        public static new GatewayLoadBalancerTunnelInterfaceArgs Empty => new GatewayLoadBalancerTunnelInterfaceArgs();
     }
 }

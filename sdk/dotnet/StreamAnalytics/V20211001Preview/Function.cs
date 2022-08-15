@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview
     /// A function object, containing all information associated with the named function. All functions are contained under a streaming job.
     /// </summary>
     [AzureNativeResourceType("azure-native:streamanalytics/v20211001preview:Function")]
-    public partial class Function : global::Pulumi.CustomResource
+    public partial class Function : Pulumi.CustomResource
     {
         /// <summary>
         /// Resource name
@@ -58,10 +58,10 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics:Function"},
-                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20160301:Function"},
-                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20170401preview:Function"},
-                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301:Function"},
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics:Function"},
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics/v20160301:Function"},
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics/v20170401preview:Function"},
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301:Function"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview
         }
     }
 
-    public sealed class FunctionArgs : global::Pulumi.ResourceArgs
+    public sealed class FunctionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the function.
@@ -118,6 +118,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview
         public FunctionArgs()
         {
         }
-        public static new FunctionArgs Empty => new FunctionArgs();
     }
 }

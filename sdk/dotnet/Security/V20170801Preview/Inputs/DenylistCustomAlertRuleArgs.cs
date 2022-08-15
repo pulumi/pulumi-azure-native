@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20170801Preview.Inputs
     /// <summary>
     /// A custom alert rule that checks if a value (depends on the custom alert type) is denied.
     /// </summary>
-    public sealed class DenylistCustomAlertRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class DenylistCustomAlertRuleArgs : Pulumi.ResourceArgs
     {
         [Input("denylistValues", required: true)]
         private InputList<string>? _denylistValues;
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.Security.V20170801Preview.Inputs
         public DenylistCustomAlertRuleArgs()
         {
         }
-        public static new DenylistCustomAlertRuleArgs Empty => new DenylistCustomAlertRuleArgs();
     }
 }

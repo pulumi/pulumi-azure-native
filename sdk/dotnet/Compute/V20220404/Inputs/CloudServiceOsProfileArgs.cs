@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20220404.Inputs
     /// <summary>
     /// Describes the OS profile for the cloud service.
     /// </summary>
-    public sealed class CloudServiceOsProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class CloudServiceOsProfileArgs : Pulumi.ResourceArgs
     {
         [Input("secrets")]
         private InputList<Inputs.CloudServiceVaultSecretGroupArgs>? _secrets;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Compute.V20220404.Inputs
         public CloudServiceOsProfileArgs()
         {
         }
-        public static new CloudServiceOsProfileArgs Empty => new CloudServiceOsProfileArgs();
     }
 }

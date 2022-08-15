@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20210301.Inputs
     /// <summary>
     /// Describes a cloud service extension profile.
     /// </summary>
-    public sealed class CloudServiceExtensionProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class CloudServiceExtensionProfileArgs : Pulumi.ResourceArgs
     {
         [Input("extensions")]
         private InputList<Inputs.ExtensionArgs>? _extensions;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Compute.V20210301.Inputs
         public CloudServiceExtensionProfileArgs()
         {
         }
-        public static new CloudServiceExtensionProfileArgs Empty => new CloudServiceExtensionProfileArgs();
     }
 }

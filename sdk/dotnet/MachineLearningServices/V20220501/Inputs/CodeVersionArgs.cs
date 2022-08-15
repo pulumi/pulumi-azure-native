@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
     /// <summary>
     /// Code asset version details.
     /// </summary>
-    public sealed class CodeVersionArgs : global::Pulumi.ResourceArgs
+    public sealed class CodeVersionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Uri where code is located
@@ -68,6 +68,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
             IsAnonymous = false;
             IsArchived = false;
         }
-        public static new CodeVersionArgs Empty => new CodeVersionArgs();
     }
 }

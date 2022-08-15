@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DigitalTwins.Inputs
     /// <summary>
     /// The private endpoint connection of a Digital Twin.
     /// </summary>
-    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         [Input("properties", required: true)]
         public Input<Inputs.PrivateEndpointConnectionPropertiesArgs> Properties { get; set; } = null!;
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.DigitalTwins.Inputs
         public PrivateEndpointConnectionArgs()
         {
         }
-        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
     /// Azure Resource Manager resource envelope.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20220601preview:ComponentContainer")]
-    public partial class ComponentContainer : global::Pulumi.CustomResource
+    public partial class ComponentContainer : Pulumi.CustomResource
     {
         /// <summary>
         /// [Required] Additional attributes of the entity.
@@ -64,9 +64,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:ComponentContainer"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:ComponentContainer"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:ComponentContainer"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:ComponentContainer"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:ComponentContainer"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:ComponentContainer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
         }
     }
 
-    public sealed class ComponentContainerArgs : global::Pulumi.ResourceArgs
+    public sealed class ComponentContainerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] Additional attributes of the entity.
@@ -117,6 +117,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
         public ComponentContainerArgs()
         {
         }
-        public static new ComponentContainerArgs Empty => new ComponentContainerArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ConfidentialLedger.V20201201Preview.Inputs
     /// <summary>
     /// Cert based security principal with Ledger RoleName
     /// </summary>
-    public sealed class CertBasedSecurityPrincipalArgs : global::Pulumi.ResourceArgs
+    public sealed class CertBasedSecurityPrincipalArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Public key of the user cert (.pem or .cer)
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ConfidentialLedger.V20201201Preview.Inputs
         public CertBasedSecurityPrincipalArgs()
         {
         }
-        public static new CertBasedSecurityPrincipalArgs Empty => new CertBasedSecurityPrincipalArgs();
     }
 }

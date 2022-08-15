@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.IoTSecurity.V20210201Preview
     /// IoT site model
     /// </summary>
     [AzureNativeResourceType("azure-native:iotsecurity/v20210201preview:Site")]
-    public partial class Site : global::Pulumi.CustomResource
+    public partial class Site : Pulumi.CustomResource
     {
         /// <summary>
         /// Display name of the IoT site
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.IoTSecurity.V20210201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:iotsecurity:Site"},
+                    new Pulumi.Alias { Type = "azure-native:iotsecurity:Site"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.IoTSecurity.V20210201Preview
         }
     }
 
-    public sealed class SiteArgs : global::Pulumi.ResourceArgs
+    public sealed class SiteArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Display name of the IoT site
@@ -121,6 +121,5 @@ namespace Pulumi.AzureNative.IoTSecurity.V20210201Preview
         public SiteArgs()
         {
         }
-        public static new SiteArgs Empty => new SiteArgs();
     }
 }

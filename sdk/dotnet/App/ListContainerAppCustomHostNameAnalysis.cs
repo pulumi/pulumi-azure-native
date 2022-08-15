@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.App
     }
 
 
-    public sealed class ListContainerAppCustomHostNameAnalysisArgs : global::Pulumi.InvokeArgs
+    public sealed class ListContainerAppCustomHostNameAnalysisArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Container App.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.App
         public ListContainerAppCustomHostNameAnalysisArgs()
         {
         }
-        public static new ListContainerAppCustomHostNameAnalysisArgs Empty => new ListContainerAppCustomHostNameAnalysisArgs();
     }
 
-    public sealed class ListContainerAppCustomHostNameAnalysisInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListContainerAppCustomHostNameAnalysisInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Container App.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.App
         public ListContainerAppCustomHostNameAnalysisInvokeArgs()
         {
         }
-        public static new ListContainerAppCustomHostNameAnalysisInvokeArgs Empty => new ListContainerAppCustomHostNameAnalysisInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventHub.V20220101Preview
     /// Single item in List or Get Consumer group operation
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub/v20220101preview:ConsumerGroup")]
-    public partial class ConsumerGroup : global::Pulumi.CustomResource
+    public partial class ConsumerGroup : Pulumi.CustomResource
     {
         /// <summary>
         /// Exact time the message was created.
@@ -82,14 +82,14 @@ namespace Pulumi.AzureNative.EventHub.V20220101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub:ConsumerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20140901:ConsumerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20150801:ConsumerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20170401:ConsumerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:ConsumerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210101preview:ConsumerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210601preview:ConsumerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20211101:ConsumerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub:ConsumerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20140901:ConsumerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20150801:ConsumerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20170401:ConsumerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:ConsumerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20210101preview:ConsumerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20210601preview:ConsumerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20211101:ConsumerGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNative.EventHub.V20220101Preview
         }
     }
 
-    public sealed class ConsumerGroupArgs : global::Pulumi.ResourceArgs
+    public sealed class ConsumerGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The consumer group name
@@ -146,6 +146,5 @@ namespace Pulumi.AzureNative.EventHub.V20220101Preview
         public ConsumerGroupArgs()
         {
         }
-        public static new ConsumerGroupArgs Empty => new ConsumerGroupArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515Preview.Inputs
     /// <summary>
     /// Cosmos DB client encryption policy.
     /// </summary>
-    public sealed class ClientEncryptionPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class ClientEncryptionPolicyArgs : Pulumi.ResourceArgs
     {
         [Input("includedPaths", required: true)]
         private InputList<Inputs.ClientEncryptionIncludedPathArgs>? _includedPaths;
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515Preview.Inputs
         {
             PolicyFormatVersion = 1;
         }
-        public static new ClientEncryptionPolicyArgs Empty => new ClientEncryptionPolicyArgs();
     }
 }

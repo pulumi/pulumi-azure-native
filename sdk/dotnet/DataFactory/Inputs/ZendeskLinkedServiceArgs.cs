@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Linked service for Zendesk.
     /// </summary>
-    public sealed class ZendeskLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class ZendeskLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -97,6 +97,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public ZendeskLinkedServiceArgs()
         {
         }
-        public static new ZendeskLinkedServiceArgs Empty => new ZendeskLinkedServiceArgs();
     }
 }

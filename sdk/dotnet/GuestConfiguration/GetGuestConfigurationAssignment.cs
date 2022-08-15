@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.GuestConfiguration
     }
 
 
-    public sealed class GetGuestConfigurationAssignmentArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGuestConfigurationAssignmentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The guest configuration assignment name.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.GuestConfiguration
         public GetGuestConfigurationAssignmentArgs()
         {
         }
-        public static new GetGuestConfigurationAssignmentArgs Empty => new GetGuestConfigurationAssignmentArgs();
     }
 
-    public sealed class GetGuestConfigurationAssignmentInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGuestConfigurationAssignmentInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The guest configuration assignment name.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.GuestConfiguration
         public GetGuestConfigurationAssignmentInvokeArgs()
         {
         }
-        public static new GetGuestConfigurationAssignmentInvokeArgs Empty => new GetGuestConfigurationAssignmentInvokeArgs();
     }
 
 

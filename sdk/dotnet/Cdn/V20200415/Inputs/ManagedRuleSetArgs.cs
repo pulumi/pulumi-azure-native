@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200415.Inputs
     /// <summary>
     /// Defines a managed rule set.
     /// </summary>
-    public sealed class ManagedRuleSetArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedRuleSetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Verizon only : If the rule set supports anomaly detection mode, this describes the threshold for blocking requests.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.Cdn.V20200415.Inputs
         public ManagedRuleSetArgs()
         {
         }
-        public static new ManagedRuleSetArgs Empty => new ManagedRuleSetArgs();
     }
 }

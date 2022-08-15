@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Kusto
     /// API Version: 2021-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:ReadOnlyFollowingDatabase")]
-    public partial class ReadOnlyFollowingDatabase : global::Pulumi.CustomResource
+    public partial class ReadOnlyFollowingDatabase : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the attached database configuration cluster
@@ -115,18 +115,18 @@ namespace Pulumi.AzureNative.Kusto
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20170907privatepreview:ReadOnlyFollowingDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20180907preview:ReadOnlyFollowingDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20190121:ReadOnlyFollowingDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20190515:ReadOnlyFollowingDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20190907:ReadOnlyFollowingDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20191109:ReadOnlyFollowingDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20200215:ReadOnlyFollowingDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20200614:ReadOnlyFollowingDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20200918:ReadOnlyFollowingDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20210101:ReadOnlyFollowingDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20210827:ReadOnlyFollowingDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20220201:ReadOnlyFollowingDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20170907privatepreview:ReadOnlyFollowingDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20180907preview:ReadOnlyFollowingDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20190121:ReadOnlyFollowingDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20190515:ReadOnlyFollowingDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20190907:ReadOnlyFollowingDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20191109:ReadOnlyFollowingDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20200215:ReadOnlyFollowingDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20200614:ReadOnlyFollowingDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20200918:ReadOnlyFollowingDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20210101:ReadOnlyFollowingDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20210827:ReadOnlyFollowingDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20220201:ReadOnlyFollowingDatabase"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNative.Kusto
         }
     }
 
-    public sealed class ReadOnlyFollowingDatabaseArgs : global::Pulumi.ResourceArgs
+    public sealed class ReadOnlyFollowingDatabaseArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -190,6 +190,5 @@ namespace Pulumi.AzureNative.Kusto
         public ReadOnlyFollowingDatabaseArgs()
         {
         }
-        public static new ReadOnlyFollowingDatabaseArgs Empty => new ReadOnlyFollowingDatabaseArgs();
     }
 }

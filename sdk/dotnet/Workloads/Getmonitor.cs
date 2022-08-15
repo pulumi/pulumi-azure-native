@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Workloads
     }
 
 
-    public sealed class GetmonitorArgs : global::Pulumi.InvokeArgs
+    public sealed class GetmonitorArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the SAP monitor resource.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.Workloads
         public GetmonitorArgs()
         {
         }
-        public static new GetmonitorArgs Empty => new GetmonitorArgs();
     }
 
-    public sealed class GetmonitorInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetmonitorInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the SAP monitor resource.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.Workloads
         public GetmonitorInvokeArgs()
         {
         }
-        public static new GetmonitorInvokeArgs Empty => new GetmonitorInvokeArgs();
     }
 
 

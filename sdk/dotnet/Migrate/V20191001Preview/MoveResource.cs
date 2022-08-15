@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.V20191001Preview
     /// Defines the move resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate/v20191001preview:MoveResource")]
-    public partial class MoveResource : global::Pulumi.CustomResource
+    public partial class MoveResource : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -58,9 +58,9 @@ namespace Pulumi.AzureNative.Migrate.V20191001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:migrate:MoveResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20210101:MoveResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20210801:MoveResource"},
+                    new Pulumi.Alias { Type = "azure-native:migrate:MoveResource"},
+                    new Pulumi.Alias { Type = "azure-native:migrate/v20210101:MoveResource"},
+                    new Pulumi.Alias { Type = "azure-native:migrate/v20210801:MoveResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.Migrate.V20191001Preview
         }
     }
 
-    public sealed class MoveResourceArgs : global::Pulumi.ResourceArgs
+    public sealed class MoveResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Move Collection Name.
@@ -111,6 +111,5 @@ namespace Pulumi.AzureNative.Migrate.V20191001Preview
         public MoveResourceArgs()
         {
         }
-        public static new MoveResourceArgs Empty => new MoveResourceArgs();
     }
 }

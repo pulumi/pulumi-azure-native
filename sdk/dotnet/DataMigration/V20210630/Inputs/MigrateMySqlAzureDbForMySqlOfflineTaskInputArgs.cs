@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20210630.Inputs
     /// <summary>
     /// Input for the task that migrates MySQL databases to Azure Database for MySQL for offline migrations
     /// </summary>
-    public sealed class MigrateMySqlAzureDbForMySqlOfflineTaskInputArgs : global::Pulumi.ResourceArgs
+    public sealed class MigrateMySqlAzureDbForMySqlOfflineTaskInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Setting to set the source server read only
@@ -67,6 +67,5 @@ namespace Pulumi.AzureNative.DataMigration.V20210630.Inputs
         {
             MakeSourceServerReadOnly = false;
         }
-        public static new MigrateMySqlAzureDbForMySqlOfflineTaskInputArgs Empty => new MigrateMySqlAzureDbForMySqlOfflineTaskInputArgs();
     }
 }

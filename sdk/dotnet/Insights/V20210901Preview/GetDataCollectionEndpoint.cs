@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Insights.V20210901Preview
     }
 
 
-    public sealed class GetDataCollectionEndpointArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDataCollectionEndpointArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the data collection endpoint. The name is case insensitive.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.Insights.V20210901Preview
         public GetDataCollectionEndpointArgs()
         {
         }
-        public static new GetDataCollectionEndpointArgs Empty => new GetDataCollectionEndpointArgs();
     }
 
-    public sealed class GetDataCollectionEndpointInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDataCollectionEndpointInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the data collection endpoint. The name is case insensitive.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.Insights.V20210901Preview
         public GetDataCollectionEndpointInvokeArgs()
         {
         }
-        public static new GetDataCollectionEndpointInvokeArgs Empty => new GetDataCollectionEndpointInvokeArgs();
     }
 
 

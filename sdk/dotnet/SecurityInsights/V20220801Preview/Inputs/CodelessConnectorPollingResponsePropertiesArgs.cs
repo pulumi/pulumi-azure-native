@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview.Inputs
     /// <summary>
     /// Describes the response from the external server
     /// </summary>
-    public sealed class CodelessConnectorPollingResponsePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class CodelessConnectorPollingResponsePropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("eventsJsonPaths", required: true)]
         private InputList<string>? _eventsJsonPaths;
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview.Inputs
         public CodelessConnectorPollingResponsePropertiesArgs()
         {
         }
-        public static new CodelessConnectorPollingResponsePropertiesArgs Empty => new CodelessConnectorPollingResponsePropertiesArgs();
     }
 }

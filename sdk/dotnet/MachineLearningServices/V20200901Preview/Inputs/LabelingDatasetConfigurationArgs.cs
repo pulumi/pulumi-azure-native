@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview.Inputs
     /// <summary>
     /// Represents configuration of dataset used in a labeling job.
     /// </summary>
-    public sealed class LabelingDatasetConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class LabelingDatasetConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the data asset to perform labeling.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview.Inputs
         public LabelingDatasetConfigurationArgs()
         {
         }
-        public static new LabelingDatasetConfigurationArgs Empty => new LabelingDatasetConfigurationArgs();
     }
 }

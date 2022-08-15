@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20210630.Inputs
     /// <summary>
     /// Properties for the task that validates connection to Azure SQL Database Managed Instance
     /// </summary>
-    public sealed class ConnectToTargetSqlMITaskPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ConnectToTargetSqlMITaskPropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("clientData")]
         private InputMap<string>? _clientData;
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.DataMigration.V20210630.Inputs
         public ConnectToTargetSqlMITaskPropertiesArgs()
         {
         }
-        public static new ConnectToTargetSqlMITaskPropertiesArgs Empty => new ConnectToTargetSqlMITaskPropertiesArgs();
     }
 }

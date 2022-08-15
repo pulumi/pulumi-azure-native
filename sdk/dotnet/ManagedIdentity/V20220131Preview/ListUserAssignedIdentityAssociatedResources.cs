@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ManagedIdentity.V20220131Preview
     }
 
 
-    public sealed class ListUserAssignedIdentityAssociatedResourcesArgs : global::Pulumi.InvokeArgs
+    public sealed class ListUserAssignedIdentityAssociatedResourcesArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// OData filter expression to apply to the query.
@@ -72,10 +72,9 @@ namespace Pulumi.AzureNative.ManagedIdentity.V20220131Preview
         public ListUserAssignedIdentityAssociatedResourcesArgs()
         {
         }
-        public static new ListUserAssignedIdentityAssociatedResourcesArgs Empty => new ListUserAssignedIdentityAssociatedResourcesArgs();
     }
 
-    public sealed class ListUserAssignedIdentityAssociatedResourcesInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListUserAssignedIdentityAssociatedResourcesInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// OData filter expression to apply to the query.
@@ -122,7 +121,6 @@ namespace Pulumi.AzureNative.ManagedIdentity.V20220131Preview
         public ListUserAssignedIdentityAssociatedResourcesInvokeArgs()
         {
         }
-        public static new ListUserAssignedIdentityAssociatedResourcesInvokeArgs Empty => new ListUserAssignedIdentityAssociatedResourcesInvokeArgs();
     }
 
 

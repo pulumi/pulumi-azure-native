@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210701.Inputs
     /// <summary>
     /// Recovery plan Automation runbook action details.
     /// </summary>
-    public sealed class RecoveryPlanAutomationRunbookActionDetailsArgs : global::Pulumi.ResourceArgs
+    public sealed class RecoveryPlanAutomationRunbookActionDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The fabric location.
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210701.Inputs
         public RecoveryPlanAutomationRunbookActionDetailsArgs()
         {
         }
-        public static new RecoveryPlanAutomationRunbookActionDetailsArgs Empty => new RecoveryPlanAutomationRunbookActionDetailsArgs();
     }
 }

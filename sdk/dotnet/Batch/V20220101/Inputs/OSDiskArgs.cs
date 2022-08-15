@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20220101.Inputs
 {
 
-    public sealed class OSDiskArgs : global::Pulumi.ResourceArgs
+    public sealed class OSDiskArgs : Pulumi.ResourceArgs
     {
         [Input("ephemeralOSDiskSettings")]
         public Input<Inputs.DiffDiskSettingsArgs>? EphemeralOSDiskSettings { get; set; }
@@ -18,6 +18,5 @@ namespace Pulumi.AzureNative.Batch.V20220101.Inputs
         public OSDiskArgs()
         {
         }
-        public static new OSDiskArgs Empty => new OSDiskArgs();
     }
 }

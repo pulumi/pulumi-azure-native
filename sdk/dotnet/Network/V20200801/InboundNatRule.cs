@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200801
     /// Inbound NAT rule of the load balancer.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20200801:InboundNatRule")]
-    public partial class InboundNatRule : global::Pulumi.CustomResource
+    public partial class InboundNatRule : Pulumi.CustomResource
     {
         /// <summary>
         /// A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backend IP.
@@ -112,40 +112,40 @@ namespace Pulumi.AzureNative.Network.V20200801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:InboundNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170601:InboundNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170801:InboundNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170901:InboundNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20171001:InboundNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20171101:InboundNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180101:InboundNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180201:InboundNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180401:InboundNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180601:InboundNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180701:InboundNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180801:InboundNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181001:InboundNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181101:InboundNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181201:InboundNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190201:InboundNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:InboundNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190601:InboundNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:InboundNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190801:InboundNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:InboundNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:InboundNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:InboundNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:InboundNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:InboundNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:InboundNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:InboundNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:InboundNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:InboundNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:InboundNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:InboundNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:InboundNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:InboundNatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170601:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170801:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170901:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20171001:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20171101:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180101:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180201:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180401:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180601:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180701:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181001:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181101:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181201:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190201:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210301:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:InboundNatRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -167,7 +167,7 @@ namespace Pulumi.AzureNative.Network.V20200801
         }
     }
 
-    public sealed class InboundNatRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class InboundNatRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The port used for the internal endpoint. Acceptable values range from 1 to 65535.
@@ -244,6 +244,5 @@ namespace Pulumi.AzureNative.Network.V20200801
         public InboundNatRuleArgs()
         {
         }
-        public static new InboundNatRuleArgs Empty => new InboundNatRuleArgs();
     }
 }

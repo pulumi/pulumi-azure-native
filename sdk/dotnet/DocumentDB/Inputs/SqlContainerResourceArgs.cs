@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
     /// <summary>
     /// Cosmos DB SQL container resource object
     /// </summary>
-    public sealed class SqlContainerResourceArgs : global::Pulumi.ResourceArgs
+    public sealed class SqlContainerResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Analytical TTL.
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
         public SqlContainerResourceArgs()
         {
         }
-        public static new SqlContainerResourceArgs Empty => new SqlContainerResourceArgs();
     }
 }

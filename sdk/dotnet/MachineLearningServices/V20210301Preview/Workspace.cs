@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
     /// An object that represents a machine learning workspace.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20210301preview:Workspace")]
-    public partial class Workspace : global::Pulumi.CustomResource
+    public partial class Workspace : Pulumi.CustomResource
     {
         /// <summary>
         /// The flag to indicate whether to allow public access when behind VNet.
@@ -208,28 +208,28 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20180301preview:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20181119:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20190501:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20190601:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20191101:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200101:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200218preview:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200301:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200401:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200501preview:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200515preview:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200601:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200801:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200901preview:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210101:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210401:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210701:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220101preview:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20180301preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20181119:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20190501:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20190601:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20191101:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200101:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200218preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200301:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200401:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200501preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200515preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200601:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200801:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200901preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210101:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210401:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210701:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220101preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -251,7 +251,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         }
     }
 
-    public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
+    public sealed class WorkspaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The flag to indicate whether to allow public access when behind VNet.
@@ -390,6 +390,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
             AllowPublicAccessWhenBehindVnet = false;
             HbiWorkspace = false;
         }
-        public static new WorkspaceArgs Empty => new WorkspaceArgs();
     }
 }

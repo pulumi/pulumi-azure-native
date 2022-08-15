@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataBox.V20190901
     /// </summary>
     [Obsolete(@"Version 2019-09-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:databox/v20190901:Job")]
-    public partial class Job : global::Pulumi.CustomResource
+    public partial class Job : Pulumi.CustomResource
     {
         /// <summary>
         /// Reason for cancellation.
@@ -137,15 +137,15 @@ namespace Pulumi.AzureNative.DataBox.V20190901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:databox:Job"},
-                    new global::Pulumi.Alias { Type = "azure-native:databox/v20180101:Job"},
-                    new global::Pulumi.Alias { Type = "azure-native:databox/v20200401:Job"},
-                    new global::Pulumi.Alias { Type = "azure-native:databox/v20201101:Job"},
-                    new global::Pulumi.Alias { Type = "azure-native:databox/v20210301:Job"},
-                    new global::Pulumi.Alias { Type = "azure-native:databox/v20210501:Job"},
-                    new global::Pulumi.Alias { Type = "azure-native:databox/v20210801preview:Job"},
-                    new global::Pulumi.Alias { Type = "azure-native:databox/v20211201:Job"},
-                    new global::Pulumi.Alias { Type = "azure-native:databox/v20220201:Job"},
+                    new Pulumi.Alias { Type = "azure-native:databox:Job"},
+                    new Pulumi.Alias { Type = "azure-native:databox/v20180101:Job"},
+                    new Pulumi.Alias { Type = "azure-native:databox/v20200401:Job"},
+                    new Pulumi.Alias { Type = "azure-native:databox/v20201101:Job"},
+                    new Pulumi.Alias { Type = "azure-native:databox/v20210301:Job"},
+                    new Pulumi.Alias { Type = "azure-native:databox/v20210501:Job"},
+                    new Pulumi.Alias { Type = "azure-native:databox/v20210801preview:Job"},
+                    new Pulumi.Alias { Type = "azure-native:databox/v20211201:Job"},
+                    new Pulumi.Alias { Type = "azure-native:databox/v20220201:Job"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -167,7 +167,7 @@ namespace Pulumi.AzureNative.DataBox.V20190901
         }
     }
 
-    public sealed class JobArgs : global::Pulumi.ResourceArgs
+    public sealed class JobArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Delivery Info of Job.
@@ -227,6 +227,5 @@ namespace Pulumi.AzureNative.DataBox.V20190901
         {
             DeliveryType = "NonScheduled";
         }
-        public static new JobArgs Empty => new JobArgs();
     }
 }

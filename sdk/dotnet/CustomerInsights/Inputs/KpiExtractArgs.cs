@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CustomerInsights.Inputs
     /// <summary>
     /// The KPI extract.
     /// </summary>
-    public sealed class KpiExtractArgs : global::Pulumi.ResourceArgs
+    public sealed class KpiExtractArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The expression.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.CustomerInsights.Inputs
         public KpiExtractArgs()
         {
         }
-        public static new KpiExtractArgs Empty => new KpiExtractArgs();
     }
 }

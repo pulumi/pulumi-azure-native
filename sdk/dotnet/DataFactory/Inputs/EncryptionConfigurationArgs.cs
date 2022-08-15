@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Definition of CMK for the factory.
     /// </summary>
-    public sealed class EncryptionConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class EncryptionConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// User assigned identity to use to authenticate to customer's key vault. If not provided Managed Service Identity will be used.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public EncryptionConfigurationArgs()
         {
         }
-        public static new EncryptionConfigurationArgs Empty => new EncryptionConfigurationArgs();
     }
 }

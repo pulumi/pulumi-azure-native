@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20210601Preview.Inputs
     /// <summary>
     /// The information about the user identity.
     /// </summary>
-    public sealed class UserIdentityPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class UserIdentityPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The client id of user assigned identity.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.EventGrid.V20210601Preview.Inputs
         public UserIdentityPropertiesArgs()
         {
         }
-        public static new UserIdentityPropertiesArgs Empty => new UserIdentityPropertiesArgs();
     }
 }

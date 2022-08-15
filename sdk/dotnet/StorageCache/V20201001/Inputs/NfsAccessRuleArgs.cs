@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageCache.V20201001.Inputs
     /// <summary>
     /// Rule to place restrictions on portions of the cache namespace being presented to clients.
     /// </summary>
-    public sealed class NfsAccessRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class NfsAccessRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Access allowed by this rule.
@@ -68,6 +68,5 @@ namespace Pulumi.AzureNative.StorageCache.V20201001.Inputs
             AnonymousGID = "-2";
             AnonymousUID = "-2";
         }
-        public static new NfsAccessRuleArgs Empty => new NfsAccessRuleArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Inputs
     /// <summary>
     /// The parameters to provide for the Bot.
     /// </summary>
-    public sealed class BotPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class BotPropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("allSettings")]
         private InputMap<string>? _allSettings;
@@ -203,6 +203,5 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Inputs
             PublicNetworkAccess = "Enabled";
             SchemaTransformationVersion = "0.0";
         }
-        public static new BotPropertiesArgs Empty => new BotPropertiesArgs();
     }
 }

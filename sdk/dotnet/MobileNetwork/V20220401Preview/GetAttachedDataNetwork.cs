@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
     }
 
 
-    public sealed class GetAttachedDataNetworkArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAttachedDataNetworkArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the attached data network.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
         public GetAttachedDataNetworkArgs()
         {
         }
-        public static new GetAttachedDataNetworkArgs Empty => new GetAttachedDataNetworkArgs();
     }
 
-    public sealed class GetAttachedDataNetworkInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAttachedDataNetworkInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the attached data network.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
         public GetAttachedDataNetworkInvokeArgs()
         {
         }
-        public static new GetAttachedDataNetworkInvokeArgs Empty => new GetAttachedDataNetworkInvokeArgs();
     }
 
 

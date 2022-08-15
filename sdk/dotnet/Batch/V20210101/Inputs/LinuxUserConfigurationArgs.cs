@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20210101.Inputs
 {
 
-    public sealed class LinuxUserConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class LinuxUserConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The uid and gid properties must be specified together or not at all. If not specified the underlying operating system picks the gid.
@@ -33,6 +33,5 @@ namespace Pulumi.AzureNative.Batch.V20210101.Inputs
         public LinuxUserConfigurationArgs()
         {
         }
-        public static new LinuxUserConfigurationArgs Empty => new LinuxUserConfigurationArgs();
     }
 }

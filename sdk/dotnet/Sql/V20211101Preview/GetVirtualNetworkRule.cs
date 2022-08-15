@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview
     }
 
 
-    public sealed class GetVirtualNetworkRuleArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview
         public GetVirtualNetworkRuleArgs()
         {
         }
-        public static new GetVirtualNetworkRuleArgs Empty => new GetVirtualNetworkRuleArgs();
     }
 
-    public sealed class GetVirtualNetworkRuleInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkRuleInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview
         public GetVirtualNetworkRuleInvokeArgs()
         {
         }
-        public static new GetVirtualNetworkRuleInvokeArgs Empty => new GetVirtualNetworkRuleInvokeArgs();
     }
 
 

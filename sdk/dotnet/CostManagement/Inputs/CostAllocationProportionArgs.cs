@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.Inputs
     /// <summary>
     /// Target resources and allocation
     /// </summary>
-    public sealed class CostAllocationProportionArgs : global::Pulumi.ResourceArgs
+    public sealed class CostAllocationProportionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Target resource for cost allocation
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.CostManagement.Inputs
         public CostAllocationProportionArgs()
         {
         }
-        public static new CostAllocationProportionArgs Empty => new CostAllocationProportionArgs();
     }
 }

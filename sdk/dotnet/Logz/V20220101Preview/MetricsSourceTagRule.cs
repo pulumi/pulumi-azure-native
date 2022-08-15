@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logz.V20220101Preview
     /// Capture metrics of Azure resources based on ARM tags.
     /// </summary>
     [AzureNativeResourceType("azure-native:logz/v20220101preview:MetricsSourceTagRule")]
-    public partial class MetricsSourceTagRule : global::Pulumi.CustomResource
+    public partial class MetricsSourceTagRule : Pulumi.CustomResource
     {
         /// <summary>
         /// Name of the rule set.
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNative.Logz.V20220101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:logz:MetricsSourceTagRule"},
+                    new Pulumi.Alias { Type = "azure-native:logz:MetricsSourceTagRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNative.Logz.V20220101Preview
         }
     }
 
-    public sealed class MetricsSourceTagRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class MetricsSourceTagRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Metrics Account resource name
@@ -118,6 +118,5 @@ namespace Pulumi.AzureNative.Logz.V20220101Preview
         public MetricsSourceTagRuleArgs()
         {
         }
-        public static new MetricsSourceTagRuleArgs Empty => new MetricsSourceTagRuleArgs();
     }
 }

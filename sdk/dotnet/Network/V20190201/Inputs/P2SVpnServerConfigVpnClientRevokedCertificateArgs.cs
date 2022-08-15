@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190201.Inputs
     /// <summary>
     /// VPN client revoked certificate of P2SVpnServerConfiguration.
     /// </summary>
-    public sealed class P2SVpnServerConfigVpnClientRevokedCertificateArgs : global::Pulumi.ResourceArgs
+    public sealed class P2SVpnServerConfigVpnClientRevokedCertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Network.V20190201.Inputs
         public P2SVpnServerConfigVpnClientRevokedCertificateArgs()
         {
         }
-        public static new P2SVpnServerConfigVpnClientRevokedCertificateArgs Empty => new P2SVpnServerConfigVpnClientRevokedCertificateArgs();
     }
 }

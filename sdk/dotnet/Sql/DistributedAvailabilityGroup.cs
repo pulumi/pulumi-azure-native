@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Sql
     /// API Version: 2021-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:DistributedAvailabilityGroup")]
-    public partial class DistributedAvailabilityGroup : global::Pulumi.CustomResource
+    public partial class DistributedAvailabilityGroup : Pulumi.CustomResource
     {
         /// <summary>
         /// The distributed availability group id
@@ -113,11 +113,11 @@ namespace Pulumi.AzureNative.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:DistributedAvailabilityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:DistributedAvailabilityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:DistributedAvailabilityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:DistributedAvailabilityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:DistributedAvailabilityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:DistributedAvailabilityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:DistributedAvailabilityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101:DistributedAvailabilityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:DistributedAvailabilityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:DistributedAvailabilityGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -139,7 +139,7 @@ namespace Pulumi.AzureNative.Sql
         }
     }
 
-    public sealed class DistributedAvailabilityGroupArgs : global::Pulumi.ResourceArgs
+    public sealed class DistributedAvailabilityGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The distributed availability group name.
@@ -192,6 +192,5 @@ namespace Pulumi.AzureNative.Sql
         public DistributedAvailabilityGroupArgs()
         {
         }
-        public static new DistributedAvailabilityGroupArgs Empty => new DistributedAvailabilityGroupArgs();
     }
 }

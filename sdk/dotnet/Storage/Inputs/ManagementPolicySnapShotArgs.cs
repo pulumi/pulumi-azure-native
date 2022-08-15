@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.Inputs
     /// <summary>
     /// Management policy action for snapshot.
     /// </summary>
-    public sealed class ManagementPolicySnapShotArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagementPolicySnapShotArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The function to delete the blob snapshot
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Storage.Inputs
         public ManagementPolicySnapShotArgs()
         {
         }
-        public static new ManagementPolicySnapShotArgs Empty => new ManagementPolicySnapShotArgs();
     }
 }

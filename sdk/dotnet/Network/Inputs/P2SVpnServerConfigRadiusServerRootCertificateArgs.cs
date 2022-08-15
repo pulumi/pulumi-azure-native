@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.Inputs
     /// <summary>
     /// Radius Server root certificate of P2SVpnServerConfiguration.
     /// </summary>
-    public sealed class P2SVpnServerConfigRadiusServerRootCertificateArgs : global::Pulumi.ResourceArgs
+    public sealed class P2SVpnServerConfigRadiusServerRootCertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Network.Inputs
         public P2SVpnServerConfigRadiusServerRootCertificateArgs()
         {
         }
-        public static new P2SVpnServerConfigRadiusServerRootCertificateArgs Empty => new P2SVpnServerConfigRadiusServerRootCertificateArgs();
     }
 }

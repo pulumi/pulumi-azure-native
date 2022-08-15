@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// <summary>
     /// Empty/none datastore credentials.
     /// </summary>
-    public sealed class NoneDatastoreCredentialsArgs : global::Pulumi.ResourceArgs
+    public sealed class NoneDatastoreCredentialsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enum to determine the datastore credentials type.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public NoneDatastoreCredentialsArgs()
         {
         }
-        public static new NoneDatastoreCredentialsArgs Empty => new NoneDatastoreCredentialsArgs();
     }
 }

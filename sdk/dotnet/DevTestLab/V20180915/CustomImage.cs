@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
     /// A custom image.
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab/v20180915:CustomImage")]
-    public partial class CustomImage : global::Pulumi.CustomResource
+    public partial class CustomImage : Pulumi.CustomResource
     {
         /// <summary>
         /// The author of the custom image.
@@ -136,9 +136,9 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab:CustomImage"},
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20150521preview:CustomImage"},
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:CustomImage"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab:CustomImage"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20150521preview:CustomImage"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:CustomImage"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -160,7 +160,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         }
     }
 
-    public sealed class CustomImageArgs : global::Pulumi.ResourceArgs
+    public sealed class CustomImageArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The author of the custom image.
@@ -261,6 +261,5 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         public CustomImageArgs()
         {
         }
-        public static new CustomImageArgs Empty => new CustomImageArgs();
     }
 }

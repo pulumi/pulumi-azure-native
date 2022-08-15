@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Parameters of a script block.
     /// </summary>
-    public sealed class ScriptActivityParameterArgs : global::Pulumi.ResourceArgs
+    public sealed class ScriptActivityParameterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The direction of the parameter.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public ScriptActivityParameterArgs()
         {
         }
-        public static new ScriptActivityParameterArgs Empty => new ScriptActivityParameterArgs();
     }
 }

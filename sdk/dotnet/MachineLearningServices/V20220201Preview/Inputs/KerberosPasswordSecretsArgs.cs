@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
 {
 
-    public sealed class KerberosPasswordSecretsArgs : global::Pulumi.ResourceArgs
+    public sealed class KerberosPasswordSecretsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Kerberos password secret.
@@ -28,6 +28,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         public KerberosPasswordSecretsArgs()
         {
         }
-        public static new KerberosPasswordSecretsArgs Empty => new KerberosPasswordSecretsArgs();
     }
 }

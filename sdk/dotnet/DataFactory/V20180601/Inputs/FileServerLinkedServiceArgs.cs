@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// File system linked service.
     /// </summary>
-    public sealed class FileServerLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class FileServerLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,6 +85,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public FileServerLinkedServiceArgs()
         {
         }
-        public static new FileServerLinkedServiceArgs Empty => new FileServerLinkedServiceArgs();
     }
 }

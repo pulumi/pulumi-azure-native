@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Microsoft Azure SQL Database linked service.
     /// </summary>
-    public sealed class AzureSqlDatabaseLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureSqlDatabaseLinkedServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Sql always encrypted properties.
@@ -115,6 +115,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public AzureSqlDatabaseLinkedServiceArgs()
         {
         }
-        public static new AzureSqlDatabaseLinkedServiceArgs Empty => new AzureSqlDatabaseLinkedServiceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Inputs
     /// <summary>
     /// Database specific information for offline MySQL to Azure Database for MySQL migration task inputs
     /// </summary>
-    public sealed class MigrateMySqlAzureDbForMySqlOfflineDatabaseInputArgs : global::Pulumi.ResourceArgs
+    public sealed class MigrateMySqlAzureDbForMySqlOfflineDatabaseInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the database
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Inputs
         public MigrateMySqlAzureDbForMySqlOfflineDatabaseInputArgs()
         {
         }
-        public static new MigrateMySqlAzureDbForMySqlOfflineDatabaseInputArgs Empty => new MigrateMySqlAzureDbForMySqlOfflineDatabaseInputArgs();
     }
 }

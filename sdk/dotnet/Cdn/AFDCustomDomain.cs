@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Cdn
     /// API Version: 2020-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:AFDCustomDomain")]
-    public partial class AFDCustomDomain : global::Pulumi.CustomResource
+    public partial class AFDCustomDomain : Pulumi.CustomResource
     {
         /// <summary>
         /// Resource reference to the Azure DNS zone
@@ -98,8 +98,8 @@ namespace Pulumi.AzureNative.Cdn
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:AFDCustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:AFDCustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200901:AFDCustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20210601:AFDCustomDomain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -121,7 +121,7 @@ namespace Pulumi.AzureNative.Cdn
         }
     }
 
-    public sealed class AFDCustomDomainArgs : global::Pulumi.ResourceArgs
+    public sealed class AFDCustomDomainArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource reference to the Azure DNS zone
@@ -162,6 +162,5 @@ namespace Pulumi.AzureNative.Cdn
         public AFDCustomDomainArgs()
         {
         }
-        public static new AFDCustomDomainArgs Empty => new AFDCustomDomainArgs();
     }
 }

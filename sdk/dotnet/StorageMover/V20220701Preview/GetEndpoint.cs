@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.StorageMover.V20220701Preview
     }
 
 
-    public sealed class GetEndpointArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEndpointArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Endpoint resource.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.StorageMover.V20220701Preview
         public GetEndpointArgs()
         {
         }
-        public static new GetEndpointArgs Empty => new GetEndpointArgs();
     }
 
-    public sealed class GetEndpointInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEndpointInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Endpoint resource.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.StorageMover.V20220701Preview
         public GetEndpointInvokeArgs()
         {
         }
-        public static new GetEndpointInvokeArgs Empty => new GetEndpointInvokeArgs();
     }
 
 

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DevHub
     }
 
 
-    public sealed class GetGitHubOAuthArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGitHubOAuthArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of Azure region.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.DevHub
         public GetGitHubOAuthArgs()
         {
         }
-        public static new GetGitHubOAuthArgs Empty => new GetGitHubOAuthArgs();
     }
 
-    public sealed class GetGitHubOAuthInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGitHubOAuthInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of Azure region.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.DevHub
         public GetGitHubOAuthInvokeArgs()
         {
         }
-        public static new GetGitHubOAuthInvokeArgs Empty => new GetGitHubOAuthInvokeArgs();
     }
 
 

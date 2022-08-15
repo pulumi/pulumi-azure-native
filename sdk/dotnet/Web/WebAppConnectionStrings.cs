@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web
     /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppConnectionStrings")]
-    public partial class WebAppConnectionStrings : global::Pulumi.CustomResource
+    public partial class WebAppConnectionStrings : Pulumi.CustomResource
     {
         /// <summary>
         /// Kind of resource.
@@ -65,20 +65,20 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppConnectionStrings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppConnectionStrings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppConnectionStrings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppConnectionStrings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppConnectionStrings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppConnectionStrings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppConnectionStrings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppConnectionStrings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppConnectionStrings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppConnectionStrings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppConnectionStrings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppConnectionStrings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppConnectionStrings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppConnectionStrings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppConnectionStrings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppConnectionStrings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppConnectionStrings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppConnectionStrings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppConnectionStrings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppConnectionStrings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppConnectionStrings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppConnectionStrings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppConnectionStrings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppConnectionStrings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppConnectionStrings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppConnectionStrings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppConnectionStrings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppConnectionStrings"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.Web
         }
     }
 
-    public sealed class WebAppConnectionStringsArgs : global::Pulumi.ResourceArgs
+    public sealed class WebAppConnectionStringsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Kind of resource.
@@ -135,6 +135,5 @@ namespace Pulumi.AzureNative.Web
         public WebAppConnectionStringsArgs()
         {
         }
-        public static new WebAppConnectionStringsArgs Empty => new WebAppConnectionStringsArgs();
     }
 }

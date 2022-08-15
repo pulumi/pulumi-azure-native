@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20170801Preview.Inputs
     /// <summary>
     /// Recommendation configuration
     /// </summary>
-    public sealed class RecommendationConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class RecommendationConfigurationPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The recommendation type.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.Security.V20170801Preview.Inputs
         {
             Status = "Enabled";
         }
-        public static new RecommendationConfigurationPropertiesArgs Empty => new RecommendationConfigurationPropertiesArgs();
     }
 }

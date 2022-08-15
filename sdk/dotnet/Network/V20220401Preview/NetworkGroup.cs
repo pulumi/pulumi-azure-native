@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220401Preview
     /// The network group resource
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20220401preview:NetworkGroup")]
-    public partial class NetworkGroup : global::Pulumi.CustomResource
+    public partial class NetworkGroup : Pulumi.CustomResource
     {
         /// <summary>
         /// A description of the network group.
@@ -82,11 +82,11 @@ namespace Pulumi.AzureNative.Network.V20220401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:NetworkGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:NetworkGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:NetworkGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:NetworkGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:NetworkGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network:NetworkGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201preview:NetworkGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501preview:NetworkGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:NetworkGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220201preview:NetworkGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.Network.V20220401Preview
         }
     }
 
-    public sealed class NetworkGroupArgs : global::Pulumi.ResourceArgs
+    public sealed class NetworkGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the network group.
@@ -143,6 +143,5 @@ namespace Pulumi.AzureNative.Network.V20220401Preview
         public NetworkGroupArgs()
         {
         }
-        public static new NetworkGroupArgs Empty => new NetworkGroupArgs();
     }
 }

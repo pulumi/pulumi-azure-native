@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220601.Inputs
     /// <summary>
     /// Import operation configuration information
     /// </summary>
-    public sealed class FhirServiceImportConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class FhirServiceImportConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// If the import operation is enabled.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220601.Inputs
         public FhirServiceImportConfigurationArgs()
         {
         }
-        public static new FhirServiceImportConfigurationArgs Empty => new FhirServiceImportConfigurationArgs();
     }
 }

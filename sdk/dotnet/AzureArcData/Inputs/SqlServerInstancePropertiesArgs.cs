@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureArcData.Inputs
     /// <summary>
     /// Properties of SqlServerInstance.
     /// </summary>
-    public sealed class SqlServerInstancePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class SqlServerInstancePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// SQL Server collation.
@@ -96,6 +96,5 @@ namespace Pulumi.AzureNative.AzureArcData.Inputs
         public SqlServerInstancePropertiesArgs()
         {
         }
-        public static new SqlServerInstancePropertiesArgs Empty => new SqlServerInstancePropertiesArgs();
     }
 }

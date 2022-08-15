@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// The BZip2 compression method used on a dataset.
     /// </summary>
-    public sealed class DatasetBZip2CompressionArgs : global::Pulumi.ResourceArgs
+    public sealed class DatasetBZip2CompressionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of dataset compression.
@@ -25,6 +25,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public DatasetBZip2CompressionArgs()
         {
         }
-        public static new DatasetBZip2CompressionArgs Empty => new DatasetBZip2CompressionArgs();
     }
 }

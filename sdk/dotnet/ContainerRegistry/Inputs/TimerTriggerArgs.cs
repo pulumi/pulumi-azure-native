@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.Inputs
     /// <summary>
     /// The properties of a timer trigger.
     /// </summary>
-    public sealed class TimerTriggerArgs : global::Pulumi.ResourceArgs
+    public sealed class TimerTriggerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the trigger.
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.Inputs
         {
             Status = "Enabled";
         }
-        public static new TimerTriggerArgs Empty => new TimerTriggerArgs();
     }
 }

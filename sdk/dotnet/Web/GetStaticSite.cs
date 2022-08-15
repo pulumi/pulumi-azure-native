@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Web
     }
 
 
-    public sealed class GetStaticSiteArgs : global::Pulumi.InvokeArgs
+    public sealed class GetStaticSiteArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the static site.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.Web
         public GetStaticSiteArgs()
         {
         }
-        public static new GetStaticSiteArgs Empty => new GetStaticSiteArgs();
     }
 
-    public sealed class GetStaticSiteInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetStaticSiteInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the static site.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.Web
         public GetStaticSiteInvokeArgs()
         {
         }
-        public static new GetStaticSiteInvokeArgs Empty => new GetStaticSiteInvokeArgs();
     }
 
 

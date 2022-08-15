@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Resources.V20201001.Inputs
     /// <summary>
     /// Deployment on error behavior.
     /// </summary>
-    public sealed class OnErrorDeploymentArgs : global::Pulumi.ResourceArgs
+    public sealed class OnErrorDeploymentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The deployment to be used on error case.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Resources.V20201001.Inputs
         public OnErrorDeploymentArgs()
         {
         }
-        public static new OnErrorDeploymentArgs Empty => new OnErrorDeploymentArgs();
     }
 }

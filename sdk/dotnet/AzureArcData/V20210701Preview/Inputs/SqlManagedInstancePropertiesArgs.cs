@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20210701Preview.Inputs
     /// <summary>
     /// Properties of sqlManagedInstance.
     /// </summary>
-    public sealed class SqlManagedInstancePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class SqlManagedInstancePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The instance admin user
@@ -67,6 +67,5 @@ namespace Pulumi.AzureNative.AzureArcData.V20210701Preview.Inputs
         {
             LicenseType = Pulumi.AzureNative.AzureArcData.V20210701Preview.LicenseType.BasePrice;
         }
-        public static new SqlManagedInstancePropertiesArgs Empty => new SqlManagedInstancePropertiesArgs();
     }
 }

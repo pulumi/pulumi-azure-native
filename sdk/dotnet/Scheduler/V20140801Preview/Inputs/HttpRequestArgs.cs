@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Scheduler.V20140801Preview.Inputs
 {
 
-    public sealed class HttpRequestArgs : global::Pulumi.ResourceArgs
+    public sealed class HttpRequestArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the http authentication.
@@ -51,6 +51,5 @@ namespace Pulumi.AzureNative.Scheduler.V20140801Preview.Inputs
         public HttpRequestArgs()
         {
         }
-        public static new HttpRequestArgs Empty => new HttpRequestArgs();
     }
 }

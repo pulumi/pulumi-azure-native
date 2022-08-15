@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20201001Preview.Inputs
 {
 
-    public sealed class LoadBalancerFrontendIPConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class LoadBalancerFrontendIPConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Compute.V20201001Preview.Inputs
         public LoadBalancerFrontendIPConfigurationArgs()
         {
         }
-        public static new LoadBalancerFrontendIPConfigurationArgs Empty => new LoadBalancerFrontendIPConfigurationArgs();
     }
 }

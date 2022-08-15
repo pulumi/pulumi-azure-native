@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// <summary>
     /// Datastore account key secrets.
     /// </summary>
-    public sealed class AccountKeyDatastoreSecretsArgs : global::Pulumi.ResourceArgs
+    public sealed class AccountKeyDatastoreSecretsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Storage account key.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public AccountKeyDatastoreSecretsArgs()
         {
         }
-        public static new AccountKeyDatastoreSecretsArgs Empty => new AccountKeyDatastoreSecretsArgs();
     }
 }

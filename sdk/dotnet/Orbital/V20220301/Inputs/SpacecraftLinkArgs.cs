@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Orbital.V20220301.Inputs
     /// <summary>
     /// List of authorized spacecraft links per ground station and the expiration date of the authorization.
     /// </summary>
-    public sealed class SpacecraftLinkArgs : global::Pulumi.ResourceArgs
+    public sealed class SpacecraftLinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Bandwidth in MHz.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.Orbital.V20220301.Inputs
         public SpacecraftLinkArgs()
         {
         }
-        public static new SpacecraftLinkArgs Empty => new SpacecraftLinkArgs();
     }
 }

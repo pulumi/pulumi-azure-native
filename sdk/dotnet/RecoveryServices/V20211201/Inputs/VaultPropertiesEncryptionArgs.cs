@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201.Inputs
     /// <summary>
     /// Customer Managed Key details of the resource.
     /// </summary>
-    public sealed class VaultPropertiesEncryptionArgs : global::Pulumi.ResourceArgs
+    public sealed class VaultPropertiesEncryptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enabling/Disabling the Double Encryption state
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201.Inputs
         public VaultPropertiesEncryptionArgs()
         {
         }
-        public static new VaultPropertiesEncryptionArgs Empty => new VaultPropertiesEncryptionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.V20191001.Inputs
     /// <summary>
     /// The start and end date for pulling data for the query.
     /// </summary>
-    public sealed class QueryTimePeriodArgs : global::Pulumi.ResourceArgs
+    public sealed class QueryTimePeriodArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The start date to pull data from.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.CostManagement.V20191001.Inputs
         public QueryTimePeriodArgs()
         {
         }
-        public static new QueryTimePeriodArgs Empty => new QueryTimePeriodArgs();
     }
 }

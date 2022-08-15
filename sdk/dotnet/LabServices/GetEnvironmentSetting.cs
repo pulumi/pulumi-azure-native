@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.LabServices
     }
 
 
-    public sealed class GetEnvironmentSettingArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEnvironmentSettingArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the environment Setting.
@@ -62,10 +62,9 @@ namespace Pulumi.AzureNative.LabServices
         public GetEnvironmentSettingArgs()
         {
         }
-        public static new GetEnvironmentSettingArgs Empty => new GetEnvironmentSettingArgs();
     }
 
-    public sealed class GetEnvironmentSettingInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEnvironmentSettingInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the environment Setting.
@@ -100,7 +99,6 @@ namespace Pulumi.AzureNative.LabServices
         public GetEnvironmentSettingInvokeArgs()
         {
         }
-        public static new GetEnvironmentSettingInvokeArgs Empty => new GetEnvironmentSettingInvokeArgs();
     }
 
 

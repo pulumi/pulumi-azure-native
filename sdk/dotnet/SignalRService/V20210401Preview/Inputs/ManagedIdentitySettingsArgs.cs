@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SignalRService.V20210401Preview.Inputs
     /// <summary>
     /// Managed identity settings for upstream.
     /// </summary>
-    public sealed class ManagedIdentitySettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedIdentitySettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Resource indicating the App ID URI of the target resource.
@@ -25,6 +25,5 @@ namespace Pulumi.AzureNative.SignalRService.V20210401Preview.Inputs
         public ManagedIdentitySettingsArgs()
         {
         }
-        public static new ManagedIdentitySettingsArgs Empty => new ManagedIdentitySettingsArgs();
     }
 }

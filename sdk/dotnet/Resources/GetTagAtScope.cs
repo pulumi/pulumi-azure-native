@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Resources
     }
 
 
-    public sealed class GetTagAtScopeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetTagAtScopeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource scope.
@@ -38,10 +38,9 @@ namespace Pulumi.AzureNative.Resources
         public GetTagAtScopeArgs()
         {
         }
-        public static new GetTagAtScopeArgs Empty => new GetTagAtScopeArgs();
     }
 
-    public sealed class GetTagAtScopeInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetTagAtScopeInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource scope.
@@ -52,7 +51,6 @@ namespace Pulumi.AzureNative.Resources
         public GetTagAtScopeInvokeArgs()
         {
         }
-        public static new GetTagAtScopeInvokeArgs Empty => new GetTagAtScopeInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20180715Preview.Inputs
     /// <summary>
     /// Selected tables for the migration
     /// </summary>
-    public sealed class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgs : global::Pulumi.ResourceArgs
+    public sealed class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the table to migrate
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DataMigration.V20180715Preview.Inputs
         public MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgs()
         {
         }
-        public static new MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgs Empty => new MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgs();
     }
 }

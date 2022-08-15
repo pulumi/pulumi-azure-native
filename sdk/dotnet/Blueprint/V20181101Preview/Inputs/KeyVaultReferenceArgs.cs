@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview.Inputs
     /// <summary>
     /// Specifies the link to a Key Vault.
     /// </summary>
-    public sealed class KeyVaultReferenceArgs : global::Pulumi.ResourceArgs
+    public sealed class KeyVaultReferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure resource ID of the Key Vault.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview.Inputs
         public KeyVaultReferenceArgs()
         {
         }
-        public static new KeyVaultReferenceArgs Empty => new KeyVaultReferenceArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network
     }
 
 
-    public sealed class GetNatRuleArgs : global::Pulumi.InvokeArgs
+    public sealed class GetNatRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the gateway.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Network
         public GetNatRuleArgs()
         {
         }
-        public static new GetNatRuleArgs Empty => new GetNatRuleArgs();
     }
 
-    public sealed class GetNatRuleInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetNatRuleInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the gateway.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Network
         public GetNatRuleInvokeArgs()
         {
         }
-        public static new GetNatRuleInvokeArgs Empty => new GetNatRuleInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220101
     /// Service End point policy resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20220101:ServiceEndpointPolicy")]
-    public partial class ServiceEndpointPolicy : global::Pulumi.CustomResource
+    public partial class ServiceEndpointPolicy : Pulumi.CustomResource
     {
         /// <summary>
         /// A collection of contextual service endpoint policy.
@@ -112,31 +112,31 @@ namespace Pulumi.AzureNative.Network.V20220101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:ServiceEndpointPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180701:ServiceEndpointPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180801:ServiceEndpointPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181001:ServiceEndpointPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181101:ServiceEndpointPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181201:ServiceEndpointPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190201:ServiceEndpointPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:ServiceEndpointPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190601:ServiceEndpointPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:ServiceEndpointPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190801:ServiceEndpointPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:ServiceEndpointPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:ServiceEndpointPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:ServiceEndpointPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:ServiceEndpointPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:ServiceEndpointPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:ServiceEndpointPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:ServiceEndpointPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:ServiceEndpointPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:ServiceEndpointPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:ServiceEndpointPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:ServiceEndpointPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:ServiceEndpointPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:ServiceEndpointPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:ServiceEndpointPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network:ServiceEndpointPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180701:ServiceEndpointPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:ServiceEndpointPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181001:ServiceEndpointPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181101:ServiceEndpointPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181201:ServiceEndpointPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190201:ServiceEndpointPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:ServiceEndpointPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:ServiceEndpointPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:ServiceEndpointPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:ServiceEndpointPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:ServiceEndpointPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:ServiceEndpointPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:ServiceEndpointPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:ServiceEndpointPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:ServiceEndpointPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:ServiceEndpointPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:ServiceEndpointPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:ServiceEndpointPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:ServiceEndpointPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:ServiceEndpointPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:ServiceEndpointPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210301:ServiceEndpointPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501:ServiceEndpointPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:ServiceEndpointPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -158,7 +158,7 @@ namespace Pulumi.AzureNative.Network.V20220101
         }
     }
 
-    public sealed class ServiceEndpointPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class ServiceEndpointPolicyArgs : Pulumi.ResourceArgs
     {
         [Input("contextualServiceEndpointPolicies")]
         private InputList<string>? _contextualServiceEndpointPolicies;
@@ -229,6 +229,5 @@ namespace Pulumi.AzureNative.Network.V20220101
         public ServiceEndpointPolicyArgs()
         {
         }
-        public static new ServiceEndpointPolicyArgs Empty => new ServiceEndpointPolicyArgs();
     }
 }

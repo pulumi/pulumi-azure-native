@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
     /// <summary>
     /// ExecAction describes a "run in container" action.
     /// </summary>
-    public sealed class ExecActionArgs : global::Pulumi.ResourceArgs
+    public sealed class ExecActionArgs : Pulumi.ResourceArgs
     {
         [Input("command")]
         private InputList<string>? _command;
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
         public ExecActionArgs()
         {
         }
-        public static new ExecActionArgs Empty => new ExecActionArgs();
     }
 }

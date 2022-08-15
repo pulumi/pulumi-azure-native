@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
     /// <summary>
     /// Properties of a virtual machine returned by the Microsoft.Compute API.
     /// </summary>
-    public sealed class ComputeVmPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ComputeVmPropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("dataDiskIds")]
         private InputList<string>? _dataDiskIds;
@@ -78,6 +78,5 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
         public ComputeVmPropertiesArgs()
         {
         }
-        public static new ComputeVmPropertiesArgs Empty => new ComputeVmPropertiesArgs();
     }
 }

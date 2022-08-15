@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001
     }
 
 
-    public sealed class GetProtectionContainerArgs : global::Pulumi.InvokeArgs
+    public sealed class GetProtectionContainerArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the container whose details need to be fetched.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001
         public GetProtectionContainerArgs()
         {
         }
-        public static new GetProtectionContainerArgs Empty => new GetProtectionContainerArgs();
     }
 
-    public sealed class GetProtectionContainerInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetProtectionContainerInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the container whose details need to be fetched.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001
         public GetProtectionContainerInvokeArgs()
         {
         }
-        public static new GetProtectionContainerInvokeArgs Empty => new GetProtectionContainerInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.V20180901Preview.Inputs
     /// <summary>
     /// Class representing the details of the solution.
     /// </summary>
-    public sealed class SolutionDetailsArgs : global::Pulumi.ResourceArgs
+    public sealed class SolutionDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the count of assessments reported by the solution.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Migrate.V20180901Preview.Inputs
         public SolutionDetailsArgs()
         {
         }
-        public static new SolutionDetailsArgs Empty => new SolutionDetailsArgs();
     }
 }

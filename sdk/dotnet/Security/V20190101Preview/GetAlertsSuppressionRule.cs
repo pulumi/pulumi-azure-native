@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Security.V20190101Preview
     }
 
 
-    public sealed class GetAlertsSuppressionRuleArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAlertsSuppressionRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The unique name of the suppression alert rule
@@ -36,10 +36,9 @@ namespace Pulumi.AzureNative.Security.V20190101Preview
         public GetAlertsSuppressionRuleArgs()
         {
         }
-        public static new GetAlertsSuppressionRuleArgs Empty => new GetAlertsSuppressionRuleArgs();
     }
 
-    public sealed class GetAlertsSuppressionRuleInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAlertsSuppressionRuleInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The unique name of the suppression alert rule
@@ -50,7 +49,6 @@ namespace Pulumi.AzureNative.Security.V20190101Preview
         public GetAlertsSuppressionRuleInvokeArgs()
         {
         }
-        public static new GetAlertsSuppressionRuleInvokeArgs Empty => new GetAlertsSuppressionRuleInvokeArgs();
     }
 
 

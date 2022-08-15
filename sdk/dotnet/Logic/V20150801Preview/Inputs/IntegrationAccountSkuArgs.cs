@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
-    public sealed class IntegrationAccountSkuArgs : global::Pulumi.ResourceArgs
+    public sealed class IntegrationAccountSkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The sku name.
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
         public IntegrationAccountSkuArgs()
         {
         }
-        public static new IntegrationAccountSkuArgs Empty => new IntegrationAccountSkuArgs();
     }
 }

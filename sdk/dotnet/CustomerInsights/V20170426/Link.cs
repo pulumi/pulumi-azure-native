@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
     /// The link resource format.
     /// </summary>
     [AzureNativeResourceType("azure-native:customerinsights/v20170426:Link")]
-    public partial class Link : global::Pulumi.CustomResource
+    public partial class Link : Pulumi.CustomResource
     {
         /// <summary>
         /// Localized descriptions for the Link.
@@ -130,8 +130,8 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:customerinsights:Link"},
-                    new global::Pulumi.Alias { Type = "azure-native:customerinsights/v20170101:Link"},
+                    new Pulumi.Alias { Type = "azure-native:customerinsights:Link"},
+                    new Pulumi.Alias { Type = "azure-native:customerinsights/v20170101:Link"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -153,7 +153,7 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
         }
     }
 
-    public sealed class LinkArgs : global::Pulumi.ResourceArgs
+    public sealed class LinkArgs : Pulumi.ResourceArgs
     {
         [Input("description")]
         private InputMap<string>? _description;
@@ -260,6 +260,5 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
         public LinkArgs()
         {
         }
-        public static new LinkArgs Empty => new LinkArgs();
     }
 }

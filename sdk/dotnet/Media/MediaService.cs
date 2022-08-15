@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Media
     /// API Version: 2020-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:media:MediaService")]
-    public partial class MediaService : global::Pulumi.CustomResource
+    public partial class MediaService : Pulumi.CustomResource
     {
         /// <summary>
         /// The account encryption properties.
@@ -98,14 +98,14 @@ namespace Pulumi.AzureNative.Media
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20151001:MediaService"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180330preview:MediaService"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180601preview:MediaService"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180701:MediaService"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20200501:MediaService"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20210501:MediaService"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20210601:MediaService"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20211101:MediaService"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20151001:MediaService"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180330preview:MediaService"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180601preview:MediaService"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180701:MediaService"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20200501:MediaService"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20210501:MediaService"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20210601:MediaService"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20211101:MediaService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -127,7 +127,7 @@ namespace Pulumi.AzureNative.Media
         }
     }
 
-    public sealed class MediaServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class MediaServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -189,6 +189,5 @@ namespace Pulumi.AzureNative.Media
         public MediaServiceArgs()
         {
         }
-        public static new MediaServiceArgs Empty => new MediaServiceArgs();
     }
 }

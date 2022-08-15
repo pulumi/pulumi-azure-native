@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview.Inputs
     /// <summary>
     /// Properties for a Git repository catalog.
     /// </summary>
-    public sealed class GitCatalogArgs : global::Pulumi.ResourceArgs
+    public sealed class GitCatalogArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Git branch.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview.Inputs
         public GitCatalogArgs()
         {
         }
-        public static new GitCatalogArgs Empty => new GitCatalogArgs();
     }
 }

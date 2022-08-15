@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Paypal Service dataset.
     /// </summary>
-    public sealed class PaypalObjectDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class PaypalObjectDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,6 +85,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public PaypalObjectDatasetArgs()
         {
         }
-        public static new PaypalObjectDatasetArgs Empty => new PaypalObjectDatasetArgs();
     }
 }

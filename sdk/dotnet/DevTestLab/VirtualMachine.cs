@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DevTestLab
     /// API Version: 2018-09-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab:VirtualMachine")]
-    public partial class VirtualMachine : global::Pulumi.CustomResource
+    public partial class VirtualMachine : Pulumi.CustomResource
     {
         /// <summary>
         /// Indicates whether another user can take ownership of the virtual machine
@@ -275,9 +275,9 @@ namespace Pulumi.AzureNative.DevTestLab
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20150521preview:VirtualMachine"},
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:VirtualMachine"},
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20150521preview:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:VirtualMachine"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -299,7 +299,7 @@ namespace Pulumi.AzureNative.DevTestLab
         }
     }
 
-    public sealed class VirtualMachineArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualMachineArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether another user can take ownership of the virtual machine
@@ -500,6 +500,5 @@ namespace Pulumi.AzureNative.DevTestLab
             OwnerObjectId = "dynamicValue";
             StorageType = "labStorageType";
         }
-        public static new VirtualMachineArgs Empty => new VirtualMachineArgs();
     }
 }

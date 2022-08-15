@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.Inputs
     /// <summary>
     /// Defines the parameter value of an specific pipeline topology parameter. See pipeline topology parameters for more information.
     /// </summary>
-    public sealed class ParameterDefinitionArgs : global::Pulumi.ResourceArgs
+    public sealed class ParameterDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the parameter declared in the pipeline topology.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.VideoAnalyzer.Inputs
         public ParameterDefinitionArgs()
         {
         }
-        public static new ParameterDefinitionArgs Empty => new ParameterDefinitionArgs();
     }
 }

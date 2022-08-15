@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
     }
 
 
-    public sealed class GetPipelineJobArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPipelineJobArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Azure Video Analyzer account name.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
         public GetPipelineJobArgs()
         {
         }
-        public static new GetPipelineJobArgs Empty => new GetPipelineJobArgs();
     }
 
-    public sealed class GetPipelineJobInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPipelineJobInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Azure Video Analyzer account name.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
         public GetPipelineJobInvokeArgs()
         {
         }
-        public static new GetPipelineJobInvokeArgs Empty => new GetPipelineJobInvokeArgs();
     }
 
 

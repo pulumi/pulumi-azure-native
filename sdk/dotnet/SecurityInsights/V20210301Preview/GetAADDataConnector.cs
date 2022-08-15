@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
     }
 
 
-    public sealed class GetAADDataConnectorArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAADDataConnectorArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Connector ID
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         public GetAADDataConnectorArgs()
         {
         }
-        public static new GetAADDataConnectorArgs Empty => new GetAADDataConnectorArgs();
     }
 
-    public sealed class GetAADDataConnectorInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAADDataConnectorInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Connector ID
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         public GetAADDataConnectorInvokeArgs()
         {
         }
-        public static new GetAADDataConnectorInvokeArgs Empty => new GetAADDataConnectorInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Maps.V20210201.Inputs
     /// <summary>
     /// Creator resource properties
     /// </summary>
-    public sealed class CreatorPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class CreatorPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The storage units to be allocated. Integer values from 1 to 100, inclusive.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Maps.V20210201.Inputs
         public CreatorPropertiesArgs()
         {
         }
-        public static new CreatorPropertiesArgs Empty => new CreatorPropertiesArgs();
     }
 }

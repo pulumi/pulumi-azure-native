@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// The location of ftp server dataset.
     /// </summary>
-    public sealed class FtpServerLocationArgs : global::Pulumi.ResourceArgs
+    public sealed class FtpServerLocationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specify the file name of dataset. Type: string (or Expression with resultType string).
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public FtpServerLocationArgs()
         {
         }
-        public static new FtpServerLocationArgs Empty => new FtpServerLocationArgs();
     }
 }

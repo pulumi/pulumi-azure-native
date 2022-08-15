@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Peering.Inputs
     /// <summary>
     /// The properties that define an exchange peering.
     /// </summary>
-    public sealed class PeeringPropertiesExchangeArgs : global::Pulumi.ResourceArgs
+    public sealed class PeeringPropertiesExchangeArgs : Pulumi.ResourceArgs
     {
         [Input("connections")]
         private InputList<Inputs.ExchangeConnectionArgs>? _connections;
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Peering.Inputs
         public PeeringPropertiesExchangeArgs()
         {
         }
-        public static new PeeringPropertiesExchangeArgs Empty => new PeeringPropertiesExchangeArgs();
     }
 }

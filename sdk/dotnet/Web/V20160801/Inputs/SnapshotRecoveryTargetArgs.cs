@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20160801.Inputs
     /// <summary>
     /// Specifies the web app that snapshot contents will be written to.
     /// </summary>
-    public sealed class SnapshotRecoveryTargetArgs : global::Pulumi.ResourceArgs
+    public sealed class SnapshotRecoveryTargetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARM resource ID of the target app. 
@@ -32,6 +32,5 @@ namespace Pulumi.AzureNative.Web.V20160801.Inputs
         public SnapshotRecoveryTargetArgs()
         {
         }
-        public static new SnapshotRecoveryTargetArgs Empty => new SnapshotRecoveryTargetArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Media
     }
 
 
-    public sealed class GetAssetEncryptionKeyArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAssetEncryptionKeyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Media
         public GetAssetEncryptionKeyArgs()
         {
         }
-        public static new GetAssetEncryptionKeyArgs Empty => new GetAssetEncryptionKeyArgs();
     }
 
-    public sealed class GetAssetEncryptionKeyInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAssetEncryptionKeyInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Media
         public GetAssetEncryptionKeyInvokeArgs()
         {
         }
-        public static new GetAssetEncryptionKeyInvokeArgs Empty => new GetAssetEncryptionKeyInvokeArgs();
     }
 
 

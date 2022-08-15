@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20201001.Inputs
     /// <summary>
     /// An Activity Log Alert rule condition that is met when all its member conditions are met.
     /// </summary>
-    public sealed class AlertRuleAllOfConditionArgs : global::Pulumi.ResourceArgs
+    public sealed class AlertRuleAllOfConditionArgs : Pulumi.ResourceArgs
     {
         [Input("allOf", required: true)]
         private InputList<Inputs.AlertRuleAnyOfOrLeafConditionArgs>? _allOf;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Insights.V20201001.Inputs
         public AlertRuleAllOfConditionArgs()
         {
         }
-        public static new AlertRuleAllOfConditionArgs Empty => new AlertRuleAllOfConditionArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.EventHub.V20170401
     }
 
 
-    public sealed class GetEventHubAuthorizationRuleArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEventHubAuthorizationRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The authorization rule name.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.EventHub.V20170401
         public GetEventHubAuthorizationRuleArgs()
         {
         }
-        public static new GetEventHubAuthorizationRuleArgs Empty => new GetEventHubAuthorizationRuleArgs();
     }
 
-    public sealed class GetEventHubAuthorizationRuleInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEventHubAuthorizationRuleInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The authorization rule name.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.EventHub.V20170401
         public GetEventHubAuthorizationRuleInvokeArgs()
         {
         }
-        public static new GetEventHubAuthorizationRuleInvokeArgs Empty => new GetEventHubAuthorizationRuleInvokeArgs();
     }
 
 

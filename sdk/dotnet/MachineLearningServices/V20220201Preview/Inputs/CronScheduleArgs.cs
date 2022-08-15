@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// Cron schedule definition
     /// </summary>
-    public sealed class CronScheduleArgs : global::Pulumi.ResourceArgs
+    public sealed class CronScheduleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies end time of schedule in ISO 8601 format.
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
             ScheduleStatus = "Enabled";
             TimeZone = "UTC";
         }
-        public static new CronScheduleArgs Empty => new CronScheduleArgs();
     }
 }

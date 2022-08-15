@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A Rest service dataset.
     /// </summary>
-    public sealed class RestResourceDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class RestResourceDatasetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The additional HTTP headers in the request to the RESTful API. Type: string (or Expression with resultType string).
@@ -109,6 +109,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public RestResourceDatasetArgs()
         {
         }
-        public static new RestResourceDatasetArgs Empty => new RestResourceDatasetArgs();
     }
 }

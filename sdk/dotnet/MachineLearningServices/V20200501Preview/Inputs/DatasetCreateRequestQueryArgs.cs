@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview.Inputs
 {
 
-    public sealed class DatasetCreateRequestQueryArgs : global::Pulumi.ResourceArgs
+    public sealed class DatasetCreateRequestQueryArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The SQL/PostgreSQL/MySQL datastore name.
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview.Inputs
         public DatasetCreateRequestQueryArgs()
         {
         }
-        public static new DatasetCreateRequestQueryArgs Empty => new DatasetCreateRequestQueryArgs();
     }
 }

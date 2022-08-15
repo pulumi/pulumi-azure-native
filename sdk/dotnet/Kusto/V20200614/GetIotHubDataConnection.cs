@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Kusto.V20200614
     }
 
 
-    public sealed class GetIotHubDataConnectionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetIotHubDataConnectionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.Kusto.V20200614
         public GetIotHubDataConnectionArgs()
         {
         }
-        public static new GetIotHubDataConnectionArgs Empty => new GetIotHubDataConnectionArgs();
     }
 
-    public sealed class GetIotHubDataConnectionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetIotHubDataConnectionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.Kusto.V20200614
         public GetIotHubDataConnectionInvokeArgs()
         {
         }
-        public static new GetIotHubDataConnectionInvokeArgs Empty => new GetIotHubDataConnectionInvokeArgs();
     }
 
 

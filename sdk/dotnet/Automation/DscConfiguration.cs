@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Automation
     /// API Version: 2019-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:DscConfiguration")]
-    public partial class DscConfiguration : global::Pulumi.CustomResource
+    public partial class DscConfiguration : Pulumi.CustomResource
     {
         /// <summary>
         /// Gets or sets the creation time.
@@ -131,8 +131,8 @@ namespace Pulumi.AzureNative.Automation
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20151031:DscConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20190601:DscConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20151031:DscConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20190601:DscConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -154,7 +154,7 @@ namespace Pulumi.AzureNative.Automation
         }
     }
 
-    public sealed class DscConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class DscConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -237,6 +237,5 @@ namespace Pulumi.AzureNative.Automation
         public DscConfigurationArgs()
         {
         }
-        public static new DscConfigurationArgs Empty => new DscConfigurationArgs();
     }
 }

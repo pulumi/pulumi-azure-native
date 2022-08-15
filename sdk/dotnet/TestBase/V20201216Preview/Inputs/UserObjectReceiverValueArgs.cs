@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview.Inputs
     /// <summary>
     /// The user object receiver value.
     /// </summary>
-    public sealed class UserObjectReceiverValueArgs : global::Pulumi.ResourceArgs
+    public sealed class UserObjectReceiverValueArgs : Pulumi.ResourceArgs
     {
         [Input("userObjectIds")]
         private InputList<string>? _userObjectIds;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview.Inputs
         public UserObjectReceiverValueArgs()
         {
         }
-        public static new UserObjectReceiverValueArgs Empty => new UserObjectReceiverValueArgs();
     }
 }

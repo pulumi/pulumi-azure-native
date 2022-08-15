@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
     }
 
 
-    public sealed class GetGatewayArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGatewayArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identity of the gateway.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
         public GetGatewayArgs()
         {
         }
-        public static new GetGatewayArgs Empty => new GetGatewayArgs();
     }
 
-    public sealed class GetGatewayInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGatewayInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identity of the gateway.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
         public GetGatewayInvokeArgs()
         {
         }
-        public static new GetGatewayInvokeArgs Empty => new GetGatewayInvokeArgs();
     }
 
 

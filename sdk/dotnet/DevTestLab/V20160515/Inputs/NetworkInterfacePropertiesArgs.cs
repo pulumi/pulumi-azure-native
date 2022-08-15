@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
     /// <summary>
     /// Properties of a network interface.
     /// </summary>
-    public sealed class NetworkInterfacePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class NetworkInterfacePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The DNS name.
@@ -72,6 +72,5 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
         public NetworkInterfacePropertiesArgs()
         {
         }
-        public static new NetworkInterfacePropertiesArgs Empty => new NetworkInterfacePropertiesArgs();
     }
 }

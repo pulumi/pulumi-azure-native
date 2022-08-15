@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210301Preview
     }
 
 
-    public sealed class GetSqlResourceSqlUserDefinedFunctionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSqlResourceSqlUserDefinedFunctionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Cosmos DB database account name.
@@ -60,10 +60,9 @@ namespace Pulumi.AzureNative.DocumentDB.V20210301Preview
         public GetSqlResourceSqlUserDefinedFunctionArgs()
         {
         }
-        public static new GetSqlResourceSqlUserDefinedFunctionArgs Empty => new GetSqlResourceSqlUserDefinedFunctionArgs();
     }
 
-    public sealed class GetSqlResourceSqlUserDefinedFunctionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSqlResourceSqlUserDefinedFunctionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Cosmos DB database account name.
@@ -98,7 +97,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20210301Preview
         public GetSqlResourceSqlUserDefinedFunctionInvokeArgs()
         {
         }
-        public static new GetSqlResourceSqlUserDefinedFunctionInvokeArgs Empty => new GetSqlResourceSqlUserDefinedFunctionInvokeArgs();
     }
 
 

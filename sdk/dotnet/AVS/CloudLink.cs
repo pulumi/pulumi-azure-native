@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AVS
     /// API Version: 2021-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:CloudLink")]
-    public partial class CloudLink : global::Pulumi.CustomResource
+    public partial class CloudLink : Pulumi.CustomResource
     {
         /// <summary>
         /// Identifier of the other private cloud participating in the link.
@@ -65,8 +65,8 @@ namespace Pulumi.AzureNative.AVS
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:CloudLink"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:CloudLink"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20210601:CloudLink"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20211201:CloudLink"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.AVS
         }
     }
 
-    public sealed class CloudLinkArgs : global::Pulumi.ResourceArgs
+    public sealed class CloudLinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the cloud link resource
@@ -117,6 +117,5 @@ namespace Pulumi.AzureNative.AVS
         public CloudLinkArgs()
         {
         }
-        public static new CloudLinkArgs Empty => new CloudLinkArgs();
     }
 }

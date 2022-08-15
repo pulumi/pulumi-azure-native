@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Web
     }
 
 
-    public sealed class GetCertificateArgs : global::Pulumi.InvokeArgs
+    public sealed class GetCertificateArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the certificate.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.Web
         public GetCertificateArgs()
         {
         }
-        public static new GetCertificateArgs Empty => new GetCertificateArgs();
     }
 
-    public sealed class GetCertificateInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetCertificateInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the certificate.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.Web
         public GetCertificateInvokeArgs()
         {
         }
-        public static new GetCertificateInvokeArgs Empty => new GetCertificateInvokeArgs();
     }
 
 

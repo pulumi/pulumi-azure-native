@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210701.Inputs
     /// <summary>
     /// Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
     /// </summary>
-    public sealed class ResourceIdArgs : global::Pulumi.ResourceArgs
+    public sealed class ResourceIdArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the resource
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210701.Inputs
         public ResourceIdArgs()
         {
         }
-        public static new ResourceIdArgs Empty => new ResourceIdArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20201101Preview.Inputs
     /// <summary>
     /// Custom domain of app resource payload.
     /// </summary>
-    public sealed class CustomDomainPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class CustomDomainPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The bound certificate name of domain.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.AppPlatform.V20201101Preview.Inputs
         public CustomDomainPropertiesArgs()
         {
         }
-        public static new CustomDomainPropertiesArgs Empty => new CustomDomainPropertiesArgs();
     }
 }

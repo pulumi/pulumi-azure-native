@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Security.V20210701Preview
     }
 
 
-    public sealed class GetCustomEntityStoreAssignmentArgs : global::Pulumi.InvokeArgs
+    public sealed class GetCustomEntityStoreAssignmentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the custom entity store assignment. Generated name is GUID.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.Security.V20210701Preview
         public GetCustomEntityStoreAssignmentArgs()
         {
         }
-        public static new GetCustomEntityStoreAssignmentArgs Empty => new GetCustomEntityStoreAssignmentArgs();
     }
 
-    public sealed class GetCustomEntityStoreAssignmentInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetCustomEntityStoreAssignmentInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the custom entity store assignment. Generated name is GUID.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.Security.V20210701Preview
         public GetCustomEntityStoreAssignmentInvokeArgs()
         {
         }
-        public static new GetCustomEntityStoreAssignmentInvokeArgs Empty => new GetCustomEntityStoreAssignmentInvokeArgs();
     }
 
 

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DocumentDB
     /// API Version: 2021-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:CassandraDataCenter")]
-    public partial class CassandraDataCenter : global::Pulumi.CustomResource
+    public partial class CassandraDataCenter : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the database account.
@@ -59,15 +59,15 @@ namespace Pulumi.AzureNative.DocumentDB
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:CassandraDataCenter"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:CassandraDataCenter"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:CassandraDataCenter"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015:CassandraDataCenter"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:CassandraDataCenter"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:CassandraDataCenter"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:CassandraDataCenter"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515:CassandraDataCenter"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:CassandraDataCenter"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:CassandraDataCenter"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:CassandraDataCenter"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:CassandraDataCenter"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211015:CassandraDataCenter"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:CassandraDataCenter"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:CassandraDataCenter"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:CassandraDataCenter"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220515:CassandraDataCenter"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:CassandraDataCenter"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.DocumentDB
         }
     }
 
-    public sealed class CassandraDataCenterArgs : global::Pulumi.ResourceArgs
+    public sealed class CassandraDataCenterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Managed Cassandra cluster name.
@@ -118,6 +118,5 @@ namespace Pulumi.AzureNative.DocumentDB
         public CassandraDataCenterArgs()
         {
         }
-        public static new CassandraDataCenterArgs Empty => new CassandraDataCenterArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20190601.Inputs
     /// <summary>
     /// BoolEquals Advanced Filter.
     /// </summary>
-    public sealed class BoolEqualsAdvancedFilterArgs : global::Pulumi.ResourceArgs
+    public sealed class BoolEqualsAdvancedFilterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The field/property in the event based on which you want to filter.
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.EventGrid.V20190601.Inputs
         public BoolEqualsAdvancedFilterArgs()
         {
         }
-        public static new BoolEqualsAdvancedFilterArgs Empty => new BoolEqualsAdvancedFilterArgs();
     }
 }

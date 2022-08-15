@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageMover.V20220701Preview.Inputs
 {
 
-    public sealed class NfsMountEndpointPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class NfsMountEndpointPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description for the Endpoint.
@@ -46,6 +46,5 @@ namespace Pulumi.AzureNative.StorageMover.V20220701Preview.Inputs
         public NfsMountEndpointPropertiesArgs()
         {
         }
-        public static new NfsMountEndpointPropertiesArgs Empty => new NfsMountEndpointPropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.Inputs
     /// <summary>
     /// Describes the properties of a rectangular window applied to the input media before processing it.
     /// </summary>
-    public sealed class RectangleArgs : global::Pulumi.ResourceArgs
+    public sealed class RectangleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The height of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Media.Inputs
         public RectangleArgs()
         {
         }
-        public static new RectangleArgs Empty => new RectangleArgs();
     }
 }

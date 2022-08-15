@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
     /// <summary>
     /// A custom preset for encoding video with the H.264 (AVC) codec.
     /// </summary>
-    public sealed class VideoEncoderH264Args : global::Pulumi.ResourceArgs
+    public sealed class VideoEncoderH264Args : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum bitrate, in kilobits per second or Kbps, at which video should be encoded. If omitted, encoder sets it automatically to try and match the quality of the input video.
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
         public VideoEncoderH264Args()
         {
         }
-        public static new VideoEncoderH264Args Empty => new VideoEncoderH264Args();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Databricks.V20210401Preview.Inputs
     /// <summary>
     /// AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.
     /// </summary>
-    public sealed class AddressSpaceArgs : global::Pulumi.ResourceArgs
+    public sealed class AddressSpaceArgs : Pulumi.ResourceArgs
     {
         [Input("addressPrefixes")]
         private InputList<string>? _addressPrefixes;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Databricks.V20210401Preview.Inputs
         public AddressSpaceArgs()
         {
         }
-        public static new AddressSpaceArgs Empty => new AddressSpaceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20210801.Inputs
     /// <summary>
     /// The raw kubernetes information.
     /// </summary>
-    public sealed class SqlManagedInstanceK8sRawArgs : global::Pulumi.ResourceArgs
+    public sealed class SqlManagedInstanceK8sRawArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The kubernetes spec information.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.AzureArcData.V20210801.Inputs
         public SqlManagedInstanceK8sRawArgs()
         {
         }
-        public static new SqlManagedInstanceK8sRawArgs Empty => new SqlManagedInstanceK8sRawArgs();
     }
 }

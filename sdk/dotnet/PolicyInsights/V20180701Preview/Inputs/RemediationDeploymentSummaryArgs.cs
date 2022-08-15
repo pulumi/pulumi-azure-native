@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.PolicyInsights.V20180701Preview.Inputs
     /// <summary>
     /// The deployment status summary for all deployments created by the remediation.
     /// </summary>
-    public sealed class RemediationDeploymentSummaryArgs : global::Pulumi.ResourceArgs
+    public sealed class RemediationDeploymentSummaryArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of deployments required by the remediation that have failed.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.PolicyInsights.V20180701Preview.Inputs
         public RemediationDeploymentSummaryArgs()
         {
         }
-        public static new RemediationDeploymentSummaryArgs Empty => new RemediationDeploymentSummaryArgs();
     }
 }

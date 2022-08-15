@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview.Inputs
     /// <summary>
     /// The configuration of the automation rule condition
     /// </summary>
-    public sealed class AutomationRulePropertyValuesConditionConditionPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class AutomationRulePropertyValuesConditionConditionPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The operator to use for evaluation the condition
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview.Inputs
         public AutomationRulePropertyValuesConditionConditionPropertiesArgs()
         {
         }
-        public static new AutomationRulePropertyValuesConditionConditionPropertiesArgs Empty => new AutomationRulePropertyValuesConditionConditionPropertiesArgs();
     }
 }

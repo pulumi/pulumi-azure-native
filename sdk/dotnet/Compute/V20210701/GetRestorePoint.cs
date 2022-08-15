@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Compute.V20210701
     }
 
 
-    public sealed class GetRestorePointArgs : global::Pulumi.InvokeArgs
+    public sealed class GetRestorePointArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Compute.V20210701
         public GetRestorePointArgs()
         {
         }
-        public static new GetRestorePointArgs Empty => new GetRestorePointArgs();
     }
 
-    public sealed class GetRestorePointInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetRestorePointInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Compute.V20210701
         public GetRestorePointInvokeArgs()
         {
         }
-        public static new GetRestorePointInvokeArgs Empty => new GetRestorePointInvokeArgs();
     }
 
 

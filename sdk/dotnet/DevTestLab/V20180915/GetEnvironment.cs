@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
     }
 
 
-    public sealed class GetEnvironmentArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEnvironmentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specify the $expand query. Example: 'properties($select=deploymentProperties)'
@@ -60,10 +60,9 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         public GetEnvironmentArgs()
         {
         }
-        public static new GetEnvironmentArgs Empty => new GetEnvironmentArgs();
     }
 
-    public sealed class GetEnvironmentInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEnvironmentInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specify the $expand query. Example: 'properties($select=deploymentProperties)'
@@ -98,7 +97,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         public GetEnvironmentInvokeArgs()
         {
         }
-        public static new GetEnvironmentInvokeArgs Empty => new GetEnvironmentInvokeArgs();
     }
 
 

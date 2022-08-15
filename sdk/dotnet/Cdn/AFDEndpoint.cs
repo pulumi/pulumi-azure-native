@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Cdn
     /// API Version: 2020-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:AFDEndpoint")]
-    public partial class AFDEndpoint : global::Pulumi.CustomResource
+    public partial class AFDEndpoint : Pulumi.CustomResource
     {
         [Output("deploymentStatus")]
         public Output<string> DeploymentStatus { get; private set; } = null!;
@@ -98,8 +98,8 @@ namespace Pulumi.AzureNative.Cdn
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:AFDEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:AFDEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200901:AFDEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20210601:AFDEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -121,7 +121,7 @@ namespace Pulumi.AzureNative.Cdn
         }
     }
 
-    public sealed class AFDEndpointArgs : global::Pulumi.ResourceArgs
+    public sealed class AFDEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
@@ -174,6 +174,5 @@ namespace Pulumi.AzureNative.Cdn
         public AFDEndpointArgs()
         {
         }
-        public static new AFDEndpointArgs Empty => new AFDEndpointArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
     }
 
 
-    public sealed class GetIotSecuritySolutionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetIotSecuritySolutionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
         public GetIotSecuritySolutionArgs()
         {
         }
-        public static new GetIotSecuritySolutionArgs Empty => new GetIotSecuritySolutionArgs();
     }
 
-    public sealed class GetIotSecuritySolutionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetIotSecuritySolutionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
         public GetIotSecuritySolutionInvokeArgs()
         {
         }
-        public static new GetIotSecuritySolutionInvokeArgs Empty => new GetIotSecuritySolutionInvokeArgs();
     }
 
 

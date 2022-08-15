@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview.Inputs
     /// <summary>
     /// The delegated subnet arguments for a server group.
     /// </summary>
-    public sealed class ServerGroupPropertiesDelegatedSubnetArgumentsArgs : global::Pulumi.ResourceArgs
+    public sealed class ServerGroupPropertiesDelegatedSubnetArgumentsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// delegated subnet arm resource id.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview.Inputs
         public ServerGroupPropertiesDelegatedSubnetArgumentsArgs()
         {
         }
-        public static new ServerGroupPropertiesDelegatedSubnetArgumentsArgs Empty => new ServerGroupPropertiesDelegatedSubnetArgumentsArgs();
     }
 }

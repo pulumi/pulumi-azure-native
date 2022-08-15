@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20210601.Inputs
     /// <summary>
     /// Workspace features.
     /// </summary>
-    public sealed class WorkspaceFeaturesArgs : global::Pulumi.ResourceArgs
+    public sealed class WorkspaceFeaturesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Dedicated LA cluster resourceId that is linked to the workspaces.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.OperationalInsights.V20210601.Inputs
         public WorkspaceFeaturesArgs()
         {
         }
-        public static new WorkspaceFeaturesArgs Empty => new WorkspaceFeaturesArgs();
     }
 }

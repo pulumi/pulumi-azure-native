@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Web
     }
 
 
-    public sealed class GetCustomApiArgs : global::Pulumi.InvokeArgs
+    public sealed class GetCustomApiArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// API name
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Web
         public GetCustomApiArgs()
         {
         }
-        public static new GetCustomApiArgs Empty => new GetCustomApiArgs();
     }
 
-    public sealed class GetCustomApiInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetCustomApiInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// API name
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Web
         public GetCustomApiInvokeArgs()
         {
         }
-        public static new GetCustomApiInvokeArgs Empty => new GetCustomApiInvokeArgs();
     }
 
 

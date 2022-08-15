@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20150501Preview.Inputs
     /// <summary>
     /// Contains FQDN of the DNS record associated with the public IP address
     /// </summary>
-    public sealed class PublicIpAddressDnsSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class PublicIpAddressDnsSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the Domain name label.The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Network.V20150501Preview.Inputs
         public PublicIpAddressDnsSettingsArgs()
         {
         }
-        public static new PublicIpAddressDnsSettingsArgs Empty => new PublicIpAddressDnsSettingsArgs();
     }
 }

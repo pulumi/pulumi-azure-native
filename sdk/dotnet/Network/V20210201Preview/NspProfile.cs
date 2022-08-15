@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
     /// The network security perimeter profile resource
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20210201preview:NspProfile")]
-    public partial class NspProfile : global::Pulumi.CustomResource
+    public partial class NspProfile : Pulumi.CustomResource
     {
         /// <summary>
         /// Version number that increases with every update to access rules within the profile.
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:NspProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network:NspProfile"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         }
     }
 
-    public sealed class NspProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class NspProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID.
@@ -145,6 +145,5 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         public NspProfileArgs()
         {
         }
-        public static new NspProfileArgs Empty => new NspProfileArgs();
     }
 }

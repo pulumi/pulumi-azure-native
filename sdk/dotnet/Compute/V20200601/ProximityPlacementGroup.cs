@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Compute.V20200601
     /// </summary>
     [Obsolete(@"Version 2020-06-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:compute/v20200601:ProximityPlacementGroup")]
-    public partial class ProximityPlacementGroup : global::Pulumi.CustomResource
+    public partial class ProximityPlacementGroup : Pulumi.CustomResource
     {
         /// <summary>
         /// A list of references to all availability sets in the proximity placement group.
@@ -95,19 +95,19 @@ namespace Pulumi.AzureNative.Compute.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:compute:ProximityPlacementGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180401:ProximityPlacementGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180601:ProximityPlacementGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20181001:ProximityPlacementGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190301:ProximityPlacementGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190701:ProximityPlacementGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20191201:ProximityPlacementGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20201201:ProximityPlacementGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210301:ProximityPlacementGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:ProximityPlacementGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:ProximityPlacementGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211101:ProximityPlacementGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220301:ProximityPlacementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:compute:ProximityPlacementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20180401:ProximityPlacementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20180601:ProximityPlacementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20181001:ProximityPlacementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20190301:ProximityPlacementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:ProximityPlacementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20191201:ProximityPlacementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20201201:ProximityPlacementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20210301:ProximityPlacementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20210401:ProximityPlacementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20210701:ProximityPlacementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20211101:ProximityPlacementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20220301:ProximityPlacementGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -129,7 +129,7 @@ namespace Pulumi.AzureNative.Compute.V20200601
         }
     }
 
-    public sealed class ProximityPlacementGroupArgs : global::Pulumi.ResourceArgs
+    public sealed class ProximityPlacementGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes colocation status of the Proximity Placement Group.
@@ -176,6 +176,5 @@ namespace Pulumi.AzureNative.Compute.V20200601
         public ProximityPlacementGroupArgs()
         {
         }
-        public static new ProximityPlacementGroupArgs Empty => new ProximityPlacementGroupArgs();
     }
 }

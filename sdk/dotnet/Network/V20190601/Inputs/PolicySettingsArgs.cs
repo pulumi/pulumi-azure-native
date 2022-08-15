@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190601.Inputs
     /// <summary>
     /// Defines contents of a web application firewall global configuration.
     /// </summary>
-    public sealed class PolicySettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class PolicySettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes if the policy is in enabled state or disabled state.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Network.V20190601.Inputs
         public PolicySettingsArgs()
         {
         }
-        public static new PolicySettingsArgs Empty => new PolicySettingsArgs();
     }
 }

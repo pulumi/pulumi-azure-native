@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The Common Data Service for Apps entity dataset.
     /// </summary>
-    public sealed class CommonDataServiceForAppsEntityDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class CommonDataServiceForAppsEntityDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,6 +85,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public CommonDataServiceForAppsEntityDatasetArgs()
         {
         }
-        public static new CommonDataServiceForAppsEntityDatasetArgs Empty => new CommonDataServiceForAppsEntityDatasetArgs();
     }
 }

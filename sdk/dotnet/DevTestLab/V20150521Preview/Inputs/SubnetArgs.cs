@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevTestLab.V20150521Preview.Inputs
 {
 
-    public sealed class SubnetArgs : global::Pulumi.ResourceArgs
+    public sealed class SubnetArgs : Pulumi.ResourceArgs
     {
         [Input("allowPublicIp")]
         public InputUnion<string, Pulumi.AzureNative.DevTestLab.V20150521Preview.UsagePermissionType>? AllowPublicIp { get; set; }
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview.Inputs
         public SubnetArgs()
         {
         }
-        public static new SubnetArgs Empty => new SubnetArgs();
     }
 }

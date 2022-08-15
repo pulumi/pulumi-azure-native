@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DelegatedNetwork.V20210315.Inputs
 {
 
-    public sealed class OrchestratorIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class OrchestratorIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of identity used for orchestrator cluster. Type 'SystemAssigned' will use an implicitly created identity orchestrator clusters
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315.Inputs
         public OrchestratorIdentityArgs()
         {
         }
-        public static new OrchestratorIdentityArgs Empty => new OrchestratorIdentityArgs();
     }
 }

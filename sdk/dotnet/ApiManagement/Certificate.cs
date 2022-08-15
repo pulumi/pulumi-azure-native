@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ApiManagement
     /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:Certificate")]
-    public partial class Certificate : global::Pulumi.CustomResource
+    public partial class Certificate : Pulumi.CustomResource
     {
         /// <summary>
         /// Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
@@ -77,20 +77,20 @@ namespace Pulumi.AzureNative.ApiManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.ApiManagement
         }
     }
 
-    public sealed class CertificateArgs : global::Pulumi.ResourceArgs
+    public sealed class CertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identifier of the certificate entity. Must be unique in the current API Management service instance.
@@ -153,6 +153,5 @@ namespace Pulumi.AzureNative.ApiManagement
         public CertificateArgs()
         {
         }
-        public static new CertificateArgs Empty => new CertificateArgs();
     }
 }

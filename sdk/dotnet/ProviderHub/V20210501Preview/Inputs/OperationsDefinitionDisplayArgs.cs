@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ProviderHub.V20210501Preview.Inputs
     /// <summary>
     /// Display information of the operation.
     /// </summary>
-    public sealed class OperationsDefinitionDisplayArgs : global::Pulumi.ResourceArgs
+    public sealed class OperationsDefinitionDisplayArgs : Pulumi.ResourceArgs
     {
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ProviderHub.V20210501Preview.Inputs
         public OperationsDefinitionDisplayArgs()
         {
         }
-        public static new OperationsDefinitionDisplayArgs Empty => new OperationsDefinitionDisplayArgs();
     }
 }

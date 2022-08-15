@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview.Inputs
     /// <summary>
     /// The content hash.
     /// </summary>
-    public sealed class ContentHashArgs : global::Pulumi.ResourceArgs
+    public sealed class ContentHashArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The algorithm of the content hash.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview.Inputs
         public ContentHashArgs()
         {
         }
-        public static new ContentHashArgs Empty => new ContentHashArgs();
     }
 }

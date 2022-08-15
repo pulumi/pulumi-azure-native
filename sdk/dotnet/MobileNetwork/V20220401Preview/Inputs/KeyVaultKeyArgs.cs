@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview.Inputs
     /// <summary>
     /// An Azure key vault key.
     /// </summary>
-    public sealed class KeyVaultKeyArgs : global::Pulumi.ResourceArgs
+    public sealed class KeyVaultKeyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key URL, unversioned. For example: https://contosovault.vault.azure.net/keys/azureKey.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview.Inputs
         public KeyVaultKeyArgs()
         {
         }
-        public static new KeyVaultKeyArgs Empty => new KeyVaultKeyArgs();
     }
 }

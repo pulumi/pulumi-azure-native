@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.V20180801Preview.Inputs
     /// <summary>
     /// The delivery information associated with a report.
     /// </summary>
-    public sealed class ReportDeliveryInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class ReportDeliveryInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Has destination for the report being delivered.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.CostManagement.V20180801Preview.Inputs
         public ReportDeliveryInfoArgs()
         {
         }
-        public static new ReportDeliveryInfoArgs Empty => new ReportDeliveryInfoArgs();
     }
 }

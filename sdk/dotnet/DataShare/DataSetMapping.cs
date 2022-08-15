@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.DataShare
     /// </summary>
     [Obsolete(@"Please use one of the variants: ADLSGen2FileDataSetMapping, ADLSGen2FileSystemDataSetMapping, ADLSGen2FolderDataSetMapping, BlobContainerDataSetMapping, BlobDataSetMapping, BlobFolderDataSetMapping, KustoClusterDataSetMapping, KustoDatabaseDataSetMapping, SqlDBTableDataSetMapping, SqlDWTableDataSetMapping, SynapseWorkspaceSqlPoolTableDataSetMapping.")]
     [AzureNativeResourceType("azure-native:datashare:DataSetMapping")]
-    public partial class DataSetMapping : global::Pulumi.CustomResource
+    public partial class DataSetMapping : Pulumi.CustomResource
     {
         /// <summary>
         /// Kind of data set mapping.
@@ -66,11 +66,11 @@ namespace Pulumi.AzureNative.DataShare
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:DataSetMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:DataSetMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:DataSetMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:DataSetMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:DataSetMapping"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:DataSetMapping"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:DataSetMapping"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20200901:DataSetMapping"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:DataSetMapping"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20210801:DataSetMapping"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.DataShare
         }
     }
 
-    public sealed class DataSetMappingArgs : global::Pulumi.ResourceArgs
+    public sealed class DataSetMappingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -127,6 +127,5 @@ namespace Pulumi.AzureNative.DataShare
         public DataSetMappingArgs()
         {
         }
-        public static new DataSetMappingArgs Empty => new DataSetMappingArgs();
     }
 }

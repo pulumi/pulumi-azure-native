@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Devices.V20220205
     }
 
 
-    public sealed class GetIotDpsResourcePrivateEndpointConnectionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetIotDpsResourcePrivateEndpointConnectionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the private endpoint connection
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Devices.V20220205
         public GetIotDpsResourcePrivateEndpointConnectionArgs()
         {
         }
-        public static new GetIotDpsResourcePrivateEndpointConnectionArgs Empty => new GetIotDpsResourcePrivateEndpointConnectionArgs();
     }
 
-    public sealed class GetIotDpsResourcePrivateEndpointConnectionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetIotDpsResourcePrivateEndpointConnectionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the private endpoint connection
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Devices.V20220205
         public GetIotDpsResourcePrivateEndpointConnectionInvokeArgs()
         {
         }
-        public static new GetIotDpsResourcePrivateEndpointConnectionInvokeArgs Empty => new GetIotDpsResourcePrivateEndpointConnectionInvokeArgs();
     }
 
 

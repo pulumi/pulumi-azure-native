@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210101.Inputs
     /// <summary>
     /// Common settings field for backup management
     /// </summary>
-    public sealed class SettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class SettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Workload compression flag. This has been added so that 'isSqlCompression'
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210101.Inputs
         public SettingsArgs()
         {
         }
-        public static new SettingsArgs Empty => new SettingsArgs();
     }
 }

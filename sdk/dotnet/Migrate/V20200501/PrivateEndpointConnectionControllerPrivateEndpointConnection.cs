@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.V20200501
     /// REST model used to encapsulate the user visible state of a PrivateEndpoint.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate/v20200501:PrivateEndpointConnectionControllerPrivateEndpointConnection")]
-    public partial class PrivateEndpointConnectionControllerPrivateEndpointConnection : global::Pulumi.CustomResource
+    public partial class PrivateEndpointConnectionControllerPrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// Gets the tag for optimistic concurrency control.
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.Migrate.V20200501
         }
     }
 
-    public sealed class PrivateEndpointConnectionControllerPrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionControllerPrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets the tag for optimistic concurrency control.
@@ -123,6 +123,5 @@ namespace Pulumi.AzureNative.Migrate.V20200501
         public PrivateEndpointConnectionControllerPrivateEndpointConnectionArgs()
         {
         }
-        public static new PrivateEndpointConnectionControllerPrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionControllerPrivateEndpointConnectionArgs();
     }
 }

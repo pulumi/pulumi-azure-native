@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Elastic.V20211001Preview.Inputs
     /// <summary>
     /// User Information to be passed to partners.
     /// </summary>
-    public sealed class UserInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class UserInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Company information of the user to be passed to partners.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.Elastic.V20211001Preview.Inputs
         public UserInfoArgs()
         {
         }
-        public static new UserInfoArgs Empty => new UserInfoArgs();
     }
 }

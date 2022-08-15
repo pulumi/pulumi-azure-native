@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20180715Preview.Inputs
     /// <summary>
     /// Input for task that migrates SSIS packages from SQL Server to Azure SQL Database Managed Instance.
     /// </summary>
-    public sealed class MigrateSsisTaskInputArgs : global::Pulumi.ResourceArgs
+    public sealed class MigrateSsisTaskInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Information for connecting to source
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DataMigration.V20180715Preview.Inputs
         public MigrateSsisTaskInputArgs()
         {
         }
-        public static new MigrateSsisTaskInputArgs Empty => new MigrateSsisTaskInputArgs();
     }
 }

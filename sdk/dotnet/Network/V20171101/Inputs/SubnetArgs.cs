@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20171101.Inputs
     /// <summary>
     /// Subnet in a virtual network resource.
     /// </summary>
-    public sealed class SubnetArgs : global::Pulumi.ResourceArgs
+    public sealed class SubnetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The address prefix for the subnet.
@@ -84,6 +84,5 @@ namespace Pulumi.AzureNative.Network.V20171101.Inputs
         public SubnetArgs()
         {
         }
-        public static new SubnetArgs Empty => new SubnetArgs();
     }
 }

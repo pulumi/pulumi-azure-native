@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Kusto
     /// API Version: 2021-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:Script")]
-    public partial class Script : global::Pulumi.CustomResource
+    public partial class Script : Pulumi.CustomResource
     {
         /// <summary>
         /// Flag that indicates whether to continue if one of the command fails.
@@ -83,9 +83,9 @@ namespace Pulumi.AzureNative.Kusto
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20210101:Script"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20210827:Script"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20220201:Script"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20210101:Script"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20210827:Script"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20220201:Script"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.Kusto
         }
     }
 
-    public sealed class ScriptArgs : global::Pulumi.ResourceArgs
+    public sealed class ScriptArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -161,6 +161,5 @@ namespace Pulumi.AzureNative.Kusto
         {
             ContinueOnErrors = false;
         }
-        public static new ScriptArgs Empty => new ScriptArgs();
     }
 }

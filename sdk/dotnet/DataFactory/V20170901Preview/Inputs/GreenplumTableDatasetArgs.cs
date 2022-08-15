@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Greenplum Database dataset.
     /// </summary>
-    public sealed class GreenplumTableDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class GreenplumTableDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -67,6 +67,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public GreenplumTableDatasetArgs()
         {
         }
-        public static new GreenplumTableDatasetArgs Empty => new GreenplumTableDatasetArgs();
     }
 }

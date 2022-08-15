@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20210201.Inputs
     /// <summary>
     /// The storage account blob inventory policy rules.
     /// </summary>
-    public sealed class BlobInventoryPolicySchemaArgs : global::Pulumi.ResourceArgs
+    public sealed class BlobInventoryPolicySchemaArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Container name where blob inventory files are stored. Must be pre-created.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.Storage.V20210201.Inputs
         public BlobInventoryPolicySchemaArgs()
         {
         }
-        public static new BlobInventoryPolicySchemaArgs Empty => new BlobInventoryPolicySchemaArgs();
     }
 }

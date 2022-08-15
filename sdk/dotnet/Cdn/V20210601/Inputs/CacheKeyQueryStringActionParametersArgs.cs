@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
     /// <summary>
     /// Defines the parameters for the cache-key query string action.
     /// </summary>
-    public sealed class CacheKeyQueryStringActionParametersArgs : global::Pulumi.ResourceArgs
+    public sealed class CacheKeyQueryStringActionParametersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// query parameters to include or exclude (comma separated).
@@ -33,6 +33,5 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
         public CacheKeyQueryStringActionParametersArgs()
         {
         }
-        public static new CacheKeyQueryStringActionParametersArgs Empty => new CacheKeyQueryStringActionParametersArgs();
     }
 }

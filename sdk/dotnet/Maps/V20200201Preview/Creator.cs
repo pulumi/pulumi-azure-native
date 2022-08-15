@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Maps.V20200201Preview
     /// An Azure resource which represents Maps Creator product and provides ability to manage private location data.
     /// </summary>
     [AzureNativeResourceType("azure-native:maps/v20200201preview:Creator")]
-    public partial class Creator : global::Pulumi.CustomResource
+    public partial class Creator : Pulumi.CustomResource
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -70,10 +70,10 @@ namespace Pulumi.AzureNative.Maps.V20200201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:maps:Creator"},
-                    new global::Pulumi.Alias { Type = "azure-native:maps/v20210201:Creator"},
-                    new global::Pulumi.Alias { Type = "azure-native:maps/v20210701preview:Creator"},
-                    new global::Pulumi.Alias { Type = "azure-native:maps/v20211201preview:Creator"},
+                    new Pulumi.Alias { Type = "azure-native:maps:Creator"},
+                    new Pulumi.Alias { Type = "azure-native:maps/v20210201:Creator"},
+                    new Pulumi.Alias { Type = "azure-native:maps/v20210701preview:Creator"},
+                    new Pulumi.Alias { Type = "azure-native:maps/v20211201preview:Creator"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.Maps.V20200201Preview
         }
     }
 
-    public sealed class CreatorArgs : global::Pulumi.ResourceArgs
+    public sealed class CreatorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Maps Account.
@@ -136,6 +136,5 @@ namespace Pulumi.AzureNative.Maps.V20200201Preview
         public CreatorArgs()
         {
         }
-        public static new CreatorArgs Empty => new CreatorArgs();
     }
 }

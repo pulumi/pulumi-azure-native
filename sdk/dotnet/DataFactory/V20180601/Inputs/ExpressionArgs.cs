@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Azure Data Factory expression definition.
     /// </summary>
-    public sealed class ExpressionArgs : global::Pulumi.ResourceArgs
+    public sealed class ExpressionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Expression type.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public ExpressionArgs()
         {
         }
-        public static new ExpressionArgs Empty => new ExpressionArgs();
     }
 }

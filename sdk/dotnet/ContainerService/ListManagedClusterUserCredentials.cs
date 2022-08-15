@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
 
-    public sealed class ListManagedClusterUserCredentialsArgs : global::Pulumi.InvokeArgs
+    public sealed class ListManagedClusterUserCredentialsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.ContainerService
         public ListManagedClusterUserCredentialsArgs()
         {
         }
-        public static new ListManagedClusterUserCredentialsArgs Empty => new ListManagedClusterUserCredentialsArgs();
     }
 
-    public sealed class ListManagedClusterUserCredentialsInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListManagedClusterUserCredentialsInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.ContainerService
         public ListManagedClusterUserCredentialsInvokeArgs()
         {
         }
-        public static new ListManagedClusterUserCredentialsInvokeArgs Empty => new ListManagedClusterUserCredentialsInvokeArgs();
     }
 
 

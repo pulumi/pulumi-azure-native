@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview.Inputs
     /// <summary>
     /// The available data types for Threat Intelligence TAXII data connector.
     /// </summary>
-    public sealed class TiTaxiiDataConnectorDataTypesArgs : global::Pulumi.ResourceArgs
+    public sealed class TiTaxiiDataConnectorDataTypesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Data type for TAXII connector.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview.Inputs
         public TiTaxiiDataConnectorDataTypesArgs()
         {
         }
-        public static new TiTaxiiDataConnectorDataTypesArgs Empty => new TiTaxiiDataConnectorDataTypesArgs();
     }
 }

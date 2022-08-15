@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.V20220301.Inputs
     /// <summary>
     /// The authentication client credentials of the custom Open ID Connect provider.
     /// </summary>
-    public sealed class OpenIdConnectClientCredentialArgs : global::Pulumi.ResourceArgs
+    public sealed class OpenIdConnectClientCredentialArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The app setting that contains the client secret for the custom Open ID Connect provider.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.App.V20220301.Inputs
         public OpenIdConnectClientCredentialArgs()
         {
         }
-        public static new OpenIdConnectClientCredentialArgs Empty => new OpenIdConnectClientCredentialArgs();
     }
 }

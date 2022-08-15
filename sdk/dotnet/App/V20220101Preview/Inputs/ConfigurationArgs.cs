@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
     /// <summary>
     /// Non versioned Container App configuration properties that define the mutable settings of a Container app
     /// </summary>
-    public sealed class ConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class ConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// ActiveRevisionsMode controls how active revisions are handled for the Container app:
@@ -61,6 +61,5 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
         public ConfigurationArgs()
         {
         }
-        public static new ConfigurationArgs Empty => new ConfigurationArgs();
     }
 }

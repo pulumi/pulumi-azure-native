@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 {
 
-    public sealed class DockerImagePlatformArgs : global::Pulumi.ResourceArgs
+    public sealed class DockerImagePlatformArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The OS type the Environment.
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public DockerImagePlatformArgs()
         {
         }
-        public static new DockerImagePlatformArgs Empty => new DockerImagePlatformArgs();
     }
 }

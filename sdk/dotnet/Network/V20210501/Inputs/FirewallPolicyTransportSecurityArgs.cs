@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210501.Inputs
     /// <summary>
     /// Configuration needed to perform TLS termination &amp; initiation.
     /// </summary>
-    public sealed class FirewallPolicyTransportSecurityArgs : global::Pulumi.ResourceArgs
+    public sealed class FirewallPolicyTransportSecurityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The CA used for intermediate CA generation.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Network.V20210501.Inputs
         public FirewallPolicyTransportSecurityArgs()
         {
         }
-        public static new FirewallPolicyTransportSecurityArgs Empty => new FirewallPolicyTransportSecurityArgs();
     }
 }

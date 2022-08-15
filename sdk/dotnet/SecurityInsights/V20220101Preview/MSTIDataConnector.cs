@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview
     /// Represents Microsoft Threat Intelligence data connector.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20220101preview:MSTIDataConnector")]
-    public partial class MSTIDataConnector : global::Pulumi.CustomResource
+    public partial class MSTIDataConnector : Pulumi.CustomResource
     {
         /// <summary>
         /// The available data types for the connector.
@@ -90,18 +90,18 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:MSTIDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:MSTIDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:MSTIDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:MSTIDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:MSTIDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:MSTIDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:MSTIDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:MSTIDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:MSTIDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:MSTIDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:MSTIDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:MSTIDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights:MSTIDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:MSTIDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:MSTIDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:MSTIDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:MSTIDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:MSTIDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:MSTIDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:MSTIDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:MSTIDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:MSTIDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:MSTIDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:MSTIDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -123,7 +123,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview
         }
     }
 
-    public sealed class MSTIDataConnectorArgs : global::Pulumi.ResourceArgs
+    public sealed class MSTIDataConnectorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Connector ID
@@ -165,6 +165,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview
         public MSTIDataConnectorArgs()
         {
         }
-        public static new MSTIDataConnectorArgs Empty => new MSTIDataConnectorArgs();
     }
 }

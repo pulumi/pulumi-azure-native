@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220201Preview.Inputs
     /// <summary>
     /// Connectivity group item.
     /// </summary>
-    public sealed class ConnectivityGroupItemArgs : global::Pulumi.ResourceArgs
+    public sealed class ConnectivityGroupItemArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Group connectivity type.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Network.V20220201Preview.Inputs
         public ConnectivityGroupItemArgs()
         {
         }
-        public static new ConnectivityGroupItemArgs Empty => new ConnectivityGroupItemArgs();
     }
 }

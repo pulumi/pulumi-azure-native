@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// <summary>
     /// PyTorch distribution configuration.
     /// </summary>
-    public sealed class PyTorchArgs : global::Pulumi.ResourceArgs
+    public sealed class PyTorchArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enum to determine the job distribution type.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public PyTorchArgs()
         {
         }
-        public static new PyTorchArgs Empty => new PyTorchArgs();
     }
 }

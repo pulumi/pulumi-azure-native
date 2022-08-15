@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101.Inputs
     /// <summary>
     /// Certificate configuration which consist of non-trusted intermediates and root certificates.
     /// </summary>
-    public sealed class CertificateConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class CertificateConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Certificate information.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101.Inputs
         public CertificateConfigurationArgs()
         {
         }
-        public static new CertificateConfigurationArgs Empty => new CertificateConfigurationArgs();
     }
 }

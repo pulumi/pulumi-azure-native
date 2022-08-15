@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Inputs
     /// <summary>
     /// Virtual Network configuration.
     /// </summary>
-    public sealed class VirtualNetworkConfigArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualNetworkConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource id of a pre-existing subnet.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Inputs
         public VirtualNetworkConfigArgs()
         {
         }
-        public static new VirtualNetworkConfigArgs Empty => new VirtualNetworkConfigArgs();
     }
 }

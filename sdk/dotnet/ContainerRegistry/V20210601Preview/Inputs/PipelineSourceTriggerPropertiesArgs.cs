@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.V20210601Preview.Inputs
 {
 
-    public sealed class PipelineSourceTriggerPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class PipelineSourceTriggerPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The current status of the source trigger.
@@ -22,6 +22,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210601Preview.Inputs
         {
             Status = "Enabled";
         }
-        public static new PipelineSourceTriggerPropertiesArgs Empty => new PipelineSourceTriggerPropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210901PrivatePreview.Inputs
     /// <summary>
     /// Identities for the virtual machine scale set under the node type.
     /// </summary>
-    public sealed class VmManagedIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class VmManagedIdentityArgs : Pulumi.ResourceArgs
     {
         [Input("userAssignedIdentities")]
         private InputList<string>? _userAssignedIdentities;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210901PrivatePreview.Inputs
         public VmManagedIdentityArgs()
         {
         }
-        public static new VmManagedIdentityArgs Empty => new VmManagedIdentityArgs();
     }
 }

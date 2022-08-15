@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Scheduler.V20140801Preview.Inputs
 {
 
-    public sealed class JobRecurrenceScheduleMonthlyOccurrenceArgs : global::Pulumi.ResourceArgs
+    public sealed class JobRecurrenceScheduleMonthlyOccurrenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.Scheduler.V20140801Preview.Inputs
         public JobRecurrenceScheduleMonthlyOccurrenceArgs()
         {
         }
-        public static new JobRecurrenceScheduleMonthlyOccurrenceArgs Empty => new JobRecurrenceScheduleMonthlyOccurrenceArgs();
     }
 }

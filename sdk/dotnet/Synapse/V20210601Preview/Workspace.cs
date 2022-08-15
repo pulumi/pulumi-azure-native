@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
     /// A workspace
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse/v20210601preview:Workspace")]
-    public partial class Workspace : global::Pulumi.CustomResource
+    public partial class Workspace : Pulumi.CustomResource
     {
         /// <summary>
         /// The ADLA resource ID.
@@ -196,13 +196,13 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:synapse:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20201201:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210301:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210501:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:synapse:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20201201:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210301:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210501:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -224,7 +224,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         }
     }
 
-    public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
+    public sealed class WorkspaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable or Disable AzureADOnlyAuthentication on All Workspace subresource
@@ -375,6 +375,5 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
             PublicNetworkAccess = "Enabled";
             TrustedServiceBypassEnabled = false;
         }
-        public static new WorkspaceArgs Empty => new WorkspaceArgs();
     }
 }

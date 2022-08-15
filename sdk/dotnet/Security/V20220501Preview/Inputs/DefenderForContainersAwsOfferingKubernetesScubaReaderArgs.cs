@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
     /// <summary>
     /// The kubernetes to scuba connection configuration
     /// </summary>
-    public sealed class DefenderForContainersAwsOfferingKubernetesScubaReaderArgs : global::Pulumi.ResourceArgs
+    public sealed class DefenderForContainersAwsOfferingKubernetesScubaReaderArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The cloud role ARN in AWS for this feature used for reading data
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
         public DefenderForContainersAwsOfferingKubernetesScubaReaderArgs()
         {
         }
-        public static new DefenderForContainersAwsOfferingKubernetesScubaReaderArgs Empty => new DefenderForContainersAwsOfferingKubernetesScubaReaderArgs();
     }
 }

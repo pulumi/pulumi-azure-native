@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.WebPubSub.Inputs
     /// <summary>
     /// ACL for a private endpoint
     /// </summary>
-    public sealed class PrivateEndpointACLArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointACLArgs : Pulumi.ResourceArgs
     {
         [Input("allow")]
         private InputList<Union<string, Pulumi.AzureNative.WebPubSub.WebPubSubRequestType>>? _allow;
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.WebPubSub.Inputs
         public PrivateEndpointACLArgs()
         {
         }
-        public static new PrivateEndpointACLArgs Empty => new PrivateEndpointACLArgs();
     }
 }

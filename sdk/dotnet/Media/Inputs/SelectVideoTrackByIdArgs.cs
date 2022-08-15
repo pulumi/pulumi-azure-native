@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.Inputs
     /// <summary>
     /// Select video tracks from the input by specifying a track identifier.
     /// </summary>
-    public sealed class SelectVideoTrackByIdArgs : global::Pulumi.ResourceArgs
+    public sealed class SelectVideoTrackByIdArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The discriminator for derived types.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.Media.Inputs
         public SelectVideoTrackByIdArgs()
         {
         }
-        public static new SelectVideoTrackByIdArgs Empty => new SelectVideoTrackByIdArgs();
     }
 }

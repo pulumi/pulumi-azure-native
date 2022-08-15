@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.IoTCentral.V20211101Preview.Inputs
     /// <summary>
     /// Network Rule Set Properties of this IoT Central application.
     /// </summary>
-    public sealed class NetworkRuleSetsArgs : global::Pulumi.ResourceArgs
+    public sealed class NetworkRuleSetsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether these rules apply for device connectivity to IoT Hub and Device Provisioning service associated with this application.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.IoTCentral.V20211101Preview.Inputs
         public NetworkRuleSetsArgs()
         {
         }
-        public static new NetworkRuleSetsArgs Empty => new NetworkRuleSetsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20150801.Inputs
     /// <summary>
     /// Specification for a hostingEnvironment (App Service Environment) to use for this resource
     /// </summary>
-    public sealed class HostingEnvironmentProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class HostingEnvironmentProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource id of the hostingEnvironment (App Service Environment)
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Web.V20150801.Inputs
         public HostingEnvironmentProfileArgs()
         {
         }
-        public static new HostingEnvironmentProfileArgs Empty => new HostingEnvironmentProfileArgs();
     }
 }

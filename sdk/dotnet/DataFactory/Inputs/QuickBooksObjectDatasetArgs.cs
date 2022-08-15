@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// QuickBooks server dataset.
     /// </summary>
-    public sealed class QuickBooksObjectDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class QuickBooksObjectDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,6 +85,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public QuickBooksObjectDatasetArgs()
         {
         }
-        public static new QuickBooksObjectDatasetArgs Empty => new QuickBooksObjectDatasetArgs();
     }
 }

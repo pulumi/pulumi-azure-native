@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200401Preview
     /// Describes a DNS resolver.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20200401preview:DnsResolver")]
-    public partial class DnsResolver : global::Pulumi.CustomResource
+    public partial class DnsResolver : Pulumi.CustomResource
     {
         /// <summary>
         /// The current status of the DNS resolver. This is a read-only property and any attempt to set this value will be ignored.
@@ -100,8 +100,8 @@ namespace Pulumi.AzureNative.Network.V20200401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:DnsResolver"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220701:DnsResolver"},
+                    new Pulumi.Alias { Type = "azure-native:network:DnsResolver"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220701:DnsResolver"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -123,7 +123,7 @@ namespace Pulumi.AzureNative.Network.V20200401Preview
         }
     }
 
-    public sealed class DnsResolverArgs : global::Pulumi.ResourceArgs
+    public sealed class DnsResolverArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the DNS resolver.
@@ -164,6 +164,5 @@ namespace Pulumi.AzureNative.Network.V20200401Preview
         public DnsResolverArgs()
         {
         }
-        public static new DnsResolverArgs Empty => new DnsResolverArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Datadog.V20210301
 {
     [AzureNativeResourceType("azure-native:datadog/v20210301:Monitor")]
-    public partial class Monitor : global::Pulumi.CustomResource
+    public partial class Monitor : Pulumi.CustomResource
     {
         [Output("identity")]
         public Output<Outputs.IdentityPropertiesResponse?> Identity { get; private set; } = null!;
@@ -73,8 +73,8 @@ namespace Pulumi.AzureNative.Datadog.V20210301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datadog:Monitor"},
-                    new global::Pulumi.Alias { Type = "azure-native:datadog/v20200201preview:Monitor"},
+                    new Pulumi.Alias { Type = "azure-native:datadog:Monitor"},
+                    new Pulumi.Alias { Type = "azure-native:datadog/v20200201preview:Monitor"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.Datadog.V20210301
         }
     }
 
-    public sealed class MonitorArgs : global::Pulumi.ResourceArgs
+    public sealed class MonitorArgs : Pulumi.ResourceArgs
     {
         [Input("identity")]
         public Input<Inputs.IdentityPropertiesArgs>? Identity { get; set; }
@@ -136,6 +136,5 @@ namespace Pulumi.AzureNative.Datadog.V20210301
         public MonitorArgs()
         {
         }
-        public static new MonitorArgs Empty => new MonitorArgs();
     }
 }

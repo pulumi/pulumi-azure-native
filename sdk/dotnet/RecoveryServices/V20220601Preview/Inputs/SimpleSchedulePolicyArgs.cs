@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220601Preview.Inputs
     /// <summary>
     /// Simple policy schedule.
     /// </summary>
-    public sealed class SimpleSchedulePolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class SimpleSchedulePolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Hourly Schedule of this Policy
@@ -67,6 +67,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220601Preview.Inputs
         public SimpleSchedulePolicyArgs()
         {
         }
-        public static new SimpleSchedulePolicyArgs Empty => new SimpleSchedulePolicyArgs();
     }
 }

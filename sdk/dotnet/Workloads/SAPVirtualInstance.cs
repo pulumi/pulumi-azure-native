@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Workloads
     /// API Version: 2021-12-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads:SAPVirtualInstance")]
-    public partial class SAPVirtualInstance : global::Pulumi.CustomResource
+    public partial class SAPVirtualInstance : Pulumi.CustomResource
     {
         /// <summary>
         /// Defines if an existing SAP system is being registered or a new SAP system is being created
@@ -131,7 +131,7 @@ namespace Pulumi.AzureNative.Workloads
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:SAPVirtualInstance"},
+                    new Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:SAPVirtualInstance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -153,7 +153,7 @@ namespace Pulumi.AzureNative.Workloads
         }
     }
 
-    public sealed class SAPVirtualInstanceArgs : global::Pulumi.ResourceArgs
+    public sealed class SAPVirtualInstanceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Defines if an existing SAP system is being registered or a new SAP system is being created
@@ -218,6 +218,5 @@ namespace Pulumi.AzureNative.Workloads
         public SAPVirtualInstanceArgs()
         {
         }
-        public static new SAPVirtualInstanceArgs Empty => new SAPVirtualInstanceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20210115Preview
     /// Configures how to correlate scan data and logs with resources associated with the subscription.
     /// </summary>
     [AzureNativeResourceType("azure-native:security/v20210115preview:IngestionSetting")]
-    public partial class IngestionSetting : global::Pulumi.CustomResource
+    public partial class IngestionSetting : Pulumi.CustomResource
     {
         /// <summary>
         /// Resource name
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.Security.V20210115Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:security:IngestionSetting"},
+                    new Pulumi.Alias { Type = "azure-native:security:IngestionSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNative.Security.V20210115Preview
         }
     }
 
-    public sealed class IngestionSettingArgs : global::Pulumi.ResourceArgs
+    public sealed class IngestionSettingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the ingestion setting
@@ -85,6 +85,5 @@ namespace Pulumi.AzureNative.Security.V20210115Preview
         public IngestionSettingArgs()
         {
         }
-        public static new IngestionSettingArgs Empty => new IngestionSettingArgs();
     }
 }

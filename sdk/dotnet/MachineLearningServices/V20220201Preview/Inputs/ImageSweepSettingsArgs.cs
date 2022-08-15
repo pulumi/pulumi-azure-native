@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// Model sweeping and hyperparameter sweeping related settings.
     /// </summary>
-    public sealed class ImageSweepSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class ImageSweepSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of early termination policy.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         public ImageSweepSettingsArgs()
         {
         }
-        public static new ImageSweepSettingsArgs Empty => new ImageSweepSettingsArgs();
     }
 }

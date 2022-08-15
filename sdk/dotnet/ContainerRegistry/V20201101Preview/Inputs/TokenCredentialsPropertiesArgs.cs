@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview.Inputs
     /// <summary>
     /// The properties of the credentials that can be used for authenticating the token.
     /// </summary>
-    public sealed class TokenCredentialsPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class TokenCredentialsPropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("certificates")]
         private InputList<Inputs.TokenCertificateArgs>? _certificates;
@@ -34,6 +34,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview.Inputs
         public TokenCredentialsPropertiesArgs()
         {
         }
-        public static new TokenCredentialsPropertiesArgs Empty => new TokenCredentialsPropertiesArgs();
     }
 }

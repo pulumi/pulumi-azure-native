@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190701
     /// Bastion Host resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20190701:BastionHost")]
-    public partial class BastionHost : global::Pulumi.CustomResource
+    public partial class BastionHost : Pulumi.CustomResource
     {
         /// <summary>
         /// FQDN for the endpoint on which bastion host is accessible.
@@ -88,25 +88,25 @@ namespace Pulumi.AzureNative.Network.V20190701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:BastionHost"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:BastionHost"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190601:BastionHost"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190801:BastionHost"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:BastionHost"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:BastionHost"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:BastionHost"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:BastionHost"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:BastionHost"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:BastionHost"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:BastionHost"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:BastionHost"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:BastionHost"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:BastionHost"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:BastionHost"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:BastionHost"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:BastionHost"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:BastionHost"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:BastionHost"},
+                    new Pulumi.Alias { Type = "azure-native:network:BastionHost"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:BastionHost"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:BastionHost"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:BastionHost"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:BastionHost"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:BastionHost"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:BastionHost"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:BastionHost"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:BastionHost"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:BastionHost"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:BastionHost"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:BastionHost"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:BastionHost"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:BastionHost"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:BastionHost"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210301:BastionHost"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501:BastionHost"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:BastionHost"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:BastionHost"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNative.Network.V20190701
         }
     }
 
-    public sealed class BastionHostArgs : global::Pulumi.ResourceArgs
+    public sealed class BastionHostArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Bastion Host.
@@ -187,6 +187,5 @@ namespace Pulumi.AzureNative.Network.V20190701
         public BastionHostArgs()
         {
         }
-        public static new BastionHostArgs Empty => new BastionHostArgs();
     }
 }

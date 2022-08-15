@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601
     /// A SQL Analytics pool
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse/v20210601:SqlPool")]
-    public partial class SqlPool : global::Pulumi.CustomResource
+    public partial class SqlPool : Pulumi.CustomResource
     {
         /// <summary>
         /// Collation mode
@@ -124,14 +124,14 @@ namespace Pulumi.AzureNative.Synapse.V20210601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:synapse:SqlPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:SqlPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20200401preview:SqlPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20201201:SqlPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210301:SqlPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:SqlPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210501:SqlPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:SqlPool"},
+                    new Pulumi.Alias { Type = "azure-native:synapse:SqlPool"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:SqlPool"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20200401preview:SqlPool"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20201201:SqlPool"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210301:SqlPool"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:SqlPool"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210501:SqlPool"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:SqlPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -153,7 +153,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601
         }
     }
 
-    public sealed class SqlPoolArgs : global::Pulumi.ResourceArgs
+    public sealed class SqlPoolArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Collation mode
@@ -264,6 +264,5 @@ namespace Pulumi.AzureNative.Synapse.V20210601
             Collation = "";
             StorageAccountType = "GRS";
         }
-        public static new SqlPoolArgs Empty => new SqlPoolArgs();
     }
 }

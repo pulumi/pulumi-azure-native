@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.LabServices.V20211001Preview.Inputs
     /// <summary>
     /// Profile for how to handle networking for Labs.
     /// </summary>
-    public sealed class LabNetworkProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class LabNetworkProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The external load balancer resource id
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.LabServices.V20211001Preview.Inputs
         public LabNetworkProfileArgs()
         {
         }
-        public static new LabNetworkProfileArgs Empty => new LabNetworkProfileArgs();
     }
 }

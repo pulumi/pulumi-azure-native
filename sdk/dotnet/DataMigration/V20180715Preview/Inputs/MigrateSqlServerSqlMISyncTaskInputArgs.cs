@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20180715Preview.Inputs
     /// <summary>
     /// Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance online scenario.
     /// </summary>
-    public sealed class MigrateSqlServerSqlMISyncTaskInputArgs : global::Pulumi.ResourceArgs
+    public sealed class MigrateSqlServerSqlMISyncTaskInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.DataMigration.V20180715Preview.Inputs
         public MigrateSqlServerSqlMISyncTaskInputArgs()
         {
         }
-        public static new MigrateSqlServerSqlMISyncTaskInputArgs Empty => new MigrateSqlServerSqlMISyncTaskInputArgs();
     }
 }

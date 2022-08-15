@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cache.V20210301.Inputs
     /// <summary>
     /// Specifies configuration of a redis module
     /// </summary>
-    public sealed class ModuleArgs : global::Pulumi.ResourceArgs
+    public sealed class ModuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Cache.V20210301.Inputs
         public ModuleArgs()
         {
         }
-        public static new ModuleArgs Empty => new ModuleArgs();
     }
 }

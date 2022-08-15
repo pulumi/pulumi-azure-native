@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20160601.Inputs
     /// <summary>
     /// Http listener of application gateway
     /// </summary>
-    public sealed class ApplicationGatewayHttpListenerArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayHttpListenerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated
@@ -78,6 +78,5 @@ namespace Pulumi.AzureNative.Network.V20160601.Inputs
         public ApplicationGatewayHttpListenerArgs()
         {
         }
-        public static new ApplicationGatewayHttpListenerArgs Empty => new ApplicationGatewayHttpListenerArgs();
     }
 }

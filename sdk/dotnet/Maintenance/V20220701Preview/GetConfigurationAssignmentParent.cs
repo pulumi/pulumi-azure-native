@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Maintenance.V20220701Preview
     }
 
 
-    public sealed class GetConfigurationAssignmentParentArgs : global::Pulumi.InvokeArgs
+    public sealed class GetConfigurationAssignmentParentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Configuration assignment name
@@ -72,10 +72,9 @@ namespace Pulumi.AzureNative.Maintenance.V20220701Preview
         public GetConfigurationAssignmentParentArgs()
         {
         }
-        public static new GetConfigurationAssignmentParentArgs Empty => new GetConfigurationAssignmentParentArgs();
     }
 
-    public sealed class GetConfigurationAssignmentParentInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetConfigurationAssignmentParentInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Configuration assignment name
@@ -122,7 +121,6 @@ namespace Pulumi.AzureNative.Maintenance.V20220701Preview
         public GetConfigurationAssignmentParentInvokeArgs()
         {
         }
-        public static new GetConfigurationAssignmentParentInvokeArgs Empty => new GetConfigurationAssignmentParentInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.Inputs
     /// <summary>
     /// The flow endpoints configuration.
     /// </summary>
-    public sealed class FlowEndpointsArgs : global::Pulumi.ResourceArgs
+    public sealed class FlowEndpointsArgs : Pulumi.ResourceArgs
     {
         [Input("accessEndpointIpAddresses")]
         private InputList<Inputs.IpAddressArgs>? _accessEndpointIpAddresses;
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Logic.Inputs
         public FlowEndpointsArgs()
         {
         }
-        public static new FlowEndpointsArgs Empty => new FlowEndpointsArgs();
     }
 }

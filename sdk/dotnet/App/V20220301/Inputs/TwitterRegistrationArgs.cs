@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.V20220301.Inputs
     /// <summary>
     /// The configuration settings of the app registration for the Twitter provider.
     /// </summary>
-    public sealed class TwitterRegistrationArgs : global::Pulumi.ResourceArgs
+    public sealed class TwitterRegistrationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
@@ -33,6 +33,5 @@ namespace Pulumi.AzureNative.App.V20220301.Inputs
         public TwitterRegistrationArgs()
         {
         }
-        public static new TwitterRegistrationArgs Empty => new TwitterRegistrationArgs();
     }
 }

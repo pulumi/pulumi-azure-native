@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Search.V20210401Preview
     /// Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
     /// </summary>
     [AzureNativeResourceType("azure-native:search/v20210401preview:SharedPrivateLinkResource")]
-    public partial class SharedPrivateLinkResource : global::Pulumi.CustomResource
+    public partial class SharedPrivateLinkResource : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -58,9 +58,9 @@ namespace Pulumi.AzureNative.Search.V20210401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:search:SharedPrivateLinkResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:search/v20200801:SharedPrivateLinkResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:search/v20200801preview:SharedPrivateLinkResource"},
+                    new Pulumi.Alias { Type = "azure-native:search:SharedPrivateLinkResource"},
+                    new Pulumi.Alias { Type = "azure-native:search/v20200801:SharedPrivateLinkResource"},
+                    new Pulumi.Alias { Type = "azure-native:search/v20200801preview:SharedPrivateLinkResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.Search.V20210401Preview
         }
     }
 
-    public sealed class SharedPrivateLinkResourceArgs : global::Pulumi.ResourceArgs
+    public sealed class SharedPrivateLinkResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
@@ -111,6 +111,5 @@ namespace Pulumi.AzureNative.Search.V20210401Preview
         public SharedPrivateLinkResourceArgs()
         {
         }
-        public static new SharedPrivateLinkResourceArgs Empty => new SharedPrivateLinkResourceArgs();
     }
 }

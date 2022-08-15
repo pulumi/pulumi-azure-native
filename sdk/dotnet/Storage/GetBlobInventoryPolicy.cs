@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Storage
     }
 
 
-    public sealed class GetBlobInventoryPolicyArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBlobInventoryPolicyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Storage
         public GetBlobInventoryPolicyArgs()
         {
         }
-        public static new GetBlobInventoryPolicyArgs Empty => new GetBlobInventoryPolicyArgs();
     }
 
-    public sealed class GetBlobInventoryPolicyInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBlobInventoryPolicyInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Storage
         public GetBlobInventoryPolicyInvokeArgs()
         {
         }
-        public static new GetBlobInventoryPolicyInvokeArgs Empty => new GetBlobInventoryPolicyInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// <summary>
     /// SQL Admin datastore credentials configuration.
     /// </summary>
-    public sealed class SqlAdminDatastoreCredentialsArgs : global::Pulumi.ResourceArgs
+    public sealed class SqlAdminDatastoreCredentialsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enum to determine the datastore credentials type.
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public SqlAdminDatastoreCredentialsArgs()
         {
         }
-        public static new SqlAdminDatastoreCredentialsArgs Empty => new SqlAdminDatastoreCredentialsArgs();
     }
 }

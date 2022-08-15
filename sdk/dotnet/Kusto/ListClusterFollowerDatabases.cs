@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Kusto
     }
 
 
-    public sealed class ListClusterFollowerDatabasesArgs : global::Pulumi.InvokeArgs
+    public sealed class ListClusterFollowerDatabasesArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.Kusto
         public ListClusterFollowerDatabasesArgs()
         {
         }
-        public static new ListClusterFollowerDatabasesArgs Empty => new ListClusterFollowerDatabasesArgs();
     }
 
-    public sealed class ListClusterFollowerDatabasesInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListClusterFollowerDatabasesInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.Kusto
         public ListClusterFollowerDatabasesInvokeArgs()
         {
         }
-        public static new ListClusterFollowerDatabasesInvokeArgs Empty => new ListClusterFollowerDatabasesInvokeArgs();
     }
 
 

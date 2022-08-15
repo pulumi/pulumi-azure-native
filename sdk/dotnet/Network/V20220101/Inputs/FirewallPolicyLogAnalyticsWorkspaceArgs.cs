@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
     /// <summary>
     /// Log Analytics Workspace for Firewall Policy Insights.
     /// </summary>
-    public sealed class FirewallPolicyLogAnalyticsWorkspaceArgs : global::Pulumi.ResourceArgs
+    public sealed class FirewallPolicyLogAnalyticsWorkspaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Region to configure the Workspace.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
         public FirewallPolicyLogAnalyticsWorkspaceArgs()
         {
         }
-        public static new FirewallPolicyLogAnalyticsWorkspaceArgs Empty => new FirewallPolicyLogAnalyticsWorkspaceArgs();
     }
 }

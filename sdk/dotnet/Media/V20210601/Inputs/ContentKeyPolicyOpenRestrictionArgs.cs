@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20210601.Inputs
     /// <summary>
     /// Represents an open restriction. License or key will be delivered on every request.
     /// </summary>
-    public sealed class ContentKeyPolicyOpenRestrictionArgs : global::Pulumi.ResourceArgs
+    public sealed class ContentKeyPolicyOpenRestrictionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The discriminator for derived types.
@@ -25,6 +25,5 @@ namespace Pulumi.AzureNative.Media.V20210601.Inputs
         public ContentKeyPolicyOpenRestrictionArgs()
         {
         }
-        public static new ContentKeyPolicyOpenRestrictionArgs Empty => new ContentKeyPolicyOpenRestrictionArgs();
     }
 }

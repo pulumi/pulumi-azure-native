@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20170901.Inputs
 {
 
-    public sealed class OSDiskArgs : global::Pulumi.ResourceArgs
+    public sealed class OSDiskArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Default value is none.
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.Batch.V20170901.Inputs
         public OSDiskArgs()
         {
         }
-        public static new OSDiskArgs Empty => new OSDiskArgs();
     }
 }

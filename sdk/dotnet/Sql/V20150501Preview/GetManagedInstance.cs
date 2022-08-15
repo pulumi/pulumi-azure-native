@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Sql.V20150501Preview
     }
 
 
-    public sealed class GetManagedInstanceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetManagedInstanceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the managed instance.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.Sql.V20150501Preview
         public GetManagedInstanceArgs()
         {
         }
-        public static new GetManagedInstanceArgs Empty => new GetManagedInstanceArgs();
     }
 
-    public sealed class GetManagedInstanceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetManagedInstanceInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the managed instance.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.Sql.V20150501Preview
         public GetManagedInstanceInvokeArgs()
         {
         }
-        public static new GetManagedInstanceInvokeArgs Empty => new GetManagedInstanceInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180330Preview.Inputs
     /// <summary>
     /// The Live Event encoding.
     /// </summary>
-    public sealed class LiveEventEncodingArgs : global::Pulumi.ResourceArgs
+    public sealed class LiveEventEncodingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The encoding type for Live Event.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Media.V20180330Preview.Inputs
         public LiveEventEncodingArgs()
         {
         }
-        public static new LiveEventEncodingArgs Empty => new LiveEventEncodingArgs();
     }
 }

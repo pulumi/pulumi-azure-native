@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220201.Inputs
     /// <summary>
     /// Recovery plan group details.
     /// </summary>
-    public sealed class RecoveryPlanGroupArgs : global::Pulumi.ResourceArgs
+    public sealed class RecoveryPlanGroupArgs : Pulumi.ResourceArgs
     {
         [Input("endGroupActions")]
         private InputList<Inputs.RecoveryPlanActionArgs>? _endGroupActions;
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220201.Inputs
         public RecoveryPlanGroupArgs()
         {
         }
-        public static new RecoveryPlanGroupArgs Empty => new RecoveryPlanGroupArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20210601.Inputs
     /// <summary>
     /// Details of the On Premise resource that was assessed
     /// </summary>
-    public sealed class OnPremiseResourceDetailsArgs : global::Pulumi.ResourceArgs
+    public sealed class OnPremiseResourceDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the machine
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.Security.V20210601.Inputs
         public OnPremiseResourceDetailsArgs()
         {
         }
-        public static new OnPremiseResourceDetailsArgs Empty => new OnPremiseResourceDetailsArgs();
     }
 }

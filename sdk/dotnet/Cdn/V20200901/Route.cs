@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901
     /// Friendly Routes name mapping to the any Routes or secret related information.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn/v20200901:Route")]
-    public partial class Route : global::Pulumi.CustomResource
+    public partial class Route : Pulumi.CustomResource
     {
         /// <summary>
         /// compression settings.
@@ -139,8 +139,8 @@ namespace Pulumi.AzureNative.Cdn.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cdn:Route"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:Route"},
+                    new Pulumi.Alias { Type = "azure-native:cdn:Route"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20210601:Route"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -162,7 +162,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901
         }
     }
 
-    public sealed class RouteArgs : global::Pulumi.ResourceArgs
+    public sealed class RouteArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// compression settings.
@@ -287,6 +287,5 @@ namespace Pulumi.AzureNative.Cdn.V20200901
         public RouteArgs()
         {
         }
-        public static new RouteArgs Empty => new RouteArgs();
     }
 }

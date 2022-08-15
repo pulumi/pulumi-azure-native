@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview.Inputs
     /// <summary>
     /// Sampling settings for Diagnostic.
     /// </summary>
-    public sealed class SamplingSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class SamplingSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Rate of sampling for fixed-rate sampling.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview.Inputs
         public SamplingSettingsArgs()
         {
         }
-        public static new SamplingSettingsArgs Empty => new SamplingSettingsArgs();
     }
 }

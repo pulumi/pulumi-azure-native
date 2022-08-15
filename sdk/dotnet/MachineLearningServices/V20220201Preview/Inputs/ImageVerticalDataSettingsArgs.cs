@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// Collection of registered Tabular Dataset Ids and other data settings required for training and validating models.
     /// </summary>
-    public sealed class ImageVerticalDataSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class ImageVerticalDataSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] Target column name: This is prediction values column.
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         public ImageVerticalDataSettingsArgs()
         {
         }
-        public static new ImageVerticalDataSettingsArgs Empty => new ImageVerticalDataSettingsArgs();
     }
 }

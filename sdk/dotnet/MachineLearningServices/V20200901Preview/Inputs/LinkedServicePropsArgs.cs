@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview.Inputs
     /// <summary>
     /// LinkedService specific properties.
     /// </summary>
-    public sealed class LinkedServicePropsArgs : global::Pulumi.ResourceArgs
+    public sealed class LinkedServicePropsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The creation time of the linked service.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview.Inputs
         public LinkedServicePropsArgs()
         {
         }
-        public static new LinkedServicePropsArgs Empty => new LinkedServicePropsArgs();
     }
 }

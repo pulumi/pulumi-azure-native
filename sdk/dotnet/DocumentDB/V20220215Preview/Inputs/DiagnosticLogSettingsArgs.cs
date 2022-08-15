@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20220215Preview.Inputs
     /// <summary>
     /// Indicates what diagnostic log settings are to be enabled.
     /// </summary>
-    public sealed class DiagnosticLogSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class DiagnosticLogSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describe the level of detail with which queries are to be logged.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20220215Preview.Inputs
         public DiagnosticLogSettingsArgs()
         {
         }
-        public static new DiagnosticLogSettingsArgs Empty => new DiagnosticLogSettingsArgs();
     }
 }

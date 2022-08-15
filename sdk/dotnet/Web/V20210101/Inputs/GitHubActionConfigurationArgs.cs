@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20210101.Inputs
     /// <summary>
     /// The GitHub action configuration.
     /// </summary>
-    public sealed class GitHubActionConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class GitHubActionConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// GitHub Action code configuration.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Web.V20210101.Inputs
         public GitHubActionConfigurationArgs()
         {
         }
-        public static new GitHubActionConfigurationArgs Empty => new GitHubActionConfigurationArgs();
     }
 }

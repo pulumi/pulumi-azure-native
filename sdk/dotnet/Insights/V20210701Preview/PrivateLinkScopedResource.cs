@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20210701Preview
     /// A private link scoped resource
     /// </summary>
     [AzureNativeResourceType("azure-native:insights/v20210701preview:PrivateLinkScopedResource")]
-    public partial class PrivateLinkScopedResource : global::Pulumi.CustomResource
+    public partial class PrivateLinkScopedResource : Pulumi.CustomResource
     {
         /// <summary>
         /// The resource id of the scoped Azure monitor resource.
@@ -70,8 +70,8 @@ namespace Pulumi.AzureNative.Insights.V20210701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:insights:PrivateLinkScopedResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20191017preview:PrivateLinkScopedResource"},
+                    new Pulumi.Alias { Type = "azure-native:insights:PrivateLinkScopedResource"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20191017preview:PrivateLinkScopedResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.Insights.V20210701Preview
         }
     }
 
-    public sealed class PrivateLinkScopedResourceArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateLinkScopedResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource id of the scoped Azure monitor resource.
@@ -122,6 +122,5 @@ namespace Pulumi.AzureNative.Insights.V20210701Preview
         public PrivateLinkScopedResourceArgs()
         {
         }
-        public static new PrivateLinkScopedResourceArgs Empty => new PrivateLinkScopedResourceArgs();
     }
 }

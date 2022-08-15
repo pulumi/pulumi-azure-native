@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevSpaces.V20190401.Inputs
     /// <summary>
     /// Model representing SKU for Azure Dev Spaces Controller.
     /// </summary>
-    public sealed class SkuArgs : global::Pulumi.ResourceArgs
+    public sealed class SkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the SKU for Azure Dev Spaces Controller.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DevSpaces.V20190401.Inputs
         public SkuArgs()
         {
         }
-        public static new SkuArgs Empty => new SkuArgs();
     }
 }

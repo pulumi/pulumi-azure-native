@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
     /// <summary>
     /// Configuration of application logs
     /// </summary>
-    public sealed class AppLogsConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class AppLogsConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Logs destination
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
         public AppLogsConfigurationArgs()
         {
         }
-        public static new AppLogsConfigurationArgs Empty => new AppLogsConfigurationArgs();
     }
 }

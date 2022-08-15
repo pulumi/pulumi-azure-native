@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
     /// </summary>
     [Obsolete(@"Version 2017-09-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:datafactory/v20170901preview:Factory")]
-    public partial class Factory : global::Pulumi.CustomResource
+    public partial class Factory : Pulumi.CustomResource
     {
         /// <summary>
         /// Time the factory was created in ISO8601 format.
@@ -95,8 +95,8 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datafactory:Factory"},
-                    new global::Pulumi.Alias { Type = "azure-native:datafactory/v20180601:Factory"},
+                    new Pulumi.Alias { Type = "azure-native:datafactory:Factory"},
+                    new Pulumi.Alias { Type = "azure-native:datafactory/v20180601:Factory"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
         }
     }
 
-    public sealed class FactoryArgs : global::Pulumi.ResourceArgs
+    public sealed class FactoryArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The factory name.
@@ -165,6 +165,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
         public FactoryArgs()
         {
         }
-        public static new FactoryArgs Empty => new FactoryArgs();
     }
 }

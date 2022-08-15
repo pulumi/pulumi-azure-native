@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20160901.Inputs
     /// <summary>
     /// Delta health policy for the cluster
     /// </summary>
-    public sealed class ClusterUpgradeDeltaHealthPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class ClusterUpgradeDeltaHealthPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Additional unhealthy applications percentage
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.ServiceFabric.V20160901.Inputs
         public ClusterUpgradeDeltaHealthPolicyArgs()
         {
         }
-        public static new ClusterUpgradeDeltaHealthPolicyArgs Empty => new ClusterUpgradeDeltaHealthPolicyArgs();
     }
 }

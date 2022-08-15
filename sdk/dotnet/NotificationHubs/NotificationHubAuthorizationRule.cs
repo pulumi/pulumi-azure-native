@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.NotificationHubs
     /// API Version: 2017-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:notificationhubs:NotificationHubAuthorizationRule")]
-    public partial class NotificationHubAuthorizationRule : global::Pulumi.CustomResource
+    public partial class NotificationHubAuthorizationRule : Pulumi.CustomResource
     {
         /// <summary>
         /// A string that describes the claim type
@@ -125,8 +125,8 @@ namespace Pulumi.AzureNative.NotificationHubs
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20160301:NotificationHubAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20170401:NotificationHubAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:notificationhubs/v20160301:NotificationHubAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:notificationhubs/v20170401:NotificationHubAuthorizationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNative.NotificationHubs
         }
     }
 
-    public sealed class NotificationHubAuthorizationRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class NotificationHubAuthorizationRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authorization Rule Name.
@@ -183,6 +183,5 @@ namespace Pulumi.AzureNative.NotificationHubs
         public NotificationHubAuthorizationRuleArgs()
         {
         }
-        public static new NotificationHubAuthorizationRuleArgs Empty => new NotificationHubAuthorizationRuleArgs();
     }
 }

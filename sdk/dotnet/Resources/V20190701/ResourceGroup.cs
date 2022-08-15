@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Resources.V20190701
     /// Resource group information.
     /// </summary>
     [AzureNativeResourceType("azure-native:resources/v20190701:ResourceGroup")]
-    public partial class ResourceGroup : global::Pulumi.CustomResource
+    public partial class ResourceGroup : Pulumi.CustomResource
     {
         /// <summary>
         /// The location of the resource group. It cannot be changed after the resource group has been created. It must be one of the supported Azure locations.
@@ -76,24 +76,24 @@ namespace Pulumi.AzureNative.Resources.V20190701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:resources:ResourceGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20151101:ResourceGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20160201:ResourceGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20160701:ResourceGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20160901:ResourceGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20170510:ResourceGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20180201:ResourceGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20180501:ResourceGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20190301:ResourceGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20190501:ResourceGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20190510:ResourceGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20190801:ResourceGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20191001:ResourceGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20200601:ResourceGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20200801:ResourceGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20201001:ResourceGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20210101:ResourceGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20210401:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:resources:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20151101:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20160201:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20160701:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20160901:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20170510:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20180201:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20180501:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20190301:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20190501:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20190510:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20190801:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20191001:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20200601:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20200801:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20201001:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20210101:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20210401:ResourceGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNative.Resources.V20190701
         }
     }
 
-    public sealed class ResourceGroupArgs : global::Pulumi.ResourceArgs
+    public sealed class ResourceGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The location of the resource group. It cannot be changed after the resource group has been created. It must be one of the supported Azure locations.
@@ -150,6 +150,5 @@ namespace Pulumi.AzureNative.Resources.V20190701
         public ResourceGroupArgs()
         {
         }
-        public static new ResourceGroupArgs Empty => new ResourceGroupArgs();
     }
 }

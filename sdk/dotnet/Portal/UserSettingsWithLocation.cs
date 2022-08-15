@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Portal
     /// API Version: 2018-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:portal:UserSettingsWithLocation")]
-    public partial class UserSettingsWithLocation : global::Pulumi.CustomResource
+    public partial class UserSettingsWithLocation : Pulumi.CustomResource
     {
         /// <summary>
         /// The cloud shell user settings properties.
@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.Portal
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:portal/v20181001:UserSettingsWithLocation"},
+                    new Pulumi.Alias { Type = "azure-native:portal/v20181001:UserSettingsWithLocation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -69,7 +69,7 @@ namespace Pulumi.AzureNative.Portal
         }
     }
 
-    public sealed class UserSettingsWithLocationArgs : global::Pulumi.ResourceArgs
+    public sealed class UserSettingsWithLocationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The provider location
@@ -92,6 +92,5 @@ namespace Pulumi.AzureNative.Portal
         public UserSettingsWithLocationArgs()
         {
         }
-        public static new UserSettingsWithLocationArgs Empty => new UserSettingsWithLocationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Trigger that allows the referenced pipeline to depend on other pipeline runs based on runDimension Name/Value pairs. Upstream pipelines should declare the same runDimension Name and their runs should have the values for those runDimensions. The referenced pipeline run would be triggered if the values for the runDimension match for all upstream pipeline runs.
     /// </summary>
-    public sealed class ChainingTriggerArgs : global::Pulumi.ResourceArgs
+    public sealed class ChainingTriggerArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -67,6 +67,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public ChainingTriggerArgs()
         {
         }
-        public static new ChainingTriggerArgs Empty => new ChainingTriggerArgs();
     }
 }

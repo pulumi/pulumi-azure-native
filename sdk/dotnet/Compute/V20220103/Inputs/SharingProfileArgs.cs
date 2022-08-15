@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20220103.Inputs
     /// <summary>
     /// Profile for gallery sharing to subscription or tenant
     /// </summary>
-    public sealed class SharingProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class SharingProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Information of community gallery if current gallery is shared to community.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Compute.V20220103.Inputs
         public SharingProfileArgs()
         {
         }
-        public static new SharingProfileArgs Empty => new SharingProfileArgs();
     }
 }

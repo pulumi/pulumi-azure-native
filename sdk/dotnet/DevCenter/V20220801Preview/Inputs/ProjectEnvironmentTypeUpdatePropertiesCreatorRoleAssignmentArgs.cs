@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview.Inputs
     /// <summary>
     /// The role definition assigned to the environment creator on backing resources.
     /// </summary>
-    public sealed class ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs : global::Pulumi.ResourceArgs
+    public sealed class ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs : Pulumi.ResourceArgs
     {
         [Input("roles")]
         private InputMap<object>? _roles;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview.Inputs
         public ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs()
         {
         }
-        public static new ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs Empty => new ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs();
     }
 }

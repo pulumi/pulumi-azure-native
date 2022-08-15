@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview.Inputs
     /// <summary>
     /// Properties of an artifact.
     /// </summary>
-    public sealed class ArtifactInstallPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ArtifactInstallPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The artifact's identifier.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview.Inputs
         public ArtifactInstallPropertiesArgs()
         {
         }
-        public static new ArtifactInstallPropertiesArgs Empty => new ArtifactInstallPropertiesArgs();
     }
 }

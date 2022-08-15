@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Portal.V20200901Preview.Inputs
     /// <summary>
     /// A dashboard lens.
     /// </summary>
-    public sealed class DashboardLensArgs : global::Pulumi.ResourceArgs
+    public sealed class DashboardLensArgs : Pulumi.ResourceArgs
     {
         [Input("metadata")]
         private InputMap<object>? _metadata;
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.Portal.V20200901Preview.Inputs
         public DashboardLensArgs()
         {
         }
-        public static new DashboardLensArgs Empty => new DashboardLensArgs();
     }
 }

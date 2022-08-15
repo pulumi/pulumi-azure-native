@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.PowerPlatform
     /// API Version: 2020-10-30-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:powerplatform:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.PowerPlatform
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:powerplatform/v20201030preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:powerplatform/v20201030preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.PowerPlatform
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// EnterprisePolicy for the Microsoft Azure subscription.
@@ -128,6 +128,5 @@ namespace Pulumi.AzureNative.PowerPlatform
         public PrivateEndpointConnectionArgs()
         {
         }
-        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

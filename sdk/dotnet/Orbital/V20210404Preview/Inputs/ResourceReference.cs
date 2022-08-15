@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Orbital.V20210404Preview.Inputs
     /// <summary>
     /// Resource Reference
     /// </summary>
-    public sealed class ResourceReference : global::Pulumi.InvokeArgs
+    public sealed class ResourceReference : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Resource ID.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Orbital.V20210404Preview.Inputs
         public ResourceReference()
         {
         }
-        public static new ResourceReference Empty => new ResourceReference();
     }
 }

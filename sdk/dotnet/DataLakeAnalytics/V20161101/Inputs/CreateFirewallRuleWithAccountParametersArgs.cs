@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101.Inputs
     /// <summary>
     /// The parameters used to create a new firewall rule while creating a new Data Lake Analytics account.
     /// </summary>
-    public sealed class CreateFirewallRuleWithAccountParametersArgs : global::Pulumi.ResourceArgs
+    public sealed class CreateFirewallRuleWithAccountParametersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101.Inputs
         public CreateFirewallRuleWithAccountParametersArgs()
         {
         }
-        public static new CreateFirewallRuleWithAccountParametersArgs Empty => new CreateFirewallRuleWithAccountParametersArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
     /// Factory resource type.
     /// </summary>
     [AzureNativeResourceType("azure-native:datafactory/v20180601:Factory")]
-    public partial class Factory : global::Pulumi.CustomResource
+    public partial class Factory : Pulumi.CustomResource
     {
         /// <summary>
         /// Time the factory was created in ISO8601 format.
@@ -124,8 +124,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datafactory:Factory"},
-                    new global::Pulumi.Alias { Type = "azure-native:datafactory/v20170901preview:Factory"},
+                    new Pulumi.Alias { Type = "azure-native:datafactory:Factory"},
+                    new Pulumi.Alias { Type = "azure-native:datafactory/v20170901preview:Factory"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -147,7 +147,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         }
     }
 
-    public sealed class FactoryArgs : global::Pulumi.ResourceArgs
+    public sealed class FactoryArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Properties to enable Customer Managed Key for the factory.
@@ -224,6 +224,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         public FactoryArgs()
         {
         }
-        public static new FactoryArgs Empty => new FactoryArgs();
     }
 }

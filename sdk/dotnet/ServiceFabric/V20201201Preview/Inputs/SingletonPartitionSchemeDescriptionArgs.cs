@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20201201Preview.Inputs
     /// <summary>
     /// Describes the partition scheme of a singleton-partitioned, or non-partitioned service.
     /// </summary>
-    public sealed class SingletonPartitionSchemeDescriptionArgs : global::Pulumi.ResourceArgs
+    public sealed class SingletonPartitionSchemeDescriptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enumerates the ways that a service can be partitioned.
@@ -25,6 +25,5 @@ namespace Pulumi.AzureNative.ServiceFabric.V20201201Preview.Inputs
         public SingletonPartitionSchemeDescriptionArgs()
         {
         }
-        public static new SingletonPartitionSchemeDescriptionArgs Empty => new SingletonPartitionSchemeDescriptionArgs();
     }
 }

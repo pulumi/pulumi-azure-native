@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Dynamics365Fraudprotection
     /// API Version: 2021-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:dynamics365fraudprotection:InstanceDetails")]
-    public partial class InstanceDetails : global::Pulumi.CustomResource
+    public partial class InstanceDetails : Pulumi.CustomResource
     {
         /// <summary>
         /// A collection of DFP instance administrators
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.Dynamics365Fraudprotection
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dynamics365fraudprotection/v20210201preview:InstanceDetails"},
+                    new Pulumi.Alias { Type = "azure-native:dynamics365fraudprotection/v20210201preview:InstanceDetails"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -105,7 +105,7 @@ namespace Pulumi.AzureNative.Dynamics365Fraudprotection
         }
     }
 
-    public sealed class InstanceDetailsArgs : global::Pulumi.ResourceArgs
+    public sealed class InstanceDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A collection of DFP instance administrators
@@ -146,6 +146,5 @@ namespace Pulumi.AzureNative.Dynamics365Fraudprotection
         public InstanceDetailsArgs()
         {
         }
-        public static new InstanceDetailsArgs Empty => new InstanceDetailsArgs();
     }
 }

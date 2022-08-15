@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// Azure Data Lake Gen2 datastore configuration.
     /// </summary>
-    public sealed class AzureDataLakeGen2DatastoreArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureDataLakeGen2DatastoreArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] Storage account name.
@@ -92,6 +92,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         {
             ServiceDataAccessAuthIdentity = "None";
         }
-        public static new AzureDataLakeGen2DatastoreArgs Empty => new AzureDataLakeGen2DatastoreArgs();
     }
 }

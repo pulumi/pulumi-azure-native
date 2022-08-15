@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview.Inputs
     /// <summary>
     /// A virtual machine.
     /// </summary>
-    public sealed class LabVirtualMachineArgs : global::Pulumi.ResourceArgs
+    public sealed class LabVirtualMachineArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The artifact deployment status for the virtual machine.
@@ -180,6 +180,5 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview.Inputs
         public LabVirtualMachineArgs()
         {
         }
-        public static new LabVirtualMachineArgs Empty => new LabVirtualMachineArgs();
     }
 }

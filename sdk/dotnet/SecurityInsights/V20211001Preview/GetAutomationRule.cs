@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview
     }
 
 
-    public sealed class GetAutomationRuleArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAutomationRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Automation rule ID
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview
         public GetAutomationRuleArgs()
         {
         }
-        public static new GetAutomationRuleArgs Empty => new GetAutomationRuleArgs();
     }
 
-    public sealed class GetAutomationRuleInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAutomationRuleInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Automation rule ID
@@ -68,7 +67,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview
         public GetAutomationRuleInvokeArgs()
         {
         }
-        public static new GetAutomationRuleInvokeArgs Empty => new GetAutomationRuleInvokeArgs();
     }
 
 

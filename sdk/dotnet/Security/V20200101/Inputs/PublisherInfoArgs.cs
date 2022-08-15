@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20200101.Inputs
     /// <summary>
     /// Represents the publisher information of a process/rule
     /// </summary>
-    public sealed class PublisherInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class PublisherInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The "OriginalName" field taken from the file's version resource
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Security.V20200101.Inputs
         public PublisherInfoArgs()
         {
         }
-        public static new PublisherInfoArgs Empty => new PublisherInfoArgs();
     }
 }

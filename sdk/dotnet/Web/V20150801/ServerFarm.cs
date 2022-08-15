@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.V20150801
     /// </summary>
     [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:web/v20150801:ServerFarm")]
-    public partial class ServerFarm : global::Pulumi.CustomResource
+    public partial class ServerFarm : Pulumi.CustomResource
     {
         /// <summary>
         /// App Service Plan administration site
@@ -144,19 +144,19 @@ namespace Pulumi.AzureNative.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:ServerFarm"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20160901:ServerFarm"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:ServerFarm"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:ServerFarm"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:ServerFarm"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:ServerFarm"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:ServerFarm"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:ServerFarm"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:ServerFarm"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:ServerFarm"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:ServerFarm"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:ServerFarm"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:ServerFarm"},
+                    new Pulumi.Alias { Type = "azure-native:web:ServerFarm"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160901:ServerFarm"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:ServerFarm"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:ServerFarm"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:ServerFarm"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:ServerFarm"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:ServerFarm"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:ServerFarm"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:ServerFarm"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:ServerFarm"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:ServerFarm"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:ServerFarm"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:ServerFarm"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -178,7 +178,7 @@ namespace Pulumi.AzureNative.Web.V20150801
         }
     }
 
-    public sealed class ServerFarmArgs : global::Pulumi.ResourceArgs
+    public sealed class ServerFarmArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// App Service Plan administration site
@@ -280,6 +280,5 @@ namespace Pulumi.AzureNative.Web.V20150801
         public ServerFarmArgs()
         {
         }
-        public static new ServerFarmArgs Empty => new ServerFarmArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// <summary>
     /// The workflow trigger recurrence for ComputeStartStop schedule type.
     /// </summary>
-    public sealed class RecurrenceArgs : global::Pulumi.ResourceArgs
+    public sealed class RecurrenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The recurrence frequency.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public RecurrenceArgs()
         {
         }
-        public static new RecurrenceArgs Empty => new RecurrenceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.Inputs
     /// <summary>
     /// VPN client revoked certificate of virtual network gateway.
     /// </summary>
-    public sealed class VpnClientRevokedCertificateArgs : global::Pulumi.ResourceArgs
+    public sealed class VpnClientRevokedCertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Network.Inputs
         public VpnClientRevokedCertificateArgs()
         {
         }
-        public static new VpnClientRevokedCertificateArgs Empty => new VpnClientRevokedCertificateArgs();
     }
 }

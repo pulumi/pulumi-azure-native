@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
     /// <summary>
     /// Settings which determine whether to send watermarks to downstream.
     /// </summary>
-    public sealed class OutputWatermarkPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class OutputWatermarkPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes the maximal delta between the fastest and slowest partitions, so the out of order window that catches all necessary events in downstream jobs is well defined.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
         public OutputWatermarkPropertiesArgs()
         {
         }
-        public static new OutputWatermarkPropertiesArgs Empty => new OutputWatermarkPropertiesArgs();
     }
 }

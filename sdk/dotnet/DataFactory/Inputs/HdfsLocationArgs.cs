@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The location of HDFS.
     /// </summary>
-    public sealed class HdfsLocationArgs : global::Pulumi.ResourceArgs
+    public sealed class HdfsLocationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specify the file name of dataset. Type: string (or Expression with resultType string).
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public HdfsLocationArgs()
         {
         }
-        public static new HdfsLocationArgs Empty => new HdfsLocationArgs();
     }
 }

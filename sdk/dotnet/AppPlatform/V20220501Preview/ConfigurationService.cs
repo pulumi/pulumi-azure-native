@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview
     /// Application Configuration Service resource
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform/v20220501preview:ConfigurationService")]
-    public partial class ConfigurationService : global::Pulumi.CustomResource
+    public partial class ConfigurationService : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource.
@@ -64,10 +64,10 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform:ConfigurationService"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:ConfigurationService"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:ConfigurationService"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220401:ConfigurationService"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform:ConfigurationService"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:ConfigurationService"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:ConfigurationService"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220401:ConfigurationService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview
         }
     }
 
-    public sealed class ConfigurationServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class ConfigurationServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of Application Configuration Service.
@@ -118,6 +118,5 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview
         public ConfigurationServiceArgs()
         {
         }
-        public static new ConfigurationServiceArgs Empty => new ConfigurationServiceArgs();
     }
 }

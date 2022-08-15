@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CustomerInsights.Inputs
     /// <summary>
     /// The connector mapping properties.
     /// </summary>
-    public sealed class ConnectorMappingPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ConnectorMappingPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The availability of mapping property.
@@ -72,6 +72,5 @@ namespace Pulumi.AzureNative.CustomerInsights.Inputs
         public ConnectorMappingPropertiesArgs()
         {
         }
-        public static new ConnectorMappingPropertiesArgs Empty => new ConnectorMappingPropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20200101.Inputs
     /// <summary>
     /// Data regarding 3rd party partner integration
     /// </summary>
-    public sealed class SecurityAssessmentPartnerDataArgs : global::Pulumi.ResourceArgs
+    public sealed class SecurityAssessmentPartnerDataArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the company of the partner
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Security.V20200101.Inputs
         public SecurityAssessmentPartnerDataArgs()
         {
         }
-        public static new SecurityAssessmentPartnerDataArgs Empty => new SecurityAssessmentPartnerDataArgs();
     }
 }

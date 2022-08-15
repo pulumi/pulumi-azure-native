@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Scheduler.Inputs
 {
 
-    public sealed class JobPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class JobPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the job action.
@@ -39,6 +39,5 @@ namespace Pulumi.AzureNative.Scheduler.Inputs
         public JobPropertiesArgs()
         {
         }
-        public static new JobPropertiesArgs Empty => new JobPropertiesArgs();
     }
 }

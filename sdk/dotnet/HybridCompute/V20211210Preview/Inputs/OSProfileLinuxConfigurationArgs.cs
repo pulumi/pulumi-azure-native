@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20211210Preview.Inputs
     /// <summary>
     /// Specifies the linux configuration for update management.
     /// </summary>
-    public sealed class OSProfileLinuxConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class OSProfileLinuxConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the assessment mode.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.HybridCompute.V20211210Preview.Inputs
         public OSProfileLinuxConfigurationArgs()
         {
         }
-        public static new OSProfileLinuxConfigurationArgs Empty => new OSProfileLinuxConfigurationArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.OperationalInsights
     /// API Version: 2020-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:DataSource")]
-    public partial class DataSource : global::Pulumi.CustomResource
+    public partial class DataSource : Pulumi.CustomResource
     {
         /// <summary>
         /// The ETag of the data source.
@@ -77,9 +77,9 @@ namespace Pulumi.AzureNative.OperationalInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20151101preview:DataSource"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:DataSource"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:DataSource"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20151101preview:DataSource"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:DataSource"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:DataSource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         }
     }
 
-    public sealed class DataSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class DataSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the datasource resource.
@@ -148,6 +148,5 @@ namespace Pulumi.AzureNative.OperationalInsights
         public DataSourceArgs()
         {
         }
-        public static new DataSourceArgs Empty => new DataSourceArgs();
     }
 }

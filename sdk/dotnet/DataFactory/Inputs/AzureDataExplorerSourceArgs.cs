@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity Azure Data Explorer (Kusto) source.
     /// </summary>
-    public sealed class AzureDataExplorerSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureDataExplorerSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -73,6 +73,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public AzureDataExplorerSourceArgs()
         {
         }
-        public static new AzureDataExplorerSourceArgs Empty => new AzureDataExplorerSourceArgs();
     }
 }

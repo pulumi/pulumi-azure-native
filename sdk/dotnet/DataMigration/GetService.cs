@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DataMigration
     }
 
 
-    public sealed class GetServiceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetServiceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the resource group
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.DataMigration
         public GetServiceArgs()
         {
         }
-        public static new GetServiceArgs Empty => new GetServiceArgs();
     }
 
-    public sealed class GetServiceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetServiceInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the resource group
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.DataMigration
         public GetServiceInvokeArgs()
         {
         }
-        public static new GetServiceInvokeArgs Empty => new GetServiceInvokeArgs();
     }
 
 

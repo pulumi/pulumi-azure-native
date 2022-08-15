@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20210901.Inputs
     /// <summary>
     /// The resource requirements.
     /// </summary>
-    public sealed class ResourceRequirementsArgs : global::Pulumi.ResourceArgs
+    public sealed class ResourceRequirementsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource limits of this container instance.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ContainerInstance.V20210901.Inputs
         public ResourceRequirementsArgs()
         {
         }
-        public static new ResourceRequirementsArgs Empty => new ResourceRequirementsArgs();
     }
 }

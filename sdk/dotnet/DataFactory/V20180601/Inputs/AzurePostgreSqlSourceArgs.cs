@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A copy activity Azure PostgreSQL source.
     /// </summary>
-    public sealed class AzurePostgreSqlSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class AzurePostgreSqlSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -67,6 +67,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public AzurePostgreSqlSourceArgs()
         {
         }
-        public static new AzurePostgreSqlSourceArgs Empty => new AzurePostgreSqlSourceArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network
     }
 
 
-    public sealed class GetSubscriptionNetworkManagerConnectionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSubscriptionNetworkManagerConnectionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name for the network manager connection.
@@ -38,10 +38,9 @@ namespace Pulumi.AzureNative.Network
         public GetSubscriptionNetworkManagerConnectionArgs()
         {
         }
-        public static new GetSubscriptionNetworkManagerConnectionArgs Empty => new GetSubscriptionNetworkManagerConnectionArgs();
     }
 
-    public sealed class GetSubscriptionNetworkManagerConnectionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSubscriptionNetworkManagerConnectionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name for the network manager connection.
@@ -52,7 +51,6 @@ namespace Pulumi.AzureNative.Network
         public GetSubscriptionNetworkManagerConnectionInvokeArgs()
         {
         }
-        public static new GetSubscriptionNetworkManagerConnectionInvokeArgs Empty => new GetSubscriptionNetworkManagerConnectionInvokeArgs();
     }
 
 

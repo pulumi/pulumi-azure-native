@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.Inputs
     /// <summary>
     /// The order by expression to be used in the report.
     /// </summary>
-    public sealed class ReportConfigSortingArgs : global::Pulumi.ResourceArgs
+    public sealed class ReportConfigSortingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Direction of sort.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.CostManagement.Inputs
         public ReportConfigSortingArgs()
         {
         }
-        public static new ReportConfigSortingArgs Empty => new ReportConfigSortingArgs();
     }
 }

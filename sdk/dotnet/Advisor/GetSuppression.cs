@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Advisor
     }
 
 
-    public sealed class GetSuppressionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSuppressionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the suppression.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Advisor
         public GetSuppressionArgs()
         {
         }
-        public static new GetSuppressionArgs Empty => new GetSuppressionArgs();
     }
 
-    public sealed class GetSuppressionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSuppressionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the suppression.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Advisor
         public GetSuppressionInvokeArgs()
         {
         }
-        public static new GetSuppressionInvokeArgs Empty => new GetSuppressionInvokeArgs();
     }
 
 

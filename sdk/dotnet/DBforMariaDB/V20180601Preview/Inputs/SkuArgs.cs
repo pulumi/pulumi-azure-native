@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601Preview.Inputs
     /// <summary>
     /// Billing information related properties of a server.
     /// </summary>
-    public sealed class SkuArgs : global::Pulumi.ResourceArgs
+    public sealed class SkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The scale up/out capacity, representing server's compute units.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601Preview.Inputs
         public SkuArgs()
         {
         }
-        public static new SkuArgs Empty => new SkuArgs();
     }
 }

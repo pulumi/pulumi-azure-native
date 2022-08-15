@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220401.Inputs
     /// <summary>
     /// KPack ClusterStack properties payload
     /// </summary>
-    public sealed class StackPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class StackPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Id of the ClusterStack.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.AppPlatform.V20220401.Inputs
         public StackPropertiesArgs()
         {
         }
-        public static new StackPropertiesArgs Empty => new StackPropertiesArgs();
     }
 }

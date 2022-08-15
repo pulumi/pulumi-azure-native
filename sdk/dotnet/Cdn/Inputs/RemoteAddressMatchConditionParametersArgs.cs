@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.Inputs
     /// <summary>
     /// Defines the parameters for RemoteAddress match conditions
     /// </summary>
-    public sealed class RemoteAddressMatchConditionParametersArgs : global::Pulumi.ResourceArgs
+    public sealed class RemoteAddressMatchConditionParametersArgs : Pulumi.ResourceArgs
     {
         [Input("matchValues")]
         private InputList<string>? _matchValues;
@@ -57,6 +57,5 @@ namespace Pulumi.AzureNative.Cdn.Inputs
         public RemoteAddressMatchConditionParametersArgs()
         {
         }
-        public static new RemoteAddressMatchConditionParametersArgs Empty => new RemoteAddressMatchConditionParametersArgs();
     }
 }

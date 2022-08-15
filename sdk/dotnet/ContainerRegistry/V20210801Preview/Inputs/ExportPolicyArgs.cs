@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210801Preview.Inputs
     /// <summary>
     /// The export policy for a container registry.
     /// </summary>
-    public sealed class ExportPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class ExportPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value that indicates whether the policy is enabled or not.
@@ -25,6 +25,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210801Preview.Inputs
         {
             Status = "enabled";
         }
-        public static new ExportPolicyArgs Empty => new ExportPolicyArgs();
     }
 }

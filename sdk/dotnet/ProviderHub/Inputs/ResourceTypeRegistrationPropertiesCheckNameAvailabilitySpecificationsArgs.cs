@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Inputs
 {
 
-    public sealed class ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgs : global::Pulumi.ResourceArgs
+    public sealed class ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgs : Pulumi.ResourceArgs
     {
         [Input("enableDefaultValidation")]
         public Input<bool>? EnableDefaultValidation { get; set; }
@@ -26,6 +26,5 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
         public ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgs()
         {
         }
-        public static new ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgs Empty => new ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgs();
     }
 }

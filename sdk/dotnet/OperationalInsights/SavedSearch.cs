@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.OperationalInsights
     /// API Version: 2020-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:SavedSearch")]
-    public partial class SavedSearch : global::Pulumi.CustomResource
+    public partial class SavedSearch : Pulumi.CustomResource
     {
         /// <summary>
         /// The category of the saved search. This helps the user to find a saved search faster. 
@@ -101,9 +101,9 @@ namespace Pulumi.AzureNative.OperationalInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20150320:SavedSearch"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:SavedSearch"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:SavedSearch"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20150320:SavedSearch"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:SavedSearch"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:SavedSearch"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         }
     }
 
-    public sealed class SavedSearchArgs : global::Pulumi.ResourceArgs
+    public sealed class SavedSearchArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The category of the saved search. This helps the user to find a saved search faster. 
@@ -196,6 +196,5 @@ namespace Pulumi.AzureNative.OperationalInsights
         public SavedSearchArgs()
         {
         }
-        public static new SavedSearchArgs Empty => new SavedSearchArgs();
     }
 }

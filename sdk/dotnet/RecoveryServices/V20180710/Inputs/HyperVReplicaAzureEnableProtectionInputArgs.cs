@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20180710.Inputs
     /// <summary>
     /// Azure specific enable protection input.
     /// </summary>
-    public sealed class HyperVReplicaAzureEnableProtectionInputArgs : global::Pulumi.ResourceArgs
+    public sealed class HyperVReplicaAzureEnableProtectionInputArgs : Pulumi.ResourceArgs
     {
         [Input("disksToInclude")]
         private InputList<string>? _disksToInclude;
@@ -139,6 +139,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20180710.Inputs
         public HyperVReplicaAzureEnableProtectionInputArgs()
         {
         }
-        public static new HyperVReplicaAzureEnableProtectionInputArgs Empty => new HyperVReplicaAzureEnableProtectionInputArgs();
     }
 }

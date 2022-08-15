@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// An on-premises file system dataset.
     /// </summary>
-    public sealed class FileShareDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class FileShareDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -97,6 +97,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public FileShareDatasetArgs()
         {
         }
-        public static new FileShareDatasetArgs Empty => new FileShareDatasetArgs();
     }
 }

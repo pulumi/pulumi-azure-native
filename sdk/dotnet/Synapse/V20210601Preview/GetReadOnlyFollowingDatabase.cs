@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
     }
 
 
-    public sealed class GetReadOnlyFollowingDatabaseArgs : global::Pulumi.InvokeArgs
+    public sealed class GetReadOnlyFollowingDatabaseArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the database in the Kusto pool.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         public GetReadOnlyFollowingDatabaseArgs()
         {
         }
-        public static new GetReadOnlyFollowingDatabaseArgs Empty => new GetReadOnlyFollowingDatabaseArgs();
     }
 
-    public sealed class GetReadOnlyFollowingDatabaseInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetReadOnlyFollowingDatabaseInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the database in the Kusto pool.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         public GetReadOnlyFollowingDatabaseInvokeArgs()
         {
         }
-        public static new GetReadOnlyFollowingDatabaseInvokeArgs Empty => new GetReadOnlyFollowingDatabaseInvokeArgs();
     }
 
 

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Blockchain
     }
 
 
-    public sealed class ListLocationConsortiumsArgs : global::Pulumi.InvokeArgs
+    public sealed class ListLocationConsortiumsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Location Name.
@@ -38,10 +38,9 @@ namespace Pulumi.AzureNative.Blockchain
         public ListLocationConsortiumsArgs()
         {
         }
-        public static new ListLocationConsortiumsArgs Empty => new ListLocationConsortiumsArgs();
     }
 
-    public sealed class ListLocationConsortiumsInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListLocationConsortiumsInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Location Name.
@@ -52,7 +51,6 @@ namespace Pulumi.AzureNative.Blockchain
         public ListLocationConsortiumsInvokeArgs()
         {
         }
-        public static new ListLocationConsortiumsInvokeArgs Empty => new ListLocationConsortiumsInvokeArgs();
     }
 
 

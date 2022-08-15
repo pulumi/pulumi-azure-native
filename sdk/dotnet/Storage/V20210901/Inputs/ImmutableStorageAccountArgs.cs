@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20210901.Inputs
     /// <summary>
     /// This property enables and defines account-level immutability. Enabling the feature auto-enables Blob Versioning.
     /// </summary>
-    public sealed class ImmutableStorageAccountArgs : global::Pulumi.ResourceArgs
+    public sealed class ImmutableStorageAccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A boolean flag which enables account-level immutability. All the containers under such an account have object-level immutability enabled by default.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Storage.V20210901.Inputs
         public ImmutableStorageAccountArgs()
         {
         }
-        public static new ImmutableStorageAccountArgs Empty => new ImmutableStorageAccountArgs();
     }
 }

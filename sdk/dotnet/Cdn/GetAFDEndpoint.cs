@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Cdn
     }
 
 
-    public sealed class GetAFDEndpointArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAFDEndpointArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the endpoint under the profile which is unique globally.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Cdn
         public GetAFDEndpointArgs()
         {
         }
-        public static new GetAFDEndpointArgs Empty => new GetAFDEndpointArgs();
     }
 
-    public sealed class GetAFDEndpointInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAFDEndpointInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the endpoint under the profile which is unique globally.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Cdn
         public GetAFDEndpointInvokeArgs()
         {
         }
-        public static new GetAFDEndpointInvokeArgs Empty => new GetAFDEndpointInvokeArgs();
     }
 
 

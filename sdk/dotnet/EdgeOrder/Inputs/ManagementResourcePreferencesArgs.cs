@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
     /// <summary>
     /// Management resource preference to link device
     /// </summary>
-    public sealed class ManagementResourcePreferencesArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagementResourcePreferencesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Customer preferred Management resource ARM ID
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
         public ManagementResourcePreferencesArgs()
         {
         }
-        public static new ManagementResourcePreferencesArgs Empty => new ManagementResourcePreferencesArgs();
     }
 }

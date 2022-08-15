@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A copy activity Rest service Sink.
     /// </summary>
-    public sealed class RestSinkArgs : global::Pulumi.ResourceArgs
+    public sealed class RestSinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The additional HTTP headers in the request to the RESTful API. Type: string (or Expression with resultType string).
@@ -91,6 +91,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public RestSinkArgs()
         {
         }
-        public static new RestSinkArgs Empty => new RestSinkArgs();
     }
 }

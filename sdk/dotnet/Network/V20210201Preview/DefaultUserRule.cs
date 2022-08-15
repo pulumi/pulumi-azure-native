@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
     /// Network security default user rule.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20210201preview:DefaultUserRule")]
-    public partial class DefaultUserRule : global::Pulumi.CustomResource
+    public partial class DefaultUserRule : Pulumi.CustomResource
     {
         /// <summary>
         /// A description for this rule. Restricted to 140 chars.
@@ -138,10 +138,10 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:DefaultUserRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:DefaultUserRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:DefaultUserRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:DefaultUserRule"},
+                    new Pulumi.Alias { Type = "azure-native:network:DefaultUserRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501preview:DefaultUserRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220201preview:DefaultUserRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220401preview:DefaultUserRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -163,7 +163,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         }
     }
 
-    public sealed class DefaultUserRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class DefaultUserRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the network manager security Configuration.
@@ -211,6 +211,5 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         public DefaultUserRuleArgs()
         {
         }
-        public static new DefaultUserRuleArgs Empty => new DefaultUserRuleArgs();
     }
 }

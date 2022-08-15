@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.V20150801
     /// </summary>
     [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:web/v20150801:HostingEnvironment")]
-    public partial class HostingEnvironment : global::Pulumi.CustomResource
+    public partial class HostingEnvironment : Pulumi.CustomResource
     {
         /// <summary>
         /// List of comma separated strings describing which VM sizes are allowed for front-ends
@@ -252,19 +252,19 @@ namespace Pulumi.AzureNative.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:HostingEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20160901:HostingEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:HostingEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:HostingEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:HostingEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:HostingEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:HostingEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:HostingEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:HostingEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:HostingEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:HostingEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:HostingEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:HostingEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web:HostingEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160901:HostingEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:HostingEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:HostingEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:HostingEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:HostingEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:HostingEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:HostingEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:HostingEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:HostingEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:HostingEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:HostingEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:HostingEnvironment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -286,7 +286,7 @@ namespace Pulumi.AzureNative.Web.V20150801
         }
     }
 
-    public sealed class HostingEnvironmentArgs : global::Pulumi.ResourceArgs
+    public sealed class HostingEnvironmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// List of comma separated strings describing which VM sizes are allowed for front-ends
@@ -550,6 +550,5 @@ namespace Pulumi.AzureNative.Web.V20150801
         public HostingEnvironmentArgs()
         {
         }
-        public static new HostingEnvironmentArgs Empty => new HostingEnvironmentArgs();
     }
 }

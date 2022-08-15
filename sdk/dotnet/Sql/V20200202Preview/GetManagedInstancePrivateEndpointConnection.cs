@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
     }
 
 
-    public sealed class GetManagedInstancePrivateEndpointConnectionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetManagedInstancePrivateEndpointConnectionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the managed instance.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
         public GetManagedInstancePrivateEndpointConnectionArgs()
         {
         }
-        public static new GetManagedInstancePrivateEndpointConnectionArgs Empty => new GetManagedInstancePrivateEndpointConnectionArgs();
     }
 
-    public sealed class GetManagedInstancePrivateEndpointConnectionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetManagedInstancePrivateEndpointConnectionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the managed instance.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
         public GetManagedInstancePrivateEndpointConnectionInvokeArgs()
         {
         }
-        public static new GetManagedInstancePrivateEndpointConnectionInvokeArgs Empty => new GetManagedInstancePrivateEndpointConnectionInvokeArgs();
     }
 
 

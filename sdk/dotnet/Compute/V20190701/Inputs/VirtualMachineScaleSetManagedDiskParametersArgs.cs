@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20190701.Inputs
     /// <summary>
     /// Describes the parameters of a ScaleSet managed disk.
     /// </summary>
-    public sealed class VirtualMachineScaleSetManagedDiskParametersArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualMachineScaleSetManagedDiskParametersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the customer managed disk encryption set resource id for the managed disk.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Compute.V20190701.Inputs
         public VirtualMachineScaleSetManagedDiskParametersArgs()
         {
         }
-        public static new VirtualMachineScaleSetManagedDiskParametersArgs Empty => new VirtualMachineScaleSetManagedDiskParametersArgs();
     }
 }

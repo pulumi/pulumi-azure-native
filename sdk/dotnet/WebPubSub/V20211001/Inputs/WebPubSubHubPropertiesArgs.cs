@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001.Inputs
     /// <summary>
     /// Properties of a hub.
     /// </summary>
-    public sealed class WebPubSubHubPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class WebPubSubHubPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The settings for configuring if anonymous connections are allowed for this hub: "allow" or "deny". Default to "deny".
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001.Inputs
         {
             AnonymousConnectPolicy = "deny";
         }
-        public static new WebPubSubHubPropertiesArgs Empty => new WebPubSubHubPropertiesArgs();
     }
 }

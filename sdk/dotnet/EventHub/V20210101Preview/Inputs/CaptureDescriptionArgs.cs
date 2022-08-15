@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventHub.V20210101Preview.Inputs
     /// <summary>
     /// Properties to configure capture description for eventhub
     /// </summary>
-    public sealed class CaptureDescriptionArgs : global::Pulumi.ResourceArgs
+    public sealed class CaptureDescriptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Properties of Destination where capture will be stored. (Storage Account, Blob Names)
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.EventHub.V20210101Preview.Inputs
         public CaptureDescriptionArgs()
         {
         }
-        public static new CaptureDescriptionArgs Empty => new CaptureDescriptionArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
-    public sealed class EdifactProcessingSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class EdifactProcessingSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value indicating whether to create empty xml tags for trailing separators.
@@ -45,6 +45,5 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
         public EdifactProcessingSettingsArgs()
         {
         }
-        public static new EdifactProcessingSettingsArgs Empty => new EdifactProcessingSettingsArgs();
     }
 }

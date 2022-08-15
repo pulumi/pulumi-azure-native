@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
     /// <summary>
     /// Azure FirstParty Managed Certificate provided by other first party resource providers to enable HTTPS.
     /// </summary>
-    public sealed class AzureFirstPartyManagedCertificateParametersArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureFirstPartyManagedCertificateParametersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of the secret resource.
@@ -25,6 +25,5 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
         public AzureFirstPartyManagedCertificateParametersArgs()
         {
         }
-        public static new AzureFirstPartyManagedCertificateParametersArgs Empty => new AzureFirstPartyManagedCertificateParametersArgs();
     }
 }

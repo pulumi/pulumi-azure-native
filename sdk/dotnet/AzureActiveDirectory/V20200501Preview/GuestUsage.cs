@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory.V20200501Preview
     /// Guest Usages Resource
     /// </summary>
     [AzureNativeResourceType("azure-native:azureactivedirectory/v20200501preview:GuestUsage")]
-    public partial class GuestUsage : global::Pulumi.CustomResource
+    public partial class GuestUsage : Pulumi.CustomResource
     {
         /// <summary>
         /// Location of the Guest Usages resource.
@@ -70,8 +70,8 @@ namespace Pulumi.AzureNative.AzureActiveDirectory.V20200501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azureactivedirectory:GuestUsage"},
-                    new global::Pulumi.Alias { Type = "azure-native:azureactivedirectory/v20210401:GuestUsage"},
+                    new Pulumi.Alias { Type = "azure-native:azureactivedirectory:GuestUsage"},
+                    new Pulumi.Alias { Type = "azure-native:azureactivedirectory/v20210401:GuestUsage"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory.V20200501Preview
         }
     }
 
-    public sealed class GuestUsageArgs : global::Pulumi.ResourceArgs
+    public sealed class GuestUsageArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Location of the Guest Usages resource.
@@ -134,6 +134,5 @@ namespace Pulumi.AzureNative.AzureActiveDirectory.V20200501Preview
         public GuestUsageArgs()
         {
         }
-        public static new GuestUsageArgs Empty => new GuestUsageArgs();
     }
 }

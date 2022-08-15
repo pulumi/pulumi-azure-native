@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
     /// The description of the service.
     /// </summary>
     [AzureNativeResourceType("azure-native:m365securityandcompliance/v20210325preview:privateLinkServicesForSCCPowershell")]
-    public partial class PrivateLinkServicesForSCCPowershell : global::Pulumi.CustomResource
+    public partial class PrivateLinkServicesForSCCPowershell : Pulumi.CustomResource
     {
         /// <summary>
         /// An etag associated with the resource, used for optimistic concurrency when editing it.
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:m365securityandcompliance:privateLinkServicesForSCCPowershell"},
+                    new Pulumi.Alias { Type = "azure-native:m365securityandcompliance:privateLinkServicesForSCCPowershell"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
         }
     }
 
-    public sealed class PrivateLinkServicesForSCCPowershellArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateLinkServicesForSCCPowershellArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Setting indicating whether the service has a managed identity associated with it.
@@ -169,6 +169,5 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
         public PrivateLinkServicesForSCCPowershellArgs()
         {
         }
-        public static new PrivateLinkServicesForSCCPowershellArgs Empty => new PrivateLinkServicesForSCCPowershellArgs();
     }
 }

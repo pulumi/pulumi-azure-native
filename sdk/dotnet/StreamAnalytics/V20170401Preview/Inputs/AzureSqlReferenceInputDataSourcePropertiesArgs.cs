@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
     /// <summary>
     /// Describes Azure SQL database reference input data source properties.
     /// </summary>
-    public sealed class AzureSqlReferenceInputDataSourcePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureSqlReferenceInputDataSourcePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// This element is associated with the datasource element. This is the name of the database that output will be written to.
@@ -72,6 +72,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
         public AzureSqlReferenceInputDataSourcePropertiesArgs()
         {
         }
-        public static new AzureSqlReferenceInputDataSourcePropertiesArgs Empty => new AzureSqlReferenceInputDataSourcePropertiesArgs();
     }
 }

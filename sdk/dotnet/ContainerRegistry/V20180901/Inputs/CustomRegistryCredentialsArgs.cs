@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180901.Inputs
     /// <summary>
     /// Describes the credentials that will be used to access a custom registry during a run.
     /// </summary>
-    public sealed class CustomRegistryCredentialsArgs : global::Pulumi.ResourceArgs
+    public sealed class CustomRegistryCredentialsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The password for logging into the custom registry. The password is a secret 
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180901.Inputs
         public CustomRegistryCredentialsArgs()
         {
         }
-        public static new CustomRegistryCredentialsArgs Empty => new CustomRegistryCredentialsArgs();
     }
 }

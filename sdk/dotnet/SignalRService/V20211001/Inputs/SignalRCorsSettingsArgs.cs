@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SignalRService.V20211001.Inputs
     /// <summary>
     /// Cross-Origin Resource Sharing (CORS) settings.
     /// </summary>
-    public sealed class SignalRCorsSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class SignalRCorsSettingsArgs : Pulumi.ResourceArgs
     {
         [Input("allowedOrigins")]
         private InputList<string>? _allowedOrigins;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.SignalRService.V20211001.Inputs
         public SignalRCorsSettingsArgs()
         {
         }
-        public static new SignalRCorsSettingsArgs Empty => new SignalRCorsSettingsArgs();
     }
 }

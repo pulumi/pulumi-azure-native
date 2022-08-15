@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190501.Inputs
     /// <summary>
     /// A routing rule represents a specification for traffic to treat and where to send it, along with health probe information.
     /// </summary>
-    public sealed class RoutingRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class RoutingRuleArgs : Pulumi.ResourceArgs
     {
         [Input("acceptedProtocols")]
         private InputList<Union<string, Pulumi.AzureNative.Network.V20190501.FrontDoorProtocol>>? _acceptedProtocols;
@@ -78,6 +78,5 @@ namespace Pulumi.AzureNative.Network.V20190501.Inputs
         public RoutingRuleArgs()
         {
         }
-        public static new RoutingRuleArgs Empty => new RoutingRuleArgs();
     }
 }

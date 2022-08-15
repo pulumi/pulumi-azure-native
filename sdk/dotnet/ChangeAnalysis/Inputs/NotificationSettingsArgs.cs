@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ChangeAnalysis.Inputs
     /// <summary>
     /// Settings of change notification configuration for a subscription.
     /// </summary>
-    public sealed class NotificationSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class NotificationSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The state of notifications feature.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ChangeAnalysis.Inputs
         public NotificationSettingsArgs()
         {
         }
-        public static new NotificationSettingsArgs Empty => new NotificationSettingsArgs();
     }
 }

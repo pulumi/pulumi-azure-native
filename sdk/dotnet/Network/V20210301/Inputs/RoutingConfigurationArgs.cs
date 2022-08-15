@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210301.Inputs
     /// <summary>
     /// Routing Configuration indicating the associated and propagated route tables for this connection.
     /// </summary>
-    public sealed class RoutingConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class RoutingConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource id RouteTable associated with this RoutingConfiguration.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Network.V20210301.Inputs
         public RoutingConfigurationArgs()
         {
         }
-        public static new RoutingConfigurationArgs Empty => new RoutingConfigurationArgs();
     }
 }

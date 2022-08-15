@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity Xero Service source.
     /// </summary>
-    public sealed class XeroSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class XeroSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public XeroSourceArgs()
         {
         }
-        public static new XeroSourceArgs Empty => new XeroSourceArgs();
     }
 }

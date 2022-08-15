@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Execute Synapse notebook activity.
     /// </summary>
-    public sealed class SynapseNotebookActivityArgs : global::Pulumi.ResourceArgs
+    public sealed class SynapseNotebookActivityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Spark configuration properties, which will override the 'conf' of the notebook you provide.
@@ -121,6 +121,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public SynapseNotebookActivityArgs()
         {
         }
-        public static new SynapseNotebookActivityArgs Empty => new SynapseNotebookActivityArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HanaOnAzure.Inputs
     /// <summary>
     /// Specifies the disk information for the HANA instance
     /// </summary>
-    public sealed class DiskArgs : global::Pulumi.ResourceArgs
+    public sealed class DiskArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the size of an empty data disk in gigabytes.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.HanaOnAzure.Inputs
         public DiskArgs()
         {
         }
-        public static new DiskArgs Empty => new DiskArgs();
     }
 }

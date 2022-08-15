@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Subscription.V20211001
     /// Subscription Information with the alias.
     /// </summary>
     [AzureNativeResourceType("azure-native:subscription/v20211001:Alias")]
-    public partial class Alias : global::Pulumi.CustomResource
+    public partial class Alias : Pulumi.CustomResource
     {
         /// <summary>
         /// Alias ID.
@@ -64,9 +64,9 @@ namespace Pulumi.AzureNative.Subscription.V20211001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:subscription:Alias"},
-                    new global::Pulumi.Alias { Type = "azure-native:subscription/v20191001preview:Alias"},
-                    new global::Pulumi.Alias { Type = "azure-native:subscription/v20200901:Alias"},
+                    new Pulumi.Alias { Type = "azure-native:subscription:Alias"},
+                    new Pulumi.Alias { Type = "azure-native:subscription/v20191001preview:Alias"},
+                    new Pulumi.Alias { Type = "azure-native:subscription/v20200901:Alias"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.Subscription.V20211001
         }
     }
 
-    public sealed class AliasArgs : global::Pulumi.ResourceArgs
+    public sealed class AliasArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// AliasName is the name for the subscription creation request. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
@@ -105,6 +105,5 @@ namespace Pulumi.AzureNative.Subscription.V20211001
         public AliasArgs()
         {
         }
-        public static new AliasArgs Empty => new AliasArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.IoTCentral
     /// API Version: 2021-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:iotcentral:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// The group ids for the private endpoint resource.
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.IoTCentral
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:iotcentral/v20211101preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:iotcentral/v20211101preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -105,7 +105,7 @@ namespace Pulumi.AzureNative.IoTCentral
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The private endpoint connection name.
@@ -134,6 +134,5 @@ namespace Pulumi.AzureNative.IoTCentral
         public PrivateEndpointConnectionArgs()
         {
         }
-        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

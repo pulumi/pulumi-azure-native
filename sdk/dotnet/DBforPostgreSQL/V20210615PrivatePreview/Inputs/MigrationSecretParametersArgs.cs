@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview.Inputs
     /// <summary>
     /// Migration secret parameters.
     /// </summary>
-    public sealed class MigrationSecretParametersArgs : global::Pulumi.ResourceArgs
+    public sealed class MigrationSecretParametersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure active directory application.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview.Inputs
         public MigrationSecretParametersArgs()
         {
         }
-        public static new MigrationSecretParametersArgs Empty => new MigrationSecretParametersArgs();
     }
 }

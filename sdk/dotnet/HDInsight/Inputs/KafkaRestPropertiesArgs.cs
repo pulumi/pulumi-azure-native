@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.Inputs
     /// <summary>
     /// The kafka rest proxy configuration which contains AAD security group information.
     /// </summary>
-    public sealed class KafkaRestPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class KafkaRestPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The information of AAD security group.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.HDInsight.Inputs
         public KafkaRestPropertiesArgs()
         {
         }
-        public static new KafkaRestPropertiesArgs Empty => new KafkaRestPropertiesArgs();
     }
 }

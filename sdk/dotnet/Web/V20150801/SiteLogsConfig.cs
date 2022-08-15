@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.V20150801
     /// </summary>
     [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:web/v20150801:SiteLogsConfig")]
-    public partial class SiteLogsConfig : global::Pulumi.CustomResource
+    public partial class SiteLogsConfig : Pulumi.CustomResource
     {
         /// <summary>
         /// Application logs configuration
@@ -95,20 +95,20 @@ namespace Pulumi.AzureNative.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:SiteLogsConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:SiteLogsConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:SiteLogsConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:SiteLogsConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:SiteLogsConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:SiteLogsConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:SiteLogsConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:SiteLogsConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:SiteLogsConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:SiteLogsConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:SiteLogsConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:SiteLogsConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:SiteLogsConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:SiteLogsConfig"},
+                    new Pulumi.Alias { Type = "azure-native:web:SiteLogsConfig"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:SiteLogsConfig"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:SiteLogsConfig"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:SiteLogsConfig"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:SiteLogsConfig"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:SiteLogsConfig"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:SiteLogsConfig"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:SiteLogsConfig"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:SiteLogsConfig"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:SiteLogsConfig"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:SiteLogsConfig"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:SiteLogsConfig"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:SiteLogsConfig"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:SiteLogsConfig"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.Web.V20150801
         }
     }
 
-    public sealed class SiteLogsConfigArgs : global::Pulumi.ResourceArgs
+    public sealed class SiteLogsConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Application logs configuration
@@ -207,6 +207,5 @@ namespace Pulumi.AzureNative.Web.V20150801
         public SiteLogsConfigArgs()
         {
         }
-        public static new SiteLogsConfigArgs Empty => new SiteLogsConfigArgs();
     }
 }

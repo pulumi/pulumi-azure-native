@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20171115.Inputs
     /// <summary>
     /// The structure of the property that a partition key can have. An environment can have multiple such properties.
     /// </summary>
-    public sealed class PartitionKeyPropertyArgs : global::Pulumi.ResourceArgs
+    public sealed class PartitionKeyPropertyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the property.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20171115.Inputs
         public PartitionKeyPropertyArgs()
         {
         }
-        public static new PartitionKeyPropertyArgs Empty => new PartitionKeyPropertyArgs();
     }
 }

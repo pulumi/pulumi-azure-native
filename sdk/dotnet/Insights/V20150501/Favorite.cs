@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20150501
     /// Properties that define a favorite that is associated to an Application Insights component.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights/v20150501:Favorite")]
-    public partial class Favorite : global::Pulumi.CustomResource
+    public partial class Favorite : Pulumi.CustomResource
     {
         /// <summary>
         /// Favorite category, as defined by the user at creation time.
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.Insights.V20150501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:insights:Favorite"},
+                    new Pulumi.Alias { Type = "azure-native:insights:Favorite"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNative.Insights.V20150501
         }
     }
 
-    public sealed class FavoriteArgs : global::Pulumi.ResourceArgs
+    public sealed class FavoriteArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Favorite category, as defined by the user at creation time.
@@ -205,6 +205,5 @@ namespace Pulumi.AzureNative.Insights.V20150501
         public FavoriteArgs()
         {
         }
-        public static new FavoriteArgs Empty => new FavoriteArgs();
     }
 }

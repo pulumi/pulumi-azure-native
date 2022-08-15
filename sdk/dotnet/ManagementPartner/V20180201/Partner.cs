@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ManagementPartner.V20180201
     /// this is the management partner operations response
     /// </summary>
     [AzureNativeResourceType("azure-native:managementpartner/v20180201:Partner")]
-    public partial class Partner : global::Pulumi.CustomResource
+    public partial class Partner : Pulumi.CustomResource
     {
         /// <summary>
         /// This is the DateTime when the partner was created.
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.ManagementPartner.V20180201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:managementpartner:Partner"},
+                    new Pulumi.Alias { Type = "azure-native:managementpartner:Partner"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.ManagementPartner.V20180201
         }
     }
 
-    public sealed class PartnerArgs : global::Pulumi.ResourceArgs
+    public sealed class PartnerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Id of the Partner
@@ -133,6 +133,5 @@ namespace Pulumi.AzureNative.ManagementPartner.V20180201
         public PartnerArgs()
         {
         }
-        public static new PartnerArgs Empty => new PartnerArgs();
     }
 }

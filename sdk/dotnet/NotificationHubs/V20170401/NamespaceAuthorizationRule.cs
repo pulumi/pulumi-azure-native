@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NotificationHubs.V20170401
     /// Description of a Namespace AuthorizationRules.
     /// </summary>
     [AzureNativeResourceType("azure-native:notificationhubs/v20170401:NamespaceAuthorizationRule")]
-    public partial class NamespaceAuthorizationRule : global::Pulumi.CustomResource
+    public partial class NamespaceAuthorizationRule : Pulumi.CustomResource
     {
         /// <summary>
         /// A string that describes the claim type
@@ -124,8 +124,8 @@ namespace Pulumi.AzureNative.NotificationHubs.V20170401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:notificationhubs:NamespaceAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20160301:NamespaceAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:notificationhubs:NamespaceAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:notificationhubs/v20160301:NamespaceAuthorizationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -147,7 +147,7 @@ namespace Pulumi.AzureNative.NotificationHubs.V20170401
         }
     }
 
-    public sealed class NamespaceAuthorizationRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class NamespaceAuthorizationRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authorization Rule Name.
@@ -176,6 +176,5 @@ namespace Pulumi.AzureNative.NotificationHubs.V20170401
         public NamespaceAuthorizationRuleArgs()
         {
         }
-        public static new NamespaceAuthorizationRuleArgs Empty => new NamespaceAuthorizationRuleArgs();
     }
 }

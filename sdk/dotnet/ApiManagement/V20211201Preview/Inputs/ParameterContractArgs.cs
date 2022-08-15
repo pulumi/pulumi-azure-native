@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview.Inputs
     /// <summary>
     /// Operation parameters details.
     /// </summary>
-    public sealed class ParameterContractArgs : global::Pulumi.ResourceArgs
+    public sealed class ParameterContractArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Default parameter value.
@@ -84,6 +84,5 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview.Inputs
         public ParameterContractArgs()
         {
         }
-        public static new ParameterContractArgs Empty => new ParameterContractArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20210701.Inputs
     /// <summary>
     /// Describes a reference to Key Vault Key
     /// </summary>
-    public sealed class KeyVaultKeyReferenceArgs : global::Pulumi.ResourceArgs
+    public sealed class KeyVaultKeyReferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The URL referencing a key encryption key in Key Vault.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Compute.V20210701.Inputs
         public KeyVaultKeyReferenceArgs()
         {
         }
-        public static new KeyVaultKeyReferenceArgs Empty => new KeyVaultKeyReferenceArgs();
     }
 }

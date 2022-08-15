@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Insights.V20191017Preview
     }
 
 
-    public sealed class GetPrivateLinkScopedResourceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPrivateLinkScopedResourceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the scoped resource object.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Insights.V20191017Preview
         public GetPrivateLinkScopedResourceArgs()
         {
         }
-        public static new GetPrivateLinkScopedResourceArgs Empty => new GetPrivateLinkScopedResourceArgs();
     }
 
-    public sealed class GetPrivateLinkScopedResourceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPrivateLinkScopedResourceInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the scoped resource object.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Insights.V20191017Preview
         public GetPrivateLinkScopedResourceInvokeArgs()
         {
         }
-        public static new GetPrivateLinkScopedResourceInvokeArgs Empty => new GetPrivateLinkScopedResourceInvokeArgs();
     }
 
 

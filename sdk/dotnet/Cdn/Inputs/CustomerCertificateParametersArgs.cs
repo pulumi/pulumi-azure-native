@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.Inputs
     /// <summary>
     /// Customer Certificate used for https
     /// </summary>
-    public sealed class CustomerCertificateParametersArgs : global::Pulumi.ResourceArgs
+    public sealed class CustomerCertificateParametersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Certificate issuing authority.
@@ -61,6 +61,5 @@ namespace Pulumi.AzureNative.Cdn.Inputs
         public CustomerCertificateParametersArgs()
         {
         }
-        public static new CustomerCertificateParametersArgs Empty => new CustomerCertificateParametersArgs();
     }
 }

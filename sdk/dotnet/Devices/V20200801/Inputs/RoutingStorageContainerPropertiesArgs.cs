@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20200801.Inputs
     /// <summary>
     /// The properties related to a storage container endpoint.
     /// </summary>
-    public sealed class RoutingStorageContainerPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class RoutingStorageContainerPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Method used to authenticate against the storage endpoint
@@ -90,6 +90,5 @@ namespace Pulumi.AzureNative.Devices.V20200801.Inputs
         public RoutingStorageContainerPropertiesArgs()
         {
         }
-        public static new RoutingStorageContainerPropertiesArgs Empty => new RoutingStorageContainerPropertiesArgs();
     }
 }

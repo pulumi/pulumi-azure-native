@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601Preview
     }
 
 
-    public sealed class GetFileEventTriggerArgs : global::Pulumi.InvokeArgs
+    public sealed class GetFileEventTriggerArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601Preview
         public GetFileEventTriggerArgs()
         {
         }
-        public static new GetFileEventTriggerArgs Empty => new GetFileEventTriggerArgs();
     }
 
-    public sealed class GetFileEventTriggerInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetFileEventTriggerInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601Preview
         public GetFileEventTriggerInvokeArgs()
         {
         }
-        public static new GetFileEventTriggerInvokeArgs Empty => new GetFileEventTriggerInvokeArgs();
     }
 
 

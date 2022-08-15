@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Purview.V20210701.Inputs
     /// <summary>
     /// The private link service connection state.
     /// </summary>
-    public sealed class PrivateLinkServiceConnectionStateArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateLinkServiceConnectionStateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The required actions.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Purview.V20210701.Inputs
         public PrivateLinkServiceConnectionStateArgs()
         {
         }
-        public static new PrivateLinkServiceConnectionStateArgs Empty => new PrivateLinkServiceConnectionStateArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization.V20210601.Inputs
     /// <summary>
     /// The policy definition group.
     /// </summary>
-    public sealed class PolicyDefinitionGroupArgs : global::Pulumi.ResourceArgs
+    public sealed class PolicyDefinitionGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A resource ID of a resource that contains additional metadata about the group.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.Authorization.V20210601.Inputs
         public PolicyDefinitionGroupArgs()
         {
         }
-        public static new PolicyDefinitionGroupArgs Empty => new PolicyDefinitionGroupArgs();
     }
 }

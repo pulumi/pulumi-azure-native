@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20201015Preview.Inputs
     /// <summary>
     /// Information about the webhook destination for an event subscription.
     /// </summary>
-    public sealed class WebHookEventSubscriptionDestinationArgs : global::Pulumi.ResourceArgs
+    public sealed class WebHookEventSubscriptionDestinationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
@@ -69,6 +69,5 @@ namespace Pulumi.AzureNative.EventGrid.V20201015Preview.Inputs
             MaxEventsPerBatch = 1;
             PreferredBatchSizeInKilobytes = 64;
         }
-        public static new WebHookEventSubscriptionDestinationArgs Empty => new WebHookEventSubscriptionDestinationArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network
     /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkProfile")]
-    public partial class NetworkProfile : global::Pulumi.CustomResource
+    public partial class NetworkProfile : Pulumi.CustomResource
     {
         /// <summary>
         /// List of chid container network interface configurations.
@@ -95,30 +95,30 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180801:NetworkProfile"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181001:NetworkProfile"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181101:NetworkProfile"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181201:NetworkProfile"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190201:NetworkProfile"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:NetworkProfile"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190601:NetworkProfile"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:NetworkProfile"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190801:NetworkProfile"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:NetworkProfile"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:NetworkProfile"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:NetworkProfile"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:NetworkProfile"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:NetworkProfile"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:NetworkProfile"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:NetworkProfile"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:NetworkProfile"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:NetworkProfile"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:NetworkProfile"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:NetworkProfile"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:NetworkProfile"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:NetworkProfile"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:NetworkProfile"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181001:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181101:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181201:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190201:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210301:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:NetworkProfile"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNative.Network
         }
     }
 
-    public sealed class NetworkProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class NetworkProfileArgs : Pulumi.ResourceArgs
     {
         [Input("containerNetworkInterfaceConfigurations")]
         private InputList<Inputs.ContainerNetworkInterfaceConfigurationArgs>? _containerNetworkInterfaceConfigurations;
@@ -193,6 +193,5 @@ namespace Pulumi.AzureNative.Network
         public NetworkProfileArgs()
         {
         }
-        public static new NetworkProfileArgs Empty => new NetworkProfileArgs();
     }
 }

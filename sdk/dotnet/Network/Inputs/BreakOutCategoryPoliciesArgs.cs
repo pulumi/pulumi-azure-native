@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.Inputs
     /// <summary>
     /// Network Virtual Appliance Sku Properties.
     /// </summary>
-    public sealed class BreakOutCategoryPoliciesArgs : global::Pulumi.ResourceArgs
+    public sealed class BreakOutCategoryPoliciesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Flag to control breakout of o365 allow category.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Network.Inputs
         public BreakOutCategoryPoliciesArgs()
         {
         }
-        public static new BreakOutCategoryPoliciesArgs Empty => new BreakOutCategoryPoliciesArgs();
     }
 }

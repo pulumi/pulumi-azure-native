@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Delete activity.
     /// </summary>
-    public sealed class DeleteActivityArgs : global::Pulumi.ResourceArgs
+    public sealed class DeleteActivityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Delete activity dataset reference.
@@ -109,6 +109,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public DeleteActivityArgs()
         {
         }
-        public static new DeleteActivityArgs Empty => new DeleteActivityArgs();
     }
 }

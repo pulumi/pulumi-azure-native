@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20150801.Inputs
 {
 
-    public sealed class NetworkAccessControlEntryArgs : global::Pulumi.ResourceArgs
+    public sealed class NetworkAccessControlEntryArgs : Pulumi.ResourceArgs
     {
         [Input("action")]
         public Input<Pulumi.AzureNative.Web.V20150801.AccessControlEntryAction>? Action { get; set; }
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.Web.V20150801.Inputs
         public NetworkAccessControlEntryArgs()
         {
         }
-        public static new NetworkAccessControlEntryArgs Empty => new NetworkAccessControlEntryArgs();
     }
 }

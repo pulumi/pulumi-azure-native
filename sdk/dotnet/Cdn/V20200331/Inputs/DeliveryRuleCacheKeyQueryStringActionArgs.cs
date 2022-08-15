@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200331.Inputs
     /// <summary>
     /// Defines the cache-key query string action for the delivery rule.
     /// </summary>
-    public sealed class DeliveryRuleCacheKeyQueryStringActionArgs : global::Pulumi.ResourceArgs
+    public sealed class DeliveryRuleCacheKeyQueryStringActionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the action for the delivery rule.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.Cdn.V20200331.Inputs
         public DeliveryRuleCacheKeyQueryStringActionArgs()
         {
         }
-        public static new DeliveryRuleCacheKeyQueryStringActionArgs Empty => new DeliveryRuleCacheKeyQueryStringActionArgs();
     }
 }

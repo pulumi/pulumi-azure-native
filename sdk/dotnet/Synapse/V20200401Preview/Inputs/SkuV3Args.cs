@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview.Inputs
     /// <summary>
     /// An ARM Resource SKU.
     /// </summary>
-    public sealed class SkuV3Args : global::Pulumi.ResourceArgs
+    public sealed class SkuV3Args : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the SKU, typically, a letter + Number code, e.g. P3.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview.Inputs
         public SkuV3Args()
         {
         }
-        public static new SkuV3Args Empty => new SkuV3Args();
     }
 }

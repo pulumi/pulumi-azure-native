@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20181001.Inputs
     /// <summary>
     /// VPN client root certificate of P2SVpnServerConfiguration.
     /// </summary>
-    public sealed class P2SVpnServerConfigVpnClientRootCertificateArgs : global::Pulumi.ResourceArgs
+    public sealed class P2SVpnServerConfigVpnClientRootCertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Network.V20181001.Inputs
         public P2SVpnServerConfigVpnClientRootCertificateArgs()
         {
         }
-        public static new P2SVpnServerConfigVpnClientRootCertificateArgs Empty => new P2SVpnServerConfigVpnClientRootCertificateArgs();
     }
 }

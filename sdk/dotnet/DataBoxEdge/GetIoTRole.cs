@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
     }
 
 
-    public sealed class GetIoTRoleArgs : global::Pulumi.InvokeArgs
+    public sealed class GetIoTRoleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.DataBoxEdge
         public GetIoTRoleArgs()
         {
         }
-        public static new GetIoTRoleArgs Empty => new GetIoTRoleArgs();
     }
 
-    public sealed class GetIoTRoleInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetIoTRoleInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.DataBoxEdge
         public GetIoTRoleInvokeArgs()
         {
         }
-        public static new GetIoTRoleInvokeArgs Empty => new GetIoTRoleInvokeArgs();
     }
 
 

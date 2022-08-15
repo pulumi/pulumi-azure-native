@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview
     }
 
 
-    public sealed class GetAvailabilityGroupListenerArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAvailabilityGroupListenerArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the availability group listener.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview
         public GetAvailabilityGroupListenerArgs()
         {
         }
-        public static new GetAvailabilityGroupListenerArgs Empty => new GetAvailabilityGroupListenerArgs();
     }
 
-    public sealed class GetAvailabilityGroupListenerInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAvailabilityGroupListenerInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the availability group listener.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview
         public GetAvailabilityGroupListenerInvokeArgs()
         {
         }
-        public static new GetAvailabilityGroupListenerInvokeArgs Empty => new GetAvailabilityGroupListenerInvokeArgs();
     }
 
 

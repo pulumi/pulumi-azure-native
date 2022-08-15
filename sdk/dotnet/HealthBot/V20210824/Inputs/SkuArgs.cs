@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HealthBot.V20210824.Inputs
     /// <summary>
     /// The resource model definition representing SKU
     /// </summary>
-    public sealed class SkuArgs : global::Pulumi.ResourceArgs
+    public sealed class SkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Azure Health Bot SKU
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.HealthBot.V20210824.Inputs
         public SkuArgs()
         {
         }
-        public static new SkuArgs Empty => new SkuArgs();
     }
 }

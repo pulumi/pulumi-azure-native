@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Open Database Connectivity (ODBC) linked service.
     /// </summary>
-    public sealed class OdbcLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class OdbcLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -97,6 +97,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public OdbcLinkedServiceArgs()
         {
         }
-        public static new OdbcLinkedServiceArgs Empty => new OdbcLinkedServiceArgs();
     }
 }

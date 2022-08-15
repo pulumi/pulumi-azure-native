@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS.V20200717Preview.Inputs
     /// <summary>
     /// Subnet configuration for segment
     /// </summary>
-    public sealed class WorkloadNetworkSegmentSubnetArgs : global::Pulumi.ResourceArgs
+    public sealed class WorkloadNetworkSegmentSubnetArgs : Pulumi.ResourceArgs
     {
         [Input("dhcpRanges")]
         private InputList<string>? _dhcpRanges;
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.AVS.V20200717Preview.Inputs
         public WorkloadNetworkSegmentSubnetArgs()
         {
         }
-        public static new WorkloadNetworkSegmentSubnetArgs Empty => new WorkloadNetworkSegmentSubnetArgs();
     }
 }

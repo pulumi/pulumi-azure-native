@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A copy activity SQL Data Warehouse sink.
     /// </summary>
-    public sealed class SqlDWSinkArgs : global::Pulumi.ResourceArgs
+    public sealed class SqlDWSinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates to use Copy Command to copy data into SQL Data Warehouse. Type: boolean (or Expression with resultType boolean).
@@ -115,6 +115,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public SqlDWSinkArgs()
         {
         }
-        public static new SqlDWSinkArgs Empty => new SqlDWSinkArgs();
     }
 }

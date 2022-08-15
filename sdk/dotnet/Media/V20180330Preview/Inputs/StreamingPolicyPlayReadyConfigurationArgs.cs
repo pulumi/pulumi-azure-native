@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180330Preview.Inputs
     /// <summary>
     /// Class to specify configurations of PlayReady in Streaming Policy
     /// </summary>
-    public sealed class StreamingPolicyPlayReadyConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class StreamingPolicyPlayReadyConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The template for a customer service to deliver keys to end users.  Not needed when using Azure Media Services for issuing keys.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Media.V20180330Preview.Inputs
         public StreamingPolicyPlayReadyConfigurationArgs()
         {
         }
-        public static new StreamingPolicyPlayReadyConfigurationArgs Empty => new StreamingPolicyPlayReadyConfigurationArgs();
     }
 }

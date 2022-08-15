@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20190101.Inputs
     /// <summary>
     /// Information about the storage blob based dead letter destination.
     /// </summary>
-    public sealed class StorageBlobDeadLetterDestinationArgs : global::Pulumi.ResourceArgs
+    public sealed class StorageBlobDeadLetterDestinationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Storage blob container that is the destination of the deadletter events
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.EventGrid.V20190101.Inputs
         public StorageBlobDeadLetterDestinationArgs()
         {
         }
-        public static new StorageBlobDeadLetterDestinationArgs Empty => new StorageBlobDeadLetterDestinationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.V20210101.Inputs
     /// <summary>
     /// Defines the NSG resource settings.
     /// </summary>
-    public sealed class NetworkSecurityGroupResourceSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class NetworkSecurityGroupResourceSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.Migrate.V20210101.Inputs
         public NetworkSecurityGroupResourceSettingsArgs()
         {
         }
-        public static new NetworkSecurityGroupResourceSettingsArgs Empty => new NetworkSecurityGroupResourceSettingsArgs();
     }
 }

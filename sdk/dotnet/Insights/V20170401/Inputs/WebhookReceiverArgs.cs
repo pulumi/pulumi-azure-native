@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20170401.Inputs
     /// <summary>
     /// A webhook receiver.
     /// </summary>
-    public sealed class WebhookReceiverArgs : global::Pulumi.ResourceArgs
+    public sealed class WebhookReceiverArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the webhook receiver. Names must be unique across all receivers within an action group.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Insights.V20170401.Inputs
         public WebhookReceiverArgs()
         {
         }
-        public static new WebhookReceiverArgs Empty => new WebhookReceiverArgs();
     }
 }

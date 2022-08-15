@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20210601.Inputs
 {
 
-    public sealed class MediaServiceIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class MediaServiceIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity type.
@@ -33,6 +33,5 @@ namespace Pulumi.AzureNative.Media.V20210601.Inputs
         public MediaServiceIdentityArgs()
         {
         }
-        public static new MediaServiceIdentityArgs Empty => new MediaServiceIdentityArgs();
     }
 }

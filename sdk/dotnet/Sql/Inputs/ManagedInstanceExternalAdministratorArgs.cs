@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.Inputs
     /// <summary>
     /// Properties of a active directory administrator.
     /// </summary>
-    public sealed class ManagedInstanceExternalAdministratorArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedInstanceExternalAdministratorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of the sever administrator.
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.Sql.Inputs
         public ManagedInstanceExternalAdministratorArgs()
         {
         }
-        public static new ManagedInstanceExternalAdministratorArgs Empty => new ManagedInstanceExternalAdministratorArgs();
     }
 }

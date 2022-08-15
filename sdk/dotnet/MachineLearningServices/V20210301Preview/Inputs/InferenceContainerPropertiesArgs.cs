@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
 {
 
-    public sealed class InferenceContainerPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class InferenceContainerPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The route to check the liveness of the inference server container.
@@ -33,6 +33,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public InferenceContainerPropertiesArgs()
         {
         }
-        public static new InferenceContainerPropertiesArgs Empty => new InferenceContainerPropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515
     /// An event source that receives its data from an Azure IoTHub.
     /// </summary>
     [AzureNativeResourceType("azure-native:timeseriesinsights/v20200515:IoTHubEventSource")]
-    public partial class IoTHubEventSource : global::Pulumi.CustomResource
+    public partial class IoTHubEventSource : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the iot hub's consumer group that holds the partitions from which events will be read.
@@ -132,12 +132,12 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights:IoTHubEventSource"},
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:IoTHubEventSource"},
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:IoTHubEventSource"},
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20180815preview:IoTHubEventSource"},
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:IoTHubEventSource"},
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:IoTHubEventSource"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights:IoTHubEventSource"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:IoTHubEventSource"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:IoTHubEventSource"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20180815preview:IoTHubEventSource"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:IoTHubEventSource"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:IoTHubEventSource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -159,7 +159,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515
         }
     }
 
-    public sealed class IoTHubEventSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class IoTHubEventSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the iot hub's consumer group that holds the partitions from which events will be read.
@@ -261,6 +261,5 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515
         public IoTHubEventSourceArgs()
         {
         }
-        public static new IoTHubEventSourceArgs Empty => new IoTHubEventSourceArgs();
     }
 }

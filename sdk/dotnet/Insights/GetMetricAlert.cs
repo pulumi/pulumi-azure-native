@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Insights
     }
 
 
-    public sealed class GetMetricAlertArgs : global::Pulumi.InvokeArgs
+    public sealed class GetMetricAlertArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.Insights
         public GetMetricAlertArgs()
         {
         }
-        public static new GetMetricAlertArgs Empty => new GetMetricAlertArgs();
     }
 
-    public sealed class GetMetricAlertInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetMetricAlertInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.Insights
         public GetMetricAlertInvokeArgs()
         {
         }
-        public static new GetMetricAlertInvokeArgs Empty => new GetMetricAlertInvokeArgs();
     }
 
 

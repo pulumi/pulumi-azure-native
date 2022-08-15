@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.MobileNetwork
     /// API Version: 2022-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork:Slice")]
-    public partial class Slice : global::Pulumi.CustomResource
+    public partial class Slice : Pulumi.CustomResource
     {
         /// <summary>
         /// The timestamp of resource creation (UTC).
@@ -119,9 +119,9 @@ namespace Pulumi.AzureNative.MobileNetwork
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220101preview:Slice"},
-                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220301preview:Slice"},
-                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220401preview:Slice"},
+                    new Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220101preview:Slice"},
+                    new Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220301preview:Slice"},
+                    new Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220401preview:Slice"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -143,7 +143,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         }
     }
 
-    public sealed class SliceArgs : global::Pulumi.ResourceArgs
+    public sealed class SliceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The timestamp of resource creation (UTC).
@@ -232,6 +232,5 @@ namespace Pulumi.AzureNative.MobileNetwork
         public SliceArgs()
         {
         }
-        public static new SliceArgs Empty => new SliceArgs();
     }
 }

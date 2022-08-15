@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     /// </summary>
     [Obsolete(@"Version 2016-10-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storsimple/v20161001:FileShare")]
-    public partial class FileShare : global::Pulumi.CustomResource
+    public partial class FileShare : Pulumi.CustomResource
     {
         /// <summary>
         /// The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\xyz.
@@ -119,7 +119,7 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         }
     }
 
-    public sealed class FileShareArgs : global::Pulumi.ResourceArgs
+    public sealed class FileShareArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\xyz.
@@ -190,6 +190,5 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public FileShareArgs()
         {
         }
-        public static new FileShareArgs Empty => new FileShareArgs();
     }
 }

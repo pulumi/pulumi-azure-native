@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
 {
 
-    public sealed class ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authentication type of the connection target
@@ -46,6 +46,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
         public ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgs()
         {
         }
-        public static new ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgs Empty => new ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgs();
     }
 }

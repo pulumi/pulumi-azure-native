@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The settings that will be leveraged for Sql source partitioning.
     /// </summary>
-    public sealed class SqlPartitionSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class SqlPartitionSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the column in integer or datetime type that will be used for proceeding partitioning. If not specified, the primary key of the table is auto-detected and used as the partition column. Type: string (or Expression with resultType string).
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public SqlPartitionSettingsArgs()
         {
         }
-        public static new SqlPartitionSettingsArgs Empty => new SqlPartitionSettingsArgs();
     }
 }

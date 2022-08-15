@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20211001.Inputs
     /// <summary>
     /// Represents a volume that is populated with the contents of a git repository
     /// </summary>
-    public sealed class GitRepoVolumeArgs : global::Pulumi.ResourceArgs
+    public sealed class GitRepoVolumeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.ContainerInstance.V20211001.Inputs
         public GitRepoVolumeArgs()
         {
         }
-        public static new GitRepoVolumeArgs Empty => new GitRepoVolumeArgs();
     }
 }

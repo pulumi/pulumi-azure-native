@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Web
     }
 
 
-    public sealed class ListAppServicePlanHybridConnectionKeysArgs : global::Pulumi.InvokeArgs
+    public sealed class ListAppServicePlanHybridConnectionKeysArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the App Service plan.
@@ -56,10 +56,9 @@ namespace Pulumi.AzureNative.Web
         public ListAppServicePlanHybridConnectionKeysArgs()
         {
         }
-        public static new ListAppServicePlanHybridConnectionKeysArgs Empty => new ListAppServicePlanHybridConnectionKeysArgs();
     }
 
-    public sealed class ListAppServicePlanHybridConnectionKeysInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListAppServicePlanHybridConnectionKeysInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the App Service plan.
@@ -88,7 +87,6 @@ namespace Pulumi.AzureNative.Web
         public ListAppServicePlanHybridConnectionKeysInvokeArgs()
         {
         }
-        public static new ListAppServicePlanHybridConnectionKeysInvokeArgs Empty => new ListAppServicePlanHybridConnectionKeysInvokeArgs();
     }
 
 

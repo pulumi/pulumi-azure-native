@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20170401.Inputs
     /// <summary>
     /// An Activity Log alert condition that is met by comparing an activity log field and value.
     /// </summary>
-    public sealed class ActivityLogAlertLeafConditionArgs : global::Pulumi.ResourceArgs
+    public sealed class ActivityLogAlertLeafConditionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The field value will be compared to this value (case-insensitive) to determine if the condition is met.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Insights.V20170401.Inputs
         public ActivityLogAlertLeafConditionArgs()
         {
         }
-        public static new ActivityLogAlertLeafConditionArgs Empty => new ActivityLogAlertLeafConditionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// The Amazon S3 settings needed for the interim Amazon S3 when copying from Amazon Redshift with unload. With this, data from Amazon Redshift source will be unloaded into S3 first and then copied into the targeted sink from the interim S3.
     /// </summary>
-    public sealed class RedshiftUnloadSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class RedshiftUnloadSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The bucket of the interim Amazon S3 which will be used to store the unloaded data from Amazon Redshift source. The bucket must be in the same region as the Amazon Redshift source. Type: string (or Expression with resultType string).
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public RedshiftUnloadSettingsArgs()
         {
         }
-        public static new RedshiftUnloadSettingsArgs Empty => new RedshiftUnloadSettingsArgs();
     }
 }

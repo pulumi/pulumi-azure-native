@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301.Inputs
     /// <summary>
     /// API Management service resource SKU properties.
     /// </summary>
-    public sealed class ApiManagementServiceSkuPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ApiManagementServiceSkuPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Capacity of the SKU (number of deployed units of the SKU). The default value is 1.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301.Inputs
         {
             Capacity = 1;
         }
-        public static new ApiManagementServiceSkuPropertiesArgs Empty => new ApiManagementServiceSkuPropertiesArgs();
     }
 }

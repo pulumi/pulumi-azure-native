@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
     /// <summary>
     /// Describes an output column for the Azure Machine Learning web service endpoint.
     /// </summary>
-    public sealed class AzureMachineLearningServiceOutputColumnArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureMachineLearningServiceOutputColumnArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The (Azure Machine Learning supported) data type of the output column.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
         public AzureMachineLearningServiceOutputColumnArgs()
         {
         }
-        public static new AzureMachineLearningServiceOutputColumnArgs Empty => new AzureMachineLearningServiceOutputColumnArgs();
     }
 }

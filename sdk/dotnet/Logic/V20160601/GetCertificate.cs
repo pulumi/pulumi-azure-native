@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Logic.V20160601
     }
 
 
-    public sealed class GetCertificateArgs : global::Pulumi.InvokeArgs
+    public sealed class GetCertificateArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The integration account certificate name.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Logic.V20160601
         public GetCertificateArgs()
         {
         }
-        public static new GetCertificateArgs Empty => new GetCertificateArgs();
     }
 
-    public sealed class GetCertificateInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetCertificateInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The integration account certificate name.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Logic.V20160601
         public GetCertificateInvokeArgs()
         {
         }
-        public static new GetCertificateInvokeArgs Empty => new GetCertificateInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.V20190901
     /// A export resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement/v20190901:Export")]
-    public partial class Export : global::Pulumi.CustomResource
+    public partial class Export : Pulumi.CustomResource
     {
         /// <summary>
         /// Has definition for the export.
@@ -82,14 +82,14 @@ namespace Pulumi.AzureNative.CostManagement.V20190901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement:Export"},
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20190101:Export"},
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20191001:Export"},
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20191101:Export"},
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20200601:Export"},
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20201201preview:Export"},
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20210101:Export"},
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20211001:Export"},
+                    new Pulumi.Alias { Type = "azure-native:costmanagement:Export"},
+                    new Pulumi.Alias { Type = "azure-native:costmanagement/v20190101:Export"},
+                    new Pulumi.Alias { Type = "azure-native:costmanagement/v20191001:Export"},
+                    new Pulumi.Alias { Type = "azure-native:costmanagement/v20191101:Export"},
+                    new Pulumi.Alias { Type = "azure-native:costmanagement/v20200601:Export"},
+                    new Pulumi.Alias { Type = "azure-native:costmanagement/v20201201preview:Export"},
+                    new Pulumi.Alias { Type = "azure-native:costmanagement/v20210101:Export"},
+                    new Pulumi.Alias { Type = "azure-native:costmanagement/v20211001:Export"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNative.CostManagement.V20190901
         }
     }
 
-    public sealed class ExportArgs : global::Pulumi.ResourceArgs
+    public sealed class ExportArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Has definition for the export.
@@ -152,6 +152,5 @@ namespace Pulumi.AzureNative.CostManagement.V20190901
         public ExportArgs()
         {
         }
-        public static new ExportArgs Empty => new ExportArgs();
     }
 }

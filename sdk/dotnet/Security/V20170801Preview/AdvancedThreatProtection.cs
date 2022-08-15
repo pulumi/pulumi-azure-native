@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
     /// The Advanced Threat Protection resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:security/v20170801preview:AdvancedThreatProtection")]
-    public partial class AdvancedThreatProtection : global::Pulumi.CustomResource
+    public partial class AdvancedThreatProtection : Pulumi.CustomResource
     {
         /// <summary>
         /// Indicates whether Advanced Threat Protection is enabled.
@@ -58,8 +58,8 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:security:AdvancedThreatProtection"},
-                    new global::Pulumi.Alias { Type = "azure-native:security/v20190101:AdvancedThreatProtection"},
+                    new Pulumi.Alias { Type = "azure-native:security:AdvancedThreatProtection"},
+                    new Pulumi.Alias { Type = "azure-native:security/v20190101:AdvancedThreatProtection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -81,7 +81,7 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
         }
     }
 
-    public sealed class AdvancedThreatProtectionArgs : global::Pulumi.ResourceArgs
+    public sealed class AdvancedThreatProtectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether Advanced Threat Protection is enabled.
@@ -104,6 +104,5 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
         public AdvancedThreatProtectionArgs()
         {
         }
-        public static new AdvancedThreatProtectionArgs Empty => new AdvancedThreatProtectionArgs();
     }
 }

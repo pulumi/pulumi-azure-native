@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Inputs
     /// <summary>
     /// Input for the task that validates connection to SQL Server and also validates source server requirements
     /// </summary>
-    public sealed class ConnectToSourceSqlServerTaskInputArgs : global::Pulumi.ResourceArgs
+    public sealed class ConnectToSourceSqlServerTaskInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Permission group for validations
@@ -71,6 +71,5 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Inputs
             CollectTdeCertificateInfo = false;
             ValidateSsisCatalogOnly = false;
         }
-        public static new ConnectToSourceSqlServerTaskInputArgs Empty => new ConnectToSourceSqlServerTaskInputArgs();
     }
 }

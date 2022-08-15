@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Dynamics AX linked service.
     /// </summary>
-    public sealed class DynamicsAXLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class DynamicsAXLinkedServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specify the resource you are requesting authorization. Type: string (or Expression with resultType string).
@@ -97,6 +97,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public DynamicsAXLinkedServiceArgs()
         {
         }
-        public static new DynamicsAXLinkedServiceArgs Empty => new DynamicsAXLinkedServiceArgs();
     }
 }

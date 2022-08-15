@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.IoTSecurity
     /// API Version: 2021-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:iotsecurity:OnPremiseSensor")]
-    public partial class OnPremiseSensor : global::Pulumi.CustomResource
+    public partial class OnPremiseSensor : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.IoTSecurity
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:iotsecurity/v20210201preview:OnPremiseSensor"},
+                    new Pulumi.Alias { Type = "azure-native:iotsecurity/v20210201preview:OnPremiseSensor"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -81,7 +81,7 @@ namespace Pulumi.AzureNative.IoTSecurity
         }
     }
 
-    public sealed class OnPremiseSensorArgs : global::Pulumi.ResourceArgs
+    public sealed class OnPremiseSensorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the on-premise IoT sensor
@@ -92,6 +92,5 @@ namespace Pulumi.AzureNative.IoTSecurity
         public OnPremiseSensorArgs()
         {
         }
-        public static new OnPremiseSensorArgs Empty => new OnPremiseSensorArgs();
     }
 }

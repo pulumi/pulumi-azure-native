@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
     /// <summary>
     /// The Private Endpoint network resource that is linked to the Private Endpoint connection
     /// </summary>
-    public sealed class PrivateEndpointArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets id
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public PrivateEndpointArgs()
         {
         }
-        public static new PrivateEndpointArgs Empty => new PrivateEndpointArgs();
     }
 }

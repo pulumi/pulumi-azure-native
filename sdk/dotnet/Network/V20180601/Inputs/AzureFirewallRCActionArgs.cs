@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20180601.Inputs
     /// <summary>
     /// Properties of the AzureFirewallRCAction.
     /// </summary>
-    public sealed class AzureFirewallRCActionArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureFirewallRCActionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of action.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Network.V20180601.Inputs
         public AzureFirewallRCActionArgs()
         {
         }
-        public static new AzureFirewallRCActionArgs Empty => new AzureFirewallRCActionArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Attestation.V20180901Preview.Inputs
 {
 
-    public sealed class JSONWebKeyArgs : global::Pulumi.ResourceArgs
+    public sealed class JSONWebKeyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The "alg" (algorithm) parameter identifies the algorithm intended for
@@ -148,6 +148,5 @@ namespace Pulumi.AzureNative.Attestation.V20180901Preview.Inputs
         public JSONWebKeyArgs()
         {
         }
-        public static new JSONWebKeyArgs Empty => new JSONWebKeyArgs();
     }
 }

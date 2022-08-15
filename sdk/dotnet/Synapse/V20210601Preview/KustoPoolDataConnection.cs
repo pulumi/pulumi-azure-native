@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
     /// </summary>
     [Obsolete(@"Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection.")]
     [AzureNativeResourceType("azure-native:synapse/v20210601preview:KustoPoolDataConnection")]
-    public partial class KustoPoolDataConnection : global::Pulumi.CustomResource
+    public partial class KustoPoolDataConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// Kind of the endpoint for the data connection
@@ -71,8 +71,8 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:synapse:KustoPoolDataConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:KustoPoolDataConnection"},
+                    new Pulumi.Alias { Type = "azure-native:synapse:KustoPoolDataConnection"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:KustoPoolDataConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         }
     }
 
-    public sealed class KustoPoolDataConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class KustoPoolDataConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the data connection.
@@ -141,6 +141,5 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         public KustoPoolDataConnectionArgs()
         {
         }
-        public static new KustoPoolDataConnectionArgs Empty => new KustoPoolDataConnectionArgs();
     }
 }

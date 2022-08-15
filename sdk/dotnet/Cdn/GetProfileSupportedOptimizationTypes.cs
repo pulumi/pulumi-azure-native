@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Cdn
     }
 
 
-    public sealed class GetProfileSupportedOptimizationTypesArgs : global::Pulumi.InvokeArgs
+    public sealed class GetProfileSupportedOptimizationTypesArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the CDN profile which is unique within the resource group.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.Cdn
         public GetProfileSupportedOptimizationTypesArgs()
         {
         }
-        public static new GetProfileSupportedOptimizationTypesArgs Empty => new GetProfileSupportedOptimizationTypesArgs();
     }
 
-    public sealed class GetProfileSupportedOptimizationTypesInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetProfileSupportedOptimizationTypesInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the CDN profile which is unique within the resource group.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.Cdn
         public GetProfileSupportedOptimizationTypesInvokeArgs()
         {
         }
-        public static new GetProfileSupportedOptimizationTypesInvokeArgs Empty => new GetProfileSupportedOptimizationTypesInvokeArgs();
     }
 
 

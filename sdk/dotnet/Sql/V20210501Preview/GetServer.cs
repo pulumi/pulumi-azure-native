@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview
     }
 
 
-    public sealed class GetServerArgs : global::Pulumi.InvokeArgs
+    public sealed class GetServerArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The child resources to include in the response.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview
         public GetServerArgs()
         {
         }
-        public static new GetServerArgs Empty => new GetServerArgs();
     }
 
-    public sealed class GetServerInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetServerInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The child resources to include in the response.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview
         public GetServerInvokeArgs()
         {
         }
-        public static new GetServerInvokeArgs Empty => new GetServerInvokeArgs();
     }
 
 

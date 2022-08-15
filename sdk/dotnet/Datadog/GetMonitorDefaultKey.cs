@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Datadog
     }
 
 
-    public sealed class GetMonitorDefaultKeyArgs : global::Pulumi.InvokeArgs
+    public sealed class GetMonitorDefaultKeyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Monitor resource name
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.Datadog
         public GetMonitorDefaultKeyArgs()
         {
         }
-        public static new GetMonitorDefaultKeyArgs Empty => new GetMonitorDefaultKeyArgs();
     }
 
-    public sealed class GetMonitorDefaultKeyInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetMonitorDefaultKeyInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Monitor resource name
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.Datadog
         public GetMonitorDefaultKeyInvokeArgs()
         {
         }
-        public static new GetMonitorDefaultKeyInvokeArgs Empty => new GetMonitorDefaultKeyInvokeArgs();
     }
 
 

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview
     }
 
 
-    public sealed class GetFileImportArgs : global::Pulumi.InvokeArgs
+    public sealed class GetFileImportArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// File import ID
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview
         public GetFileImportArgs()
         {
         }
-        public static new GetFileImportArgs Empty => new GetFileImportArgs();
     }
 
-    public sealed class GetFileImportInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetFileImportInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// File import ID
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview
         public GetFileImportInvokeArgs()
         {
         }
-        public static new GetFileImportInvokeArgs Empty => new GetFileImportInvokeArgs();
     }
 
 

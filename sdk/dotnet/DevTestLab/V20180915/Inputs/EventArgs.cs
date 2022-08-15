@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915.Inputs
     /// <summary>
     /// An event to be notified for.
     /// </summary>
-    public sealed class EventArgs : global::Pulumi.ResourceArgs
+    public sealed class EventArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The event type for which this notification is enabled (i.e. AutoShutdown, Cost)
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915.Inputs
         public EventArgs()
         {
         }
-        public static new EventArgs Empty => new EventArgs();
     }
 }

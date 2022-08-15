@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.Inputs
     /// <summary>
     /// SSL profile of an application gateway.
     /// </summary>
-    public sealed class ApplicationGatewaySslProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplicationGatewaySslProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Client authentication configuration of the application gateway resource.
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.Network.Inputs
         public ApplicationGatewaySslProfileArgs()
         {
         }
-        public static new ApplicationGatewaySslProfileArgs Empty => new ApplicationGatewaySslProfileArgs();
     }
 }

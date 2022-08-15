@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.Inputs
     /// <summary>
     /// The SSH Key-pair used to authenticate with the VM. The key needs to be at least 2048-bit and in ssh-rsa format. &lt;br&gt;&lt;br&gt; For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
     /// </summary>
-    public sealed class SshKeyPairArgs : global::Pulumi.ResourceArgs
+    public sealed class SshKeyPairArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// SSH private key.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Workloads.Inputs
         public SshKeyPairArgs()
         {
         }
-        public static new SshKeyPairArgs Empty => new SshKeyPairArgs();
     }
 }

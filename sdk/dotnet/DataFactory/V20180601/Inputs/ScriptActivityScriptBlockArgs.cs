@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Script block of scripts.
     /// </summary>
-    public sealed class ScriptActivityScriptBlockArgs : global::Pulumi.ResourceArgs
+    public sealed class ScriptActivityScriptBlockArgs : Pulumi.ResourceArgs
     {
         [Input("parameters")]
         private InputList<Inputs.ScriptActivityParameterArgs>? _parameters;
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public ScriptActivityScriptBlockArgs()
         {
         }
-        public static new ScriptActivityScriptBlockArgs Empty => new ScriptActivityScriptBlockArgs();
     }
 }

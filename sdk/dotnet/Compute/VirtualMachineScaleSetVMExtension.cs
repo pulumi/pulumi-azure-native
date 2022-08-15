@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Compute
     /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:VirtualMachineScaleSetVMExtension")]
-    public partial class VirtualMachineScaleSetVMExtension : global::Pulumi.CustomResource
+    public partial class VirtualMachineScaleSetVMExtension : Pulumi.CustomResource
     {
         /// <summary>
         /// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
@@ -107,15 +107,15 @@ namespace Pulumi.AzureNative.Compute
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190701:VirtualMachineScaleSetVMExtension"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20191201:VirtualMachineScaleSetVMExtension"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200601:VirtualMachineScaleSetVMExtension"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20201201:VirtualMachineScaleSetVMExtension"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210301:VirtualMachineScaleSetVMExtension"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:VirtualMachineScaleSetVMExtension"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:VirtualMachineScaleSetVMExtension"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211101:VirtualMachineScaleSetVMExtension"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220301:VirtualMachineScaleSetVMExtension"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:VirtualMachineScaleSetVMExtension"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20191201:VirtualMachineScaleSetVMExtension"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20200601:VirtualMachineScaleSetVMExtension"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20201201:VirtualMachineScaleSetVMExtension"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20210301:VirtualMachineScaleSetVMExtension"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20210401:VirtualMachineScaleSetVMExtension"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20210701:VirtualMachineScaleSetVMExtension"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20211101:VirtualMachineScaleSetVMExtension"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20220301:VirtualMachineScaleSetVMExtension"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -137,7 +137,7 @@ namespace Pulumi.AzureNative.Compute
         }
     }
 
-    public sealed class VirtualMachineScaleSetVMExtensionArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualMachineScaleSetVMExtensionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
@@ -220,6 +220,5 @@ namespace Pulumi.AzureNative.Compute
         public VirtualMachineScaleSetVMExtensionArgs()
         {
         }
-        public static new VirtualMachineScaleSetVMExtensionArgs Empty => new VirtualMachineScaleSetVMExtensionArgs();
     }
 }

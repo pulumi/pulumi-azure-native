@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ApiManagement
     }
 
 
-    public sealed class GetDiagnosticArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDiagnosticArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Diagnostic identifier. Must be unique in the current API Management service instance.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.ApiManagement
         public GetDiagnosticArgs()
         {
         }
-        public static new GetDiagnosticArgs Empty => new GetDiagnosticArgs();
     }
 
-    public sealed class GetDiagnosticInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDiagnosticInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Diagnostic identifier. Must be unique in the current API Management service instance.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.ApiManagement
         public GetDiagnosticInvokeArgs()
         {
         }
-        public static new GetDiagnosticInvokeArgs Empty => new GetDiagnosticInvokeArgs();
     }
 
 

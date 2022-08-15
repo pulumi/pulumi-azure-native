@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20180201.Inputs
     /// <summary>
     /// Managed service identity.
     /// </summary>
-    public sealed class ManagedServiceIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedServiceIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of managed service identity.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Web.V20180201.Inputs
         public ManagedServiceIdentityArgs()
         {
         }
-        public static new ManagedServiceIdentityArgs Empty => new ManagedServiceIdentityArgs();
     }
 }

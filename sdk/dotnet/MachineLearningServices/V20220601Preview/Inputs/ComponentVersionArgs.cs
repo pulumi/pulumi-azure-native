@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// Definition of a component version: defines resources that span component types.
     /// </summary>
-    public sealed class ComponentVersionArgs : global::Pulumi.ResourceArgs
+    public sealed class ComponentVersionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Defines Component definition details.
@@ -69,6 +69,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
             IsAnonymous = false;
             IsArchived = false;
         }
-        public static new ComponentVersionArgs Empty => new ComponentVersionArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.Inputs
 {
 
-    public sealed class DataMaskingEntityArgs : global::Pulumi.ResourceArgs
+    public sealed class DataMaskingEntityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Data masking mode.
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.ApiManagement.Inputs
         public DataMaskingEntityArgs()
         {
         }
-        public static new DataMaskingEntityArgs Empty => new DataMaskingEntityArgs();
     }
 }

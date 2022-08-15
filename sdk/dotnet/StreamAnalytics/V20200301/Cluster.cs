@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301
     /// A Stream Analytics Cluster object
     /// </summary>
     [AzureNativeResourceType("azure-native:streamanalytics/v20200301:Cluster")]
-    public partial class Cluster : global::Pulumi.CustomResource
+    public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>
         /// Represents the number of streaming units currently being used on the cluster.
@@ -106,8 +106,8 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics:Cluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301preview:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301preview:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -129,7 +129,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301
         }
     }
 
-    public sealed class ClusterArgs : global::Pulumi.ResourceArgs
+    public sealed class ClusterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the cluster.
@@ -170,6 +170,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301
         public ClusterArgs()
         {
         }
-        public static new ClusterArgs Empty => new ClusterArgs();
     }
 }

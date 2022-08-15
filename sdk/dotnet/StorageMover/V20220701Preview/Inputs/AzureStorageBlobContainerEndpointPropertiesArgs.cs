@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageMover.V20220701Preview.Inputs
 {
 
-    public sealed class AzureStorageBlobContainerEndpointPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureStorageBlobContainerEndpointPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Storage blob container that is the target destination.
@@ -40,6 +40,5 @@ namespace Pulumi.AzureNative.StorageMover.V20220701Preview.Inputs
         public AzureStorageBlobContainerEndpointPropertiesArgs()
         {
         }
-        public static new AzureStorageBlobContainerEndpointPropertiesArgs Empty => new AzureStorageBlobContainerEndpointPropertiesArgs();
     }
 }

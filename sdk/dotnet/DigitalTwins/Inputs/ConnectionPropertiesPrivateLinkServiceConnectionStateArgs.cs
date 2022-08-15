@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DigitalTwins.Inputs
 {
 
-    public sealed class ConnectionPropertiesPrivateLinkServiceConnectionStateArgs : global::Pulumi.ResourceArgs
+    public sealed class ConnectionPropertiesPrivateLinkServiceConnectionStateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Actions required for a private endpoint connection.
@@ -33,6 +33,5 @@ namespace Pulumi.AzureNative.DigitalTwins.Inputs
         public ConnectionPropertiesPrivateLinkServiceConnectionStateArgs()
         {
         }
-        public static new ConnectionPropertiesPrivateLinkServiceConnectionStateArgs Empty => new ConnectionPropertiesPrivateLinkServiceConnectionStateArgs();
     }
 }

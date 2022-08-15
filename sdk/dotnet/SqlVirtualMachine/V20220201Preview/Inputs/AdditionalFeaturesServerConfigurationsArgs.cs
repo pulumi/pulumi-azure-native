@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20220201Preview.Inputs
     /// <summary>
     /// Additional SQL Server feature settings.
     /// </summary>
-    public sealed class AdditionalFeaturesServerConfigurationsArgs : global::Pulumi.ResourceArgs
+    public sealed class AdditionalFeaturesServerConfigurationsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable or disable R services (SQL 2016 onwards).
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20220201Preview.Inputs
         public AdditionalFeaturesServerConfigurationsArgs()
         {
         }
-        public static new AdditionalFeaturesServerConfigurationsArgs Empty => new AdditionalFeaturesServerConfigurationsArgs();
     }
 }

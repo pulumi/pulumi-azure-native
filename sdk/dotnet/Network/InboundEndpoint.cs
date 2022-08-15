@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network
     /// API Version: 2020-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:InboundEndpoint")]
-    public partial class InboundEndpoint : global::Pulumi.CustomResource
+    public partial class InboundEndpoint : Pulumi.CustomResource
     {
         /// <summary>
         /// ETag of the inbound endpoint.
@@ -95,8 +95,8 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401preview:InboundEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220701:InboundEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401preview:InboundEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220701:InboundEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.Network
         }
     }
 
-    public sealed class InboundEndpointArgs : global::Pulumi.ResourceArgs
+    public sealed class InboundEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the DNS resolver.
@@ -171,6 +171,5 @@ namespace Pulumi.AzureNative.Network
         public InboundEndpointArgs()
         {
         }
-        public static new InboundEndpointArgs Empty => new InboundEndpointArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBox.V20210501.Inputs
     /// <summary>
     /// Filter details to transfer Azure Blobs
     /// </summary>
-    public sealed class BlobFilterDetailsArgs : global::Pulumi.ResourceArgs
+    public sealed class BlobFilterDetailsArgs : Pulumi.ResourceArgs
     {
         [Input("blobPathList")]
         private InputList<string>? _blobPathList;
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.DataBox.V20210501.Inputs
         public BlobFilterDetailsArgs()
         {
         }
-        public static new BlobFilterDetailsArgs Empty => new BlobFilterDetailsArgs();
     }
 }

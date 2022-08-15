@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515
     /// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen2 environments do not have set data retention limits.
     /// </summary>
     [AzureNativeResourceType("azure-native:timeseriesinsights/v20200515:Gen2Environment")]
-    public partial class Gen2Environment : global::Pulumi.CustomResource
+    public partial class Gen2Environment : Pulumi.CustomResource
     {
         /// <summary>
         /// The time the resource was created.
@@ -132,12 +132,12 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights:Gen2Environment"},
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:Gen2Environment"},
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:Gen2Environment"},
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20180815preview:Gen2Environment"},
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:Gen2Environment"},
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:Gen2Environment"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights:Gen2Environment"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:Gen2Environment"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:Gen2Environment"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20180815preview:Gen2Environment"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:Gen2Environment"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:Gen2Environment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -159,7 +159,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515
         }
     }
 
-    public sealed class Gen2EnvironmentArgs : global::Pulumi.ResourceArgs
+    public sealed class Gen2EnvironmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the environment
@@ -231,6 +231,5 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515
         public Gen2EnvironmentArgs()
         {
         }
-        public static new Gen2EnvironmentArgs Empty => new Gen2EnvironmentArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Blockchain.V20180601Preview
     /// Payload of the transaction node which is the request/response of the resource provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:blockchain/v20180601preview:TransactionNode")]
-    public partial class TransactionNode : global::Pulumi.CustomResource
+    public partial class TransactionNode : Pulumi.CustomResource
     {
         /// <summary>
         /// Gets or sets the transaction node dns endpoint.
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.Blockchain.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:blockchain:TransactionNode"},
+                    new Pulumi.Alias { Type = "azure-native:blockchain:TransactionNode"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.Blockchain.V20180601Preview
         }
     }
 
-    public sealed class TransactionNodeArgs : global::Pulumi.ResourceArgs
+    public sealed class TransactionNodeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Blockchain member name.
@@ -163,6 +163,5 @@ namespace Pulumi.AzureNative.Blockchain.V20180601Preview
         public TransactionNodeArgs()
         {
         }
-        public static new TransactionNodeArgs Empty => new TransactionNodeArgs();
     }
 }

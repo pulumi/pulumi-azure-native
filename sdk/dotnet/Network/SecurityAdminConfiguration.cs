@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network
     /// API Version: 2021-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:SecurityAdminConfiguration")]
-    public partial class SecurityAdminConfiguration : global::Pulumi.CustomResource
+    public partial class SecurityAdminConfiguration : Pulumi.CustomResource
     {
         /// <summary>
         /// Flag if need to delete existing network security groups.
@@ -95,11 +95,11 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:SecurityAdminConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:SecurityAdminConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:SecurityAdminConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:SecurityAdminConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:SecurityAdminConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201preview:SecurityAdminConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501preview:SecurityAdminConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:SecurityAdminConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220201preview:SecurityAdminConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220401preview:SecurityAdminConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -121,7 +121,7 @@ namespace Pulumi.AzureNative.Network
         }
     }
 
-    public sealed class SecurityAdminConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class SecurityAdminConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the network manager security Configuration.
@@ -168,6 +168,5 @@ namespace Pulumi.AzureNative.Network
         public SecurityAdminConfigurationArgs()
         {
         }
-        public static new SecurityAdminConfigurationArgs Empty => new SecurityAdminConfigurationArgs();
     }
 }

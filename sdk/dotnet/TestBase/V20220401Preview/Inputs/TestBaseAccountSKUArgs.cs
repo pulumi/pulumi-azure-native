@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.TestBase.V20220401Preview.Inputs
     /// <summary>
     /// Describes a Test Base Account SKU.
     /// </summary>
-    public sealed class TestBaseAccountSKUArgs : global::Pulumi.ResourceArgs
+    public sealed class TestBaseAccountSKUArgs : Pulumi.ResourceArgs
     {
         [Input("locations")]
         private InputList<string>? _locations;
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.TestBase.V20220401Preview.Inputs
         public TestBaseAccountSKUArgs()
         {
         }
-        public static new TestBaseAccountSKUArgs Empty => new TestBaseAccountSKUArgs();
     }
 }

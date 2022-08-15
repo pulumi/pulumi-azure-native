@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20210601Preview
 {
     [AzureNativeResourceType("azure-native:providerhub/v20210601preview:ProviderRegistration")]
-    public partial class ProviderRegistration : global::Pulumi.CustomResource
+    public partial class ProviderRegistration : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -58,10 +58,10 @@ namespace Pulumi.AzureNative.ProviderHub.V20210601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:providerhub:ProviderRegistration"},
-                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20201120:ProviderRegistration"},
-                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210501preview:ProviderRegistration"},
-                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210901preview:ProviderRegistration"},
+                    new Pulumi.Alias { Type = "azure-native:providerhub:ProviderRegistration"},
+                    new Pulumi.Alias { Type = "azure-native:providerhub/v20201120:ProviderRegistration"},
+                    new Pulumi.Alias { Type = "azure-native:providerhub/v20210501preview:ProviderRegistration"},
+                    new Pulumi.Alias { Type = "azure-native:providerhub/v20210901preview:ProviderRegistration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.ProviderHub.V20210601Preview
         }
     }
 
-    public sealed class ProviderRegistrationArgs : global::Pulumi.ResourceArgs
+    public sealed class ProviderRegistrationArgs : Pulumi.ResourceArgs
     {
         [Input("properties")]
         public Input<Inputs.ProviderRegistrationPropertiesArgs>? Properties { get; set; }
@@ -97,6 +97,5 @@ namespace Pulumi.AzureNative.ProviderHub.V20210601Preview
         public ProviderRegistrationArgs()
         {
         }
-        public static new ProviderRegistrationArgs Empty => new ProviderRegistrationArgs();
     }
 }

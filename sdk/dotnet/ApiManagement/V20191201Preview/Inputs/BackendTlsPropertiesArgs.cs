@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview.Inputs
     /// <summary>
     /// Properties controlling TLS Certificate Validation.
     /// </summary>
-    public sealed class BackendTlsPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class BackendTlsPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for this backend host.
@@ -32,6 +32,5 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview.Inputs
             ValidateCertificateChain = true;
             ValidateCertificateName = true;
         }
-        public static new BackendTlsPropertiesArgs Empty => new BackendTlsPropertiesArgs();
     }
 }

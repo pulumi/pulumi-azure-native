@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20170228Preview
     /// </summary>
     [Obsolete(@"Version 2017-02-28-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:timeseriesinsights/v20170228preview:EventSource")]
-    public partial class EventSource : global::Pulumi.CustomResource
+    public partial class EventSource : Pulumi.CustomResource
     {
         /// <summary>
         /// The kind of the event source.
@@ -71,12 +71,12 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20170228Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights:EventSource"},
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:EventSource"},
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20180815preview:EventSource"},
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:EventSource"},
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:EventSource"},
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:EventSource"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights:EventSource"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:EventSource"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20180815preview:EventSource"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:EventSource"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:EventSource"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:EventSource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20170228Preview
         }
     }
 
-    public sealed class EventSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class EventSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Time Series Insights environment associated with the specified resource group.
@@ -145,6 +145,5 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20170228Preview
         public EventSourceArgs()
         {
         }
-        public static new EventSourceArgs Empty => new EventSourceArgs();
     }
 }

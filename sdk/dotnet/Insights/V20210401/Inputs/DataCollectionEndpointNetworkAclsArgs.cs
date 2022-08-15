@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20210401.Inputs
     /// <summary>
     /// Network access control rules for the endpoints.
     /// </summary>
-    public sealed class DataCollectionEndpointNetworkAclsArgs : global::Pulumi.ResourceArgs
+    public sealed class DataCollectionEndpointNetworkAclsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The configuration to set whether network access from public internet to the endpoints are allowed.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Insights.V20210401.Inputs
         public DataCollectionEndpointNetworkAclsArgs()
         {
         }
-        public static new DataCollectionEndpointNetworkAclsArgs Empty => new DataCollectionEndpointNetworkAclsArgs();
     }
 }

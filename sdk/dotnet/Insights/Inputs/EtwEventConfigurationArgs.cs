@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.Inputs
 {
 
-    public sealed class EtwEventConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class EtwEventConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("filter")]
         public Input<string>? Filter { get; set; }
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Insights.Inputs
         public EtwEventConfigurationArgs()
         {
         }
-        public static new EtwEventConfigurationArgs Empty => new EtwEventConfigurationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Staging info for execute data flow activity.
     /// </summary>
-    public sealed class DataFlowStagingInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class DataFlowStagingInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Folder path for staging blob. Type: string (or Expression with resultType string)
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public DataFlowStagingInfoArgs()
         {
         }
-        public static new DataFlowStagingInfoArgs Empty => new DataFlowStagingInfoArgs();
     }
 }

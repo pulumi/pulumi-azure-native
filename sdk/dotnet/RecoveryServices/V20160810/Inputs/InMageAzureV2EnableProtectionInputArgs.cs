@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160810.Inputs
     /// <summary>
     /// VMware Azure specific enable protection input.
     /// </summary>
-    public sealed class InMageAzureV2EnableProtectionInputArgs : global::Pulumi.ResourceArgs
+    public sealed class InMageAzureV2EnableProtectionInputArgs : Pulumi.ResourceArgs
     {
         [Input("disksToInclude")]
         private InputList<string>? _disksToInclude;
@@ -121,6 +121,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160810.Inputs
         public InMageAzureV2EnableProtectionInputArgs()
         {
         }
-        public static new InMageAzureV2EnableProtectionInputArgs Empty => new InMageAzureV2EnableProtectionInputArgs();
     }
 }

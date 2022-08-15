@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
     }
 
 
-    public sealed class GetStorageInsightConfigArgs : global::Pulumi.InvokeArgs
+    public sealed class GetStorageInsightConfigArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
         public GetStorageInsightConfigArgs()
         {
         }
-        public static new GetStorageInsightConfigArgs Empty => new GetStorageInsightConfigArgs();
     }
 
-    public sealed class GetStorageInsightConfigInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetStorageInsightConfigInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
         public GetStorageInsightConfigInvokeArgs()
         {
         }
-        public static new GetStorageInsightConfigInvokeArgs Empty => new GetStorageInsightConfigInvokeArgs();
     }
 
 

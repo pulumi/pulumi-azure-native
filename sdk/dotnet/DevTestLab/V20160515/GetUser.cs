@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
     }
 
 
-    public sealed class GetUserArgs : global::Pulumi.InvokeArgs
+    public sealed class GetUserArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specify the $expand query. Example: 'properties($select=identity)'
@@ -55,10 +55,9 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         public GetUserArgs()
         {
         }
-        public static new GetUserArgs Empty => new GetUserArgs();
     }
 
-    public sealed class GetUserInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetUserInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specify the $expand query. Example: 'properties($select=identity)'
@@ -87,7 +86,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         public GetUserInvokeArgs()
         {
         }
-        public static new GetUserInvokeArgs Empty => new GetUserInvokeArgs();
     }
 
 

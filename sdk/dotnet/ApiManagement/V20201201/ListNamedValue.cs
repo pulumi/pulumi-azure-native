@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
     }
 
 
-    public sealed class ListNamedValueArgs : global::Pulumi.InvokeArgs
+    public sealed class ListNamedValueArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Identifier of the NamedValue.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
         public ListNamedValueArgs()
         {
         }
-        public static new ListNamedValueArgs Empty => new ListNamedValueArgs();
     }
 
-    public sealed class ListNamedValueInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListNamedValueInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Identifier of the NamedValue.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
         public ListNamedValueInvokeArgs()
         {
         }
-        public static new ListNamedValueInvokeArgs Empty => new ListNamedValueInvokeArgs();
     }
 
 

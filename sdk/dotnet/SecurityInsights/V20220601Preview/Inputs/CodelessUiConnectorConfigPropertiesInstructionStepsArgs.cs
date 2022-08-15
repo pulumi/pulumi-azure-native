@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview.Inputs
 {
 
-    public sealed class CodelessUiConnectorConfigPropertiesInstructionStepsArgs : global::Pulumi.ResourceArgs
+    public sealed class CodelessUiConnectorConfigPropertiesInstructionStepsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Instruction step description
@@ -39,6 +39,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview.Inputs
         public CodelessUiConnectorConfigPropertiesInstructionStepsArgs()
         {
         }
-        public static new CodelessUiConnectorConfigPropertiesInstructionStepsArgs Empty => new CodelessUiConnectorConfigPropertiesInstructionStepsArgs();
     }
 }

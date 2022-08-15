@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20210901.Inputs
     /// <summary>
     /// The port exposed on the container instance.
     /// </summary>
-    public sealed class ContainerPortArgs : global::Pulumi.ResourceArgs
+    public sealed class ContainerPortArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The port number exposed within the container group.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ContainerInstance.V20210901.Inputs
         public ContainerPortArgs()
         {
         }
-        public static new ContainerPortArgs Empty => new ContainerPortArgs();
     }
 }

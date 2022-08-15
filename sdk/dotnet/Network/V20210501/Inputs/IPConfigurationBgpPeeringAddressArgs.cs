@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210501.Inputs
     /// <summary>
     /// Properties of IPConfigurationBgpPeeringAddress.
     /// </summary>
-    public sealed class IPConfigurationBgpPeeringAddressArgs : global::Pulumi.ResourceArgs
+    public sealed class IPConfigurationBgpPeeringAddressArgs : Pulumi.ResourceArgs
     {
         [Input("customBgpIpAddresses")]
         private InputList<string>? _customBgpIpAddresses;
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Network.V20210501.Inputs
         public IPConfigurationBgpPeeringAddressArgs()
         {
         }
-        public static new IPConfigurationBgpPeeringAddressArgs Empty => new IPConfigurationBgpPeeringAddressArgs();
     }
 }

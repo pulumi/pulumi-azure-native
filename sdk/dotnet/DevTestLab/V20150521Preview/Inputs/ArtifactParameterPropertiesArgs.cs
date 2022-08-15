@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview.Inputs
     /// <summary>
     /// Properties of an artifact parameter.
     /// </summary>
-    public sealed class ArtifactParameterPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ArtifactParameterPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the artifact parameter.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview.Inputs
         public ArtifactParameterPropertiesArgs()
         {
         }
-        public static new ArtifactParameterPropertiesArgs Empty => new ArtifactParameterPropertiesArgs();
     }
 }

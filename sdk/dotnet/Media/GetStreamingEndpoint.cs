@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Media
     }
 
 
-    public sealed class GetStreamingEndpointArgs : global::Pulumi.InvokeArgs
+    public sealed class GetStreamingEndpointArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Media
         public GetStreamingEndpointArgs()
         {
         }
-        public static new GetStreamingEndpointArgs Empty => new GetStreamingEndpointArgs();
     }
 
-    public sealed class GetStreamingEndpointInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetStreamingEndpointInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Media
         public GetStreamingEndpointInvokeArgs()
         {
         }
-        public static new GetStreamingEndpointInvokeArgs Empty => new GetStreamingEndpointInvokeArgs();
     }
 
 

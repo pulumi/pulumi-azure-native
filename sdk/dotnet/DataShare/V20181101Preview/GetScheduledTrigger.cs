@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
     }
 
 
-    public sealed class GetScheduledTriggerArgs : global::Pulumi.InvokeArgs
+    public sealed class GetScheduledTriggerArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
         public GetScheduledTriggerArgs()
         {
         }
-        public static new GetScheduledTriggerArgs Empty => new GetScheduledTriggerArgs();
     }
 
-    public sealed class GetScheduledTriggerInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetScheduledTriggerInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
         public GetScheduledTriggerInvokeArgs()
         {
         }
-        public static new GetScheduledTriggerInvokeArgs Empty => new GetScheduledTriggerInvokeArgs();
     }
 
 

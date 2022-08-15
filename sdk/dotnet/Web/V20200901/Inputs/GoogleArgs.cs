@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20200901.Inputs
 {
 
-    public sealed class GoogleArgs : global::Pulumi.ResourceArgs
+    public sealed class GoogleArgs : Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -33,6 +33,5 @@ namespace Pulumi.AzureNative.Web.V20200901.Inputs
         public GoogleArgs()
         {
         }
-        public static new GoogleArgs Empty => new GoogleArgs();
     }
 }

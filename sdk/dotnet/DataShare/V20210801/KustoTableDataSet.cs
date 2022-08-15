@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataShare.V20210801
     /// A kusto table data set.
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare/v20210801:KustoTableDataSet")]
-    public partial class KustoTableDataSet : global::Pulumi.CustomResource
+    public partial class KustoTableDataSet : Pulumi.CustomResource
     {
         /// <summary>
         /// Unique id for identifying a data set resource
@@ -102,11 +102,11 @@ namespace Pulumi.AzureNative.DataShare.V20210801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datashare:KustoTableDataSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:KustoTableDataSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:KustoTableDataSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:KustoTableDataSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:KustoTableDataSet"},
+                    new Pulumi.Alias { Type = "azure-native:datashare:KustoTableDataSet"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:KustoTableDataSet"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:KustoTableDataSet"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20200901:KustoTableDataSet"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:KustoTableDataSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNative.DataShare.V20210801
         }
     }
 
-    public sealed class KustoTableDataSetArgs : global::Pulumi.ResourceArgs
+    public sealed class KustoTableDataSetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -176,6 +176,5 @@ namespace Pulumi.AzureNative.DataShare.V20210801
         public KustoTableDataSetArgs()
         {
         }
-        public static new KustoTableDataSetArgs Empty => new KustoTableDataSetArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20211101.Inputs
     /// <summary>
     /// Specifies the live event type and optional encoding settings for encoding live events.
     /// </summary>
-    public sealed class LiveEventEncodingArgs : global::Pulumi.ResourceArgs
+    public sealed class LiveEventEncodingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Live event type. When encodingType is set to PassthroughBasic or PassthroughStandard, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Media.V20211101.Inputs
         public LiveEventEncodingArgs()
         {
         }
-        public static new LiveEventEncodingArgs Empty => new LiveEventEncodingArgs();
     }
 }

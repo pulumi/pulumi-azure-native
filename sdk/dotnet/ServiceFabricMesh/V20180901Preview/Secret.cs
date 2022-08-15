@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
     /// This type describes a secret resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabricmesh/v20180901preview:Secret")]
-    public partial class Secret : global::Pulumi.CustomResource
+    public partial class Secret : Pulumi.CustomResource
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabricmesh:Secret"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabricmesh:Secret"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
         }
     }
 
-    public sealed class SecretArgs : global::Pulumi.ResourceArgs
+    public sealed class SecretArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -133,6 +133,5 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
         public SecretArgs()
         {
         }
-        public static new SecretArgs Empty => new SecretArgs();
     }
 }

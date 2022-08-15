@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity Azure MySQL source.
     /// </summary>
-    public sealed class AzureMySqlSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureMySqlSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -67,6 +67,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public AzureMySqlSourceArgs()
         {
         }
-        public static new AzureMySqlSourceArgs Empty => new AzureMySqlSourceArgs();
     }
 }

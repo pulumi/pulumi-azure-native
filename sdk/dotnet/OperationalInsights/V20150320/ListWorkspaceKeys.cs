@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20150320
     }
 
 
-    public sealed class ListWorkspaceKeysArgs : global::Pulumi.InvokeArgs
+    public sealed class ListWorkspaceKeysArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Resource Group name.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.OperationalInsights.V20150320
         public ListWorkspaceKeysArgs()
         {
         }
-        public static new ListWorkspaceKeysArgs Empty => new ListWorkspaceKeysArgs();
     }
 
-    public sealed class ListWorkspaceKeysInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListWorkspaceKeysInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Resource Group name.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.OperationalInsights.V20150320
         public ListWorkspaceKeysInvokeArgs()
         {
         }
-        public static new ListWorkspaceKeysInvokeArgs Empty => new ListWorkspaceKeysInvokeArgs();
     }
 
 

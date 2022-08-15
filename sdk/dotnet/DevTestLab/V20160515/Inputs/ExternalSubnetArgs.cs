@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
     /// <summary>
     /// Subnet information as returned by the Microsoft.Network API.
     /// </summary>
-    public sealed class ExternalSubnetArgs : global::Pulumi.ResourceArgs
+    public sealed class ExternalSubnetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
         public ExternalSubnetArgs()
         {
         }
-        public static new ExternalSubnetArgs Empty => new ExternalSubnetArgs();
     }
 }

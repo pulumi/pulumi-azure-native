@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20160401.Inputs
     /// <summary>
     /// A CNAME record.
     /// </summary>
-    public sealed class CnameRecordArgs : global::Pulumi.ResourceArgs
+    public sealed class CnameRecordArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The canonical name for this CNAME record.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Network.V20160401.Inputs
         public CnameRecordArgs()
         {
         }
-        public static new CnameRecordArgs Empty => new CnameRecordArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
     /// The volume container.
     /// </summary>
     [AzureNativeResourceType("azure-native:storsimple/v20170601:VolumeContainer")]
-    public partial class VolumeContainer : global::Pulumi.CustomResource
+    public partial class VolumeContainer : Pulumi.CustomResource
     {
         /// <summary>
         /// The bandwidth-rate set on the volume container.
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:storsimple:VolumeContainer"},
+                    new Pulumi.Alias { Type = "azure-native:storsimple:VolumeContainer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         }
     }
 
-    public sealed class VolumeContainerArgs : global::Pulumi.ResourceArgs
+    public sealed class VolumeContainerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The bandwidth-rate set on the volume container.
@@ -187,6 +187,5 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         public VolumeContainerArgs()
         {
         }
-        public static new VolumeContainerArgs Empty => new VolumeContainerArgs();
     }
 }

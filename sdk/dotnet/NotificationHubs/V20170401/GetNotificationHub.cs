@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.NotificationHubs.V20170401
     }
 
 
-    public sealed class GetNotificationHubArgs : global::Pulumi.InvokeArgs
+    public sealed class GetNotificationHubArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The namespace name.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.NotificationHubs.V20170401
         public GetNotificationHubArgs()
         {
         }
-        public static new GetNotificationHubArgs Empty => new GetNotificationHubArgs();
     }
 
-    public sealed class GetNotificationHubInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetNotificationHubInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The namespace name.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.NotificationHubs.V20170401
         public GetNotificationHubInvokeArgs()
         {
         }
-        public static new GetNotificationHubInvokeArgs Empty => new GetNotificationHubInvokeArgs();
     }
 
 

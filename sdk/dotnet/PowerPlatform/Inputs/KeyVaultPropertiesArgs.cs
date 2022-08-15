@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.PowerPlatform.Inputs
     /// <summary>
     /// Settings concerning key vault encryption for a configuration store.
     /// </summary>
-    public sealed class KeyVaultPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class KeyVaultPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Uri of KeyVault
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.PowerPlatform.Inputs
         public KeyVaultPropertiesArgs()
         {
         }
-        public static new KeyVaultPropertiesArgs Empty => new KeyVaultPropertiesArgs();
     }
 }

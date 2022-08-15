@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
     /// Represents ASC (Azure Security Center) data connector.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20190101preview:ASCDataConnector")]
-    public partial class ASCDataConnector : global::Pulumi.CustomResource
+    public partial class ASCDataConnector : Pulumi.CustomResource
     {
         /// <summary>
         /// The available data types for the connector.
@@ -84,18 +84,18 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:ASCDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:ASCDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:ASCDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:ASCDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:ASCDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:ASCDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:ASCDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:ASCDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:ASCDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:ASCDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:ASCDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:ASCDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights:ASCDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:ASCDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:ASCDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:ASCDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:ASCDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:ASCDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:ASCDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:ASCDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:ASCDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:ASCDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:ASCDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:ASCDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         }
     }
 
-    public sealed class ASCDataConnectorArgs : global::Pulumi.ResourceArgs
+    public sealed class ASCDataConnectorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Connector ID
@@ -165,6 +165,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         public ASCDataConnectorArgs()
         {
         }
-        public static new ASCDataConnectorArgs Empty => new ASCDataConnectorArgs();
     }
 }

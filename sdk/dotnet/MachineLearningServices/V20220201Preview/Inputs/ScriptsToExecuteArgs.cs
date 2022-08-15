@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// Customized setup scripts
     /// </summary>
-    public sealed class ScriptsToExecuteArgs : global::Pulumi.ResourceArgs
+    public sealed class ScriptsToExecuteArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Script that's run only once during provision of the compute.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         public ScriptsToExecuteArgs()
         {
         }
-        public static new ScriptsToExecuteArgs Empty => new ScriptsToExecuteArgs();
     }
 }

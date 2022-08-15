@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Solutions
     }
 
 
-    public sealed class GetApplicationDefinitionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetApplicationDefinitionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the managed application definition.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.Solutions
         public GetApplicationDefinitionArgs()
         {
         }
-        public static new GetApplicationDefinitionArgs Empty => new GetApplicationDefinitionArgs();
     }
 
-    public sealed class GetApplicationDefinitionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetApplicationDefinitionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the managed application definition.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.Solutions
         public GetApplicationDefinitionInvokeArgs()
         {
         }
-        public static new GetApplicationDefinitionInvokeArgs Empty => new GetApplicationDefinitionInvokeArgs();
     }
 
 

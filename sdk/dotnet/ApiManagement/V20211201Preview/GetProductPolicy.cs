@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
     }
 
 
-    public sealed class GetProductPolicyArgs : global::Pulumi.InvokeArgs
+    public sealed class GetProductPolicyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Policy Export Format.
@@ -60,10 +60,9 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
         public GetProductPolicyArgs()
         {
         }
-        public static new GetProductPolicyArgs Empty => new GetProductPolicyArgs();
     }
 
-    public sealed class GetProductPolicyInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetProductPolicyInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Policy Export Format.
@@ -98,7 +97,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
         public GetProductPolicyInvokeArgs()
         {
         }
-        public static new GetProductPolicyInvokeArgs Empty => new GetProductPolicyInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220701.Inputs
     /// <summary>
     /// Parameters to authenticate using Service Principal.
     /// </summary>
-    public sealed class ServicePrincipalDefinitionArgs : global::Pulumi.ResourceArgs
+    public sealed class ServicePrincipalDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Base64-encoded certificate used to authenticate a Service Principal 
@@ -55,6 +55,5 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220701.Inputs
         {
             ClientCertificateSendChain = false;
         }
-        public static new ServicePrincipalDefinitionArgs Empty => new ServicePrincipalDefinitionArgs();
     }
 }

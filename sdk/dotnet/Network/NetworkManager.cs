@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network
     /// API Version: 2021-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkManager")]
-    public partial class NetworkManager : global::Pulumi.CustomResource
+    public partial class NetworkManager : Pulumi.CustomResource
     {
         /// <summary>
         /// A description of the network manager.
@@ -107,11 +107,11 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:NetworkManager"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:NetworkManager"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:NetworkManager"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:NetworkManager"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:NetworkManager"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201preview:NetworkManager"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501preview:NetworkManager"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:NetworkManager"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220201preview:NetworkManager"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220401preview:NetworkManager"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -133,7 +133,7 @@ namespace Pulumi.AzureNative.Network
         }
     }
 
-    public sealed class NetworkManagerArgs : global::Pulumi.ResourceArgs
+    public sealed class NetworkManagerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the network manager.
@@ -204,6 +204,5 @@ namespace Pulumi.AzureNative.Network
         public NetworkManagerArgs()
         {
         }
-        public static new NetworkManagerArgs Empty => new NetworkManagerArgs();
     }
 }

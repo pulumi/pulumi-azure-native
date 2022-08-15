@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorSimple.V20161001.Inputs
     /// <summary>
     /// The Sku.
     /// </summary>
-    public sealed class ManagerSkuArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagerSkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Refers to the sku name which should be "Standard"
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.StorSimple.V20161001.Inputs
         public ManagerSkuArgs()
         {
         }
-        public static new ManagerSkuArgs Empty => new ManagerSkuArgs();
     }
 }

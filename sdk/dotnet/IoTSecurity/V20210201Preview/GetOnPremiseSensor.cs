@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.IoTSecurity.V20210201Preview
     }
 
 
-    public sealed class GetOnPremiseSensorArgs : global::Pulumi.InvokeArgs
+    public sealed class GetOnPremiseSensorArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the on-premise IoT sensor
@@ -36,10 +36,9 @@ namespace Pulumi.AzureNative.IoTSecurity.V20210201Preview
         public GetOnPremiseSensorArgs()
         {
         }
-        public static new GetOnPremiseSensorArgs Empty => new GetOnPremiseSensorArgs();
     }
 
-    public sealed class GetOnPremiseSensorInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetOnPremiseSensorInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the on-premise IoT sensor
@@ -50,7 +49,6 @@ namespace Pulumi.AzureNative.IoTSecurity.V20210201Preview
         public GetOnPremiseSensorInvokeArgs()
         {
         }
-        public static new GetOnPremiseSensorInvokeArgs Empty => new GetOnPremiseSensorInvokeArgs();
     }
 
 

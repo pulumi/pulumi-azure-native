@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
     /// <summary>
     /// A function object, containing all information associated with the named function. All functions are contained under a streaming job.
     /// </summary>
-    public sealed class FunctionArgs : global::Pulumi.ResourceArgs
+    public sealed class FunctionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource name
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
         public FunctionArgs()
         {
         }
-        public static new FunctionArgs Empty => new FunctionArgs();
     }
 }

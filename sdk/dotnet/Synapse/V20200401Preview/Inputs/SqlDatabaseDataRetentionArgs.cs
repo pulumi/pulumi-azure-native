@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview.Inputs
     /// <summary>
     /// Sql database data retention.
     /// </summary>
-    public sealed class SqlDatabaseDataRetentionArgs : global::Pulumi.ResourceArgs
+    public sealed class SqlDatabaseDataRetentionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the dropped database retention period (ISO8601 format).
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview.Inputs
         public SqlDatabaseDataRetentionArgs()
         {
         }
-        public static new SqlDatabaseDataRetentionArgs Empty => new SqlDatabaseDataRetentionArgs();
     }
 }

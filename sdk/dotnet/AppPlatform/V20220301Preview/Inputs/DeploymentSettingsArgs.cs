@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview.Inputs
     /// <summary>
     /// Deployment settings payload
     /// </summary>
-    public sealed class DeploymentSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class DeploymentSettingsArgs : Pulumi.ResourceArgs
     {
         [Input("addonConfigs")]
         private InputMap<ImmutableDictionary<string, object>>? _addonConfigs;
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview.Inputs
         public DeploymentSettingsArgs()
         {
         }
-        public static new DeploymentSettingsArgs Empty => new DeploymentSettingsArgs();
     }
 }

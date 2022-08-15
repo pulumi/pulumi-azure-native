@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A copy activity Common Data Service for Apps sink.
     /// </summary>
-    public sealed class CommonDataServiceForAppsSinkArgs : global::Pulumi.ResourceArgs
+    public sealed class CommonDataServiceForAppsSinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The logical name of the alternate key which will be used when upserting records. Type: string (or Expression with resultType string).
@@ -79,6 +79,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public CommonDataServiceForAppsSinkArgs()
         {
         }
-        public static new CommonDataServiceForAppsSinkArgs Empty => new CommonDataServiceForAppsSinkArgs();
     }
 }

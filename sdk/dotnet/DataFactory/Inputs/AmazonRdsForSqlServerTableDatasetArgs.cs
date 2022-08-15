@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The Amazon RDS for SQL Server dataset.
     /// </summary>
-    public sealed class AmazonRdsForSqlServerTableDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class AmazonRdsForSqlServerTableDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,6 +85,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public AmazonRdsForSqlServerTableDatasetArgs()
         {
         }
-        public static new AmazonRdsForSqlServerTableDatasetArgs Empty => new AmazonRdsForSqlServerTableDatasetArgs();
     }
 }

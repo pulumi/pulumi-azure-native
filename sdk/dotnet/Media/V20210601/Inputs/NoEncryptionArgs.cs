@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20210601.Inputs
     /// <summary>
     /// Class for NoEncryption scheme
     /// </summary>
-    public sealed class NoEncryptionArgs : global::Pulumi.ResourceArgs
+    public sealed class NoEncryptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Representing supported protocols
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Media.V20210601.Inputs
         public NoEncryptionArgs()
         {
         }
-        public static new NoEncryptionArgs Empty => new NoEncryptionArgs();
     }
 }

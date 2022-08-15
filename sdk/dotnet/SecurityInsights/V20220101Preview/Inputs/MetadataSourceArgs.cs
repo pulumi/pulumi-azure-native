@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview.Inputs
     /// <summary>
     /// The original source of the content item, where it comes from.
     /// </summary>
-    public sealed class MetadataSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class MetadataSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Source type of the content
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview.Inputs
         public MetadataSourceArgs()
         {
         }
-        public static new MetadataSourceArgs Empty => new MetadataSourceArgs();
     }
 }

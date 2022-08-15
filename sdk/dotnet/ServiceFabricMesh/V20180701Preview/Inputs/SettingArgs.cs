@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview.Inputs
     /// <summary>
     /// Describes a setting for the container.
     /// </summary>
-    public sealed class SettingArgs : global::Pulumi.ResourceArgs
+    public sealed class SettingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the setting.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview.Inputs
         public SettingArgs()
         {
         }
-        public static new SettingArgs Empty => new SettingArgs();
     }
 }

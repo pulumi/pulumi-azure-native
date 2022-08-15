@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20190601Preview.Inputs
     /// <summary>
     /// Defines a health policy used to evaluate the health of an application or one of its children entities.
     /// </summary>
-    public sealed class ApplicationHealthPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplicationHealthPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The health policy used by default to evaluate the health of a service type.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.ServiceFabric.V20190601Preview.Inputs
         public ApplicationHealthPolicyArgs()
         {
         }
-        public static new ApplicationHealthPolicyArgs Empty => new ApplicationHealthPolicyArgs();
     }
 }

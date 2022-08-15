@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20211201Preview.Inputs
     /// <summary>
     /// The native cloud connection configuration
     /// </summary>
-    public sealed class CspmMonitorGcpOfferingNativeCloudConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class CspmMonitorGcpOfferingNativeCloudConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The service account email address in GCP for this offering
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Security.V20211201Preview.Inputs
         public CspmMonitorGcpOfferingNativeCloudConnectionArgs()
         {
         }
-        public static new CspmMonitorGcpOfferingNativeCloudConnectionArgs Empty => new CspmMonitorGcpOfferingNativeCloudConnectionArgs();
     }
 }

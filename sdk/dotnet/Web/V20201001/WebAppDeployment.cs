@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20201001
     /// User credentials used for publishing activity.
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20201001:WebAppDeployment")]
-    public partial class WebAppDeployment : global::Pulumi.CustomResource
+    public partial class WebAppDeployment : Pulumi.CustomResource
     {
         /// <summary>
         /// True if deployment is currently active, false if completed and null if not started.
@@ -118,20 +118,20 @@ namespace Pulumi.AzureNative.Web.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppDeployment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppDeployment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppDeployment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppDeployment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppDeployment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppDeployment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppDeployment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppDeployment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppDeployment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppDeployment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppDeployment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppDeployment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppDeployment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web:WebAppDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppDeployment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -153,7 +153,7 @@ namespace Pulumi.AzureNative.Web.V20201001
         }
     }
 
-    public sealed class WebAppDeploymentArgs : global::Pulumi.ResourceArgs
+    public sealed class WebAppDeploymentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// True if deployment is currently active, false if completed and null if not started.
@@ -236,6 +236,5 @@ namespace Pulumi.AzureNative.Web.V20201001
         public WebAppDeploymentArgs()
         {
         }
-        public static new WebAppDeploymentArgs Empty => new WebAppDeploymentArgs();
     }
 }

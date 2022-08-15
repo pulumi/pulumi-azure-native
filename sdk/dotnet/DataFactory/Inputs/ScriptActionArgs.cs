@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Custom script action to run on HDI ondemand cluster once it's up.
     /// </summary>
-    public sealed class ScriptActionArgs : global::Pulumi.ResourceArgs
+    public sealed class ScriptActionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The user provided name of the script action.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public ScriptActionArgs()
         {
         }
-        public static new ScriptActionArgs Empty => new ScriptActionArgs();
     }
 }

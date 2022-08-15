@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001.Inputs
     /// <summary>
     /// Resource log configuration of a Microsoft.SignalRService resource.
     /// </summary>
-    public sealed class ResourceLogConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class ResourceLogConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("categories")]
         private InputList<Inputs.ResourceLogCategoryArgs>? _categories;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001.Inputs
         public ResourceLogConfigurationArgs()
         {
         }
-        public static new ResourceLogConfigurationArgs Empty => new ResourceLogConfigurationArgs();
     }
 }

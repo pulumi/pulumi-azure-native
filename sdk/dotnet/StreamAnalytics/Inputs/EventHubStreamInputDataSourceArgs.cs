@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.Inputs
     /// <summary>
     /// Describes an Event Hub input data source that contains stream data.
     /// </summary>
-    public sealed class EventHubStreamInputDataSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class EventHubStreamInputDataSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not specified, the input uses the Event Hub’s default consumer group.
@@ -55,6 +55,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.Inputs
         public EventHubStreamInputDataSourceArgs()
         {
         }
-        public static new EventHubStreamInputDataSourceArgs Empty => new EventHubStreamInputDataSourceArgs();
     }
 }

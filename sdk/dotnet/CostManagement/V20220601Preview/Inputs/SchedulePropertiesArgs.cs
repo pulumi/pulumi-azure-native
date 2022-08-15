@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.V20220601Preview.Inputs
     /// <summary>
     /// The properties of the schedule.
     /// </summary>
-    public sealed class SchedulePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class SchedulePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// UTC day on which cost analysis data will be emailed. Must be between 1 and 31. This property is applicable when frequency is Monthly and overrides weeksOfMonth or daysOfWeek.
@@ -72,6 +72,5 @@ namespace Pulumi.AzureNative.CostManagement.V20220601Preview.Inputs
         public SchedulePropertiesArgs()
         {
         }
-        public static new SchedulePropertiesArgs Empty => new SchedulePropertiesArgs();
     }
 }

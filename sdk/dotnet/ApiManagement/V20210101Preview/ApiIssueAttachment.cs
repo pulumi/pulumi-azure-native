@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
     /// Issue Attachment Contract details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20210101preview:ApiIssueAttachment")]
-    public partial class ApiIssueAttachment : global::Pulumi.CustomResource
+    public partial class ApiIssueAttachment : Pulumi.CustomResource
     {
         /// <summary>
         /// An HTTP link or Base64-encoded binary data.
@@ -70,18 +70,18 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:ApiIssueAttachment"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiIssueAttachment"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiIssueAttachment"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiIssueAttachment"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiIssueAttachment"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiIssueAttachment"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiIssueAttachment"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiIssueAttachment"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ApiIssueAttachment"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:ApiIssueAttachment"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ApiIssueAttachment"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ApiIssueAttachment"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:ApiIssueAttachment"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiIssueAttachment"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiIssueAttachment"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiIssueAttachment"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiIssueAttachment"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiIssueAttachment"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiIssueAttachment"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiIssueAttachment"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ApiIssueAttachment"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:ApiIssueAttachment"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ApiIssueAttachment"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ApiIssueAttachment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -103,7 +103,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
         }
     }
 
-    public sealed class ApiIssueAttachmentArgs : global::Pulumi.ResourceArgs
+    public sealed class ApiIssueAttachmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// API identifier. Must be unique in the current API Management service instance.
@@ -156,6 +156,5 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
         public ApiIssueAttachmentArgs()
         {
         }
-        public static new ApiIssueAttachmentArgs Empty => new ApiIssueAttachmentArgs();
     }
 }

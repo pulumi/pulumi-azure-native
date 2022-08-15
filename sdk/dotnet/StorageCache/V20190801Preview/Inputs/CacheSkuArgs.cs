@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageCache.V20190801Preview.Inputs
     /// <summary>
     /// Sku for the cache.
     /// </summary>
-    public sealed class CacheSkuArgs : global::Pulumi.ResourceArgs
+    public sealed class CacheSkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Sku name for this cache.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.StorageCache.V20190801Preview.Inputs
         public CacheSkuArgs()
         {
         }
-        public static new CacheSkuArgs Empty => new CacheSkuArgs();
     }
 }

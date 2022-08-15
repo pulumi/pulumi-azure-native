@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20190415.Inputs
     /// <summary>
     /// Defines the parameters for PostArgs match conditions
     /// </summary>
-    public sealed class PostArgsMatchConditionParametersArgs : global::Pulumi.ResourceArgs
+    public sealed class PostArgsMatchConditionParametersArgs : Pulumi.ResourceArgs
     {
         [Input("matchValues")]
         private InputList<string>? _matchValues;
@@ -63,6 +63,5 @@ namespace Pulumi.AzureNative.Cdn.V20190415.Inputs
         public PostArgsMatchConditionParametersArgs()
         {
         }
-        public static new PostArgsMatchConditionParametersArgs Empty => new PostArgsMatchConditionParametersArgs();
     }
 }

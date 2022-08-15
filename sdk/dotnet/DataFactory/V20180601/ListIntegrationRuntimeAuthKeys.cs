@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
     }
 
 
-    public sealed class ListIntegrationRuntimeAuthKeysArgs : global::Pulumi.InvokeArgs
+    public sealed class ListIntegrationRuntimeAuthKeysArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The factory name.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         public ListIntegrationRuntimeAuthKeysArgs()
         {
         }
-        public static new ListIntegrationRuntimeAuthKeysArgs Empty => new ListIntegrationRuntimeAuthKeysArgs();
     }
 
-    public sealed class ListIntegrationRuntimeAuthKeysInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListIntegrationRuntimeAuthKeysInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The factory name.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         public ListIntegrationRuntimeAuthKeysInvokeArgs()
         {
         }
-        public static new ListIntegrationRuntimeAuthKeysInvokeArgs Empty => new ListIntegrationRuntimeAuthKeysInvokeArgs();
     }
 
 

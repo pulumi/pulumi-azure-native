@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity ODBC sink.
     /// </summary>
-    public sealed class OdbcSinkArgs : global::Pulumi.ResourceArgs
+    public sealed class OdbcSinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -67,6 +67,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public OdbcSinkArgs()
         {
         }
-        public static new OdbcSinkArgs Empty => new OdbcSinkArgs();
     }
 }

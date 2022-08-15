@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Sql
     /// API Version: 2021-08-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:IPv6FirewallRule")]
-    public partial class IPv6FirewallRule : global::Pulumi.CustomResource
+    public partial class IPv6FirewallRule : Pulumi.CustomResource
     {
         /// <summary>
         /// The end IP address of the firewall rule. Must be IPv6 format. Must be greater than or equal to startIpAddress.
@@ -65,10 +65,10 @@ namespace Pulumi.AzureNative.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:IPv6FirewallRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:IPv6FirewallRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:IPv6FirewallRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:IPv6FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:IPv6FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101:IPv6FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:IPv6FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:IPv6FirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.Sql
         }
     }
 
-    public sealed class IPv6FirewallRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class IPv6FirewallRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The end IP address of the firewall rule. Must be IPv6 format. Must be greater than or equal to startIpAddress.
@@ -131,6 +131,5 @@ namespace Pulumi.AzureNative.Sql
         public IPv6FirewallRuleArgs()
         {
         }
-        public static new IPv6FirewallRuleArgs Empty => new IPv6FirewallRuleArgs();
     }
 }

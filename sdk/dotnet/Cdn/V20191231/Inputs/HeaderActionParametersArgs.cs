@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20191231.Inputs
     /// <summary>
     /// Defines the parameters for the request header action.
     /// </summary>
-    public sealed class HeaderActionParametersArgs : global::Pulumi.ResourceArgs
+    public sealed class HeaderActionParametersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Action to perform
@@ -39,6 +39,5 @@ namespace Pulumi.AzureNative.Cdn.V20191231.Inputs
         public HeaderActionParametersArgs()
         {
         }
-        public static new HeaderActionParametersArgs Empty => new HeaderActionParametersArgs();
     }
 }

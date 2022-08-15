@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601.Inputs
     /// <summary>
     /// Key encryption key properties
     /// </summary>
-    public sealed class KekIdentityPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class KekIdentityPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Boolean specifying whether to use system assigned identity or not
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Synapse.V20210601.Inputs
         public KekIdentityPropertiesArgs()
         {
         }
-        public static new KekIdentityPropertiesArgs Empty => new KekIdentityPropertiesArgs();
     }
 }

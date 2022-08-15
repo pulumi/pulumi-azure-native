@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
     /// <summary>
     /// Deployment resource properties payload
     /// </summary>
-    public sealed class DeploymentResourcePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class DeploymentResourcePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Deployment settings of the Deployment
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
         public DeploymentResourcePropertiesArgs()
         {
         }
-        public static new DeploymentResourcePropertiesArgs Empty => new DeploymentResourcePropertiesArgs();
     }
 }

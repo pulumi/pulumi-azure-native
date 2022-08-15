@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// The settings that will be leveraged for AmazonRdsForOracle source partitioning.
     /// </summary>
-    public sealed class AmazonRdsForOraclePartitionSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class AmazonRdsForOraclePartitionSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the column in integer type that will be used for proceeding range partitioning. Type: string (or Expression with resultType string).
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public AmazonRdsForOraclePartitionSettingsArgs()
         {
         }
-        public static new AmazonRdsForOraclePartitionSettingsArgs Empty => new AmazonRdsForOraclePartitionSettingsArgs();
     }
 }

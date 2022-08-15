@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200218Preview
     }
 
 
-    public sealed class GetPrivateEndpointConnectionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPrivateEndpointConnectionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the private endpoint connection associated with the workspace
@@ -49,10 +49,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200218Preview
         public GetPrivateEndpointConnectionArgs()
         {
         }
-        public static new GetPrivateEndpointConnectionArgs Empty => new GetPrivateEndpointConnectionArgs();
     }
 
-    public sealed class GetPrivateEndpointConnectionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPrivateEndpointConnectionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the private endpoint connection associated with the workspace
@@ -75,7 +74,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200218Preview
         public GetPrivateEndpointConnectionInvokeArgs()
         {
         }
-        public static new GetPrivateEndpointConnectionInvokeArgs Empty => new GetPrivateEndpointConnectionInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A copy activity ORC source.
     /// </summary>
-    public sealed class OrcSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class OrcSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -61,6 +61,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public OrcSourceArgs()
         {
         }
-        public static new OrcSourceArgs Empty => new OrcSourceArgs();
     }
 }

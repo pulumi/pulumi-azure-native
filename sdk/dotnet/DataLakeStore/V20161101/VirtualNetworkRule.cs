@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataLakeStore.V20161101
     /// Data Lake Store virtual network rule information.
     /// </summary>
     [AzureNativeResourceType("azure-native:datalakestore/v20161101:VirtualNetworkRule")]
-    public partial class VirtualNetworkRule : global::Pulumi.CustomResource
+    public partial class VirtualNetworkRule : Pulumi.CustomResource
     {
         /// <summary>
         /// The resource name.
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.DataLakeStore.V20161101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datalakestore:VirtualNetworkRule"},
+                    new Pulumi.Alias { Type = "azure-native:datalakestore:VirtualNetworkRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNative.DataLakeStore.V20161101
         }
     }
 
-    public sealed class VirtualNetworkRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualNetworkRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Data Lake Store account.
@@ -109,6 +109,5 @@ namespace Pulumi.AzureNative.DataLakeStore.V20161101
         public VirtualNetworkRuleArgs()
         {
         }
-        public static new VirtualNetworkRuleArgs Empty => new VirtualNetworkRuleArgs();
     }
 }

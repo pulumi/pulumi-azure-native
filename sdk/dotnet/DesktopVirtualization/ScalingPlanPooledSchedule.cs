@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     /// API Version: 2022-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization:ScalingPlanPooledSchedule")]
-    public partial class ScalingPlanPooledSchedule : global::Pulumi.CustomResource
+    public partial class ScalingPlanPooledSchedule : Pulumi.CustomResource
     {
         /// <summary>
         /// Set of days of the week on which this schedule is active.
@@ -161,7 +161,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:ScalingPlanPooledSchedule"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:ScalingPlanPooledSchedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -183,7 +183,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         }
     }
 
-    public sealed class ScalingPlanPooledScheduleArgs : global::Pulumi.ResourceArgs
+    public sealed class ScalingPlanPooledScheduleArgs : Pulumi.ResourceArgs
     {
         [Input("daysOfWeek")]
         private InputList<Union<string, Pulumi.AzureNative.DesktopVirtualization.DayOfWeek>>? _daysOfWeek;
@@ -314,6 +314,5 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public ScalingPlanPooledScheduleArgs()
         {
         }
-        public static new ScalingPlanPooledScheduleArgs Empty => new ScalingPlanPooledScheduleArgs();
     }
 }

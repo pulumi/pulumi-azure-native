@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200301.Inputs
     /// <summary>
     /// Describes a connection monitor output destination.
     /// </summary>
-    public sealed class ConnectionMonitorOutputArgs : global::Pulumi.ResourceArgs
+    public sealed class ConnectionMonitorOutputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Connection monitor output destination type. Currently, only "Workspace" is supported.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Network.V20200301.Inputs
         public ConnectionMonitorOutputArgs()
         {
         }
-        public static new ConnectionMonitorOutputArgs Empty => new ConnectionMonitorOutputArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20210701.Inputs
     /// <summary>
     /// IP address for the container group.
     /// </summary>
-    public sealed class IpAddressArgs : global::Pulumi.ResourceArgs
+    public sealed class IpAddressArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Dns name label for the IP.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.ContainerInstance.V20210701.Inputs
         public IpAddressArgs()
         {
         }
-        public static new IpAddressArgs Empty => new IpAddressArgs();
     }
 }

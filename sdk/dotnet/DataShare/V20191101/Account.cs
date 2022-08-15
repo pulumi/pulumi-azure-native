@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataShare.V20191101
     /// </summary>
     [Obsolete(@"Version 2019-11-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:datashare/v20191101:Account")]
-    public partial class Account : global::Pulumi.CustomResource
+    public partial class Account : Pulumi.CustomResource
     {
         /// <summary>
         /// Time at which the account was created.
@@ -95,11 +95,11 @@ namespace Pulumi.AzureNative.DataShare.V20191101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datashare:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:Account"},
+                    new Pulumi.Alias { Type = "azure-native:datashare:Account"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:Account"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20200901:Account"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:Account"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20210801:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -121,7 +121,7 @@ namespace Pulumi.AzureNative.DataShare.V20191101
         }
     }
 
-    public sealed class AccountArgs : global::Pulumi.ResourceArgs
+    public sealed class AccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -162,6 +162,5 @@ namespace Pulumi.AzureNative.DataShare.V20191101
         public AccountArgs()
         {
         }
-        public static new AccountArgs Empty => new AccountArgs();
     }
 }

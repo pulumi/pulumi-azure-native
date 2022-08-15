@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Synapse
     /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -71,13 +71,13 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20201201:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210301:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210501:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20201201:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210301:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210501:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.Synapse
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the private endpoint connection.
@@ -128,6 +128,5 @@ namespace Pulumi.AzureNative.Synapse
         public PrivateEndpointConnectionArgs()
         {
         }
-        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

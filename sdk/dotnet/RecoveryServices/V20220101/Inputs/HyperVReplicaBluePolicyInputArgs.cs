@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220101.Inputs
     /// <summary>
     /// HyperV Replica Blue policy input.
     /// </summary>
-    public sealed class HyperVReplicaBluePolicyInputArgs : global::Pulumi.ResourceArgs
+    public sealed class HyperVReplicaBluePolicyInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A value indicating the authentication type.
@@ -91,6 +91,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220101.Inputs
         public HyperVReplicaBluePolicyInputArgs()
         {
         }
-        public static new HyperVReplicaBluePolicyInputArgs Empty => new HyperVReplicaBluePolicyInputArgs();
     }
 }

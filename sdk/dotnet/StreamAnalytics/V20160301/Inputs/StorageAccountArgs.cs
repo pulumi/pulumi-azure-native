@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20160301.Inputs
     /// <summary>
     /// The properties that are associated with an Azure Storage account
     /// </summary>
-    public sealed class StorageAccountArgs : global::Pulumi.ResourceArgs
+    public sealed class StorageAccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20160301.Inputs
         public StorageAccountArgs()
         {
         }
-        public static new StorageAccountArgs Empty => new StorageAccountArgs();
     }
 }

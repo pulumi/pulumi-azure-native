@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ScVmm
     }
 
 
-    public sealed class GetCloudArgs : global::Pulumi.InvokeArgs
+    public sealed class GetCloudArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Cloud.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.ScVmm
         public GetCloudArgs()
         {
         }
-        public static new GetCloudArgs Empty => new GetCloudArgs();
     }
 
-    public sealed class GetCloudInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetCloudInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Cloud.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.ScVmm
         public GetCloudInvokeArgs()
         {
         }
-        public static new GetCloudInvokeArgs Empty => new GetCloudInvokeArgs();
     }
 
 

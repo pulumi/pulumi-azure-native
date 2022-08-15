@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview
     }
 
 
-    public sealed class GetWorkspaceSqlAadAdminArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWorkspaceSqlAadAdminArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview
         public GetWorkspaceSqlAadAdminArgs()
         {
         }
-        public static new GetWorkspaceSqlAadAdminArgs Empty => new GetWorkspaceSqlAadAdminArgs();
     }
 
-    public sealed class GetWorkspaceSqlAadAdminInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWorkspaceSqlAadAdminInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview
         public GetWorkspaceSqlAadAdminInvokeArgs()
         {
         }
-        public static new GetWorkspaceSqlAadAdminInvokeArgs Empty => new GetWorkspaceSqlAadAdminInvokeArgs();
     }
 
 

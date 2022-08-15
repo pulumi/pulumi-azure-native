@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
 {
 
-    public sealed class VolumeOptionsArgs : global::Pulumi.ResourceArgs
+    public sealed class VolumeOptionsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicate whether volume is nocopy
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         public VolumeOptionsArgs()
         {
         }
-        public static new VolumeOptionsArgs Empty => new VolumeOptionsArgs();
     }
 }

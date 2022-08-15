@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.V20151031
     /// Definition of the webhook type.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation/v20151031:Webhook")]
-    public partial class Webhook : global::Pulumi.CustomResource
+    public partial class Webhook : Pulumi.CustomResource
     {
         /// <summary>
         /// Gets or sets the creation time.
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.Automation.V20151031
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:automation:Webhook"},
+                    new Pulumi.Alias { Type = "azure-native:automation:Webhook"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNative.Automation.V20151031
         }
     }
 
-    public sealed class WebhookArgs : global::Pulumi.ResourceArgs
+    public sealed class WebhookArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -211,6 +211,5 @@ namespace Pulumi.AzureNative.Automation.V20151031
         public WebhookArgs()
         {
         }
-        public static new WebhookArgs Empty => new WebhookArgs();
     }
 }

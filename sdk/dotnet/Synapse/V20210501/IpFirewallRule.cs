@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20210501
     /// IP firewall rule
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse/v20210501:IpFirewallRule")]
-    public partial class IpFirewallRule : global::Pulumi.CustomResource
+    public partial class IpFirewallRule : Pulumi.CustomResource
     {
         /// <summary>
         /// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress
@@ -70,13 +70,13 @@ namespace Pulumi.AzureNative.Synapse.V20210501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:synapse:IpFirewallRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:IpFirewallRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20201201:IpFirewallRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210301:IpFirewallRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:IpFirewallRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601:IpFirewallRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:IpFirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:synapse:IpFirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:IpFirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20201201:IpFirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210301:IpFirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:IpFirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601:IpFirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:IpFirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.Synapse.V20210501
         }
     }
 
-    public sealed class IpFirewallRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class IpFirewallRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress
@@ -133,6 +133,5 @@ namespace Pulumi.AzureNative.Synapse.V20210501
         public IpFirewallRuleArgs()
         {
         }
-        public static new IpFirewallRuleArgs Empty => new IpFirewallRuleArgs();
     }
 }

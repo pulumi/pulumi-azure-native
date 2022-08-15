@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Custom activity type.
     /// </summary>
-    public sealed class CustomActivityArgs : global::Pulumi.ResourceArgs
+    public sealed class CustomActivityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Elevation level and scope for the user, default is nonadmin task. Type: string (or Expression with resultType double).
@@ -121,6 +121,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public CustomActivityArgs()
         {
         }
-        public static new CustomActivityArgs Empty => new CustomActivityArgs();
     }
 }

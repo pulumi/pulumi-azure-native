@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20160301.Inputs
     /// <summary>
     /// How the data that is collected should be combined over time.
     /// </summary>
-    public sealed class ManagementEventAggregationConditionArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagementEventAggregationConditionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// the condition operator.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Insights.V20160301.Inputs
         public ManagementEventAggregationConditionArgs()
         {
         }
-        public static new ManagementEventAggregationConditionArgs Empty => new ManagementEventAggregationConditionArgs();
     }
 }

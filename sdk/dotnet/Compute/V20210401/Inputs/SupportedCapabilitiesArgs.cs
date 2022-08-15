@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20210401.Inputs
     /// <summary>
     /// List of supported capabilities (like accelerated networking) persisted on the disk resource for VM use.
     /// </summary>
-    public sealed class SupportedCapabilitiesArgs : global::Pulumi.ResourceArgs
+    public sealed class SupportedCapabilitiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// True if the image from which the OS disk is created supports accelerated networking.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Compute.V20210401.Inputs
         public SupportedCapabilitiesArgs()
         {
         }
-        public static new SupportedCapabilitiesArgs Empty => new SupportedCapabilitiesArgs();
     }
 }

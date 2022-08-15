@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20210601Preview.Inputs
     /// <summary>
     /// Diagnostic configuration of a Microsoft.SignalRService resource. Used together with Azure monitor DiagnosticSettings.
     /// </summary>
-    public sealed class DiagnosticConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class DiagnosticConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicate whether or not enable Connectivity logs.
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.WebPubSub.V20210601Preview.Inputs
         public DiagnosticConfigurationArgs()
         {
         }
-        public static new DiagnosticConfigurationArgs Empty => new DiagnosticConfigurationArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web
     /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppSlotConfigurationNames")]
-    public partial class WebAppSlotConfigurationNames : global::Pulumi.CustomResource
+    public partial class WebAppSlotConfigurationNames : Pulumi.CustomResource
     {
         /// <summary>
         /// List of application settings names.
@@ -77,20 +77,20 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppSlotConfigurationNames"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppSlotConfigurationNames"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppSlotConfigurationNames"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppSlotConfigurationNames"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppSlotConfigurationNames"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppSlotConfigurationNames"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppSlotConfigurationNames"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppSlotConfigurationNames"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppSlotConfigurationNames"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppSlotConfigurationNames"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppSlotConfigurationNames"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppSlotConfigurationNames"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppSlotConfigurationNames"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppSlotConfigurationNames"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppSlotConfigurationNames"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppSlotConfigurationNames"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppSlotConfigurationNames"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppSlotConfigurationNames"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppSlotConfigurationNames"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppSlotConfigurationNames"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppSlotConfigurationNames"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppSlotConfigurationNames"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppSlotConfigurationNames"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppSlotConfigurationNames"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppSlotConfigurationNames"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppSlotConfigurationNames"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppSlotConfigurationNames"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppSlotConfigurationNames"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.Web
         }
     }
 
-    public sealed class WebAppSlotConfigurationNamesArgs : global::Pulumi.ResourceArgs
+    public sealed class WebAppSlotConfigurationNamesArgs : Pulumi.ResourceArgs
     {
         [Input("appSettingNames")]
         private InputList<string>? _appSettingNames;
@@ -171,6 +171,5 @@ namespace Pulumi.AzureNative.Web
         public WebAppSlotConfigurationNamesArgs()
         {
         }
-        public static new WebAppSlotConfigurationNamesArgs Empty => new WebAppSlotConfigurationNamesArgs();
     }
 }

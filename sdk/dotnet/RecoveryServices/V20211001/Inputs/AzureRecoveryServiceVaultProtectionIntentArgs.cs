@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Inputs
     /// <summary>
     /// Azure Recovery Services Vault specific protection intent item.
     /// </summary>
-    public sealed class AzureRecoveryServiceVaultProtectionIntentArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureRecoveryServiceVaultProtectionIntentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of backup management for the backed up item.
@@ -55,6 +55,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Inputs
         public AzureRecoveryServiceVaultProtectionIntentArgs()
         {
         }
-        public static new AzureRecoveryServiceVaultProtectionIntentArgs Empty => new AzureRecoveryServiceVaultProtectionIntentArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20170228Preview.Inputs
     /// <summary>
     /// A key property for the reference data set. A reference data set can have multiple key properties.
     /// </summary>
-    public sealed class ReferenceDataSetKeyPropertyArgs : global::Pulumi.ResourceArgs
+    public sealed class ReferenceDataSetKeyPropertyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the key property.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20170228Preview.Inputs
         public ReferenceDataSetKeyPropertyArgs()
         {
         }
-        public static new ReferenceDataSetKeyPropertyArgs Empty => new ReferenceDataSetKeyPropertyArgs();
     }
 }

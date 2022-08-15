@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Insights
     /// API Version: 2019-10-17-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:PrivateLinkScope")]
-    public partial class PrivateLinkScope : global::Pulumi.CustomResource
+    public partial class PrivateLinkScope : Pulumi.CustomResource
     {
         /// <summary>
         /// Resource location
@@ -77,8 +77,8 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20191017preview:PrivateLinkScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20210701preview:PrivateLinkScope"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20191017preview:PrivateLinkScope"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20210701preview:PrivateLinkScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.Insights
         }
     }
 
-    public sealed class PrivateLinkScopeArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateLinkScopeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource location
@@ -135,6 +135,5 @@ namespace Pulumi.AzureNative.Insights
         public PrivateLinkScopeArgs()
         {
         }
-        public static new PrivateLinkScopeArgs Empty => new PrivateLinkScopeArgs();
     }
 }

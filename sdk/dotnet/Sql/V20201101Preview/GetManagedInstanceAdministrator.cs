@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
     }
 
 
-    public sealed class GetManagedInstanceAdministratorArgs : global::Pulumi.InvokeArgs
+    public sealed class GetManagedInstanceAdministratorArgs : Pulumi.InvokeArgs
     {
         [Input("administratorName", required: true)]
         public string AdministratorName { get; set; } = null!;
@@ -45,10 +45,9 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         public GetManagedInstanceAdministratorArgs()
         {
         }
-        public static new GetManagedInstanceAdministratorArgs Empty => new GetManagedInstanceAdministratorArgs();
     }
 
-    public sealed class GetManagedInstanceAdministratorInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetManagedInstanceAdministratorInvokeArgs : Pulumi.InvokeArgs
     {
         [Input("administratorName", required: true)]
         public Input<string> AdministratorName { get; set; } = null!;
@@ -68,7 +67,6 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         public GetManagedInstanceAdministratorInvokeArgs()
         {
         }
-        public static new GetManagedInstanceAdministratorInvokeArgs Empty => new GetManagedInstanceAdministratorInvokeArgs();
     }
 
 

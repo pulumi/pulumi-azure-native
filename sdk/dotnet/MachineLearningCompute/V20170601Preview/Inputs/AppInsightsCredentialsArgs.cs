@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningCompute.V20170601Preview.Inputs
     /// <summary>
     /// AppInsights credentials.
     /// </summary>
-    public sealed class AppInsightsCredentialsArgs : global::Pulumi.ResourceArgs
+    public sealed class AppInsightsCredentialsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AppInsights API key. This is not returned in response of GET/PUT on the resource.. To see this please call listKeys API.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.MachineLearningCompute.V20170601Preview.Inputs
         public AppInsightsCredentialsArgs()
         {
         }
-        public static new AppInsightsCredentialsArgs Empty => new AppInsightsCredentialsArgs();
     }
 }

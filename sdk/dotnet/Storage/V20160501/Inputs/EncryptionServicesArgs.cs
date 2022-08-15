@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20160501.Inputs
     /// <summary>
     /// A list of services that support encryption.
     /// </summary>
-    public sealed class EncryptionServicesArgs : global::Pulumi.ResourceArgs
+    public sealed class EncryptionServicesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The encryption function of the blob storage service.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Storage.V20160501.Inputs
         public EncryptionServicesArgs()
         {
         }
-        public static new EncryptionServicesArgs Empty => new EncryptionServicesArgs();
     }
 }

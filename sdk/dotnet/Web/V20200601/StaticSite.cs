@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20200601
     /// Static Site ARM resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20200601:StaticSite")]
-    public partial class StaticSite : global::Pulumi.CustomResource
+    public partial class StaticSite : Pulumi.CustomResource
     {
         /// <summary>
         /// The target branch in the repository.
@@ -112,16 +112,16 @@ namespace Pulumi.AzureNative.Web.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:StaticSite"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:StaticSite"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:StaticSite"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:StaticSite"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:StaticSite"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:StaticSite"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:StaticSite"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:StaticSite"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:StaticSite"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:StaticSite"},
+                    new Pulumi.Alias { Type = "azure-native:web:StaticSite"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:StaticSite"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:StaticSite"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:StaticSite"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:StaticSite"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:StaticSite"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:StaticSite"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:StaticSite"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:StaticSite"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:StaticSite"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -143,7 +143,7 @@ namespace Pulumi.AzureNative.Web.V20200601
         }
     }
 
-    public sealed class StaticSiteArgs : global::Pulumi.ResourceArgs
+    public sealed class StaticSiteArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The target branch in the repository.
@@ -214,6 +214,5 @@ namespace Pulumi.AzureNative.Web.V20200601
         public StaticSiteArgs()
         {
         }
-        public static new StaticSiteArgs Empty => new StaticSiteArgs();
     }
 }

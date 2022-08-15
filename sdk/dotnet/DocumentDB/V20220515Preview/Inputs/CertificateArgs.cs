@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.V20220515Preview.Inputs
 {
 
-    public sealed class CertificateArgs : global::Pulumi.ResourceArgs
+    public sealed class CertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// PEM formatted public key.
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515Preview.Inputs
         public CertificateArgs()
         {
         }
-        public static new CertificateArgs Empty => new CertificateArgs();
     }
 }

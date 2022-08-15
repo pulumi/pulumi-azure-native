@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20170901.Inputs
 {
 
-    public sealed class VirtualMachineConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualMachineConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("dataDisks")]
         private InputList<Inputs.DataDiskArgs>? _dataDisks;
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.Batch.V20170901.Inputs
         public VirtualMachineConfigurationArgs()
         {
         }
-        public static new VirtualMachineConfigurationArgs Empty => new VirtualMachineConfigurationArgs();
     }
 }

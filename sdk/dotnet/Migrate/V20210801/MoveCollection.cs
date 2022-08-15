@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.V20210801
     /// Define the move collection.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate/v20210801:MoveCollection")]
-    public partial class MoveCollection : global::Pulumi.CustomResource
+    public partial class MoveCollection : Pulumi.CustomResource
     {
         /// <summary>
         /// The etag of the resource.
@@ -88,9 +88,9 @@ namespace Pulumi.AzureNative.Migrate.V20210801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:migrate:MoveCollection"},
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001preview:MoveCollection"},
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20210101:MoveCollection"},
+                    new Pulumi.Alias { Type = "azure-native:migrate:MoveCollection"},
+                    new Pulumi.Alias { Type = "azure-native:migrate/v20191001preview:MoveCollection"},
+                    new Pulumi.Alias { Type = "azure-native:migrate/v20210101:MoveCollection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.Migrate.V20210801
         }
     }
 
-    public sealed class MoveCollectionArgs : global::Pulumi.ResourceArgs
+    public sealed class MoveCollectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Defines the MSI properties of the Move Collection.
@@ -159,6 +159,5 @@ namespace Pulumi.AzureNative.Migrate.V20210801
         public MoveCollectionArgs()
         {
         }
-        public static new MoveCollectionArgs Empty => new MoveCollectionArgs();
     }
 }

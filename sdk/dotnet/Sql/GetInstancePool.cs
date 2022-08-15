@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Sql
     }
 
 
-    public sealed class GetInstancePoolArgs : global::Pulumi.InvokeArgs
+    public sealed class GetInstancePoolArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the instance pool to be retrieved.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.Sql
         public GetInstancePoolArgs()
         {
         }
-        public static new GetInstancePoolArgs Empty => new GetInstancePoolArgs();
     }
 
-    public sealed class GetInstancePoolInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetInstancePoolInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the instance pool to be retrieved.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.Sql
         public GetInstancePoolInvokeArgs()
         {
         }
-        public static new GetInstancePoolInvokeArgs Empty => new GetInstancePoolInvokeArgs();
     }
 
 

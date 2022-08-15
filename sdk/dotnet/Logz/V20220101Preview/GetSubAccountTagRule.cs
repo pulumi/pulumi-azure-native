@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Logz.V20220101Preview
     }
 
 
-    public sealed class GetSubAccountTagRuleArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSubAccountTagRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Monitor resource name
@@ -51,10 +51,9 @@ namespace Pulumi.AzureNative.Logz.V20220101Preview
         public GetSubAccountTagRuleArgs()
         {
         }
-        public static new GetSubAccountTagRuleArgs Empty => new GetSubAccountTagRuleArgs();
     }
 
-    public sealed class GetSubAccountTagRuleInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSubAccountTagRuleInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Monitor resource name
@@ -80,7 +79,6 @@ namespace Pulumi.AzureNative.Logz.V20220101Preview
         public GetSubAccountTagRuleInvokeArgs()
         {
         }
-        public static new GetSubAccountTagRuleInvokeArgs Empty => new GetSubAccountTagRuleInvokeArgs();
     }
 
 

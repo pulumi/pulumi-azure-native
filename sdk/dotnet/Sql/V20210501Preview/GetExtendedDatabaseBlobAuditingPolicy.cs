@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview
     }
 
 
-    public sealed class GetExtendedDatabaseBlobAuditingPolicyArgs : global::Pulumi.InvokeArgs
+    public sealed class GetExtendedDatabaseBlobAuditingPolicyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the blob auditing policy.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview
         public GetExtendedDatabaseBlobAuditingPolicyArgs()
         {
         }
-        public static new GetExtendedDatabaseBlobAuditingPolicyArgs Empty => new GetExtendedDatabaseBlobAuditingPolicyArgs();
     }
 
-    public sealed class GetExtendedDatabaseBlobAuditingPolicyInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetExtendedDatabaseBlobAuditingPolicyInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the blob auditing policy.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview
         public GetExtendedDatabaseBlobAuditingPolicyInvokeArgs()
         {
         }
-        public static new GetExtendedDatabaseBlobAuditingPolicyInvokeArgs Empty => new GetExtendedDatabaseBlobAuditingPolicyInvokeArgs();
     }
 
 

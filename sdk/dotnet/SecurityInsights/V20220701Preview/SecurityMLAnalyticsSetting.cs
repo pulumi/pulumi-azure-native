@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview
     /// </summary>
     [Obsolete(@"Please use one of the variants: AnomalySecurityMLAnalyticsSettings.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20220701preview:SecurityMLAnalyticsSetting")]
-    public partial class SecurityMLAnalyticsSetting : global::Pulumi.CustomResource
+    public partial class SecurityMLAnalyticsSetting : Pulumi.CustomResource
     {
         /// <summary>
         /// Etag of the azure resource
@@ -71,10 +71,10 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:SecurityMLAnalyticsSetting"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:SecurityMLAnalyticsSetting"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:SecurityMLAnalyticsSetting"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:SecurityMLAnalyticsSetting"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights:SecurityMLAnalyticsSetting"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:SecurityMLAnalyticsSetting"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:SecurityMLAnalyticsSetting"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:SecurityMLAnalyticsSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview
         }
     }
 
-    public sealed class SecurityMLAnalyticsSettingArgs : global::Pulumi.ResourceArgs
+    public sealed class SecurityMLAnalyticsSettingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The kind of security ML Analytics Settings
@@ -125,6 +125,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview
         public SecurityMLAnalyticsSettingArgs()
         {
         }
-        public static new SecurityMLAnalyticsSettingArgs Empty => new SecurityMLAnalyticsSettingArgs();
     }
 }

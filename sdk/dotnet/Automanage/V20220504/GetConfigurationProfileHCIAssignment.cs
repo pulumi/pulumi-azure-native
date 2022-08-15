@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Automanage.V20220504
     }
 
 
-    public sealed class GetConfigurationProfileHCIAssignmentArgs : global::Pulumi.InvokeArgs
+    public sealed class GetConfigurationProfileHCIAssignmentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Arc machine.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Automanage.V20220504
         public GetConfigurationProfileHCIAssignmentArgs()
         {
         }
-        public static new GetConfigurationProfileHCIAssignmentArgs Empty => new GetConfigurationProfileHCIAssignmentArgs();
     }
 
-    public sealed class GetConfigurationProfileHCIAssignmentInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetConfigurationProfileHCIAssignmentInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Arc machine.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Automanage.V20220504
         public GetConfigurationProfileHCIAssignmentInvokeArgs()
         {
         }
-        public static new GetConfigurationProfileHCIAssignmentInvokeArgs Empty => new GetConfigurationProfileHCIAssignmentInvokeArgs();
     }
 
 

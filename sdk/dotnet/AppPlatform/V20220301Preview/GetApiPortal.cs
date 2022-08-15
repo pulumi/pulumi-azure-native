@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview
     }
 
 
-    public sealed class GetApiPortalArgs : global::Pulumi.InvokeArgs
+    public sealed class GetApiPortalArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of API portal.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview
         public GetApiPortalArgs()
         {
         }
-        public static new GetApiPortalArgs Empty => new GetApiPortalArgs();
     }
 
-    public sealed class GetApiPortalInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetApiPortalInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of API portal.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview
         public GetApiPortalInvokeArgs()
         {
         }
-        public static new GetApiPortalInvokeArgs Empty => new GetApiPortalInvokeArgs();
     }
 
 

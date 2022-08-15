@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.Inputs
     /// <summary>
     /// The configuration of the run playbook automation rule action
     /// </summary>
-    public sealed class AutomationRuleRunPlaybookActionActionConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class AutomationRuleRunPlaybookActionActionConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource id of the playbook resource
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.SecurityInsights.Inputs
         public AutomationRuleRunPlaybookActionActionConfigurationArgs()
         {
         }
-        public static new AutomationRuleRunPlaybookActionActionConfigurationArgs Empty => new AutomationRuleRunPlaybookActionActionConfigurationArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Resources.V20201001
     /// </summary>
     [Obsolete(@"Please use one of the variants: AzureCliScript, AzurePowerShellScript.")]
     [AzureNativeResourceType("azure-native:resources/v20201001:DeploymentScript")]
-    public partial class DeploymentScript : global::Pulumi.CustomResource
+    public partial class DeploymentScript : Pulumi.CustomResource
     {
         /// <summary>
         /// Optional property. Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported.
@@ -83,8 +83,8 @@ namespace Pulumi.AzureNative.Resources.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:resources:DeploymentScript"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20191001preview:DeploymentScript"},
+                    new Pulumi.Alias { Type = "azure-native:resources:DeploymentScript"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20191001preview:DeploymentScript"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.Resources.V20201001
         }
     }
 
-    public sealed class DeploymentScriptArgs : global::Pulumi.ResourceArgs
+    public sealed class DeploymentScriptArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Optional property. Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported.
@@ -153,6 +153,5 @@ namespace Pulumi.AzureNative.Resources.V20201001
         public DeploymentScriptArgs()
         {
         }
-        public static new DeploymentScriptArgs Empty => new DeploymentScriptArgs();
     }
 }

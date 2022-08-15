@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.PowerPlatform.Inputs
     /// <summary>
     /// Properties of a subnet.
     /// </summary>
-    public sealed class SubnetPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class SubnetPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Subnet name.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.PowerPlatform.Inputs
         public SubnetPropertiesArgs()
         {
         }
-        public static new SubnetPropertiesArgs Empty => new SubnetPropertiesArgs();
     }
 }

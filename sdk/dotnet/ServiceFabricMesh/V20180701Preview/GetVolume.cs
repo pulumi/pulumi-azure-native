@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
     }
 
 
-    public sealed class GetVolumeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVolumeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Azure resource group name
@@ -43,10 +43,9 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
         public GetVolumeArgs()
         {
         }
-        public static new GetVolumeArgs Empty => new GetVolumeArgs();
     }
 
-    public sealed class GetVolumeInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVolumeInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Azure resource group name
@@ -63,7 +62,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
         public GetVolumeInvokeArgs()
         {
         }
-        public static new GetVolumeInvokeArgs Empty => new GetVolumeInvokeArgs();
     }
 
 

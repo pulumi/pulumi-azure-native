@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.Inputs
     /// <summary>
     /// The configuration settings of the Azure Active Directory login flow.
     /// </summary>
-    public sealed class AzureActiveDirectoryLoginArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureActiveDirectoryLoginArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; if the www-authenticate provider should be omitted from the request; otherwise, &lt;code&gt;false&lt;/code&gt;.
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.Web.Inputs
         public AzureActiveDirectoryLoginArgs()
         {
         }
-        public static new AzureActiveDirectoryLoginArgs Empty => new AzureActiveDirectoryLoginArgs();
     }
 }

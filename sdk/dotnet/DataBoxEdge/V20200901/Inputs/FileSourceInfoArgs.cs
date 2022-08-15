@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901.Inputs
     /// <summary>
     /// File source details.
     /// </summary>
-    public sealed class FileSourceInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class FileSourceInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// File share ID.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901.Inputs
         public FileSourceInfoArgs()
         {
         }
-        public static new FileSourceInfoArgs Empty => new FileSourceInfoArgs();
     }
 }

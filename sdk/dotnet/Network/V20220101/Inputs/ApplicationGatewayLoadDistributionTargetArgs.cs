@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
     /// <summary>
     /// Load Distribution Target of an application gateway.
     /// </summary>
-    public sealed class ApplicationGatewayLoadDistributionTargetArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayLoadDistributionTargetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Backend address pool resource of the application gateway.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
         public ApplicationGatewayLoadDistributionTargetArgs()
         {
         }
-        public static new ApplicationGatewayLoadDistributionTargetArgs Empty => new ApplicationGatewayLoadDistributionTargetArgs();
     }
 }

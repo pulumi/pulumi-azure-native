@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.Inputs
     /// <summary>
     /// Push settings for the App.
     /// </summary>
-    public sealed class PushSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class PushSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
@@ -51,6 +51,5 @@ namespace Pulumi.AzureNative.Web.Inputs
         public PushSettingsArgs()
         {
         }
-        public static new PushSettingsArgs Empty => new PushSettingsArgs();
     }
 }

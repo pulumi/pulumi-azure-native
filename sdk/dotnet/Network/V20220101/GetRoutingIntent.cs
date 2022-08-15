@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20220101
     }
 
 
-    public sealed class GetRoutingIntentArgs : global::Pulumi.InvokeArgs
+    public sealed class GetRoutingIntentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource group name of the RoutingIntent.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Network.V20220101
         public GetRoutingIntentArgs()
         {
         }
-        public static new GetRoutingIntentArgs Empty => new GetRoutingIntentArgs();
     }
 
-    public sealed class GetRoutingIntentInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetRoutingIntentInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource group name of the RoutingIntent.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Network.V20220101
         public GetRoutingIntentInvokeArgs()
         {
         }
-        public static new GetRoutingIntentInvokeArgs Empty => new GetRoutingIntentInvokeArgs();
     }
 
 

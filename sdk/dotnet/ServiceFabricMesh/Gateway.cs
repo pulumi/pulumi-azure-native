@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
     /// API Version: 2018-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabricmesh:Gateway")]
-    public partial class Gateway : global::Pulumi.CustomResource
+    public partial class Gateway : Pulumi.CustomResource
     {
         /// <summary>
         /// User readable description of the gateway.
@@ -119,7 +119,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabricmesh/v20180901preview:Gateway"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabricmesh/v20180901preview:Gateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -141,7 +141,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
         }
     }
 
-    public sealed class GatewayArgs : global::Pulumi.ResourceArgs
+    public sealed class GatewayArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// User readable description of the gateway.
@@ -218,6 +218,5 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
         public GatewayArgs()
         {
         }
-        public static new GatewayArgs Empty => new GatewayArgs();
     }
 }

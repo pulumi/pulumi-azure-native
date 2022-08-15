@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20210501.Inputs
     /// <summary>
     /// Custom setup script properties for a managed dedicated integration runtime.
     /// </summary>
-    public sealed class IntegrationRuntimeCustomSetupScriptPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class IntegrationRuntimeCustomSetupScriptPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The URI of the Azure blob container that contains the custom setup script.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Synapse.V20210501.Inputs
         public IntegrationRuntimeCustomSetupScriptPropertiesArgs()
         {
         }
-        public static new IntegrationRuntimeCustomSetupScriptPropertiesArgs Empty => new IntegrationRuntimeCustomSetupScriptPropertiesArgs();
     }
 }

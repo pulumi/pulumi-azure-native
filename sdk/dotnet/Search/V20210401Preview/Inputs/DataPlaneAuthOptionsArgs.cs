@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Search.V20210401Preview.Inputs
     /// <summary>
     /// Defines the options for how the data plane API of a Search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
     /// </summary>
-    public sealed class DataPlaneAuthOptionsArgs : global::Pulumi.ResourceArgs
+    public sealed class DataPlaneAuthOptionsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Search.V20210401Preview.Inputs
         public DataPlaneAuthOptionsArgs()
         {
         }
-        public static new DataPlaneAuthOptionsArgs Empty => new DataPlaneAuthOptionsArgs();
     }
 }

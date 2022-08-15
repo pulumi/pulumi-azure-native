@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Inputs
     /// <summary>
     /// InMageRcm fabric provider specific settings.
     /// </summary>
-    public sealed class InMageRcmFabricCreationInputArgs : global::Pulumi.ResourceArgs
+    public sealed class InMageRcmFabricCreationInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets the class type.
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Inputs
         public InMageRcmFabricCreationInputArgs()
         {
         }
-        public static new InMageRcmFabricCreationInputArgs Empty => new InMageRcmFabricCreationInputArgs();
     }
 }

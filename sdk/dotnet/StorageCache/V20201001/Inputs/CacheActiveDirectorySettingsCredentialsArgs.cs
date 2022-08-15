@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageCache.V20201001.Inputs
     /// <summary>
     /// Active Directory admin credentials used to join the HPC Cache to a domain.
     /// </summary>
-    public sealed class CacheActiveDirectorySettingsCredentialsArgs : global::Pulumi.ResourceArgs
+    public sealed class CacheActiveDirectorySettingsCredentialsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.StorageCache.V20201001.Inputs
         public CacheActiveDirectorySettingsCredentialsArgs()
         {
         }
-        public static new CacheActiveDirectorySettingsCredentialsArgs Empty => new CacheActiveDirectorySettingsCredentialsArgs();
     }
 }

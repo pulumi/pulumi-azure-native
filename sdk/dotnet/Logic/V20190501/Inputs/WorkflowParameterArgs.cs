@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
     /// <summary>
     /// The workflow parameters.
     /// </summary>
-    public sealed class WorkflowParameterArgs : global::Pulumi.ResourceArgs
+    public sealed class WorkflowParameterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
         public WorkflowParameterArgs()
         {
         }
-        public static new WorkflowParameterArgs Empty => new WorkflowParameterArgs();
     }
 }

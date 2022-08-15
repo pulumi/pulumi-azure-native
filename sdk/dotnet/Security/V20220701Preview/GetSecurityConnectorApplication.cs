@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Security.V20220701Preview
     }
 
 
-    public sealed class GetSecurityConnectorApplicationArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSecurityConnectorApplicationArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The security Application key - unique key for the standard application
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Security.V20220701Preview
         public GetSecurityConnectorApplicationArgs()
         {
         }
-        public static new GetSecurityConnectorApplicationArgs Empty => new GetSecurityConnectorApplicationArgs();
     }
 
-    public sealed class GetSecurityConnectorApplicationInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSecurityConnectorApplicationInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The security Application key - unique key for the standard application
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Security.V20220701Preview
         public GetSecurityConnectorApplicationInvokeArgs()
         {
         }
-        public static new GetSecurityConnectorApplicationInvokeArgs Empty => new GetSecurityConnectorApplicationInvokeArgs();
     }
 
 

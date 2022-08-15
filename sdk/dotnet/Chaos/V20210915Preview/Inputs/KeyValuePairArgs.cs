@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Chaos.V20210915Preview.Inputs
     /// <summary>
     /// A map to describe the settings of an action.
     /// </summary>
-    public sealed class KeyValuePairArgs : global::Pulumi.ResourceArgs
+    public sealed class KeyValuePairArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the setting for the action.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Chaos.V20210915Preview.Inputs
         public KeyValuePairArgs()
         {
         }
-        public static new KeyValuePairArgs Empty => new KeyValuePairArgs();
     }
 }

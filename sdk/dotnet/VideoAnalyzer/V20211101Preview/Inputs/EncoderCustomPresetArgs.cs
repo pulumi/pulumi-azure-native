@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
     /// <summary>
     /// Describes a custom preset for encoding the input content using the encoder processor.
     /// </summary>
-    public sealed class EncoderCustomPresetArgs : global::Pulumi.ResourceArgs
+    public sealed class EncoderCustomPresetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes a custom preset for encoding audio.
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
         public EncoderCustomPresetArgs()
         {
         }
-        public static new EncoderCustomPresetArgs Empty => new EncoderCustomPresetArgs();
     }
 }

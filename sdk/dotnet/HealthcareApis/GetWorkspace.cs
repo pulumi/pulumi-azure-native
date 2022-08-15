@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.HealthcareApis
     }
 
 
-    public sealed class GetWorkspaceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWorkspaceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the service instance.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.HealthcareApis
         public GetWorkspaceArgs()
         {
         }
-        public static new GetWorkspaceArgs Empty => new GetWorkspaceArgs();
     }
 
-    public sealed class GetWorkspaceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWorkspaceInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the service instance.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.HealthcareApis
         public GetWorkspaceInvokeArgs()
         {
         }
-        public static new GetWorkspaceInvokeArgs Empty => new GetWorkspaceInvokeArgs();
     }
 
 

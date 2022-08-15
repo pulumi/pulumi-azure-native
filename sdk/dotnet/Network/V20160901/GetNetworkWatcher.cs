@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Network.V20160901
     }
 
 
-    public sealed class GetNetworkWatcherArgs : global::Pulumi.InvokeArgs
+    public sealed class GetNetworkWatcherArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the network watcher.
@@ -43,10 +43,9 @@ namespace Pulumi.AzureNative.Network.V20160901
         public GetNetworkWatcherArgs()
         {
         }
-        public static new GetNetworkWatcherArgs Empty => new GetNetworkWatcherArgs();
     }
 
-    public sealed class GetNetworkWatcherInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetNetworkWatcherInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the network watcher.
@@ -63,7 +62,6 @@ namespace Pulumi.AzureNative.Network.V20160901
         public GetNetworkWatcherInvokeArgs()
         {
         }
-        public static new GetNetworkWatcherInvokeArgs Empty => new GetNetworkWatcherInvokeArgs();
     }
 
 

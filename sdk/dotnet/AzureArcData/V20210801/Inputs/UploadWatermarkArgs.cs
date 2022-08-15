@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20210801.Inputs
     /// <summary>
     /// Properties on upload watermark.  Mostly timestamp for each upload data type
     /// </summary>
-    public sealed class UploadWatermarkArgs : global::Pulumi.ResourceArgs
+    public sealed class UploadWatermarkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Last uploaded date for logs from kubernetes cluster. Defaults to current date time
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.AzureArcData.V20210801.Inputs
         public UploadWatermarkArgs()
         {
         }
-        public static new UploadWatermarkArgs Empty => new UploadWatermarkArgs();
     }
 }

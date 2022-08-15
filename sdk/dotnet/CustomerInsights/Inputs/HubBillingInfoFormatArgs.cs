@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CustomerInsights.Inputs
     /// <summary>
     /// Hub billing info.
     /// </summary>
-    public sealed class HubBillingInfoFormatArgs : global::Pulumi.ResourceArgs
+    public sealed class HubBillingInfoFormatArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum number of units can be used.  One unit is 10,000 Profiles and 100,000 Interactions.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.CustomerInsights.Inputs
         public HubBillingInfoFormatArgs()
         {
         }
-        public static new HubBillingInfoFormatArgs Empty => new HubBillingInfoFormatArgs();
     }
 }

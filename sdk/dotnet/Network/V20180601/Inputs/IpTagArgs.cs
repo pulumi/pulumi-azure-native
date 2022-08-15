@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20180601.Inputs
     /// <summary>
     /// Contains the IpTag associated with the public IP address
     /// </summary>
-    public sealed class IpTagArgs : global::Pulumi.ResourceArgs
+    public sealed class IpTagArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the ipTag type: Example FirstPartyUsage.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Network.V20180601.Inputs
         public IpTagArgs()
         {
         }
-        public static new IpTagArgs Empty => new IpTagArgs();
     }
 }

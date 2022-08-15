@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Aad.V20210301.Inputs
     /// <summary>
     /// Forest Trust Setting
     /// </summary>
-    public sealed class ForestTrustArgs : global::Pulumi.ResourceArgs
+    public sealed class ForestTrustArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Friendly Name
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.Aad.V20210301.Inputs
         public ForestTrustArgs()
         {
         }
-        public static new ForestTrustArgs Empty => new ForestTrustArgs();
     }
 }

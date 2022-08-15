@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Inputs
     /// <summary>
     /// Describes the auto scaling policy
     /// </summary>
-    public sealed class AutoScalingPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class AutoScalingPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The mechanism that is used to scale when auto scaling operation is invoked.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Inputs
         public AutoScalingPolicyArgs()
         {
         }
-        public static new AutoScalingPolicyArgs Empty => new AutoScalingPolicyArgs();
     }
 }

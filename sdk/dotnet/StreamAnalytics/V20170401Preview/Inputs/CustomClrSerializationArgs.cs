@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
     /// <summary>
     /// Describes how data from an input is serialized or how data is serialized when written to an output in custom format.
     /// </summary>
-    public sealed class CustomClrSerializationArgs : global::Pulumi.ResourceArgs
+    public sealed class CustomClrSerializationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The serialization class name.
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
         public CustomClrSerializationArgs()
         {
         }
-        public static new CustomClrSerializationArgs Empty => new CustomClrSerializationArgs();
     }
 }

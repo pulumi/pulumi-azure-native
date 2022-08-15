@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
     /// <summary>
     /// Configuration for ARC autoprovisioning
     /// </summary>
-    public sealed class DefenderForDatabasesGcpOfferingConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class DefenderForDatabasesGcpOfferingConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The agent onboarding service account numeric id
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
         public DefenderForDatabasesGcpOfferingConfigurationArgs()
         {
         }
-        public static new DefenderForDatabasesGcpOfferingConfigurationArgs Empty => new DefenderForDatabasesGcpOfferingConfigurationArgs();
     }
 }

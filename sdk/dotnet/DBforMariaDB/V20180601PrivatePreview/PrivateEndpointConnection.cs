@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601PrivatePreview
     /// A private endpoint connection
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformariadb/v20180601privatepreview:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -70,8 +70,8 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601PrivatePreview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dbformariadb:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:dbformariadb:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601PrivatePreview
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Private endpoint which the connection belongs to.
@@ -125,6 +125,5 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601PrivatePreview
         public PrivateEndpointConnectionArgs()
         {
         }
-        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.NetApp.V20200301
     /// </summary>
     [Obsolete(@"Version 2020-03-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:netapp/v20200301:Pool")]
-    public partial class Pool : global::Pulumi.CustomResource
+    public partial class Pool : Pulumi.CustomResource
     {
         /// <summary>
         /// Resource location
@@ -89,30 +89,30 @@ namespace Pulumi.AzureNative.NetApp.V20200301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:netapp:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20170815:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20190501:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20190601:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20190701:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20190801:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20191001:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20191101:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200201:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200501:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200601:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200701:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200801:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200901:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20201101:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20201201:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210201:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210401:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210401preview:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210601:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210801:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20211001:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220101:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220301:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20170815:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20190501:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20190601:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20190701:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20190801:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20191001:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20191101:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200201:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200501:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200601:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200701:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200801:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200901:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20201101:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20201201:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20210201:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20210401:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20210401preview:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20210601:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20210801:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20211001:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20220101:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20220301:Pool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.NetApp.V20200301
         }
     }
 
-    public sealed class PoolArgs : global::Pulumi.ResourceArgs
+    public sealed class PoolArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the NetApp account
@@ -188,6 +188,5 @@ namespace Pulumi.AzureNative.NetApp.V20200301
         {
             ServiceLevel = "Premium";
         }
-        public static new PoolArgs Empty => new PoolArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.PowerBI.V20200601
 {
     [AzureNativeResourceType("azure-native:powerbi/v20200601:PowerBIResource")]
-    public partial class PowerBIResource : global::Pulumi.CustomResource
+    public partial class PowerBIResource : Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the location of the resource.
@@ -79,7 +79,7 @@ namespace Pulumi.AzureNative.PowerBI.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:powerbi:PowerBIResource"},
+                    new Pulumi.Alias { Type = "azure-native:powerbi:PowerBIResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.PowerBI.V20200601
         }
     }
 
-    public sealed class PowerBIResourceArgs : global::Pulumi.ResourceArgs
+    public sealed class PowerBIResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Azure resource.
@@ -154,6 +154,5 @@ namespace Pulumi.AzureNative.PowerBI.V20200601
         public PowerBIResourceArgs()
         {
         }
-        public static new PowerBIResourceArgs Empty => new PowerBIResourceArgs();
     }
 }

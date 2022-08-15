@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
     /// <summary>
     /// Describes an Azure Synapse output data source.
     /// </summary>
-    public sealed class AzureSynapseOutputDataSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureSynapseOutputDataSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Azure SQL database. Required on PUT (CreateOrReplace) requests.
@@ -55,6 +55,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
         public AzureSynapseOutputDataSourceArgs()
         {
         }
-        public static new AzureSynapseOutputDataSourceArgs Empty => new AzureSynapseOutputDataSourceArgs();
     }
 }

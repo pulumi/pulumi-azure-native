@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Azure Key Vault secret reference.
     /// </summary>
-    public sealed class AzureKeyVaultSecretReferenceArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureKeyVaultSecretReferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the secret in Azure Key Vault. Type: string (or Expression with resultType string).
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public AzureKeyVaultSecretReferenceArgs()
         {
         }
-        public static new AzureKeyVaultSecretReferenceArgs Empty => new AzureKeyVaultSecretReferenceArgs();
     }
 }

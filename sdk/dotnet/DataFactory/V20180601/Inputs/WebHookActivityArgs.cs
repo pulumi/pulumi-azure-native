@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// WebHook activity.
     /// </summary>
-    public sealed class WebHookActivityArgs : global::Pulumi.ResourceArgs
+    public sealed class WebHookActivityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authentication method used for calling the endpoint.
@@ -103,6 +103,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public WebHookActivityArgs()
         {
         }
-        public static new WebHookActivityArgs Empty => new WebHookActivityArgs();
     }
 }

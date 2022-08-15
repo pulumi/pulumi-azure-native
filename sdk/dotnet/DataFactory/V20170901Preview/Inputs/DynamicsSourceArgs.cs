@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity Dynamics source.
     /// </summary>
-    public sealed class DynamicsSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class DynamicsSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// FetchXML is a proprietary query language that is used in Microsoft Dynamics (online &amp; on-premises). Type: string (or Expression with resultType string).
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public DynamicsSourceArgs()
         {
         }
-        public static new DynamicsSourceArgs Empty => new DynamicsSourceArgs();
     }
 }

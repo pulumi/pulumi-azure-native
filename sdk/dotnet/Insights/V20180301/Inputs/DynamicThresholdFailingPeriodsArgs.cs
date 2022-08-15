@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20180301.Inputs
     /// <summary>
     /// The minimum number of violations required within the selected lookback time window required to raise an alert.
     /// </summary>
-    public sealed class DynamicThresholdFailingPeriodsArgs : global::Pulumi.ResourceArgs
+    public sealed class DynamicThresholdFailingPeriodsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Insights.V20180301.Inputs
         public DynamicThresholdFailingPeriodsArgs()
         {
         }
-        public static new DynamicThresholdFailingPeriodsArgs Empty => new DynamicThresholdFailingPeriodsArgs();
     }
 }

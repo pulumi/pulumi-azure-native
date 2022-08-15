@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.TestBase.V20220401Preview.Inputs
     /// <summary>
     /// A notification event receivers.
     /// </summary>
-    public sealed class NotificationEventReceiverArgs : global::Pulumi.ResourceArgs
+    public sealed class NotificationEventReceiverArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of the notification event receiver.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.TestBase.V20220401Preview.Inputs
         public NotificationEventReceiverArgs()
         {
         }
-        public static new NotificationEventReceiverArgs Empty => new NotificationEventReceiverArgs();
     }
 }

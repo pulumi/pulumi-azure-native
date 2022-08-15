@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Sftp write settings.
     /// </summary>
-    public sealed class SftpWriteSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class SftpWriteSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of copy behavior for copy sink.
@@ -55,6 +55,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public SftpWriteSettingsArgs()
         {
         }
-        public static new SftpWriteSettingsArgs Empty => new SftpWriteSettingsArgs();
     }
 }

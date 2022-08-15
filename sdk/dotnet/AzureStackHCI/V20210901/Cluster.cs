@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901
     /// Cluster details.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci/v20210901:Cluster")]
-    public partial class Cluster : global::Pulumi.CustomResource
+    public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>
         /// App id of cluster AAD identity.
@@ -178,13 +178,13 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:Cluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20200301preview:Cluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20201001:Cluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210101preview:Cluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20220101:Cluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20220301:Cluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20220501:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:azurestackhci:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:azurestackhci/v20200301preview:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:azurestackhci/v20201001:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:azurestackhci/v20210101preview:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:azurestackhci/v20220101:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:azurestackhci/v20220301:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:azurestackhci/v20220501:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -206,7 +206,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901
         }
     }
 
-    public sealed class ClusterArgs : global::Pulumi.ResourceArgs
+    public sealed class ClusterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// App id of cluster AAD identity.
@@ -301,6 +301,5 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901
         public ClusterArgs()
         {
         }
-        public static new ClusterArgs Empty => new ClusterArgs();
     }
 }

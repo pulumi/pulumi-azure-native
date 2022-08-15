@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Kusto.V20180907Preview.Inputs
 {
 
-    public sealed class TrustedExternalTenantArgs : global::Pulumi.ResourceArgs
+    public sealed class TrustedExternalTenantArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// GUID representing an external tenant.
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.Kusto.V20180907Preview.Inputs
         public TrustedExternalTenantArgs()
         {
         }
-        public static new TrustedExternalTenantArgs Empty => new TrustedExternalTenantArgs();
     }
 }

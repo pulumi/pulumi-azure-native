@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20220201Preview.Inputs
     /// <summary>
     /// Availability group replica configuration.
     /// </summary>
-    public sealed class AgReplicaArgs : global::Pulumi.ResourceArgs
+    public sealed class AgReplicaArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Replica commit mode in availability group.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20220201Preview.Inputs
         public AgReplicaArgs()
         {
         }
-        public static new AgReplicaArgs Empty => new AgReplicaArgs();
     }
 }

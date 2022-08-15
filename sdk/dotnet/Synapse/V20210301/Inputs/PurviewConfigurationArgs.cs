@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20210301.Inputs
     /// <summary>
     /// Purview Configuration
     /// </summary>
-    public sealed class PurviewConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class PurviewConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Purview Resource ID
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Synapse.V20210301.Inputs
         public PurviewConfigurationArgs()
         {
         }
-        public static new PurviewConfigurationArgs Empty => new PurviewConfigurationArgs();
     }
 }

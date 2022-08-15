@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
     /// <summary>
     /// Defines a managed rule group override setting.
     /// </summary>
-    public sealed class ManagedRuleGroupOverrideArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedRuleGroupOverrideArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The managed rule group to override.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
         public ManagedRuleGroupOverrideArgs()
         {
         }
-        public static new ManagedRuleGroupOverrideArgs Empty => new ManagedRuleGroupOverrideArgs();
     }
 }

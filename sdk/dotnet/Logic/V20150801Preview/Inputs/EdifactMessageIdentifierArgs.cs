@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
-    public sealed class EdifactMessageIdentifierArgs : global::Pulumi.ResourceArgs
+    public sealed class EdifactMessageIdentifierArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The message id on which this envelope settings has to be applied.
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
         public EdifactMessageIdentifierArgs()
         {
         }
-        public static new EdifactMessageIdentifierArgs Empty => new EdifactMessageIdentifierArgs();
     }
 }

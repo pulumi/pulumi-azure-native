@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
 
-    public sealed class GetVirtualNetworkRuleArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public GetVirtualNetworkRuleArgs()
         {
         }
-        public static new GetVirtualNetworkRuleArgs Empty => new GetVirtualNetworkRuleArgs();
     }
 
-    public sealed class GetVirtualNetworkRuleInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkRuleInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public GetVirtualNetworkRuleInvokeArgs()
         {
         }
-        public static new GetVirtualNetworkRuleInvokeArgs Empty => new GetVirtualNetworkRuleInvokeArgs();
     }
 
 

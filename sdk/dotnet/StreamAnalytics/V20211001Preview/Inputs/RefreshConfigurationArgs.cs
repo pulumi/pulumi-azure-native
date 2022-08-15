@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
     /// <summary>
     /// The refresh parameters for any/all updatable user defined functions present in the job config.
     /// </summary>
-    public sealed class RefreshConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class RefreshConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
         public RefreshConfigurationArgs()
         {
         }
-        public static new RefreshConfigurationArgs Empty => new RefreshConfigurationArgs();
     }
 }

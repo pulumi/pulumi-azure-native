@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.V20190601.Inputs
     /// <summary>
     /// Task properties of the software update configuration.
     /// </summary>
-    public sealed class SoftwareUpdateConfigurationTasksArgs : global::Pulumi.ResourceArgs
+    public sealed class SoftwareUpdateConfigurationTasksArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Post task properties.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Automation.V20190601.Inputs
         public SoftwareUpdateConfigurationTasksArgs()
         {
         }
-        public static new SoftwareUpdateConfigurationTasksArgs Empty => new SoftwareUpdateConfigurationTasksArgs();
     }
 }

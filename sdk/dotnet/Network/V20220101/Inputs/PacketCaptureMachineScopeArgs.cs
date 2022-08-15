@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
     /// <summary>
     /// A list of AzureVMSS instances which can be included or excluded to run packet capture. If both included and excluded are empty, then the packet capture will run on all instances of AzureVMSS.
     /// </summary>
-    public sealed class PacketCaptureMachineScopeArgs : global::Pulumi.ResourceArgs
+    public sealed class PacketCaptureMachineScopeArgs : Pulumi.ResourceArgs
     {
         [Input("exclude")]
         private InputList<string>? _exclude;
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
         public PacketCaptureMachineScopeArgs()
         {
         }
-        public static new PacketCaptureMachineScopeArgs Empty => new PacketCaptureMachineScopeArgs();
     }
 }

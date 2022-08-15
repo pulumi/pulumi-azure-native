@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity Eloqua server source.
     /// </summary>
-    public sealed class EloquaSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class EloquaSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public EloquaSourceArgs()
         {
         }
-        public static new EloquaSourceArgs Empty => new EloquaSourceArgs();
     }
 }

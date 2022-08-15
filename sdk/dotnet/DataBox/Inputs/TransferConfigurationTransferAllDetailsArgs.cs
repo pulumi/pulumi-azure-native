@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBox.Inputs
     /// <summary>
     /// Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
     /// </summary>
-    public sealed class TransferConfigurationTransferAllDetailsArgs : global::Pulumi.ResourceArgs
+    public sealed class TransferConfigurationTransferAllDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Details to transfer all data.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DataBox.Inputs
         public TransferConfigurationTransferAllDetailsArgs()
         {
         }
-        public static new TransferConfigurationTransferAllDetailsArgs Empty => new TransferConfigurationTransferAllDetailsArgs();
     }
 }

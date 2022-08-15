@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200101Preview
     /// </summary>
     [Obsolete(@"Version 2020-01-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:eventgrid/v20200101preview:Domain")]
-    public partial class Domain : global::Pulumi.CustomResource
+    public partial class Domain : Pulumi.CustomResource
     {
         /// <summary>
         /// Endpoint for the domain.
@@ -95,17 +95,17 @@ namespace Pulumi.AzureNative.EventGrid.V20200101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid:Domain"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20180915preview:Domain"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20190201preview:Domain"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20190601:Domain"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:Domain"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20200601:Domain"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:Domain"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:Domain"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:Domain"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211201:Domain"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:Domain"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid:Domain"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20180915preview:Domain"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20190201preview:Domain"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20190601:Domain"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:Domain"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200601:Domain"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:Domain"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:Domain"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:Domain"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20211201:Domain"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:Domain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -127,7 +127,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200101Preview
         }
     }
 
-    public sealed class DomainArgs : global::Pulumi.ResourceArgs
+    public sealed class DomainArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the domain
@@ -175,6 +175,5 @@ namespace Pulumi.AzureNative.EventGrid.V20200101Preview
         {
             InputSchema = "EventGridSchema";
         }
-        public static new DomainArgs Empty => new DomainArgs();
     }
 }

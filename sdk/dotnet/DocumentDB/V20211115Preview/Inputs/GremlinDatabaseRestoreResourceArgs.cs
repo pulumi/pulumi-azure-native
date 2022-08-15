@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20211115Preview.Inputs
     /// <summary>
     /// Specific Gremlin Databases to restore.
     /// </summary>
-    public sealed class GremlinDatabaseRestoreResourceArgs : global::Pulumi.ResourceArgs
+    public sealed class GremlinDatabaseRestoreResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the gremlin database available for restore.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20211115Preview.Inputs
         public GremlinDatabaseRestoreResourceArgs()
         {
         }
-        public static new GremlinDatabaseRestoreResourceArgs Empty => new GremlinDatabaseRestoreResourceArgs();
     }
 }

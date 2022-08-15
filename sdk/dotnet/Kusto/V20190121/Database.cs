@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Kusto.V20190121
     /// Class representing a Kusto database.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto/v20190121:Database")]
-    public partial class Database : global::Pulumi.CustomResource
+    public partial class Database : Pulumi.CustomResource
     {
         /// <summary>
         /// The time the data that should be kept in cache for fast queries in TimeSpan.
@@ -82,18 +82,18 @@ namespace Pulumi.AzureNative.Kusto.V20190121
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:kusto:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20170907privatepreview:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20180907preview:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20190515:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20190907:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20191109:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20200215:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20200614:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20200918:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20210101:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20210827:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20220201:Database"},
+                    new Pulumi.Alias { Type = "azure-native:kusto:Database"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20170907privatepreview:Database"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20180907preview:Database"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20190515:Database"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20190907:Database"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20191109:Database"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20200215:Database"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20200614:Database"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20200918:Database"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20210101:Database"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20210827:Database"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20220201:Database"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNative.Kusto.V20190121
         }
     }
 
-    public sealed class DatabaseArgs : global::Pulumi.ResourceArgs
+    public sealed class DatabaseArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -156,6 +156,5 @@ namespace Pulumi.AzureNative.Kusto.V20190121
         public DatabaseArgs()
         {
         }
-        public static new DatabaseArgs Empty => new DatabaseArgs();
     }
 }

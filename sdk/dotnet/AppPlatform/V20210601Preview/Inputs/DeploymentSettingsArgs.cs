@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20210601Preview.Inputs
     /// <summary>
     /// Deployment settings payload
     /// </summary>
-    public sealed class DeploymentSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class DeploymentSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Required CPU. This should be 1 for Basic tier, and in range [1, 4] for Standard tier. This is deprecated starting from API version 2021-06-01-preview. Please use the resourceRequests field to set the CPU size.
@@ -69,6 +69,5 @@ namespace Pulumi.AzureNative.AppPlatform.V20210601Preview.Inputs
             MemoryInGB = 1;
             RuntimeVersion = "Java_8";
         }
-        public static new DeploymentSettingsArgs Empty => new DeploymentSettingsArgs();
     }
 }

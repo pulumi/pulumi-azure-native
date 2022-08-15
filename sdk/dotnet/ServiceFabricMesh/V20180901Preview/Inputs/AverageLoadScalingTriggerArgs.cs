@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Inputs
     /// <summary>
     /// Describes the average load trigger used for auto scaling.
     /// </summary>
-    public sealed class AverageLoadScalingTriggerArgs : global::Pulumi.ResourceArgs
+    public sealed class AverageLoadScalingTriggerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enumerates the triggers for auto scaling.
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Inputs
         public AverageLoadScalingTriggerArgs()
         {
         }
-        public static new AverageLoadScalingTriggerArgs Empty => new AverageLoadScalingTriggerArgs();
     }
 }

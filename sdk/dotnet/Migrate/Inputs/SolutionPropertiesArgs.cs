@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.Inputs
     /// <summary>
     /// Class for solution properties.
     /// </summary>
-    public sealed class SolutionPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class SolutionPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the cleanup state of the solution.
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.Migrate.Inputs
         public SolutionPropertiesArgs()
         {
         }
-        public static new SolutionPropertiesArgs Empty => new SolutionPropertiesArgs();
     }
 }

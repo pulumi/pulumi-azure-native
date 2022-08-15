@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Compute
     }
 
 
-    public sealed class GetLogAnalyticExportThrottledRequestsArgs : global::Pulumi.InvokeArgs
+    public sealed class GetLogAnalyticExportThrottledRequestsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// SAS Uri of the logging blob container to which LogAnalytics Api writes output logs to.
@@ -86,10 +86,9 @@ namespace Pulumi.AzureNative.Compute
         public GetLogAnalyticExportThrottledRequestsArgs()
         {
         }
-        public static new GetLogAnalyticExportThrottledRequestsArgs Empty => new GetLogAnalyticExportThrottledRequestsArgs();
     }
 
-    public sealed class GetLogAnalyticExportThrottledRequestsInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetLogAnalyticExportThrottledRequestsInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// SAS Uri of the logging blob container to which LogAnalytics Api writes output logs to.
@@ -148,7 +147,6 @@ namespace Pulumi.AzureNative.Compute
         public GetLogAnalyticExportThrottledRequestsInvokeArgs()
         {
         }
-        public static new GetLogAnalyticExportThrottledRequestsInvokeArgs Empty => new GetLogAnalyticExportThrottledRequestsInvokeArgs();
     }
 
 

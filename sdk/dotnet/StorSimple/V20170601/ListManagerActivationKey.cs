@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
     }
 
 
-    public sealed class ListManagerActivationKeyArgs : global::Pulumi.InvokeArgs
+    public sealed class ListManagerActivationKeyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The manager name
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         public ListManagerActivationKeyArgs()
         {
         }
-        public static new ListManagerActivationKeyArgs Empty => new ListManagerActivationKeyArgs();
     }
 
-    public sealed class ListManagerActivationKeyInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListManagerActivationKeyInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The manager name
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         public ListManagerActivationKeyInvokeArgs()
         {
         }
-        public static new ListManagerActivationKeyInvokeArgs Empty => new ListManagerActivationKeyInvokeArgs();
     }
 
 

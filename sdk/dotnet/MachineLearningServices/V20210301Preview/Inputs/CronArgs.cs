@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// <summary>
     /// The workflow trigger cron for ComputeStartStop schedule type.
     /// </summary>
-    public sealed class CronArgs : global::Pulumi.ResourceArgs
+    public sealed class CronArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The cron expression.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public CronArgs()
         {
         }
-        public static new CronArgs Empty => new CronArgs();
     }
 }

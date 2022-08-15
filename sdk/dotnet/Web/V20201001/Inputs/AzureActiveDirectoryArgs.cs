@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20201001.Inputs
 {
 
-    public sealed class AzureActiveDirectoryArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureActiveDirectoryArgs : Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Web.V20201001.Inputs
         public AzureActiveDirectoryArgs()
         {
         }
-        public static new AzureActiveDirectoryArgs Empty => new AzureActiveDirectoryArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataLakeStore.Inputs
     /// <summary>
     /// Metadata information used by account encryption.
     /// </summary>
-    public sealed class KeyVaultMetaInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class KeyVaultMetaInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the user managed encryption key.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DataLakeStore.Inputs
         public KeyVaultMetaInfoArgs()
         {
         }
-        public static new KeyVaultMetaInfoArgs Empty => new KeyVaultMetaInfoArgs();
     }
 }

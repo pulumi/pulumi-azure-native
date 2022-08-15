@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Google AdWords service dataset.
     /// </summary>
-    public sealed class GoogleAdWordsObjectDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class GoogleAdWordsObjectDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,6 +85,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public GoogleAdWordsObjectDatasetArgs()
         {
         }
-        public static new GoogleAdWordsObjectDatasetArgs Empty => new GoogleAdWordsObjectDatasetArgs();
     }
 }

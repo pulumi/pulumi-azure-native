@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220401.Inputs
     /// <summary>
     /// Common input details for network mapping operation.
     /// </summary>
-    public sealed class CreateNetworkMappingInputPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class CreateNetworkMappingInputPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Fabric specific input properties.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220401.Inputs
         public CreateNetworkMappingInputPropertiesArgs()
         {
         }
-        public static new CreateNetworkMappingInputPropertiesArgs Empty => new CreateNetworkMappingInputPropertiesArgs();
     }
 }

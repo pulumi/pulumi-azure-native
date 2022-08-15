@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190701.Inputs
     /// <summary>
     /// Peering in an ExpressRouteCircuit resource.
     /// </summary>
-    public sealed class ExpressRouteCircuitPeeringArgs : global::Pulumi.ResourceArgs
+    public sealed class ExpressRouteCircuitPeeringArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure ASN.
@@ -138,6 +138,5 @@ namespace Pulumi.AzureNative.Network.V20190701.Inputs
         public ExpressRouteCircuitPeeringArgs()
         {
         }
-        public static new ExpressRouteCircuitPeeringArgs Empty => new ExpressRouteCircuitPeeringArgs();
     }
 }

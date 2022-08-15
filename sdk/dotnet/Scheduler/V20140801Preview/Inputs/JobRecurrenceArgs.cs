@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Scheduler.V20140801Preview.Inputs
 {
 
-    public sealed class JobRecurrenceArgs : global::Pulumi.ResourceArgs
+    public sealed class JobRecurrenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the maximum number of times that the job should run.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Scheduler.V20140801Preview.Inputs
         public JobRecurrenceArgs()
         {
         }
-        public static new JobRecurrenceArgs Empty => new JobRecurrenceArgs();
     }
 }

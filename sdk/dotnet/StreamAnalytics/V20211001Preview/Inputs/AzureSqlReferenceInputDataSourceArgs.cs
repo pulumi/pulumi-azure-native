@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
     /// <summary>
     /// Describes an Azure SQL database reference input data source.
     /// </summary>
-    public sealed class AzureSqlReferenceInputDataSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureSqlReferenceInputDataSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authentication Mode.
@@ -79,6 +79,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
         public AzureSqlReferenceInputDataSourceArgs()
         {
         }
-        public static new AzureSqlReferenceInputDataSourceArgs Empty => new AzureSqlReferenceInputDataSourceArgs();
     }
 }

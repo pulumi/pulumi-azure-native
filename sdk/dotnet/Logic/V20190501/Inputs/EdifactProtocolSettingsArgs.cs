@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
     /// <summary>
     /// The Edifact agreement protocol settings.
     /// </summary>
-    public sealed class EdifactProtocolSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class EdifactProtocolSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The EDIFACT acknowledgement settings.
@@ -114,6 +114,5 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
         public EdifactProtocolSettingsArgs()
         {
         }
-        public static new EdifactProtocolSettingsArgs Empty => new EdifactProtocolSettingsArgs();
     }
 }

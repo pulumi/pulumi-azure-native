@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview.Inputs
     /// <summary>
     /// Settings for a Python environment.
     /// </summary>
-    public sealed class ModelEnvironmentDefinitionPythonArgs : global::Pulumi.ResourceArgs
+    public sealed class ModelEnvironmentDefinitionPythonArgs : Pulumi.ResourceArgs
     {
         [Input("baseCondaEnvironment")]
         public Input<string>? BaseCondaEnvironment { get; set; }
@@ -39,6 +39,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview.Inputs
         public ModelEnvironmentDefinitionPythonArgs()
         {
         }
-        public static new ModelEnvironmentDefinitionPythonArgs Empty => new ModelEnvironmentDefinitionPythonArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.V20210601
     /// The HDInsight cluster application
     /// </summary>
     [AzureNativeResourceType("azure-native:hdinsight/v20210601:Application")]
-    public partial class Application : global::Pulumi.CustomResource
+    public partial class Application : Pulumi.CustomResource
     {
         /// <summary>
         /// The ETag for the application
@@ -76,9 +76,9 @@ namespace Pulumi.AzureNative.HDInsight.V20210601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:hdinsight:Application"},
-                    new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20150301preview:Application"},
-                    new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20180601preview:Application"},
+                    new Pulumi.Alias { Type = "azure-native:hdinsight:Application"},
+                    new Pulumi.Alias { Type = "azure-native:hdinsight/v20150301preview:Application"},
+                    new Pulumi.Alias { Type = "azure-native:hdinsight/v20180601preview:Application"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.HDInsight.V20210601
         }
     }
 
-    public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplicationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The constant value for the application name.
@@ -141,6 +141,5 @@ namespace Pulumi.AzureNative.HDInsight.V20210601
         public ApplicationArgs()
         {
         }
-        public static new ApplicationArgs Empty => new ApplicationArgs();
     }
 }

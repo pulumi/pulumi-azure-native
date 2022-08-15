@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Network.V20170801
     }
 
 
-    public sealed class GetNetworkSecurityGroupArgs : global::Pulumi.InvokeArgs
+    public sealed class GetNetworkSecurityGroupArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Expands referenced resources.
@@ -49,10 +49,9 @@ namespace Pulumi.AzureNative.Network.V20170801
         public GetNetworkSecurityGroupArgs()
         {
         }
-        public static new GetNetworkSecurityGroupArgs Empty => new GetNetworkSecurityGroupArgs();
     }
 
-    public sealed class GetNetworkSecurityGroupInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetNetworkSecurityGroupInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Expands referenced resources.
@@ -75,7 +74,6 @@ namespace Pulumi.AzureNative.Network.V20170801
         public GetNetworkSecurityGroupInvokeArgs()
         {
         }
-        public static new GetNetworkSecurityGroupInvokeArgs Empty => new GetNetworkSecurityGroupInvokeArgs();
     }
 
 

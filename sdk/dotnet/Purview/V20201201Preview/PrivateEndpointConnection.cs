@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Purview.V20201201Preview
     /// A private endpoint connection class.
     /// </summary>
     [AzureNativeResourceType("azure-native:purview/v20201201preview:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// Gets or sets the name.
@@ -70,8 +70,8 @@ namespace Pulumi.AzureNative.Purview.V20201201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:purview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:purview/v20210701:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:purview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:purview/v20210701:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.Purview.V20201201Preview
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the account.
@@ -128,6 +128,5 @@ namespace Pulumi.AzureNative.Purview.V20201201Preview
         public PrivateEndpointConnectionArgs()
         {
         }
-        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

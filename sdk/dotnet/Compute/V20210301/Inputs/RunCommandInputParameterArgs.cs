@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20210301.Inputs
     /// <summary>
     /// Describes the properties of a run command parameter.
     /// </summary>
-    public sealed class RunCommandInputParameterArgs : global::Pulumi.ResourceArgs
+    public sealed class RunCommandInputParameterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The run command parameter name.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Compute.V20210301.Inputs
         public RunCommandInputParameterArgs()
         {
         }
-        public static new RunCommandInputParameterArgs Empty => new RunCommandInputParameterArgs();
     }
 }

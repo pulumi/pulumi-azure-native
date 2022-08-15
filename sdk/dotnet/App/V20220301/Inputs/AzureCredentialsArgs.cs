@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.V20220301.Inputs
     /// <summary>
     /// Container App credentials.
     /// </summary>
-    public sealed class AzureCredentialsArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureCredentialsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Client Id.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.App.V20220301.Inputs
         public AzureCredentialsArgs()
         {
         }
-        public static new AzureCredentialsArgs Empty => new AzureCredentialsArgs();
     }
 }

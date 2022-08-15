@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.Inputs
     /// <summary>
     /// Setting indicating whether the service has a managed identity associated with it.
     /// </summary>
-    public sealed class ServicesResourceIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class ServicesResourceIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of identity being specified, currently SystemAssigned and None are allowed.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.Inputs
         public ServicesResourceIdentityArgs()
         {
         }
-        public static new ServicesResourceIdentityArgs Empty => new ServicesResourceIdentityArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Logic.V20160601
     }
 
 
-    public sealed class GetIntegrationAccountBatchConfigurationArgs : global::Pulumi.InvokeArgs
+    public sealed class GetIntegrationAccountBatchConfigurationArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The batch configuration name.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Logic.V20160601
         public GetIntegrationAccountBatchConfigurationArgs()
         {
         }
-        public static new GetIntegrationAccountBatchConfigurationArgs Empty => new GetIntegrationAccountBatchConfigurationArgs();
     }
 
-    public sealed class GetIntegrationAccountBatchConfigurationInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetIntegrationAccountBatchConfigurationInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The batch configuration name.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Logic.V20160601
         public GetIntegrationAccountBatchConfigurationInvokeArgs()
         {
         }
-        public static new GetIntegrationAccountBatchConfigurationInvokeArgs Empty => new GetIntegrationAccountBatchConfigurationInvokeArgs();
     }
 
 

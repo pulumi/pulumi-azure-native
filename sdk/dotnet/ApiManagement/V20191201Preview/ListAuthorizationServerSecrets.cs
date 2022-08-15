@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
     }
 
 
-    public sealed class ListAuthorizationServerSecretsArgs : global::Pulumi.InvokeArgs
+    public sealed class ListAuthorizationServerSecretsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Identifier of the authorization server.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
         public ListAuthorizationServerSecretsArgs()
         {
         }
-        public static new ListAuthorizationServerSecretsArgs Empty => new ListAuthorizationServerSecretsArgs();
     }
 
-    public sealed class ListAuthorizationServerSecretsInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListAuthorizationServerSecretsInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Identifier of the authorization server.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
         public ListAuthorizationServerSecretsInvokeArgs()
         {
         }
-        public static new ListAuthorizationServerSecretsInvokeArgs Empty => new ListAuthorizationServerSecretsInvokeArgs();
     }
 
 

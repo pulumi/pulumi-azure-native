@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A copy activity Azure BlobFS source.
     /// </summary>
-    public sealed class AzureBlobFSSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureBlobFSSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -67,6 +67,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public AzureBlobFSSourceArgs()
         {
         }
-        public static new AzureBlobFSSourceArgs Empty => new AzureBlobFSSourceArgs();
     }
 }

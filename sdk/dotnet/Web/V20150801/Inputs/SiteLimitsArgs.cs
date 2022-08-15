@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20150801.Inputs
     /// <summary>
     /// Represents metric limits set on a web app.
     /// </summary>
-    public sealed class SiteLimitsArgs : global::Pulumi.ResourceArgs
+    public sealed class SiteLimitsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Maximum allowed disk size usage in MB
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Web.V20150801.Inputs
         public SiteLimitsArgs()
         {
         }
-        public static new SiteLimitsArgs Empty => new SiteLimitsArgs();
     }
 }

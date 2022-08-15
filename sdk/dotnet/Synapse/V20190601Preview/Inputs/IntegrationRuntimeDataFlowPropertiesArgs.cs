@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview.Inputs
     /// <summary>
     /// Data flow properties for managed integration runtime.
     /// </summary>
-    public sealed class IntegrationRuntimeDataFlowPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class IntegrationRuntimeDataFlowPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as false. Default is true.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview.Inputs
         public IntegrationRuntimeDataFlowPropertiesArgs()
         {
         }
-        public static new IntegrationRuntimeDataFlowPropertiesArgs Empty => new IntegrationRuntimeDataFlowPropertiesArgs();
     }
 }

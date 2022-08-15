@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Inputs
     /// <summary>
     /// Configure your SQL virtual machine to be able to connect to the Azure Key Vault service.
     /// </summary>
-    public sealed class KeyVaultCredentialSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class KeyVaultCredentialSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure Key Vault url.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Inputs
         public KeyVaultCredentialSettingsArgs()
         {
         }
-        public static new KeyVaultCredentialSettingsArgs Empty => new KeyVaultCredentialSettingsArgs();
     }
 }

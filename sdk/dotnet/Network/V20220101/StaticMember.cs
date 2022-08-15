@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220101
     /// StaticMember Item.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20220101:StaticMember")]
-    public partial class StaticMember : global::Pulumi.CustomResource
+    public partial class StaticMember : Pulumi.CustomResource
     {
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -82,10 +82,10 @@ namespace Pulumi.AzureNative.Network.V20220101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:StaticMember"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:StaticMember"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:StaticMember"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:StaticMember"},
+                    new Pulumi.Alias { Type = "azure-native:network:StaticMember"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501preview:StaticMember"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220201preview:StaticMember"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220401preview:StaticMember"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.Network.V20220101
         }
     }
 
-    public sealed class StaticMemberArgs : global::Pulumi.ResourceArgs
+    public sealed class StaticMemberArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the network group.
@@ -142,6 +142,5 @@ namespace Pulumi.AzureNative.Network.V20220101
         public StaticMemberArgs()
         {
         }
-        public static new StaticMemberArgs Empty => new StaticMemberArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20171103Preview.Inputs
     /// <summary>
     /// Specifies the storage settings for the HANA instance disks.
     /// </summary>
-    public sealed class StorageProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class StorageProfileArgs : Pulumi.ResourceArgs
     {
         [Input("hanaSids")]
         private InputList<Inputs.SAPSystemIDArgs>? _hanaSids;
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20171103Preview.Inputs
         public StorageProfileArgs()
         {
         }
-        public static new StorageProfileArgs Empty => new StorageProfileArgs();
     }
 }

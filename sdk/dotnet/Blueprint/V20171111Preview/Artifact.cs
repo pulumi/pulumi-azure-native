@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
     /// </summary>
     [Obsolete(@"Version 2017-11-11-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:blueprint/v20171111preview:Artifact")]
-    public partial class Artifact : global::Pulumi.CustomResource
+    public partial class Artifact : Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the kind of Blueprint artifact.
@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
         }
     }
 
-    public sealed class ArtifactArgs : global::Pulumi.ResourceArgs
+    public sealed class ArtifactArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// name of the artifact.
@@ -106,6 +106,5 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
         public ArtifactArgs()
         {
         }
-        public static new ArtifactArgs Empty => new ArtifactArgs();
     }
 }

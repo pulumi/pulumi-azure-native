@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20210801.Inputs
     /// <summary>
     /// Management policy action for blob version.
     /// </summary>
-    public sealed class ManagementPolicyVersionArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagementPolicyVersionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The function to delete the blob version
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Storage.V20210801.Inputs
         public ManagementPolicyVersionArgs()
         {
         }
-        public static new ManagementPolicyVersionArgs Empty => new ManagementPolicyVersionArgs();
     }
 }

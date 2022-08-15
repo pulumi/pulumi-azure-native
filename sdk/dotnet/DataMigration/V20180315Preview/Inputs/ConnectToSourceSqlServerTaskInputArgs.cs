@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20180315Preview.Inputs
     /// <summary>
     /// Input for the task that validates connection to SQL Server and also validates source server requirements
     /// </summary>
-    public sealed class ConnectToSourceSqlServerTaskInputArgs : global::Pulumi.ResourceArgs
+    public sealed class ConnectToSourceSqlServerTaskInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Permission group for validations
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DataMigration.V20180315Preview.Inputs
         public ConnectToSourceSqlServerTaskInputArgs()
         {
         }
-        public static new ConnectToSourceSqlServerTaskInputArgs Empty => new ConnectToSourceSqlServerTaskInputArgs();
     }
 }

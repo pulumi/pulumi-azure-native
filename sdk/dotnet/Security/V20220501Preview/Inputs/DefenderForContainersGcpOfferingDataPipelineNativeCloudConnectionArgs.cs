@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
     /// <summary>
     /// The native cloud connection configuration
     /// </summary>
-    public sealed class DefenderForContainersGcpOfferingDataPipelineNativeCloudConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class DefenderForContainersGcpOfferingDataPipelineNativeCloudConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The data collection service account email address in GCP for this offering
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
         public DefenderForContainersGcpOfferingDataPipelineNativeCloudConnectionArgs()
         {
         }
-        public static new DefenderForContainersGcpOfferingDataPipelineNativeCloudConnectionArgs Empty => new DefenderForContainersGcpOfferingDataPipelineNativeCloudConnectionArgs();
     }
 }

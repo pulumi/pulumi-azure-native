@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NetApp.V20190501.Inputs
     /// <summary>
     /// Mount target properties
     /// </summary>
-    public sealed class MountTargetPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class MountTargetPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The end of IPv4 address range to use when creating a new mount target
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.NetApp.V20190501.Inputs
         public MountTargetPropertiesArgs()
         {
         }
-        public static new MountTargetPropertiesArgs Empty => new MountTargetPropertiesArgs();
     }
 }

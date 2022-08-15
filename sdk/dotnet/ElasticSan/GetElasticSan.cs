@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ElasticSan
     }
 
 
-    public sealed class GetElasticSanArgs : global::Pulumi.InvokeArgs
+    public sealed class GetElasticSanArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the ElasticSan.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.ElasticSan
         public GetElasticSanArgs()
         {
         }
-        public static new GetElasticSanArgs Empty => new GetElasticSanArgs();
     }
 
-    public sealed class GetElasticSanInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetElasticSanInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the ElasticSan.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.ElasticSan
         public GetElasticSanInvokeArgs()
         {
         }
-        public static new GetElasticSanInvokeArgs Empty => new GetElasticSanInvokeArgs();
     }
 
 

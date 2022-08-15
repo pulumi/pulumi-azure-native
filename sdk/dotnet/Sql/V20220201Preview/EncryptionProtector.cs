@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20220201Preview
     /// The server encryption protector.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20220201preview:EncryptionProtector")]
-    public partial class EncryptionProtector : global::Pulumi.CustomResource
+    public partial class EncryptionProtector : Pulumi.CustomResource
     {
         /// <summary>
         /// Key auto rotation opt-in flag. Either true or false.
@@ -100,16 +100,16 @@ namespace Pulumi.AzureNative.Sql.V20220201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql:EncryptionProtector"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20150501preview:EncryptionProtector"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:EncryptionProtector"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:EncryptionProtector"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:EncryptionProtector"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:EncryptionProtector"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:EncryptionProtector"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:EncryptionProtector"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:EncryptionProtector"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:EncryptionProtector"},
+                    new Pulumi.Alias { Type = "azure-native:sql:EncryptionProtector"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20150501preview:EncryptionProtector"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:EncryptionProtector"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:EncryptionProtector"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:EncryptionProtector"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:EncryptionProtector"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:EncryptionProtector"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:EncryptionProtector"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101:EncryptionProtector"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:EncryptionProtector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -131,7 +131,7 @@ namespace Pulumi.AzureNative.Sql.V20220201Preview
         }
     }
 
-    public sealed class EncryptionProtectorArgs : global::Pulumi.ResourceArgs
+    public sealed class EncryptionProtectorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Key auto rotation opt-in flag. Either true or false.
@@ -172,6 +172,5 @@ namespace Pulumi.AzureNative.Sql.V20220201Preview
         public EncryptionProtectorArgs()
         {
         }
-        public static new EncryptionProtectorArgs Empty => new EncryptionProtectorArgs();
     }
 }

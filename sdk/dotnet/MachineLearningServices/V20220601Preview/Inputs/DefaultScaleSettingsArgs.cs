@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
 {
 
-    public sealed class DefaultScaleSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class DefaultScaleSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// 
@@ -22,6 +22,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         public DefaultScaleSettingsArgs()
         {
         }
-        public static new DefaultScaleSettingsArgs Empty => new DefaultScaleSettingsArgs();
     }
 }

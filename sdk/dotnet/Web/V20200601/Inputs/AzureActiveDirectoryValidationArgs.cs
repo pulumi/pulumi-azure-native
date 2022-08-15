@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20200601.Inputs
 {
 
-    public sealed class AzureActiveDirectoryValidationArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureActiveDirectoryValidationArgs : Pulumi.ResourceArgs
     {
         [Input("allowedAudiences")]
         private InputList<string>? _allowedAudiences;
@@ -32,6 +32,5 @@ namespace Pulumi.AzureNative.Web.V20200601.Inputs
         public AzureActiveDirectoryValidationArgs()
         {
         }
-        public static new AzureActiveDirectoryValidationArgs Empty => new AzureActiveDirectoryValidationArgs();
     }
 }

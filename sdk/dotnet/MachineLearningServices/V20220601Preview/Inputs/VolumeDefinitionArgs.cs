@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
 {
 
-    public sealed class VolumeDefinitionArgs : global::Pulumi.ResourceArgs
+    public sealed class VolumeDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Bind Options of the mount
@@ -64,6 +64,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         {
             Type = "bind";
         }
-        public static new VolumeDefinitionArgs Empty => new VolumeDefinitionArgs();
     }
 }

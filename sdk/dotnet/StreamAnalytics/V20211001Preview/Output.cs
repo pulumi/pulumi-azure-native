@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview
     /// An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
     /// </summary>
     [AzureNativeResourceType("azure-native:streamanalytics/v20211001preview:Output")]
-    public partial class Output : global::Pulumi.CustomResource
+    public partial class Output : Pulumi.CustomResource
     {
         /// <summary>
         /// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
@@ -100,10 +100,10 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics:Output"},
-                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20160301:Output"},
-                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20170401preview:Output"},
-                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301:Output"},
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics:Output"},
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics/v20160301:Output"},
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics/v20170401preview:Output"},
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301:Output"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview
         }
     }
 
-    public sealed class OutputArgs : global::Pulumi.ResourceArgs
+    public sealed class OutputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
@@ -184,6 +184,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview
         public OutputArgs()
         {
         }
-        public static new OutputArgs Empty => new OutputArgs();
     }
 }

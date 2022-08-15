@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200401.Inputs
     /// <summary>
     /// List of routes that control routing from VirtualHub into a virtual network connection.
     /// </summary>
-    public sealed class VnetRouteArgs : global::Pulumi.ResourceArgs
+    public sealed class VnetRouteArgs : Pulumi.ResourceArgs
     {
         [Input("staticRoutes")]
         private InputList<Inputs.StaticRouteArgs>? _staticRoutes;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Network.V20200401.Inputs
         public VnetRouteArgs()
         {
         }
-        public static new VnetRouteArgs Empty => new VnetRouteArgs();
     }
 }

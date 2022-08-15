@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
     }
 
 
-    public sealed class GetGuestAgentArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGuestAgentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the GuestAgent.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
         public GetGuestAgentArgs()
         {
         }
-        public static new GetGuestAgentArgs Empty => new GetGuestAgentArgs();
     }
 
-    public sealed class GetGuestAgentInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGuestAgentInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the GuestAgent.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
         public GetGuestAgentInvokeArgs()
         {
         }
-        public static new GetGuestAgentInvokeArgs Empty => new GetGuestAgentInvokeArgs();
     }
 
 

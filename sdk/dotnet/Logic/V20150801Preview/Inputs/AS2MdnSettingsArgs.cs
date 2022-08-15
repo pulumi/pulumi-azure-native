@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
-    public sealed class AS2MdnSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class AS2MdnSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The disposition notification to header value.
@@ -69,6 +69,5 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
         public AS2MdnSettingsArgs()
         {
         }
-        public static new AS2MdnSettingsArgs Empty => new AS2MdnSettingsArgs();
     }
 }

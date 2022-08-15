@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview.Inputs
     /// <summary>
     /// LinkedWorkspace specific properties.
     /// </summary>
-    public sealed class LinkedWorkspacePropsArgs : global::Pulumi.ResourceArgs
+    public sealed class LinkedWorkspacePropsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// ResourceId of the link target of the linked workspace.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview.Inputs
         public LinkedWorkspacePropsArgs()
         {
         }
-        public static new LinkedWorkspacePropsArgs Empty => new LinkedWorkspacePropsArgs();
     }
 }

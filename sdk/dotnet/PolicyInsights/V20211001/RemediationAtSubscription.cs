@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.PolicyInsights.V20211001
     /// The remediation definition.
     /// </summary>
     [AzureNativeResourceType("azure-native:policyinsights/v20211001:RemediationAtSubscription")]
-    public partial class RemediationAtSubscription : global::Pulumi.CustomResource
+    public partial class RemediationAtSubscription : Pulumi.CustomResource
     {
         /// <summary>
         /// The remediation correlation Id. Can be used to find events related to the remediation in the activity log.
@@ -136,9 +136,9 @@ namespace Pulumi.AzureNative.PolicyInsights.V20211001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:policyinsights:RemediationAtSubscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:policyinsights/v20180701preview:RemediationAtSubscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:policyinsights/v20190701:RemediationAtSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:policyinsights:RemediationAtSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:policyinsights/v20180701preview:RemediationAtSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:policyinsights/v20190701:RemediationAtSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -160,7 +160,7 @@ namespace Pulumi.AzureNative.PolicyInsights.V20211001
         }
     }
 
-    public sealed class RemediationAtSubscriptionArgs : global::Pulumi.ResourceArgs
+    public sealed class RemediationAtSubscriptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The remediation failure threshold settings
@@ -213,6 +213,5 @@ namespace Pulumi.AzureNative.PolicyInsights.V20211001
         public RemediationAtSubscriptionArgs()
         {
         }
-        public static new RemediationAtSubscriptionArgs Empty => new RemediationAtSubscriptionArgs();
     }
 }

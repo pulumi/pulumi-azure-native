@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
     /// <summary>
     /// The configuration settings of the Allowed Audiences validation flow.
     /// </summary>
-    public sealed class AllowedAudiencesValidationArgs : global::Pulumi.ResourceArgs
+    public sealed class AllowedAudiencesValidationArgs : Pulumi.ResourceArgs
     {
         [Input("allowedAudiences")]
         private InputList<string>? _allowedAudiences;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
         public AllowedAudiencesValidationArgs()
         {
         }
-        public static new AllowedAudiencesValidationArgs Empty => new AllowedAudiencesValidationArgs();
     }
 }

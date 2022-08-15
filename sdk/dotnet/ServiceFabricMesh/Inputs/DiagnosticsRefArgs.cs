@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.Inputs
     /// <summary>
     /// Reference to sinks in DiagnosticsDescription.
     /// </summary>
-    public sealed class DiagnosticsRefArgs : global::Pulumi.ResourceArgs
+    public sealed class DiagnosticsRefArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Status of whether or not sinks are enabled.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.Inputs
         public DiagnosticsRefArgs()
         {
         }
-        public static new DiagnosticsRefArgs Empty => new DiagnosticsRefArgs();
     }
 }

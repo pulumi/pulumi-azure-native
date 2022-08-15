@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS.V20211201
     /// A private cloud resource
     /// </summary>
     [AzureNativeResourceType("azure-native:avs/v20211201:PrivateCloud")]
-    public partial class PrivateCloud : global::Pulumi.CustomResource
+    public partial class PrivateCloud : Pulumi.CustomResource
     {
         /// <summary>
         /// Properties describing how the cloud is distributed across availability zones
@@ -184,11 +184,11 @@ namespace Pulumi.AzureNative.AVS.V20211201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:avs:PrivateCloud"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200320:PrivateCloud"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200717preview:PrivateCloud"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210101preview:PrivateCloud"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:PrivateCloud"},
+                    new Pulumi.Alias { Type = "azure-native:avs:PrivateCloud"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20200320:PrivateCloud"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20200717preview:PrivateCloud"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20210101preview:PrivateCloud"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20210601:PrivateCloud"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -210,7 +210,7 @@ namespace Pulumi.AzureNative.AVS.V20211201
         }
     }
 
-    public sealed class PrivateCloudArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateCloudArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Properties describing how the cloud is distributed across availability zones
@@ -312,6 +312,5 @@ namespace Pulumi.AzureNative.AVS.V20211201
         {
             Internet = "Disabled";
         }
-        public static new PrivateCloudArgs Empty => new PrivateCloudArgs();
     }
 }

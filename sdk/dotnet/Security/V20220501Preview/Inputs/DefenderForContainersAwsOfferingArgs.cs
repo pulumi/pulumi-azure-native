@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
     /// <summary>
     /// The Defender for Containers AWS offering
     /// </summary>
-    public sealed class DefenderForContainersAwsOfferingArgs : global::Pulumi.ResourceArgs
+    public sealed class DefenderForContainersAwsOfferingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is audit logs pipeline auto provisioning enabled
@@ -85,6 +85,5 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
         public DefenderForContainersAwsOfferingArgs()
         {
         }
-        public static new DefenderForContainersAwsOfferingArgs Empty => new DefenderForContainersAwsOfferingArgs();
     }
 }

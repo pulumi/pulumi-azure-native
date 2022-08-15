@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Sql
     }
 
 
-    public sealed class GetJobStepArgs : global::Pulumi.InvokeArgs
+    public sealed class GetJobStepArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the job agent.
@@ -62,10 +62,9 @@ namespace Pulumi.AzureNative.Sql
         public GetJobStepArgs()
         {
         }
-        public static new GetJobStepArgs Empty => new GetJobStepArgs();
     }
 
-    public sealed class GetJobStepInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetJobStepInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the job agent.
@@ -100,7 +99,6 @@ namespace Pulumi.AzureNative.Sql
         public GetJobStepInvokeArgs()
         {
         }
-        public static new GetJobStepInvokeArgs Empty => new GetJobStepInvokeArgs();
     }
 
 

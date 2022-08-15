@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity Salesforce Marketing Cloud source.
     /// </summary>
-    public sealed class SalesforceMarketingCloudSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class SalesforceMarketingCloudSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public SalesforceMarketingCloudSourceArgs()
         {
         }
-        public static new SalesforceMarketingCloudSourceArgs Empty => new SalesforceMarketingCloudSourceArgs();
     }
 }

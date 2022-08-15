@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview.Inputs
     /// <summary>
     /// Network Interface model
     /// </summary>
-    public sealed class NetworkInterfacesArgs : global::Pulumi.ResourceArgs
+    public sealed class NetworkInterfacesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the ipv4 address type.
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview.Inputs
         public NetworkInterfacesArgs()
         {
         }
-        public static new NetworkInterfacesArgs Empty => new NetworkInterfacesArgs();
     }
 }

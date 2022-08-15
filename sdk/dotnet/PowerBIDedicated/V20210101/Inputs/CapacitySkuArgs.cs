@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.PowerBIDedicated.V20210101.Inputs
     /// <summary>
     /// Represents the SKU name and Azure pricing tier for PowerBI Dedicated capacity resource.
     /// </summary>
-    public sealed class CapacitySkuArgs : global::Pulumi.ResourceArgs
+    public sealed class CapacitySkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The capacity of the SKU.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.PowerBIDedicated.V20210101.Inputs
         public CapacitySkuArgs()
         {
         }
-        public static new CapacitySkuArgs Empty => new CapacitySkuArgs();
     }
 }

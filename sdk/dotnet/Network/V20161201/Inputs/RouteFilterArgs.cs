@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20161201.Inputs
     /// <summary>
     /// Route Filter Resource.
     /// </summary>
-    public sealed class RouteFilterArgs : global::Pulumi.ResourceArgs
+    public sealed class RouteFilterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID.
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.Network.V20161201.Inputs
         public RouteFilterArgs()
         {
         }
-        public static new RouteFilterArgs Empty => new RouteFilterArgs();
     }
 }

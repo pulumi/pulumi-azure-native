@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.LabServices.V20181015
     }
 
 
-    public sealed class GetLabAccountRegionalAvailabilityArgs : global::Pulumi.InvokeArgs
+    public sealed class GetLabAccountRegionalAvailabilityArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the lab Account.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.LabServices.V20181015
         public GetLabAccountRegionalAvailabilityArgs()
         {
         }
-        public static new GetLabAccountRegionalAvailabilityArgs Empty => new GetLabAccountRegionalAvailabilityArgs();
     }
 
-    public sealed class GetLabAccountRegionalAvailabilityInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetLabAccountRegionalAvailabilityInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the lab Account.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.LabServices.V20181015
         public GetLabAccountRegionalAvailabilityInvokeArgs()
         {
         }
-        public static new GetLabAccountRegionalAvailabilityInvokeArgs Empty => new GetLabAccountRegionalAvailabilityInvokeArgs();
     }
 
 

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
     /// API Version: 2020-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:streamanalytics:PrivateEndpoint")]
-    public partial class PrivateEndpoint : global::Pulumi.CustomResource
+    public partial class PrivateEndpoint : Pulumi.CustomResource
     {
         /// <summary>
         /// Unique opaque string (generally a GUID) that represents the metadata state of the resource (private endpoint) and changes whenever the resource is updated. Required on PUT (CreateOrUpdate) requests.
@@ -65,8 +65,8 @@ namespace Pulumi.AzureNative.StreamAnalytics
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301:PrivateEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301preview:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301preview:PrivateEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
         }
     }
 
-    public sealed class PrivateEndpointArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the cluster.
@@ -117,6 +117,5 @@ namespace Pulumi.AzureNative.StreamAnalytics
         public PrivateEndpointArgs()
         {
         }
-        public static new PrivateEndpointArgs Empty => new PrivateEndpointArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
     /// API Version: 2020-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:ConnectedRegistry")]
-    public partial class ConnectedRegistry : global::Pulumi.CustomResource
+    public partial class ConnectedRegistry : Pulumi.CustomResource
     {
         /// <summary>
         /// The activation properties of the connected registry.
@@ -125,11 +125,11 @@ namespace Pulumi.AzureNative.ContainerRegistry
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:ConnectedRegistry"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:ConnectedRegistry"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:ConnectedRegistry"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:ConnectedRegistry"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:ConnectedRegistry"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:ConnectedRegistry"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:ConnectedRegistry"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:ConnectedRegistry"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:ConnectedRegistry"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:ConnectedRegistry"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -151,7 +151,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         }
     }
 
-    public sealed class ConnectedRegistryArgs : global::Pulumi.ResourceArgs
+    public sealed class ConnectedRegistryArgs : Pulumi.ResourceArgs
     {
         [Input("clientTokenIds")]
         private InputList<string>? _clientTokenIds;
@@ -204,6 +204,5 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public ConnectedRegistryArgs()
         {
         }
-        public static new ConnectedRegistryArgs Empty => new ConnectedRegistryArgs();
     }
 }

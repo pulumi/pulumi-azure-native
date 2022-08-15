@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Automanage.V20210430Preview
     }
 
 
-    public sealed class GetConfigurationProfileHCRPAssignmentArgs : global::Pulumi.InvokeArgs
+    public sealed class GetConfigurationProfileHCRPAssignmentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The configuration profile assignment name.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Automanage.V20210430Preview
         public GetConfigurationProfileHCRPAssignmentArgs()
         {
         }
-        public static new GetConfigurationProfileHCRPAssignmentArgs Empty => new GetConfigurationProfileHCRPAssignmentArgs();
     }
 
-    public sealed class GetConfigurationProfileHCRPAssignmentInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetConfigurationProfileHCRPAssignmentInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The configuration profile assignment name.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Automanage.V20210430Preview
         public GetConfigurationProfileHCRPAssignmentInvokeArgs()
         {
         }
-        public static new GetConfigurationProfileHCRPAssignmentInvokeArgs Empty => new GetConfigurationProfileHCRPAssignmentInvokeArgs();
     }
 
 

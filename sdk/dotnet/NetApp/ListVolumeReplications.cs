@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.NetApp
     }
 
 
-    public sealed class ListVolumeReplicationsArgs : global::Pulumi.InvokeArgs
+    public sealed class ListVolumeReplicationsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the NetApp account
@@ -56,10 +56,9 @@ namespace Pulumi.AzureNative.NetApp
         public ListVolumeReplicationsArgs()
         {
         }
-        public static new ListVolumeReplicationsArgs Empty => new ListVolumeReplicationsArgs();
     }
 
-    public sealed class ListVolumeReplicationsInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListVolumeReplicationsInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the NetApp account
@@ -88,7 +87,6 @@ namespace Pulumi.AzureNative.NetApp
         public ListVolumeReplicationsInvokeArgs()
         {
         }
-        public static new ListVolumeReplicationsInvokeArgs Empty => new ListVolumeReplicationsInvokeArgs();
     }
 
 

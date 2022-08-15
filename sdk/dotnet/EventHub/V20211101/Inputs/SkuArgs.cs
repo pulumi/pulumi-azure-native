@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventHub.V20211101.Inputs
     /// <summary>
     /// SKU parameters supplied to the create namespace operation
     /// </summary>
-    public sealed class SkuArgs : global::Pulumi.ResourceArgs
+    public sealed class SkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Event Hubs throughput units for Basic or Standard tiers, where value should be 0 to 20 throughput units. The Event Hubs premium units for Premium tier, where value should be 0 to 10 premium units.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.EventHub.V20211101.Inputs
         public SkuArgs()
         {
         }
-        public static new SkuArgs Empty => new SkuArgs();
     }
 }

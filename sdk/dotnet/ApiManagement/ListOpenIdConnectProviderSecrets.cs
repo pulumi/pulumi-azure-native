@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ApiManagement
     }
 
 
-    public sealed class ListOpenIdConnectProviderSecretsArgs : global::Pulumi.InvokeArgs
+    public sealed class ListOpenIdConnectProviderSecretsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Identifier of the OpenID Connect Provider.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.ApiManagement
         public ListOpenIdConnectProviderSecretsArgs()
         {
         }
-        public static new ListOpenIdConnectProviderSecretsArgs Empty => new ListOpenIdConnectProviderSecretsArgs();
     }
 
-    public sealed class ListOpenIdConnectProviderSecretsInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListOpenIdConnectProviderSecretsInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Identifier of the OpenID Connect Provider.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.ApiManagement
         public ListOpenIdConnectProviderSecretsInvokeArgs()
         {
         }
-        public static new ListOpenIdConnectProviderSecretsInvokeArgs Empty => new ListOpenIdConnectProviderSecretsInvokeArgs();
     }
 
 

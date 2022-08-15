@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Web.V20180201
     }
 
 
-    public sealed class GetWebAppSlotConfigurationNamesArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWebAppSlotConfigurationNamesArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the app.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.Web.V20180201
         public GetWebAppSlotConfigurationNamesArgs()
         {
         }
-        public static new GetWebAppSlotConfigurationNamesArgs Empty => new GetWebAppSlotConfigurationNamesArgs();
     }
 
-    public sealed class GetWebAppSlotConfigurationNamesInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWebAppSlotConfigurationNamesInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the app.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.Web.V20180201
         public GetWebAppSlotConfigurationNamesInvokeArgs()
         {
         }
-        public static new GetWebAppSlotConfigurationNamesInvokeArgs Empty => new GetWebAppSlotConfigurationNamesInvokeArgs();
     }
 
 

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Insights.Inputs
     /// An Activity Log Alert rule condition that is met by comparing the field and value of an Activity Log event.
     /// This condition must contain 'field' and either 'equals' or 'containsAny'.
     /// </summary>
-    public sealed class AlertRuleLeafConditionArgs : global::Pulumi.ResourceArgs
+    public sealed class AlertRuleLeafConditionArgs : Pulumi.ResourceArgs
     {
         [Input("containsAny")]
         private InputList<string>? _containsAny;
@@ -44,6 +44,5 @@ namespace Pulumi.AzureNative.Insights.Inputs
         public AlertRuleLeafConditionArgs()
         {
         }
-        public static new AlertRuleLeafConditionArgs Empty => new AlertRuleLeafConditionArgs();
     }
 }

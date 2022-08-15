@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DevTestLab
     }
 
 
-    public sealed class GetServiceFabricArgs : global::Pulumi.InvokeArgs
+    public sealed class GetServiceFabricArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specify the $expand query. Example: 'properties($expand=applicableSchedule)'
@@ -62,10 +62,9 @@ namespace Pulumi.AzureNative.DevTestLab
         public GetServiceFabricArgs()
         {
         }
-        public static new GetServiceFabricArgs Empty => new GetServiceFabricArgs();
     }
 
-    public sealed class GetServiceFabricInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetServiceFabricInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specify the $expand query. Example: 'properties($expand=applicableSchedule)'
@@ -100,7 +99,6 @@ namespace Pulumi.AzureNative.DevTestLab
         public GetServiceFabricInvokeArgs()
         {
         }
-        public static new GetServiceFabricInvokeArgs Empty => new GetServiceFabricInvokeArgs();
     }
 
 

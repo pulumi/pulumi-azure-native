@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
     }
 
 
-    public sealed class GetArtifactSourceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetArtifactSourceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specify the $expand query. Example: 'properties($select=displayName)'
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         public GetArtifactSourceArgs()
         {
         }
-        public static new GetArtifactSourceArgs Empty => new GetArtifactSourceArgs();
     }
 
-    public sealed class GetArtifactSourceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetArtifactSourceInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specify the $expand query. Example: 'properties($select=displayName)'
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         public GetArtifactSourceInvokeArgs()
         {
         }
-        public static new GetArtifactSourceInvokeArgs Empty => new GetArtifactSourceInvokeArgs();
     }
 
 

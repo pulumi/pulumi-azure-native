@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20191027Preview.Inputs
     /// <summary>
     /// Defines further properties on the API.
     /// </summary>
-    public sealed class OpenShiftAPIPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class OpenShiftAPIPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies if API server is public or private.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.ContainerService.V20191027Preview.Inputs
         public OpenShiftAPIPropertiesArgs()
         {
         }
-        public static new OpenShiftAPIPropertiesArgs Empty => new OpenShiftAPIPropertiesArgs();
     }
 }

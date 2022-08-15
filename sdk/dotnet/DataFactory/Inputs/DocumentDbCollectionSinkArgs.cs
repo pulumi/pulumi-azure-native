@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity Document Database Collection sink.
     /// </summary>
-    public sealed class DocumentDbCollectionSinkArgs : global::Pulumi.ResourceArgs
+    public sealed class DocumentDbCollectionSinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -73,6 +73,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public DocumentDbCollectionSinkArgs()
         {
         }
-        public static new DocumentDbCollectionSinkArgs Empty => new DocumentDbCollectionSinkArgs();
     }
 }

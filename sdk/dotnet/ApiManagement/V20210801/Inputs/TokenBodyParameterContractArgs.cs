@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801.Inputs
     /// <summary>
     /// OAuth acquire token request body parameter (www-url-form-encoded).
     /// </summary>
-    public sealed class TokenBodyParameterContractArgs : global::Pulumi.ResourceArgs
+    public sealed class TokenBodyParameterContractArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// body parameter name.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801.Inputs
         public TokenBodyParameterContractArgs()
         {
         }
-        public static new TokenBodyParameterContractArgs Empty => new TokenBodyParameterContractArgs();
     }
 }

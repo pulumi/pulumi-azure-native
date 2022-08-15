@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.CertificateRegistration.V20190801
     /// </summary>
     [Obsolete(@"Version 2019-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:certificateregistration/v20190801:AppServiceCertificateOrder")]
-    public partial class AppServiceCertificateOrder : global::Pulumi.CustomResource
+    public partial class AppServiceCertificateOrder : Pulumi.CustomResource
     {
         /// <summary>
         /// Reasons why App Service Certificate is not renewable at the current moment.
@@ -185,18 +185,18 @@ namespace Pulumi.AzureNative.CertificateRegistration.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:certificateregistration:AppServiceCertificateOrder"},
-                    new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20150801:AppServiceCertificateOrder"},
-                    new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20180201:AppServiceCertificateOrder"},
-                    new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20200601:AppServiceCertificateOrder"},
-                    new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20200901:AppServiceCertificateOrder"},
-                    new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20201001:AppServiceCertificateOrder"},
-                    new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20201201:AppServiceCertificateOrder"},
-                    new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20210101:AppServiceCertificateOrder"},
-                    new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20210115:AppServiceCertificateOrder"},
-                    new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20210201:AppServiceCertificateOrder"},
-                    new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20210301:AppServiceCertificateOrder"},
-                    new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20220301:AppServiceCertificateOrder"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration:AppServiceCertificateOrder"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20150801:AppServiceCertificateOrder"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20180201:AppServiceCertificateOrder"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20200601:AppServiceCertificateOrder"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20200901:AppServiceCertificateOrder"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20201001:AppServiceCertificateOrder"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20201201:AppServiceCertificateOrder"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20210101:AppServiceCertificateOrder"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20210115:AppServiceCertificateOrder"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20210201:AppServiceCertificateOrder"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20210301:AppServiceCertificateOrder"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20220301:AppServiceCertificateOrder"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -218,7 +218,7 @@ namespace Pulumi.AzureNative.CertificateRegistration.V20190801
         }
     }
 
-    public sealed class AppServiceCertificateOrderArgs : global::Pulumi.ResourceArgs
+    public sealed class AppServiceCertificateOrderArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; if the certificate should be automatically renewed when it expires; otherwise, &lt;code&gt;false&lt;/code&gt;.
@@ -310,6 +310,5 @@ namespace Pulumi.AzureNative.CertificateRegistration.V20190801
             KeySize = 2048;
             ValidityInYears = 1;
         }
-        public static new AppServiceCertificateOrderArgs Empty => new AppServiceCertificateOrderArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.App
     }
 
 
-    public sealed class GetContainerAppArgs : global::Pulumi.InvokeArgs
+    public sealed class GetContainerAppArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Container App.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.App
         public GetContainerAppArgs()
         {
         }
-        public static new GetContainerAppArgs Empty => new GetContainerAppArgs();
     }
 
-    public sealed class GetContainerAppInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetContainerAppInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Container App.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.App
         public GetContainerAppInvokeArgs()
         {
         }
-        public static new GetContainerAppInvokeArgs Empty => new GetContainerAppInvokeArgs();
     }
 
 

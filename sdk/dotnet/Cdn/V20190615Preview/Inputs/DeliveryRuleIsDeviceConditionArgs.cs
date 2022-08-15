@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20190615Preview.Inputs
     /// <summary>
     /// Defines the IsDevice condition for the delivery rule.
     /// </summary>
-    public sealed class DeliveryRuleIsDeviceConditionArgs : global::Pulumi.ResourceArgs
+    public sealed class DeliveryRuleIsDeviceConditionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the condition for the delivery rule.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.Cdn.V20190615Preview.Inputs
         public DeliveryRuleIsDeviceConditionArgs()
         {
         }
-        public static new DeliveryRuleIsDeviceConditionArgs Empty => new DeliveryRuleIsDeviceConditionArgs();
     }
 }

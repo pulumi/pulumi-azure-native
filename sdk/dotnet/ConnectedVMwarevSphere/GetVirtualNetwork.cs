@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     }
 
 
-    public sealed class GetVirtualNetworkArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Resource Group Name.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public GetVirtualNetworkArgs()
         {
         }
-        public static new GetVirtualNetworkArgs Empty => new GetVirtualNetworkArgs();
     }
 
-    public sealed class GetVirtualNetworkInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Resource Group Name.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public GetVirtualNetworkInvokeArgs()
         {
         }
-        public static new GetVirtualNetworkInvokeArgs Empty => new GetVirtualNetworkInvokeArgs();
     }
 
 

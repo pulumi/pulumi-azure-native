@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20200101Preview.Inputs
     /// <summary>
     /// Defines whether to send email notifications about new security alerts
     /// </summary>
-    public sealed class SecurityContactPropertiesAlertNotificationsArgs : global::Pulumi.ResourceArgs
+    public sealed class SecurityContactPropertiesAlertNotificationsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Defines the minimal alert severity which will be sent as email notifications
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Security.V20200101Preview.Inputs
         public SecurityContactPropertiesAlertNotificationsArgs()
         {
         }
-        public static new SecurityContactPropertiesAlertNotificationsArgs Empty => new SecurityContactPropertiesAlertNotificationsArgs();
     }
 }

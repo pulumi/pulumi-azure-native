@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801.Inputs
     /// <summary>
     /// API license information
     /// </summary>
-    public sealed class ApiLicenseInformationArgs : global::Pulumi.ResourceArgs
+    public sealed class ApiLicenseInformationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The license name used for the API
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801.Inputs
         public ApiLicenseInformationArgs()
         {
         }
-        public static new ApiLicenseInformationArgs Empty => new ApiLicenseInformationArgs();
     }
 }

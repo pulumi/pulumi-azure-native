@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Inputs
     /// <summary>
     /// Web Chat channel definition
     /// </summary>
-    public sealed class WebChatChannelArgs : global::Pulumi.ResourceArgs
+    public sealed class WebChatChannelArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The channel name
@@ -44,6 +44,5 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Inputs
         {
             Location = "global";
         }
-        public static new WebChatChannelArgs Empty => new WebChatChannelArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20150408.Inputs
     /// <summary>
     /// Cosmos DB MongoDB collection resource object
     /// </summary>
-    public sealed class MongoIndexKeysArgs : global::Pulumi.ResourceArgs
+    public sealed class MongoIndexKeysArgs : Pulumi.ResourceArgs
     {
         [Input("keys")]
         private InputList<string>? _keys;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20150408.Inputs
         public MongoIndexKeysArgs()
         {
         }
-        public static new MongoIndexKeysArgs Empty => new MongoIndexKeysArgs();
     }
 }

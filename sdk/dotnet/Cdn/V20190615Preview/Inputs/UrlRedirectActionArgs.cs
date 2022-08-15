@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20190615Preview.Inputs
     /// <summary>
     /// Defines the url redirect action for the delivery rule.
     /// </summary>
-    public sealed class UrlRedirectActionArgs : global::Pulumi.ResourceArgs
+    public sealed class UrlRedirectActionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the action for the delivery rule.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.Cdn.V20190615Preview.Inputs
         public UrlRedirectActionArgs()
         {
         }
-        public static new UrlRedirectActionArgs Empty => new UrlRedirectActionArgs();
     }
 }

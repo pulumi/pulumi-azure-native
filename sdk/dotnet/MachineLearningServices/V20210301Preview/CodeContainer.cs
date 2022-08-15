@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
     /// Azure Resource Manager resource envelope.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20210301preview:CodeContainer")]
-    public partial class CodeContainer : global::Pulumi.CustomResource
+    public partial class CodeContainer : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -64,10 +64,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:CodeContainer"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:CodeContainer"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:CodeContainer"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:CodeContainer"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:CodeContainer"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:CodeContainer"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:CodeContainer"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:CodeContainer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         }
     }
 
-    public sealed class CodeContainerArgs : global::Pulumi.ResourceArgs
+    public sealed class CodeContainerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Container name.
@@ -118,6 +118,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         public CodeContainerArgs()
         {
         }
-        public static new CodeContainerArgs Empty => new CodeContainerArgs();
     }
 }

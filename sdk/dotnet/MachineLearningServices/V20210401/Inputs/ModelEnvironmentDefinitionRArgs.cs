@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210401.Inputs
     /// <summary>
     /// Settings for a R environment.
     /// </summary>
-    public sealed class ModelEnvironmentDefinitionRArgs : global::Pulumi.ResourceArgs
+    public sealed class ModelEnvironmentDefinitionRArgs : Pulumi.ResourceArgs
     {
         [Input("bioConductorPackages")]
         private InputList<string>? _bioConductorPackages;
@@ -91,6 +91,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210401.Inputs
         public ModelEnvironmentDefinitionRArgs()
         {
         }
-        public static new ModelEnvironmentDefinitionRArgs Empty => new ModelEnvironmentDefinitionRArgs();
     }
 }

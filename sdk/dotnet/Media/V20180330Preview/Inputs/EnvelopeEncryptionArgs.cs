@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180330Preview.Inputs
     /// <summary>
     /// Class for EnvelopeEncryption encryption scheme
     /// </summary>
-    public sealed class EnvelopeEncryptionArgs : global::Pulumi.ResourceArgs
+    public sealed class EnvelopeEncryptionArgs : Pulumi.ResourceArgs
     {
         [Input("clearTracks")]
         private InputList<Inputs.TrackSelectionArgs>? _clearTracks;
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.Media.V20180330Preview.Inputs
         public EnvelopeEncryptionArgs()
         {
         }
-        public static new EnvelopeEncryptionArgs Empty => new EnvelopeEncryptionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorSimple.V20170601.Inputs
     /// <summary>
     /// The time.
     /// </summary>
-    public sealed class TimeArgs : global::Pulumi.ResourceArgs
+    public sealed class TimeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The hour.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.StorSimple.V20170601.Inputs
         public TimeArgs()
         {
         }
-        public static new TimeArgs Empty => new TimeArgs();
     }
 }

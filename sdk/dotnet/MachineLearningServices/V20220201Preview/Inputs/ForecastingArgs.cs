@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// Forecasting task in AutoML Table vertical.
     /// </summary>
-    public sealed class ForecastingArgs : global::Pulumi.ResourceArgs
+    public sealed class ForecastingArgs : Pulumi.ResourceArgs
     {
         [Input("allowedModels")]
         private InputList<Union<string, Pulumi.AzureNative.MachineLearningServices.V20220201Preview.ForecastingModels>>? _allowedModels;
@@ -93,6 +93,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
             LogVerbosity = "Info";
             PrimaryMetric = "NormalizedRootMeanSquaredError";
         }
-        public static new ForecastingArgs Empty => new ForecastingArgs();
     }
 }

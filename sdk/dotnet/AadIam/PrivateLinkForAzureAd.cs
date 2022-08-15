@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AadIam
     /// API Version: 2020-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:aadiam:privateLinkForAzureAd")]
-    public partial class PrivateLinkForAzureAd : global::Pulumi.CustomResource
+    public partial class PrivateLinkForAzureAd : Pulumi.CustomResource
     {
         /// <summary>
         /// Flag indicating whether all tenants are allowed
@@ -95,8 +95,8 @@ namespace Pulumi.AzureNative.AadIam
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:aadiam/v20200301:privateLinkForAzureAd"},
-                    new global::Pulumi.Alias { Type = "azure-native:aadiam/v20200301preview:privateLinkForAzureAd"},
+                    new Pulumi.Alias { Type = "azure-native:aadiam/v20200301:privateLinkForAzureAd"},
+                    new Pulumi.Alias { Type = "azure-native:aadiam/v20200301preview:privateLinkForAzureAd"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.AadIam
         }
     }
 
-    public sealed class PrivateLinkForAzureAdArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateLinkForAzureAdArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Flag indicating whether all tenants are allowed
@@ -195,6 +195,5 @@ namespace Pulumi.AzureNative.AadIam
         public PrivateLinkForAzureAdArgs()
         {
         }
-        public static new PrivateLinkForAzureAdArgs Empty => new PrivateLinkForAzureAdArgs();
     }
 }

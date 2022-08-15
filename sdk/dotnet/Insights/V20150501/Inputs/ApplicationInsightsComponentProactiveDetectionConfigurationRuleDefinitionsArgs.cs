@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20150501.Inputs
     /// <summary>
     /// Static definitions of the ProactiveDetection configuration rule (same values for all components).
     /// </summary>
-    public sealed class ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The rule description
@@ -66,6 +66,5 @@ namespace Pulumi.AzureNative.Insights.V20150501.Inputs
         public ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs()
         {
         }
-        public static new ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs Empty => new ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs();
     }
 }

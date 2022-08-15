@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20190601.Inputs
     /// <summary>
     /// The blob service properties for Last access time based tracking policy.
     /// </summary>
-    public sealed class LastAccessTimeTrackingPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class LastAccessTimeTrackingPolicyArgs : Pulumi.ResourceArgs
     {
         [Input("blobType")]
         private InputList<string>? _blobType;
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.Storage.V20190601.Inputs
         public LastAccessTimeTrackingPolicyArgs()
         {
         }
-        public static new LastAccessTimeTrackingPolicyArgs Empty => new LastAccessTimeTrackingPolicyArgs();
     }
 }

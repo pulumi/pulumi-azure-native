@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20220101
     }
 
 
-    public sealed class GetManagementGroupNetworkManagerConnectionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetManagementGroupNetworkManagerConnectionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The management group Id which uniquely identify the Microsoft Azure management group.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.Network.V20220101
         public GetManagementGroupNetworkManagerConnectionArgs()
         {
         }
-        public static new GetManagementGroupNetworkManagerConnectionArgs Empty => new GetManagementGroupNetworkManagerConnectionArgs();
     }
 
-    public sealed class GetManagementGroupNetworkManagerConnectionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetManagementGroupNetworkManagerConnectionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The management group Id which uniquely identify the Microsoft Azure management group.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.Network.V20220101
         public GetManagementGroupNetworkManagerConnectionInvokeArgs()
         {
         }
-        public static new GetManagementGroupNetworkManagerConnectionInvokeArgs Empty => new GetManagementGroupNetworkManagerConnectionInvokeArgs();
     }
 
 

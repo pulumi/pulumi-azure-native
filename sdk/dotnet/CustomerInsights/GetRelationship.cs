@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.CustomerInsights
     }
 
 
-    public sealed class GetRelationshipArgs : global::Pulumi.InvokeArgs
+    public sealed class GetRelationshipArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the hub.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.CustomerInsights
         public GetRelationshipArgs()
         {
         }
-        public static new GetRelationshipArgs Empty => new GetRelationshipArgs();
     }
 
-    public sealed class GetRelationshipInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetRelationshipInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the hub.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.CustomerInsights
         public GetRelationshipInvokeArgs()
         {
         }
-        public static new GetRelationshipInvokeArgs Empty => new GetRelationshipInvokeArgs();
     }
 
 

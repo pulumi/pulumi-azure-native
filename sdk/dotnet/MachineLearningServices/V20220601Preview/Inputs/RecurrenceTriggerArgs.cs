@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
 {
 
-    public sealed class RecurrenceTriggerArgs : global::Pulumi.ResourceArgs
+    public sealed class RecurrenceTriggerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies end time of schedule in ISO 8601, but without a UTC offset. Refer https://en.wikipedia.org/wiki/ISO_8601.
@@ -62,6 +62,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         {
             TimeZone = "UTC";
         }
-        public static new RecurrenceTriggerArgs Empty => new RecurrenceTriggerArgs();
     }
 }

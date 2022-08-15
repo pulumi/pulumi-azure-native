@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180701.Inputs
     /// <summary>
     /// Akamai access control
     /// </summary>
-    public sealed class AkamaiAccessControlArgs : global::Pulumi.ResourceArgs
+    public sealed class AkamaiAccessControlArgs : Pulumi.ResourceArgs
     {
         [Input("akamaiSignatureHeaderAuthenticationKeyList")]
         private InputList<Inputs.AkamaiSignatureHeaderAuthenticationKeyArgs>? _akamaiSignatureHeaderAuthenticationKeyList;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Media.V20180701.Inputs
         public AkamaiAccessControlArgs()
         {
         }
-        public static new AkamaiAccessControlArgs Empty => new AkamaiAccessControlArgs();
     }
 }

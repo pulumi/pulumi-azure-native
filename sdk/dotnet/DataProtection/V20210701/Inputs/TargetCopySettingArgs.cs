@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataProtection.V20210701.Inputs
     /// <summary>
     /// Target copy settings
     /// </summary>
-    public sealed class TargetCopySettingArgs : global::Pulumi.ResourceArgs
+    public sealed class TargetCopySettingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// It can be CustomCopyOption or ImmediateCopyOption.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DataProtection.V20210701.Inputs
         public TargetCopySettingArgs()
         {
         }
-        public static new TargetCopySettingArgs Empty => new TargetCopySettingArgs();
     }
 }

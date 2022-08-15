@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
     /// Sim resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork/v20220301preview:Sim")]
-    public partial class Sim : global::Pulumi.CustomResource
+    public partial class Sim : Pulumi.CustomResource
     {
         /// <summary>
         /// The timestamp of resource creation (UTC).
@@ -154,8 +154,8 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork:Sim"},
-                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220101preview:Sim"},
+                    new Pulumi.Alias { Type = "azure-native:mobilenetwork:Sim"},
+                    new Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220101preview:Sim"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -177,7 +177,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
         }
     }
 
-    public sealed class SimArgs : global::Pulumi.ResourceArgs
+    public sealed class SimArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ki value for the sim.
@@ -302,6 +302,5 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
         public SimArgs()
         {
         }
-        public static new SimArgs Empty => new SimArgs();
     }
 }

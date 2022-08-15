@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.Inputs
     /// <summary>
     /// Defines reference to a public IP.
     /// </summary>
-    public sealed class PublicIpReferenceArgs : global::Pulumi.ResourceArgs
+    public sealed class PublicIpReferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets the ARM resource ID of the tracked resource being referenced.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Migrate.Inputs
         public PublicIpReferenceArgs()
         {
         }
-        public static new PublicIpReferenceArgs Empty => new PublicIpReferenceArgs();
     }
 }

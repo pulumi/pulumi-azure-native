@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20191101.Inputs
     /// <summary>
     /// DDoS custom policy properties.
     /// </summary>
-    public sealed class ProtocolCustomSettingsFormatArgs : global::Pulumi.ResourceArgs
+    public sealed class ProtocolCustomSettingsFormatArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The protocol for which the DDoS protection policy is being customized.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Network.V20191101.Inputs
         public ProtocolCustomSettingsFormatArgs()
         {
         }
-        public static new ProtocolCustomSettingsFormatArgs Empty => new ProtocolCustomSettingsFormatArgs();
     }
 }

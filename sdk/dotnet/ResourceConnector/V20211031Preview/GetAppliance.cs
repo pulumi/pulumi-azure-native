@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ResourceConnector.V20211031Preview
     }
 
 
-    public sealed class GetApplianceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetApplianceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.ResourceConnector.V20211031Preview
         public GetApplianceArgs()
         {
         }
-        public static new GetApplianceArgs Empty => new GetApplianceArgs();
     }
 
-    public sealed class GetApplianceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetApplianceInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.ResourceConnector.V20211031Preview
         public GetApplianceInvokeArgs()
         {
         }
-        public static new GetApplianceInvokeArgs Empty => new GetApplianceInvokeArgs();
     }
 
 

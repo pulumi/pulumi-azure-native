@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
 {
 
-    public sealed class EncryptionKeyVaultPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class EncryptionKeyVaultPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// For future use - The client id of the identity which will be used to access key vault.
@@ -33,6 +33,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
         public EncryptionKeyVaultPropertiesArgs()
         {
         }
-        public static new EncryptionKeyVaultPropertiesArgs Empty => new EncryptionKeyVaultPropertiesArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20220401Preview
     }
 
 
-    public sealed class GetPrivateEndpointConnectionProxyArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPrivateEndpointConnectionProxyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Account name.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20220401Preview
         public GetPrivateEndpointConnectionProxyArgs()
         {
         }
-        public static new GetPrivateEndpointConnectionProxyArgs Empty => new GetPrivateEndpointConnectionProxyArgs();
     }
 
-    public sealed class GetPrivateEndpointConnectionProxyInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPrivateEndpointConnectionProxyInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Account name.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20220401Preview
         public GetPrivateEndpointConnectionProxyInvokeArgs()
         {
         }
-        public static new GetPrivateEndpointConnectionProxyInvokeArgs Empty => new GetPrivateEndpointConnectionProxyInvokeArgs();
     }
 
 

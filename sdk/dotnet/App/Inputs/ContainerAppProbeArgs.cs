@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.Inputs
     /// <summary>
     /// Probe describes a health check to be performed against a container to determine whether it is alive or ready to receive traffic.
     /// </summary>
-    public sealed class ContainerAppProbeArgs : global::Pulumi.ResourceArgs
+    public sealed class ContainerAppProbeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1. Maximum value is 10.
@@ -72,6 +72,5 @@ namespace Pulumi.AzureNative.App.Inputs
         public ContainerAppProbeArgs()
         {
         }
-        public static new ContainerAppProbeArgs Empty => new ContainerAppProbeArgs();
     }
 }

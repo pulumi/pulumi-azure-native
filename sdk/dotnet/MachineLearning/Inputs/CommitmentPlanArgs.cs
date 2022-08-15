@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearning.Inputs
     /// <summary>
     /// Information about the machine learning commitment plan associated with the web service.
     /// </summary>
-    public sealed class CommitmentPlanArgs : global::Pulumi.ResourceArgs
+    public sealed class CommitmentPlanArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Azure Resource Manager ID of the commitment plan associated with the web service.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.MachineLearning.Inputs
         public CommitmentPlanArgs()
         {
         }
-        public static new CommitmentPlanArgs Empty => new CommitmentPlanArgs();
     }
 }

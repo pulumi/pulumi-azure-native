@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915.Inputs
     /// <summary>
     /// Property overrides on a subnet of a virtual network.
     /// </summary>
-    public sealed class SubnetOverrideArgs : global::Pulumi.ResourceArgs
+    public sealed class SubnetOverrideArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name given to the subnet within the lab.
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915.Inputs
         public SubnetOverrideArgs()
         {
         }
-        public static new SubnetOverrideArgs Empty => new SubnetOverrideArgs();
     }
 }

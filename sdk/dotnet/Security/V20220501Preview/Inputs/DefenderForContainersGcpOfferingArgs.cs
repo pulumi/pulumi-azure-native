@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
     /// <summary>
     /// The containers GCP offering
     /// </summary>
-    public sealed class DefenderForContainersGcpOfferingArgs : global::Pulumi.ResourceArgs
+    public sealed class DefenderForContainersGcpOfferingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is audit logs data collection enabled
@@ -55,6 +55,5 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
         public DefenderForContainersGcpOfferingArgs()
         {
         }
-        public static new DefenderForContainersGcpOfferingArgs Empty => new DefenderForContainersGcpOfferingArgs();
     }
 }

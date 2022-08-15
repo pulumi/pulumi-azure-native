@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20180820Preview.Inputs
     /// <summary>
     /// The settings for the Cosmos DB database backing the service.
     /// </summary>
-    public sealed class ServiceCosmosDbConfigurationInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class ServiceCosmosDbConfigurationInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The provisioned throughput for the backing database.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.HealthcareApis.V20180820Preview.Inputs
         public ServiceCosmosDbConfigurationInfoArgs()
         {
         }
-        public static new ServiceCosmosDbConfigurationInfoArgs Empty => new ServiceCosmosDbConfigurationInfoArgs();
     }
 }

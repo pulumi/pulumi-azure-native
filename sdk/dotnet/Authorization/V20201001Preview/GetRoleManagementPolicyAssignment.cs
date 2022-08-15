@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Authorization.V20201001Preview
     }
 
 
-    public sealed class GetRoleManagementPolicyAssignmentArgs : global::Pulumi.InvokeArgs
+    public sealed class GetRoleManagementPolicyAssignmentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of format {guid_guid} the role management policy assignment to get.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.Authorization.V20201001Preview
         public GetRoleManagementPolicyAssignmentArgs()
         {
         }
-        public static new GetRoleManagementPolicyAssignmentArgs Empty => new GetRoleManagementPolicyAssignmentArgs();
     }
 
-    public sealed class GetRoleManagementPolicyAssignmentInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetRoleManagementPolicyAssignmentInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of format {guid_guid} the role management policy assignment to get.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.Authorization.V20201001Preview
         public GetRoleManagementPolicyAssignmentInvokeArgs()
         {
         }
-        public static new GetRoleManagementPolicyAssignmentInvokeArgs Empty => new GetRoleManagementPolicyAssignmentInvokeArgs();
     }
 
 

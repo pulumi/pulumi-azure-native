@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20160601
     /// The integration account session.
     /// </summary>
     [AzureNativeResourceType("azure-native:logic/v20160601:Session")]
-    public partial class Session : global::Pulumi.CustomResource
+    public partial class Session : Pulumi.CustomResource
     {
         /// <summary>
         /// The changed time.
@@ -82,9 +82,9 @@ namespace Pulumi.AzureNative.Logic.V20160601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:logic:Session"},
-                    new global::Pulumi.Alias { Type = "azure-native:logic/v20180701preview:Session"},
-                    new global::Pulumi.Alias { Type = "azure-native:logic/v20190501:Session"},
+                    new Pulumi.Alias { Type = "azure-native:logic:Session"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20180701preview:Session"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20190501:Session"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.Logic.V20160601
         }
     }
 
-    public sealed class SessionArgs : global::Pulumi.ResourceArgs
+    public sealed class SessionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The session content.
@@ -153,6 +153,5 @@ namespace Pulumi.AzureNative.Logic.V20160601
         public SessionArgs()
         {
         }
-        public static new SessionArgs Empty => new SessionArgs();
     }
 }

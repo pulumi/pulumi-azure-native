@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview
     /// Single Namespace item in List or Get Operation
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub/v20210601preview:Namespace")]
-    public partial class Namespace : global::Pulumi.CustomResource
+    public partial class Namespace : Pulumi.CustomResource
     {
         /// <summary>
         /// Cluster ARM ID of the Namespace.
@@ -166,14 +166,14 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20140901:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20150801:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20170401:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210101preview:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20211101:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20220101preview:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20140901:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20150801:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20170401:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20210101preview:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20211101:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20220101preview:Namespace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -195,7 +195,7 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview
         }
     }
 
-    public sealed class NamespaceArgs : global::Pulumi.ResourceArgs
+    public sealed class NamespaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cluster ARM ID of the Namespace.
@@ -296,6 +296,5 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview
         public NamespaceArgs()
         {
         }
-        public static new NamespaceArgs Empty => new NamespaceArgs();
     }
 }

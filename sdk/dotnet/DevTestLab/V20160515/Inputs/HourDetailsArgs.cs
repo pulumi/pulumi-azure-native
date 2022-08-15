@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
     /// <summary>
     /// Properties of an hourly schedule.
     /// </summary>
-    public sealed class HourDetailsArgs : global::Pulumi.ResourceArgs
+    public sealed class HourDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Minutes of the hour the schedule will run.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
         public HourDetailsArgs()
         {
         }
-        public static new HourDetailsArgs Empty => new HourDetailsArgs();
     }
 }

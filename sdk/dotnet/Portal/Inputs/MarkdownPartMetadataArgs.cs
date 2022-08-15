@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Portal.Inputs
     /// <summary>
     /// Markdown part metadata.
     /// </summary>
-    public sealed class MarkdownPartMetadataArgs : global::Pulumi.ResourceArgs
+    public sealed class MarkdownPartMetadataArgs : Pulumi.ResourceArgs
     {
         [Input("inputs")]
         private InputList<object>? _inputs;
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.Portal.Inputs
         public MarkdownPartMetadataArgs()
         {
         }
-        public static new MarkdownPartMetadataArgs Empty => new MarkdownPartMetadataArgs();
     }
 }

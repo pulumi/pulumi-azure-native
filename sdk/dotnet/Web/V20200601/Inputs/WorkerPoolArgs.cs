@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20200601.Inputs
     /// <summary>
     /// Worker pool of an App Service Environment.
     /// </summary>
-    public sealed class WorkerPoolArgs : global::Pulumi.ResourceArgs
+    public sealed class WorkerPoolArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Shared or dedicated app hosting.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Web.V20200601.Inputs
         public WorkerPoolArgs()
         {
         }
-        public static new WorkerPoolArgs Empty => new WorkerPoolArgs();
     }
 }

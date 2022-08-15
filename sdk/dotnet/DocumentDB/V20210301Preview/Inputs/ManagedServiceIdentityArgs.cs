@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210301Preview.Inputs
     /// <summary>
     /// Identity for the resource.
     /// </summary>
-    public sealed class ManagedServiceIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedServiceIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20210301Preview.Inputs
         public ManagedServiceIdentityArgs()
         {
         }
-        public static new ManagedServiceIdentityArgs Empty => new ManagedServiceIdentityArgs();
     }
 }

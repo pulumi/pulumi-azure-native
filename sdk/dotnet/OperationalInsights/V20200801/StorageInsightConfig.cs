@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
     /// The top level storage insight resource container.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights/v20200801:StorageInsightConfig")]
-    public partial class StorageInsightConfig : global::Pulumi.CustomResource
+    public partial class StorageInsightConfig : Pulumi.CustomResource
     {
         /// <summary>
         /// The names of the blob containers that the workspace should read
@@ -88,9 +88,9 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights:StorageInsightConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20150320:StorageInsightConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:StorageInsightConfig"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights:StorageInsightConfig"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20150320:StorageInsightConfig"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:StorageInsightConfig"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
         }
     }
 
-    public sealed class StorageInsightConfigArgs : global::Pulumi.ResourceArgs
+    public sealed class StorageInsightConfigArgs : Pulumi.ResourceArgs
     {
         [Input("containers")]
         private InputList<string>? _containers;
@@ -183,6 +183,5 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
         public StorageInsightConfigArgs()
         {
         }
-        public static new StorageInsightConfigArgs Empty => new StorageInsightConfigArgs();
     }
 }

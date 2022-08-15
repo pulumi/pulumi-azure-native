@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20201120.Inputs
     /// <summary>
     /// Gallery information for a workbook template.
     /// </summary>
-    public sealed class WorkbookTemplateGalleryArgs : global::Pulumi.ResourceArgs
+    public sealed class WorkbookTemplateGalleryArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Category for the gallery.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.Insights.V20201120.Inputs
         public WorkbookTemplateGalleryArgs()
         {
         }
-        public static new WorkbookTemplateGalleryArgs Empty => new WorkbookTemplateGalleryArgs();
     }
 }

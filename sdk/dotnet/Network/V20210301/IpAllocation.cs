@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210301
     /// IpAllocation resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20210301:IpAllocation")]
-    public partial class IpAllocation : global::Pulumi.CustomResource
+    public partial class IpAllocation : Pulumi.CustomResource
     {
         /// <summary>
         /// IpAllocation tags.
@@ -112,18 +112,18 @@ namespace Pulumi.AzureNative.Network.V20210301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:IpAllocation"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:IpAllocation"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:IpAllocation"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:IpAllocation"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:IpAllocation"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:IpAllocation"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:IpAllocation"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:IpAllocation"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:IpAllocation"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:IpAllocation"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:IpAllocation"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:IpAllocation"},
+                    new Pulumi.Alias { Type = "azure-native:network:IpAllocation"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:IpAllocation"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:IpAllocation"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:IpAllocation"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:IpAllocation"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:IpAllocation"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:IpAllocation"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:IpAllocation"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:IpAllocation"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501:IpAllocation"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:IpAllocation"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:IpAllocation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -145,7 +145,7 @@ namespace Pulumi.AzureNative.Network.V20210301
         }
     }
 
-    public sealed class IpAllocationArgs : global::Pulumi.ResourceArgs
+    public sealed class IpAllocationArgs : Pulumi.ResourceArgs
     {
         [Input("allocationTags")]
         private InputMap<string>? _allocationTags;
@@ -229,6 +229,5 @@ namespace Pulumi.AzureNative.Network.V20210301
         {
             PrefixLength = 0;
         }
-        public static new IpAllocationArgs Empty => new IpAllocationArgs();
     }
 }

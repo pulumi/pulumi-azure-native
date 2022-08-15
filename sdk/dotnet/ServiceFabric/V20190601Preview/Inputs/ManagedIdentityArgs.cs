@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20190601Preview.Inputs
     /// <summary>
     /// Describes the managed identities for an Azure resource.
     /// </summary>
-    public sealed class ManagedIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of managed identity for the resource.
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.ServiceFabric.V20190601Preview.Inputs
         public ManagedIdentityArgs()
         {
         }
-        public static new ManagedIdentityArgs Empty => new ManagedIdentityArgs();
     }
 }

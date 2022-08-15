@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.V20191001.Inputs
     /// <summary>
     /// The definition of a query.
     /// </summary>
-    public sealed class QueryDefinitionArgs : global::Pulumi.ResourceArgs
+    public sealed class QueryDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Has definition for data in this query.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.CostManagement.V20191001.Inputs
         public QueryDefinitionArgs()
         {
         }
-        public static new QueryDefinitionArgs Empty => new QueryDefinitionArgs();
     }
 }

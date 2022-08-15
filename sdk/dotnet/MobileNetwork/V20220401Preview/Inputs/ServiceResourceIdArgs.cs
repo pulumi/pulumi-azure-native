@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview.Inputs
     /// <summary>
     /// Reference to a service resource.
     /// </summary>
-    public sealed class ServiceResourceIdArgs : global::Pulumi.ResourceArgs
+    public sealed class ServiceResourceIdArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Service resource ID.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview.Inputs
         public ServiceResourceIdArgs()
         {
         }
-        public static new ServiceResourceIdArgs Empty => new ServiceResourceIdArgs();
     }
 }

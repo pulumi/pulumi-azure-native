@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
     }
 
 
-    public sealed class GetDataExportArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDataExportArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The data export rule name.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
         public GetDataExportArgs()
         {
         }
-        public static new GetDataExportArgs Empty => new GetDataExportArgs();
     }
 
-    public sealed class GetDataExportInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDataExportInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The data export rule name.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
         public GetDataExportInvokeArgs()
         {
         }
-        public static new GetDataExportInvokeArgs Empty => new GetDataExportInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview.Inputs
     /// <summary>
     /// Properties of the source of an event channel.
     /// </summary>
-    public sealed class EventChannelSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class EventChannelSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identifier of the resource that's the source of the events.
@@ -25,6 +25,5 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview.Inputs
         public EventChannelSourceArgs()
         {
         }
-        public static new EventChannelSourceArgs Empty => new EventChannelSourceArgs();
     }
 }

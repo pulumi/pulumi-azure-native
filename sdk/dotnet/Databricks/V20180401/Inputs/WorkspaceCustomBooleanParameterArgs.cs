@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Databricks.V20180401.Inputs
     /// <summary>
     /// The value which should be used for this field.
     /// </summary>
-    public sealed class WorkspaceCustomBooleanParameterArgs : global::Pulumi.ResourceArgs
+    public sealed class WorkspaceCustomBooleanParameterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value which should be used for this field.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Databricks.V20180401.Inputs
         public WorkspaceCustomBooleanParameterArgs()
         {
         }
-        public static new WorkspaceCustomBooleanParameterArgs Empty => new WorkspaceCustomBooleanParameterArgs();
     }
 }

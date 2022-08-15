@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview.Inputs
     /// <summary>
     /// Active Directory domain details
     /// </summary>
-    public sealed class ActiveDirectoryConnectorDomainDetailsArgs : global::Pulumi.ResourceArgs
+    public sealed class ActiveDirectoryConnectorDomainDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// null
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview.Inputs
         {
             ServiceAccountProvisioning = "manual";
         }
-        public static new ActiveDirectoryConnectorDomainDetailsArgs Empty => new ActiveDirectoryConnectorDomainDetailsArgs();
     }
 }

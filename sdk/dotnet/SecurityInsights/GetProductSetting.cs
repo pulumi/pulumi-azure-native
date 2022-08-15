@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     }
 
 
-    public sealed class GetProductSettingArgs : global::Pulumi.InvokeArgs
+    public sealed class GetProductSettingArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -57,10 +57,9 @@ namespace Pulumi.AzureNative.SecurityInsights
         public GetProductSettingArgs()
         {
         }
-        public static new GetProductSettingArgs Empty => new GetProductSettingArgs();
     }
 
-    public sealed class GetProductSettingInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetProductSettingInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -89,7 +88,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         public GetProductSettingInvokeArgs()
         {
         }
-        public static new GetProductSettingInvokeArgs Empty => new GetProductSettingInvokeArgs();
     }
 
 

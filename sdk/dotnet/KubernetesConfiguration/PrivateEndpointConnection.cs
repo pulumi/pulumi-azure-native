@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
     /// API Version: 2022-04-02-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:kubernetesconfiguration:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220402preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220402preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the private endpoint connection associated with the Azure resource
@@ -128,6 +128,5 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         public PrivateEndpointConnectionArgs()
         {
         }
-        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

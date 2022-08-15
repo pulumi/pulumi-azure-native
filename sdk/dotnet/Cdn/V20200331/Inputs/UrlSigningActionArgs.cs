@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200331.Inputs
     /// <summary>
     /// Defines the url signing action for the delivery rule.
     /// </summary>
-    public sealed class UrlSigningActionArgs : global::Pulumi.ResourceArgs
+    public sealed class UrlSigningActionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the action for the delivery rule.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.Cdn.V20200331.Inputs
         public UrlSigningActionArgs()
         {
         }
-        public static new UrlSigningActionArgs Empty => new UrlSigningActionArgs();
     }
 }

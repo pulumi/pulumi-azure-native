@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ManagedIdentity.V20220131Preview
     /// Describes a federated identity credential.
     /// </summary>
     [AzureNativeResourceType("azure-native:managedidentity/v20220131preview:FederatedIdentityCredential")]
-    public partial class FederatedIdentityCredential : global::Pulumi.CustomResource
+    public partial class FederatedIdentityCredential : Pulumi.CustomResource
     {
         /// <summary>
         /// The list of audiences that can appear in the issued token.
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.ManagedIdentity.V20220131Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:managedidentity:FederatedIdentityCredential"},
+                    new Pulumi.Alias { Type = "azure-native:managedidentity:FederatedIdentityCredential"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.ManagedIdentity.V20220131Preview
         }
     }
 
-    public sealed class FederatedIdentityCredentialArgs : global::Pulumi.ResourceArgs
+    public sealed class FederatedIdentityCredentialArgs : Pulumi.ResourceArgs
     {
         [Input("audiences", required: true)]
         private InputList<string>? _audiences;
@@ -139,6 +139,5 @@ namespace Pulumi.AzureNative.ManagedIdentity.V20220131Preview
         public FederatedIdentityCredentialArgs()
         {
         }
-        public static new FederatedIdentityCredentialArgs Empty => new FederatedIdentityCredentialArgs();
     }
 }

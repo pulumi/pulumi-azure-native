@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20180710.Inputs
     /// <summary>
     /// Recovery plan protected item.
     /// </summary>
-    public sealed class RecoveryPlanProtectedItemArgs : global::Pulumi.ResourceArgs
+    public sealed class RecoveryPlanProtectedItemArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARM Id of the recovery plan protected item.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20180710.Inputs
         public RecoveryPlanProtectedItemArgs()
         {
         }
-        public static new RecoveryPlanProtectedItemArgs Empty => new RecoveryPlanProtectedItemArgs();
     }
 }

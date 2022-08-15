@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Eloqua server linked service.
     /// </summary>
-    public sealed class EloquaLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class EloquaLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -103,6 +103,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public EloquaLinkedServiceArgs()
         {
         }
-        public static new EloquaLinkedServiceArgs Empty => new EloquaLinkedServiceArgs();
     }
 }

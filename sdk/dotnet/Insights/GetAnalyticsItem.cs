@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Insights
     }
 
 
-    public sealed class GetAnalyticsItemArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAnalyticsItemArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Id of a specific item defined in the Application Insights component
@@ -62,10 +62,9 @@ namespace Pulumi.AzureNative.Insights
         public GetAnalyticsItemArgs()
         {
         }
-        public static new GetAnalyticsItemArgs Empty => new GetAnalyticsItemArgs();
     }
 
-    public sealed class GetAnalyticsItemInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAnalyticsItemInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Id of a specific item defined in the Application Insights component
@@ -100,7 +99,6 @@ namespace Pulumi.AzureNative.Insights
         public GetAnalyticsItemInvokeArgs()
         {
         }
-        public static new GetAnalyticsItemInvokeArgs Empty => new GetAnalyticsItemInvokeArgs();
     }
 
 

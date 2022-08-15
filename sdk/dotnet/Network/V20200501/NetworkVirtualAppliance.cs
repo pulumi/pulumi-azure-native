@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200501
     /// NetworkVirtualAppliance Resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20200501:NetworkVirtualAppliance")]
-    public partial class NetworkVirtualAppliance : global::Pulumi.CustomResource
+    public partial class NetworkVirtualAppliance : Pulumi.CustomResource
     {
         /// <summary>
         /// BootStrapConfigurationBlobs storage URLs.
@@ -130,19 +130,19 @@ namespace Pulumi.AzureNative.Network.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:NetworkVirtualAppliance"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:NetworkVirtualAppliance"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:NetworkVirtualAppliance"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:NetworkVirtualAppliance"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:NetworkVirtualAppliance"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:NetworkVirtualAppliance"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:NetworkVirtualAppliance"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:NetworkVirtualAppliance"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:NetworkVirtualAppliance"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:NetworkVirtualAppliance"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:NetworkVirtualAppliance"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:NetworkVirtualAppliance"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:NetworkVirtualAppliance"},
+                    new Pulumi.Alias { Type = "azure-native:network:NetworkVirtualAppliance"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:NetworkVirtualAppliance"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:NetworkVirtualAppliance"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:NetworkVirtualAppliance"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:NetworkVirtualAppliance"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:NetworkVirtualAppliance"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:NetworkVirtualAppliance"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:NetworkVirtualAppliance"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:NetworkVirtualAppliance"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210301:NetworkVirtualAppliance"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501:NetworkVirtualAppliance"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:NetworkVirtualAppliance"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:NetworkVirtualAppliance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -164,7 +164,7 @@ namespace Pulumi.AzureNative.Network.V20200501
         }
     }
 
-    public sealed class NetworkVirtualApplianceArgs : global::Pulumi.ResourceArgs
+    public sealed class NetworkVirtualApplianceArgs : Pulumi.ResourceArgs
     {
         [Input("bootStrapConfigurationBlobs")]
         private InputList<string>? _bootStrapConfigurationBlobs;
@@ -259,6 +259,5 @@ namespace Pulumi.AzureNative.Network.V20200501
         public NetworkVirtualApplianceArgs()
         {
         }
-        public static new NetworkVirtualApplianceArgs Empty => new NetworkVirtualApplianceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Resources.V20190801.Inputs
     /// <summary>
     /// Entity representing the reference to the deployment parameters.
     /// </summary>
-    public sealed class ParametersLinkArgs : global::Pulumi.ResourceArgs
+    public sealed class ParametersLinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// If included, must match the ContentVersion in the template.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Resources.V20190801.Inputs
         public ParametersLinkArgs()
         {
         }
-        public static new ParametersLinkArgs Empty => new ParametersLinkArgs();
     }
 }

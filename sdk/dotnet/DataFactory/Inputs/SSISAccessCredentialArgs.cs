@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// SSIS access credential.
     /// </summary>
-    public sealed class SSISAccessCredentialArgs : global::Pulumi.ResourceArgs
+    public sealed class SSISAccessCredentialArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Domain for windows authentication.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public SSISAccessCredentialArgs()
         {
         }
-        public static new SSISAccessCredentialArgs Empty => new SSISAccessCredentialArgs();
     }
 }

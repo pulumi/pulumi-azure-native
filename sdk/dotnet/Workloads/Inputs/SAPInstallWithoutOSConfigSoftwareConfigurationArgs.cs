@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.Inputs
     /// <summary>
     /// The SAP Software configuration Input when the software is to be installed by service without OS Configurations
     /// </summary>
-    public sealed class SAPInstallWithoutOSConfigSoftwareConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class SAPInstallWithoutOSConfigSoftwareConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The URL to the SAP Build of Materials(BOM) file.
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.Workloads.Inputs
         public SAPInstallWithoutOSConfigSoftwareConfigurationArgs()
         {
         }
-        public static new SAPInstallWithoutOSConfigSoftwareConfigurationArgs Empty => new SAPInstallWithoutOSConfigSoftwareConfigurationArgs();
     }
 }

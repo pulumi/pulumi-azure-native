@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
     /// <summary>
     /// The assembly properties definition.
     /// </summary>
-    public sealed class AssemblyPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class AssemblyPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The assembly culture.
@@ -72,6 +72,5 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
         public AssemblyPropertiesArgs()
         {
         }
-        public static new AssemblyPropertiesArgs Empty => new AssemblyPropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// SQL stored procedure activity type.
     /// </summary>
-    public sealed class SqlServerStoredProcedureActivityArgs : global::Pulumi.ResourceArgs
+    public sealed class SqlServerStoredProcedureActivityArgs : Pulumi.ResourceArgs
     {
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
@@ -79,6 +79,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public SqlServerStoredProcedureActivityArgs()
         {
         }
-        public static new SqlServerStoredProcedureActivityArgs Empty => new SqlServerStoredProcedureActivityArgs();
     }
 }

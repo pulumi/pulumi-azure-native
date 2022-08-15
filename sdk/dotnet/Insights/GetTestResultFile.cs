@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Insights
     }
 
 
-    public sealed class GetTestResultFileArgs : global::Pulumi.InvokeArgs
+    public sealed class GetTestResultFileArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The continuation token.
@@ -74,10 +74,9 @@ namespace Pulumi.AzureNative.Insights
         public GetTestResultFileArgs()
         {
         }
-        public static new GetTestResultFileArgs Empty => new GetTestResultFileArgs();
     }
 
-    public sealed class GetTestResultFileInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetTestResultFileInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The continuation token.
@@ -124,7 +123,6 @@ namespace Pulumi.AzureNative.Insights
         public GetTestResultFileInvokeArgs()
         {
         }
-        public static new GetTestResultFileInvokeArgs Empty => new GetTestResultFileInvokeArgs();
     }
 
 

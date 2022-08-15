@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.KeyVault
     /// API Version: 2021-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:keyvault:ManagedHsm")]
-    public partial class ManagedHsm : global::Pulumi.CustomResource
+    public partial class ManagedHsm : Pulumi.CustomResource
     {
         /// <summary>
         /// The supported Azure location where the managed HSM Pool should be created.
@@ -83,12 +83,12 @@ namespace Pulumi.AzureNative.KeyVault
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20200401preview:ManagedHsm"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20210401preview:ManagedHsm"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20210601preview:ManagedHsm"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20211001:ManagedHsm"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20211101preview:ManagedHsm"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20220701:ManagedHsm"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20200401preview:ManagedHsm"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20210401preview:ManagedHsm"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20210601preview:ManagedHsm"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20211001:ManagedHsm"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20211101preview:ManagedHsm"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20220701:ManagedHsm"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.KeyVault
         }
     }
 
-    public sealed class ManagedHsmArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedHsmArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The supported Azure location where the managed HSM Pool should be created.
@@ -157,6 +157,5 @@ namespace Pulumi.AzureNative.KeyVault
         public ManagedHsmArgs()
         {
         }
-        public static new ManagedHsmArgs Empty => new ManagedHsmArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20201120.Inputs
 {
 
-    public sealed class ServiceTreeInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class ServiceTreeInfoArgs : Pulumi.ResourceArgs
     {
         [Input("componentId")]
         public Input<string>? ComponentId { get; set; }
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120.Inputs
         public ServiceTreeInfoArgs()
         {
         }
-        public static new ServiceTreeInfoArgs Empty => new ServiceTreeInfoArgs();
     }
 }

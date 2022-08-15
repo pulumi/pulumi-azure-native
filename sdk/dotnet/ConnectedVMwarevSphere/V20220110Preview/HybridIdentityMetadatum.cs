@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
     /// Defines the HybridIdentityMetadata.
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere/v20220110preview:HybridIdentityMetadatum")]
-    public partial class HybridIdentityMetadatum : global::Pulumi.CustomResource
+    public partial class HybridIdentityMetadatum : Pulumi.CustomResource
     {
         /// <summary>
         /// The identity of the resource.
@@ -82,8 +82,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere:HybridIdentityMetadatum"},
-                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20201001preview:HybridIdentityMetadatum"},
+                    new Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere:HybridIdentityMetadatum"},
+                    new Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20201001preview:HybridIdentityMetadatum"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -105,7 +105,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
         }
     }
 
-    public sealed class HybridIdentityMetadatumArgs : global::Pulumi.ResourceArgs
+    public sealed class HybridIdentityMetadatumArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the hybridIdentityMetadata.
@@ -140,6 +140,5 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
         public HybridIdentityMetadatumArgs()
         {
         }
-        public static new HybridIdentityMetadatumArgs Empty => new HybridIdentityMetadatumArgs();
     }
 }

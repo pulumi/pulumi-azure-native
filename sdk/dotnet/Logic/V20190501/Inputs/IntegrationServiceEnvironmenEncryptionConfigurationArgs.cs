@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
     /// <summary>
     /// The encryption configuration for the integration service environment.
     /// </summary>
-    public sealed class IntegrationServiceEnvironmenEncryptionConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class IntegrationServiceEnvironmenEncryptionConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The encryption key reference.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
         public IntegrationServiceEnvironmenEncryptionConfigurationArgs()
         {
         }
-        public static new IntegrationServiceEnvironmenEncryptionConfigurationArgs Empty => new IntegrationServiceEnvironmenEncryptionConfigurationArgs();
     }
 }

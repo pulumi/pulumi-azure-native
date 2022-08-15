@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Resources.V20180501
     }
 
 
-    public sealed class GetResourceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetResourceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The parent resource identity.
@@ -61,10 +61,9 @@ namespace Pulumi.AzureNative.Resources.V20180501
         public GetResourceArgs()
         {
         }
-        public static new GetResourceArgs Empty => new GetResourceArgs();
     }
 
-    public sealed class GetResourceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetResourceInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The parent resource identity.
@@ -99,7 +98,6 @@ namespace Pulumi.AzureNative.Resources.V20180501
         public GetResourceInvokeArgs()
         {
         }
-        public static new GetResourceInvokeArgs Empty => new GetResourceInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview.Inputs
     /// <summary>
     /// Compute binding definition.
     /// </summary>
-    public sealed class ComputeBindingArgs : global::Pulumi.ResourceArgs
+    public sealed class ComputeBindingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the compute resource.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview.Inputs
         public ComputeBindingArgs()
         {
         }
-        public static new ComputeBindingArgs Empty => new ComputeBindingArgs();
     }
 }

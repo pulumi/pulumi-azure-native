@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20180301Preview.Inputs
     /// <summary>
     /// Properties of key vault.
     /// </summary>
-    public sealed class KeyVaultPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class KeyVaultPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of KeyVault key.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Storage.V20180301Preview.Inputs
         public KeyVaultPropertiesArgs()
         {
         }
-        public static new KeyVaultPropertiesArgs Empty => new KeyVaultPropertiesArgs();
     }
 }

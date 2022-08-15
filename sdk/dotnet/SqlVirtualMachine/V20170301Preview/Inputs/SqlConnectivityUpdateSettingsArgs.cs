@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview.Inputs
     /// <summary>
     /// Set the access level and network port settings for SQL Server.
     /// </summary>
-    public sealed class SqlConnectivityUpdateSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class SqlConnectivityUpdateSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// SQL Server connectivity option.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview.Inputs
         public SqlConnectivityUpdateSettingsArgs()
         {
         }
-        public static new SqlConnectivityUpdateSettingsArgs Empty => new SqlConnectivityUpdateSettingsArgs();
     }
 }

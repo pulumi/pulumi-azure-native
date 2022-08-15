@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20180715Preview.Inputs
     /// <summary>
     /// Properties for the task that validates Oracle database connection
     /// </summary>
-    public sealed class ConnectToSourceOracleSyncTaskPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ConnectToSourceOracleSyncTaskPropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("clientData")]
         private InputMap<string>? _clientData;
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.DataMigration.V20180715Preview.Inputs
         public ConnectToSourceOracleSyncTaskPropertiesArgs()
         {
         }
-        public static new ConnectToSourceOracleSyncTaskPropertiesArgs Empty => new ConnectToSourceOracleSyncTaskPropertiesArgs();
     }
 }

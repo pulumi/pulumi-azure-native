@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity Presto server source.
     /// </summary>
-    public sealed class PrestoSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class PrestoSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -67,6 +67,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public PrestoSourceArgs()
         {
         }
-        public static new PrestoSourceArgs Empty => new PrestoSourceArgs();
     }
 }

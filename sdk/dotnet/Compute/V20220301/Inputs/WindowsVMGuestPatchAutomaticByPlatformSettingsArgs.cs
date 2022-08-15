@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20220301.Inputs
     /// <summary>
     /// Specifies additional settings to be applied when patch mode AutomaticByPlatform is selected in Windows patch settings.
     /// </summary>
-    public sealed class WindowsVMGuestPatchAutomaticByPlatformSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class WindowsVMGuestPatchAutomaticByPlatformSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the reboot setting for all AutomaticByPlatform patch installation operations.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Compute.V20220301.Inputs
         public WindowsVMGuestPatchAutomaticByPlatformSettingsArgs()
         {
         }
-        public static new WindowsVMGuestPatchAutomaticByPlatformSettingsArgs Empty => new WindowsVMGuestPatchAutomaticByPlatformSettingsArgs();
     }
 }

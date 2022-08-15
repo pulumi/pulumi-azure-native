@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.HybridConnectivity.V20220501Preview
     }
 
 
-    public sealed class ListEndpointCredentialsArgs : global::Pulumi.InvokeArgs
+    public sealed class ListEndpointCredentialsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The endpoint name.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.HybridConnectivity.V20220501Preview
         public ListEndpointCredentialsArgs()
         {
         }
-        public static new ListEndpointCredentialsArgs Empty => new ListEndpointCredentialsArgs();
     }
 
-    public sealed class ListEndpointCredentialsInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListEndpointCredentialsInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The endpoint name.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.HybridConnectivity.V20220501Preview
         public ListEndpointCredentialsInvokeArgs()
         {
         }
-        public static new ListEndpointCredentialsInvokeArgs Empty => new ListEndpointCredentialsInvokeArgs();
     }
 
 

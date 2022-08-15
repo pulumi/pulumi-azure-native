@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20221001.Inputs
     /// <summary>
     /// A specific date-time for the profile.
     /// </summary>
-    public sealed class TimeWindowArgs : global::Pulumi.ResourceArgs
+    public sealed class TimeWindowArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// the end time for the profile in ISO 8601 format.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Insights.V20221001.Inputs
         public TimeWindowArgs()
         {
         }
-        public static new TimeWindowArgs Empty => new TimeWindowArgs();
     }
 }

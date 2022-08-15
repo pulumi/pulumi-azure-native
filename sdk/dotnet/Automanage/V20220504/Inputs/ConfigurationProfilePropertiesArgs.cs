@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automanage.V20220504.Inputs
     /// <summary>
     /// Automanage configuration profile properties.
     /// </summary>
-    public sealed class ConfigurationProfilePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ConfigurationProfilePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// configuration dictionary of the configuration profile.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Automanage.V20220504.Inputs
         public ConfigurationProfilePropertiesArgs()
         {
         }
-        public static new ConfigurationProfilePropertiesArgs Empty => new ConfigurationProfilePropertiesArgs();
     }
 }

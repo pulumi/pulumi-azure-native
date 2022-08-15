@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview.Inputs
     /// <summary>
     /// The properties that define an Azure Deployment Manager step.
     /// </summary>
-    public sealed class StepArgs : global::Pulumi.ResourceArgs
+    public sealed class StepArgs : Pulumi.ResourceArgs
     {
         [Input("dependsOnStepGroups")]
         private InputList<string>? _dependsOnStepGroups;
@@ -66,6 +66,5 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview.Inputs
         public StepArgs()
         {
         }
-        public static new StepArgs Empty => new StepArgs();
     }
 }

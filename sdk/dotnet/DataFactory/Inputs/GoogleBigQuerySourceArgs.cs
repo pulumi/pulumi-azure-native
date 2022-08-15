@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity Google BigQuery service source.
     /// </summary>
-    public sealed class GoogleBigQuerySourceArgs : global::Pulumi.ResourceArgs
+    public sealed class GoogleBigQuerySourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -67,6 +67,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public GoogleBigQuerySourceArgs()
         {
         }
-        public static new GoogleBigQuerySourceArgs Empty => new GoogleBigQuerySourceArgs();
     }
 }

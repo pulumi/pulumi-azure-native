@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20170330.Inputs
     /// <summary>
     /// Encryption settings for disk or snapshot
     /// </summary>
-    public sealed class EncryptionSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class EncryptionSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Key Vault Secret Url and vault id of the disk encryption key
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Compute.V20170330.Inputs
         public EncryptionSettingsArgs()
         {
         }
-        public static new EncryptionSettingsArgs Empty => new EncryptionSettingsArgs();
     }
 }

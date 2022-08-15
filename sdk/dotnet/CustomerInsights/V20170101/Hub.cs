@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101
     /// </summary>
     [Obsolete(@"Version 2017-01-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:customerinsights/v20170101:Hub")]
-    public partial class Hub : global::Pulumi.CustomResource
+    public partial class Hub : Pulumi.CustomResource
     {
         /// <summary>
         /// API endpoint URL of the hub.
@@ -95,8 +95,8 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:customerinsights:Hub"},
-                    new global::Pulumi.Alias { Type = "azure-native:customerinsights/v20170426:Hub"},
+                    new Pulumi.Alias { Type = "azure-native:customerinsights:Hub"},
+                    new Pulumi.Alias { Type = "azure-native:customerinsights/v20170426:Hub"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101
         }
     }
 
-    public sealed class HubArgs : global::Pulumi.ResourceArgs
+    public sealed class HubArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Billing settings of the hub.
@@ -165,6 +165,5 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101
         public HubArgs()
         {
         }
-        public static new HubArgs Empty => new HubArgs();
     }
 }

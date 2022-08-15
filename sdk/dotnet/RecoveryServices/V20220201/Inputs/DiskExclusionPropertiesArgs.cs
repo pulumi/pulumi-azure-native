@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20220201.Inputs
 {
 
-    public sealed class DiskExclusionPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class DiskExclusionPropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("diskLunList")]
         private InputList<int>? _diskLunList;
@@ -33,6 +33,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220201.Inputs
         public DiskExclusionPropertiesArgs()
         {
         }
-        public static new DiskExclusionPropertiesArgs Empty => new DiskExclusionPropertiesArgs();
     }
 }

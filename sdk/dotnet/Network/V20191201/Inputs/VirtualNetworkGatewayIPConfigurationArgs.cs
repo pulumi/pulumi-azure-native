@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20191201.Inputs
     /// <summary>
     /// IP configuration for virtual network gateway.
     /// </summary>
-    public sealed class VirtualNetworkGatewayIPConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualNetworkGatewayIPConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.Network.V20191201.Inputs
         public VirtualNetworkGatewayIPConfigurationArgs()
         {
         }
-        public static new VirtualNetworkGatewayIPConfigurationArgs Empty => new VirtualNetworkGatewayIPConfigurationArgs();
     }
 }

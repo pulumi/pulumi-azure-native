@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210201.Inputs
     /// <summary>
     /// SKU of a load balancer.
     /// </summary>
-    public sealed class LoadBalancerSkuArgs : global::Pulumi.ResourceArgs
+    public sealed class LoadBalancerSkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of a load balancer SKU.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Network.V20210201.Inputs
         public LoadBalancerSkuArgs()
         {
         }
-        public static new LoadBalancerSkuArgs Empty => new LoadBalancerSkuArgs();
     }
 }

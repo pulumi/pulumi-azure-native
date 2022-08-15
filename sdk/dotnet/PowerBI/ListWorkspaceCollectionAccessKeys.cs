@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.PowerBI
     }
 
 
-    public sealed class ListWorkspaceCollectionAccessKeysArgs : global::Pulumi.InvokeArgs
+    public sealed class ListWorkspaceCollectionAccessKeysArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Azure resource group
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.PowerBI
         public ListWorkspaceCollectionAccessKeysArgs()
         {
         }
-        public static new ListWorkspaceCollectionAccessKeysArgs Empty => new ListWorkspaceCollectionAccessKeysArgs();
     }
 
-    public sealed class ListWorkspaceCollectionAccessKeysInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListWorkspaceCollectionAccessKeysInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Azure resource group
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.PowerBI
         public ListWorkspaceCollectionAccessKeysInvokeArgs()
         {
         }
-        public static new ListWorkspaceCollectionAccessKeysInvokeArgs Empty => new ListWorkspaceCollectionAccessKeysInvokeArgs();
     }
 
 

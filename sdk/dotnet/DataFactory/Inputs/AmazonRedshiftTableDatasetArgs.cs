@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The Amazon Redshift table dataset.
     /// </summary>
-    public sealed class AmazonRedshiftTableDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class AmazonRedshiftTableDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -91,6 +91,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public AmazonRedshiftTableDatasetArgs()
         {
         }
-        public static new AmazonRedshiftTableDatasetArgs Empty => new AmazonRedshiftTableDatasetArgs();
     }
 }

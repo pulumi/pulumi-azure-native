@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101.Inputs
     /// <summary>
     /// Subscription key parameter names details.
     /// </summary>
-    public sealed class SubscriptionKeyParameterNamesContractArgs : global::Pulumi.ResourceArgs
+    public sealed class SubscriptionKeyParameterNamesContractArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Subscription key header name.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101.Inputs
         public SubscriptionKeyParameterNamesContractArgs()
         {
         }
-        public static new SubscriptionKeyParameterNamesContractArgs Empty => new SubscriptionKeyParameterNamesContractArgs();
     }
 }

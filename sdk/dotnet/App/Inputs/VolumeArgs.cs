@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.Inputs
     /// <summary>
     /// Volume definitions for the Container App.
     /// </summary>
-    public sealed class VolumeArgs : global::Pulumi.ResourceArgs
+    public sealed class VolumeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Volume name.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.App.Inputs
         public VolumeArgs()
         {
         }
-        public static new VolumeArgs Empty => new VolumeArgs();
     }
 }

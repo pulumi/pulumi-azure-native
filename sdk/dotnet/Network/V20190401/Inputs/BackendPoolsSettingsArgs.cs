@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190401.Inputs
     /// <summary>
     /// Settings that apply to all backend pools.
     /// </summary>
-    public sealed class BackendPoolsSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class BackendPoolsSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests.
@@ -25,6 +25,5 @@ namespace Pulumi.AzureNative.Network.V20190401.Inputs
         {
             EnforceCertificateNameCheck = "Enabled";
         }
-        public static new BackendPoolsSettingsArgs Empty => new BackendPoolsSettingsArgs();
     }
 }

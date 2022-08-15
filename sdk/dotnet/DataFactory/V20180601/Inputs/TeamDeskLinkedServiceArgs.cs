@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Linked service for TeamDesk.
     /// </summary>
-    public sealed class TeamDeskLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class TeamDeskLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -97,6 +97,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public TeamDeskLinkedServiceArgs()
         {
         }
-        public static new TeamDeskLinkedServiceArgs Empty => new TeamDeskLinkedServiceArgs();
     }
 }

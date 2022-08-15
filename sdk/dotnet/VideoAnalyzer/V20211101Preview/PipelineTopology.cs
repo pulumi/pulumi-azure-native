@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
     ///   - Sinks: list of one or more data sinks which allow for data to be stored or exported to other destinations.
     /// </summary>
     [AzureNativeResourceType("azure-native:videoanalyzer/v20211101preview:PipelineTopology")]
-    public partial class PipelineTopology : global::Pulumi.CustomResource
+    public partial class PipelineTopology : Pulumi.CustomResource
     {
         /// <summary>
         /// An optional description of the pipeline topology. It is recommended that the expected use of the topology to be described here.
@@ -105,7 +105,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:videoanalyzer:PipelineTopology"},
+                    new Pulumi.Alias { Type = "azure-native:videoanalyzer:PipelineTopology"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -127,7 +127,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
         }
     }
 
-    public sealed class PipelineTopologyArgs : global::Pulumi.ResourceArgs
+    public sealed class PipelineTopologyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Video Analyzer account name.
@@ -216,6 +216,5 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
         public PipelineTopologyArgs()
         {
         }
-        public static new PipelineTopologyArgs Empty => new PipelineTopologyArgs();
     }
 }

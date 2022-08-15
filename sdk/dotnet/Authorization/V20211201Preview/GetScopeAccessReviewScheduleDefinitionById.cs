@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Authorization.V20211201Preview
     }
 
 
-    public sealed class GetScopeAccessReviewScheduleDefinitionByIdArgs : global::Pulumi.InvokeArgs
+    public sealed class GetScopeAccessReviewScheduleDefinitionByIdArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The id of the access review schedule definition.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.Authorization.V20211201Preview
         public GetScopeAccessReviewScheduleDefinitionByIdArgs()
         {
         }
-        public static new GetScopeAccessReviewScheduleDefinitionByIdArgs Empty => new GetScopeAccessReviewScheduleDefinitionByIdArgs();
     }
 
-    public sealed class GetScopeAccessReviewScheduleDefinitionByIdInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetScopeAccessReviewScheduleDefinitionByIdInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The id of the access review schedule definition.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.Authorization.V20211201Preview
         public GetScopeAccessReviewScheduleDefinitionByIdInvokeArgs()
         {
         }
-        public static new GetScopeAccessReviewScheduleDefinitionByIdInvokeArgs Empty => new GetScopeAccessReviewScheduleDefinitionByIdInvokeArgs();
     }
 
 

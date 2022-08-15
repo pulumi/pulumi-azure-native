@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
     /// Dataset resource type.
     /// </summary>
     [AzureNativeResourceType("azure-native:datafactory/v20180601:Dataset")]
-    public partial class Dataset : global::Pulumi.CustomResource
+    public partial class Dataset : Pulumi.CustomResource
     {
         /// <summary>
         /// Etag identifies change in the resource.
@@ -64,8 +64,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datafactory:Dataset"},
-                    new global::Pulumi.Alias { Type = "azure-native:datafactory/v20170901preview:Dataset"},
+                    new Pulumi.Alias { Type = "azure-native:datafactory:Dataset"},
+                    new Pulumi.Alias { Type = "azure-native:datafactory/v20170901preview:Dataset"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -87,7 +87,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         }
     }
 
-    public sealed class DatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class DatasetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The dataset name.
@@ -116,6 +116,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         public DatasetArgs()
         {
         }
-        public static new DatasetArgs Empty => new DatasetArgs();
     }
 }

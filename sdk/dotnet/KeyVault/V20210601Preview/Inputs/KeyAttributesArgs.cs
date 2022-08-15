@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KeyVault.V20210601Preview.Inputs
     /// <summary>
     /// The object attributes managed by the Azure Key Vault service.
     /// </summary>
-    public sealed class KeyAttributesArgs : global::Pulumi.ResourceArgs
+    public sealed class KeyAttributesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines whether or not the object is enabled.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.KeyVault.V20210601Preview.Inputs
         public KeyAttributesArgs()
         {
         }
-        public static new KeyAttributesArgs Empty => new KeyAttributesArgs();
     }
 }

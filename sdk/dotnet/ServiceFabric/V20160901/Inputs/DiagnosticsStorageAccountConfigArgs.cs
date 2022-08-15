@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20160901.Inputs
     /// <summary>
     /// Diagnostics storage account config
     /// </summary>
-    public sealed class DiagnosticsStorageAccountConfigArgs : global::Pulumi.ResourceArgs
+    public sealed class DiagnosticsStorageAccountConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Diagnostics storage account blob endpoint
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.ServiceFabric.V20160901.Inputs
         public DiagnosticsStorageAccountConfigArgs()
         {
         }
-        public static new DiagnosticsStorageAccountConfigArgs Empty => new DiagnosticsStorageAccountConfigArgs();
     }
 }

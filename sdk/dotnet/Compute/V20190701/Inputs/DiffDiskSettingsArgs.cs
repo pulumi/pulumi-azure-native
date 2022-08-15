@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20190701.Inputs
     /// <summary>
     /// Describes the parameters of ephemeral disk settings that can be specified for operating system disk. &lt;br&gt;&lt;br&gt; NOTE: The ephemeral disk settings can only be specified for managed disk.
     /// </summary>
-    public sealed class DiffDiskSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class DiffDiskSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the ephemeral disk settings for operating system disk.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Compute.V20190701.Inputs
         public DiffDiskSettingsArgs()
         {
         }
-        public static new DiffDiskSettingsArgs Empty => new DiffDiskSettingsArgs();
     }
 }

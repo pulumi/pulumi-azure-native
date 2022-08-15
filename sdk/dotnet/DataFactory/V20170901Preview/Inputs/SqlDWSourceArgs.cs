@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity SQL Data Warehouse source.
     /// </summary>
-    public sealed class SqlDWSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class SqlDWSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Source retry count. Type: integer (or Expression with resultType integer).
@@ -55,6 +55,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public SqlDWSourceArgs()
         {
         }
-        public static new SqlDWSourceArgs Empty => new SqlDWSourceArgs();
     }
 }

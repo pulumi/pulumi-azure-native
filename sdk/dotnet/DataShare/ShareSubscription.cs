@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataShare
     /// API Version: 2020-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare:ShareSubscription")]
-    public partial class ShareSubscription : global::Pulumi.CustomResource
+    public partial class ShareSubscription : Pulumi.CustomResource
     {
         /// <summary>
         /// Time at which the share subscription was created.
@@ -149,11 +149,11 @@ namespace Pulumi.AzureNative.DataShare
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:ShareSubscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:ShareSubscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:ShareSubscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:ShareSubscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:ShareSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:ShareSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:ShareSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20200901:ShareSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:ShareSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20210801:ShareSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -175,7 +175,7 @@ namespace Pulumi.AzureNative.DataShare
         }
     }
 
-    public sealed class ShareSubscriptionArgs : global::Pulumi.ResourceArgs
+    public sealed class ShareSubscriptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -216,6 +216,5 @@ namespace Pulumi.AzureNative.DataShare
         public ShareSubscriptionArgs()
         {
         }
-        public static new ShareSubscriptionArgs Empty => new ShareSubscriptionArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20200501.Inputs
 {
 
-    public sealed class AutoScaleSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class AutoScaleSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// If omitted, the default value is 15 minutes (PT15M).
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Batch.V20200501.Inputs
         public AutoScaleSettingsArgs()
         {
         }
-        public static new AutoScaleSettingsArgs Empty => new AutoScaleSettingsArgs();
     }
 }

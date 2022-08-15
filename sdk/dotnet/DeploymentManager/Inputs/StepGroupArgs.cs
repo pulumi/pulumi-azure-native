@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DeploymentManager.Inputs
     /// <summary>
     /// The properties that define a Step group in a rollout.
     /// </summary>
-    public sealed class StepGroupArgs : global::Pulumi.ResourceArgs
+    public sealed class StepGroupArgs : Pulumi.ResourceArgs
     {
         [Input("dependsOnStepGroups")]
         private InputList<string>? _dependsOnStepGroups;
@@ -66,6 +66,5 @@ namespace Pulumi.AzureNative.DeploymentManager.Inputs
         public StepGroupArgs()
         {
         }
-        public static new StepGroupArgs Empty => new StepGroupArgs();
     }
 }

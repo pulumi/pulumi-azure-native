@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Batch.V20220601.Inputs
     /// <summary>
     /// The reference to a user assigned identity associated with the Batch pool which a compute node will use.
     /// </summary>
-    public sealed class ComputeNodeIdentityReferenceArgs : global::Pulumi.ResourceArgs
+    public sealed class ComputeNodeIdentityReferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARM resource id of the user assigned identity.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Batch.V20220601.Inputs
         public ComputeNodeIdentityReferenceArgs()
         {
         }
-        public static new ComputeNodeIdentityReferenceArgs Empty => new ComputeNodeIdentityReferenceArgs();
     }
 }

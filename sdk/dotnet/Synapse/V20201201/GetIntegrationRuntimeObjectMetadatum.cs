@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Synapse.V20201201
     }
 
 
-    public sealed class GetIntegrationRuntimeObjectMetadatumArgs : global::Pulumi.InvokeArgs
+    public sealed class GetIntegrationRuntimeObjectMetadatumArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Integration runtime name
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.Synapse.V20201201
         public GetIntegrationRuntimeObjectMetadatumArgs()
         {
         }
-        public static new GetIntegrationRuntimeObjectMetadatumArgs Empty => new GetIntegrationRuntimeObjectMetadatumArgs();
     }
 
-    public sealed class GetIntegrationRuntimeObjectMetadatumInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetIntegrationRuntimeObjectMetadatumInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Integration runtime name
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.Synapse.V20201201
         public GetIntegrationRuntimeObjectMetadatumInvokeArgs()
         {
         }
-        public static new GetIntegrationRuntimeObjectMetadatumInvokeArgs Empty => new GetIntegrationRuntimeObjectMetadatumInvokeArgs();
     }
 
 

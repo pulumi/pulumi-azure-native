@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Managed Identity used for CMK.
     /// </summary>
-    public sealed class CMKIdentityDefinitionArgs : global::Pulumi.ResourceArgs
+    public sealed class CMKIdentityDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource id of the user assigned identity to authenticate to customer's key vault.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public CMKIdentityDefinitionArgs()
         {
         }
-        public static new CMKIdentityDefinitionArgs Empty => new CMKIdentityDefinitionArgs();
     }
 }

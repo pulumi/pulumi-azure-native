@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Xml read settings.
     /// </summary>
-    public sealed class XmlReadSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class XmlReadSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Compression settings.
@@ -55,6 +55,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public XmlReadSettingsArgs()
         {
         }
-        public static new XmlReadSettingsArgs Empty => new XmlReadSettingsArgs();
     }
 }

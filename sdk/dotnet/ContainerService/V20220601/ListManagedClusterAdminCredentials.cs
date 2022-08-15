@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220601
     }
 
 
-    public sealed class ListManagedClusterAdminCredentialsArgs : global::Pulumi.InvokeArgs
+    public sealed class ListManagedClusterAdminCredentialsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.ContainerService.V20220601
         public ListManagedClusterAdminCredentialsArgs()
         {
         }
-        public static new ListManagedClusterAdminCredentialsArgs Empty => new ListManagedClusterAdminCredentialsArgs();
     }
 
-    public sealed class ListManagedClusterAdminCredentialsInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListManagedClusterAdminCredentialsInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.ContainerService.V20220601
         public ListManagedClusterAdminCredentialsInvokeArgs()
         {
         }
-        public static new ListManagedClusterAdminCredentialsInvokeArgs Empty => new ListManagedClusterAdminCredentialsInvokeArgs();
     }
 
 

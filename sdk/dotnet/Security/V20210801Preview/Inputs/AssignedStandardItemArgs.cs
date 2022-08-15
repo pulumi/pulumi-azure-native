@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20210801Preview.Inputs
     /// <summary>
     /// describe the properties of a of a security standard object reference
     /// </summary>
-    public sealed class AssignedStandardItemArgs : global::Pulumi.ResourceArgs
+    public sealed class AssignedStandardItemArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// full resourceId of the Microsoft.Security/standard object
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Security.V20210801Preview.Inputs
         public AssignedStandardItemArgs()
         {
         }
-        public static new AssignedStandardItemArgs Empty => new AssignedStandardItemArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
     }
 
 
-    public sealed class GetGovernanceRuleArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGovernanceRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The security GovernanceRule key - unique key for the standard GovernanceRule
@@ -36,10 +36,9 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
         public GetGovernanceRuleArgs()
         {
         }
-        public static new GetGovernanceRuleArgs Empty => new GetGovernanceRuleArgs();
     }
 
-    public sealed class GetGovernanceRuleInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGovernanceRuleInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The security GovernanceRule key - unique key for the standard GovernanceRule
@@ -50,7 +49,6 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
         public GetGovernanceRuleInvokeArgs()
         {
         }
-        public static new GetGovernanceRuleInvokeArgs Empty => new GetGovernanceRuleInvokeArgs();
     }
 
 

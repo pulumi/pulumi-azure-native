@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Cdn.V20160402
     }
 
 
-    public sealed class GetProfileArgs : global::Pulumi.InvokeArgs
+    public sealed class GetProfileArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the CDN profile within the resource group.
@@ -43,10 +43,9 @@ namespace Pulumi.AzureNative.Cdn.V20160402
         public GetProfileArgs()
         {
         }
-        public static new GetProfileArgs Empty => new GetProfileArgs();
     }
 
-    public sealed class GetProfileInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetProfileInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the CDN profile within the resource group.
@@ -63,7 +62,6 @@ namespace Pulumi.AzureNative.Cdn.V20160402
         public GetProfileInvokeArgs()
         {
         }
-        public static new GetProfileInvokeArgs Empty => new GetProfileInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.Inputs
     /// <summary>
     /// User identity used for CMK.
     /// </summary>
-    public sealed class EncryptionPropertiesIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class EncryptionPropertiesIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Automation.Inputs
         public EncryptionPropertiesIdentityArgs()
         {
         }
-        public static new EncryptionPropertiesIdentityArgs Empty => new EncryptionPropertiesIdentityArgs();
     }
 }

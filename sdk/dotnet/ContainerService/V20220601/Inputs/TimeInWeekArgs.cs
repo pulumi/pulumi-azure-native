@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220601.Inputs
     /// <summary>
     /// Time in a week.
     /// </summary>
-    public sealed class TimeInWeekArgs : global::Pulumi.ResourceArgs
+    public sealed class TimeInWeekArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The day of the week.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.ContainerService.V20220601.Inputs
         public TimeInWeekArgs()
         {
         }
-        public static new TimeInWeekArgs Empty => new TimeInWeekArgs();
     }
 }

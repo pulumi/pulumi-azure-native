@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.Inputs
     /// <summary>
     /// Describes the connection monitor endpoint scope item.
     /// </summary>
-    public sealed class ConnectionMonitorEndpointScopeItemArgs : global::Pulumi.ResourceArgs
+    public sealed class ConnectionMonitorEndpointScopeItemArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The address of the endpoint item. Supported types are IPv4/IPv6 subnet mask or IPv4/IPv6 IP address.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Network.Inputs
         public ConnectionMonitorEndpointScopeItemArgs()
         {
         }
-        public static new ConnectionMonitorEndpointScopeItemArgs Empty => new ConnectionMonitorEndpointScopeItemArgs();
     }
 }

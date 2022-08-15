@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HardwareSecurityModules.V20211130.Inputs
     /// <summary>
     /// The network interface definition.
     /// </summary>
-    public sealed class NetworkInterfaceArgs : global::Pulumi.ResourceArgs
+    public sealed class NetworkInterfaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Private Ip address of the interface
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.HardwareSecurityModules.V20211130.Inputs
         public NetworkInterfaceArgs()
         {
         }
-        public static new NetworkInterfaceArgs Empty => new NetworkInterfaceArgs();
     }
 }

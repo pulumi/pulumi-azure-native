@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     /// <summary>
     /// Compute Instance properties
     /// </summary>
-    public sealed class ComputeInstancePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ComputeInstancePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
@@ -62,6 +62,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
             ApplicationSharingPolicy = "Shared";
             ComputeInstanceAuthorizationType = "personal";
         }
-        public static new ComputeInstancePropertiesArgs Empty => new ComputeInstancePropertiesArgs();
     }
 }

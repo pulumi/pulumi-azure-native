@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601.Inputs
     /// <summary>
     /// SSIS properties for managed integration runtime.
     /// </summary>
-    public sealed class IntegrationRuntimeSsisPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class IntegrationRuntimeSsisPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Catalog information for managed dedicated integration runtime.
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.Synapse.V20210601.Inputs
         public IntegrationRuntimeSsisPropertiesArgs()
         {
         }
-        public static new IntegrationRuntimeSsisPropertiesArgs Empty => new IntegrationRuntimeSsisPropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101.Inputs
     /// <summary>
     /// The complete operation.
     /// </summary>
-    public sealed class ConnectorMappingCompleteOperationArgs : global::Pulumi.ResourceArgs
+    public sealed class ConnectorMappingCompleteOperationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of completion operation.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101.Inputs
         public ConnectorMappingCompleteOperationArgs()
         {
         }
-        public static new ConnectorMappingCompleteOperationArgs Empty => new ConnectorMappingCompleteOperationArgs();
     }
 }

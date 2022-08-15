@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Inputs
     /// <summary>
     /// Describes a Power BI output data source.
     /// </summary>
-    public sealed class PowerBIOutputDataSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class PowerBIOutputDataSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authentication Mode.
@@ -73,6 +73,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Inputs
         public PowerBIOutputDataSourceArgs()
         {
         }
-        public static new PowerBIOutputDataSourceArgs Empty => new PowerBIOutputDataSourceArgs();
     }
 }

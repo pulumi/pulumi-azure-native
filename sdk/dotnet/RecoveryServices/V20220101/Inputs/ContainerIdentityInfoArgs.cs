@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220101.Inputs
     /// <summary>
     /// Container identity information
     /// </summary>
-    public sealed class ContainerIdentityInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class ContainerIdentityInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Protection container identity - AAD Tenant
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220101.Inputs
         public ContainerIdentityInfoArgs()
         {
         }
-        public static new ContainerIdentityInfoArgs Empty => new ContainerIdentityInfoArgs();
     }
 }

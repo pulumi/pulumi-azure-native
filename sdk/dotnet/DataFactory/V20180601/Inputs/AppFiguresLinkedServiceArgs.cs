@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Linked service for AppFigures.
     /// </summary>
-    public sealed class AppFiguresLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class AppFiguresLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -79,6 +79,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public AppFiguresLinkedServiceArgs()
         {
         }
-        public static new AppFiguresLinkedServiceArgs Empty => new AppFiguresLinkedServiceArgs();
     }
 }

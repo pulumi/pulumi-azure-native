@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200601.Inputs
     /// <summary>
     /// Sku of the resource
     /// </summary>
-    public sealed class SkuArgs : global::Pulumi.ResourceArgs
+    public sealed class SkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the sku
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200601.Inputs
         public SkuArgs()
         {
         }
-        public static new SkuArgs Empty => new SkuArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
     /// <summary>
     /// Properties for expected token claims.
     /// </summary>
-    public sealed class TokenClaimArgs : global::Pulumi.ResourceArgs
+    public sealed class TokenClaimArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the claim which must be present on the token.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
         public TokenClaimArgs()
         {
         }
-        public static new TokenClaimArgs Empty => new TokenClaimArgs();
     }
 }

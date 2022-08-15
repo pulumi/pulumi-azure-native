@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS.V20211201.Inputs
     /// <summary>
     /// Identity for the virtual machine.
     /// </summary>
-    public sealed class PrivateCloudIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateCloudIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of identity used for the private cloud. The type 'SystemAssigned' refers to an implicitly created identity. The type 'None' will remove any identities from the Private Cloud.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.AVS.V20211201.Inputs
         public PrivateCloudIdentityArgs()
         {
         }
-        public static new PrivateCloudIdentityArgs Empty => new PrivateCloudIdentityArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventHub.V20211101.Inputs
     /// <summary>
     /// Capture storage details for capture description
     /// </summary>
-    public sealed class DestinationArgs : global::Pulumi.ResourceArgs
+    public sealed class DestinationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.EventHub.V20211101.Inputs
         public DestinationArgs()
         {
         }
-        public static new DestinationArgs Empty => new DestinationArgs();
     }
 }

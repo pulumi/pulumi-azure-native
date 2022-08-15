@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network
     /// API Version: 2021-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:UserRuleCollection")]
-    public partial class UserRuleCollection : global::Pulumi.CustomResource
+    public partial class UserRuleCollection : Pulumi.CustomResource
     {
         /// <summary>
         /// Groups for configuration
@@ -89,10 +89,10 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:UserRuleCollection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:UserRuleCollection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:UserRuleCollection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:UserRuleCollection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201preview:UserRuleCollection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501preview:UserRuleCollection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220201preview:UserRuleCollection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220401preview:UserRuleCollection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.Network
         }
     }
 
-    public sealed class UserRuleCollectionArgs : global::Pulumi.ResourceArgs
+    public sealed class UserRuleCollectionArgs : Pulumi.ResourceArgs
     {
         [Input("appliesToGroups")]
         private InputList<Inputs.NetworkManagerSecurityGroupItemArgs>? _appliesToGroups;
@@ -167,6 +167,5 @@ namespace Pulumi.AzureNative.Network
         public UserRuleCollectionArgs()
         {
         }
-        public static new UserRuleCollectionArgs Empty => new UserRuleCollectionArgs();
     }
 }

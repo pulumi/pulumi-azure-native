@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Blueprint.Inputs
     /// <summary>
     /// Reference to a Key Vault secret.
     /// </summary>
-    public sealed class SecretValueReferenceArgs : global::Pulumi.ResourceArgs
+    public sealed class SecretValueReferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the reference to a given Azure Key Vault.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Blueprint.Inputs
         public SecretValueReferenceArgs()
         {
         }
-        public static new SecretValueReferenceArgs Empty => new SecretValueReferenceArgs();
     }
 }

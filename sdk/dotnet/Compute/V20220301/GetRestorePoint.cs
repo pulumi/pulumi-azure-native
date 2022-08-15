@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Compute.V20220301
     }
 
 
-    public sealed class GetRestorePointArgs : global::Pulumi.InvokeArgs
+    public sealed class GetRestorePointArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The expand expression to apply on the operation. 'InstanceView' retrieves information about the run-time state of a restore point.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.Compute.V20220301
         public GetRestorePointArgs()
         {
         }
-        public static new GetRestorePointArgs Empty => new GetRestorePointArgs();
     }
 
-    public sealed class GetRestorePointInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetRestorePointInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The expand expression to apply on the operation. 'InstanceView' retrieves information about the run-time state of a restore point.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.Compute.V20220301
         public GetRestorePointInvokeArgs()
         {
         }
-        public static new GetRestorePointInvokeArgs Empty => new GetRestorePointInvokeArgs();
     }
 
 

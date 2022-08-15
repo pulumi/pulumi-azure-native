@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190801.Inputs
     /// <summary>
     /// Path rule of URL path map of an application gateway.
     /// </summary>
-    public sealed class ApplicationGatewayPathRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayPathRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Backend address pool resource of URL path map path rule.
@@ -78,6 +78,5 @@ namespace Pulumi.AzureNative.Network.V20190801.Inputs
         public ApplicationGatewayPathRuleArgs()
         {
         }
-        public static new ApplicationGatewayPathRuleArgs Empty => new ApplicationGatewayPathRuleArgs();
     }
 }

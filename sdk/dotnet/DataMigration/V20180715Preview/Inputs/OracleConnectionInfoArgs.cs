@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20180715Preview.Inputs
     /// <summary>
     /// Information for connecting to Oracle server
     /// </summary>
-    public sealed class OracleConnectionInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class OracleConnectionInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// EZConnect or TNSName connection string.
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.DataMigration.V20180715Preview.Inputs
         public OracleConnectionInfoArgs()
         {
         }
-        public static new OracleConnectionInfoArgs Empty => new OracleConnectionInfoArgs();
     }
 }

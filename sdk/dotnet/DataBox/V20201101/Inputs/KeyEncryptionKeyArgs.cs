@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBox.V20201101.Inputs
     /// <summary>
     /// Encryption key containing details about key to encrypt different keys.
     /// </summary>
-    public sealed class KeyEncryptionKeyArgs : global::Pulumi.ResourceArgs
+    public sealed class KeyEncryptionKeyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Managed identity properties used for key encryption.
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.DataBox.V20201101.Inputs
         {
             KekType = "MicrosoftManaged";
         }
-        public static new KeyEncryptionKeyArgs Empty => new KeyEncryptionKeyArgs();
     }
 }

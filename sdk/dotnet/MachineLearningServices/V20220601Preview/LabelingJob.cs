@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
     /// Azure Resource Manager resource envelope.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20220601preview:LabelingJob")]
-    public partial class LabelingJob : global::Pulumi.CustomResource
+    public partial class LabelingJob : Pulumi.CustomResource
     {
         /// <summary>
         /// [Required] Additional attributes of the entity.
@@ -64,9 +64,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:LabelingJob"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200901preview:LabelingJob"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:LabelingJob"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:LabelingJob"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200901preview:LabelingJob"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:LabelingJob"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
         }
     }
 
-    public sealed class LabelingJobArgs : global::Pulumi.ResourceArgs
+    public sealed class LabelingJobArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name and identifier for the LabelingJob.
@@ -117,6 +117,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
         public LabelingJobArgs()
         {
         }
-        public static new LabelingJobArgs Empty => new LabelingJobArgs();
     }
 }

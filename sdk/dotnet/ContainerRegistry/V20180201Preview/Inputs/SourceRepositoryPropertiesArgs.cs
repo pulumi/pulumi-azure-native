@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview.Inputs
     /// <summary>
     /// The properties of the source code repository.
     /// </summary>
-    public sealed class SourceRepositoryPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class SourceRepositoryPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value of this property indicates whether the source control commit trigger is enabled or not.
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview.Inputs
         {
             IsCommitTriggerEnabled = false;
         }
-        public static new SourceRepositoryPropertiesArgs Empty => new SourceRepositoryPropertiesArgs();
     }
 }

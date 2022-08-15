@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     }
 
 
-    public sealed class GetBookmarkRelationArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBookmarkRelationArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Bookmark ID
@@ -62,10 +62,9 @@ namespace Pulumi.AzureNative.SecurityInsights
         public GetBookmarkRelationArgs()
         {
         }
-        public static new GetBookmarkRelationArgs Empty => new GetBookmarkRelationArgs();
     }
 
-    public sealed class GetBookmarkRelationInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBookmarkRelationInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Bookmark ID
@@ -100,7 +99,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         public GetBookmarkRelationInvokeArgs()
         {
         }
-        public static new GetBookmarkRelationInvokeArgs Empty => new GetBookmarkRelationInvokeArgs();
     }
 
 

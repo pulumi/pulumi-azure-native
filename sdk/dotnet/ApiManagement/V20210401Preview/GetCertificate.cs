@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
     }
 
 
-    public sealed class GetCertificateArgs : global::Pulumi.InvokeArgs
+    public sealed class GetCertificateArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Identifier of the certificate entity. Must be unique in the current API Management service instance.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
         public GetCertificateArgs()
         {
         }
-        public static new GetCertificateArgs Empty => new GetCertificateArgs();
     }
 
-    public sealed class GetCertificateInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetCertificateInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Identifier of the certificate entity. Must be unique in the current API Management service instance.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
         public GetCertificateInvokeArgs()
         {
         }
-        public static new GetCertificateInvokeArgs Empty => new GetCertificateInvokeArgs();
     }
 
 

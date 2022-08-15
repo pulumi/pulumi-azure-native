@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20191101Preview.Inputs
     /// <summary>
     /// The specification of destinations.
     /// </summary>
-    public sealed class DataCollectionRuleDestinationsArgs : global::Pulumi.ResourceArgs
+    public sealed class DataCollectionRuleDestinationsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure Monitor Metrics destination.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Insights.V20191101Preview.Inputs
         public DataCollectionRuleDestinationsArgs()
         {
         }
-        public static new DataCollectionRuleDestinationsArgs Empty => new DataCollectionRuleDestinationsArgs();
     }
 }

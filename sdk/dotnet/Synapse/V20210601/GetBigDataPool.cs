@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601
     }
 
 
-    public sealed class GetBigDataPoolArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBigDataPoolArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Big Data pool name
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Synapse.V20210601
         public GetBigDataPoolArgs()
         {
         }
-        public static new GetBigDataPoolArgs Empty => new GetBigDataPoolArgs();
     }
 
-    public sealed class GetBigDataPoolInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBigDataPoolInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Big Data pool name
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Synapse.V20210601
         public GetBigDataPoolInvokeArgs()
         {
         }
-        public static new GetBigDataPoolInvokeArgs Empty => new GetBigDataPoolInvokeArgs();
     }
 
 

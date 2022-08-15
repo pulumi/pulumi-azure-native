@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20181101.Inputs
     /// <summary>
     /// A global distribution definition.
     /// </summary>
-    public sealed class GeoDistributionArgs : global::Pulumi.ResourceArgs
+    public sealed class GeoDistributionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Location.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Web.V20181101.Inputs
         public GeoDistributionArgs()
         {
         }
-        public static new GeoDistributionArgs Empty => new GeoDistributionArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
     }
 
 
-    public sealed class GetOfficeATPDataConnectorArgs : global::Pulumi.InvokeArgs
+    public sealed class GetOfficeATPDataConnectorArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Connector ID
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         public GetOfficeATPDataConnectorArgs()
         {
         }
-        public static new GetOfficeATPDataConnectorArgs Empty => new GetOfficeATPDataConnectorArgs();
     }
 
-    public sealed class GetOfficeATPDataConnectorInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetOfficeATPDataConnectorInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Connector ID
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         public GetOfficeATPDataConnectorInvokeArgs()
         {
         }
-        public static new GetOfficeATPDataConnectorInvokeArgs Empty => new GetOfficeATPDataConnectorInvokeArgs();
     }
 
 

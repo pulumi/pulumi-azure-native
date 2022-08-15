@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SignalRService.V20211001.Inputs
     /// <summary>
     /// Network ACLs for the resource
     /// </summary>
-    public sealed class SignalRNetworkACLsArgs : global::Pulumi.ResourceArgs
+    public sealed class SignalRNetworkACLsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure Networking ACL Action.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.SignalRService.V20211001.Inputs
         public SignalRNetworkACLsArgs()
         {
         }
-        public static new SignalRNetworkACLsArgs Empty => new SignalRNetworkACLsArgs();
     }
 }

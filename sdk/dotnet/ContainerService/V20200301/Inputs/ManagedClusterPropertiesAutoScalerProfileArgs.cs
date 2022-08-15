@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20200301.Inputs
     /// <summary>
     /// Parameters to be applied to the cluster-autoscaler when enabled
     /// </summary>
-    public sealed class ManagedClusterPropertiesAutoScalerProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedClusterPropertiesAutoScalerProfileArgs : Pulumi.ResourceArgs
     {
         [Input("balanceSimilarNodeGroups")]
         public Input<string>? BalanceSimilarNodeGroups { get; set; }
@@ -45,6 +45,5 @@ namespace Pulumi.AzureNative.ContainerService.V20200301.Inputs
         public ManagedClusterPropertiesAutoScalerProfileArgs()
         {
         }
-        public static new ManagedClusterPropertiesAutoScalerProfileArgs Empty => new ManagedClusterPropertiesAutoScalerProfileArgs();
     }
 }

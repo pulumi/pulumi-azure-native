@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20211201Preview.Inputs
     /// <summary>
     /// The native cloud connection configuration
     /// </summary>
-    public sealed class CspmMonitorAwsOfferingNativeCloudConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class CspmMonitorAwsOfferingNativeCloudConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The cloud role ARN in AWS for this feature
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Security.V20211201Preview.Inputs
         public CspmMonitorAwsOfferingNativeCloudConnectionArgs()
         {
         }
-        public static new CspmMonitorAwsOfferingNativeCloudConnectionArgs Empty => new CspmMonitorAwsOfferingNativeCloudConnectionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20180901.Inputs
     /// <summary>
     /// A TXT record.
     /// </summary>
-    public sealed class TxtRecordArgs : global::Pulumi.ResourceArgs
+    public sealed class TxtRecordArgs : Pulumi.ResourceArgs
     {
         [Input("value")]
         private InputList<string>? _value;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Network.V20180901.Inputs
         public TxtRecordArgs()
         {
         }
-        public static new TxtRecordArgs Empty => new TxtRecordArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Peering.V20220101.Inputs
     /// <summary>
     /// The properties that define a direct connection.
     /// </summary>
-    public sealed class DirectConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class DirectConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The bandwidth of the connection.
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.Peering.V20220101.Inputs
         public DirectConnectionArgs()
         {
         }
-        public static new DirectConnectionArgs Empty => new DirectConnectionArgs();
     }
 }

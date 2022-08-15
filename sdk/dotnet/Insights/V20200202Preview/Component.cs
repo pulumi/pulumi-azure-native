@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20200202Preview
     /// An Application Insights component definition.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights/v20200202preview:Component")]
-    public partial class Component : global::Pulumi.CustomResource
+    public partial class Component : Pulumi.CustomResource
     {
         /// <summary>
         /// Application Insights Unique ID for your Application.
@@ -220,10 +220,10 @@ namespace Pulumi.AzureNative.Insights.V20200202Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:insights:Component"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20150501:Component"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20180501preview:Component"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20200202:Component"},
+                    new Pulumi.Alias { Type = "azure-native:insights:Component"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20150501:Component"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20180501preview:Component"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20200202:Component"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -245,7 +245,7 @@ namespace Pulumi.AzureNative.Insights.V20200202Preview
         }
     }
 
-    public sealed class ComponentArgs : global::Pulumi.ResourceArgs
+    public sealed class ComponentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of application being monitored.
@@ -368,6 +368,5 @@ namespace Pulumi.AzureNative.Insights.V20200202Preview
             IngestionMode = "LogAnalytics";
             RequestSource = "rest";
         }
-        public static new ComponentArgs Empty => new ComponentArgs();
     }
 }

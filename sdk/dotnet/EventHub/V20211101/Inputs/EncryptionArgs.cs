@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventHub.V20211101.Inputs
     /// <summary>
     /// Properties to configure Encryption
     /// </summary>
-    public sealed class EncryptionArgs : global::Pulumi.ResourceArgs
+    public sealed class EncryptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enumerates the possible value of keySource for Encryption
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.EventHub.V20211101.Inputs
         {
             KeySource = Pulumi.AzureNative.EventHub.V20211101.KeySource.Microsoft_KeyVault;
         }
-        public static new EncryptionArgs Empty => new EncryptionArgs();
     }
 }

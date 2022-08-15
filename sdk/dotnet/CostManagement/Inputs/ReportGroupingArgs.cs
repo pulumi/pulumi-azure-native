@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.Inputs
     /// <summary>
     /// The group by expression to be used in the report.
     /// </summary>
-    public sealed class ReportGroupingArgs : global::Pulumi.ResourceArgs
+    public sealed class ReportGroupingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the column to group.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.CostManagement.Inputs
         public ReportGroupingArgs()
         {
         }
-        public static new ReportGroupingArgs Empty => new ReportGroupingArgs();
     }
 }

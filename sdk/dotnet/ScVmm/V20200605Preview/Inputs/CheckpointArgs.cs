@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview.Inputs
     /// <summary>
     /// Defines the resource properties.
     /// </summary>
-    public sealed class CheckpointArgs : global::Pulumi.ResourceArgs
+    public sealed class CheckpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets ID of the checkpoint.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview.Inputs
         public CheckpointArgs()
         {
         }
-        public static new CheckpointArgs Empty => new CheckpointArgs();
     }
 }

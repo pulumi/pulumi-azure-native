@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210701Preview.Inputs
     /// <summary>
     /// A region in which the Azure Cosmos DB database account is deployed.
     /// </summary>
-    public sealed class LocationArgs : global::Pulumi.ResourceArgs
+    public sealed class LocationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20210701Preview.Inputs
         public LocationArgs()
         {
         }
-        public static new LocationArgs Empty => new LocationArgs();
     }
 }

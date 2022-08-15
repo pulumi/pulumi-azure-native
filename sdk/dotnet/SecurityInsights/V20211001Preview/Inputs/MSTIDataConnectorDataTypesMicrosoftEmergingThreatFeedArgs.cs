@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview.Inputs
     /// <summary>
     /// Data type for Microsoft Threat Intelligence Platforms data connector.
     /// </summary>
-    public sealed class MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedArgs : global::Pulumi.ResourceArgs
+    public sealed class MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// lookback period
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview.Inputs
         public MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedArgs()
         {
         }
-        public static new MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedArgs Empty => new MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedArgs();
     }
 }

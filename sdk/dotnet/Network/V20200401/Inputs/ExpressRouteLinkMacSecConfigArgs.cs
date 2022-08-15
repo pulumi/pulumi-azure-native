@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200401.Inputs
     /// <summary>
     /// ExpressRouteLink Mac Security Configuration.
     /// </summary>
-    public sealed class ExpressRouteLinkMacSecConfigArgs : global::Pulumi.ResourceArgs
+    public sealed class ExpressRouteLinkMacSecConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Keyvault Secret Identifier URL containing Mac security CAK key.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Network.V20200401.Inputs
         public ExpressRouteLinkMacSecConfigArgs()
         {
         }
-        public static new ExpressRouteLinkMacSecConfigArgs Empty => new ExpressRouteLinkMacSecConfigArgs();
     }
 }

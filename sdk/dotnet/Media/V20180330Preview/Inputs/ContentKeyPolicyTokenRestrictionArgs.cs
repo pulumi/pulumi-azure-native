@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180330Preview.Inputs
     /// <summary>
     /// Represents a token restriction. Provided token must match these requirements for successful license or key delivery.
     /// </summary>
-    public sealed class ContentKeyPolicyTokenRestrictionArgs : global::Pulumi.ResourceArgs
+    public sealed class ContentKeyPolicyTokenRestrictionArgs : Pulumi.ResourceArgs
     {
         [Input("alternateVerificationKeys")]
         private InputList<object>? _alternateVerificationKeys;
@@ -79,6 +79,5 @@ namespace Pulumi.AzureNative.Media.V20180330Preview.Inputs
         public ContentKeyPolicyTokenRestrictionArgs()
         {
         }
-        public static new ContentKeyPolicyTokenRestrictionArgs Empty => new ContentKeyPolicyTokenRestrictionArgs();
     }
 }

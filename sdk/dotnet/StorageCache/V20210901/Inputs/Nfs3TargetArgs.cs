@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageCache.V20210901.Inputs
     /// <summary>
     /// Properties pertaining to the Nfs3Target
     /// </summary>
-    public sealed class Nfs3TargetArgs : global::Pulumi.ResourceArgs
+    public sealed class Nfs3TargetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.StorageCache.V20210901.Inputs
         public Nfs3TargetArgs()
         {
         }
-        public static new Nfs3TargetArgs Empty => new Nfs3TargetArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
     }
 
 
-    public sealed class GetFactoryDataPlaneAccessArgs : global::Pulumi.InvokeArgs
+    public sealed class GetFactoryDataPlaneAccessArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource path to get access relative to factory. Currently only empty string is supported which corresponds to the factory resource.
@@ -72,10 +72,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         public GetFactoryDataPlaneAccessArgs()
         {
         }
-        public static new GetFactoryDataPlaneAccessArgs Empty => new GetFactoryDataPlaneAccessArgs();
     }
 
-    public sealed class GetFactoryDataPlaneAccessInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetFactoryDataPlaneAccessInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource path to get access relative to factory. Currently only empty string is supported which corresponds to the factory resource.
@@ -122,7 +121,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         public GetFactoryDataPlaneAccessInvokeArgs()
         {
         }
-        public static new GetFactoryDataPlaneAccessInvokeArgs Empty => new GetFactoryDataPlaneAccessInvokeArgs();
     }
 
 

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
     }
 
 
-    public sealed class GetMetadataArgs : global::Pulumi.InvokeArgs
+    public sealed class GetMetadataArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Metadata name.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         public GetMetadataArgs()
         {
         }
-        public static new GetMetadataArgs Empty => new GetMetadataArgs();
     }
 
-    public sealed class GetMetadataInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetMetadataInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Metadata name.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         public GetMetadataInvokeArgs()
         {
         }
-        public static new GetMetadataInvokeArgs Empty => new GetMetadataInvokeArgs();
     }
 
 

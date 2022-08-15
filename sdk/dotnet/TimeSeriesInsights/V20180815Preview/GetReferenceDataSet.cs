@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
     }
 
 
-    public sealed class GetReferenceDataSetArgs : global::Pulumi.InvokeArgs
+    public sealed class GetReferenceDataSetArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Time Series Insights environment associated with the specified resource group.
@@ -49,10 +49,9 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
         public GetReferenceDataSetArgs()
         {
         }
-        public static new GetReferenceDataSetArgs Empty => new GetReferenceDataSetArgs();
     }
 
-    public sealed class GetReferenceDataSetInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetReferenceDataSetInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Time Series Insights environment associated with the specified resource group.
@@ -75,7 +74,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
         public GetReferenceDataSetInvokeArgs()
         {
         }
-        public static new GetReferenceDataSetInvokeArgs Empty => new GetReferenceDataSetInvokeArgs();
     }
 
 

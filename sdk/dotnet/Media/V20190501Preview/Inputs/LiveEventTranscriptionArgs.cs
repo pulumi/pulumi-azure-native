@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20190501Preview.Inputs
     /// <summary>
     /// Describes the transcription tracks in the output of a Live Event, generated using speech-to-text transcription.
     /// </summary>
-    public sealed class LiveEventTranscriptionArgs : global::Pulumi.ResourceArgs
+    public sealed class LiveEventTranscriptionArgs : Pulumi.ResourceArgs
     {
         [Input("inputTrackSelection")]
         private InputList<Inputs.LiveEventInputTrackSelectionArgs>? _inputTrackSelection;
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Media.V20190501Preview.Inputs
         public LiveEventTranscriptionArgs()
         {
         }
-        public static new LiveEventTranscriptionArgs Empty => new LiveEventTranscriptionArgs();
     }
 }

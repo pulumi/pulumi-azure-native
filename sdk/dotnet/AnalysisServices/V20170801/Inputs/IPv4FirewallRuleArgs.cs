@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AnalysisServices.V20170801.Inputs
     /// <summary>
     /// The detail of firewall rule.
     /// </summary>
-    public sealed class IPv4FirewallRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class IPv4FirewallRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The rule name.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.AnalysisServices.V20170801.Inputs
         public IPv4FirewallRuleArgs()
         {
         }
-        public static new IPv4FirewallRuleArgs Empty => new IPv4FirewallRuleArgs();
     }
 }

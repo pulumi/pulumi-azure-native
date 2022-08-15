@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Xml dataset.
     /// </summary>
-    public sealed class XmlDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class XmlDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -103,6 +103,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public XmlDatasetArgs()
         {
         }
-        public static new XmlDatasetArgs Empty => new XmlDatasetArgs();
     }
 }

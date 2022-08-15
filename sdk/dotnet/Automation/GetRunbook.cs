@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Automation
     }
 
 
-    public sealed class GetRunbookArgs : global::Pulumi.InvokeArgs
+    public sealed class GetRunbookArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Automation
         public GetRunbookArgs()
         {
         }
-        public static new GetRunbookArgs Empty => new GetRunbookArgs();
     }
 
-    public sealed class GetRunbookInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetRunbookInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Automation
         public GetRunbookInvokeArgs()
         {
         }
-        public static new GetRunbookInvokeArgs Empty => new GetRunbookInvokeArgs();
     }
 
 

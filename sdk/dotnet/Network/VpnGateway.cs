@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network
     /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VpnGateway")]
-    public partial class VpnGateway : global::Pulumi.CustomResource
+    public partial class VpnGateway : Pulumi.CustomResource
     {
         /// <summary>
         /// Local network gateway's BGP speaker settings.
@@ -119,33 +119,33 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180401:VpnGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180601:VpnGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180701:VpnGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180801:VpnGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181001:VpnGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181101:VpnGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181201:VpnGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190201:VpnGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:VpnGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190601:VpnGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:VpnGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190801:VpnGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:VpnGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:VpnGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:VpnGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:VpnGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:VpnGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:VpnGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:VpnGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:VpnGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:VpnGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:VpnGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:VpnGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:VpnGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:VpnGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:VpnGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:VpnGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180401:VpnGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180601:VpnGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180701:VpnGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:VpnGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181001:VpnGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181101:VpnGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181201:VpnGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190201:VpnGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:VpnGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:VpnGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:VpnGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:VpnGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:VpnGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:VpnGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:VpnGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:VpnGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:VpnGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:VpnGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:VpnGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:VpnGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:VpnGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:VpnGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:VpnGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210301:VpnGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501:VpnGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:VpnGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:VpnGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -167,7 +167,7 @@ namespace Pulumi.AzureNative.Network
         }
     }
 
-    public sealed class VpnGatewayArgs : global::Pulumi.ResourceArgs
+    public sealed class VpnGatewayArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Local network gateway's BGP speaker settings.
@@ -256,6 +256,5 @@ namespace Pulumi.AzureNative.Network
         public VpnGatewayArgs()
         {
         }
-        public static new VpnGatewayArgs Empty => new VpnGatewayArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageCache.V20220101.Inputs
     /// <summary>
     /// Properties pertaining to the BlobNfsTarget.
     /// </summary>
-    public sealed class BlobNfsTargetArgs : global::Pulumi.ResourceArgs
+    public sealed class BlobNfsTargetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID of the storage container.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.StorageCache.V20220101.Inputs
         public BlobNfsTargetArgs()
         {
         }
-        public static new BlobNfsTargetArgs Empty => new BlobNfsTargetArgs();
     }
 }

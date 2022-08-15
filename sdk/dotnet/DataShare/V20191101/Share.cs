@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataShare.V20191101
     /// </summary>
     [Obsolete(@"Version 2019-11-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:datashare/v20191101:Share")]
-    public partial class Share : global::Pulumi.CustomResource
+    public partial class Share : Pulumi.CustomResource
     {
         /// <summary>
         /// Time at which the share was created.
@@ -95,11 +95,11 @@ namespace Pulumi.AzureNative.DataShare.V20191101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datashare:Share"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:Share"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:Share"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:Share"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:Share"},
+                    new Pulumi.Alias { Type = "azure-native:datashare:Share"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:Share"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20200901:Share"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:Share"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20210801:Share"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -121,7 +121,7 @@ namespace Pulumi.AzureNative.DataShare.V20191101
         }
     }
 
-    public sealed class ShareArgs : global::Pulumi.ResourceArgs
+    public sealed class ShareArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -162,6 +162,5 @@ namespace Pulumi.AzureNative.DataShare.V20191101
         public ShareArgs()
         {
         }
-        public static new ShareArgs Empty => new ShareArgs();
     }
 }

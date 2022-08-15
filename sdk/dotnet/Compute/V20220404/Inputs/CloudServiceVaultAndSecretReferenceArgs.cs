@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20220404.Inputs
     /// <summary>
     /// Protected settings for the extension, referenced using KeyVault which are encrypted before sent to the role instance.
     /// </summary>
-    public sealed class CloudServiceVaultAndSecretReferenceArgs : global::Pulumi.ResourceArgs
+    public sealed class CloudServiceVaultAndSecretReferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Secret URL which contains the protected settings of the extension
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Compute.V20220404.Inputs
         public CloudServiceVaultAndSecretReferenceArgs()
         {
         }
-        public static new CloudServiceVaultAndSecretReferenceArgs Empty => new CloudServiceVaultAndSecretReferenceArgs();
     }
 }

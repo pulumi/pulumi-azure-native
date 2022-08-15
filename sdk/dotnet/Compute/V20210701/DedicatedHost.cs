@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20210701
     /// Specifies information about the Dedicated host.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute/v20210701:DedicatedHost")]
-    public partial class DedicatedHost : global::Pulumi.CustomResource
+    public partial class DedicatedHost : Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
@@ -118,16 +118,16 @@ namespace Pulumi.AzureNative.Compute.V20210701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:compute:DedicatedHost"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190301:DedicatedHost"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190701:DedicatedHost"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20191201:DedicatedHost"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200601:DedicatedHost"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20201201:DedicatedHost"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210301:DedicatedHost"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:DedicatedHost"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211101:DedicatedHost"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220301:DedicatedHost"},
+                    new Pulumi.Alias { Type = "azure-native:compute:DedicatedHost"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20190301:DedicatedHost"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:DedicatedHost"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20191201:DedicatedHost"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20200601:DedicatedHost"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20201201:DedicatedHost"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20210301:DedicatedHost"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20210401:DedicatedHost"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20211101:DedicatedHost"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20220301:DedicatedHost"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -149,7 +149,7 @@ namespace Pulumi.AzureNative.Compute.V20210701
         }
     }
 
-    public sealed class DedicatedHostArgs : global::Pulumi.ResourceArgs
+    public sealed class DedicatedHostArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
@@ -214,6 +214,5 @@ namespace Pulumi.AzureNative.Compute.V20210701
         public DedicatedHostArgs()
         {
         }
-        public static new DedicatedHostArgs Empty => new DedicatedHostArgs();
     }
 }

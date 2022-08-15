@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBox.V20211201.Inputs
     /// <summary>
     /// Notification preference for a job stage.
     /// </summary>
-    public sealed class NotificationPreferenceArgs : global::Pulumi.ResourceArgs
+    public sealed class NotificationPreferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Notification is required or not.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.DataBox.V20211201.Inputs
         {
             SendNotification = true;
         }
-        public static new NotificationPreferenceArgs Empty => new NotificationPreferenceArgs();
     }
 }

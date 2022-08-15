@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Maps.V20200201Preview.Inputs
     /// <summary>
     /// The SKU of the Maps Account.
     /// </summary>
-    public sealed class SkuArgs : global::Pulumi.ResourceArgs
+    public sealed class SkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the SKU, in standard format (such as S0).
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Maps.V20200201Preview.Inputs
         public SkuArgs()
         {
         }
-        public static new SkuArgs Empty => new SkuArgs();
     }
 }

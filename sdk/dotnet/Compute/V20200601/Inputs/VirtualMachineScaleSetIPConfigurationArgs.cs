@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20200601.Inputs
     /// <summary>
     /// Describes a virtual machine scale set network profile's IP configuration.
     /// </summary>
-    public sealed class VirtualMachineScaleSetIPConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualMachineScaleSetIPConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("applicationGatewayBackendAddressPools")]
         private InputList<Inputs.SubResourceArgs>? _applicationGatewayBackendAddressPools;
@@ -102,6 +102,5 @@ namespace Pulumi.AzureNative.Compute.V20200601.Inputs
         public VirtualMachineScaleSetIPConfigurationArgs()
         {
         }
-        public static new VirtualMachineScaleSetIPConfigurationArgs Empty => new VirtualMachineScaleSetIPConfigurationArgs();
     }
 }

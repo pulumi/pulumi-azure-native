@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.Inputs
     /// <summary>
     /// Filters limit replication to a subset of blobs within the storage account. A logical OR is performed on values in the filter. If multiple filters are defined, a logical AND is performed on all filters.
     /// </summary>
-    public sealed class ObjectReplicationPolicyFilterArgs : global::Pulumi.ResourceArgs
+    public sealed class ObjectReplicationPolicyFilterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Blobs created after the time will be replicated to the destination. It must be in datetime format 'yyyy-MM-ddTHH:mm:ssZ'. Example: 2020-02-19T16:05:00Z
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Storage.Inputs
         public ObjectReplicationPolicyFilterArgs()
         {
         }
-        public static new ObjectReplicationPolicyFilterArgs Empty => new ObjectReplicationPolicyFilterArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.V20210601.Inputs
     /// <summary>
     /// The Linux operation systems profile.
     /// </summary>
-    public sealed class OsProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class OsProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Linux OS profile.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.HDInsight.V20210601.Inputs
         public OsProfileArgs()
         {
         }
-        public static new OsProfileArgs Empty => new OsProfileArgs();
     }
 }

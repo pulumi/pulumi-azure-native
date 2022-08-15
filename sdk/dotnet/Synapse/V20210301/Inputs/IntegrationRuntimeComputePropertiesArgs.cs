@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20210301.Inputs
     /// <summary>
     /// The compute resource properties for managed integration runtime.
     /// </summary>
-    public sealed class IntegrationRuntimeComputePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class IntegrationRuntimeComputePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Data flow properties for managed integration runtime.
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.Synapse.V20210301.Inputs
         public IntegrationRuntimeComputePropertiesArgs()
         {
         }
-        public static new IntegrationRuntimeComputePropertiesArgs Empty => new IntegrationRuntimeComputePropertiesArgs();
     }
 }

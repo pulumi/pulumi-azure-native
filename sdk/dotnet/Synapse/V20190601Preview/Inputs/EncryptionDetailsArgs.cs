@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview.Inputs
     /// <summary>
     /// Details of the encryption associated with the workspace
     /// </summary>
-    public sealed class EncryptionDetailsArgs : global::Pulumi.ResourceArgs
+    public sealed class EncryptionDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Customer Managed Key Details
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview.Inputs
         public EncryptionDetailsArgs()
         {
         }
-        public static new EncryptionDetailsArgs Empty => new EncryptionDetailsArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Chaos
     /// API Version: 2021-09-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:chaos:Target")]
-    public partial class Target : global::Pulumi.CustomResource
+    public partial class Target : Pulumi.CustomResource
     {
         /// <summary>
         /// Location of the target resource.
@@ -71,8 +71,8 @@ namespace Pulumi.AzureNative.Chaos
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:chaos/v20210915preview:Target"},
-                    new global::Pulumi.Alias { Type = "azure-native:chaos/v20220701preview:Target"},
+                    new Pulumi.Alias { Type = "azure-native:chaos/v20210915preview:Target"},
+                    new Pulumi.Alias { Type = "azure-native:chaos/v20220701preview:Target"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.Chaos
         }
     }
 
-    public sealed class TargetArgs : global::Pulumi.ResourceArgs
+    public sealed class TargetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Location of the target resource.
@@ -141,6 +141,5 @@ namespace Pulumi.AzureNative.Chaos
         public TargetArgs()
         {
         }
-        public static new TargetArgs Empty => new TargetArgs();
     }
 }

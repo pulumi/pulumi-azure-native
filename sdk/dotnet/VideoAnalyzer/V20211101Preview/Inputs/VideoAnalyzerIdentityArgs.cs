@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
     /// <summary>
     /// The managed identity for the Video Analyzer resource.
     /// </summary>
-    public sealed class VideoAnalyzerIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class VideoAnalyzerIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity type.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
         public VideoAnalyzerIdentityArgs()
         {
         }
-        public static new VideoAnalyzerIdentityArgs Empty => new VideoAnalyzerIdentityArgs();
     }
 }

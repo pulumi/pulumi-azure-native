@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.Inputs
     /// <summary>
     /// Describes a column to sort
     /// </summary>
-    public sealed class OrderByArgs : global::Pulumi.ResourceArgs
+    public sealed class OrderByArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes the actual column name to sort by
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Network.Inputs
         public OrderByArgs()
         {
         }
-        public static new OrderByArgs Empty => new OrderByArgs();
     }
 }

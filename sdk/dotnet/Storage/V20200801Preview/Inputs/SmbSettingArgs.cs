@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20200801Preview.Inputs
     /// <summary>
     /// Setting for SMB protocol
     /// </summary>
-    public sealed class SmbSettingArgs : global::Pulumi.ResourceArgs
+    public sealed class SmbSettingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Multichannel setting. Applies to Premium FileStorage only.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Storage.V20200801Preview.Inputs
         public SmbSettingArgs()
         {
         }
-        public static new SmbSettingArgs Empty => new SmbSettingArgs();
     }
 }

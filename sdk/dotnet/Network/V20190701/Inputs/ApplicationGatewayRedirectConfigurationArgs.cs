@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190701.Inputs
     /// <summary>
     /// Redirect configuration of an application gateway.
     /// </summary>
-    public sealed class ApplicationGatewayRedirectConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayRedirectConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -108,6 +108,5 @@ namespace Pulumi.AzureNative.Network.V20190701.Inputs
         public ApplicationGatewayRedirectConfigurationArgs()
         {
         }
-        public static new ApplicationGatewayRedirectConfigurationArgs Empty => new ApplicationGatewayRedirectConfigurationArgs();
     }
 }

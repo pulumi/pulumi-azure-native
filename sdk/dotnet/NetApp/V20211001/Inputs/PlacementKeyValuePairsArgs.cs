@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NetApp.V20211001.Inputs
     /// <summary>
     /// Application specific parameters for the placement of volumes in the volume group
     /// </summary>
-    public sealed class PlacementKeyValuePairsArgs : global::Pulumi.ResourceArgs
+    public sealed class PlacementKeyValuePairsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Key for an application specific parameter for the placement of volumes in the volume group
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.NetApp.V20211001.Inputs
         public PlacementKeyValuePairsArgs()
         {
         }
-        public static new PlacementKeyValuePairsArgs Empty => new PlacementKeyValuePairsArgs();
     }
 }

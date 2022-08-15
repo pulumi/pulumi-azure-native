@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift
     }
 
 
-    public sealed class GetOpenShiftClusterArgs : global::Pulumi.InvokeArgs
+    public sealed class GetOpenShiftClusterArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.RedHatOpenShift
         public GetOpenShiftClusterArgs()
         {
         }
-        public static new GetOpenShiftClusterArgs Empty => new GetOpenShiftClusterArgs();
     }
 
-    public sealed class GetOpenShiftClusterInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetOpenShiftClusterInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.RedHatOpenShift
         public GetOpenShiftClusterInvokeArgs()
         {
         }
-        public static new GetOpenShiftClusterInvokeArgs Empty => new GetOpenShiftClusterInvokeArgs();
     }
 
 

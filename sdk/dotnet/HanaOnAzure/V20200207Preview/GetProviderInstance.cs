@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20200207Preview
     }
 
 
-    public sealed class GetProviderInstanceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetProviderInstanceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the provider instance.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20200207Preview
         public GetProviderInstanceArgs()
         {
         }
-        public static new GetProviderInstanceArgs Empty => new GetProviderInstanceArgs();
     }
 
-    public sealed class GetProviderInstanceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetProviderInstanceInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the provider instance.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20200207Preview
         public GetProviderInstanceInvokeArgs()
         {
         }
-        public static new GetProviderInstanceInvokeArgs Empty => new GetProviderInstanceInvokeArgs();
     }
 
 

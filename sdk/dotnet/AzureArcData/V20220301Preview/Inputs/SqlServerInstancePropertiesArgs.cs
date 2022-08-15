@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview.Inputs
     /// <summary>
     /// Properties of SqlServerInstance.
     /// </summary>
-    public sealed class SqlServerInstancePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class SqlServerInstancePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Status of Azure Defender.
@@ -114,6 +114,5 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview.Inputs
         public SqlServerInstancePropertiesArgs()
         {
         }
-        public static new SqlServerInstancePropertiesArgs Empty => new SqlServerInstancePropertiesArgs();
     }
 }

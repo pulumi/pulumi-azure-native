@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// Forecasting task in AutoML Table vertical.
     /// </summary>
-    public sealed class ForecastingArgs : global::Pulumi.ResourceArgs
+    public sealed class ForecastingArgs : Pulumi.ResourceArgs
     {
         [Input("cvSplitColumnNames")]
         private InputList<string>? _cvSplitColumnNames;
@@ -129,6 +129,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
             LogVerbosity = "Info";
             PrimaryMetric = "NormalizedRootMeanSquaredError";
         }
-        public static new ForecastingArgs Empty => new ForecastingArgs();
     }
 }

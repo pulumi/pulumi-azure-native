@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// An Azure Machine Learning compute.
     /// </summary>
-    public sealed class AmlComputeArgs : global::Pulumi.ResourceArgs
+    public sealed class AmlComputeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of compute
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         public AmlComputeArgs()
         {
         }
-        public static new AmlComputeArgs Empty => new AmlComputeArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
     /// <summary>
     /// Network access control for video analyzer account.
     /// </summary>
-    public sealed class NetworkAccessControlArgs : global::Pulumi.ResourceArgs
+    public sealed class NetworkAccessControlArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Public network access for consumption group.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
         public NetworkAccessControlArgs()
         {
         }
-        public static new NetworkAccessControlArgs Empty => new NetworkAccessControlArgs();
     }
 }

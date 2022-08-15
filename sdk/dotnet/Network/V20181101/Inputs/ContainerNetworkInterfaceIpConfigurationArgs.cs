@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20181101.Inputs
     /// <summary>
     /// The ip configuration for a container network interface.
     /// </summary>
-    public sealed class ContainerNetworkInterfaceIpConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class ContainerNetworkInterfaceIpConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Network.V20181101.Inputs
         public ContainerNetworkInterfaceIpConfigurationArgs()
         {
         }
-        public static new ContainerNetworkInterfaceIpConfigurationArgs Empty => new ContainerNetworkInterfaceIpConfigurationArgs();
     }
 }

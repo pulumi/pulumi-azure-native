@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
     }
 
 
-    public sealed class GetArtifactSourceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetArtifactSourceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the artifact source.
@@ -43,10 +43,9 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
         public GetArtifactSourceArgs()
         {
         }
-        public static new GetArtifactSourceArgs Empty => new GetArtifactSourceArgs();
     }
 
-    public sealed class GetArtifactSourceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetArtifactSourceInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the artifact source.
@@ -63,7 +62,6 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
         public GetArtifactSourceInvokeArgs()
         {
         }
-        public static new GetArtifactSourceInvokeArgs Empty => new GetArtifactSourceInvokeArgs();
     }
 
 

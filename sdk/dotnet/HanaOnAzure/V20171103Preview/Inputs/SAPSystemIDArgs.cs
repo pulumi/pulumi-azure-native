@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20171103Preview.Inputs
     /// <summary>
     /// Specifies information related to a SAP system ID
     /// </summary>
-    public sealed class SAPSystemIDArgs : global::Pulumi.ResourceArgs
+    public sealed class SAPSystemIDArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Group ID of the HANA database user.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20171103Preview.Inputs
         public SAPSystemIDArgs()
         {
         }
-        public static new SAPSystemIDArgs Empty => new SAPSystemIDArgs();
     }
 }

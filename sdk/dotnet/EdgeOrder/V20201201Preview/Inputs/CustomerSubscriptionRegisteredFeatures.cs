@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Inputs
     /// <summary>
     /// Represents subscription registered features
     /// </summary>
-    public sealed class CustomerSubscriptionRegisteredFeatures : global::Pulumi.InvokeArgs
+    public sealed class CustomerSubscriptionRegisteredFeatures : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of subscription registered feature
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Inputs
         public CustomerSubscriptionRegisteredFeatures()
         {
         }
-        public static new CustomerSubscriptionRegisteredFeatures Empty => new CustomerSubscriptionRegisteredFeatures();
     }
 }

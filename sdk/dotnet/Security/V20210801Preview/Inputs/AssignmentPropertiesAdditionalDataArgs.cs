@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20210801Preview.Inputs
     /// <summary>
     /// Additional data about the assignment
     /// </summary>
-    public sealed class AssignmentPropertiesAdditionalDataArgs : global::Pulumi.ResourceArgs
+    public sealed class AssignmentPropertiesAdditionalDataArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Exemption category of this assignment
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Security.V20210801Preview.Inputs
         public AssignmentPropertiesAdditionalDataArgs()
         {
         }
-        public static new AssignmentPropertiesAdditionalDataArgs Empty => new AssignmentPropertiesAdditionalDataArgs();
     }
 }

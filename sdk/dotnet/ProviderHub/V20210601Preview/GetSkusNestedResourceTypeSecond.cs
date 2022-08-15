@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.ProviderHub.V20210601Preview
     }
 
 
-    public sealed class GetSkusNestedResourceTypeSecondArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSkusNestedResourceTypeSecondArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The first child resource type.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.ProviderHub.V20210601Preview
         public GetSkusNestedResourceTypeSecondArgs()
         {
         }
-        public static new GetSkusNestedResourceTypeSecondArgs Empty => new GetSkusNestedResourceTypeSecondArgs();
     }
 
-    public sealed class GetSkusNestedResourceTypeSecondInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSkusNestedResourceTypeSecondInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The first child resource type.
@@ -92,7 +91,6 @@ namespace Pulumi.AzureNative.ProviderHub.V20210601Preview
         public GetSkusNestedResourceTypeSecondInvokeArgs()
         {
         }
-        public static new GetSkusNestedResourceTypeSecondInvokeArgs Empty => new GetSkusNestedResourceTypeSecondInvokeArgs();
     }
 
 

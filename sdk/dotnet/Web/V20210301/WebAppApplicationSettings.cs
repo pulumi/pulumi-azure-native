@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20210301
     /// String dictionary resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20210301:WebAppApplicationSettings")]
-    public partial class WebAppApplicationSettings : global::Pulumi.CustomResource
+    public partial class WebAppApplicationSettings : Pulumi.CustomResource
     {
         /// <summary>
         /// Kind of resource.
@@ -64,20 +64,20 @@ namespace Pulumi.AzureNative.Web.V20210301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppApplicationSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppApplicationSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppApplicationSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppApplicationSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppApplicationSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppApplicationSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppApplicationSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppApplicationSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppApplicationSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppApplicationSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppApplicationSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppApplicationSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppApplicationSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppApplicationSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web:WebAppApplicationSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppApplicationSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppApplicationSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppApplicationSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppApplicationSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppApplicationSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppApplicationSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppApplicationSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppApplicationSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppApplicationSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppApplicationSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppApplicationSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppApplicationSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppApplicationSettings"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.Web.V20210301
         }
     }
 
-    public sealed class WebAppApplicationSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class WebAppApplicationSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Kind of resource.
@@ -134,6 +134,5 @@ namespace Pulumi.AzureNative.Web.V20210301
         public WebAppApplicationSettingsArgs()
         {
         }
-        public static new WebAppApplicationSettingsArgs Empty => new WebAppApplicationSettingsArgs();
     }
 }

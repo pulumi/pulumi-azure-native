@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20210901Preview.Inputs
     /// <summary>
     /// Source information for a deployment
     /// </summary>
-    public sealed class UserSourceInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class UserSourceInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Selector for the artifact to be used for the deployment for multi-module projects. This should be
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.AppPlatform.V20210901Preview.Inputs
         public UserSourceInfoArgs()
         {
         }
-        public static new UserSourceInfoArgs Empty => new UserSourceInfoArgs();
     }
 }

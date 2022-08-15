@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Network.V20180401
     }
 
 
-    public sealed class GetVirtualWANArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualWANArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource group name of the VirtualWan.
@@ -43,10 +43,9 @@ namespace Pulumi.AzureNative.Network.V20180401
         public GetVirtualWANArgs()
         {
         }
-        public static new GetVirtualWANArgs Empty => new GetVirtualWANArgs();
     }
 
-    public sealed class GetVirtualWANInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualWANInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource group name of the VirtualWan.
@@ -63,7 +62,6 @@ namespace Pulumi.AzureNative.Network.V20180401
         public GetVirtualWANInvokeArgs()
         {
         }
-        public static new GetVirtualWANInvokeArgs Empty => new GetVirtualWANInvokeArgs();
     }
 
 

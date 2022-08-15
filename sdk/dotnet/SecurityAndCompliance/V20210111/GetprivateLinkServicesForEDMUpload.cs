@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
     }
 
 
-    public sealed class GetprivateLinkServicesForEDMUploadArgs : global::Pulumi.InvokeArgs
+    public sealed class GetprivateLinkServicesForEDMUploadArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the service instance.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
         public GetprivateLinkServicesForEDMUploadArgs()
         {
         }
-        public static new GetprivateLinkServicesForEDMUploadArgs Empty => new GetprivateLinkServicesForEDMUploadArgs();
     }
 
-    public sealed class GetprivateLinkServicesForEDMUploadInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetprivateLinkServicesForEDMUploadInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the service instance.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
         public GetprivateLinkServicesForEDMUploadInvokeArgs()
         {
         }
-        public static new GetprivateLinkServicesForEDMUploadInvokeArgs Empty => new GetprivateLinkServicesForEDMUploadInvokeArgs();
     }
 
 

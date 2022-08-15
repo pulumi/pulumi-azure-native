@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20191201
     /// Virtual Network Tap resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20191201:VirtualNetworkTap")]
-    public partial class VirtualNetworkTap : global::Pulumi.CustomResource
+    public partial class VirtualNetworkTap : Pulumi.CustomResource
     {
         /// <summary>
         /// The reference to the private IP address on the internal Load Balancer that will receive the tap.
@@ -106,30 +106,30 @@ namespace Pulumi.AzureNative.Network.V20191201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:VirtualNetworkTap"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180801:VirtualNetworkTap"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181001:VirtualNetworkTap"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181101:VirtualNetworkTap"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181201:VirtualNetworkTap"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190201:VirtualNetworkTap"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:VirtualNetworkTap"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190601:VirtualNetworkTap"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:VirtualNetworkTap"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190801:VirtualNetworkTap"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:VirtualNetworkTap"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:VirtualNetworkTap"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:VirtualNetworkTap"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:VirtualNetworkTap"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:VirtualNetworkTap"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualNetworkTap"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:VirtualNetworkTap"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:VirtualNetworkTap"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:VirtualNetworkTap"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:VirtualNetworkTap"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:VirtualNetworkTap"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:VirtualNetworkTap"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:VirtualNetworkTap"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:VirtualNetworkTap"},
+                    new Pulumi.Alias { Type = "azure-native:network:VirtualNetworkTap"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:VirtualNetworkTap"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181001:VirtualNetworkTap"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181101:VirtualNetworkTap"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181201:VirtualNetworkTap"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190201:VirtualNetworkTap"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:VirtualNetworkTap"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:VirtualNetworkTap"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:VirtualNetworkTap"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:VirtualNetworkTap"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:VirtualNetworkTap"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:VirtualNetworkTap"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:VirtualNetworkTap"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:VirtualNetworkTap"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:VirtualNetworkTap"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualNetworkTap"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:VirtualNetworkTap"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:VirtualNetworkTap"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:VirtualNetworkTap"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:VirtualNetworkTap"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210301:VirtualNetworkTap"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501:VirtualNetworkTap"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:VirtualNetworkTap"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:VirtualNetworkTap"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -151,7 +151,7 @@ namespace Pulumi.AzureNative.Network.V20191201
         }
     }
 
-    public sealed class VirtualNetworkTapArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualNetworkTapArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The reference to the private IP address on the internal Load Balancer that will receive the tap.
@@ -210,6 +210,5 @@ namespace Pulumi.AzureNative.Network.V20191201
         public VirtualNetworkTapArgs()
         {
         }
-        public static new VirtualNetworkTapArgs Empty => new VirtualNetworkTapArgs();
     }
 }

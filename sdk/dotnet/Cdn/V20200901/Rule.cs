@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901
     /// Friendly Rules name mapping to the any Rules or secret related information.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn/v20200901:Rule")]
-    public partial class Rule : global::Pulumi.CustomResource
+    public partial class Rule : Pulumi.CustomResource
     {
         /// <summary>
         /// A list of actions that are executed when all the conditions of a rule are satisfied.
@@ -91,8 +91,8 @@ namespace Pulumi.AzureNative.Cdn.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cdn:Rule"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:Rule"},
+                    new Pulumi.Alias { Type = "azure-native:cdn:Rule"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20210601:Rule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901
         }
     }
 
-    public sealed class RuleArgs : global::Pulumi.ResourceArgs
+    public sealed class RuleArgs : Pulumi.ResourceArgs
     {
         [Input("actions", required: true)]
         private InputList<object>? _actions;
@@ -179,6 +179,5 @@ namespace Pulumi.AzureNative.Cdn.V20200901
         public RuleArgs()
         {
         }
-        public static new RuleArgs Empty => new RuleArgs();
     }
 }

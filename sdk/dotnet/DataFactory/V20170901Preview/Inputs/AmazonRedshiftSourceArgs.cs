@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity source for Amazon Redshift Source.
     /// </summary>
-    public sealed class AmazonRedshiftSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class AmazonRedshiftSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Database query. Type: string (or Expression with resultType string).
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public AmazonRedshiftSourceArgs()
         {
         }
-        public static new AmazonRedshiftSourceArgs Empty => new AmazonRedshiftSourceArgs();
     }
 }

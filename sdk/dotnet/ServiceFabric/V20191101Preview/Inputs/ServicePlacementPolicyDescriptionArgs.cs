@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20191101Preview.Inputs
     /// <summary>
     /// Describes the policy to be used for placement of a Service Fabric service.
     /// </summary>
-    public sealed class ServicePlacementPolicyDescriptionArgs : global::Pulumi.ResourceArgs
+    public sealed class ServicePlacementPolicyDescriptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of placement policy for a service fabric service. Following are the possible values.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.ServiceFabric.V20191101Preview.Inputs
         public ServicePlacementPolicyDescriptionArgs()
         {
         }
-        public static new ServicePlacementPolicyDescriptionArgs Empty => new ServicePlacementPolicyDescriptionArgs();
     }
 }

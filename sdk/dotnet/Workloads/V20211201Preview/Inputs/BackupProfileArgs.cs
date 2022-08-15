@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
     /// <summary>
     /// Backup profile
     /// </summary>
-    public sealed class BackupProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class BackupProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to enable Azure backup for the workload
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
         public BackupProfileArgs()
         {
         }
-        public static new BackupProfileArgs Empty => new BackupProfileArgs();
     }
 }

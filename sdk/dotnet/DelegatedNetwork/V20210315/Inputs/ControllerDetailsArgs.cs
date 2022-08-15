@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315.Inputs
     /// <summary>
     /// controller details
     /// </summary>
-    public sealed class ControllerDetailsArgs : global::Pulumi.ResourceArgs
+    public sealed class ControllerDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// controller arm resource id
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315.Inputs
         public ControllerDetailsArgs()
         {
         }
-        public static new ControllerDetailsArgs Empty => new ControllerDetailsArgs();
     }
 }

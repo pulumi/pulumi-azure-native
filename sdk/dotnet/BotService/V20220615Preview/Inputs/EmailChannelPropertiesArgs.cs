@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Inputs
     /// <summary>
     /// The parameters to provide for the Email channel.
     /// </summary>
-    public sealed class EmailChannelPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class EmailChannelPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Email channel auth method. 0 Password (Default); 1 Graph.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Inputs
         public EmailChannelPropertiesArgs()
         {
         }
-        public static new EmailChannelPropertiesArgs Empty => new EmailChannelPropertiesArgs();
     }
 }

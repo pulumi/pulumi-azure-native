@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601
     /// CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn/v20210601:Origin")]
-    public partial class Origin : global::Pulumi.CustomResource
+    public partial class Origin : Pulumi.CustomResource
     {
         /// <summary>
         /// Origin is enabled for load balancing or not
@@ -142,13 +142,13 @@ namespace Pulumi.AzureNative.Cdn.V20210601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cdn:Origin"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20150601:Origin"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20160402:Origin"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20191231:Origin"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200331:Origin"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200415:Origin"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:Origin"},
+                    new Pulumi.Alias { Type = "azure-native:cdn:Origin"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20150601:Origin"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20160402:Origin"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20191231:Origin"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200331:Origin"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200415:Origin"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200901:Origin"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -170,7 +170,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         }
     }
 
-    public sealed class OriginArgs : global::Pulumi.ResourceArgs
+    public sealed class OriginArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Origin is enabled for load balancing or not
@@ -265,6 +265,5 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         public OriginArgs()
         {
         }
-        public static new OriginArgs Empty => new OriginArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS.V20211201.Inputs
     /// <summary>
     /// a plain text value execution parameter
     /// </summary>
-    public sealed class ScriptStringExecutionParameterArgs : global::Pulumi.ResourceArgs
+    public sealed class ScriptStringExecutionParameterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The parameter name
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.AVS.V20211201.Inputs
         public ScriptStringExecutionParameterArgs()
         {
         }
-        public static new ScriptStringExecutionParameterArgs Empty => new ScriptStringExecutionParameterArgs();
     }
 }

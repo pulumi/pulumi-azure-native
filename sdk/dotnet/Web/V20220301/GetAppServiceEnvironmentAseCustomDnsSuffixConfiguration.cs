@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Web.V20220301
     }
 
 
-    public sealed class GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the App Service Environment.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.Web.V20220301
         public GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationArgs()
         {
         }
-        public static new GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationArgs Empty => new GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationArgs();
     }
 
-    public sealed class GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the App Service Environment.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.Web.V20220301
         public GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationInvokeArgs()
         {
         }
-        public static new GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationInvokeArgs Empty => new GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationInvokeArgs();
     }
 
 

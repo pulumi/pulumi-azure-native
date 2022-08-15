@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20180915Preview.Inputs
     /// <summary>
     /// NumberIn filter
     /// </summary>
-    public sealed class NumberInAdvancedFilterArgs : global::Pulumi.ResourceArgs
+    public sealed class NumberInAdvancedFilterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The filter key. Represents an event property with up to two levels of nesting.
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.EventGrid.V20180915Preview.Inputs
         public NumberInAdvancedFilterArgs()
         {
         }
-        public static new NumberInAdvancedFilterArgs Empty => new NumberInAdvancedFilterArgs();
     }
 }

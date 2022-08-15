@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview.Inputs
     /// <summary>
     /// Details of the customer managed key associated with the workspace
     /// </summary>
-    public sealed class CustomerManagedKeyDetailsArgs : global::Pulumi.ResourceArgs
+    public sealed class CustomerManagedKeyDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Key encryption key
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview.Inputs
         public CustomerManagedKeyDetailsArgs()
         {
         }
-        public static new CustomerManagedKeyDetailsArgs Empty => new CustomerManagedKeyDetailsArgs();
     }
 }

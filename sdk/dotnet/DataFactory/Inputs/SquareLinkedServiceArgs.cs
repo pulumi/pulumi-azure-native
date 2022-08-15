@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Square Service linked service.
     /// </summary>
-    public sealed class SquareLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class SquareLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -115,6 +115,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public SquareLinkedServiceArgs()
         {
         }
-        public static new SquareLinkedServiceArgs Empty => new SquareLinkedServiceArgs();
     }
 }

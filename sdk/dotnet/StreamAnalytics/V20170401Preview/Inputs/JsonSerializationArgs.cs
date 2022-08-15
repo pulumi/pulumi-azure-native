@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
     /// <summary>
     /// Describes how data from an input is serialized or how data is serialized when written to an output in JSON format.
     /// </summary>
-    public sealed class JsonSerializationArgs : global::Pulumi.ResourceArgs
+    public sealed class JsonSerializationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
         public JsonSerializationArgs()
         {
         }
-        public static new JsonSerializationArgs Empty => new JsonSerializationArgs();
     }
 }

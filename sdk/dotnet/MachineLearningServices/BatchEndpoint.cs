@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// API Version: 2021-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:BatchEndpoint")]
-    public partial class BatchEndpoint : global::Pulumi.CustomResource
+    public partial class BatchEndpoint : Pulumi.CustomResource
     {
         /// <summary>
         /// Service identity associated with a resource.
@@ -88,10 +88,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:BatchEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:BatchEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:BatchEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:BatchEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:BatchEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:BatchEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:BatchEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:BatchEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -113,7 +113,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         }
     }
 
-    public sealed class BatchEndpointArgs : global::Pulumi.ResourceArgs
+    public sealed class BatchEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name for the Batch inference endpoint.
@@ -172,6 +172,5 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public BatchEndpointArgs()
         {
         }
-        public static new BatchEndpointArgs Empty => new BatchEndpointArgs();
     }
 }

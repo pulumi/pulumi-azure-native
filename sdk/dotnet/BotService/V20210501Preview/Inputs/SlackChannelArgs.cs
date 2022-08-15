@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Inputs
     /// <summary>
     /// Slack channel definition
     /// </summary>
-    public sealed class SlackChannelArgs : global::Pulumi.ResourceArgs
+    public sealed class SlackChannelArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The channel name
@@ -44,6 +44,5 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Inputs
         {
             Location = "global";
         }
-        public static new SlackChannelArgs Empty => new SlackChannelArgs();
     }
 }

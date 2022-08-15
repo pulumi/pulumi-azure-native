@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Map Power Query mashup query to sink dataset(s).
     /// </summary>
-    public sealed class PowerQuerySinkMappingArgs : global::Pulumi.ResourceArgs
+    public sealed class PowerQuerySinkMappingArgs : Pulumi.ResourceArgs
     {
         [Input("dataflowSinks")]
         private InputList<Inputs.PowerQuerySinkArgs>? _dataflowSinks;
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public PowerQuerySinkMappingArgs()
         {
         }
-        public static new PowerQuerySinkMappingArgs Empty => new PowerQuerySinkMappingArgs();
     }
 }

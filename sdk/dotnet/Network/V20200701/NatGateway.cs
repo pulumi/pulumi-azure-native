@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200701
     /// Nat Gateway resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20200701:NatGateway")]
-    public partial class NatGateway : global::Pulumi.CustomResource
+    public partial class NatGateway : Pulumi.CustomResource
     {
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -118,26 +118,26 @@ namespace Pulumi.AzureNative.Network.V20200701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:NatGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190201:NatGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:NatGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190601:NatGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:NatGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190801:NatGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:NatGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:NatGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:NatGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:NatGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:NatGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:NatGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:NatGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:NatGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:NatGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:NatGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:NatGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:NatGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:NatGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190201:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210301:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:NatGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -159,7 +159,7 @@ namespace Pulumi.AzureNative.Network.V20200701
         }
     }
 
-    public sealed class NatGatewayArgs : global::Pulumi.ResourceArgs
+    public sealed class NatGatewayArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID.
@@ -248,6 +248,5 @@ namespace Pulumi.AzureNative.Network.V20200701
         public NatGatewayArgs()
         {
         }
-        public static new NatGatewayArgs Empty => new NatGatewayArgs();
     }
 }

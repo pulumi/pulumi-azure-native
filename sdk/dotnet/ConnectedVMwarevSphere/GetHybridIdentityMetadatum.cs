@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     }
 
 
-    public sealed class GetHybridIdentityMetadatumArgs : global::Pulumi.InvokeArgs
+    public sealed class GetHybridIdentityMetadatumArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the HybridIdentityMetadata.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public GetHybridIdentityMetadatumArgs()
         {
         }
-        public static new GetHybridIdentityMetadatumArgs Empty => new GetHybridIdentityMetadatumArgs();
     }
 
-    public sealed class GetHybridIdentityMetadatumInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetHybridIdentityMetadatumInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the HybridIdentityMetadata.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public GetHybridIdentityMetadatumInvokeArgs()
         {
         }
-        public static new GetHybridIdentityMetadatumInvokeArgs Empty => new GetHybridIdentityMetadatumInvokeArgs();
     }
 
 

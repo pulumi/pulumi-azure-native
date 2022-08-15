@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Base class for all execution activities.
     /// </summary>
-    public sealed class ExecutionActivityArgs : global::Pulumi.ResourceArgs
+    public sealed class ExecutionActivityArgs : Pulumi.ResourceArgs
     {
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
@@ -73,6 +73,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public ExecutionActivityArgs()
         {
         }
-        public static new ExecutionActivityArgs Empty => new ExecutionActivityArgs();
     }
 }

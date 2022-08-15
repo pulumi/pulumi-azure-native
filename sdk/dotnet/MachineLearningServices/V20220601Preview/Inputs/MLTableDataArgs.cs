@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// MLTable data definition
     /// </summary>
-    public sealed class MLTableDataArgs : global::Pulumi.ResourceArgs
+    public sealed class MLTableDataArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enum to determine the type of data.
@@ -87,6 +87,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
             IsAnonymous = false;
             IsArchived = false;
         }
-        public static new MLTableDataArgs Empty => new MLTableDataArgs();
     }
 }

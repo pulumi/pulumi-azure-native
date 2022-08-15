@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview
     }
 
 
-    public sealed class GetBandwidthScheduleArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBandwidthScheduleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview
         public GetBandwidthScheduleArgs()
         {
         }
-        public static new GetBandwidthScheduleArgs Empty => new GetBandwidthScheduleArgs();
     }
 
-    public sealed class GetBandwidthScheduleInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBandwidthScheduleInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview
         public GetBandwidthScheduleInvokeArgs()
         {
         }
-        public static new GetBandwidthScheduleInvokeArgs Empty => new GetBandwidthScheduleInvokeArgs();
     }
 
 

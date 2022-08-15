@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210201.Inputs
     /// <summary>
     /// Public IP addresses associated with azure firewall.
     /// </summary>
-    public sealed class HubPublicIPAddressesArgs : global::Pulumi.ResourceArgs
+    public sealed class HubPublicIPAddressesArgs : Pulumi.ResourceArgs
     {
         [Input("addresses")]
         private InputList<Inputs.AzureFirewallPublicIPAddressArgs>? _addresses;
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Network.V20210201.Inputs
         public HubPublicIPAddressesArgs()
         {
         }
-        public static new HubPublicIPAddressesArgs Empty => new HubPublicIPAddressesArgs();
     }
 }

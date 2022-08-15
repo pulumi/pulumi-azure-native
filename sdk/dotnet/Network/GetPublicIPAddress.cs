@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network
     }
 
 
-    public sealed class GetPublicIPAddressArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPublicIPAddressArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Expands referenced resources.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Network
         public GetPublicIPAddressArgs()
         {
         }
-        public static new GetPublicIPAddressArgs Empty => new GetPublicIPAddressArgs();
     }
 
-    public sealed class GetPublicIPAddressInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPublicIPAddressInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Expands referenced resources.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Network
         public GetPublicIPAddressInvokeArgs()
         {
         }
-        public static new GetPublicIPAddressInvokeArgs Empty => new GetPublicIPAddressInvokeArgs();
     }
 
 

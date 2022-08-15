@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network
     /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:HubRouteTable")]
-    public partial class HubRouteTable : global::Pulumi.CustomResource
+    public partial class HubRouteTable : Pulumi.CustomResource
     {
         /// <summary>
         /// List of all connections associated with this route table.
@@ -89,17 +89,17 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:HubRouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:HubRouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:HubRouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:HubRouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:HubRouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:HubRouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:HubRouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:HubRouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:HubRouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:HubRouteTable"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:HubRouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:HubRouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:HubRouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:HubRouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:HubRouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:HubRouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:HubRouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:HubRouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210301:HubRouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501:HubRouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:HubRouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:HubRouteTable"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -121,7 +121,7 @@ namespace Pulumi.AzureNative.Network
         }
     }
 
-    public sealed class HubRouteTableArgs : global::Pulumi.ResourceArgs
+    public sealed class HubRouteTableArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID.
@@ -180,6 +180,5 @@ namespace Pulumi.AzureNative.Network
         public HubRouteTableArgs()
         {
         }
-        public static new HubRouteTableArgs Empty => new HubRouteTableArgs();
     }
 }

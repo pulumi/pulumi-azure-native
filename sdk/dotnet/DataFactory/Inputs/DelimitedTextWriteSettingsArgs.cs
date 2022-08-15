@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Delimited text write settings.
     /// </summary>
-    public sealed class DelimitedTextWriteSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class DelimitedTextWriteSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The file extension used to create the files. Type: string (or Expression with resultType string).
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public DelimitedTextWriteSettingsArgs()
         {
         }
-        public static new DelimitedTextWriteSettingsArgs Empty => new DelimitedTextWriteSettingsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.Inputs
     /// <summary>
     /// Library/package information of a Big Data pool powered by Apache Spark
     /// </summary>
-    public sealed class LibraryInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class LibraryInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Storage blob container name.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Synapse.Inputs
         public LibraryInfoArgs()
         {
         }
-        public static new LibraryInfoArgs Empty => new LibraryInfoArgs();
     }
 }

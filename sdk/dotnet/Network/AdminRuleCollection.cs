@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network
     /// API Version: 2021-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:AdminRuleCollection")]
-    public partial class AdminRuleCollection : global::Pulumi.CustomResource
+    public partial class AdminRuleCollection : Pulumi.CustomResource
     {
         /// <summary>
         /// Groups for configuration
@@ -89,11 +89,11 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:AdminRuleCollection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:AdminRuleCollection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:AdminRuleCollection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:AdminRuleCollection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:AdminRuleCollection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201preview:AdminRuleCollection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501preview:AdminRuleCollection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:AdminRuleCollection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220201preview:AdminRuleCollection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220401preview:AdminRuleCollection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNative.Network
         }
     }
 
-    public sealed class AdminRuleCollectionArgs : global::Pulumi.ResourceArgs
+    public sealed class AdminRuleCollectionArgs : Pulumi.ResourceArgs
     {
         [Input("appliesToGroups")]
         private InputList<Inputs.NetworkManagerSecurityGroupItemArgs>? _appliesToGroups;
@@ -168,6 +168,5 @@ namespace Pulumi.AzureNative.Network
         public AdminRuleCollectionArgs()
         {
         }
-        public static new AdminRuleCollectionArgs Empty => new AdminRuleCollectionArgs();
     }
 }

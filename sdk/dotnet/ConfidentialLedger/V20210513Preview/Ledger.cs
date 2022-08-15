@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ConfidentialLedger.V20210513Preview
     /// Confidential Ledger. Contains the properties of Confidential Ledger Resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:confidentialledger/v20210513preview:Ledger")]
-    public partial class Ledger : global::Pulumi.CustomResource
+    public partial class Ledger : Pulumi.CustomResource
     {
         /// <summary>
         /// The Azure location where the Confidential Ledger is running.
@@ -76,9 +76,9 @@ namespace Pulumi.AzureNative.ConfidentialLedger.V20210513Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:confidentialledger:Ledger"},
-                    new global::Pulumi.Alias { Type = "azure-native:confidentialledger/v20201201preview:Ledger"},
-                    new global::Pulumi.Alias { Type = "azure-native:confidentialledger/v20220513:Ledger"},
+                    new Pulumi.Alias { Type = "azure-native:confidentialledger:Ledger"},
+                    new Pulumi.Alias { Type = "azure-native:confidentialledger/v20201201preview:Ledger"},
+                    new Pulumi.Alias { Type = "azure-native:confidentialledger/v20220513:Ledger"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.ConfidentialLedger.V20210513Preview
         }
     }
 
-    public sealed class LedgerArgs : global::Pulumi.ResourceArgs
+    public sealed class LedgerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Confidential Ledger
@@ -141,6 +141,5 @@ namespace Pulumi.AzureNative.ConfidentialLedger.V20210513Preview
         public LedgerArgs()
         {
         }
-        public static new LedgerArgs Empty => new LedgerArgs();
     }
 }

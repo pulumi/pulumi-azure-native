@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200601.Inputs
     /// <summary>
     /// An AAAA record.
     /// </summary>
-    public sealed class AaaaRecordArgs : global::Pulumi.ResourceArgs
+    public sealed class AaaaRecordArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IPv6 address of this AAAA record.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Network.V20200601.Inputs
         public AaaaRecordArgs()
         {
         }
-        public static new AaaaRecordArgs Empty => new AaaaRecordArgs();
     }
 }

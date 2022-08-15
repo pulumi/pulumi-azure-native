@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20191201.Inputs
     /// <summary>
     /// Describes the connection monitor endpoint filter item.
     /// </summary>
-    public sealed class ConnectionMonitorEndpointFilterItemArgs : global::Pulumi.ResourceArgs
+    public sealed class ConnectionMonitorEndpointFilterItemArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The address of the filter item.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Network.V20191201.Inputs
         public ConnectionMonitorEndpointFilterItemArgs()
         {
         }
-        public static new ConnectionMonitorEndpointFilterItemArgs Empty => new ConnectionMonitorEndpointFilterItemArgs();
     }
 }

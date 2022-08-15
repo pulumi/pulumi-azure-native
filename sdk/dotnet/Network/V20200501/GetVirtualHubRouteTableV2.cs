@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20200501
     }
 
 
-    public sealed class GetVirtualHubRouteTableV2Args : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualHubRouteTableV2Args : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource group name of the VirtualHubRouteTableV2.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Network.V20200501
         public GetVirtualHubRouteTableV2Args()
         {
         }
-        public static new GetVirtualHubRouteTableV2Args Empty => new GetVirtualHubRouteTableV2Args();
     }
 
-    public sealed class GetVirtualHubRouteTableV2InvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualHubRouteTableV2InvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource group name of the VirtualHubRouteTableV2.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Network.V20200501
         public GetVirtualHubRouteTableV2InvokeArgs()
         {
         }
-        public static new GetVirtualHubRouteTableV2InvokeArgs Empty => new GetVirtualHubRouteTableV2InvokeArgs();
     }
 
 

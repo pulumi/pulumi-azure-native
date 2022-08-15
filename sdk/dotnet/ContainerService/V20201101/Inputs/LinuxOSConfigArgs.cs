@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20201101.Inputs
     /// <summary>
     /// OS configurations of Linux agent nodes.
     /// </summary>
-    public sealed class LinuxOSConfigArgs : global::Pulumi.ResourceArgs
+    public sealed class LinuxOSConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// SwapFileSizeMB specifies size in MB of a swap file will be created on each node.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.ContainerService.V20201101.Inputs
         public LinuxOSConfigArgs()
         {
         }
-        public static new LinuxOSConfigArgs Empty => new LinuxOSConfigArgs();
     }
 }

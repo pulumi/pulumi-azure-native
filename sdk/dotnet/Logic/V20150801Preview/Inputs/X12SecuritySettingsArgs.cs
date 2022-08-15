@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
-    public sealed class X12SecuritySettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class X12SecuritySettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The authorization qualifier.
@@ -39,6 +39,5 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
         public X12SecuritySettingsArgs()
         {
         }
-        public static new X12SecuritySettingsArgs Empty => new X12SecuritySettingsArgs();
     }
 }

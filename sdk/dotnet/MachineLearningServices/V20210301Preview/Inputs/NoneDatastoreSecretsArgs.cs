@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// <summary>
     /// Empty/none datastore secret.
     /// </summary>
-    public sealed class NoneDatastoreSecretsArgs : global::Pulumi.ResourceArgs
+    public sealed class NoneDatastoreSecretsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enum to determine the datastore secrets type.
@@ -25,6 +25,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public NoneDatastoreSecretsArgs()
         {
         }
-        public static new NoneDatastoreSecretsArgs Empty => new NoneDatastoreSecretsArgs();
     }
 }

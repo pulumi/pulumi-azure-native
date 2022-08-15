@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.Inputs
     /// <summary>
     /// HTTPGet specifies the http request to perform.
     /// </summary>
-    public sealed class ContainerAppProbeHttpGetArgs : global::Pulumi.ResourceArgs
+    public sealed class ContainerAppProbeHttpGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.App.Inputs
         public ContainerAppProbeHttpGetArgs()
         {
         }
-        public static new ContainerAppProbeHttpGetArgs Empty => new ContainerAppProbeHttpGetArgs();
     }
 }

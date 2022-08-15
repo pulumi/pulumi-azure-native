@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StoragePool.V20200315Preview.Inputs
     /// <summary>
     /// Target portal group properties for create or update iSCSI target request.
     /// </summary>
-    public sealed class TargetPortalGroupCreateArgs : global::Pulumi.ResourceArgs
+    public sealed class TargetPortalGroupCreateArgs : Pulumi.ResourceArgs
     {
         [Input("acls", required: true)]
         private InputList<Inputs.AclArgs>? _acls;
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.StoragePool.V20200315Preview.Inputs
         public TargetPortalGroupCreateArgs()
         {
         }
-        public static new TargetPortalGroupCreateArgs Empty => new TargetPortalGroupCreateArgs();
     }
 }

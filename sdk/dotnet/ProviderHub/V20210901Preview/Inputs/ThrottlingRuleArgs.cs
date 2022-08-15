@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20210901Preview.Inputs
 {
 
-    public sealed class ThrottlingRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class ThrottlingRuleArgs : Pulumi.ResourceArgs
     {
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
@@ -34,6 +34,5 @@ namespace Pulumi.AzureNative.ProviderHub.V20210901Preview.Inputs
         public ThrottlingRuleArgs()
         {
         }
-        public static new ThrottlingRuleArgs Empty => new ThrottlingRuleArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.LabServices
     }
 
 
-    public sealed class GetUserArgs : global::Pulumi.InvokeArgs
+    public sealed class GetUserArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specify the $expand query. Example: 'properties($select=email)'
@@ -62,10 +62,9 @@ namespace Pulumi.AzureNative.LabServices
         public GetUserArgs()
         {
         }
-        public static new GetUserArgs Empty => new GetUserArgs();
     }
 
-    public sealed class GetUserInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetUserInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specify the $expand query. Example: 'properties($select=email)'
@@ -100,7 +99,6 @@ namespace Pulumi.AzureNative.LabServices
         public GetUserInvokeArgs()
         {
         }
-        public static new GetUserInvokeArgs Empty => new GetUserInvokeArgs();
     }
 
 

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web
     /// API Version: 2020-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppSwiftVirtualNetworkConnection")]
-    public partial class WebAppSwiftVirtualNetworkConnection : global::Pulumi.CustomResource
+    public partial class WebAppSwiftVirtualNetworkConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// Kind of resource.
@@ -77,18 +77,18 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppSwiftVirtualNetworkConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppSwiftVirtualNetworkConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppSwiftVirtualNetworkConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppSwiftVirtualNetworkConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppSwiftVirtualNetworkConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppSwiftVirtualNetworkConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppSwiftVirtualNetworkConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppSwiftVirtualNetworkConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppSwiftVirtualNetworkConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppSwiftVirtualNetworkConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppSwiftVirtualNetworkConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppSwiftVirtualNetworkConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppSwiftVirtualNetworkConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppSwiftVirtualNetworkConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppSwiftVirtualNetworkConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppSwiftVirtualNetworkConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppSwiftVirtualNetworkConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppSwiftVirtualNetworkConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppSwiftVirtualNetworkConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppSwiftVirtualNetworkConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppSwiftVirtualNetworkConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppSwiftVirtualNetworkConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppSwiftVirtualNetworkConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppSwiftVirtualNetworkConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.Web
         }
     }
 
-    public sealed class WebAppSwiftVirtualNetworkConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class WebAppSwiftVirtualNetworkConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Kind of resource.
@@ -145,6 +145,5 @@ namespace Pulumi.AzureNative.Web
         public WebAppSwiftVirtualNetworkConnectionArgs()
         {
         }
-        public static new WebAppSwiftVirtualNetworkConnectionArgs Empty => new WebAppSwiftVirtualNetworkConnectionArgs();
     }
 }

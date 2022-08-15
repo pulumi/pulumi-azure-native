@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DesktopVirtualization.V20210401Preview.Inputs
 {
 
-    public sealed class ResourceModelWithAllowedPropertySetPlanArgs : global::Pulumi.ResourceArgs
+    public sealed class ResourceModelWithAllowedPropertySetPlanArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A user defined name of the 3rd Party Artifact that is being procured.
@@ -45,6 +45,5 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210401Preview.Inputs
         public ResourceModelWithAllowedPropertySetPlanArgs()
         {
         }
-        public static new ResourceModelWithAllowedPropertySetPlanArgs Empty => new ResourceModelWithAllowedPropertySetPlanArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.Inputs
     /// <summary>
     /// Container App container resource requirements.
     /// </summary>
-    public sealed class ContainerResourcesArgs : global::Pulumi.ResourceArgs
+    public sealed class ContainerResourcesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Required CPU in cores, e.g. 0.5
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Web.Inputs
         public ContainerResourcesArgs()
         {
         }
-        public static new ContainerResourcesArgs Empty => new ContainerResourcesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.Inputs
     /// <summary>
     /// Private endpoint which the connection belongs to.
     /// </summary>
-    public sealed class PrivateEndpointPropertyArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointPropertyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource id of the private endpoint.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Automation.Inputs
         public PrivateEndpointPropertyArgs()
         {
         }
-        public static new PrivateEndpointPropertyArgs Empty => new PrivateEndpointPropertyArgs();
     }
 }

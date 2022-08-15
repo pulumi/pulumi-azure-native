@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20210701.Inputs
     /// <summary>
     /// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
     /// </summary>
-    public sealed class RecommendedMachineConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class RecommendedMachineConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes the resource range.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Compute.V20210701.Inputs
         public RecommendedMachineConfigurationArgs()
         {
         }
-        public static new RecommendedMachineConfigurationArgs Empty => new RecommendedMachineConfigurationArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
-    public sealed class EdifactAcknowledgementSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class EdifactAcknowledgementSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The acknowledgement control number lower bound.
@@ -81,6 +81,5 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
         public EdifactAcknowledgementSettingsArgs()
         {
         }
-        public static new EdifactAcknowledgementSettingsArgs Empty => new EdifactAcknowledgementSettingsArgs();
     }
 }

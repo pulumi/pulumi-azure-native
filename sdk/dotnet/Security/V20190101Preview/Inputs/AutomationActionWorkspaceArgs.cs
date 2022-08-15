@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20190101Preview.Inputs
     /// <summary>
     /// The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Microsoft Defender for Cloud continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
     /// </summary>
-    public sealed class AutomationActionWorkspaceArgs : global::Pulumi.ResourceArgs
+    public sealed class AutomationActionWorkspaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of the action that will be triggered by the Automation
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.Security.V20190101Preview.Inputs
         public AutomationActionWorkspaceArgs()
         {
         }
-        public static new AutomationActionWorkspaceArgs Empty => new AutomationActionWorkspaceArgs();
     }
 }

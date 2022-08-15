@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview.Inputs
     /// <summary>
     /// Read-write endpoint of the failover group instance.
     /// </summary>
-    public sealed class InstanceFailoverGroupReadWriteEndpointArgs : global::Pulumi.ResourceArgs
+    public sealed class InstanceFailoverGroupReadWriteEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview.Inputs
         public InstanceFailoverGroupReadWriteEndpointArgs()
         {
         }
-        public static new InstanceFailoverGroupReadWriteEndpointArgs Empty => new InstanceFailoverGroupReadWriteEndpointArgs();
     }
 }

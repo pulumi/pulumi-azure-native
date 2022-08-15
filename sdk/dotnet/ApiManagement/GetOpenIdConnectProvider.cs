@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ApiManagement
     }
 
 
-    public sealed class GetOpenIdConnectProviderArgs : global::Pulumi.InvokeArgs
+    public sealed class GetOpenIdConnectProviderArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Identifier of the OpenID Connect Provider.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.ApiManagement
         public GetOpenIdConnectProviderArgs()
         {
         }
-        public static new GetOpenIdConnectProviderArgs Empty => new GetOpenIdConnectProviderArgs();
     }
 
-    public sealed class GetOpenIdConnectProviderInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetOpenIdConnectProviderInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Identifier of the OpenID Connect Provider.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.ApiManagement
         public GetOpenIdConnectProviderInvokeArgs()
         {
         }
-        public static new GetOpenIdConnectProviderInvokeArgs Empty => new GetOpenIdConnectProviderInvokeArgs();
     }
 
 

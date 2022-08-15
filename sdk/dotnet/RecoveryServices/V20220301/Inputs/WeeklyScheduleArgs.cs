@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20220301.Inputs
 {
 
-    public sealed class WeeklyScheduleArgs : global::Pulumi.ResourceArgs
+    public sealed class WeeklyScheduleArgs : Pulumi.ResourceArgs
     {
         [Input("scheduleRunDays")]
         private InputList<Pulumi.AzureNative.RecoveryServices.V20220301.DayOfWeek>? _scheduleRunDays;
@@ -35,6 +35,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220301.Inputs
         public WeeklyScheduleArgs()
         {
         }
-        public static new WeeklyScheduleArgs Empty => new WeeklyScheduleArgs();
     }
 }

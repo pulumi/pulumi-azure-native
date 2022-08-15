@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200401.Inputs
     /// <summary>
     /// Describes the destination of connection monitor.
     /// </summary>
-    public sealed class ConnectionMonitorDestinationArgs : global::Pulumi.ResourceArgs
+    public sealed class ConnectionMonitorDestinationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Address of the connection monitor destination (IP or domain name).
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Network.V20200401.Inputs
         public ConnectionMonitorDestinationArgs()
         {
         }
-        public static new ConnectionMonitorDestinationArgs Empty => new ConnectionMonitorDestinationArgs();
     }
 }

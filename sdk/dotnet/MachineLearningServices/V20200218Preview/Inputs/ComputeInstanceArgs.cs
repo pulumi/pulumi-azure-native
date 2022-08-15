@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200218Preview.Inputs
     /// <summary>
     /// An Azure Machine Learning compute instance.
     /// </summary>
-    public sealed class ComputeInstanceArgs : global::Pulumi.ResourceArgs
+    public sealed class ComputeInstanceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Location for the underlying compute
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200218Preview.Inputs
         public ComputeInstanceArgs()
         {
         }
-        public static new ComputeInstanceArgs Empty => new ComputeInstanceArgs();
     }
 }

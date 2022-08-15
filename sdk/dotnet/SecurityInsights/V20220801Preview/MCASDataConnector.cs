@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview
     /// Represents MCAS (Microsoft Cloud App Security) data connector.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20220801preview:MCASDataConnector")]
-    public partial class MCASDataConnector : global::Pulumi.CustomResource
+    public partial class MCASDataConnector : Pulumi.CustomResource
     {
         /// <summary>
         /// The available data types for the connector.
@@ -90,18 +90,18 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:MCASDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:MCASDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:MCASDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:MCASDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:MCASDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:MCASDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:MCASDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:MCASDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:MCASDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:MCASDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:MCASDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:MCASDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights:MCASDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:MCASDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:MCASDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:MCASDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:MCASDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:MCASDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:MCASDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:MCASDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:MCASDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:MCASDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:MCASDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:MCASDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -123,7 +123,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview
         }
     }
 
-    public sealed class MCASDataConnectorArgs : global::Pulumi.ResourceArgs
+    public sealed class MCASDataConnectorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Connector ID
@@ -165,6 +165,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview
         public MCASDataConnectorArgs()
         {
         }
-        public static new MCASDataConnectorArgs Empty => new MCASDataConnectorArgs();
     }
 }

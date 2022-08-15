@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20220701
     }
 
 
-    public sealed class GetDnsForwardingRulesetArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDnsForwardingRulesetArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the DNS forwarding ruleset.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.Network.V20220701
         public GetDnsForwardingRulesetArgs()
         {
         }
-        public static new GetDnsForwardingRulesetArgs Empty => new GetDnsForwardingRulesetArgs();
     }
 
-    public sealed class GetDnsForwardingRulesetInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDnsForwardingRulesetInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the DNS forwarding ruleset.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.Network.V20220701
         public GetDnsForwardingRulesetInvokeArgs()
         {
         }
-        public static new GetDnsForwardingRulesetInvokeArgs Empty => new GetDnsForwardingRulesetInvokeArgs();
     }
 
 

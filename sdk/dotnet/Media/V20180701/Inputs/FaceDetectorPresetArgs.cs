@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180701.Inputs
     /// <summary>
     /// Describes all the settings to be used when analyzing a video in order to detect all the faces present.
     /// </summary>
-    public sealed class FaceDetectorPresetArgs : global::Pulumi.ResourceArgs
+    public sealed class FaceDetectorPresetArgs : Pulumi.ResourceArgs
     {
         [Input("experimentalOptions")]
         private InputMap<string>? _experimentalOptions;
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.Media.V20180701.Inputs
         public FaceDetectorPresetArgs()
         {
         }
-        public static new FaceDetectorPresetArgs Empty => new FaceDetectorPresetArgs();
     }
 }

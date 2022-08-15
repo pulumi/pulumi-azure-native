@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210515.Inputs
     /// <summary>
     /// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
     /// </summary>
-    public sealed class UniqueKeyPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class UniqueKeyPolicyArgs : Pulumi.ResourceArgs
     {
         [Input("uniqueKeys")]
         private InputList<Inputs.UniqueKeyArgs>? _uniqueKeys;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20210515.Inputs
         public UniqueKeyPolicyArgs()
         {
         }
-        public static new UniqueKeyPolicyArgs Empty => new UniqueKeyPolicyArgs();
     }
 }

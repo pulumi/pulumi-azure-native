@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DigitalTwins.Inputs
     /// <summary>
     /// Properties related to EventHub.
     /// </summary>
-    public sealed class EventHubArgs : global::Pulumi.ResourceArgs
+    public sealed class EventHubArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the authentication type being used for connecting to the endpoint.
@@ -67,6 +67,5 @@ namespace Pulumi.AzureNative.DigitalTwins.Inputs
         public EventHubArgs()
         {
         }
-        public static new EventHubArgs Empty => new EventHubArgs();
     }
 }

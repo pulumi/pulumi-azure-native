@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview.Inputs
     /// <summary>
     /// Information about the azure function destination for an event subscription.
     /// </summary>
-    public sealed class AzureFunctionEventSubscriptionDestinationArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureFunctionEventSubscriptionDestinationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of the endpoint for the event subscription destination.
@@ -45,6 +45,5 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview.Inputs
             MaxEventsPerBatch = 1;
             PreferredBatchSizeInKilobytes = 64;
         }
-        public static new AzureFunctionEventSubscriptionDestinationArgs Empty => new AzureFunctionEventSubscriptionDestinationArgs();
     }
 }

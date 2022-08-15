@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915.Inputs
     /// <summary>
     /// Properties of a lab's support banner
     /// </summary>
-    public sealed class LabSupportPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class LabSupportPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is the lab support banner active/enabled at this time?
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915.Inputs
         public LabSupportPropertiesArgs()
         {
         }
-        public static new LabSupportPropertiesArgs Empty => new LabSupportPropertiesArgs();
     }
 }

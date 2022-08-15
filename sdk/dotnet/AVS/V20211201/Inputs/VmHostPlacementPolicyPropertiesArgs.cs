@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS.V20211201.Inputs
     /// <summary>
     /// VM-Host placement policy properties
     /// </summary>
-    public sealed class VmHostPlacementPolicyPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class VmHostPlacementPolicyPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// placement policy affinity type
@@ -67,6 +67,5 @@ namespace Pulumi.AzureNative.AVS.V20211201.Inputs
         public VmHostPlacementPolicyPropertiesArgs()
         {
         }
-        public static new VmHostPlacementPolicyPropertiesArgs Empty => new VmHostPlacementPolicyPropertiesArgs();
     }
 }

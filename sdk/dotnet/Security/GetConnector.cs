@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Security
     }
 
 
-    public sealed class GetConnectorArgs : global::Pulumi.InvokeArgs
+    public sealed class GetConnectorArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the cloud account connector
@@ -38,10 +38,9 @@ namespace Pulumi.AzureNative.Security
         public GetConnectorArgs()
         {
         }
-        public static new GetConnectorArgs Empty => new GetConnectorArgs();
     }
 
-    public sealed class GetConnectorInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetConnectorInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the cloud account connector
@@ -52,7 +51,6 @@ namespace Pulumi.AzureNative.Security
         public GetConnectorInvokeArgs()
         {
         }
-        public static new GetConnectorInvokeArgs Empty => new GetConnectorInvokeArgs();
     }
 
 

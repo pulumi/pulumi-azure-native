@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.V20191001
     /// A private endpoint connection for a project.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate/v20191001:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// For optimistic concurrency control.
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNative.Migrate.V20191001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:migrate:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:migrate:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNative.Migrate.V20191001
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// For optimistic concurrency control.
@@ -121,6 +121,5 @@ namespace Pulumi.AzureNative.Migrate.V20191001
         public PrivateEndpointConnectionArgs()
         {
         }
-        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

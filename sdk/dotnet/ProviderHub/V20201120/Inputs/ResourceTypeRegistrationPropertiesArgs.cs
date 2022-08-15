@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20201120.Inputs
 {
 
-    public sealed class ResourceTypeRegistrationPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ResourceTypeRegistrationPropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("allowedUnauthorizedActions")]
         private InputList<string>? _allowedUnauthorizedActions;
@@ -162,6 +162,5 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120.Inputs
         public ResourceTypeRegistrationPropertiesArgs()
         {
         }
-        public static new ResourceTypeRegistrationPropertiesArgs Empty => new ResourceTypeRegistrationPropertiesArgs();
     }
 }

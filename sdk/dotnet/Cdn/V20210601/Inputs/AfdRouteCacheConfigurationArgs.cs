@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
     /// <summary>
     /// Caching settings for a caching-type route. To disable caching, do not provide a cacheConfiguration object.
     /// </summary>
-    public sealed class AfdRouteCacheConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class AfdRouteCacheConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// compression settings.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
         public AfdRouteCacheConfigurationArgs()
         {
         }
-        public static new AfdRouteCacheConfigurationArgs Empty => new AfdRouteCacheConfigurationArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Web
     }
 
 
-    public sealed class ListConnectionConsentLinksArgs : global::Pulumi.InvokeArgs
+    public sealed class ListConnectionConsentLinksArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Connection name
@@ -62,10 +62,9 @@ namespace Pulumi.AzureNative.Web
         public ListConnectionConsentLinksArgs()
         {
         }
-        public static new ListConnectionConsentLinksArgs Empty => new ListConnectionConsentLinksArgs();
     }
 
-    public sealed class ListConnectionConsentLinksInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListConnectionConsentLinksInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Connection name
@@ -100,7 +99,6 @@ namespace Pulumi.AzureNative.Web
         public ListConnectionConsentLinksInvokeArgs()
         {
         }
-        public static new ListConnectionConsentLinksInvokeArgs Empty => new ListConnectionConsentLinksInvokeArgs();
     }
 
 

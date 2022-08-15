@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101
     }
 
 
-    public sealed class GetViewArgs : global::Pulumi.InvokeArgs
+    public sealed class GetViewArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the hub.
@@ -55,10 +55,9 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101
         public GetViewArgs()
         {
         }
-        public static new GetViewArgs Empty => new GetViewArgs();
     }
 
-    public sealed class GetViewInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetViewInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the hub.
@@ -87,7 +86,6 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101
         public GetViewInvokeArgs()
         {
         }
-        public static new GetViewInvokeArgs Empty => new GetViewInvokeArgs();
     }
 
 

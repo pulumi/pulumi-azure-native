@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DomainRegistration.V20150401
     }
 
 
-    public sealed class ListDomainRecommendationsArgs : global::Pulumi.InvokeArgs
+    public sealed class ListDomainRecommendationsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Keywords to be used for generating domain recommendations.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.DomainRegistration.V20150401
         public ListDomainRecommendationsArgs()
         {
         }
-        public static new ListDomainRecommendationsArgs Empty => new ListDomainRecommendationsArgs();
     }
 
-    public sealed class ListDomainRecommendationsInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListDomainRecommendationsInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Keywords to be used for generating domain recommendations.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.DomainRegistration.V20150401
         public ListDomainRecommendationsInvokeArgs()
         {
         }
-        public static new ListDomainRecommendationsInvokeArgs Empty => new ListDomainRecommendationsInvokeArgs();
     }
 
 

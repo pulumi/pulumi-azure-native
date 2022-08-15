@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Solutions.V20200821Preview.Inputs
     /// <summary>
     /// Managed application management policy.
     /// </summary>
-    public sealed class ApplicationManagementPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplicationManagementPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The managed application management mode.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Solutions.V20200821Preview.Inputs
         public ApplicationManagementPolicyArgs()
         {
         }
-        public static new ApplicationManagementPolicyArgs Empty => new ApplicationManagementPolicyArgs();
     }
 }

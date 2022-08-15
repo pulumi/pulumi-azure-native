@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Sftp read settings.
     /// </summary>
-    public sealed class SftpReadSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class SftpReadSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -97,6 +97,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public SftpReadSettingsArgs()
         {
         }
-        public static new SftpReadSettingsArgs Empty => new SftpReadSettingsArgs();
     }
 }

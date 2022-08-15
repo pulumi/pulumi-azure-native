@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview.Inputs
     /// <summary>
     /// Image reference information
     /// </summary>
-    public sealed class ImageReferenceArgs : global::Pulumi.ResourceArgs
+    public sealed class ImageReferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Image ID, or Image version ID. When Image ID is provided, its latest version will be used.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview.Inputs
         public ImageReferenceArgs()
         {
         }
-        public static new ImageReferenceArgs Empty => new ImageReferenceArgs();
     }
 }

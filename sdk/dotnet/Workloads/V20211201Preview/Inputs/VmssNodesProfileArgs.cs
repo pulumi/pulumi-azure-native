@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
     /// <summary>
     /// VMSS profile
     /// </summary>
-    public sealed class VmssNodesProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class VmssNodesProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Maximum number of nodes for autoscale
@@ -66,6 +66,5 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
         public VmssNodesProfileArgs()
         {
         }
-        public static new VmssNodesProfileArgs Empty => new VmssNodesProfileArgs();
     }
 }

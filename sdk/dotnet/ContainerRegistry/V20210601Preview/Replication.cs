@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210601Preview
     /// An object that represents a replication for a container registry.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry/v20210601preview:Replication")]
-    public partial class Replication : global::Pulumi.CustomResource
+    public partial class Replication : Pulumi.CustomResource
     {
         /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
@@ -94,16 +94,16 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry:Replication"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20170601preview:Replication"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20171001:Replication"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20190501:Replication"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:Replication"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:Replication"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:Replication"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210901:Replication"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:Replication"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:Replication"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry:Replication"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20170601preview:Replication"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20171001:Replication"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20190501:Replication"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:Replication"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:Replication"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:Replication"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20210901:Replication"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:Replication"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:Replication"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210601Preview
         }
     }
 
-    public sealed class ReplicationArgs : global::Pulumi.ResourceArgs
+    public sealed class ReplicationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
@@ -180,6 +180,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210601Preview
             RegionEndpointEnabled = true;
             ZoneRedundancy = "Disabled";
         }
-        public static new ReplicationArgs Empty => new ReplicationArgs();
     }
 }

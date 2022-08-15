@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Datadog
     }
 
 
-    public sealed class ListMonitorApiKeysArgs : global::Pulumi.InvokeArgs
+    public sealed class ListMonitorApiKeysArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Monitor resource name
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.Datadog
         public ListMonitorApiKeysArgs()
         {
         }
-        public static new ListMonitorApiKeysArgs Empty => new ListMonitorApiKeysArgs();
     }
 
-    public sealed class ListMonitorApiKeysInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListMonitorApiKeysInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Monitor resource name
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.Datadog
         public ListMonitorApiKeysInvokeArgs()
         {
         }
-        public static new ListMonitorApiKeysInvokeArgs Empty => new ListMonitorApiKeysInvokeArgs();
     }
 
 

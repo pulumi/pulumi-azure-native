@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DeploymentManager.Inputs
     /// <summary>
     /// RolloutIdentity uses the user-assigned managed identity authentication context specified in the Identity property during rollout creation.
     /// </summary>
-    public sealed class RolloutIdentityAuthenticationArgs : global::Pulumi.ResourceArgs
+    public sealed class RolloutIdentityAuthenticationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The authentication type.
@@ -25,6 +25,5 @@ namespace Pulumi.AzureNative.DeploymentManager.Inputs
         public RolloutIdentityAuthenticationArgs()
         {
         }
-        public static new RolloutIdentityAuthenticationArgs Empty => new RolloutIdentityAuthenticationArgs();
     }
 }

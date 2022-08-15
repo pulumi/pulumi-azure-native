@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Synapse
     }
 
 
-    public sealed class GetKeyArgs : global::Pulumi.InvokeArgs
+    public sealed class GetKeyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the workspace key
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Synapse
         public GetKeyArgs()
         {
         }
-        public static new GetKeyArgs Empty => new GetKeyArgs();
     }
 
-    public sealed class GetKeyInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetKeyInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the workspace key
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Synapse
         public GetKeyInvokeArgs()
         {
         }
-        public static new GetKeyInvokeArgs Empty => new GetKeyInvokeArgs();
     }
 
 

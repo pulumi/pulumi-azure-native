@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220602Preview
     }
 
 
-    public sealed class ListFleetCredentialsArgs : global::Pulumi.InvokeArgs
+    public sealed class ListFleetCredentialsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Fleet resource.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.ContainerService.V20220602Preview
         public ListFleetCredentialsArgs()
         {
         }
-        public static new ListFleetCredentialsArgs Empty => new ListFleetCredentialsArgs();
     }
 
-    public sealed class ListFleetCredentialsInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListFleetCredentialsInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Fleet resource.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.ContainerService.V20220602Preview
         public ListFleetCredentialsInvokeArgs()
         {
         }
-        public static new ListFleetCredentialsInvokeArgs Empty => new ListFleetCredentialsInvokeArgs();
     }
 
 

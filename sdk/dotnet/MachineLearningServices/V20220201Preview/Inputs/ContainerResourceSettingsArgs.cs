@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
 {
 
-    public sealed class ContainerResourceSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class ContainerResourceSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Number of vCPUs request/limit for container. More info:
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         public ContainerResourceSettingsArgs()
         {
         }
-        public static new ContainerResourceSettingsArgs Empty => new ContainerResourceSettingsArgs();
     }
 }

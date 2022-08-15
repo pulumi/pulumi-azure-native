@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
 {
 
-    public sealed class CustomTargetRollingWindowSizeArgs : global::Pulumi.ResourceArgs
+    public sealed class CustomTargetRollingWindowSizeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Target rolling windows size mode.
@@ -28,6 +28,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         public CustomTargetRollingWindowSizeArgs()
         {
         }
-        public static new CustomTargetRollingWindowSizeArgs Empty => new CustomTargetRollingWindowSizeArgs();
     }
 }

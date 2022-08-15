@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.Inputs
     /// <summary>
     /// Describes the hostname properties for http routing.
     /// </summary>
-    public sealed class HttpHostConfigArgs : global::Pulumi.ResourceArgs
+    public sealed class HttpHostConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// http hostname config name.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.Inputs
         public HttpHostConfigArgs()
         {
         }
-        public static new HttpHostConfigArgs Empty => new HttpHostConfigArgs();
     }
 }

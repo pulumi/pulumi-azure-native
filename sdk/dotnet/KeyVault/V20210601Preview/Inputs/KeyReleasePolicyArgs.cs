@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.KeyVault.V20210601Preview.Inputs
 {
 
-    public sealed class KeyReleasePolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class KeyReleasePolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Content type and version of key release policy
@@ -28,6 +28,5 @@ namespace Pulumi.AzureNative.KeyVault.V20210601Preview.Inputs
         {
             ContentType = "application/json; charset=utf-8";
         }
-        public static new KeyReleasePolicyArgs Empty => new KeyReleasePolicyArgs();
     }
 }

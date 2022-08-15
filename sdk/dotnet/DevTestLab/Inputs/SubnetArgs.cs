@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.Inputs
     /// <summary>
     /// Subnet information.
     /// </summary>
-    public sealed class SubnetArgs : global::Pulumi.ResourceArgs
+    public sealed class SubnetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DevTestLab.Inputs
         public SubnetArgs()
         {
         }
-        public static new SubnetArgs Empty => new SubnetArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20191101.Inputs
     /// <summary>
     /// P2SConnectionConfiguration Resource.
     /// </summary>
-    public sealed class P2SConnectionConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class P2SConnectionConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Network.V20191101.Inputs
         public P2SConnectionConfigurationArgs()
         {
         }
-        public static new P2SConnectionConfigurationArgs Empty => new P2SConnectionConfigurationArgs();
     }
 }

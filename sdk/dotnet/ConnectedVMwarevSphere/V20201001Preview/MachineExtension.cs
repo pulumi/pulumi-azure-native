@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
     /// Describes a Machine Extension.
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere/v20201001preview:MachineExtension")]
-    public partial class MachineExtension : global::Pulumi.CustomResource
+    public partial class MachineExtension : Pulumi.CustomResource
     {
         /// <summary>
         /// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
@@ -118,8 +118,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere:MachineExtension"},
-                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220110preview:MachineExtension"},
+                    new Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere:MachineExtension"},
+                    new Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220110preview:MachineExtension"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -141,7 +141,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         }
     }
 
-    public sealed class MachineExtensionArgs : global::Pulumi.ResourceArgs
+    public sealed class MachineExtensionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
@@ -224,6 +224,5 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         public MachineExtensionArgs()
         {
         }
-        public static new MachineExtensionArgs Empty => new MachineExtensionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Maintenance.V20210901Preview.Inputs
     /// <summary>
     /// Input configuration for a patch run
     /// </summary>
-    public sealed class InputPatchConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class InputPatchConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Input parameters specific to patching Linux machine. For Windows machines, do not pass this property.
@@ -61,6 +61,5 @@ namespace Pulumi.AzureNative.Maintenance.V20210901Preview.Inputs
         {
             RebootSetting = "IfRequired";
         }
-        public static new InputPatchConfigurationArgs Empty => new InputPatchConfigurationArgs();
     }
 }

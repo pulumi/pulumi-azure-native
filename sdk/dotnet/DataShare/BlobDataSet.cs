@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataShare
     /// API Version: 2020-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare:BlobDataSet")]
-    public partial class BlobDataSet : global::Pulumi.CustomResource
+    public partial class BlobDataSet : Pulumi.CustomResource
     {
         /// <summary>
         /// Container that has the file path.
@@ -109,11 +109,11 @@ namespace Pulumi.AzureNative.DataShare
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:BlobDataSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:BlobDataSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:BlobDataSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:BlobDataSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:BlobDataSet"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:BlobDataSet"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:BlobDataSet"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20200901:BlobDataSet"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:BlobDataSet"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20210801:BlobDataSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -135,7 +135,7 @@ namespace Pulumi.AzureNative.DataShare
         }
     }
 
-    public sealed class BlobDataSetArgs : global::Pulumi.ResourceArgs
+    public sealed class BlobDataSetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -201,6 +201,5 @@ namespace Pulumi.AzureNative.DataShare
         public BlobDataSetArgs()
         {
         }
-        public static new BlobDataSetArgs Empty => new BlobDataSetArgs();
     }
 }

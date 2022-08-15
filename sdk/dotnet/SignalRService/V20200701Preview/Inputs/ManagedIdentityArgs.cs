@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SignalRService.V20200701Preview.Inputs
     /// <summary>
     /// A class represent managed identities used for request and response
     /// </summary>
-    public sealed class ManagedIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Represent the identity type: systemAssigned, userAssigned, None
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.SignalRService.V20200701Preview.Inputs
         public ManagedIdentityArgs()
         {
         }
-        public static new ManagedIdentityArgs Empty => new ManagedIdentityArgs();
     }
 }

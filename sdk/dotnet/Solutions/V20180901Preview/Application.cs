@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Solutions.V20180901Preview
     /// </summary>
     [Obsolete(@"Version 2018-09-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:solutions/v20180901preview:Application")]
-    public partial class Application : global::Pulumi.CustomResource
+    public partial class Application : Pulumi.CustomResource
     {
         /// <summary>
         /// The fully qualified path of managed application definition Id.
@@ -179,17 +179,17 @@ namespace Pulumi.AzureNative.Solutions.V20180901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:solutions:Application"},
-                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20160901preview:Application"},
-                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20170901:Application"},
-                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20171201:Application"},
-                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20180201:Application"},
-                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20180301:Application"},
-                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20180601:Application"},
-                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20190701:Application"},
-                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20200821preview:Application"},
-                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20210201preview:Application"},
-                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20210701:Application"},
+                    new Pulumi.Alias { Type = "azure-native:solutions:Application"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20160901preview:Application"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20170901:Application"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20171201:Application"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20180201:Application"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20180301:Application"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20180601:Application"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20190701:Application"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20200821preview:Application"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20210201preview:Application"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20210701:Application"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -211,7 +211,7 @@ namespace Pulumi.AzureNative.Solutions.V20180901Preview
         }
     }
 
-    public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplicationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The fully qualified path of managed application definition Id.
@@ -300,6 +300,5 @@ namespace Pulumi.AzureNative.Solutions.V20180901Preview
         public ApplicationArgs()
         {
         }
-        public static new ApplicationArgs Empty => new ApplicationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningCompute.V20170801Preview.Inputs
     /// <summary>
     /// Global service auth configuration properties. These are the data-plane authorization keys and are used if a service doesn't define it's own.
     /// </summary>
-    public sealed class ServiceAuthConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class ServiceAuthConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The primary auth key hash. This is not returned in response of GET/PUT on the resource.. To see this please call listKeys API.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.MachineLearningCompute.V20170801Preview.Inputs
         public ServiceAuthConfigurationArgs()
         {
         }
-        public static new ServiceAuthConfigurationArgs Empty => new ServiceAuthConfigurationArgs();
     }
 }

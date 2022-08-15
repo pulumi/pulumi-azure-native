@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity Drill server source.
     /// </summary>
-    public sealed class DrillSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class DrillSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public DrillSourceArgs()
         {
         }
-        public static new DrillSourceArgs Empty => new DrillSourceArgs();
     }
 }

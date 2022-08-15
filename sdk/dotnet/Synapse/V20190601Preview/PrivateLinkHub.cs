@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview
     /// </summary>
     [Obsolete(@"Version 2019-06-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:synapse/v20190601preview:PrivateLinkHub")]
-    public partial class PrivateLinkHub : global::Pulumi.CustomResource
+    public partial class PrivateLinkHub : Pulumi.CustomResource
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -77,13 +77,13 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:synapse:PrivateLinkHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20201201:PrivateLinkHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210301:PrivateLinkHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:PrivateLinkHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210501:PrivateLinkHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601:PrivateLinkHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:PrivateLinkHub"},
+                    new Pulumi.Alias { Type = "azure-native:synapse:PrivateLinkHub"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20201201:PrivateLinkHub"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210301:PrivateLinkHub"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:PrivateLinkHub"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210501:PrivateLinkHub"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601:PrivateLinkHub"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:PrivateLinkHub"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -105,7 +105,7 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview
         }
     }
 
-    public sealed class PrivateLinkHubArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateLinkHubArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -146,6 +146,5 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview
         public PrivateLinkHubArgs()
         {
         }
-        public static new PrivateLinkHubArgs Empty => new PrivateLinkHubArgs();
     }
 }

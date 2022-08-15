@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.Inputs
     /// <summary>
     /// Object to define the number of days after object last modification Or last access. Properties daysAfterModificationGreaterThan and daysAfterLastAccessTimeGreaterThan are mutually exclusive.
     /// </summary>
-    public sealed class DateAfterModificationArgs : global::Pulumi.ResourceArgs
+    public sealed class DateAfterModificationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Storage.Inputs
         public DateAfterModificationArgs()
         {
         }
-        public static new DateAfterModificationArgs Empty => new DateAfterModificationArgs();
     }
 }

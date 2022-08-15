@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190401.Inputs
     /// <summary>
     /// Container network interface child resource.
     /// </summary>
-    public sealed class ContainerNetworkInterfaceArgs : global::Pulumi.ResourceArgs
+    public sealed class ContainerNetworkInterfaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Reference to the container to which this container network interface is attached.
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.Network.V20190401.Inputs
         public ContainerNetworkInterfaceArgs()
         {
         }
-        public static new ContainerNetworkInterfaceArgs Empty => new ContainerNetworkInterfaceArgs();
     }
 }

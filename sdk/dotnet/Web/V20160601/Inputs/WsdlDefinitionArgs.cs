@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20160601.Inputs
     /// <summary>
     /// The WSDL definition
     /// </summary>
-    public sealed class WsdlDefinitionArgs : global::Pulumi.ResourceArgs
+    public sealed class WsdlDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The WSDL content
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Web.V20160601.Inputs
         public WsdlDefinitionArgs()
         {
         }
-        public static new WsdlDefinitionArgs Empty => new WsdlDefinitionArgs();
     }
 }

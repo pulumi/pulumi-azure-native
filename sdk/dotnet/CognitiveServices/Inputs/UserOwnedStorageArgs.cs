@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
     /// <summary>
     /// The user owned storage for Cognitive Services account.
     /// </summary>
-    public sealed class UserOwnedStorageArgs : global::Pulumi.ResourceArgs
+    public sealed class UserOwnedStorageArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Full resource id of a Microsoft.Storage resource.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
         public UserOwnedStorageArgs()
         {
         }
-        public static new UserOwnedStorageArgs Empty => new UserOwnedStorageArgs();
     }
 }

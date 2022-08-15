@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20220103.Inputs
     /// <summary>
     /// Describes the disallowed disk types.
     /// </summary>
-    public sealed class DisallowedArgs : global::Pulumi.ResourceArgs
+    public sealed class DisallowedArgs : Pulumi.ResourceArgs
     {
         [Input("diskTypes")]
         private InputList<string>? _diskTypes;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Compute.V20220103.Inputs
         public DisallowedArgs()
         {
         }
-        public static new DisallowedArgs Empty => new DisallowedArgs();
     }
 }

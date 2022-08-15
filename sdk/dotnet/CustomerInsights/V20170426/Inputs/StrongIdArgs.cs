@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426.Inputs
     /// <summary>
     /// Property/Properties which represent a unique ID.
     /// </summary>
-    public sealed class StrongIdArgs : global::Pulumi.ResourceArgs
+    public sealed class StrongIdArgs : Pulumi.ResourceArgs
     {
         [Input("description")]
         private InputMap<string>? _description;
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426.Inputs
         public StrongIdArgs()
         {
         }
-        public static new StrongIdArgs Empty => new StrongIdArgs();
     }
 }

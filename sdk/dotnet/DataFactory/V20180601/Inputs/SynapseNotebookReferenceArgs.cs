@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Synapse notebook reference type.
     /// </summary>
-    public sealed class SynapseNotebookReferenceArgs : global::Pulumi.ResourceArgs
+    public sealed class SynapseNotebookReferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Reference notebook name. Type: string (or Expression with resultType string).
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public SynapseNotebookReferenceArgs()
         {
         }
-        public static new SynapseNotebookReferenceArgs Empty => new SynapseNotebookReferenceArgs();
     }
 }

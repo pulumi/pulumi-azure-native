@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KeyVault.V20211101Preview.Inputs
     /// <summary>
     /// Properties of the vault
     /// </summary>
-    public sealed class VaultPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class VaultPropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("accessPolicies")]
         private InputList<Inputs.AccessPolicyEntryArgs>? _accessPolicies;
@@ -118,6 +118,5 @@ namespace Pulumi.AzureNative.KeyVault.V20211101Preview.Inputs
             PublicNetworkAccess = "enabled";
             SoftDeleteRetentionInDays = 90;
         }
-        public static new VaultPropertiesArgs Empty => new VaultPropertiesArgs();
     }
 }

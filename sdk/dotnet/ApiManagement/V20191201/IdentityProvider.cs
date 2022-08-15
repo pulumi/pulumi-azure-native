@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
     /// Identity Provider details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20191201:IdentityProvider")]
-    public partial class IdentityProvider : global::Pulumi.CustomResource
+    public partial class IdentityProvider : Pulumi.CustomResource
     {
         /// <summary>
         /// List of Allowed Tenants when configuring Azure Active Directory login.
@@ -106,20 +106,20 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:IdentityProvider"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:IdentityProvider"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:IdentityProvider"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:IdentityProvider"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:IdentityProvider"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:IdentityProvider"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:IdentityProvider"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:IdentityProvider"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:IdentityProvider"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:IdentityProvider"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:IdentityProvider"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:IdentityProvider"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:IdentityProvider"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:IdentityProvider"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -141,7 +141,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
         }
     }
 
-    public sealed class IdentityProviderArgs : global::Pulumi.ResourceArgs
+    public sealed class IdentityProviderArgs : Pulumi.ResourceArgs
     {
         [Input("allowedTenants")]
         private InputList<string>? _allowedTenants;
@@ -230,6 +230,5 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
         public IdentityProviderArgs()
         {
         }
-        public static new IdentityProviderArgs Empty => new IdentityProviderArgs();
     }
 }

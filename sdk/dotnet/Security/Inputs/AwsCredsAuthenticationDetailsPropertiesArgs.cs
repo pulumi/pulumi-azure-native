@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.Inputs
     /// <summary>
     /// AWS cloud account connector based credentials, the credentials is composed of access key ID and secret key, for more details, refer to &lt;a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html"&gt;Creating an IAM User in Your AWS Account (write only)&lt;/a&gt;
     /// </summary>
-    public sealed class AwsCredsAuthenticationDetailsPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class AwsCredsAuthenticationDetailsPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.Security.Inputs
         public AwsCredsAuthenticationDetailsPropertiesArgs()
         {
         }
-        public static new AwsCredsAuthenticationDetailsPropertiesArgs Empty => new AwsCredsAuthenticationDetailsPropertiesArgs();
     }
 }

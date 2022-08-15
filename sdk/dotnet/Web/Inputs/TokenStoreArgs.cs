@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.Inputs
     /// <summary>
     /// The configuration settings of the token store.
     /// </summary>
-    public sealed class TokenStoreArgs : global::Pulumi.ResourceArgs
+    public sealed class TokenStoreArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The configuration settings of the storage of the tokens if blob storage is used.
@@ -44,6 +44,5 @@ namespace Pulumi.AzureNative.Web.Inputs
         public TokenStoreArgs()
         {
         }
-        public static new TokenStoreArgs Empty => new TokenStoreArgs();
     }
 }

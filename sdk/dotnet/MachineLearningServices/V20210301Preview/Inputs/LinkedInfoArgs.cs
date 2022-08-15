@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// <summary>
     /// Information about a datastore origin, if linked.
     /// </summary>
-    public sealed class LinkedInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class LinkedInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Linked service ID.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public LinkedInfoArgs()
         {
         }
-        public static new LinkedInfoArgs Empty => new LinkedInfoArgs();
     }
 }

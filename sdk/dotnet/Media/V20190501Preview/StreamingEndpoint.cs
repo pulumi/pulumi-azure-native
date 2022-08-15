@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20190501Preview
     /// The StreamingEndpoint.
     /// </summary>
     [AzureNativeResourceType("azure-native:media/v20190501preview:StreamingEndpoint")]
-    public partial class StreamingEndpoint : global::Pulumi.CustomResource
+    public partial class StreamingEndpoint : Pulumi.CustomResource
     {
         /// <summary>
         /// The access control definition of the StreamingEndpoint.
@@ -160,14 +160,14 @@ namespace Pulumi.AzureNative.Media.V20190501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:media:StreamingEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180330preview:StreamingEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180601preview:StreamingEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180701:StreamingEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20200501:StreamingEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20210601:StreamingEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20211101:StreamingEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20220801:StreamingEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:media:StreamingEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180330preview:StreamingEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180601preview:StreamingEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180701:StreamingEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20200501:StreamingEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20210601:StreamingEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20211101:StreamingEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20220801:StreamingEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -189,7 +189,7 @@ namespace Pulumi.AzureNative.Media.V20190501Preview
         }
     }
 
-    public sealed class StreamingEndpointArgs : global::Pulumi.ResourceArgs
+    public sealed class StreamingEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access control definition of the StreamingEndpoint.
@@ -302,6 +302,5 @@ namespace Pulumi.AzureNative.Media.V20190501Preview
         public StreamingEndpointArgs()
         {
         }
-        public static new StreamingEndpointArgs Empty => new StreamingEndpointArgs();
     }
 }

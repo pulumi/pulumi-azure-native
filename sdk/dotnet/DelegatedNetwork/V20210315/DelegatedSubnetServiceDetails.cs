@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
     /// Represents an instance of a orchestrator.
     /// </summary>
     [AzureNativeResourceType("azure-native:delegatednetwork/v20210315:DelegatedSubnetServiceDetails")]
-    public partial class DelegatedSubnetServiceDetails : global::Pulumi.CustomResource
+    public partial class DelegatedSubnetServiceDetails : Pulumi.CustomResource
     {
         /// <summary>
         /// Properties of the controller.
@@ -88,8 +88,8 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:delegatednetwork:DelegatedSubnetServiceDetails"},
-                    new global::Pulumi.Alias { Type = "azure-native:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails"},
+                    new Pulumi.Alias { Type = "azure-native:delegatednetwork:DelegatedSubnetServiceDetails"},
+                    new Pulumi.Alias { Type = "azure-native:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
         }
     }
 
-    public sealed class DelegatedSubnetServiceDetailsArgs : global::Pulumi.ResourceArgs
+    public sealed class DelegatedSubnetServiceDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Properties of the controller.
@@ -158,6 +158,5 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
         public DelegatedSubnetServiceDetailsArgs()
         {
         }
-        public static new DelegatedSubnetServiceDetailsArgs Empty => new DelegatedSubnetServiceDetailsArgs();
     }
 }

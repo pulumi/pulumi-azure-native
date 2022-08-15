@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity QuickBooks server source.
     /// </summary>
-    public sealed class QuickBooksSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class QuickBooksSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public QuickBooksSourceArgs()
         {
         }
-        public static new QuickBooksSourceArgs Empty => new QuickBooksSourceArgs();
     }
 }

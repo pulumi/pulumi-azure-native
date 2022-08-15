@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.Inputs
     /// <summary>
     /// The X12 agreement framing settings.
     /// </summary>
-    public sealed class X12FramingSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class X12FramingSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The X12 character set.
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.Logic.Inputs
         public X12FramingSettingsArgs()
         {
         }
-        public static new X12FramingSettingsArgs Empty => new X12FramingSettingsArgs();
     }
 }

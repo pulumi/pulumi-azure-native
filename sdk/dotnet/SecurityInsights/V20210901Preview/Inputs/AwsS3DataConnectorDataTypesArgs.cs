@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview.Inputs
     /// <summary>
     /// The available data types for Amazon Web Services S3 data connector.
     /// </summary>
-    public sealed class AwsS3DataConnectorDataTypesArgs : global::Pulumi.ResourceArgs
+    public sealed class AwsS3DataConnectorDataTypesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Logs data type.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview.Inputs
         public AwsS3DataConnectorDataTypesArgs()
         {
         }
-        public static new AwsS3DataConnectorDataTypesArgs Empty => new AwsS3DataConnectorDataTypesArgs();
     }
 }

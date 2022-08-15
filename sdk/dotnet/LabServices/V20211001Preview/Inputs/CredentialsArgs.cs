@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.LabServices.V20211001Preview.Inputs
     /// <summary>
     /// Credentials for a user on a lab VM.
     /// </summary>
-    public sealed class CredentialsArgs : global::Pulumi.ResourceArgs
+    public sealed class CredentialsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The password for the user. This is required for the TemplateVM createOption.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.LabServices.V20211001Preview.Inputs
         public CredentialsArgs()
         {
         }
-        public static new CredentialsArgs Empty => new CredentialsArgs();
     }
 }

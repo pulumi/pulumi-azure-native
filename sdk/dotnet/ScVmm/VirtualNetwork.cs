@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ScVmm
     /// API Version: 2020-06-05-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:scvmm:VirtualNetwork")]
-    public partial class VirtualNetwork : global::Pulumi.CustomResource
+    public partial class VirtualNetwork : Pulumi.CustomResource
     {
         /// <summary>
         /// The extended location.
@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.ScVmm
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:scvmm/v20200605preview:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:scvmm/v20200605preview:VirtualNetwork"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -129,7 +129,7 @@ namespace Pulumi.AzureNative.ScVmm
         }
     }
 
-    public sealed class VirtualNetworkArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualNetworkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The extended location.
@@ -188,6 +188,5 @@ namespace Pulumi.AzureNative.ScVmm
         public VirtualNetworkArgs()
         {
         }
-        public static new VirtualNetworkArgs Empty => new VirtualNetworkArgs();
     }
 }

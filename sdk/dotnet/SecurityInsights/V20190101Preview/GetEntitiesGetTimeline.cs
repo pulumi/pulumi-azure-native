@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
     }
 
 
-    public sealed class GetEntitiesGetTimelineArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEntitiesGetTimelineArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The end timeline date, so the results returned are before this date.
@@ -84,10 +84,9 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         public GetEntitiesGetTimelineArgs()
         {
         }
-        public static new GetEntitiesGetTimelineArgs Empty => new GetEntitiesGetTimelineArgs();
     }
 
-    public sealed class GetEntitiesGetTimelineInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEntitiesGetTimelineInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The end timeline date, so the results returned are before this date.
@@ -146,7 +145,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         public GetEntitiesGetTimelineInvokeArgs()
         {
         }
-        public static new GetEntitiesGetTimelineInvokeArgs Empty => new GetEntitiesGetTimelineInvokeArgs();
     }
 
 

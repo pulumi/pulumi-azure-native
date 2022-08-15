@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
     }
 
 
-    public sealed class GetUserArgs : global::Pulumi.InvokeArgs
+    public sealed class GetUserArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name.
@@ -49,10 +49,9 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
         public GetUserArgs()
         {
         }
-        public static new GetUserArgs Empty => new GetUserArgs();
     }
 
-    public sealed class GetUserInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetUserInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name.
@@ -75,7 +74,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
         public GetUserInvokeArgs()
         {
         }
-        public static new GetUserInvokeArgs Empty => new GetUserInvokeArgs();
     }
 
 

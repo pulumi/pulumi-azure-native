@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Credential reference type.
     /// </summary>
-    public sealed class CredentialReferenceArgs : global::Pulumi.ResourceArgs
+    public sealed class CredentialReferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Reference credential name.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public CredentialReferenceArgs()
         {
         }
-        public static new CredentialReferenceArgs Empty => new CredentialReferenceArgs();
     }
 }

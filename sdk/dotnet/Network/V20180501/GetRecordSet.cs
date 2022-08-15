@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20180501
     }
 
 
-    public sealed class GetRecordSetArgs : global::Pulumi.InvokeArgs
+    public sealed class GetRecordSetArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The type of DNS record in this record set.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.Network.V20180501
         public GetRecordSetArgs()
         {
         }
-        public static new GetRecordSetArgs Empty => new GetRecordSetArgs();
     }
 
-    public sealed class GetRecordSetInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetRecordSetInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The type of DNS record in this record set.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.Network.V20180501
         public GetRecordSetInvokeArgs()
         {
         }
-        public static new GetRecordSetInvokeArgs Empty => new GetRecordSetInvokeArgs();
     }
 
 

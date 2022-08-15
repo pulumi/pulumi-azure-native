@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20180419.Inputs
     /// <summary>
     /// Input for task that validates migration input for SQL to Azure SQL Managed Instance
     /// </summary>
-    public sealed class ValidateMigrationInputSqlServerSqlMITaskInputArgs : global::Pulumi.ResourceArgs
+    public sealed class ValidateMigrationInputSqlServerSqlMITaskInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// SAS URI of Azure Storage Account Container to be used for storing backup files.
@@ -72,6 +72,5 @@ namespace Pulumi.AzureNative.DataMigration.V20180419.Inputs
         public ValidateMigrationInputSqlServerSqlMITaskInputArgs()
         {
         }
-        public static new ValidateMigrationInputSqlServerSqlMITaskInputArgs Empty => new ValidateMigrationInputSqlServerSqlMITaskInputArgs();
     }
 }

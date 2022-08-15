@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20191201.Inputs
     /// <summary>
     /// Describes the gallery Image Definition purchase plan. This is used by marketplace images.
     /// </summary>
-    public sealed class ImagePurchasePlanArgs : global::Pulumi.ResourceArgs
+    public sealed class ImagePurchasePlanArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The plan ID.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Compute.V20191201.Inputs
         public ImagePurchasePlanArgs()
         {
         }
-        public static new ImagePurchasePlanArgs Empty => new ImagePurchasePlanArgs();
     }
 }

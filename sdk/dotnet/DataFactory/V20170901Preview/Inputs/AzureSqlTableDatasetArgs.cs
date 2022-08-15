@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// The Azure SQL Server database dataset.
     /// </summary>
-    public sealed class AzureSqlTableDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureSqlTableDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -73,6 +73,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public AzureSqlTableDatasetArgs()
         {
         }
-        public static new AzureSqlTableDatasetArgs Empty => new AzureSqlTableDatasetArgs();
     }
 }

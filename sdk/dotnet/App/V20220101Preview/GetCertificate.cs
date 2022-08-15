@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview
     }
 
 
-    public sealed class GetCertificateArgs : global::Pulumi.InvokeArgs
+    public sealed class GetCertificateArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Managed Environment.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.App.V20220101Preview
         public GetCertificateArgs()
         {
         }
-        public static new GetCertificateArgs Empty => new GetCertificateArgs();
     }
 
-    public sealed class GetCertificateInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetCertificateInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Managed Environment.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.App.V20220101Preview
         public GetCertificateInvokeArgs()
         {
         }
-        public static new GetCertificateInvokeArgs Empty => new GetCertificateInvokeArgs();
     }
 
 

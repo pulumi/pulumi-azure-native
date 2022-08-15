@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity SAP Cloud for Customer sink.
     /// </summary>
-    public sealed class SapCloudForCustomerSinkArgs : global::Pulumi.ResourceArgs
+    public sealed class SapCloudForCustomerSinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -73,6 +73,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public SapCloudForCustomerSinkArgs()
         {
         }
-        public static new SapCloudForCustomerSinkArgs Empty => new SapCloudForCustomerSinkArgs();
     }
 }

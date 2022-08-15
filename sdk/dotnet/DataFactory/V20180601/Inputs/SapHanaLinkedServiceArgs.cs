@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// SAP HANA Linked Service.
     /// </summary>
-    public sealed class SapHanaLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class SapHanaLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -97,6 +97,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public SapHanaLinkedServiceArgs()
         {
         }
-        public static new SapHanaLinkedServiceArgs Empty => new SapHanaLinkedServiceArgs();
     }
 }

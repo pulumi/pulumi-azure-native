@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ManagementPartner.V20180201
     }
 
 
-    public sealed class GetPartnerArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPartnerArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Id of the Partner
@@ -36,10 +36,9 @@ namespace Pulumi.AzureNative.ManagementPartner.V20180201
         public GetPartnerArgs()
         {
         }
-        public static new GetPartnerArgs Empty => new GetPartnerArgs();
     }
 
-    public sealed class GetPartnerInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPartnerInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Id of the Partner
@@ -50,7 +49,6 @@ namespace Pulumi.AzureNative.ManagementPartner.V20180201
         public GetPartnerInvokeArgs()
         {
         }
-        public static new GetPartnerInvokeArgs Empty => new GetPartnerInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200415.Inputs
     /// <summary>
     /// Defines the parameters for IsDevice match conditions
     /// </summary>
-    public sealed class IsDeviceMatchConditionParametersArgs : global::Pulumi.ResourceArgs
+    public sealed class IsDeviceMatchConditionParametersArgs : Pulumi.ResourceArgs
     {
         [Input("matchValues")]
         private InputList<string>? _matchValues;
@@ -57,6 +57,5 @@ namespace Pulumi.AzureNative.Cdn.V20200415.Inputs
         public IsDeviceMatchConditionParametersArgs()
         {
         }
-        public static new IsDeviceMatchConditionParametersArgs Empty => new IsDeviceMatchConditionParametersArgs();
     }
 }

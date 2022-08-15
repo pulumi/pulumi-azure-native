@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20210115.Inputs
     /// <summary>
     /// SSL-enabled hostname.
     /// </summary>
-    public sealed class HostNameSslStateArgs : global::Pulumi.ResourceArgs
+    public sealed class HostNameSslStateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether the hostname is a standard or repository hostname.
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.Web.V20210115.Inputs
         public HostNameSslStateArgs()
         {
         }
-        public static new HostNameSslStateArgs Empty => new HostNameSslStateArgs();
     }
 }

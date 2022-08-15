@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.V20200901.Inputs
     /// Custom action to be executed
     /// when an auto heal rule is triggered.
     /// </summary>
-    public sealed class AutoHealCustomActionArgs : global::Pulumi.ResourceArgs
+    public sealed class AutoHealCustomActionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Executable to be run.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.Web.V20200901.Inputs
         public AutoHealCustomActionArgs()
         {
         }
-        public static new AutoHealCustomActionArgs Empty => new AutoHealCustomActionArgs();
     }
 }

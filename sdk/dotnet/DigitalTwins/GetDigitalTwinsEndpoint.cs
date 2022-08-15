@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DigitalTwins
     }
 
 
-    public sealed class GetDigitalTwinsEndpointArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDigitalTwinsEndpointArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of Endpoint Resource.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.DigitalTwins
         public GetDigitalTwinsEndpointArgs()
         {
         }
-        public static new GetDigitalTwinsEndpointArgs Empty => new GetDigitalTwinsEndpointArgs();
     }
 
-    public sealed class GetDigitalTwinsEndpointInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDigitalTwinsEndpointInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of Endpoint Resource.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.DigitalTwins
         public GetDigitalTwinsEndpointInvokeArgs()
         {
         }
-        public static new GetDigitalTwinsEndpointInvokeArgs Empty => new GetDigitalTwinsEndpointInvokeArgs();
     }
 
 

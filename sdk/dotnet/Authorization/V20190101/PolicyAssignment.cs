@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization.V20190101
     /// The policy assignment.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization/v20190101:PolicyAssignment")]
-    public partial class PolicyAssignment : global::Pulumi.CustomResource
+    public partial class PolicyAssignment : Pulumi.CustomResource
     {
         /// <summary>
         /// This message will be part of response in case of policy violation.
@@ -112,18 +112,18 @@ namespace Pulumi.AzureNative.Authorization.V20190101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:authorization:PolicyAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20151001preview:PolicyAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20160401:PolicyAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20161201:PolicyAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20170601preview:PolicyAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20180301:PolicyAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20180501:PolicyAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20190601:PolicyAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20190901:PolicyAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20200301:PolicyAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20200901:PolicyAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20210601:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:authorization:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20151001preview:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20160401:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20161201:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20170601preview:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20180301:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20180501:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20190601:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20190901:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20200301:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20200901:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20210601:PolicyAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -145,7 +145,7 @@ namespace Pulumi.AzureNative.Authorization.V20190101
         }
     }
 
-    public sealed class PolicyAssignmentArgs : global::Pulumi.ResourceArgs
+    public sealed class PolicyAssignmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// This message will be part of response in case of policy violation.
@@ -222,6 +222,5 @@ namespace Pulumi.AzureNative.Authorization.V20190101
         public PolicyAssignmentArgs()
         {
         }
-        public static new PolicyAssignmentArgs Empty => new PolicyAssignmentArgs();
     }
 }

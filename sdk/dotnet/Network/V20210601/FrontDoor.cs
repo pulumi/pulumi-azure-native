@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210601
     /// Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20210601:FrontDoor")]
-    public partial class FrontDoor : global::Pulumi.CustomResource
+    public partial class FrontDoor : Pulumi.CustomResource
     {
         /// <summary>
         /// Backend pools available to routing rules.
@@ -148,12 +148,12 @@ namespace Pulumi.AzureNative.Network.V20210601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:FrontDoor"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:FrontDoor"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190501:FrontDoor"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200101:FrontDoor"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:FrontDoor"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:FrontDoor"},
+                    new Pulumi.Alias { Type = "azure-native:network:FrontDoor"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:FrontDoor"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190501:FrontDoor"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200101:FrontDoor"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:FrontDoor"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:FrontDoor"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -175,7 +175,7 @@ namespace Pulumi.AzureNative.Network.V20210601
         }
     }
 
-    public sealed class FrontDoorArgs : global::Pulumi.ResourceArgs
+    public sealed class FrontDoorArgs : Pulumi.ResourceArgs
     {
         [Input("backendPools")]
         private InputList<Inputs.BackendPoolArgs>? _backendPools;
@@ -288,6 +288,5 @@ namespace Pulumi.AzureNative.Network.V20210601
         public FrontDoorArgs()
         {
         }
-        public static new FrontDoorArgs Empty => new FrontDoorArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20211210Preview.Inputs
     /// <summary>
     /// Specifies the operating system settings for the hybrid machine.
     /// </summary>
-    public sealed class OSProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class OSProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the linux configuration for update management.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.HybridCompute.V20211210Preview.Inputs
         public OSProfileArgs()
         {
         }
-        public static new OSProfileArgs Empty => new OSProfileArgs();
     }
 }

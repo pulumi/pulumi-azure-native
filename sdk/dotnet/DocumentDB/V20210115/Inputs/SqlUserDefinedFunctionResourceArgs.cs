@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210115.Inputs
     /// <summary>
     /// Cosmos DB SQL userDefinedFunction resource object
     /// </summary>
-    public sealed class SqlUserDefinedFunctionResourceArgs : global::Pulumi.ResourceArgs
+    public sealed class SqlUserDefinedFunctionResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Body of the User Defined Function
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20210115.Inputs
         public SqlUserDefinedFunctionResourceArgs()
         {
         }
-        public static new SqlUserDefinedFunctionResourceArgs Empty => new SqlUserDefinedFunctionResourceArgs();
     }
 }

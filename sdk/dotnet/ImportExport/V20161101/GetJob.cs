@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.ImportExport.V20161101
     }
 
 
-    public sealed class GetJobArgs : global::Pulumi.InvokeArgs
+    public sealed class GetJobArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the import/export job.
@@ -43,10 +43,9 @@ namespace Pulumi.AzureNative.ImportExport.V20161101
         public GetJobArgs()
         {
         }
-        public static new GetJobArgs Empty => new GetJobArgs();
     }
 
-    public sealed class GetJobInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetJobInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the import/export job.
@@ -63,7 +62,6 @@ namespace Pulumi.AzureNative.ImportExport.V20161101
         public GetJobInvokeArgs()
         {
         }
-        public static new GetJobInvokeArgs Empty => new GetJobInvokeArgs();
     }
 
 

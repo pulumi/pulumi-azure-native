@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Authorization
     /// API Version: 2020-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:PolicySetDefinition")]
-    public partial class PolicySetDefinition : global::Pulumi.CustomResource
+    public partial class PolicySetDefinition : Pulumi.CustomResource
     {
         /// <summary>
         /// The policy set definition description.
@@ -95,15 +95,15 @@ namespace Pulumi.AzureNative.Authorization
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20170601preview:PolicySetDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20180301:PolicySetDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20180501:PolicySetDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20190101:PolicySetDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20190601:PolicySetDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20190901:PolicySetDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20200301:PolicySetDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20200901:PolicySetDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20210601:PolicySetDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20170601preview:PolicySetDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20180301:PolicySetDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20180501:PolicySetDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20190101:PolicySetDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20190601:PolicySetDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20190901:PolicySetDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20200301:PolicySetDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20200901:PolicySetDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20210601:PolicySetDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.Authorization
         }
     }
 
-    public sealed class PolicySetDefinitionArgs : global::Pulumi.ResourceArgs
+    public sealed class PolicySetDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The policy set definition description.
@@ -196,6 +196,5 @@ namespace Pulumi.AzureNative.Authorization
         public PolicySetDefinitionArgs()
         {
         }
-        public static new PolicySetDefinitionArgs Empty => new PolicySetDefinitionArgs();
     }
 }

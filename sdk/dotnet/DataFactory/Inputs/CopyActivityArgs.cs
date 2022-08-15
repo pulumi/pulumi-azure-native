@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Copy activity.
     /// </summary>
-    public sealed class CopyActivityArgs : global::Pulumi.ResourceArgs
+    public sealed class CopyActivityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Maximum number of data integration units that can be used to perform this data movement. Type: integer (or Expression with resultType integer), minimum: 0.
@@ -199,6 +199,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public CopyActivityArgs()
         {
         }
-        public static new CopyActivityArgs Empty => new CopyActivityArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DelegatedNetwork
     }
 
 
-    public sealed class GetControllerDetailsArgs : global::Pulumi.InvokeArgs
+    public sealed class GetControllerDetailsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.DelegatedNetwork
         public GetControllerDetailsArgs()
         {
         }
-        public static new GetControllerDetailsArgs Empty => new GetControllerDetailsArgs();
     }
 
-    public sealed class GetControllerDetailsInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetControllerDetailsInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.DelegatedNetwork
         public GetControllerDetailsInvokeArgs()
         {
         }
-        public static new GetControllerDetailsInvokeArgs Empty => new GetControllerDetailsInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// This activity is used for iterating over a collection and execute given activities.
     /// </summary>
-    public sealed class ForEachActivityArgs : global::Pulumi.ResourceArgs
+    public sealed class ForEachActivityArgs : Pulumi.ResourceArgs
     {
         [Input("activities", required: true)]
         private InputList<object>? _activities;
@@ -79,6 +79,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public ForEachActivityArgs()
         {
         }
-        public static new ForEachActivityArgs Empty => new ForEachActivityArgs();
     }
 }

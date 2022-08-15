@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20211201Preview.Inputs
     /// <summary>
     /// The Defender for Containers AWS offering
     /// </summary>
-    public sealed class DefenderForContainersAwsOfferingArgs : global::Pulumi.ResourceArgs
+    public sealed class DefenderForContainersAwsOfferingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The cloudwatch to kinesis connection configuration
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.Security.V20211201Preview.Inputs
         public DefenderForContainersAwsOfferingArgs()
         {
         }
-        public static new DefenderForContainersAwsOfferingArgs Empty => new DefenderForContainersAwsOfferingArgs();
     }
 }

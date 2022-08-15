@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview.Inputs
     /// <summary>
     /// Uploaded Jar binary for a deployment
     /// </summary>
-    public sealed class NetCoreZipUploadedUserSourceInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class NetCoreZipUploadedUserSourceInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The path to the .NET executable relative to zip root
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview.Inputs
         public NetCoreZipUploadedUserSourceInfoArgs()
         {
         }
-        public static new NetCoreZipUploadedUserSourceInfoArgs Empty => new NetCoreZipUploadedUserSourceInfoArgs();
     }
 }

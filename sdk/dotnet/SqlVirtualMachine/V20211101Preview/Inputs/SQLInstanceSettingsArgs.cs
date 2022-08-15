@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview.Inputs
     /// <summary>
     /// Set the server/instance-level settings for SQL Server.
     /// </summary>
-    public sealed class SQLInstanceSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class SQLInstanceSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// SQL Server Collation.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview.Inputs
         public SQLInstanceSettingsArgs()
         {
         }
-        public static new SQLInstanceSettingsArgs Empty => new SQLInstanceSettingsArgs();
     }
 }

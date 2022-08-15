@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.TestBase.V20220401Preview
     }
 
 
-    public sealed class GetTestBaseAccountArgs : global::Pulumi.InvokeArgs
+    public sealed class GetTestBaseAccountArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the resource.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.TestBase.V20220401Preview
         public GetTestBaseAccountArgs()
         {
         }
-        public static new GetTestBaseAccountArgs Empty => new GetTestBaseAccountArgs();
     }
 
-    public sealed class GetTestBaseAccountInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetTestBaseAccountInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the resource.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.TestBase.V20220401Preview
         public GetTestBaseAccountInvokeArgs()
         {
         }
-        public static new GetTestBaseAccountInvokeArgs Empty => new GetTestBaseAccountInvokeArgs();
     }
 
 

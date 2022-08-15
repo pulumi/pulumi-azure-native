@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview.Inputs
     /// <summary>
     /// Represents a RegistrationInfo definition.
     /// </summary>
-    public sealed class RegistrationInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class RegistrationInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Expiration time of registration token.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview.Inputs
         public RegistrationInfoArgs()
         {
         }
-        public static new RegistrationInfoArgs Empty => new RegistrationInfoArgs();
     }
 }

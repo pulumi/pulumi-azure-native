@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200701.Inputs
     /// <summary>
     /// Configuration for intrusion detection mode and rules.
     /// </summary>
-    public sealed class FirewallPolicyIntrusionDetectionArgs : global::Pulumi.ResourceArgs
+    public sealed class FirewallPolicyIntrusionDetectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Intrusion detection configuration properties.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Network.V20200701.Inputs
         public FirewallPolicyIntrusionDetectionArgs()
         {
         }
-        public static new FirewallPolicyIntrusionDetectionArgs Empty => new FirewallPolicyIntrusionDetectionArgs();
     }
 }

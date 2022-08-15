@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.Inputs
     /// <summary>
     /// The properties of a service instance.
     /// </summary>
-    public sealed class ServicesPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ServicesPropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("accessPolicies")]
         private InputList<Inputs.ServiceAccessPolicyEntryArgs>? _accessPolicies;
@@ -72,6 +72,5 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.Inputs
         public ServicesPropertiesArgs()
         {
         }
-        public static new ServicesPropertiesArgs Empty => new ServicesPropertiesArgs();
     }
 }

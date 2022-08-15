@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20210115.Inputs
     /// <summary>
     /// The configuration settings of the login flow, including the scopes that should be requested.
     /// </summary>
-    public sealed class LoginScopesArgs : global::Pulumi.ResourceArgs
+    public sealed class LoginScopesArgs : Pulumi.ResourceArgs
     {
         [Input("scopes")]
         private InputList<string>? _scopes;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Web.V20210115.Inputs
         public LoginScopesArgs()
         {
         }
-        public static new LoginScopesArgs Empty => new LoginScopesArgs();
     }
 }

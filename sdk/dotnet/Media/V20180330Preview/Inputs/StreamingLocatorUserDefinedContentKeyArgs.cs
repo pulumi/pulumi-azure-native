@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180330Preview.Inputs
     /// <summary>
     /// Describes the properties of a user-defined content key in the Streaming Locator
     /// </summary>
-    public sealed class StreamingLocatorUserDefinedContentKeyArgs : global::Pulumi.ResourceArgs
+    public sealed class StreamingLocatorUserDefinedContentKeyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of Content Key
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Media.V20180330Preview.Inputs
         public StreamingLocatorUserDefinedContentKeyArgs()
         {
         }
-        public static new StreamingLocatorUserDefinedContentKeyArgs Empty => new StreamingLocatorUserDefinedContentKeyArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The ODBC table dataset.
     /// </summary>
-    public sealed class OdbcTableDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class OdbcTableDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,6 +85,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public OdbcTableDatasetArgs()
         {
         }
-        public static new OdbcTableDatasetArgs Empty => new OdbcTableDatasetArgs();
     }
 }

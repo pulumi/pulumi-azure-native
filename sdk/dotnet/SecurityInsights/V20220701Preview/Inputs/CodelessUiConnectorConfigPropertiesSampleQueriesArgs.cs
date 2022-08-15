@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview.Inputs
 {
 
-    public sealed class CodelessUiConnectorConfigPropertiesSampleQueriesArgs : global::Pulumi.ResourceArgs
+    public sealed class CodelessUiConnectorConfigPropertiesSampleQueriesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The sample query description
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview.Inputs
         public CodelessUiConnectorConfigPropertiesSampleQueriesArgs()
         {
         }
-        public static new CodelessUiConnectorConfigPropertiesSampleQueriesArgs Empty => new CodelessUiConnectorConfigPropertiesSampleQueriesArgs();
     }
 }

@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Batch.V20190401
     }
 
 
-    public sealed class GetApplicationPackageArgs : global::Pulumi.InvokeArgs
+    public sealed class GetApplicationPackageArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Batch account.
@@ -55,10 +55,9 @@ namespace Pulumi.AzureNative.Batch.V20190401
         public GetApplicationPackageArgs()
         {
         }
-        public static new GetApplicationPackageArgs Empty => new GetApplicationPackageArgs();
     }
 
-    public sealed class GetApplicationPackageInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetApplicationPackageInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Batch account.
@@ -87,7 +86,6 @@ namespace Pulumi.AzureNative.Batch.V20190401
         public GetApplicationPackageInvokeArgs()
         {
         }
-        public static new GetApplicationPackageInvokeArgs Empty => new GetApplicationPackageInvokeArgs();
     }
 
 

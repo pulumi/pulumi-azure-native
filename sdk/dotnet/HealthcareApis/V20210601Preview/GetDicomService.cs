@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
     }
 
 
-    public sealed class GetDicomServiceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDicomServiceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of DICOM Service resource.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
         public GetDicomServiceArgs()
         {
         }
-        public static new GetDicomServiceArgs Empty => new GetDicomServiceArgs();
     }
 
-    public sealed class GetDicomServiceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDicomServiceInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of DICOM Service resource.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
         public GetDicomServiceInvokeArgs()
         {
         }
-        public static new GetDicomServiceInvokeArgs Empty => new GetDicomServiceInvokeArgs();
     }
 
 

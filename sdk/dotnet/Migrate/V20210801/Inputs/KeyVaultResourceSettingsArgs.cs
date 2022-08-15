@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.V20210801.Inputs
     /// <summary>
     /// Defines the key vault resource settings.
     /// </summary>
-    public sealed class KeyVaultResourceSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class KeyVaultResourceSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.Migrate.V20210801.Inputs
         public KeyVaultResourceSettingsArgs()
         {
         }
-        public static new KeyVaultResourceSettingsArgs Empty => new KeyVaultResourceSettingsArgs();
     }
 }

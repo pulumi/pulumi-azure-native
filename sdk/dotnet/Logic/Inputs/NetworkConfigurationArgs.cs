@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.Inputs
     /// <summary>
     /// The network configuration.
     /// </summary>
-    public sealed class NetworkConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class NetworkConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access endpoint.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Logic.Inputs
         public NetworkConfigurationArgs()
         {
         }
-        public static new NetworkConfigurationArgs Empty => new NetworkConfigurationArgs();
     }
 }

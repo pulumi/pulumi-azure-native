@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.MobileNetwork
     }
 
 
-    public sealed class ListMobileNetworkSimIdsArgs : global::Pulumi.InvokeArgs
+    public sealed class ListMobileNetworkSimIdsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the mobile network.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.MobileNetwork
         public ListMobileNetworkSimIdsArgs()
         {
         }
-        public static new ListMobileNetworkSimIdsArgs Empty => new ListMobileNetworkSimIdsArgs();
     }
 
-    public sealed class ListMobileNetworkSimIdsInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListMobileNetworkSimIdsInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the mobile network.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.MobileNetwork
         public ListMobileNetworkSimIdsInvokeArgs()
         {
         }
-        public static new ListMobileNetworkSimIdsInvokeArgs Empty => new ListMobileNetworkSimIdsInvokeArgs();
     }
 
 

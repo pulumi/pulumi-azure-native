@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20210201.Inputs
     /// <summary>
     /// The configuration settings of the legacy Microsoft Account provider.
     /// </summary>
-    public sealed class LegacyMicrosoftAccountArgs : global::Pulumi.ResourceArgs
+    public sealed class LegacyMicrosoftAccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;code&gt;false&lt;/code&gt; if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, &lt;code&gt;true&lt;/code&gt;.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Web.V20210201.Inputs
         public LegacyMicrosoftAccountArgs()
         {
         }
-        public static new LegacyMicrosoftAccountArgs Empty => new LegacyMicrosoftAccountArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Dashboard.Inputs
 {
 
-    public sealed class ResourceSkuArgs : global::Pulumi.ResourceArgs
+    public sealed class ResourceSkuArgs : Pulumi.ResourceArgs
     {
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -18,6 +18,5 @@ namespace Pulumi.AzureNative.Dashboard.Inputs
         public ResourceSkuArgs()
         {
         }
-        public static new ResourceSkuArgs Empty => new ResourceSkuArgs();
     }
 }

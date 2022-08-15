@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBox.Inputs
     /// <summary>
     /// Additional delivery info.
     /// </summary>
-    public sealed class JobDeliveryInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class JobDeliveryInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Scheduled date time.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DataBox.Inputs
         public JobDeliveryInfoArgs()
         {
         }
-        public static new JobDeliveryInfoArgs Empty => new JobDeliveryInfoArgs();
     }
 }

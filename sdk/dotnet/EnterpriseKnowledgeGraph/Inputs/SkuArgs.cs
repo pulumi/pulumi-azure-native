@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph.Inputs
     /// <summary>
     /// The SKU of the EnterpriseKnowledgeGraph service account.
     /// </summary>
-    public sealed class SkuArgs : global::Pulumi.ResourceArgs
+    public sealed class SkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The sku name
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph.Inputs
         public SkuArgs()
         {
         }
-        public static new SkuArgs Empty => new SkuArgs();
     }
 }

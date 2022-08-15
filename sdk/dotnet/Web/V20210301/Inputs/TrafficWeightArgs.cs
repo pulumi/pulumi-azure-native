@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20210301.Inputs
     /// <summary>
     /// Traffic weight assigned to a revision
     /// </summary>
-    public sealed class TrafficWeightArgs : global::Pulumi.ResourceArgs
+    public sealed class TrafficWeightArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates that the traffic weight belongs to a latest stable revision
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.Web.V20210301.Inputs
         {
             LatestRevision = false;
         }
-        public static new TrafficWeightArgs Empty => new TrafficWeightArgs();
     }
 }

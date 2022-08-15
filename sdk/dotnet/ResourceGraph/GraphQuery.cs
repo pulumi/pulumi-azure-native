@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ResourceGraph
     /// API Version: 2018-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:resourcegraph:GraphQuery")]
-    public partial class GraphQuery : global::Pulumi.CustomResource
+    public partial class GraphQuery : Pulumi.CustomResource
     {
         /// <summary>
         /// The description of a graph query.
@@ -95,8 +95,8 @@ namespace Pulumi.AzureNative.ResourceGraph
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:resourcegraph/v20180901preview:GraphQuery"},
-                    new global::Pulumi.Alias { Type = "azure-native:resourcegraph/v20200401preview:GraphQuery"},
+                    new Pulumi.Alias { Type = "azure-native:resourcegraph/v20180901preview:GraphQuery"},
+                    new Pulumi.Alias { Type = "azure-native:resourcegraph/v20200401preview:GraphQuery"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.ResourceGraph
         }
     }
 
-    public sealed class GraphQueryArgs : global::Pulumi.ResourceArgs
+    public sealed class GraphQueryArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of a graph query.
@@ -165,6 +165,5 @@ namespace Pulumi.AzureNative.ResourceGraph
         public GraphQueryArgs()
         {
         }
-        public static new GraphQueryArgs Empty => new GraphQueryArgs();
     }
 }

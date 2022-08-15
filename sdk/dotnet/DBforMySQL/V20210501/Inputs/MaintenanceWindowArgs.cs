@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20210501.Inputs
     /// <summary>
     /// Maintenance window of a server.
     /// </summary>
-    public sealed class MaintenanceWindowArgs : global::Pulumi.ResourceArgs
+    public sealed class MaintenanceWindowArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// indicates whether custom window is enabled or disabled
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.DBforMySQL.V20210501.Inputs
         public MaintenanceWindowArgs()
         {
         }
-        public static new MaintenanceWindowArgs Empty => new MaintenanceWindowArgs();
     }
 }

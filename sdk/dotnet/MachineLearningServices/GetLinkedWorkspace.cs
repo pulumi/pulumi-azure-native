@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
 
-    public sealed class GetLinkedWorkspaceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetLinkedWorkspaceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Friendly name of the linked workspace
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public GetLinkedWorkspaceArgs()
         {
         }
-        public static new GetLinkedWorkspaceArgs Empty => new GetLinkedWorkspaceArgs();
     }
 
-    public sealed class GetLinkedWorkspaceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetLinkedWorkspaceInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Friendly name of the linked workspace
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public GetLinkedWorkspaceInvokeArgs()
         {
         }
-        public static new GetLinkedWorkspaceInvokeArgs Empty => new GetLinkedWorkspaceInvokeArgs();
     }
 
 

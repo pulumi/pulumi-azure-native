@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Aad.V20210501
     /// Resource for OuContainer.
     /// </summary>
     [AzureNativeResourceType("azure-native:aad/v20210501:OuContainer")]
-    public partial class OuContainer : global::Pulumi.CustomResource
+    public partial class OuContainer : Pulumi.CustomResource
     {
         /// <summary>
         /// The list of container accounts
@@ -124,10 +124,10 @@ namespace Pulumi.AzureNative.Aad.V20210501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:aad:OuContainer"},
-                    new global::Pulumi.Alias { Type = "azure-native:aad/v20170601:OuContainer"},
-                    new global::Pulumi.Alias { Type = "azure-native:aad/v20200101:OuContainer"},
-                    new global::Pulumi.Alias { Type = "azure-native:aad/v20210301:OuContainer"},
+                    new Pulumi.Alias { Type = "azure-native:aad:OuContainer"},
+                    new Pulumi.Alias { Type = "azure-native:aad/v20170601:OuContainer"},
+                    new Pulumi.Alias { Type = "azure-native:aad/v20200101:OuContainer"},
+                    new Pulumi.Alias { Type = "azure-native:aad/v20210301:OuContainer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -149,7 +149,7 @@ namespace Pulumi.AzureNative.Aad.V20210501
         }
     }
 
-    public sealed class OuContainerArgs : global::Pulumi.ResourceArgs
+    public sealed class OuContainerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The account name
@@ -190,6 +190,5 @@ namespace Pulumi.AzureNative.Aad.V20210501
         public OuContainerArgs()
         {
         }
-        public static new OuContainerArgs Empty => new OuContainerArgs();
     }
 }

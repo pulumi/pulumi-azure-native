@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     }
 
 
-    public sealed class GetStorageDomainArgs : global::Pulumi.InvokeArgs
+    public sealed class GetStorageDomainArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The manager name
@@ -49,10 +49,9 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public GetStorageDomainArgs()
         {
         }
-        public static new GetStorageDomainArgs Empty => new GetStorageDomainArgs();
     }
 
-    public sealed class GetStorageDomainInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetStorageDomainInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The manager name
@@ -75,7 +74,6 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public GetStorageDomainInvokeArgs()
         {
         }
-        public static new GetStorageDomainInvokeArgs Empty => new GetStorageDomainInvokeArgs();
     }
 
 

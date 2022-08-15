@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200601.Inputs
     /// <summary>
     /// An SRV record.
     /// </summary>
-    public sealed class SrvRecordArgs : global::Pulumi.ResourceArgs
+    public sealed class SrvRecordArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The port value for this SRV record.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Network.V20200601.Inputs
         public SrvRecordArgs()
         {
         }
-        public static new SrvRecordArgs Empty => new SrvRecordArgs();
     }
 }

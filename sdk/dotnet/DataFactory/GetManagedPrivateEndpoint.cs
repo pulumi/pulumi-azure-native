@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DataFactory
     }
 
 
-    public sealed class GetManagedPrivateEndpointArgs : global::Pulumi.InvokeArgs
+    public sealed class GetManagedPrivateEndpointArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The factory name.
@@ -56,10 +56,9 @@ namespace Pulumi.AzureNative.DataFactory
         public GetManagedPrivateEndpointArgs()
         {
         }
-        public static new GetManagedPrivateEndpointArgs Empty => new GetManagedPrivateEndpointArgs();
     }
 
-    public sealed class GetManagedPrivateEndpointInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetManagedPrivateEndpointInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The factory name.
@@ -88,7 +87,6 @@ namespace Pulumi.AzureNative.DataFactory
         public GetManagedPrivateEndpointInvokeArgs()
         {
         }
-        public static new GetManagedPrivateEndpointInvokeArgs Empty => new GetManagedPrivateEndpointInvokeArgs();
     }
 
 

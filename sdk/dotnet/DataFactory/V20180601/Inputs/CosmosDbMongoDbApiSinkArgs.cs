@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A copy activity sink for a CosmosDB (MongoDB API) database.
     /// </summary>
-    public sealed class CosmosDbMongoDbApiSinkArgs : global::Pulumi.ResourceArgs
+    public sealed class CosmosDbMongoDbApiSinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -67,6 +67,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public CosmosDbMongoDbApiSinkArgs()
         {
         }
-        public static new CosmosDbMongoDbApiSinkArgs Empty => new CosmosDbMongoDbApiSinkArgs();
     }
 }

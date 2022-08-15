@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NotificationHubs.Inputs
     /// <summary>
     /// Description of a NotificationHub ApnsCredential.
     /// </summary>
-    public sealed class ApnsCredentialArgs : global::Pulumi.ResourceArgs
+    public sealed class ApnsCredentialArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The APNS certificate. Specify if using Certificate Authentication Mode.
@@ -66,6 +66,5 @@ namespace Pulumi.AzureNative.NotificationHubs.Inputs
         public ApnsCredentialArgs()
         {
         }
-        public static new ApnsCredentialArgs Empty => new ApnsCredentialArgs();
     }
 }

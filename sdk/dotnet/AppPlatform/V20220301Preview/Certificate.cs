@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview
     /// Certificate resource payload.
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform/v20220301preview:Certificate")]
-    public partial class Certificate : global::Pulumi.CustomResource
+    public partial class Certificate : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource.
@@ -64,14 +64,14 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20200701:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20201101preview:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20210601preview:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20210901preview:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220401:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20200701:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20201101preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20210601preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20210901preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220401:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview
         }
     }
 
-    public sealed class CertificateArgs : global::Pulumi.ResourceArgs
+    public sealed class CertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the certificate resource.
@@ -122,6 +122,5 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview
         public CertificateArgs()
         {
         }
-        public static new CertificateArgs Empty => new CertificateArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
     }
 
 
-    public sealed class GetVCenterArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVCenterArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Resource Group Name.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         public GetVCenterArgs()
         {
         }
-        public static new GetVCenterArgs Empty => new GetVCenterArgs();
     }
 
-    public sealed class GetVCenterInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVCenterInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Resource Group Name.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         public GetVCenterInvokeArgs()
         {
         }
-        public static new GetVCenterInvokeArgs Empty => new GetVCenterInvokeArgs();
     }
 
 

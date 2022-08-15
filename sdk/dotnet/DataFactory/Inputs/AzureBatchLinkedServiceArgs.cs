@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Azure Batch linked service.
     /// </summary>
-    public sealed class AzureBatchLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureBatchLinkedServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Batch account access key.
@@ -103,6 +103,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public AzureBatchLinkedServiceArgs()
         {
         }
-        public static new AzureBatchLinkedServiceArgs Empty => new AzureBatchLinkedServiceArgs();
     }
 }

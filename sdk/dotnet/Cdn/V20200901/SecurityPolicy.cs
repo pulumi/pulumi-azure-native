@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901
     /// SecurityPolicy association for AzureFrontDoor profile
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn/v20200901:SecurityPolicy")]
-    public partial class SecurityPolicy : global::Pulumi.CustomResource
+    public partial class SecurityPolicy : Pulumi.CustomResource
     {
         [Output("deploymentStatus")]
         public Output<string> DeploymentStatus { get; private set; } = null!;
@@ -73,8 +73,8 @@ namespace Pulumi.AzureNative.Cdn.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cdn:SecurityPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:SecurityPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:cdn:SecurityPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20210601:SecurityPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901
         }
     }
 
-    public sealed class SecurityPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class SecurityPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// object which contains security policy parameters
@@ -125,6 +125,5 @@ namespace Pulumi.AzureNative.Cdn.V20200901
         public SecurityPolicyArgs()
         {
         }
-        public static new SecurityPolicyArgs Empty => new SecurityPolicyArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Orbital.V20220301.Inputs
     /// <summary>
     /// Contact Profile Link Channel.
     /// </summary>
-    public sealed class ContactProfileLinkChannelArgs : global::Pulumi.ResourceArgs
+    public sealed class ContactProfileLinkChannelArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Bandwidth in MHz.
@@ -66,6 +66,5 @@ namespace Pulumi.AzureNative.Orbital.V20220301.Inputs
         public ContactProfileLinkChannelArgs()
         {
         }
-        public static new ContactProfileLinkChannelArgs Empty => new ContactProfileLinkChannelArgs();
     }
 }

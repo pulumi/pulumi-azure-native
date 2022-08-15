@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Aad.V20210501.Inputs
     /// <summary>
     /// Specific issue for a particular config diagnostics validator
     /// </summary>
-    public sealed class ConfigDiagnosticsValidatorResultIssueArgs : global::Pulumi.ResourceArgs
+    public sealed class ConfigDiagnosticsValidatorResultIssueArgs : Pulumi.ResourceArgs
     {
         [Input("descriptionParams")]
         private InputList<string>? _descriptionParams;
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Aad.V20210501.Inputs
         public ConfigDiagnosticsValidatorResultIssueArgs()
         {
         }
-        public static new ConfigDiagnosticsValidatorResultIssueArgs Empty => new ConfigDiagnosticsValidatorResultIssueArgs();
     }
 }

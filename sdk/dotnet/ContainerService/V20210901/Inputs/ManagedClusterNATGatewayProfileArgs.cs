@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20210901.Inputs
     /// <summary>
     /// Profile of the managed cluster NAT gateway.
     /// </summary>
-    public sealed class ManagedClusterNATGatewayProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedClusterNATGatewayProfileArgs : Pulumi.ResourceArgs
     {
         [Input("effectiveOutboundIPs")]
         private InputList<Inputs.ResourceReferenceArgs>? _effectiveOutboundIPs;
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.ContainerService.V20210901.Inputs
         {
             IdleTimeoutInMinutes = 4;
         }
-        public static new ManagedClusterNATGatewayProfileArgs Empty => new ManagedClusterNATGatewayProfileArgs();
     }
 }

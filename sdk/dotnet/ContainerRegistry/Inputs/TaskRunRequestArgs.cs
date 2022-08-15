@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.Inputs
     /// <summary>
     /// The parameters for a task run request.
     /// </summary>
-    public sealed class TaskRunRequestArgs : global::Pulumi.ResourceArgs
+    public sealed class TaskRunRequestArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The dedicated agent pool for the run.
@@ -56,6 +56,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.Inputs
         {
             IsArchiveEnabled = false;
         }
-        public static new TaskRunRequestArgs Empty => new TaskRunRequestArgs();
     }
 }

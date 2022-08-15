@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210201.Inputs
     /// <summary>
     /// Backend Address Pool of an application gateway.
     /// </summary>
-    public sealed class ApplicationGatewayBackendAddressPoolArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayBackendAddressPoolArgs : Pulumi.ResourceArgs
     {
         [Input("backendAddresses")]
         private InputList<Inputs.ApplicationGatewayBackendAddressArgs>? _backendAddresses;
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Network.V20210201.Inputs
         public ApplicationGatewayBackendAddressPoolArgs()
         {
         }
-        public static new ApplicationGatewayBackendAddressPoolArgs Empty => new ApplicationGatewayBackendAddressPoolArgs();
     }
 }

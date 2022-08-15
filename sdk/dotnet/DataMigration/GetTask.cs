@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DataMigration
     }
 
 
-    public sealed class GetTaskArgs : global::Pulumi.InvokeArgs
+    public sealed class GetTaskArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Expand the response
@@ -62,10 +62,9 @@ namespace Pulumi.AzureNative.DataMigration
         public GetTaskArgs()
         {
         }
-        public static new GetTaskArgs Empty => new GetTaskArgs();
     }
 
-    public sealed class GetTaskInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetTaskInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Expand the response
@@ -100,7 +99,6 @@ namespace Pulumi.AzureNative.DataMigration
         public GetTaskInvokeArgs()
         {
         }
-        public static new GetTaskInvokeArgs Empty => new GetTaskInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ChangeAnalysis.V20200401Preview.Inputs
     /// <summary>
     /// The properties of a configuration profile.
     /// </summary>
-    public sealed class ConfigurationProfileResourcePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ConfigurationProfileResourcePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Settings of change notification configuration for a subscription.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.ChangeAnalysis.V20200401Preview.Inputs
         public ConfigurationProfileResourcePropertiesArgs()
         {
         }
-        public static new ConfigurationProfileResourcePropertiesArgs Empty => new ConfigurationProfileResourcePropertiesArgs();
     }
 }

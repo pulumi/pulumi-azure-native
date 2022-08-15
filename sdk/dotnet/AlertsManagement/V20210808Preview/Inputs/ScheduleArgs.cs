@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview.Inputs
     /// <summary>
     /// Scheduling configuration for a given alert processing rule.
     /// </summary>
-    public sealed class ScheduleArgs : global::Pulumi.ResourceArgs
+    public sealed class ScheduleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Scheduling effective from time. Date-Time in ISO-8601 format without timezone suffix.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview.Inputs
         public ScheduleArgs()
         {
         }
-        public static new ScheduleArgs Empty => new ScheduleArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
     /// <summary>
     /// Defines a Sampling Algorithm that generates values based on previous values
     /// </summary>
-    public sealed class BayesianSamplingAlgorithmArgs : global::Pulumi.ResourceArgs
+    public sealed class BayesianSamplingAlgorithmArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// 
@@ -25,6 +25,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
         public BayesianSamplingAlgorithmArgs()
         {
         }
-        public static new BayesianSamplingAlgorithmArgs Empty => new BayesianSamplingAlgorithmArgs();
     }
 }

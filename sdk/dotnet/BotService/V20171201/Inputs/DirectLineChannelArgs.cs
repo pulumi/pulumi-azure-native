@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20171201.Inputs
     /// <summary>
     /// Direct Line channel definition
     /// </summary>
-    public sealed class DirectLineChannelArgs : global::Pulumi.ResourceArgs
+    public sealed class DirectLineChannelArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The channel name
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.BotService.V20171201.Inputs
         public DirectLineChannelArgs()
         {
         }
-        public static new DirectLineChannelArgs Empty => new DirectLineChannelArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     /// <summary>
     /// The definition of a Docker container.
     /// </summary>
-    public sealed class ModelEnvironmentDefinitionDockerArgs : global::Pulumi.ResourceArgs
+    public sealed class ModelEnvironmentDefinitionDockerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Base Dockerfile used for Docker-based runs. Mutually exclusive with BaseImage.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public ModelEnvironmentDefinitionDockerArgs()
         {
         }
-        public static new ModelEnvironmentDefinitionDockerArgs Empty => new ModelEnvironmentDefinitionDockerArgs();
     }
 }

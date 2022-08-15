@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801.Inputs
     /// <summary>
     /// API contact information
     /// </summary>
-    public sealed class ApiContactInformationArgs : global::Pulumi.ResourceArgs
+    public sealed class ApiContactInformationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The email address of the contact person/organization. MUST be in the format of an email address
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801.Inputs
         public ApiContactInformationArgs()
         {
         }
-        public static new ApiContactInformationArgs Empty => new ApiContactInformationArgs();
     }
 }

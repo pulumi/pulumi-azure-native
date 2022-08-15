@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web
     /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:AppServicePlan")]
-    public partial class AppServicePlan : global::Pulumi.CustomResource
+    public partial class AppServicePlan : Pulumi.CustomResource
     {
         /// <summary>
         /// The time when the server farm free offer expires.
@@ -198,19 +198,19 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:AppServicePlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20160901:AppServicePlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:AppServicePlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:AppServicePlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:AppServicePlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:AppServicePlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:AppServicePlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:AppServicePlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:AppServicePlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:AppServicePlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:AppServicePlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:AppServicePlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160901:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:AppServicePlan"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -232,7 +232,7 @@ namespace Pulumi.AzureNative.Web
         }
     }
 
-    public sealed class AppServicePlanArgs : global::Pulumi.ResourceArgs
+    public sealed class AppServicePlanArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The time when the server farm free offer expires.
@@ -362,6 +362,5 @@ namespace Pulumi.AzureNative.Web
             PerSiteScaling = false;
             Reserved = false;
         }
-        public static new AppServicePlanArgs Empty => new AppServicePlanArgs();
     }
 }

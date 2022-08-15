@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20160301
     /// The log profile resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights/v20160301:LogProfile")]
-    public partial class LogProfile : global::Pulumi.CustomResource
+    public partial class LogProfile : Pulumi.CustomResource
     {
         /// <summary>
         /// the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.Insights.V20160301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:insights:LogProfile"},
+                    new Pulumi.Alias { Type = "azure-native:insights:LogProfile"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.Insights.V20160301
         }
     }
 
-    public sealed class LogProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class LogProfileArgs : Pulumi.ResourceArgs
     {
         [Input("categories", required: true)]
         private InputList<string>? _categories;
@@ -187,6 +187,5 @@ namespace Pulumi.AzureNative.Insights.V20160301
         public LogProfileArgs()
         {
         }
-        public static new LogProfileArgs Empty => new LogProfileArgs();
     }
 }

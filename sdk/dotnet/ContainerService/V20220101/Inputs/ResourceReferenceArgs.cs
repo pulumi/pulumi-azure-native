@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220101.Inputs
     /// <summary>
     /// A reference to an Azure resource.
     /// </summary>
-    public sealed class ResourceReferenceArgs : global::Pulumi.ResourceArgs
+    public sealed class ResourceReferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The fully qualified Azure resource id.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.ContainerService.V20220101.Inputs
         public ResourceReferenceArgs()
         {
         }
-        public static new ResourceReferenceArgs Empty => new ResourceReferenceArgs();
     }
 }

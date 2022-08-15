@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS.V20210601
     /// A private cloud resource
     /// </summary>
     [AzureNativeResourceType("azure-native:avs/v20210601:PrivateCloud")]
-    public partial class PrivateCloud : global::Pulumi.CustomResource
+    public partial class PrivateCloud : Pulumi.CustomResource
     {
         /// <summary>
         /// An ExpressRoute Circuit
@@ -160,11 +160,11 @@ namespace Pulumi.AzureNative.AVS.V20210601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:avs:PrivateCloud"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200320:PrivateCloud"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200717preview:PrivateCloud"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210101preview:PrivateCloud"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:PrivateCloud"},
+                    new Pulumi.Alias { Type = "azure-native:avs:PrivateCloud"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20200320:PrivateCloud"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20200717preview:PrivateCloud"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20210101preview:PrivateCloud"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20211201:PrivateCloud"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -186,7 +186,7 @@ namespace Pulumi.AzureNative.AVS.V20210601
         }
     }
 
-    public sealed class PrivateCloudArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateCloudArgs : Pulumi.ResourceArgs
     {
         [Input("identitySources")]
         private InputList<Inputs.IdentitySourceArgs>? _identitySources;
@@ -270,6 +270,5 @@ namespace Pulumi.AzureNative.AVS.V20210601
         {
             Internet = "Disabled";
         }
-        public static new PrivateCloudArgs Empty => new PrivateCloudArgs();
     }
 }

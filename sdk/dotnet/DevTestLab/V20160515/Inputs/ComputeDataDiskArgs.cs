@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
     /// <summary>
     /// A data disks attached to a virtual machine.
     /// </summary>
-    public sealed class ComputeDataDiskArgs : global::Pulumi.ResourceArgs
+    public sealed class ComputeDataDiskArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets data disk size in GiB.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
         public ComputeDataDiskArgs()
         {
         }
-        public static new ComputeDataDiskArgs Empty => new ComputeDataDiskArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
     }
 
 
-    public sealed class GetConnectedRegistryArgs : global::Pulumi.InvokeArgs
+    public sealed class GetConnectedRegistryArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the connected registry.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public GetConnectedRegistryArgs()
         {
         }
-        public static new GetConnectedRegistryArgs Empty => new GetConnectedRegistryArgs();
     }
 
-    public sealed class GetConnectedRegistryInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetConnectedRegistryInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the connected registry.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public GetConnectedRegistryInvokeArgs()
         {
         }
-        public static new GetConnectedRegistryInvokeArgs Empty => new GetConnectedRegistryInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20160330.Inputs
     /// <summary>
     /// Load balancer Probe
     /// </summary>
-    public sealed class ProbeArgs : global::Pulumi.ResourceArgs
+    public sealed class ProbeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated
@@ -84,6 +84,5 @@ namespace Pulumi.AzureNative.Network.V20160330.Inputs
         public ProbeArgs()
         {
         }
-        public static new ProbeArgs Empty => new ProbeArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20210401
     /// Definition of ARM tracked top level resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights/v20210401:DataCollectionEndpoint")]
-    public partial class DataCollectionEndpoint : global::Pulumi.CustomResource
+    public partial class DataCollectionEndpoint : Pulumi.CustomResource
     {
         /// <summary>
         /// The endpoint used by agents to access their configuration.
@@ -118,8 +118,8 @@ namespace Pulumi.AzureNative.Insights.V20210401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:insights:DataCollectionEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20210901preview:DataCollectionEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:insights:DataCollectionEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20210901preview:DataCollectionEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -141,7 +141,7 @@ namespace Pulumi.AzureNative.Insights.V20210401
         }
     }
 
-    public sealed class DataCollectionEndpointArgs : global::Pulumi.ResourceArgs
+    public sealed class DataCollectionEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the data collection endpoint. The name is case insensitive.
@@ -200,6 +200,5 @@ namespace Pulumi.AzureNative.Insights.V20210401
         public DataCollectionEndpointArgs()
         {
         }
-        public static new DataCollectionEndpointArgs Empty => new DataCollectionEndpointArgs();
     }
 }

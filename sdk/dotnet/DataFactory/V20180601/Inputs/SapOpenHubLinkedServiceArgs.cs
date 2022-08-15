@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// SAP Business Warehouse Open Hub Destination Linked Service.
     /// </summary>
-    public sealed class SapOpenHubLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class SapOpenHubLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -127,6 +127,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public SapOpenHubLinkedServiceArgs()
         {
         }
-        public static new SapOpenHubLinkedServiceArgs Empty => new SapOpenHubLinkedServiceArgs();
     }
 }

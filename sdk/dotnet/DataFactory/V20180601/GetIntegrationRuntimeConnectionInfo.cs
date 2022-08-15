@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
     }
 
 
-    public sealed class GetIntegrationRuntimeConnectionInfoArgs : global::Pulumi.InvokeArgs
+    public sealed class GetIntegrationRuntimeConnectionInfoArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The factory name.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         public GetIntegrationRuntimeConnectionInfoArgs()
         {
         }
-        public static new GetIntegrationRuntimeConnectionInfoArgs Empty => new GetIntegrationRuntimeConnectionInfoArgs();
     }
 
-    public sealed class GetIntegrationRuntimeConnectionInfoInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetIntegrationRuntimeConnectionInfoInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The factory name.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         public GetIntegrationRuntimeConnectionInfoInvokeArgs()
         {
         }
-        public static new GetIntegrationRuntimeConnectionInfoInvokeArgs Empty => new GetIntegrationRuntimeConnectionInfoInvokeArgs();
     }
 
 

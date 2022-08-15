@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.Inputs
     /// <summary>
     /// The entity reference.
     /// </summary>
-    public sealed class EntityReferenceArgs : global::Pulumi.ResourceArgs
+    public sealed class EntityReferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of this referenced entity.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Synapse.Inputs
         public EntityReferenceArgs()
         {
         }
-        public static new EntityReferenceArgs Empty => new EntityReferenceArgs();
     }
 }

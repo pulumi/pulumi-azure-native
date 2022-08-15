@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20211001.Inputs
     /// <summary>
     /// DNS configuration for the container group.
     /// </summary>
-    public sealed class DnsConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class DnsConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("nameServers", required: true)]
         private InputList<string>? _nameServers;
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.ContainerInstance.V20211001.Inputs
         public DnsConfigurationArgs()
         {
         }
-        public static new DnsConfigurationArgs Empty => new DnsConfigurationArgs();
     }
 }

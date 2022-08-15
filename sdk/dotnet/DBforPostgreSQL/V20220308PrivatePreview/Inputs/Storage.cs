@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20220308PrivatePreview.Inputs
     /// <summary>
     /// Storage properties of a server
     /// </summary>
-    public sealed class Storage : global::Pulumi.InvokeArgs
+    public sealed class Storage : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Max storage allowed for a server.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20220308PrivatePreview.Inputs
         public Storage()
         {
         }
-        public static new Storage Empty => new Storage();
     }
 }

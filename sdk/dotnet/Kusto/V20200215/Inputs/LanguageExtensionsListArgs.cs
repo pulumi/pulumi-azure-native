@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Kusto.V20200215.Inputs
     /// <summary>
     /// The list of language extension objects.
     /// </summary>
-    public sealed class LanguageExtensionsListArgs : global::Pulumi.ResourceArgs
+    public sealed class LanguageExtensionsListArgs : Pulumi.ResourceArgs
     {
         [Input("value")]
         private InputList<Inputs.LanguageExtensionArgs>? _value;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Kusto.V20200215.Inputs
         public LanguageExtensionsListArgs()
         {
         }
-        public static new LanguageExtensionsListArgs Empty => new LanguageExtensionsListArgs();
     }
 }

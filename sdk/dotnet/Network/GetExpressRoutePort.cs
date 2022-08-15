@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network
     }
 
 
-    public sealed class GetExpressRoutePortArgs : global::Pulumi.InvokeArgs
+    public sealed class GetExpressRoutePortArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of ExpressRoutePort.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.Network
         public GetExpressRoutePortArgs()
         {
         }
-        public static new GetExpressRoutePortArgs Empty => new GetExpressRoutePortArgs();
     }
 
-    public sealed class GetExpressRoutePortInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetExpressRoutePortInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of ExpressRoutePort.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.Network
         public GetExpressRoutePortInvokeArgs()
         {
         }
-        public static new GetExpressRoutePortInvokeArgs Empty => new GetExpressRoutePortInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20220601Preview.Inputs
     /// <summary>
     /// Describes a parameter in fabric settings of the cluster.
     /// </summary>
-    public sealed class SettingsParameterDescriptionArgs : global::Pulumi.ResourceArgs
+    public sealed class SettingsParameterDescriptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The parameter name of fabric setting.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ServiceFabric.V20220601Preview.Inputs
         public SettingsParameterDescriptionArgs()
         {
         }
-        public static new SettingsParameterDescriptionArgs Empty => new SettingsParameterDescriptionArgs();
     }
 }

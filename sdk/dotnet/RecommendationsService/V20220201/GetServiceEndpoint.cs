@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.RecommendationsService.V20220201
     }
 
 
-    public sealed class GetServiceEndpointArgs : global::Pulumi.InvokeArgs
+    public sealed class GetServiceEndpointArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the RecommendationsService Account resource.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.RecommendationsService.V20220201
         public GetServiceEndpointArgs()
         {
         }
-        public static new GetServiceEndpointArgs Empty => new GetServiceEndpointArgs();
     }
 
-    public sealed class GetServiceEndpointInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetServiceEndpointInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the RecommendationsService Account resource.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.RecommendationsService.V20220201
         public GetServiceEndpointInvokeArgs()
         {
         }
-        public static new GetServiceEndpointInvokeArgs Empty => new GetServiceEndpointInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200501.Inputs
     /// <summary>
     /// Define a match condition
     /// </summary>
-    public sealed class RulesEngineMatchConditionArgs : global::Pulumi.ResourceArgs
+    public sealed class RulesEngineMatchConditionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes if this is negate condition or not
@@ -66,6 +66,5 @@ namespace Pulumi.AzureNative.Network.V20200501.Inputs
         public RulesEngineMatchConditionArgs()
         {
         }
-        public static new RulesEngineMatchConditionArgs Empty => new RulesEngineMatchConditionArgs();
     }
 }

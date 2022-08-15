@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20160430Preview.Inputs
     /// <summary>
     /// Describes an Operating System disk.
     /// </summary>
-    public sealed class ImageOSDiskArgs : global::Pulumi.ResourceArgs
+    public sealed class ImageOSDiskArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Virtual Hard Disk.
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.Compute.V20160430Preview.Inputs
         public ImageOSDiskArgs()
         {
         }
-        public static new ImageOSDiskArgs Empty => new ImageOSDiskArgs();
     }
 }

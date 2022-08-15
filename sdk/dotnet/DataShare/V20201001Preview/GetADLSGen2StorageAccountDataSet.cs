@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
     }
 
 
-    public sealed class GetADLSGen2StorageAccountDataSetArgs : global::Pulumi.InvokeArgs
+    public sealed class GetADLSGen2StorageAccountDataSetArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         public GetADLSGen2StorageAccountDataSetArgs()
         {
         }
-        public static new GetADLSGen2StorageAccountDataSetArgs Empty => new GetADLSGen2StorageAccountDataSetArgs();
     }
 
-    public sealed class GetADLSGen2StorageAccountDataSetInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetADLSGen2StorageAccountDataSetInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         public GetADLSGen2StorageAccountDataSetInvokeArgs()
         {
         }
-        public static new GetADLSGen2StorageAccountDataSetInvokeArgs Empty => new GetADLSGen2StorageAccountDataSetInvokeArgs();
     }
 
 

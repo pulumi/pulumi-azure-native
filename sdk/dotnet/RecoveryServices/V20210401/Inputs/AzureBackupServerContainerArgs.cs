@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210401.Inputs
     /// <summary>
     /// AzureBackupServer (DPMVenus) workload-specific protection container.
     /// </summary>
-    public sealed class AzureBackupServerContainerArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureBackupServerContainerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of backup management for the container.
@@ -106,6 +106,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210401.Inputs
         public AzureBackupServerContainerArgs()
         {
         }
-        public static new AzureBackupServerContainerArgs Empty => new AzureBackupServerContainerArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview.Inputs
     /// <summary>
     /// The status of the Kubernetes custom resource.
     /// </summary>
-    public sealed class ActiveDirectoryConnectorStatusArgs : global::Pulumi.ResourceArgs
+    public sealed class ActiveDirectoryConnectorStatusArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The time that the custom resource was last updated.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview.Inputs
         public ActiveDirectoryConnectorStatusArgs()
         {
         }
-        public static new ActiveDirectoryConnectorStatusArgs Empty => new ActiveDirectoryConnectorStatusArgs();
     }
 }

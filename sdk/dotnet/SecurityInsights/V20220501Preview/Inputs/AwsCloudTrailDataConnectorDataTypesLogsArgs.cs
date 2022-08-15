@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview.Inputs
     /// <summary>
     /// Logs data type.
     /// </summary>
-    public sealed class AwsCloudTrailDataConnectorDataTypesLogsArgs : global::Pulumi.ResourceArgs
+    public sealed class AwsCloudTrailDataConnectorDataTypesLogsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describe whether this data type connection is enabled or not.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview.Inputs
         public AwsCloudTrailDataConnectorDataTypesLogsArgs()
         {
         }
-        public static new AwsCloudTrailDataConnectorDataTypesLogsArgs Empty => new AwsCloudTrailDataConnectorDataTypesLogsArgs();
     }
 }

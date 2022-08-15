@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HealthcareApis.Inputs
     /// <summary>
     /// Azure container registry configuration information
     /// </summary>
-    public sealed class ServiceAcrConfigurationInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class ServiceAcrConfigurationInfoArgs : Pulumi.ResourceArgs
     {
         [Input("loginServers")]
         private InputList<string>? _loginServers;
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.HealthcareApis.Inputs
         public ServiceAcrConfigurationInfoArgs()
         {
         }
-        public static new ServiceAcrConfigurationInfoArgs Empty => new ServiceAcrConfigurationInfoArgs();
     }
 }

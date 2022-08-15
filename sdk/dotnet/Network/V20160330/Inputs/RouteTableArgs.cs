@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20160330.Inputs
     /// <summary>
     /// RouteTable resource
     /// </summary>
-    public sealed class RouteTableArgs : global::Pulumi.ResourceArgs
+    public sealed class RouteTableArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated
@@ -78,6 +78,5 @@ namespace Pulumi.AzureNative.Network.V20160330.Inputs
         public RouteTableArgs()
         {
         }
-        public static new RouteTableArgs Empty => new RouteTableArgs();
     }
 }

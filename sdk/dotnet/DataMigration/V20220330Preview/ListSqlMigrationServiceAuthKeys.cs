@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview
     }
 
 
-    public sealed class ListSqlMigrationServiceAuthKeysArgs : global::Pulumi.InvokeArgs
+    public sealed class ListSqlMigrationServiceAuthKeysArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview
         public ListSqlMigrationServiceAuthKeysArgs()
         {
         }
-        public static new ListSqlMigrationServiceAuthKeysArgs Empty => new ListSqlMigrationServiceAuthKeysArgs();
     }
 
-    public sealed class ListSqlMigrationServiceAuthKeysInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListSqlMigrationServiceAuthKeysInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview
         public ListSqlMigrationServiceAuthKeysInvokeArgs()
         {
         }
-        public static new ListSqlMigrationServiceAuthKeysInvokeArgs Empty => new ListSqlMigrationServiceAuthKeysInvokeArgs();
     }
 
 

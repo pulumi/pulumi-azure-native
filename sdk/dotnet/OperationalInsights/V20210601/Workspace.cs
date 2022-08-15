@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20210601
     /// The top level Workspace resource container.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights/v20210601:Workspace")]
-    public partial class Workspace : global::Pulumi.CustomResource
+    public partial class Workspace : Pulumi.CustomResource
     {
         /// <summary>
         /// Workspace creation date.
@@ -142,12 +142,12 @@ namespace Pulumi.AzureNative.OperationalInsights.V20210601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20151101preview:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20201001:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20211201preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20151101preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20201001:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20211201preview:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -169,7 +169,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20210601
         }
     }
 
-    public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
+    public sealed class WorkspaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Workspace features.
@@ -252,6 +252,5 @@ namespace Pulumi.AzureNative.OperationalInsights.V20210601
         public WorkspaceArgs()
         {
         }
-        public static new WorkspaceArgs Empty => new WorkspaceArgs();
     }
 }

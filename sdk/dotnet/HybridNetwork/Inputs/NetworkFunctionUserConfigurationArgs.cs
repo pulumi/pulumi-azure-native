@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridNetwork.Inputs
     /// <summary>
     /// The network function user configuration.
     /// </summary>
-    public sealed class NetworkFunctionUserConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class NetworkFunctionUserConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("networkInterfaces")]
         private InputList<Inputs.NetworkInterfaceArgs>? _networkInterfaces;
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.HybridNetwork.Inputs
         public NetworkFunctionUserConfigurationArgs()
         {
         }
-        public static new NetworkFunctionUserConfigurationArgs Empty => new NetworkFunctionUserConfigurationArgs();
     }
 }

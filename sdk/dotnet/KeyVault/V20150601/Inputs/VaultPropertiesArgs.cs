@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KeyVault.V20150601.Inputs
     /// <summary>
     /// Properties of the vault
     /// </summary>
-    public sealed class VaultPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class VaultPropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("accessPolicies", required: true)]
         private InputList<Inputs.AccessPolicyEntryArgs>? _accessPolicies;
@@ -72,6 +72,5 @@ namespace Pulumi.AzureNative.KeyVault.V20150601.Inputs
         public VaultPropertiesArgs()
         {
         }
-        public static new VaultPropertiesArgs Empty => new VaultPropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.Inputs
     /// <summary>
     /// Specifies the criteria for converting log to metric.
     /// </summary>
-    public sealed class CriteriaArgs : global::Pulumi.ResourceArgs
+    public sealed class CriteriaArgs : Pulumi.ResourceArgs
     {
         [Input("dimensions")]
         private InputList<Inputs.DimensionArgs>? _dimensions;
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Insights.Inputs
         public CriteriaArgs()
         {
         }
-        public static new CriteriaArgs Empty => new CriteriaArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
     /// API Version: 2016-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:streamanalytics:Output")]
-    public partial class Output : global::Pulumi.CustomResource
+    public partial class Output : Pulumi.CustomResource
     {
         /// <summary>
         /// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
@@ -77,10 +77,10 @@ namespace Pulumi.AzureNative.StreamAnalytics
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20160301:Output"},
-                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20170401preview:Output"},
-                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301:Output"},
-                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20211001preview:Output"},
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics/v20160301:Output"},
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics/v20170401preview:Output"},
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301:Output"},
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics/v20211001preview:Output"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
         }
     }
 
-    public sealed class OutputArgs : global::Pulumi.ResourceArgs
+    public sealed class OutputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
@@ -143,6 +143,5 @@ namespace Pulumi.AzureNative.StreamAnalytics
         public OutputArgs()
         {
         }
-        public static new OutputArgs Empty => new OutputArgs();
     }
 }

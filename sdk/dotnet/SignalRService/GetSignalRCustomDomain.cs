@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.SignalRService
     }
 
 
-    public sealed class GetSignalRCustomDomainArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSignalRCustomDomainArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Custom domain name.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.SignalRService
         public GetSignalRCustomDomainArgs()
         {
         }
-        public static new GetSignalRCustomDomainArgs Empty => new GetSignalRCustomDomainArgs();
     }
 
-    public sealed class GetSignalRCustomDomainInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSignalRCustomDomainInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Custom domain name.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.SignalRService
         public GetSignalRCustomDomainInvokeArgs()
         {
         }
-        public static new GetSignalRCustomDomainInvokeArgs Empty => new GetSignalRCustomDomainInvokeArgs();
     }
 
 

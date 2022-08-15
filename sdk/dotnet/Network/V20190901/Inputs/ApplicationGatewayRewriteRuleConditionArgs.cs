@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190901.Inputs
     /// <summary>
     /// Set of conditions in the Rewrite Rule in Application Gateway.
     /// </summary>
-    public sealed class ApplicationGatewayRewriteRuleConditionArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayRewriteRuleConditionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Setting this parameter to truth value with force the pattern to do a case in-sensitive comparison.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Network.V20190901.Inputs
         public ApplicationGatewayRewriteRuleConditionArgs()
         {
         }
-        public static new ApplicationGatewayRewriteRuleConditionArgs Empty => new ApplicationGatewayRewriteRuleConditionArgs();
     }
 }

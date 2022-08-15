@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Relay.V20160701
     /// </summary>
     [Obsolete(@"Version 2016-07-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:relay/v20160701:HybridConnectionAuthorizationRule")]
-    public partial class HybridConnectionAuthorizationRule : global::Pulumi.CustomResource
+    public partial class HybridConnectionAuthorizationRule : Pulumi.CustomResource
     {
         /// <summary>
         /// Resource name
@@ -59,9 +59,9 @@ namespace Pulumi.AzureNative.Relay.V20160701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:relay:HybridConnectionAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:relay/v20170401:HybridConnectionAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:relay/v20211101:HybridConnectionAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:relay:HybridConnectionAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:relay/v20170401:HybridConnectionAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:relay/v20211101:HybridConnectionAuthorizationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.Relay.V20160701
         }
     }
 
-    public sealed class HybridConnectionAuthorizationRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class HybridConnectionAuthorizationRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The authorizationRule name.
@@ -124,6 +124,5 @@ namespace Pulumi.AzureNative.Relay.V20160701
         public HybridConnectionAuthorizationRuleArgs()
         {
         }
-        public static new HybridConnectionAuthorizationRuleArgs Empty => new HybridConnectionAuthorizationRuleArgs();
     }
 }

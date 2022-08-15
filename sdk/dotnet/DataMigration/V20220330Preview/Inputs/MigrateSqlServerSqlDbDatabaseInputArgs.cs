@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Inputs
     /// <summary>
     /// Database specific information for SQL to Azure SQL DB migration task inputs
     /// </summary>
-    public sealed class MigrateSqlServerSqlDbDatabaseInputArgs : global::Pulumi.ResourceArgs
+    public sealed class MigrateSqlServerSqlDbDatabaseInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// id of the database
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Inputs
         public MigrateSqlServerSqlDbDatabaseInputArgs()
         {
         }
-        public static new MigrateSqlServerSqlDbDatabaseInputArgs Empty => new MigrateSqlServerSqlDbDatabaseInputArgs();
     }
 }

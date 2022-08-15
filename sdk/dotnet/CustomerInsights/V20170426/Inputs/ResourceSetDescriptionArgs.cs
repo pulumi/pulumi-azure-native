@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426.Inputs
     /// <summary>
     /// The resource set description.
     /// </summary>
-    public sealed class ResourceSetDescriptionArgs : global::Pulumi.ResourceArgs
+    public sealed class ResourceSetDescriptionArgs : Pulumi.ResourceArgs
     {
         [Input("elements")]
         private InputList<string>? _elements;
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426.Inputs
         public ResourceSetDescriptionArgs()
         {
         }
-        public static new ResourceSetDescriptionArgs Empty => new ResourceSetDescriptionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.Inputs
     /// <summary>
     /// Configuration properties that define the mutable settings of a Container App SourceControl
     /// </summary>
-    public sealed class GithubActionConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class GithubActionConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// AzureCredentials configurations.
@@ -66,6 +66,5 @@ namespace Pulumi.AzureNative.App.Inputs
         public GithubActionConfigurationArgs()
         {
         }
-        public static new GithubActionConfigurationArgs Empty => new GithubActionConfigurationArgs();
     }
 }

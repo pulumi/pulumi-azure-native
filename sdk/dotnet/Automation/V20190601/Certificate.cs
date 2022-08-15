@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.V20190601
     /// Definition of the certificate.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation/v20190601:Certificate")]
-    public partial class Certificate : global::Pulumi.CustomResource
+    public partial class Certificate : Pulumi.CustomResource
     {
         /// <summary>
         /// Gets the creation time.
@@ -88,9 +88,9 @@ namespace Pulumi.AzureNative.Automation.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:automation:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20151031:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:automation:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20151031:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.Automation.V20190601
         }
     }
 
-    public sealed class CertificateArgs : global::Pulumi.ResourceArgs
+    public sealed class CertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -165,6 +165,5 @@ namespace Pulumi.AzureNative.Automation.V20190601
         public CertificateArgs()
         {
         }
-        public static new CertificateArgs Empty => new CertificateArgs();
     }
 }

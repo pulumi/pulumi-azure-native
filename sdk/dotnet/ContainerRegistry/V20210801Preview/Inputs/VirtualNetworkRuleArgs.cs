@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210801Preview.Inputs
     /// <summary>
     /// Virtual network rule.
     /// </summary>
-    public sealed class VirtualNetworkRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualNetworkRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action of virtual network rule.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210801Preview.Inputs
         {
             Action = "Allow";
         }
-        public static new VirtualNetworkRuleArgs Empty => new VirtualNetworkRuleArgs();
     }
 }

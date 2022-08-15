@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
     /// <summary>
     /// Will contain the filter name and values to operate on
     /// </summary>
-    public sealed class FilterItemsArgs : global::Pulumi.ResourceArgs
+    public sealed class FilterItemsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the field we would like to filter
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
         public FilterItemsArgs()
         {
         }
-        public static new FilterItemsArgs Empty => new FilterItemsArgs();
     }
 }

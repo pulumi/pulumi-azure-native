@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Relay.V20160701
     }
 
 
-    public sealed class GetNamespaceAuthorizationRuleArgs : global::Pulumi.InvokeArgs
+    public sealed class GetNamespaceAuthorizationRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The authorizationRule name.
@@ -49,10 +49,9 @@ namespace Pulumi.AzureNative.Relay.V20160701
         public GetNamespaceAuthorizationRuleArgs()
         {
         }
-        public static new GetNamespaceAuthorizationRuleArgs Empty => new GetNamespaceAuthorizationRuleArgs();
     }
 
-    public sealed class GetNamespaceAuthorizationRuleInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetNamespaceAuthorizationRuleInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The authorizationRule name.
@@ -75,7 +74,6 @@ namespace Pulumi.AzureNative.Relay.V20160701
         public GetNamespaceAuthorizationRuleInvokeArgs()
         {
         }
-        public static new GetNamespaceAuthorizationRuleInvokeArgs Empty => new GetNamespaceAuthorizationRuleInvokeArgs();
     }
 
 

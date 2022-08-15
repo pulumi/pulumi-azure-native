@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Inputs
     /// <summary>
     /// Input for the task that migrates on-prem SQL Server databases to Azure SQL Database
     /// </summary>
-    public sealed class MigrateSqlServerSqlDbTaskInputArgs : global::Pulumi.ResourceArgs
+    public sealed class MigrateSqlServerSqlDbTaskInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// encrypted key for secure fields
@@ -62,6 +62,5 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Inputs
         public MigrateSqlServerSqlDbTaskInputArgs()
         {
         }
-        public static new MigrateSqlServerSqlDbTaskInputArgs Empty => new MigrateSqlServerSqlDbTaskInputArgs();
     }
 }

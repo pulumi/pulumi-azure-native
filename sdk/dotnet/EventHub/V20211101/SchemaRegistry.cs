@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventHub.V20211101
     /// Single item in List or Get Schema Group operation
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub/v20211101:SchemaRegistry")]
-    public partial class SchemaRegistry : global::Pulumi.CustomResource
+    public partial class SchemaRegistry : Pulumi.CustomResource
     {
         /// <summary>
         /// Exact time the Schema Group was created.
@@ -94,8 +94,8 @@ namespace Pulumi.AzureNative.EventHub.V20211101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub:SchemaRegistry"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20220101preview:SchemaRegistry"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub:SchemaRegistry"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20220101preview:SchemaRegistry"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.EventHub.V20211101
         }
     }
 
-    public sealed class SchemaRegistryArgs : global::Pulumi.ResourceArgs
+    public sealed class SchemaRegistryArgs : Pulumi.ResourceArgs
     {
         [Input("groupProperties")]
         private InputMap<string>? _groupProperties;
@@ -158,6 +158,5 @@ namespace Pulumi.AzureNative.EventHub.V20211101
         public SchemaRegistryArgs()
         {
         }
-        public static new SchemaRegistryArgs Empty => new SchemaRegistryArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ApiManagement
     }
 
 
-    public sealed class GetSubscriptionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSubscriptionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.ApiManagement
         public GetSubscriptionArgs()
         {
         }
-        public static new GetSubscriptionArgs Empty => new GetSubscriptionArgs();
     }
 
-    public sealed class GetSubscriptionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSubscriptionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.ApiManagement
         public GetSubscriptionInvokeArgs()
         {
         }
-        public static new GetSubscriptionInvokeArgs Empty => new GetSubscriptionInvokeArgs();
     }
 
 

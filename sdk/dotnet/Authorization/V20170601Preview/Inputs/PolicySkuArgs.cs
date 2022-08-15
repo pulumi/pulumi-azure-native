@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization.V20170601Preview.Inputs
     /// <summary>
     /// The policy sku.
     /// </summary>
-    public sealed class PolicySkuArgs : global::Pulumi.ResourceArgs
+    public sealed class PolicySkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the policy sku. Possible values are A0 and A1.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Authorization.V20170601Preview.Inputs
         public PolicySkuArgs()
         {
         }
-        public static new PolicySkuArgs Empty => new PolicySkuArgs();
     }
 }

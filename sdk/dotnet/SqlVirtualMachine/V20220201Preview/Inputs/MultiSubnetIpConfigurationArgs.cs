@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20220201Preview.Inputs
     /// <summary>
     /// Multi subnet ip configuration for an availability group listener.
     /// </summary>
-    public sealed class MultiSubnetIpConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class MultiSubnetIpConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Private IP address.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20220201Preview.Inputs
         public MultiSubnetIpConfigurationArgs()
         {
         }
-        public static new MultiSubnetIpConfigurationArgs Empty => new MultiSubnetIpConfigurationArgs();
     }
 }

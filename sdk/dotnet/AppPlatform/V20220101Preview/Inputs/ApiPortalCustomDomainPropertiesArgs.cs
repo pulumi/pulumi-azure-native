@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview.Inputs
     /// <summary>
     /// The properties of custom domain for API portal
     /// </summary>
-    public sealed class ApiPortalCustomDomainPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ApiPortalCustomDomainPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The thumbprint of bound certificate.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview.Inputs
         public ApiPortalCustomDomainPropertiesArgs()
         {
         }
-        public static new ApiPortalCustomDomainPropertiesArgs Empty => new ApiPortalCustomDomainPropertiesArgs();
     }
 }

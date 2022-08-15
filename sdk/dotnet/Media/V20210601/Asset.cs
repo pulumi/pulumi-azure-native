@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20210601
     /// An Asset.
     /// </summary>
     [AzureNativeResourceType("azure-native:media/v20210601:Asset")]
-    public partial class Asset : global::Pulumi.CustomResource
+    public partial class Asset : Pulumi.CustomResource
     {
         /// <summary>
         /// The alternate ID of the Asset.
@@ -106,12 +106,12 @@ namespace Pulumi.AzureNative.Media.V20210601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:media:Asset"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180330preview:Asset"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180601preview:Asset"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180701:Asset"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20200501:Asset"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20211101:Asset"},
+                    new Pulumi.Alias { Type = "azure-native:media:Asset"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180330preview:Asset"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180601preview:Asset"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180701:Asset"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20200501:Asset"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20211101:Asset"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -133,7 +133,7 @@ namespace Pulumi.AzureNative.Media.V20210601
         }
     }
 
-    public sealed class AssetArgs : global::Pulumi.ResourceArgs
+    public sealed class AssetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -180,6 +180,5 @@ namespace Pulumi.AzureNative.Media.V20210601
         public AssetArgs()
         {
         }
-        public static new AssetArgs Empty => new AssetArgs();
     }
 }

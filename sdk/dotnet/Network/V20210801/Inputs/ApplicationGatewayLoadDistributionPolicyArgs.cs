@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
     /// <summary>
     /// Load Distribution Policy of an application gateway.
     /// </summary>
-    public sealed class ApplicationGatewayLoadDistributionPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayLoadDistributionPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
         public ApplicationGatewayLoadDistributionPolicyArgs()
         {
         }
-        public static new ApplicationGatewayLoadDistributionPolicyArgs Empty => new ApplicationGatewayLoadDistributionPolicyArgs();
     }
 }

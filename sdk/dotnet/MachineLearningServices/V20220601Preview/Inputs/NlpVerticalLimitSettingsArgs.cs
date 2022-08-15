@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// Job execution constraints.
     /// </summary>
-    public sealed class NlpVerticalLimitSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class NlpVerticalLimitSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Maximum Concurrent AutoML iterations.
@@ -38,6 +38,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
             MaxConcurrentTrials = 1;
             MaxTrials = 1;
         }
-        public static new NlpVerticalLimitSettingsArgs Empty => new NlpVerticalLimitSettingsArgs();
     }
 }

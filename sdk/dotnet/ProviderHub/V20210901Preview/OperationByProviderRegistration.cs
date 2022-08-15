@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20210901Preview
 {
     [AzureNativeResourceType("azure-native:providerhub/v20210901preview:OperationByProviderRegistration")]
-    public partial class OperationByProviderRegistration : global::Pulumi.CustomResource
+    public partial class OperationByProviderRegistration : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -49,10 +49,10 @@ namespace Pulumi.AzureNative.ProviderHub.V20210901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:providerhub:OperationByProviderRegistration"},
-                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20201120:OperationByProviderRegistration"},
-                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210501preview:OperationByProviderRegistration"},
-                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210601preview:OperationByProviderRegistration"},
+                    new Pulumi.Alias { Type = "azure-native:providerhub:OperationByProviderRegistration"},
+                    new Pulumi.Alias { Type = "azure-native:providerhub/v20201120:OperationByProviderRegistration"},
+                    new Pulumi.Alias { Type = "azure-native:providerhub/v20210501preview:OperationByProviderRegistration"},
+                    new Pulumi.Alias { Type = "azure-native:providerhub/v20210601preview:OperationByProviderRegistration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNative.ProviderHub.V20210901Preview
         }
     }
 
-    public sealed class OperationByProviderRegistrationArgs : global::Pulumi.ResourceArgs
+    public sealed class OperationByProviderRegistrationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the resource provider hosted within ProviderHub.
@@ -85,6 +85,5 @@ namespace Pulumi.AzureNative.ProviderHub.V20210901Preview
         public OperationByProviderRegistrationArgs()
         {
         }
-        public static new OperationByProviderRegistrationArgs Empty => new OperationByProviderRegistrationArgs();
     }
 }

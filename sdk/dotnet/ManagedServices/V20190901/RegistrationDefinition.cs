@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ManagedServices.V20190901
     /// Registration definition.
     /// </summary>
     [AzureNativeResourceType("azure-native:managedservices/v20190901:RegistrationDefinition")]
-    public partial class RegistrationDefinition : global::Pulumi.CustomResource
+    public partial class RegistrationDefinition : Pulumi.CustomResource
     {
         /// <summary>
         /// Name of the registration definition.
@@ -64,12 +64,12 @@ namespace Pulumi.AzureNative.ManagedServices.V20190901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:managedservices:RegistrationDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20180601preview:RegistrationDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20190401preview:RegistrationDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20190601:RegistrationDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20200201preview:RegistrationDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20220101preview:RegistrationDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:managedservices:RegistrationDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:managedservices/v20180601preview:RegistrationDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:managedservices/v20190401preview:RegistrationDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:managedservices/v20190601:RegistrationDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:managedservices/v20200201preview:RegistrationDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:managedservices/v20220101preview:RegistrationDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -91,7 +91,7 @@ namespace Pulumi.AzureNative.ManagedServices.V20190901
         }
     }
 
-    public sealed class RegistrationDefinitionArgs : global::Pulumi.ResourceArgs
+    public sealed class RegistrationDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Plan details for the managed services.
@@ -120,6 +120,5 @@ namespace Pulumi.AzureNative.ManagedServices.V20190901
         public RegistrationDefinitionArgs()
         {
         }
-        public static new RegistrationDefinitionArgs Empty => new RegistrationDefinitionArgs();
     }
 }

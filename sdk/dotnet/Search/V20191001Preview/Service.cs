@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Search.V20191001Preview
     /// </summary>
     [Obsolete(@"Version 2019-10-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:search/v20191001preview:Service")]
-    public partial class Service : global::Pulumi.CustomResource
+    public partial class Service : Pulumi.CustomResource
     {
         /// <summary>
         /// Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
@@ -125,12 +125,12 @@ namespace Pulumi.AzureNative.Search.V20191001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:search:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:search/v20150819:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:search/v20200313:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:search/v20200801:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:search/v20200801preview:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:search/v20210401preview:Service"},
+                    new Pulumi.Alias { Type = "azure-native:search:Service"},
+                    new Pulumi.Alias { Type = "azure-native:search/v20150819:Service"},
+                    new Pulumi.Alias { Type = "azure-native:search/v20200313:Service"},
+                    new Pulumi.Alias { Type = "azure-native:search/v20200801:Service"},
+                    new Pulumi.Alias { Type = "azure-native:search/v20200801preview:Service"},
+                    new Pulumi.Alias { Type = "azure-native:search/v20210401preview:Service"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -152,7 +152,7 @@ namespace Pulumi.AzureNative.Search.V20191001Preview
         }
     }
 
-    public sealed class ServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class ServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
@@ -226,6 +226,5 @@ namespace Pulumi.AzureNative.Search.V20191001Preview
             PartitionCount = 1;
             ReplicaCount = 1;
         }
-        public static new ServiceArgs Empty => new ServiceArgs();
     }
 }

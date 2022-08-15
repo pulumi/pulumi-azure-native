@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20220201Preview.Inputs
     /// <summary>
     /// The retention policy for a container registry.
     /// </summary>
-    public sealed class RetentionPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class RetentionPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of days to retain an untagged manifest after which it gets purged.
@@ -32,6 +32,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20220201Preview.Inputs
             Days = 7;
             Status = "disabled";
         }
-        public static new RetentionPolicyArgs Empty => new RetentionPolicyArgs();
     }
 }

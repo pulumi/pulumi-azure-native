@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.Inputs
     /// <summary>
     /// Defines the url and storage account ID where deployer VM packages are uploaded
     /// </summary>
-    public sealed class DeployerVmPackagesArgs : global::Pulumi.ResourceArgs
+    public sealed class DeployerVmPackagesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The deployer VM packages storage account id
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Workloads.Inputs
         public DeployerVmPackagesArgs()
         {
         }
-        public static new DeployerVmPackagesArgs Empty => new DeployerVmPackagesArgs();
     }
 }

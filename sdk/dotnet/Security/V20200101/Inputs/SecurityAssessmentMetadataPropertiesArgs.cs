@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20200101.Inputs
     /// <summary>
     /// Describes properties of an assessment metadata.
     /// </summary>
-    public sealed class SecurityAssessmentMetadataPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class SecurityAssessmentMetadataPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
@@ -88,6 +88,5 @@ namespace Pulumi.AzureNative.Security.V20200101.Inputs
         public SecurityAssessmentMetadataPropertiesArgs()
         {
         }
-        public static new SecurityAssessmentMetadataPropertiesArgs Empty => new SecurityAssessmentMetadataPropertiesArgs();
     }
 }

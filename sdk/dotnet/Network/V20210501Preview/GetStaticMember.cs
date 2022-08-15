@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20210501Preview
     }
 
 
-    public sealed class GetStaticMemberArgs : global::Pulumi.InvokeArgs
+    public sealed class GetStaticMemberArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the network group.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.Network.V20210501Preview
         public GetStaticMemberArgs()
         {
         }
-        public static new GetStaticMemberArgs Empty => new GetStaticMemberArgs();
     }
 
-    public sealed class GetStaticMemberInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetStaticMemberInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the network group.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.Network.V20210501Preview
         public GetStaticMemberInvokeArgs()
         {
         }
-        public static new GetStaticMemberInvokeArgs Empty => new GetStaticMemberInvokeArgs();
     }
 
 

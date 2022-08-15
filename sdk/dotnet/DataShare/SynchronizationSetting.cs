@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.DataShare
     /// </summary>
     [Obsolete(@"Please use one of the variants: ScheduledSynchronizationSetting.")]
     [AzureNativeResourceType("azure-native:datashare:SynchronizationSetting")]
-    public partial class SynchronizationSetting : global::Pulumi.CustomResource
+    public partial class SynchronizationSetting : Pulumi.CustomResource
     {
         /// <summary>
         /// Kind of synchronization setting.
@@ -66,11 +66,11 @@ namespace Pulumi.AzureNative.DataShare
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:SynchronizationSetting"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:SynchronizationSetting"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:SynchronizationSetting"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:SynchronizationSetting"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:SynchronizationSetting"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:SynchronizationSetting"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:SynchronizationSetting"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20200901:SynchronizationSetting"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:SynchronizationSetting"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20210801:SynchronizationSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.DataShare
         }
     }
 
-    public sealed class SynchronizationSettingArgs : global::Pulumi.ResourceArgs
+    public sealed class SynchronizationSettingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -127,6 +127,5 @@ namespace Pulumi.AzureNative.DataShare
         public SynchronizationSettingArgs()
         {
         }
-        public static new SynchronizationSettingArgs Empty => new SynchronizationSettingArgs();
     }
 }

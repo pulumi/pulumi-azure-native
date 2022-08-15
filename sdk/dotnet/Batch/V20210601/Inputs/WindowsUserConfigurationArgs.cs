@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20210601.Inputs
 {
 
-    public sealed class WindowsUserConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class WindowsUserConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies login mode for the user. The default value for VirtualMachineConfiguration pools is interactive mode and for CloudServiceConfiguration pools is batch mode.
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.Batch.V20210601.Inputs
         public WindowsUserConfigurationArgs()
         {
         }
-        public static new WindowsUserConfigurationArgs Empty => new WindowsUserConfigurationArgs();
     }
 }

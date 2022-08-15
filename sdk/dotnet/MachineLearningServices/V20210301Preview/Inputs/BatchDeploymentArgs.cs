@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// <summary>
     /// Batch inference settings per deployment.
     /// </summary>
-    public sealed class BatchDeploymentArgs : global::Pulumi.ResourceArgs
+    public sealed class BatchDeploymentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Code configuration for the endpoint deployment.
@@ -120,6 +120,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public BatchDeploymentArgs()
         {
         }
-        public static new BatchDeploymentArgs Empty => new BatchDeploymentArgs();
     }
 }

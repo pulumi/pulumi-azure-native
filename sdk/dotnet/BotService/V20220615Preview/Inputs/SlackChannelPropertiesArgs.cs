@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Inputs
     /// <summary>
     /// The parameters to provide for the Slack channel.
     /// </summary>
-    public sealed class SlackChannelPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class SlackChannelPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Slack client id
@@ -66,6 +66,5 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Inputs
         public SlackChannelPropertiesArgs()
         {
         }
-        public static new SlackChannelPropertiesArgs Empty => new SlackChannelPropertiesArgs();
     }
 }

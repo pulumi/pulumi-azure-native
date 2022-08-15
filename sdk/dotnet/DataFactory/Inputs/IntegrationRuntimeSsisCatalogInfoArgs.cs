@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Catalog information for managed dedicated integration runtime.
     /// </summary>
-    public sealed class IntegrationRuntimeSsisCatalogInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class IntegrationRuntimeSsisCatalogInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The password of the administrator user account of the catalog database.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public IntegrationRuntimeSsisCatalogInfoArgs()
         {
         }
-        public static new IntegrationRuntimeSsisCatalogInfoArgs Empty => new IntegrationRuntimeSsisCatalogInfoArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180330Preview.Inputs
     /// <summary>
     /// Specifies a configuration for FairPlay licenses.
     /// </summary>
-    public sealed class ContentKeyPolicyFairPlayConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class ContentKeyPolicyFairPlayConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key that must be used as FairPlay ASk.
@@ -55,6 +55,5 @@ namespace Pulumi.AzureNative.Media.V20180330Preview.Inputs
         public ContentKeyPolicyFairPlayConfigurationArgs()
         {
         }
-        public static new ContentKeyPolicyFairPlayConfigurationArgs Empty => new ContentKeyPolicyFairPlayConfigurationArgs();
     }
 }

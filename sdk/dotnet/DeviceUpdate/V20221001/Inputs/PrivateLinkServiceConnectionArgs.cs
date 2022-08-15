@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20221001.Inputs
     /// <summary>
     /// Private link service connection details.
     /// </summary>
-    public sealed class PrivateLinkServiceConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateLinkServiceConnectionArgs : Pulumi.ResourceArgs
     {
         [Input("groupIds")]
         private InputList<string>? _groupIds;
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20221001.Inputs
         public PrivateLinkServiceConnectionArgs()
         {
         }
-        public static new PrivateLinkServiceConnectionArgs Empty => new PrivateLinkServiceConnectionArgs();
     }
 }

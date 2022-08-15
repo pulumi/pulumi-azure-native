@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataShare.V20210801
     /// </summary>
     [Obsolete(@"Please use one of the variants: ADLSGen1FileDataSet, ADLSGen1FolderDataSet, ADLSGen2FileDataSet, ADLSGen2FileSystemDataSet, ADLSGen2FolderDataSet, BlobContainerDataSet, BlobDataSet, BlobFolderDataSet, KustoClusterDataSet, KustoDatabaseDataSet, KustoTableDataSet, SqlDBTableDataSet, SqlDWTableDataSet, SynapseWorkspaceSqlPoolTableDataSet.")]
     [AzureNativeResourceType("azure-native:datashare/v20210801:DataSet")]
-    public partial class DataSet : global::Pulumi.CustomResource
+    public partial class DataSet : Pulumi.CustomResource
     {
         /// <summary>
         /// Kind of data set.
@@ -65,11 +65,11 @@ namespace Pulumi.AzureNative.DataShare.V20210801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datashare:DataSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:DataSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:DataSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:DataSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:DataSet"},
+                    new Pulumi.Alias { Type = "azure-native:datashare:DataSet"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:DataSet"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:DataSet"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20200901:DataSet"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:DataSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -91,7 +91,7 @@ namespace Pulumi.AzureNative.DataShare.V20210801
         }
     }
 
-    public sealed class DataSetArgs : global::Pulumi.ResourceArgs
+    public sealed class DataSetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -126,6 +126,5 @@ namespace Pulumi.AzureNative.DataShare.V20210801
         public DataSetArgs()
         {
         }
-        public static new DataSetArgs Empty => new DataSetArgs();
     }
 }

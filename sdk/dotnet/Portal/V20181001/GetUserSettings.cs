@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Portal.V20181001
     }
 
 
-    public sealed class GetUserSettingsArgs : global::Pulumi.InvokeArgs
+    public sealed class GetUserSettingsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the user settings
@@ -36,10 +36,9 @@ namespace Pulumi.AzureNative.Portal.V20181001
         public GetUserSettingsArgs()
         {
         }
-        public static new GetUserSettingsArgs Empty => new GetUserSettingsArgs();
     }
 
-    public sealed class GetUserSettingsInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetUserSettingsInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the user settings
@@ -50,7 +49,6 @@ namespace Pulumi.AzureNative.Portal.V20181001
         public GetUserSettingsInvokeArgs()
         {
         }
-        public static new GetUserSettingsInvokeArgs Empty => new GetUserSettingsInvokeArgs();
     }
 
 

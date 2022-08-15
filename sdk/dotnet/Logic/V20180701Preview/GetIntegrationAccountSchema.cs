@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview
     }
 
 
-    public sealed class GetIntegrationAccountSchemaArgs : global::Pulumi.InvokeArgs
+    public sealed class GetIntegrationAccountSchemaArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The integration account name.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview
         public GetIntegrationAccountSchemaArgs()
         {
         }
-        public static new GetIntegrationAccountSchemaArgs Empty => new GetIntegrationAccountSchemaArgs();
     }
 
-    public sealed class GetIntegrationAccountSchemaInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetIntegrationAccountSchemaInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The integration account name.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview
         public GetIntegrationAccountSchemaInvokeArgs()
         {
         }
-        public static new GetIntegrationAccountSchemaInvokeArgs Empty => new GetIntegrationAccountSchemaInvokeArgs();
     }
 
 

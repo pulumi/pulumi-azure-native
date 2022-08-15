@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Inputs
     /// <summary>
     /// Describes an environment variable for the container.
     /// </summary>
-    public sealed class EnvironmentVariableArgs : global::Pulumi.ResourceArgs
+    public sealed class EnvironmentVariableArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the environment variable.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Inputs
         public EnvironmentVariableArgs()
         {
         }
-        public static new EnvironmentVariableArgs Empty => new EnvironmentVariableArgs();
     }
 }

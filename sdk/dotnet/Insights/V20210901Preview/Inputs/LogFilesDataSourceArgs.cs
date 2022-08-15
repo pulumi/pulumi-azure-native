@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20210901Preview.Inputs
     /// <summary>
     /// Definition of which custom log files will be collected by this data collection rule
     /// </summary>
-    public sealed class LogFilesDataSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class LogFilesDataSourceArgs : Pulumi.ResourceArgs
     {
         [Input("filePatterns", required: true)]
         private InputList<string>? _filePatterns;
@@ -62,6 +62,5 @@ namespace Pulumi.AzureNative.Insights.V20210901Preview.Inputs
         public LogFilesDataSourceArgs()
         {
         }
-        public static new LogFilesDataSourceArgs Empty => new LogFilesDataSourceArgs();
     }
 }

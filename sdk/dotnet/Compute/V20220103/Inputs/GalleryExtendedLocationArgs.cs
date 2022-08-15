@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20220103.Inputs
     /// <summary>
     /// The name of the extended location.
     /// </summary>
-    public sealed class GalleryExtendedLocationArgs : global::Pulumi.ResourceArgs
+    public sealed class GalleryExtendedLocationArgs : Pulumi.ResourceArgs
     {
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.Compute.V20220103.Inputs
         public GalleryExtendedLocationArgs()
         {
         }
-        public static new GalleryExtendedLocationArgs Empty => new GalleryExtendedLocationArgs();
     }
 }

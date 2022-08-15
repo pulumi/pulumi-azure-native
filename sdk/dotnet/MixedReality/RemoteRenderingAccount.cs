@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.MixedReality
     /// API Version: 2021-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:mixedreality:RemoteRenderingAccount")]
-    public partial class RemoteRenderingAccount : global::Pulumi.CustomResource
+    public partial class RemoteRenderingAccount : Pulumi.CustomResource
     {
         /// <summary>
         /// Correspond domain name of certain Spatial Anchors Account
@@ -113,10 +113,10 @@ namespace Pulumi.AzureNative.MixedReality
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:mixedreality/v20191202preview:RemoteRenderingAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:mixedreality/v20200406preview:RemoteRenderingAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:mixedreality/v20210101:RemoteRenderingAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:mixedreality/v20210301preview:RemoteRenderingAccount"},
+                    new Pulumi.Alias { Type = "azure-native:mixedreality/v20191202preview:RemoteRenderingAccount"},
+                    new Pulumi.Alias { Type = "azure-native:mixedreality/v20200406preview:RemoteRenderingAccount"},
+                    new Pulumi.Alias { Type = "azure-native:mixedreality/v20210101:RemoteRenderingAccount"},
+                    new Pulumi.Alias { Type = "azure-native:mixedreality/v20210301preview:RemoteRenderingAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -138,7 +138,7 @@ namespace Pulumi.AzureNative.MixedReality
         }
     }
 
-    public sealed class RemoteRenderingAccountArgs : global::Pulumi.ResourceArgs
+    public sealed class RemoteRenderingAccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of an Mixed Reality Account.
@@ -203,6 +203,5 @@ namespace Pulumi.AzureNative.MixedReality
         public RemoteRenderingAccountArgs()
         {
         }
-        public static new RemoteRenderingAccountArgs Empty => new RemoteRenderingAccountArgs();
     }
 }

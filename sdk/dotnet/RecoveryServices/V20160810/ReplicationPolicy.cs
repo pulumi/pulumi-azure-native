@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160810
     /// </summary>
     [Obsolete(@"Version 2016-08-10 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:recoveryservices/v20160810:ReplicationPolicy")]
-    public partial class ReplicationPolicy : global::Pulumi.CustomResource
+    public partial class ReplicationPolicy : Pulumi.CustomResource
     {
         /// <summary>
         /// Resource Location
@@ -65,23 +65,23 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160810
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices:ReplicationPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20180710:ReplicationPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210210:ReplicationPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210301:ReplicationPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210401:ReplicationPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210601:ReplicationPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210701:ReplicationPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210801:ReplicationPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20211001:ReplicationPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20211101:ReplicationPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20211201:ReplicationPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220101:ReplicationPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220201:ReplicationPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220301:ReplicationPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220401:ReplicationPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220501:ReplicationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices:ReplicationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180710:ReplicationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210210:ReplicationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210301:ReplicationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210401:ReplicationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210601:ReplicationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210701:ReplicationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210801:ReplicationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20211001:ReplicationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20211101:ReplicationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20211201:ReplicationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220101:ReplicationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220201:ReplicationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220301:ReplicationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220401:ReplicationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220501:ReplicationPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -103,7 +103,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160810
         }
     }
 
-    public sealed class ReplicationPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class ReplicationPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Replication policy name
@@ -132,6 +132,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160810
         public ReplicationPolicyArgs()
         {
         }
-        public static new ReplicationPolicyArgs Empty => new ReplicationPolicyArgs();
     }
 }

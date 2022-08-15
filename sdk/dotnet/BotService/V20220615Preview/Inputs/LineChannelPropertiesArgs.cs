@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Inputs
     /// <summary>
     /// The parameters to provide for the Line channel.
     /// </summary>
-    public sealed class LineChannelPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class LineChannelPropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("lineRegistrations", required: true)]
         private InputList<Inputs.LineRegistrationArgs>? _lineRegistrations;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Inputs
         public LineChannelPropertiesArgs()
         {
         }
-        public static new LineChannelPropertiesArgs Empty => new LineChannelPropertiesArgs();
     }
 }

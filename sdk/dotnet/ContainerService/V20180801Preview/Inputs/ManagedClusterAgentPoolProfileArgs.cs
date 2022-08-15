@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20180801Preview.Inputs
     /// <summary>
     /// Profile for the container service agent pool.
     /// </summary>
-    public sealed class ManagedClusterAgentPoolProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedClusterAgentPoolProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
@@ -85,6 +85,5 @@ namespace Pulumi.AzureNative.ContainerService.V20180801Preview.Inputs
         {
             Count = 1;
         }
-        public static new ManagedClusterAgentPoolProfileArgs Empty => new ManagedClusterAgentPoolProfileArgs();
     }
 }

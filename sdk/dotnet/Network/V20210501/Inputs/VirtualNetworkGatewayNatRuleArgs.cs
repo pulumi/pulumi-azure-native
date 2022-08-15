@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210501.Inputs
     /// <summary>
     /// VirtualNetworkGatewayNatRule Resource.
     /// </summary>
-    public sealed class VirtualNetworkGatewayNatRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualNetworkGatewayNatRuleArgs : Pulumi.ResourceArgs
     {
         [Input("externalMappings")]
         private InputList<Inputs.VpnNatRuleMappingArgs>? _externalMappings;
@@ -72,6 +72,5 @@ namespace Pulumi.AzureNative.Network.V20210501.Inputs
         public VirtualNetworkGatewayNatRuleArgs()
         {
         }
-        public static new VirtualNetworkGatewayNatRuleArgs Empty => new VirtualNetworkGatewayNatRuleArgs();
     }
 }

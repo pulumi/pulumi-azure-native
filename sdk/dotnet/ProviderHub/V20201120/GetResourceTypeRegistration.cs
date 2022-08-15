@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120
     }
 
 
-    public sealed class GetResourceTypeRegistrationArgs : global::Pulumi.InvokeArgs
+    public sealed class GetResourceTypeRegistrationArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource provider hosted within ProviderHub.
@@ -36,10 +36,9 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120
         public GetResourceTypeRegistrationArgs()
         {
         }
-        public static new GetResourceTypeRegistrationArgs Empty => new GetResourceTypeRegistrationArgs();
     }
 
-    public sealed class GetResourceTypeRegistrationInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetResourceTypeRegistrationInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource provider hosted within ProviderHub.
@@ -56,7 +55,6 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120
         public GetResourceTypeRegistrationInvokeArgs()
         {
         }
-        public static new GetResourceTypeRegistrationInvokeArgs Empty => new GetResourceTypeRegistrationInvokeArgs();
     }
 
 

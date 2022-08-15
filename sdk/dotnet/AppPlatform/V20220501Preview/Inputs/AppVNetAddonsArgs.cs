@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
     /// <summary>
     /// Additional App settings in vnet injection instance
     /// </summary>
-    public sealed class AppVNetAddonsArgs : global::Pulumi.ResourceArgs
+    public sealed class AppVNetAddonsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether the App in vnet injection instance exposes endpoint which could be accessed from internet.
@@ -25,6 +25,5 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
         {
             PublicEndpoint = false;
         }
-        public static new AppVNetAddonsArgs Empty => new AppVNetAddonsArgs();
     }
 }

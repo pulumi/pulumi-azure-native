@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
     /// <summary>
     /// Describes a raw output data source. This data source type is only applicable/usable when using the query testing API. You cannot create a job with this data source type or add an output of this data source type to an existing job.
     /// </summary>
-    public sealed class RawOutputDatasourceArgs : global::Pulumi.ResourceArgs
+    public sealed class RawOutputDatasourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The SAS URL to a blob where the output should be written. If this property is not set, output data will be written into a temporary storage, and a SAS URL to that temporary storage will be included in the result.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
         public RawOutputDatasourceArgs()
         {
         }
-        public static new RawOutputDatasourceArgs Empty => new RawOutputDatasourceArgs();
     }
 }

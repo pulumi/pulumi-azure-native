@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
     /// </summary>
     [Obsolete(@"Version 2017-09-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:datafactory/v20170901preview:Pipeline")]
-    public partial class Pipeline : global::Pulumi.CustomResource
+    public partial class Pipeline : Pulumi.CustomResource
     {
         /// <summary>
         /// List of activities in pipeline.
@@ -89,8 +89,8 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datafactory:Pipeline"},
-                    new global::Pulumi.Alias { Type = "azure-native:datafactory/v20180601:Pipeline"},
+                    new Pulumi.Alias { Type = "azure-native:datafactory:Pipeline"},
+                    new Pulumi.Alias { Type = "azure-native:datafactory/v20180601:Pipeline"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
         }
     }
 
-    public sealed class PipelineArgs : global::Pulumi.ResourceArgs
+    public sealed class PipelineArgs : Pulumi.ResourceArgs
     {
         [Input("activities")]
         private InputList<object>? _activities;
@@ -183,6 +183,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
         public PipelineArgs()
         {
         }
-        public static new PipelineArgs Empty => new PipelineArgs();
     }
 }

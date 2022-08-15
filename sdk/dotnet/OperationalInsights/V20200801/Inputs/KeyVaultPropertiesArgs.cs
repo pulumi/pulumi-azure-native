@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801.Inputs
     /// <summary>
     /// The key vault properties.
     /// </summary>
-    public sealed class KeyVaultPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class KeyVaultPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the key associated with the Log Analytics cluster.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801.Inputs
         public KeyVaultPropertiesArgs()
         {
         }
-        public static new KeyVaultPropertiesArgs Empty => new KeyVaultPropertiesArgs();
     }
 }

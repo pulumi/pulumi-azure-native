@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// <summary>
     /// Labeling job definition
     /// </summary>
-    public sealed class LabelingJobArgs : global::Pulumi.ResourceArgs
+    public sealed class LabelingJobArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration of dataset used in the job.
@@ -90,6 +90,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public LabelingJobArgs()
         {
         }
-        public static new LabelingJobArgs Empty => new LabelingJobArgs();
     }
 }

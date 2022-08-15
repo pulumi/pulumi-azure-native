@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180701.Inputs
     /// <summary>
     /// Represents input files for a Job.
     /// </summary>
-    public sealed class JobInputClipArgs : global::Pulumi.ResourceArgs
+    public sealed class JobInputClipArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
@@ -55,6 +55,5 @@ namespace Pulumi.AzureNative.Media.V20180701.Inputs
         public JobInputClipArgs()
         {
         }
-        public static new JobInputClipArgs Empty => new JobInputClipArgs();
     }
 }

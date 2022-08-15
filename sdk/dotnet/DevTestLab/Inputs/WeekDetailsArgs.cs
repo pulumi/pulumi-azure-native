@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.Inputs
     /// <summary>
     /// Properties of a weekly schedule.
     /// </summary>
-    public sealed class WeekDetailsArgs : global::Pulumi.ResourceArgs
+    public sealed class WeekDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The time of the day the schedule will occur.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DevTestLab.Inputs
         public WeekDetailsArgs()
         {
         }
-        public static new WeekDetailsArgs Empty => new WeekDetailsArgs();
     }
 }

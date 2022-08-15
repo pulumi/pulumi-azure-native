@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001
     }
 
 
-    public sealed class GetWatchlistItemArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWatchlistItemArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001
         public GetWatchlistItemArgs()
         {
         }
-        public static new GetWatchlistItemArgs Empty => new GetWatchlistItemArgs();
     }
 
-    public sealed class GetWatchlistItemInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWatchlistItemInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001
         public GetWatchlistItemInvokeArgs()
         {
         }
-        public static new GetWatchlistItemInvokeArgs Empty => new GetWatchlistItemInvokeArgs();
     }
 
 

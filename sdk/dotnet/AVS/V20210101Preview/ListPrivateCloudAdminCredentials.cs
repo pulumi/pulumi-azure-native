@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.AVS.V20210101Preview
     }
 
 
-    public sealed class ListPrivateCloudAdminCredentialsArgs : global::Pulumi.InvokeArgs
+    public sealed class ListPrivateCloudAdminCredentialsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the private cloud
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.AVS.V20210101Preview
         public ListPrivateCloudAdminCredentialsArgs()
         {
         }
-        public static new ListPrivateCloudAdminCredentialsArgs Empty => new ListPrivateCloudAdminCredentialsArgs();
     }
 
-    public sealed class ListPrivateCloudAdminCredentialsInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListPrivateCloudAdminCredentialsInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the private cloud
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.AVS.V20210101Preview
         public ListPrivateCloudAdminCredentialsInvokeArgs()
         {
         }
-        public static new ListPrivateCloudAdminCredentialsInvokeArgs Empty => new ListPrivateCloudAdminCredentialsInvokeArgs();
     }
 
 

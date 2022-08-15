@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220401.Inputs
     /// <summary>
     /// Uploaded Jar binary for a deployment
     /// </summary>
-    public sealed class JarUploadedUserSourceInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class JarUploadedUserSourceInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// JVM parameter
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.AppPlatform.V20220401.Inputs
         public JarUploadedUserSourceInfoArgs()
         {
         }
-        public static new JarUploadedUserSourceInfoArgs Empty => new JarUploadedUserSourceInfoArgs();
     }
 }

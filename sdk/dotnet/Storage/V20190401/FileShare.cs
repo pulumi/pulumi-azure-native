@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Storage.V20190401
     /// </summary>
     [Obsolete(@"Version 2019-04-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storage/v20190401:FileShare")]
-    public partial class FileShare : global::Pulumi.CustomResource
+    public partial class FileShare : Pulumi.CustomResource
     {
         /// <summary>
         /// Resource Etag.
@@ -77,16 +77,16 @@ namespace Pulumi.AzureNative.Storage.V20190401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:storage:FileShare"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20190601:FileShare"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20200801preview:FileShare"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210101:FileShare"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210201:FileShare"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210401:FileShare"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210601:FileShare"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210801:FileShare"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210901:FileShare"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20220501:FileShare"},
+                    new Pulumi.Alias { Type = "azure-native:storage:FileShare"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20190601:FileShare"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:FileShare"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210101:FileShare"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210201:FileShare"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210401:FileShare"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210601:FileShare"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210801:FileShare"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210901:FileShare"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20220501:FileShare"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.Storage.V20190401
         }
     }
 
-    public sealed class FileShareArgs : global::Pulumi.ResourceArgs
+    public sealed class FileShareArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -149,6 +149,5 @@ namespace Pulumi.AzureNative.Storage.V20190401
         public FileShareArgs()
         {
         }
-        public static new FileShareArgs Empty => new FileShareArgs();
     }
 }

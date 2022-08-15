@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Network
     /// </summary>
     [Obsolete(@"Please use one of the variants: AdminRule, DefaultAdminRule.")]
     [AzureNativeResourceType("azure-native:network:AdminRule")]
-    public partial class AdminRule : global::Pulumi.CustomResource
+    public partial class AdminRule : Pulumi.CustomResource
     {
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -72,11 +72,11 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:AdminRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:AdminRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:AdminRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:AdminRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:AdminRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201preview:AdminRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501preview:AdminRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:AdminRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220201preview:AdminRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220401preview:AdminRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.Network
         }
     }
 
-    public sealed class AdminRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class AdminRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the network manager security Configuration.
@@ -139,6 +139,5 @@ namespace Pulumi.AzureNative.Network
         public AdminRuleArgs()
         {
         }
-        public static new AdminRuleArgs Empty => new AdminRuleArgs();
     }
 }

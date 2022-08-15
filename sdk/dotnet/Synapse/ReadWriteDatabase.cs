@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Synapse
     /// API Version: 2021-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:ReadWriteDatabase")]
-    public partial class ReadWriteDatabase : global::Pulumi.CustomResource
+    public partial class ReadWriteDatabase : Pulumi.CustomResource
     {
         /// <summary>
         /// The time the data should be kept in cache for fast queries in TimeSpan.
@@ -109,8 +109,8 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:ReadWriteDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:ReadWriteDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:ReadWriteDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:ReadWriteDatabase"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNative.Synapse
         }
     }
 
-    public sealed class ReadWriteDatabaseArgs : global::Pulumi.ResourceArgs
+    public sealed class ReadWriteDatabaseArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the database in the Kusto pool.
@@ -186,6 +186,5 @@ namespace Pulumi.AzureNative.Synapse
         public ReadWriteDatabaseArgs()
         {
         }
-        public static new ReadWriteDatabaseArgs Empty => new ReadWriteDatabaseArgs();
     }
 }

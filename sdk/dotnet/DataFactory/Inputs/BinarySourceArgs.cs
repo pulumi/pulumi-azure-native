@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity Binary source.
     /// </summary>
-    public sealed class BinarySourceArgs : global::Pulumi.ResourceArgs
+    public sealed class BinarySourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -61,6 +61,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public BinarySourceArgs()
         {
         }
-        public static new BinarySourceArgs Empty => new BinarySourceArgs();
     }
 }

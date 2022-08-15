@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity Hive Server source.
     /// </summary>
-    public sealed class HiveSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class HiveSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -67,6 +67,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public HiveSourceArgs()
         {
         }
-        public static new HiveSourceArgs Empty => new HiveSourceArgs();
     }
 }

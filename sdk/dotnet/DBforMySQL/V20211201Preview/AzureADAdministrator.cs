@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview
     /// Represents a Administrator.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql/v20211201preview:AzureADAdministrator")]
-    public partial class AzureADAdministrator : global::Pulumi.CustomResource
+    public partial class AzureADAdministrator : Pulumi.CustomResource
     {
         /// <summary>
         /// Type of the sever administrator.
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview
         }
     }
 
-    public sealed class AzureADAdministratorArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureADAdministratorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Azure AD Administrator.
@@ -159,6 +159,5 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview
         public AzureADAdministratorArgs()
         {
         }
-        public static new AzureADAdministratorArgs Empty => new AzureADAdministratorArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
     /// <summary>
     /// Describes an Event Hub input data source that contains stream data.
     /// </summary>
-    public sealed class EventHubV2StreamInputDataSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class EventHubV2StreamInputDataSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authentication Mode.
@@ -61,6 +61,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
         public EventHubV2StreamInputDataSourceArgs()
         {
         }
-        public static new EventHubV2StreamInputDataSourceArgs Empty => new EventHubV2StreamInputDataSourceArgs();
     }
 }

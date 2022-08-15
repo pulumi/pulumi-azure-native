@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ExtendedLocation.V20210815
     /// Custom Locations definition.
     /// </summary>
     [AzureNativeResourceType("azure-native:extendedlocation/v20210815:CustomLocation")]
-    public partial class CustomLocation : global::Pulumi.CustomResource
+    public partial class CustomLocation : Pulumi.CustomResource
     {
         /// <summary>
         /// This is optional input that contains the authentication that should be used to generate the namespace.
@@ -118,9 +118,9 @@ namespace Pulumi.AzureNative.ExtendedLocation.V20210815
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:extendedlocation:CustomLocation"},
-                    new global::Pulumi.Alias { Type = "azure-native:extendedlocation/v20210315preview:CustomLocation"},
-                    new global::Pulumi.Alias { Type = "azure-native:extendedlocation/v20210831preview:CustomLocation"},
+                    new Pulumi.Alias { Type = "azure-native:extendedlocation:CustomLocation"},
+                    new Pulumi.Alias { Type = "azure-native:extendedlocation/v20210315preview:CustomLocation"},
+                    new Pulumi.Alias { Type = "azure-native:extendedlocation/v20210831preview:CustomLocation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNative.ExtendedLocation.V20210815
         }
     }
 
-    public sealed class CustomLocationArgs : global::Pulumi.ResourceArgs
+    public sealed class CustomLocationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// This is optional input that contains the authentication that should be used to generate the namespace.
@@ -231,6 +231,5 @@ namespace Pulumi.AzureNative.ExtendedLocation.V20210815
         public CustomLocationArgs()
         {
         }
-        public static new CustomLocationArgs Empty => new CustomLocationArgs();
     }
 }

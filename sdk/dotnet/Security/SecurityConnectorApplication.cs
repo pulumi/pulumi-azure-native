@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Security
     /// API Version: 2022-07-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:SecurityConnectorApplication")]
-    public partial class SecurityConnectorApplication : global::Pulumi.CustomResource
+    public partial class SecurityConnectorApplication : Pulumi.CustomResource
     {
         /// <summary>
         /// description of the application
@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.Security
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:security/v20220701preview:SecurityConnectorApplication"},
+                    new Pulumi.Alias { Type = "azure-native:security/v20220701preview:SecurityConnectorApplication"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.Security
         }
     }
 
-    public sealed class SecurityConnectorApplicationArgs : global::Pulumi.ResourceArgs
+    public sealed class SecurityConnectorApplicationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The security Application key - unique key for the standard application
@@ -134,6 +134,5 @@ namespace Pulumi.AzureNative.Security
         public SecurityConnectorApplicationArgs()
         {
         }
-        public static new SecurityConnectorApplicationArgs Empty => new SecurityConnectorApplicationArgs();
     }
 }

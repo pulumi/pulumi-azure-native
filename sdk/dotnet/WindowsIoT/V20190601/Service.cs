@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.WindowsIoT.V20190601
     /// The description of the Windows IoT Device Service.
     /// </summary>
     [AzureNativeResourceType("azure-native:windowsiot/v20190601:Service")]
-    public partial class Service : global::Pulumi.CustomResource
+    public partial class Service : Pulumi.CustomResource
     {
         /// <summary>
         /// Windows IoT Device Service OEM AAD domain
@@ -100,8 +100,8 @@ namespace Pulumi.AzureNative.WindowsIoT.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:windowsiot:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:windowsiot/v20180216preview:Service"},
+                    new Pulumi.Alias { Type = "azure-native:windowsiot:Service"},
+                    new Pulumi.Alias { Type = "azure-native:windowsiot/v20180216preview:Service"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -123,7 +123,7 @@ namespace Pulumi.AzureNative.WindowsIoT.V20190601
         }
     }
 
-    public sealed class ServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class ServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Windows IoT Device Service OEM AAD domain
@@ -182,6 +182,5 @@ namespace Pulumi.AzureNative.WindowsIoT.V20190601
         public ServiceArgs()
         {
         }
-        public static new ServiceArgs Empty => new ServiceArgs();
     }
 }

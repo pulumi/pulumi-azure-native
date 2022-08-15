@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Azure blobFS read settings.
     /// </summary>
-    public sealed class AzureBlobFSReadSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureBlobFSReadSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -91,6 +91,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public AzureBlobFSReadSettingsArgs()
         {
         }
-        public static new AzureBlobFSReadSettingsArgs Empty => new AzureBlobFSReadSettingsArgs();
     }
 }

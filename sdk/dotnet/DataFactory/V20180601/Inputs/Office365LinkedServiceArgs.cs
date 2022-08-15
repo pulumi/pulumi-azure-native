@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Office365 linked service.
     /// </summary>
-    public sealed class Office365LinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class Office365LinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -91,6 +91,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Office365LinkedServiceArgs()
         {
         }
-        public static new Office365LinkedServiceArgs Empty => new Office365LinkedServiceArgs();
     }
 }

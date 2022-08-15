@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview
     /// API portal resource
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform/v20220101preview:ApiPortal")]
-    public partial class ApiPortal : global::Pulumi.CustomResource
+    public partial class ApiPortal : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource.
@@ -70,9 +70,9 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform:ApiPortal"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:ApiPortal"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:ApiPortal"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform:ApiPortal"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:ApiPortal"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:ApiPortal"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview
         }
     }
 
-    public sealed class ApiPortalArgs : global::Pulumi.ResourceArgs
+    public sealed class ApiPortalArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of API portal.
@@ -129,6 +129,5 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview
         public ApiPortalArgs()
         {
         }
-        public static new ApiPortalArgs Empty => new ApiPortalArgs();
     }
 }

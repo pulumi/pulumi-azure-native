@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
     }
 
 
-    public sealed class GetKpiArgs : global::Pulumi.InvokeArgs
+    public sealed class GetKpiArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the hub.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
         public GetKpiArgs()
         {
         }
-        public static new GetKpiArgs Empty => new GetKpiArgs();
     }
 
-    public sealed class GetKpiInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetKpiInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the hub.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
         public GetKpiInvokeArgs()
         {
         }
-        public static new GetKpiInvokeArgs Empty => new GetKpiInvokeArgs();
     }
 
 

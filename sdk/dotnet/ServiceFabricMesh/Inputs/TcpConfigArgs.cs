@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.Inputs
     /// <summary>
     /// Describes the tcp configuration for external connectivity for this network.
     /// </summary>
-    public sealed class TcpConfigArgs : global::Pulumi.ResourceArgs
+    public sealed class TcpConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes destination endpoint for routing traffic.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.Inputs
         public TcpConfigArgs()
         {
         }
-        public static new TcpConfigArgs Empty => new TcpConfigArgs();
     }
 }

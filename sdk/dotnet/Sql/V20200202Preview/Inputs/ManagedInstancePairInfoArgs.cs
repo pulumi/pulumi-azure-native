@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview.Inputs
     /// <summary>
     /// Pairs of Managed Instances in the failover group.
     /// </summary>
-    public sealed class ManagedInstancePairInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedInstancePairInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Id of Partner Managed Instance in pair.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview.Inputs
         public ManagedInstancePairInfoArgs()
         {
         }
-        public static new ManagedInstancePairInfoArgs Empty => new ManagedInstancePairInfoArgs();
     }
 }

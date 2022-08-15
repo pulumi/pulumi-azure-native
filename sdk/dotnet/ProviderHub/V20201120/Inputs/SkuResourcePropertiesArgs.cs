@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20201120.Inputs
 {
 
-    public sealed class SkuResourcePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class SkuResourcePropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("provisioningState")]
         public InputUnion<string, Pulumi.AzureNative.ProviderHub.V20201120.ProvisioningState>? ProvisioningState { get; set; }
@@ -26,6 +26,5 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120.Inputs
         public SkuResourcePropertiesArgs()
         {
         }
-        public static new SkuResourcePropertiesArgs Empty => new SkuResourcePropertiesArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Insights.Inputs
     /// Definition of which Windows Event Log events will be collected and how they will be collected.
     /// Only collected from Windows machines.
     /// </summary>
-    public sealed class WindowsEventLogDataSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class WindowsEventLogDataSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A friendly name for the data source. 
@@ -51,6 +51,5 @@ namespace Pulumi.AzureNative.Insights.Inputs
         public WindowsEventLogDataSourceArgs()
         {
         }
-        public static new WindowsEventLogDataSourceArgs Empty => new WindowsEventLogDataSourceArgs();
     }
 }

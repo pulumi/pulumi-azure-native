@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20180601Preview
     }
 
 
-    public sealed class GetCacheArgs : global::Pulumi.InvokeArgs
+    public sealed class GetCacheArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.ApiManagement.V20180601Preview
         public GetCacheArgs()
         {
         }
-        public static new GetCacheArgs Empty => new GetCacheArgs();
     }
 
-    public sealed class GetCacheInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetCacheInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20180601Preview
         public GetCacheInvokeArgs()
         {
         }
-        public static new GetCacheInvokeArgs Empty => new GetCacheInvokeArgs();
     }
 
 

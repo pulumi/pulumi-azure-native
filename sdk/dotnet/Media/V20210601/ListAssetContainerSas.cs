@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Media.V20210601
     }
 
 
-    public sealed class ListAssetContainerSasArgs : global::Pulumi.InvokeArgs
+    public sealed class ListAssetContainerSasArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -60,10 +60,9 @@ namespace Pulumi.AzureNative.Media.V20210601
         public ListAssetContainerSasArgs()
         {
         }
-        public static new ListAssetContainerSasArgs Empty => new ListAssetContainerSasArgs();
     }
 
-    public sealed class ListAssetContainerSasInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListAssetContainerSasInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -98,7 +97,6 @@ namespace Pulumi.AzureNative.Media.V20210601
         public ListAssetContainerSasInvokeArgs()
         {
         }
-        public static new ListAssetContainerSasInvokeArgs Empty => new ListAssetContainerSasInvokeArgs();
     }
 
 

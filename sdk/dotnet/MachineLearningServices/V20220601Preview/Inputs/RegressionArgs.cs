@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// Regression task in AutoML Table vertical.
     /// </summary>
-    public sealed class RegressionArgs : global::Pulumi.ResourceArgs
+    public sealed class RegressionArgs : Pulumi.ResourceArgs
     {
         [Input("cvSplitColumnNames")]
         private InputList<string>? _cvSplitColumnNames;
@@ -123,6 +123,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
             LogVerbosity = "Info";
             PrimaryMetric = "NormalizedRootMeanSquaredError";
         }
-        public static new RegressionArgs Empty => new RegressionArgs();
     }
 }

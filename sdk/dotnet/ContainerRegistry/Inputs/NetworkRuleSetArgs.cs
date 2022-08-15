@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.Inputs
     /// <summary>
     /// The network rule set for a container registry.
     /// </summary>
-    public sealed class NetworkRuleSetArgs : global::Pulumi.ResourceArgs
+    public sealed class NetworkRuleSetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The default action of allow or deny when no other rules match.
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.Inputs
         {
             DefaultAction = "Allow";
         }
-        public static new NetworkRuleSetArgs Empty => new NetworkRuleSetArgs();
     }
 }

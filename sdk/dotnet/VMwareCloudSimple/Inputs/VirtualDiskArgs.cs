@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VMwareCloudSimple.Inputs
     /// <summary>
     /// Virtual disk model
     /// </summary>
-    public sealed class VirtualDiskArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualDiskArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Disk's Controller id
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.VMwareCloudSimple.Inputs
         public VirtualDiskArgs()
         {
         }
-        public static new VirtualDiskArgs Empty => new VirtualDiskArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Security
     /// API Version: 2021-01-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:IngestionSetting")]
-    public partial class IngestionSetting : global::Pulumi.CustomResource
+    public partial class IngestionSetting : Pulumi.CustomResource
     {
         /// <summary>
         /// Resource name
@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.Security
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:security/v20210115preview:IngestionSetting"},
+                    new Pulumi.Alias { Type = "azure-native:security/v20210115preview:IngestionSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -75,7 +75,7 @@ namespace Pulumi.AzureNative.Security
         }
     }
 
-    public sealed class IngestionSettingArgs : global::Pulumi.ResourceArgs
+    public sealed class IngestionSettingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the ingestion setting
@@ -86,6 +86,5 @@ namespace Pulumi.AzureNative.Security
         public IngestionSettingArgs()
         {
         }
-        public static new IngestionSettingArgs Empty => new IngestionSettingArgs();
     }
 }

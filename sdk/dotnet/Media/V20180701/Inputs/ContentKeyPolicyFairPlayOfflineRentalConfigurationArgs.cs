@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20180701.Inputs
 {
 
-    public sealed class ContentKeyPolicyFairPlayOfflineRentalConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class ContentKeyPolicyFairPlayOfflineRentalConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Playback duration
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.Media.V20180701.Inputs
         public ContentKeyPolicyFairPlayOfflineRentalConfigurationArgs()
         {
         }
-        public static new ContentKeyPolicyFairPlayOfflineRentalConfigurationArgs Empty => new ContentKeyPolicyFairPlayOfflineRentalConfigurationArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network
     /// API Version: 2021-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NspAssociation")]
-    public partial class NspAssociation : global::Pulumi.CustomResource
+    public partial class NspAssociation : Pulumi.CustomResource
     {
         /// <summary>
         /// Access mode on the association.
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:NspAssociation"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201preview:NspAssociation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.Network
         }
     }
 
-    public sealed class NspAssociationArgs : global::Pulumi.ResourceArgs
+    public sealed class NspAssociationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Access mode on the association.
@@ -188,6 +188,5 @@ namespace Pulumi.AzureNative.Network
         public NspAssociationArgs()
         {
         }
-        public static new NspAssociationArgs Empty => new NspAssociationArgs();
     }
 }

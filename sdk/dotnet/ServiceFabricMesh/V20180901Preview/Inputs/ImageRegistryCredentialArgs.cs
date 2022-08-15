@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Inputs
     /// <summary>
     /// Image registry credential.
     /// </summary>
-    public sealed class ImageRegistryCredentialArgs : global::Pulumi.ResourceArgs
+    public sealed class ImageRegistryCredentialArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The password for the private registry. The password is required for create or update operations, however it is not returned in the get or list operations.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Inputs
         public ImageRegistryCredentialArgs()
         {
         }
-        public static new ImageRegistryCredentialArgs Empty => new ImageRegistryCredentialArgs();
     }
 }

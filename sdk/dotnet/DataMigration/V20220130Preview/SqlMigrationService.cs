@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220130Preview
     /// A SQL Migration Service.
     /// </summary>
     [AzureNativeResourceType("azure-native:datamigration/v20220130preview:SqlMigrationService")]
-    public partial class SqlMigrationService : global::Pulumi.CustomResource
+    public partial class SqlMigrationService : Pulumi.CustomResource
     {
         /// <summary>
         /// Current state of the Integration runtime.
@@ -67,9 +67,9 @@ namespace Pulumi.AzureNative.DataMigration.V20220130Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration:SqlMigrationService"},
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20211030preview:SqlMigrationService"},
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20220330preview:SqlMigrationService"},
+                    new Pulumi.Alias { Type = "azure-native:datamigration:SqlMigrationService"},
+                    new Pulumi.Alias { Type = "azure-native:datamigration/v20211030preview:SqlMigrationService"},
+                    new Pulumi.Alias { Type = "azure-native:datamigration/v20220330preview:SqlMigrationService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -91,7 +91,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220130Preview
         }
     }
 
-    public sealed class SqlMigrationServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class SqlMigrationServiceArgs : Pulumi.ResourceArgs
     {
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -119,6 +119,5 @@ namespace Pulumi.AzureNative.DataMigration.V20220130Preview
         public SqlMigrationServiceArgs()
         {
         }
-        public static new SqlMigrationServiceArgs Empty => new SqlMigrationServiceArgs();
     }
 }

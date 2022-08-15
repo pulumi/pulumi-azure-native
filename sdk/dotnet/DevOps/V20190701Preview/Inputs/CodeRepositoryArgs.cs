@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevOps.V20190701Preview.Inputs
     /// <summary>
     /// Repository containing the source code for a pipeline.
     /// </summary>
-    public sealed class CodeRepositoryArgs : global::Pulumi.ResourceArgs
+    public sealed class CodeRepositoryArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authorization info to access the code repository.
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.DevOps.V20190701Preview.Inputs
         public CodeRepositoryArgs()
         {
         }
-        public static new CodeRepositoryArgs Empty => new CodeRepositoryArgs();
     }
 }

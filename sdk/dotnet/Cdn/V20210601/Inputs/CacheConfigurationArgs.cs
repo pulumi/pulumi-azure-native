@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
     /// <summary>
     /// Caching settings for a caching-type route. To disable caching, do not provide a cacheConfiguration object.
     /// </summary>
-    public sealed class CacheConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class CacheConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Caching behavior for the requests
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
         public CacheConfigurationArgs()
         {
         }
-        public static new CacheConfigurationArgs Empty => new CacheConfigurationArgs();
     }
 }

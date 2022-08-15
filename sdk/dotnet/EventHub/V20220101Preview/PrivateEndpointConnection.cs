@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventHub.V20220101Preview
     /// Properties of the PrivateEndpointConnection.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub/v20220101preview:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -82,11 +82,11 @@ namespace Pulumi.AzureNative.EventHub.V20220101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210101preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210601preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20211101:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20210101preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20210601preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20211101:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.EventHub.V20220101Preview
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Namespace name
@@ -149,6 +149,5 @@ namespace Pulumi.AzureNative.EventHub.V20220101Preview
         public PrivateEndpointConnectionArgs()
         {
         }
-        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

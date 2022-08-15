@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Security
     }
 
 
-    public sealed class GetDeviceSecurityGroupArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDeviceSecurityGroupArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the device security group. Note that the name of the device security group is case insensitive.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.Security
         public GetDeviceSecurityGroupArgs()
         {
         }
-        public static new GetDeviceSecurityGroupArgs Empty => new GetDeviceSecurityGroupArgs();
     }
 
-    public sealed class GetDeviceSecurityGroupInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDeviceSecurityGroupInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the device security group. Note that the name of the device security group is case insensitive.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.Security
         public GetDeviceSecurityGroupInvokeArgs()
         {
         }
-        public static new GetDeviceSecurityGroupInvokeArgs Empty => new GetDeviceSecurityGroupInvokeArgs();
     }
 
 

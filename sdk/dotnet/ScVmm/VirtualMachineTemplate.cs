@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ScVmm
     /// API Version: 2020-06-05-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:scvmm:VirtualMachineTemplate")]
-    public partial class VirtualMachineTemplate : global::Pulumi.CustomResource
+    public partial class VirtualMachineTemplate : Pulumi.CustomResource
     {
         /// <summary>
         /// Gets or sets computer name.
@@ -185,7 +185,7 @@ namespace Pulumi.AzureNative.ScVmm
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:scvmm/v20200605preview:VirtualMachineTemplate"},
+                    new Pulumi.Alias { Type = "azure-native:scvmm/v20200605preview:VirtualMachineTemplate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -207,7 +207,7 @@ namespace Pulumi.AzureNative.ScVmm
         }
     }
 
-    public sealed class VirtualMachineTemplateArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualMachineTemplateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The extended location.
@@ -266,6 +266,5 @@ namespace Pulumi.AzureNative.ScVmm
         public VirtualMachineTemplateArgs()
         {
         }
-        public static new VirtualMachineTemplateArgs Empty => new VirtualMachineTemplateArgs();
     }
 }

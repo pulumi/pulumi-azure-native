@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Authorization.V20200501
     }
 
 
-    public sealed class GetResourceManagementPrivateLinkArgs : global::Pulumi.InvokeArgs
+    public sealed class GetResourceManagementPrivateLinkArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -36,10 +36,9 @@ namespace Pulumi.AzureNative.Authorization.V20200501
         public GetResourceManagementPrivateLinkArgs()
         {
         }
-        public static new GetResourceManagementPrivateLinkArgs Empty => new GetResourceManagementPrivateLinkArgs();
     }
 
-    public sealed class GetResourceManagementPrivateLinkInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetResourceManagementPrivateLinkInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -56,7 +55,6 @@ namespace Pulumi.AzureNative.Authorization.V20200501
         public GetResourceManagementPrivateLinkInvokeArgs()
         {
         }
-        public static new GetResourceManagementPrivateLinkInvokeArgs Empty => new GetResourceManagementPrivateLinkInvokeArgs();
     }
 
 

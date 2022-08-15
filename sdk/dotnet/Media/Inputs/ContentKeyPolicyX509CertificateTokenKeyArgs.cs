@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.Inputs
     /// <summary>
     /// Specifies a certificate for token validation.
     /// </summary>
-    public sealed class ContentKeyPolicyX509CertificateTokenKeyArgs : global::Pulumi.ResourceArgs
+    public sealed class ContentKeyPolicyX509CertificateTokenKeyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The discriminator for derived types.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.Media.Inputs
         public ContentKeyPolicyX509CertificateTokenKeyArgs()
         {
         }
-        public static new ContentKeyPolicyX509CertificateTokenKeyArgs Empty => new ContentKeyPolicyX509CertificateTokenKeyArgs();
     }
 }

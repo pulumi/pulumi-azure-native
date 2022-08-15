@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.Inputs
     /// <summary>
     /// The RosettaNet ProcessConfiguration business document settings.
     /// </summary>
-    public sealed class RosettaNetPipBusinessDocumentArgs : global::Pulumi.ResourceArgs
+    public sealed class RosettaNetPipBusinessDocumentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The business document description.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Logic.Inputs
         public RosettaNetPipBusinessDocumentArgs()
         {
         }
-        public static new RosettaNetPipBusinessDocumentArgs Empty => new RosettaNetPipBusinessDocumentArgs();
     }
 }

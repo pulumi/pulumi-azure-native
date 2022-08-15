@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Hive Server dataset.
     /// </summary>
-    public sealed class HiveObjectDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class HiveObjectDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -91,6 +91,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public HiveObjectDatasetArgs()
         {
         }
-        public static new HiveObjectDatasetArgs Empty => new HiveObjectDatasetArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.BotService.V20180712
     }
 
 
-    public sealed class GetChannelArgs : global::Pulumi.InvokeArgs
+    public sealed class GetChannelArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Bot resource.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.BotService.V20180712
         public GetChannelArgs()
         {
         }
-        public static new GetChannelArgs Empty => new GetChannelArgs();
     }
 
-    public sealed class GetChannelInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetChannelInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Bot resource.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.BotService.V20180712
         public GetChannelInvokeArgs()
         {
         }
-        public static new GetChannelInvokeArgs Empty => new GetChannelInvokeArgs();
     }
 
 

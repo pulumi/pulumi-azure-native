@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Authorization.V20151001Preview
     }
 
 
-    public sealed class GetPolicyDefinitionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPolicyDefinitionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the policy definition to get.
@@ -37,10 +37,9 @@ namespace Pulumi.AzureNative.Authorization.V20151001Preview
         public GetPolicyDefinitionArgs()
         {
         }
-        public static new GetPolicyDefinitionArgs Empty => new GetPolicyDefinitionArgs();
     }
 
-    public sealed class GetPolicyDefinitionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPolicyDefinitionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the policy definition to get.
@@ -51,7 +50,6 @@ namespace Pulumi.AzureNative.Authorization.V20151001Preview
         public GetPolicyDefinitionInvokeArgs()
         {
         }
-        public static new GetPolicyDefinitionInvokeArgs Empty => new GetPolicyDefinitionInvokeArgs();
     }
 
 

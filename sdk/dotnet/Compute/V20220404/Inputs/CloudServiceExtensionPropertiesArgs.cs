@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20220404.Inputs
     /// <summary>
     /// Extension Properties.
     /// </summary>
-    public sealed class CloudServiceExtensionPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class CloudServiceExtensionPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Explicitly specify whether platform can automatically upgrade typeHandlerVersion to higher minor versions when they become available.
@@ -82,6 +82,5 @@ namespace Pulumi.AzureNative.Compute.V20220404.Inputs
         public CloudServiceExtensionPropertiesArgs()
         {
         }
-        public static new CloudServiceExtensionPropertiesArgs Empty => new CloudServiceExtensionPropertiesArgs();
     }
 }

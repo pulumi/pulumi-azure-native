@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridData.Inputs
     /// <summary>
     /// The sku type.
     /// </summary>
-    public sealed class SkuArgs : global::Pulumi.ResourceArgs
+    public sealed class SkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The sku name. Required for data manager creation, optional for update.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.HybridData.Inputs
         public SkuArgs()
         {
         }
-        public static new SkuArgs Empty => new SkuArgs();
     }
 }

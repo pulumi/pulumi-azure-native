@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20220201Preview.Inputs
     /// <summary>
     /// The policies for a container registry.
     /// </summary>
-    public sealed class PoliciesArgs : global::Pulumi.ResourceArgs
+    public sealed class PoliciesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The policy for using ARM audience token for a container registry.
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20220201Preview.Inputs
         public PoliciesArgs()
         {
         }
-        public static new PoliciesArgs Empty => new PoliciesArgs();
     }
 }

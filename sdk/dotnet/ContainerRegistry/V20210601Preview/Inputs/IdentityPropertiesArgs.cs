@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210601Preview.Inputs
     /// <summary>
     /// Managed identity for the resource.
     /// </summary>
-    public sealed class IdentityPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class IdentityPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The principal ID of resource identity.
@@ -51,6 +51,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210601Preview.Inputs
         public IdentityPropertiesArgs()
         {
         }
-        public static new IdentityPropertiesArgs Empty => new IdentityPropertiesArgs();
     }
 }

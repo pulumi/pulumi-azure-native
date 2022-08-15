@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20211101.Inputs
     /// <summary>
     /// A Sequence contains an ordered list of Clips where each clip is a JobInput.  The Sequence will be treated as a single input.
     /// </summary>
-    public sealed class JobInputSequenceArgs : global::Pulumi.ResourceArgs
+    public sealed class JobInputSequenceArgs : Pulumi.ResourceArgs
     {
         [Input("inputs")]
         private InputList<Inputs.JobInputClipArgs>? _inputs;
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.Media.V20211101.Inputs
         public JobInputSequenceArgs()
         {
         }
-        public static new JobInputSequenceArgs Empty => new JobInputSequenceArgs();
     }
 }

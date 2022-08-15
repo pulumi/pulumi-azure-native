@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
     /// Schema Contract details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20180101:ApiSchema")]
-    public partial class ApiSchema : global::Pulumi.CustomResource
+    public partial class ApiSchema : Pulumi.CustomResource
     {
         /// <summary>
         /// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml).
@@ -64,18 +64,18 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:ApiSchema"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiSchema"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiSchema"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiSchema"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiSchema"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiSchema"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiSchema"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ApiSchema"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:ApiSchema"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:ApiSchema"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ApiSchema"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ApiSchema"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:ApiSchema"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiSchema"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiSchema"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiSchema"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiSchema"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiSchema"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiSchema"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ApiSchema"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:ApiSchema"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:ApiSchema"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ApiSchema"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ApiSchema"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -97,7 +97,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
         }
     }
 
-    public sealed class ApiSchemaArgs : global::Pulumi.ResourceArgs
+    public sealed class ApiSchemaArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -138,6 +138,5 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
         public ApiSchemaArgs()
         {
         }
-        public static new ApiSchemaArgs Empty => new ApiSchemaArgs();
     }
 }

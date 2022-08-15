@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     /// </summary>
     [Obsolete(@"Version 2016-10-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storsimple/v20161001:StorageDomain")]
-    public partial class StorageDomain : global::Pulumi.CustomResource
+    public partial class StorageDomain : Pulumi.CustomResource
     {
         /// <summary>
         /// The encryption key used to encrypt the data. This is a user secret.
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         }
     }
 
-    public sealed class StorageDomainArgs : global::Pulumi.ResourceArgs
+    public sealed class StorageDomainArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The encryption key used to encrypt the data. This is a user secret.
@@ -136,6 +136,5 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public StorageDomainArgs()
         {
         }
-        public static new StorageDomainArgs Empty => new StorageDomainArgs();
     }
 }

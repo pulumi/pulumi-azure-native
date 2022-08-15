@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.V20210622
     /// Definition of the automation account type.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation/v20210622:AutomationAccount")]
-    public partial class AutomationAccount : global::Pulumi.CustomResource
+    public partial class AutomationAccount : Pulumi.CustomResource
     {
         /// <summary>
         /// URL of automation hybrid service which is used for hybrid worker on-boarding.
@@ -148,10 +148,10 @@ namespace Pulumi.AzureNative.Automation.V20210622
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:automation:AutomationAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20151031:AutomationAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20190601:AutomationAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20200113preview:AutomationAccount"},
+                    new Pulumi.Alias { Type = "azure-native:automation:AutomationAccount"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20151031:AutomationAccount"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20190601:AutomationAccount"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20200113preview:AutomationAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -173,7 +173,7 @@ namespace Pulumi.AzureNative.Automation.V20210622
         }
     }
 
-    public sealed class AutomationAccountArgs : global::Pulumi.ResourceArgs
+    public sealed class AutomationAccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -244,6 +244,5 @@ namespace Pulumi.AzureNative.Automation.V20210622
         public AutomationAccountArgs()
         {
         }
-        public static new AutomationAccountArgs Empty => new AutomationAccountArgs();
     }
 }

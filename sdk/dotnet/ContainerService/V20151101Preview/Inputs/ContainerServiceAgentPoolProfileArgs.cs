@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20151101Preview.Inputs
     /// <summary>
     /// Profile for container service agent pool
     /// </summary>
-    public sealed class ContainerServiceAgentPoolProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class ContainerServiceAgentPoolProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// No. of agents (VMs) that will host docker containers
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.ContainerService.V20151101Preview.Inputs
         public ContainerServiceAgentPoolProfileArgs()
         {
         }
-        public static new ContainerServiceAgentPoolProfileArgs Empty => new ContainerServiceAgentPoolProfileArgs();
     }
 }

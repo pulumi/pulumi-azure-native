@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20220101
     }
 
 
-    public sealed class GetVirtualNetworkGatewayNatRuleArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkGatewayNatRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the nat rule.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Network.V20220101
         public GetVirtualNetworkGatewayNatRuleArgs()
         {
         }
-        public static new GetVirtualNetworkGatewayNatRuleArgs Empty => new GetVirtualNetworkGatewayNatRuleArgs();
     }
 
-    public sealed class GetVirtualNetworkGatewayNatRuleInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkGatewayNatRuleInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the nat rule.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Network.V20220101
         public GetVirtualNetworkGatewayNatRuleInvokeArgs()
         {
         }
-        public static new GetVirtualNetworkGatewayNatRuleInvokeArgs Empty => new GetVirtualNetworkGatewayNatRuleInvokeArgs();
     }
 
 

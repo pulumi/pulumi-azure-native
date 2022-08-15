@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20220101.Inputs
     /// <summary>
     /// Desired properties of the cluster.
     /// </summary>
-    public sealed class ClusterDesiredPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ClusterDesiredPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Desired level of diagnostic data emitted by the cluster.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20220101.Inputs
         public ClusterDesiredPropertiesArgs()
         {
         }
-        public static new ClusterDesiredPropertiesArgs Empty => new ClusterDesiredPropertiesArgs();
     }
 }

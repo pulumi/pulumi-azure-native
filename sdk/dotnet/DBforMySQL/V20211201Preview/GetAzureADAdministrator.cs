@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview
     }
 
 
-    public sealed class GetAzureADAdministratorArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAzureADAdministratorArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Azure AD Administrator.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview
         public GetAzureADAdministratorArgs()
         {
         }
-        public static new GetAzureADAdministratorArgs Empty => new GetAzureADAdministratorArgs();
     }
 
-    public sealed class GetAzureADAdministratorInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAzureADAdministratorInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Azure AD Administrator.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview
         public GetAzureADAdministratorInvokeArgs()
         {
         }
-        public static new GetAzureADAdministratorInvokeArgs Empty => new GetAzureADAdministratorInvokeArgs();
     }
 
 

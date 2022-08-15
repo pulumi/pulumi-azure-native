@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20211201.Inputs
     /// <summary>
     /// Different types of filters supported and its values.
     /// </summary>
-    public sealed class FilterableProperty : global::Pulumi.InvokeArgs
+    public sealed class FilterableProperty : Pulumi.InvokeArgs
     {
         [Input("supportedValues", required: true)]
         private List<string>? _supportedValues;
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.EdgeOrder.V20211201.Inputs
         public FilterableProperty()
         {
         }
-        public static new FilterableProperty Empty => new FilterableProperty();
     }
 }

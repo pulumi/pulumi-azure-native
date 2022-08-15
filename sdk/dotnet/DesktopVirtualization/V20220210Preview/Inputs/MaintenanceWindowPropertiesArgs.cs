@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220210Preview.Inputs
     /// <summary>
     /// Maintenance window starting hour and day of week.
     /// </summary>
-    public sealed class MaintenanceWindowPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class MaintenanceWindowPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The day of the week (Monday-Sunday).
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220210Preview.Inputs
         public MaintenanceWindowPropertiesArgs()
         {
         }
-        public static new MaintenanceWindowPropertiesArgs Empty => new MaintenanceWindowPropertiesArgs();
     }
 }

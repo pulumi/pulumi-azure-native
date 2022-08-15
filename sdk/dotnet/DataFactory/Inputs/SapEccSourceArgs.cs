@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity source for SAP ECC source.
     /// </summary>
-    public sealed class SapEccSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class SapEccSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -73,6 +73,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public SapEccSourceArgs()
         {
         }
-        public static new SapEccSourceArgs Empty => new SapEccSourceArgs();
     }
 }

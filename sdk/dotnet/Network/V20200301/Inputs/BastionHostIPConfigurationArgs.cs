@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200301.Inputs
     /// <summary>
     /// IP configuration of an Bastion Host.
     /// </summary>
-    public sealed class BastionHostIPConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class BastionHostIPConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.Network.V20200301.Inputs
         public BastionHostIPConfigurationArgs()
         {
         }
-        public static new BastionHostIPConfigurationArgs Empty => new BastionHostIPConfigurationArgs();
     }
 }

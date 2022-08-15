@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageCache.V20201001.Inputs
     /// <summary>
     /// Active Directory settings used to join a cache to a domain.
     /// </summary>
-    public sealed class CacheActiveDirectorySettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class CacheActiveDirectorySettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. Length must 1-15 characters from the class [-0-9a-zA-Z].
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.StorageCache.V20201001.Inputs
         public CacheActiveDirectorySettingsArgs()
         {
         }
-        public static new CacheActiveDirectorySettingsArgs Empty => new CacheActiveDirectorySettingsArgs();
     }
 }

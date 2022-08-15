@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SignalRService.V20200501
     }
 
 
-    public sealed class ListSignalRKeysArgs : global::Pulumi.InvokeArgs
+    public sealed class ListSignalRKeysArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.SignalRService.V20200501
         public ListSignalRKeysArgs()
         {
         }
-        public static new ListSignalRKeysArgs Empty => new ListSignalRKeysArgs();
     }
 
-    public sealed class ListSignalRKeysInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListSignalRKeysInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.SignalRService.V20200501
         public ListSignalRKeysInvokeArgs()
         {
         }
-        public static new ListSignalRKeysInvokeArgs Empty => new ListSignalRKeysInvokeArgs();
     }
 
 

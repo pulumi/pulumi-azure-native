@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220401Preview
     }
 
 
-    public sealed class GetPrivateEndpointConnectionByWorkspaceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPrivateEndpointConnectionByWorkspaceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the private endpoint connection associated with the Azure resource
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220401Preview
         public GetPrivateEndpointConnectionByWorkspaceArgs()
         {
         }
-        public static new GetPrivateEndpointConnectionByWorkspaceArgs Empty => new GetPrivateEndpointConnectionByWorkspaceArgs();
     }
 
-    public sealed class GetPrivateEndpointConnectionByWorkspaceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPrivateEndpointConnectionByWorkspaceInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the private endpoint connection associated with the Azure resource
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220401Preview
         public GetPrivateEndpointConnectionByWorkspaceInvokeArgs()
         {
         }
-        public static new GetPrivateEndpointConnectionByWorkspaceInvokeArgs Empty => new GetPrivateEndpointConnectionByWorkspaceInvokeArgs();
     }
 
 

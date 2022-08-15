@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     /// API Version: 2020-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere:VCenter")]
-    public partial class VCenter : global::Pulumi.CustomResource
+    public partial class VCenter : Pulumi.CustomResource
     {
         /// <summary>
         /// Gets or sets the connection status to the vCenter.
@@ -143,8 +143,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20201001preview:VCenter"},
-                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220110preview:VCenter"},
+                    new Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20201001preview:VCenter"},
+                    new Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220110preview:VCenter"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -166,7 +166,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         }
     }
 
-    public sealed class VCenterArgs : global::Pulumi.ResourceArgs
+    public sealed class VCenterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Username / Password Credentials to connect to vcenter.
@@ -231,6 +231,5 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public VCenterArgs()
         {
         }
-        public static new VCenterArgs Empty => new VCenterArgs();
     }
 }

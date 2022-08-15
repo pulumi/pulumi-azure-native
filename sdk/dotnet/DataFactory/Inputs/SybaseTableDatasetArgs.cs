@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The Sybase table dataset.
     /// </summary>
-    public sealed class SybaseTableDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class SybaseTableDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,6 +85,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public SybaseTableDatasetArgs()
         {
         }
-        public static new SybaseTableDatasetArgs Empty => new SybaseTableDatasetArgs();
     }
 }

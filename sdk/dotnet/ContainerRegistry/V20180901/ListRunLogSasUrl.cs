@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180901
     }
 
 
-    public sealed class ListRunLogSasUrlArgs : global::Pulumi.InvokeArgs
+    public sealed class ListRunLogSasUrlArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the container registry.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180901
         public ListRunLogSasUrlArgs()
         {
         }
-        public static new ListRunLogSasUrlArgs Empty => new ListRunLogSasUrlArgs();
     }
 
-    public sealed class ListRunLogSasUrlInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListRunLogSasUrlInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the container registry.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180901
         public ListRunLogSasUrlInvokeArgs()
         {
         }
-        public static new ListRunLogSasUrlInvokeArgs Empty => new ListRunLogSasUrlInvokeArgs();
     }
 
 

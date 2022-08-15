@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20210901Preview
     /// A class represent a resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:webpubsub/v20210901preview:WebPubSub")]
-    public partial class WebPubSub : global::Pulumi.CustomResource
+    public partial class WebPubSub : Pulumi.CustomResource
     {
         /// <summary>
         /// DisableLocalAuth
@@ -178,10 +178,10 @@ namespace Pulumi.AzureNative.WebPubSub.V20210901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub:WebPubSub"},
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20210401preview:WebPubSub"},
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20210601preview:WebPubSub"},
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20211001:WebPubSub"},
+                    new Pulumi.Alias { Type = "azure-native:webpubsub:WebPubSub"},
+                    new Pulumi.Alias { Type = "azure-native:webpubsub/v20210401preview:WebPubSub"},
+                    new Pulumi.Alias { Type = "azure-native:webpubsub/v20210601preview:WebPubSub"},
+                    new Pulumi.Alias { Type = "azure-native:webpubsub/v20211001:WebPubSub"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -203,7 +203,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20210901Preview
         }
     }
 
-    public sealed class WebPubSubArgs : global::Pulumi.ResourceArgs
+    public sealed class WebPubSubArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// DisableLocalAuth
@@ -301,6 +301,5 @@ namespace Pulumi.AzureNative.WebPubSub.V20210901Preview
             DisableLocalAuth = false;
             PublicNetworkAccess = "Enabled";
         }
-        public static new WebPubSubArgs Empty => new WebPubSubArgs();
     }
 }

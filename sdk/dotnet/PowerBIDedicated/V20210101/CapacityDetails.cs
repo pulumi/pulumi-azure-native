@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.PowerBIDedicated.V20210101
     /// Represents an instance of a Dedicated Capacity resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:powerbidedicated/v20210101:CapacityDetails")]
-    public partial class CapacityDetails : global::Pulumi.CustomResource
+    public partial class CapacityDetails : Pulumi.CustomResource
     {
         /// <summary>
         /// A collection of Dedicated capacity administrators
@@ -112,8 +112,8 @@ namespace Pulumi.AzureNative.PowerBIDedicated.V20210101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:powerbidedicated:CapacityDetails"},
-                    new global::Pulumi.Alias { Type = "azure-native:powerbidedicated/v20171001:CapacityDetails"},
+                    new Pulumi.Alias { Type = "azure-native:powerbidedicated:CapacityDetails"},
+                    new Pulumi.Alias { Type = "azure-native:powerbidedicated/v20171001:CapacityDetails"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -135,7 +135,7 @@ namespace Pulumi.AzureNative.PowerBIDedicated.V20210101
         }
     }
 
-    public sealed class CapacityDetailsArgs : global::Pulumi.ResourceArgs
+    public sealed class CapacityDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A collection of Dedicated capacity administrators
@@ -194,6 +194,5 @@ namespace Pulumi.AzureNative.PowerBIDedicated.V20210101
         public CapacityDetailsArgs()
         {
         }
-        public static new CapacityDetailsArgs Empty => new CapacityDetailsArgs();
     }
 }

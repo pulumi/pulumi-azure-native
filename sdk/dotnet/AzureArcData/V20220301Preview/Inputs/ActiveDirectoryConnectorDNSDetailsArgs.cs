@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview.Inputs
     /// <summary>
     /// DNS server details
     /// </summary>
-    public sealed class ActiveDirectoryConnectorDNSDetailsArgs : global::Pulumi.ResourceArgs
+    public sealed class ActiveDirectoryConnectorDNSDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// DNS domain name for which DNS lookups should be forwarded to the Active Directory DNS servers.
@@ -50,6 +50,5 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview.Inputs
             PreferK8sDnsForPtrLookups = true;
             Replicas = 1;
         }
-        public static new ActiveDirectoryConnectorDNSDetailsArgs Empty => new ActiveDirectoryConnectorDNSDetailsArgs();
     }
 }

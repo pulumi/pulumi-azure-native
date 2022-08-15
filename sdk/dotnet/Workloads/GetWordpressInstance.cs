@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Workloads
     }
 
 
-    public sealed class GetWordpressInstanceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWordpressInstanceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Php workload name
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.Workloads
         public GetWordpressInstanceArgs()
         {
         }
-        public static new GetWordpressInstanceArgs Empty => new GetWordpressInstanceArgs();
     }
 
-    public sealed class GetWordpressInstanceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWordpressInstanceInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Php workload name
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.Workloads
         public GetWordpressInstanceInvokeArgs()
         {
         }
-        public static new GetWordpressInstanceInvokeArgs Empty => new GetWordpressInstanceInvokeArgs();
     }
 
 

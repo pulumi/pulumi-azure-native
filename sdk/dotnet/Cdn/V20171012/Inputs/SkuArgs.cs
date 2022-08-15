@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20171012.Inputs
     /// <summary>
     /// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
     /// </summary>
-    public sealed class SkuArgs : global::Pulumi.ResourceArgs
+    public sealed class SkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the pricing tier.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Cdn.V20171012.Inputs
         public SkuArgs()
         {
         }
-        public static new SkuArgs Empty => new SkuArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
     /// </summary>
-    public sealed class DatasetFolderArgs : global::Pulumi.ResourceArgs
+    public sealed class DatasetFolderArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the folder that this Dataset is in.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public DatasetFolderArgs()
         {
         }
-        public static new DatasetFolderArgs Empty => new DatasetFolderArgs();
     }
 }

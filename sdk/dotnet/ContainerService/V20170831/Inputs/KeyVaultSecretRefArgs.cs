@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20170831.Inputs
     /// <summary>
     /// Reference to a secret stored in Azure Key Vault.
     /// </summary>
-    public sealed class KeyVaultSecretRefArgs : global::Pulumi.ResourceArgs
+    public sealed class KeyVaultSecretRefArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The secret name.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.ContainerService.V20170831.Inputs
         public KeyVaultSecretRefArgs()
         {
         }
-        public static new KeyVaultSecretRefArgs Empty => new KeyVaultSecretRefArgs();
     }
 }

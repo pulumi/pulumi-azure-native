@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20200602.Inputs
     /// <summary>
     /// Email channel definition
     /// </summary>
-    public sealed class EmailChannelArgs : global::Pulumi.ResourceArgs
+    public sealed class EmailChannelArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The channel name
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.BotService.V20200602.Inputs
         public EmailChannelArgs()
         {
         }
-        public static new EmailChannelArgs Empty => new EmailChannelArgs();
     }
 }

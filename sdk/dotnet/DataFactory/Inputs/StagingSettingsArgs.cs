@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Staging settings.
     /// </summary>
-    public sealed class StagingSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class StagingSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether to use compression when copying data via an interim staging. Default value is false. Type: boolean (or Expression with resultType boolean).
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public StagingSettingsArgs()
         {
         }
-        public static new StagingSettingsArgs Empty => new StagingSettingsArgs();
     }
 }

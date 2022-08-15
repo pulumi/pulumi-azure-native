@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.DigitalTwins.V20201031
     }
 
 
-    public sealed class GetDigitalTwinArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDigitalTwinArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the DigitalTwinsInstance.
@@ -43,10 +43,9 @@ namespace Pulumi.AzureNative.DigitalTwins.V20201031
         public GetDigitalTwinArgs()
         {
         }
-        public static new GetDigitalTwinArgs Empty => new GetDigitalTwinArgs();
     }
 
-    public sealed class GetDigitalTwinInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDigitalTwinInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the DigitalTwinsInstance.
@@ -63,7 +62,6 @@ namespace Pulumi.AzureNative.DigitalTwins.V20201031
         public GetDigitalTwinInvokeArgs()
         {
         }
-        public static new GetDigitalTwinInvokeArgs Empty => new GetDigitalTwinInvokeArgs();
     }
 
 

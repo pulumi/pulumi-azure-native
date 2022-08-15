@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.LabServices.V20211115Preview
     }
 
 
-    public sealed class GetLabArgs : global::Pulumi.InvokeArgs
+    public sealed class GetLabArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.LabServices.V20211115Preview
         public GetLabArgs()
         {
         }
-        public static new GetLabArgs Empty => new GetLabArgs();
     }
 
-    public sealed class GetLabInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetLabInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.LabServices.V20211115Preview
         public GetLabInvokeArgs()
         {
         }
-        public static new GetLabInvokeArgs Empty => new GetLabInvokeArgs();
     }
 
 

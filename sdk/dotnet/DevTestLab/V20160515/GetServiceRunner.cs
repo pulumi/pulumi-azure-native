@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
     }
 
 
-    public sealed class GetServiceRunnerArgs : global::Pulumi.InvokeArgs
+    public sealed class GetServiceRunnerArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the lab.
@@ -49,10 +49,9 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         public GetServiceRunnerArgs()
         {
         }
-        public static new GetServiceRunnerArgs Empty => new GetServiceRunnerArgs();
     }
 
-    public sealed class GetServiceRunnerInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetServiceRunnerInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the lab.
@@ -75,7 +74,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         public GetServiceRunnerInvokeArgs()
         {
         }
-        public static new GetServiceRunnerInvokeArgs Empty => new GetServiceRunnerInvokeArgs();
     }
 
 

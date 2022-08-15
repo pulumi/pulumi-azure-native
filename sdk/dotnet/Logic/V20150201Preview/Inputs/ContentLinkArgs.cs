@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20150201Preview.Inputs
 {
 
-    public sealed class ContentLinkArgs : global::Pulumi.ResourceArgs
+    public sealed class ContentLinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the content hash.
@@ -45,6 +45,5 @@ namespace Pulumi.AzureNative.Logic.V20150201Preview.Inputs
         public ContentLinkArgs()
         {
         }
-        public static new ContentLinkArgs Empty => new ContentLinkArgs();
     }
 }

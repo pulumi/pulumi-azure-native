@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Portal.V20181001.Inputs
     /// <summary>
     /// The cloud shell user settings properties.
     /// </summary>
-    public sealed class UserPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class UserPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The preferred location of the cloud shell.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.Portal.V20181001.Inputs
         public UserPropertiesArgs()
         {
         }
-        public static new UserPropertiesArgs Empty => new UserPropertiesArgs();
     }
 }

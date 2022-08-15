@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20200101Preview.Inputs
     /// <summary>
     /// GCP cloud account connector based service to service credentials, the credentials are composed of the organization ID and a JSON API key (write only)
     /// </summary>
-    public sealed class GcpCredentialsDetailsPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class GcpCredentialsDetailsPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Auth provider x509 certificate URL field of the API key (write only)
@@ -91,6 +91,5 @@ namespace Pulumi.AzureNative.Security.V20200101Preview.Inputs
         public GcpCredentialsDetailsPropertiesArgs()
         {
         }
-        public static new GcpCredentialsDetailsPropertiesArgs Empty => new GcpCredentialsDetailsPropertiesArgs();
     }
 }

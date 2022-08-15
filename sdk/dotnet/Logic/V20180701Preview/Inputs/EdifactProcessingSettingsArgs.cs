@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview.Inputs
     /// <summary>
     /// The Edifact agreement protocol settings.
     /// </summary>
-    public sealed class EdifactProcessingSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class EdifactProcessingSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value indicating whether to create empty xml tags for trailing separators.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview.Inputs
         public EdifactProcessingSettingsArgs()
         {
         }
-        public static new EdifactProcessingSettingsArgs Empty => new EdifactProcessingSettingsArgs();
     }
 }

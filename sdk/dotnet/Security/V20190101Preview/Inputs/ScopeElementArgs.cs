@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20190101Preview.Inputs
     /// <summary>
     /// A more specific scope used to identify the alerts to suppress.
     /// </summary>
-    public sealed class ScopeElementArgs : global::Pulumi.ResourceArgs
+    public sealed class ScopeElementArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The alert entity type to suppress by.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Security.V20190101Preview.Inputs
         public ScopeElementArgs()
         {
         }
-        public static new ScopeElementArgs Empty => new ScopeElementArgs();
     }
 }

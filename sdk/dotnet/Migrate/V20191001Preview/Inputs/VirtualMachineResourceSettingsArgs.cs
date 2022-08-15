@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.V20191001Preview.Inputs
     /// <summary>
     /// Gets or sets the virtual machine resource settings.
     /// </summary>
-    public sealed class VirtualMachineResourceSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualMachineResourceSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.Migrate.V20191001Preview.Inputs
         public VirtualMachineResourceSettingsArgs()
         {
         }
-        public static new VirtualMachineResourceSettingsArgs Empty => new VirtualMachineResourceSettingsArgs();
     }
 }

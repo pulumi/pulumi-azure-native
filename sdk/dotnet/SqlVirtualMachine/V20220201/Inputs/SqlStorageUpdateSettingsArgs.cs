@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20220201.Inputs
     /// <summary>
     /// Set disk storage settings for SQL Server.
     /// </summary>
-    public sealed class SqlStorageUpdateSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class SqlStorageUpdateSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Disk configuration to apply to SQL Server.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20220201.Inputs
         public SqlStorageUpdateSettingsArgs()
         {
         }
-        public static new SqlStorageUpdateSettingsArgs Empty => new SqlStorageUpdateSettingsArgs();
     }
 }

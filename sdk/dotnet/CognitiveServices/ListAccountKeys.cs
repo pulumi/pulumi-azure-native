@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.CognitiveServices
     }
 
 
-    public sealed class ListAccountKeysArgs : global::Pulumi.InvokeArgs
+    public sealed class ListAccountKeysArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of Cognitive Services account.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.CognitiveServices
         public ListAccountKeysArgs()
         {
         }
-        public static new ListAccountKeysArgs Empty => new ListAccountKeysArgs();
     }
 
-    public sealed class ListAccountKeysInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListAccountKeysInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of Cognitive Services account.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.CognitiveServices
         public ListAccountKeysInvokeArgs()
         {
         }
-        public static new ListAccountKeysInvokeArgs Empty => new ListAccountKeysInvokeArgs();
     }
 
 

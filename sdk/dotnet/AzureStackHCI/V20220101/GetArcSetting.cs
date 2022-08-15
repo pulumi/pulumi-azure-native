@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20220101
     }
 
 
-    public sealed class GetArcSettingArgs : global::Pulumi.InvokeArgs
+    public sealed class GetArcSettingArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the proxy resource holding details of HCI ArcSetting information.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20220101
         public GetArcSettingArgs()
         {
         }
-        public static new GetArcSettingArgs Empty => new GetArcSettingArgs();
     }
 
-    public sealed class GetArcSettingInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetArcSettingInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the proxy resource holding details of HCI ArcSetting information.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20220101
         public GetArcSettingInvokeArgs()
         {
         }
-        public static new GetArcSettingInvokeArgs Empty => new GetArcSettingInvokeArgs();
     }
 
 

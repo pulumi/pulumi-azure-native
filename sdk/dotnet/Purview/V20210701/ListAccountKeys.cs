@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Purview.V20210701
     }
 
 
-    public sealed class ListAccountKeysArgs : global::Pulumi.InvokeArgs
+    public sealed class ListAccountKeysArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the account.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.Purview.V20210701
         public ListAccountKeysArgs()
         {
         }
-        public static new ListAccountKeysArgs Empty => new ListAccountKeysArgs();
     }
 
-    public sealed class ListAccountKeysInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListAccountKeysInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the account.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.Purview.V20210701
         public ListAccountKeysInvokeArgs()
         {
         }
-        public static new ListAccountKeysInvokeArgs Empty => new ListAccountKeysInvokeArgs();
     }
 
 

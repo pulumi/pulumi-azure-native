@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
     /// <summary>
     /// Properties of a network port.
     /// </summary>
-    public sealed class PortArgs : global::Pulumi.ResourceArgs
+    public sealed class PortArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Backend port of the target virtual machine.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
         public PortArgs()
         {
         }
-        public static new PortArgs Empty => new PortArgs();
     }
 }

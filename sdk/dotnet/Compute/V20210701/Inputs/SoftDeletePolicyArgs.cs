@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20210701.Inputs
     /// <summary>
     /// Contains information about the soft deletion policy of the gallery.
     /// </summary>
-    public sealed class SoftDeletePolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class SoftDeletePolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enables soft-deletion for resources in this gallery, allowing them to be recovered within retention time.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Compute.V20210701.Inputs
         public SoftDeletePolicyArgs()
         {
         }
-        public static new SoftDeletePolicyArgs Empty => new SoftDeletePolicyArgs();
     }
 }

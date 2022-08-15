@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoIndexer.V20220801.Inputs
     /// <summary>
     /// Managed service identity (system assigned and/or user assigned identities)
     /// </summary>
-    public sealed class ManagedServiceIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedServiceIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.VideoIndexer.V20220801.Inputs
         public ManagedServiceIdentityArgs()
         {
         }
-        public static new ManagedServiceIdentityArgs Empty => new ManagedServiceIdentityArgs();
     }
 }

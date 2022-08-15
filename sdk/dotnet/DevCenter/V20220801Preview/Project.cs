@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
     /// Represents a project resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter/v20220801preview:Project")]
-    public partial class Project : global::Pulumi.CustomResource
+    public partial class Project : Pulumi.CustomResource
     {
         /// <summary>
         /// Description of the project.
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         }
     }
 
-    public sealed class ProjectArgs : global::Pulumi.ResourceArgs
+    public sealed class ProjectArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the project.
@@ -153,6 +153,5 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         public ProjectArgs()
         {
         }
-        public static new ProjectArgs Empty => new ProjectArgs();
     }
 }

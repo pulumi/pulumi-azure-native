@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.Inputs
     /// <summary>
     /// The SAP Software configuration Input when the software is to be installed by service.
     /// </summary>
-    public sealed class ServiceInitiatedSoftwareConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class ServiceInitiatedSoftwareConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The URL to the SAP Build of Materials(BOM) file.
@@ -61,6 +61,5 @@ namespace Pulumi.AzureNative.Workloads.Inputs
         public ServiceInitiatedSoftwareConfigurationArgs()
         {
         }
-        public static new ServiceInitiatedSoftwareConfigurationArgs Empty => new ServiceInitiatedSoftwareConfigurationArgs();
     }
 }

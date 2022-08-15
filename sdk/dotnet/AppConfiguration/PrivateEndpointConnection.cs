@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AppConfiguration
     /// API Version: 2020-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:appconfiguration:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource.
@@ -71,13 +71,13 @@ namespace Pulumi.AzureNative.AppConfiguration
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20191101preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20200601:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20200701preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20210301preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20211001preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20220301preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20220501:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:appconfiguration/v20191101preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:appconfiguration/v20200601:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:appconfiguration/v20200701preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:appconfiguration/v20210301preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:appconfiguration/v20211001preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:appconfiguration/v20220301preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:appconfiguration/v20220501:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.AppConfiguration
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the configuration store.
@@ -134,6 +134,5 @@ namespace Pulumi.AzureNative.AppConfiguration
         public PrivateEndpointConnectionArgs()
         {
         }
-        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

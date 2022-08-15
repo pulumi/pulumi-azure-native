@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20200301.Inputs
     /// <summary>
     /// CreateUpdateOptions are a list of key-value pairs that describe the resource. Supported keys are "If-Match", "If-None-Match", "Session-Token" and "Throughput"
     /// </summary>
-    public sealed class CreateUpdateOptionsArgs : global::Pulumi.ResourceArgs
+    public sealed class CreateUpdateOptionsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Request Units per second. For example, "throughput": "10000".
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20200301.Inputs
         public CreateUpdateOptionsArgs()
         {
         }
-        public static new CreateUpdateOptionsArgs Empty => new CreateUpdateOptionsArgs();
     }
 }

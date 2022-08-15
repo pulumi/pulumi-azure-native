@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview.Inputs
     /// <summary>
     /// Data type for Microsoft Threat Protection Platforms data connector.
     /// </summary>
-    public sealed class MTPDataConnectorDataTypesIncidentsArgs : global::Pulumi.ResourceArgs
+    public sealed class MTPDataConnectorDataTypesIncidentsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describe whether this data type connection is enabled or not.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview.Inputs
         public MTPDataConnectorDataTypesIncidentsArgs()
         {
         }
-        public static new MTPDataConnectorDataTypesIncidentsArgs Empty => new MTPDataConnectorDataTypesIncidentsArgs();
     }
 }

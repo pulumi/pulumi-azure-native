@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AadIam
     /// API Version: 2020-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:aadiam:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.AadIam
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:aadiam/v20200301:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:aadiam/v20200301:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.AadIam
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the private link policy in Azure AD.
@@ -134,6 +134,5 @@ namespace Pulumi.AzureNative.AadIam
         public PrivateEndpointConnectionArgs()
         {
         }
-        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

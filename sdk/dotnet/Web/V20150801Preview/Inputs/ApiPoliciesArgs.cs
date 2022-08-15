@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20150801Preview.Inputs
     /// <summary>
     /// API policies
     /// </summary>
-    public sealed class ApiPoliciesArgs : global::Pulumi.ResourceArgs
+    public sealed class ApiPoliciesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Content of xml policy
@@ -66,6 +66,5 @@ namespace Pulumi.AzureNative.Web.V20150801Preview.Inputs
         public ApiPoliciesArgs()
         {
         }
-        public static new ApiPoliciesArgs Empty => new ApiPoliciesArgs();
     }
 }

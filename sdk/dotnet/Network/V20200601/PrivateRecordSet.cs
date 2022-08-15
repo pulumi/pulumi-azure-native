@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200601
     /// Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20200601:PrivateRecordSet")]
-    public partial class PrivateRecordSet : global::Pulumi.CustomResource
+    public partial class PrivateRecordSet : Pulumi.CustomResource
     {
         /// <summary>
         /// The list of A records in the record set.
@@ -130,9 +130,9 @@ namespace Pulumi.AzureNative.Network.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:PrivateRecordSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180901:PrivateRecordSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200101:PrivateRecordSet"},
+                    new Pulumi.Alias { Type = "azure-native:network:PrivateRecordSet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180901:PrivateRecordSet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200101:PrivateRecordSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -154,7 +154,7 @@ namespace Pulumi.AzureNative.Network.V20200601
         }
     }
 
-    public sealed class PrivateRecordSetArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateRecordSetArgs : Pulumi.ResourceArgs
     {
         [Input("aRecords")]
         private InputList<Inputs.ARecordArgs>? _aRecords;
@@ -285,6 +285,5 @@ namespace Pulumi.AzureNative.Network.V20200601
         public PrivateRecordSetArgs()
         {
         }
-        public static new PrivateRecordSetArgs Empty => new PrivateRecordSetArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity Salesforce sink.
     /// </summary>
-    public sealed class SalesforceSinkArgs : global::Pulumi.ResourceArgs
+    public sealed class SalesforceSinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the external ID field for upsert operation. Default value is 'Id' column. Type: string (or Expression with resultType string).
@@ -67,6 +67,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public SalesforceSinkArgs()
         {
         }
-        public static new SalesforceSinkArgs Empty => new SalesforceSinkArgs();
     }
 }

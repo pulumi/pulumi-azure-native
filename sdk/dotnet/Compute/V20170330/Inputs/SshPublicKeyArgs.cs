@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20170330.Inputs
     /// <summary>
     /// Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
     /// </summary>
-    public sealed class SshPublicKeyArgs : global::Pulumi.ResourceArgs
+    public sealed class SshPublicKeyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. &lt;br&gt;&lt;br&gt; For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Compute.V20170330.Inputs
         public SshPublicKeyArgs()
         {
         }
-        public static new SshPublicKeyArgs Empty => new SshPublicKeyArgs();
     }
 }

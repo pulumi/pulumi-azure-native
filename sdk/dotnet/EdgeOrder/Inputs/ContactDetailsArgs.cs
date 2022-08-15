@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
     /// <summary>
     /// Contact Details.
     /// </summary>
-    public sealed class ContactDetailsArgs : global::Pulumi.ResourceArgs
+    public sealed class ContactDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Contact name of the person.
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
         public ContactDetailsArgs()
         {
         }
-        public static new ContactDetailsArgs Empty => new ContactDetailsArgs();
     }
 }

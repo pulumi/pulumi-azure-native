@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevOps.Inputs
     /// <summary>
     /// Configuration used to bootstrap a Pipeline.
     /// </summary>
-    public sealed class BootstrapConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class BootstrapConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Repository containing the source code for the pipeline. Currently only 'azurePipeline' pipeline type supports this.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DevOps.Inputs
         public BootstrapConfigurationArgs()
         {
         }
-        public static new BootstrapConfigurationArgs Empty => new BootstrapConfigurationArgs();
     }
 }

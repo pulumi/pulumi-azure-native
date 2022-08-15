@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ApiManagement
     /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:Gateway")]
-    public partial class Gateway : global::Pulumi.CustomResource
+    public partial class Gateway : Pulumi.CustomResource
     {
         /// <summary>
         /// Gateway description
@@ -65,14 +65,14 @@ namespace Pulumi.AzureNative.ApiManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:Gateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:Gateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:Gateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:Gateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:Gateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:Gateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:Gateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:Gateway"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:Gateway"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:Gateway"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:Gateway"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:Gateway"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:Gateway"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:Gateway"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:Gateway"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:Gateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.ApiManagement
         }
     }
 
-    public sealed class GatewayArgs : global::Pulumi.ResourceArgs
+    public sealed class GatewayArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gateway description
@@ -129,6 +129,5 @@ namespace Pulumi.AzureNative.ApiManagement
         public GatewayArgs()
         {
         }
-        public static new GatewayArgs Empty => new GatewayArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview
     /// Represents Codeless API Polling data connector.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20220101preview:CodelessApiPollingDataConnector")]
-    public partial class CodelessApiPollingDataConnector : global::Pulumi.CustomResource
+    public partial class CodelessApiPollingDataConnector : Pulumi.CustomResource
     {
         /// <summary>
         /// Config to describe the instructions blade
@@ -90,18 +90,18 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:CodelessApiPollingDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:CodelessApiPollingDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:CodelessApiPollingDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:CodelessApiPollingDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:CodelessApiPollingDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:CodelessApiPollingDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:CodelessApiPollingDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:CodelessApiPollingDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:CodelessApiPollingDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:CodelessApiPollingDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:CodelessApiPollingDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:CodelessApiPollingDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights:CodelessApiPollingDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:CodelessApiPollingDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:CodelessApiPollingDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:CodelessApiPollingDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:CodelessApiPollingDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:CodelessApiPollingDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:CodelessApiPollingDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:CodelessApiPollingDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:CodelessApiPollingDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:CodelessApiPollingDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:CodelessApiPollingDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:CodelessApiPollingDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -123,7 +123,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview
         }
     }
 
-    public sealed class CodelessApiPollingDataConnectorArgs : global::Pulumi.ResourceArgs
+    public sealed class CodelessApiPollingDataConnectorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Config to describe the instructions blade
@@ -165,6 +165,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview
         public CodelessApiPollingDataConnectorArgs()
         {
         }
-        public static new CodelessApiPollingDataConnectorArgs Empty => new CodelessApiPollingDataConnectorArgs();
     }
 }

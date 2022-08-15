@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210901.Inputs
     /// <summary>
     /// The content trust policy for a container registry.
     /// </summary>
-    public sealed class TrustPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class TrustPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value that indicates whether the policy is enabled or not.
@@ -32,6 +32,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210901.Inputs
             Status = "disabled";
             Type = "Notary";
         }
-        public static new TrustPolicyArgs Empty => new TrustPolicyArgs();
     }
 }

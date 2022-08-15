@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515
     /// An Azure Cosmos DB Cassandra keyspace.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb/v20220515:CassandraResourceCassandraKeyspace")]
-    public partial class CassandraResourceCassandraKeyspace : global::Pulumi.CustomResource
+    public partial class CassandraResourceCassandraKeyspace : Pulumi.CustomResource
     {
         /// <summary>
         /// The location of the resource group to which the resource belongs.
@@ -70,31 +70,31 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb:CassandraResourceCassandraKeyspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20150401:CassandraResourceCassandraKeyspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20150408:CassandraResourceCassandraKeyspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20151106:CassandraResourceCassandraKeyspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20160319:CassandraResourceCassandraKeyspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20160331:CassandraResourceCassandraKeyspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20190801:CassandraResourceCassandraKeyspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20191212:CassandraResourceCassandraKeyspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200301:CassandraResourceCassandraKeyspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200401:CassandraResourceCassandraKeyspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:CassandraResourceCassandraKeyspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200901:CassandraResourceCassandraKeyspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210115:CassandraResourceCassandraKeyspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:CassandraResourceCassandraKeyspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210315:CassandraResourceCassandraKeyspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:CassandraResourceCassandraKeyspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210415:CassandraResourceCassandraKeyspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210515:CassandraResourceCassandraKeyspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210615:CassandraResourceCassandraKeyspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:CassandraResourceCassandraKeyspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015:CassandraResourceCassandraKeyspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:CassandraResourceCassandraKeyspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:CassandraResourceCassandraKeyspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:CassandraResourceCassandraKeyspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:CassandraResourceCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb:CassandraResourceCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20150401:CassandraResourceCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20150408:CassandraResourceCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20151106:CassandraResourceCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20160319:CassandraResourceCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20160331:CassandraResourceCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20190801:CassandraResourceCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20191212:CassandraResourceCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200301:CassandraResourceCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200401:CassandraResourceCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:CassandraResourceCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200901:CassandraResourceCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210115:CassandraResourceCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:CassandraResourceCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210315:CassandraResourceCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:CassandraResourceCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210415:CassandraResourceCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210515:CassandraResourceCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210615:CassandraResourceCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:CassandraResourceCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211015:CassandraResourceCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:CassandraResourceCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:CassandraResourceCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:CassandraResourceCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:CassandraResourceCassandraKeyspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515
         }
     }
 
-    public sealed class CassandraResourceCassandraKeyspaceArgs : global::Pulumi.ResourceArgs
+    public sealed class CassandraResourceCassandraKeyspaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cosmos DB database account name.
@@ -169,6 +169,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515
         public CassandraResourceCassandraKeyspaceArgs()
         {
         }
-        public static new CassandraResourceCassandraKeyspaceArgs Empty => new CassandraResourceCassandraKeyspaceArgs();
     }
 }

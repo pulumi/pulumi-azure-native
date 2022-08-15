@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Network
     /// </summary>
     [Obsolete(@"Please use one of the variants: DefaultUserRule, UserRule.")]
     [AzureNativeResourceType("azure-native:network:UserRule")]
-    public partial class UserRule : global::Pulumi.CustomResource
+    public partial class UserRule : Pulumi.CustomResource
     {
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -72,10 +72,10 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:UserRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:UserRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:UserRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:UserRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201preview:UserRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501preview:UserRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220201preview:UserRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220401preview:UserRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -97,7 +97,7 @@ namespace Pulumi.AzureNative.Network
         }
     }
 
-    public sealed class UserRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class UserRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the network manager security Configuration.
@@ -138,6 +138,5 @@ namespace Pulumi.AzureNative.Network
         public UserRuleArgs()
         {
         }
-        public static new UserRuleArgs Empty => new UserRuleArgs();
     }
 }

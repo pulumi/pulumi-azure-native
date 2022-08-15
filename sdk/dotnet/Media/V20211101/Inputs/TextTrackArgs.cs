@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20211101.Inputs
     /// <summary>
     /// Represents a text track in an asset. A text track is usually used for sparse data related to the audio or video tracks.
     /// </summary>
-    public sealed class TextTrackArgs : global::Pulumi.ResourceArgs
+    public sealed class TextTrackArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The display name of the text track on a video player. In HLS, this maps to the NAME attribute of EXT-X-MEDIA.
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.Media.V20211101.Inputs
         public TextTrackArgs()
         {
         }
-        public static new TextTrackArgs Empty => new TextTrackArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.Inputs
     /// <summary>
     /// A rule condition based on a certain number of locations failing.
     /// </summary>
-    public sealed class LocationThresholdRuleConditionArgs : global::Pulumi.ResourceArgs
+    public sealed class LocationThresholdRuleConditionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.Insights.Inputs
         public LocationThresholdRuleConditionArgs()
         {
         }
-        public static new LocationThresholdRuleConditionArgs Empty => new LocationThresholdRuleConditionArgs();
     }
 }

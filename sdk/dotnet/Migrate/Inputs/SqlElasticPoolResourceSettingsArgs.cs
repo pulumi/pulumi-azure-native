@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.Inputs
     /// <summary>
     /// Defines the Sql ElasticPool resource settings.
     /// </summary>
-    public sealed class SqlElasticPoolResourceSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class SqlElasticPoolResourceSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.Migrate.Inputs
         public SqlElasticPoolResourceSettingsArgs()
         {
         }
-        public static new SqlElasticPoolResourceSettingsArgs Empty => new SqlElasticPoolResourceSettingsArgs();
     }
 }

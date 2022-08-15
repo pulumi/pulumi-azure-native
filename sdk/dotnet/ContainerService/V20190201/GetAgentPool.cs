@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.ContainerService.V20190201
     }
 
 
-    public sealed class GetAgentPoolArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAgentPoolArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the agent pool.
@@ -49,10 +49,9 @@ namespace Pulumi.AzureNative.ContainerService.V20190201
         public GetAgentPoolArgs()
         {
         }
-        public static new GetAgentPoolArgs Empty => new GetAgentPoolArgs();
     }
 
-    public sealed class GetAgentPoolInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAgentPoolInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the agent pool.
@@ -75,7 +74,6 @@ namespace Pulumi.AzureNative.ContainerService.V20190201
         public GetAgentPoolInvokeArgs()
         {
         }
-        public static new GetAgentPoolInvokeArgs Empty => new GetAgentPoolInvokeArgs();
     }
 
 

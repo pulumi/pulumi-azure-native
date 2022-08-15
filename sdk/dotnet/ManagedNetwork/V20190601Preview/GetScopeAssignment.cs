@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ManagedNetwork.V20190601Preview
     }
 
 
-    public sealed class GetScopeAssignmentArgs : global::Pulumi.InvokeArgs
+    public sealed class GetScopeAssignmentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The base resource of the scope assignment.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.ManagedNetwork.V20190601Preview
         public GetScopeAssignmentArgs()
         {
         }
-        public static new GetScopeAssignmentArgs Empty => new GetScopeAssignmentArgs();
     }
 
-    public sealed class GetScopeAssignmentInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetScopeAssignmentInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The base resource of the scope assignment.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.ManagedNetwork.V20190601Preview
         public GetScopeAssignmentInvokeArgs()
         {
         }
-        public static new GetScopeAssignmentInvokeArgs Empty => new GetScopeAssignmentInvokeArgs();
     }
 
 

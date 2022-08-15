@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview.Inputs
     /// <summary>
     /// Single sign-on related configuration
     /// </summary>
-    public sealed class SsoPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class SsoPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The public identifier for the application
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview.Inputs
         public SsoPropertiesArgs()
         {
         }
-        public static new SsoPropertiesArgs Empty => new SsoPropertiesArgs();
     }
 }

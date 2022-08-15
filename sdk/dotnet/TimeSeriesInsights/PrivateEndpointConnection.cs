@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
     /// API Version: 2021-03-31-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:timeseriesinsights:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// The provisioning state of the private endpoint connection resource.
@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Time Series Insights environment associated with the specified resource group.
@@ -140,6 +140,5 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         public PrivateEndpointConnectionArgs()
         {
         }
-        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

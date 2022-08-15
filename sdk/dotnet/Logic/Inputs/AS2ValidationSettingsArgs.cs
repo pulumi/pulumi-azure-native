@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.Inputs
     /// <summary>
     /// The AS2 agreement validation settings.
     /// </summary>
-    public sealed class AS2ValidationSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class AS2ValidationSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value indicating whether to check for certificate revocation list on receive.
@@ -78,6 +78,5 @@ namespace Pulumi.AzureNative.Logic.Inputs
         public AS2ValidationSettingsArgs()
         {
         }
-        public static new AS2ValidationSettingsArgs Empty => new AS2ValidationSettingsArgs();
     }
 }

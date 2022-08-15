@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.Inputs
 {
 
-    public sealed class LoadBalancerFrontendIPConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class LoadBalancerFrontendIPConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the resource that is unique within the set of frontend IP configurations used by the load balancer. This name can be used to access the resource.
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public LoadBalancerFrontendIPConfigurationArgs()
         {
         }
-        public static new LoadBalancerFrontendIPConfigurationArgs Empty => new LoadBalancerFrontendIPConfigurationArgs();
     }
 }

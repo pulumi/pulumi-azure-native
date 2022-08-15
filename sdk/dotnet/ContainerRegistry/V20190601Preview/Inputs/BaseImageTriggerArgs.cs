@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview.Inputs
     /// <summary>
     /// The trigger based on base image dependency.
     /// </summary>
-    public sealed class BaseImageTriggerArgs : global::Pulumi.ResourceArgs
+    public sealed class BaseImageTriggerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of the auto trigger for base image dependency updates.
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview.Inputs
         {
             Status = "Enabled";
         }
-        public static new BaseImageTriggerArgs Empty => new BaseImageTriggerArgs();
     }
 }

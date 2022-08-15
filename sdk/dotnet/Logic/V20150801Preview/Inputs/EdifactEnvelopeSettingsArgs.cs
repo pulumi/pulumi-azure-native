@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
-    public sealed class EdifactEnvelopeSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class EdifactEnvelopeSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application reference id.
@@ -261,6 +261,5 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
         public EdifactEnvelopeSettingsArgs()
         {
         }
-        public static new EdifactEnvelopeSettingsArgs Empty => new EdifactEnvelopeSettingsArgs();
     }
 }

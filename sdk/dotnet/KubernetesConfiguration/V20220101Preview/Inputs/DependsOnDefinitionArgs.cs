@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220101Preview.Inputs
     /// <summary>
     /// Specify which kustomizations must succeed reconciliation on the cluster prior to reconciling this kustomization
     /// </summary>
-    public sealed class DependsOnDefinitionArgs : global::Pulumi.ResourceArgs
+    public sealed class DependsOnDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the kustomization to claim dependency on
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220101Preview.Inputs
         public DependsOnDefinitionArgs()
         {
         }
-        public static new DependsOnDefinitionArgs Empty => new DependsOnDefinitionArgs();
     }
 }

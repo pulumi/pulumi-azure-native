@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Kusto.V20190907.Inputs
     /// <summary>
     /// Represents a tenant ID that is trusted by the cluster.
     /// </summary>
-    public sealed class TrustedExternalTenantArgs : global::Pulumi.ResourceArgs
+    public sealed class TrustedExternalTenantArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// GUID representing an external tenant.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Kusto.V20190907.Inputs
         public TrustedExternalTenantArgs()
         {
         }
-        public static new TrustedExternalTenantArgs Empty => new TrustedExternalTenantArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Portal.V20181001
     }
 
 
-    public sealed class GetUserSettingsWithLocationArgs : global::Pulumi.InvokeArgs
+    public sealed class GetUserSettingsWithLocationArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The provider location
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.Portal.V20181001
         public GetUserSettingsWithLocationArgs()
         {
         }
-        public static new GetUserSettingsWithLocationArgs Empty => new GetUserSettingsWithLocationArgs();
     }
 
-    public sealed class GetUserSettingsWithLocationInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetUserSettingsWithLocationInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The provider location
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.Portal.V20181001
         public GetUserSettingsWithLocationInvokeArgs()
         {
         }
-        public static new GetUserSettingsWithLocationInvokeArgs Empty => new GetUserSettingsWithLocationInvokeArgs();
     }
 
 

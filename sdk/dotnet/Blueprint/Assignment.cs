@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Blueprint
     /// API Version: 2018-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:blueprint:Assignment")]
-    public partial class Assignment : global::Pulumi.CustomResource
+    public partial class Assignment : Pulumi.CustomResource
     {
         /// <summary>
         /// ID of the published version of a blueprint definition.
@@ -119,7 +119,7 @@ namespace Pulumi.AzureNative.Blueprint
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:blueprint/v20181101preview:Assignment"},
+                    new Pulumi.Alias { Type = "azure-native:blueprint/v20181101preview:Assignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -141,7 +141,7 @@ namespace Pulumi.AzureNative.Blueprint
         }
     }
 
-    public sealed class AssignmentArgs : global::Pulumi.ResourceArgs
+    public sealed class AssignmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the blueprint assignment.
@@ -224,6 +224,5 @@ namespace Pulumi.AzureNative.Blueprint
         public AssignmentArgs()
         {
         }
-        public static new AssignmentArgs Empty => new AssignmentArgs();
     }
 }

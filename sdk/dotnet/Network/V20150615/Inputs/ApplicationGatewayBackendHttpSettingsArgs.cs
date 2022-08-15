@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20150615.Inputs
     /// <summary>
     /// Backend address pool settings of an application gateway.
     /// </summary>
-    public sealed class ApplicationGatewayBackendHttpSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayBackendHttpSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cookie based affinity. Possible values are: 'Enabled' and 'Disabled'.
@@ -72,6 +72,5 @@ namespace Pulumi.AzureNative.Network.V20150615.Inputs
         public ApplicationGatewayBackendHttpSettingsArgs()
         {
         }
-        public static new ApplicationGatewayBackendHttpSettingsArgs Empty => new ApplicationGatewayBackendHttpSettingsArgs();
     }
 }

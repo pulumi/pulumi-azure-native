@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StoragePool.V20200315Preview
     /// Response for iSCSI target requests.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagepool/v20200315preview:IscsiTarget")]
-    public partial class IscsiTarget : global::Pulumi.CustomResource
+    public partial class IscsiTarget : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -76,9 +76,9 @@ namespace Pulumi.AzureNative.StoragePool.V20200315Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:storagepool:IscsiTarget"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagepool/v20210401preview:IscsiTarget"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagepool/v20210801:IscsiTarget"},
+                    new Pulumi.Alias { Type = "azure-native:storagepool:IscsiTarget"},
+                    new Pulumi.Alias { Type = "azure-native:storagepool/v20210401preview:IscsiTarget"},
+                    new Pulumi.Alias { Type = "azure-native:storagepool/v20210801:IscsiTarget"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.StoragePool.V20200315Preview
         }
     }
 
-    public sealed class IscsiTargetArgs : global::Pulumi.ResourceArgs
+    public sealed class IscsiTargetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Disk pool.
@@ -141,6 +141,5 @@ namespace Pulumi.AzureNative.StoragePool.V20200315Preview
         public IscsiTargetArgs()
         {
         }
-        public static new IscsiTargetArgs Empty => new IscsiTargetArgs();
     }
 }

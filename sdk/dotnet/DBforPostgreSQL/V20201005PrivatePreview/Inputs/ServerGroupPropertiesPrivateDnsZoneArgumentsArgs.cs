@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview.Inputs
     /// <summary>
     /// The private dns zone arguments for a server group.
     /// </summary>
-    public sealed class ServerGroupPropertiesPrivateDnsZoneArgumentsArgs : global::Pulumi.ResourceArgs
+    public sealed class ServerGroupPropertiesPrivateDnsZoneArgumentsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// private dns zone arm resource id.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview.Inputs
         public ServerGroupPropertiesPrivateDnsZoneArgumentsArgs()
         {
         }
-        public static new ServerGroupPropertiesPrivateDnsZoneArgumentsArgs Empty => new ServerGroupPropertiesPrivateDnsZoneArgumentsArgs();
     }
 }

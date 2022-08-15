@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20161201.Inputs
     /// <summary>
     /// Container for SQL workloads under Azure Virtual Machines.
     /// </summary>
-    public sealed class AzureVMAppContainerProtectionContainerArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureVMAppContainerProtectionContainerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of backup management for the container.
@@ -82,6 +82,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20161201.Inputs
         public AzureVMAppContainerProtectionContainerArgs()
         {
         }
-        public static new AzureVMAppContainerProtectionContainerArgs Empty => new AzureVMAppContainerProtectionContainerArgs();
     }
 }

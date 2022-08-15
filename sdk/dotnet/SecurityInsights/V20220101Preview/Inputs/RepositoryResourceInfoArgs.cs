@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview.Inputs
     /// <summary>
     /// Resources created in user's repository for the source-control.
     /// </summary>
-    public sealed class RepositoryResourceInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class RepositoryResourceInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resources created in Azure DevOps for this source-control.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview.Inputs
         public RepositoryResourceInfoArgs()
         {
         }
-        public static new RepositoryResourceInfoArgs Empty => new RepositoryResourceInfoArgs();
     }
 }

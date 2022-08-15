@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210601Preview
     }
 
 
-    public sealed class GetTokenArgs : global::Pulumi.InvokeArgs
+    public sealed class GetTokenArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the container registry.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210601Preview
         public GetTokenArgs()
         {
         }
-        public static new GetTokenArgs Empty => new GetTokenArgs();
     }
 
-    public sealed class GetTokenInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetTokenInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the container registry.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210601Preview
         public GetTokenInvokeArgs()
         {
         }
-        public static new GetTokenInvokeArgs Empty => new GetTokenInvokeArgs();
     }
 
 

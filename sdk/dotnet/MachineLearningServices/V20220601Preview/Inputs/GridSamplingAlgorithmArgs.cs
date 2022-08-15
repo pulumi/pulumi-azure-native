@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// Defines a Sampling Algorithm that exhaustively generates every value combination in the space
     /// </summary>
-    public sealed class GridSamplingAlgorithmArgs : global::Pulumi.ResourceArgs
+    public sealed class GridSamplingAlgorithmArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// 
@@ -25,6 +25,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         public GridSamplingAlgorithmArgs()
         {
         }
-        public static new GridSamplingAlgorithmArgs Empty => new GridSamplingAlgorithmArgs();
     }
 }

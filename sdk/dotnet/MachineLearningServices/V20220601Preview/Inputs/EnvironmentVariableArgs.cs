@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
 {
 
-    public sealed class EnvironmentVariableArgs : global::Pulumi.ResourceArgs
+    public sealed class EnvironmentVariableArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of the Environment Variable. Possible values are: local - For local variable
@@ -28,6 +28,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         {
             Type = "local";
         }
-        public static new EnvironmentVariableArgs Empty => new EnvironmentVariableArgs();
     }
 }

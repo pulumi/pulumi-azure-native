@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20211101
     /// Description of NetworkRuleSet resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus/v20211101:NamespaceNetworkRuleSet")]
-    public partial class NamespaceNetworkRuleSet : global::Pulumi.CustomResource
+    public partial class NamespaceNetworkRuleSet : Pulumi.CustomResource
     {
         /// <summary>
         /// Default Action for Network Rule Set
@@ -94,12 +94,12 @@ namespace Pulumi.AzureNative.ServiceBus.V20211101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus:NamespaceNetworkRuleSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:NamespaceNetworkRuleSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:NamespaceNetworkRuleSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:NamespaceNetworkRuleSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:NamespaceNetworkRuleSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:NamespaceNetworkRuleSet"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus:NamespaceNetworkRuleSet"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20170401:NamespaceNetworkRuleSet"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:NamespaceNetworkRuleSet"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:NamespaceNetworkRuleSet"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:NamespaceNetworkRuleSet"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:NamespaceNetworkRuleSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -121,7 +121,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20211101
         }
     }
 
-    public sealed class NamespaceNetworkRuleSetArgs : global::Pulumi.ResourceArgs
+    public sealed class NamespaceNetworkRuleSetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Default Action for Network Rule Set
@@ -181,6 +181,5 @@ namespace Pulumi.AzureNative.ServiceBus.V20211101
         {
             PublicNetworkAccess = "Enabled";
         }
-        public static new NamespaceNetworkRuleSetArgs Empty => new NamespaceNetworkRuleSetArgs();
     }
 }

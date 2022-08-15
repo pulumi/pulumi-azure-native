@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.EventHub
     }
 
 
-    public sealed class GetNamespaceVirtualNetworkRuleArgs : global::Pulumi.InvokeArgs
+    public sealed class GetNamespaceVirtualNetworkRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Namespace name
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.EventHub
         public GetNamespaceVirtualNetworkRuleArgs()
         {
         }
-        public static new GetNamespaceVirtualNetworkRuleArgs Empty => new GetNamespaceVirtualNetworkRuleArgs();
     }
 
-    public sealed class GetNamespaceVirtualNetworkRuleInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetNamespaceVirtualNetworkRuleInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Namespace name
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.EventHub
         public GetNamespaceVirtualNetworkRuleInvokeArgs()
         {
         }
-        public static new GetNamespaceVirtualNetworkRuleInvokeArgs Empty => new GetNamespaceVirtualNetworkRuleInvokeArgs();
     }
 
 

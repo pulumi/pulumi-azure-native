@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190301.Inputs
     /// <summary>
     /// Defines contents of custom rules
     /// </summary>
-    public sealed class CustomRuleListArgs : global::Pulumi.ResourceArgs
+    public sealed class CustomRuleListArgs : Pulumi.ResourceArgs
     {
         [Input("rules")]
         private InputList<Inputs.CustomRuleArgs>? _rules;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Network.V20190301.Inputs
         public CustomRuleListArgs()
         {
         }
-        public static new CustomRuleListArgs Empty => new CustomRuleListArgs();
     }
 }

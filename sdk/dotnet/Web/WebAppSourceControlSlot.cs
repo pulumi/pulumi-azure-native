@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web
     /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppSourceControlSlot")]
-    public partial class WebAppSourceControlSlot : global::Pulumi.CustomResource
+    public partial class WebAppSourceControlSlot : Pulumi.CustomResource
     {
         /// <summary>
         /// Name of branch to use for deployment.
@@ -101,20 +101,20 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppSourceControlSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppSourceControlSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppSourceControlSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppSourceControlSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppSourceControlSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppSourceControlSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppSourceControlSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppSourceControlSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppSourceControlSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppSourceControlSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppSourceControlSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppSourceControlSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppSourceControlSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppSourceControlSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.Web
         }
     }
 
-    public sealed class WebAppSourceControlSlotArgs : global::Pulumi.ResourceArgs
+    public sealed class WebAppSourceControlSlotArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of branch to use for deployment.
@@ -207,6 +207,5 @@ namespace Pulumi.AzureNative.Web
         public WebAppSourceControlSlotArgs()
         {
         }
-        public static new WebAppSourceControlSlotArgs Empty => new WebAppSourceControlSlotArgs();
     }
 }

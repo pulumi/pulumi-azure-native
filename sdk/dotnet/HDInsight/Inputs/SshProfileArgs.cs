@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.Inputs
     /// <summary>
     /// The list of SSH public keys.
     /// </summary>
-    public sealed class SshProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class SshProfileArgs : Pulumi.ResourceArgs
     {
         [Input("publicKeys")]
         private InputList<Inputs.SshPublicKeyArgs>? _publicKeys;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.HDInsight.Inputs
         public SshProfileArgs()
         {
         }
-        public static new SshProfileArgs Empty => new SshProfileArgs();
     }
 }

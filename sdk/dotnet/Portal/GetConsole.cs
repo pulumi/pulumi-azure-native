@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Portal
     }
 
 
-    public sealed class GetConsoleArgs : global::Pulumi.InvokeArgs
+    public sealed class GetConsoleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the console
@@ -38,10 +38,9 @@ namespace Pulumi.AzureNative.Portal
         public GetConsoleArgs()
         {
         }
-        public static new GetConsoleArgs Empty => new GetConsoleArgs();
     }
 
-    public sealed class GetConsoleInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetConsoleInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the console
@@ -52,7 +51,6 @@ namespace Pulumi.AzureNative.Portal
         public GetConsoleInvokeArgs()
         {
         }
-        public static new GetConsoleInvokeArgs Empty => new GetConsoleInvokeArgs();
     }
 
 

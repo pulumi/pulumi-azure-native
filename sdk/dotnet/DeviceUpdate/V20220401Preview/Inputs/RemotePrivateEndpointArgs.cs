@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20220401Preview.Inputs
     /// <summary>
     /// Remote private endpoint details.
     /// </summary>
-    public sealed class RemotePrivateEndpointArgs : global::Pulumi.ResourceArgs
+    public sealed class RemotePrivateEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Remote endpoint resource ID.
@@ -84,6 +84,5 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20220401Preview.Inputs
         public RemotePrivateEndpointArgs()
         {
         }
-        public static new RemotePrivateEndpointArgs Empty => new RemotePrivateEndpointArgs();
     }
 }

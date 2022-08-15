@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20181001.Inputs
     /// <summary>
     /// P2SVpnServerConfiguration Resource.
     /// </summary>
-    public sealed class P2SVpnServerConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class P2SVpnServerConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -120,6 +120,5 @@ namespace Pulumi.AzureNative.Network.V20181001.Inputs
         public P2SVpnServerConfigurationArgs()
         {
         }
-        public static new P2SVpnServerConfigurationArgs Empty => new P2SVpnServerConfigurationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
     /// Represents scheduled alert rule.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20210901preview:ScheduledAlertRule")]
-    public partial class ScheduledAlertRule : global::Pulumi.CustomResource
+    public partial class ScheduledAlertRule : Pulumi.CustomResource
     {
         /// <summary>
         /// The alert details override settings
@@ -198,18 +198,18 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:ScheduledAlertRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:ScheduledAlertRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:ScheduledAlertRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:ScheduledAlertRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:ScheduledAlertRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:ScheduledAlertRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:ScheduledAlertRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:ScheduledAlertRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:ScheduledAlertRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:ScheduledAlertRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:ScheduledAlertRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:ScheduledAlertRule"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights:ScheduledAlertRule"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:ScheduledAlertRule"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:ScheduledAlertRule"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:ScheduledAlertRule"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:ScheduledAlertRule"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:ScheduledAlertRule"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:ScheduledAlertRule"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:ScheduledAlertRule"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:ScheduledAlertRule"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:ScheduledAlertRule"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:ScheduledAlertRule"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:ScheduledAlertRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -231,7 +231,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
         }
     }
 
-    public sealed class ScheduledAlertRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class ScheduledAlertRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The alert details override settings
@@ -393,6 +393,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
         public ScheduledAlertRuleArgs()
         {
         }
-        public static new ScheduledAlertRuleArgs Empty => new ScheduledAlertRuleArgs();
     }
 }

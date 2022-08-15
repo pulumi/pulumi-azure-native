@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200331.Inputs
     /// <summary>
     /// Defines contents of a web application firewall global configuration
     /// </summary>
-    public sealed class PolicySettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class PolicySettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.Cdn.V20200331.Inputs
         public PolicySettingsArgs()
         {
         }
-        public static new PolicySettingsArgs Empty => new PolicySettingsArgs();
     }
 }

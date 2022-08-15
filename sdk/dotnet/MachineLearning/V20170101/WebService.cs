@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearning.V20170101
     /// Instance of an Azure ML web service resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearning/v20170101:WebService")]
-    public partial class WebService : global::Pulumi.CustomResource
+    public partial class WebService : Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the location of the resource.
@@ -70,8 +70,8 @@ namespace Pulumi.AzureNative.MachineLearning.V20170101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearning:WebService"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearning/v20160501preview:WebService"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearning:WebService"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearning/v20160501preview:WebService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.MachineLearning.V20170101
         }
     }
 
-    public sealed class WebServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class WebServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the location of the resource.
@@ -134,6 +134,5 @@ namespace Pulumi.AzureNative.MachineLearning.V20170101
         public WebServiceArgs()
         {
         }
-        public static new WebServiceArgs Empty => new WebServiceArgs();
     }
 }

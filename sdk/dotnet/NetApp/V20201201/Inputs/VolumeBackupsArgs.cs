@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NetApp.V20201201.Inputs
     /// <summary>
     /// Volume details using the backup policy
     /// </summary>
-    public sealed class VolumeBackupsArgs : global::Pulumi.ResourceArgs
+    public sealed class VolumeBackupsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Total count of backups for volume
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.NetApp.V20201201.Inputs
         public VolumeBackupsArgs()
         {
         }
-        public static new VolumeBackupsArgs Empty => new VolumeBackupsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20221001.Inputs
     /// <summary>
     /// Specifies an auto scale rule metric dimension.
     /// </summary>
-    public sealed class ScaleRuleMetricDimensionArgs : global::Pulumi.ResourceArgs
+    public sealed class ScaleRuleMetricDimensionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the dimension.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Insights.V20221001.Inputs
         public ScaleRuleMetricDimensionArgs()
         {
         }
-        public static new ScaleRuleMetricDimensionArgs Empty => new ScaleRuleMetricDimensionArgs();
     }
 }

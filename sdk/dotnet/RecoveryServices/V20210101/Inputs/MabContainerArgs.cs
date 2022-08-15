@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210101.Inputs
     /// <summary>
     /// Container with items backed up using MAB backup engine.
     /// </summary>
-    public sealed class MabContainerArgs : global::Pulumi.ResourceArgs
+    public sealed class MabContainerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Agent version of this container.
@@ -100,6 +100,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210101.Inputs
         public MabContainerArgs()
         {
         }
-        public static new MabContainerArgs Empty => new MabContainerArgs();
     }
 }

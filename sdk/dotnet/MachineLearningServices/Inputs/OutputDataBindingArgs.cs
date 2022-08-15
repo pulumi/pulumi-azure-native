@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 {
 
-    public sealed class OutputDataBindingArgs : global::Pulumi.ResourceArgs
+    public sealed class OutputDataBindingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARM resource ID of the datastore where the data output will be stored.
@@ -39,6 +39,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public OutputDataBindingArgs()
         {
         }
-        public static new OutputDataBindingArgs Empty => new OutputDataBindingArgs();
     }
 }

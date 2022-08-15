@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Cache.V20190701
     }
 
 
-    public sealed class GetLinkedServerArgs : global::Pulumi.InvokeArgs
+    public sealed class GetLinkedServerArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the linked server.
@@ -49,10 +49,9 @@ namespace Pulumi.AzureNative.Cache.V20190701
         public GetLinkedServerArgs()
         {
         }
-        public static new GetLinkedServerArgs Empty => new GetLinkedServerArgs();
     }
 
-    public sealed class GetLinkedServerInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetLinkedServerInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the linked server.
@@ -75,7 +74,6 @@ namespace Pulumi.AzureNative.Cache.V20190701
         public GetLinkedServerInvokeArgs()
         {
         }
-        public static new GetLinkedServerInvokeArgs Empty => new GetLinkedServerInvokeArgs();
     }
 
 

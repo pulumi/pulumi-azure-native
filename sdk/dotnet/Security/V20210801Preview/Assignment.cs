@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20210801Preview
     /// Security Assignment on a resource group over a given scope
     /// </summary>
     [AzureNativeResourceType("azure-native:security/v20210801preview:Assignment")]
-    public partial class Assignment : global::Pulumi.CustomResource
+    public partial class Assignment : Pulumi.CustomResource
     {
         /// <summary>
         /// Additional data about the assignment
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.Security.V20210801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:security:Assignment"},
+                    new Pulumi.Alias { Type = "azure-native:security:Assignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -158,7 +158,7 @@ namespace Pulumi.AzureNative.Security.V20210801Preview
         }
     }
 
-    public sealed class AssignmentArgs : global::Pulumi.ResourceArgs
+    public sealed class AssignmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Additional data about the assignment
@@ -253,6 +253,5 @@ namespace Pulumi.AzureNative.Security.V20210801Preview
         public AssignmentArgs()
         {
         }
-        public static new AssignmentArgs Empty => new AssignmentArgs();
     }
 }

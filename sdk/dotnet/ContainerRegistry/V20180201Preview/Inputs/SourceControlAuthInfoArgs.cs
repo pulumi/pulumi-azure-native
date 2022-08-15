@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview.Inputs
     /// <summary>
     /// The authorization properties for accessing the source code repository.
     /// </summary>
-    public sealed class SourceControlAuthInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class SourceControlAuthInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Time in seconds that the token remains valid
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview.Inputs
         public SourceControlAuthInfoArgs()
         {
         }
-        public static new SourceControlAuthInfoArgs Empty => new SourceControlAuthInfoArgs();
     }
 }

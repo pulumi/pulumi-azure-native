@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20200207Preview
     /// A provider instance associated with a SAP monitor.
     /// </summary>
     [AzureNativeResourceType("azure-native:hanaonazure/v20200207preview:ProviderInstance")]
-    public partial class ProviderInstance : global::Pulumi.CustomResource
+    public partial class ProviderInstance : Pulumi.CustomResource
     {
         /// <summary>
         /// A JSON string containing metadata of the provider instance.
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20200207Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:hanaonazure:ProviderInstance"},
+                    new Pulumi.Alias { Type = "azure-native:hanaonazure:ProviderInstance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20200207Preview
         }
     }
 
-    public sealed class ProviderInstanceArgs : global::Pulumi.ResourceArgs
+    public sealed class ProviderInstanceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A JSON string containing metadata of the provider instance.
@@ -133,6 +133,5 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20200207Preview
         public ProviderInstanceArgs()
         {
         }
-        public static new ProviderInstanceArgs Empty => new ProviderInstanceArgs();
     }
 }

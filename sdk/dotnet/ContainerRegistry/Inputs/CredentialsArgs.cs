@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.Inputs
     /// <summary>
     /// The parameters that describes a set of credentials that will be used when a run is invoked.
     /// </summary>
-    public sealed class CredentialsArgs : global::Pulumi.ResourceArgs
+    public sealed class CredentialsArgs : Pulumi.ResourceArgs
     {
         [Input("customRegistries")]
         private InputMap<Inputs.CustomRegistryCredentialsArgs>? _customRegistries;
@@ -38,6 +38,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.Inputs
         public CredentialsArgs()
         {
         }
-        public static new CredentialsArgs Empty => new CredentialsArgs();
     }
 }

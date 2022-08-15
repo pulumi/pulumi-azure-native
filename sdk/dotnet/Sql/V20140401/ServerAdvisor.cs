@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20140401
     /// Database Advisor.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20140401:ServerAdvisor")]
-    public partial class ServerAdvisor : global::Pulumi.CustomResource
+    public partial class ServerAdvisor : Pulumi.CustomResource
     {
         /// <summary>
         /// Gets the status of availability of this advisor to customers. Possible values are 'GA', 'PublicPreview', 'LimitedPublicPreview' and 'PrivatePreview'.
@@ -88,17 +88,17 @@ namespace Pulumi.AzureNative.Sql.V20140401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql:ServerAdvisor"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20150501preview:ServerAdvisor"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ServerAdvisor"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ServerAdvisor"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ServerAdvisor"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ServerAdvisor"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ServerAdvisor"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ServerAdvisor"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:ServerAdvisor"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ServerAdvisor"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ServerAdvisor"},
+                    new Pulumi.Alias { Type = "azure-native:sql:ServerAdvisor"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20150501preview:ServerAdvisor"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ServerAdvisor"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ServerAdvisor"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ServerAdvisor"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ServerAdvisor"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ServerAdvisor"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ServerAdvisor"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101:ServerAdvisor"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ServerAdvisor"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ServerAdvisor"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.Sql.V20140401
         }
     }
 
-    public sealed class ServerAdvisorArgs : global::Pulumi.ResourceArgs
+    public sealed class ServerAdvisorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Server Advisor.
@@ -149,6 +149,5 @@ namespace Pulumi.AzureNative.Sql.V20140401
         public ServerAdvisorArgs()
         {
         }
-        public static new ServerAdvisorArgs Empty => new ServerAdvisorArgs();
     }
 }

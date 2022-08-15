@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20180315Preview.Inputs
     /// <summary>
     /// Properties for the task that collects user tables for the given list of databases
     /// </summary>
-    public sealed class GetUserTablesSqlTaskPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class GetUserTablesSqlTaskPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Task input
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.DataMigration.V20180315Preview.Inputs
         public GetUserTablesSqlTaskPropertiesArgs()
         {
         }
-        public static new GetUserTablesSqlTaskPropertiesArgs Empty => new GetUserTablesSqlTaskPropertiesArgs();
     }
 }

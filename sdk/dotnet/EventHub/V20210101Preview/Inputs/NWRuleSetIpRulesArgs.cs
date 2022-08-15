@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventHub.V20210101Preview.Inputs
     /// <summary>
     /// The response from the List namespace operation.
     /// </summary>
-    public sealed class NWRuleSetIpRulesArgs : global::Pulumi.ResourceArgs
+    public sealed class NWRuleSetIpRulesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IP Filter Action
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.EventHub.V20210101Preview.Inputs
         public NWRuleSetIpRulesArgs()
         {
         }
-        public static new NWRuleSetIpRulesArgs Empty => new NWRuleSetIpRulesArgs();
     }
 }

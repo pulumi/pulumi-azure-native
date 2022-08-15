@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20211101.Inputs
     /// <summary>
     /// The client access policy.
     /// </summary>
-    public sealed class CrossSiteAccessPoliciesArgs : global::Pulumi.ResourceArgs
+    public sealed class CrossSiteAccessPoliciesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The content of clientaccesspolicy.xml used by Silverlight.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Media.V20211101.Inputs
         public CrossSiteAccessPoliciesArgs()
         {
         }
-        public static new CrossSiteAccessPoliciesArgs Empty => new CrossSiteAccessPoliciesArgs();
     }
 }

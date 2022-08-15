@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.V20150801
     /// </summary>
     [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:web/v20150801:Site")]
-    public partial class Site : global::Pulumi.CustomResource
+    public partial class Site : Pulumi.CustomResource
     {
         /// <summary>
         /// Management information availability state for the web app. Possible values are Normal or Limited. 
@@ -239,20 +239,20 @@ namespace Pulumi.AzureNative.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:Site"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:Site"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:Site"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:Site"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:Site"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:Site"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:Site"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:Site"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:Site"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:Site"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:Site"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:Site"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:Site"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:Site"},
+                    new Pulumi.Alias { Type = "azure-native:web:Site"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:Site"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:Site"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:Site"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:Site"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:Site"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:Site"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:Site"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:Site"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:Site"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:Site"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:Site"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:Site"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:Site"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -274,7 +274,7 @@ namespace Pulumi.AzureNative.Web.V20150801
         }
     }
 
-    public sealed class SiteArgs : global::Pulumi.ResourceArgs
+    public sealed class SiteArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies if the client affinity is enabled when load balancing http request for multiple instances of the web app
@@ -439,6 +439,5 @@ namespace Pulumi.AzureNative.Web.V20150801
         public SiteArgs()
         {
         }
-        public static new SiteArgs Empty => new SiteArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20160901.Inputs
     /// <summary>
     /// Client certificate details using common name
     /// </summary>
-    public sealed class ClientCertificateCommonNameArgs : global::Pulumi.ResourceArgs
+    public sealed class ClientCertificateCommonNameArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Certificate common name to be granted access; be careful using wild card common names
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.ServiceFabric.V20160901.Inputs
         public ClientCertificateCommonNameArgs()
         {
         }
-        public static new ClientCertificateCommonNameArgs Empty => new ClientCertificateCommonNameArgs();
     }
 }

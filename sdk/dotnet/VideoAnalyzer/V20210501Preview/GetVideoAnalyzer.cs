@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview
     }
 
 
-    public sealed class GetVideoAnalyzerArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVideoAnalyzerArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Video Analyzer account name.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview
         public GetVideoAnalyzerArgs()
         {
         }
-        public static new GetVideoAnalyzerArgs Empty => new GetVideoAnalyzerArgs();
     }
 
-    public sealed class GetVideoAnalyzerInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVideoAnalyzerInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Video Analyzer account name.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview
         public GetVideoAnalyzerInvokeArgs()
         {
         }
-        public static new GetVideoAnalyzerInvokeArgs Empty => new GetVideoAnalyzerInvokeArgs();
     }
 
 

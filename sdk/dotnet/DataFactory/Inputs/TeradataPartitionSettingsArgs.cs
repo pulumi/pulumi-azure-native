@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The settings that will be leveraged for teradata source partitioning.
     /// </summary>
-    public sealed class TeradataPartitionSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class TeradataPartitionSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the column that will be used for proceeding range or hash partitioning. Type: string (or Expression with resultType string).
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public TeradataPartitionSettingsArgs()
         {
         }
-        public static new TeradataPartitionSettingsArgs Empty => new TeradataPartitionSettingsArgs();
     }
 }

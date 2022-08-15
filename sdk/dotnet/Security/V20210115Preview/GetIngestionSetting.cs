@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Security.V20210115Preview
     }
 
 
-    public sealed class GetIngestionSettingArgs : global::Pulumi.InvokeArgs
+    public sealed class GetIngestionSettingArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the ingestion setting
@@ -36,10 +36,9 @@ namespace Pulumi.AzureNative.Security.V20210115Preview
         public GetIngestionSettingArgs()
         {
         }
-        public static new GetIngestionSettingArgs Empty => new GetIngestionSettingArgs();
     }
 
-    public sealed class GetIngestionSettingInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetIngestionSettingInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the ingestion setting
@@ -50,7 +49,6 @@ namespace Pulumi.AzureNative.Security.V20210115Preview
         public GetIngestionSettingInvokeArgs()
         {
         }
-        public static new GetIngestionSettingInvokeArgs Empty => new GetIngestionSettingInvokeArgs();
     }
 
 

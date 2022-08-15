@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Media.V20180701
     }
 
 
-    public sealed class ListAssetStreamingLocatorsArgs : global::Pulumi.InvokeArgs
+    public sealed class ListAssetStreamingLocatorsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Media.V20180701
         public ListAssetStreamingLocatorsArgs()
         {
         }
-        public static new ListAssetStreamingLocatorsArgs Empty => new ListAssetStreamingLocatorsArgs();
     }
 
-    public sealed class ListAssetStreamingLocatorsInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListAssetStreamingLocatorsInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Media.V20180701
         public ListAssetStreamingLocatorsInvokeArgs()
         {
         }
-        public static new ListAssetStreamingLocatorsInvokeArgs Empty => new ListAssetStreamingLocatorsInvokeArgs();
     }
 
 

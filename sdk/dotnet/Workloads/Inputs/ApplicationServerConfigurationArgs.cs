@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.Inputs
     /// <summary>
     /// Gets or sets the application server configuration.
     /// </summary>
-    public sealed class ApplicationServerConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplicationServerConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of app server instances.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Workloads.Inputs
         public ApplicationServerConfigurationArgs()
         {
         }
-        public static new ApplicationServerConfigurationArgs Empty => new ApplicationServerConfigurationArgs();
     }
 }

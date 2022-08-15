@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview.Inputs
     /// <summary>
     /// Types of validations to run after the migration
     /// </summary>
-    public sealed class MigrationValidationOptionsArgs : global::Pulumi.ResourceArgs
+    public sealed class MigrationValidationOptionsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Allows to perform a checksum based data integrity validation between source and target for the selected database / tables .
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview.Inputs
         public MigrationValidationOptionsArgs()
         {
         }
-        public static new MigrationValidationOptionsArgs Empty => new MigrationValidationOptionsArgs();
     }
 }

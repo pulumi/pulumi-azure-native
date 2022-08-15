@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview
     /// Active directory connector resource
     /// </summary>
     [AzureNativeResourceType("azure-native:azurearcdata/v20220301preview:ActiveDirectoryConnector")]
-    public partial class ActiveDirectoryConnector : global::Pulumi.CustomResource
+    public partial class ActiveDirectoryConnector : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata:ActiveDirectoryConnector"},
+                    new Pulumi.Alias { Type = "azure-native:azurearcdata:ActiveDirectoryConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview
         }
     }
 
-    public sealed class ActiveDirectoryConnectorArgs : global::Pulumi.ResourceArgs
+    public sealed class ActiveDirectoryConnectorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Active Directory connector instance
@@ -115,6 +115,5 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview
         public ActiveDirectoryConnectorArgs()
         {
         }
-        public static new ActiveDirectoryConnectorArgs Empty => new ActiveDirectoryConnectorArgs();
     }
 }

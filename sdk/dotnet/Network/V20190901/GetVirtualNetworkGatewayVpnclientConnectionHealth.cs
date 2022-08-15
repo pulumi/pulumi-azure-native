@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20190901
     }
 
 
-    public sealed class GetVirtualNetworkGatewayVpnclientConnectionHealthArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkGatewayVpnclientConnectionHealthArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.Network.V20190901
         public GetVirtualNetworkGatewayVpnclientConnectionHealthArgs()
         {
         }
-        public static new GetVirtualNetworkGatewayVpnclientConnectionHealthArgs Empty => new GetVirtualNetworkGatewayVpnclientConnectionHealthArgs();
     }
 
-    public sealed class GetVirtualNetworkGatewayVpnclientConnectionHealthInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkGatewayVpnclientConnectionHealthInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.Network.V20190901
         public GetVirtualNetworkGatewayVpnclientConnectionHealthInvokeArgs()
         {
         }
-        public static new GetVirtualNetworkGatewayVpnclientConnectionHealthInvokeArgs Empty => new GetVirtualNetworkGatewayVpnclientConnectionHealthInvokeArgs();
     }
 
 

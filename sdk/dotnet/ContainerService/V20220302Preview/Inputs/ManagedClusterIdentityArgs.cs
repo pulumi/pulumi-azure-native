@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220302Preview.Inputs
     /// <summary>
     /// Identity for the managed cluster.
     /// </summary>
-    public sealed class ManagedClusterIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedClusterIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// For more information see [use managed identities in AKS](https://docs.microsoft.com/azure/aks/use-managed-identity).
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.ContainerService.V20220302Preview.Inputs
         public ManagedClusterIdentityArgs()
         {
         }
-        public static new ManagedClusterIdentityArgs Empty => new ManagedClusterIdentityArgs();
     }
 }

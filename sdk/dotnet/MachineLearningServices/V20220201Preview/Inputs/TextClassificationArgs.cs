@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// Text Classification task in AutoML NLP vertical.
     /// NLP - Natural Language Processing.
     /// </summary>
-    public sealed class TextClassificationArgs : global::Pulumi.ResourceArgs
+    public sealed class TextClassificationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Data inputs for AutoMLJob.
@@ -58,6 +58,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
             LogVerbosity = "Info";
             PrimaryMetric = "Accuracy";
         }
-        public static new TextClassificationArgs Empty => new TextClassificationArgs();
     }
 }

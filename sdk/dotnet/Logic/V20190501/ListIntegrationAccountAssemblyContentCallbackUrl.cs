@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Logic.V20190501
     }
 
 
-    public sealed class ListIntegrationAccountAssemblyContentCallbackUrlArgs : global::Pulumi.InvokeArgs
+    public sealed class ListIntegrationAccountAssemblyContentCallbackUrlArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The assembly artifact name.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Logic.V20190501
         public ListIntegrationAccountAssemblyContentCallbackUrlArgs()
         {
         }
-        public static new ListIntegrationAccountAssemblyContentCallbackUrlArgs Empty => new ListIntegrationAccountAssemblyContentCallbackUrlArgs();
     }
 
-    public sealed class ListIntegrationAccountAssemblyContentCallbackUrlInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListIntegrationAccountAssemblyContentCallbackUrlInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The assembly artifact name.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Logic.V20190501
         public ListIntegrationAccountAssemblyContentCallbackUrlInvokeArgs()
         {
         }
-        public static new ListIntegrationAccountAssemblyContentCallbackUrlInvokeArgs Empty => new ListIntegrationAccountAssemblyContentCallbackUrlInvokeArgs();
     }
 
 

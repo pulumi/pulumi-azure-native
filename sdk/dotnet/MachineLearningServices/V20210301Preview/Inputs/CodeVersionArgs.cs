@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// <summary>
     /// Code asset version details.
     /// </summary>
-    public sealed class CodeVersionArgs : global::Pulumi.ResourceArgs
+    public sealed class CodeVersionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARM resource ID of the datastore where the asset is located.
@@ -66,6 +66,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public CodeVersionArgs()
         {
         }
-        public static new CodeVersionArgs Empty => new CodeVersionArgs();
     }
 }

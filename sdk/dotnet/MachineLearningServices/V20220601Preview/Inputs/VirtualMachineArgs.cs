@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// A Machine Learning compute based on Azure Virtual Machines.
     /// </summary>
-    public sealed class VirtualMachineArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualMachineArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of compute
@@ -46,6 +46,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         public VirtualMachineArgs()
         {
         }
-        public static new VirtualMachineArgs Empty => new VirtualMachineArgs();
     }
 }

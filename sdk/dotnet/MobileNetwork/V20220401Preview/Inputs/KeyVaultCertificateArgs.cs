@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview.Inputs
     /// <summary>
     /// An Azure key vault certificate.
     /// </summary>
-    public sealed class KeyVaultCertificateArgs : global::Pulumi.ResourceArgs
+    public sealed class KeyVaultCertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The certificate URL, unversioned. For example: https://contosovault.vault.azure.net/certificates/ingress.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview.Inputs
         public KeyVaultCertificateArgs()
         {
         }
-        public static new KeyVaultCertificateArgs Empty => new KeyVaultCertificateArgs();
     }
 }

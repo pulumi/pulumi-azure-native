@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages
     }
 
 
-    public sealed class GetVirtualMachineImageTemplateArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualMachineImageTemplateArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the image Template
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.VirtualMachineImages
         public GetVirtualMachineImageTemplateArgs()
         {
         }
-        public static new GetVirtualMachineImageTemplateArgs Empty => new GetVirtualMachineImageTemplateArgs();
     }
 
-    public sealed class GetVirtualMachineImageTemplateInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualMachineImageTemplateInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the image Template
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.VirtualMachineImages
         public GetVirtualMachineImageTemplateInvokeArgs()
         {
         }
-        public static new GetVirtualMachineImageTemplateInvokeArgs Empty => new GetVirtualMachineImageTemplateInvokeArgs();
     }
 
 

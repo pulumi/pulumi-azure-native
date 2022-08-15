@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationalInsights.Inputs
     /// <summary>
     /// A machine reference with a hint of the machine's name and operating system.
     /// </summary>
-    public sealed class MachineReferenceWithHintsArgs : global::Pulumi.ResourceArgs
+    public sealed class MachineReferenceWithHintsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource URI.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.OperationalInsights.Inputs
         public MachineReferenceWithHintsArgs()
         {
         }
-        public static new MachineReferenceWithHintsArgs Empty => new MachineReferenceWithHintsArgs();
     }
 }

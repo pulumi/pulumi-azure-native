@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200401.Inputs
     /// <summary>
     /// Frontend IP configuration of an application gateway.
     /// </summary>
-    public sealed class ApplicationGatewayFrontendIPConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayFrontendIPConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID.
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.Network.V20200401.Inputs
         public ApplicationGatewayFrontendIPConfigurationArgs()
         {
         }
-        public static new ApplicationGatewayFrontendIPConfigurationArgs Empty => new ApplicationGatewayFrontendIPConfigurationArgs();
     }
 }

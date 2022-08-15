@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.Inputs
     /// <summary>
     /// Describes the properties of a secret resource.
     /// </summary>
-    public sealed class SecretResourcePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class SecretResourcePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of the content stored in the secret value. The value of this property is opaque to Service Fabric. Once set, the value of this property cannot be changed.
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.Inputs
         public SecretResourcePropertiesArgs()
         {
         }
-        public static new SecretResourcePropertiesArgs Empty => new SecretResourcePropertiesArgs();
     }
 }

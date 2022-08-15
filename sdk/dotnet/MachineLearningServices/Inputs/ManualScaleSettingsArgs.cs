@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 {
 
-    public sealed class ManualScaleSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class ManualScaleSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Fixed number of instances for this deployment.
@@ -40,6 +40,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public ManualScaleSettingsArgs()
         {
         }
-        public static new ManualScaleSettingsArgs Empty => new ManualScaleSettingsArgs();
     }
 }

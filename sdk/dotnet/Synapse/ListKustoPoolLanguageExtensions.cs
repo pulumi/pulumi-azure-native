@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Synapse
     }
 
 
-    public sealed class ListKustoPoolLanguageExtensionsArgs : global::Pulumi.InvokeArgs
+    public sealed class ListKustoPoolLanguageExtensionsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kusto pool.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Synapse
         public ListKustoPoolLanguageExtensionsArgs()
         {
         }
-        public static new ListKustoPoolLanguageExtensionsArgs Empty => new ListKustoPoolLanguageExtensionsArgs();
     }
 
-    public sealed class ListKustoPoolLanguageExtensionsInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListKustoPoolLanguageExtensionsInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kusto pool.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Synapse
         public ListKustoPoolLanguageExtensionsInvokeArgs()
         {
         }
-        public static new ListKustoPoolLanguageExtensionsInvokeArgs Empty => new ListKustoPoolLanguageExtensionsInvokeArgs();
     }
 
 

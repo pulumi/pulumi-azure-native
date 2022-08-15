@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.Inputs
 {
 
-    public sealed class PerformanceCounterConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class PerformanceCounterConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("instance")]
         public Input<string>? Instance { get; set; }
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Insights.Inputs
         public PerformanceCounterConfigurationArgs()
         {
         }
-        public static new PerformanceCounterConfigurationArgs Empty => new PerformanceCounterConfigurationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity source for SAP Business Warehouse Open Hub Destination source.
     /// </summary>
-    public sealed class SapOpenHubSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class SapOpenHubSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -85,6 +85,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public SapOpenHubSourceArgs()
         {
         }
-        public static new SapOpenHubSourceArgs Empty => new SapOpenHubSourceArgs();
     }
 }

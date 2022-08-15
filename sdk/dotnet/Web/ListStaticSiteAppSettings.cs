@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Web
     }
 
 
-    public sealed class ListStaticSiteAppSettingsArgs : global::Pulumi.InvokeArgs
+    public sealed class ListStaticSiteAppSettingsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the static site.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.Web
         public ListStaticSiteAppSettingsArgs()
         {
         }
-        public static new ListStaticSiteAppSettingsArgs Empty => new ListStaticSiteAppSettingsArgs();
     }
 
-    public sealed class ListStaticSiteAppSettingsInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListStaticSiteAppSettingsInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the static site.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.Web
         public ListStaticSiteAppSettingsInvokeArgs()
         {
         }
-        public static new ListStaticSiteAppSettingsInvokeArgs Empty => new ListStaticSiteAppSettingsInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20210630.Inputs
     /// <summary>
     /// Properties for the task that validates a migration between MongoDB data sources
     /// </summary>
-    public sealed class ValidateMongoDbTaskPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ValidateMongoDbTaskPropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("clientData")]
         private InputMap<string>? _clientData;
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.DataMigration.V20210630.Inputs
         public ValidateMongoDbTaskPropertiesArgs()
         {
         }
-        public static new ValidateMongoDbTaskPropertiesArgs Empty => new ValidateMongoDbTaskPropertiesArgs();
     }
 }

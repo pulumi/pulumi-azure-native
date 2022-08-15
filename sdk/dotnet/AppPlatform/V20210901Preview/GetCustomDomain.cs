@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20210901Preview
     }
 
 
-    public sealed class GetCustomDomainArgs : global::Pulumi.InvokeArgs
+    public sealed class GetCustomDomainArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the App resource.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.AppPlatform.V20210901Preview
         public GetCustomDomainArgs()
         {
         }
-        public static new GetCustomDomainArgs Empty => new GetCustomDomainArgs();
     }
 
-    public sealed class GetCustomDomainInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetCustomDomainInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the App resource.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20210901Preview
         public GetCustomDomainInvokeArgs()
         {
         }
-        public static new GetCustomDomainInvokeArgs Empty => new GetCustomDomainInvokeArgs();
     }
 
 

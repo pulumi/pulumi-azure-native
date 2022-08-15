@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20220301.Inputs
 {
 
-    public sealed class ArcConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class ArcConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("artifactStorageAccessMode")]
         public Input<string>? ArtifactStorageAccessMode { get; set; }
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Web.V20220301.Inputs
         public ArcConfigurationArgs()
         {
         }
-        public static new ArcConfigurationArgs Empty => new ArcConfigurationArgs();
     }
 }

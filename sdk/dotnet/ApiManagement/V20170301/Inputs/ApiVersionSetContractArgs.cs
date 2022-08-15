@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301.Inputs
     /// <summary>
     /// Api Version Set Contract details.
     /// </summary>
-    public sealed class ApiVersionSetContractArgs : global::Pulumi.ResourceArgs
+    public sealed class ApiVersionSetContractArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of API Version Set.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301.Inputs
         public ApiVersionSetContractArgs()
         {
         }
-        public static new ApiVersionSetContractArgs Empty => new ApiVersionSetContractArgs();
     }
 }

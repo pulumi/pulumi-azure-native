@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DevTestLab
     /// API Version: 2018-09-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab:Policy")]
-    public partial class Policy : global::Pulumi.CustomResource
+    public partial class Policy : Pulumi.CustomResource
     {
         /// <summary>
         /// The creation date of the policy.
@@ -119,9 +119,9 @@ namespace Pulumi.AzureNative.DevTestLab
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20150521preview:Policy"},
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:Policy"},
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:Policy"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20150521preview:Policy"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:Policy"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:Policy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -143,7 +143,7 @@ namespace Pulumi.AzureNative.DevTestLab
         }
     }
 
-    public sealed class PolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class PolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the policy.
@@ -226,6 +226,5 @@ namespace Pulumi.AzureNative.DevTestLab
         public PolicyArgs()
         {
         }
-        public static new PolicyArgs Empty => new PolicyArgs();
     }
 }

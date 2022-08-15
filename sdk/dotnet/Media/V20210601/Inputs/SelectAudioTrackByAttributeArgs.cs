@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20210601.Inputs
     /// <summary>
     /// Select audio tracks from the input by specifying an attribute and an attribute filter.
     /// </summary>
-    public sealed class SelectAudioTrackByAttributeArgs : global::Pulumi.ResourceArgs
+    public sealed class SelectAudioTrackByAttributeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The TrackAttribute to filter the tracks by.
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.Media.V20210601.Inputs
         public SelectAudioTrackByAttributeArgs()
         {
         }
-        public static new SelectAudioTrackByAttributeArgs Empty => new SelectAudioTrackByAttributeArgs();
     }
 }

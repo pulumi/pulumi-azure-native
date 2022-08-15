@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20211115Preview.Inputs
     /// <summary>
     /// Ldap authentication method properties. This feature is in preview.
     /// </summary>
-    public sealed class AuthenticationMethodLdapPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class AuthenticationMethodLdapPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Distinguished name of the object to start the recursive search of users from.
@@ -62,6 +62,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20211115Preview.Inputs
         public AuthenticationMethodLdapPropertiesArgs()
         {
         }
-        public static new AuthenticationMethodLdapPropertiesArgs Empty => new AuthenticationMethodLdapPropertiesArgs();
     }
 }

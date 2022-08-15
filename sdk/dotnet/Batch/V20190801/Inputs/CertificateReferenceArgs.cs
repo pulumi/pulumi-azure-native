@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20190801.Inputs
 {
 
-    public sealed class CertificateReferenceArgs : global::Pulumi.ResourceArgs
+    public sealed class CertificateReferenceArgs : Pulumi.ResourceArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -38,6 +38,5 @@ namespace Pulumi.AzureNative.Batch.V20190801.Inputs
         public CertificateReferenceArgs()
         {
         }
-        public static new CertificateReferenceArgs Empty => new CertificateReferenceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20220201Preview.Inputs
     /// <summary>
     /// Properties of column in sync group table.
     /// </summary>
-    public sealed class SyncGroupSchemaTableColumnArgs : global::Pulumi.ResourceArgs
+    public sealed class SyncGroupSchemaTableColumnArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Data size of the column.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Sql.V20220201Preview.Inputs
         public SyncGroupSchemaTableColumnArgs()
         {
         }
-        public static new SyncGroupSchemaTableColumnArgs Empty => new SyncGroupSchemaTableColumnArgs();
     }
 }

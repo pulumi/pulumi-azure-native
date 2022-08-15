@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210201.Inputs
     /// <summary>
     /// SKU of a public IP prefix.
     /// </summary>
-    public sealed class PublicIPPrefixSkuArgs : global::Pulumi.ResourceArgs
+    public sealed class PublicIPPrefixSkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of a public IP prefix SKU.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Network.V20210201.Inputs
         public PublicIPPrefixSkuArgs()
         {
         }
-        public static new PublicIPPrefixSkuArgs Empty => new PublicIPPrefixSkuArgs();
     }
 }

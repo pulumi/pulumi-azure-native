@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
     /// </summary>
     [Obsolete(@"Version 2020-04-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:synapse/v20200401preview:SqlDatabase")]
-    public partial class SqlDatabase : global::Pulumi.CustomResource
+    public partial class SqlDatabase : Pulumi.CustomResource
     {
         /// <summary>
         /// The collation of the database.
@@ -119,7 +119,7 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
         }
     }
 
-    public sealed class SqlDatabaseArgs : global::Pulumi.ResourceArgs
+    public sealed class SqlDatabaseArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The collation of the database.
@@ -178,6 +178,5 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
         public SqlDatabaseArgs()
         {
         }
-        public static new SqlDatabaseArgs Empty => new SqlDatabaseArgs();
     }
 }

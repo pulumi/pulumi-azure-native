@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.Inputs
     /// <summary>
     /// API Authentication Settings.
     /// </summary>
-    public sealed class AuthenticationSettingsContractArgs : global::Pulumi.ResourceArgs
+    public sealed class AuthenticationSettingsContractArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// OAuth2 Authentication settings
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ApiManagement.Inputs
         public AuthenticationSettingsContractArgs()
         {
         }
-        public static new AuthenticationSettingsContractArgs Empty => new AuthenticationSettingsContractArgs();
     }
 }

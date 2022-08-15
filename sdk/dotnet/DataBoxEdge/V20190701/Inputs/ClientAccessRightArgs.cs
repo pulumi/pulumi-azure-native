@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190701.Inputs
     /// <summary>
     /// The mapping between a particular client IP and the type of access client has on the NFS share.
     /// </summary>
-    public sealed class ClientAccessRightArgs : global::Pulumi.ResourceArgs
+    public sealed class ClientAccessRightArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of access to be allowed for the client.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190701.Inputs
         public ClientAccessRightArgs()
         {
         }
-        public static new ClientAccessRightArgs Empty => new ClientAccessRightArgs();
     }
 }

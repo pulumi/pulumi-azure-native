@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity source for web page table.
     /// </summary>
-    public sealed class WebSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class WebSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Source retry count. Type: integer (or Expression with resultType integer).
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public WebSourceArgs()
         {
         }
-        public static new WebSourceArgs Empty => new WebSourceArgs();
     }
 }

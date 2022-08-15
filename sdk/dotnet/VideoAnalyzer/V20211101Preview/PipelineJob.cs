@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
     /// Pipeline job represents a unique instance of a batch topology, used for offline processing of selected portions of archived content.
     /// </summary>
     [AzureNativeResourceType("azure-native:videoanalyzer/v20211101preview:PipelineJob")]
-    public partial class PipelineJob : global::Pulumi.CustomResource
+    public partial class PipelineJob : Pulumi.CustomResource
     {
         /// <summary>
         /// An optional description for the pipeline.
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:videoanalyzer:PipelineJob"},
+                    new Pulumi.Alias { Type = "azure-native:videoanalyzer:PipelineJob"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
         }
     }
 
-    public sealed class PipelineJobArgs : global::Pulumi.ResourceArgs
+    public sealed class PipelineJobArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Video Analyzer account name.
@@ -163,6 +163,5 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
         public PipelineJobArgs()
         {
         }
-        public static new PipelineJobArgs Empty => new PipelineJobArgs();
     }
 }

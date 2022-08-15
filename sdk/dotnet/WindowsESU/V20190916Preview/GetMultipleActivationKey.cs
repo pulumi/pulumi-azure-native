@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.WindowsESU.V20190916Preview
     }
 
 
-    public sealed class GetMultipleActivationKeyArgs : global::Pulumi.InvokeArgs
+    public sealed class GetMultipleActivationKeyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the MAK key.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.WindowsESU.V20190916Preview
         public GetMultipleActivationKeyArgs()
         {
         }
-        public static new GetMultipleActivationKeyArgs Empty => new GetMultipleActivationKeyArgs();
     }
 
-    public sealed class GetMultipleActivationKeyInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetMultipleActivationKeyInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the MAK key.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.WindowsESU.V20190916Preview
         public GetMultipleActivationKeyInvokeArgs()
         {
         }
-        public static new GetMultipleActivationKeyInvokeArgs Empty => new GetMultipleActivationKeyInvokeArgs();
     }
 
 

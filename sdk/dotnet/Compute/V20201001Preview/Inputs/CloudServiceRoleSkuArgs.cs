@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20201001Preview.Inputs
     /// <summary>
     /// Describes the cloud service role sku.
     /// </summary>
-    public sealed class CloudServiceRoleSkuArgs : global::Pulumi.ResourceArgs
+    public sealed class CloudServiceRoleSkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the number of role instances in the cloud service.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Compute.V20201001Preview.Inputs
         public CloudServiceRoleSkuArgs()
         {
         }
-        public static new CloudServiceRoleSkuArgs Empty => new CloudServiceRoleSkuArgs();
     }
 }

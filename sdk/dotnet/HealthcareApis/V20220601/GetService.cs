@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220601
     }
 
 
-    public sealed class GetServiceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetServiceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the service instance.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220601
         public GetServiceArgs()
         {
         }
-        public static new GetServiceArgs Empty => new GetServiceArgs();
     }
 
-    public sealed class GetServiceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetServiceInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the service instance.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220601
         public GetServiceInvokeArgs()
         {
         }
-        public static new GetServiceInvokeArgs Empty => new GetServiceInvokeArgs();
     }
 
 

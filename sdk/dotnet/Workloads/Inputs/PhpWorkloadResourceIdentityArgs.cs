@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.Inputs
     /// <summary>
     /// Identity for the resource. Currently not supported
     /// </summary>
-    public sealed class PhpWorkloadResourceIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class PhpWorkloadResourceIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of manage identity
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Workloads.Inputs
         public PhpWorkloadResourceIdentityArgs()
         {
         }
-        public static new PhpWorkloadResourceIdentityArgs Empty => new PhpWorkloadResourceIdentityArgs();
     }
 }

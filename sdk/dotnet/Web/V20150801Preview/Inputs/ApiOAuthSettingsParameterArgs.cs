@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20150801Preview.Inputs
     /// <summary>
     /// OAuth Settings Parameter
     /// </summary>
-    public sealed class ApiOAuthSettingsParameterArgs : global::Pulumi.ResourceArgs
+    public sealed class ApiOAuthSettingsParameterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Read only: Options available to this parameter
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Web.V20150801Preview.Inputs
         public ApiOAuthSettingsParameterArgs()
         {
         }
-        public static new ApiOAuthSettingsParameterArgs Empty => new ApiOAuthSettingsParameterArgs();
     }
 }

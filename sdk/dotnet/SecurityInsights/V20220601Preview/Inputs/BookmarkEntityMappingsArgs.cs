@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview.Inputs
     /// <summary>
     /// Describes the entity mappings of a single entity
     /// </summary>
-    public sealed class BookmarkEntityMappingsArgs : global::Pulumi.ResourceArgs
+    public sealed class BookmarkEntityMappingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The entity type
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview.Inputs
         public BookmarkEntityMappingsArgs()
         {
         }
-        public static new BookmarkEntityMappingsArgs Empty => new BookmarkEntityMappingsArgs();
     }
 }

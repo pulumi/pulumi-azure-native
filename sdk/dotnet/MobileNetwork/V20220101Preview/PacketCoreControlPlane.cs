@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220101Preview
     /// Packet core control plane resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork/v20220101preview:PacketCoreControlPlane")]
-    public partial class PacketCoreControlPlane : global::Pulumi.CustomResource
+    public partial class PacketCoreControlPlane : Pulumi.CustomResource
     {
         /// <summary>
         /// The control plane interface on the access network. In 5G networks this is called as N2 interface whereas in 4G networks this is called as S1-MME interface.
@@ -136,9 +136,9 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork:PacketCoreControlPlane"},
-                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220301preview:PacketCoreControlPlane"},
-                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220401preview:PacketCoreControlPlane"},
+                    new Pulumi.Alias { Type = "azure-native:mobilenetwork:PacketCoreControlPlane"},
+                    new Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220301preview:PacketCoreControlPlane"},
+                    new Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220401preview:PacketCoreControlPlane"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -160,7 +160,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220101Preview
         }
     }
 
-    public sealed class PacketCoreControlPlaneArgs : global::Pulumi.ResourceArgs
+    public sealed class PacketCoreControlPlaneArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The control plane interface on the access network. In 5G networks this is called as N2 interface whereas in 4G networks this is called as S1-MME interface.
@@ -261,6 +261,5 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220101Preview
         public PacketCoreControlPlaneArgs()
         {
         }
-        public static new PacketCoreControlPlaneArgs Empty => new PacketCoreControlPlaneArgs();
     }
 }

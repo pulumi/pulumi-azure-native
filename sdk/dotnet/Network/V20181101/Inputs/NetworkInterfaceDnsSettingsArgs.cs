@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20181101.Inputs
     /// <summary>
     /// DNS settings of a network interface.
     /// </summary>
-    public sealed class NetworkInterfaceDnsSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class NetworkInterfaceDnsSettingsArgs : Pulumi.ResourceArgs
     {
         [Input("appliedDnsServers")]
         private InputList<string>? _appliedDnsServers;
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.Network.V20181101.Inputs
         public NetworkInterfaceDnsSettingsArgs()
         {
         }
-        public static new NetworkInterfaceDnsSettingsArgs Empty => new NetworkInterfaceDnsSettingsArgs();
     }
 }

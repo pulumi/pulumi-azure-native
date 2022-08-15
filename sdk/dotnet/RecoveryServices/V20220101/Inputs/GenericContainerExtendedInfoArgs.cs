@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220101.Inputs
     /// <summary>
     /// Container extended information
     /// </summary>
-    public sealed class GenericContainerExtendedInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class GenericContainerExtendedInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Container identity information
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220101.Inputs
         public GenericContainerExtendedInfoArgs()
         {
         }
-        public static new GenericContainerExtendedInfoArgs Empty => new GenericContainerExtendedInfoArgs();
     }
 }

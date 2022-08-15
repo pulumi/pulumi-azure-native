@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SignalRService.V20200701Preview.Inputs
     /// <summary>
     /// TLS settings for the resource
     /// </summary>
-    public sealed class SignalRTlsSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class SignalRTlsSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Request client certificate during TLS handshake if enabled
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.SignalRService.V20200701Preview.Inputs
         public SignalRTlsSettingsArgs()
         {
         }
-        public static new SignalRTlsSettingsArgs Empty => new SignalRTlsSettingsArgs();
     }
 }

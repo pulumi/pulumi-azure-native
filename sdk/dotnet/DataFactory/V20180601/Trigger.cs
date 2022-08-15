@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
     /// Trigger resource type.
     /// </summary>
     [AzureNativeResourceType("azure-native:datafactory/v20180601:Trigger")]
-    public partial class Trigger : global::Pulumi.CustomResource
+    public partial class Trigger : Pulumi.CustomResource
     {
         /// <summary>
         /// Etag identifies change in the resource.
@@ -64,8 +64,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datafactory:Trigger"},
-                    new global::Pulumi.Alias { Type = "azure-native:datafactory/v20170901preview:Trigger"},
+                    new Pulumi.Alias { Type = "azure-native:datafactory:Trigger"},
+                    new Pulumi.Alias { Type = "azure-native:datafactory/v20170901preview:Trigger"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -87,7 +87,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         }
     }
 
-    public sealed class TriggerArgs : global::Pulumi.ResourceArgs
+    public sealed class TriggerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The factory name.
@@ -116,6 +116,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         public TriggerArgs()
         {
         }
-        public static new TriggerArgs Empty => new TriggerArgs();
     }
 }

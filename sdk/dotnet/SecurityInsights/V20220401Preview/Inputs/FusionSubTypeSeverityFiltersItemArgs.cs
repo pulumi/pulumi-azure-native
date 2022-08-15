@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview.Inputs
     /// <summary>
     /// Represents a Severity filter setting for a given source subtype consumed in Fusion detection.
     /// </summary>
-    public sealed class FusionSubTypeSeverityFiltersItemArgs : global::Pulumi.ResourceArgs
+    public sealed class FusionSubTypeSeverityFiltersItemArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines whether this severity is enabled or disabled for this source subtype consumed in Fusion detection.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview.Inputs
         public FusionSubTypeSeverityFiltersItemArgs()
         {
         }
-        public static new FusionSubTypeSeverityFiltersItemArgs Empty => new FusionSubTypeSeverityFiltersItemArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview.Inputs
     /// <summary>
     /// Dynamic Executor Allocation Properties
     /// </summary>
-    public sealed class DynamicExecutorAllocationArgs : global::Pulumi.ResourceArgs
+    public sealed class DynamicExecutorAllocationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether Dynamic Executor Allocation is enabled or not.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview.Inputs
         public DynamicExecutorAllocationArgs()
         {
         }
-        public static new DynamicExecutorAllocationArgs Empty => new DynamicExecutorAllocationArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AppPlatform
     /// API Version: 2020-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:Service")]
-    public partial class Service : global::Pulumi.CustomResource
+    public partial class Service : Pulumi.CustomResource
     {
         /// <summary>
         /// The GEO location of the resource.
@@ -77,14 +77,14 @@ namespace Pulumi.AzureNative.AppPlatform
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20200701:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20201101preview:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20210601preview:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20210901preview:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220401:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:Service"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20200701:Service"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20201101preview:Service"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20210601preview:Service"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20210901preview:Service"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:Service"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:Service"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220401:Service"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:Service"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.AppPlatform
         }
     }
 
-    public sealed class ServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class ServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The GEO location of the resource.
@@ -153,6 +153,5 @@ namespace Pulumi.AzureNative.AppPlatform
         public ServiceArgs()
         {
         }
-        public static new ServiceArgs Empty => new ServiceArgs();
     }
 }

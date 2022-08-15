@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20150504Preview.Inputs
     /// <summary>
     /// Represents the properties of the zone.
     /// </summary>
-    public sealed class ZonePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ZonePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the maximum number of record sets that can be created in this zone.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Network.V20150504Preview.Inputs
         public ZonePropertiesArgs()
         {
         }
-        public static new ZonePropertiesArgs Empty => new ZonePropertiesArgs();
     }
 }

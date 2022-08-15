@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ServiceBus
     }
 
 
-    public sealed class GetRuleArgs : global::Pulumi.InvokeArgs
+    public sealed class GetRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The namespace name
@@ -62,10 +62,9 @@ namespace Pulumi.AzureNative.ServiceBus
         public GetRuleArgs()
         {
         }
-        public static new GetRuleArgs Empty => new GetRuleArgs();
     }
 
-    public sealed class GetRuleInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetRuleInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The namespace name
@@ -100,7 +99,6 @@ namespace Pulumi.AzureNative.ServiceBus
         public GetRuleInvokeArgs()
         {
         }
-        public static new GetRuleInvokeArgs Empty => new GetRuleInvokeArgs();
     }
 
 

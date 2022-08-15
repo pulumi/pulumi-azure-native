@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ManagedNetwork.V20190601Preview.Inputs
     /// <summary>
     /// Generic pointer to a resource
     /// </summary>
-    public sealed class ResourceIdArgs : global::Pulumi.ResourceArgs
+    public sealed class ResourceIdArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource Id
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.ManagedNetwork.V20190601Preview.Inputs
         public ResourceIdArgs()
         {
         }
-        public static new ResourceIdArgs Empty => new ResourceIdArgs();
     }
 }

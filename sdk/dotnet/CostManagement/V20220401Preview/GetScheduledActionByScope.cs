@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.CostManagement.V20220401Preview
     }
 
 
-    public sealed class GetScheduledActionByScopeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetScheduledActionByScopeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Scheduled action name.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.CostManagement.V20220401Preview
         public GetScheduledActionByScopeArgs()
         {
         }
-        public static new GetScheduledActionByScopeArgs Empty => new GetScheduledActionByScopeArgs();
     }
 
-    public sealed class GetScheduledActionByScopeInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetScheduledActionByScopeInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Scheduled action name.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.CostManagement.V20220401Preview
         public GetScheduledActionByScopeInvokeArgs()
         {
         }
-        public static new GetScheduledActionByScopeInvokeArgs Empty => new GetScheduledActionByScopeInvokeArgs();
     }
 
 

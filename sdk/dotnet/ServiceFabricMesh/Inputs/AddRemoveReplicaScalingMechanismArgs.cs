@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.Inputs
     /// <summary>
     /// Describes the horizontal auto scaling mechanism that adds or removes replicas (containers or container groups).
     /// </summary>
-    public sealed class AddRemoveReplicaScalingMechanismArgs : global::Pulumi.ResourceArgs
+    public sealed class AddRemoveReplicaScalingMechanismArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enumerates the mechanisms for auto scaling.
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.Inputs
         public AddRemoveReplicaScalingMechanismArgs()
         {
         }
-        public static new AddRemoveReplicaScalingMechanismArgs Empty => new AddRemoveReplicaScalingMechanismArgs();
     }
 }

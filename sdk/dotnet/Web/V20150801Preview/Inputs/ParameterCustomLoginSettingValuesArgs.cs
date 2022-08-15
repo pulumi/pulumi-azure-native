@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20150801Preview.Inputs
     /// <summary>
     /// Custom logging setting values
     /// </summary>
-    public sealed class ParameterCustomLoginSettingValuesArgs : global::Pulumi.ResourceArgs
+    public sealed class ParameterCustomLoginSettingValuesArgs : Pulumi.ResourceArgs
     {
         [Input("customParameters")]
         private InputMap<Inputs.CustomLoginSettingValueArgs>? _customParameters;
@@ -72,6 +72,5 @@ namespace Pulumi.AzureNative.Web.V20150801Preview.Inputs
         public ParameterCustomLoginSettingValuesArgs()
         {
         }
-        public static new ParameterCustomLoginSettingValuesArgs Empty => new ParameterCustomLoginSettingValuesArgs();
     }
 }

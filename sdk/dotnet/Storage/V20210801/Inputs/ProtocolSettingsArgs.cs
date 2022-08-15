@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20210801.Inputs
     /// <summary>
     /// Protocol settings for file service
     /// </summary>
-    public sealed class ProtocolSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class ProtocolSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Setting for SMB protocol
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Storage.V20210801.Inputs
         public ProtocolSettingsArgs()
         {
         }
-        public static new ProtocolSettingsArgs Empty => new ProtocolSettingsArgs();
     }
 }

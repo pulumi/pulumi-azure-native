@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220401.Inputs
     /// <summary>
     /// VMware Azure specific enable protection input.
     /// </summary>
-    public sealed class InMageEnableProtectionInputArgs : global::Pulumi.ResourceArgs
+    public sealed class InMageEnableProtectionInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The target datastore name.
@@ -91,6 +91,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220401.Inputs
         public InMageEnableProtectionInputArgs()
         {
         }
-        public static new InMageEnableProtectionInputArgs Empty => new InMageEnableProtectionInputArgs();
     }
 }

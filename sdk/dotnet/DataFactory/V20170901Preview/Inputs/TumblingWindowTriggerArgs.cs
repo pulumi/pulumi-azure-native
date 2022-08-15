@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Trigger that schedules pipeline runs for all fixed time interval windows from a start time without gaps and also supports backfill scenarios (when start time is in the past).
     /// </summary>
-    public sealed class TumblingWindowTriggerArgs : global::Pulumi.ResourceArgs
+    public sealed class TumblingWindowTriggerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies how long the trigger waits past due time before triggering new run. It doesn't alter window start and end time. The default is 0. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -79,6 +79,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public TumblingWindowTriggerArgs()
         {
         }
-        public static new TumblingWindowTriggerArgs Empty => new TumblingWindowTriggerArgs();
     }
 }

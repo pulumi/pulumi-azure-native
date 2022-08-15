@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20210801Preview.Inputs
     /// <summary>
     /// describe the properties of a security assessment object reference (by key)
     /// </summary>
-    public sealed class AssignedComponentItemArgs : global::Pulumi.ResourceArgs
+    public sealed class AssignedComponentItemArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// unique key to a security assessment object
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Security.V20210801Preview.Inputs
         public AssignedComponentItemArgs()
         {
         }
-        public static new AssignedComponentItemArgs Empty => new AssignedComponentItemArgs();
     }
 }

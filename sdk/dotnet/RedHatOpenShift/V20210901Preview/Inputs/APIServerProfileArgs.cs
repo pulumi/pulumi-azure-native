@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20210901Preview.Inputs
     /// <summary>
     /// APIServerProfile represents an API server profile.
     /// </summary>
-    public sealed class APIServerProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class APIServerProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IP of the cluster API server.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20210901Preview.Inputs
         public APIServerProfileArgs()
         {
         }
-        public static new APIServerProfileArgs Empty => new APIServerProfileArgs();
     }
 }

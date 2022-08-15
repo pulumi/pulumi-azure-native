@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Web.V20150801Preview
     }
 
 
-    public sealed class ListConnectionKeysArgs : global::Pulumi.InvokeArgs
+    public sealed class ListConnectionKeysArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The connection name.
@@ -84,10 +84,9 @@ namespace Pulumi.AzureNative.Web.V20150801Preview
         public ListConnectionKeysArgs()
         {
         }
-        public static new ListConnectionKeysArgs Empty => new ListConnectionKeysArgs();
     }
 
-    public sealed class ListConnectionKeysInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListConnectionKeysInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The connection name.
@@ -152,7 +151,6 @@ namespace Pulumi.AzureNative.Web.V20150801Preview
         public ListConnectionKeysInvokeArgs()
         {
         }
-        public static new ListConnectionKeysInvokeArgs Empty => new ListConnectionKeysInvokeArgs();
     }
 
 

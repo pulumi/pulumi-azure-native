@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
     }
 
 
-    public sealed class GetEyesOnArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEyesOnArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         public GetEyesOnArgs()
         {
         }
-        public static new GetEyesOnArgs Empty => new GetEyesOnArgs();
     }
 
-    public sealed class GetEyesOnInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEyesOnInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         public GetEyesOnInvokeArgs()
         {
         }
-        public static new GetEyesOnInvokeArgs Empty => new GetEyesOnInvokeArgs();
     }
 
 

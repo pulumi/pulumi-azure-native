@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200501.Inputs
     /// <summary>
     /// Rule of type nat.
     /// </summary>
-    public sealed class NatRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class NatRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the rule.
@@ -109,6 +109,5 @@ namespace Pulumi.AzureNative.Network.V20200501.Inputs
         public NatRuleArgs()
         {
         }
-        public static new NatRuleArgs Empty => new NatRuleArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DevTestLab
     }
 
 
-    public sealed class ListScheduleApplicableArgs : global::Pulumi.InvokeArgs
+    public sealed class ListScheduleApplicableArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the lab.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.DevTestLab
         public ListScheduleApplicableArgs()
         {
         }
-        public static new ListScheduleApplicableArgs Empty => new ListScheduleApplicableArgs();
     }
 
-    public sealed class ListScheduleApplicableInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListScheduleApplicableInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the lab.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.DevTestLab
         public ListScheduleApplicableInvokeArgs()
         {
         }
-        public static new ListScheduleApplicableInvokeArgs Empty => new ListScheduleApplicableInvokeArgs();
     }
 
 

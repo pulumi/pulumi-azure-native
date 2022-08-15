@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20220301.Inputs
     /// <summary>
     /// The properties of the source resource that this restore point collection is created from.
     /// </summary>
-    public sealed class RestorePointCollectionSourcePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class RestorePointCollectionSourcePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource Id of the source resource used to create this restore point collection
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Compute.V20220301.Inputs
         public RestorePointCollectionSourcePropertiesArgs()
         {
         }
-        public static new RestorePointCollectionSourcePropertiesArgs Empty => new RestorePointCollectionSourcePropertiesArgs();
     }
 }

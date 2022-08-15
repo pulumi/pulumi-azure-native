@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The Azure Search Index.
     /// </summary>
-    public sealed class AzureSearchIndexDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureSearchIndexDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,6 +85,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public AzureSearchIndexDatasetArgs()
         {
         }
-        public static new AzureSearchIndexDatasetArgs Empty => new AzureSearchIndexDatasetArgs();
     }
 }

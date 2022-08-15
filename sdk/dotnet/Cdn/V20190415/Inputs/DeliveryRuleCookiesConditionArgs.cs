@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20190415.Inputs
     /// <summary>
     /// Defines the Cookies condition for the delivery rule.
     /// </summary>
-    public sealed class DeliveryRuleCookiesConditionArgs : global::Pulumi.ResourceArgs
+    public sealed class DeliveryRuleCookiesConditionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the condition for the delivery rule.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.Cdn.V20190415.Inputs
         public DeliveryRuleCookiesConditionArgs()
         {
         }
-        public static new DeliveryRuleCookiesConditionArgs Empty => new DeliveryRuleCookiesConditionArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network
     }
 
 
-    public sealed class ListFirewallPolicyIdpsSignaturesFilterValueArgs : global::Pulumi.InvokeArgs
+    public sealed class ListFirewallPolicyIdpsSignaturesFilterValueArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Describes the name of the column which values will be returned
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Network
         public ListFirewallPolicyIdpsSignaturesFilterValueArgs()
         {
         }
-        public static new ListFirewallPolicyIdpsSignaturesFilterValueArgs Empty => new ListFirewallPolicyIdpsSignaturesFilterValueArgs();
     }
 
-    public sealed class ListFirewallPolicyIdpsSignaturesFilterValueInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListFirewallPolicyIdpsSignaturesFilterValueInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Describes the name of the column which values will be returned
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Network
         public ListFirewallPolicyIdpsSignaturesFilterValueInvokeArgs()
         {
         }
-        public static new ListFirewallPolicyIdpsSignaturesFilterValueInvokeArgs Empty => new ListFirewallPolicyIdpsSignaturesFilterValueInvokeArgs();
     }
 
 

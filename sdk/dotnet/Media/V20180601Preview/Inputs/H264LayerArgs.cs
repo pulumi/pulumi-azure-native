@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180601Preview.Inputs
     /// <summary>
     /// Describes the settings to be used when encoding the input video into a desired output bitrate layer with the H.264 video codec.
     /// </summary>
-    public sealed class H264LayerArgs : global::Pulumi.ResourceArgs
+    public sealed class H264LayerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether or not adaptive B-frames are to be used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use.
@@ -109,6 +109,5 @@ namespace Pulumi.AzureNative.Media.V20180601Preview.Inputs
         public H264LayerArgs()
         {
         }
-        public static new H264LayerArgs Empty => new H264LayerArgs();
     }
 }

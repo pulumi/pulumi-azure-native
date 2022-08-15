@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Datadog.V20210301.Inputs
 {
 
-    public sealed class IdentityPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class IdentityPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identity type
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.Datadog.V20210301.Inputs
         public IdentityPropertiesArgs()
         {
         }
-        public static new IdentityPropertiesArgs Empty => new IdentityPropertiesArgs();
     }
 }

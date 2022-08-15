@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ScVmm.Inputs
     /// <summary>
     /// The StorageQoSPolicyDetails definition.
     /// </summary>
-    public sealed class StorageQoSPolicyDetailsArgs : global::Pulumi.ResourceArgs
+    public sealed class StorageQoSPolicyDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the QoS policy.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ScVmm.Inputs
         public StorageQoSPolicyDetailsArgs()
         {
         }
-        public static new StorageQoSPolicyDetailsArgs Empty => new StorageQoSPolicyDetailsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.Inputs
     /// <summary>
     /// A track selection condition. This property is reserved for future use, any value set on this property will be ignored.
     /// </summary>
-    public sealed class LiveEventInputTrackSelectionArgs : global::Pulumi.ResourceArgs
+    public sealed class LiveEventInputTrackSelectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Comparing operation. This property is reserved for future use, any value set on this property will be ignored.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Media.Inputs
         public LiveEventInputTrackSelectionArgs()
         {
         }
-        public static new LiveEventInputTrackSelectionArgs Empty => new LiveEventInputTrackSelectionArgs();
     }
 }

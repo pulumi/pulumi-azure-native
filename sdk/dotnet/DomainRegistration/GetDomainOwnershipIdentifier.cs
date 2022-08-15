@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DomainRegistration
     }
 
 
-    public sealed class GetDomainOwnershipIdentifierArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDomainOwnershipIdentifierArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of domain.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.DomainRegistration
         public GetDomainOwnershipIdentifierArgs()
         {
         }
-        public static new GetDomainOwnershipIdentifierArgs Empty => new GetDomainOwnershipIdentifierArgs();
     }
 
-    public sealed class GetDomainOwnershipIdentifierInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDomainOwnershipIdentifierInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of domain.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.DomainRegistration
         public GetDomainOwnershipIdentifierInvokeArgs()
         {
         }
-        public static new GetDomainOwnershipIdentifierInvokeArgs Empty => new GetDomainOwnershipIdentifierInvokeArgs();
     }
 
 

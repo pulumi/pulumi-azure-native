@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20210901
     /// The storage account blob inventory policy.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage/v20210901:BlobInventoryPolicy")]
-    public partial class BlobInventoryPolicy : global::Pulumi.CustomResource
+    public partial class BlobInventoryPolicy : Pulumi.CustomResource
     {
         /// <summary>
         /// Returns the last modified date and time of the blob inventory policy.
@@ -70,15 +70,15 @@ namespace Pulumi.AzureNative.Storage.V20210901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:storage:BlobInventoryPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20190601:BlobInventoryPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20200801preview:BlobInventoryPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210101:BlobInventoryPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210201:BlobInventoryPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210401:BlobInventoryPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210601:BlobInventoryPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210801:BlobInventoryPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20220501:BlobInventoryPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage:BlobInventoryPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20190601:BlobInventoryPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:BlobInventoryPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210101:BlobInventoryPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210201:BlobInventoryPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210401:BlobInventoryPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210601:BlobInventoryPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210801:BlobInventoryPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20220501:BlobInventoryPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.Storage.V20210901
         }
     }
 
-    public sealed class BlobInventoryPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class BlobInventoryPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -129,6 +129,5 @@ namespace Pulumi.AzureNative.Storage.V20210901
         public BlobInventoryPolicyArgs()
         {
         }
-        public static new BlobInventoryPolicyArgs Empty => new BlobInventoryPolicyArgs();
     }
 }

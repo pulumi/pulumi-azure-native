@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecommendationsService.Inputs
     /// <summary>
     /// Account resource properties.
     /// </summary>
-    public sealed class AccountResourcePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class AccountResourcePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Account configuration. This can only be set at RecommendationsService Account creation.
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.RecommendationsService.Inputs
         public AccountResourcePropertiesArgs()
         {
         }
-        public static new AccountResourcePropertiesArgs Empty => new AccountResourcePropertiesArgs();
     }
 }

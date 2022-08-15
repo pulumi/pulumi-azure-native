@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview
     }
 
 
-    public sealed class GetDatabaseMigrationsSqlDbArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDatabaseMigrationsSqlDbArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Complete migration details be included in the response.
@@ -57,10 +57,9 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview
         public GetDatabaseMigrationsSqlDbArgs()
         {
         }
-        public static new GetDatabaseMigrationsSqlDbArgs Empty => new GetDatabaseMigrationsSqlDbArgs();
     }
 
-    public sealed class GetDatabaseMigrationsSqlDbInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDatabaseMigrationsSqlDbInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Complete migration details be included in the response.
@@ -92,7 +91,6 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview
         public GetDatabaseMigrationsSqlDbInvokeArgs()
         {
         }
-        public static new GetDatabaseMigrationsSqlDbInvokeArgs Empty => new GetDatabaseMigrationsSqlDbInvokeArgs();
     }
 
 

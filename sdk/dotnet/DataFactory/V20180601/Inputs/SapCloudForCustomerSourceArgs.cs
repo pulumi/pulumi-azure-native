@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A copy activity source for SAP Cloud for Customer source.
     /// </summary>
-    public sealed class SapCloudForCustomerSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class SapCloudForCustomerSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -73,6 +73,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public SapCloudForCustomerSourceArgs()
         {
         }
-        public static new SapCloudForCustomerSourceArgs Empty => new SapCloudForCustomerSourceArgs();
     }
 }

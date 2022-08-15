@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
     /// API Version: 2016-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:streamanalytics:Input")]
-    public partial class Input : global::Pulumi.CustomResource
+    public partial class Input : Pulumi.CustomResource
     {
         /// <summary>
         /// Resource name
@@ -59,10 +59,10 @@ namespace Pulumi.AzureNative.StreamAnalytics
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20160301:Input"},
-                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20170401preview:Input"},
-                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301:Input"},
-                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20211001preview:Input"},
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics/v20160301:Input"},
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics/v20170401preview:Input"},
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301:Input"},
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics/v20211001preview:Input"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
         }
     }
 
-    public sealed class InputArgs : global::Pulumi.ResourceArgs
+    public sealed class InputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the input.
@@ -119,6 +119,5 @@ namespace Pulumi.AzureNative.StreamAnalytics
         public InputArgs()
         {
         }
-        public static new InputArgs Empty => new InputArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.Inputs
 {
 
-    public sealed class AccountEncryptionArgs : global::Pulumi.ResourceArgs
+    public sealed class AccountEncryptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The properties of the key used to encrypt the account.
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.Media.Inputs
         public AccountEncryptionArgs()
         {
         }
-        public static new AccountEncryptionArgs Empty => new AccountEncryptionArgs();
     }
 }

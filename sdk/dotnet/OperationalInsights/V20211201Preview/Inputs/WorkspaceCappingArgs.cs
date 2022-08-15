@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20211201Preview.Inputs
     /// <summary>
     /// The daily volume cap for ingestion.
     /// </summary>
-    public sealed class WorkspaceCappingArgs : global::Pulumi.ResourceArgs
+    public sealed class WorkspaceCappingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The workspace daily quota for ingestion.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.OperationalInsights.V20211201Preview.Inputs
         public WorkspaceCappingArgs()
         {
         }
-        public static new WorkspaceCappingArgs Empty => new WorkspaceCappingArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20200601.Inputs
     /// <summary>
     /// Routing rules in production experiments.
     /// </summary>
-    public sealed class ExperimentsArgs : global::Pulumi.ResourceArgs
+    public sealed class ExperimentsArgs : Pulumi.ResourceArgs
     {
         [Input("rampUpRules")]
         private InputList<Inputs.RampUpRuleArgs>? _rampUpRules;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Web.V20200601.Inputs
         public ExperimentsArgs()
         {
         }
-        public static new ExperimentsArgs Empty => new ExperimentsArgs();
     }
 }

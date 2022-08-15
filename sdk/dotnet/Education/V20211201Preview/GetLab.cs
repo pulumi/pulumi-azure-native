@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Education.V20211201Preview
     }
 
 
-    public sealed class GetLabArgs : global::Pulumi.InvokeArgs
+    public sealed class GetLabArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Billing account name.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.Education.V20211201Preview
         public GetLabArgs()
         {
         }
-        public static new GetLabArgs Empty => new GetLabArgs();
     }
 
-    public sealed class GetLabInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetLabInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Billing account name.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.Education.V20211201Preview
         public GetLabInvokeArgs()
         {
         }
-        public static new GetLabInvokeArgs Empty => new GetLabInvokeArgs();
     }
 
 

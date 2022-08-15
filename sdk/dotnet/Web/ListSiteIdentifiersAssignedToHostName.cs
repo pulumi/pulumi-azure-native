@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Web
     }
 
 
-    public sealed class ListSiteIdentifiersAssignedToHostNameArgs : global::Pulumi.InvokeArgs
+    public sealed class ListSiteIdentifiersAssignedToHostNameArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the object.
@@ -38,10 +38,9 @@ namespace Pulumi.AzureNative.Web
         public ListSiteIdentifiersAssignedToHostNameArgs()
         {
         }
-        public static new ListSiteIdentifiersAssignedToHostNameArgs Empty => new ListSiteIdentifiersAssignedToHostNameArgs();
     }
 
-    public sealed class ListSiteIdentifiersAssignedToHostNameInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListSiteIdentifiersAssignedToHostNameInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the object.
@@ -52,7 +51,6 @@ namespace Pulumi.AzureNative.Web
         public ListSiteIdentifiersAssignedToHostNameInvokeArgs()
         {
         }
-        public static new ListSiteIdentifiersAssignedToHostNameInvokeArgs Empty => new ListSiteIdentifiersAssignedToHostNameInvokeArgs();
     }
 
 

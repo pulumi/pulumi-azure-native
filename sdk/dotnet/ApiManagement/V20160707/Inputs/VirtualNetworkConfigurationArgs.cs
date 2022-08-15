@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20160707.Inputs
     /// <summary>
     /// Configuration of a virtual network to which API Management service is deployed.
     /// </summary>
-    public sealed class VirtualNetworkConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualNetworkConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The location of the virtual network.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ApiManagement.V20160707.Inputs
         public VirtualNetworkConfigurationArgs()
         {
         }
-        public static new VirtualNetworkConfigurationArgs Empty => new VirtualNetworkConfigurationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.Inputs
     /// <summary>
     /// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
     /// </summary>
-    public sealed class ProxyServerPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ProxyServerPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Proxy server IP
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Security.Inputs
         public ProxyServerPropertiesArgs()
         {
         }
-        public static new ProxyServerPropertiesArgs Empty => new ProxyServerPropertiesArgs();
     }
 }

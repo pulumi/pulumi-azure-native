@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Synapse.V20201201
     }
 
 
-    public sealed class GetIpFirewallRuleArgs : global::Pulumi.InvokeArgs
+    public sealed class GetIpFirewallRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -49,10 +49,9 @@ namespace Pulumi.AzureNative.Synapse.V20201201
         public GetIpFirewallRuleArgs()
         {
         }
-        public static new GetIpFirewallRuleArgs Empty => new GetIpFirewallRuleArgs();
     }
 
-    public sealed class GetIpFirewallRuleInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetIpFirewallRuleInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -75,7 +74,6 @@ namespace Pulumi.AzureNative.Synapse.V20201201
         public GetIpFirewallRuleInvokeArgs()
         {
         }
-        public static new GetIpFirewallRuleInvokeArgs Empty => new GetIpFirewallRuleInvokeArgs();
     }
 
 

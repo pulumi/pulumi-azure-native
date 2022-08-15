@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210515.Inputs
     /// <summary>
     /// Cosmos DB Cassandra table resource object
     /// </summary>
-    public sealed class CassandraTableResourceArgs : global::Pulumi.ResourceArgs
+    public sealed class CassandraTableResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Analytical TTL.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20210515.Inputs
         public CassandraTableResourceArgs()
         {
         }
-        public static new CassandraTableResourceArgs Empty => new CassandraTableResourceArgs();
     }
 }

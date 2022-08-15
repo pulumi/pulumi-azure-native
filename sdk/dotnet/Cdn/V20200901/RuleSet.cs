@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901
     /// Friendly RuleSet name mapping to the any RuleSet or secret related information.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn/v20200901:RuleSet")]
-    public partial class RuleSet : global::Pulumi.CustomResource
+    public partial class RuleSet : Pulumi.CustomResource
     {
         [Output("deploymentStatus")]
         public Output<string> DeploymentStatus { get; private set; } = null!;
@@ -67,8 +67,8 @@ namespace Pulumi.AzureNative.Cdn.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cdn:RuleSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:RuleSet"},
+                    new Pulumi.Alias { Type = "azure-native:cdn:RuleSet"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20210601:RuleSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901
         }
     }
 
-    public sealed class RuleSetArgs : global::Pulumi.ResourceArgs
+    public sealed class RuleSetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the CDN profile which is unique within the resource group.
@@ -113,6 +113,5 @@ namespace Pulumi.AzureNative.Cdn.V20200901
         public RuleSetArgs()
         {
         }
-        public static new RuleSetArgs Empty => new RuleSetArgs();
     }
 }

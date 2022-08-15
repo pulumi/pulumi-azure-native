@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210331Preview.Inputs
     /// <summary>
     /// The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
     /// </summary>
-    public sealed class Gen2StorageConfigurationInputArgs : global::Pulumi.ResourceArgs
+    public sealed class Gen2StorageConfigurationInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the storage account that will hold the environment's Gen2 data.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210331Preview.Inputs
         public Gen2StorageConfigurationInputArgs()
         {
         }
-        public static new Gen2StorageConfigurationInputArgs Empty => new Gen2StorageConfigurationInputArgs();
     }
 }

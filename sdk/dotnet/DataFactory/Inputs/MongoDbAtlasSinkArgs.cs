@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity MongoDB Atlas sink.
     /// </summary>
-    public sealed class MongoDbAtlasSinkArgs : global::Pulumi.ResourceArgs
+    public sealed class MongoDbAtlasSinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -67,6 +67,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public MongoDbAtlasSinkArgs()
         {
         }
-        public static new MongoDbAtlasSinkArgs Empty => new MongoDbAtlasSinkArgs();
     }
 }

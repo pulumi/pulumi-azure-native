@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.IoTSecurity
     /// API Version: 2021-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:iotsecurity:Sensor")]
-    public partial class Sensor : global::Pulumi.CustomResource
+    public partial class Sensor : Pulumi.CustomResource
     {
         /// <summary>
         /// Last connectivity time of the IoT sensor
@@ -119,7 +119,7 @@ namespace Pulumi.AzureNative.IoTSecurity
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:iotsecurity/v20210201preview:Sensor"},
+                    new Pulumi.Alias { Type = "azure-native:iotsecurity/v20210201preview:Sensor"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -141,7 +141,7 @@ namespace Pulumi.AzureNative.IoTSecurity
         }
     }
 
-    public sealed class SensorArgs : global::Pulumi.ResourceArgs
+    public sealed class SensorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
@@ -176,6 +176,5 @@ namespace Pulumi.AzureNative.IoTSecurity
         public SensorArgs()
         {
         }
-        public static new SensorArgs Empty => new SensorArgs();
     }
 }

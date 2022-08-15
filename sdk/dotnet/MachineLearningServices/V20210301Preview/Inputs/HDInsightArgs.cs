@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// <summary>
     /// A HDInsight compute.
     /// </summary>
-    public sealed class HDInsightArgs : global::Pulumi.ResourceArgs
+    public sealed class HDInsightArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Location for the underlying compute
@@ -52,6 +52,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public HDInsightArgs()
         {
         }
-        public static new HDInsightArgs Empty => new HDInsightArgs();
     }
 }

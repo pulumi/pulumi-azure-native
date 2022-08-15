@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
     /// <summary>
     /// Deployment Configuration.
     /// </summary>
-    public sealed class DeploymentConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class DeploymentConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The geo-location where the SAP system is to be created.
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
         public DeploymentConfigurationArgs()
         {
         }
-        public static new DeploymentConfigurationArgs Empty => new DeploymentConfigurationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NetApp.V20220301
     /// Quota Rule of a Volume
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp/v20220301:VolumeQuotaRule")]
-    public partial class VolumeQuotaRule : global::Pulumi.CustomResource
+    public partial class VolumeQuotaRule : Pulumi.CustomResource
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -94,8 +94,8 @@ namespace Pulumi.AzureNative.NetApp.V20220301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:netapp:VolumeQuotaRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220101:VolumeQuotaRule"},
+                    new Pulumi.Alias { Type = "azure-native:netapp:VolumeQuotaRule"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20220101:VolumeQuotaRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.NetApp.V20220301
         }
     }
 
-    public sealed class VolumeQuotaRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class VolumeQuotaRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the NetApp account
@@ -188,6 +188,5 @@ namespace Pulumi.AzureNative.NetApp.V20220301
         public VolumeQuotaRuleArgs()
         {
         }
-        public static new VolumeQuotaRuleArgs Empty => new VolumeQuotaRuleArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Compute.V20210701
     }
 
 
-    public sealed class GetGalleryApplicationArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGalleryApplicationArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the gallery Application Definition to be retrieved.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Compute.V20210701
         public GetGalleryApplicationArgs()
         {
         }
-        public static new GetGalleryApplicationArgs Empty => new GetGalleryApplicationArgs();
     }
 
-    public sealed class GetGalleryApplicationInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGalleryApplicationInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the gallery Application Definition to be retrieved.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Compute.V20210701
         public GetGalleryApplicationInvokeArgs()
         {
         }
-        public static new GetGalleryApplicationInvokeArgs Empty => new GetGalleryApplicationInvokeArgs();
     }
 
 

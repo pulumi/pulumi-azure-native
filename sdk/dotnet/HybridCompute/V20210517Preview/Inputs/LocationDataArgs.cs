@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20210517Preview.Inputs
     /// <summary>
     /// Metadata pertaining to the geographic location of the resource.
     /// </summary>
-    public sealed class LocationDataArgs : global::Pulumi.ResourceArgs
+    public sealed class LocationDataArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The city or locality where the resource is located.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.HybridCompute.V20210517Preview.Inputs
         public LocationDataArgs()
         {
         }
-        public static new LocationDataArgs Empty => new LocationDataArgs();
     }
 }

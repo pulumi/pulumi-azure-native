@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20200601.Inputs
     /// <summary>
     /// Describes a reference to Key Vault Secret
     /// </summary>
-    public sealed class KeyVaultSecretReferenceArgs : global::Pulumi.ResourceArgs
+    public sealed class KeyVaultSecretReferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The URL referencing a secret in a Key Vault.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Compute.V20200601.Inputs
         public KeyVaultSecretReferenceArgs()
         {
         }
-        public static new KeyVaultSecretReferenceArgs Empty => new KeyVaultSecretReferenceArgs();
     }
 }

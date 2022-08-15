@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Attestation.V20180901Preview
     }
 
 
-    public sealed class GetAttestationProviderArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAttestationProviderArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the attestation service instance
@@ -43,10 +43,9 @@ namespace Pulumi.AzureNative.Attestation.V20180901Preview
         public GetAttestationProviderArgs()
         {
         }
-        public static new GetAttestationProviderArgs Empty => new GetAttestationProviderArgs();
     }
 
-    public sealed class GetAttestationProviderInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAttestationProviderInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the attestation service instance
@@ -63,7 +62,6 @@ namespace Pulumi.AzureNative.Attestation.V20180901Preview
         public GetAttestationProviderInvokeArgs()
         {
         }
-        public static new GetAttestationProviderInvokeArgs Empty => new GetAttestationProviderInvokeArgs();
     }
 
 

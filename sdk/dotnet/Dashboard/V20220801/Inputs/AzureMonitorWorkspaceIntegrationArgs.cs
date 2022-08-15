@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Dashboard.V20220801.Inputs
     /// <summary>
     /// Integrations for Azure Monitor Workspace.
     /// </summary>
-    public sealed class AzureMonitorWorkspaceIntegrationArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureMonitorWorkspaceIntegrationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource Id of the connected Azure Monitor Workspace.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Dashboard.V20220801.Inputs
         public AzureMonitorWorkspaceIntegrationArgs()
         {
         }
-        public static new AzureMonitorWorkspaceIntegrationArgs Empty => new AzureMonitorWorkspaceIntegrationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.Inputs
     /// <summary>
     /// The configuration settings that determines the validation flow of users using ContainerApp Service Authentication/Authorization.
     /// </summary>
-    public sealed class GlobalValidationArgs : global::Pulumi.ResourceArgs
+    public sealed class GlobalValidationArgs : Pulumi.ResourceArgs
     {
         [Input("excludedPaths")]
         private InputList<string>? _excludedPaths;
@@ -44,6 +44,5 @@ namespace Pulumi.AzureNative.App.Inputs
         public GlobalValidationArgs()
         {
         }
-        public static new GlobalValidationArgs Empty => new GlobalValidationArgs();
     }
 }

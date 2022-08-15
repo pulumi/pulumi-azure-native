@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceLinker.V20220101Preview.Inputs
     /// <summary>
     /// The service properties when target service type is ConfluentBootstrapServer
     /// </summary>
-    public sealed class ConfluentBootstrapServerArgs : global::Pulumi.ResourceArgs
+    public sealed class ConfluentBootstrapServerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The endpoint of service.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.ServiceLinker.V20220101Preview.Inputs
         public ConfluentBootstrapServerArgs()
         {
         }
-        public static new ConfluentBootstrapServerArgs Empty => new ConfluentBootstrapServerArgs();
     }
 }

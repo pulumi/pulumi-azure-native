@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20170401
     /// Description of subscription resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus/v20170401:Subscription")]
-    public partial class Subscription : global::Pulumi.CustomResource
+    public partial class Subscription : Pulumi.CustomResource
     {
         /// <summary>
         /// Last time there was a receive request to this subscription.
@@ -154,14 +154,14 @@ namespace Pulumi.AzureNative.ServiceBus.V20170401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus:Subscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20140901:Subscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20150801:Subscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Subscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:Subscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:Subscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:Subscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:Subscription"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus:Subscription"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20140901:Subscription"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20150801:Subscription"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Subscription"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:Subscription"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:Subscription"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20211101:Subscription"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:Subscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -183,7 +183,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20170401
         }
     }
 
-    public sealed class SubscriptionArgs : global::Pulumi.ResourceArgs
+    public sealed class SubscriptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
@@ -284,6 +284,5 @@ namespace Pulumi.AzureNative.ServiceBus.V20170401
         public SubscriptionArgs()
         {
         }
-        public static new SubscriptionArgs Empty => new SubscriptionArgs();
     }
 }

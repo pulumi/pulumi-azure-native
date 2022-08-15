@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NotificationHubs.V20140901.Inputs
     /// <summary>
     /// SharedAccessAuthorizationRule properties.
     /// </summary>
-    public sealed class SharedAccessAuthorizationRulePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class SharedAccessAuthorizationRulePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of the claim.
@@ -78,6 +78,5 @@ namespace Pulumi.AzureNative.NotificationHubs.V20140901.Inputs
         public SharedAccessAuthorizationRulePropertiesArgs()
         {
         }
-        public static new SharedAccessAuthorizationRulePropertiesArgs Empty => new SharedAccessAuthorizationRulePropertiesArgs();
     }
 }

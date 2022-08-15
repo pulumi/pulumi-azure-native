@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Compute.V20190301
     /// </summary>
     [Obsolete(@"Version 2019-03-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:compute/v20190301:Image")]
-    public partial class Image : global::Pulumi.CustomResource
+    public partial class Image : Pulumi.CustomResource
     {
         /// <summary>
         /// Gets the HyperVGenerationType of the VirtualMachine created from the image
@@ -89,22 +89,22 @@ namespace Pulumi.AzureNative.Compute.V20190301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:compute:Image"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20160430preview:Image"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20170330:Image"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20171201:Image"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180401:Image"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180601:Image"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20181001:Image"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190701:Image"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20191201:Image"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200601:Image"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20201201:Image"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210301:Image"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:Image"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:Image"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211101:Image"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220301:Image"},
+                    new Pulumi.Alias { Type = "azure-native:compute:Image"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20160430preview:Image"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20170330:Image"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20171201:Image"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20180401:Image"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20180601:Image"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20181001:Image"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:Image"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20191201:Image"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20200601:Image"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20201201:Image"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20210301:Image"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20210401:Image"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20210701:Image"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20211101:Image"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20220301:Image"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNative.Compute.V20190301
         }
     }
 
-    public sealed class ImageArgs : global::Pulumi.ResourceArgs
+    public sealed class ImageArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets the HyperVGenerationType of the VirtualMachine created from the image
@@ -179,6 +179,5 @@ namespace Pulumi.AzureNative.Compute.V20190301
         public ImageArgs()
         {
         }
-        public static new ImageArgs Empty => new ImageArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20220214.Inputs
     /// <summary>
     /// Describes the virtual machines used to build and validate images
     /// </summary>
-    public sealed class ImageTemplateVmProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class ImageTemplateVmProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Size of the OS disk in GB. Omit or specify 0 to use Azure's default OS disk size.
@@ -50,6 +50,5 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20220214.Inputs
             OsDiskSizeGB = 0;
             VmSize = "";
         }
-        public static new ImageTemplateVmProfileArgs Empty => new ImageTemplateVmProfileArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201Preview
     }
 
 
-    public sealed class GetContainerArgs : global::Pulumi.InvokeArgs
+    public sealed class GetContainerArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The container Name
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201Preview
         public GetContainerArgs()
         {
         }
-        public static new GetContainerArgs Empty => new GetContainerArgs();
     }
 
-    public sealed class GetContainerInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetContainerInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The container Name
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201Preview
         public GetContainerInvokeArgs()
         {
         }
-        public static new GetContainerInvokeArgs Empty => new GetContainerInvokeArgs();
     }
 
 

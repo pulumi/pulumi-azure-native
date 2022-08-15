@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20201120
 {
     [AzureNativeResourceType("azure-native:providerhub/v20201120:Skus")]
-    public partial class Skus : global::Pulumi.CustomResource
+    public partial class Skus : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -52,10 +52,10 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:providerhub:Skus"},
-                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210501preview:Skus"},
-                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210601preview:Skus"},
-                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210901preview:Skus"},
+                    new Pulumi.Alias { Type = "azure-native:providerhub:Skus"},
+                    new Pulumi.Alias { Type = "azure-native:providerhub/v20210501preview:Skus"},
+                    new Pulumi.Alias { Type = "azure-native:providerhub/v20210601preview:Skus"},
+                    new Pulumi.Alias { Type = "azure-native:providerhub/v20210901preview:Skus"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120
         }
     }
 
-    public sealed class SkusArgs : global::Pulumi.ResourceArgs
+    public sealed class SkusArgs : Pulumi.ResourceArgs
     {
         [Input("properties")]
         public Input<Inputs.SkuResourcePropertiesArgs>? Properties { get; set; }
@@ -103,6 +103,5 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120
         public SkusArgs()
         {
         }
-        public static new SkusArgs Empty => new SkusArgs();
     }
 }

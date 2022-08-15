@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.V20210601.Inputs
     /// <summary>
     /// The load-based autoscale request parameters
     /// </summary>
-    public sealed class AutoscaleCapacityArgs : global::Pulumi.ResourceArgs
+    public sealed class AutoscaleCapacityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum instance count of the cluster
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.HDInsight.V20210601.Inputs
         public AutoscaleCapacityArgs()
         {
         }
-        public static new AutoscaleCapacityArgs Empty => new AutoscaleCapacityArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
     }
 
 
-    public sealed class GetManagedInstanceAzureADOnlyAuthenticationArgs : global::Pulumi.InvokeArgs
+    public sealed class GetManagedInstanceAzureADOnlyAuthenticationArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of server azure active directory only authentication.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
         public GetManagedInstanceAzureADOnlyAuthenticationArgs()
         {
         }
-        public static new GetManagedInstanceAzureADOnlyAuthenticationArgs Empty => new GetManagedInstanceAzureADOnlyAuthenticationArgs();
     }
 
-    public sealed class GetManagedInstanceAzureADOnlyAuthenticationInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetManagedInstanceAzureADOnlyAuthenticationInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of server azure active directory only authentication.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
         public GetManagedInstanceAzureADOnlyAuthenticationInvokeArgs()
         {
         }
-        public static new GetManagedInstanceAzureADOnlyAuthenticationInvokeArgs Empty => new GetManagedInstanceAzureADOnlyAuthenticationInvokeArgs();
     }
 
 

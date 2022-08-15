@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Cdn
     }
 
 
-    public sealed class GetSecretArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSecretArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the CDN profile which is unique within the resource group.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Cdn
         public GetSecretArgs()
         {
         }
-        public static new GetSecretArgs Empty => new GetSecretArgs();
     }
 
-    public sealed class GetSecretInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSecretInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the CDN profile which is unique within the resource group.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Cdn
         public GetSecretInvokeArgs()
         {
         }
-        public static new GetSecretInvokeArgs Empty => new GetSecretInvokeArgs();
     }
 
 

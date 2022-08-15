@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
     /// <summary>
     /// The properties that are associated with a SKU.
     /// </summary>
-    public sealed class StreamingJobSkuArgs : global::Pulumi.ResourceArgs
+    public sealed class StreamingJobSkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the SKU. Required on PUT (CreateOrReplace) requests.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
         public StreamingJobSkuArgs()
         {
         }
-        public static new StreamingJobSkuArgs Empty => new StreamingJobSkuArgs();
     }
 }

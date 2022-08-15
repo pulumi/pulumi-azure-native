@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataProtection.V20220201Preview.Inputs
     /// <summary>
     /// Backup Vault
     /// </summary>
-    public sealed class BackupVaultArgs : global::Pulumi.ResourceArgs
+    public sealed class BackupVaultArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Monitoring Settings
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DataProtection.V20220201Preview.Inputs
         public BackupVaultArgs()
         {
         }
-        public static new BackupVaultArgs Empty => new BackupVaultArgs();
     }
 }

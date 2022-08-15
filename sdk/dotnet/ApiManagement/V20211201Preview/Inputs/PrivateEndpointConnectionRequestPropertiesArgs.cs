@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview.Inputs
     /// <summary>
     /// The connection state of the private endpoint connection.
     /// </summary>
-    public sealed class PrivateEndpointConnectionRequestPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionRequestPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A collection of information about the state of the connection between service consumer and provider.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview.Inputs
         public PrivateEndpointConnectionRequestPropertiesArgs()
         {
         }
-        public static new PrivateEndpointConnectionRequestPropertiesArgs Empty => new PrivateEndpointConnectionRequestPropertiesArgs();
     }
 }

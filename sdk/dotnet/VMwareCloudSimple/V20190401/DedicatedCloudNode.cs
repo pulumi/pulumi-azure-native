@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VMwareCloudSimple.V20190401
     /// Dedicated cloud node model
     /// </summary>
     [AzureNativeResourceType("azure-native:vmwarecloudsimple/v20190401:DedicatedCloudNode")]
-    public partial class DedicatedCloudNode : global::Pulumi.CustomResource
+    public partial class DedicatedCloudNode : Pulumi.CustomResource
     {
         /// <summary>
         /// Availability Zone id, e.g. "az1"
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNative.VMwareCloudSimple.V20190401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:vmwarecloudsimple:DedicatedCloudNode"},
+                    new Pulumi.Alias { Type = "azure-native:vmwarecloudsimple:DedicatedCloudNode"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -170,7 +170,7 @@ namespace Pulumi.AzureNative.VMwareCloudSimple.V20190401
         }
     }
 
-    public sealed class DedicatedCloudNodeArgs : global::Pulumi.ResourceArgs
+    public sealed class DedicatedCloudNodeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Availability Zone id, e.g. "az1"
@@ -247,6 +247,5 @@ namespace Pulumi.AzureNative.VMwareCloudSimple.V20190401
         public DedicatedCloudNodeArgs()
         {
         }
-        public static new DedicatedCloudNodeArgs Empty => new DedicatedCloudNodeArgs();
     }
 }

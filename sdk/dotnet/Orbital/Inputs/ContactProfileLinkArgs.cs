@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Orbital.Inputs
     /// <summary>
     /// Contact Profile link
     /// </summary>
-    public sealed class ContactProfileLinkArgs : global::Pulumi.ResourceArgs
+    public sealed class ContactProfileLinkArgs : Pulumi.ResourceArgs
     {
         [Input("channels", required: true)]
         private InputList<Inputs.ContactProfileLinkChannelArgs>? _channels;
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.Orbital.Inputs
         public ContactProfileLinkArgs()
         {
         }
-        public static new ContactProfileLinkArgs Empty => new ContactProfileLinkArgs();
     }
 }

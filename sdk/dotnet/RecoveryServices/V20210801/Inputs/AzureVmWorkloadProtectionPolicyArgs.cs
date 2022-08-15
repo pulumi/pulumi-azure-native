@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210801.Inputs
     /// <summary>
     /// Azure VM (Mercury) workload-specific backup policy.
     /// </summary>
-    public sealed class AzureVmWorkloadProtectionPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureVmWorkloadProtectionPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
@@ -73,6 +73,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210801.Inputs
         public AzureVmWorkloadProtectionPolicyArgs()
         {
         }
-        public static new AzureVmWorkloadProtectionPolicyArgs Empty => new AzureVmWorkloadProtectionPolicyArgs();
     }
 }

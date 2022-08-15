@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20210601Preview
     /// A Postgres Instance.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurearcdata/v20210601preview:PostgresInstance")]
-    public partial class PostgresInstance : global::Pulumi.CustomResource
+    public partial class PostgresInstance : Pulumi.CustomResource
     {
         /// <summary>
         /// The extendedLocation of the resource.
@@ -88,9 +88,9 @@ namespace Pulumi.AzureNative.AzureArcData.V20210601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata:PostgresInstance"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20210701preview:PostgresInstance"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20220301preview:PostgresInstance"},
+                    new Pulumi.Alias { Type = "azure-native:azurearcdata:PostgresInstance"},
+                    new Pulumi.Alias { Type = "azure-native:azurearcdata/v20210701preview:PostgresInstance"},
+                    new Pulumi.Alias { Type = "azure-native:azurearcdata/v20220301preview:PostgresInstance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20210601Preview
         }
     }
 
-    public sealed class PostgresInstanceArgs : global::Pulumi.ResourceArgs
+    public sealed class PostgresInstanceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The extendedLocation of the resource.
@@ -165,6 +165,5 @@ namespace Pulumi.AzureNative.AzureArcData.V20210601Preview
         public PostgresInstanceArgs()
         {
         }
-        public static new PostgresInstanceArgs Empty => new PostgresInstanceArgs();
     }
 }

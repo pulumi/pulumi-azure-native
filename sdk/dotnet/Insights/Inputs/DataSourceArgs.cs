@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.Inputs
     /// <summary>
     /// Data source object contains configuration to collect telemetry and one or more sinks to send that telemetry data to
     /// </summary>
-    public sealed class DataSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class DataSourceArgs : Pulumi.ResourceArgs
     {
         [Input("configuration", required: true)]
         public Input<Inputs.DataSourceConfigurationArgs> Configuration { get; set; } = null!;
@@ -35,6 +35,5 @@ namespace Pulumi.AzureNative.Insights.Inputs
         public DataSourceArgs()
         {
         }
-        public static new DataSourceArgs Empty => new DataSourceArgs();
     }
 }

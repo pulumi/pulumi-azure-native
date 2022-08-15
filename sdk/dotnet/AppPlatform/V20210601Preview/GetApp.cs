@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20210601Preview
     }
 
 
-    public sealed class GetAppArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAppArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the App resource.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.AppPlatform.V20210601Preview
         public GetAppArgs()
         {
         }
-        public static new GetAppArgs Empty => new GetAppArgs();
     }
 
-    public sealed class GetAppInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAppInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the App resource.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20210601Preview
         public GetAppInvokeArgs()
         {
         }
-        public static new GetAppInvokeArgs Empty => new GetAppInvokeArgs();
     }
 
 

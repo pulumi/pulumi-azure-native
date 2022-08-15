@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview.Inputs
     /// <summary>
     /// The Edifact message identifier.
     /// </summary>
-    public sealed class EdifactMessageIdentifierArgs : global::Pulumi.ResourceArgs
+    public sealed class EdifactMessageIdentifierArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The message id on which this envelope settings has to be applied.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview.Inputs
         public EdifactMessageIdentifierArgs()
         {
         }
-        public static new EdifactMessageIdentifierArgs Empty => new EdifactMessageIdentifierArgs();
     }
 }

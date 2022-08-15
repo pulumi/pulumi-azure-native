@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Phoenix server linked service.
     /// </summary>
-    public sealed class PhoenixLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class PhoenixLinkedServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
@@ -133,6 +133,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public PhoenixLinkedServiceArgs()
         {
         }
-        public static new PhoenixLinkedServiceArgs Empty => new PhoenixLinkedServiceArgs();
     }
 }

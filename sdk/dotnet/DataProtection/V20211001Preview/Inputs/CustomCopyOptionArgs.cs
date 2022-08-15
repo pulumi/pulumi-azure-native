@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataProtection.V20211001Preview.Inputs
     /// <summary>
     /// Duration based custom options to copy
     /// </summary>
-    public sealed class CustomCopyOptionArgs : global::Pulumi.ResourceArgs
+    public sealed class CustomCopyOptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Data copied after given timespan
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.DataProtection.V20211001Preview.Inputs
         public CustomCopyOptionArgs()
         {
         }
-        public static new CustomCopyOptionArgs Empty => new CustomCopyOptionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview.Inputs
     /// <summary>
     /// Describes threat kill chain phase entity
     /// </summary>
-    public sealed class ThreatIntelligenceParsedPatternTypeValueArgs : global::Pulumi.ResourceArgs
+    public sealed class ThreatIntelligenceParsedPatternTypeValueArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Value of parsed pattern
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview.Inputs
         public ThreatIntelligenceParsedPatternTypeValueArgs()
         {
         }
-        public static new ThreatIntelligenceParsedPatternTypeValueArgs Empty => new ThreatIntelligenceParsedPatternTypeValueArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Maintenance.V20210401Preview.Inputs
     /// <summary>
     /// Task properties of the software update configuration.
     /// </summary>
-    public sealed class TaskPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class TaskPropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("parameters")]
         private InputMap<string>? _parameters;
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.Maintenance.V20210401Preview.Inputs
         {
             TaskScope = "Global";
         }
-        public static new TaskPropertiesArgs Empty => new TaskPropertiesArgs();
     }
 }

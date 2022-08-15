@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220101Preview.Inputs
     /// <summary>
     /// Service data flow (SDF) template
     /// </summary>
-    public sealed class ServiceDataFlowTemplateArgs : global::Pulumi.ResourceArgs
+    public sealed class ServiceDataFlowTemplateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The direction of this flow.
@@ -66,6 +66,5 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220101Preview.Inputs
         public ServiceDataFlowTemplateArgs()
         {
         }
-        public static new ServiceDataFlowTemplateArgs Empty => new ServiceDataFlowTemplateArgs();
     }
 }

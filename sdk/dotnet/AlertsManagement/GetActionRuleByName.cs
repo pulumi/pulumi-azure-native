@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.AlertsManagement
     }
 
 
-    public sealed class GetActionRuleByNameArgs : global::Pulumi.InvokeArgs
+    public sealed class GetActionRuleByNameArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of action rule that needs to be fetched
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.AlertsManagement
         public GetActionRuleByNameArgs()
         {
         }
-        public static new GetActionRuleByNameArgs Empty => new GetActionRuleByNameArgs();
     }
 
-    public sealed class GetActionRuleByNameInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetActionRuleByNameInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of action rule that needs to be fetched
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.AlertsManagement
         public GetActionRuleByNameInvokeArgs()
         {
         }
-        public static new GetActionRuleByNameInvokeArgs Empty => new GetActionRuleByNameInvokeArgs();
     }
 
 

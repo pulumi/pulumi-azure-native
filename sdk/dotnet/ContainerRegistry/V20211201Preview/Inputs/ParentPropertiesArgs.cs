@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20211201Preview.Inputs
     /// <summary>
     /// The properties of the connected registry parent.
     /// </summary>
-    public sealed class ParentPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ParentPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource ID of the parent to which the connected registry will be associated.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20211201Preview.Inputs
         public ParentPropertiesArgs()
         {
         }
-        public static new ParentPropertiesArgs Empty => new ParentPropertiesArgs();
     }
 }

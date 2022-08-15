@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220501.Inputs
     /// <summary>
     /// Defines a managed rule set.
     /// </summary>
-    public sealed class FrontDoorManagedRuleSetArgs : global::Pulumi.ResourceArgs
+    public sealed class FrontDoorManagedRuleSetArgs : Pulumi.ResourceArgs
     {
         [Input("exclusions")]
         private InputList<Inputs.ManagedRuleExclusionArgs>? _exclusions;
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.Network.V20220501.Inputs
         public FrontDoorManagedRuleSetArgs()
         {
         }
-        public static new FrontDoorManagedRuleSetArgs Empty => new FrontDoorManagedRuleSetArgs();
     }
 }

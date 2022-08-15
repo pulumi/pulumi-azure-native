@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.Inputs
     /// <summary>
     /// The properties of the scheduled action notification.
     /// </summary>
-    public sealed class NotificationPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class NotificationPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Optional message to be added in the email. Length is limited to 250 characters.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.CostManagement.Inputs
         public NotificationPropertiesArgs()
         {
         }
-        public static new NotificationPropertiesArgs Empty => new NotificationPropertiesArgs();
     }
 }

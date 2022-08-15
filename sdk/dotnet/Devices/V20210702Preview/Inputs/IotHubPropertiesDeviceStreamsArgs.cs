@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20210702Preview.Inputs
     /// <summary>
     /// The device streams properties of iothub.
     /// </summary>
-    public sealed class IotHubPropertiesDeviceStreamsArgs : global::Pulumi.ResourceArgs
+    public sealed class IotHubPropertiesDeviceStreamsArgs : Pulumi.ResourceArgs
     {
         [Input("streamingEndpoints")]
         private InputList<string>? _streamingEndpoints;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Devices.V20210702Preview.Inputs
         public IotHubPropertiesDeviceStreamsArgs()
         {
         }
-        public static new IotHubPropertiesDeviceStreamsArgs Empty => new IotHubPropertiesDeviceStreamsArgs();
     }
 }

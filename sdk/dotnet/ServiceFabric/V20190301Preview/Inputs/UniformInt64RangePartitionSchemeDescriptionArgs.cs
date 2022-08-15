@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20190301Preview.Inputs
     /// <summary>
     /// Describes a partitioning scheme where an integer range is allocated evenly across a number of partitions.
     /// </summary>
-    public sealed class UniformInt64RangePartitionSchemeDescriptionArgs : global::Pulumi.ResourceArgs
+    public sealed class UniformInt64RangePartitionSchemeDescriptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of partitions.
@@ -45,6 +45,5 @@ namespace Pulumi.AzureNative.ServiceFabric.V20190301Preview.Inputs
         public UniformInt64RangePartitionSchemeDescriptionArgs()
         {
         }
-        public static new UniformInt64RangePartitionSchemeDescriptionArgs Empty => new UniformInt64RangePartitionSchemeDescriptionArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview
     }
 
 
-    public sealed class GetGatewayCustomDomainArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGatewayCustomDomainArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Spring Cloud Gateway custom domain.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview
         public GetGatewayCustomDomainArgs()
         {
         }
-        public static new GetGatewayCustomDomainArgs Empty => new GetGatewayCustomDomainArgs();
     }
 
-    public sealed class GetGatewayCustomDomainInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGatewayCustomDomainInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Spring Cloud Gateway custom domain.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview
         public GetGatewayCustomDomainInvokeArgs()
         {
         }
-        public static new GetGatewayCustomDomainInvokeArgs Empty => new GetGatewayCustomDomainInvokeArgs();
     }
 
 

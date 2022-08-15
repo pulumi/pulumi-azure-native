@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
     /// <summary>
     /// Defines the parameters for UrlPath match conditions
     /// </summary>
-    public sealed class UrlPathMatchConditionParametersArgs : global::Pulumi.ResourceArgs
+    public sealed class UrlPathMatchConditionParametersArgs : Pulumi.ResourceArgs
     {
         [Input("matchValues")]
         private InputList<string>? _matchValues;
@@ -57,6 +57,5 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
         public UrlPathMatchConditionParametersArgs()
         {
         }
-        public static new UrlPathMatchConditionParametersArgs Empty => new UrlPathMatchConditionParametersArgs();
     }
 }

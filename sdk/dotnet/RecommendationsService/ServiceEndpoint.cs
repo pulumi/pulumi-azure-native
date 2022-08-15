@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.RecommendationsService
     /// API Version: 2022-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:recommendationsservice:ServiceEndpoint")]
-    public partial class ServiceEndpoint : global::Pulumi.CustomResource
+    public partial class ServiceEndpoint : Pulumi.CustomResource
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.RecommendationsService
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:recommendationsservice/v20220201:ServiceEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:recommendationsservice/v20220201:ServiceEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.RecommendationsService
         }
     }
 
-    public sealed class ServiceEndpointArgs : global::Pulumi.ResourceArgs
+    public sealed class ServiceEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the RecommendationsService Account resource.
@@ -146,6 +146,5 @@ namespace Pulumi.AzureNative.RecommendationsService
         public ServiceEndpointArgs()
         {
         }
-        public static new ServiceEndpointArgs Empty => new ServiceEndpointArgs();
     }
 }

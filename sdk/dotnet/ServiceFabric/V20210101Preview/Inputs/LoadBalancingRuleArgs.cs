@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210101Preview.Inputs
     /// <summary>
     /// Describes a load balancing rule.
     /// </summary>
-    public sealed class LoadBalancingRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class LoadBalancingRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210101Preview.Inputs
         public LoadBalancingRuleArgs()
         {
         }
-        public static new LoadBalancingRuleArgs Empty => new LoadBalancingRuleArgs();
     }
 }

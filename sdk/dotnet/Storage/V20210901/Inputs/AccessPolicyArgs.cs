@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20210901.Inputs
 {
 
-    public sealed class AccessPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class AccessPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Expiry time of the access policy
@@ -33,6 +33,5 @@ namespace Pulumi.AzureNative.Storage.V20210901.Inputs
         public AccessPolicyArgs()
         {
         }
-        public static new AccessPolicyArgs Empty => new AccessPolicyArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
     }
 
 
-    public sealed class GetIPSyncerArgs : global::Pulumi.InvokeArgs
+    public sealed class GetIPSyncerArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         public GetIPSyncerArgs()
         {
         }
-        public static new GetIPSyncerArgs Empty => new GetIPSyncerArgs();
     }
 
-    public sealed class GetIPSyncerInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetIPSyncerInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         public GetIPSyncerInvokeArgs()
         {
         }
-        public static new GetIPSyncerInvokeArgs Empty => new GetIPSyncerInvokeArgs();
     }
 
 

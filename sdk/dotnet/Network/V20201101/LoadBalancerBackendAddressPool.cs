@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20201101
     /// Pool of backend IP addresses.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20201101:LoadBalancerBackendAddressPool")]
-    public partial class LoadBalancerBackendAddressPool : global::Pulumi.CustomResource
+    public partial class LoadBalancerBackendAddressPool : Pulumi.CustomResource
     {
         /// <summary>
         /// An array of references to IP addresses defined in network interfaces.
@@ -94,17 +94,17 @@ namespace Pulumi.AzureNative.Network.V20201101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:LoadBalancerBackendAddressPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:LoadBalancerBackendAddressPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:LoadBalancerBackendAddressPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:LoadBalancerBackendAddressPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:LoadBalancerBackendAddressPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:LoadBalancerBackendAddressPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:LoadBalancerBackendAddressPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:LoadBalancerBackendAddressPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:LoadBalancerBackendAddressPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:LoadBalancerBackendAddressPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:LoadBalancerBackendAddressPool"},
+                    new Pulumi.Alias { Type = "azure-native:network:LoadBalancerBackendAddressPool"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:LoadBalancerBackendAddressPool"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:LoadBalancerBackendAddressPool"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:LoadBalancerBackendAddressPool"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:LoadBalancerBackendAddressPool"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:LoadBalancerBackendAddressPool"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:LoadBalancerBackendAddressPool"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210301:LoadBalancerBackendAddressPool"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501:LoadBalancerBackendAddressPool"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:LoadBalancerBackendAddressPool"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:LoadBalancerBackendAddressPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNative.Network.V20201101
         }
     }
 
-    public sealed class LoadBalancerBackendAddressPoolArgs : global::Pulumi.ResourceArgs
+    public sealed class LoadBalancerBackendAddressPoolArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the backend address pool.
@@ -173,6 +173,5 @@ namespace Pulumi.AzureNative.Network.V20201101
         public LoadBalancerBackendAddressPoolArgs()
         {
         }
-        public static new LoadBalancerBackendAddressPoolArgs Empty => new LoadBalancerBackendAddressPoolArgs();
     }
 }

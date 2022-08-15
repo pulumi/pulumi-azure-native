@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview
     /// Spring Cloud Gateway route config resource
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform/v20220301preview:GatewayRouteConfig")]
-    public partial class GatewayRouteConfig : global::Pulumi.CustomResource
+    public partial class GatewayRouteConfig : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource.
@@ -64,9 +64,9 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform:GatewayRouteConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:GatewayRouteConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:GatewayRouteConfig"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform:GatewayRouteConfig"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:GatewayRouteConfig"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:GatewayRouteConfig"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview
         }
     }
 
-    public sealed class GatewayRouteConfigArgs : global::Pulumi.ResourceArgs
+    public sealed class GatewayRouteConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of Spring Cloud Gateway.
@@ -123,6 +123,5 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview
         public GatewayRouteConfigArgs()
         {
         }
-        public static new GatewayRouteConfigArgs Empty => new GatewayRouteConfigArgs();
     }
 }

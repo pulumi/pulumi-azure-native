@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.Inputs
     /// <summary>
     /// Control Plane Apis version constraint for the API Management service.
     /// </summary>
-    public sealed class ApiVersionConstraintArgs : global::Pulumi.ResourceArgs
+    public sealed class ApiVersionConstraintArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Limit control plane API calls to API Management service with version equal to or newer than this value.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.ApiManagement.Inputs
         public ApiVersionConstraintArgs()
         {
         }
-        public static new ApiVersionConstraintArgs Empty => new ApiVersionConstraintArgs();
     }
 }

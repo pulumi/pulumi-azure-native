@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview.Inputs
     /// <summary>
     /// The available data types for Office Microsoft Project data connector.
     /// </summary>
-    public sealed class Office365ProjectConnectorDataTypesArgs : global::Pulumi.ResourceArgs
+    public sealed class Office365ProjectConnectorDataTypesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Logs data type.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview.Inputs
         public Office365ProjectConnectorDataTypesArgs()
         {
         }
-        public static new Office365ProjectConnectorDataTypesArgs Empty => new Office365ProjectConnectorDataTypesArgs();
     }
 }

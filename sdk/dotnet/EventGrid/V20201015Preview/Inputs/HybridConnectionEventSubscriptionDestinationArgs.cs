@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20201015Preview.Inputs
     /// <summary>
     /// Information about the HybridConnection destination for an event subscription.
     /// </summary>
-    public sealed class HybridConnectionEventSubscriptionDestinationArgs : global::Pulumi.ResourceArgs
+    public sealed class HybridConnectionEventSubscriptionDestinationArgs : Pulumi.ResourceArgs
     {
         [Input("deliveryAttributeMappings")]
         private InputList<Union<Inputs.DynamicDeliveryAttributeMappingArgs, Inputs.StaticDeliveryAttributeMappingArgs>>? _deliveryAttributeMappings;
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.EventGrid.V20201015Preview.Inputs
         public HybridConnectionEventSubscriptionDestinationArgs()
         {
         }
-        public static new HybridConnectionEventSubscriptionDestinationArgs Empty => new HybridConnectionEventSubscriptionDestinationArgs();
     }
 }

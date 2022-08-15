@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.V20180202
     /// A group created in a Migration project.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate/v20180202:Group")]
-    public partial class Group : global::Pulumi.CustomResource
+    public partial class Group : Pulumi.CustomResource
     {
         /// <summary>
         /// List of References to Assessments created on this group.
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.Migrate.V20180202
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20171111preview:Group"},
+                    new Pulumi.Alias { Type = "azure-native:migrate/v20171111preview:Group"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.Migrate.V20180202
         }
     }
 
-    public sealed class GroupArgs : global::Pulumi.ResourceArgs
+    public sealed class GroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// For optimistic concurrency control.
@@ -145,6 +145,5 @@ namespace Pulumi.AzureNative.Migrate.V20180202
         public GroupArgs()
         {
         }
-        public static new GroupArgs Empty => new GroupArgs();
     }
 }

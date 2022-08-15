@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20191201
     /// VirtualWAN Resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20191201:VirtualWan")]
-    public partial class VirtualWan : global::Pulumi.CustomResource
+    public partial class VirtualWan : Pulumi.CustomResource
     {
         /// <summary>
         /// True if branch to branch traffic is allowed.
@@ -112,33 +112,33 @@ namespace Pulumi.AzureNative.Network.V20191201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:VirtualWan"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180401:VirtualWan"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180601:VirtualWan"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180701:VirtualWan"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180801:VirtualWan"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181001:VirtualWan"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181101:VirtualWan"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181201:VirtualWan"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190201:VirtualWan"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:VirtualWan"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190601:VirtualWan"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:VirtualWan"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190801:VirtualWan"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:VirtualWan"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:VirtualWan"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:VirtualWan"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:VirtualWan"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:VirtualWan"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualWan"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:VirtualWan"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:VirtualWan"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:VirtualWan"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:VirtualWan"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:VirtualWan"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:VirtualWan"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:VirtualWan"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180401:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180601:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180701:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181001:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181101:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181201:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190201:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210301:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:VirtualWan"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -160,7 +160,7 @@ namespace Pulumi.AzureNative.Network.V20191201
         }
     }
 
-    public sealed class VirtualWanArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualWanArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// True if branch to branch traffic is allowed.
@@ -225,6 +225,5 @@ namespace Pulumi.AzureNative.Network.V20191201
         public VirtualWanArgs()
         {
         }
-        public static new VirtualWanArgs Empty => new VirtualWanArgs();
     }
 }

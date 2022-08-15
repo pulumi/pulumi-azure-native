@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
     /// API Version: 2018-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabricmesh:Network")]
-    public partial class Network : global::Pulumi.CustomResource
+    public partial class Network : Pulumi.CustomResource
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -71,8 +71,8 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabricmesh/v20180701preview:Network"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabricmesh/v20180901preview:Network"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabricmesh/v20180701preview:Network"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabricmesh/v20180901preview:Network"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
         }
     }
 
-    public sealed class NetworkArgs : global::Pulumi.ResourceArgs
+    public sealed class NetworkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -135,6 +135,5 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
         public NetworkArgs()
         {
         }
-        public static new NetworkArgs Empty => new NetworkArgs();
     }
 }

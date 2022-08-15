@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
 
-    public sealed class GetACIServiceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetACIServiceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Set to True to include Model details.
@@ -56,10 +56,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public GetACIServiceArgs()
         {
         }
-        public static new GetACIServiceArgs Empty => new GetACIServiceArgs();
     }
 
-    public sealed class GetACIServiceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetACIServiceInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Set to True to include Model details.
@@ -88,7 +87,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public GetACIServiceInvokeArgs()
         {
         }
-        public static new GetACIServiceInvokeArgs Empty => new GetACIServiceInvokeArgs();
     }
 
 

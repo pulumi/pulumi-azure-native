@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001.Inputs
     /// <summary>
     /// The available data types for MCAS (Microsoft Cloud App Security) data connector.
     /// </summary>
-    public sealed class MCASDataConnectorDataTypesArgs : global::Pulumi.ResourceArgs
+    public sealed class MCASDataConnectorDataTypesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Alerts data type connection.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001.Inputs
         public MCASDataConnectorDataTypesArgs()
         {
         }
-        public static new MCASDataConnectorDataTypesArgs Empty => new MCASDataConnectorDataTypesArgs();
     }
 }

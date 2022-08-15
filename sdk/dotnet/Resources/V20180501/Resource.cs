@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Resources.V20180501
     /// </summary>
     [Obsolete(@"Version 2018-05-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:resources/v20180501:Resource")]
-    public partial class Resource : global::Pulumi.CustomResource
+    public partial class Resource : Pulumi.CustomResource
     {
         /// <summary>
         /// The identity of the resource.
@@ -101,24 +101,24 @@ namespace Pulumi.AzureNative.Resources.V20180501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:resources:Resource"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20151101:Resource"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20160201:Resource"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20160701:Resource"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20160901:Resource"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20170510:Resource"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20180201:Resource"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20190301:Resource"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20190501:Resource"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20190510:Resource"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20190701:Resource"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20190801:Resource"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20191001:Resource"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20200601:Resource"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20200801:Resource"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20201001:Resource"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20210101:Resource"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20210401:Resource"},
+                    new Pulumi.Alias { Type = "azure-native:resources:Resource"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20151101:Resource"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20160201:Resource"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20160701:Resource"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20160901:Resource"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20170510:Resource"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20180201:Resource"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20190301:Resource"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20190501:Resource"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20190510:Resource"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20190701:Resource"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20190801:Resource"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20191001:Resource"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20200601:Resource"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20200801:Resource"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20201001:Resource"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20210101:Resource"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20210401:Resource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNative.Resources.V20180501
         }
     }
 
-    public sealed class ResourceArgs : global::Pulumi.ResourceArgs
+    public sealed class ResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity of the resource.
@@ -229,6 +229,5 @@ namespace Pulumi.AzureNative.Resources.V20180501
         public ResourceArgs()
         {
         }
-        public static new ResourceArgs Empty => new ResourceArgs();
     }
 }

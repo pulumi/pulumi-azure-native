@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20180419.Inputs
     /// <summary>
     /// Input for the task that validates connection to Azure SQL Database Managed Instance.
     /// </summary>
-    public sealed class ConnectToTargetSqlMITaskInputArgs : global::Pulumi.ResourceArgs
+    public sealed class ConnectToTargetSqlMITaskInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Connection information for target SQL Server
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DataMigration.V20180419.Inputs
         public ConnectToTargetSqlMITaskInputArgs()
         {
         }
-        public static new ConnectToTargetSqlMITaskInputArgs Empty => new ConnectToTargetSqlMITaskInputArgs();
     }
 }

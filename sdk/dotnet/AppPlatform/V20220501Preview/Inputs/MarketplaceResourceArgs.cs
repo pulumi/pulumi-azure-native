@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
     /// <summary>
     /// Purchasing 3rd Party product for one Azure Spring Apps instance
     /// </summary>
-    public sealed class MarketplaceResourceArgs : global::Pulumi.ResourceArgs
+    public sealed class MarketplaceResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The plan id of the 3rd Party Artifact that is being procured.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
         public MarketplaceResourceArgs()
         {
         }
-        public static new MarketplaceResourceArgs Empty => new MarketplaceResourceArgs();
     }
 }

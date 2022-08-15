@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901
     /// </summary>
     [Obsolete(@"Version 2020-09-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:databoxedge/v20200901:Device")]
-    public partial class Device : global::Pulumi.CustomResource
+    public partial class Device : Pulumi.CustomResource
     {
         /// <summary>
         /// Type of compute roles configured.
@@ -191,19 +191,19 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:Device"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:Device"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:Device"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:Device"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:Device"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:Device"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:Device"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:Device"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:Device"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:Device"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:Device"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:Device"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:Device"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge:Device"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:Device"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:Device"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:Device"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:Device"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:Device"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:Device"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:Device"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:Device"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:Device"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:Device"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:Device"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:Device"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -225,7 +225,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901
         }
     }
 
-    public sealed class DeviceArgs : global::Pulumi.ResourceArgs
+    public sealed class DeviceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The status of the Data Box Edge/Gateway device.
@@ -278,6 +278,5 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901
         public DeviceArgs()
         {
         }
-        public static new DeviceArgs Empty => new DeviceArgs();
     }
 }

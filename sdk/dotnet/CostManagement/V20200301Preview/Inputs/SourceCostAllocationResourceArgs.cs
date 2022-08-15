@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.V20200301Preview.Inputs
     /// <summary>
     /// Source resources for cost allocation
     /// </summary>
-    public sealed class SourceCostAllocationResourceArgs : global::Pulumi.ResourceArgs
+    public sealed class SourceCostAllocationResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.CostManagement.V20200301Preview.Inputs
         public SourceCostAllocationResourceArgs()
         {
         }
-        public static new SourceCostAllocationResourceArgs Empty => new SourceCostAllocationResourceArgs();
     }
 }

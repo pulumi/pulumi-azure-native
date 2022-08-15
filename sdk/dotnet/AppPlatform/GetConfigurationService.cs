@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.AppPlatform
     }
 
 
-    public sealed class GetConfigurationServiceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetConfigurationServiceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of Application Configuration Service.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.AppPlatform
         public GetConfigurationServiceArgs()
         {
         }
-        public static new GetConfigurationServiceArgs Empty => new GetConfigurationServiceArgs();
     }
 
-    public sealed class GetConfigurationServiceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetConfigurationServiceInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of Application Configuration Service.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.AppPlatform
         public GetConfigurationServiceInvokeArgs()
         {
         }
-        public static new GetConfigurationServiceInvokeArgs Empty => new GetConfigurationServiceInvokeArgs();
     }
 
 

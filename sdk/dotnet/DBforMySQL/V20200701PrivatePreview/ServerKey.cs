@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview
     /// A MySQL Server key.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql/v20200701privatepreview:ServerKey")]
-    public partial class ServerKey : global::Pulumi.CustomResource
+    public partial class ServerKey : Pulumi.CustomResource
     {
         /// <summary>
         /// The key creation date.
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20200701preview:ServerKey"},
+                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20200701preview:ServerKey"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview
         }
     }
 
-    public sealed class ServerKeyArgs : global::Pulumi.ResourceArgs
+    public sealed class ServerKeyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the server key.
@@ -133,6 +133,5 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview
         public ServerKeyArgs()
         {
         }
-        public static new ServerKeyArgs Empty => new ServerKeyArgs();
     }
 }

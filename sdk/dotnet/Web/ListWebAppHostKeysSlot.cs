@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Web
     }
 
 
-    public sealed class ListWebAppHostKeysSlotArgs : global::Pulumi.InvokeArgs
+    public sealed class ListWebAppHostKeysSlotArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Site name.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Web
         public ListWebAppHostKeysSlotArgs()
         {
         }
-        public static new ListWebAppHostKeysSlotArgs Empty => new ListWebAppHostKeysSlotArgs();
     }
 
-    public sealed class ListWebAppHostKeysSlotInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListWebAppHostKeysSlotInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Site name.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Web
         public ListWebAppHostKeysSlotInvokeArgs()
         {
         }
-        public static new ListWebAppHostKeysSlotInvokeArgs Empty => new ListWebAppHostKeysSlotInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
     /// <summary>
     /// Custom Domain of a Container App
     /// </summary>
-    public sealed class CustomDomainArgs : global::Pulumi.ResourceArgs
+    public sealed class CustomDomainArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Custom Domain binding type.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
         public CustomDomainArgs()
         {
         }
-        public static new CustomDomainArgs Empty => new CustomDomainArgs();
     }
 }

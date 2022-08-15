@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220301.Inputs
     /// <summary>
     /// VMwareCbt container mapping input.
     /// </summary>
-    public sealed class VMwareCbtContainerMappingInputArgs : global::Pulumi.ResourceArgs
+    public sealed class VMwareCbtContainerMappingInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The class type.
@@ -61,6 +61,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220301.Inputs
         public VMwareCbtContainerMappingInputArgs()
         {
         }
-        public static new VMwareCbtContainerMappingInputArgs Empty => new VMwareCbtContainerMappingInputArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// SSIS package location.
     /// </summary>
-    public sealed class SSISPackageLocationArgs : global::Pulumi.ResourceArgs
+    public sealed class SSISPackageLocationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The package access credential.
@@ -84,6 +84,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public SSISPackageLocationArgs()
         {
         }
-        public static new SSISPackageLocationArgs Empty => new SSISPackageLocationArgs();
     }
 }

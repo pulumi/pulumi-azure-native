@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Scheduler.V20160101.Inputs
 {
 
-    public sealed class ServiceBusTopicMessageArgs : global::Pulumi.ResourceArgs
+    public sealed class ServiceBusTopicMessageArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the authentication.
@@ -63,6 +63,5 @@ namespace Pulumi.AzureNative.Scheduler.V20160101.Inputs
         public ServiceBusTopicMessageArgs()
         {
         }
-        public static new ServiceBusTopicMessageArgs Empty => new ServiceBusTopicMessageArgs();
     }
 }

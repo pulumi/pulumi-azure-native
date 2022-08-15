@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Batch.V20220101.Inputs
     /// <summary>
     /// The public IP Address configuration of the networking configuration of a Pool.
     /// </summary>
-    public sealed class PublicIPAddressConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class PublicIPAddressConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("ipAddressIds")]
         private InputList<string>? _ipAddressIds;
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Batch.V20220101.Inputs
         public PublicIPAddressConfigurationArgs()
         {
         }
-        public static new PublicIPAddressConfigurationArgs Empty => new PublicIPAddressConfigurationArgs();
     }
 }

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20190201Preview
 {
     [Obsolete(@"Version 2019-02-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate")]
-    public partial class VirtualMachineImageTemplate : global::Pulumi.CustomResource
+    public partial class VirtualMachineImageTemplate : Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the properties used to describe the customization steps of the image, like Image source etc
@@ -98,12 +98,12 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20190201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:virtualmachineimages:VirtualMachineImageTemplate"},
-                    new global::Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate"},
-                    new global::Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate"},
-                    new global::Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20200214:VirtualMachineImageTemplate"},
-                    new global::Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20211001:VirtualMachineImageTemplate"},
-                    new global::Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20220214:VirtualMachineImageTemplate"},
+                    new Pulumi.Alias { Type = "azure-native:virtualmachineimages:VirtualMachineImageTemplate"},
+                    new Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate"},
+                    new Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate"},
+                    new Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20200214:VirtualMachineImageTemplate"},
+                    new Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20211001:VirtualMachineImageTemplate"},
+                    new Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20220214:VirtualMachineImageTemplate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20190201Preview
         }
     }
 
-    public sealed class VirtualMachineImageTemplateArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualMachineImageTemplateArgs : Pulumi.ResourceArgs
     {
         [Input("customize")]
         private InputList<object>? _customize;
@@ -190,6 +190,5 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20190201Preview
         public VirtualMachineImageTemplateArgs()
         {
         }
-        public static new VirtualMachineImageTemplateArgs Empty => new VirtualMachineImageTemplateArgs();
     }
 }

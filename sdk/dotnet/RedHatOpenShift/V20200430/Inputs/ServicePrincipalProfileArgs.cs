@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20200430.Inputs
     /// <summary>
     /// ServicePrincipalProfile represents a service principal profile.
     /// </summary>
-    public sealed class ServicePrincipalProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class ServicePrincipalProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The client ID used for the cluster (immutable).
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20200430.Inputs
         public ServicePrincipalProfileArgs()
         {
         }
-        public static new ServicePrincipalProfileArgs Empty => new ServicePrincipalProfileArgs();
     }
 }

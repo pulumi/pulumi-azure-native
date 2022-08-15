@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Linked service for MongoDb data source.
     /// </summary>
-    public sealed class MongoDbLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class MongoDbLinkedServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether to allow self-signed certificates from the server. The default value is false. Type: boolean (or Expression with resultType boolean).
@@ -121,6 +121,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public MongoDbLinkedServiceArgs()
         {
         }
-        public static new MongoDbLinkedServiceArgs Empty => new MongoDbLinkedServiceArgs();
     }
 }

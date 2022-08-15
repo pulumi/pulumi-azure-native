@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network.V20170501
     /// </summary>
     [Obsolete(@"Version 2017-05-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:network/v20170501:Profile")]
-    public partial class Profile : global::Pulumi.CustomResource
+    public partial class Profile : Pulumi.CustomResource
     {
         /// <summary>
         /// The DNS settings of the Traffic Manager profile.
@@ -95,13 +95,13 @@ namespace Pulumi.AzureNative.Network.V20170501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:Profile"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20151101:Profile"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170301:Profile"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180201:Profile"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180301:Profile"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180401:Profile"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180801:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:network:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20151101:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170301:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180201:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180301:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180401:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:Profile"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -123,7 +123,7 @@ namespace Pulumi.AzureNative.Network.V20170501
         }
     }
 
-    public sealed class ProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class ProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The DNS settings of the Traffic Manager profile.
@@ -194,6 +194,5 @@ namespace Pulumi.AzureNative.Network.V20170501
         public ProfileArgs()
         {
         }
-        public static new ProfileArgs Empty => new ProfileArgs();
     }
 }

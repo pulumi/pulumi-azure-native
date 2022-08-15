@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
 {
 
-    public sealed class CustomModelJobInputArgs : global::Pulumi.ResourceArgs
+    public sealed class CustomModelJobInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description for the input.
@@ -41,6 +41,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
         {
             Mode = "ReadOnlyMount";
         }
-        public static new CustomModelJobInputArgs Empty => new CustomModelJobInputArgs();
     }
 }

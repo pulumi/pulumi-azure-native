@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Data proxy properties for a managed dedicated integration runtime.
     /// </summary>
-    public sealed class IntegrationRuntimeDataProxyPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class IntegrationRuntimeDataProxyPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The self-hosted integration runtime reference.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public IntegrationRuntimeDataProxyPropertiesArgs()
         {
         }
-        public static new IntegrationRuntimeDataProxyPropertiesArgs Empty => new IntegrationRuntimeDataProxyPropertiesArgs();
     }
 }

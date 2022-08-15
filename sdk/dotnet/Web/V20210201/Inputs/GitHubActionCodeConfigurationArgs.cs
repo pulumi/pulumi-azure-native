@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20210201.Inputs
     /// <summary>
     /// The GitHub action code configuration.
     /// </summary>
-    public sealed class GitHubActionCodeConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class GitHubActionCodeConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Runtime stack is used to determine the workflow file content for code base apps.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Web.V20210201.Inputs
         public GitHubActionCodeConfigurationArgs()
         {
         }
-        public static new GitHubActionCodeConfigurationArgs Empty => new GitHubActionCodeConfigurationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// <summary>
     /// Container for code asset versions.
     /// </summary>
-    public sealed class CodeContainerArgs : global::Pulumi.ResourceArgs
+    public sealed class CodeContainerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The asset description text.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public CodeContainerArgs()
         {
         }
-        public static new CodeContainerArgs Empty => new CodeContainerArgs();
     }
 }

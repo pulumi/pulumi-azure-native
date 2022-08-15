@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20170901.Inputs
 {
 
-    public sealed class CloudServiceConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class CloudServiceConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// This may differ from targetOSVersion if the pool state is Upgrading. In this case some virtual machines may be on the targetOSVersion and some may be on the currentOSVersion during the upgrade process. Once all virtual machines have upgraded, currentOSVersion is updated to be the same as targetOSVersion.
@@ -33,6 +33,5 @@ namespace Pulumi.AzureNative.Batch.V20170901.Inputs
         public CloudServiceConfigurationArgs()
         {
         }
-        public static new CloudServiceConfigurationArgs Empty => new CloudServiceConfigurationArgs();
     }
 }

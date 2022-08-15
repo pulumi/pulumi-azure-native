@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Media
     }
 
 
-    public sealed class ListMediaServiceKeysArgs : global::Pulumi.InvokeArgs
+    public sealed class ListMediaServiceKeysArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Media Service.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.Media
         public ListMediaServiceKeysArgs()
         {
         }
-        public static new ListMediaServiceKeysArgs Empty => new ListMediaServiceKeysArgs();
     }
 
-    public sealed class ListMediaServiceKeysInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListMediaServiceKeysInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Media Service.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.Media
         public ListMediaServiceKeysInvokeArgs()
         {
         }
-        public static new ListMediaServiceKeysInvokeArgs Empty => new ListMediaServiceKeysInvokeArgs();
     }
 
 

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network
     }
 
 
-    public sealed class GetFirewallPolicyArgs : global::Pulumi.InvokeArgs
+    public sealed class GetFirewallPolicyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Expands referenced resources.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Network
         public GetFirewallPolicyArgs()
         {
         }
-        public static new GetFirewallPolicyArgs Empty => new GetFirewallPolicyArgs();
     }
 
-    public sealed class GetFirewallPolicyInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetFirewallPolicyInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Expands referenced resources.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Network
         public GetFirewallPolicyInvokeArgs()
         {
         }
-        public static new GetFirewallPolicyInvokeArgs Empty => new GetFirewallPolicyInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS.Inputs
     /// <summary>
     /// a powershell credential object
     /// </summary>
-    public sealed class PSCredentialExecutionParameterArgs : global::Pulumi.ResourceArgs
+    public sealed class PSCredentialExecutionParameterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The parameter name
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.AVS.Inputs
         public PSCredentialExecutionParameterArgs()
         {
         }
-        public static new PSCredentialExecutionParameterArgs Empty => new PSCredentialExecutionParameterArgs();
     }
 }

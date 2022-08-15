@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
     /// Blueprint artifact that deploys a Resource Manager template.
     /// </summary>
     [AzureNativeResourceType("azure-native:blueprint/v20181101preview:TemplateArtifact")]
-    public partial class TemplateArtifact : global::Pulumi.CustomResource
+    public partial class TemplateArtifact : Pulumi.CustomResource
     {
         /// <summary>
         /// Artifacts which need to be deployed before the specified artifact.
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:blueprint:TemplateArtifact"},
+                    new Pulumi.Alias { Type = "azure-native:blueprint:TemplateArtifact"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
         }
     }
 
-    public sealed class TemplateArtifactArgs : global::Pulumi.ResourceArgs
+    public sealed class TemplateArtifactArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the blueprint artifact.
@@ -202,6 +202,5 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
         public TemplateArtifactArgs()
         {
         }
-        public static new TemplateArtifactArgs Empty => new TemplateArtifactArgs();
     }
 }

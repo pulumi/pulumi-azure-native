@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20150401
     /// </summary>
     [Obsolete(@"Version 2015-04-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:documentdb/v20150401:DatabaseAccountGremlinGraph")]
-    public partial class DatabaseAccountGremlinGraph : global::Pulumi.CustomResource
+    public partial class DatabaseAccountGremlinGraph : Pulumi.CustomResource
     {
         /// <summary>
         /// The conflict resolution policy for the graph.
@@ -113,31 +113,31 @@ namespace Pulumi.AzureNative.DocumentDB.V20150401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb:DatabaseAccountGremlinGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20150408:DatabaseAccountGremlinGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20151106:DatabaseAccountGremlinGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20160319:DatabaseAccountGremlinGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20160331:DatabaseAccountGremlinGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20190801:DatabaseAccountGremlinGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20191212:DatabaseAccountGremlinGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200301:DatabaseAccountGremlinGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200401:DatabaseAccountGremlinGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:DatabaseAccountGremlinGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200901:DatabaseAccountGremlinGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210115:DatabaseAccountGremlinGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:DatabaseAccountGremlinGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210315:DatabaseAccountGremlinGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:DatabaseAccountGremlinGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210415:DatabaseAccountGremlinGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210515:DatabaseAccountGremlinGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210615:DatabaseAccountGremlinGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:DatabaseAccountGremlinGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015:DatabaseAccountGremlinGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:DatabaseAccountGremlinGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:DatabaseAccountGremlinGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:DatabaseAccountGremlinGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515:DatabaseAccountGremlinGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:DatabaseAccountGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb:DatabaseAccountGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20150408:DatabaseAccountGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20151106:DatabaseAccountGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20160319:DatabaseAccountGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20160331:DatabaseAccountGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20190801:DatabaseAccountGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20191212:DatabaseAccountGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200301:DatabaseAccountGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200401:DatabaseAccountGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:DatabaseAccountGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200901:DatabaseAccountGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210115:DatabaseAccountGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:DatabaseAccountGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210315:DatabaseAccountGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:DatabaseAccountGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210415:DatabaseAccountGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210515:DatabaseAccountGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210615:DatabaseAccountGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:DatabaseAccountGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211015:DatabaseAccountGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:DatabaseAccountGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:DatabaseAccountGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:DatabaseAccountGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220515:DatabaseAccountGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:DatabaseAccountGremlinGraph"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -159,7 +159,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20150401
         }
     }
 
-    public sealed class DatabaseAccountGremlinGraphArgs : global::Pulumi.ResourceArgs
+    public sealed class DatabaseAccountGremlinGraphArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cosmos DB database account name.
@@ -206,6 +206,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20150401
         public DatabaseAccountGremlinGraphArgs()
         {
         }
-        public static new DatabaseAccountGremlinGraphArgs Empty => new DatabaseAccountGremlinGraphArgs();
     }
 }

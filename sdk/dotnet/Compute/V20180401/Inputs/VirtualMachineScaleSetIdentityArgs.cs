@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20180401.Inputs
     /// <summary>
     /// Identity for the virtual machine scale set.
     /// </summary>
-    public sealed class VirtualMachineScaleSetIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualMachineScaleSetIdentityArgs : Pulumi.ResourceArgs
     {
         [Input("identityIds")]
         private InputList<string>? _identityIds;
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Compute.V20180401.Inputs
         public VirtualMachineScaleSetIdentityArgs()
         {
         }
-        public static new VirtualMachineScaleSetIdentityArgs Empty => new VirtualMachineScaleSetIdentityArgs();
     }
 }

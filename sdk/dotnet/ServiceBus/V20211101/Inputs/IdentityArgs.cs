@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20211101.Inputs
     /// <summary>
     /// Properties to configure User Assigned Identities for Bring your Own Keys
     /// </summary>
-    public sealed class IdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class IdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of managed service identity.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.ServiceBus.V20211101.Inputs
         public IdentityArgs()
         {
         }
-        public static new IdentityArgs Empty => new IdentityArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// Sweep Job limit class.
     /// </summary>
-    public sealed class SweepJobLimitsArgs : global::Pulumi.ResourceArgs
+    public sealed class SweepJobLimitsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// 
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         public SweepJobLimitsArgs()
         {
         }
-        public static new SweepJobLimitsArgs Empty => new SweepJobLimitsArgs();
     }
 }

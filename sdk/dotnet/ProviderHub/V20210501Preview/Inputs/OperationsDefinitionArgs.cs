@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ProviderHub.V20210501Preview.Inputs
     /// <summary>
     /// Properties of an Operation.
     /// </summary>
-    public sealed class OperationsDefinitionArgs : global::Pulumi.ResourceArgs
+    public sealed class OperationsDefinitionArgs : Pulumi.ResourceArgs
     {
         [Input("actionType")]
         public Input<string>? ActionType { get; set; }
@@ -45,6 +45,5 @@ namespace Pulumi.AzureNative.ProviderHub.V20210501Preview.Inputs
         public OperationsDefinitionArgs()
         {
         }
-        public static new OperationsDefinitionArgs Empty => new OperationsDefinitionArgs();
     }
 }

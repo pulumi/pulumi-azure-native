@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity QuickBooks server source.
     /// </summary>
-    public sealed class QuickBooksSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class QuickBooksSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -67,6 +67,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public QuickBooksSourceArgs()
         {
         }
-        public static new QuickBooksSourceArgs Empty => new QuickBooksSourceArgs();
     }
 }

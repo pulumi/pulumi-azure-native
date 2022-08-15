@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The settings that will be leveraged for Netezza source partitioning.
     /// </summary>
-    public sealed class NetezzaPartitionSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class NetezzaPartitionSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the column in integer type that will be used for proceeding range partitioning. Type: string (or Expression with resultType string).
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public NetezzaPartitionSettingsArgs()
         {
         }
-        public static new NetezzaPartitionSettingsArgs Empty => new NetezzaPartitionSettingsArgs();
     }
 }

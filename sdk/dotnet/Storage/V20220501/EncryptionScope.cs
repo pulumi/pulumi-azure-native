@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20220501
     /// The Encryption Scope resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage/v20220501:EncryptionScope")]
-    public partial class EncryptionScope : global::Pulumi.CustomResource
+    public partial class EncryptionScope : Pulumi.CustomResource
     {
         /// <summary>
         /// Gets the creation date and time of the encryption scope in UTC.
@@ -88,15 +88,15 @@ namespace Pulumi.AzureNative.Storage.V20220501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:storage:EncryptionScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20190601:EncryptionScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20200801preview:EncryptionScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210101:EncryptionScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210201:EncryptionScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210401:EncryptionScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210601:EncryptionScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210801:EncryptionScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210901:EncryptionScope"},
+                    new Pulumi.Alias { Type = "azure-native:storage:EncryptionScope"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20190601:EncryptionScope"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:EncryptionScope"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210101:EncryptionScope"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210201:EncryptionScope"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210401:EncryptionScope"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210601:EncryptionScope"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210801:EncryptionScope"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210901:EncryptionScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.Storage.V20220501
         }
     }
 
-    public sealed class EncryptionScopeArgs : global::Pulumi.ResourceArgs
+    public sealed class EncryptionScopeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -165,6 +165,5 @@ namespace Pulumi.AzureNative.Storage.V20220501
         public EncryptionScopeArgs()
         {
         }
-        public static new EncryptionScopeArgs Empty => new EncryptionScopeArgs();
     }
 }

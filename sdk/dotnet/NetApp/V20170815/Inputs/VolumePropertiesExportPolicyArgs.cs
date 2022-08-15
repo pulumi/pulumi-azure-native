@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NetApp.V20170815.Inputs
     /// <summary>
     /// Export policy rule
     /// </summary>
-    public sealed class VolumePropertiesExportPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class VolumePropertiesExportPolicyArgs : Pulumi.ResourceArgs
     {
         [Input("rules")]
         private InputList<Inputs.ExportPolicyRuleArgs>? _rules;
@@ -26,6 +26,5 @@ namespace Pulumi.AzureNative.NetApp.V20170815.Inputs
         public VolumePropertiesExportPolicyArgs()
         {
         }
-        public static new VolumePropertiesExportPolicyArgs Empty => new VolumePropertiesExportPolicyArgs();
     }
 }

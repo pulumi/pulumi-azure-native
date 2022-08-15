@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301Preview
     /// A Stream Analytics Cluster object
     /// </summary>
     [AzureNativeResourceType("azure-native:streamanalytics/v20200301preview:Cluster")]
-    public partial class Cluster : global::Pulumi.CustomResource
+    public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>
         /// The current entity tag for the cluster. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
@@ -82,8 +82,8 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics:Cluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -105,7 +105,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301Preview
         }
     }
 
-    public sealed class ClusterArgs : global::Pulumi.ResourceArgs
+    public sealed class ClusterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the cluster.
@@ -146,6 +146,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301Preview
         public ClusterArgs()
         {
         }
-        public static new ClusterArgs Empty => new ClusterArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ScVmm.Inputs
     /// <summary>
     /// Defines the resource properties.
     /// </summary>
-    public sealed class StorageProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class StorageProfileArgs : Pulumi.ResourceArgs
     {
         [Input("disks")]
         private InputList<Inputs.VirtualDiskArgs>? _disks;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ScVmm.Inputs
         public StorageProfileArgs()
         {
         }
-        public static new StorageProfileArgs Empty => new StorageProfileArgs();
     }
 }

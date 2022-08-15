@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.V20210801.Inputs
     /// <summary>
     /// Defines the public IP address resource settings.
     /// </summary>
-    public sealed class PublicIPAddressResourceSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class PublicIPAddressResourceSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the domain name label.
@@ -73,6 +73,5 @@ namespace Pulumi.AzureNative.Migrate.V20210801.Inputs
         public PublicIPAddressResourceSettingsArgs()
         {
         }
-        public static new PublicIPAddressResourceSettingsArgs Empty => new PublicIPAddressResourceSettingsArgs();
     }
 }

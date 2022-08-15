@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview.Inputs
     /// <summary>
     /// ApiKey authentication gives a name and a value that can be included in either the request header or query parameters.
     /// </summary>
-    public sealed class ApiKeyAuthenticationArgs : global::Pulumi.ResourceArgs
+    public sealed class ApiKeyAuthenticationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The location of the authentication key/value pair in the request.
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview.Inputs
         public ApiKeyAuthenticationArgs()
         {
         }
-        public static new ApiKeyAuthenticationArgs Empty => new ApiKeyAuthenticationArgs();
     }
 }

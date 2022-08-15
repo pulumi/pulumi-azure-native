@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180901.Inputs
     /// <summary>
     /// Describes the credential parameters for accessing the source registry.
     /// </summary>
-    public sealed class SourceRegistryCredentialsArgs : global::Pulumi.ResourceArgs
+    public sealed class SourceRegistryCredentialsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The authentication mode which determines the source registry login scope. The credentials for the source registry
@@ -26,6 +26,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180901.Inputs
         public SourceRegistryCredentialsArgs()
         {
         }
-        public static new SourceRegistryCredentialsArgs Empty => new SourceRegistryCredentialsArgs();
     }
 }

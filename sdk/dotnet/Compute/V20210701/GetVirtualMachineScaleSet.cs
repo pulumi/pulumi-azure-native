@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Compute.V20210701
     }
 
 
-    public sealed class GetVirtualMachineScaleSetArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualMachineScaleSetArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The expand expression to apply on the operation. 'UserData' retrieves the UserData property of the VM scale set that was provided by the user during the VM scale set Create/Update operation
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.Compute.V20210701
         public GetVirtualMachineScaleSetArgs()
         {
         }
-        public static new GetVirtualMachineScaleSetArgs Empty => new GetVirtualMachineScaleSetArgs();
     }
 
-    public sealed class GetVirtualMachineScaleSetInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualMachineScaleSetInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The expand expression to apply on the operation. 'UserData' retrieves the UserData property of the VM scale set that was provided by the user during the VM scale set Create/Update operation
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.Compute.V20210701
         public GetVirtualMachineScaleSetInvokeArgs()
         {
         }
-        public static new GetVirtualMachineScaleSetInvokeArgs Empty => new GetVirtualMachineScaleSetInvokeArgs();
     }
 
 

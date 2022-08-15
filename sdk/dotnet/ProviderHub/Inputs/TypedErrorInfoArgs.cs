@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Inputs
 {
 
-    public sealed class TypedErrorInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class TypedErrorInfoArgs : Pulumi.ResourceArgs
     {
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -18,6 +18,5 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
         public TypedErrorInfoArgs()
         {
         }
-        public static new TypedErrorInfoArgs Empty => new TypedErrorInfoArgs();
     }
 }

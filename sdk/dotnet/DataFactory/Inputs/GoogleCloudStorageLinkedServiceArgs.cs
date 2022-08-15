@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Linked service for Google Cloud Storage.
     /// </summary>
-    public sealed class GoogleCloudStorageLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class GoogleCloudStorageLinkedServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access key identifier of the Google Cloud Storage Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
@@ -85,6 +85,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public GoogleCloudStorageLinkedServiceArgs()
         {
         }
-        public static new GoogleCloudStorageLinkedServiceArgs Empty => new GoogleCloudStorageLinkedServiceArgs();
     }
 }

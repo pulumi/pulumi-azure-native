@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
     /// <summary>
     /// VMware Azure specific enable protection input.
     /// </summary>
-    public sealed class InMageAzureV2EnableProtectionInputArgs : global::Pulumi.ResourceArgs
+    public sealed class InMageAzureV2EnableProtectionInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The DiskEncryptionSet ARM ID.
@@ -151,6 +151,5 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public InMageAzureV2EnableProtectionInputArgs()
         {
         }
-        public static new InMageAzureV2EnableProtectionInputArgs Empty => new InMageAzureV2EnableProtectionInputArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
     /// <summary>
     /// Database specific information for SQL to Azure SQL DB Managed Instance migration task inputs
     /// </summary>
-    public sealed class MigrateSqlServerSqlMIDatabaseInputArgs : global::Pulumi.ResourceArgs
+    public sealed class MigrateSqlServerSqlMIDatabaseInputArgs : Pulumi.ResourceArgs
     {
         [Input("backupFilePaths")]
         private InputList<string>? _backupFilePaths;
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
         public MigrateSqlServerSqlMIDatabaseInputArgs()
         {
         }
-        public static new MigrateSqlServerSqlMIDatabaseInputArgs Empty => new MigrateSqlServerSqlMIDatabaseInputArgs();
     }
 }

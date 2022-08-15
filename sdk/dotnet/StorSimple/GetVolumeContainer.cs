@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.StorSimple
     }
 
 
-    public sealed class GetVolumeContainerArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVolumeContainerArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name
@@ -56,10 +56,9 @@ namespace Pulumi.AzureNative.StorSimple
         public GetVolumeContainerArgs()
         {
         }
-        public static new GetVolumeContainerArgs Empty => new GetVolumeContainerArgs();
     }
 
-    public sealed class GetVolumeContainerInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVolumeContainerInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name
@@ -88,7 +87,6 @@ namespace Pulumi.AzureNative.StorSimple
         public GetVolumeContainerInvokeArgs()
         {
         }
-        public static new GetVolumeContainerInvokeArgs Empty => new GetVolumeContainerInvokeArgs();
     }
 
 

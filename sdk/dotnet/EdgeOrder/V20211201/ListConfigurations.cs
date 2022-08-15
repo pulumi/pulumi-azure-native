@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20211201
     }
 
 
-    public sealed class ListConfigurationsArgs : global::Pulumi.InvokeArgs
+    public sealed class ListConfigurationsArgs : Pulumi.InvokeArgs
     {
         [Input("configurationFilters", required: true)]
         private List<Inputs.ConfigurationFilters>? _configurationFilters;
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.EdgeOrder.V20211201
         public ListConfigurationsArgs()
         {
         }
-        public static new ListConfigurationsArgs Empty => new ListConfigurationsArgs();
     }
 
-    public sealed class ListConfigurationsInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListConfigurationsInvokeArgs : Pulumi.InvokeArgs
     {
         [Input("configurationFilters", required: true)]
         private InputList<Inputs.ConfigurationFiltersArgs>? _configurationFilters;
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.EdgeOrder.V20211201
         public ListConfigurationsInvokeArgs()
         {
         }
-        public static new ListConfigurationsInvokeArgs Empty => new ListConfigurationsInvokeArgs();
     }
 
 

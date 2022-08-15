@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.V20220301.Inputs
     /// <summary>
     /// The configuration settings of the login flow of users using ContainerApp Service Authentication/Authorization.
     /// </summary>
-    public sealed class LoginArgs : global::Pulumi.ResourceArgs
+    public sealed class LoginArgs : Pulumi.ResourceArgs
     {
         [Input("allowedExternalRedirectUrls")]
         private InputList<string>? _allowedExternalRedirectUrls;
@@ -56,6 +56,5 @@ namespace Pulumi.AzureNative.App.V20220301.Inputs
         public LoginArgs()
         {
         }
-        public static new LoginArgs Empty => new LoginArgs();
     }
 }

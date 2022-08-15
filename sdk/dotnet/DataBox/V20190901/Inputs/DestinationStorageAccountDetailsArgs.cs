@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBox.V20190901.Inputs
     /// <summary>
     /// Details for the destination storage account.
     /// </summary>
-    public sealed class DestinationStorageAccountDetailsArgs : global::Pulumi.ResourceArgs
+    public sealed class DestinationStorageAccountDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Arm Id of the destination where the data has to be moved.
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.DataBox.V20190901.Inputs
         public DestinationStorageAccountDetailsArgs()
         {
         }
-        public static new DestinationStorageAccountDetailsArgs Empty => new DestinationStorageAccountDetailsArgs();
     }
 }

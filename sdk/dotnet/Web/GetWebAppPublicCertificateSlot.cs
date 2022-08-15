@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Web
     }
 
 
-    public sealed class GetWebAppPublicCertificateSlotArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWebAppPublicCertificateSlotArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the app.
@@ -56,10 +56,9 @@ namespace Pulumi.AzureNative.Web
         public GetWebAppPublicCertificateSlotArgs()
         {
         }
-        public static new GetWebAppPublicCertificateSlotArgs Empty => new GetWebAppPublicCertificateSlotArgs();
     }
 
-    public sealed class GetWebAppPublicCertificateSlotInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetWebAppPublicCertificateSlotInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the app.
@@ -88,7 +87,6 @@ namespace Pulumi.AzureNative.Web
         public GetWebAppPublicCertificateSlotInvokeArgs()
         {
         }
-        public static new GetWebAppPublicCertificateSlotInvokeArgs Empty => new GetWebAppPublicCertificateSlotInvokeArgs();
     }
 
 

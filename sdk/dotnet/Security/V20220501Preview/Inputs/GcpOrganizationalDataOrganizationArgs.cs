@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
     /// <summary>
     /// The gcpOrganization data for the parent account
     /// </summary>
-    public sealed class GcpOrganizationalDataOrganizationArgs : global::Pulumi.ResourceArgs
+    public sealed class GcpOrganizationalDataOrganizationArgs : Pulumi.ResourceArgs
     {
         [Input("excludedProjectNumbers")]
         private InputList<string>? _excludedProjectNumbers;
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
         public GcpOrganizationalDataOrganizationArgs()
         {
         }
-        public static new GcpOrganizationalDataOrganizationArgs Empty => new GcpOrganizationalDataOrganizationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MobileNetwork.Inputs
     /// <summary>
     /// The minimum time (in seconds) that will pass before a port that was used by a closed pinhole can be recycled for use by another pinhole. All hold times must be minimum 1 second.
     /// </summary>
-    public sealed class PortReuseHoldTimesArgs : global::Pulumi.ResourceArgs
+    public sealed class PortReuseHoldTimesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Minimum time in seconds that will pass before a TCP port that was used by a closed pinhole can be reused. Default for TCP is 2 minutes.
@@ -32,6 +32,5 @@ namespace Pulumi.AzureNative.MobileNetwork.Inputs
             Tcp = 120;
             Udp = 60;
         }
-        public static new PortReuseHoldTimesArgs Empty => new PortReuseHoldTimesArgs();
     }
 }

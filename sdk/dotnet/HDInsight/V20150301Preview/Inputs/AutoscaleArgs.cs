@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview.Inputs
     /// <summary>
     /// The autoscale request parameters
     /// </summary>
-    public sealed class AutoscaleArgs : global::Pulumi.ResourceArgs
+    public sealed class AutoscaleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Parameters for load-based autoscale
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview.Inputs
         public AutoscaleArgs()
         {
         }
-        public static new AutoscaleArgs Empty => new AutoscaleArgs();
     }
 }

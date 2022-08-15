@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network.V20180201
     /// </summary>
     [Obsolete(@"Version 2018-02-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:network/v20180201:Endpoint")]
-    public partial class Endpoint : global::Pulumi.CustomResource
+    public partial class Endpoint : Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
@@ -107,13 +107,13 @@ namespace Pulumi.AzureNative.Network.V20180201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:Endpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20151101:Endpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170301:Endpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170501:Endpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180301:Endpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180401:Endpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180801:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20151101:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170301:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170501:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180301:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180401:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:Endpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -135,7 +135,7 @@ namespace Pulumi.AzureNative.Network.V20180201
         }
     }
 
-    public sealed class EndpointArgs : global::Pulumi.ResourceArgs
+    public sealed class EndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
@@ -224,6 +224,5 @@ namespace Pulumi.AzureNative.Network.V20180201
         public EndpointArgs()
         {
         }
-        public static new EndpointArgs Empty => new EndpointArgs();
     }
 }

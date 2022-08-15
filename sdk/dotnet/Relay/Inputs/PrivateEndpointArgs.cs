@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Relay.Inputs
     /// <summary>
     /// Private endpoint object properties.
     /// </summary>
-    public sealed class PrivateEndpointArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Full identifier of the private endpoint resource.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Relay.Inputs
         public PrivateEndpointArgs()
         {
         }
-        public static new PrivateEndpointArgs Empty => new PrivateEndpointArgs();
     }
 }

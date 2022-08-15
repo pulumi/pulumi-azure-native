@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridNetwork.V20200101Preview.Inputs
     /// <summary>
     /// Specifies information about the operating system disk used by the virtual machine. &lt;br&gt;&lt;br&gt; For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
     /// </summary>
-    public sealed class OsDiskArgs : global::Pulumi.ResourceArgs
+    public sealed class OsDiskArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the size of os disk in gigabytes. This is the fully expanded disk size needed of the VHD image on the ASE. This disk size should be greater than the size of the VHD provided in vhdUri.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.HybridNetwork.V20200101Preview.Inputs
         public OsDiskArgs()
         {
         }
-        public static new OsDiskArgs Empty => new OsDiskArgs();
     }
 }

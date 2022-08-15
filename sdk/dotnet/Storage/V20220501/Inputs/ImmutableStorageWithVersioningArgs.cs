@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20220501.Inputs
     /// <summary>
     /// Object level immutability properties of the container.
     /// </summary>
-    public sealed class ImmutableStorageWithVersioningArgs : global::Pulumi.ResourceArgs
+    public sealed class ImmutableStorageWithVersioningArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// This is an immutable property, when set to true it enables object level immutability at the container level.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Storage.V20220501.Inputs
         public ImmutableStorageWithVersioningArgs()
         {
         }
-        public static new ImmutableStorageWithVersioningArgs Empty => new ImmutableStorageWithVersioningArgs();
     }
 }

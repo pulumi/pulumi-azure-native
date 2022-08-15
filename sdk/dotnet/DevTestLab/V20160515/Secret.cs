@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
     /// </summary>
     [Obsolete(@"Version 2016-05-15 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:devtestlab/v20160515:Secret")]
-    public partial class Secret : global::Pulumi.CustomResource
+    public partial class Secret : Pulumi.CustomResource
     {
         /// <summary>
         /// The location of the resource.
@@ -83,8 +83,8 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab:Secret"},
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:Secret"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab:Secret"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:Secret"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         }
     }
 
-    public sealed class SecretArgs : global::Pulumi.ResourceArgs
+    public sealed class SecretArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the lab.
@@ -171,6 +171,5 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         public SecretArgs()
         {
         }
-        public static new SecretArgs Empty => new SecretArgs();
     }
 }

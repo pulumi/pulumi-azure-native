@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
     /// <summary>
     /// Defines the parameters for the origin group override action.
     /// </summary>
-    public sealed class OriginGroupOverrideActionParametersArgs : global::Pulumi.ResourceArgs
+    public sealed class OriginGroupOverrideActionParametersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// defines the OriginGroup that would override the DefaultOriginGroup.
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
         public OriginGroupOverrideActionParametersArgs()
         {
         }
-        public static new OriginGroupOverrideActionParametersArgs Empty => new OriginGroupOverrideActionParametersArgs();
     }
 }

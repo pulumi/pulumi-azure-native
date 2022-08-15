@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Elastic
     }
 
 
-    public sealed class ListDeploymentInfoArgs : global::Pulumi.InvokeArgs
+    public sealed class ListDeploymentInfoArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Monitor resource name
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.Elastic
         public ListDeploymentInfoArgs()
         {
         }
-        public static new ListDeploymentInfoArgs Empty => new ListDeploymentInfoArgs();
     }
 
-    public sealed class ListDeploymentInfoInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListDeploymentInfoInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Monitor resource name
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.Elastic
         public ListDeploymentInfoInvokeArgs()
         {
         }
-        public static new ListDeploymentInfoInvokeArgs Empty => new ListDeploymentInfoInvokeArgs();
     }
 
 

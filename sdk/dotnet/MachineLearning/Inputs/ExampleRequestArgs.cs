@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearning.Inputs
     /// <summary>
     /// Sample input data for the service's input(s).
     /// </summary>
-    public sealed class ExampleRequestArgs : global::Pulumi.ResourceArgs
+    public sealed class ExampleRequestArgs : Pulumi.ResourceArgs
     {
         [Input("globalParameters")]
         private InputMap<object>? _globalParameters;
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.MachineLearning.Inputs
         public ExampleRequestArgs()
         {
         }
-        public static new ExampleRequestArgs Empty => new ExampleRequestArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
     }
 
 
-    public sealed class GetMicrosoftSecurityIncidentCreationAlertRuleArgs : global::Pulumi.InvokeArgs
+    public sealed class GetMicrosoftSecurityIncidentCreationAlertRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         public GetMicrosoftSecurityIncidentCreationAlertRuleArgs()
         {
         }
-        public static new GetMicrosoftSecurityIncidentCreationAlertRuleArgs Empty => new GetMicrosoftSecurityIncidentCreationAlertRuleArgs();
     }
 
-    public sealed class GetMicrosoftSecurityIncidentCreationAlertRuleInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetMicrosoftSecurityIncidentCreationAlertRuleInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         public GetMicrosoftSecurityIncidentCreationAlertRuleInvokeArgs()
         {
         }
-        public static new GetMicrosoftSecurityIncidentCreationAlertRuleInvokeArgs Empty => new GetMicrosoftSecurityIncidentCreationAlertRuleInvokeArgs();
     }
 
 

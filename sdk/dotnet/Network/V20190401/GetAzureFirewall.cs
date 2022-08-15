@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20190401
     }
 
 
-    public sealed class GetAzureFirewallArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAzureFirewallArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Azure Firewall.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.Network.V20190401
         public GetAzureFirewallArgs()
         {
         }
-        public static new GetAzureFirewallArgs Empty => new GetAzureFirewallArgs();
     }
 
-    public sealed class GetAzureFirewallInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAzureFirewallInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Azure Firewall.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.Network.V20190401
         public GetAzureFirewallInvokeArgs()
         {
         }
-        public static new GetAzureFirewallInvokeArgs Empty => new GetAzureFirewallInvokeArgs();
     }
 
 

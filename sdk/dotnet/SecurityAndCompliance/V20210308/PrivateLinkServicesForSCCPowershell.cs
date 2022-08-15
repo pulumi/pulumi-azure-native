@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
     /// The description of the service.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityandcompliance/v20210308:privateLinkServicesForSCCPowershell")]
-    public partial class PrivateLinkServicesForSCCPowershell : global::Pulumi.CustomResource
+    public partial class PrivateLinkServicesForSCCPowershell : Pulumi.CustomResource
     {
         /// <summary>
         /// An etag associated with the resource, used for optimistic concurrency when editing it.
@@ -94,8 +94,8 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance:privateLinkServicesForSCCPowershell"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210111:privateLinkServicesForSCCPowershell"},
+                    new Pulumi.Alias { Type = "azure-native:securityandcompliance:privateLinkServicesForSCCPowershell"},
+                    new Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210111:privateLinkServicesForSCCPowershell"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
         }
     }
 
-    public sealed class PrivateLinkServicesForSCCPowershellArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateLinkServicesForSCCPowershellArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Setting indicating whether the service has a managed identity associated with it.
@@ -170,6 +170,5 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
         public PrivateLinkServicesForSCCPowershellArgs()
         {
         }
-        public static new PrivateLinkServicesForSCCPowershellArgs Empty => new PrivateLinkServicesForSCCPowershellArgs();
     }
 }

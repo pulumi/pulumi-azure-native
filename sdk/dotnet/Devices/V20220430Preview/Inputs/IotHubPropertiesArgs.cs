@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20220430Preview.Inputs
     /// <summary>
     /// The properties of an IoT hub.
     /// </summary>
-    public sealed class IotHubPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class IotHubPropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("allowedFqdnList")]
         private InputList<string>? _allowedFqdnList;
@@ -198,6 +198,5 @@ namespace Pulumi.AzureNative.Devices.V20220430Preview.Inputs
         public IotHubPropertiesArgs()
         {
         }
-        public static new IotHubPropertiesArgs Empty => new IotHubPropertiesArgs();
     }
 }

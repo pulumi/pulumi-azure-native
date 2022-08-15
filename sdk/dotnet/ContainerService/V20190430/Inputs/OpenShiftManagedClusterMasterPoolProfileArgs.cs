@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20190430.Inputs
     /// <summary>
     /// OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
     /// </summary>
-    public sealed class OpenShiftManagedClusterMasterPoolProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class OpenShiftManagedClusterMasterPoolProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Number of masters (VMs) to host docker containers. The default value is 3.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.ContainerService.V20190430.Inputs
         public OpenShiftManagedClusterMasterPoolProfileArgs()
         {
         }
-        public static new OpenShiftManagedClusterMasterPoolProfileArgs Empty => new OpenShiftManagedClusterMasterPoolProfileArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     /// <summary>
     /// Configuration for compute binding.
     /// </summary>
-    public sealed class ComputeConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class ComputeConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Number of instances or nodes.
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public ComputeConfigurationArgs()
         {
         }
-        public static new ComputeConfigurationArgs Empty => new ComputeConfigurationArgs();
     }
 }

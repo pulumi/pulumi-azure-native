@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20220615.Inputs
     /// <summary>
     /// The event type information for Channels.
     /// </summary>
-    public sealed class EventTypeInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class EventTypeInfoArgs : Pulumi.ResourceArgs
     {
         [Input("inlineEventTypes")]
         private InputMap<Inputs.InlineEventPropertiesArgs>? _inlineEventTypes;
@@ -38,6 +38,5 @@ namespace Pulumi.AzureNative.EventGrid.V20220615.Inputs
         public EventTypeInfoArgs()
         {
         }
-        public static new EventTypeInfoArgs Empty => new EventTypeInfoArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Consumption.V20181001
     /// </summary>
     [Obsolete(@"Version 2018-10-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:consumption/v20181001:Budget")]
-    public partial class Budget : global::Pulumi.CustomResource
+    public partial class Budget : Pulumi.CustomResource
     {
         /// <summary>
         /// The total amount of cost to track with the budget
@@ -101,11 +101,11 @@ namespace Pulumi.AzureNative.Consumption.V20181001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:consumption/v20171230preview:Budget"},
-                    new global::Pulumi.Alias { Type = "azure-native:consumption/v20180131:Budget"},
-                    new global::Pulumi.Alias { Type = "azure-native:consumption/v20180331:Budget"},
-                    new global::Pulumi.Alias { Type = "azure-native:consumption/v20180630:Budget"},
-                    new global::Pulumi.Alias { Type = "azure-native:consumption/v20180831:Budget"},
+                    new Pulumi.Alias { Type = "azure-native:consumption/v20171230preview:Budget"},
+                    new Pulumi.Alias { Type = "azure-native:consumption/v20180131:Budget"},
+                    new Pulumi.Alias { Type = "azure-native:consumption/v20180331:Budget"},
+                    new Pulumi.Alias { Type = "azure-native:consumption/v20180630:Budget"},
+                    new Pulumi.Alias { Type = "azure-native:consumption/v20180831:Budget"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -127,7 +127,7 @@ namespace Pulumi.AzureNative.Consumption.V20181001
         }
     }
 
-    public sealed class BudgetArgs : global::Pulumi.ResourceArgs
+    public sealed class BudgetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The total amount of cost to track with the budget
@@ -186,6 +186,5 @@ namespace Pulumi.AzureNative.Consumption.V20181001
         public BudgetArgs()
         {
         }
-        public static new BudgetArgs Empty => new BudgetArgs();
     }
 }

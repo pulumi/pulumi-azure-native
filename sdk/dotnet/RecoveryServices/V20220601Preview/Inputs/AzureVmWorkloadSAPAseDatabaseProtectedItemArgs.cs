@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220601Preview.Inputs
     /// <summary>
     /// Azure VM workload-specific protected item representing SAP ASE Database.
     /// </summary>
-    public sealed class AzureVmWorkloadSAPAseDatabaseProtectedItemArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureVmWorkloadSAPAseDatabaseProtectedItemArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the backup set the backup item belongs to
@@ -181,6 +181,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220601Preview.Inputs
         public AzureVmWorkloadSAPAseDatabaseProtectedItemArgs()
         {
         }
-        public static new AzureVmWorkloadSAPAseDatabaseProtectedItemArgs Empty => new AzureVmWorkloadSAPAseDatabaseProtectedItemArgs();
     }
 }

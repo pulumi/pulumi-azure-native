@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.IoTSecurity.V20210201Preview
     /// IoT Defender settings
     /// </summary>
     [AzureNativeResourceType("azure-native:iotsecurity/v20210201preview:DefenderSetting")]
-    public partial class DefenderSetting : global::Pulumi.CustomResource
+    public partial class DefenderSetting : Pulumi.CustomResource
     {
         /// <summary>
         /// Size of the device quota. Value is required to be in multiples of 100.
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.IoTSecurity.V20210201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:iotsecurity:DefenderSetting"},
+                    new Pulumi.Alias { Type = "azure-native:iotsecurity:DefenderSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.IoTSecurity.V20210201Preview
         }
     }
 
-    public sealed class DefenderSettingArgs : global::Pulumi.ResourceArgs
+    public sealed class DefenderSettingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Size of the device quota. Value is required to be in multiples of 100.
@@ -139,6 +139,5 @@ namespace Pulumi.AzureNative.IoTSecurity.V20210201Preview
         public DefenderSettingArgs()
         {
         }
-        public static new DefenderSettingArgs Empty => new DefenderSettingArgs();
     }
 }

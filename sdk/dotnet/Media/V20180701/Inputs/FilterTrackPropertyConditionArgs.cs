@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180701.Inputs
     /// <summary>
     /// The class to specify one track property condition.
     /// </summary>
-    public sealed class FilterTrackPropertyConditionArgs : global::Pulumi.ResourceArgs
+    public sealed class FilterTrackPropertyConditionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The track property condition operation.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Media.V20180701.Inputs
         public FilterTrackPropertyConditionArgs()
         {
         }
-        public static new FilterTrackPropertyConditionArgs Empty => new FilterTrackPropertyConditionArgs();
     }
 }

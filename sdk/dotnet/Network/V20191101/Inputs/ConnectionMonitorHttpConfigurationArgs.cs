@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20191101.Inputs
     /// <summary>
     /// Describes the HTTP configuration.
     /// </summary>
-    public sealed class ConnectionMonitorHttpConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class ConnectionMonitorHttpConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The HTTP method to use.
@@ -66,6 +66,5 @@ namespace Pulumi.AzureNative.Network.V20191101.Inputs
         public ConnectionMonitorHttpConfigurationArgs()
         {
         }
-        public static new ConnectionMonitorHttpConfigurationArgs Empty => new ConnectionMonitorHttpConfigurationArgs();
     }
 }

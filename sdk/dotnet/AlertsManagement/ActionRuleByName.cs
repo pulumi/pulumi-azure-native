@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AlertsManagement
     /// API Version: 2019-05-05-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:alertsmanagement:ActionRuleByName")]
-    public partial class ActionRuleByName : global::Pulumi.CustomResource
+    public partial class ActionRuleByName : Pulumi.CustomResource
     {
         /// <summary>
         /// Resource location
@@ -71,10 +71,10 @@ namespace Pulumi.AzureNative.AlertsManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20181102privatepreview:ActionRuleByName"},
-                    new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20190505preview:ActionRuleByName"},
-                    new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20210808:ActionRuleByName"},
-                    new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20210808preview:ActionRuleByName"},
+                    new Pulumi.Alias { Type = "azure-native:alertsmanagement/v20181102privatepreview:ActionRuleByName"},
+                    new Pulumi.Alias { Type = "azure-native:alertsmanagement/v20190505preview:ActionRuleByName"},
+                    new Pulumi.Alias { Type = "azure-native:alertsmanagement/v20210808:ActionRuleByName"},
+                    new Pulumi.Alias { Type = "azure-native:alertsmanagement/v20210808preview:ActionRuleByName"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.AlertsManagement
         }
     }
 
-    public sealed class ActionRuleByNameArgs : global::Pulumi.ResourceArgs
+    public sealed class ActionRuleByNameArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of action rule that needs to be created/updated
@@ -137,6 +137,5 @@ namespace Pulumi.AzureNative.AlertsManagement
         public ActionRuleByNameArgs()
         {
         }
-        public static new ActionRuleByNameArgs Empty => new ActionRuleByNameArgs();
     }
 }

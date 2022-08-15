@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataProtection.V20220331Preview.Inputs
     /// <summary>
     /// Storage setting
     /// </summary>
-    public sealed class StorageSettingArgs : global::Pulumi.ResourceArgs
+    public sealed class StorageSettingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the type of the datastore.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.DataProtection.V20220331Preview.Inputs
         public StorageSettingArgs()
         {
         }
-        public static new StorageSettingArgs Empty => new StorageSettingArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview.Inputs
     /// <summary>
     /// Defines the resource properties.
     /// </summary>
-    public sealed class HardwareProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class HardwareProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the number of vCPUs for the vm.
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview.Inputs
         public HardwareProfileArgs()
         {
         }
-        public static new HardwareProfileArgs Empty => new HardwareProfileArgs();
     }
 }

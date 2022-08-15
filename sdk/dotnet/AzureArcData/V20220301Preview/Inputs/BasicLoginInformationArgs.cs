@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview.Inputs
     /// <summary>
     /// Username and password for basic login authentication.
     /// </summary>
-    public sealed class BasicLoginInformationArgs : global::Pulumi.ResourceArgs
+    public sealed class BasicLoginInformationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Login password.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview.Inputs
         public BasicLoginInformationArgs()
         {
         }
-        public static new BasicLoginInformationArgs Empty => new BasicLoginInformationArgs();
     }
 }

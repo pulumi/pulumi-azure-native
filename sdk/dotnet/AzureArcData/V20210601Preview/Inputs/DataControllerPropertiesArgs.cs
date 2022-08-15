@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20210601Preview.Inputs
     /// <summary>
     /// The data controller properties.
     /// </summary>
-    public sealed class DataControllerPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class DataControllerPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Username and password for basic login authentication.
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.AzureArcData.V20210601Preview.Inputs
         public DataControllerPropertiesArgs()
         {
         }
-        public static new DataControllerPropertiesArgs Empty => new DataControllerPropertiesArgs();
     }
 }

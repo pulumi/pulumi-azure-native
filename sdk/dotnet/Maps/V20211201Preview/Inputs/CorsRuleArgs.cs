@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Maps.V20211201Preview.Inputs
     /// <summary>
     /// Specifies a CORS rule for the Map Account.
     /// </summary>
-    public sealed class CorsRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class CorsRuleArgs : Pulumi.ResourceArgs
     {
         [Input("allowedOrigins", required: true)]
         private InputList<string>? _allowedOrigins;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Maps.V20211201Preview.Inputs
         public CorsRuleArgs()
         {
         }
-        public static new CorsRuleArgs Empty => new CorsRuleArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220101Preview.Inputs
     /// <summary>
     /// Parameters to reconcile to the GitRepository source kind type.
     /// </summary>
-    public sealed class BucketDefinitionArgs : global::Pulumi.ResourceArgs
+    public sealed class BucketDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Plaintext access key used to securely access the S3 bucket
@@ -63,6 +63,5 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220101Preview.Inputs
             SyncIntervalInSeconds = 600;
             TimeoutInSeconds = 600;
         }
-        public static new BucketDefinitionArgs Empty => new BucketDefinitionArgs();
     }
 }

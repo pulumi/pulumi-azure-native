@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.LabServices.V20181015
     }
 
 
-    public sealed class GetLabArgs : global::Pulumi.InvokeArgs
+    public sealed class GetLabArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specify the $expand query. Example: 'properties($select=maxUsersInLab)'
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.LabServices.V20181015
         public GetLabArgs()
         {
         }
-        public static new GetLabArgs Empty => new GetLabArgs();
     }
 
-    public sealed class GetLabInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetLabInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specify the $expand query. Example: 'properties($select=maxUsersInLab)'
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.LabServices.V20181015
         public GetLabInvokeArgs()
         {
         }
-        public static new GetLabInvokeArgs Empty => new GetLabInvokeArgs();
     }
 
 

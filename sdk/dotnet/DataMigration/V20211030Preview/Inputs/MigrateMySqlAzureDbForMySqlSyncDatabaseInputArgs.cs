@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview.Inputs
     /// <summary>
     /// Database specific information for MySQL to Azure Database for MySQL migration task inputs
     /// </summary>
-    public sealed class MigrateMySqlAzureDbForMySqlSyncDatabaseInputArgs : global::Pulumi.ResourceArgs
+    public sealed class MigrateMySqlAzureDbForMySqlSyncDatabaseInputArgs : Pulumi.ResourceArgs
     {
         [Input("migrationSetting")]
         private InputMap<string>? _migrationSetting;
@@ -78,6 +78,5 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview.Inputs
         public MigrateMySqlAzureDbForMySqlSyncDatabaseInputArgs()
         {
         }
-        public static new MigrateMySqlAzureDbForMySqlSyncDatabaseInputArgs Empty => new MigrateMySqlAzureDbForMySqlSyncDatabaseInputArgs();
     }
 }

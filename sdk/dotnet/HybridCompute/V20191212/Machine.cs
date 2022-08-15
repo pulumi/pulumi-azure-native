@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20191212
     /// </summary>
     [Obsolete(@"Version 2019-12-12 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:hybridcompute/v20191212:Machine")]
-    public partial class Machine : global::Pulumi.CustomResource
+    public partial class Machine : Pulumi.CustomResource
     {
         /// <summary>
         /// The hybrid machine agent full version.
@@ -152,21 +152,21 @@ namespace Pulumi.AzureNative.HybridCompute.V20191212
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute:Machine"},
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20190318preview:Machine"},
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20190802preview:Machine"},
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20200730preview:Machine"},
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20200802:Machine"},
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20200815preview:Machine"},
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20210128preview:Machine"},
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20210325preview:Machine"},
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20210422preview:Machine"},
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20210517preview:Machine"},
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20210520:Machine"},
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20210610preview:Machine"},
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20211210preview:Machine"},
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20220310:Machine"},
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20220510preview:Machine"},
+                    new Pulumi.Alias { Type = "azure-native:hybridcompute:Machine"},
+                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20190318preview:Machine"},
+                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20190802preview:Machine"},
+                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20200730preview:Machine"},
+                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20200802:Machine"},
+                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20200815preview:Machine"},
+                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210128preview:Machine"},
+                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210325preview:Machine"},
+                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210422preview:Machine"},
+                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210517preview:Machine"},
+                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210520:Machine"},
+                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210610preview:Machine"},
+                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20211210preview:Machine"},
+                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20220310:Machine"},
+                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20220510preview:Machine"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -188,7 +188,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20191212
         }
     }
 
-    public sealed class MachineArgs : global::Pulumi.ResourceArgs
+    public sealed class MachineArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Public Key that the client provides to be used during initial resource onboarding
@@ -256,6 +256,5 @@ namespace Pulumi.AzureNative.HybridCompute.V20191212
         public MachineArgs()
         {
         }
-        public static new MachineArgs Empty => new MachineArgs();
     }
 }

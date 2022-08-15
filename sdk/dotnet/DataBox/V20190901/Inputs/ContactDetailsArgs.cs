@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBox.V20190901.Inputs
     /// <summary>
     /// Contact Details.
     /// </summary>
-    public sealed class ContactDetailsArgs : global::Pulumi.ResourceArgs
+    public sealed class ContactDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Contact name of the person.
@@ -66,6 +66,5 @@ namespace Pulumi.AzureNative.DataBox.V20190901.Inputs
         public ContactDetailsArgs()
         {
         }
-        public static new ContactDetailsArgs Empty => new ContactDetailsArgs();
     }
 }

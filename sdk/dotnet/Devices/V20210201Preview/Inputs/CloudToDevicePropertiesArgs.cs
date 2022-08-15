@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20210201Preview.Inputs
     /// <summary>
     /// The IoT hub cloud-to-device messaging properties.
     /// </summary>
-    public sealed class CloudToDevicePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class CloudToDevicePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The default time to live for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Devices.V20210201Preview.Inputs
         public CloudToDevicePropertiesArgs()
         {
         }
-        public static new CloudToDevicePropertiesArgs Empty => new CloudToDevicePropertiesArgs();
     }
 }

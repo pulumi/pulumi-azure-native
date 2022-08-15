@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Execute spark job activity.
     /// </summary>
-    public sealed class SynapseSparkJobDefinitionActivityArgs : global::Pulumi.ResourceArgs
+    public sealed class SynapseSparkJobDefinitionActivityArgs : Pulumi.ResourceArgs
     {
         [Input("arguments")]
         private InputList<object>? _arguments;
@@ -145,6 +145,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public SynapseSparkJobDefinitionActivityArgs()
         {
         }
-        public static new SynapseSparkJobDefinitionActivityArgs Empty => new SynapseSparkJobDefinitionActivityArgs();
     }
 }

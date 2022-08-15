@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Snowflake linked service.
     /// </summary>
-    public sealed class SnowflakeLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class SnowflakeLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -79,6 +79,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public SnowflakeLinkedServiceArgs()
         {
         }
-        public static new SnowflakeLinkedServiceArgs Empty => new SnowflakeLinkedServiceArgs();
     }
 }

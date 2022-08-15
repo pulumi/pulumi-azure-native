@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20160601.Inputs
     /// <summary>
     /// Specifies the peering config
     /// </summary>
-    public sealed class ExpressRouteCircuitPeeringConfigArgs : global::Pulumi.ResourceArgs
+    public sealed class ExpressRouteCircuitPeeringConfigArgs : Pulumi.ResourceArgs
     {
         [Input("advertisedPublicPrefixes")]
         private InputList<string>? _advertisedPublicPrefixes;
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.Network.V20160601.Inputs
         public ExpressRouteCircuitPeeringConfigArgs()
         {
         }
-        public static new ExpressRouteCircuitPeeringConfigArgs Empty => new ExpressRouteCircuitPeeringConfigArgs();
     }
 }

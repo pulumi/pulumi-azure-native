@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20190930Preview.Inputs
     /// <summary>
     /// Defines the configuration for Log Analytics integration.
     /// </summary>
-    public sealed class OpenShiftManagedClusterMonitorProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class OpenShiftManagedClusterMonitorProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// If the Log analytics integration should be turned on or off
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ContainerService.V20190930Preview.Inputs
         public OpenShiftManagedClusterMonitorProfileArgs()
         {
         }
-        public static new OpenShiftManagedClusterMonitorProfileArgs Empty => new OpenShiftManagedClusterMonitorProfileArgs();
     }
 }

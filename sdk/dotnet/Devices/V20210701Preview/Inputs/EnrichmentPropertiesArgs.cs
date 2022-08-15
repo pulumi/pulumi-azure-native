@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20210701Preview.Inputs
     /// <summary>
     /// The properties of an enrichment that your IoT hub applies to messages delivered to endpoints.
     /// </summary>
-    public sealed class EnrichmentPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class EnrichmentPropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("endpointNames", required: true)]
         private InputList<string>? _endpointNames;
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Devices.V20210701Preview.Inputs
         public EnrichmentPropertiesArgs()
         {
         }
-        public static new EnrichmentPropertiesArgs Empty => new EnrichmentPropertiesArgs();
     }
 }

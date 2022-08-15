@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Transformation for data flow source.
     /// </summary>
-    public sealed class DataFlowSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class DataFlowSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Dataset reference.
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public DataFlowSourceArgs()
         {
         }
-        public static new DataFlowSourceArgs Empty => new DataFlowSourceArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20181201.Inputs
 {
 
-    public sealed class ApplicationPackageReferenceArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplicationPackageReferenceArgs : Pulumi.ResourceArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Batch.V20181201.Inputs
         public ApplicationPackageReferenceArgs()
         {
         }
-        public static new ApplicationPackageReferenceArgs Empty => new ApplicationPackageReferenceArgs();
     }
 }

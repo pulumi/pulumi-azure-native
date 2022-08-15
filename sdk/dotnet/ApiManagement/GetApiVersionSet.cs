@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ApiManagement
     }
 
 
-    public sealed class GetApiVersionSetArgs : global::Pulumi.InvokeArgs
+    public sealed class GetApiVersionSetArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.ApiManagement
         public GetApiVersionSetArgs()
         {
         }
-        public static new GetApiVersionSetArgs Empty => new GetApiVersionSetArgs();
     }
 
-    public sealed class GetApiVersionSetInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetApiVersionSetInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.ApiManagement
         public GetApiVersionSetInvokeArgs()
         {
         }
-        public static new GetApiVersionSetInvokeArgs Empty => new GetApiVersionSetInvokeArgs();
     }
 
 

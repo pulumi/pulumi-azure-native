@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.Inputs
     /// <summary>
     /// Custom API properties
     /// </summary>
-    public sealed class CustomApiPropertiesDefinitionArgs : global::Pulumi.ResourceArgs
+    public sealed class CustomApiPropertiesDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// API Definitions
@@ -108,6 +108,5 @@ namespace Pulumi.AzureNative.Web.Inputs
         public CustomApiPropertiesDefinitionArgs()
         {
         }
-        public static new CustomApiPropertiesDefinitionArgs Empty => new CustomApiPropertiesDefinitionArgs();
     }
 }

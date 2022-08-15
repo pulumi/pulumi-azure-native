@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Compute
     }
 
 
-    public sealed class GetGalleryImageVersionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGalleryImageVersionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The expand expression to apply on the operation.
@@ -62,10 +62,9 @@ namespace Pulumi.AzureNative.Compute
         public GetGalleryImageVersionArgs()
         {
         }
-        public static new GetGalleryImageVersionArgs Empty => new GetGalleryImageVersionArgs();
     }
 
-    public sealed class GetGalleryImageVersionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGalleryImageVersionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The expand expression to apply on the operation.
@@ -100,7 +99,6 @@ namespace Pulumi.AzureNative.Compute
         public GetGalleryImageVersionInvokeArgs()
         {
         }
-        public static new GetGalleryImageVersionInvokeArgs Empty => new GetGalleryImageVersionInvokeArgs();
     }
 
 

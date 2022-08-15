@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS.V20210601.Inputs
     /// <summary>
     /// An Azure NetApp Files volume from Microsoft.NetApp provider
     /// </summary>
-    public sealed class NetAppVolumeArgs : global::Pulumi.ResourceArgs
+    public sealed class NetAppVolumeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure resource ID of the NetApp volume
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.AVS.V20210601.Inputs
         public NetAppVolumeArgs()
         {
         }
-        public static new NetAppVolumeArgs Empty => new NetAppVolumeArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Inputs
     /// <summary>
     /// Microsoft Teams channel definition
     /// </summary>
-    public sealed class MsTeamsChannelArgs : global::Pulumi.ResourceArgs
+    public sealed class MsTeamsChannelArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The channel name
@@ -44,6 +44,5 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Inputs
         {
             Location = "global";
         }
-        public static new MsTeamsChannelArgs Empty => new MsTeamsChannelArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200515Preview.Inputs
     /// <summary>
     /// Virtual Machine image for Windows AML Compute
     /// </summary>
-    public sealed class VirtualMachineImageArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualMachineImageArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Virtual Machine image path
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200515Preview.Inputs
         public VirtualMachineImageArgs()
         {
         }
-        public static new VirtualMachineImageArgs Empty => new VirtualMachineImageArgs();
     }
 }

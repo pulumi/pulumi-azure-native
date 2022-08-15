@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web
     /// API Version: 2022-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:StaticSiteLinkedBackendForBuild")]
-    public partial class StaticSiteLinkedBackendForBuild : global::Pulumi.CustomResource
+    public partial class StaticSiteLinkedBackendForBuild : Pulumi.CustomResource
     {
         /// <summary>
         /// The resource id of the backend linked to the static site
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:StaticSiteLinkedBackendForBuild"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:StaticSiteLinkedBackendForBuild"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -105,7 +105,7 @@ namespace Pulumi.AzureNative.Web
         }
     }
 
-    public sealed class StaticSiteLinkedBackendForBuildArgs : global::Pulumi.ResourceArgs
+    public sealed class StaticSiteLinkedBackendForBuildArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource id of the backend linked to the static site
@@ -152,6 +152,5 @@ namespace Pulumi.AzureNative.Web
         public StaticSiteLinkedBackendForBuildArgs()
         {
         }
-        public static new StaticSiteLinkedBackendForBuildArgs Empty => new StaticSiteLinkedBackendForBuildArgs();
     }
 }

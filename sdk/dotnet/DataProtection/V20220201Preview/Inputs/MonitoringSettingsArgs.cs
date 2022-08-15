@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataProtection.V20220201Preview.Inputs
     /// <summary>
     /// Monitoring Settings
     /// </summary>
-    public sealed class MonitoringSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class MonitoringSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Settings for Azure Monitor based alerts
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DataProtection.V20220201Preview.Inputs
         public MonitoringSettingsArgs()
         {
         }
-        public static new MonitoringSettingsArgs Empty => new MonitoringSettingsArgs();
     }
 }

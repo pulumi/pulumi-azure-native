@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceLinker.V20220101Preview.Inputs
     /// <summary>
     /// The authentication info when authType is servicePrincipal secret
     /// </summary>
-    public sealed class ServicePrincipalSecretAuthInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class ServicePrincipalSecretAuthInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The authentication type.
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.ServiceLinker.V20220101Preview.Inputs
         public ServicePrincipalSecretAuthInfoArgs()
         {
         }
-        public static new ServicePrincipalSecretAuthInfoArgs Empty => new ServicePrincipalSecretAuthInfoArgs();
     }
 }

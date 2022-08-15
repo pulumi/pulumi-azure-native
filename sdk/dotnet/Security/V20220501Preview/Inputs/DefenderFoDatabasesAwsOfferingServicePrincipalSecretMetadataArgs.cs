@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
     /// <summary>
     /// Metadata of Service Principal secret for autoprovisioning
     /// </summary>
-    public sealed class DefenderFoDatabasesAwsOfferingServicePrincipalSecretMetadataArgs : global::Pulumi.ResourceArgs
+    public sealed class DefenderFoDatabasesAwsOfferingServicePrincipalSecretMetadataArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// expiration date of service principal secret
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
         public DefenderFoDatabasesAwsOfferingServicePrincipalSecretMetadataArgs()
         {
         }
-        public static new DefenderFoDatabasesAwsOfferingServicePrincipalSecretMetadataArgs Empty => new DefenderFoDatabasesAwsOfferingServicePrincipalSecretMetadataArgs();
     }
 }

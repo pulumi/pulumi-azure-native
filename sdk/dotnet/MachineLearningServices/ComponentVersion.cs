@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// API Version: 2022-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:ComponentVersion")]
-    public partial class ComponentVersion : global::Pulumi.CustomResource
+    public partial class ComponentVersion : Pulumi.CustomResource
     {
         /// <summary>
         /// [Required] Additional attributes of the entity.
@@ -65,9 +65,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:ComponentVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:ComponentVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:ComponentVersion"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:ComponentVersion"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:ComponentVersion"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:ComponentVersion"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         }
     }
 
-    public sealed class ComponentVersionArgs : global::Pulumi.ResourceArgs
+    public sealed class ComponentVersionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] Additional attributes of the entity.
@@ -124,6 +124,5 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public ComponentVersionArgs()
         {
         }
-        public static new ComponentVersionArgs Empty => new ComponentVersionArgs();
     }
 }

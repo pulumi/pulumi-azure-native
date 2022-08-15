@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.V20220301.Inputs
     /// <summary>
     /// The configuration settings of the custom Open ID Connect provider.
     /// </summary>
-    public sealed class CustomOpenIdConnectProviderArgs : global::Pulumi.ResourceArgs
+    public sealed class CustomOpenIdConnectProviderArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;code&gt;false&lt;/code&gt; if the custom Open ID provider provider should not be enabled; otherwise, &lt;code&gt;true&lt;/code&gt;.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.App.V20220301.Inputs
         public CustomOpenIdConnectProviderArgs()
         {
         }
-        public static new CustomOpenIdConnectProviderArgs Empty => new CustomOpenIdConnectProviderArgs();
     }
 }

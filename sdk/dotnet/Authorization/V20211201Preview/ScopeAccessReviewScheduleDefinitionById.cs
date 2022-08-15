@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization.V20211201Preview
     /// Access Review Schedule Definition.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization/v20211201preview:ScopeAccessReviewScheduleDefinitionById")]
-    public partial class ScopeAccessReviewScheduleDefinitionById : global::Pulumi.CustomResource
+    public partial class ScopeAccessReviewScheduleDefinitionById : Pulumi.CustomResource
     {
         /// <summary>
         /// The role assignment state eligible/active to review
@@ -256,7 +256,7 @@ namespace Pulumi.AzureNative.Authorization.V20211201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:authorization:ScopeAccessReviewScheduleDefinitionById"},
+                    new Pulumi.Alias { Type = "azure-native:authorization:ScopeAccessReviewScheduleDefinitionById"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -278,7 +278,7 @@ namespace Pulumi.AzureNative.Authorization.V20211201Preview
         }
     }
 
-    public sealed class ScopeAccessReviewScheduleDefinitionByIdArgs : global::Pulumi.ResourceArgs
+    public sealed class ScopeAccessReviewScheduleDefinitionByIdArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
@@ -469,6 +469,5 @@ namespace Pulumi.AzureNative.Authorization.V20211201Preview
         public ScopeAccessReviewScheduleDefinitionByIdArgs()
         {
         }
-        public static new ScopeAccessReviewScheduleDefinitionByIdArgs Empty => new ScopeAccessReviewScheduleDefinitionByIdArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
     }
 
 
-    public sealed class GetCatalogArgs : global::Pulumi.InvokeArgs
+    public sealed class GetCatalogArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Catalog.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         public GetCatalogArgs()
         {
         }
-        public static new GetCatalogArgs Empty => new GetCatalogArgs();
     }
 
-    public sealed class GetCatalogInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetCatalogInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Catalog.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         public GetCatalogInvokeArgs()
         {
         }
-        public static new GetCatalogInvokeArgs Empty => new GetCatalogInvokeArgs();
     }
 
 

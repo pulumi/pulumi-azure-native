@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201
     /// A server security alert policy.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20171201:ServerSecurityAlertPolicy")]
-    public partial class ServerSecurityAlertPolicy : global::Pulumi.CustomResource
+    public partial class ServerSecurityAlertPolicy : Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly
@@ -94,8 +94,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql:ServerSecurityAlertPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201preview:ServerSecurityAlertPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql:ServerSecurityAlertPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201preview:ServerSecurityAlertPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201
         }
     }
 
-    public sealed class ServerSecurityAlertPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class ServerSecurityAlertPolicyArgs : Pulumi.ResourceArgs
     {
         [Input("disabledAlerts")]
         private InputList<string>? _disabledAlerts;
@@ -194,6 +194,5 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201
         public ServerSecurityAlertPolicyArgs()
         {
         }
-        public static new ServerSecurityAlertPolicyArgs Empty => new ServerSecurityAlertPolicyArgs();
     }
 }

@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101
     }
 
 
-    public sealed class GetRoleAssignmentArgs : global::Pulumi.InvokeArgs
+    public sealed class GetRoleAssignmentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the role assignment.
@@ -49,10 +49,9 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101
         public GetRoleAssignmentArgs()
         {
         }
-        public static new GetRoleAssignmentArgs Empty => new GetRoleAssignmentArgs();
     }
 
-    public sealed class GetRoleAssignmentInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetRoleAssignmentInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the role assignment.
@@ -75,7 +74,6 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101
         public GetRoleAssignmentInvokeArgs()
         {
         }
-        public static new GetRoleAssignmentInvokeArgs Empty => new GetRoleAssignmentInvokeArgs();
     }
 
 

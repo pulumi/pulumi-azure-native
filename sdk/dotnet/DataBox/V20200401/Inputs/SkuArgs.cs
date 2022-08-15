@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBox.V20200401.Inputs
     /// <summary>
     /// The Sku.
     /// </summary>
-    public sealed class SkuArgs : global::Pulumi.ResourceArgs
+    public sealed class SkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The display name of the sku.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DataBox.V20200401.Inputs
         public SkuArgs()
         {
         }
-        public static new SkuArgs Empty => new SkuArgs();
     }
 }

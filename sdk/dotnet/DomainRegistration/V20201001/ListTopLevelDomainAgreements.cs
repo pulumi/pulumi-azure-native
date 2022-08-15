@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DomainRegistration.V20201001
     }
 
 
-    public sealed class ListTopLevelDomainAgreementsArgs : global::Pulumi.InvokeArgs
+    public sealed class ListTopLevelDomainAgreementsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// If &lt;code&gt;true&lt;/code&gt;, then the list of agreements will include agreements for domain transfer as well; otherwise, &lt;code&gt;false&lt;/code&gt;.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.DomainRegistration.V20201001
         public ListTopLevelDomainAgreementsArgs()
         {
         }
-        public static new ListTopLevelDomainAgreementsArgs Empty => new ListTopLevelDomainAgreementsArgs();
     }
 
-    public sealed class ListTopLevelDomainAgreementsInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListTopLevelDomainAgreementsInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// If &lt;code&gt;true&lt;/code&gt;, then the list of agreements will include agreements for domain transfer as well; otherwise, &lt;code&gt;false&lt;/code&gt;.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.DomainRegistration.V20201001
         public ListTopLevelDomainAgreementsInvokeArgs()
         {
         }
-        public static new ListTopLevelDomainAgreementsInvokeArgs Empty => new ListTopLevelDomainAgreementsInvokeArgs();
     }
 
 

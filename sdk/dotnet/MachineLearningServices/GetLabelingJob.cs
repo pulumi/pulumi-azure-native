@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
 
-    public sealed class GetLabelingJobArgs : global::Pulumi.InvokeArgs
+    public sealed class GetLabelingJobArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Boolean value to indicate whether to include JobInstructions in response.
@@ -62,10 +62,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public GetLabelingJobArgs()
         {
         }
-        public static new GetLabelingJobArgs Empty => new GetLabelingJobArgs();
     }
 
-    public sealed class GetLabelingJobInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetLabelingJobInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Boolean value to indicate whether to include JobInstructions in response.
@@ -100,7 +99,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public GetLabelingJobInvokeArgs()
         {
         }
-        public static new GetLabelingJobInvokeArgs Empty => new GetLabelingJobInvokeArgs();
     }
 
 

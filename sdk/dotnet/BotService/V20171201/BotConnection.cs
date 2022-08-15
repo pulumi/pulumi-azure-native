@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.BotService.V20171201
     /// </summary>
     [Obsolete(@"Version 2017-12-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:botservice/v20171201:BotConnection")]
-    public partial class BotConnection : global::Pulumi.CustomResource
+    public partial class BotConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// Entity Tag
@@ -89,12 +89,12 @@ namespace Pulumi.AzureNative.BotService.V20171201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:botservice:BotConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20180712:BotConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20200602:BotConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20210301:BotConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20210501preview:BotConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20220615preview:BotConnection"},
+                    new Pulumi.Alias { Type = "azure-native:botservice:BotConnection"},
+                    new Pulumi.Alias { Type = "azure-native:botservice/v20180712:BotConnection"},
+                    new Pulumi.Alias { Type = "azure-native:botservice/v20200602:BotConnection"},
+                    new Pulumi.Alias { Type = "azure-native:botservice/v20210301:BotConnection"},
+                    new Pulumi.Alias { Type = "azure-native:botservice/v20210501preview:BotConnection"},
+                    new Pulumi.Alias { Type = "azure-native:botservice/v20220615preview:BotConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.BotService.V20171201
         }
     }
 
-    public sealed class BotConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class BotConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Bot Service Connection Setting resource
@@ -175,6 +175,5 @@ namespace Pulumi.AzureNative.BotService.V20171201
         public BotConnectionArgs()
         {
         }
-        public static new BotConnectionArgs Empty => new BotConnectionArgs();
     }
 }

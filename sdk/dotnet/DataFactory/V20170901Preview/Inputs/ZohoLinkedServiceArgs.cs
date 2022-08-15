@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Zoho server linked service.
     /// </summary>
-    public sealed class ZohoLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class ZohoLinkedServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access token for Zoho authentication.
@@ -97,6 +97,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public ZohoLinkedServiceArgs()
         {
         }
-        public static new ZohoLinkedServiceArgs Empty => new ZohoLinkedServiceArgs();
     }
 }

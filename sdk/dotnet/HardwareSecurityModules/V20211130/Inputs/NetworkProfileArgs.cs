@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HardwareSecurityModules.V20211130.Inputs
     /// <summary>
     /// The network profile definition.
     /// </summary>
-    public sealed class NetworkProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class NetworkProfileArgs : Pulumi.ResourceArgs
     {
         [Input("networkInterfaces")]
         private InputList<Inputs.NetworkInterfaceArgs>? _networkInterfaces;
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.HardwareSecurityModules.V20211130.Inputs
         public NetworkProfileArgs()
         {
         }
-        public static new NetworkProfileArgs Empty => new NetworkProfileArgs();
     }
 }

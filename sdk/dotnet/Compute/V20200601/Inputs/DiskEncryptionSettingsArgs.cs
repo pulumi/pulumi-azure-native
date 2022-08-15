@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20200601.Inputs
     /// <summary>
     /// Describes a Encryption Settings for a Disk
     /// </summary>
-    public sealed class DiskEncryptionSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class DiskEncryptionSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the location of the disk encryption key, which is a Key Vault Secret.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Compute.V20200601.Inputs
         public DiskEncryptionSettingsArgs()
         {
         }
-        public static new DiskEncryptionSettingsArgs Empty => new DiskEncryptionSettingsArgs();
     }
 }

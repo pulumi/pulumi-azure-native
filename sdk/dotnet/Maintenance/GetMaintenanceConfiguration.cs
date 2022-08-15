@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Maintenance
     }
 
 
-    public sealed class GetMaintenanceConfigurationArgs : global::Pulumi.InvokeArgs
+    public sealed class GetMaintenanceConfigurationArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Resource Group Name
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.Maintenance
         public GetMaintenanceConfigurationArgs()
         {
         }
-        public static new GetMaintenanceConfigurationArgs Empty => new GetMaintenanceConfigurationArgs();
     }
 
-    public sealed class GetMaintenanceConfigurationInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetMaintenanceConfigurationInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Resource Group Name
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.Maintenance
         public GetMaintenanceConfigurationInvokeArgs()
         {
         }
-        public static new GetMaintenanceConfigurationInvokeArgs Empty => new GetMaintenanceConfigurationInvokeArgs();
     }
 
 

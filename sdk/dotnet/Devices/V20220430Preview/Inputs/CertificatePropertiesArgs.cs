@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20220430Preview.Inputs
     /// <summary>
     /// The description of an X509 CA Certificate.
     /// </summary>
-    public sealed class CertificatePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class CertificatePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The certificate content
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Devices.V20220430Preview.Inputs
         public CertificatePropertiesArgs()
         {
         }
-        public static new CertificatePropertiesArgs Empty => new CertificatePropertiesArgs();
     }
 }

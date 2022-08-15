@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.Inputs
     /// <summary>
     /// Properties for creating a virtual machine.
     /// </summary>
-    public sealed class LabVirtualMachineCreationParameterArgs : global::Pulumi.ResourceArgs
+    public sealed class LabVirtualMachineCreationParameterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether another user can take ownership of the virtual machine
@@ -208,6 +208,5 @@ namespace Pulumi.AzureNative.DevTestLab.Inputs
             OwnerObjectId = "dynamicValue";
             StorageType = "labStorageType";
         }
-        public static new LabVirtualMachineCreationParameterArgs Empty => new LabVirtualMachineCreationParameterArgs();
     }
 }

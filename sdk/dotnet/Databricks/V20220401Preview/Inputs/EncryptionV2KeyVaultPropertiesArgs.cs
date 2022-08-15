@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Databricks.V20220401Preview.Inputs
     /// <summary>
     /// Key Vault input properties for encryption.
     /// </summary>
-    public sealed class EncryptionV2KeyVaultPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class EncryptionV2KeyVaultPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of KeyVault key.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Databricks.V20220401Preview.Inputs
         public EncryptionV2KeyVaultPropertiesArgs()
         {
         }
-        public static new EncryptionV2KeyVaultPropertiesArgs Empty => new EncryptionV2KeyVaultPropertiesArgs();
     }
 }

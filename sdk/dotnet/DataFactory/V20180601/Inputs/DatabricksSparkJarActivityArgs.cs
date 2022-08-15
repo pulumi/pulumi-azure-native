@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// DatabricksSparkJar activity.
     /// </summary>
-    public sealed class DatabricksSparkJarActivityArgs : global::Pulumi.ResourceArgs
+    public sealed class DatabricksSparkJarActivityArgs : Pulumi.ResourceArgs
     {
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
@@ -103,6 +103,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public DatabricksSparkJarActivityArgs()
         {
         }
-        public static new DatabricksSparkJarActivityArgs Empty => new DatabricksSparkJarActivityArgs();
     }
 }

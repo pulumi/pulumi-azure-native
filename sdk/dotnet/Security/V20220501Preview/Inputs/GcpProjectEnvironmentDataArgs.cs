@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
     /// <summary>
     /// The GCP project connector environment data
     /// </summary>
-    public sealed class GcpProjectEnvironmentDataArgs : global::Pulumi.ResourceArgs
+    public sealed class GcpProjectEnvironmentDataArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of the environment data.
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
         public GcpProjectEnvironmentDataArgs()
         {
         }
-        public static new GcpProjectEnvironmentDataArgs Empty => new GcpProjectEnvironmentDataArgs();
     }
 }

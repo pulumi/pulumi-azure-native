@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.Inputs
     /// <summary>
     /// Log analytics configuration
     /// </summary>
-    public sealed class LogAnalyticsConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class LogAnalyticsConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Log analytics customer id
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.App.Inputs
         public LogAnalyticsConfigurationArgs()
         {
         }
-        public static new LogAnalyticsConfigurationArgs Empty => new LogAnalyticsConfigurationArgs();
     }
 }

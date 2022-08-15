@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Couchbase server linked service.
     /// </summary>
-    public sealed class CouchbaseLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class CouchbaseLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -79,6 +79,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public CouchbaseLinkedServiceArgs()
         {
         }
-        public static new CouchbaseLinkedServiceArgs Empty => new CouchbaseLinkedServiceArgs();
     }
 }

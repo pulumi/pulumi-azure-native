@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220602Preview
     /// A member of the Fleet. It contains a reference to an existing Kubernetes cluster on Azure.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice/v20220602preview:FleetMember")]
-    public partial class FleetMember : global::Pulumi.CustomResource
+    public partial class FleetMember : Pulumi.CustomResource
     {
         /// <summary>
         /// The ARM resource id of the cluster that joins the Fleet. Must be a valid Azure resource id. e.g.: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{clusterName}'.
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220602Preview
         }
     }
 
-    public sealed class FleetMemberArgs : global::Pulumi.ResourceArgs
+    public sealed class FleetMemberArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARM resource id of the cluster that joins the Fleet. Must be a valid Azure resource id. e.g.: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{clusterName}'.
@@ -123,6 +123,5 @@ namespace Pulumi.AzureNative.ContainerService.V20220602Preview
         public FleetMemberArgs()
         {
         }
-        public static new FleetMemberArgs Empty => new FleetMemberArgs();
     }
 }

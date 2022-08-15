@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.NotificationHubs
     }
 
 
-    public sealed class GetNamespaceAuthorizationRuleArgs : global::Pulumi.InvokeArgs
+    public sealed class GetNamespaceAuthorizationRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Authorization rule name.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.NotificationHubs
         public GetNamespaceAuthorizationRuleArgs()
         {
         }
-        public static new GetNamespaceAuthorizationRuleArgs Empty => new GetNamespaceAuthorizationRuleArgs();
     }
 
-    public sealed class GetNamespaceAuthorizationRuleInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetNamespaceAuthorizationRuleInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Authorization rule name.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.NotificationHubs
         public GetNamespaceAuthorizationRuleInvokeArgs()
         {
         }
-        public static new GetNamespaceAuthorizationRuleInvokeArgs Empty => new GetNamespaceAuthorizationRuleInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
     /// <summary>
     /// Online endpoint configuration
     /// </summary>
-    public sealed class OnlineEndpointArgs : global::Pulumi.ResourceArgs
+    public sealed class OnlineEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.
@@ -68,6 +68,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
         public OnlineEndpointArgs()
         {
         }
-        public static new OnlineEndpointArgs Empty => new OnlineEndpointArgs();
     }
 }

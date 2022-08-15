@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190701
     /// Trigger details.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge/v20190701:PeriodicTimerEventTrigger")]
-    public partial class PeriodicTimerEventTrigger : global::Pulumi.CustomResource
+    public partial class PeriodicTimerEventTrigger : Pulumi.CustomResource
     {
         /// <summary>
         /// A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
@@ -84,19 +84,19 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:PeriodicTimerEventTrigger"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:PeriodicTimerEventTrigger"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:PeriodicTimerEventTrigger"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:PeriodicTimerEventTrigger"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:PeriodicTimerEventTrigger"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:PeriodicTimerEventTrigger"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:PeriodicTimerEventTrigger"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:PeriodicTimerEventTrigger"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:PeriodicTimerEventTrigger"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:PeriodicTimerEventTrigger"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:PeriodicTimerEventTrigger"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:PeriodicTimerEventTrigger"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:PeriodicTimerEventTrigger"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge:PeriodicTimerEventTrigger"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:PeriodicTimerEventTrigger"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:PeriodicTimerEventTrigger"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:PeriodicTimerEventTrigger"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:PeriodicTimerEventTrigger"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:PeriodicTimerEventTrigger"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:PeriodicTimerEventTrigger"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:PeriodicTimerEventTrigger"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:PeriodicTimerEventTrigger"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:PeriodicTimerEventTrigger"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:PeriodicTimerEventTrigger"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:PeriodicTimerEventTrigger"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:PeriodicTimerEventTrigger"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190701
         }
     }
 
-    public sealed class PeriodicTimerEventTriggerArgs : global::Pulumi.ResourceArgs
+    public sealed class PeriodicTimerEventTriggerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
@@ -166,6 +166,5 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190701
         public PeriodicTimerEventTriggerArgs()
         {
         }
-        public static new PeriodicTimerEventTriggerArgs Empty => new PeriodicTimerEventTriggerArgs();
     }
 }

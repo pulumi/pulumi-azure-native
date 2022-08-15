@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Inputs
     /// <summary>
     /// Properties for the task that validates connection to SQL DB and target server requirements
     /// </summary>
-    public sealed class ConnectToTargetSqlDbTaskPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ConnectToTargetSqlDbTaskPropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("clientData")]
         private InputMap<string>? _clientData;
@@ -49,6 +49,5 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Inputs
         public ConnectToTargetSqlDbTaskPropertiesArgs()
         {
         }
-        public static new ConnectToTargetSqlDbTaskPropertiesArgs Empty => new ConnectToTargetSqlDbTaskPropertiesArgs();
     }
 }

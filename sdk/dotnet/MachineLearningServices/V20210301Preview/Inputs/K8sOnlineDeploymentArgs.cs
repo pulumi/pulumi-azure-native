@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
 {
 
-    public sealed class K8sOnlineDeploymentArgs : global::Pulumi.ResourceArgs
+    public sealed class K8sOnlineDeploymentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, enables Application Insights logging.
@@ -100,6 +100,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public K8sOnlineDeploymentArgs()
         {
         }
-        public static new K8sOnlineDeploymentArgs Empty => new K8sOnlineDeploymentArgs();
     }
 }

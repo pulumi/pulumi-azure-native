@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210701.Inputs
     /// <summary>
     /// Daily retention schedule.
     /// </summary>
-    public sealed class DailyRetentionScheduleArgs : global::Pulumi.ResourceArgs
+    public sealed class DailyRetentionScheduleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Retention duration of retention Policy.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210701.Inputs
         public DailyRetentionScheduleArgs()
         {
         }
-        public static new DailyRetentionScheduleArgs Empty => new DailyRetentionScheduleArgs();
     }
 }

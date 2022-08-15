@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20200201Preview.Inputs
     /// <summary>
     /// Username/password credential pair.
     /// </summary>
-    public sealed class MediaGraphUsernamePasswordCredentialsArgs : global::Pulumi.ResourceArgs
+    public sealed class MediaGraphUsernamePasswordCredentialsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The discriminator for derived types.
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.Media.V20200201Preview.Inputs
         public MediaGraphUsernamePasswordCredentialsArgs()
         {
         }
-        public static new MediaGraphUsernamePasswordCredentialsArgs Empty => new MediaGraphUsernamePasswordCredentialsArgs();
     }
 }

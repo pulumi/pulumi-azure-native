@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Logic
     /// API Version: 2019-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:logic:IntegrationAccountPartner")]
-    public partial class IntegrationAccountPartner : global::Pulumi.CustomResource
+    public partial class IntegrationAccountPartner : Pulumi.CustomResource
     {
         /// <summary>
         /// The changed time.
@@ -95,10 +95,10 @@ namespace Pulumi.AzureNative.Logic
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:logic/v20150801preview:IntegrationAccountPartner"},
-                    new global::Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountPartner"},
-                    new global::Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccountPartner"},
-                    new global::Pulumi.Alias { Type = "azure-native:logic/v20190501:IntegrationAccountPartner"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20150801preview:IntegrationAccountPartner"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountPartner"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccountPartner"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20190501:IntegrationAccountPartner"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.Logic
         }
     }
 
-    public sealed class IntegrationAccountPartnerArgs : global::Pulumi.ResourceArgs
+    public sealed class IntegrationAccountPartnerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The partner content.
@@ -179,6 +179,5 @@ namespace Pulumi.AzureNative.Logic
         public IntegrationAccountPartnerArgs()
         {
         }
-        public static new IntegrationAccountPartnerArgs Empty => new IntegrationAccountPartnerArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20180201.Inputs
     /// <summary>
     /// Database connection string information.
     /// </summary>
-    public sealed class ConnStringInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class ConnStringInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Connection string value.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Web.V20180201.Inputs
         public ConnStringInfoArgs()
         {
         }
-        public static new ConnStringInfoArgs Empty => new ConnStringInfoArgs();
     }
 }

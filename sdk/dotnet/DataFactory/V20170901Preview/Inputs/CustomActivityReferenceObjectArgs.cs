@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Reference objects for custom activity
     /// </summary>
-    public sealed class CustomActivityReferenceObjectArgs : global::Pulumi.ResourceArgs
+    public sealed class CustomActivityReferenceObjectArgs : Pulumi.ResourceArgs
     {
         [Input("datasets")]
         private InputList<Inputs.DatasetReferenceArgs>? _datasets;
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public CustomActivityReferenceObjectArgs()
         {
         }
-        public static new CustomActivityReferenceObjectArgs Empty => new CustomActivityReferenceObjectArgs();
     }
 }

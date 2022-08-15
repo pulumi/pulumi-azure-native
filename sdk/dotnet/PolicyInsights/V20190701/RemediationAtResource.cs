@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.PolicyInsights.V20190701
     /// The remediation definition.
     /// </summary>
     [AzureNativeResourceType("azure-native:policyinsights/v20190701:RemediationAtResource")]
-    public partial class RemediationAtResource : global::Pulumi.CustomResource
+    public partial class RemediationAtResource : Pulumi.CustomResource
     {
         /// <summary>
         /// The time at which the remediation was created.
@@ -100,9 +100,9 @@ namespace Pulumi.AzureNative.PolicyInsights.V20190701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:policyinsights:RemediationAtResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:policyinsights/v20180701preview:RemediationAtResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:policyinsights/v20211001:RemediationAtResource"},
+                    new Pulumi.Alias { Type = "azure-native:policyinsights:RemediationAtResource"},
+                    new Pulumi.Alias { Type = "azure-native:policyinsights/v20180701preview:RemediationAtResource"},
+                    new Pulumi.Alias { Type = "azure-native:policyinsights/v20211001:RemediationAtResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.PolicyInsights.V20190701
         }
     }
 
-    public sealed class RemediationAtResourceArgs : global::Pulumi.ResourceArgs
+    public sealed class RemediationAtResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The filters that will be applied to determine which resources to remediate.
@@ -165,6 +165,5 @@ namespace Pulumi.AzureNative.PolicyInsights.V20190701
         public RemediationAtResourceArgs()
         {
         }
-        public static new RemediationAtResourceArgs Empty => new RemediationAtResourceArgs();
     }
 }

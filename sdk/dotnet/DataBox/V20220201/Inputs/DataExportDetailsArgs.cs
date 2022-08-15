@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBox.V20220201.Inputs
     /// <summary>
     /// Details of the data to be used for exporting data from azure.
     /// </summary>
-    public sealed class DataExportDetailsArgs : global::Pulumi.ResourceArgs
+    public sealed class DataExportDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Account details of the data to be transferred
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.DataBox.V20220201.Inputs
         {
             LogCollectionLevel = "Error";
         }
-        public static new DataExportDetailsArgs Empty => new DataExportDetailsArgs();
     }
 }

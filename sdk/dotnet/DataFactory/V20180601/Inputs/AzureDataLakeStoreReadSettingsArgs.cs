@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Azure data lake store read settings.
     /// </summary>
-    public sealed class AzureDataLakeStoreReadSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureDataLakeStoreReadSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -103,6 +103,5 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public AzureDataLakeStoreReadSettingsArgs()
         {
         }
-        public static new AzureDataLakeStoreReadSettingsArgs Empty => new AzureDataLakeStoreReadSettingsArgs();
     }
 }

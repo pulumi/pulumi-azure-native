@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview
     }
 
 
-    public sealed class GetOnlineDeploymentArgs : global::Pulumi.InvokeArgs
+    public sealed class GetOnlineDeploymentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Inference Endpoint Deployment name.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview
         public GetOnlineDeploymentArgs()
         {
         }
-        public static new GetOnlineDeploymentArgs Empty => new GetOnlineDeploymentArgs();
     }
 
-    public sealed class GetOnlineDeploymentInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetOnlineDeploymentInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Inference Endpoint Deployment name.
@@ -80,7 +79,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview
         public GetOnlineDeploymentInvokeArgs()
         {
         }
-        public static new GetOnlineDeploymentInvokeArgs Empty => new GetOnlineDeploymentInvokeArgs();
     }
 
 

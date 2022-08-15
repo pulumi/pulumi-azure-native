@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web
     /// API Version: 2016-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:Connection")]
-    public partial class Connection : global::Pulumi.CustomResource
+    public partial class Connection : Pulumi.CustomResource
     {
         /// <summary>
         /// Resource ETag
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801preview:Connection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20160601:Connection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801preview:Connection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160601:Connection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -97,7 +97,7 @@ namespace Pulumi.AzureNative.Web
         }
     }
 
-    public sealed class ConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class ConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Connection name
@@ -141,6 +141,5 @@ namespace Pulumi.AzureNative.Web
         public ConnectionArgs()
         {
         }
-        public static new ConnectionArgs Empty => new ConnectionArgs();
     }
 }

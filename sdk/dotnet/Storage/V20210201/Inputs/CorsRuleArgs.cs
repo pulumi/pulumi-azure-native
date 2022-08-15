@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20210201.Inputs
     /// <summary>
     /// Specifies a CORS rule for the Blob service.
     /// </summary>
-    public sealed class CorsRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class CorsRuleArgs : Pulumi.ResourceArgs
     {
         [Input("allowedHeaders", required: true)]
         private InputList<string>? _allowedHeaders;
@@ -72,6 +72,5 @@ namespace Pulumi.AzureNative.Storage.V20210201.Inputs
         public CorsRuleArgs()
         {
         }
-        public static new CorsRuleArgs Empty => new CorsRuleArgs();
     }
 }

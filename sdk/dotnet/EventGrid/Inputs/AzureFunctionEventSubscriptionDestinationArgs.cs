@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.Inputs
     /// <summary>
     /// Information about the azure function destination for an event subscription.
     /// </summary>
-    public sealed class AzureFunctionEventSubscriptionDestinationArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureFunctionEventSubscriptionDestinationArgs : Pulumi.ResourceArgs
     {
         [Input("deliveryAttributeMappings")]
         private InputList<Union<Inputs.DynamicDeliveryAttributeMappingArgs, Inputs.StaticDeliveryAttributeMappingArgs>>? _deliveryAttributeMappings;
@@ -57,6 +57,5 @@ namespace Pulumi.AzureNative.EventGrid.Inputs
             MaxEventsPerBatch = 1;
             PreferredBatchSizeInKilobytes = 64;
         }
-        public static new AzureFunctionEventSubscriptionDestinationArgs Empty => new AzureFunctionEventSubscriptionDestinationArgs();
     }
 }

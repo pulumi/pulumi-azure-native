@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// User identity configuration.
     /// </summary>
-    public sealed class UserIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class UserIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enum to determine identity framework.
@@ -25,6 +25,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         public UserIdentityArgs()
         {
         }
-        public static new UserIdentityArgs Empty => new UserIdentityArgs();
     }
 }

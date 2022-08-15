@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Kusto
     /// API Version: 2021-08-27.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:ManagedPrivateEndpoint")]
-    public partial class ManagedPrivateEndpoint : global::Pulumi.CustomResource
+    public partial class ManagedPrivateEndpoint : Pulumi.CustomResource
     {
         /// <summary>
         /// The groupId in which the managed private endpoint is created.
@@ -89,8 +89,8 @@ namespace Pulumi.AzureNative.Kusto
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20210827:ManagedPrivateEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20220201:ManagedPrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20210827:ManagedPrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20220201:ManagedPrivateEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.Kusto
         }
     }
 
-    public sealed class ManagedPrivateEndpointArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagedPrivateEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -159,6 +159,5 @@ namespace Pulumi.AzureNative.Kusto
         public ManagedPrivateEndpointArgs()
         {
         }
-        public static new ManagedPrivateEndpointArgs Empty => new ManagedPrivateEndpointArgs();
     }
 }

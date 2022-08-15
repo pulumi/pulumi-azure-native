@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
     /// </summary>
     [Obsolete(@"Version 2018-09-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:deploymentmanager/v20180901preview:Service")]
-    public partial class Service : global::Pulumi.CustomResource
+    public partial class Service : Pulumi.CustomResource
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -77,8 +77,8 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:deploymentmanager:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:deploymentmanager/v20191101preview:Service"},
+                    new Pulumi.Alias { Type = "azure-native:deploymentmanager:Service"},
+                    new Pulumi.Alias { Type = "azure-native:deploymentmanager/v20191101preview:Service"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
         }
     }
 
-    public sealed class ServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class ServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -153,6 +153,5 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
         public ServiceArgs()
         {
         }
-        public static new ServiceArgs Empty => new ServiceArgs();
     }
 }

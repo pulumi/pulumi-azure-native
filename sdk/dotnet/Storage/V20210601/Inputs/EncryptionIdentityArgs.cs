@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20210601.Inputs
     /// <summary>
     /// Encryption identity for the storage account.
     /// </summary>
-    public sealed class EncryptionIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class EncryptionIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Storage.V20210601.Inputs
         public EncryptionIdentityArgs()
         {
         }
-        public static new EncryptionIdentityArgs Empty => new EncryptionIdentityArgs();
     }
 }

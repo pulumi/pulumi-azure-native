@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.AVS
     }
 
 
-    public sealed class GetCloudLinkArgs : global::Pulumi.InvokeArgs
+    public sealed class GetCloudLinkArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the cloud link resource
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.AVS
         public GetCloudLinkArgs()
         {
         }
-        public static new GetCloudLinkArgs Empty => new GetCloudLinkArgs();
     }
 
-    public sealed class GetCloudLinkInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetCloudLinkInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the cloud link resource
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.AVS
         public GetCloudLinkInvokeArgs()
         {
         }
-        public static new GetCloudLinkInvokeArgs Empty => new GetCloudLinkInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001.Inputs
     /// <summary>
     /// Live trace configuration of a Microsoft.SignalRService resource.
     /// </summary>
-    public sealed class LiveTraceConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class LiveTraceConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("categories")]
         private InputList<Inputs.LiveTraceCategoryArgs>? _categories;
@@ -41,6 +41,5 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001.Inputs
         {
             Enabled = "false";
         }
-        public static new LiveTraceConfigurationArgs Empty => new LiveTraceConfigurationArgs();
     }
 }

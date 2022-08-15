@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Inputs
     /// <summary>
     /// Input for the task that validates connection to Azure SQL Database Managed Instance.
     /// </summary>
-    public sealed class ConnectToTargetSqlMITaskInputArgs : global::Pulumi.ResourceArgs
+    public sealed class ConnectToTargetSqlMITaskInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Flag for whether to collect agent jobs from target SQL MI server.
@@ -45,6 +45,5 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Inputs
             CollectLogins = true;
             ValidateSsisCatalogOnly = false;
         }
-        public static new ConnectToTargetSqlMITaskInputArgs Empty => new ConnectToTargetSqlMITaskInputArgs();
     }
 }

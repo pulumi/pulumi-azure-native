@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
     /// API Version: 2019-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:Task")]
-    public partial class Task : global::Pulumi.CustomResource
+    public partial class Task : Pulumi.CustomResource
     {
         /// <summary>
         /// The machine configuration of the run agent.
@@ -150,10 +150,10 @@ namespace Pulumi.AzureNative.ContainerRegistry
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20180201preview:Task"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20180901:Task"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20190401:Task"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20190601preview:Task"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20180201preview:Task"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20180901:Task"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20190401:Task"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20190601preview:Task"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -175,7 +175,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         }
     }
 
-    public sealed class TaskArgs : global::Pulumi.ResourceArgs
+    public sealed class TaskArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The machine configuration of the run agent.
@@ -284,6 +284,5 @@ namespace Pulumi.AzureNative.ContainerRegistry
             IsSystemTask = false;
             Timeout = 3600;
         }
-        public static new TaskArgs Empty => new TaskArgs();
     }
 }

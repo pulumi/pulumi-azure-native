@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210701Preview.Inputs
     /// <summary>
     /// Properties of a managed Cassandra data center.
     /// </summary>
-    public sealed class DataCenterResourcePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class DataCenterResourcePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A fragment of a cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this data center. The fragment should be Base64 encoded, and only a subset of keys are allowed.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.DocumentDB.V20210701Preview.Inputs
         public DataCenterResourcePropertiesArgs()
         {
         }
-        public static new DataCenterResourcePropertiesArgs Empty => new DataCenterResourcePropertiesArgs();
     }
 }

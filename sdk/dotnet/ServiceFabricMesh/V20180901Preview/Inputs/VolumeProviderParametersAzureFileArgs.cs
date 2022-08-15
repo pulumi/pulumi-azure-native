@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Inputs
     /// <summary>
     /// This type describes a volume provided by an Azure Files file share.
     /// </summary>
-    public sealed class VolumeProviderParametersAzureFileArgs : global::Pulumi.ResourceArgs
+    public sealed class VolumeProviderParametersAzureFileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Access key of the Azure storage account for the File Share.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Inputs
         public VolumeProviderParametersAzureFileArgs()
         {
         }
-        public static new VolumeProviderParametersAzureFileArgs Empty => new VolumeProviderParametersAzureFileArgs();
     }
 }

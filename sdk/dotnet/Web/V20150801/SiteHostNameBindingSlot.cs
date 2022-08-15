@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.V20150801
     /// </summary>
     [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:web/v20150801:SiteHostNameBindingSlot")]
-    public partial class SiteHostNameBindingSlot : global::Pulumi.CustomResource
+    public partial class SiteHostNameBindingSlot : Pulumi.CustomResource
     {
         /// <summary>
         /// Azure resource name
@@ -107,20 +107,20 @@ namespace Pulumi.AzureNative.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:SiteHostNameBindingSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:SiteHostNameBindingSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:SiteHostNameBindingSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:SiteHostNameBindingSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:SiteHostNameBindingSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:SiteHostNameBindingSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:SiteHostNameBindingSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:SiteHostNameBindingSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:SiteHostNameBindingSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:SiteHostNameBindingSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:SiteHostNameBindingSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:SiteHostNameBindingSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:SiteHostNameBindingSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:SiteHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web:SiteHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:SiteHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:SiteHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:SiteHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:SiteHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:SiteHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:SiteHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:SiteHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:SiteHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:SiteHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:SiteHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:SiteHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:SiteHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:SiteHostNameBindingSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNative.Web.V20150801
         }
     }
 
-    public sealed class SiteHostNameBindingSlotArgs : global::Pulumi.ResourceArgs
+    public sealed class SiteHostNameBindingSlotArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure resource name
@@ -243,6 +243,5 @@ namespace Pulumi.AzureNative.Web.V20150801
         public SiteHostNameBindingSlotArgs()
         {
         }
-        public static new SiteHostNameBindingSlotArgs Empty => new SiteHostNameBindingSlotArgs();
     }
 }

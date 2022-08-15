@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AnalysisServices.V20170801Beta.Inputs
     /// <summary>
     /// The gateway details.
     /// </summary>
-    public sealed class GatewayDetailsArgs : global::Pulumi.ResourceArgs
+    public sealed class GatewayDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gateway resource to be associated with the server.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.AnalysisServices.V20170801Beta.Inputs
         public GatewayDetailsArgs()
         {
         }
-        public static new GatewayDetailsArgs Empty => new GatewayDetailsArgs();
     }
 }

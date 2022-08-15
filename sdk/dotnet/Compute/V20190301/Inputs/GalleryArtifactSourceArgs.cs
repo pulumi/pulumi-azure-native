@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20190301.Inputs
     /// <summary>
     /// The source image from which the Image Version is going to be created.
     /// </summary>
-    public sealed class GalleryArtifactSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class GalleryArtifactSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The managed artifact.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Compute.V20190301.Inputs
         public GalleryArtifactSourceArgs()
         {
         }
-        public static new GalleryArtifactSourceArgs Empty => new GalleryArtifactSourceArgs();
     }
 }

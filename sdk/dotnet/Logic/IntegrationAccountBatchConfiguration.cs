@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Logic
     /// API Version: 2019-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:logic:IntegrationAccountBatchConfiguration")]
-    public partial class IntegrationAccountBatchConfiguration : global::Pulumi.CustomResource
+    public partial class IntegrationAccountBatchConfiguration : Pulumi.CustomResource
     {
         /// <summary>
         /// The resource location.
@@ -71,9 +71,9 @@ namespace Pulumi.AzureNative.Logic
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountBatchConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccountBatchConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:logic/v20190501:IntegrationAccountBatchConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountBatchConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccountBatchConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20190501:IntegrationAccountBatchConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.Logic
         }
     }
 
-    public sealed class IntegrationAccountBatchConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class IntegrationAccountBatchConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The batch configuration name.
@@ -142,6 +142,5 @@ namespace Pulumi.AzureNative.Logic
         public IntegrationAccountBatchConfigurationArgs()
         {
         }
-        public static new IntegrationAccountBatchConfigurationArgs Empty => new IntegrationAccountBatchConfigurationArgs();
     }
 }

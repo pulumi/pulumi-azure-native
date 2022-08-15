@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901.Inputs
     /// <summary>
     /// IoT edge agent details is optional, this will be used for download system Agent module while bootstrapping IoT Role if specified.
     /// </summary>
-    public sealed class IoTEdgeAgentInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class IoTEdgeAgentInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the IoT edge agent image.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901.Inputs
         public IoTEdgeAgentInfoArgs()
         {
         }
-        public static new IoTEdgeAgentInfoArgs Empty => new IoTEdgeAgentInfoArgs();
     }
 }

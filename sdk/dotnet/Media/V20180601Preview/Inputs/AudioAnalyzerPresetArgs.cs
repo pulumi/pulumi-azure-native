@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180601Preview.Inputs
     /// <summary>
     /// The Audio Analyzer preset applies a pre-defined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing of content with a single audio track.
     /// </summary>
-    public sealed class AudioAnalyzerPresetArgs : global::Pulumi.ResourceArgs
+    public sealed class AudioAnalyzerPresetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are, 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.Media.V20180601Preview.Inputs
         public AudioAnalyzerPresetArgs()
         {
         }
-        public static new AudioAnalyzerPresetArgs Empty => new AudioAnalyzerPresetArgs();
     }
 }

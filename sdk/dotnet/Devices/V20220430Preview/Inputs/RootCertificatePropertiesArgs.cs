@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20220430Preview.Inputs
     /// <summary>
     /// This property store root certificate related information
     /// </summary>
-    public sealed class RootCertificatePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class RootCertificatePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// This property when set to true, hub will use G2 cert; while it's set to false, hub uses Baltimore Cert.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Devices.V20220430Preview.Inputs
         public RootCertificatePropertiesArgs()
         {
         }
-        public static new RootCertificatePropertiesArgs Empty => new RootCertificatePropertiesArgs();
     }
 }

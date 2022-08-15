@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20201001Preview.Inputs
     /// <summary>
     /// Describes the load balancer configuration.
     /// </summary>
-    public sealed class LoadBalancerConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class LoadBalancerConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource Name
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.Compute.V20201001Preview.Inputs
         public LoadBalancerConfigurationArgs()
         {
         }
-        public static new LoadBalancerConfigurationArgs Empty => new LoadBalancerConfigurationArgs();
     }
 }

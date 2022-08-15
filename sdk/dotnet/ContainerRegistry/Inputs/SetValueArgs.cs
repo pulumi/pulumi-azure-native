@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.Inputs
     /// <summary>
     /// The properties of a overridable value that can be passed to a task template.
     /// </summary>
-    public sealed class SetValueArgs : global::Pulumi.ResourceArgs
+    public sealed class SetValueArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Flag to indicate whether the value represents a secret or not.
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.ContainerRegistry.Inputs
         {
             IsSecret = false;
         }
-        public static new SetValueArgs Empty => new SetValueArgs();
     }
 }

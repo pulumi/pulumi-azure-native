@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
     }
 
 
-    public sealed class ListSecretValueArgs : global::Pulumi.InvokeArgs
+    public sealed class ListSecretValueArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Azure resource group name
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
         public ListSecretValueArgs()
         {
         }
-        public static new ListSecretValueArgs Empty => new ListSecretValueArgs();
     }
 
-    public sealed class ListSecretValueInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListSecretValueInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Azure resource group name
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
         public ListSecretValueInvokeArgs()
         {
         }
-        public static new ListSecretValueInvokeArgs Empty => new ListSecretValueInvokeArgs();
     }
 
 

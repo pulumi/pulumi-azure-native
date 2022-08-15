@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network
     /// API Version: 2020-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:PrivateRecordSet")]
-    public partial class PrivateRecordSet : global::Pulumi.CustomResource
+    public partial class PrivateRecordSet : Pulumi.CustomResource
     {
         /// <summary>
         /// The list of A records in the record set.
@@ -131,9 +131,9 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180901:PrivateRecordSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200101:PrivateRecordSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:PrivateRecordSet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180901:PrivateRecordSet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200101:PrivateRecordSet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:PrivateRecordSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -155,7 +155,7 @@ namespace Pulumi.AzureNative.Network
         }
     }
 
-    public sealed class PrivateRecordSetArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateRecordSetArgs : Pulumi.ResourceArgs
     {
         [Input("aRecords")]
         private InputList<Inputs.ARecordArgs>? _aRecords;
@@ -286,6 +286,5 @@ namespace Pulumi.AzureNative.Network
         public PrivateRecordSetArgs()
         {
         }
-        public static new PrivateRecordSetArgs Empty => new PrivateRecordSetArgs();
     }
 }

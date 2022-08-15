@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Orbital.V20220301.Inputs
     /// <summary>
     /// Network configuration of customer virtual network.
     /// </summary>
-    public sealed class ContactProfilesPropertiesNetworkConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class ContactProfilesPropertiesNetworkConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Orbital.V20220301.Inputs
         public ContactProfilesPropertiesNetworkConfigurationArgs()
         {
         }
-        public static new ContactProfilesPropertiesNetworkConfigurationArgs Empty => new ContactProfilesPropertiesNetworkConfigurationArgs();
     }
 }

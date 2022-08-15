@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Jira Service linked service.
     /// </summary>
-    public sealed class JiraLinkedServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class JiraLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -109,6 +109,5 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public JiraLinkedServiceArgs()
         {
         }
-        public static new JiraLinkedServiceArgs Empty => new JiraLinkedServiceArgs();
     }
 }

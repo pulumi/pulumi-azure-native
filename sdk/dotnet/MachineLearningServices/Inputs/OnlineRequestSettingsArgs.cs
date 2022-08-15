@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     /// <summary>
     /// Online deployment scoring requests configuration.
     /// </summary>
-    public sealed class OnlineRequestSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class OnlineRequestSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of requests allowed to queue at once for this deployment.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public OnlineRequestSettingsArgs()
         {
         }
-        public static new OnlineRequestSettingsArgs Empty => new OnlineRequestSettingsArgs();
     }
 }

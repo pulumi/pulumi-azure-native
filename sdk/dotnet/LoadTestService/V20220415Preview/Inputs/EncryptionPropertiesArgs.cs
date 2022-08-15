@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.LoadTestService.V20220415Preview.Inputs
     /// <summary>
     /// Key and identity details for Customer Managed Key encryption of load test resource
     /// </summary>
-    public sealed class EncryptionPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class EncryptionPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.LoadTestService.V20220415Preview.Inputs
         public EncryptionPropertiesArgs()
         {
         }
-        public static new EncryptionPropertiesArgs Empty => new EncryptionPropertiesArgs();
     }
 }

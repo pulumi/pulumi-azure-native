@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview.Inputs
 {
 
-    public sealed class ScheduleArgs : global::Pulumi.ResourceArgs
+    public sealed class ScheduleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Day of the week to run assessment.
@@ -45,6 +45,5 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview.Inputs
         public ScheduleArgs()
         {
         }
-        public static new ScheduleArgs Empty => new ScheduleArgs();
     }
 }

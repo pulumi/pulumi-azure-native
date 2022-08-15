@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Inputs
     /// <summary>
     /// Outlook channel definition
     /// </summary>
-    public sealed class OutlookChannelArgs : global::Pulumi.ResourceArgs
+    public sealed class OutlookChannelArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The channel name
@@ -38,6 +38,5 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Inputs
         {
             Location = "global";
         }
-        public static new OutlookChannelArgs Empty => new OutlookChannelArgs();
     }
 }

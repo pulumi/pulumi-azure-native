@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     }
 
 
-    public sealed class GetBackupScheduleGroupArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBackupScheduleGroupArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the device.
@@ -55,10 +55,9 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public GetBackupScheduleGroupArgs()
         {
         }
-        public static new GetBackupScheduleGroupArgs Empty => new GetBackupScheduleGroupArgs();
     }
 
-    public sealed class GetBackupScheduleGroupInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBackupScheduleGroupInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the device.
@@ -87,7 +86,6 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public GetBackupScheduleGroupInvokeArgs()
         {
         }
-        public static new GetBackupScheduleGroupInvokeArgs Empty => new GetBackupScheduleGroupInvokeArgs();
     }
 
 

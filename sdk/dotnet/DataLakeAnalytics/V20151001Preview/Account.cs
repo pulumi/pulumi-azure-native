@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20151001Preview
     /// </summary>
     [Obsolete(@"Version 2015-10-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:datalakeanalytics/v20151001preview:Account")]
-    public partial class Account : global::Pulumi.CustomResource
+    public partial class Account : Pulumi.CustomResource
     {
         /// <summary>
         /// The unique identifier associated with this Data Lake Analytics account.
@@ -227,9 +227,9 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20151001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datalakeanalytics:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20161101:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20191101preview:Account"},
+                    new Pulumi.Alias { Type = "azure-native:datalakeanalytics:Account"},
+                    new Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20161101:Account"},
+                    new Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20191101preview:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -251,7 +251,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20151001Preview
         }
     }
 
-    public sealed class AccountArgs : global::Pulumi.ResourceArgs
+    public sealed class AccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Data Lake Analytics account to retrieve.
@@ -394,6 +394,5 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20151001Preview
             NewTier = Pulumi.AzureNative.DataLakeAnalytics.V20151001Preview.TierType.Consumption;
             QueryStoreRetention = 30;
         }
-        public static new AccountArgs Empty => new AccountArgs();
     }
 }

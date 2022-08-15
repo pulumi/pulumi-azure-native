@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20220501.Inputs
 {
 
-    public sealed class SshPublicKeyArgs : global::Pulumi.ResourceArgs
+    public sealed class SshPublicKeyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Optional. It is used to store the function/usage of the key
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.Storage.V20220501.Inputs
         public SshPublicKeyArgs()
         {
         }
-        public static new SshPublicKeyArgs Empty => new SshPublicKeyArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
     /// Azure Resource Manager resource envelope.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20220601preview:Schedule")]
-    public partial class Schedule : global::Pulumi.CustomResource
+    public partial class Schedule : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
         }
     }
 
-    public sealed class ScheduleArgs : global::Pulumi.ResourceArgs
+    public sealed class ScheduleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Schedule name.
@@ -111,6 +111,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
         public ScheduleArgs()
         {
         }
-        public static new ScheduleArgs Empty => new ScheduleArgs();
     }
 }

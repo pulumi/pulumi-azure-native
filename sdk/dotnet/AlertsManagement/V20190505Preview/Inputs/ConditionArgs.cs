@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20190505Preview.Inputs
     /// <summary>
     /// condition to trigger an action rule
     /// </summary>
-    public sealed class ConditionArgs : global::Pulumi.ResourceArgs
+    public sealed class ConditionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// operator for a given condition
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.AlertsManagement.V20190505Preview.Inputs
         public ConditionArgs()
         {
         }
-        public static new ConditionArgs Empty => new ConditionArgs();
     }
 }

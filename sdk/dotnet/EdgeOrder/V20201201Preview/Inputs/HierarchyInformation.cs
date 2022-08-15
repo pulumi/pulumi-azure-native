@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Inputs
     /// <summary>
     /// Holds details about product hierarchy information
     /// </summary>
-    public sealed class HierarchyInformation : global::Pulumi.InvokeArgs
+    public sealed class HierarchyInformation : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Represents configuration name that uniquely identifies configuration
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Inputs
         public HierarchyInformation()
         {
         }
-        public static new HierarchyInformation Empty => new HierarchyInformation();
     }
 }

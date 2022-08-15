@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.CustomerInsights
     /// API Version: 2017-04-26.
     /// </summary>
     [AzureNativeResourceType("azure-native:customerinsights:ConnectorMapping")]
-    public partial class ConnectorMapping : global::Pulumi.CustomResource
+    public partial class ConnectorMapping : Pulumi.CustomResource
     {
         /// <summary>
         /// The connector mapping name
@@ -143,8 +143,8 @@ namespace Pulumi.AzureNative.CustomerInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:customerinsights/v20170101:ConnectorMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:customerinsights/v20170426:ConnectorMapping"},
+                    new Pulumi.Alias { Type = "azure-native:customerinsights/v20170101:ConnectorMapping"},
+                    new Pulumi.Alias { Type = "azure-native:customerinsights/v20170426:ConnectorMapping"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -166,7 +166,7 @@ namespace Pulumi.AzureNative.CustomerInsights
         }
     }
 
-    public sealed class ConnectorMappingArgs : global::Pulumi.ResourceArgs
+    public sealed class ConnectorMappingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the connector.
@@ -231,6 +231,5 @@ namespace Pulumi.AzureNative.CustomerInsights
         public ConnectorMappingArgs()
         {
         }
-        public static new ConnectorMappingArgs Empty => new ConnectorMappingArgs();
     }
 }

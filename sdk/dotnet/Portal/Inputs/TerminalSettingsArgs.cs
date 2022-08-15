@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Portal.Inputs
     /// <summary>
     /// Settings for terminal appearance.
     /// </summary>
-    public sealed class TerminalSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class TerminalSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Size of terminal font.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Portal.Inputs
         public TerminalSettingsArgs()
         {
         }
-        public static new TerminalSettingsArgs Empty => new TerminalSettingsArgs();
     }
 }

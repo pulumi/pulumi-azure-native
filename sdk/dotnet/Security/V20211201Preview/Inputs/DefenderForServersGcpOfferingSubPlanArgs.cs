@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20211201Preview.Inputs
     /// <summary>
     /// configuration for the servers offering subPlan
     /// </summary>
-    public sealed class DefenderForServersGcpOfferingSubPlanArgs : global::Pulumi.ResourceArgs
+    public sealed class DefenderForServersGcpOfferingSubPlanArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The available sub plans
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Security.V20211201Preview.Inputs
         public DefenderForServersGcpOfferingSubPlanArgs()
         {
         }
-        public static new DefenderForServersGcpOfferingSubPlanArgs Empty => new DefenderForServersGcpOfferingSubPlanArgs();
     }
 }

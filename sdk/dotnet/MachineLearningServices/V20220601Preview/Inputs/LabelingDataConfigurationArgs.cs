@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// Labeling data configuration definition
     /// </summary>
-    public sealed class LabelingDataConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class LabelingDataConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource Id of the data asset to perform labeling.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         {
             IncrementalDataRefreshEnabled = false;
         }
-        public static new LabelingDataConfigurationArgs Empty => new LabelingDataConfigurationArgs();
     }
 }

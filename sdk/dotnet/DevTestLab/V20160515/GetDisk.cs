@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
     }
 
 
-    public sealed class GetDiskArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDiskArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specify the $expand query. Example: 'properties($select=diskType)'
@@ -61,10 +61,9 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         public GetDiskArgs()
         {
         }
-        public static new GetDiskArgs Empty => new GetDiskArgs();
     }
 
-    public sealed class GetDiskInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDiskInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specify the $expand query. Example: 'properties($select=diskType)'
@@ -99,7 +98,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         public GetDiskInvokeArgs()
         {
         }
-        public static new GetDiskInvokeArgs Empty => new GetDiskInvokeArgs();
     }
 
 

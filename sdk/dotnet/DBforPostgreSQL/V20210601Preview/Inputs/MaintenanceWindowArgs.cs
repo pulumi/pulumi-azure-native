@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210601Preview.Inputs
     /// <summary>
     /// Maintenance window properties of a server.
     /// </summary>
-    public sealed class MaintenanceWindowArgs : global::Pulumi.ResourceArgs
+    public sealed class MaintenanceWindowArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// indicates whether custom window is enabled or disabled
@@ -46,6 +46,5 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210601Preview.Inputs
             StartHour = 0;
             StartMinute = 0;
         }
-        public static new MaintenanceWindowArgs Empty => new MaintenanceWindowArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Migrate
     }
 
 
-    public sealed class GetVMwareCollectorArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVMwareCollectorArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Azure Migrate project.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Migrate
         public GetVMwareCollectorArgs()
         {
         }
-        public static new GetVMwareCollectorArgs Empty => new GetVMwareCollectorArgs();
     }
 
-    public sealed class GetVMwareCollectorInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVMwareCollectorInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Azure Migrate project.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Migrate
         public GetVMwareCollectorInvokeArgs()
         {
         }
-        public static new GetVMwareCollectorInvokeArgs Empty => new GetVMwareCollectorInvokeArgs();
     }
 
 

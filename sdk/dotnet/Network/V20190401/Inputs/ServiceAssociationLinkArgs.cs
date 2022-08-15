@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190401.Inputs
     /// <summary>
     /// ServiceAssociationLink resource.
     /// </summary>
-    public sealed class ServiceAssociationLinkArgs : global::Pulumi.ResourceArgs
+    public sealed class ServiceAssociationLinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, the resource can be deleted.
@@ -66,6 +66,5 @@ namespace Pulumi.AzureNative.Network.V20190401.Inputs
         public ServiceAssociationLinkArgs()
         {
         }
-        public static new ServiceAssociationLinkArgs Empty => new ServiceAssociationLinkArgs();
     }
 }

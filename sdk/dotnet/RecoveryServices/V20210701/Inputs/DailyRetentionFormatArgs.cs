@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210701.Inputs
     /// <summary>
     /// Daily retention format.
     /// </summary>
-    public sealed class DailyRetentionFormatArgs : global::Pulumi.ResourceArgs
+    public sealed class DailyRetentionFormatArgs : Pulumi.ResourceArgs
     {
         [Input("daysOfTheMonth")]
         private InputList<Inputs.DayArgs>? _daysOfTheMonth;
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210701.Inputs
         public DailyRetentionFormatArgs()
         {
         }
-        public static new DailyRetentionFormatArgs Empty => new DailyRetentionFormatArgs();
     }
 }

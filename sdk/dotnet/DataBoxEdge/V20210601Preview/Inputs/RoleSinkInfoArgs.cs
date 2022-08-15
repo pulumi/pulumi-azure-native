@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601Preview.Inputs
     /// <summary>
     /// Compute role against which events will be raised.
     /// </summary>
-    public sealed class RoleSinkInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class RoleSinkInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Compute role ID.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601Preview.Inputs
         public RoleSinkInfoArgs()
         {
         }
-        public static new RoleSinkInfoArgs Empty => new RoleSinkInfoArgs();
     }
 }

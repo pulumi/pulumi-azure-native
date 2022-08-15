@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceLinker.V20220501.Inputs
     /// <summary>
     /// The secret info when type is rawValue. It's for scenarios that user input the secret.
     /// </summary>
-    public sealed class ValueSecretInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class ValueSecretInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The secret type.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.ServiceLinker.V20220501.Inputs
         public ValueSecretInfoArgs()
         {
         }
-        public static new ValueSecretInfoArgs Empty => new ValueSecretInfoArgs();
     }
 }

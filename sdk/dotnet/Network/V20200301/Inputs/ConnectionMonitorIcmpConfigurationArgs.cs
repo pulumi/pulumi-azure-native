@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200301.Inputs
     /// <summary>
     /// Describes the ICMP configuration.
     /// </summary>
-    public sealed class ConnectionMonitorIcmpConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class ConnectionMonitorIcmpConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Value indicating whether path evaluation with trace route should be disabled.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Network.V20200301.Inputs
         public ConnectionMonitorIcmpConfigurationArgs()
         {
         }
-        public static new ConnectionMonitorIcmpConfigurationArgs Empty => new ConnectionMonitorIcmpConfigurationArgs();
     }
 }

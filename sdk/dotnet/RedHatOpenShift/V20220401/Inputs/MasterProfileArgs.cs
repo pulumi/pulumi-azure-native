@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20220401.Inputs
     /// <summary>
     /// MasterProfile represents a master profile.
     /// </summary>
-    public sealed class MasterProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class MasterProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource ID of an associated DiskEncryptionSet, if applicable.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20220401.Inputs
         public MasterProfileArgs()
         {
         }
-        public static new MasterProfileArgs Empty => new MasterProfileArgs();
     }
 }

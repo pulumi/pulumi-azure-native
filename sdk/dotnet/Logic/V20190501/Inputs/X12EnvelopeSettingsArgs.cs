@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
     /// <summary>
     /// The X12 agreement envelope settings.
     /// </summary>
-    public sealed class X12EnvelopeSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class X12EnvelopeSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The controls standards id.
@@ -162,6 +162,5 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
         public X12EnvelopeSettingsArgs()
         {
         }
-        public static new X12EnvelopeSettingsArgs Empty => new X12EnvelopeSettingsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20181101.Inputs
     /// <summary>
     /// Filters limit rule actions to a subset of blobs within the storage account. If multiple filters are defined, a logical AND is performed on all filters. 
     /// </summary>
-    public sealed class ManagementPolicyFilterArgs : global::Pulumi.ResourceArgs
+    public sealed class ManagementPolicyFilterArgs : Pulumi.ResourceArgs
     {
         [Input("blobTypes", required: true)]
         private InputList<string>? _blobTypes;
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.Storage.V20181101.Inputs
         public ManagementPolicyFilterArgs()
         {
         }
-        public static new ManagementPolicyFilterArgs Empty => new ManagementPolicyFilterArgs();
     }
 }

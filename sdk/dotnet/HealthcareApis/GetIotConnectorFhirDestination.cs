@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.HealthcareApis
     }
 
 
-    public sealed class GetIotConnectorFhirDestinationArgs : global::Pulumi.InvokeArgs
+    public sealed class GetIotConnectorFhirDestinationArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of IoT Connector FHIR destination resource.
@@ -56,10 +56,9 @@ namespace Pulumi.AzureNative.HealthcareApis
         public GetIotConnectorFhirDestinationArgs()
         {
         }
-        public static new GetIotConnectorFhirDestinationArgs Empty => new GetIotConnectorFhirDestinationArgs();
     }
 
-    public sealed class GetIotConnectorFhirDestinationInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetIotConnectorFhirDestinationInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of IoT Connector FHIR destination resource.
@@ -88,7 +87,6 @@ namespace Pulumi.AzureNative.HealthcareApis
         public GetIotConnectorFhirDestinationInvokeArgs()
         {
         }
-        public static new GetIotConnectorFhirDestinationInvokeArgs Empty => new GetIotConnectorFhirDestinationInvokeArgs();
     }
 
 

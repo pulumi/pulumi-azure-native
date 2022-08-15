@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EngagementFabric.V20180901Preview.Inputs
     /// <summary>
     /// The EngagementFabric SKU
     /// </summary>
-    public sealed class SKUArgs : global::Pulumi.ResourceArgs
+    public sealed class SKUArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the SKU
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.EngagementFabric.V20180901Preview.Inputs
         public SKUArgs()
         {
         }
-        public static new SKUArgs Empty => new SKUArgs();
     }
 }

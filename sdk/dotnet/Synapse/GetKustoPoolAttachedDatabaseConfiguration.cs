@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Synapse
     }
 
 
-    public sealed class GetKustoPoolAttachedDatabaseConfigurationArgs : global::Pulumi.InvokeArgs
+    public sealed class GetKustoPoolAttachedDatabaseConfigurationArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the attached database configuration.
@@ -56,10 +56,9 @@ namespace Pulumi.AzureNative.Synapse
         public GetKustoPoolAttachedDatabaseConfigurationArgs()
         {
         }
-        public static new GetKustoPoolAttachedDatabaseConfigurationArgs Empty => new GetKustoPoolAttachedDatabaseConfigurationArgs();
     }
 
-    public sealed class GetKustoPoolAttachedDatabaseConfigurationInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetKustoPoolAttachedDatabaseConfigurationInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the attached database configuration.
@@ -88,7 +87,6 @@ namespace Pulumi.AzureNative.Synapse
         public GetKustoPoolAttachedDatabaseConfigurationInvokeArgs()
         {
         }
-        public static new GetKustoPoolAttachedDatabaseConfigurationInvokeArgs Empty => new GetKustoPoolAttachedDatabaseConfigurationInvokeArgs();
     }
 
 

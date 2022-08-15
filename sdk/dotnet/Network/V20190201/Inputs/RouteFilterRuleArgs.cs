@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190201.Inputs
     /// <summary>
     /// Route Filter Rule Resource
     /// </summary>
-    public sealed class RouteFilterRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class RouteFilterRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access type of the rule.
@@ -60,6 +60,5 @@ namespace Pulumi.AzureNative.Network.V20190201.Inputs
         public RouteFilterRuleArgs()
         {
         }
-        public static new RouteFilterRuleArgs Empty => new RouteFilterRuleArgs();
     }
 }

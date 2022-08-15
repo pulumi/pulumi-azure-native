@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.RecoveryServices
     }
 
 
-    public sealed class GetProtectionIntentArgs : global::Pulumi.InvokeArgs
+    public sealed class GetProtectionIntentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Fabric name associated with the backed up item.
@@ -56,10 +56,9 @@ namespace Pulumi.AzureNative.RecoveryServices
         public GetProtectionIntentArgs()
         {
         }
-        public static new GetProtectionIntentArgs Empty => new GetProtectionIntentArgs();
     }
 
-    public sealed class GetProtectionIntentInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetProtectionIntentInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Fabric name associated with the backed up item.
@@ -88,7 +87,6 @@ namespace Pulumi.AzureNative.RecoveryServices
         public GetProtectionIntentInvokeArgs()
         {
         }
-        public static new GetProtectionIntentInvokeArgs Empty => new GetProtectionIntentInvokeArgs();
     }
 
 

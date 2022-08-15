@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20151101Preview.Inputs
     /// <summary>
     /// Profile for container service master
     /// </summary>
-    public sealed class ContainerServiceMasterProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class ContainerServiceMasterProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Number of masters (VMs) in the container cluster
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.ContainerService.V20151101Preview.Inputs
         public ContainerServiceMasterProfileArgs()
         {
         }
-        public static new ContainerServiceMasterProfileArgs Empty => new ContainerServiceMasterProfileArgs();
     }
 }

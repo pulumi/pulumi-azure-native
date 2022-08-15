@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview.Inputs
 {
 
-    public sealed class PlaybookActionPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class PlaybookActionPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource id of the playbook resource
@@ -27,6 +27,5 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview.Inputs
         public PlaybookActionPropertiesArgs()
         {
         }
-        public static new PlaybookActionPropertiesArgs Empty => new PlaybookActionPropertiesArgs();
     }
 }

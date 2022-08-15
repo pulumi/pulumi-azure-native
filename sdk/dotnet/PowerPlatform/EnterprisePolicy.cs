@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.PowerPlatform
     /// API Version: 2020-10-30-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:powerplatform:EnterprisePolicy")]
-    public partial class EnterprisePolicy : global::Pulumi.CustomResource
+    public partial class EnterprisePolicy : Pulumi.CustomResource
     {
         /// <summary>
         /// The encryption settings for a configuration store.
@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.PowerPlatform
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:powerplatform/v20201030preview:EnterprisePolicy"},
+                    new Pulumi.Alias { Type = "azure-native:powerplatform/v20201030preview:EnterprisePolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -129,7 +129,7 @@ namespace Pulumi.AzureNative.PowerPlatform
         }
     }
 
-    public sealed class EnterprisePolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class EnterprisePolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The encryption settings for a configuration store.
@@ -194,6 +194,5 @@ namespace Pulumi.AzureNative.PowerPlatform
         public EnterprisePolicyArgs()
         {
         }
-        public static new EnterprisePolicyArgs Empty => new EnterprisePolicyArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Sql.V20211101
     }
 
 
-    public sealed class GetGeoBackupPolicyArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGeoBackupPolicyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the database.
@@ -54,10 +54,9 @@ namespace Pulumi.AzureNative.Sql.V20211101
         public GetGeoBackupPolicyArgs()
         {
         }
-        public static new GetGeoBackupPolicyArgs Empty => new GetGeoBackupPolicyArgs();
     }
 
-    public sealed class GetGeoBackupPolicyInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGeoBackupPolicyInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the database.
@@ -86,7 +85,6 @@ namespace Pulumi.AzureNative.Sql.V20211101
         public GetGeoBackupPolicyInvokeArgs()
         {
         }
-        public static new GetGeoBackupPolicyInvokeArgs Empty => new GetGeoBackupPolicyInvokeArgs();
     }
 
 

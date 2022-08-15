@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20191201.Inputs
     /// <summary>
     /// Specifies information about the operating system disk used by the virtual machine. &lt;br&gt;&lt;br&gt; For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
     /// </summary>
-    public sealed class OSDiskArgs : global::Pulumi.ResourceArgs
+    public sealed class OSDiskArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the caching requirements. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **None** &lt;br&gt;&lt;br&gt; **ReadOnly** &lt;br&gt;&lt;br&gt; **ReadWrite** &lt;br&gt;&lt;br&gt; Default: **None** for Standard storage. **ReadOnly** for Premium storage.
@@ -84,6 +84,5 @@ namespace Pulumi.AzureNative.Compute.V20191201.Inputs
         public OSDiskArgs()
         {
         }
-        public static new OSDiskArgs Empty => new OSDiskArgs();
     }
 }

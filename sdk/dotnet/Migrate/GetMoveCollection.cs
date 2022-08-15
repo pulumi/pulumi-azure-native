@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Migrate
     }
 
 
-    public sealed class GetMoveCollectionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetMoveCollectionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Move Collection Name.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.Migrate
         public GetMoveCollectionArgs()
         {
         }
-        public static new GetMoveCollectionArgs Empty => new GetMoveCollectionArgs();
     }
 
-    public sealed class GetMoveCollectionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetMoveCollectionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Move Collection Name.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.Migrate
         public GetMoveCollectionInvokeArgs()
         {
         }
-        public static new GetMoveCollectionInvokeArgs Empty => new GetMoveCollectionInvokeArgs();
     }
 
 

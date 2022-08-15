@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
     /// <summary>
     /// TLS endpoint describes an endpoint that the pipeline can connect to over TLS transport (data is encrypted in transit).
     /// </summary>
-    public sealed class TlsEndpointArgs : global::Pulumi.ResourceArgs
+    public sealed class TlsEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Credentials to be presented to the endpoint.
@@ -55,6 +55,5 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
         public TlsEndpointArgs()
         {
         }
-        public static new TlsEndpointArgs Empty => new TlsEndpointArgs();
     }
 }

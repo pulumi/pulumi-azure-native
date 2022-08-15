@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Scheduler.Inputs
 {
 
-    public sealed class JobActionArgs : global::Pulumi.ResourceArgs
+    public sealed class JobActionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the error action.
@@ -57,6 +57,5 @@ namespace Pulumi.AzureNative.Scheduler.Inputs
         public JobActionArgs()
         {
         }
-        public static new JobActionArgs Empty => new JobActionArgs();
     }
 }

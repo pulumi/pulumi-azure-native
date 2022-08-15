@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20180301Preview.Inputs
     /// <summary>
     /// scale settings for BatchAI Compute
     /// </summary>
-    public sealed class ScaleSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class ScaleSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable or disable auto scale
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20180301Preview.Inputs
         public ScaleSettingsArgs()
         {
         }
-        public static new ScaleSettingsArgs Empty => new ScaleSettingsArgs();
     }
 }

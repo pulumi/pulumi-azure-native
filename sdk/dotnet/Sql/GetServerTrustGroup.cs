@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Sql
     }
 
 
-    public sealed class GetServerTrustGroupArgs : global::Pulumi.InvokeArgs
+    public sealed class GetServerTrustGroupArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the region where the resource is located.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Sql
         public GetServerTrustGroupArgs()
         {
         }
-        public static new GetServerTrustGroupArgs Empty => new GetServerTrustGroupArgs();
     }
 
-    public sealed class GetServerTrustGroupInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetServerTrustGroupInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the region where the resource is located.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Sql
         public GetServerTrustGroupInvokeArgs()
         {
         }
-        public static new GetServerTrustGroupInvokeArgs Empty => new GetServerTrustGroupInvokeArgs();
     }
 
 

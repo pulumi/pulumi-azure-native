@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Synapse
     }
 
 
-    public sealed class GetIntegrationRuntimeConnectionInfoArgs : global::Pulumi.InvokeArgs
+    public sealed class GetIntegrationRuntimeConnectionInfoArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Integration runtime name
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.Synapse
         public GetIntegrationRuntimeConnectionInfoArgs()
         {
         }
-        public static new GetIntegrationRuntimeConnectionInfoArgs Empty => new GetIntegrationRuntimeConnectionInfoArgs();
     }
 
-    public sealed class GetIntegrationRuntimeConnectionInfoInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetIntegrationRuntimeConnectionInfoInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Integration runtime name
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.Synapse
         public GetIntegrationRuntimeConnectionInfoInvokeArgs()
         {
         }
-        public static new GetIntegrationRuntimeConnectionInfoInvokeArgs Empty => new GetIntegrationRuntimeConnectionInfoInvokeArgs();
     }
 
 

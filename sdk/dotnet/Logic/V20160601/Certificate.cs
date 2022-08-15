@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20160601
     /// The integration account certificate.
     /// </summary>
     [AzureNativeResourceType("azure-native:logic/v20160601:Certificate")]
-    public partial class Certificate : global::Pulumi.CustomResource
+    public partial class Certificate : Pulumi.CustomResource
     {
         /// <summary>
         /// The changed time.
@@ -94,10 +94,10 @@ namespace Pulumi.AzureNative.Logic.V20160601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:logic:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:logic/v20150801preview:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:logic/v20180701preview:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:logic/v20190501:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:logic:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20150801preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20180701preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20190501:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -119,7 +119,7 @@ namespace Pulumi.AzureNative.Logic.V20160601
         }
     }
 
-    public sealed class CertificateArgs : global::Pulumi.ResourceArgs
+    public sealed class CertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The integration account certificate name.
@@ -178,6 +178,5 @@ namespace Pulumi.AzureNative.Logic.V20160601
         public CertificateArgs()
         {
         }
-        public static new CertificateArgs Empty => new CertificateArgs();
     }
 }

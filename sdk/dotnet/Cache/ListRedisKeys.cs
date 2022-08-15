@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Cache
     }
 
 
-    public sealed class ListRedisKeysArgs : global::Pulumi.InvokeArgs
+    public sealed class ListRedisKeysArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Redis cache.
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.Cache
         public ListRedisKeysArgs()
         {
         }
-        public static new ListRedisKeysArgs Empty => new ListRedisKeysArgs();
     }
 
-    public sealed class ListRedisKeysInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListRedisKeysInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Redis cache.
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.Cache
         public ListRedisKeysInvokeArgs()
         {
         }
-        public static new ListRedisKeysInvokeArgs Empty => new ListRedisKeysInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// Command job definition.
     /// </summary>
-    public sealed class CommandJobArgs : global::Pulumi.ResourceArgs
+    public sealed class CommandJobArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARM resource ID of the code asset.
@@ -180,6 +180,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
             ExperimentName = "Default";
             IsArchived = false;
         }
-        public static new CommandJobArgs Empty => new CommandJobArgs();
     }
 }

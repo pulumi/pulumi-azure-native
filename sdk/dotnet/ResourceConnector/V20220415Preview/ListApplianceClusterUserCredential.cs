@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ResourceConnector.V20220415Preview
     }
 
 
-    public sealed class ListApplianceClusterUserCredentialArgs : global::Pulumi.InvokeArgs
+    public sealed class ListApplianceClusterUserCredentialArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.ResourceConnector.V20220415Preview
         public ListApplianceClusterUserCredentialArgs()
         {
         }
-        public static new ListApplianceClusterUserCredentialArgs Empty => new ListApplianceClusterUserCredentialArgs();
     }
 
-    public sealed class ListApplianceClusterUserCredentialInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListApplianceClusterUserCredentialInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,7 +61,6 @@ namespace Pulumi.AzureNative.ResourceConnector.V20220415Preview
         public ListApplianceClusterUserCredentialInvokeArgs()
         {
         }
-        public static new ListApplianceClusterUserCredentialInvokeArgs Empty => new ListApplianceClusterUserCredentialInvokeArgs();
     }
 
 

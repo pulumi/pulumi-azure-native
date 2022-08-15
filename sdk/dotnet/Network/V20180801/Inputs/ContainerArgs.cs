@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20180801.Inputs
     /// <summary>
     /// Reference to container resource in remote resource provider.
     /// </summary>
-    public sealed class ContainerArgs : global::Pulumi.ResourceArgs
+    public sealed class ContainerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID.
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Network.V20180801.Inputs
         public ContainerArgs()
         {
         }
-        public static new ContainerArgs Empty => new ContainerArgs();
     }
 }

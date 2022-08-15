@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Cdn.V20160402
     }
 
 
-    public sealed class GetCustomDomainArgs : global::Pulumi.InvokeArgs
+    public sealed class GetCustomDomainArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the custom domain within an endpoint.
@@ -55,10 +55,9 @@ namespace Pulumi.AzureNative.Cdn.V20160402
         public GetCustomDomainArgs()
         {
         }
-        public static new GetCustomDomainArgs Empty => new GetCustomDomainArgs();
     }
 
-    public sealed class GetCustomDomainInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetCustomDomainInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the custom domain within an endpoint.
@@ -87,7 +86,6 @@ namespace Pulumi.AzureNative.Cdn.V20160402
         public GetCustomDomainInvokeArgs()
         {
         }
-        public static new GetCustomDomainInvokeArgs Empty => new GetCustomDomainInvokeArgs();
     }
 
 

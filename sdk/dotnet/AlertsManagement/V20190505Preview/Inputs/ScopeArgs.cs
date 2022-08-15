@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20190505Preview.Inputs
     /// <summary>
     /// Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.
     /// </summary>
-    public sealed class ScopeArgs : global::Pulumi.ResourceArgs
+    public sealed class ScopeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// type of target scope
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.AlertsManagement.V20190505Preview.Inputs
         public ScopeArgs()
         {
         }
-        public static new ScopeArgs Empty => new ScopeArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
     /// <summary>
     /// The access control configuration policy.
     /// </summary>
-    public sealed class FlowAccessControlConfigurationPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class FlowAccessControlConfigurationPolicyArgs : Pulumi.ResourceArgs
     {
         [Input("allowedCallerIpAddresses")]
         private InputList<Inputs.IpAddressRangeArgs>? _allowedCallerIpAddresses;
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
         public FlowAccessControlConfigurationPolicyArgs()
         {
         }
-        public static new FlowAccessControlConfigurationPolicyArgs Empty => new FlowAccessControlConfigurationPolicyArgs();
     }
 }

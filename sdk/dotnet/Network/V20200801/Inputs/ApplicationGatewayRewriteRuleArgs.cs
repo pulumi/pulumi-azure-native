@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200801.Inputs
     /// <summary>
     /// Rewrite rule of an application gateway.
     /// </summary>
-    public sealed class ApplicationGatewayRewriteRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayRewriteRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Set of actions to be done as part of the rewrite Rule.
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.Network.V20200801.Inputs
         public ApplicationGatewayRewriteRuleArgs()
         {
         }
-        public static new ApplicationGatewayRewriteRuleArgs Empty => new ApplicationGatewayRewriteRuleArgs();
     }
 }

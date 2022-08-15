@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220502Preview.Inputs
     /// <summary>
     /// Azure Key Vault key management service settings for the security profile.
     /// </summary>
-    public sealed class AzureKeyVaultKmsArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureKeyVaultKmsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to enable Azure Key Vault key management service. The default is false.
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.ContainerService.V20220502Preview.Inputs
         {
             KeyVaultNetworkAccess = "Public";
         }
-        public static new AzureKeyVaultKmsArgs Empty => new AzureKeyVaultKmsArgs();
     }
 }

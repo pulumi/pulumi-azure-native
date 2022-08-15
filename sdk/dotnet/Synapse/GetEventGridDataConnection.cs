@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Synapse
     }
 
 
-    public sealed class GetEventGridDataConnectionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEventGridDataConnectionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the data connection.
@@ -62,10 +62,9 @@ namespace Pulumi.AzureNative.Synapse
         public GetEventGridDataConnectionArgs()
         {
         }
-        public static new GetEventGridDataConnectionArgs Empty => new GetEventGridDataConnectionArgs();
     }
 
-    public sealed class GetEventGridDataConnectionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEventGridDataConnectionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the data connection.
@@ -100,7 +99,6 @@ namespace Pulumi.AzureNative.Synapse
         public GetEventGridDataConnectionInvokeArgs()
         {
         }
-        public static new GetEventGridDataConnectionInvokeArgs Empty => new GetEventGridDataConnectionInvokeArgs();
     }
 
 

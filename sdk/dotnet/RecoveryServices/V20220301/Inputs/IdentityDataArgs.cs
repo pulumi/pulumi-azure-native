@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220301.Inputs
     /// <summary>
     /// Identity for the resource.
     /// </summary>
-    public sealed class IdentityDataArgs : global::Pulumi.ResourceArgs
+    public sealed class IdentityDataArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220301.Inputs
         public IdentityDataArgs()
         {
         }
-        public static new IdentityDataArgs Empty => new IdentityDataArgs();
     }
 }

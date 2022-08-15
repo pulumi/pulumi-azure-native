@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logz.Inputs
     /// <summary>
     /// Set of rules for sending metrics for the Monitor resource.
     /// </summary>
-    public sealed class MetricRulesArgs : global::Pulumi.ResourceArgs
+    public sealed class MetricRulesArgs : Pulumi.ResourceArgs
     {
         [Input("filteringTags")]
         private InputList<Inputs.FilteringTagArgs>? _filteringTags;
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Logz.Inputs
         public MetricRulesArgs()
         {
         }
-        public static new MetricRulesArgs Empty => new MetricRulesArgs();
     }
 }

@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Migrate.V20171111Preview
     }
 
 
-    public sealed class GetGroupArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGroupArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Unique name of a group within a project.
@@ -49,10 +49,9 @@ namespace Pulumi.AzureNative.Migrate.V20171111Preview
         public GetGroupArgs()
         {
         }
-        public static new GetGroupArgs Empty => new GetGroupArgs();
     }
 
-    public sealed class GetGroupInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGroupInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Unique name of a group within a project.
@@ -75,7 +74,6 @@ namespace Pulumi.AzureNative.Migrate.V20171111Preview
         public GetGroupInvokeArgs()
         {
         }
-        public static new GetGroupInvokeArgs Empty => new GetGroupInvokeArgs();
     }
 
 

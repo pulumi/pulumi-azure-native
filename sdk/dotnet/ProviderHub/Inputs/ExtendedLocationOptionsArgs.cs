@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Inputs
 {
 
-    public sealed class ExtendedLocationOptionsArgs : global::Pulumi.ResourceArgs
+    public sealed class ExtendedLocationOptionsArgs : Pulumi.ResourceArgs
     {
         [Input("supportedPolicy")]
         public Input<string>? SupportedPolicy { get; set; }
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
         public ExtendedLocationOptionsArgs()
         {
         }
-        public static new ExtendedLocationOptionsArgs Empty => new ExtendedLocationOptionsArgs();
     }
 }

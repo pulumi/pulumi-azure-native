@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Security
     /// API Version: 2020-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:Connector")]
-    public partial class Connector : global::Pulumi.CustomResource
+    public partial class Connector : Pulumi.CustomResource
     {
         /// <summary>
         /// Settings for authentication management, these settings are relevant only for the cloud connector.
@@ -65,7 +65,7 @@ namespace Pulumi.AzureNative.Security
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:security/v20200101preview:Connector"},
+                    new Pulumi.Alias { Type = "azure-native:security/v20200101preview:Connector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -87,7 +87,7 @@ namespace Pulumi.AzureNative.Security
         }
     }
 
-    public sealed class ConnectorArgs : global::Pulumi.ResourceArgs
+    public sealed class ConnectorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Settings for authentication management, these settings are relevant only for the cloud connector.
@@ -110,6 +110,5 @@ namespace Pulumi.AzureNative.Security
         public ConnectorArgs()
         {
         }
-        public static new ConnectorArgs Empty => new ConnectorArgs();
     }
 }

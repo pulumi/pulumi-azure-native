@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20170701.Inputs
     /// <summary>
     /// The properties related to a storage container endpoint.
     /// </summary>
-    public sealed class RoutingStorageContainerPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class RoutingStorageContainerPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
@@ -72,6 +72,5 @@ namespace Pulumi.AzureNative.Devices.V20170701.Inputs
         public RoutingStorageContainerPropertiesArgs()
         {
         }
-        public static new RoutingStorageContainerPropertiesArgs Empty => new RoutingStorageContainerPropertiesArgs();
     }
 }

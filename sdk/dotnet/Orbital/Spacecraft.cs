@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Orbital
     /// API Version: 2021-04-04-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:orbital:Spacecraft")]
-    public partial class Spacecraft : global::Pulumi.CustomResource
+    public partial class Spacecraft : Pulumi.CustomResource
     {
         /// <summary>
         /// Authorization status of spacecraft.
@@ -119,8 +119,8 @@ namespace Pulumi.AzureNative.Orbital
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:orbital/v20210404preview:Spacecraft"},
-                    new global::Pulumi.Alias { Type = "azure-native:orbital/v20220301:Spacecraft"},
+                    new Pulumi.Alias { Type = "azure-native:orbital/v20210404preview:Spacecraft"},
+                    new Pulumi.Alias { Type = "azure-native:orbital/v20220301:Spacecraft"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNative.Orbital
         }
     }
 
-    public sealed class SpacecraftArgs : global::Pulumi.ResourceArgs
+    public sealed class SpacecraftArgs : Pulumi.ResourceArgs
     {
         [Input("links")]
         private InputList<Inputs.SpacecraftLinkArgs>? _links;
@@ -213,6 +213,5 @@ namespace Pulumi.AzureNative.Orbital
         public SpacecraftArgs()
         {
         }
-        public static new SpacecraftArgs Empty => new SpacecraftArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.NotificationHubs
     /// API Version: 2017-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:notificationhubs:NotificationHub")]
-    public partial class NotificationHub : global::Pulumi.CustomResource
+    public partial class NotificationHub : Pulumi.CustomResource
     {
         /// <summary>
         /// The AdmCredential of the created NotificationHub
@@ -119,9 +119,9 @@ namespace Pulumi.AzureNative.NotificationHubs
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20140901:NotificationHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20160301:NotificationHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20170401:NotificationHub"},
+                    new Pulumi.Alias { Type = "azure-native:notificationhubs/v20140901:NotificationHub"},
+                    new Pulumi.Alias { Type = "azure-native:notificationhubs/v20160301:NotificationHub"},
+                    new Pulumi.Alias { Type = "azure-native:notificationhubs/v20170401:NotificationHub"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -143,7 +143,7 @@ namespace Pulumi.AzureNative.NotificationHubs
         }
     }
 
-    public sealed class NotificationHubArgs : global::Pulumi.ResourceArgs
+    public sealed class NotificationHubArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AdmCredential of the created NotificationHub
@@ -250,6 +250,5 @@ namespace Pulumi.AzureNative.NotificationHubs
         public NotificationHubArgs()
         {
         }
-        public static new NotificationHubArgs Empty => new NotificationHubArgs();
     }
 }

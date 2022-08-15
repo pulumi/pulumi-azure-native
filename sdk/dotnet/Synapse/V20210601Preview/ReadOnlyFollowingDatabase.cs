@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
     /// Class representing a read only following database.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse/v20210601preview:ReadOnlyFollowingDatabase")]
-    public partial class ReadOnlyFollowingDatabase : global::Pulumi.CustomResource
+    public partial class ReadOnlyFollowingDatabase : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the attached database configuration cluster
@@ -120,8 +120,8 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:synapse:ReadOnlyFollowingDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:ReadOnlyFollowingDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:synapse:ReadOnlyFollowingDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:ReadOnlyFollowingDatabase"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -143,7 +143,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         }
     }
 
-    public sealed class ReadOnlyFollowingDatabaseArgs : global::Pulumi.ResourceArgs
+    public sealed class ReadOnlyFollowingDatabaseArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the database in the Kusto pool.
@@ -191,6 +191,5 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         public ReadOnlyFollowingDatabaseArgs()
         {
         }
-        public static new ReadOnlyFollowingDatabaseArgs Empty => new ReadOnlyFollowingDatabaseArgs();
     }
 }

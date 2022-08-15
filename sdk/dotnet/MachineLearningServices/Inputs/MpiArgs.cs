@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     /// <summary>
     /// MPI distribution configuration.
     /// </summary>
-    public sealed class MpiArgs : global::Pulumi.ResourceArgs
+    public sealed class MpiArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enum to determine the job distribution type.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public MpiArgs()
         {
         }
-        public static new MpiArgs Empty => new MpiArgs();
     }
 }

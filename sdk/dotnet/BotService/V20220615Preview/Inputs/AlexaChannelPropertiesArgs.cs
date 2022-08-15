@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Inputs
     /// <summary>
     /// The parameters to provide for the Alexa channel.
     /// </summary>
-    public sealed class AlexaChannelPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class AlexaChannelPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Alexa skill Id
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Inputs
         public AlexaChannelPropertiesArgs()
         {
         }
-        public static new AlexaChannelPropertiesArgs Empty => new AlexaChannelPropertiesArgs();
     }
 }

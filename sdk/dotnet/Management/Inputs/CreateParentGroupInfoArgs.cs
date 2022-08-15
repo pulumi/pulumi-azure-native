@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Management.Inputs
     /// <summary>
     /// (Optional) The ID of the parent management group used during creation.
     /// </summary>
-    public sealed class CreateParentGroupInfoArgs : global::Pulumi.ResourceArgs
+    public sealed class CreateParentGroupInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
@@ -24,6 +24,5 @@ namespace Pulumi.AzureNative.Management.Inputs
         public CreateParentGroupInfoArgs()
         {
         }
-        public static new CreateParentGroupInfoArgs Empty => new CreateParentGroupInfoArgs();
     }
 }

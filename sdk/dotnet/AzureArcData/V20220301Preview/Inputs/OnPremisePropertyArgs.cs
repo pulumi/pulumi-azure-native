@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview.Inputs
     /// <summary>
     /// Properties from the Kubernetes data controller
     /// </summary>
-    public sealed class OnPremisePropertyArgs : global::Pulumi.ResourceArgs
+    public sealed class OnPremisePropertyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A globally unique ID identifying the associated Kubernetes cluster
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview.Inputs
         public OnPremisePropertyArgs()
         {
         }
-        public static new OnPremisePropertyArgs Empty => new OnPremisePropertyArgs();
     }
 }

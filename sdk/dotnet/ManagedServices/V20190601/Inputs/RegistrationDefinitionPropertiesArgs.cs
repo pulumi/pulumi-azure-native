@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ManagedServices.V20190601.Inputs
     /// <summary>
     /// Properties of a registration definition.
     /// </summary>
-    public sealed class RegistrationDefinitionPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class RegistrationDefinitionPropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("authorizations", required: true)]
         private InputList<Inputs.AuthorizationArgs>? _authorizations;
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.ManagedServices.V20190601.Inputs
         public RegistrationDefinitionPropertiesArgs()
         {
         }
-        public static new RegistrationDefinitionPropertiesArgs Empty => new RegistrationDefinitionPropertiesArgs();
     }
 }

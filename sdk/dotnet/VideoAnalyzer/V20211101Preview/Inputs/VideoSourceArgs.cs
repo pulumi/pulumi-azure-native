@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
     /// <summary>
     /// Video source allows for content from a Video Analyzer video resource to be ingested into a pipeline. Currently supported only with batch pipelines.
     /// </summary>
-    public sealed class VideoSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class VideoSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Node name. Must be unique within the topology.
@@ -43,6 +43,5 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
         public VideoSourceArgs()
         {
         }
-        public static new VideoSourceArgs Empty => new VideoSourceArgs();
     }
 }

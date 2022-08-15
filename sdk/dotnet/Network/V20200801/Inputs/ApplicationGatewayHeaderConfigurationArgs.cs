@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200801.Inputs
     /// <summary>
     /// Header configuration of the Actions set in Application Gateway.
     /// </summary>
-    public sealed class ApplicationGatewayHeaderConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayHeaderConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Header name of the header configuration.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Network.V20200801.Inputs
         public ApplicationGatewayHeaderConfigurationArgs()
         {
         }
-        public static new ApplicationGatewayHeaderConfigurationArgs Empty => new ApplicationGatewayHeaderConfigurationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20180301.Inputs
     /// <summary>
     /// Custom header name and value.
     /// </summary>
-    public sealed class EndpointPropertiesCustomHeadersArgs : global::Pulumi.ResourceArgs
+    public sealed class EndpointPropertiesCustomHeadersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Header name.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Network.V20180301.Inputs
         public EndpointPropertiesCustomHeadersArgs()
         {
         }
-        public static new EndpointPropertiesCustomHeadersArgs Empty => new EndpointPropertiesCustomHeadersArgs();
     }
 }

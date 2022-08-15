@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network
     }
 
 
-    public sealed class GetNetworkExperimentProfileArgs : global::Pulumi.InvokeArgs
+    public sealed class GetNetworkExperimentProfileArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Profile identifier associated with the Tenant and Partner
@@ -44,10 +44,9 @@ namespace Pulumi.AzureNative.Network
         public GetNetworkExperimentProfileArgs()
         {
         }
-        public static new GetNetworkExperimentProfileArgs Empty => new GetNetworkExperimentProfileArgs();
     }
 
-    public sealed class GetNetworkExperimentProfileInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetNetworkExperimentProfileInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Profile identifier associated with the Tenant and Partner
@@ -64,7 +63,6 @@ namespace Pulumi.AzureNative.Network
         public GetNetworkExperimentProfileInvokeArgs()
         {
         }
-        public static new GetNetworkExperimentProfileInvokeArgs Empty => new GetNetworkExperimentProfileInvokeArgs();
     }
 
 

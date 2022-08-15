@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
     /// Access policies help define the authentication rules, and control access to specific video resources.
     /// </summary>
     [AzureNativeResourceType("azure-native:videoanalyzer/v20211101preview:AccessPolicy")]
-    public partial class AccessPolicy : global::Pulumi.CustomResource
+    public partial class AccessPolicy : Pulumi.CustomResource
     {
         /// <summary>
         /// Authentication method to be used when validating client API access.
@@ -70,8 +70,8 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:videoanalyzer:AccessPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:videoanalyzer/v20210501preview:AccessPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:videoanalyzer:AccessPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:videoanalyzer/v20210501preview:AccessPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
         }
     }
 
-    public sealed class AccessPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class AccessPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Access Policy name.
@@ -128,6 +128,5 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
         public AccessPolicyArgs()
         {
         }
-        public static new AccessPolicyArgs Empty => new AccessPolicyArgs();
     }
 }

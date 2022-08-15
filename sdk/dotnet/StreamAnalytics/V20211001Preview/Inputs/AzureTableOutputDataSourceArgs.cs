@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
     /// <summary>
     /// Describes an Azure Table output data source.
     /// </summary>
-    public sealed class AzureTableOutputDataSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureTableOutputDataSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
@@ -73,6 +73,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
         public AzureTableOutputDataSourceArgs()
         {
         }
-        public static new AzureTableOutputDataSourceArgs Empty => new AzureTableOutputDataSourceArgs();
     }
 }

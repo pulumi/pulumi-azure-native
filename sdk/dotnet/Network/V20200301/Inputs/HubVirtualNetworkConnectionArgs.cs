@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200301.Inputs
     /// <summary>
     /// HubVirtualNetworkConnection Resource.
     /// </summary>
-    public sealed class HubVirtualNetworkConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class HubVirtualNetworkConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// VirtualHub to RemoteVnet transit to enabled or not.
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.Network.V20200301.Inputs
         public HubVirtualNetworkConnectionArgs()
         {
         }
-        public static new HubVirtualNetworkConnectionArgs Empty => new HubVirtualNetworkConnectionArgs();
     }
 }

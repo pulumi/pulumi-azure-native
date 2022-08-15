@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview.Inputs
     /// <summary>
     /// The details of the AZURE ML environment.
     /// </summary>
-    public sealed class EnvironmentImageRequestEnvironmentArgs : global::Pulumi.ResourceArgs
+    public sealed class EnvironmentImageRequestEnvironmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The definition of a Docker container.
@@ -72,6 +72,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview.Inputs
         public EnvironmentImageRequestEnvironmentArgs()
         {
         }
-        public static new EnvironmentImageRequestEnvironmentArgs Empty => new EnvironmentImageRequestEnvironmentArgs();
     }
 }

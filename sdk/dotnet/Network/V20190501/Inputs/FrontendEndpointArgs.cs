@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190501.Inputs
     /// <summary>
     /// A frontend endpoint used for routing.
     /// </summary>
-    public sealed class FrontendEndpointArgs : global::Pulumi.ResourceArgs
+    public sealed class FrontendEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The host name of the frontendEndpoint. Must be a domain name.
@@ -54,6 +54,5 @@ namespace Pulumi.AzureNative.Network.V20190501.Inputs
         public FrontendEndpointArgs()
         {
         }
-        public static new FrontendEndpointArgs Empty => new FrontendEndpointArgs();
     }
 }

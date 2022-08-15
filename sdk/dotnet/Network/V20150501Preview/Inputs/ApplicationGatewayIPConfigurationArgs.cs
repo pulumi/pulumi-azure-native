@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20150501Preview.Inputs
     /// <summary>
     /// IP configuration of application gateway
     /// </summary>
-    public sealed class ApplicationGatewayIPConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayIPConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated
@@ -48,6 +48,5 @@ namespace Pulumi.AzureNative.Network.V20150501Preview.Inputs
         public ApplicationGatewayIPConfigurationArgs()
         {
         }
-        public static new ApplicationGatewayIPConfigurationArgs Empty => new ApplicationGatewayIPConfigurationArgs();
     }
 }

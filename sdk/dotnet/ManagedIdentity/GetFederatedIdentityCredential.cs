@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ManagedIdentity
     }
 
 
-    public sealed class GetFederatedIdentityCredentialArgs : global::Pulumi.InvokeArgs
+    public sealed class GetFederatedIdentityCredentialArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the federated identity credential resource.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.ManagedIdentity
         public GetFederatedIdentityCredentialArgs()
         {
         }
-        public static new GetFederatedIdentityCredentialArgs Empty => new GetFederatedIdentityCredentialArgs();
     }
 
-    public sealed class GetFederatedIdentityCredentialInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetFederatedIdentityCredentialInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the federated identity credential resource.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.ManagedIdentity
         public GetFederatedIdentityCredentialInvokeArgs()
         {
         }
-        public static new GetFederatedIdentityCredentialInvokeArgs Empty => new GetFederatedIdentityCredentialInvokeArgs();
     }
 
 

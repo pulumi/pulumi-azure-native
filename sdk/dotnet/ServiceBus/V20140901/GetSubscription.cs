@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20140901
     }
 
 
-    public sealed class GetSubscriptionArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSubscriptionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The namespace name
@@ -55,10 +55,9 @@ namespace Pulumi.AzureNative.ServiceBus.V20140901
         public GetSubscriptionArgs()
         {
         }
-        public static new GetSubscriptionArgs Empty => new GetSubscriptionArgs();
     }
 
-    public sealed class GetSubscriptionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSubscriptionInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The namespace name
@@ -87,7 +86,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20140901
         public GetSubscriptionInvokeArgs()
         {
         }
-        public static new GetSubscriptionInvokeArgs Empty => new GetSubscriptionInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20200101
     /// Security assessment on a resource
     /// </summary>
     [AzureNativeResourceType("azure-native:security/v20200101:Assessment")]
-    public partial class Assessment : global::Pulumi.CustomResource
+    public partial class Assessment : Pulumi.CustomResource
     {
         /// <summary>
         /// Additional data regarding the assessment
@@ -94,9 +94,9 @@ namespace Pulumi.AzureNative.Security.V20200101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:security:Assessment"},
-                    new global::Pulumi.Alias { Type = "azure-native:security/v20190101preview:Assessment"},
-                    new global::Pulumi.Alias { Type = "azure-native:security/v20210601:Assessment"},
+                    new Pulumi.Alias { Type = "azure-native:security:Assessment"},
+                    new Pulumi.Alias { Type = "azure-native:security/v20190101preview:Assessment"},
+                    new Pulumi.Alias { Type = "azure-native:security/v20210601:Assessment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.Security.V20200101
         }
     }
 
-    public sealed class AssessmentArgs : global::Pulumi.ResourceArgs
+    public sealed class AssessmentArgs : Pulumi.ResourceArgs
     {
         [Input("additionalData")]
         private InputMap<string>? _additionalData;
@@ -171,6 +171,5 @@ namespace Pulumi.AzureNative.Security.V20200101
         public AssessmentArgs()
         {
         }
-        public static new AssessmentArgs Empty => new AssessmentArgs();
     }
 }

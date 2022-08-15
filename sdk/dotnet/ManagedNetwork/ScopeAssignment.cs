@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ManagedNetwork
     /// API Version: 2019-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetwork:ScopeAssignment")]
-    public partial class ScopeAssignment : global::Pulumi.CustomResource
+    public partial class ScopeAssignment : Pulumi.CustomResource
     {
         /// <summary>
         /// The managed network ID with scope will be assigned to.
@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.ManagedNetwork
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:managednetwork/v20190601preview:ScopeAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:managednetwork/v20190601preview:ScopeAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.ManagedNetwork
         }
     }
 
-    public sealed class ScopeAssignmentArgs : global::Pulumi.ResourceArgs
+    public sealed class ScopeAssignmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The managed network ID with scope will be assigned to.
@@ -128,6 +128,5 @@ namespace Pulumi.AzureNative.ManagedNetwork
         public ScopeAssignmentArgs()
         {
         }
-        public static new ScopeAssignmentArgs Empty => new ScopeAssignmentArgs();
     }
 }

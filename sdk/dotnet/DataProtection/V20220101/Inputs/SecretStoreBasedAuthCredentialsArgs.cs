@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataProtection.V20220101.Inputs
     /// <summary>
     /// Secret store based authentication credentials.
     /// </summary>
-    public sealed class SecretStoreBasedAuthCredentialsArgs : global::Pulumi.ResourceArgs
+    public sealed class SecretStoreBasedAuthCredentialsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of the specific object - used for deserializing
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.DataProtection.V20220101.Inputs
         public SecretStoreBasedAuthCredentialsArgs()
         {
         }
-        public static new SecretStoreBasedAuthCredentialsArgs Empty => new SecretStoreBasedAuthCredentialsArgs();
     }
 }

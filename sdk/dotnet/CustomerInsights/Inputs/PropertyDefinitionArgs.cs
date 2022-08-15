@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CustomerInsights.Inputs
     /// <summary>
     /// Property definition.
     /// </summary>
-    public sealed class PropertyDefinitionArgs : global::Pulumi.ResourceArgs
+    public sealed class PropertyDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Array value separator for properties with isArray set.
@@ -114,6 +114,5 @@ namespace Pulumi.AzureNative.CustomerInsights.Inputs
         public PropertyDefinitionArgs()
         {
         }
-        public static new PropertyDefinitionArgs Empty => new PropertyDefinitionArgs();
     }
 }

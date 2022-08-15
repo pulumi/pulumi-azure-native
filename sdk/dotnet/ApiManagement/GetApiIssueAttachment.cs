@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ApiManagement
     }
 
 
-    public sealed class GetApiIssueAttachmentArgs : global::Pulumi.InvokeArgs
+    public sealed class GetApiIssueAttachmentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// API identifier. Must be unique in the current API Management service instance.
@@ -62,10 +62,9 @@ namespace Pulumi.AzureNative.ApiManagement
         public GetApiIssueAttachmentArgs()
         {
         }
-        public static new GetApiIssueAttachmentArgs Empty => new GetApiIssueAttachmentArgs();
     }
 
-    public sealed class GetApiIssueAttachmentInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetApiIssueAttachmentInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// API identifier. Must be unique in the current API Management service instance.
@@ -100,7 +99,6 @@ namespace Pulumi.AzureNative.ApiManagement
         public GetApiIssueAttachmentInvokeArgs()
         {
         }
-        public static new GetApiIssueAttachmentInvokeArgs Empty => new GetApiIssueAttachmentInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventHub.V20180101Preview
     /// Single item in a List or Get VirtualNetworkRules operation
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub/v20180101preview:NamespaceVirtualNetworkRule")]
-    public partial class NamespaceVirtualNetworkRule : global::Pulumi.CustomResource
+    public partial class NamespaceVirtualNetworkRule : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.EventHub.V20180101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub:NamespaceVirtualNetworkRule"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub:NamespaceVirtualNetworkRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNative.EventHub.V20180101Preview
         }
     }
 
-    public sealed class NamespaceVirtualNetworkRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class NamespaceVirtualNetworkRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Namespace name
@@ -109,6 +109,5 @@ namespace Pulumi.AzureNative.EventHub.V20180101Preview
         public NamespaceVirtualNetworkRuleArgs()
         {
         }
-        public static new NamespaceVirtualNetworkRuleArgs Empty => new NamespaceVirtualNetworkRuleArgs();
     }
 }

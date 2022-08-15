@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901.Inputs
     /// <summary>
     /// settings for compression.
     /// </summary>
-    public sealed class CompressionSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class CompressionSettingsArgs : Pulumi.ResourceArgs
     {
         [Input("contentTypesToCompress")]
         private InputList<string>? _contentTypesToCompress;
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Cdn.V20200901.Inputs
         public CompressionSettingsArgs()
         {
         }
-        public static new CompressionSettingsArgs Empty => new CompressionSettingsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Chaos.Inputs
     /// <summary>
     /// Model that represents a branch in the step.
     /// </summary>
-    public sealed class BranchArgs : global::Pulumi.ResourceArgs
+    public sealed class BranchArgs : Pulumi.ResourceArgs
     {
         [Input("actions", required: true)]
         private InputList<object>? _actions;
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Chaos.Inputs
         public BranchArgs()
         {
         }
-        public static new BranchArgs Empty => new BranchArgs();
     }
 }

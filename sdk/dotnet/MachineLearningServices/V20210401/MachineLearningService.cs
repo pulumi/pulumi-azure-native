@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210401
     /// </summary>
     [Obsolete(@"Please use one of the variants: ACIService, AKSService, EndpointVariant.")]
     [AzureNativeResourceType("azure-native:machinelearningservices/v20210401:MachineLearningService")]
-    public partial class MachineLearningService : global::Pulumi.CustomResource
+    public partial class MachineLearningService : Pulumi.CustomResource
     {
         /// <summary>
         /// The identity of the resource.
@@ -89,11 +89,11 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:MachineLearningService"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200501preview:MachineLearningService"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200515preview:MachineLearningService"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200901preview:MachineLearningService"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210101:MachineLearningService"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:MachineLearningService"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200501preview:MachineLearningService"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200515preview:MachineLearningService"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200901preview:MachineLearningService"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210101:MachineLearningService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210401
         }
     }
 
-    public sealed class MachineLearningServiceArgs : global::Pulumi.ResourceArgs
+    public sealed class MachineLearningServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The compute environment type for the service.
@@ -192,6 +192,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210401
         public MachineLearningServiceArgs()
         {
         }
-        public static new MachineLearningServiceArgs Empty => new MachineLearningServiceArgs();
     }
 }

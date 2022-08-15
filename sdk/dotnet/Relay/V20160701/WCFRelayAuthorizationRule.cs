@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Relay.V20160701
     /// </summary>
     [Obsolete(@"Version 2016-07-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:relay/v20160701:WCFRelayAuthorizationRule")]
-    public partial class WCFRelayAuthorizationRule : global::Pulumi.CustomResource
+    public partial class WCFRelayAuthorizationRule : Pulumi.CustomResource
     {
         /// <summary>
         /// Resource name
@@ -59,9 +59,9 @@ namespace Pulumi.AzureNative.Relay.V20160701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:relay:WCFRelayAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:relay/v20170401:WCFRelayAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:relay/v20211101:WCFRelayAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:relay:WCFRelayAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:relay/v20170401:WCFRelayAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:relay/v20211101:WCFRelayAuthorizationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.Relay.V20160701
         }
     }
 
-    public sealed class WCFRelayAuthorizationRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class WCFRelayAuthorizationRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The authorizationRule name.
@@ -124,6 +124,5 @@ namespace Pulumi.AzureNative.Relay.V20160701
         public WCFRelayAuthorizationRuleArgs()
         {
         }
-        public static new WCFRelayAuthorizationRuleArgs Empty => new WCFRelayAuthorizationRuleArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20210101.Inputs
     /// <summary>
     /// The configuration settings of the GitHub provider.
     /// </summary>
-    public sealed class GitHubArgs : global::Pulumi.ResourceArgs
+    public sealed class GitHubArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;code&gt;false&lt;/code&gt; if the GitHub provider should not be enabled despite the set registration; otherwise, &lt;code&gt;true&lt;/code&gt;.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Web.V20210101.Inputs
         public GitHubArgs()
         {
         }
-        public static new GitHubArgs Empty => new GitHubArgs();
     }
 }

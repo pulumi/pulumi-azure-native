@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
     /// A server DNS alias.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20200202preview:ServerDnsAlias")]
-    public partial class ServerDnsAlias : global::Pulumi.CustomResource
+    public partial class ServerDnsAlias : Pulumi.CustomResource
     {
         /// <summary>
         /// The fully qualified DNS record for alias
@@ -58,16 +58,16 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql:ServerDnsAlias"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20170301preview:ServerDnsAlias"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ServerDnsAlias"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ServerDnsAlias"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ServerDnsAlias"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ServerDnsAlias"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ServerDnsAlias"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:ServerDnsAlias"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ServerDnsAlias"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ServerDnsAlias"},
+                    new Pulumi.Alias { Type = "azure-native:sql:ServerDnsAlias"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20170301preview:ServerDnsAlias"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ServerDnsAlias"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ServerDnsAlias"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ServerDnsAlias"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ServerDnsAlias"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ServerDnsAlias"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101:ServerDnsAlias"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ServerDnsAlias"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ServerDnsAlias"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
         }
     }
 
-    public sealed class ServerDnsAliasArgs : global::Pulumi.ResourceArgs
+    public sealed class ServerDnsAliasArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the server dns alias.
@@ -112,6 +112,5 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
         public ServerDnsAliasArgs()
         {
         }
-        public static new ServerDnsAliasArgs Empty => new ServerDnsAliasArgs();
     }
 }

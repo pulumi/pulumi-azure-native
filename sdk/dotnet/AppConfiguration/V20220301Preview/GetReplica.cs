@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.AppConfiguration.V20220301Preview
     }
 
 
-    public sealed class GetReplicaArgs : global::Pulumi.InvokeArgs
+    public sealed class GetReplicaArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the configuration store.
@@ -48,10 +48,9 @@ namespace Pulumi.AzureNative.AppConfiguration.V20220301Preview
         public GetReplicaArgs()
         {
         }
-        public static new GetReplicaArgs Empty => new GetReplicaArgs();
     }
 
-    public sealed class GetReplicaInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetReplicaInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the configuration store.
@@ -74,7 +73,6 @@ namespace Pulumi.AzureNative.AppConfiguration.V20220301Preview
         public GetReplicaInvokeArgs()
         {
         }
-        public static new GetReplicaInvokeArgs Empty => new GetReplicaInvokeArgs();
     }
 
 

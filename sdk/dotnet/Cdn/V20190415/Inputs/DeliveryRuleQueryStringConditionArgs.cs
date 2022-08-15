@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20190415.Inputs
     /// <summary>
     /// Defines the QueryString condition for the delivery rule.
     /// </summary>
-    public sealed class DeliveryRuleQueryStringConditionArgs : global::Pulumi.ResourceArgs
+    public sealed class DeliveryRuleQueryStringConditionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the condition for the delivery rule.
@@ -31,6 +31,5 @@ namespace Pulumi.AzureNative.Cdn.V20190415.Inputs
         public DeliveryRuleQueryStringConditionArgs()
         {
         }
-        public static new DeliveryRuleQueryStringConditionArgs Empty => new DeliveryRuleQueryStringConditionArgs();
     }
 }

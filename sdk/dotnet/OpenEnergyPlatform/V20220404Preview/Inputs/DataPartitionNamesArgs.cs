@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OpenEnergyPlatform.V20220404Preview.Inputs
     /// <summary>
     /// The list of Energy services resource's Data Partition Names.
     /// </summary>
-    public sealed class DataPartitionNamesArgs : global::Pulumi.ResourceArgs
+    public sealed class DataPartitionNamesArgs : Pulumi.ResourceArgs
     {
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.OpenEnergyPlatform.V20220404Preview.Inputs
         public DataPartitionNamesArgs()
         {
         }
-        public static new DataPartitionNamesArgs Empty => new DataPartitionNamesArgs();
     }
 }

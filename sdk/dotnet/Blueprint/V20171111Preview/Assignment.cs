@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
     /// </summary>
     [Obsolete(@"Version 2017-11-11-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:blueprint/v20171111preview:Assignment")]
-    public partial class Assignment : global::Pulumi.CustomResource
+    public partial class Assignment : Pulumi.CustomResource
     {
         /// <summary>
         /// ID of the Blueprint definition resource.
@@ -131,7 +131,7 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
         }
     }
 
-    public sealed class AssignmentArgs : global::Pulumi.ResourceArgs
+    public sealed class AssignmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// name of the assignment.
@@ -208,6 +208,5 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
         public AssignmentArgs()
         {
         }
-        public static new AssignmentArgs Empty => new AssignmentArgs();
     }
 }

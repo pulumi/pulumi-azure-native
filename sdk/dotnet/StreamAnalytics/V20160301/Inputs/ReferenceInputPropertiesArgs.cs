@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20160301.Inputs
     /// <summary>
     /// The properties that are associated with an input containing reference data.
     /// </summary>
-    public sealed class ReferenceInputPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class ReferenceInputPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes an input data source that contains reference data. Required on PUT (CreateOrReplace) requests.
@@ -37,6 +37,5 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20160301.Inputs
         public ReferenceInputPropertiesArgs()
         {
         }
-        public static new ReferenceInputPropertiesArgs Empty => new ReferenceInputPropertiesArgs();
     }
 }

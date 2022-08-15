@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.MobileNetwork
     }
 
 
-    public sealed class GetSimPolicyArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSimPolicyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the mobile network.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.MobileNetwork
         public GetSimPolicyArgs()
         {
         }
-        public static new GetSimPolicyArgs Empty => new GetSimPolicyArgs();
     }
 
-    public sealed class GetSimPolicyInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSimPolicyInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the mobile network.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.MobileNetwork
         public GetSimPolicyInvokeArgs()
         {
         }
-        public static new GetSimPolicyInvokeArgs Empty => new GetSimPolicyInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.V20200501.Inputs
     /// <summary>
     /// Properties of a migrate project.
     /// </summary>
-    public sealed class MigrateProjectPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class MigrateProjectPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the state of public network access.
@@ -36,6 +36,5 @@ namespace Pulumi.AzureNative.Migrate.V20200501.Inputs
         public MigrateProjectPropertiesArgs()
         {
         }
-        public static new MigrateProjectPropertiesArgs Empty => new MigrateProjectPropertiesArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Automation.V20190601.Inputs
 {
 
-    public sealed class SourceControlSecurityTokenPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class SourceControlSecurityTokenPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access token.
@@ -33,6 +33,5 @@ namespace Pulumi.AzureNative.Automation.V20190601.Inputs
         public SourceControlSecurityTokenPropertiesArgs()
         {
         }
-        public static new SourceControlSecurityTokenPropertiesArgs Empty => new SourceControlSecurityTokenPropertiesArgs();
     }
 }

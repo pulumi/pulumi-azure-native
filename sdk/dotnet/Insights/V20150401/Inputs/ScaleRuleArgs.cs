@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20150401.Inputs
     /// <summary>
     /// A rule that provide the triggers and parameters for the scaling action.
     /// </summary>
-    public sealed class ScaleRuleArgs : global::Pulumi.ResourceArgs
+    public sealed class ScaleRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// the trigger that results in a scaling action.
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Insights.V20150401.Inputs
         public ScaleRuleArgs()
         {
         }
-        public static new ScaleRuleArgs Empty => new ScaleRuleArgs();
     }
 }

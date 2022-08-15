@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
     /// <summary>
     /// User profile to configure on a compute resources such as VM, VMSS
     /// </summary>
-    public sealed class UserProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class UserProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// SSH public key data
@@ -30,6 +30,5 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
         public UserProfileArgs()
         {
         }
-        public static new UserProfileArgs Empty => new UserProfileArgs();
     }
 }

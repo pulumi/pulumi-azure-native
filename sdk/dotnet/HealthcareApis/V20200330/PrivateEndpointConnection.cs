@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20200330
     /// </summary>
     [Obsolete(@"Version 2020-03-30 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:healthcareapis/v20200330:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -71,13 +71,13 @@ namespace Pulumi.AzureNative.HealthcareApis.V20200330
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20210111:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20210601preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220131preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220601:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:healthcareapis:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20210111:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20210601preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20220131preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20220601:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20200330
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the private endpoint connection associated with the Azure resource
@@ -128,6 +128,5 @@ namespace Pulumi.AzureNative.HealthcareApis.V20200330
         public PrivateEndpointConnectionArgs()
         {
         }
-        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

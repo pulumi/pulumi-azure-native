@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
 {
 
-    public sealed class TmpfsOptionsArgs : global::Pulumi.ResourceArgs
+    public sealed class TmpfsOptionsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Mention the Tmpfs size
@@ -21,6 +21,5 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         public TmpfsOptionsArgs()
         {
         }
-        public static new TmpfsOptionsArgs Empty => new TmpfsOptionsArgs();
     }
 }

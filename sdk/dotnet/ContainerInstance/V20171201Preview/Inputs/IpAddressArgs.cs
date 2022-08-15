@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20171201Preview.Inputs
     /// <summary>
     /// IP address for the container group.
     /// </summary>
-    public sealed class IpAddressArgs : global::Pulumi.ResourceArgs
+    public sealed class IpAddressArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IP exposed to the public internet.
@@ -42,6 +42,5 @@ namespace Pulumi.AzureNative.ContainerInstance.V20171201Preview.Inputs
         public IpAddressArgs()
         {
         }
-        public static new IpAddressArgs Empty => new IpAddressArgs();
     }
 }

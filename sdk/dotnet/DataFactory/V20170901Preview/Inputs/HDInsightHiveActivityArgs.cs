@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// HDInsight Hive activity type.
     /// </summary>
-    public sealed class HDInsightHiveActivityArgs : global::Pulumi.ResourceArgs
+    public sealed class HDInsightHiveActivityArgs : Pulumi.ResourceArgs
     {
         [Input("arguments")]
         private InputList<object>? _arguments;
@@ -115,6 +115,5 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public HDInsightHiveActivityArgs()
         {
         }
-        public static new HDInsightHiveActivityArgs Empty => new HDInsightHiveActivityArgs();
     }
 }

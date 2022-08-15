@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.KeyVault
     }
 
 
-    public sealed class GetKeyArgs : global::Pulumi.InvokeArgs
+    public sealed class GetKeyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the key to be retrieved.
@@ -50,10 +50,9 @@ namespace Pulumi.AzureNative.KeyVault
         public GetKeyArgs()
         {
         }
-        public static new GetKeyArgs Empty => new GetKeyArgs();
     }
 
-    public sealed class GetKeyInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetKeyInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the key to be retrieved.
@@ -76,7 +75,6 @@ namespace Pulumi.AzureNative.KeyVault
         public GetKeyInvokeArgs()
         {
         }
-        public static new GetKeyInvokeArgs Empty => new GetKeyInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901.Inputs
     /// <summary>
     /// Defines the parameters for Cookies match conditions
     /// </summary>
-    public sealed class CookiesMatchConditionParametersArgs : global::Pulumi.ResourceArgs
+    public sealed class CookiesMatchConditionParametersArgs : Pulumi.ResourceArgs
     {
         [Input("matchValues")]
         private InputList<string>? _matchValues;
@@ -63,6 +63,5 @@ namespace Pulumi.AzureNative.Cdn.V20200901.Inputs
         public CookiesMatchConditionParametersArgs()
         {
         }
-        public static new CookiesMatchConditionParametersArgs Empty => new CookiesMatchConditionParametersArgs();
     }
 }

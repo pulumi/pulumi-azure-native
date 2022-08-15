@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
     }
 
 
-    public sealed class GetBatchEndpointArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBatchEndpointArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name for the Batch Endpoint.
@@ -42,10 +42,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
         public GetBatchEndpointArgs()
         {
         }
-        public static new GetBatchEndpointArgs Empty => new GetBatchEndpointArgs();
     }
 
-    public sealed class GetBatchEndpointInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetBatchEndpointInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name for the Batch Endpoint.
@@ -68,7 +67,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
         public GetBatchEndpointInvokeArgs()
         {
         }
-        public static new GetBatchEndpointInvokeArgs Empty => new GetBatchEndpointInvokeArgs();
     }
 
 
