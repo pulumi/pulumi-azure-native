@@ -2,6 +2,10 @@
 
 ## HEAD (Unreleased)
 
+## 1.68.1 (2022-08-15)
+
+- Releasing binaries as v1.68.1 due to an issue in v1.68.0 publishing
+
 ## 1.68.0 (2022-08-12)
 
 - Memory usage for most programs is greatly reduced [#1689](https://github.com/pulumi/pulumi-azure-native/pull/1689)
