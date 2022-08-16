@@ -2,6 +2,11 @@
 
 ## HEAD (Unreleased)
 
+## 1.68.2 (2022-08-16)
+
+- Remove go docs from Go SDK. Previously we exceeded the Go SDK limit which caused all go get operations to fail
+  [#1914](https://github.com/pulumi/pulumi-azure-native/pull/1914)
+
 ## 1.68.1 (2022-08-15)
 
 - Releasing binaries as v1.68.1 due to an issue in v1.68.0 publishing
