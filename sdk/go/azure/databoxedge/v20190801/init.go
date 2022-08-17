@@ -1,0 +1,68 @@
+
+
+
+package v20190801
+
+import (
+	"fmt"
+
+	"github.com/blang/semver"
+	"github.com/pulumi/pulumi-azure-native/sdk/go/azure"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type module struct {
+	version semver.Version
+}
+
+func (m *module) Version() semver.Version {
+	return m.version
+}
+
+func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
+	switch typ {
+	case "azure-native:databoxedge/v20190801:BandwidthSchedule":
+		r = &BandwidthSchedule{}
+	case "azure-native:databoxedge/v20190801:Container":
+		r = &Container{}
+	case "azure-native:databoxedge/v20190801:Device":
+		r = &Device{}
+	case "azure-native:databoxedge/v20190801:FileEventTrigger":
+		r = &FileEventTrigger{}
+	case "azure-native:databoxedge/v20190801:IoTRole":
+		r = &IoTRole{}
+	case "azure-native:databoxedge/v20190801:Order":
+		r = &Order{}
+	case "azure-native:databoxedge/v20190801:PeriodicTimerEventTrigger":
+		r = &PeriodicTimerEventTrigger{}
+	case "azure-native:databoxedge/v20190801:Role":
+		r = &Role{}
+	case "azure-native:databoxedge/v20190801:Share":
+		r = &Share{}
+	case "azure-native:databoxedge/v20190801:StorageAccount":
+		r = &StorageAccount{}
+	case "azure-native:databoxedge/v20190801:StorageAccountCredential":
+		r = &StorageAccountCredential{}
+	case "azure-native:databoxedge/v20190801:Trigger":
+		r = &Trigger{}
+	case "azure-native:databoxedge/v20190801:User":
+		r = &User{}
+	default:
+		return nil, fmt.Errorf("unknown resource type: %s", typ)
+	}
+
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
+	return
+}
+
+func init() {
+	version, err := azure.PkgVersion()
+	if err != nil {
+		version = semver.Version{Major: 1}
+	}
+	pulumi.RegisterResourceModule(
+		"azure-native",
+		"databoxedge/v20190801",
+		&module{version},
+	)
+}
