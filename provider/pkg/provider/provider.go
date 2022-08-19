@@ -48,8 +48,6 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-
-	q "github.com/ryboe/q"
 )
 
 const (
@@ -215,7 +213,6 @@ func (k *azureNativeProvider) cloud() cloud.Configuration {
 func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest) (*rpc.InvokeResponse, error) {
 	label := fmt.Sprintf("%s.Invoke(%s)", k.name, req.Tok)
 	logging.V(9).Infof("%s executing", label)
-	q.Q(req.Tok, req.Args)
 
 	args, err := plugin.UnmarshalProperties(req.GetArgs(), plugin.MarshalOptions{
 		Label: fmt.Sprintf("%s.args", label), KeepUnknowns: true, SkipNulls: true, KeepSecrets: true,
@@ -254,10 +251,6 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 			endpoint = endpointArg.StringValue()
 		}
 		token, err := k.getOAuthTokenNew(ctx, auth, endpoint)
-		if err != nil {
-			return nil, err
-		}
-		_, err = k.getOAuthToken(ctx, auth, endpoint)
 		if err != nil {
 			return nil, err
 		}
@@ -1755,8 +1748,6 @@ func (k *azureNativeProvider) getAuthorizers(authConfig *authentication.Config) 
 }
 
 func (k *azureNativeProvider) getOAuthToken(ctx context.Context, auth *authentication.Config, endpoint string) (string, error) {
-	q.Q(auth, endpoint)
-
 	buildSender := sender.BuildSender("AzureNative")
 	oauthConfig, err := auth.BuildOAuthConfig(k.environment.ActiveDirectoryEndpoint)
 	authorizer, err := auth.GetAuthorizationToken(buildSender, oauthConfig, endpoint)
@@ -1782,18 +1773,10 @@ func (k *azureNativeProvider) getOAuthToken(ctx context.Context, auth *authentic
 		return "", fmt.Errorf("empty token from %T", tokenProvider)
 	}
 
-	q.Q("Old token", token[:12])
-
 	return token, nil
 }
 
 func (k *azureNativeProvider) getOAuthTokenNew(ctx context.Context, auth *authentication.Config, endpoint string) (string, error) {
-	// tkappler what about the unused properties of auth?
-	// sub id, environment, endpoint
-
-	q.Q(auth)
-	q.Q(k.environment)
-
 	clientOpts := azcore.ClientOptions{Cloud: k.cloud()}
 
 	// There are several ways to obtain a token. We try, in order: client cert, client secret, managed service
@@ -1867,8 +1850,6 @@ func (k *azureNativeProvider) getOAuthTokenNew(ctx context.Context, auth *authen
 	if err != nil {
 		return "", err
 	}
-
-	q.Q("New token", token.Token[:12])
 
 	return token.Token, nil
 }
