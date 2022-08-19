@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:AwsCloudTrailDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:AwsCloudTrailDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:AwsCloudTrailDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801:AwsCloudTrailDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:AwsCloudTrailDataConnector"},
                 },
             };

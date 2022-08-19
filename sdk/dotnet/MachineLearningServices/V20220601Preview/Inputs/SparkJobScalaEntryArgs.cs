@@ -20,7 +20,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
 
         /// <summary>
         /// 
-        /// Expected value is 'SparkJobPythonEntry'.
+        /// Expected value is 'SparkJobScalaEntry'.
         /// </summary>
         [Input("sparkJobEntryType", required: true)]
         public Input<string> SparkJobEntryType { get; set; } = null!;

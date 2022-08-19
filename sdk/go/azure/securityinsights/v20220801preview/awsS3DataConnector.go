@@ -91,6 +91,9 @@ func NewAwsS3DataConnector(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:securityinsights/v20220701preview:AwsS3DataConnector"),
 		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20220801:AwsS3DataConnector"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AwsS3DataConnector

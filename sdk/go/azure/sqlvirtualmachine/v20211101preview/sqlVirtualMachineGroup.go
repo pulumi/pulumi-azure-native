@@ -51,6 +51,9 @@ func NewSqlVirtualMachineGroup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:sqlvirtualmachine/v20220201preview:SqlVirtualMachineGroup"),
 		},
+		{
+			Type: pulumi.String("azure-native:sqlvirtualmachine/v20220701preview:SqlVirtualMachineGroup"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SqlVirtualMachineGroup

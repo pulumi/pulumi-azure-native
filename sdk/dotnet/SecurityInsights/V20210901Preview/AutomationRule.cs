@@ -121,6 +121,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:AutomationRule"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:AutomationRule"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:AutomationRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801:AutomationRule"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:AutomationRule"},
                 },
             };

@@ -81,6 +81,9 @@ func NewOffice365ProjectDataConnector(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:securityinsights/v20220601preview:Office365ProjectDataConnector"),
 		},
 		{
+			Type: pulumi.String("azure-native:securityinsights/v20220801:Office365ProjectDataConnector"),
+		},
+		{
 			Type: pulumi.String("azure-native:securityinsights/v20220801preview:Office365ProjectDataConnector"),
 		},
 	})

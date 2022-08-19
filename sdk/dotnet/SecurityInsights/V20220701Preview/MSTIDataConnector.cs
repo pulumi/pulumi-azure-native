@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:MSTIDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:MSTIDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:MSTIDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801:MSTIDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:MSTIDataConnector"},
                 },
             };

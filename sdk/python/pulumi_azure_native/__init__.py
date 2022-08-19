@@ -5398,6 +5398,22 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "containerservice/v20220702preview",
+  "fqn": "pulumi_azure_native.containerservice.v20220702preview",
+  "classes": {
+   "azure-native:containerservice/v20220702preview:AgentPool": "AgentPool",
+   "azure-native:containerservice/v20220702preview:Fleet": "Fleet",
+   "azure-native:containerservice/v20220702preview:FleetMember": "FleetMember",
+   "azure-native:containerservice/v20220702preview:MaintenanceConfiguration": "MaintenanceConfiguration",
+   "azure-native:containerservice/v20220702preview:ManagedCluster": "ManagedCluster",
+   "azure-native:containerservice/v20220702preview:ManagedClusterSnapshot": "ManagedClusterSnapshot",
+   "azure-native:containerservice/v20220702preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:containerservice/v20220702preview:Snapshot": "Snapshot",
+   "azure-native:containerservice/v20220702preview:TrustedAccessRoleBinding": "TrustedAccessRoleBinding"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "costmanagement",
   "fqn": "pulumi_azure_native.costmanagement",
   "classes": {
@@ -18158,6 +18174,36 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "securityinsights/v20220801",
+  "fqn": "pulumi_azure_native.securityinsights.v20220801",
+  "classes": {
+   "azure-native:securityinsights/v20220801:AADDataConnector": "AADDataConnector",
+   "azure-native:securityinsights/v20220801:AATPDataConnector": "AATPDataConnector",
+   "azure-native:securityinsights/v20220801:ASCDataConnector": "ASCDataConnector",
+   "azure-native:securityinsights/v20220801:Action": "Action",
+   "azure-native:securityinsights/v20220801:AlertRule": "AlertRule",
+   "azure-native:securityinsights/v20220801:AutomationRule": "AutomationRule",
+   "azure-native:securityinsights/v20220801:AwsCloudTrailDataConnector": "AwsCloudTrailDataConnector",
+   "azure-native:securityinsights/v20220801:Bookmark": "Bookmark",
+   "azure-native:securityinsights/v20220801:DataConnector": "DataConnector",
+   "azure-native:securityinsights/v20220801:FusionAlertRule": "FusionAlertRule",
+   "azure-native:securityinsights/v20220801:Incident": "Incident",
+   "azure-native:securityinsights/v20220801:IncidentComment": "IncidentComment",
+   "azure-native:securityinsights/v20220801:IncidentRelation": "IncidentRelation",
+   "azure-native:securityinsights/v20220801:MCASDataConnector": "MCASDataConnector",
+   "azure-native:securityinsights/v20220801:MDATPDataConnector": "MDATPDataConnector",
+   "azure-native:securityinsights/v20220801:MicrosoftSecurityIncidentCreationAlertRule": "MicrosoftSecurityIncidentCreationAlertRule",
+   "azure-native:securityinsights/v20220801:OfficeDataConnector": "OfficeDataConnector",
+   "azure-native:securityinsights/v20220801:ScheduledAlertRule": "ScheduledAlertRule",
+   "azure-native:securityinsights/v20220801:SentinelOnboardingState": "SentinelOnboardingState",
+   "azure-native:securityinsights/v20220801:TIDataConnector": "TIDataConnector",
+   "azure-native:securityinsights/v20220801:ThreatIntelligenceIndicator": "ThreatIntelligenceIndicator",
+   "azure-native:securityinsights/v20220801:Watchlist": "Watchlist",
+   "azure-native:securityinsights/v20220801:WatchlistItem": "WatchlistItem"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "securityinsights/v20220801preview",
   "fqn": "pulumi_azure_native.securityinsights.v20220801preview",
   "classes": {
@@ -19706,6 +19752,16 @@ _utilities.register(
    "azure-native:sqlvirtualmachine/v20220201preview:AvailabilityGroupListener": "AvailabilityGroupListener",
    "azure-native:sqlvirtualmachine/v20220201preview:SqlVirtualMachine": "SqlVirtualMachine",
    "azure-native:sqlvirtualmachine/v20220201preview:SqlVirtualMachineGroup": "SqlVirtualMachineGroup"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "sqlvirtualmachine/v20220701preview",
+  "fqn": "pulumi_azure_native.sqlvirtualmachine.v20220701preview",
+  "classes": {
+   "azure-native:sqlvirtualmachine/v20220701preview:AvailabilityGroupListener": "AvailabilityGroupListener",
+   "azure-native:sqlvirtualmachine/v20220701preview:SqlVirtualMachine": "SqlVirtualMachine",
+   "azure-native:sqlvirtualmachine/v20220701preview:SqlVirtualMachineGroup": "SqlVirtualMachineGroup"
   }
  },
  {

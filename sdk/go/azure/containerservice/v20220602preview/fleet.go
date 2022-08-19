@@ -34,6 +34,12 @@ func NewFleet(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:containerservice/v20220702preview:Fleet"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Fleet
 	err := ctx.RegisterResource("azure-native:containerservice/v20220602preview:Fleet", name, args, &resource, opts...)
 	if err != nil {

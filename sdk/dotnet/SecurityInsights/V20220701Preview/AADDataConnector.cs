@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:AADDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:AADDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:AADDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801:AADDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:AADDataConnector"},
                 },
             };

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Outputs
         public readonly string ClassName;
         /// <summary>
         /// 
-        /// Expected value is 'SparkJobPythonEntry'.
+        /// Expected value is 'SparkJobScalaEntry'.
         /// </summary>
         public readonly string SparkJobEntryType;
 

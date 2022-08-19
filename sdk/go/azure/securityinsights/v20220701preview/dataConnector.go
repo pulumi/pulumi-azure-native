@@ -73,6 +73,9 @@ func NewDataConnector(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:securityinsights/v20220601preview:DataConnector"),
 		},
 		{
+			Type: pulumi.String("azure-native:securityinsights/v20220801:DataConnector"),
+		},
+		{
 			Type: pulumi.String("azure-native:securityinsights/v20220801preview:DataConnector"),
 		},
 	})

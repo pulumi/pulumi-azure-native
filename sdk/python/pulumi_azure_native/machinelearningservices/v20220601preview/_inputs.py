@@ -16750,10 +16750,10 @@ class SparkJobScalaEntryArgs:
         """
         :param pulumi.Input[str] class_name: [Required] Scala class name used as entry point.
         :param pulumi.Input[str] spark_job_entry_type: 
-               Expected value is 'SparkJobPythonEntry'.
+               Expected value is 'SparkJobScalaEntry'.
         """
         pulumi.set(__self__, "class_name", class_name)
-        pulumi.set(__self__, "spark_job_entry_type", 'SparkJobPythonEntry')
+        pulumi.set(__self__, "spark_job_entry_type", 'SparkJobScalaEntry')
 
     @property
     @pulumi.getter(name="className")
@@ -16772,7 +16772,7 @@ class SparkJobScalaEntryArgs:
     def spark_job_entry_type(self) -> pulumi.Input[str]:
         """
 
-        Expected value is 'SparkJobPythonEntry'.
+        Expected value is 'SparkJobScalaEntry'.
         """
         return pulumi.get(self, "spark_job_entry_type")
 
