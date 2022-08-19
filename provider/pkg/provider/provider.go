@@ -199,14 +199,14 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 
 // Translate between the autorest and the azure-sdk-for-go representation of Azure clouds.
 func (k *azureNativeProvider) cloud() cloud.Configuration {
-	thisCloud := cloud.AzurePublic
-	if k.environment.Name == azure.USGovernmentCloud.Name {
-		thisCloud = cloud.AzureGovernment
-	} else if k.environment.Name == azure.ChinaCloud.Name {
-		thisCloud = cloud.AzureChina
+	switch k.environment.Name {
+	case azure.USGovernmentCloud.Name:
+		return cloud.AzureGovernment
+	case azure.ChinaCloud.Name:
+		return cloud.AzureChina
+	default:
+		return cloud.AzurePublic
 	}
-
-	return thisCloud
 }
 
 // Invoke dynamically executes a built-in function in the provider.
