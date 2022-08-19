@@ -24507,6 +24507,7 @@
       {
         "resourceType": "checkNameAvailability",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-03-01-preview",
           "2022-02-01",
           "2021-02-01-preview"
@@ -24515,6 +24516,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-03-01-preview",
           "2022-02-01",
           "2021-02-01-preview"
@@ -24531,6 +24533,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-03-01-preview",
           "2022-02-01",
           "2021-02-01-preview"
