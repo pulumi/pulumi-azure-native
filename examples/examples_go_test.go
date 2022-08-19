@@ -20,6 +20,15 @@ func TestAccSimpleGo(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestAccAuthGo(t *testing.T) {
+	test := getGoBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "go-auth"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func TestAccAksGo(t *testing.T) {
 	t.Skip("Disabled due to https://github.com/pulumi/pulumi-azure-native/issues/304")
 	test := getGoBaseOptions(t).
