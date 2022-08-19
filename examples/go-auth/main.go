@@ -1,11 +1,11 @@
 package main
 
 import (
-	"log"
+	"fmt"
+	"regexp"
 
 	"github.com/pulumi/pulumi-azure-native/sdk/go/azure/authorization"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	q "github.com/ryboe/q"
 )
 
 func main() {
@@ -15,8 +15,16 @@ func main() {
 			return err
 		}
 
-		log.Println("Got OAuth token: ", tokenResult.Token[:20])
-		q.Q(tokenResult.Token)
+		// Based on the ABNF from RFC 6750:
+		//    1*( ALPHA / DIGIT / "-" / "." / "_" / "~" / "+" / "/" ) *"="
+		tokenLooksValid := regexp.MustCompile(`^[._~+/a-zA-Z0-9-]+=*$`).MatchString(tokenResult.Token)
+		if !tokenLooksValid {
+			token := tokenResult.Token
+			if len(token) > 40 {
+				token = token[:40] + "..."
+			}
+			return fmt.Errorf("Token '%s' does not seem valid", token)
+		}
 
 		return nil
 	})
