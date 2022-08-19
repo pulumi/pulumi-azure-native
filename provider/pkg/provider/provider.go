@@ -43,6 +43,13 @@ import (
 	rpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
+
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
+	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+
+	q "github.com/ryboe/q"
 )
 
 const (
@@ -192,10 +199,23 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	}, nil
 }
 
+// Translate between the autorest and the azure-sdk-for-go representation of Azure clouds.
+func (k *azureNativeProvider) cloud() cloud.Configuration {
+	thisCloud := cloud.AzurePublic
+	if k.environment.Name == azure.USGovernmentCloud.Name {
+		thisCloud = cloud.AzureGovernment
+	} else if k.environment.Name == azure.ChinaCloud.Name {
+		thisCloud = cloud.AzureChina
+	}
+
+	return thisCloud
+}
+
 // Invoke dynamically executes a built-in function in the provider.
 func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest) (*rpc.InvokeResponse, error) {
 	label := fmt.Sprintf("%s.Invoke(%s)", k.name, req.Tok)
 	logging.V(9).Infof("%s executing", label)
+	q.Q(req.Tok, req.Args)
 
 	args, err := plugin.UnmarshalProperties(req.GetArgs(), plugin.MarshalOptions{
 		Label: fmt.Sprintf("%s.args", label), KeepUnknowns: true, SkipNulls: true, KeepSecrets: true,
@@ -233,7 +253,11 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 		if endpointArg := args["endpoint"]; endpointArg.HasValue() && endpointArg.IsString() {
 			endpoint = endpointArg.StringValue()
 		}
-		token, err := k.getOAuthToken(ctx, auth, endpoint)
+		token, err := k.getOAuthTokenNew(ctx, auth, endpoint)
+		if err != nil {
+			return nil, err
+		}
+		_, err = k.getOAuthToken(ctx, auth, endpoint)
 		if err != nil {
 			return nil, err
 		}
@@ -1731,6 +1755,8 @@ func (k *azureNativeProvider) getAuthorizers(authConfig *authentication.Config) 
 }
 
 func (k *azureNativeProvider) getOAuthToken(ctx context.Context, auth *authentication.Config, endpoint string) (string, error) {
+	q.Q(auth, endpoint)
+
 	buildSender := sender.BuildSender("AzureNative")
 	oauthConfig, err := auth.BuildOAuthConfig(k.environment.ActiveDirectoryEndpoint)
 	authorizer, err := auth.GetAuthorizationToken(buildSender, oauthConfig, endpoint)
@@ -1755,7 +1781,96 @@ func (k *azureNativeProvider) getOAuthToken(ctx context.Context, auth *authentic
 	if token == "" {
 		return "", fmt.Errorf("empty token from %T", tokenProvider)
 	}
+
+	q.Q("Old token", token[:12])
+
 	return token, nil
+}
+
+func (k *azureNativeProvider) getOAuthTokenNew(ctx context.Context, auth *authentication.Config, endpoint string) (string, error) {
+	// tkappler what about the unused properties of auth?
+	// sub id, environment, endpoint
+
+	q.Q(auth)
+	q.Q(k.environment)
+
+	clientOpts := azcore.ClientOptions{Cloud: k.cloud()}
+
+	// There are several ways to obtain a token. We try, in order: client cert, client secret, managed service
+	// identity, azure CLI.
+	// Note that as of 08-2022, multitenant auth is not yet supported in azidentity:
+	// https://github.com/Azure/azure-sdk-for-go/issues/17159
+	var credentials []azcore.TokenCredential
+
+	clientCertPath := k.getConfig("clientCertificatePath", "ARM_CLIENT_CERTIFICATE_PATH")
+	if clientCertPath != "" {
+		certData, err := os.ReadFile(clientCertPath)
+		if err != nil {
+			return "", err
+		}
+		// Quoting https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#ParseCertificates:
+		// > ParseCertificates returns these given certificate data in PEM or PKCS12 format. It handles common
+		// > scenarios but has limitations, for example it doesn't load PEM encrypted private keys.
+		// Password is optional, use it if set.
+		var clientCertPassword []byte
+		if clientCertPasswordEnv := k.getConfig("clientCertificatePassword", "ARM_CLIENT_CERTIFICATE_PASSWORD"); clientCertPasswordEnv != "" {
+			clientCertPassword = []byte(clientCertPasswordEnv)
+		}
+		certs, key, err := azidentity.ParseCertificates(certData, clientCertPassword)
+		if err != nil {
+			return "", err
+		}
+		// TODO,tkappler get rid of auth here
+		cred, err := azidentity.NewClientCertificateCredential(auth.TenantID, auth.ClientID, certs, key,
+			&azidentity.ClientCertificateCredentialOptions{ClientOptions: clientOpts})
+		if err != nil {
+			return "", err
+		}
+		credentials = append(credentials, cred)
+	}
+
+	if clientSecret := k.getConfig("clientSecret", "ARM_CLIENT_SECRET"); clientSecret != "" {
+		cred, err := azidentity.NewClientSecretCredential(auth.TenantID, auth.ClientID, clientSecret,
+			&azidentity.ClientSecretCredentialOptions{ClientOptions: clientOpts})
+		if err != nil {
+			return "", err
+		}
+		credentials = append(credentials, cred)
+	}
+
+	if k.getConfig("useMsi", "ARM_USE_MSI") == "true" {
+		cred, err := azidentity.NewManagedIdentityCredential(
+			&azidentity.ManagedIdentityCredentialOptions{ClientOptions: clientOpts})
+		if err != nil {
+			return "", err
+		}
+		credentials = append(credentials, cred)
+	}
+
+	cliCred, err := azidentity.NewAzureCLICredential(nil)
+	if err != nil {
+		return "", err
+	}
+	credentials = append(credentials, cliCred)
+
+	credChain, err := azidentity.NewChainedTokenCredential(credentials, nil)
+	if err != nil {
+		return "", err
+	}
+
+	token, err := credChain.GetToken(ctx, policy.TokenRequestOptions{
+		// Note on backwards compatibility: the previous ADAL solution using
+		// github.com/hashicorp/go-azure-helpers/authentication bottomed out invoking `az account get-access-token`
+		// without the --scope argument, defaulting it to Azure Resource Manager, so this scope should be equivalent.
+		Scopes: []string{k.environment.ResourceManagerEndpoint + "/.default"},
+	})
+	if err != nil {
+		return "", err
+	}
+
+	q.Q("New token", token.Token[:12])
+
+	return token.Token, nil
 }
 
 // getUserAgent returns a User Agent string for the current provider configuration.
