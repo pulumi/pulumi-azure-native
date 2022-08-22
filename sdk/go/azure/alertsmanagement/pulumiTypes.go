@@ -138,6 +138,7 @@ type ConditionResponse struct {
 type Conditions struct {
 	AlertContext       *Condition `pulumi:"alertContext"`
 	AlertRuleId        *Condition `pulumi:"alertRuleId"`
+	AlertRuleName      *Condition `pulumi:"alertRuleName"`
 	Description        *Condition `pulumi:"description"`
 	MonitorCondition   *Condition `pulumi:"monitorCondition"`
 	MonitorService     *Condition `pulumi:"monitorService"`
@@ -148,6 +149,7 @@ type Conditions struct {
 type ConditionsResponse struct {
 	AlertContext       *ConditionResponse `pulumi:"alertContext"`
 	AlertRuleId        *ConditionResponse `pulumi:"alertRuleId"`
+	AlertRuleName      *ConditionResponse `pulumi:"alertRuleName"`
 	Description        *ConditionResponse `pulumi:"description"`
 	MonitorCondition   *ConditionResponse `pulumi:"monitorCondition"`
 	MonitorService     *ConditionResponse `pulumi:"monitorService"`

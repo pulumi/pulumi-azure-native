@@ -20,7 +20,7 @@ __all__ = [
 @pulumi.output_type
 class GetSAPCentralInstanceResult:
     """
-    Define the SAP Central Server Instance.
+    Define the SAP Central Services Instance resource.
     """
     def __init__(__self__, enqueue_replication_server_properties=None, enqueue_server_properties=None, errors=None, gateway_server_properties=None, health=None, id=None, instance_no=None, kernel_patch=None, kernel_version=None, location=None, message_server_properties=None, name=None, provisioning_state=None, status=None, subnet=None, system_data=None, tags=None, type=None, vm_details=None):
         if enqueue_replication_server_properties and not isinstance(enqueue_replication_server_properties, dict):
@@ -85,7 +85,7 @@ class GetSAPCentralInstanceResult:
     @pulumi.getter(name="enqueueReplicationServerProperties")
     def enqueue_replication_server_properties(self) -> Optional['outputs.EnqueueReplicationServerPropertiesResponse']:
         """
-        Defines the SAP ERS Server properties.
+        Defines the SAP Enqueue Replication Server (ERS) properties.
         """
         return pulumi.get(self, "enqueue_replication_server_properties")
 
@@ -93,7 +93,7 @@ class GetSAPCentralInstanceResult:
     @pulumi.getter(name="enqueueServerProperties")
     def enqueue_server_properties(self) -> Optional['outputs.EnqueueServerPropertiesResponse']:
         """
-        Defines the SAP enqueue server properties.
+        Defines the SAP Enqueue Server properties.
         """
         return pulumi.get(self, "enqueue_server_properties")
 
@@ -101,7 +101,7 @@ class GetSAPCentralInstanceResult:
     @pulumi.getter
     def errors(self) -> 'outputs.SAPVirtualInstanceErrorResponse':
         """
-        Defines the Central Instance errors.
+        Defines the errors related to SAP Central Services Instance resource.
         """
         return pulumi.get(self, "errors")
 
@@ -117,7 +117,7 @@ class GetSAPCentralInstanceResult:
     @pulumi.getter
     def health(self) -> str:
         """
-        Defines the SAP Instance health.
+        Defines the health of SAP Instances.
         """
         return pulumi.get(self, "health")
 
@@ -133,7 +133,7 @@ class GetSAPCentralInstanceResult:
     @pulumi.getter(name="instanceNo")
     def instance_no(self) -> str:
         """
-        The central server instance id.
+        The central services instance number.
         """
         return pulumi.get(self, "instance_no")
 
@@ -141,7 +141,7 @@ class GetSAPCentralInstanceResult:
     @pulumi.getter(name="kernelPatch")
     def kernel_patch(self) -> str:
         """
-        The central server kernel patch.
+        The central services instance Kernel Patch level.
         """
         return pulumi.get(self, "kernel_patch")
 
@@ -149,7 +149,7 @@ class GetSAPCentralInstanceResult:
     @pulumi.getter(name="kernelVersion")
     def kernel_version(self) -> str:
         """
-        The central server kernel version.
+        The central services instance Kernel Version.
         """
         return pulumi.get(self, "kernel_version")
 
@@ -165,7 +165,7 @@ class GetSAPCentralInstanceResult:
     @pulumi.getter(name="messageServerProperties")
     def message_server_properties(self) -> Optional['outputs.MessageServerPropertiesResponse']:
         """
-        Defines the SAP message server properties.
+        Defines the SAP Message Server properties.
         """
         return pulumi.get(self, "message_server_properties")
 
@@ -197,7 +197,7 @@ class GetSAPCentralInstanceResult:
     @pulumi.getter
     def subnet(self) -> str:
         """
-        The central server subnet.
+        The central services instance subnet.
         """
         return pulumi.get(self, "subnet")
 
@@ -229,7 +229,7 @@ class GetSAPCentralInstanceResult:
     @pulumi.getter(name="vmDetails")
     def vm_details(self) -> Sequence['outputs.CentralServerVmDetailsResponse']:
         """
-        The list of virtual machines.
+        The list of virtual machines corresponding to the Central Services instance.
         """
         return pulumi.get(self, "vm_details")
 
@@ -266,12 +266,12 @@ def get_sap_central_instance(central_instance_name: Optional[str] = None,
                              sap_virtual_instance_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSAPCentralInstanceResult:
     """
-    Define the SAP Central Server Instance.
+    Define the SAP Central Services Instance resource.
 
 
-    :param str central_instance_name: Central Instance name string modeled as parameter for auto generation to work correctly.
+    :param str central_instance_name: Central Services Instance resource name string modeled as parameter for auto generation to work correctly.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str sap_virtual_instance_name: The name of the Virtual Instances for SAP.
+    :param str sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
     """
     __args__ = dict()
     __args__['centralInstanceName'] = central_instance_name
@@ -308,11 +308,11 @@ def get_sap_central_instance_output(central_instance_name: Optional[pulumi.Input
                                     sap_virtual_instance_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSAPCentralInstanceResult]:
     """
-    Define the SAP Central Server Instance.
+    Define the SAP Central Services Instance resource.
 
 
-    :param str central_instance_name: Central Instance name string modeled as parameter for auto generation to work correctly.
+    :param str central_instance_name: Central Services Instance resource name string modeled as parameter for auto generation to work correctly.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str sap_virtual_instance_name: The name of the Virtual Instances for SAP.
+    :param str sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
     """
     ...

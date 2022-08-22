@@ -778,6 +778,16 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "agfoodplatform/v20210901preview",
+  "fqn": "pulumi_azure_native.agfoodplatform.v20210901preview",
+  "classes": {
+   "azure-native:agfoodplatform/v20210901preview:Extension": "Extension",
+   "azure-native:agfoodplatform/v20210901preview:FarmBeatsModel": "FarmBeatsModel",
+   "azure-native:agfoodplatform/v20210901preview:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "alertsmanagement",
   "fqn": "pulumi_azure_native.alertsmanagement",
   "classes": {
@@ -2219,6 +2229,17 @@ _utilities.register(
   "classes": {
    "azure-native:authorization/v20220401:RoleAssignment": "RoleAssignment",
    "azure-native:authorization/v20220401:RoleDefinition": "RoleDefinition"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "authorization/v20220801preview",
+  "fqn": "pulumi_azure_native.authorization.v20220801preview",
+  "classes": {
+   "azure-native:authorization/v20220801preview:Variable": "Variable",
+   "azure-native:authorization/v20220801preview:VariableAtManagementGroup": "VariableAtManagementGroup",
+   "azure-native:authorization/v20220801preview:VariableValue": "VariableValue",
+   "azure-native:authorization/v20220801preview:VariableValueAtManagementGroup": "VariableValueAtManagementGroup"
   }
  },
  {

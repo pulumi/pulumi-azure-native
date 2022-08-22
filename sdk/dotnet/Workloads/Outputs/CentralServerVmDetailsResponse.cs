@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Workloads.Outputs
 {
 
     /// <summary>
-    /// The Central Server VM Details.
+    /// The SAP Central Services Instance VM details.
     /// </summary>
     [OutputType]
     public sealed class CentralServerVmDetailsResponse

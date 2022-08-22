@@ -11,25 +11,25 @@ namespace Pulumi.AzureNative.Workloads.Outputs
 {
 
     /// <summary>
-    /// Defines the SAP enqueue server properties.
+    /// Defines the SAP Enqueue Server properties.
     /// </summary>
     [OutputType]
     public sealed class EnqueueServerPropertiesResponse
     {
         /// <summary>
-        /// Defines the SAP Instance health.
+        /// Defines the health of SAP Instances.
         /// </summary>
         public readonly string Health;
         /// <summary>
-        /// The enqueue server SAP host name.
+        /// Enqueue Server SAP Hostname.
         /// </summary>
         public readonly string Hostname;
         /// <summary>
-        /// The enqueue server SAP IP Address.
+        /// Enqueue Server SAP IP Address.
         /// </summary>
         public readonly string IpAddress;
         /// <summary>
-        /// The enqueue server Port.
+        /// Enqueue Server Port.
         /// </summary>
         public readonly double Port;
 

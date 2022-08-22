@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
- * Define the SAP Database Instance.
+ * Define the Database resource.
  */
 export class SAPDatabaseInstance extends pulumi.CustomResource {
     /**
@@ -36,19 +36,19 @@ export class SAPDatabaseInstance extends pulumi.CustomResource {
     }
 
     /**
-     * The database SID.
+     * Database SID name.
      */
     public /*out*/ readonly databaseSid!: pulumi.Output<string>;
     /**
-     * The SAP database type.
+     * Database type, that is if the DB is HANA, DB2, Oracle, SAP ASE, Max DB or MS SQL Server.
      */
     public /*out*/ readonly databaseType!: pulumi.Output<string>;
     /**
-     * Defines the Database Instance errors.
+     * Defines the errors related to Database resource.
      */
     public /*out*/ readonly errors!: pulumi.Output<outputs.workloads.v20211201preview.SAPVirtualInstanceErrorResponse>;
     /**
-     * The database IP Address.
+     * Database IP Address.
      */
     public /*out*/ readonly ipAddress!: pulumi.Output<string>;
     /**
@@ -68,7 +68,7 @@ export class SAPDatabaseInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * The database subnet.
+     * Database subnet.
      */
     public /*out*/ readonly subnet!: pulumi.Output<string>;
     /**
@@ -84,7 +84,7 @@ export class SAPDatabaseInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * The list of virtual machines.
+     * The list of virtual machines corresponding to the Database resource.
      */
     public /*out*/ readonly vmDetails!: pulumi.Output<outputs.workloads.v20211201preview.DatabaseVmDetailsResponse[]>;
 
@@ -148,7 +148,7 @@ export class SAPDatabaseInstance extends pulumi.CustomResource {
  */
 export interface SAPDatabaseInstanceArgs {
     /**
-     * Database Instance string modeled as parameter for auto generation to work correctly.
+     * Database resource name string modeled as parameter for auto generation to work correctly.
      */
     databaseInstanceName?: pulumi.Input<string>;
     /**
@@ -160,7 +160,7 @@ export interface SAPDatabaseInstanceArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the Virtual Instances for SAP.
+     * The name of the Virtual Instances for SAP solutions resource
      */
     sapVirtualInstanceName: pulumi.Input<string>;
     /**

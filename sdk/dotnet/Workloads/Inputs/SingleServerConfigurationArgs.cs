@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Workloads.Inputs
         public InputUnion<string, Pulumi.AzureNative.Workloads.SAPDatabaseType>? DatabaseType { get; set; }
 
         /// <summary>
-        /// The deployment Type.
+        /// The type of SAP deployment, single server or Three tier.
         /// Expected value is 'SingleServer'.
         /// </summary>
         [Input("deploymentType", required: true)]

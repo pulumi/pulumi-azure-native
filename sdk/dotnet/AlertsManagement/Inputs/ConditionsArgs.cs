@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.AlertsManagement.Inputs
         public Input<Inputs.ConditionArgs>? AlertRuleId { get; set; }
 
         /// <summary>
+        /// filter alerts by alert rule name
+        /// </summary>
+        [Input("alertRuleName")]
+        public Input<Inputs.ConditionArgs>? AlertRuleName { get; set; }
+
+        /// <summary>
         /// filter alerts by alert rule description
         /// </summary>
         [Input("description")]

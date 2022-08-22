@@ -20,7 +20,7 @@ __all__ = [
 @pulumi.output_type
 class GetSAPDatabaseInstanceResult:
     """
-    Define the SAP Database Instance.
+    Define the Database resource.
     """
     def __init__(__self__, database_sid=None, database_type=None, errors=None, id=None, ip_address=None, location=None, name=None, provisioning_state=None, status=None, subnet=None, system_data=None, tags=None, type=None, vm_details=None):
         if database_sid and not isinstance(database_sid, str):
@@ -70,7 +70,7 @@ class GetSAPDatabaseInstanceResult:
     @pulumi.getter(name="databaseSid")
     def database_sid(self) -> str:
         """
-        The database SID.
+        Database SID name.
         """
         return pulumi.get(self, "database_sid")
 
@@ -78,7 +78,7 @@ class GetSAPDatabaseInstanceResult:
     @pulumi.getter(name="databaseType")
     def database_type(self) -> str:
         """
-        The SAP database type.
+        Database type, that is if the DB is HANA, DB2, Oracle, SAP ASE, Max DB or MS SQL Server.
         """
         return pulumi.get(self, "database_type")
 
@@ -86,7 +86,7 @@ class GetSAPDatabaseInstanceResult:
     @pulumi.getter
     def errors(self) -> 'outputs.SAPVirtualInstanceErrorResponse':
         """
-        Defines the Database Instance errors.
+        Defines the errors related to Database resource.
         """
         return pulumi.get(self, "errors")
 
@@ -102,7 +102,7 @@ class GetSAPDatabaseInstanceResult:
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> str:
         """
-        The database IP Address.
+        Database IP Address.
         """
         return pulumi.get(self, "ip_address")
 
@@ -142,7 +142,7 @@ class GetSAPDatabaseInstanceResult:
     @pulumi.getter
     def subnet(self) -> str:
         """
-        The database subnet.
+        Database subnet.
         """
         return pulumi.get(self, "subnet")
 
@@ -174,7 +174,7 @@ class GetSAPDatabaseInstanceResult:
     @pulumi.getter(name="vmDetails")
     def vm_details(self) -> Sequence['outputs.DatabaseVmDetailsResponse']:
         """
-        The list of virtual machines.
+        The list of virtual machines corresponding to the Database resource.
         """
         return pulumi.get(self, "vm_details")
 
@@ -206,12 +206,12 @@ def get_sap_database_instance(database_instance_name: Optional[str] = None,
                               sap_virtual_instance_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSAPDatabaseInstanceResult:
     """
-    Define the SAP Database Instance.
+    Define the Database resource.
 
 
-    :param str database_instance_name: Database Instance string modeled as parameter for auto generation to work correctly.
+    :param str database_instance_name: Database resource name string modeled as parameter for auto generation to work correctly.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str sap_virtual_instance_name: The name of the Virtual Instances for SAP.
+    :param str sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
     """
     __args__ = dict()
     __args__['databaseInstanceName'] = database_instance_name
@@ -243,11 +243,11 @@ def get_sap_database_instance_output(database_instance_name: Optional[pulumi.Inp
                                      sap_virtual_instance_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSAPDatabaseInstanceResult]:
     """
-    Define the SAP Database Instance.
+    Define the Database resource.
 
 
-    :param str database_instance_name: Database Instance string modeled as parameter for auto generation to work correctly.
+    :param str database_instance_name: Database resource name string modeled as parameter for auto generation to work correctly.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str sap_virtual_instance_name: The name of the Virtual Instances for SAP.
+    :param str sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
     """
     ...

@@ -42,6 +42,9 @@ func NewExtension(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:agfoodplatform/v20200512preview:Extension"),
 		},
+		{
+			Type: pulumi.String("azure-native:agfoodplatform/v20210901preview:Extension"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Extension

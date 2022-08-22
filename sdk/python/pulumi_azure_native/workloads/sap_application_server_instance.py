@@ -23,8 +23,8 @@ class SAPApplicationServerInstanceArgs:
         """
         The set of arguments for constructing a SAPApplicationServerInstance resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] sap_virtual_instance_name: The name of the Virtual Instances for SAP.
-        :param pulumi.Input[str] application_instance_name: The name of SAP Application Server instance.
+        :param pulumi.Input[str] sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
+        :param pulumi.Input[str] application_instance_name: The name of SAP Application Server instance resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -53,7 +53,7 @@ class SAPApplicationServerInstanceArgs:
     @pulumi.getter(name="sapVirtualInstanceName")
     def sap_virtual_instance_name(self) -> pulumi.Input[str]:
         """
-        The name of the Virtual Instances for SAP.
+        The name of the Virtual Instances for SAP solutions resource
         """
         return pulumi.get(self, "sap_virtual_instance_name")
 
@@ -65,7 +65,7 @@ class SAPApplicationServerInstanceArgs:
     @pulumi.getter(name="applicationInstanceName")
     def application_instance_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of SAP Application Server instance.
+        The name of SAP Application Server instance resource.
         """
         return pulumi.get(self, "application_instance_name")
 
@@ -110,15 +110,15 @@ class SAPApplicationServerInstance(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Define the SAP Application Server Instance.
+        Define the SAP Application Server Instance resource.
         API Version: 2021-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] application_instance_name: The name of SAP Application Server instance.
+        :param pulumi.Input[str] application_instance_name: The name of SAP Application Server instance resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] sap_virtual_instance_name: The name of the Virtual Instances for SAP.
+        :param pulumi.Input[str] sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -128,7 +128,7 @@ class SAPApplicationServerInstance(pulumi.CustomResource):
                  args: SAPApplicationServerInstanceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Define the SAP Application Server Instance.
+        Define the SAP Application Server Instance resource.
         API Version: 2021-12-01-preview.
 
         :param str resource_name: The name of the resource.
@@ -243,7 +243,7 @@ class SAPApplicationServerInstance(pulumi.CustomResource):
     @pulumi.getter(name="gatewayPort")
     def gateway_port(self) -> pulumi.Output[float]:
         """
-        The application server gateway Port.
+        Application server instance gateway Port.
         """
         return pulumi.get(self, "gateway_port")
 
@@ -251,7 +251,7 @@ class SAPApplicationServerInstance(pulumi.CustomResource):
     @pulumi.getter
     def health(self) -> pulumi.Output[str]:
         """
-        Defines the SAP Instance health.
+        Defines the health of SAP Instances.
         """
         return pulumi.get(self, "health")
 
@@ -259,7 +259,7 @@ class SAPApplicationServerInstance(pulumi.CustomResource):
     @pulumi.getter
     def hostname(self) -> pulumi.Output[str]:
         """
-        The application server SAP host name.
+        Application server instance SAP hostname.
         """
         return pulumi.get(self, "hostname")
 
@@ -267,7 +267,7 @@ class SAPApplicationServerInstance(pulumi.CustomResource):
     @pulumi.getter(name="icmHttpPort")
     def icm_http_port(self) -> pulumi.Output[float]:
         """
-        The application server ICM HTTP Port.
+        Application server instance ICM HTTP Port.
         """
         return pulumi.get(self, "icm_http_port")
 
@@ -275,7 +275,7 @@ class SAPApplicationServerInstance(pulumi.CustomResource):
     @pulumi.getter(name="icmHttpsPort")
     def icm_https_port(self) -> pulumi.Output[float]:
         """
-        The application server ICM HTTPS Port.
+        Application server instance ICM HTTPS Port.
         """
         return pulumi.get(self, "icm_https_port")
 
@@ -283,7 +283,7 @@ class SAPApplicationServerInstance(pulumi.CustomResource):
     @pulumi.getter(name="instanceNo")
     def instance_no(self) -> pulumi.Output[str]:
         """
-        The application server instance id.
+        Application server Instance Number.
         """
         return pulumi.get(self, "instance_no")
 
@@ -291,7 +291,7 @@ class SAPApplicationServerInstance(pulumi.CustomResource):
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> pulumi.Output[str]:
         """
-        The application server SAP IP Address.
+         Application server instance SAP IP Address.
         """
         return pulumi.get(self, "ip_address")
 
@@ -299,7 +299,7 @@ class SAPApplicationServerInstance(pulumi.CustomResource):
     @pulumi.getter(name="kernelPatch")
     def kernel_patch(self) -> pulumi.Output[str]:
         """
-        The application server SAP kernel patch.
+        Application server instance SAP Kernel Patch level.
         """
         return pulumi.get(self, "kernel_patch")
 
@@ -307,7 +307,7 @@ class SAPApplicationServerInstance(pulumi.CustomResource):
     @pulumi.getter(name="kernelVersion")
     def kernel_version(self) -> pulumi.Output[str]:
         """
-        The application server SAP kernel version.
+         Application server instance SAP Kernel Version.
         """
         return pulumi.get(self, "kernel_version")
 
@@ -347,7 +347,7 @@ class SAPApplicationServerInstance(pulumi.CustomResource):
     @pulumi.getter
     def subnet(self) -> pulumi.Output[str]:
         """
-        The application server subnet.
+        Application server Subnet.
         """
         return pulumi.get(self, "subnet")
 

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Workloads
     public static class GetSAPDatabaseInstance
     {
         /// <summary>
-        /// Define the SAP Database Instance.
+        /// Define the Database resource.
         /// API Version: 2021-12-01-preview.
         /// </summary>
         public static Task<GetSAPDatabaseInstanceResult> InvokeAsync(GetSAPDatabaseInstanceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSAPDatabaseInstanceResult>("azure-native:workloads:getSAPDatabaseInstance", args ?? new GetSAPDatabaseInstanceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Define the SAP Database Instance.
+        /// Define the Database resource.
         /// API Version: 2021-12-01-preview.
         /// </summary>
         public static Output<GetSAPDatabaseInstanceResult> Invoke(GetSAPDatabaseInstanceInvokeArgs args, InvokeOptions? options = null)
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.Workloads
     public sealed class GetSAPDatabaseInstanceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Database Instance string modeled as parameter for auto generation to work correctly.
+        /// Database resource name string modeled as parameter for auto generation to work correctly.
         /// </summary>
         [Input("databaseInstanceName", required: true)]
         public string DatabaseInstanceName { get; set; } = null!;
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNative.Workloads
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Virtual Instances for SAP.
+        /// The name of the Virtual Instances for SAP solutions resource
         /// </summary>
         [Input("sapVirtualInstanceName", required: true)]
         public string SapVirtualInstanceName { get; set; } = null!;
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.Workloads
     public sealed class GetSAPDatabaseInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Database Instance string modeled as parameter for auto generation to work correctly.
+        /// Database resource name string modeled as parameter for auto generation to work correctly.
         /// </summary>
         [Input("databaseInstanceName", required: true)]
         public Input<string> DatabaseInstanceName { get; set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.Workloads
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Virtual Instances for SAP.
+        /// The name of the Virtual Instances for SAP solutions resource
         /// </summary>
         [Input("sapVirtualInstanceName", required: true)]
         public Input<string> SapVirtualInstanceName { get; set; } = null!;
@@ -84,15 +84,15 @@ namespace Pulumi.AzureNative.Workloads
     public sealed class GetSAPDatabaseInstanceResult
     {
         /// <summary>
-        /// The database SID.
+        /// Database SID name.
         /// </summary>
         public readonly string DatabaseSid;
         /// <summary>
-        /// The SAP database type.
+        /// Database type, that is if the DB is HANA, DB2, Oracle, SAP ASE, Max DB or MS SQL Server.
         /// </summary>
         public readonly string DatabaseType;
         /// <summary>
-        /// Defines the Database Instance errors.
+        /// Defines the errors related to Database resource.
         /// </summary>
         public readonly Outputs.SAPVirtualInstanceErrorResponse Errors;
         /// <summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.Workloads
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The database IP Address.
+        /// Database IP Address.
         /// </summary>
         public readonly string IpAddress;
         /// <summary>
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.Workloads
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// The database subnet.
+        /// Database subnet.
         /// </summary>
         public readonly string Subnet;
         /// <summary>
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.Workloads
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The list of virtual machines.
+        /// The list of virtual machines corresponding to the Database resource.
         /// </summary>
         public readonly ImmutableArray<Outputs.DatabaseVmDetailsResponse> VmDetails;
 

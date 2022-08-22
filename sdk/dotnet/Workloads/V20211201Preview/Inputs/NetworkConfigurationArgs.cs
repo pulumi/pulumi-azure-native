@@ -11,12 +11,12 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
 {
 
     /// <summary>
-    /// Defines the network configuration for SAP infrastructure
+    /// Defines the network configuration type for SAP system infrastructure that is being deployed 
     /// </summary>
     public sealed class NetworkConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether a secondary IP address should be added to the network interface on all VMs
+        /// Specifies whether a secondary IP address should be added to the network interface on all VMs of the SAP system being deployed
         /// </summary>
         [Input("isSecondaryIpEnabled")]
         public Input<bool>? IsSecondaryIpEnabled { get; set; }

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Workloads.Outputs
 {
 
     /// <summary>
-    /// Defines the SAP ERS Server properties.
+    /// Defines the SAP Enqueue Replication Server (ERS) properties.
     /// </summary>
     [OutputType]
     public sealed class EnqueueReplicationServerPropertiesResponse
@@ -21,27 +21,27 @@ namespace Pulumi.AzureNative.Workloads.Outputs
         /// </summary>
         public readonly string ErsVersion;
         /// <summary>
-        /// Defines the SAP Instance health.
+        /// Defines the health of SAP Instances.
         /// </summary>
         public readonly string Health;
         /// <summary>
-        /// The ERS server SAP host name.
+        /// ERS SAP Hostname.
         /// </summary>
         public readonly string Hostname;
         /// <summary>
-        /// The ERS server instance id.
+        /// ERS Instance Number.
         /// </summary>
         public readonly string InstanceNo;
         /// <summary>
-        /// The ERS server SAP IP Address.
+        /// ERS SAP IP Address.
         /// </summary>
         public readonly string IpAddress;
         /// <summary>
-        /// The ERS server SAP kernel patch.
+        /// ERS SAP Kernel Patch level.
         /// </summary>
         public readonly string KernelPatch;
         /// <summary>
-        /// The ERS server SAP kernel version.
+        /// ERS SAP Kernel Version.
         /// </summary>
         public readonly string KernelVersion;
 

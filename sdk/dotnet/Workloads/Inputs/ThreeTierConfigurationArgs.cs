@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.Workloads.Inputs
         public Input<Inputs.DatabaseConfigurationArgs> DatabaseServer { get; set; } = null!;
 
         /// <summary>
-        /// The deployment Type.
+        /// The type of SAP deployment, single server or Three tier.
         /// Expected value is 'ThreeTier'.
         /// </summary>
         [Input("deploymentType", required: true)]

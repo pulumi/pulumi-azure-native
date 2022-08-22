@@ -23,8 +23,8 @@ class SAPDatabaseInstanceArgs:
         """
         The set of arguments for constructing a SAPDatabaseInstance resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] sap_virtual_instance_name: The name of the Virtual Instances for SAP.
-        :param pulumi.Input[str] database_instance_name: Database Instance string modeled as parameter for auto generation to work correctly.
+        :param pulumi.Input[str] sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
+        :param pulumi.Input[str] database_instance_name: Database resource name string modeled as parameter for auto generation to work correctly.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -53,7 +53,7 @@ class SAPDatabaseInstanceArgs:
     @pulumi.getter(name="sapVirtualInstanceName")
     def sap_virtual_instance_name(self) -> pulumi.Input[str]:
         """
-        The name of the Virtual Instances for SAP.
+        The name of the Virtual Instances for SAP solutions resource
         """
         return pulumi.get(self, "sap_virtual_instance_name")
 
@@ -65,7 +65,7 @@ class SAPDatabaseInstanceArgs:
     @pulumi.getter(name="databaseInstanceName")
     def database_instance_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Database Instance string modeled as parameter for auto generation to work correctly.
+        Database resource name string modeled as parameter for auto generation to work correctly.
         """
         return pulumi.get(self, "database_instance_name")
 
@@ -110,14 +110,14 @@ class SAPDatabaseInstance(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Define the SAP Database Instance.
+        Define the Database resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] database_instance_name: Database Instance string modeled as parameter for auto generation to work correctly.
+        :param pulumi.Input[str] database_instance_name: Database resource name string modeled as parameter for auto generation to work correctly.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] sap_virtual_instance_name: The name of the Virtual Instances for SAP.
+        :param pulumi.Input[str] sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -127,7 +127,7 @@ class SAPDatabaseInstance(pulumi.CustomResource):
                  args: SAPDatabaseInstanceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Define the SAP Database Instance.
+        Define the Database resource.
 
         :param str resource_name: The name of the resource.
         :param SAPDatabaseInstanceArgs args: The arguments to use to populate this resource's properties.
@@ -221,7 +221,7 @@ class SAPDatabaseInstance(pulumi.CustomResource):
     @pulumi.getter(name="databaseSid")
     def database_sid(self) -> pulumi.Output[str]:
         """
-        The database SID.
+        Database SID name.
         """
         return pulumi.get(self, "database_sid")
 
@@ -229,7 +229,7 @@ class SAPDatabaseInstance(pulumi.CustomResource):
     @pulumi.getter(name="databaseType")
     def database_type(self) -> pulumi.Output[str]:
         """
-        The SAP database type.
+        Database type, that is if the DB is HANA, DB2, Oracle, SAP ASE, Max DB or MS SQL Server.
         """
         return pulumi.get(self, "database_type")
 
@@ -237,7 +237,7 @@ class SAPDatabaseInstance(pulumi.CustomResource):
     @pulumi.getter
     def errors(self) -> pulumi.Output['outputs.SAPVirtualInstanceErrorResponse']:
         """
-        Defines the Database Instance errors.
+        Defines the errors related to Database resource.
         """
         return pulumi.get(self, "errors")
 
@@ -245,7 +245,7 @@ class SAPDatabaseInstance(pulumi.CustomResource):
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> pulumi.Output[str]:
         """
-        The database IP Address.
+        Database IP Address.
         """
         return pulumi.get(self, "ip_address")
 
@@ -285,7 +285,7 @@ class SAPDatabaseInstance(pulumi.CustomResource):
     @pulumi.getter
     def subnet(self) -> pulumi.Output[str]:
         """
-        The database subnet.
+        Database subnet.
         """
         return pulumi.get(self, "subnet")
 
@@ -317,7 +317,7 @@ class SAPDatabaseInstance(pulumi.CustomResource):
     @pulumi.getter(name="vmDetails")
     def vm_details(self) -> pulumi.Output[Sequence['outputs.DatabaseVmDetailsResponse']]:
         """
-        The list of virtual machines.
+        The list of virtual machines corresponding to the Database resource.
         """
         return pulumi.get(self, "vm_details")
 

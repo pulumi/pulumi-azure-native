@@ -11,37 +11,37 @@ namespace Pulumi.AzureNative.Workloads.Outputs
 {
 
     /// <summary>
-    /// Defines the SAP message server properties.
+    /// Defines the SAP Message Server properties.
     /// </summary>
     [OutputType]
     public sealed class MessageServerPropertiesResponse
     {
         /// <summary>
-        /// Defines the SAP Instance health.
+        /// Defines the health of SAP Instances.
         /// </summary>
         public readonly string Health;
         /// <summary>
-        /// The message server SAP host name.
+        /// Message Server SAP Hostname.
         /// </summary>
         public readonly string Hostname;
         /// <summary>
-        /// The message server http port.
+        /// Message Server HTTP Port.
         /// </summary>
         public readonly double HttpPort;
         /// <summary>
-        /// The message server https port.
+        /// Message Server HTTPS Port.
         /// </summary>
         public readonly double HttpsPort;
         /// <summary>
-        /// The message server internal MS port.
+        /// Message Server internal MS port.
         /// </summary>
         public readonly double InternalMsPort;
         /// <summary>
-        /// The message server IP Address.
+        /// Message server IP Address.
         /// </summary>
         public readonly string IpAddress;
         /// <summary>
-        /// The message server port.
+        /// Message Server port.
         /// </summary>
         public readonly double MsPort;
 

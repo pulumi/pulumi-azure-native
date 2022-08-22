@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.AlertsManagement.V20190505Preview.Outputs
         /// </summary>
         public readonly Outputs.ConditionResponse? AlertRuleId;
         /// <summary>
+        /// filter alerts by alert rule name
+        /// </summary>
+        public readonly Outputs.ConditionResponse? AlertRuleName;
+        /// <summary>
         /// filter alerts by alert rule description
         /// </summary>
         public readonly Outputs.ConditionResponse? Description;
@@ -51,6 +55,8 @@ namespace Pulumi.AzureNative.AlertsManagement.V20190505Preview.Outputs
 
             Outputs.ConditionResponse? alertRuleId,
 
+            Outputs.ConditionResponse? alertRuleName,
+
             Outputs.ConditionResponse? description,
 
             Outputs.ConditionResponse? monitorCondition,
@@ -63,6 +69,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20190505Preview.Outputs
         {
             AlertContext = alertContext;
             AlertRuleId = alertRuleId;
+            AlertRuleName = alertRuleName;
             Description = description;
             MonitorCondition = monitorCondition;
             MonitorService = monitorService;

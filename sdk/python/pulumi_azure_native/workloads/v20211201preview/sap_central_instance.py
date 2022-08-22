@@ -23,8 +23,8 @@ class SAPCentralInstanceArgs:
         """
         The set of arguments for constructing a SAPCentralInstance resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] sap_virtual_instance_name: The name of the Virtual Instances for SAP.
-        :param pulumi.Input[str] central_instance_name: Central Instance name string modeled as parameter for auto generation to work correctly.
+        :param pulumi.Input[str] sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
+        :param pulumi.Input[str] central_instance_name: Central Services Instance resource name string modeled as parameter for auto generation to work correctly.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -53,7 +53,7 @@ class SAPCentralInstanceArgs:
     @pulumi.getter(name="sapVirtualInstanceName")
     def sap_virtual_instance_name(self) -> pulumi.Input[str]:
         """
-        The name of the Virtual Instances for SAP.
+        The name of the Virtual Instances for SAP solutions resource
         """
         return pulumi.get(self, "sap_virtual_instance_name")
 
@@ -65,7 +65,7 @@ class SAPCentralInstanceArgs:
     @pulumi.getter(name="centralInstanceName")
     def central_instance_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Central Instance name string modeled as parameter for auto generation to work correctly.
+        Central Services Instance resource name string modeled as parameter for auto generation to work correctly.
         """
         return pulumi.get(self, "central_instance_name")
 
@@ -110,14 +110,14 @@ class SAPCentralInstance(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Define the SAP Central Server Instance.
+        Define the SAP Central Services Instance resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] central_instance_name: Central Instance name string modeled as parameter for auto generation to work correctly.
+        :param pulumi.Input[str] central_instance_name: Central Services Instance resource name string modeled as parameter for auto generation to work correctly.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] sap_virtual_instance_name: The name of the Virtual Instances for SAP.
+        :param pulumi.Input[str] sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -127,7 +127,7 @@ class SAPCentralInstance(pulumi.CustomResource):
                  args: SAPCentralInstanceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Define the SAP Central Server Instance.
+        Define the SAP Central Services Instance resource.
 
         :param str resource_name: The name of the resource.
         :param SAPCentralInstanceArgs args: The arguments to use to populate this resource's properties.
@@ -231,7 +231,7 @@ class SAPCentralInstance(pulumi.CustomResource):
     @pulumi.getter(name="enqueueReplicationServerProperties")
     def enqueue_replication_server_properties(self) -> pulumi.Output[Optional['outputs.EnqueueReplicationServerPropertiesResponse']]:
         """
-        Defines the SAP ERS Server properties.
+        Defines the SAP Enqueue Replication Server (ERS) properties.
         """
         return pulumi.get(self, "enqueue_replication_server_properties")
 
@@ -239,7 +239,7 @@ class SAPCentralInstance(pulumi.CustomResource):
     @pulumi.getter(name="enqueueServerProperties")
     def enqueue_server_properties(self) -> pulumi.Output[Optional['outputs.EnqueueServerPropertiesResponse']]:
         """
-        Defines the SAP enqueue server properties.
+        Defines the SAP Enqueue Server properties.
         """
         return pulumi.get(self, "enqueue_server_properties")
 
@@ -247,7 +247,7 @@ class SAPCentralInstance(pulumi.CustomResource):
     @pulumi.getter
     def errors(self) -> pulumi.Output['outputs.SAPVirtualInstanceErrorResponse']:
         """
-        Defines the Central Instance errors.
+        Defines the errors related to SAP Central Services Instance resource.
         """
         return pulumi.get(self, "errors")
 
@@ -263,7 +263,7 @@ class SAPCentralInstance(pulumi.CustomResource):
     @pulumi.getter
     def health(self) -> pulumi.Output[str]:
         """
-        Defines the SAP Instance health.
+        Defines the health of SAP Instances.
         """
         return pulumi.get(self, "health")
 
@@ -271,7 +271,7 @@ class SAPCentralInstance(pulumi.CustomResource):
     @pulumi.getter(name="instanceNo")
     def instance_no(self) -> pulumi.Output[str]:
         """
-        The central server instance id.
+        The central services instance number.
         """
         return pulumi.get(self, "instance_no")
 
@@ -279,7 +279,7 @@ class SAPCentralInstance(pulumi.CustomResource):
     @pulumi.getter(name="kernelPatch")
     def kernel_patch(self) -> pulumi.Output[str]:
         """
-        The central server kernel patch.
+        The central services instance Kernel Patch level.
         """
         return pulumi.get(self, "kernel_patch")
 
@@ -287,7 +287,7 @@ class SAPCentralInstance(pulumi.CustomResource):
     @pulumi.getter(name="kernelVersion")
     def kernel_version(self) -> pulumi.Output[str]:
         """
-        The central server kernel version.
+        The central services instance Kernel Version.
         """
         return pulumi.get(self, "kernel_version")
 
@@ -303,7 +303,7 @@ class SAPCentralInstance(pulumi.CustomResource):
     @pulumi.getter(name="messageServerProperties")
     def message_server_properties(self) -> pulumi.Output[Optional['outputs.MessageServerPropertiesResponse']]:
         """
-        Defines the SAP message server properties.
+        Defines the SAP Message Server properties.
         """
         return pulumi.get(self, "message_server_properties")
 
@@ -335,7 +335,7 @@ class SAPCentralInstance(pulumi.CustomResource):
     @pulumi.getter
     def subnet(self) -> pulumi.Output[str]:
         """
-        The central server subnet.
+        The central services instance subnet.
         """
         return pulumi.get(self, "subnet")
 
@@ -367,7 +367,7 @@ class SAPCentralInstance(pulumi.CustomResource):
     @pulumi.getter(name="vmDetails")
     def vm_details(self) -> pulumi.Output[Sequence['outputs.CentralServerVmDetailsResponse']]:
         """
-        The list of virtual machines.
+        The list of virtual machines corresponding to the Central Services instance.
         """
         return pulumi.get(self, "vm_details")
 

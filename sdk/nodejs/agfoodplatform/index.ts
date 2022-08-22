@@ -12,9 +12,11 @@ export * from "./getFarmBeatsModel";
 
 // Export sub-modules:
 import * as v20200512preview from "./v20200512preview";
+import * as v20210901preview from "./v20210901preview";
 
 export {
     v20200512preview,
+    v20210901preview,
 };
 
 // Import resources to register:

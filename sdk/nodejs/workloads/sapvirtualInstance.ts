@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Define the Virtual Instance for SAP.
+ * Define the Virtual Instance for SAP solutions resource.
  * API Version: 2021-12-01-preview.
  */
 export class SAPVirtualInstance extends pulumi.CustomResource {
@@ -37,7 +37,7 @@ export class SAPVirtualInstance extends pulumi.CustomResource {
     }
 
     /**
-     * Defines if an existing SAP system is being registered or a new SAP system is being created
+     * Defines if the SAP system is being created using Azure Center for SAP solutions (ACSS) or if an existing SAP system is being registered with ACSS
      */
     public readonly configuration!: pulumi.Output<outputs.workloads.DeploymentConfigurationResponse | outputs.workloads.DeploymentWithOSConfigurationResponse | outputs.workloads.DiscoveryConfigurationResponse>;
     /**
@@ -45,11 +45,11 @@ export class SAPVirtualInstance extends pulumi.CustomResource {
      */
     public readonly environment!: pulumi.Output<string>;
     /**
-     * Defines the Virtual Instance for SAP errors.
+     * Indicates any errors on the Virtual Instance for SAP solutions resource.
      */
     public /*out*/ readonly errors!: pulumi.Output<outputs.workloads.SAPVirtualInstanceErrorResponse>;
     /**
-     * Defines the SAP Instance health.
+     * Defines the health of SAP Instances.
      */
     public /*out*/ readonly health!: pulumi.Output<string>;
     /**
@@ -166,7 +166,7 @@ export class SAPVirtualInstance extends pulumi.CustomResource {
  */
 export interface SAPVirtualInstanceArgs {
     /**
-     * Defines if an existing SAP system is being registered or a new SAP system is being created
+     * Defines if the SAP system is being created using Azure Center for SAP solutions (ACSS) or if an existing SAP system is being registered with ACSS
      */
     configuration: pulumi.Input<inputs.workloads.DeploymentConfigurationArgs | inputs.workloads.DeploymentWithOSConfigurationArgs | inputs.workloads.DiscoveryConfigurationArgs>;
     /**
@@ -194,7 +194,7 @@ export interface SAPVirtualInstanceArgs {
      */
     sapProduct: pulumi.Input<string | enums.workloads.SAPProductType>;
     /**
-     * The name of the Virtual Instances for SAP.
+     * The name of the Virtual Instances for SAP solutions resource
      */
     sapVirtualInstanceName?: pulumi.Input<string>;
     /**

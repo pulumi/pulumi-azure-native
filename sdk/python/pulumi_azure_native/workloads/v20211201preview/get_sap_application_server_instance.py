@@ -20,7 +20,7 @@ __all__ = [
 @pulumi.output_type
 class GetSAPApplicationServerInstanceResult:
     """
-    Define the SAP Application Server Instance.
+    Define the SAP Application Server Instance resource.
     """
     def __init__(__self__, errors=None, gateway_port=None, health=None, hostname=None, icm_http_port=None, icm_https_port=None, id=None, instance_no=None, ip_address=None, kernel_patch=None, kernel_version=None, location=None, name=None, provisioning_state=None, status=None, subnet=None, system_data=None, tags=None, type=None, virtual_machine_id=None):
         if errors and not isinstance(errors, dict):
@@ -96,7 +96,7 @@ class GetSAPApplicationServerInstanceResult:
     @pulumi.getter(name="gatewayPort")
     def gateway_port(self) -> float:
         """
-        The application server gateway Port.
+        Application server instance gateway Port.
         """
         return pulumi.get(self, "gateway_port")
 
@@ -104,7 +104,7 @@ class GetSAPApplicationServerInstanceResult:
     @pulumi.getter
     def health(self) -> str:
         """
-        Defines the SAP Instance health.
+        Defines the health of SAP Instances.
         """
         return pulumi.get(self, "health")
 
@@ -112,7 +112,7 @@ class GetSAPApplicationServerInstanceResult:
     @pulumi.getter
     def hostname(self) -> str:
         """
-        The application server SAP host name.
+        Application server instance SAP hostname.
         """
         return pulumi.get(self, "hostname")
 
@@ -120,7 +120,7 @@ class GetSAPApplicationServerInstanceResult:
     @pulumi.getter(name="icmHttpPort")
     def icm_http_port(self) -> float:
         """
-        The application server ICM HTTP Port.
+        Application server instance ICM HTTP Port.
         """
         return pulumi.get(self, "icm_http_port")
 
@@ -128,7 +128,7 @@ class GetSAPApplicationServerInstanceResult:
     @pulumi.getter(name="icmHttpsPort")
     def icm_https_port(self) -> float:
         """
-        The application server ICM HTTPS Port.
+        Application server instance ICM HTTPS Port.
         """
         return pulumi.get(self, "icm_https_port")
 
@@ -144,7 +144,7 @@ class GetSAPApplicationServerInstanceResult:
     @pulumi.getter(name="instanceNo")
     def instance_no(self) -> str:
         """
-        The application server instance id.
+        Application server Instance Number.
         """
         return pulumi.get(self, "instance_no")
 
@@ -152,7 +152,7 @@ class GetSAPApplicationServerInstanceResult:
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> str:
         """
-        The application server SAP IP Address.
+         Application server instance SAP IP Address.
         """
         return pulumi.get(self, "ip_address")
 
@@ -160,7 +160,7 @@ class GetSAPApplicationServerInstanceResult:
     @pulumi.getter(name="kernelPatch")
     def kernel_patch(self) -> str:
         """
-        The application server SAP kernel patch.
+        Application server instance SAP Kernel Patch level.
         """
         return pulumi.get(self, "kernel_patch")
 
@@ -168,7 +168,7 @@ class GetSAPApplicationServerInstanceResult:
     @pulumi.getter(name="kernelVersion")
     def kernel_version(self) -> str:
         """
-        The application server SAP kernel version.
+         Application server instance SAP Kernel Version.
         """
         return pulumi.get(self, "kernel_version")
 
@@ -208,7 +208,7 @@ class GetSAPApplicationServerInstanceResult:
     @pulumi.getter
     def subnet(self) -> str:
         """
-        The application server subnet.
+        Application server Subnet.
         """
         return pulumi.get(self, "subnet")
 
@@ -278,12 +278,12 @@ def get_sap_application_server_instance(application_instance_name: Optional[str]
                                         sap_virtual_instance_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSAPApplicationServerInstanceResult:
     """
-    Define the SAP Application Server Instance.
+    Define the SAP Application Server Instance resource.
 
 
-    :param str application_instance_name: The name of SAP Application Server instance.
+    :param str application_instance_name: The name of SAP Application Server instance resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str sap_virtual_instance_name: The name of the Virtual Instances for SAP.
+    :param str sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
     """
     __args__ = dict()
     __args__['applicationInstanceName'] = application_instance_name
@@ -321,11 +321,11 @@ def get_sap_application_server_instance_output(application_instance_name: Option
                                                sap_virtual_instance_name: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSAPApplicationServerInstanceResult]:
     """
-    Define the SAP Application Server Instance.
+    Define the SAP Application Server Instance resource.
 
 
-    :param str application_instance_name: The name of SAP Application Server instance.
+    :param str application_instance_name: The name of SAP Application Server instance resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str sap_virtual_instance_name: The name of the Virtual Instances for SAP.
+    :param str sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
     """
     ...

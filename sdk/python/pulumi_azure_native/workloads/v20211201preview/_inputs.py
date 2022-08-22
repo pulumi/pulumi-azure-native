@@ -1521,8 +1521,8 @@ class NetworkConfigurationArgs:
     def __init__(__self__, *,
                  is_secondary_ip_enabled: Optional[pulumi.Input[bool]] = None):
         """
-        Defines the network configuration for SAP infrastructure
-        :param pulumi.Input[bool] is_secondary_ip_enabled: Specifies whether a secondary IP address should be added to the network interface on all VMs
+        Defines the network configuration type for SAP system infrastructure that is being deployed 
+        :param pulumi.Input[bool] is_secondary_ip_enabled: Specifies whether a secondary IP address should be added to the network interface on all VMs of the SAP system being deployed
         """
         if is_secondary_ip_enabled is None:
             is_secondary_ip_enabled = False
@@ -1533,7 +1533,7 @@ class NetworkConfigurationArgs:
     @pulumi.getter(name="isSecondaryIpEnabled")
     def is_secondary_ip_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether a secondary IP address should be added to the network interface on all VMs
+        Specifies whether a secondary IP address should be added to the network interface on all VMs of the SAP system being deployed
         """
         return pulumi.get(self, "is_secondary_ip_enabled")
 
@@ -2573,7 +2573,7 @@ class SingleServerConfigurationArgs:
         """
         Gets or sets the single server configuration.
         :param pulumi.Input[str] app_resource_group: The application resource group where SAP system resources will be deployed.
-        :param pulumi.Input[str] deployment_type: The deployment Type.
+        :param pulumi.Input[str] deployment_type: The type of SAP deployment, single server or Three tier.
                Expected value is 'SingleServer'.
         :param pulumi.Input[str] subnet_id: The subnet id.
         :param pulumi.Input['VirtualMachineConfigurationArgs'] virtual_machine_configuration: Gets or sets the virtual machine configuration.
@@ -2605,7 +2605,7 @@ class SingleServerConfigurationArgs:
     @pulumi.getter(name="deploymentType")
     def deployment_type(self) -> pulumi.Input[str]:
         """
-        The deployment Type.
+        The type of SAP deployment, single server or Three tier.
         Expected value is 'SingleServer'.
         """
         return pulumi.get(self, "deployment_type")
@@ -2878,7 +2878,7 @@ class ThreeTierConfigurationArgs:
         :param pulumi.Input['ApplicationServerConfigurationArgs'] application_server: The application server configuration.
         :param pulumi.Input['CentralServerConfigurationArgs'] central_server: The central server configuration.
         :param pulumi.Input['DatabaseConfigurationArgs'] database_server: The database configuration.
-        :param pulumi.Input[str] deployment_type: The deployment Type.
+        :param pulumi.Input[str] deployment_type: The type of SAP deployment, single server or Three tier.
                Expected value is 'ThreeTier'.
         :param pulumi.Input['HighAvailabilityConfigurationArgs'] high_availability_config: The high availability configuration.
         :param pulumi.Input['NetworkConfigurationArgs'] network_configuration: Network configuration common to all servers
@@ -2945,7 +2945,7 @@ class ThreeTierConfigurationArgs:
     @pulumi.getter(name="deploymentType")
     def deployment_type(self) -> pulumi.Input[str]:
         """
-        The deployment Type.
+        The type of SAP deployment, single server or Three tier.
         Expected value is 'ThreeTier'.
         """
         return pulumi.get(self, "deployment_type")

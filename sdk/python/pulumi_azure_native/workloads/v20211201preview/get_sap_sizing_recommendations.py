@@ -31,7 +31,7 @@ class GetSAPSizingRecommendationsResult:
     @pulumi.getter(name="deploymentType")
     def deployment_type(self) -> str:
         """
-        The deployment Type.
+        The type of SAP deployment, single server or Three tier.
         """
         return pulumi.get(self, "deployment_type")
 

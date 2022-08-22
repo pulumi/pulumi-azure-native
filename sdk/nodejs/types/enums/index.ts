@@ -4,6 +4,7 @@
 // Export sub-modules:
 import * as aad from "./aad";
 import * as aadiam from "./aadiam";
+import * as agfoodplatform from "./agfoodplatform";
 import * as alertsmanagement from "./alertsmanagement";
 import * as analysisservices from "./analysisservices";
 import * as apimanagement from "./apimanagement";
@@ -174,6 +175,7 @@ import * as workloads from "./workloads";
 export {
     aad,
     aadiam,
+    agfoodplatform,
     alertsmanagement,
     analysisservices,
     apimanagement,

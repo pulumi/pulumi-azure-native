@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Define the Virtual Instance for SAP.
+ * Define the Virtual Instance for SAP solutions resource.
  * API Version: 2021-12-01-preview.
  */
 export function getSAPVirtualInstance(args: GetSAPVirtualInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPVirtualInstanceResult> {
@@ -27,17 +27,17 @@ export interface GetSAPVirtualInstanceArgs {
      */
     resourceGroupName: string;
     /**
-     * The name of the Virtual Instances for SAP.
+     * The name of the Virtual Instances for SAP solutions resource
      */
     sapVirtualInstanceName: string;
 }
 
 /**
- * Define the Virtual Instance for SAP.
+ * Define the Virtual Instance for SAP solutions resource.
  */
 export interface GetSAPVirtualInstanceResult {
     /**
-     * Defines if an existing SAP system is being registered or a new SAP system is being created
+     * Defines if the SAP system is being created using Azure Center for SAP solutions (ACSS) or if an existing SAP system is being registered with ACSS
      */
     readonly configuration: outputs.workloads.DeploymentConfigurationResponse | outputs.workloads.DeploymentWithOSConfigurationResponse | outputs.workloads.DiscoveryConfigurationResponse;
     /**
@@ -45,11 +45,11 @@ export interface GetSAPVirtualInstanceResult {
      */
     readonly environment: string;
     /**
-     * Defines the Virtual Instance for SAP errors.
+     * Indicates any errors on the Virtual Instance for SAP solutions resource.
      */
     readonly errors: outputs.workloads.SAPVirtualInstanceErrorResponse;
     /**
-     * Defines the SAP Instance health.
+     * Defines the health of SAP Instances.
      */
     readonly health: string;
     /**
@@ -112,7 +112,7 @@ export interface GetSAPVirtualInstanceOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the Virtual Instances for SAP.
+     * The name of the Virtual Instances for SAP solutions resource
      */
     sapVirtualInstanceName: pulumi.Input<string>;
 }

@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
- * Define the SAP Database Instance.
+ * Define the Database resource.
  */
 export function getSAPDatabaseInstance(args: GetSAPDatabaseInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPDatabaseInstanceResult> {
     if (!opts) {
@@ -23,7 +23,7 @@ export function getSAPDatabaseInstance(args: GetSAPDatabaseInstanceArgs, opts?: 
 
 export interface GetSAPDatabaseInstanceArgs {
     /**
-     * Database Instance string modeled as parameter for auto generation to work correctly.
+     * Database resource name string modeled as parameter for auto generation to work correctly.
      */
     databaseInstanceName: string;
     /**
@@ -31,25 +31,25 @@ export interface GetSAPDatabaseInstanceArgs {
      */
     resourceGroupName: string;
     /**
-     * The name of the Virtual Instances for SAP.
+     * The name of the Virtual Instances for SAP solutions resource
      */
     sapVirtualInstanceName: string;
 }
 
 /**
- * Define the SAP Database Instance.
+ * Define the Database resource.
  */
 export interface GetSAPDatabaseInstanceResult {
     /**
-     * The database SID.
+     * Database SID name.
      */
     readonly databaseSid: string;
     /**
-     * The SAP database type.
+     * Database type, that is if the DB is HANA, DB2, Oracle, SAP ASE, Max DB or MS SQL Server.
      */
     readonly databaseType: string;
     /**
-     * Defines the Database Instance errors.
+     * Defines the errors related to Database resource.
      */
     readonly errors: outputs.workloads.v20211201preview.SAPVirtualInstanceErrorResponse;
     /**
@@ -57,7 +57,7 @@ export interface GetSAPDatabaseInstanceResult {
      */
     readonly id: string;
     /**
-     * The database IP Address.
+     * Database IP Address.
      */
     readonly ipAddress: string;
     /**
@@ -77,7 +77,7 @@ export interface GetSAPDatabaseInstanceResult {
      */
     readonly status: string;
     /**
-     * The database subnet.
+     * Database subnet.
      */
     readonly subnet: string;
     /**
@@ -93,7 +93,7 @@ export interface GetSAPDatabaseInstanceResult {
      */
     readonly type: string;
     /**
-     * The list of virtual machines.
+     * The list of virtual machines corresponding to the Database resource.
      */
     readonly vmDetails: outputs.workloads.v20211201preview.DatabaseVmDetailsResponse[];
 }
@@ -104,7 +104,7 @@ export function getSAPDatabaseInstanceOutput(args: GetSAPDatabaseInstanceOutputA
 
 export interface GetSAPDatabaseInstanceOutputArgs {
     /**
-     * Database Instance string modeled as parameter for auto generation to work correctly.
+     * Database resource name string modeled as parameter for auto generation to work correctly.
      */
     databaseInstanceName: pulumi.Input<string>;
     /**
@@ -112,7 +112,7 @@ export interface GetSAPDatabaseInstanceOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the Virtual Instances for SAP.
+     * The name of the Virtual Instances for SAP solutions resource
      */
     sapVirtualInstanceName: pulumi.Input<string>;
 }

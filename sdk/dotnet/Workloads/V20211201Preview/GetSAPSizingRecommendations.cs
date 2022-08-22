@@ -166,7 +166,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
     public sealed class GetSAPSizingRecommendationsResult
     {
         /// <summary>
-        /// The deployment Type.
+        /// The type of SAP deployment, single server or Three tier.
         /// </summary>
         public readonly string DeploymentType;
 

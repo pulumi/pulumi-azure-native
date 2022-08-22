@@ -28,14 +28,14 @@ class SAPVirtualInstanceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a SAPVirtualInstance resource.
-        :param pulumi.Input[Union['DeploymentConfigurationArgs', 'DeploymentWithOSConfigurationArgs', 'DiscoveryConfigurationArgs']] configuration: Defines if an existing SAP system is being registered or a new SAP system is being created
+        :param pulumi.Input[Union['DeploymentConfigurationArgs', 'DeploymentWithOSConfigurationArgs', 'DiscoveryConfigurationArgs']] configuration: Defines if the SAP system is being created using Azure Center for SAP solutions (ACSS) or if an existing SAP system is being registered with ACSS
         :param pulumi.Input[Union[str, 'SAPEnvironmentType']] environment: Defines the environment type - Production/Non Production.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'SAPProductType']] sap_product: Defines the SAP Product type.
         :param pulumi.Input['UserAssignedServiceIdentityArgs'] identity: Managed service identity (user assigned identities)
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['ManagedRGConfigurationArgs'] managed_resource_group_configuration: Managed resource group configuration
-        :param pulumi.Input[str] sap_virtual_instance_name: The name of the Virtual Instances for SAP.
+        :param pulumi.Input[str] sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "configuration", configuration)
@@ -57,7 +57,7 @@ class SAPVirtualInstanceArgs:
     @pulumi.getter
     def configuration(self) -> pulumi.Input[Union['DeploymentConfigurationArgs', 'DeploymentWithOSConfigurationArgs', 'DiscoveryConfigurationArgs']]:
         """
-        Defines if an existing SAP system is being registered or a new SAP system is being created
+        Defines if the SAP system is being created using Azure Center for SAP solutions (ACSS) or if an existing SAP system is being registered with ACSS
         """
         return pulumi.get(self, "configuration")
 
@@ -141,7 +141,7 @@ class SAPVirtualInstanceArgs:
     @pulumi.getter(name="sapVirtualInstanceName")
     def sap_virtual_instance_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Virtual Instances for SAP.
+        The name of the Virtual Instances for SAP solutions resource
         """
         return pulumi.get(self, "sap_virtual_instance_name")
 
@@ -178,19 +178,19 @@ class SAPVirtualInstance(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Define the Virtual Instance for SAP.
+        Define the Virtual Instance for SAP solutions resource.
         API Version: 2021-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[pulumi.InputType['DeploymentConfigurationArgs'], pulumi.InputType['DeploymentWithOSConfigurationArgs'], pulumi.InputType['DiscoveryConfigurationArgs']]] configuration: Defines if an existing SAP system is being registered or a new SAP system is being created
+        :param pulumi.Input[Union[pulumi.InputType['DeploymentConfigurationArgs'], pulumi.InputType['DeploymentWithOSConfigurationArgs'], pulumi.InputType['DiscoveryConfigurationArgs']]] configuration: Defines if the SAP system is being created using Azure Center for SAP solutions (ACSS) or if an existing SAP system is being registered with ACSS
         :param pulumi.Input[Union[str, 'SAPEnvironmentType']] environment: Defines the environment type - Production/Non Production.
         :param pulumi.Input[pulumi.InputType['UserAssignedServiceIdentityArgs']] identity: Managed service identity (user assigned identities)
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[pulumi.InputType['ManagedRGConfigurationArgs']] managed_resource_group_configuration: Managed resource group configuration
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'SAPProductType']] sap_product: Defines the SAP Product type.
-        :param pulumi.Input[str] sap_virtual_instance_name: The name of the Virtual Instances for SAP.
+        :param pulumi.Input[str] sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -200,7 +200,7 @@ class SAPVirtualInstance(pulumi.CustomResource):
                  args: SAPVirtualInstanceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Define the Virtual Instance for SAP.
+        Define the Virtual Instance for SAP solutions resource.
         API Version: 2021-12-01-preview.
 
         :param str resource_name: The name of the resource.
@@ -306,7 +306,7 @@ class SAPVirtualInstance(pulumi.CustomResource):
     @pulumi.getter
     def configuration(self) -> pulumi.Output[Any]:
         """
-        Defines if an existing SAP system is being registered or a new SAP system is being created
+        Defines if the SAP system is being created using Azure Center for SAP solutions (ACSS) or if an existing SAP system is being registered with ACSS
         """
         return pulumi.get(self, "configuration")
 
@@ -322,7 +322,7 @@ class SAPVirtualInstance(pulumi.CustomResource):
     @pulumi.getter
     def errors(self) -> pulumi.Output['outputs.SAPVirtualInstanceErrorResponse']:
         """
-        Defines the Virtual Instance for SAP errors.
+        Indicates any errors on the Virtual Instance for SAP solutions resource.
         """
         return pulumi.get(self, "errors")
 
@@ -330,7 +330,7 @@ class SAPVirtualInstance(pulumi.CustomResource):
     @pulumi.getter
     def health(self) -> pulumi.Output[str]:
         """
-        Defines the SAP Instance health.
+        Defines the health of SAP Instances.
         """
         return pulumi.get(self, "health")
 
