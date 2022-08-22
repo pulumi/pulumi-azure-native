@@ -1976,3 +1976,39 @@ func (l *inMemoryLoader) LoadPackage(pkg string, _ *semver.Version) (*schema.Pac
 
 	return nil, errors.Errorf("package %s not found in the in-memory map", pkg)
 }
+
+func SingleModule(pkgSpec schema.PackageSpec, module string) *schema.PackageSpec {
+	tokenPrefix := "azure-native:" + module
+	types := map[string]schema.ComplexTypeSpec{}
+	for n, t := range pkgSpec.Types {
+		if !strings.HasPrefix(n, tokenPrefix) {
+			continue
+		}
+		types[n] = t
+	}
+	pkgSpec.Types = types
+	functions := map[string]schema.FunctionSpec{}
+	for n, f := range pkgSpec.Functions {
+		if !strings.HasPrefix(n, tokenPrefix) {
+			continue
+		}
+		functions[n] = f
+	}
+	pkgSpec.Functions = functions
+	resources := map[string]schema.ResourceSpec{}
+	for n, r := range pkgSpec.Resources {
+		if !strings.HasPrefix(n, tokenPrefix) {
+			continue
+		}
+		resources[n] = r
+	}
+	pkgSpec.Resources = resources
+	golangImportAliases := map[string]string{
+		"github.com/pulumi/pulumi-azure-native-sdk/" + module: module,
+	}
+	pkgSpec.Language["go"] = rawMessage(map[string]interface{}{
+		"importBasePath":       "github.com/pulumi/pulumi-azure-native-sdk/" + module,
+		"packageImportAliases": golangImportAliases,
+	})
+	return &pkgSpec
+}

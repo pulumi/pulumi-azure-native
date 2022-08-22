@@ -97,6 +97,13 @@ func main() {
 			// Remove the version again.
 			docsPkgSpec.Version = ""
 			err = emitDocsSchema(docsPkgSpec, outdir)
+		case "go-compute":
+			outdir := path.Join(".", "sdk-split", "go")
+			pkgSpec.Version = version
+			// Work around the SDK size exceeding 512 MB by removing comments from versioned modules.
+			// Roll this back when we have a better fix for the SDK size.
+			specNoComments := gen.SingleModule(*pkgSpec, "compute")
+			err = emitPackage(specNoComments, "go", outdir)
 		case "go":
 			outdir := path.Join(".", "sdk", language)
 			pkgSpec.Version = version
