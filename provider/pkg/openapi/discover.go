@@ -74,8 +74,15 @@ type ResourceSpec struct {
 // AllVersions finds all Azure Open API specs on disk, parses them, and creates in-memory representation of resources,
 // collected per Azure Provider and API Version - for all API versions.
 func AllVersions() AzureProviders {
+	return ReadVersions("*")
+}
+
+// ReadVersions finds Azure Open API specs on disk, parses them, and creates in-memory representation of resources,
+// collected per Azure Provider and API Version - for all API versions.
+// Use the namespace "*" to load all available namespaces, or a specific namespace to filter e.g. "Compute"
+func ReadVersions(namespace string) AzureProviders {
 	// Collect all versions for each path in the API across all Swagger files.
-	providers, err := SpecVersions()
+	providers, err := SpecVersions(namespace)
 	if err != nil {
 		panic(err)
 	}
@@ -138,8 +145,8 @@ func buildCuratedVersion(versionMap ProviderVersions, curatedResourceVersions ma
 	}
 }
 
-func SpecVersions() (AzureProviders, error) {
-	swaggerSpecLocations, err := swaggerLocations()
+func SpecVersions(namespace string) (AzureProviders, error) {
+	swaggerSpecLocations, err := swaggerLocations(namespace)
 	if err != nil {
 		return nil, err
 	}
@@ -192,19 +199,22 @@ func IsPrivate(apiVersion string) bool {
 }
 
 // swaggerLocations returns a slice of URLs of all known Azure Resource Manager swagger files.
-func swaggerLocations() ([]string, error) {
+func swaggerLocations(namespace string) ([]string, error) {
+	if namespace == "" {
+		namespace = "*"
+	}
 	dir, err := os.Getwd()
 	if err != nil {
 		return nil, err
 	}
 
-	pattern := filepath.Join(dir, "/azure-rest-api-specs*/specification/*/resource-manager/Microsoft.*/*/20*/*.json")
+	pattern := filepath.Join(dir, "/azure-rest-api-specs*/specification/*/resource-manager/Microsoft."+namespace+"/*/20*/*.json")
 	files, err := filepath.Glob(pattern)
 	if err != nil {
 		return nil, err
 	}
 
-	pattern2 := filepath.Join(dir, "/azure-rest-api-specs*/specification/*/resource-manager/Microsoft.*/*/*/20*/*.json")
+	pattern2 := filepath.Join(dir, "/azure-rest-api-specs*/specification/*/resource-manager/Microsoft."+namespace+"/*/*/20*/*.json")
 	files2, err := filepath.Glob(pattern2)
 
 	// Sorting alphabetically means the schemas with the latest API version are the last.
