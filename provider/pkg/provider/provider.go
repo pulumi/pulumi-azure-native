@@ -20,6 +20,7 @@ import (
 	"github.com/segmentio/encoding/json"
 
 	structpb "github.com/golang/protobuf/ptypes/struct"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/diag"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/rpcutil/rpcerror"
 	"google.golang.org/protobuf/types/known/emptypb"
 
@@ -413,6 +414,10 @@ func (k *azureNativeProvider) Check(ctx context.Context, req *rpc.CheckRequest) 
 				Reason: fmt.Sprintf("missing required property '%s'", name),
 			})
 		}
+	}
+
+	if k.getConfig("useLegacyADALAuth", "USE_LEGACY_ADAL_AUTH") == "true" {
+		k.host.Log(ctx, diag.Warning, urn, "USE_LEGACY_ADAL_AUTH is deprecated and will be removed in a future release.")
 	}
 
 	resInputs, err := plugin.MarshalProperties(news, plugin.MarshalOptions{
@@ -1756,7 +1761,6 @@ func (k *azureNativeProvider) getOAuthToken(ctx context.Context, auth *authentic
 		return k.adalTokenClient(ctx, k, auth, endpoint)
 	}
 	if k.getConfig("useLegacyADALAuth", "USE_LEGACY_ADAL_AUTH") == "true" {
-		// TODO print warning
 		return k.adalTokenClient(ctx, k, auth, endpoint)
 	}
 	return k.msalTokenClient(ctx, k, auth, endpoint)
