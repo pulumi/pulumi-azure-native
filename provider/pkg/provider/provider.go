@@ -82,6 +82,8 @@ type azureNativeProvider struct {
 	converter       *resources.SdkShapeConverter
 	customResources map[string]*resources.CustomResource
 	rgLocationMap   map[string]string
+	adalTokenClient tokenGetter
+	msalTokenClient tokenGetter
 }
 
 func makeProvider(host *provider.HostClient, name, version string, schemaBytes []byte, schemaString string,
@@ -103,15 +105,17 @@ func makeProvider(host *provider.HostClient, name, version string, schemaBytes [
 
 	// Return the new provider
 	return &azureNativeProvider{
-		host:          host,
-		name:          name,
-		version:       version,
-		client:        client,
-		resourceMap:   resourceMap,
-		config:        map[string]string{},
-		schemaBytes:   schemaBytes,
-		converter:     &converter,
-		rgLocationMap: map[string]string{},
+		host:            host,
+		name:            name,
+		version:         version,
+		client:          client,
+		resourceMap:     resourceMap,
+		config:          map[string]string{},
+		schemaBytes:     schemaBytes,
+		converter:       &converter,
+		rgLocationMap:   map[string]string{},
+		adalTokenClient: getOAuthTokenADAL,
+		msalTokenClient: getOAuthTokenMSAL,
 	}, nil
 }
 
@@ -250,7 +254,7 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 		if endpointArg := args["endpoint"]; endpointArg.HasValue() && endpointArg.IsString() {
 			endpoint = endpointArg.StringValue()
 		}
-		token, err := k.getOAuthTokenNew(ctx, auth, endpoint)
+		token, err := k.getOAuthToken(ctx, auth, endpoint)
 		if err != nil {
 			return nil, err
 		}
@@ -1748,6 +1752,20 @@ func (k *azureNativeProvider) getAuthorizers(authConfig *authentication.Config) 
 }
 
 func (k *azureNativeProvider) getOAuthToken(ctx context.Context, auth *authentication.Config, endpoint string) (string, error) {
+	if len(auth.AuxiliaryTenantIDs) > 0 {
+		return k.adalTokenClient(ctx, k, auth, endpoint)
+	}
+	if k.getConfig("useLegacyADALAuth", "USE_LEGACY_ADAL_AUTH") == "true" {
+		// TODO print warning
+		return k.adalTokenClient(ctx, k, auth, endpoint)
+	}
+	return k.msalTokenClient(ctx, k, auth, endpoint)
+}
+
+type tokenGetter func(context.Context, *azureNativeProvider, *authentication.Config, string) (string, error)
+
+// Obtain a token via the deprecated ADAL method, using the hashicorp/go-azure-helpers/authentication package
+func getOAuthTokenADAL(ctx context.Context, k *azureNativeProvider, auth *authentication.Config, endpoint string) (string, error) {
 	buildSender := sender.BuildSender("AzureNative")
 	oauthConfig, err := auth.BuildOAuthConfig(k.environment.ActiveDirectoryEndpoint)
 	authorizer, err := auth.GetAuthorizationToken(buildSender, oauthConfig, endpoint)
@@ -1776,7 +1794,8 @@ func (k *azureNativeProvider) getOAuthToken(ctx context.Context, auth *authentic
 	return token, nil
 }
 
-func (k *azureNativeProvider) getOAuthTokenNew(ctx context.Context, auth *authentication.Config, endpoint string) (string, error) {
+// Obtain a token via the new MSAL method, using the azidentity package
+func getOAuthTokenMSAL(ctx context.Context, k *azureNativeProvider, auth *authentication.Config, endpoint string) (string, error) {
 	clientOpts := azcore.ClientOptions{Cloud: k.cloud()}
 
 	// There are several ways to obtain a token. We try, in order: client cert, client secret, managed service
@@ -1803,7 +1822,6 @@ func (k *azureNativeProvider) getOAuthTokenNew(ctx context.Context, auth *authen
 		if err != nil {
 			return "", err
 		}
-		// TODO,tkappler get rid of auth here
 		cred, err := azidentity.NewClientCertificateCredential(auth.TenantID, auth.ClientID, certs, key,
 			&azidentity.ClientCertificateCredentialOptions{ClientOptions: clientOpts})
 		if err != nil {
