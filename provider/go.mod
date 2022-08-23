@@ -35,10 +35,7 @@ require (
 	modernc.org/sqlite v1.10.0
 )
 
-require (
-	github.com/kr/pretty v0.3.0 // indirect
-	github.com/kr/text v0.2.0 // indirect
-)
+require github.com/kr/pretty v0.3.0 // indirect
 
 require (
 	cloud.google.com/go v0.100.2 // indirect
@@ -152,7 +149,6 @@ require (
 	github.com/rjeczalik/notify v0.9.2 // indirect
 	github.com/rogpeppe/go-internal v1.8.1 // indirect
 	github.com/ryanuber/go-glob v1.0.0 // indirect
-	github.com/ryboe/q v1.0.17
 	github.com/sabhiram/go-gitignore v0.0.0-20210923224102-525f6e181f06 // indirect
 	github.com/santhosh-tekuri/jsonschema/v5 v5.0.0 // indirect
 	github.com/segmentio/asm v1.1.3 // indirect
