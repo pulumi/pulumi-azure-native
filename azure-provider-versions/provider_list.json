@@ -2618,7 +2618,7 @@
         ]
       },
       {
-        "resourceType": "galleryimages",
+        "resourceType": "galleryImages",
         "apiVersions": [
           "2021-09-01-preview",
           "2021-07-01-preview"
@@ -2627,6 +2627,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2022-08-01-preview",
           "2022-05-01",
           "2022-03-01",
           "2022-01-01",
@@ -2639,8 +2640,9 @@
         ]
       },
       {
-        "resourceType": "locations/operationstatuses",
+        "resourceType": "locations/operationStatuses",
         "apiVersions": [
+          "2022-08-01-preview",
           "2022-05-01",
           "2022-03-01",
           "2022-01-01",
@@ -2661,6 +2663,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2022-08-01-preview",
           "2022-05-01",
           "2022-03-01",
           "2022-01-01",
@@ -2674,7 +2677,13 @@
         ]
       },
       {
-        "resourceType": "storagecontainers",
+        "resourceType": "storageContainers",
+        "apiVersions": [
+          "2021-09-01-preview"
+        ]
+      },
+      {
+        "resourceType": "virtualMachines/extensions",
         "apiVersions": [
           "2021-09-01-preview"
         ]
@@ -2691,12 +2700,6 @@
         "apiVersions": [
           "2021-09-01-preview",
           "2021-07-01-preview"
-        ]
-      },
-      {
-        "resourceType": "virtualmachines/extensions",
-        "apiVersions": [
-          "2021-09-01-preview"
         ]
       },
       {
@@ -4723,6 +4726,7 @@
       {
         "resourceType": "reservationOrders",
         "apiVersions": [
+          "2022-06-02-beta",
           "2022-03-01-beta",
           "2022-03-01",
           "2021-07-01-beta",
@@ -4790,6 +4794,7 @@
       {
         "resourceType": "reservationOrders/reservations",
         "apiVersions": [
+          "2022-06-02-beta",
           "2022-03-01-beta",
           "2022-03-01",
           "2021-07-01-beta",
@@ -4883,6 +4888,7 @@
       {
         "resourceType": "reservations",
         "apiVersions": [
+          "2022-06-02-beta",
           "2022-03-01-beta",
           "2022-03-01",
           "2021-07-01-beta",
@@ -10444,6 +10450,7 @@
         "resourceType": "locations/capabilities",
         "apiVersions": [
           "2022-03-08-privatepreview",
+          "2022-01-20-preview",
           "2021-06-01-preview",
           "2021-06-01",
           "2020-11-05-preview",
@@ -12237,6 +12244,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2022-08-09-privatepreview",
           "2022-07-05-preview",
           "2022-06-03-privatepreview",
           "2022-04-01-preview",
@@ -12360,96 +12368,112 @@
       {
         "resourceType": "Locations",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "Locations/OperationStatuses",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "devcenters",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "devcenters/attachednetworks",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "devcenters/devboxdefinitions",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "devcenters/galleries",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "devcenters/galleries/images",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "devcenters/galleries/images/versions",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "devcenters/images",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "networkconnections",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "networkconnections/healthchecks",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "projects",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "projects/attachednetworks",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "projects/devboxdefinitions",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "projects/pools",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       }
@@ -35289,36 +35313,42 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2022-08-01",
           "2021-05-01-preview"
         ]
       },
       {
         "resourceType": "locations/operationStatuses",
         "apiVersions": [
+          "2022-08-01",
           "2021-05-01-preview"
         ]
       },
       {
         "resourceType": "nginxDeployments",
         "apiVersions": [
+          "2022-08-01",
           "2021-05-01-preview"
         ]
       },
       {
         "resourceType": "nginxDeployments/certificates",
         "apiVersions": [
+          "2022-08-01",
           "2021-05-01-preview"
         ]
       },
       {
         "resourceType": "nginxDeployments/configurations",
         "apiVersions": [
+          "2022-08-01",
           "2021-05-01-preview"
         ]
       },
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2022-08-01",
           "2021-05-01-preview"
         ]
       }
@@ -35767,6 +35797,7 @@
       {
         "resourceType": "autoscalesettings",
         "apiVersions": [
+          "2022-10-01",
           "2021-05-01-preview",
           "2015-04-01",
           "2014-04-01"
