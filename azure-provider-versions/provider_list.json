@@ -10400,6 +10400,12 @@
     "namespace": "Microsoft.DBforPostgreSQL",
     "resourceTypes": [
       {
+        "resourceType": "availableEngineVersions",
+        "apiVersions": [
+          "2020-10-05-privatepreview"
+        ]
+      },
+      {
         "resourceType": "checkNameAvailability",
         "apiVersions": []
       },
@@ -12244,7 +12250,6 @@
       {
         "resourceType": "operations",
         "apiVersions": [
-          "2022-08-09-privatepreview",
           "2022-07-05-preview",
           "2022-06-03-privatepreview",
           "2022-04-01-preview",
@@ -12368,112 +12373,96 @@
       {
         "resourceType": "Locations",
         "apiVersions": [
-          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "Locations/OperationStatuses",
         "apiVersions": [
-          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "devcenters",
         "apiVersions": [
-          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "devcenters/attachednetworks",
         "apiVersions": [
-          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "devcenters/devboxdefinitions",
         "apiVersions": [
-          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "devcenters/galleries",
         "apiVersions": [
-          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "devcenters/galleries/images",
         "apiVersions": [
-          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "devcenters/galleries/images/versions",
         "apiVersions": [
-          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "devcenters/images",
         "apiVersions": [
-          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "networkconnections",
         "apiVersions": [
-          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "networkconnections/healthchecks",
         "apiVersions": [
-          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "operations",
         "apiVersions": [
-          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "projects",
         "apiVersions": [
-          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "projects/attachednetworks",
         "apiVersions": [
-          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "projects/devboxdefinitions",
         "apiVersions": [
-          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "projects/pools",
         "apiVersions": [
-          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       }
@@ -15519,10 +15508,17 @@
       {
         "resourceType": "networkfunctions",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-01-01-preview",
           "2021-06-01-privatepreview",
           "2021-05-01",
           "2020-01-01-preview"
+        ]
+      },
+      {
+        "resourceType": "networkfunctions/components",
+        "apiVersions": [
+          "2022-09-01-preview"
         ]
       },
       {

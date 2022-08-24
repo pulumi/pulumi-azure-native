@@ -1987,10 +1987,11 @@ func (o KekIdentityPropertiesResponsePtrOutput) UserAssignedIdentity() pulumi.St
 }
 
 type LibraryInfo struct {
-	ContainerName *string `pulumi:"containerName"`
-	Name          *string `pulumi:"name"`
-	Path          *string `pulumi:"path"`
-	Type          *string `pulumi:"type"`
+	ContainerName     *string `pulumi:"containerName"`
+	Name              *string `pulumi:"name"`
+	Path              *string `pulumi:"path"`
+	Type              *string `pulumi:"type"`
+	UploadedTimestamp *string `pulumi:"uploadedTimestamp"`
 }
 
 
@@ -2005,10 +2006,11 @@ type LibraryInfoInput interface {
 }
 
 type LibraryInfoArgs struct {
-	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	Name          pulumi.StringPtrInput `pulumi:"name"`
-	Path          pulumi.StringPtrInput `pulumi:"path"`
-	Type          pulumi.StringPtrInput `pulumi:"type"`
+	ContainerName     pulumi.StringPtrInput `pulumi:"containerName"`
+	Name              pulumi.StringPtrInput `pulumi:"name"`
+	Path              pulumi.StringPtrInput `pulumi:"path"`
+	Type              pulumi.StringPtrInput `pulumi:"type"`
+	UploadedTimestamp pulumi.StringPtrInput `pulumi:"uploadedTimestamp"`
 }
 
 func (LibraryInfoArgs) ElementType() reflect.Type {
@@ -2078,6 +2080,10 @@ func (o LibraryInfoOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LibraryInfo) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
+func (o LibraryInfoOutput) UploadedTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LibraryInfo) *string { return v.UploadedTimestamp }).(pulumi.StringPtrOutput)
+}
+
 type LibraryInfoArrayOutput struct{ *pulumi.OutputState }
 
 func (LibraryInfoArrayOutput) ElementType() reflect.Type {
@@ -2105,7 +2111,7 @@ type LibraryInfoResponse struct {
 	Path               *string `pulumi:"path"`
 	ProvisioningStatus string  `pulumi:"provisioningStatus"`
 	Type               *string `pulumi:"type"`
-	UploadedTimestamp  string  `pulumi:"uploadedTimestamp"`
+	UploadedTimestamp  *string `pulumi:"uploadedTimestamp"`
 }
 
 type LibraryInfoResponseOutput struct{ *pulumi.OutputState }
@@ -2146,8 +2152,8 @@ func (o LibraryInfoResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LibraryInfoResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-func (o LibraryInfoResponseOutput) UploadedTimestamp() pulumi.StringOutput {
-	return o.ApplyT(func(v LibraryInfoResponse) string { return v.UploadedTimestamp }).(pulumi.StringOutput)
+func (o LibraryInfoResponseOutput) UploadedTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LibraryInfoResponse) *string { return v.UploadedTimestamp }).(pulumi.StringPtrOutput)
 }
 
 type LibraryInfoResponseArrayOutput struct{ *pulumi.OutputState }

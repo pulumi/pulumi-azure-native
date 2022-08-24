@@ -20999,6 +20999,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "videoindexer/v20220720preview",
+  "fqn": "pulumi_azure_native.videoindexer.v20220720preview",
+  "classes": {
+   "azure-native:videoindexer/v20220720preview:Account": "Account"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "videoindexer/v20220801",
   "fqn": "pulumi_azure_native.videoindexer.v20220801",
   "classes": {

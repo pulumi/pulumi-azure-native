@@ -7,23 +7,26 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.ContainerInstance.V20210901.Outputs
+namespace Pulumi.AzureNative.VideoIndexer.V20220720Preview.Outputs
 {
 
+    /// <summary>
+    /// User assigned identity properties
+    /// </summary>
     [OutputType]
-    public sealed class ContainerGroupIdentityResponseUserAssignedIdentities
+    public sealed class UserAssignedIdentityResponse
     {
         /// <summary>
-        /// The client id of user assigned identity.
+        /// The client ID of the assigned identity.
         /// </summary>
         public readonly string ClientId;
         /// <summary>
-        /// The principal id of user assigned identity.
+        /// The principal ID of the assigned identity.
         /// </summary>
         public readonly string PrincipalId;
 
         [OutputConstructor]
-        private ContainerGroupIdentityResponseUserAssignedIdentities(
+        private UserAssignedIdentityResponse(
             string clientId,
 
             string principalId)

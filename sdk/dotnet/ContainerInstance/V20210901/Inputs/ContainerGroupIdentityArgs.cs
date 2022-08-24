@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20210901.Inputs
         private InputMap<object>? _userAssignedIdentities;
 
         /// <summary>
-        /// The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        /// The list of user identities associated with the container group.
         /// </summary>
         public InputMap<object> UserAssignedIdentities
         {

@@ -251,6 +251,7 @@ __all__ = [
     'GoogleCloudStorageLinkedServiceResponse',
     'GoogleCloudStorageLocationResponse',
     'GoogleCloudStorageReadSettingsResponse',
+    'GoogleSheetsLinkedServiceResponse',
     'GreenplumLinkedServiceResponse',
     'GreenplumSourceResponse',
     'GreenplumTableDatasetResponse',
@@ -34008,6 +34009,122 @@ class GoogleCloudStorageReadSettingsResponse(dict):
         Google Cloud Storage wildcardFolderPath. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "wildcard_folder_path")
+
+
+@pulumi.output_type
+class GoogleSheetsLinkedServiceResponse(dict):
+    """
+    Linked service for GoogleSheets.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiToken":
+            suggest = "api_token"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GoogleSheetsLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GoogleSheetsLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GoogleSheetsLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_token: Any,
+                 type: str,
+                 annotations: Optional[Sequence[Any]] = None,
+                 connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
+                 description: Optional[str] = None,
+                 encrypted_credential: Optional[Any] = None,
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
+        """
+        Linked service for GoogleSheets.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] api_token: The api token for the GoogleSheets source.
+        :param str type: Type of linked service.
+               Expected value is 'GoogleSheets'.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
+        :param str description: Linked service description.
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        """
+        pulumi.set(__self__, "api_token", api_token)
+        pulumi.set(__self__, "type", 'GoogleSheets')
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if connect_via is not None:
+            pulumi.set(__self__, "connect_via", connect_via)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if encrypted_credential is not None:
+            pulumi.set(__self__, "encrypted_credential", encrypted_credential)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter(name="apiToken")
+    def api_token(self) -> Any:
+        """
+        The api token for the GoogleSheets source.
+        """
+        return pulumi.get(self, "api_token")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of linked service.
+        Expected value is 'GoogleSheets'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Sequence[Any]]:
+        """
+        List of tags that can be used for describing the linked service.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter(name="connectVia")
+    def connect_via(self) -> Optional['outputs.IntegrationRuntimeReferenceResponse']:
+        """
+        The integration runtime reference.
+        """
+        return pulumi.get(self, "connect_via")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Linked service description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="encryptedCredential")
+    def encrypted_credential(self) -> Optional[Any]:
+        """
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "encrypted_credential")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
+        """
+        Parameters for linked service.
+        """
+        return pulumi.get(self, "parameters")
 
 
 @pulumi.output_type

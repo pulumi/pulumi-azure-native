@@ -120,7 +120,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:videoindexer:Account" }, { type: "azure-native:videoindexer/v20211018preview:Account" }, { type: "azure-native:videoindexer/v20211110preview:Account" }, { type: "azure-native:videoindexer/v20220413preview:Account" }, { type: "azure-native:videoindexer/v20220801:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:videoindexer:Account" }, { type: "azure-native:videoindexer/v20211018preview:Account" }, { type: "azure-native:videoindexer/v20211110preview:Account" }, { type: "azure-native:videoindexer/v20220413preview:Account" }, { type: "azure-native:videoindexer/v20220720preview:Account" }, { type: "azure-native:videoindexer/v20220801:Account" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Account.__pulumiType, name, resourceInputs, opts);
     }

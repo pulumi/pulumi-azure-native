@@ -22,7 +22,7 @@ class GetBigDataPoolResult:
     """
     A Big Data pool
     """
-    def __init__(__self__, auto_pause=None, auto_scale=None, cache_size=None, creation_date=None, custom_libraries=None, default_spark_log_folder=None, dynamic_executor_allocation=None, id=None, is_compute_isolation_enabled=None, last_succeeded_timestamp=None, library_requirements=None, location=None, name=None, node_count=None, node_size=None, node_size_family=None, provisioning_state=None, session_level_packages_enabled=None, spark_config_properties=None, spark_events_folder=None, spark_version=None, tags=None, type=None):
+    def __init__(__self__, auto_pause=None, auto_scale=None, cache_size=None, creation_date=None, custom_libraries=None, default_spark_log_folder=None, dynamic_executor_allocation=None, id=None, is_autotune_enabled=None, is_compute_isolation_enabled=None, last_succeeded_timestamp=None, library_requirements=None, location=None, name=None, node_count=None, node_size=None, node_size_family=None, provisioning_state=None, session_level_packages_enabled=None, spark_config_properties=None, spark_events_folder=None, spark_version=None, tags=None, type=None):
         if auto_pause and not isinstance(auto_pause, dict):
             raise TypeError("Expected argument 'auto_pause' to be a dict")
         pulumi.set(__self__, "auto_pause", auto_pause)
@@ -47,6 +47,9 @@ class GetBigDataPoolResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if is_autotune_enabled and not isinstance(is_autotune_enabled, bool):
+            raise TypeError("Expected argument 'is_autotune_enabled' to be a bool")
+        pulumi.set(__self__, "is_autotune_enabled", is_autotune_enabled)
         if is_compute_isolation_enabled and not isinstance(is_compute_isolation_enabled, bool):
             raise TypeError("Expected argument 'is_compute_isolation_enabled' to be a bool")
         pulumi.set(__self__, "is_compute_isolation_enabled", is_compute_isolation_enabled)
@@ -156,6 +159,14 @@ class GetBigDataPoolResult:
         Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="isAutotuneEnabled")
+    def is_autotune_enabled(self) -> Optional[bool]:
+        """
+        Whether autotune is required or not.
+        """
+        return pulumi.get(self, "is_autotune_enabled")
 
     @property
     @pulumi.getter(name="isComputeIsolationEnabled")
@@ -292,6 +303,7 @@ class AwaitableGetBigDataPoolResult(GetBigDataPoolResult):
             default_spark_log_folder=self.default_spark_log_folder,
             dynamic_executor_allocation=self.dynamic_executor_allocation,
             id=self.id,
+            is_autotune_enabled=self.is_autotune_enabled,
             is_compute_isolation_enabled=self.is_compute_isolation_enabled,
             last_succeeded_timestamp=self.last_succeeded_timestamp,
             library_requirements=self.library_requirements,
@@ -337,6 +349,7 @@ def get_big_data_pool(big_data_pool_name: Optional[str] = None,
         default_spark_log_folder=__ret__.default_spark_log_folder,
         dynamic_executor_allocation=__ret__.dynamic_executor_allocation,
         id=__ret__.id,
+        is_autotune_enabled=__ret__.is_autotune_enabled,
         is_compute_isolation_enabled=__ret__.is_compute_isolation_enabled,
         last_succeeded_timestamp=__ret__.last_succeeded_timestamp,
         library_requirements=__ret__.library_requirements,

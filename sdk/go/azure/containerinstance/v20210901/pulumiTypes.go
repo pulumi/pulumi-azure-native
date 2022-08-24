@@ -952,10 +952,10 @@ func (o ContainerGroupIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutp
 }
 
 type ContainerGroupIdentityResponse struct {
-	PrincipalId            string                                                          `pulumi:"principalId"`
-	TenantId               string                                                          `pulumi:"tenantId"`
-	Type                   *string                                                         `pulumi:"type"`
-	UserAssignedIdentities map[string]ContainerGroupIdentityResponseUserAssignedIdentities `pulumi:"userAssignedIdentities"`
+	PrincipalId            string                                    `pulumi:"principalId"`
+	TenantId               string                                    `pulumi:"tenantId"`
+	Type                   *string                                   `pulumi:"type"`
+	UserAssignedIdentities map[string]UserAssignedIdentitiesResponse `pulumi:"userAssignedIdentities"`
 }
 
 type ContainerGroupIdentityResponseOutput struct{ *pulumi.OutputState }
@@ -984,10 +984,10 @@ func (o ContainerGroupIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerGroupIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-func (o ContainerGroupIdentityResponseOutput) UserAssignedIdentities() ContainerGroupIdentityResponseUserAssignedIdentitiesMapOutput {
-	return o.ApplyT(func(v ContainerGroupIdentityResponse) map[string]ContainerGroupIdentityResponseUserAssignedIdentities {
+func (o ContainerGroupIdentityResponseOutput) UserAssignedIdentities() UserAssignedIdentitiesResponseMapOutput {
+	return o.ApplyT(func(v ContainerGroupIdentityResponse) map[string]UserAssignedIdentitiesResponse {
 		return v.UserAssignedIdentities
-	}).(ContainerGroupIdentityResponseUserAssignedIdentitiesMapOutput)
+	}).(UserAssignedIdentitiesResponseMapOutput)
 }
 
 type ContainerGroupIdentityResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1041,87 +1041,40 @@ func (o ContainerGroupIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ContainerGroupIdentityResponsePtrOutput) UserAssignedIdentities() ContainerGroupIdentityResponseUserAssignedIdentitiesMapOutput {
-	return o.ApplyT(func(v *ContainerGroupIdentityResponse) map[string]ContainerGroupIdentityResponseUserAssignedIdentities {
+func (o ContainerGroupIdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedIdentitiesResponseMapOutput {
+	return o.ApplyT(func(v *ContainerGroupIdentityResponse) map[string]UserAssignedIdentitiesResponse {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(ContainerGroupIdentityResponseUserAssignedIdentitiesMapOutput)
+	}).(UserAssignedIdentitiesResponseMapOutput)
 }
 
-type ContainerGroupIdentityResponseUserAssignedIdentities struct {
-	ClientId    string `pulumi:"clientId"`
-	PrincipalId string `pulumi:"principalId"`
-}
-
-type ContainerGroupIdentityResponseUserAssignedIdentitiesOutput struct{ *pulumi.OutputState }
-
-func (ContainerGroupIdentityResponseUserAssignedIdentitiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerGroupIdentityResponseUserAssignedIdentities)(nil)).Elem()
-}
-
-func (o ContainerGroupIdentityResponseUserAssignedIdentitiesOutput) ToContainerGroupIdentityResponseUserAssignedIdentitiesOutput() ContainerGroupIdentityResponseUserAssignedIdentitiesOutput {
-	return o
-}
-
-func (o ContainerGroupIdentityResponseUserAssignedIdentitiesOutput) ToContainerGroupIdentityResponseUserAssignedIdentitiesOutputWithContext(ctx context.Context) ContainerGroupIdentityResponseUserAssignedIdentitiesOutput {
-	return o
-}
-
-func (o ContainerGroupIdentityResponseUserAssignedIdentitiesOutput) ClientId() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerGroupIdentityResponseUserAssignedIdentities) string { return v.ClientId }).(pulumi.StringOutput)
-}
-
-func (o ContainerGroupIdentityResponseUserAssignedIdentitiesOutput) PrincipalId() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerGroupIdentityResponseUserAssignedIdentities) string { return v.PrincipalId }).(pulumi.StringOutput)
-}
-
-type ContainerGroupIdentityResponseUserAssignedIdentitiesMapOutput struct{ *pulumi.OutputState }
-
-func (ContainerGroupIdentityResponseUserAssignedIdentitiesMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ContainerGroupIdentityResponseUserAssignedIdentities)(nil)).Elem()
-}
-
-func (o ContainerGroupIdentityResponseUserAssignedIdentitiesMapOutput) ToContainerGroupIdentityResponseUserAssignedIdentitiesMapOutput() ContainerGroupIdentityResponseUserAssignedIdentitiesMapOutput {
-	return o
-}
-
-func (o ContainerGroupIdentityResponseUserAssignedIdentitiesMapOutput) ToContainerGroupIdentityResponseUserAssignedIdentitiesMapOutputWithContext(ctx context.Context) ContainerGroupIdentityResponseUserAssignedIdentitiesMapOutput {
-	return o
-}
-
-func (o ContainerGroupIdentityResponseUserAssignedIdentitiesMapOutput) MapIndex(k pulumi.StringInput) ContainerGroupIdentityResponseUserAssignedIdentitiesOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ContainerGroupIdentityResponseUserAssignedIdentities {
-		return vs[0].(map[string]ContainerGroupIdentityResponseUserAssignedIdentities)[vs[1].(string)]
-	}).(ContainerGroupIdentityResponseUserAssignedIdentitiesOutput)
-}
-
-type ContainerGroupResponseInstanceView struct {
+type ContainerGroupPropertiesResponseInstanceView struct {
 	Events []EventResponse `pulumi:"events"`
 	State  string          `pulumi:"state"`
 }
 
-type ContainerGroupResponseInstanceViewOutput struct{ *pulumi.OutputState }
+type ContainerGroupPropertiesResponseInstanceViewOutput struct{ *pulumi.OutputState }
 
-func (ContainerGroupResponseInstanceViewOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerGroupResponseInstanceView)(nil)).Elem()
+func (ContainerGroupPropertiesResponseInstanceViewOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupPropertiesResponseInstanceView)(nil)).Elem()
 }
 
-func (o ContainerGroupResponseInstanceViewOutput) ToContainerGroupResponseInstanceViewOutput() ContainerGroupResponseInstanceViewOutput {
+func (o ContainerGroupPropertiesResponseInstanceViewOutput) ToContainerGroupPropertiesResponseInstanceViewOutput() ContainerGroupPropertiesResponseInstanceViewOutput {
 	return o
 }
 
-func (o ContainerGroupResponseInstanceViewOutput) ToContainerGroupResponseInstanceViewOutputWithContext(ctx context.Context) ContainerGroupResponseInstanceViewOutput {
+func (o ContainerGroupPropertiesResponseInstanceViewOutput) ToContainerGroupPropertiesResponseInstanceViewOutputWithContext(ctx context.Context) ContainerGroupPropertiesResponseInstanceViewOutput {
 	return o
 }
 
-func (o ContainerGroupResponseInstanceViewOutput) Events() EventResponseArrayOutput {
-	return o.ApplyT(func(v ContainerGroupResponseInstanceView) []EventResponse { return v.Events }).(EventResponseArrayOutput)
+func (o ContainerGroupPropertiesResponseInstanceViewOutput) Events() EventResponseArrayOutput {
+	return o.ApplyT(func(v ContainerGroupPropertiesResponseInstanceView) []EventResponse { return v.Events }).(EventResponseArrayOutput)
 }
 
-func (o ContainerGroupResponseInstanceViewOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerGroupResponseInstanceView) string { return v.State }).(pulumi.StringOutput)
+func (o ContainerGroupPropertiesResponseInstanceViewOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerGroupPropertiesResponseInstanceView) string { return v.State }).(pulumi.StringOutput)
 }
 
 type ContainerGroupSubnetId struct {
@@ -3553,7 +3506,7 @@ type ImageRegistryCredential struct {
 	IdentityUrl *string `pulumi:"identityUrl"`
 	Password    *string `pulumi:"password"`
 	Server      string  `pulumi:"server"`
-	Username    string  `pulumi:"username"`
+	Username    *string `pulumi:"username"`
 }
 
 
@@ -3572,7 +3525,7 @@ type ImageRegistryCredentialArgs struct {
 	IdentityUrl pulumi.StringPtrInput `pulumi:"identityUrl"`
 	Password    pulumi.StringPtrInput `pulumi:"password"`
 	Server      pulumi.StringInput    `pulumi:"server"`
-	Username    pulumi.StringInput    `pulumi:"username"`
+	Username    pulumi.StringPtrInput `pulumi:"username"`
 }
 
 func (ImageRegistryCredentialArgs) ElementType() reflect.Type {
@@ -3642,8 +3595,8 @@ func (o ImageRegistryCredentialOutput) Server() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageRegistryCredential) string { return v.Server }).(pulumi.StringOutput)
 }
 
-func (o ImageRegistryCredentialOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func(v ImageRegistryCredential) string { return v.Username }).(pulumi.StringOutput)
+func (o ImageRegistryCredentialOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageRegistryCredential) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
 type ImageRegistryCredentialArrayOutput struct{ *pulumi.OutputState }
@@ -3671,7 +3624,7 @@ type ImageRegistryCredentialResponse struct {
 	IdentityUrl *string `pulumi:"identityUrl"`
 	Password    *string `pulumi:"password"`
 	Server      string  `pulumi:"server"`
-	Username    string  `pulumi:"username"`
+	Username    *string `pulumi:"username"`
 }
 
 type ImageRegistryCredentialResponseOutput struct{ *pulumi.OutputState }
@@ -3704,8 +3657,8 @@ func (o ImageRegistryCredentialResponseOutput) Server() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageRegistryCredentialResponse) string { return v.Server }).(pulumi.StringOutput)
 }
 
-func (o ImageRegistryCredentialResponseOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func(v ImageRegistryCredentialResponse) string { return v.Username }).(pulumi.StringOutput)
+func (o ImageRegistryCredentialResponseOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageRegistryCredentialResponse) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
 type ImageRegistryCredentialResponseArrayOutput struct{ *pulumi.OutputState }
@@ -5117,6 +5070,53 @@ func (o ResourceRequirementsResponseOutput) Requests() ResourceRequestsResponseO
 	return o.ApplyT(func(v ResourceRequirementsResponse) ResourceRequestsResponse { return v.Requests }).(ResourceRequestsResponseOutput)
 }
 
+type UserAssignedIdentitiesResponse struct {
+	ClientId    string `pulumi:"clientId"`
+	PrincipalId string `pulumi:"principalId"`
+}
+
+type UserAssignedIdentitiesResponseOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentitiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentitiesResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentitiesResponseOutput) ToUserAssignedIdentitiesResponseOutput() UserAssignedIdentitiesResponseOutput {
+	return o
+}
+
+func (o UserAssignedIdentitiesResponseOutput) ToUserAssignedIdentitiesResponseOutputWithContext(ctx context.Context) UserAssignedIdentitiesResponseOutput {
+	return o
+}
+
+func (o UserAssignedIdentitiesResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentitiesResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+func (o UserAssignedIdentitiesResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentitiesResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type UserAssignedIdentitiesResponseMapOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentitiesResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedIdentitiesResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentitiesResponseMapOutput) ToUserAssignedIdentitiesResponseMapOutput() UserAssignedIdentitiesResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentitiesResponseMapOutput) ToUserAssignedIdentitiesResponseMapOutputWithContext(ctx context.Context) UserAssignedIdentitiesResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentitiesResponseMapOutput) MapIndex(k pulumi.StringInput) UserAssignedIdentitiesResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAssignedIdentitiesResponse {
+		return vs[0].(map[string]UserAssignedIdentitiesResponse)[vs[1].(string)]
+	}).(UserAssignedIdentitiesResponseOutput)
+}
+
 type Volume struct {
 	AzureFile *AzureFileVolume  `pulumi:"azureFile"`
 	EmptyDir  interface{}       `pulumi:"emptyDir"`
@@ -5474,9 +5474,7 @@ func init() {
 	pulumi.RegisterOutputType(ContainerGroupIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ContainerGroupIdentityResponseOutput{})
 	pulumi.RegisterOutputType(ContainerGroupIdentityResponsePtrOutput{})
-	pulumi.RegisterOutputType(ContainerGroupIdentityResponseUserAssignedIdentitiesOutput{})
-	pulumi.RegisterOutputType(ContainerGroupIdentityResponseUserAssignedIdentitiesMapOutput{})
-	pulumi.RegisterOutputType(ContainerGroupResponseInstanceViewOutput{})
+	pulumi.RegisterOutputType(ContainerGroupPropertiesResponseInstanceViewOutput{})
 	pulumi.RegisterOutputType(ContainerGroupSubnetIdOutput{})
 	pulumi.RegisterOutputType(ContainerGroupSubnetIdArrayOutput{})
 	pulumi.RegisterOutputType(ContainerGroupSubnetIdResponseOutput{})
@@ -5552,6 +5550,8 @@ func init() {
 	pulumi.RegisterOutputType(ResourceRequestsResponseOutput{})
 	pulumi.RegisterOutputType(ResourceRequirementsOutput{})
 	pulumi.RegisterOutputType(ResourceRequirementsResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentitiesResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentitiesResponseMapOutput{})
 	pulumi.RegisterOutputType(VolumeOutput{})
 	pulumi.RegisterOutputType(VolumeArrayOutput{})
 	pulumi.RegisterOutputType(VolumeMountOutput{})

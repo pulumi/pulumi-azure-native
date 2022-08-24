@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20210901.Outputs
     /// The instance view of the container group. Only valid in response.
     /// </summary>
     [OutputType]
-    public sealed class ContainerGroupResponseInstanceView
+    public sealed class ContainerGroupPropertiesResponseInstanceView
     {
         /// <summary>
         /// The events of this container group.
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20210901.Outputs
         public readonly string State;
 
         [OutputConstructor]
-        private ContainerGroupResponseInstanceView(
+        private ContainerGroupPropertiesResponseInstanceView(
             ImmutableArray<Outputs.EventResponse> events,
 
             string state)

@@ -35,6 +35,7 @@ type LookupBigDataPoolResult struct {
 	DefaultSparkLogFolder       *string                            `pulumi:"defaultSparkLogFolder"`
 	DynamicExecutorAllocation   *DynamicExecutorAllocationResponse `pulumi:"dynamicExecutorAllocation"`
 	Id                          string                             `pulumi:"id"`
+	IsAutotuneEnabled           *bool                              `pulumi:"isAutotuneEnabled"`
 	IsComputeIsolationEnabled   *bool                              `pulumi:"isComputeIsolationEnabled"`
 	LastSucceededTimestamp      string                             `pulumi:"lastSucceededTimestamp"`
 	LibraryRequirements         *LibraryRequirementsResponse       `pulumi:"libraryRequirements"`
@@ -120,6 +121,10 @@ func (o LookupBigDataPoolResultOutput) DynamicExecutorAllocation() DynamicExecut
 
 func (o LookupBigDataPoolResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBigDataPoolResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupBigDataPoolResultOutput) IsAutotuneEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupBigDataPoolResult) *bool { return v.IsAutotuneEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupBigDataPoolResultOutput) IsComputeIsolationEnabled() pulumi.BoolPtrOutput {

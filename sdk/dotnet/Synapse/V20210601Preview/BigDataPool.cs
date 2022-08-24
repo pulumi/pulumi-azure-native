@@ -58,6 +58,12 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         public Output<Outputs.DynamicExecutorAllocationResponse?> DynamicExecutorAllocation { get; private set; } = null!;
 
         /// <summary>
+        /// Whether autotune is required or not.
+        /// </summary>
+        [Output("isAutotuneEnabled")]
+        public Output<bool?> IsAutotuneEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Whether compute isolation is required or not.
         /// </summary>
         [Output("isComputeIsolationEnabled")]
@@ -255,6 +261,12 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// </summary>
         [Input("force")]
         public Input<bool>? Force { get; set; }
+
+        /// <summary>
+        /// Whether autotune is required or not.
+        /// </summary>
+        [Input("isAutotuneEnabled")]
+        public Input<bool>? IsAutotuneEnabled { get; set; }
 
         /// <summary>
         /// Whether compute isolation is required or not.

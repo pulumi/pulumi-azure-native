@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.ContainerInstance.V20210901.Inputs
         /// <summary>
         /// The username for the private registry.
         /// </summary>
-        [Input("username", required: true)]
-        public Input<string> Username { get; set; } = null!;
+        [Input("username")]
+        public Input<string>? Username { get; set; }
 
         public ImageRegistryCredentialArgs()
         {

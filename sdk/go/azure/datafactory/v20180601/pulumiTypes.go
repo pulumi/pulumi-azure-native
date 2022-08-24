@@ -6682,6 +6682,26 @@ type GoogleCloudStorageReadSettingsResponse struct {
 	WildcardFolderPath         interface{} `pulumi:"wildcardFolderPath"`
 }
 
+type GoogleSheetsLinkedService struct {
+	Annotations         []interface{}                     `pulumi:"annotations"`
+	ApiToken            interface{}                       `pulumi:"apiToken"`
+	ConnectVia          *IntegrationRuntimeReference      `pulumi:"connectVia"`
+	Description         *string                           `pulumi:"description"`
+	EncryptedCredential interface{}                       `pulumi:"encryptedCredential"`
+	Parameters          map[string]ParameterSpecification `pulumi:"parameters"`
+	Type                string                            `pulumi:"type"`
+}
+
+type GoogleSheetsLinkedServiceResponse struct {
+	Annotations         []interface{}                             `pulumi:"annotations"`
+	ApiToken            interface{}                               `pulumi:"apiToken"`
+	ConnectVia          *IntegrationRuntimeReferenceResponse      `pulumi:"connectVia"`
+	Description         *string                                   `pulumi:"description"`
+	EncryptedCredential interface{}                               `pulumi:"encryptedCredential"`
+	Parameters          map[string]ParameterSpecificationResponse `pulumi:"parameters"`
+	Type                string                                    `pulumi:"type"`
+}
+
 type GreenplumLinkedService struct {
 	Annotations         []interface{}                     `pulumi:"annotations"`
 	ConnectVia          *IntegrationRuntimeReference      `pulumi:"connectVia"`
