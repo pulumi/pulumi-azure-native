@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"os"
 	"path"
+	"regexp"
 	"strings"
 
 	"github.com/segmentio/encoding/json"
@@ -103,7 +104,7 @@ func main() {
 			// Work around the SDK size exceeding 512 MB by removing comments from versioned modules.
 			// Roll this back when we have a better fix for the SDK size.
 			specNoComments := gen.SingleModule(*pkgSpec, "compute")
-			err = emitPackage(specNoComments, "go", outdir)
+			err = emitSingleModulePackage(specNoComments, "compute", "go", outdir)
 		case "go":
 			outdir := path.Join(".", "sdk", language)
 			pkgSpec.Version = version
@@ -248,6 +249,52 @@ func emitPackage(pkgSpec *schema.PackageSpec, language, outDir string) error {
 	}
 
 	for f, contents := range files {
+		if err := emitFile(outDir, f, contents); err != nil {
+			return errors.Wrapf(err, "emitting file %v", f)
+		}
+	}
+
+	return nil
+}
+
+func emitSingleModulePackage(pkgSpec *schema.PackageSpec, module, language, outDir string) error {
+	ppkg, err := schema.ImportSpec(*pkgSpec, nil)
+	if err != nil {
+		return errors.Wrap(err, "reading schema")
+	}
+
+	files, err := generate(ppkg, language)
+	if err != nil {
+		return errors.Wrapf(err, "generating %s package", language)
+	}
+
+	// Flatten the module to top-level
+	flattenedFiles := map[string][]byte{}
+	for f, contents := range files {
+		flattenedName := strings.Replace(f, module+"/"+module, module, 1)
+		// Rename module init file
+		if f == module+"/"+module+"/init.go" {
+			flattenedName = module + "/init-" + module + ".go"
+			// Remove self-import
+			re := regexp.MustCompile(`(?m)^.*github.com\/pulumi\/pulumi-azure-native-sdk\/` + module + `.*$`)
+			contents = re.ReplaceAll(contents, []byte(""))
+			contents = []byte(strings.ReplaceAll(string(contents), module+".PkgVersion", "PkgVersion"))
+		}
+		flattenedFiles[flattenedName] = contents
+	}
+	flattenedFiles[module+"/go.mod"] = []byte(fmt.Sprintf(`
+module github.com/pulumi/pulumi-azure-native-sdk/%s
+
+go 1.17
+
+require (
+	github.com/blang/semver v3.5.1+incompatible
+	github.com/pkg/errors v0.9.1
+	github.com/pulumi/pulumi/sdk/v3 v3.37.2
+)
+`, module))
+
+	for f, contents := range flattenedFiles {
 		if err := emitFile(outDir, f, contents); err != nil {
 			return errors.Wrapf(err, "emitting file %v", f)
 		}
