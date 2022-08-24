@@ -31,3 +31,4 @@ sdk/java/.gradle
 sdk/java/gradle
 sdk/java/gradlew
 sdk/java/gradlew.bat
+pulumi-azure-native-sdk

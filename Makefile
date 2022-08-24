@@ -41,7 +41,7 @@ ensure:: init_submodules
 
 
 local_generate_code:: clean bin/pulumi-java-gen
-	$(WORKING_DIR)/bin/$(CODEGEN) schema,nodejs,dotnet,python,go $(VERSION)
+	$(WORKING_DIR)/bin/$(CODEGEN) schema,nodejs,dotnet,python,go,go-split $(VERSION)
 	$(WORKING_DIR)/bin/$(JAVA_GEN) generate --schema $(WORKING_DIR)/provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
 	cd ${PACKDIR}/go/ && find . -type f -exec sed -i '' -e '/^\/\/.*/g' {} \;
 	cd ${PACKDIR}/dotnet/ && \
@@ -53,7 +53,7 @@ local_generate_code:: clean bin/pulumi-java-gen
 	echo "Finished generating."
 
 local_generate:: clean bin/pulumi-java-gen
-	$(WORKING_DIR)/bin/$(CODEGEN) schema,docs,nodejs,dotnet,python,go $(VERSION)
+	$(WORKING_DIR)/bin/$(CODEGEN) schema,docs,nodejs,dotnet,python,go,go-split $(VERSION)
 	$(WORKING_DIR)/bin/$(JAVA_GEN) generate --schema $(WORKING_DIR)/provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
 	cd ${PACKDIR}/go/ && find . -type f -exec sed -i '' -e '/^\/\/.*/g' {} \;
 	cd ${PACKDIR}/dotnet/ && \

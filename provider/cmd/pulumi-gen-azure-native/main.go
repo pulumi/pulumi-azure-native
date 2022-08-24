@@ -98,13 +98,6 @@ func main() {
 			// Remove the version again.
 			docsPkgSpec.Version = ""
 			err = emitDocsSchema(docsPkgSpec, outdir)
-		case "go-compute":
-			outdir := path.Join(".", "sdk-split", "go")
-			pkgSpec.Version = version
-			// Work around the SDK size exceeding 512 MB by removing comments from versioned modules.
-			// Roll this back when we have a better fix for the SDK size.
-			specNoComments := gen.SingleModule(*pkgSpec, "compute")
-			err = emitSingleModulePackage(specNoComments, "compute", "go", outdir)
 		case "go":
 			outdir := path.Join(".", "sdk", language)
 			pkgSpec.Version = version
@@ -112,6 +105,9 @@ func main() {
 			// Roll this back when we have a better fix for the SDK size.
 			specNoComments := removeAllComments(*pkgSpec)
 			err = emitPackage(specNoComments, language, outdir)
+		case "go-split":
+			pkgSpec.Version = version
+			err = emitSplitPackage(pkgSpec, "go", ".")
 		default:
 			outdir := path.Join(".", "sdk", language)
 			pkgSpec.Version = version
@@ -248,6 +244,8 @@ func emitPackage(pkgSpec *schema.PackageSpec, language, outDir string) error {
 		return errors.Wrapf(err, "generating %s package", language)
 	}
 
+	// go-split ... add go.mods
+
 	for f, contents := range files {
 		if err := emitFile(outDir, f, contents); err != nil {
 			return errors.Wrapf(err, "emitting file %v", f)
@@ -257,8 +255,10 @@ func emitPackage(pkgSpec *schema.PackageSpec, language, outDir string) error {
 	return nil
 }
 
-func emitSingleModulePackage(pkgSpec *schema.PackageSpec, module, language, outDir string) error {
-	ppkg, err := schema.ImportSpec(*pkgSpec, nil)
+func emitSplitPackage(pkgSpec *schema.PackageSpec, language, outDir string) error {
+	pkgCopy := gen.SetGoBasePath(*pkgSpec, "github.com/pulumi/pulumi-azure-native-sdk")
+
+	ppkg, err := schema.ImportSpec(*pkgCopy, nil)
 	if err != nil {
 		return errors.Wrap(err, "reading schema")
 	}
@@ -268,22 +268,9 @@ func emitSingleModulePackage(pkgSpec *schema.PackageSpec, module, language, outD
 		return errors.Wrapf(err, "generating %s package", language)
 	}
 
-	// Flatten the module to top-level
-	flattenedFiles := map[string][]byte{}
-	for f, contents := range files {
-		flattenedName := strings.Replace(f, module+"/"+module, module, 1)
-		// Rename module init file
-		if f == module+"/"+module+"/init.go" {
-			flattenedName = module + "/init-" + module + ".go"
-			// Remove self-import
-			re := regexp.MustCompile(`(?m)^.*github.com\/pulumi\/pulumi-azure-native-sdk\/` + module + `.*$`)
-			contents = re.ReplaceAll(contents, []byte(""))
-			contents = []byte(strings.ReplaceAll(string(contents), module+".PkgVersion", "PkgVersion"))
-		}
-		flattenedFiles[flattenedName] = contents
-	}
-	flattenedFiles[module+"/go.mod"] = []byte(fmt.Sprintf(`
-module github.com/pulumi/pulumi-azure-native-sdk/%s
+	// go-split ... add go.mods
+	files["pulumi-azure-native-sdk/go.mod"] = []byte(`
+module github.com/pulumi/pulumi-azure-native-sdk
 
 go 1.17
 
@@ -292,11 +279,40 @@ require (
 	github.com/pkg/errors v0.9.1
 	github.com/pulumi/pulumi/sdk/v3 v3.37.2
 )
-`, module))
+`)
 
-	for f, contents := range flattenedFiles {
+	re := regexp.MustCompile(`^pulumi-azure-native-sdk\/([^\/]+)\/init\.go$`)
+	version := pkgSpec.Version
+	if version == "" {
+		version = "latest"
+	} else {
+		version = "v" + version
+	}
+	for f, contents := range files {
 		if err := emitFile(outDir, f, contents); err != nil {
 			return errors.Wrapf(err, "emitting file %v", f)
+		}
+
+		if matches := re.FindStringSubmatch(f); len(matches) > 0 {
+			// 1 is the first capture group
+			module := matches[1]
+			modPath := fmt.Sprintf("pulumi-azure-native-sdk/%s/go.mod", module)
+			modContent := fmt.Sprintf(`
+module github.com/pulumi/pulumi-azure-native-sdk/%s
+
+go 1.17
+
+require (
+	github.com/blang/semver v3.5.1+incompatible
+	github.com/pkg/errors v0.9.1
+	github.com/pulumi/pulumi-azure-native-sdk %s
+	github.com/pulumi/pulumi/sdk/v3 v3.37.2
+)
+`, module, version)
+
+			if err := emitFile(outDir, modPath, []byte(modContent)); err != nil {
+				return errors.Wrapf(err, "emitting file %v", modPath)
+			}
 		}
 	}
 
