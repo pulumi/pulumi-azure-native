@@ -12373,96 +12373,112 @@
       {
         "resourceType": "Locations",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "Locations/OperationStatuses",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "devcenters",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "devcenters/attachednetworks",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "devcenters/devboxdefinitions",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "devcenters/galleries",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "devcenters/galleries/images",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "devcenters/galleries/images/versions",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "devcenters/images",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "networkconnections",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "networkconnections/healthchecks",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "projects",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "projects/attachednetworks",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "projects/devboxdefinitions",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       },
       {
         "resourceType": "projects/pools",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-08-01-preview"
         ]
       }
@@ -26083,6 +26099,24 @@
         "apiVersions": [
           "2015-02-28",
           "2014-07-31-Preview"
+        ]
+      },
+      {
+        "resourceType": "locations",
+        "apiVersions": [
+          "2021-06-06-preview"
+        ]
+      },
+      {
+        "resourceType": "locations/notifyNetworkSecurityPerimeterUpdatesAvailable",
+        "apiVersions": [
+          "2021-06-06-preview"
+        ]
+      },
+      {
+        "resourceType": "locations/operationResults",
+        "apiVersions": [
+          "2021-06-06-preview"
         ]
       },
       {

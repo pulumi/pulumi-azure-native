@@ -133,6 +133,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220601
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220402preview:Snapshot"},
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220502preview:Snapshot"},
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220602preview:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220701:Snapshot"},
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220702preview:Snapshot"},
                 },
             };

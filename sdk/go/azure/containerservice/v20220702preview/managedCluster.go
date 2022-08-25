@@ -198,6 +198,9 @@ func NewManagedCluster(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:containerservice/v20220602preview:ManagedCluster"),
 		},
+		{
+			Type: pulumi.String("azure-native:containerservice/v20220701:ManagedCluster"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ManagedCluster

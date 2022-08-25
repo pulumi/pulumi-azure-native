@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220301
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220502preview:MaintenanceConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220601:MaintenanceConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220602preview:MaintenanceConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220701:MaintenanceConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220702preview:MaintenanceConfiguration"},
                 },
             };
