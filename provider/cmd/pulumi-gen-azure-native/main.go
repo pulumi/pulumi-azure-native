@@ -106,8 +106,9 @@ func main() {
 			specNoComments := removeAllComments(*pkgSpec)
 			err = emitPackage(specNoComments, language, outdir)
 		case "go-split":
+			outdir := path.Join(".", "sdk")
 			pkgSpec.Version = version
-			err = emitSplitPackage(pkgSpec, "go", ".")
+			err = emitSplitPackage(pkgSpec, "go", outdir)
 		default:
 			outdir := path.Join(".", "sdk", language)
 			pkgSpec.Version = version
@@ -282,11 +283,18 @@ require (
 `)
 
 	re := regexp.MustCompile(`^pulumi-azure-native-sdk\/([^\/]+)\/init\.go$`)
-	version := pkgSpec.Version
-	if version == "" {
-		version = "latest"
+	var version string
+	if ppkg.Version != nil {
+		buildVersion := *ppkg.Version
+		// Ignore build versions
+		buildVersion.Build = nil
+		// Only include patch Pre (the first Pre), if set.
+		if buildVersion.Pre != nil {
+			buildVersion.Pre = buildVersion.Pre[:1]
+		}
+		version = "v" + buildVersion.String()
 	} else {
-		version = "v" + version
+		version = "latest"
 	}
 	for f, contents := range files {
 		if err := emitFile(outDir, f, contents); err != nil {
@@ -308,7 +316,9 @@ require (
 	github.com/pulumi/pulumi-azure-native-sdk %s
 	github.com/pulumi/pulumi/sdk/v3 v3.37.2
 )
-`, module, version)
+
+replace github.com/pulumi/pulumi-azure-native-sdk %s => ../
+`, module, version, version)
 
 			if err := emitFile(outDir, modPath, []byte(modContent)); err != nil {
 				return errors.Wrapf(err, "emitting file %v", modPath)

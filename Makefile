@@ -190,13 +190,18 @@ bin/pulumi-java-gen::
 	$(shell pulumictl download-binary -n pulumi-language-java -v $(JAVA_GEN_VERSION) -r pulumi/pulumi-java)
 
 generate_go::
-	$(WORKING_DIR)/bin/$(CODEGEN) go $(VERSION)
+	$(WORKING_DIR)/bin/$(CODEGEN) go,go-split $(VERSION)
+
 	cd ${PACKDIR}/go/ && find . -type f -exec sed -i '' -e '/^\/\/.*/g' {} \;
 
 build_go::
 	# Only building the top level packages and building 1 package at a time to avoid OOMing
 	cd sdk/ && \
 	GOGC=50 go list github.com/pulumi/pulumi-azure-native/sdk/go/azure/... | grep -v "latest\|\/v.*"$ | xargs -L 1 go build
+	find sdk/pulumi-azure-native-sdk -type d -maxdepth 1 -exec sh -c "cd \"{}\" && go mod tidy && go build" \;
+
+prepublish_go:
+	find sdk/pulumi-azure-native-sdk -name go.mod -type f -exec sed -i '' '/replace github\.com\/pulumi\/pulumi-azure-native-sdk /d' {} \;
 
 clean::
 	rm -rf $$(find sdk/nodejs -mindepth 1 -maxdepth 1 ! -name "go.mod")

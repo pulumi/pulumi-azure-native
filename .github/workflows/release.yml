@@ -222,6 +222,15 @@ jobs:
       with:
         name: ${{ matrix.language  }}-sdk.tar.gz
         path: ${{ github.workspace}}/sdk/${{ matrix.language }}.tar.gz
+    - name: Tar split Go SDK folder
+      if: ${{ matrix.language == 'go' }}
+      run: tar -zcf sdk/pulumi-azure-native-sdk.tar.gz -C sdk/pulumi-azure-native-sdk .
+    - name: Upload split Go artifacts
+      uses: actions/upload-artifact@v2
+      if: ${{ matrix.language == 'go' }}
+      with:
+        name: pulumi-azure-native-sdk.tar.gz
+        path: ${{ github.workspace}}/sdk/pulumi-azure-native-sdk.tar.gz
     - if: failure() && github.event_name == 'push'
       name: Notify Slack
       uses: 8398a7/action-slack@v3
@@ -313,6 +322,14 @@ jobs:
     - name: UnTar SDK folder
       run: tar -zxf ${{ github.workspace}}/sdk/${{ matrix.language}}.tar.gz -C ${{
         github.workspace}}/sdk/${{ matrix.language}}
+    - name: Download go SDK
+      uses: actions/download-artifact@v2
+      with:
+        name: nodejs-sdk.tar.gz
+        path: ${{ github.workspace}}/sdk/
+    - name: Uncompress go SDK
+      run: tar -zxf ${{github.workspace}}/sdk/nodejs.tar.gz -C
+        ${{github.workspace}}/sdk/nodejs
     - name: Update path
       run: echo "${{ github.workspace }}/bin" >> $GITHUB_PATH
     - name: Install Node dependencies
@@ -424,6 +441,11 @@ jobs:
       with:
         path: ci-scripts
         repository: pulumi/scripts
+    - name: Checkout Go SDK repo
+      uses: actions/checkout@v2
+      with:
+        repository: pulumi/pulumi-azure-native-sdk
+        path: sdk/pulumi-azure-native-sdk
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
@@ -487,6 +509,14 @@ jobs:
     - name: Uncompress java SDK
       run: tar -zxf ${{github.workspace}}/sdk/java.tar.gz -C
         ${{github.workspace}}/sdk/java
+    - name: Download go SDK
+      uses: actions/download-artifact@v2
+      with:
+        name: nodejs-sdk.tar.gz
+        path: ${{ github.workspace}}/sdk/
+    - name: Uncompress go SDK
+      run: tar -zxf ${{github.workspace}}/sdk/nodejs.tar.gz -C
+        ${{github.workspace}}/sdk/nodejs
     - name: Install Twine
       run: python -m pip install pip twine
     - name: Publish SDKs
@@ -502,6 +532,16 @@ jobs:
         arguments: publishToSonatype closeAndReleaseSonatypeStagingRepository
         build-root-directory: ./sdk/java
         gradle-version: 7.4.1
+    - name: Publish Split Go SDK
+      run: >-
+        VERSION="v$(pulumictl get version --language generic)"
+        cd sdk/pulumi-azure-native-sdk
+        git add .
+        git commit -m "$VERSION"
+        git tag "$VERSION"
+        # Find go.mod's, get parent dir name, concat with version, set as a tag
+        find */go.mod -type f -exec sh -c "dirname {} | xargs basename | xargs printf "%s/$VERSION" | xargs git tag" \;
+        git push origin --tags
     - if: failure() && github.event_name == 'push'
       name: Notify Slack
       uses: 8398a7/action-slack@v3
