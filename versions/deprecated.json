@@ -321,7 +321,6 @@
   "ExtendedLocation": [],
   "Features": [],
   "FluidRelay": [],
-  "GraphServices": [],
   "GuestConfiguration": [
     "2018-06-30-preview",
     "2018-11-20"
@@ -405,7 +404,6 @@
     "2015-08-31-preview"
   ],
   "ManagedNetwork": [],
-  "ManagedNetworkFabric": [],
   "ManagedServices": [
     "2018-06-01-preview",
     "2019-04-01-preview",
@@ -478,7 +476,6 @@
     "2018-03-01-preview",
     "2018-04-01"
   ],
-  "NetworkCloud": [],
   "NetworkFunction": [],
   "NotificationHubs": [
     "2014-09-01",
@@ -510,7 +507,6 @@
     "2017-10-01"
   ],
   "PowerPlatform": [],
-  "ProfessionalService": [],
   "ProviderHub": [],
   "Purview": [],
   "Quantum": [],
