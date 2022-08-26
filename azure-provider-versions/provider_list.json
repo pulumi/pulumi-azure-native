@@ -12250,6 +12250,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2022-08-09-privatepreview",
           "2022-07-05-preview",
           "2022-06-03-privatepreview",
           "2022-04-01-preview",
@@ -23722,6 +23723,21 @@
     "namespace": "Microsoft.Orbital",
     "resourceTypes": [
       {
+        "resourceType": "availableGroundStations",
+        "apiVersions": [
+          "2022-03-01",
+          "2021-04-04-preview"
+        ]
+      },
+      {
+        "resourceType": "contactProfiles",
+        "apiVersions": [
+          "2022-03-01",
+          "2021-04-04-preview",
+          "2020-09-01-preview"
+        ]
+      },
+      {
         "resourceType": "locations",
         "apiVersions": [
           "2022-03-01"
@@ -23735,6 +23751,22 @@
       },
       {
         "resourceType": "operations",
+        "apiVersions": [
+          "2022-03-01",
+          "2021-04-04-preview",
+          "2020-09-01-preview"
+        ]
+      },
+      {
+        "resourceType": "spacecrafts",
+        "apiVersions": [
+          "2022-03-01",
+          "2021-04-04-preview",
+          "2020-09-01-preview"
+        ]
+      },
+      {
+        "resourceType": "spacecrafts/contacts",
         "apiVersions": [
           "2022-03-01",
           "2021-04-04-preview",
