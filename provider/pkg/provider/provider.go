@@ -176,7 +176,10 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	}
 	k.environment = env
 
-	tokenAuth, bearerAuth, err := k.getAuthorizers(authConfig)
+	// The ctx Context given by gRPC is request-scoped and will be canceled after this request. We
+	// need the authorizers to function across requests.
+	authCtx := context.Background()
+	tokenAuth, bearerAuth, err := k.getAuthorizers(authCtx, authConfig)
 	if err != nil {
 		return nil, errors.Wrap(err, "building authorizer")
 	}
@@ -216,9 +219,6 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 			objectIdPtr, err := auth.GetAuthenticatedObjectID(ctx)
 			if err != nil {
 				return nil, fmt.Errorf("getting authenticated object ID: %w", err)
-			}
-			if objectIdPtr == nil {
-				return nil, fmt.Errorf("getting authenticated object ID")
 			}
 			objectId = *objectIdPtr
 		}
@@ -1713,7 +1713,7 @@ func (k *azureNativeProvider) getAuthConfig() (*authentication.Config, error) {
 	return builder.Build()
 }
 
-func (k *azureNativeProvider) getAuthorizers(authConfig *authentication.Config) (tokenAuth autorest.Authorizer,
+func (k *azureNativeProvider) getAuthorizers(ctx context.Context, authConfig *authentication.Config) (tokenAuth autorest.Authorizer,
 	bearerAuth autorest.Authorizer, err error) {
 	buildSender := sender.BuildSender("AzureNative")
 
