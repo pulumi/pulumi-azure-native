@@ -81,6 +81,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210210
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220301:ReplicationProtectionContainerMapping"},
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220401:ReplicationProtectionContainerMapping"},
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220501:ReplicationProtectionContainerMapping"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220801:ReplicationProtectionContainerMapping"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

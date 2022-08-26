@@ -36,6 +36,9 @@ func NewAccount(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:recommendationsservice:Account"),
 		},
+		{
+			Type: pulumi.String("azure-native:recommendationsservice/v20220301preview:Account"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Account

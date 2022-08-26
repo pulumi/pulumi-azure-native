@@ -16287,6 +16287,16 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "recommendationsservice/v20220301preview",
+  "fqn": "pulumi_azure_native.recommendationsservice.v20220301preview",
+  "classes": {
+   "azure-native:recommendationsservice/v20220301preview:Account": "Account",
+   "azure-native:recommendationsservice/v20220301preview:Modeling": "Modeling",
+   "azure-native:recommendationsservice/v20220301preview:ServiceEndpoint": "ServiceEndpoint"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "recoveryservices",
   "fqn": "pulumi_azure_native.recoveryservices",
   "classes": {
@@ -16806,6 +16816,23 @@ _utilities.register(
    "azure-native:recoveryservices/v20220601preview:ProtectionIntent": "ProtectionIntent",
    "azure-native:recoveryservices/v20220601preview:ProtectionPolicy": "ProtectionPolicy",
    "azure-native:recoveryservices/v20220601preview:ResourceGuardProxy": "ResourceGuardProxy"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "recoveryservices/v20220801",
+  "fqn": "pulumi_azure_native.recoveryservices.v20220801",
+  "classes": {
+   "azure-native:recoveryservices/v20220801:ReplicationFabric": "ReplicationFabric",
+   "azure-native:recoveryservices/v20220801:ReplicationMigrationItem": "ReplicationMigrationItem",
+   "azure-native:recoveryservices/v20220801:ReplicationNetworkMapping": "ReplicationNetworkMapping",
+   "azure-native:recoveryservices/v20220801:ReplicationPolicy": "ReplicationPolicy",
+   "azure-native:recoveryservices/v20220801:ReplicationProtectedItem": "ReplicationProtectedItem",
+   "azure-native:recoveryservices/v20220801:ReplicationProtectionContainerMapping": "ReplicationProtectionContainerMapping",
+   "azure-native:recoveryservices/v20220801:ReplicationRecoveryPlan": "ReplicationRecoveryPlan",
+   "azure-native:recoveryservices/v20220801:ReplicationRecoveryServicesProvider": "ReplicationRecoveryServicesProvider",
+   "azure-native:recoveryservices/v20220801:ReplicationStorageClassificationMapping": "ReplicationStorageClassificationMapping",
+   "azure-native:recoveryservices/v20220801:ReplicationvCenter": "ReplicationvCenter"
   }
  },
  {
