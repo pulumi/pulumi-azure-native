@@ -191,6 +191,10 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 		return nil, errors.Wrap(err, "building authorizer")
 	}
 
+	if k.getConfig("useLegacyADALAuth", "USE_LEGACY_ADAL_AUTH") == "true" {
+		k.host.Log(ctx, diag.Warning, "", "USE_LEGACY_ADAL_AUTH is deprecated and will be removed in a future release.")
+	}
+
 	k.subscriptionID = authConfig.SubscriptionID
 	k.client.Authorizer = tokenAuth
 	k.client.UserAgent = k.getUserAgent()
@@ -414,10 +418,6 @@ func (k *azureNativeProvider) Check(ctx context.Context, req *rpc.CheckRequest) 
 				Reason: fmt.Sprintf("missing required property '%s'", name),
 			})
 		}
-	}
-
-	if k.getConfig("useLegacyADALAuth", "USE_LEGACY_ADAL_AUTH") == "true" {
-		k.host.Log(ctx, diag.Warning, urn, "USE_LEGACY_ADAL_AUTH is deprecated and will be removed in a future release.")
 	}
 
 	resInputs, err := plugin.MarshalProperties(news, plugin.MarshalOptions{
