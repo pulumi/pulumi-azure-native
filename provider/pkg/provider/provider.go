@@ -25,7 +25,6 @@ import (
 	"google.golang.org/protobuf/types/known/emptypb"
 
 	"github.com/Azure/go-autorest/autorest"
-	"github.com/Azure/go-autorest/autorest/adal"
 	"github.com/Azure/go-autorest/autorest/azure"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
 	"github.com/google/uuid"
@@ -1721,8 +1720,7 @@ func (k *azureNativeProvider) getAuthorizers(ctx context.Context, authConfig *au
 		return nil, nil, err
 	}
 
-	environment := k.autorestEnvToHamiltonEnv()
-	api := environment.ResourceManager
+	api := k.autorestEnvToHamiltonEnv().ResourceManager
 
 	endpoint := k.environment.TokenAudience
 
@@ -1742,8 +1740,7 @@ func (k *azureNativeProvider) getOAuthToken(ctx context.Context, auth *authentic
 		return "", err
 	}
 
-	environment := k.autorestEnvToHamiltonEnv()
-	api := environment.ResourceManager
+	api := k.autorestEnvToHamiltonEnv().ResourceManager
 
 	authorizer, err := auth.GetMSALToken(ctx, api, buildSender, oauthConfig, endpoint)
 	if err != nil {
@@ -1754,15 +1751,6 @@ func (k *azureNativeProvider) getOAuthToken(ctx context.Context, auth *authentic
 		return "", fmt.Errorf("converting %T to a BearerAuthorizer", authorizer)
 	}
 	tokenProvider := ba.TokenProvider()
-	// the ordering is important here, prefer RefresherWithContext if available
-	if refresher, ok := tokenProvider.(adal.RefresherWithContext); ok {
-		err = refresher.EnsureFreshWithContext(ctx)
-	} else if refresher, ok := tokenProvider.(adal.Refresher); ok {
-		err = refresher.EnsureFresh()
-	}
-	if err != nil {
-		return "", fmt.Errorf("error refreshing token from %T", tokenProvider)
-	}
 	token := tokenProvider.OAuthToken()
 	if token == "" {
 		return "", fmt.Errorf("empty token from %T", tokenProvider)
