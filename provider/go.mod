@@ -29,6 +29,8 @@ require (
 	modernc.org/sqlite v1.10.0
 )
 
+require github.com/Azure/go-autorest/autorest/adal v0.9.18 // indirect
+
 require (
 	github.com/Azure/go-autorest/autorest/adal v0.9.21
 	github.com/golang/protobuf v1.5.2
@@ -109,7 +111,7 @@ require (
 	github.com/hashicorp/go-rootcerts v1.0.2 // indirect
 	github.com/hashicorp/go-sockaddr v1.0.2 // indirect
 	github.com/hashicorp/go-uuid v1.0.2 // indirect
-	github.com/hashicorp/go-version v1.4.0 // indirect
+	github.com/hashicorp/go-version v1.4.0
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/hashicorp/vault/api v1.1.1 // indirect
 	github.com/hashicorp/vault/sdk v0.2.1 // indirect

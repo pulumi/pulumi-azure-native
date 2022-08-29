@@ -12,6 +12,7 @@ import (
 	"math"
 	"net/http"
 	"os"
+	"os/exec"
 	"reflect"
 	"regexp"
 	"strings"
@@ -30,6 +31,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/hashicorp/go-azure-helpers/authentication"
 	"github.com/hashicorp/go-azure-helpers/sender"
+	goversion "github.com/hashicorp/go-version"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/arm2pulumi"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
@@ -59,6 +61,10 @@ const (
 	apiVersionResources    = "2020-10-01"
 	createBeforeDeleteFlag = "__createBeforeDelete"
 )
+
+// We need this version because it doesn't print the error of #1565
+var minAzVersion = goversion.Must(goversion.NewVersion("2.37.0"))
+var nextMajorAzVersion = goversion.Must(goversion.NewVersion("3.0.0"))
 
 type azureNativeProvider struct {
 	host            *provider.HostClient
@@ -155,6 +161,11 @@ func (p *azureNativeProvider) Attach(context context.Context, req *rpc.PluginAtt
 // Configure configures the resource provider with "globals" that control its behavior.
 func (k *azureNativeProvider) Configure(ctx context.Context,
 	req *rpc.ConfigureRequest) (*rpc.ConfigureResponse, error) {
+
+	if err := assertAzVersion(); err != nil {
+		return nil, errors.Wrap(err, "checking az version")
+	}
+
 	for key, val := range req.GetVariables() {
 		k.config[strings.TrimPrefix(key, "azure-native:config:")] = val
 	}
@@ -163,7 +174,7 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 
 	authConfig, err := k.getAuthConfig()
 	if err != nil {
-		return nil, errors.Wrap(err, "building auth config")
+		return nil, err
 	}
 
 	envName := authConfig.Environment
@@ -190,6 +201,58 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	return &rpc.ConfigureResponse{
 		SupportsPreview: true,
 	}, nil
+}
+
+func assertAzVersion() error {
+	const versionHint = "Please make sure the Azure CLI 2.37 or greater, but less than 3.x, is installed."
+
+	_, err := exec.LookPath("az")
+	if err != nil {
+		return fmt.Errorf("could not find `az`. %s", versionHint)
+	}
+
+	var azVersion struct {
+		Cli string `json:"azure-cli"`
+	}
+	err = jsonUnmarshalAzCmd(&azVersion, "version")
+	if err != nil {
+		return errors.Wrap(err, fmt.Sprintf("could not determine az version. %s", versionHint))
+	}
+
+	actual, err := goversion.NewVersion(azVersion.Cli)
+	if err != nil {
+		return fmt.Errorf("could not parse az version %q: %+v. %s", azVersion.Cli, err, versionHint)
+	}
+
+	if actual.LessThan(minAzVersion) || actual.GreaterThanOrEqual(nextMajorAzVersion) {
+		return fmt.Errorf("found incompatible az version %s. %s", actual, versionHint)
+	}
+
+	return nil
+}
+
+func jsonUnmarshalAzCmd(i interface{}, arg ...string) error {
+	var stderr bytes.Buffer
+	var stdout bytes.Buffer
+
+	cmd := exec.Command("az", arg...)
+
+	cmd.Stderr = &stderr
+	cmd.Stdout = &stdout
+
+	if err := cmd.Run(); err != nil {
+		err := fmt.Errorf("running az: %+v", err)
+		if stdErrStr := stderr.String(); stdErrStr != "" {
+			err = fmt.Errorf("%s: %s", err, strings.TrimSpace(stdErrStr))
+		}
+		return err
+	}
+
+	if err := json.Unmarshal(stdout.Bytes(), i); err != nil {
+		return fmt.Errorf("unmarshaling the result of Azure CLI: %v", err)
+	}
+
+	return nil
 }
 
 // Invoke dynamically executes a built-in function in the provider.
