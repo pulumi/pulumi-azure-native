@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Orbital.V20210404Preview
     /// Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
     /// </summary>
     [AzureNativeResourceType("azure-native:orbital/v20210404preview:ContactProfile")]
-    public partial class ContactProfile : Pulumi.CustomResource
+    public partial class ContactProfile : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Auto track configuration.
@@ -106,8 +106,8 @@ namespace Pulumi.AzureNative.Orbital.V20210404Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:orbital:ContactProfile"},
-                    new Pulumi.Alias { Type = "azure-native:orbital/v20220301:ContactProfile"},
+                    new global::Pulumi.Alias { Type = "azure-native:orbital:ContactProfile"},
+                    new global::Pulumi.Alias { Type = "azure-native:orbital/v20220301:ContactProfile"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -129,7 +129,7 @@ namespace Pulumi.AzureNative.Orbital.V20210404Preview
         }
     }
 
-    public sealed class ContactProfileArgs : Pulumi.ResourceArgs
+    public sealed class ContactProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Auto track configuration.
@@ -200,5 +200,6 @@ namespace Pulumi.AzureNative.Orbital.V20210404Preview
         public ContactProfileArgs()
         {
         }
+        public static new ContactProfileArgs Empty => new ContactProfileArgs();
     }
 }

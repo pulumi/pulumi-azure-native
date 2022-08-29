@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.Inputs
     /// <summary>
     /// The parameters for a docker quick build.
     /// </summary>
-    public sealed class DockerBuildRequestArgs : Pulumi.ResourceArgs
+    public sealed class DockerBuildRequestArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The machine configuration of the run agent.
@@ -126,5 +126,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.Inputs
             NoCache = false;
             Timeout = 3600;
         }
+        public static new DockerBuildRequestArgs Empty => new DockerBuildRequestArgs();
     }
 }

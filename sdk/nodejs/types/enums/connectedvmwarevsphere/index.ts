@@ -3,9 +3,11 @@
 
 // Export sub-modules:
 import * as v20201001preview from "./v20201001preview";
+import * as v20220110preview from "./v20220110preview";
 
 export {
     v20201001preview,
+    v20220110preview,
 };
 
 export const DiskMode = {

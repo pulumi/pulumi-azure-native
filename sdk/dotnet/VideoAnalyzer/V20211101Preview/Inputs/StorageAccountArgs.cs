@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
     /// <summary>
     /// The details about the associated storage account.
     /// </summary>
-    public sealed class StorageAccountArgs : Pulumi.ResourceArgs
+    public sealed class StorageAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the storage account resource. Video Analyzer relies on tables, queues, and blobs. The primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage).
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
         public StorageAccountArgs()
         {
         }
+        public static new StorageAccountArgs Empty => new StorageAccountArgs();
     }
 }

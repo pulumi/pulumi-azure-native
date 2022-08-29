@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
     /// <summary>
     /// A DataFactory compute.
     /// </summary>
-    public sealed class DataFactoryArgs : Pulumi.ResourceArgs
+    public sealed class DataFactoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of compute
@@ -29,12 +29,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
-        /// </summary>
-        [Input("disableLocalAuth")]
-        public Input<bool>? DisableLocalAuth { get; set; }
-
-        /// <summary>
         /// ARM resource id of the underlying compute
         /// </summary>
         [Input("resourceId")]
@@ -43,5 +37,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
         public DataFactoryArgs()
         {
         }
+        public static new DataFactoryArgs Empty => new DataFactoryArgs();
     }
 }

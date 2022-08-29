@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview
     /// </summary>
     [Obsolete(@"Version 2019-06-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:synapse/v20190601preview:Key")]
-    public partial class Key : Pulumi.CustomResource
+    public partial class Key : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Used to activate the workspace after a customer managed key is provided.
@@ -65,13 +65,13 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:synapse:Key"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20201201:Key"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210301:Key"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:Key"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210501:Key"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601:Key"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:Key"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse:Key"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20201201:Key"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210301:Key"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:Key"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210501:Key"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601:Key"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:Key"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview
         }
     }
 
-    public sealed class KeyArgs : Pulumi.ResourceArgs
+    public sealed class KeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Used to activate the workspace after a customer managed key is provided.
@@ -128,5 +128,6 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview
         public KeyArgs()
         {
         }
+        public static new KeyArgs Empty => new KeyArgs();
     }
 }

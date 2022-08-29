@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Maps
     /// API Version: 2018-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:maps:Account")]
-    public partial class Account : Pulumi.CustomResource
+    public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The location of the resource.
@@ -77,12 +77,12 @@ namespace Pulumi.AzureNative.Maps
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:maps/v20170101preview:Account"},
-                    new Pulumi.Alias { Type = "azure-native:maps/v20180501:Account"},
-                    new Pulumi.Alias { Type = "azure-native:maps/v20200201preview:Account"},
-                    new Pulumi.Alias { Type = "azure-native:maps/v20210201:Account"},
-                    new Pulumi.Alias { Type = "azure-native:maps/v20210701preview:Account"},
-                    new Pulumi.Alias { Type = "azure-native:maps/v20211201preview:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:maps/v20170101preview:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:maps/v20180501:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:maps/v20200201preview:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:maps/v20210201:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:maps/v20210701preview:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:maps/v20211201preview:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.Maps
         }
     }
 
-    public sealed class AccountArgs : Pulumi.ResourceArgs
+    public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Maps Account.
@@ -145,5 +145,6 @@ namespace Pulumi.AzureNative.Maps
         public AccountArgs()
         {
         }
+        public static new AccountArgs Empty => new AccountArgs();
     }
 }

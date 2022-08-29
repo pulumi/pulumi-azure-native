@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220401
     /// Application Configuration Service resource
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform/v20220401:ConfigurationService")]
-    public partial class ConfigurationService : Pulumi.CustomResource
+    public partial class ConfigurationService : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource.
@@ -64,10 +64,10 @@ namespace Pulumi.AzureNative.AppPlatform.V20220401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:appplatform:ConfigurationService"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:ConfigurationService"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:ConfigurationService"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:ConfigurationService"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform:ConfigurationService"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:ConfigurationService"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:ConfigurationService"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:ConfigurationService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220401
         }
     }
 
-    public sealed class ConfigurationServiceArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of Application Configuration Service.
@@ -118,5 +118,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20220401
         public ConfigurationServiceArgs()
         {
         }
+        public static new ConfigurationServiceArgs Empty => new ConfigurationServiceArgs();
     }
 }

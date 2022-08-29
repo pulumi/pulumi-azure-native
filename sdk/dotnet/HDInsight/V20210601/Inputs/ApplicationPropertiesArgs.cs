@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.V20210601.Inputs
     /// <summary>
     /// The HDInsight cluster application GET response.
     /// </summary>
-    public sealed class ApplicationPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application type.
@@ -102,5 +102,6 @@ namespace Pulumi.AzureNative.HDInsight.V20210601.Inputs
         public ApplicationPropertiesArgs()
         {
         }
+        public static new ApplicationPropertiesArgs Empty => new ApplicationPropertiesArgs();
     }
 }

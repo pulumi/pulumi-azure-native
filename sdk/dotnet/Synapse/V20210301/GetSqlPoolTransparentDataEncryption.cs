@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Synapse.V20210301
     }
 
 
-    public sealed class GetSqlPoolTransparentDataEncryptionArgs : Pulumi.InvokeArgs
+    public sealed class GetSqlPoolTransparentDataEncryptionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.Synapse.V20210301
         public GetSqlPoolTransparentDataEncryptionArgs()
         {
         }
+        public static new GetSqlPoolTransparentDataEncryptionArgs Empty => new GetSqlPoolTransparentDataEncryptionArgs();
     }
 
-    public sealed class GetSqlPoolTransparentDataEncryptionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSqlPoolTransparentDataEncryptionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.Synapse.V20210301
         public GetSqlPoolTransparentDataEncryptionInvokeArgs()
         {
         }
+        public static new GetSqlPoolTransparentDataEncryptionInvokeArgs Empty => new GetSqlPoolTransparentDataEncryptionInvokeArgs();
     }
 
 

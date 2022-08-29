@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
-    public sealed class EdifactEnvelopeOverrideArgs : Pulumi.ResourceArgs
+    public sealed class EdifactEnvelopeOverrideArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application password.
@@ -105,5 +105,6 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
         public EdifactEnvelopeOverrideArgs()
         {
         }
+        public static new EdifactEnvelopeOverrideArgs Empty => new EdifactEnvelopeOverrideArgs();
     }
 }

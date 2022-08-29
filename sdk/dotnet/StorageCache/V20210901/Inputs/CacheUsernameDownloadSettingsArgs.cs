@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageCache.V20210901.Inputs
     /// <summary>
     /// Settings for Extended Groups username and group download.
     /// </summary>
-    public sealed class CacheUsernameDownloadSettingsArgs : Pulumi.ResourceArgs
+    public sealed class CacheUsernameDownloadSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines if the certificate should be automatically downloaded. This applies to 'caCertificateURI' only if 'requireValidCertificate' is true.
@@ -85,5 +85,6 @@ namespace Pulumi.AzureNative.StorageCache.V20210901.Inputs
         {
             UsernameSource = "None";
         }
+        public static new CacheUsernameDownloadSettingsArgs Empty => new CacheUsernameDownloadSettingsArgs();
     }
 }

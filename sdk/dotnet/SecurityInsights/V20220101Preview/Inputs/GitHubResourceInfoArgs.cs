@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview.Inputs
     /// <summary>
     /// Resources created in GitHub repository.
     /// </summary>
-    public sealed class GitHubResourceInfoArgs : Pulumi.ResourceArgs
+    public sealed class GitHubResourceInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// GitHub application installation id.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview.Inputs
         public GitHubResourceInfoArgs()
         {
         }
+        public static new GitHubResourceInfoArgs Empty => new GitHubResourceInfoArgs();
     }
 }

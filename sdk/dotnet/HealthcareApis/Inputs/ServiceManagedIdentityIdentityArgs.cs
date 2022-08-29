@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HealthcareApis.Inputs
     /// <summary>
     /// Setting indicating whether the service has a managed identity associated with it.
     /// </summary>
-    public sealed class ServiceManagedIdentityIdentityArgs : Pulumi.ResourceArgs
+    public sealed class ServiceManagedIdentityIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of identity being specified, currently SystemAssigned and None are allowed.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.HealthcareApis.Inputs
         public ServiceManagedIdentityIdentityArgs()
         {
         }
+        public static new ServiceManagedIdentityIdentityArgs Empty => new ServiceManagedIdentityIdentityArgs();
     }
 }

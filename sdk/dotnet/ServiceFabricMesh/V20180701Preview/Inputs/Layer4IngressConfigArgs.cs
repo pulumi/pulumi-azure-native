@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview.Inputs
     /// <summary>
     /// Describes the layer4 configuration for public connectivity for this network.
     /// </summary>
-    public sealed class Layer4IngressConfigArgs : Pulumi.ResourceArgs
+    public sealed class Layer4IngressConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application name which contains the service to be exposed.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview.Inputs
         public Layer4IngressConfigArgs()
         {
         }
+        public static new Layer4IngressConfigArgs Empty => new Layer4IngressConfigArgs();
     }
 }

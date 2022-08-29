@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Search.V20150228
     }
 
 
-    public sealed class ListAdminKeyArgs : Pulumi.InvokeArgs
+    public sealed class ListAdminKeyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group within the current subscription.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Search.V20150228
         public ListAdminKeyArgs()
         {
         }
+        public static new ListAdminKeyArgs Empty => new ListAdminKeyArgs();
     }
 
-    public sealed class ListAdminKeyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListAdminKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group within the current subscription.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Search.V20150228
         public ListAdminKeyInvokeArgs()
         {
         }
+        public static new ListAdminKeyInvokeArgs Empty => new ListAdminKeyInvokeArgs();
     }
 
 

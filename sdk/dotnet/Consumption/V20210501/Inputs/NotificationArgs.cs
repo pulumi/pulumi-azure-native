@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Consumption.V20210501.Inputs
     /// <summary>
     /// The notification associated with a budget.
     /// </summary>
-    public sealed class NotificationArgs : Pulumi.ResourceArgs
+    public sealed class NotificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("contactEmails", required: true)]
         private InputList<string>? _contactEmails;
@@ -79,5 +79,6 @@ namespace Pulumi.AzureNative.Consumption.V20210501.Inputs
         {
             ThresholdType = "Actual";
         }
+        public static new NotificationArgs Empty => new NotificationArgs();
     }
 }

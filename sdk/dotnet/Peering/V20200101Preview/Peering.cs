@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Peering.V20200101Preview
     /// </summary>
     [Obsolete(@"Version 2020-01-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:peering/v20200101preview:Peering")]
-    public partial class Peering : Pulumi.CustomResource
+    public partial class Peering : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The properties that define a direct peering.
@@ -101,14 +101,15 @@ namespace Pulumi.AzureNative.Peering.V20200101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:peering:Peering"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20190801preview:Peering"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20190901preview:Peering"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20200401:Peering"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20201001:Peering"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20210101:Peering"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20210601:Peering"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20220101:Peering"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering:Peering"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20190801preview:Peering"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20190901preview:Peering"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20200401:Peering"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20201001:Peering"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20210101:Peering"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20210601:Peering"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20220101:Peering"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20220601:Peering"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -130,7 +131,7 @@ namespace Pulumi.AzureNative.Peering.V20200101Preview
         }
     }
 
-    public sealed class PeeringArgs : Pulumi.ResourceArgs
+    public sealed class PeeringArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The properties that define a direct peering.
@@ -195,5 +196,6 @@ namespace Pulumi.AzureNative.Peering.V20200101Preview
         public PeeringArgs()
         {
         }
+        public static new PeeringArgs Empty => new PeeringArgs();
     }
 }

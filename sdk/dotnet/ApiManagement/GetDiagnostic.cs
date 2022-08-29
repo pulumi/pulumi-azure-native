@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ApiManagement
     }
 
 
-    public sealed class GetDiagnosticArgs : Pulumi.InvokeArgs
+    public sealed class GetDiagnosticArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Diagnostic identifier. Must be unique in the current API Management service instance.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.ApiManagement
         public GetDiagnosticArgs()
         {
         }
+        public static new GetDiagnosticArgs Empty => new GetDiagnosticArgs();
     }
 
-    public sealed class GetDiagnosticInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDiagnosticInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Diagnostic identifier. Must be unique in the current API Management service instance.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public GetDiagnosticInvokeArgs()
         {
         }
+        public static new GetDiagnosticInvokeArgs Empty => new GetDiagnosticInvokeArgs();
     }
 
 
@@ -109,6 +111,10 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Resource Id of a target logger.
         /// </summary>
         public readonly string LoggerId;
+        /// <summary>
+        /// Emit custom metrics via emit-metric policy. Applicable only to Application Insights diagnostic settings.
+        /// </summary>
+        public readonly bool? Metrics;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -146,6 +152,8 @@ namespace Pulumi.AzureNative.ApiManagement
 
             string loggerId,
 
+            bool? metrics,
+
             string name,
 
             string? operationNameFormat,
@@ -163,6 +171,7 @@ namespace Pulumi.AzureNative.ApiManagement
             Id = id;
             LogClientIp = logClientIp;
             LoggerId = loggerId;
+            Metrics = metrics;
             Name = name;
             OperationNameFormat = operationNameFormat;
             Sampling = sampling;

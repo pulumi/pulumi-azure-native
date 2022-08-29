@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210301Preview.Inputs
     /// <summary>
     /// The object representing periodic mode backup policy.
     /// </summary>
-    public sealed class PeriodicModeBackupPolicyArgs : Pulumi.ResourceArgs
+    public sealed class PeriodicModeBackupPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration values for periodic mode backup
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20210301Preview.Inputs
         public PeriodicModeBackupPolicyArgs()
         {
         }
+        public static new PeriodicModeBackupPolicyArgs Empty => new PeriodicModeBackupPolicyArgs();
     }
 }

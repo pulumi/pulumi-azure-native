@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network.V20150504Preview
     /// </summary>
     [Obsolete(@"Version 2015-05-04-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:network/v20150504preview:Zone")]
-    public partial class Zone : Pulumi.CustomResource
+    public partial class Zone : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Gets or sets the ETag of the zone that is being updated, as received from a Get operation.
@@ -77,12 +77,12 @@ namespace Pulumi.AzureNative.Network.V20150504Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network:Zone"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20160401:Zone"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170901:Zone"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20171001:Zone"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180301preview:Zone"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180501:Zone"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:Zone"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20160401:Zone"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20170901:Zone"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20171001:Zone"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180301preview:Zone"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180501:Zone"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.Network.V20150504Preview
         }
     }
 
-    public sealed class ZoneArgs : Pulumi.ResourceArgs
+    public sealed class ZoneArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -145,5 +145,6 @@ namespace Pulumi.AzureNative.Network.V20150504Preview
         public ZoneArgs()
         {
         }
+        public static new ZoneArgs Empty => new ZoneArgs();
     }
 }

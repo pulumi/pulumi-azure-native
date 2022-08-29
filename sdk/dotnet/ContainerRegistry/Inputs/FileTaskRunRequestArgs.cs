@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.Inputs
     /// <summary>
     /// The request parameters for a scheduling run against a task file.
     /// </summary>
-    public sealed class FileTaskRunRequestArgs : Pulumi.ResourceArgs
+    public sealed class FileTaskRunRequestArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The machine configuration of the run agent.
@@ -100,5 +100,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.Inputs
             IsArchiveEnabled = false;
             Timeout = 3600;
         }
+        public static new FileTaskRunRequestArgs Empty => new FileTaskRunRequestArgs();
     }
 }

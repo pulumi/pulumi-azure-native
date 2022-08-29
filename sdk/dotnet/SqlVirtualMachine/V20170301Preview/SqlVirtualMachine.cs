@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview
     /// A SQL virtual machine.
     /// </summary>
     [AzureNativeResourceType("azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachine")]
-    public partial class SqlVirtualMachine : Pulumi.CustomResource
+    public partial class SqlVirtualMachine : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Auto backup settings for SQL Server.
@@ -148,10 +148,11 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:sqlvirtualmachine:SqlVirtualMachine"},
-                    new Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20211101preview:SqlVirtualMachine"},
-                    new Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachine"},
-                    new Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220201preview:SqlVirtualMachine"},
+                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine:SqlVirtualMachine"},
+                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20211101preview:SqlVirtualMachine"},
+                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachine"},
+                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220201preview:SqlVirtualMachine"},
+                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220701preview:SqlVirtualMachine"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -173,7 +174,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview
         }
     }
 
-    public sealed class SqlVirtualMachineArgs : Pulumi.ResourceArgs
+    public sealed class SqlVirtualMachineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Auto backup settings for SQL Server.
@@ -286,5 +287,6 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview
         public SqlVirtualMachineArgs()
         {
         }
+        public static new SqlVirtualMachineArgs Empty => new SqlVirtualMachineArgs();
     }
 }

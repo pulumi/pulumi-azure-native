@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
- * Define the SAP Application Server Instance.
+ * Define the SAP Application Server Instance resource.
  */
 export function getSAPApplicationServerInstance(args: GetSAPApplicationServerInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPApplicationServerInstanceResult> {
     if (!opts) {
@@ -23,7 +23,7 @@ export function getSAPApplicationServerInstance(args: GetSAPApplicationServerIns
 
 export interface GetSAPApplicationServerInstanceArgs {
     /**
-     * The name of SAP Application Server instance.
+     * The name of SAP Application Server instance resource.
      */
     applicationInstanceName: string;
     /**
@@ -31,13 +31,13 @@ export interface GetSAPApplicationServerInstanceArgs {
      */
     resourceGroupName: string;
     /**
-     * The name of the Virtual Instances for SAP.
+     * The name of the Virtual Instances for SAP solutions resource
      */
     sapVirtualInstanceName: string;
 }
 
 /**
- * Define the SAP Application Server Instance.
+ * Define the SAP Application Server Instance resource.
  */
 export interface GetSAPApplicationServerInstanceResult {
     /**
@@ -45,23 +45,23 @@ export interface GetSAPApplicationServerInstanceResult {
      */
     readonly errors: outputs.workloads.v20211201preview.SAPVirtualInstanceErrorResponse;
     /**
-     * The application server gateway Port.
+     * Application server instance gateway Port.
      */
     readonly gatewayPort: number;
     /**
-     * Defines the SAP Instance health.
+     * Defines the health of SAP Instances.
      */
     readonly health: string;
     /**
-     * The application server SAP host name.
+     * Application server instance SAP hostname.
      */
     readonly hostname: string;
     /**
-     * The application server ICM HTTP Port.
+     * Application server instance ICM HTTP Port.
      */
     readonly icmHttpPort: number;
     /**
-     * The application server ICM HTTPS Port.
+     * Application server instance ICM HTTPS Port.
      */
     readonly icmHttpsPort: number;
     /**
@@ -69,19 +69,19 @@ export interface GetSAPApplicationServerInstanceResult {
      */
     readonly id: string;
     /**
-     * The application server instance id.
+     * Application server Instance Number.
      */
     readonly instanceNo: string;
     /**
-     * The application server SAP IP Address.
+     *  Application server instance SAP IP Address.
      */
     readonly ipAddress: string;
     /**
-     * The application server SAP kernel patch.
+     * Application server instance SAP Kernel Patch level.
      */
     readonly kernelPatch: string;
     /**
-     * The application server SAP kernel version.
+     *  Application server instance SAP Kernel Version.
      */
     readonly kernelVersion: string;
     /**
@@ -101,7 +101,7 @@ export interface GetSAPApplicationServerInstanceResult {
      */
     readonly status: string;
     /**
-     * The application server subnet.
+     * Application server Subnet.
      */
     readonly subnet: string;
     /**
@@ -128,7 +128,7 @@ export function getSAPApplicationServerInstanceOutput(args: GetSAPApplicationSer
 
 export interface GetSAPApplicationServerInstanceOutputArgs {
     /**
-     * The name of SAP Application Server instance.
+     * The name of SAP Application Server instance resource.
      */
     applicationInstanceName: pulumi.Input<string>;
     /**
@@ -136,7 +136,7 @@ export interface GetSAPApplicationServerInstanceOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the Virtual Instances for SAP.
+     * The name of the Virtual Instances for SAP solutions resource
      */
     sapVirtualInstanceName: pulumi.Input<string>;
 }

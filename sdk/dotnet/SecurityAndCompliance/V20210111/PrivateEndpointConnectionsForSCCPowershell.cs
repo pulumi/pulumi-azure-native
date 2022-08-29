@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
     /// The Private Endpoint Connection resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsForSCCPowershell")]
-    public partial class PrivateEndpointConnectionsForSCCPowershell : Pulumi.CustomResource
+    public partial class PrivateEndpointConnectionsForSCCPowershell : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -76,8 +76,8 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityandcompliance:PrivateEndpointConnectionsForSCCPowershell"},
-                    new Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsForSCCPowershell"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance:PrivateEndpointConnectionsForSCCPowershell"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsForSCCPowershell"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
         }
     }
 
-    public sealed class PrivateEndpointConnectionsForSCCPowershellArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionsForSCCPowershellArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the private endpoint connection associated with the Azure resource
@@ -128,5 +128,6 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
         public PrivateEndpointConnectionsForSCCPowershellArgs()
         {
         }
+        public static new PrivateEndpointConnectionsForSCCPowershellArgs Empty => new PrivateEndpointConnectionsForSCCPowershellArgs();
     }
 }

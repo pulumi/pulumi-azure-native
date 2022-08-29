@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211101.Inputs
     /// <summary>
     /// InMageRcm disk input.
     /// </summary>
-    public sealed class InMageRcmDiskInputArgs : Pulumi.ResourceArgs
+    public sealed class InMageRcmDiskInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The DiskEncryptionSet ARM Id.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211101.Inputs
         public InMageRcmDiskInputArgs()
         {
         }
+        public static new InMageRcmDiskInputArgs Empty => new InMageRcmDiskInputArgs();
     }
 }

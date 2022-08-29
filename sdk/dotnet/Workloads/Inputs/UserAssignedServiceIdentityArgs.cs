@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.Inputs
     /// <summary>
     /// Managed service identity (user assigned identities)
     /// </summary>
-    public sealed class UserAssignedServiceIdentityArgs : Pulumi.ResourceArgs
+    public sealed class UserAssignedServiceIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of manage identity
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Workloads.Inputs
         public UserAssignedServiceIdentityArgs()
         {
         }
+        public static new UserAssignedServiceIdentityArgs Empty => new UserAssignedServiceIdentityArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20200601Preview
     /// </summary>
     [Obsolete(@"Version 2020-06-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:documentdb/v20200601preview:SqlResourceSqlRoleAssignment")]
-    public partial class SqlResourceSqlRoleAssignment : Pulumi.CustomResource
+    public partial class SqlResourceSqlRoleAssignment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the database account.
@@ -71,17 +71,19 @@ namespace Pulumi.AzureNative.DocumentDB.V20200601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:documentdb:SqlResourceSqlRoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:SqlResourceSqlRoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:SqlResourceSqlRoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210415:SqlResourceSqlRoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210515:SqlResourceSqlRoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210615:SqlResourceSqlRoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:SqlResourceSqlRoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211015:SqlResourceSqlRoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:SqlResourceSqlRoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:SqlResourceSqlRoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:SqlResourceSqlRoleAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb:SqlResourceSqlRoleAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:SqlResourceSqlRoleAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:SqlResourceSqlRoleAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210415:SqlResourceSqlRoleAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210515:SqlResourceSqlRoleAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210615:SqlResourceSqlRoleAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:SqlResourceSqlRoleAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015:SqlResourceSqlRoleAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:SqlResourceSqlRoleAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:SqlResourceSqlRoleAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:SqlResourceSqlRoleAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515:SqlResourceSqlRoleAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:SqlResourceSqlRoleAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -103,7 +105,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20200601Preview
         }
     }
 
-    public sealed class SqlResourceSqlRoleAssignmentArgs : Pulumi.ResourceArgs
+    public sealed class SqlResourceSqlRoleAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cosmos DB database account name.
@@ -144,5 +146,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20200601Preview
         public SqlResourceSqlRoleAssignmentArgs()
         {
         }
+        public static new SqlResourceSqlRoleAssignmentArgs Empty => new SqlResourceSqlRoleAssignmentArgs();
     }
 }

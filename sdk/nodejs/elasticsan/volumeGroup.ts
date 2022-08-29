@@ -39,11 +39,7 @@ export class VolumeGroup extends pulumi.CustomResource {
     /**
      * Type of encryption
      */
-    public readonly encryption!: pulumi.Output<string>;
-    /**
-     * The geo-location where the resource lives.
-     */
-    public readonly location!: pulumi.Output<string | undefined>;
+    public readonly encryption!: pulumi.Output<string | undefined>;
     /**
      * Azure resource name.
      */
@@ -55,7 +51,7 @@ export class VolumeGroup extends pulumi.CustomResource {
     /**
      * Type of storage target
      */
-    public readonly protocolType!: pulumi.Output<string>;
+    public readonly protocolType!: pulumi.Output<string | undefined>;
     /**
      * State of the operation on the resource.
      */
@@ -87,18 +83,11 @@ export class VolumeGroup extends pulumi.CustomResource {
             if ((!args || args.elasticSanName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'elasticSanName'");
             }
-            if ((!args || args.encryption === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'encryption'");
-            }
-            if ((!args || args.protocolType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'protocolType'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["elasticSanName"] = args ? args.elasticSanName : undefined;
             resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["networkAcls"] = args ? args.networkAcls : undefined;
             resourceInputs["protocolType"] = args ? args.protocolType : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -110,7 +99,6 @@ export class VolumeGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["encryption"] = undefined /*out*/;
-            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkAcls"] = undefined /*out*/;
             resourceInputs["protocolType"] = undefined /*out*/;
@@ -137,11 +125,7 @@ export interface VolumeGroupArgs {
     /**
      * Type of encryption
      */
-    encryption: pulumi.Input<string | enums.elasticsan.EncryptionType>;
-    /**
-     * The geo-location where the resource lives.
-     */
-    location?: pulumi.Input<string>;
+    encryption?: pulumi.Input<string | enums.elasticsan.EncryptionType>;
     /**
      * A collection of rules governing the accessibility from specific network locations.
      */
@@ -149,7 +133,7 @@ export interface VolumeGroupArgs {
     /**
      * Type of storage target
      */
-    protocolType: pulumi.Input<string | enums.elasticsan.StorageTargetType>;
+    protocolType?: pulumi.Input<string | enums.elasticsan.StorageTargetType>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

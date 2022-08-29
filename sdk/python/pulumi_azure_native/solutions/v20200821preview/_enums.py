@@ -12,6 +12,7 @@ __all__ = [
     'DeploymentMode',
     'JitApprovalMode',
     'JitApproverType',
+    'JitSchedulingType',
     'ResourceIdentityType',
 ]
 
@@ -77,6 +78,15 @@ class JitApproverType(str, Enum):
     """
     USER = "user"
     GROUP = "group"
+
+
+class JitSchedulingType(str, Enum):
+    """
+    The type of JIT schedule.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    ONCE = "Once"
+    RECURRING = "Recurring"
 
 
 class ResourceIdentityType(str, Enum):

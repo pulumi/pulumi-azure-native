@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20200207Preview
     /// SAP monitor info on Azure (ARM properties and SAP monitor properties)
     /// </summary>
     [AzureNativeResourceType("azure-native:hanaonazure/v20200207preview:SapMonitor")]
-    public partial class SapMonitor : Pulumi.CustomResource
+    public partial class SapMonitor : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The value indicating whether to send analytics to Microsoft
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20200207Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:hanaonazure:SapMonitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:hanaonazure:SapMonitor"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20200207Preview
         }
     }
 
-    public sealed class SapMonitorArgs : Pulumi.ResourceArgs
+    public sealed class SapMonitorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value indicating whether to send analytics to Microsoft
@@ -199,5 +199,6 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20200207Preview
         public SapMonitorArgs()
         {
         }
+        public static new SapMonitorArgs Empty => new SapMonitorArgs();
     }
 }

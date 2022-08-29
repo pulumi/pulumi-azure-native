@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
     }
 
 
-    public sealed class GetNetworkArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identity of the network.
@@ -43,9 +43,10 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
         public GetNetworkArgs()
         {
         }
+        public static new GetNetworkArgs Empty => new GetNetworkArgs();
     }
 
-    public sealed class GetNetworkInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identity of the network.
@@ -62,6 +63,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
         public GetNetworkInvokeArgs()
         {
         }
+        public static new GetNetworkInvokeArgs Empty => new GetNetworkInvokeArgs();
     }
 
 

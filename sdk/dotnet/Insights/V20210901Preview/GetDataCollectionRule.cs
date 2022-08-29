@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Insights.V20210901Preview
     }
 
 
-    public sealed class GetDataCollectionRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetDataCollectionRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the data collection rule. The name is case insensitive.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Insights.V20210901Preview
         public GetDataCollectionRuleArgs()
         {
         }
+        public static new GetDataCollectionRuleArgs Empty => new GetDataCollectionRuleArgs();
     }
 
-    public sealed class GetDataCollectionRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDataCollectionRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the data collection rule. The name is case insensitive.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Insights.V20210901Preview
         public GetDataCollectionRuleInvokeArgs()
         {
         }
+        public static new GetDataCollectionRuleInvokeArgs Empty => new GetDataCollectionRuleInvokeArgs();
     }
 
 

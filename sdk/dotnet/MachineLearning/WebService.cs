@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.MachineLearning
     /// API Version: 2017-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearning:WebService")]
-    public partial class WebService : Pulumi.CustomResource
+    public partial class WebService : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the location of the resource.
@@ -71,8 +71,8 @@ namespace Pulumi.AzureNative.MachineLearning
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:machinelearning/v20160501preview:WebService"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearning/v20170101:WebService"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearning/v20160501preview:WebService"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearning/v20170101:WebService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.MachineLearning
         }
     }
 
-    public sealed class WebServiceArgs : Pulumi.ResourceArgs
+    public sealed class WebServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the location of the resource.
@@ -135,5 +135,6 @@ namespace Pulumi.AzureNative.MachineLearning
         public WebServiceArgs()
         {
         }
+        public static new WebServiceArgs Empty => new WebServiceArgs();
     }
 }

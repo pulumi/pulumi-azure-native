@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Solutions.V20180601
     /// </summary>
     [Obsolete(@"Version 2018-06-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:solutions/v20180601:Application")]
-    public partial class Application : Pulumi.CustomResource
+    public partial class Application : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The fully qualified path of managed application definition Id.
@@ -23,10 +23,46 @@ namespace Pulumi.AzureNative.Solutions.V20180601
         public Output<string?> ApplicationDefinitionId { get; private set; } = null!;
 
         /// <summary>
+        /// The collection of managed application artifacts.
+        /// </summary>
+        [Output("artifacts")]
+        public Output<ImmutableArray<Outputs.ApplicationArtifactResponse>> Artifacts { get; private set; } = null!;
+
+        /// <summary>
+        /// The  read-only authorizations property that is retrieved from the application package.
+        /// </summary>
+        [Output("authorizations")]
+        public Output<ImmutableArray<Outputs.ApplicationAuthorizationResponse>> Authorizations { get; private set; } = null!;
+
+        /// <summary>
+        /// The managed application billing details.
+        /// </summary>
+        [Output("billingDetails")]
+        public Output<Outputs.ApplicationBillingDetailsDefinitionResponse> BillingDetails { get; private set; } = null!;
+
+        /// <summary>
+        /// The client entity that created the JIT request.
+        /// </summary>
+        [Output("createdBy")]
+        public Output<Outputs.ApplicationClientDetailsResponse> CreatedBy { get; private set; } = null!;
+
+        /// <summary>
+        /// The read-only customer support property that is retrieved from the application package.
+        /// </summary>
+        [Output("customerSupport")]
+        public Output<Outputs.ApplicationPackageContactResponse> CustomerSupport { get; private set; } = null!;
+
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// The managed application Jit access policy.
+        /// </summary>
+        [Output("jitAccessPolicy")]
+        public Output<Outputs.ApplicationJitAccessPolicyResponse?> JitAccessPolicy { get; private set; } = null!;
 
         /// <summary>
         /// The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
@@ -50,7 +86,7 @@ namespace Pulumi.AzureNative.Solutions.V20180601
         /// The managed resource group Id.
         /// </summary>
         [Output("managedResourceGroupId")]
-        public Output<string> ManagedResourceGroupId { get; private set; } = null!;
+        public Output<string?> ManagedResourceGroupId { get; private set; } = null!;
 
         /// <summary>
         /// Resource name
@@ -83,10 +119,28 @@ namespace Pulumi.AzureNative.Solutions.V20180601
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
+        /// The publisher package Id.
+        /// </summary>
+        [Output("publisherPackageId")]
+        public Output<string?> PublisherPackageId { get; private set; } = null!;
+
+        /// <summary>
+        /// The publisher tenant Id.
+        /// </summary>
+        [Output("publisherTenantId")]
+        public Output<string> PublisherTenantId { get; private set; } = null!;
+
+        /// <summary>
         /// The SKU of the resource.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// The read-only support URLs property that is retrieved from the application package.
+        /// </summary>
+        [Output("supportUrls")]
+        public Output<Outputs.ApplicationPackageSupportUrlsResponse> SupportUrls { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -99,6 +153,12 @@ namespace Pulumi.AzureNative.Solutions.V20180601
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The client entity that last updated the JIT request.
+        /// </summary>
+        [Output("updatedBy")]
+        public Output<Outputs.ApplicationClientDetailsResponse> UpdatedBy { get; private set; } = null!;
 
 
         /// <summary>
@@ -125,12 +185,17 @@ namespace Pulumi.AzureNative.Solutions.V20180601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:solutions:Application"},
-                    new Pulumi.Alias { Type = "azure-native:solutions/v20160901preview:Application"},
-                    new Pulumi.Alias { Type = "azure-native:solutions/v20170901:Application"},
-                    new Pulumi.Alias { Type = "azure-native:solutions/v20190701:Application"},
-                    new Pulumi.Alias { Type = "azure-native:solutions/v20200821preview:Application"},
-                    new Pulumi.Alias { Type = "azure-native:solutions/v20210701:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20160901preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20170901:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20171201:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20180201:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20180301:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20180901preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20190701:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20200821preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20210201preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20210701:Application"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -152,7 +217,7 @@ namespace Pulumi.AzureNative.Solutions.V20180601
         }
     }
 
-    public sealed class ApplicationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The fully qualified path of managed application definition Id.
@@ -171,6 +236,12 @@ namespace Pulumi.AzureNative.Solutions.V20180601
         /// </summary>
         [Input("identity")]
         public Input<Inputs.IdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// The managed application Jit access policy.
+        /// </summary>
+        [Input("jitAccessPolicy")]
+        public Input<Inputs.ApplicationJitAccessPolicyArgs>? JitAccessPolicy { get; set; }
 
         /// <summary>
         /// The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
@@ -193,8 +264,8 @@ namespace Pulumi.AzureNative.Solutions.V20180601
         /// <summary>
         /// The managed resource group Id.
         /// </summary>
-        [Input("managedResourceGroupId", required: true)]
-        public Input<string> ManagedResourceGroupId { get; set; } = null!;
+        [Input("managedResourceGroupId")]
+        public Input<string>? ManagedResourceGroupId { get; set; }
 
         /// <summary>
         /// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
@@ -207,6 +278,12 @@ namespace Pulumi.AzureNative.Solutions.V20180601
         /// </summary>
         [Input("plan")]
         public Input<Inputs.PlanArgs>? Plan { get; set; }
+
+        /// <summary>
+        /// The publisher package Id.
+        /// </summary>
+        [Input("publisherPackageId")]
+        public Input<string>? PublisherPackageId { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -235,5 +312,6 @@ namespace Pulumi.AzureNative.Solutions.V20180601
         public ApplicationArgs()
         {
         }
+        public static new ApplicationArgs Empty => new ApplicationArgs();
     }
 }

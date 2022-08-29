@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20160601.Inputs
     /// <summary>
     /// The gateway installation reference
     /// </summary>
-    public sealed class ConnectionGatewayReferenceArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionGatewayReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource reference id
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Web.V20160601.Inputs
         public ConnectionGatewayReferenceArgs()
         {
         }
+        public static new ConnectionGatewayReferenceArgs Empty => new ConnectionGatewayReferenceArgs();
     }
 }

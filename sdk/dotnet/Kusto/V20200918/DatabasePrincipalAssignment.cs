@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Kusto.V20200918
     /// Class representing a database principal assignment.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto/v20200918:DatabasePrincipalAssignment")]
-    public partial class DatabasePrincipalAssignment : Pulumi.CustomResource
+    public partial class DatabasePrincipalAssignment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -94,13 +94,13 @@ namespace Pulumi.AzureNative.Kusto.V20200918
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:kusto:DatabasePrincipalAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20191109:DatabasePrincipalAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20200215:DatabasePrincipalAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20200614:DatabasePrincipalAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20210101:DatabasePrincipalAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20210827:DatabasePrincipalAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20220201:DatabasePrincipalAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto:DatabasePrincipalAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20191109:DatabasePrincipalAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20200215:DatabasePrincipalAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20200614:DatabasePrincipalAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20210101:DatabasePrincipalAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20210827:DatabasePrincipalAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20220201:DatabasePrincipalAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.Kusto.V20200918
         }
     }
 
-    public sealed class DatabasePrincipalAssignmentArgs : Pulumi.ResourceArgs
+    public sealed class DatabasePrincipalAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -175,5 +175,6 @@ namespace Pulumi.AzureNative.Kusto.V20200918
         public DatabasePrincipalAssignmentArgs()
         {
         }
+        public static new DatabasePrincipalAssignmentArgs Empty => new DatabasePrincipalAssignmentArgs();
     }
 }

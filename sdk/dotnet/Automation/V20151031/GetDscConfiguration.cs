@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Automation.V20151031
     }
 
 
-    public sealed class GetDscConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class GetDscConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Automation.V20151031
         public GetDscConfigurationArgs()
         {
         }
+        public static new GetDscConfigurationArgs Empty => new GetDscConfigurationArgs();
     }
 
-    public sealed class GetDscConfigurationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDscConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Automation.V20151031
         public GetDscConfigurationInvokeArgs()
         {
         }
+        public static new GetDscConfigurationInvokeArgs Empty => new GetDscConfigurationInvokeArgs();
     }
 
 

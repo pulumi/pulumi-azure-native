@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20181201.Inputs
     /// <summary>
     /// A load balancing rule for a load balancer.
     /// </summary>
-    public sealed class LoadBalancingRuleArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancingRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A reference to a pool of DIPs. Inbound traffic is randomly load balanced across IPs in the backend IPs.
@@ -108,5 +108,6 @@ namespace Pulumi.AzureNative.Network.V20181201.Inputs
         public LoadBalancingRuleArgs()
         {
         }
+        public static new LoadBalancingRuleArgs Empty => new LoadBalancingRuleArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// Featurization Configuration.
     /// </summary>
-    public sealed class TableVerticalFeaturizationSettingsArgs : Pulumi.ResourceArgs
+    public sealed class TableVerticalFeaturizationSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("blockedTransformers")]
         private InputList<string>? _blockedTransformers;
@@ -88,5 +88,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
             EnableDnnFeaturization = false;
             Mode = "Auto";
         }
+        public static new TableVerticalFeaturizationSettingsArgs Empty => new TableVerticalFeaturizationSettingsArgs();
     }
 }

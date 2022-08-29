@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20211101
     /// Restore Point details.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute/v20211101:RestorePoint")]
-    public partial class RestorePoint : Pulumi.CustomResource
+    public partial class RestorePoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Gets the consistency mode for the restore point. Please refer to https://aka.ms/RestorePoints for more details.
@@ -94,10 +94,11 @@ namespace Pulumi.AzureNative.Compute.V20211101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:compute:RestorePoint"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210301:RestorePoint"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210401:RestorePoint"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210701:RestorePoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute:RestorePoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210301:RestorePoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:RestorePoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:RestorePoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220301:RestorePoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -119,7 +120,7 @@ namespace Pulumi.AzureNative.Compute.V20211101
         }
     }
 
-    public sealed class RestorePointArgs : Pulumi.ResourceArgs
+    public sealed class RestorePointArgs : global::Pulumi.ResourceArgs
     {
         [Input("excludeDisks")]
         private InputList<Inputs.ApiEntityReferenceArgs>? _excludeDisks;
@@ -166,5 +167,6 @@ namespace Pulumi.AzureNative.Compute.V20211101
         public RestorePointArgs()
         {
         }
+        public static new RestorePointArgs Empty => new RestorePointArgs();
     }
 }

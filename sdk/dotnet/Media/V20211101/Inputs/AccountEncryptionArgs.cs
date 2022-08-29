@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20211101.Inputs
 {
 
-    public sealed class AccountEncryptionArgs : Pulumi.ResourceArgs
+    public sealed class AccountEncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Key Vault identity.
@@ -33,5 +33,6 @@ namespace Pulumi.AzureNative.Media.V20211101.Inputs
         public AccountEncryptionArgs()
         {
         }
+        public static new AccountEncryptionArgs Empty => new AccountEncryptionArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 {
 
-    public sealed class ManagedOnlineDeploymentArgs : Pulumi.ResourceArgs
+    public sealed class ManagedOnlineDeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, enables Application Insights logging.
@@ -106,5 +106,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public ManagedOnlineDeploymentArgs()
         {
         }
+        public static new ManagedOnlineDeploymentArgs Empty => new ManagedOnlineDeploymentArgs();
     }
 }

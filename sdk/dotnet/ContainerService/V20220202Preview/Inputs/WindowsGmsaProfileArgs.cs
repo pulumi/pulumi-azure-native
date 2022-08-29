@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220202Preview.Inputs
     /// <summary>
     /// Windows gMSA Profile in the managed cluster.
     /// </summary>
-    public sealed class WindowsGmsaProfileArgs : Pulumi.ResourceArgs
+    public sealed class WindowsGmsaProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the DNS server for Windows gMSA. &lt;br&gt;&lt;br&gt; Set it to empty if you have configured the DNS server in the vnet which is used to create the managed cluster.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.ContainerService.V20220202Preview.Inputs
         public WindowsGmsaProfileArgs()
         {
         }
+        public static new WindowsGmsaProfileArgs Empty => new WindowsGmsaProfileArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Blueprint.Inputs
     /// <summary>
     /// Managed identity generic object.
     /// </summary>
-    public sealed class ManagedServiceIdentityArgs : Pulumi.ResourceArgs
+    public sealed class ManagedServiceIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure Active Directory principal ID associated with this Identity.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Blueprint.Inputs
         public ManagedServiceIdentityArgs()
         {
         }
+        public static new ManagedServiceIdentityArgs Empty => new ManagedServiceIdentityArgs();
     }
 }

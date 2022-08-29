@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Education.V20211201Preview.Inputs
     /// <summary>
     /// The amount.
     /// </summary>
-    public sealed class AmountArgs : Pulumi.ResourceArgs
+    public sealed class AmountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of currency being used for the value.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Education.V20211201Preview.Inputs
         public AmountArgs()
         {
         }
+        public static new AmountArgs Empty => new AmountArgs();
     }
 }

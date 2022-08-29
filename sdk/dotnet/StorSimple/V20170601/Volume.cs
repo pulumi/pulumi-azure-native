@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
     /// The volume.
     /// </summary>
     [AzureNativeResourceType("azure-native:storsimple/v20170601:Volume")]
-    public partial class Volume : Pulumi.CustomResource
+    public partial class Volume : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The IDs of the access control records, associated with the volume.
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:storsimple:Volume"},
+                    new global::Pulumi.Alias { Type = "azure-native:storsimple:Volume"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         }
     }
 
-    public sealed class VolumeArgs : Pulumi.ResourceArgs
+    public sealed class VolumeArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessControlRecordIds", required: true)]
         private InputList<string>? _accessControlRecordIds;
@@ -211,5 +211,6 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         public VolumeArgs()
         {
         }
+        public static new VolumeArgs Empty => new VolumeArgs();
     }
 }

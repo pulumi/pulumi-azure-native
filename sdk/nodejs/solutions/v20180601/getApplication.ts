@@ -42,6 +42,26 @@ export interface GetApplicationResult {
      */
     readonly applicationDefinitionId?: string;
     /**
+     * The collection of managed application artifacts.
+     */
+    readonly artifacts: outputs.solutions.v20180601.ApplicationArtifactResponse[];
+    /**
+     * The  read-only authorizations property that is retrieved from the application package.
+     */
+    readonly authorizations: outputs.solutions.v20180601.ApplicationAuthorizationResponse[];
+    /**
+     * The managed application billing details.
+     */
+    readonly billingDetails: outputs.solutions.v20180601.ApplicationBillingDetailsDefinitionResponse;
+    /**
+     * The client entity that created the JIT request.
+     */
+    readonly createdBy: outputs.solutions.v20180601.ApplicationClientDetailsResponse;
+    /**
+     * The read-only customer support property that is retrieved from the application package.
+     */
+    readonly customerSupport: outputs.solutions.v20180601.ApplicationPackageContactResponse;
+    /**
      * Resource ID
      */
     readonly id: string;
@@ -49,6 +69,10 @@ export interface GetApplicationResult {
      * The identity of the resource.
      */
     readonly identity?: outputs.solutions.v20180601.IdentityResponse;
+    /**
+     * The managed application Jit access policy.
+     */
+    readonly jitAccessPolicy?: outputs.solutions.v20180601.ApplicationJitAccessPolicyResponse;
     /**
      * The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
      */
@@ -64,7 +88,7 @@ export interface GetApplicationResult {
     /**
      * The managed resource group Id.
      */
-    readonly managedResourceGroupId: string;
+    readonly managedResourceGroupId?: string;
     /**
      * Resource name
      */
@@ -86,9 +110,21 @@ export interface GetApplicationResult {
      */
     readonly provisioningState: string;
     /**
+     * The publisher package Id.
+     */
+    readonly publisherPackageId?: string;
+    /**
+     * The publisher tenant Id.
+     */
+    readonly publisherTenantId: string;
+    /**
      * The SKU of the resource.
      */
     readonly sku?: outputs.solutions.v20180601.SkuResponse;
+    /**
+     * The read-only support URLs property that is retrieved from the application package.
+     */
+    readonly supportUrls: outputs.solutions.v20180601.ApplicationPackageSupportUrlsResponse;
     /**
      * Resource tags
      */
@@ -97,6 +133,10 @@ export interface GetApplicationResult {
      * Resource type
      */
     readonly type: string;
+    /**
+     * The client entity that last updated the JIT request.
+     */
+    readonly updatedBy: outputs.solutions.v20180601.ApplicationClientDetailsResponse;
 }
 
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {

@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Compute.V20190301
     }
 
 
-    public sealed class GetProximityPlacementGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetProximityPlacementGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the proximity placement group.
@@ -43,9 +43,10 @@ namespace Pulumi.AzureNative.Compute.V20190301
         public GetProximityPlacementGroupArgs()
         {
         }
+        public static new GetProximityPlacementGroupArgs Empty => new GetProximityPlacementGroupArgs();
     }
 
-    public sealed class GetProximityPlacementGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetProximityPlacementGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the proximity placement group.
@@ -62,6 +63,7 @@ namespace Pulumi.AzureNative.Compute.V20190301
         public GetProximityPlacementGroupInvokeArgs()
         {
         }
+        public static new GetProximityPlacementGroupInvokeArgs Empty => new GetProximityPlacementGroupInvokeArgs();
     }
 
 

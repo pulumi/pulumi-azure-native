@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20200815Preview
     /// An Azure Arc PrivateLinkScope definition.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcompute/v20200815preview:PrivateLinkScope")]
-    public partial class PrivateLinkScope : Pulumi.CustomResource
+    public partial class PrivateLinkScope : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource location
@@ -82,15 +82,16 @@ namespace Pulumi.AzureNative.HybridCompute.V20200815Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute:PrivateLinkScope"},
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210128preview:PrivateLinkScope"},
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210325preview:PrivateLinkScope"},
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210422preview:PrivateLinkScope"},
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210517preview:PrivateLinkScope"},
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210520:PrivateLinkScope"},
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210610preview:PrivateLinkScope"},
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20211210preview:PrivateLinkScope"},
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20220310:PrivateLinkScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute:PrivateLinkScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20210128preview:PrivateLinkScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20210325preview:PrivateLinkScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20210422preview:PrivateLinkScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20210517preview:PrivateLinkScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20210520:PrivateLinkScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20210610preview:PrivateLinkScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20211210preview:PrivateLinkScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20220310:PrivateLinkScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20220510preview:PrivateLinkScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -112,7 +113,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20200815Preview
         }
     }
 
-    public sealed class PrivateLinkScopeArgs : Pulumi.ResourceArgs
+    public sealed class PrivateLinkScopeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource location
@@ -153,5 +154,6 @@ namespace Pulumi.AzureNative.HybridCompute.V20200815Preview
         public PrivateLinkScopeArgs()
         {
         }
+        public static new PrivateLinkScopeArgs Empty => new PrivateLinkScopeArgs();
     }
 }

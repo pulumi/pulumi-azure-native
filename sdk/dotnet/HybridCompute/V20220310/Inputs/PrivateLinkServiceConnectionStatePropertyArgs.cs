@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20220310.Inputs
     /// <summary>
     /// State of the private endpoint connection.
     /// </summary>
-    public sealed class PrivateLinkServiceConnectionStatePropertyArgs : Pulumi.ResourceArgs
+    public sealed class PrivateLinkServiceConnectionStatePropertyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The private link service connection description.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.HybridCompute.V20220310.Inputs
         public PrivateLinkServiceConnectionStatePropertyArgs()
         {
         }
+        public static new PrivateLinkServiceConnectionStatePropertyArgs Empty => new PrivateLinkServiceConnectionStatePropertyArgs();
     }
 }

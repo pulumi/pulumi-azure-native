@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20190615.Inputs
     /// <summary>
     /// Defines the common attributes for a custom rule that can be included in a waf policy
     /// </summary>
-    public sealed class CustomRuleArgs : Pulumi.ResourceArgs
+    public sealed class CustomRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes what action to be applied when rule matches
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.Cdn.V20190615.Inputs
         public CustomRuleArgs()
         {
         }
+        public static new CustomRuleArgs Empty => new CustomRuleArgs();
     }
 }

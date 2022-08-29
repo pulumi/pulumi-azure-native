@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20180301.Inputs
     /// <summary>
     /// Specifies the metric alert rule criteria for a web test resource.
     /// </summary>
-    public sealed class WebtestLocationAvailabilityCriteriaArgs : Pulumi.ResourceArgs
+    public sealed class WebtestLocationAvailabilityCriteriaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Application Insights resource Id.
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.Insights.V20180301.Inputs
         public WebtestLocationAvailabilityCriteriaArgs()
         {
         }
+        public static new WebtestLocationAvailabilityCriteriaArgs Empty => new WebtestLocationAvailabilityCriteriaArgs();
     }
 }

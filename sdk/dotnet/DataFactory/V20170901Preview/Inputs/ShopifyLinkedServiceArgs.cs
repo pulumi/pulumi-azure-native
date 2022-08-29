@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Shopify Service linked service.
     /// </summary>
-    public sealed class ShopifyLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class ShopifyLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The API access token that can be used to access Shopify’s data. The token won't expire if it is offline mode.
@@ -97,5 +97,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public ShopifyLinkedServiceArgs()
         {
         }
+        public static new ShopifyLinkedServiceArgs Empty => new ShopifyLinkedServiceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
     /// A server security alert policy.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20200202preview:ServerSecurityAlertPolicy")]
-    public partial class ServerSecurityAlertPolicy : Pulumi.CustomResource
+    public partial class ServerSecurityAlertPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the UTC creation time of the policy.
@@ -106,14 +106,16 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:sql:ServerSecurityAlertPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20170301preview:ServerSecurityAlertPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ServerSecurityAlertPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ServerSecurityAlertPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ServerSecurityAlertPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ServerSecurityAlertPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ServerSecurityAlertPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ServerSecurityAlertPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql:ServerSecurityAlertPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20170301preview:ServerSecurityAlertPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ServerSecurityAlertPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ServerSecurityAlertPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ServerSecurityAlertPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ServerSecurityAlertPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ServerSecurityAlertPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:ServerSecurityAlertPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ServerSecurityAlertPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ServerSecurityAlertPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -135,7 +137,7 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
         }
     }
 
-    public sealed class ServerSecurityAlertPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ServerSecurityAlertPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("disabledAlerts")]
         private InputList<string>? _disabledAlerts;
@@ -212,5 +214,6 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
         public ServerSecurityAlertPolicyArgs()
         {
         }
+        public static new ServerSecurityAlertPolicyArgs Empty => new ServerSecurityAlertPolicyArgs();
     }
 }

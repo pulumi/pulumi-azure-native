@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20210601Preview.Inputs
 {
 
-    public sealed class OpenApiValidationArgs : Pulumi.ResourceArgs
+    public sealed class OpenApiValidationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether a non compliance response is allowed for a LIST call
@@ -21,5 +21,6 @@ namespace Pulumi.AzureNative.ProviderHub.V20210601Preview.Inputs
         public OpenApiValidationArgs()
         {
         }
+        public static new OpenApiValidationArgs Empty => new OpenApiValidationArgs();
     }
 }

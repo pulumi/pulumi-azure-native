@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20160601
     /// The integration account agreement.
     /// </summary>
     [AzureNativeResourceType("azure-native:logic/v20160601:Agreement")]
-    public partial class Agreement : Pulumi.CustomResource
+    public partial class Agreement : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The agreement type.
@@ -118,10 +118,10 @@ namespace Pulumi.AzureNative.Logic.V20160601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:logic:Agreement"},
-                    new Pulumi.Alias { Type = "azure-native:logic/v20150801preview:Agreement"},
-                    new Pulumi.Alias { Type = "azure-native:logic/v20180701preview:Agreement"},
-                    new Pulumi.Alias { Type = "azure-native:logic/v20190501:Agreement"},
+                    new global::Pulumi.Alias { Type = "azure-native:logic:Agreement"},
+                    new global::Pulumi.Alias { Type = "azure-native:logic/v20150801preview:Agreement"},
+                    new global::Pulumi.Alias { Type = "azure-native:logic/v20180701preview:Agreement"},
+                    new global::Pulumi.Alias { Type = "azure-native:logic/v20190501:Agreement"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -143,7 +143,7 @@ namespace Pulumi.AzureNative.Logic.V20160601
         }
     }
 
-    public sealed class AgreementArgs : Pulumi.ResourceArgs
+    public sealed class AgreementArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The integration account agreement name.
@@ -226,5 +226,6 @@ namespace Pulumi.AzureNative.Logic.V20160601
         public AgreementArgs()
         {
         }
+        public static new AgreementArgs Empty => new AgreementArgs();
     }
 }

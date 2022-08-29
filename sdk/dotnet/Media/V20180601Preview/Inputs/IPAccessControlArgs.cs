@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180601Preview.Inputs
     /// <summary>
     /// The IP access control.
     /// </summary>
-    public sealed class IPAccessControlArgs : Pulumi.ResourceArgs
+    public sealed class IPAccessControlArgs : global::Pulumi.ResourceArgs
     {
         [Input("allow")]
         private InputList<Inputs.IPRangeArgs>? _allow;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Media.V20180601Preview.Inputs
         public IPAccessControlArgs()
         {
         }
+        public static new IPAccessControlArgs Empty => new IPAccessControlArgs();
     }
 }

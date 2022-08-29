@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.V20211101Preview
     /// ADP Data Pool
     /// </summary>
     [AzureNativeResourceType("azure-native:autonomousdevelopmentplatform/v20211101preview:DataPool")]
-    public partial class DataPool : Pulumi.CustomResource
+    public partial class DataPool : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Data Pool's data-plane ID
@@ -82,9 +82,9 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.V20211101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform:DataPool"},
-                    new Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform/v20200701preview:DataPool"},
-                    new Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform/v20210201preview:DataPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform:DataPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform/v20200701preview:DataPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform/v20210201preview:DataPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.V20211101Preview
         }
     }
 
-    public sealed class DataPoolArgs : Pulumi.ResourceArgs
+    public sealed class DataPoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the ADP account
@@ -153,5 +153,6 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.V20211101Preview
         public DataPoolArgs()
         {
         }
+        public static new DataPoolArgs Empty => new DataPoolArgs();
     }
 }

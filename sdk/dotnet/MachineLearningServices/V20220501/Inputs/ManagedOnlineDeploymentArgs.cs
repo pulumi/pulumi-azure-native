@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
     /// <summary>
     /// Properties specific to a ManagedOnlineDeployment.
     /// </summary>
-    public sealed class ManagedOnlineDeploymentArgs : Pulumi.ResourceArgs
+    public sealed class ManagedOnlineDeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, enables Application Insights logging.
@@ -119,5 +119,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
         {
             AppInsightsEnabled = false;
         }
+        public static new ManagedOnlineDeploymentArgs Empty => new ManagedOnlineDeploymentArgs();
     }
 }

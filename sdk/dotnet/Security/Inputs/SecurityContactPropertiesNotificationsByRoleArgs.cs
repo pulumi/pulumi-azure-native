@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.Inputs
     /// <summary>
     /// Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
     /// </summary>
-    public sealed class SecurityContactPropertiesNotificationsByRoleArgs : Pulumi.ResourceArgs
+    public sealed class SecurityContactPropertiesNotificationsByRoleArgs : global::Pulumi.ResourceArgs
     {
         [Input("roles")]
         private InputList<Union<string, Pulumi.AzureNative.Security.Roles>>? _roles;
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Security.Inputs
         public SecurityContactPropertiesNotificationsByRoleArgs()
         {
         }
+        public static new SecurityContactPropertiesNotificationsByRoleArgs Empty => new SecurityContactPropertiesNotificationsByRoleArgs();
     }
 }

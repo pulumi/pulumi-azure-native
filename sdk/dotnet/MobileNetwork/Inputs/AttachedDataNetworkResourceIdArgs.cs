@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MobileNetwork.Inputs
     /// <summary>
     /// Reference to an Attached Data Network resource.
     /// </summary>
-    public sealed class AttachedDataNetworkResourceIdArgs : Pulumi.ResourceArgs
+    public sealed class AttachedDataNetworkResourceIdArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Attached Data Network resource ID.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.MobileNetwork.Inputs
         public AttachedDataNetworkResourceIdArgs()
         {
         }
+        public static new AttachedDataNetworkResourceIdArgs Empty => new AttachedDataNetworkResourceIdArgs();
     }
 }

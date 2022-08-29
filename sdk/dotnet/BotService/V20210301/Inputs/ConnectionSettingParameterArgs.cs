@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20210301.Inputs
     /// <summary>
     /// Extra Parameter in a Connection Setting Properties to indicate service provider specific properties
     /// </summary>
-    public sealed class ConnectionSettingParameterArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionSettingParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Key for the Connection Setting Parameter.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.BotService.V20210301.Inputs
         public ConnectionSettingParameterArgs()
         {
         }
+        public static new ConnectionSettingParameterArgs Empty => new ConnectionSettingParameterArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.CustomerInsights
     }
 
 
-    public sealed class GetImageUploadUrlForEntityTypeArgs : Pulumi.InvokeArgs
+    public sealed class GetImageUploadUrlForEntityTypeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Type of entity. Can be Profile or Interaction.
@@ -62,9 +62,10 @@ namespace Pulumi.AzureNative.CustomerInsights
         public GetImageUploadUrlForEntityTypeArgs()
         {
         }
+        public static new GetImageUploadUrlForEntityTypeArgs Empty => new GetImageUploadUrlForEntityTypeArgs();
     }
 
-    public sealed class GetImageUploadUrlForEntityTypeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetImageUploadUrlForEntityTypeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Type of entity. Can be Profile or Interaction.
@@ -99,6 +100,7 @@ namespace Pulumi.AzureNative.CustomerInsights
         public GetImageUploadUrlForEntityTypeInvokeArgs()
         {
         }
+        public static new GetImageUploadUrlForEntityTypeInvokeArgs Empty => new GetImageUploadUrlForEntityTypeInvokeArgs();
     }
 
 

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Insights
     /// API Version: 2020-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:ActivityLogAlert")]
-    public partial class ActivityLogAlert : Pulumi.CustomResource
+    public partial class ActivityLogAlert : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The actions that will activate when the condition is met.
@@ -95,8 +95,8 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:insights/v20170401:ActivityLogAlert"},
-                    new Pulumi.Alias { Type = "azure-native:insights/v20201001:ActivityLogAlert"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20170401:ActivityLogAlert"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20201001:ActivityLogAlert"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.Insights
         }
     }
 
-    public sealed class ActivityLogAlertArgs : Pulumi.ResourceArgs
+    public sealed class ActivityLogAlertArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The actions that will activate when the condition is met.
@@ -191,5 +191,6 @@ namespace Pulumi.AzureNative.Insights
             Enabled = true;
             Location = "global";
         }
+        public static new ActivityLogAlertArgs Empty => new ActivityLogAlertArgs();
     }
 }

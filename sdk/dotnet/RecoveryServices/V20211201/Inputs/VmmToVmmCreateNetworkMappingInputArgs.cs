@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201.Inputs
     /// <summary>
     /// Create network mappings input properties/behavior specific to vmm to vmm Network mapping.
     /// </summary>
-    public sealed class VmmToVmmCreateNetworkMappingInputArgs : Pulumi.ResourceArgs
+    public sealed class VmmToVmmCreateNetworkMappingInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The instance type.
@@ -25,5 +25,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201.Inputs
         public VmmToVmmCreateNetworkMappingInputArgs()
         {
         }
+        public static new VmmToVmmCreateNetworkMappingInputArgs Empty => new VmmToVmmCreateNetworkMappingInputArgs();
     }
 }

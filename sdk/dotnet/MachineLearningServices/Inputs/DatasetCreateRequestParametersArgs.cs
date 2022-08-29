@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 {
 
-    public sealed class DatasetCreateRequestParametersArgs : Pulumi.ResourceArgs
+    public sealed class DatasetCreateRequestParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Header type.
@@ -52,5 +52,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         {
             IncludePath = false;
         }
+        public static new DatasetCreateRequestParametersArgs Empty => new DatasetCreateRequestParametersArgs();
     }
 }

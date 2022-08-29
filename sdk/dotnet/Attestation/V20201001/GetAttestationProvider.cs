@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Attestation.V20201001
     }
 
 
-    public sealed class GetAttestationProviderArgs : Pulumi.InvokeArgs
+    public sealed class GetAttestationProviderArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the attestation provider.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Attestation.V20201001
         public GetAttestationProviderArgs()
         {
         }
+        public static new GetAttestationProviderArgs Empty => new GetAttestationProviderArgs();
     }
 
-    public sealed class GetAttestationProviderInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAttestationProviderInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the attestation provider.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Attestation.V20201001
         public GetAttestationProviderInvokeArgs()
         {
         }
+        public static new GetAttestationProviderInvokeArgs Empty => new GetAttestationProviderInvokeArgs();
     }
 
 

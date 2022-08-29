@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20170228Preview
     /// </summary>
     [Obsolete(@"Version 2017-02-28-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:timeseriesinsights/v20170228preview:ReferenceDataSet")]
-    public partial class ReferenceDataSet : Pulumi.CustomResource
+    public partial class ReferenceDataSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The time the resource was created.
@@ -83,12 +83,12 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20170228Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights:ReferenceDataSet"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:ReferenceDataSet"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20180815preview:ReferenceDataSet"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:ReferenceDataSet"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:ReferenceDataSet"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:ReferenceDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights:ReferenceDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:ReferenceDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20180815preview:ReferenceDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:ReferenceDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:ReferenceDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:ReferenceDataSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20170228Preview
         }
     }
 
-    public sealed class ReferenceDataSetArgs : Pulumi.ResourceArgs
+    public sealed class ReferenceDataSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Time Series Insights environment associated with the specified resource group.
@@ -163,5 +163,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20170228Preview
         public ReferenceDataSetArgs()
         {
         }
+        public static new ReferenceDataSetArgs Empty => new ReferenceDataSetArgs();
     }
 }

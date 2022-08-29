@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808.Inputs
     /// <summary>
     /// Condition to trigger an alert processing rule.
     /// </summary>
-    public sealed class ConditionArgs : Pulumi.ResourceArgs
+    public sealed class ConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Field for a given condition.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808.Inputs
         public ConditionArgs()
         {
         }
+        public static new ConditionArgs Empty => new ConditionArgs();
     }
 }

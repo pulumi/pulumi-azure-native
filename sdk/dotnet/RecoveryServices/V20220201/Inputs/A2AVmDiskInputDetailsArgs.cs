@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220201.Inputs
     /// <summary>
     /// A2A disk input details.
     /// </summary>
-    public sealed class A2AVmDiskInputDetailsArgs : Pulumi.ResourceArgs
+    public sealed class A2AVmDiskInputDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The disk Uri.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220201.Inputs
         public A2AVmDiskInputDetailsArgs()
         {
         }
+        public static new A2AVmDiskInputDetailsArgs Empty => new A2AVmDiskInputDetailsArgs();
     }
 }

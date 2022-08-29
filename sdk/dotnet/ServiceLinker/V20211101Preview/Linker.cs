@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceLinker.V20211101Preview
     /// Linker of source and target resource
     /// </summary>
     [AzureNativeResourceType("azure-native:servicelinker/v20211101preview:Linker")]
-    public partial class Linker : Pulumi.CustomResource
+    public partial class Linker : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The authentication type.
@@ -94,9 +94,9 @@ namespace Pulumi.AzureNative.ServiceLinker.V20211101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:servicelinker:Linker"},
-                    new Pulumi.Alias { Type = "azure-native:servicelinker/v20220101preview:Linker"},
-                    new Pulumi.Alias { Type = "azure-native:servicelinker/v20220501:Linker"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicelinker:Linker"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicelinker/v20220101preview:Linker"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicelinker/v20220501:Linker"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.ServiceLinker.V20211101Preview
         }
     }
 
-    public sealed class LinkerArgs : Pulumi.ResourceArgs
+    public sealed class LinkerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The authentication type.
@@ -165,5 +165,6 @@ namespace Pulumi.AzureNative.ServiceLinker.V20211101Preview
         public LinkerArgs()
         {
         }
+        public static new LinkerArgs Empty => new LinkerArgs();
     }
 }

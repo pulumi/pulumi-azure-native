@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Web.V20150801
     }
 
 
-    public sealed class GetManagedHostingEnvironmentArgs : Pulumi.InvokeArgs
+    public sealed class GetManagedHostingEnvironmentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of managed hosting environment
@@ -43,9 +43,10 @@ namespace Pulumi.AzureNative.Web.V20150801
         public GetManagedHostingEnvironmentArgs()
         {
         }
+        public static new GetManagedHostingEnvironmentArgs Empty => new GetManagedHostingEnvironmentArgs();
     }
 
-    public sealed class GetManagedHostingEnvironmentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetManagedHostingEnvironmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of managed hosting environment
@@ -62,6 +63,7 @@ namespace Pulumi.AzureNative.Web.V20150801
         public GetManagedHostingEnvironmentInvokeArgs()
         {
         }
+        public static new GetManagedHostingEnvironmentInvokeArgs Empty => new GetManagedHostingEnvironmentInvokeArgs();
     }
 
 

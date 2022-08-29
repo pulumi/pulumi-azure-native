@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
     /// <summary>
     /// The VirtualHub Router autoscale configuration.
     /// </summary>
-    public sealed class VirtualRouterAutoScaleConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class VirtualRouterAutoScaleConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The minimum number of scale units for VirtualHub Router.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
         public VirtualRouterAutoScaleConfigurationArgs()
         {
         }
+        public static new VirtualRouterAutoScaleConfigurationArgs Empty => new VirtualRouterAutoScaleConfigurationArgs();
     }
 }

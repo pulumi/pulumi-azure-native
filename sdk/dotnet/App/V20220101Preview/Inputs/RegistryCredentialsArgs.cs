@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
     /// <summary>
     /// Container App Private Registry
     /// </summary>
-    public sealed class RegistryCredentialsArgs : Pulumi.ResourceArgs
+    public sealed class RegistryCredentialsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Secret that contains the registry login password
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
         public RegistryCredentialsArgs()
         {
         }
+        public static new RegistryCredentialsArgs Empty => new RegistryCredentialsArgs();
     }
 }

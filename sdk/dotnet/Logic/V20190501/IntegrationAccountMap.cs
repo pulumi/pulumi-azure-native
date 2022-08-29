@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20190501
     /// The integration account map.
     /// </summary>
     [AzureNativeResourceType("azure-native:logic/v20190501:IntegrationAccountMap")]
-    public partial class IntegrationAccountMap : Pulumi.CustomResource
+    public partial class IntegrationAccountMap : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The changed time.
@@ -112,10 +112,10 @@ namespace Pulumi.AzureNative.Logic.V20190501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:logic:IntegrationAccountMap"},
-                    new Pulumi.Alias { Type = "azure-native:logic/v20150801preview:IntegrationAccountMap"},
-                    new Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountMap"},
-                    new Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccountMap"},
+                    new global::Pulumi.Alias { Type = "azure-native:logic:IntegrationAccountMap"},
+                    new global::Pulumi.Alias { Type = "azure-native:logic/v20150801preview:IntegrationAccountMap"},
+                    new global::Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountMap"},
+                    new global::Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccountMap"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -137,7 +137,7 @@ namespace Pulumi.AzureNative.Logic.V20190501
         }
     }
 
-    public sealed class IntegrationAccountMapArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationAccountMapArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The content.
@@ -208,5 +208,6 @@ namespace Pulumi.AzureNative.Logic.V20190501
         public IntegrationAccountMapArgs()
         {
         }
+        public static new IntegrationAccountMapArgs Empty => new IntegrationAccountMapArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.PolicyInsights.V20180701Preview
     /// </summary>
     [Obsolete(@"Version 2018-07-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:policyinsights/v20180701preview:RemediationAtManagementGroup")]
-    public partial class RemediationAtManagementGroup : Pulumi.CustomResource
+    public partial class RemediationAtManagementGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The time at which the remediation was created.
@@ -95,9 +95,9 @@ namespace Pulumi.AzureNative.PolicyInsights.V20180701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:policyinsights:RemediationAtManagementGroup"},
-                    new Pulumi.Alias { Type = "azure-native:policyinsights/v20190701:RemediationAtManagementGroup"},
-                    new Pulumi.Alias { Type = "azure-native:policyinsights/v20211001:RemediationAtManagementGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:policyinsights:RemediationAtManagementGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:policyinsights/v20190701:RemediationAtManagementGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:policyinsights/v20211001:RemediationAtManagementGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -119,7 +119,7 @@ namespace Pulumi.AzureNative.PolicyInsights.V20180701Preview
         }
     }
 
-    public sealed class RemediationAtManagementGroupArgs : Pulumi.ResourceArgs
+    public sealed class RemediationAtManagementGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The deployment status summary for all deployments created by the remediation.
@@ -166,5 +166,6 @@ namespace Pulumi.AzureNative.PolicyInsights.V20180701Preview
         public RemediationAtManagementGroupArgs()
         {
         }
+        public static new RemediationAtManagementGroupArgs Empty => new RemediationAtManagementGroupArgs();
     }
 }

@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
- * Define the SAP Central Server Instance.
+ * Define the SAP Central Services Instance resource.
  */
 export function getSAPCentralInstance(args: GetSAPCentralInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPCentralInstanceResult> {
     if (!opts) {
@@ -23,7 +23,7 @@ export function getSAPCentralInstance(args: GetSAPCentralInstanceArgs, opts?: pu
 
 export interface GetSAPCentralInstanceArgs {
     /**
-     * Central Instance name string modeled as parameter for auto generation to work correctly.
+     * Central Services Instance resource name string modeled as parameter for auto generation to work correctly.
      */
     centralInstanceName: string;
     /**
@@ -31,25 +31,25 @@ export interface GetSAPCentralInstanceArgs {
      */
     resourceGroupName: string;
     /**
-     * The name of the Virtual Instances for SAP.
+     * The name of the Virtual Instances for SAP solutions resource
      */
     sapVirtualInstanceName: string;
 }
 
 /**
- * Define the SAP Central Server Instance.
+ * Define the SAP Central Services Instance resource.
  */
 export interface GetSAPCentralInstanceResult {
     /**
-     * Defines the SAP ERS Server properties.
+     * Defines the SAP Enqueue Replication Server (ERS) properties.
      */
     readonly enqueueReplicationServerProperties?: outputs.workloads.v20211201preview.EnqueueReplicationServerPropertiesResponse;
     /**
-     * Defines the SAP enqueue server properties.
+     * Defines the SAP Enqueue Server properties.
      */
     readonly enqueueServerProperties?: outputs.workloads.v20211201preview.EnqueueServerPropertiesResponse;
     /**
-     * Defines the Central Instance errors.
+     * Defines the errors related to SAP Central Services Instance resource.
      */
     readonly errors: outputs.workloads.v20211201preview.SAPVirtualInstanceErrorResponse;
     /**
@@ -57,7 +57,7 @@ export interface GetSAPCentralInstanceResult {
      */
     readonly gatewayServerProperties?: outputs.workloads.v20211201preview.GatewayServerPropertiesResponse;
     /**
-     * Defines the SAP Instance health.
+     * Defines the health of SAP Instances.
      */
     readonly health: string;
     /**
@@ -65,15 +65,15 @@ export interface GetSAPCentralInstanceResult {
      */
     readonly id: string;
     /**
-     * The central server instance id.
+     * The central services instance number.
      */
     readonly instanceNo: string;
     /**
-     * The central server kernel patch.
+     * The central services instance Kernel Patch level.
      */
     readonly kernelPatch: string;
     /**
-     * The central server kernel version.
+     * The central services instance Kernel Version.
      */
     readonly kernelVersion: string;
     /**
@@ -81,7 +81,7 @@ export interface GetSAPCentralInstanceResult {
      */
     readonly location: string;
     /**
-     * Defines the SAP message server properties.
+     * Defines the SAP Message Server properties.
      */
     readonly messageServerProperties?: outputs.workloads.v20211201preview.MessageServerPropertiesResponse;
     /**
@@ -97,7 +97,7 @@ export interface GetSAPCentralInstanceResult {
      */
     readonly status: string;
     /**
-     * The central server subnet.
+     * The central services instance subnet.
      */
     readonly subnet: string;
     /**
@@ -113,7 +113,7 @@ export interface GetSAPCentralInstanceResult {
      */
     readonly type: string;
     /**
-     * The list of virtual machines.
+     * The list of virtual machines corresponding to the Central Services instance.
      */
     readonly vmDetails: outputs.workloads.v20211201preview.CentralServerVmDetailsResponse[];
 }
@@ -124,7 +124,7 @@ export function getSAPCentralInstanceOutput(args: GetSAPCentralInstanceOutputArg
 
 export interface GetSAPCentralInstanceOutputArgs {
     /**
-     * Central Instance name string modeled as parameter for auto generation to work correctly.
+     * Central Services Instance resource name string modeled as parameter for auto generation to work correctly.
      */
     centralInstanceName: pulumi.Input<string>;
     /**
@@ -132,7 +132,7 @@ export interface GetSAPCentralInstanceOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the Virtual Instances for SAP.
+     * The name of the Virtual Instances for SAP solutions resource
      */
     sapVirtualInstanceName: pulumi.Input<string>;
 }

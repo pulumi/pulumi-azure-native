@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20191027Preview.Inputs
     /// <summary>
     /// Defines the configuration of the OpenShift cluster VMs.
     /// </summary>
-    public sealed class OpenShiftManagedClusterAgentPoolProfileArgs : Pulumi.ResourceArgs
+    public sealed class OpenShiftManagedClusterAgentPoolProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Number of agents (VMs) to host docker containers.
@@ -55,5 +55,6 @@ namespace Pulumi.AzureNative.ContainerService.V20191027Preview.Inputs
         {
             SubnetCidr = "10.0.0.0/24";
         }
+        public static new OpenShiftManagedClusterAgentPoolProfileArgs Empty => new OpenShiftManagedClusterAgentPoolProfileArgs();
     }
 }

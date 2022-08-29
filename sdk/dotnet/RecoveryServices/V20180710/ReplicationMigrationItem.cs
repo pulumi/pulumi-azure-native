@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20180710
     /// Migration item.
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices/v20180710:ReplicationMigrationItem")]
-    public partial class ReplicationMigrationItem : Pulumi.CustomResource
+    public partial class ReplicationMigrationItem : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource Location
@@ -64,20 +64,23 @@ namespace Pulumi.AzureNative.RecoveryServices.V20180710
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices:ReplicationMigrationItem"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationMigrationItem"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210210:ReplicationMigrationItem"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210301:ReplicationMigrationItem"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210401:ReplicationMigrationItem"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210601:ReplicationMigrationItem"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210701:ReplicationMigrationItem"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210801:ReplicationMigrationItem"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20211001:ReplicationMigrationItem"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20211101:ReplicationMigrationItem"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20211201:ReplicationMigrationItem"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220101:ReplicationMigrationItem"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220201:ReplicationMigrationItem"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220301:ReplicationMigrationItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices:ReplicationMigrationItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationMigrationItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210210:ReplicationMigrationItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210301:ReplicationMigrationItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210401:ReplicationMigrationItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210601:ReplicationMigrationItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210701:ReplicationMigrationItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210801:ReplicationMigrationItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20211001:ReplicationMigrationItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20211101:ReplicationMigrationItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20211201:ReplicationMigrationItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220101:ReplicationMigrationItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220201:ReplicationMigrationItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220301:ReplicationMigrationItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220401:ReplicationMigrationItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220501:ReplicationMigrationItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220801:ReplicationMigrationItem"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -99,7 +102,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20180710
         }
     }
 
-    public sealed class ReplicationMigrationItemArgs : Pulumi.ResourceArgs
+    public sealed class ReplicationMigrationItemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Fabric name.
@@ -140,5 +143,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20180710
         public ReplicationMigrationItemArgs()
         {
         }
+        public static new ReplicationMigrationItemArgs Empty => new ReplicationMigrationItemArgs();
     }
 }

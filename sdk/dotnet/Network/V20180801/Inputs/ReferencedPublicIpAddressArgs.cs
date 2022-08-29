@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20180801.Inputs
 {
 
-    public sealed class ReferencedPublicIpAddressArgs : Pulumi.ResourceArgs
+    public sealed class ReferencedPublicIpAddressArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The PublicIPAddress Reference
@@ -21,5 +21,6 @@ namespace Pulumi.AzureNative.Network.V20180801.Inputs
         public ReferencedPublicIpAddressArgs()
         {
         }
+        public static new ReferencedPublicIpAddressArgs Empty => new ReferencedPublicIpAddressArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210101.Inputs
     /// <summary>
     /// The auto scaler properties.
     /// </summary>
-    public sealed class AKSServiceCreateRequestAutoScalerArgs : Pulumi.ResourceArgs
+    public sealed class AKSServiceCreateRequestAutoScalerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Option to enable/disable auto scaling.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210101.Inputs
         public AKSServiceCreateRequestAutoScalerArgs()
         {
         }
+        public static new AKSServiceCreateRequestAutoScalerArgs Empty => new AKSServiceCreateRequestAutoScalerArgs();
     }
 }

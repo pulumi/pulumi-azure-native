@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
     /// <summary>
     /// KPI Resource Health Details
     /// </summary>
-    public sealed class KPIResourceHealthDetailsArgs : Pulumi.ResourceArgs
+    public sealed class KPIResourceHealthDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource Health Status
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public KPIResourceHealthDetailsArgs()
         {
         }
+        public static new KPIResourceHealthDetailsArgs Empty => new KPIResourceHealthDetailsArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.EventHub.V20211101
     }
 
 
-    public sealed class ListEventHubKeysArgs : Pulumi.InvokeArgs
+    public sealed class ListEventHubKeysArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The authorization rule name.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.EventHub.V20211101
         public ListEventHubKeysArgs()
         {
         }
+        public static new ListEventHubKeysArgs Empty => new ListEventHubKeysArgs();
     }
 
-    public sealed class ListEventHubKeysInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListEventHubKeysInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The authorization rule name.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.EventHub.V20211101
         public ListEventHubKeysInvokeArgs()
         {
         }
+        public static new ListEventHubKeysInvokeArgs Empty => new ListEventHubKeysInvokeArgs();
     }
 
 

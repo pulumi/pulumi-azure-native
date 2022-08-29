@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network
     /// API Version: 2022-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VirtualRouter")]
-    public partial class VirtualRouter : Pulumi.CustomResource
+    public partial class VirtualRouter : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -107,23 +107,23 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network/v20190701:VirtualRouter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190801:VirtualRouter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190901:VirtualRouter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20191101:VirtualRouter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20191201:VirtualRouter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200301:VirtualRouter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200401:VirtualRouter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200501:VirtualRouter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualRouter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200701:VirtualRouter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200801:VirtualRouter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20201101:VirtualRouter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210201:VirtualRouter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210301:VirtualRouter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210501:VirtualRouter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210801:VirtualRouter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220101:VirtualRouter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:VirtualRouter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190801:VirtualRouter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:VirtualRouter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:VirtualRouter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:VirtualRouter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:VirtualRouter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:VirtualRouter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:VirtualRouter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualRouter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:VirtualRouter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:VirtualRouter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:VirtualRouter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:VirtualRouter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:VirtualRouter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:VirtualRouter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:VirtualRouter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:VirtualRouter"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -145,7 +145,7 @@ namespace Pulumi.AzureNative.Network
         }
     }
 
-    public sealed class VirtualRouterArgs : Pulumi.ResourceArgs
+    public sealed class VirtualRouterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Gateway on which VirtualRouter is hosted.
@@ -216,5 +216,6 @@ namespace Pulumi.AzureNative.Network
         public VirtualRouterArgs()
         {
         }
+        public static new VirtualRouterArgs Empty => new VirtualRouterArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.V20180601Preview.Inputs
     /// <summary>
     /// The disk encryption properties
     /// </summary>
-    public sealed class DiskEncryptionPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class DiskEncryptionPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Algorithm identifier for encryption, default RSA-OAEP.
@@ -55,5 +55,6 @@ namespace Pulumi.AzureNative.HDInsight.V20180601Preview.Inputs
         {
             EncryptionAtHost = false;
         }
+        public static new DiskEncryptionPropertiesArgs Empty => new DiskEncryptionPropertiesArgs();
     }
 }

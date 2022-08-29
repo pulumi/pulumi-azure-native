@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
     /// <summary>
     /// A Machine Learning compute based on AKS.
     /// </summary>
-    public sealed class AKSArgs : Pulumi.ResourceArgs
+    public sealed class AKSArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of compute
@@ -27,12 +27,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
-        /// </summary>
-        [Input("disableLocalAuth")]
-        public Input<bool>? DisableLocalAuth { get; set; }
 
         /// <summary>
         /// AKS properties
@@ -49,5 +43,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
         public AKSArgs()
         {
         }
+        public static new AKSArgs Empty => new AKSArgs();
     }
 }

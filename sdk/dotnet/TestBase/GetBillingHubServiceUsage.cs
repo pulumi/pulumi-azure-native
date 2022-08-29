@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.TestBase
     }
 
 
-    public sealed class GetBillingHubServiceUsageArgs : Pulumi.InvokeArgs
+    public sealed class GetBillingHubServiceUsageArgs : global::Pulumi.InvokeArgs
     {
         [Input("endTimeStamp", required: true)]
         public string EndTimeStamp { get; set; } = null!;
@@ -56,9 +56,10 @@ namespace Pulumi.AzureNative.TestBase
         public GetBillingHubServiceUsageArgs()
         {
         }
+        public static new GetBillingHubServiceUsageArgs Empty => new GetBillingHubServiceUsageArgs();
     }
 
-    public sealed class GetBillingHubServiceUsageInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBillingHubServiceUsageInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("endTimeStamp", required: true)]
         public Input<string> EndTimeStamp { get; set; } = null!;
@@ -87,6 +88,7 @@ namespace Pulumi.AzureNative.TestBase
         public GetBillingHubServiceUsageInvokeArgs()
         {
         }
+        public static new GetBillingHubServiceUsageInvokeArgs Empty => new GetBillingHubServiceUsageInvokeArgs();
     }
 
 

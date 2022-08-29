@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// <summary>
     /// Settings for user account that gets created on each on the nodes of a compute.
     /// </summary>
-    public sealed class UserAccountCredentialsArgs : Pulumi.ResourceArgs
+    public sealed class UserAccountCredentialsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the administrator user account which can be used to SSH to nodes.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public UserAccountCredentialsArgs()
         {
         }
+        public static new UserAccountCredentialsArgs Empty => new UserAccountCredentialsArgs();
     }
 }

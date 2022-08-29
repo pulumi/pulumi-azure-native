@@ -122,7 +122,7 @@ export class ServerAdvisor extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:ServerAdvisor" }, { type: "azure-native:sql/v20140401:ServerAdvisor" }, { type: "azure-native:sql/v20150501preview:ServerAdvisor" }, { type: "azure-native:sql/v20200202preview:ServerAdvisor" }, { type: "azure-native:sql/v20200801preview:ServerAdvisor" }, { type: "azure-native:sql/v20201101preview:ServerAdvisor" }, { type: "azure-native:sql/v20210501preview:ServerAdvisor" }, { type: "azure-native:sql/v20210801preview:ServerAdvisor" }, { type: "azure-native:sql/v20211101preview:ServerAdvisor" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:ServerAdvisor" }, { type: "azure-native:sql/v20140401:ServerAdvisor" }, { type: "azure-native:sql/v20150501preview:ServerAdvisor" }, { type: "azure-native:sql/v20200202preview:ServerAdvisor" }, { type: "azure-native:sql/v20200801preview:ServerAdvisor" }, { type: "azure-native:sql/v20201101preview:ServerAdvisor" }, { type: "azure-native:sql/v20210501preview:ServerAdvisor" }, { type: "azure-native:sql/v20210801preview:ServerAdvisor" }, { type: "azure-native:sql/v20211101:ServerAdvisor" }, { type: "azure-native:sql/v20211101preview:ServerAdvisor" }, { type: "azure-native:sql/v20220201preview:ServerAdvisor" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerAdvisor.__pulumiType, name, resourceInputs, opts);
     }

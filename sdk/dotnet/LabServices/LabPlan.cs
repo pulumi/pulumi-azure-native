@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.LabServices
     /// API Version: 2021-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:labservices:LabPlan")]
-    public partial class LabPlan : Pulumi.CustomResource
+    public partial class LabPlan : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The allowed regions for the lab creator to use when creating labs using this lab plan.
@@ -119,8 +119,9 @@ namespace Pulumi.AzureNative.LabServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:labservices/v20211001preview:LabPlan"},
-                    new Pulumi.Alias { Type = "azure-native:labservices/v20211115preview:LabPlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:labservices/v20211001preview:LabPlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:labservices/v20211115preview:LabPlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:labservices/v20220801:LabPlan"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -142,7 +143,7 @@ namespace Pulumi.AzureNative.LabServices
         }
     }
 
-    public sealed class LabPlanArgs : Pulumi.ResourceArgs
+    public sealed class LabPlanArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedRegions")]
         private InputList<string>? _allowedRegions;
@@ -225,5 +226,6 @@ namespace Pulumi.AzureNative.LabServices
         public LabPlanArgs()
         {
         }
+        public static new LabPlanArgs Empty => new LabPlanArgs();
     }
 }

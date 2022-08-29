@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210601.Inputs
     /// <summary>
     /// Describes the client certificate details using thumbprint.
     /// </summary>
-    public sealed class ClientCertificateThumbprintArgs : Pulumi.ResourceArgs
+    public sealed class ClientCertificateThumbprintArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The thumbprint of the client certificate.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210601.Inputs
         public ClientCertificateThumbprintArgs()
         {
         }
+        public static new ClientCertificateThumbprintArgs Empty => new ClientCertificateThumbprintArgs();
     }
 }

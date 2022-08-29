@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20210801
     }
 
 
-    public sealed class GetExpressRoutePortAuthorizationArgs : Pulumi.InvokeArgs
+    public sealed class GetExpressRoutePortAuthorizationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the authorization.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Network.V20210801
         public GetExpressRoutePortAuthorizationArgs()
         {
         }
+        public static new GetExpressRoutePortAuthorizationArgs Empty => new GetExpressRoutePortAuthorizationArgs();
     }
 
-    public sealed class GetExpressRoutePortAuthorizationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetExpressRoutePortAuthorizationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the authorization.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Network.V20210801
         public GetExpressRoutePortAuthorizationInvokeArgs()
         {
         }
+        public static new GetExpressRoutePortAuthorizationInvokeArgs Empty => new GetExpressRoutePortAuthorizationInvokeArgs();
     }
 
 

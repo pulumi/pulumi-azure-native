@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.AzureStack
     }
 
 
-    public sealed class ListProductDetailsArgs : Pulumi.InvokeArgs
+    public sealed class ListProductDetailsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the product.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.AzureStack
         public ListProductDetailsArgs()
         {
         }
+        public static new ListProductDetailsArgs Empty => new ListProductDetailsArgs();
     }
 
-    public sealed class ListProductDetailsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListProductDetailsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the product.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.AzureStack
         public ListProductDetailsInvokeArgs()
         {
         }
+        public static new ListProductDetailsInvokeArgs Empty => new ListProductDetailsInvokeArgs();
     }
 
 

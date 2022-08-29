@@ -7,21 +7,25 @@ import (
 	"github.com/go-openapi/spec"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
+	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"os"
 	"path/filepath"
 	"regexp"
-	"sort"
 	"strings"
 )
 
 // ProviderName e.g. aad
 type ProviderName = string
+
 // ApiVersion e.g. 2020-01-30
 type ApiVersion = string
+
 // DefinitionName is the name of either an 'invoke' or a resource (e.g. listBuckets or Bucket)
 type DefinitionName = string
+
 // ResourceName e.g. Bucket
 type ResourceName = string
+
 // InvokeName e.g. listBuckets
 type InvokeName = string
 
@@ -182,6 +186,11 @@ func IsPreview(apiVersion string) bool {
 	return strings.Contains(lower, "preview") || strings.Contains(lower, "beta")
 }
 
+func IsPrivate(apiVersion string) bool {
+	lower := strings.ToLower(apiVersion)
+	return strings.Contains(lower, "private")
+}
+
 // swaggerLocations returns a slice of URLs of all known Azure Resource Manager swagger files.
 func swaggerLocations() ([]string, error) {
 	dir, err := os.Getwd()
@@ -189,16 +198,19 @@ func swaggerLocations() ([]string, error) {
 		return nil, err
 	}
 
-	pattern := filepath.Join(dir, "/azure-rest-api-specs*/specification/**/resource-manager/Microsoft.*/**/20*/*.json")
+	pattern := filepath.Join(dir, "/azure-rest-api-specs*/specification/*/resource-manager/Microsoft.*/*/20*/*.json")
 	files, err := filepath.Glob(pattern)
 	if err != nil {
 		return nil, err
 	}
 
-	// Sorting alphabetically means the schemas with the latest API version are the last.
-	sort.Strings(files)
+	pattern2 := filepath.Join(dir, "/azure-rest-api-specs*/specification/*/resource-manager/Microsoft.*/*/*/20*/*.json")
+	files2, err := filepath.Glob(pattern2)
 
-	return files, nil
+	// Sorting alphabetically means the schemas with the latest API version are the last.
+	fileSet := codegen.NewStringSet(append(files, files2...)...)
+
+	return fileSet.SortedValues(), nil
 }
 
 var excludeRegexes = []*regexp.Regexp{

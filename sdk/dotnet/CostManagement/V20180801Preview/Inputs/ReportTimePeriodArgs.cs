@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.V20180801Preview.Inputs
     /// <summary>
     /// The start and end date for pulling data for the report.
     /// </summary>
-    public sealed class ReportTimePeriodArgs : Pulumi.ResourceArgs
+    public sealed class ReportTimePeriodArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The start date to pull data from.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.CostManagement.V20180801Preview.Inputs
         public ReportTimePeriodArgs()
         {
         }
+        public static new ReportTimePeriodArgs Empty => new ReportTimePeriodArgs();
     }
 }

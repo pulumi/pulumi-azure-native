@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20211101.Inputs
     /// <summary>
     /// The settings for the CORS configuration of the service instance.
     /// </summary>
-    public sealed class ServiceCorsConfigurationInfoArgs : Pulumi.ResourceArgs
+    public sealed class ServiceCorsConfigurationInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If credentials are allowed via CORS.
@@ -66,5 +66,6 @@ namespace Pulumi.AzureNative.HealthcareApis.V20211101.Inputs
         public ServiceCorsConfigurationInfoArgs()
         {
         }
+        public static new ServiceCorsConfigurationInfoArgs Empty => new ServiceCorsConfigurationInfoArgs();
     }
 }

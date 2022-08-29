@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.LoadTestService.V20220415Preview
     /// LoadTest details
     /// </summary>
     [AzureNativeResourceType("azure-native:loadtestservice/v20220415preview:LoadTest")]
-    public partial class LoadTest : Pulumi.CustomResource
+    public partial class LoadTest : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource data plane URI.
@@ -100,8 +100,8 @@ namespace Pulumi.AzureNative.LoadTestService.V20220415Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:loadtestservice:LoadTest"},
-                    new Pulumi.Alias { Type = "azure-native:loadtestservice/v20211201preview:LoadTest"},
+                    new global::Pulumi.Alias { Type = "azure-native:loadtestservice:LoadTest"},
+                    new global::Pulumi.Alias { Type = "azure-native:loadtestservice/v20211201preview:LoadTest"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -123,7 +123,7 @@ namespace Pulumi.AzureNative.LoadTestService.V20220415Preview
         }
     }
 
-    public sealed class LoadTestArgs : Pulumi.ResourceArgs
+    public sealed class LoadTestArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the resource.
@@ -176,5 +176,6 @@ namespace Pulumi.AzureNative.LoadTestService.V20220415Preview
         public LoadTestArgs()
         {
         }
+        public static new LoadTestArgs Empty => new LoadTestArgs();
     }
 }

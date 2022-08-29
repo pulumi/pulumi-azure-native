@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// <summary>
     /// Class to represent configuration settings for Docker Build
     /// </summary>
-    public sealed class DockerBuildArgs : Pulumi.ResourceArgs
+    public sealed class DockerBuildArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Path to a snapshot of the Docker Context. This property is only valid if Dockerfile is specified.
@@ -46,5 +46,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public DockerBuildArgs()
         {
         }
+        public static new DockerBuildArgs Empty => new DockerBuildArgs();
     }
 }

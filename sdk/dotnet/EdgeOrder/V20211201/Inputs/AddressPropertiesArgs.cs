@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20211201.Inputs
     /// <summary>
     /// Address Properties
     /// </summary>
-    public sealed class AddressPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class AddressPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Contact details for the address
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.EdgeOrder.V20211201.Inputs
         public AddressPropertiesArgs()
         {
         }
+        public static new AddressPropertiesArgs Empty => new AddressPropertiesArgs();
     }
 }

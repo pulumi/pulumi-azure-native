@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBox.V20211201.Inputs
     /// <summary>
     /// Details for the storage account.
     /// </summary>
-    public sealed class StorageAccountDetailsArgs : Pulumi.ResourceArgs
+    public sealed class StorageAccountDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Account Type of the data to be transferred.
@@ -38,5 +38,6 @@ namespace Pulumi.AzureNative.DataBox.V20211201.Inputs
         {
             DataAccountType = "StorageAccount";
         }
+        public static new StorageAccountDetailsArgs Empty => new StorageAccountDetailsArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
     }
 
 
-    public sealed class GetmonitorArgs : Pulumi.InvokeArgs
+    public sealed class GetmonitorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the SAP monitor resource.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
         public GetmonitorArgs()
         {
         }
+        public static new GetmonitorArgs Empty => new GetmonitorArgs();
     }
 
-    public sealed class GetmonitorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetmonitorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the SAP monitor resource.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
         public GetmonitorInvokeArgs()
         {
         }
+        public static new GetmonitorInvokeArgs Empty => new GetmonitorInvokeArgs();
     }
 
 
@@ -127,6 +129,10 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Sets the preference for zone redundancy on resources created for the SAP monitor. By default resources will be created which do not support zone redundancy.
+        /// </summary>
+        public readonly string? ZoneRedundancyPreference;
 
         [OutputConstructor]
         private GetmonitorResult(
@@ -158,7 +164,9 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string? zoneRedundancyPreference)
         {
             AppLocation = appLocation;
             Errors = errors;
@@ -175,6 +183,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
             SystemData = systemData;
             Tags = tags;
             Type = type;
+            ZoneRedundancyPreference = zoneRedundancyPreference;
         }
     }
 }

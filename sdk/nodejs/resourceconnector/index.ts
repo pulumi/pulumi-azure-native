@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./appliance";
 export * from "./getAppliance";
+export * from "./listApplianceClusterCustomerUserCredential";
 export * from "./listApplianceClusterUserCredential";
 
 // Export enums:
@@ -14,9 +15,11 @@ export * from "../types/enums/resourceconnector";
 
 // Export sub-modules:
 import * as v20211031preview from "./v20211031preview";
+import * as v20220415preview from "./v20220415preview";
 
 export {
     v20211031preview,
+    v20220415preview,
 };
 
 // Import resources to register:

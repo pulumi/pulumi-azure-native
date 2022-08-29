@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Management.V20171101Preview
     /// </summary>
     [Obsolete(@"Version 2017-11-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:management/v20171101preview:ManagementGroup")]
-    public partial class ManagementGroup : Pulumi.CustomResource
+    public partial class ManagementGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The list of children.
@@ -77,14 +77,14 @@ namespace Pulumi.AzureNative.Management.V20171101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:management:ManagementGroup"},
-                    new Pulumi.Alias { Type = "azure-native:management/v20180101preview:ManagementGroup"},
-                    new Pulumi.Alias { Type = "azure-native:management/v20180301preview:ManagementGroup"},
-                    new Pulumi.Alias { Type = "azure-native:management/v20191101:ManagementGroup"},
-                    new Pulumi.Alias { Type = "azure-native:management/v20200201:ManagementGroup"},
-                    new Pulumi.Alias { Type = "azure-native:management/v20200501:ManagementGroup"},
-                    new Pulumi.Alias { Type = "azure-native:management/v20201001:ManagementGroup"},
-                    new Pulumi.Alias { Type = "azure-native:management/v20210401:ManagementGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:management:ManagementGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:management/v20180101preview:ManagementGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:management/v20180301preview:ManagementGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:management/v20191101:ManagementGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:management/v20200201:ManagementGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:management/v20200501:ManagementGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:management/v20201001:ManagementGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:management/v20210401:ManagementGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.Management.V20171101Preview
         }
     }
 
-    public sealed class ManagementGroupArgs : Pulumi.ResourceArgs
+    public sealed class ManagementGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The friendly name of the management group.
@@ -129,5 +129,6 @@ namespace Pulumi.AzureNative.Management.V20171101Preview
         public ManagementGroupArgs()
         {
         }
+        public static new ManagementGroupArgs Empty => new ManagementGroupArgs();
     }
 }

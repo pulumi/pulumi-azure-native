@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
     /// An IPv6 server firewall rule.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20210801preview:IPv6FirewallRule")]
-    public partial class IPv6FirewallRule : Pulumi.CustomResource
+    public partial class IPv6FirewallRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The end IP address of the firewall rule. Must be IPv6 format. Must be greater than or equal to startIpAddress.
@@ -64,8 +64,10 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:sql:IPv6FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:IPv6FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql:IPv6FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:IPv6FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:IPv6FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:IPv6FirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -87,7 +89,7 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
         }
     }
 
-    public sealed class IPv6FirewallRuleArgs : Pulumi.ResourceArgs
+    public sealed class IPv6FirewallRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The end IP address of the firewall rule. Must be IPv6 format. Must be greater than or equal to startIpAddress.
@@ -128,5 +130,6 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
         public IPv6FirewallRuleArgs()
         {
         }
+        public static new IPv6FirewallRuleArgs Empty => new IPv6FirewallRuleArgs();
     }
 }

@@ -69,6 +69,10 @@ export interface GetDiagnosticResult {
      */
     readonly loggerId: string;
     /**
+     * Emit custom metrics via emit-metric policy. Applicable only to Application Insights diagnostic settings.
+     */
+    readonly metrics?: boolean;
+    /**
      * The name of the resource
      */
     readonly name: string;

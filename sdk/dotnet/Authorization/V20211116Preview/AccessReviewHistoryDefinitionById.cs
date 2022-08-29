@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization.V20211116Preview
     /// Access Review History Definition.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization/v20211116preview:AccessReviewHistoryDefinitionById")]
-    public partial class AccessReviewHistoryDefinitionById : Pulumi.CustomResource
+    public partial class AccessReviewHistoryDefinitionById : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Date time when history definition was created
@@ -148,7 +148,8 @@ namespace Pulumi.AzureNative.Authorization.V20211116Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:authorization:AccessReviewHistoryDefinitionById"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization:AccessReviewHistoryDefinitionById"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20211201preview:AccessReviewHistoryDefinitionById"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -170,7 +171,7 @@ namespace Pulumi.AzureNative.Authorization.V20211116Preview
         }
     }
 
-    public sealed class AccessReviewHistoryDefinitionByIdArgs : Pulumi.ResourceArgs
+    public sealed class AccessReviewHistoryDefinitionByIdArgs : global::Pulumi.ResourceArgs
     {
         [Input("decisions")]
         private InputList<Union<string, Pulumi.AzureNative.Authorization.V20211116Preview.AccessReviewResult>>? _decisions;
@@ -253,5 +254,6 @@ namespace Pulumi.AzureNative.Authorization.V20211116Preview
         public AccessReviewHistoryDefinitionByIdArgs()
         {
         }
+        public static new AccessReviewHistoryDefinitionByIdArgs Empty => new AccessReviewHistoryDefinitionByIdArgs();
     }
 }

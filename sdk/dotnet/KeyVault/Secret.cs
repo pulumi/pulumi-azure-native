@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.KeyVault
     /// API Version: 2019-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:keyvault:Secret")]
-    public partial class Secret : Pulumi.CustomResource
+    public partial class Secret : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Azure location of the key vault resource.
@@ -71,15 +71,16 @@ namespace Pulumi.AzureNative.KeyVault
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:keyvault/v20161001:Secret"},
-                    new Pulumi.Alias { Type = "azure-native:keyvault/v20180214:Secret"},
-                    new Pulumi.Alias { Type = "azure-native:keyvault/v20180214preview:Secret"},
-                    new Pulumi.Alias { Type = "azure-native:keyvault/v20190901:Secret"},
-                    new Pulumi.Alias { Type = "azure-native:keyvault/v20200401preview:Secret"},
-                    new Pulumi.Alias { Type = "azure-native:keyvault/v20210401preview:Secret"},
-                    new Pulumi.Alias { Type = "azure-native:keyvault/v20210601preview:Secret"},
-                    new Pulumi.Alias { Type = "azure-native:keyvault/v20211001:Secret"},
-                    new Pulumi.Alias { Type = "azure-native:keyvault/v20211101preview:Secret"},
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20161001:Secret"},
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20180214:Secret"},
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20180214preview:Secret"},
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20190901:Secret"},
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20200401preview:Secret"},
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20210401preview:Secret"},
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20210601preview:Secret"},
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20211001:Secret"},
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20211101preview:Secret"},
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20220701:Secret"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -101,7 +102,7 @@ namespace Pulumi.AzureNative.KeyVault
         }
     }
 
-    public sealed class SecretArgs : Pulumi.ResourceArgs
+    public sealed class SecretArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Properties of the secret
@@ -142,5 +143,6 @@ namespace Pulumi.AzureNative.KeyVault
         public SecretArgs()
         {
         }
+        public static new SecretArgs Empty => new SecretArgs();
     }
 }

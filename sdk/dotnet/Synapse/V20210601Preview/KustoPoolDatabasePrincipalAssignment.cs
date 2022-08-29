@@ -13,8 +13,14 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
     /// Class representing a database principal assignment.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse/v20210601preview:KustoPoolDatabasePrincipalAssignment")]
-    public partial class KustoPoolDatabasePrincipalAssignment : Pulumi.CustomResource
+    public partial class KustoPoolDatabasePrincipalAssignment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The service principal object id in AAD (Azure active directory)
+        /// </summary>
+        [Output("aadObjectId")]
+        public Output<string> AadObjectId { get; private set; } = null!;
+
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -100,8 +106,8 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:synapse:KustoPoolDatabasePrincipalAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:KustoPoolDatabasePrincipalAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse:KustoPoolDatabasePrincipalAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:KustoPoolDatabasePrincipalAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -123,7 +129,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         }
     }
 
-    public sealed class KustoPoolDatabasePrincipalAssignmentArgs : Pulumi.ResourceArgs
+    public sealed class KustoPoolDatabasePrincipalAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the database in the Kusto pool.
@@ -182,5 +188,6 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         public KustoPoolDatabasePrincipalAssignmentArgs()
         {
         }
+        public static new KustoPoolDatabasePrincipalAssignmentArgs Empty => new KustoPoolDatabasePrincipalAssignmentArgs();
     }
 }

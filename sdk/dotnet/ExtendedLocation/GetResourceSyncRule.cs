@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ExtendedLocation
     }
 
 
-    public sealed class GetResourceSyncRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceSyncRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Resource Sync Rule name.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.ExtendedLocation
         public GetResourceSyncRuleArgs()
         {
         }
+        public static new GetResourceSyncRuleArgs Empty => new GetResourceSyncRuleArgs();
     }
 
-    public sealed class GetResourceSyncRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceSyncRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Resource Sync Rule name.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.ExtendedLocation
         public GetResourceSyncRuleInvokeArgs()
         {
         }
+        public static new GetResourceSyncRuleInvokeArgs Empty => new GetResourceSyncRuleInvokeArgs();
     }
 
 

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.PowerPlatform
     }
 
 
-    public sealed class GetAccountArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the account.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.PowerPlatform
         public GetAccountArgs()
         {
         }
+        public static new GetAccountArgs Empty => new GetAccountArgs();
     }
 
-    public sealed class GetAccountInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the account.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.PowerPlatform
         public GetAccountInvokeArgs()
         {
         }
+        public static new GetAccountInvokeArgs Empty => new GetAccountInvokeArgs();
     }
 
 
@@ -90,6 +92,10 @@ namespace Pulumi.AzureNative.PowerPlatform
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
+        /// The internally assigned unique identifier of the resource.
+        /// </summary>
+        public readonly string SystemId;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -110,6 +116,8 @@ namespace Pulumi.AzureNative.PowerPlatform
 
             Outputs.SystemDataResponse systemData,
 
+            string systemId,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -119,6 +127,7 @@ namespace Pulumi.AzureNative.PowerPlatform
             Location = location;
             Name = name;
             SystemData = systemData;
+            SystemId = systemId;
             Tags = tags;
             Type = type;
         }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview
     }
 
 
-    public sealed class GetEnterprisePolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetEnterprisePolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The EnterprisePolicy name.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview
         public GetEnterprisePolicyArgs()
         {
         }
+        public static new GetEnterprisePolicyArgs Empty => new GetEnterprisePolicyArgs();
     }
 
-    public sealed class GetEnterprisePolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEnterprisePolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The EnterprisePolicy name.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview
         public GetEnterprisePolicyInvokeArgs()
         {
         }
+        public static new GetEnterprisePolicyInvokeArgs Empty => new GetEnterprisePolicyInvokeArgs();
     }
 
 
@@ -104,6 +106,10 @@ namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
+        /// The internally assigned unique identifier of the resource.
+        /// </summary>
+        public readonly string SystemId;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -132,6 +138,8 @@ namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview
 
             Outputs.SystemDataResponse systemData,
 
+            string systemId,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -145,6 +153,7 @@ namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview
             Name = name;
             NetworkInjection = networkInjection;
             SystemData = systemData;
+            SystemId = systemId;
             Tags = tags;
             Type = type;
         }

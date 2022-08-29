@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview.Inputs
     /// <summary>
     /// Teams data type connection.
     /// </summary>
-    public sealed class OfficeDataConnectorDataTypesTeamsArgs : Pulumi.ResourceArgs
+    public sealed class OfficeDataConnectorDataTypesTeamsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describe whether this data type connection is enabled or not.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview.Inputs
         public OfficeDataConnectorDataTypesTeamsArgs()
         {
         }
+        public static new OfficeDataConnectorDataTypesTeamsArgs Empty => new OfficeDataConnectorDataTypesTeamsArgs();
     }
 }

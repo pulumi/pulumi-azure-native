@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Web.V20150801
     }
 
 
-    public sealed class GetSiteHostNameBindingSlotArgs : Pulumi.InvokeArgs
+    public sealed class GetSiteHostNameBindingSlotArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of host
@@ -55,9 +55,10 @@ namespace Pulumi.AzureNative.Web.V20150801
         public GetSiteHostNameBindingSlotArgs()
         {
         }
+        public static new GetSiteHostNameBindingSlotArgs Empty => new GetSiteHostNameBindingSlotArgs();
     }
 
-    public sealed class GetSiteHostNameBindingSlotInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSiteHostNameBindingSlotInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of host
@@ -86,6 +87,7 @@ namespace Pulumi.AzureNative.Web.V20150801
         public GetSiteHostNameBindingSlotInvokeArgs()
         {
         }
+        public static new GetSiteHostNameBindingSlotInvokeArgs Empty => new GetSiteHostNameBindingSlotInvokeArgs();
     }
 
 

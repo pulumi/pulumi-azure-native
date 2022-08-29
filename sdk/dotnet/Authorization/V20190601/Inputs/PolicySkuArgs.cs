@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization.V20190601.Inputs
     /// <summary>
     /// The policy sku. This property is optional, obsolete, and will be ignored.
     /// </summary>
-    public sealed class PolicySkuArgs : Pulumi.ResourceArgs
+    public sealed class PolicySkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the policy sku. Possible values are A0 and A1.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Authorization.V20190601.Inputs
         public PolicySkuArgs()
         {
         }
+        public static new PolicySkuArgs Empty => new PolicySkuArgs();
     }
 }

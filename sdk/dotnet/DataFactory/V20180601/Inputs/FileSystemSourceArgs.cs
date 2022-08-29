@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A copy activity file system source.
     /// </summary>
-    public sealed class FileSystemSourceArgs : Pulumi.ResourceArgs
+    public sealed class FileSystemSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -61,5 +61,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public FileSystemSourceArgs()
         {
         }
+        public static new FileSystemSourceArgs Empty => new FileSystemSourceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20170501Preview
     /// The subscription diagnostic setting resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights/v20170501preview:SubscriptionDiagnosticSetting")]
-    public partial class SubscriptionDiagnosticSetting : Pulumi.CustomResource
+    public partial class SubscriptionDiagnosticSetting : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The resource Id for the event hub authorization rule.
@@ -94,8 +94,8 @@ namespace Pulumi.AzureNative.Insights.V20170501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:insights:SubscriptionDiagnosticSetting"},
-                    new Pulumi.Alias { Type = "azure-native:insights/v20210501preview:SubscriptionDiagnosticSetting"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights:SubscriptionDiagnosticSetting"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20210501preview:SubscriptionDiagnosticSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.Insights.V20170501Preview
         }
     }
 
-    public sealed class SubscriptionDiagnosticSettingArgs : Pulumi.ResourceArgs
+    public sealed class SubscriptionDiagnosticSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource Id for the event hub authorization rule.
@@ -176,5 +176,6 @@ namespace Pulumi.AzureNative.Insights.V20170501Preview
         public SubscriptionDiagnosticSettingArgs()
         {
         }
+        public static new SubscriptionDiagnosticSettingArgs Empty => new SubscriptionDiagnosticSettingArgs();
     }
 }

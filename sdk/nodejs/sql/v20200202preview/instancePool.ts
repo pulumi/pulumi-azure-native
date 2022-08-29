@@ -112,7 +112,7 @@ export class InstancePool extends pulumi.CustomResource {
             resourceInputs["vCores"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:InstancePool" }, { type: "azure-native:sql/v20180601preview:InstancePool" }, { type: "azure-native:sql/v20200801preview:InstancePool" }, { type: "azure-native:sql/v20201101preview:InstancePool" }, { type: "azure-native:sql/v20210201preview:InstancePool" }, { type: "azure-native:sql/v20210501preview:InstancePool" }, { type: "azure-native:sql/v20210801preview:InstancePool" }, { type: "azure-native:sql/v20211101preview:InstancePool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:InstancePool" }, { type: "azure-native:sql/v20180601preview:InstancePool" }, { type: "azure-native:sql/v20200801preview:InstancePool" }, { type: "azure-native:sql/v20201101preview:InstancePool" }, { type: "azure-native:sql/v20210201preview:InstancePool" }, { type: "azure-native:sql/v20210501preview:InstancePool" }, { type: "azure-native:sql/v20210801preview:InstancePool" }, { type: "azure-native:sql/v20211101:InstancePool" }, { type: "azure-native:sql/v20211101preview:InstancePool" }, { type: "azure-native:sql/v20220201preview:InstancePool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(InstancePool.__pulumiType, name, resourceInputs, opts);
     }

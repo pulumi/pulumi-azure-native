@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220130Preview.Inputs
     /// <summary>
     /// Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance.
     /// </summary>
-    public sealed class MigrateSqlServerSqlMITaskInputArgs : Pulumi.ResourceArgs
+    public sealed class MigrateSqlServerSqlMITaskInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure Active Directory domain name in the format of 'contoso.com' for federated Azure AD or 'contoso.onmicrosoft.com' for managed domain, required if and only if Windows logins are selected
@@ -102,5 +102,6 @@ namespace Pulumi.AzureNative.DataMigration.V20220130Preview.Inputs
         public MigrateSqlServerSqlMITaskInputArgs()
         {
         }
+        public static new MigrateSqlServerSqlMITaskInputArgs Empty => new MigrateSqlServerSqlMITaskInputArgs();
     }
 }

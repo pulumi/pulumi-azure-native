@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.Inputs
     /// <summary>
     /// The parameters used to add a new Azure Storage account while creating a new Data Lake Analytics account.
     /// </summary>
-    public sealed class AddStorageAccountWithAccountParametersArgs : Pulumi.ResourceArgs
+    public sealed class AddStorageAccountWithAccountParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access key associated with this Azure Storage account that will be used to connect to it.
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.Inputs
         {
             Suffix = "azuredatalakestore.net";
         }
+        public static new AddStorageAccountWithAccountParametersArgs Empty => new AddStorageAccountWithAccountParametersArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
     /// <summary>
     /// Defines the OS and SAP Configurations for Deployment
     /// </summary>
-    public sealed class OsSapConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class OsSapConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The url and storage account ID where deployer VM packages are uploaded
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
         public OsSapConfigurationArgs()
         {
         }
+        public static new OsSapConfigurationArgs Empty => new OsSapConfigurationArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.EventGrid.V20190201Preview
     /// </summary>
     [Obsolete(@"Version 2019-02-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:eventgrid/v20190201preview:EventSubscription")]
-    public partial class EventSubscription : Pulumi.CustomResource
+    public partial class EventSubscription : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The DeadLetter destination of the event subscription.
@@ -107,22 +107,22 @@ namespace Pulumi.AzureNative.EventGrid.V20190201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:eventgrid:EventSubscription"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20170615preview:EventSubscription"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20170915preview:EventSubscription"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20180101:EventSubscription"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20180501preview:EventSubscription"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20180915preview:EventSubscription"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20190101:EventSubscription"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20190601:EventSubscription"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200101preview:EventSubscription"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:EventSubscription"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200601:EventSubscription"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:EventSubscription"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:EventSubscription"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:EventSubscription"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20211201:EventSubscription"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:EventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid:EventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20170615preview:EventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20170915preview:EventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20180101:EventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20180501preview:EventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20180915preview:EventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20190101:EventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20190601:EventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20200101preview:EventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:EventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20200601:EventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:EventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:EventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:EventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211201:EventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:EventSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -144,7 +144,7 @@ namespace Pulumi.AzureNative.EventGrid.V20190201Preview
         }
     }
 
-    public sealed class EventSubscriptionArgs : Pulumi.ResourceArgs
+    public sealed class EventSubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The DeadLetter destination of the event subscription.
@@ -209,5 +209,6 @@ namespace Pulumi.AzureNative.EventGrid.V20190201Preview
         public EventSubscriptionArgs()
         {
         }
+        public static new EventSubscriptionArgs Empty => new EventSubscriptionArgs();
     }
 }

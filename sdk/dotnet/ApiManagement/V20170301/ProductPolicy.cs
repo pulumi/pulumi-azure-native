@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
     /// Policy Contract details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20170301:ProductPolicy")]
-    public partial class ProductPolicy : Pulumi.CustomResource
+    public partial class ProductPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource name.
@@ -58,18 +58,18 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:apimanagement:ProductPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ProductPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ProductPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ProductPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ProductPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ProductPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ProductPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ProductPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:ProductPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:ProductPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ProductPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ProductPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:ProductPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ProductPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ProductPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ProductPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ProductPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ProductPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ProductPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ProductPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:ProductPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:ProductPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ProductPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ProductPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -91,7 +91,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
         }
     }
 
-    public sealed class ProductPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ProductPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Json escaped Xml Encoded contents of the Policy.
@@ -126,5 +126,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
         public ProductPolicyArgs()
         {
         }
+        public static new ProductPolicyArgs Empty => new ProductPolicyArgs();
     }
 }

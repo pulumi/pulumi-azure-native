@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DBforMySQL
     /// API Version: 2017-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:Server")]
-    public partial class Server : Pulumi.CustomResource
+    public partial class Server : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
@@ -167,8 +167,8 @@ namespace Pulumi.AzureNative.DBforMySQL
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20171201:Server"},
-                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20171201preview:Server"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20171201:Server"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20171201preview:Server"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -190,7 +190,7 @@ namespace Pulumi.AzureNative.DBforMySQL
         }
     }
 
-    public sealed class ServerArgs : Pulumi.ResourceArgs
+    public sealed class ServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Active Directory identity of the server.
@@ -243,5 +243,6 @@ namespace Pulumi.AzureNative.DBforMySQL
         public ServerArgs()
         {
         }
+        public static new ServerArgs Empty => new ServerArgs();
     }
 }

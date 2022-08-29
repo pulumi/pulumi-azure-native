@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Relay.V20160701
     }
 
 
-    public sealed class GetWCFRelayAuthorizationRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetWCFRelayAuthorizationRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The authorizationRule name.
@@ -55,9 +55,10 @@ namespace Pulumi.AzureNative.Relay.V20160701
         public GetWCFRelayAuthorizationRuleArgs()
         {
         }
+        public static new GetWCFRelayAuthorizationRuleArgs Empty => new GetWCFRelayAuthorizationRuleArgs();
     }
 
-    public sealed class GetWCFRelayAuthorizationRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWCFRelayAuthorizationRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The authorizationRule name.
@@ -86,6 +87,7 @@ namespace Pulumi.AzureNative.Relay.V20160701
         public GetWCFRelayAuthorizationRuleInvokeArgs()
         {
         }
+        public static new GetWCFRelayAuthorizationRuleInvokeArgs Empty => new GetWCFRelayAuthorizationRuleInvokeArgs();
     }
 
 

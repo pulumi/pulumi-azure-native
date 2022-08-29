@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AlertsManagement.Inputs
     /// <summary>
     /// Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
     /// </summary>
-    public sealed class ConditionsArgs : Pulumi.ResourceArgs
+    public sealed class ConditionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// filter alerts by alert context (payload)
@@ -26,6 +26,12 @@ namespace Pulumi.AzureNative.AlertsManagement.Inputs
         /// </summary>
         [Input("alertRuleId")]
         public Input<Inputs.ConditionArgs>? AlertRuleId { get; set; }
+
+        /// <summary>
+        /// filter alerts by alert rule name
+        /// </summary>
+        [Input("alertRuleName")]
+        public Input<Inputs.ConditionArgs>? AlertRuleName { get; set; }
 
         /// <summary>
         /// filter alerts by alert rule description
@@ -60,5 +66,6 @@ namespace Pulumi.AzureNative.AlertsManagement.Inputs
         public ConditionsArgs()
         {
         }
+        public static new ConditionsArgs Empty => new ConditionsArgs();
     }
 }

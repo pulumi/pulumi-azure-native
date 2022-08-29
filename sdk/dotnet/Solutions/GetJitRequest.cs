@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Solutions
     }
 
 
-    public sealed class GetJitRequestArgs : Pulumi.InvokeArgs
+    public sealed class GetJitRequestArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the JIT request.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.Solutions
         public GetJitRequestArgs()
         {
         }
+        public static new GetJitRequestArgs Empty => new GetJitRequestArgs();
     }
 
-    public sealed class GetJitRequestInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetJitRequestInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the JIT request.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.Solutions
         public GetJitRequestInvokeArgs()
         {
         }
+        public static new GetJitRequestInvokeArgs Empty => new GetJitRequestInvokeArgs();
     }
 
 

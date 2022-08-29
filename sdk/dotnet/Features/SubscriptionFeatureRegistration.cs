@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Features
     /// API Version: 2021-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:features:SubscriptionFeatureRegistration")]
-    public partial class SubscriptionFeatureRegistration : Pulumi.CustomResource
+    public partial class SubscriptionFeatureRegistration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Azure resource name.
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.Features
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:features/v20210701:SubscriptionFeatureRegistration"},
+                    new global::Pulumi.Alias { Type = "azure-native:features/v20210701:SubscriptionFeatureRegistration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNative.Features
         }
     }
 
-    public sealed class SubscriptionFeatureRegistrationArgs : Pulumi.ResourceArgs
+    public sealed class SubscriptionFeatureRegistrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The feature name.
@@ -98,5 +98,6 @@ namespace Pulumi.AzureNative.Features
         public SubscriptionFeatureRegistrationArgs()
         {
         }
+        public static new SubscriptionFeatureRegistrationArgs Empty => new SubscriptionFeatureRegistrationArgs();
     }
 }

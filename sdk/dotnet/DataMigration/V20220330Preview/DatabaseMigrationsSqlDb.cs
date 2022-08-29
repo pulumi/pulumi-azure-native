@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview
     /// Database Migration Resource for SQL Database.
     /// </summary>
     [AzureNativeResourceType("azure-native:datamigration/v20220330preview:DatabaseMigrationsSqlDb")]
-    public partial class DatabaseMigrationsSqlDb : Pulumi.CustomResource
+    public partial class DatabaseMigrationsSqlDb : global::Pulumi.CustomResource
     {
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:datamigration:DatabaseMigrationsSqlDb"},
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration:DatabaseMigrationsSqlDb"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview
         }
     }
 
-    public sealed class DatabaseMigrationsSqlDbArgs : Pulumi.ResourceArgs
+    public sealed class DatabaseMigrationsSqlDbArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Database Migration Resource properties for SQL database.
@@ -106,5 +106,6 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview
         public DatabaseMigrationsSqlDbArgs()
         {
         }
+        public static new DatabaseMigrationsSqlDbArgs Empty => new DatabaseMigrationsSqlDbArgs();
     }
 }

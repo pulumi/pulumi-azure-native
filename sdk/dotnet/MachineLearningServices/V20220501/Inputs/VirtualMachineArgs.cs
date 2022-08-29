@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
     /// <summary>
     /// A Machine Learning compute based on Azure Virtual Machines.
     /// </summary>
-    public sealed class VirtualMachineArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of compute
@@ -28,12 +28,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
-        /// </summary>
-        [Input("disableLocalAuth")]
-        public Input<bool>? DisableLocalAuth { get; set; }
-
         [Input("properties")]
         public Input<Inputs.VirtualMachineSchemaPropertiesArgs>? Properties { get; set; }
 
@@ -46,5 +40,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
         public VirtualMachineArgs()
         {
         }
+        public static new VirtualMachineArgs Empty => new VirtualMachineArgs();
     }
 }

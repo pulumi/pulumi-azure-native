@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
     /// <summary>
     /// An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
     /// </summary>
-    public sealed class OutputArgs : Pulumi.ResourceArgs
+    public sealed class OutputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
         public OutputArgs()
         {
         }
+        public static new OutputArgs Empty => new OutputArgs();
     }
 }

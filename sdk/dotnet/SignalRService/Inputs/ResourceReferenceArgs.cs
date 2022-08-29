@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SignalRService.Inputs
     /// <summary>
     /// Reference to a resource.
     /// </summary>
-    public sealed class ResourceReferenceArgs : Pulumi.ResourceArgs
+    public sealed class ResourceReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.SignalRService.Inputs
         public ResourceReferenceArgs()
         {
         }
+        public static new ResourceReferenceArgs Empty => new ResourceReferenceArgs();
     }
 }

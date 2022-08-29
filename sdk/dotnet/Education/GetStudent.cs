@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Education
     }
 
 
-    public sealed class GetStudentArgs : Pulumi.InvokeArgs
+    public sealed class GetStudentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Billing account name.
@@ -56,9 +56,10 @@ namespace Pulumi.AzureNative.Education
         public GetStudentArgs()
         {
         }
+        public static new GetStudentArgs Empty => new GetStudentArgs();
     }
 
-    public sealed class GetStudentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStudentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Billing account name.
@@ -87,6 +88,7 @@ namespace Pulumi.AzureNative.Education
         public GetStudentInvokeArgs()
         {
         }
+        public static new GetStudentInvokeArgs Empty => new GetStudentInvokeArgs();
     }
 
 

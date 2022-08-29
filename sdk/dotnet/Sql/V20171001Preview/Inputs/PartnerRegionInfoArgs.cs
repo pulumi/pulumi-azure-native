@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20171001Preview.Inputs
     /// <summary>
     /// Partner region information for the failover group.
     /// </summary>
-    public sealed class PartnerRegionInfoArgs : Pulumi.ResourceArgs
+    public sealed class PartnerRegionInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Geo location of the partner managed instances.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Sql.V20171001Preview.Inputs
         public PartnerRegionInfoArgs()
         {
         }
+        public static new PartnerRegionInfoArgs Empty => new PartnerRegionInfoArgs();
     }
 }

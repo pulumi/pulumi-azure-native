@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20180419.Inputs
     /// <summary>
     /// Database specific information for SQL to Azure SQL DB sync migration task inputs
     /// </summary>
-    public sealed class MigrateSqlServerSqlDbSyncDatabaseInputArgs : Pulumi.ResourceArgs
+    public sealed class MigrateSqlServerSqlDbSyncDatabaseInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Unique identifier for database
@@ -90,5 +90,6 @@ namespace Pulumi.AzureNative.DataMigration.V20180419.Inputs
         public MigrateSqlServerSqlDbSyncDatabaseInputArgs()
         {
         }
+        public static new MigrateSqlServerSqlDbSyncDatabaseInputArgs Empty => new MigrateSqlServerSqlDbSyncDatabaseInputArgs();
     }
 }

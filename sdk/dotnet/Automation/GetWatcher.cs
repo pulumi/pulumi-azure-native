@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Automation
     }
 
 
-    public sealed class GetWatcherArgs : Pulumi.InvokeArgs
+    public sealed class GetWatcherArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Automation
         public GetWatcherArgs()
         {
         }
+        public static new GetWatcherArgs Empty => new GetWatcherArgs();
     }
 
-    public sealed class GetWatcherInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWatcherInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Automation
         public GetWatcherInvokeArgs()
         {
         }
+        public static new GetWatcherInvokeArgs Empty => new GetWatcherInvokeArgs();
     }
 
 

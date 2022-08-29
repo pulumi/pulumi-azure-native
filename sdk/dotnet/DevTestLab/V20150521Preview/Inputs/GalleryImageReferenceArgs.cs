@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview.Inputs
     /// <summary>
     /// The reference information for an Azure Marketplace image.
     /// </summary>
-    public sealed class GalleryImageReferenceArgs : Pulumi.ResourceArgs
+    public sealed class GalleryImageReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The offer of the gallery image.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview.Inputs
         public GalleryImageReferenceArgs()
         {
         }
+        public static new GalleryImageReferenceArgs Empty => new GalleryImageReferenceArgs();
     }
 }

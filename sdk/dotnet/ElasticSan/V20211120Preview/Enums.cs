@@ -51,17 +51,9 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         }
 
         /// <summary>
-        /// Volume is encrypted at rest with Platform managed key. It is the default encryption type. This is not a valid encryption type for disk encryption sets.
+        /// Volume is encrypted at rest with Platform managed key. It is the default encryption type.
         /// </summary>
         public static EncryptionType EncryptionAtRestWithPlatformKey { get; } = new EncryptionType("EncryptionAtRestWithPlatformKey");
-        /// <summary>
-        /// Volume is encrypted at rest with Customer managed key that can be changed and revoked by a customer.
-        /// </summary>
-        public static EncryptionType EncryptionAtRestWithCustomerKey { get; } = new EncryptionType("EncryptionAtRestWithCustomerKey");
-        /// <summary>
-        /// Volume is encrypted at rest with 2 layers of encryption. One of the keys is Customer managed and the other key is Platform managed.
-        /// </summary>
-        public static EncryptionType EncryptionAtRestWithPlatformAndCustomerKeys { get; } = new EncryptionType("EncryptionAtRestWithPlatformAndCustomerKeys");
 
         public static bool operator ==(EncryptionType left, EncryptionType right) => left.Equals(right);
         public static bool operator !=(EncryptionType left, EncryptionType right) => !left.Equals(right);
@@ -92,17 +84,13 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         }
 
         /// <summary>
-        /// Standard locally redundant storage
-        /// </summary>
-        public static Name Standard_LRS { get; } = new Name("Standard_LRS");
-        /// <summary>
         /// Premium locally redundant storage
         /// </summary>
         public static Name Premium_LRS { get; } = new Name("Premium_LRS");
         /// <summary>
-        /// Standard zone redundant storage
+        /// Premium zone redundant storage
         /// </summary>
-        public static Name Standard_ZRS { get; } = new Name("Standard_ZRS");
+        public static Name Premium_ZRS { get; } = new Name("Premium_ZRS");
 
         public static bool operator ==(Name left, Name right) => left.Equals(right);
         public static bool operator !=(Name left, Name right) => !left.Equals(right);
@@ -164,17 +152,9 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         }
 
         /// <summary>
-        /// Hero
+        /// Premium Tier
         /// </summary>
-        public static Tier Hero { get; } = new Tier("Hero");
-        /// <summary>
-        /// Satellite
-        /// </summary>
-        public static Tier Satellite { get; } = new Tier("Satellite");
-        /// <summary>
-        /// Hub
-        /// </summary>
-        public static Tier Hub { get; } = new Tier("Hub");
+        public static Tier Premium { get; } = new Tier("Premium");
 
         public static bool operator ==(Tier left, Tier right) => left.Equals(right);
         public static bool operator !=(Tier left, Tier right) => !left.Equals(right);
@@ -205,9 +185,6 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         }
 
         public static VolumeCreateOption None { get; } = new VolumeCreateOption("None");
-        public static VolumeCreateOption FromVolume { get; } = new VolumeCreateOption("FromVolume");
-        public static VolumeCreateOption FromDiskSnapshot { get; } = new VolumeCreateOption("FromDiskSnapshot");
-        public static VolumeCreateOption Export { get; } = new VolumeCreateOption("Export");
 
         public static bool operator ==(VolumeCreateOption left, VolumeCreateOption right) => left.Equals(right);
         public static bool operator !=(VolumeCreateOption left, VolumeCreateOption right) => !left.Equals(right);

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview
     /// The build task that has the resource properties and all build items. The build task will have all information to schedule a build against it.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry/v20180201preview:BuildTask")]
-    public partial class BuildTask : Pulumi.CustomResource
+    public partial class BuildTask : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The alternative updatable name for a build task.
@@ -106,10 +106,10 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:containerregistry:BuildTask"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20180901:BuildTask"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20190401:BuildTask"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20190601preview:BuildTask"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry:BuildTask"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20180901:BuildTask"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20190401:BuildTask"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20190601preview:BuildTask"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -131,7 +131,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview
         }
     }
 
-    public sealed class BuildTaskArgs : Pulumi.ResourceArgs
+    public sealed class BuildTaskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The alternative updatable name for a build task.
@@ -203,5 +203,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview
         {
             Timeout = 3600;
         }
+        public static new BuildTaskArgs Empty => new BuildTaskArgs();
     }
 }

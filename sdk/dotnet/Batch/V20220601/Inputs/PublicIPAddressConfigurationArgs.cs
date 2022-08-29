@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Batch.V20220601.Inputs
     /// <summary>
     /// The public IP Address configuration of the networking configuration of a Pool.
     /// </summary>
-    public sealed class PublicIPAddressConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class PublicIPAddressConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("ipAddressIds")]
         private InputList<string>? _ipAddressIds;
 
         /// <summary>
-        /// The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
+        /// The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 Spot/low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
         /// </summary>
         public InputList<string> IpAddressIds
         {
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Batch.V20220601.Inputs
         public PublicIPAddressConfigurationArgs()
         {
         }
+        public static new PublicIPAddressConfigurationArgs Empty => new PublicIPAddressConfigurationArgs();
     }
 }

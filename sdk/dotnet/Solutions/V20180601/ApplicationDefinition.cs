@@ -14,19 +14,19 @@ namespace Pulumi.AzureNative.Solutions.V20180601
     /// </summary>
     [Obsolete(@"Version 2018-06-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:solutions/v20180601:ApplicationDefinition")]
-    public partial class ApplicationDefinition : Pulumi.CustomResource
+    public partial class ApplicationDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
         /// </summary>
         [Output("artifacts")]
-        public Output<ImmutableArray<Outputs.ApplicationArtifactResponse>> Artifacts { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationDefinitionArtifactResponse>> Artifacts { get; private set; } = null!;
 
         /// <summary>
         /// The managed application provider authorizations.
         /// </summary>
         [Output("authorizations")]
-        public Output<ImmutableArray<Outputs.ApplicationProviderAuthorizationResponse>> Authorizations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationAuthorizationResponse>> Authorizations { get; private set; } = null!;
 
         /// <summary>
         /// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
@@ -47,16 +47,10 @@ namespace Pulumi.AzureNative.Solutions.V20180601
         public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// The identity of the resource.
-        /// </summary>
-        [Output("identity")]
-        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
-
-        /// <summary>
         /// A value indicating whether the package is enabled or not.
         /// </summary>
         [Output("isEnabled")]
-        public Output<string?> IsEnabled { get; private set; } = null!;
+        public Output<bool?> IsEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -93,6 +87,12 @@ namespace Pulumi.AzureNative.Solutions.V20180601
         /// </summary>
         [Output("packageFileUri")]
         public Output<string?> PackageFileUri { get; private set; } = null!;
+
+        /// <summary>
+        /// The managed application provider policies.
+        /// </summary>
+        [Output("policies")]
+        public Output<ImmutableArray<Outputs.ApplicationPolicyResponse>> Policies { get; private set; } = null!;
 
         /// <summary>
         /// The SKU of the resource.
@@ -137,12 +137,17 @@ namespace Pulumi.AzureNative.Solutions.V20180601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:solutions:ApplicationDefinition"},
-                    new Pulumi.Alias { Type = "azure-native:solutions/v20160901preview:ApplicationDefinition"},
-                    new Pulumi.Alias { Type = "azure-native:solutions/v20170901:ApplicationDefinition"},
-                    new Pulumi.Alias { Type = "azure-native:solutions/v20190701:ApplicationDefinition"},
-                    new Pulumi.Alias { Type = "azure-native:solutions/v20200821preview:ApplicationDefinition"},
-                    new Pulumi.Alias { Type = "azure-native:solutions/v20210701:ApplicationDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions:ApplicationDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20160901preview:ApplicationDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20170901:ApplicationDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20171201:ApplicationDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20180201:ApplicationDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20180301:ApplicationDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20180901preview:ApplicationDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20190701:ApplicationDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20200821preview:ApplicationDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20210201preview:ApplicationDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20210701:ApplicationDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -164,7 +169,7 @@ namespace Pulumi.AzureNative.Solutions.V20180601
         }
     }
 
-    public sealed class ApplicationDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the managed application definition.
@@ -173,26 +178,26 @@ namespace Pulumi.AzureNative.Solutions.V20180601
         public Input<string>? ApplicationDefinitionName { get; set; }
 
         [Input("artifacts")]
-        private InputList<Inputs.ApplicationArtifactArgs>? _artifacts;
+        private InputList<Inputs.ApplicationDefinitionArtifactArgs>? _artifacts;
 
         /// <summary>
         /// The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
         /// </summary>
-        public InputList<Inputs.ApplicationArtifactArgs> Artifacts
+        public InputList<Inputs.ApplicationDefinitionArtifactArgs> Artifacts
         {
-            get => _artifacts ?? (_artifacts = new InputList<Inputs.ApplicationArtifactArgs>());
+            get => _artifacts ?? (_artifacts = new InputList<Inputs.ApplicationDefinitionArtifactArgs>());
             set => _artifacts = value;
         }
 
-        [Input("authorizations", required: true)]
-        private InputList<Inputs.ApplicationProviderAuthorizationArgs>? _authorizations;
+        [Input("authorizations")]
+        private InputList<Inputs.ApplicationAuthorizationArgs>? _authorizations;
 
         /// <summary>
         /// The managed application provider authorizations.
         /// </summary>
-        public InputList<Inputs.ApplicationProviderAuthorizationArgs> Authorizations
+        public InputList<Inputs.ApplicationAuthorizationArgs> Authorizations
         {
-            get => _authorizations ?? (_authorizations = new InputList<Inputs.ApplicationProviderAuthorizationArgs>());
+            get => _authorizations ?? (_authorizations = new InputList<Inputs.ApplicationAuthorizationArgs>());
             set => _authorizations = value;
         }
 
@@ -215,16 +220,10 @@ namespace Pulumi.AzureNative.Solutions.V20180601
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// The identity of the resource.
-        /// </summary>
-        [Input("identity")]
-        public Input<Inputs.IdentityArgs>? Identity { get; set; }
-
-        /// <summary>
         /// A value indicating whether the package is enabled or not.
         /// </summary>
         [Input("isEnabled")]
-        public Input<string>? IsEnabled { get; set; }
+        public Input<bool>? IsEnabled { get; set; }
 
         /// <summary>
         /// Resource location
@@ -256,6 +255,18 @@ namespace Pulumi.AzureNative.Solutions.V20180601
         [Input("packageFileUri")]
         public Input<string>? PackageFileUri { get; set; }
 
+        [Input("policies")]
+        private InputList<Inputs.ApplicationPolicyArgs>? _policies;
+
+        /// <summary>
+        /// The managed application provider policies.
+        /// </summary>
+        public InputList<Inputs.ApplicationPolicyArgs> Policies
+        {
+            get => _policies ?? (_policies = new InputList<Inputs.ApplicationPolicyArgs>());
+            set => _policies = value;
+        }
+
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
@@ -283,5 +294,6 @@ namespace Pulumi.AzureNative.Solutions.V20180601
         public ApplicationDefinitionArgs()
         {
         }
+        public static new ApplicationDefinitionArgs Empty => new ApplicationDefinitionArgs();
     }
 }

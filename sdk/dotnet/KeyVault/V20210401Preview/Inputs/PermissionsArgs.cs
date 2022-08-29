@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KeyVault.V20210401Preview.Inputs
     /// <summary>
     /// Permissions the identity has for keys, secrets, certificates and storage.
     /// </summary>
-    public sealed class PermissionsArgs : Pulumi.ResourceArgs
+    public sealed class PermissionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("certificates")]
         private InputList<Union<string, Pulumi.AzureNative.KeyVault.V20210401Preview.CertificatePermissions>>? _certificates;
@@ -66,5 +66,6 @@ namespace Pulumi.AzureNative.KeyVault.V20210401Preview.Inputs
         public PermissionsArgs()
         {
         }
+        public static new PermissionsArgs Empty => new PermissionsArgs();
     }
 }

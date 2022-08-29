@@ -19,11 +19,12 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview
     }
 
 
-    public sealed class GetGetPrivateDnsZoneSuffixExecuteArgs : Pulumi.InvokeArgs
+    public sealed class GetGetPrivateDnsZoneSuffixExecuteArgs : global::Pulumi.InvokeArgs
     {
         public GetGetPrivateDnsZoneSuffixExecuteArgs()
         {
         }
+        public static new GetGetPrivateDnsZoneSuffixExecuteArgs Empty => new GetGetPrivateDnsZoneSuffixExecuteArgs();
     }
 
 

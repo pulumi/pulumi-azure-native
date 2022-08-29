@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20220301.Inputs
     /// <summary>
     /// Full view of networking configuration for an ASE.
     /// </summary>
-    public sealed class AseV3NetworkingConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class AseV3NetworkingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Property to enable and disable new private endpoint connection creation on ASE
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Web.V20220301.Inputs
         public AseV3NetworkingConfigurationArgs()
         {
         }
+        public static new AseV3NetworkingConfigurationArgs Empty => new AseV3NetworkingConfigurationArgs();
     }
 }

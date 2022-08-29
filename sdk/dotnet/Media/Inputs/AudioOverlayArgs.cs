@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.Inputs
     /// <summary>
     /// Describes the properties of an audio overlay.
     /// </summary>
-    public sealed class AudioOverlayArgs : Pulumi.ResourceArgs
+    public sealed class AudioOverlayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.
@@ -61,5 +61,6 @@ namespace Pulumi.AzureNative.Media.Inputs
         public AudioOverlayArgs()
         {
         }
+        public static new AudioOverlayArgs Empty => new AudioOverlayArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Linked service for Teradata data source.
     /// </summary>
-    public sealed class TeradataLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class TeradataLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -97,5 +97,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public TeradataLinkedServiceArgs()
         {
         }
+        public static new TeradataLinkedServiceArgs Empty => new TeradataLinkedServiceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20211001.Inputs
     /// <summary>
     /// Installs Windows Updates. Corresponds to Packer Windows Update Provisioner (https://github.com/rgl/packer-provisioner-windows-update)
     /// </summary>
-    public sealed class ImageTemplateWindowsUpdateCustomizerArgs : Pulumi.ResourceArgs
+    public sealed class ImageTemplateWindowsUpdateCustomizerArgs : global::Pulumi.ResourceArgs
     {
         [Input("filters")]
         private InputList<string>? _filters;
@@ -55,5 +55,6 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20211001.Inputs
         public ImageTemplateWindowsUpdateCustomizerArgs()
         {
         }
+        public static new ImageTemplateWindowsUpdateCustomizerArgs Empty => new ImageTemplateWindowsUpdateCustomizerArgs();
     }
 }

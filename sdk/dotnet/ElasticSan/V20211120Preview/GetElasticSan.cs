@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
     }
 
 
-    public sealed class GetElasticSanArgs : Pulumi.InvokeArgs
+    public sealed class GetElasticSanArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the ElasticSan.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         public GetElasticSanArgs()
         {
         }
+        public static new GetElasticSanArgs Empty => new GetElasticSanArgs();
     }
 
-    public sealed class GetElasticSanInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetElasticSanInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the ElasticSan.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         public GetElasticSanInvokeArgs()
         {
         }
+        public static new GetElasticSanInvokeArgs Empty => new GetElasticSanInvokeArgs();
     }
 
 
@@ -92,17 +94,13 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Provisioned MBps Elastic San appliance.
-        /// </summary>
-        public readonly double ProvisionedMBps;
-        /// <summary>
         /// State of the operation on the resource.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
         /// resource sku
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuResponse Sku;
         /// <summary>
         /// Resource metadata required by ARM RPC
         /// </summary>
@@ -119,6 +117,10 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         /// Total Provisioned MBps Elastic San appliance.
         /// </summary>
         public readonly double TotalMBps;
+        /// <summary>
+        /// Total size of the Elastic San appliance in TB.
+        /// </summary>
+        public readonly double TotalSizeTiB;
         /// <summary>
         /// Total size of the provisioned Volumes in GiB.
         /// </summary>
@@ -146,11 +148,9 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
 
             string name,
 
-            double provisionedMBps,
-
             string provisioningState,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuResponse sku,
 
             Outputs.SystemDataResponse systemData,
 
@@ -159,6 +159,8 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
             double totalIops,
 
             double totalMBps,
+
+            double totalSizeTiB,
 
             double totalVolumeSizeGiB,
 
@@ -172,13 +174,13 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
             Id = id;
             Location = location;
             Name = name;
-            ProvisionedMBps = provisionedMBps;
             ProvisioningState = provisioningState;
             Sku = sku;
             SystemData = systemData;
             Tags = tags;
             TotalIops = totalIops;
             TotalMBps = totalMBps;
+            TotalSizeTiB = totalSizeTiB;
             TotalVolumeSizeGiB = totalVolumeSizeGiB;
             Type = type;
             VolumeGroupCount = volumeGroupCount;

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Logic
     }
 
 
-    public sealed class GetIntegrationServiceEnvironmentManagedApiArgs : Pulumi.InvokeArgs
+    public sealed class GetIntegrationServiceEnvironmentManagedApiArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The api name.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Logic
         public GetIntegrationServiceEnvironmentManagedApiArgs()
         {
         }
+        public static new GetIntegrationServiceEnvironmentManagedApiArgs Empty => new GetIntegrationServiceEnvironmentManagedApiArgs();
     }
 
-    public sealed class GetIntegrationServiceEnvironmentManagedApiInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetIntegrationServiceEnvironmentManagedApiInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The api name.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Logic
         public GetIntegrationServiceEnvironmentManagedApiInvokeArgs()
         {
         }
+        public static new GetIntegrationServiceEnvironmentManagedApiInvokeArgs Empty => new GetIntegrationServiceEnvironmentManagedApiInvokeArgs();
     }
 
 

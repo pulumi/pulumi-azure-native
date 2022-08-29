@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Portal.V20181001
     /// Cloud shell console
     /// </summary>
     [AzureNativeResourceType("azure-native:portal/v20181001:ConsoleWithLocation")]
-    public partial class ConsoleWithLocation : Pulumi.CustomResource
+    public partial class ConsoleWithLocation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Cloud shell console properties.
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.Portal.V20181001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:portal:ConsoleWithLocation"},
+                    new global::Pulumi.Alias { Type = "azure-native:portal:ConsoleWithLocation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.Portal.V20181001
         }
     }
 
-    public sealed class ConsoleWithLocationArgs : Pulumi.ResourceArgs
+    public sealed class ConsoleWithLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the console
@@ -85,5 +85,6 @@ namespace Pulumi.AzureNative.Portal.V20181001
         public ConsoleWithLocationArgs()
         {
         }
+        public static new ConsoleWithLocationArgs Empty => new ConsoleWithLocationArgs();
     }
 }

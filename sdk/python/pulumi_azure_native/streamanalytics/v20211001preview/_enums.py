@@ -22,6 +22,7 @@ __all__ = [
     'OutputWatermarkMode',
     'RefreshType',
     'SkuName',
+    'UpdatableUdfRefreshType',
     'UpdateMode',
 ]
 
@@ -166,6 +167,14 @@ class SkuName(str, Enum):
     The name of the SKU. Required on PUT (CreateOrReplace) requests.
     """
     STANDARD = "Standard"
+
+
+class UpdatableUdfRefreshType(str, Enum):
+    """
+    This property indicates which data refresh option to use, Blocking or Nonblocking.
+    """
+    BLOCKING = "Blocking"
+    NONBLOCKING = "Nonblocking"
 
 
 class UpdateMode(str, Enum):

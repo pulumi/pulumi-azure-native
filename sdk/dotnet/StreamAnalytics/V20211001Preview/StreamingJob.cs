@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview
     /// A streaming job object, containing all information associated with the named streaming job.
     /// </summary>
     [AzureNativeResourceType("azure-native:streamanalytics/v20211001preview:StreamingJob")]
-    public partial class StreamingJob : Pulumi.CustomResource
+    public partial class StreamingJob : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The cluster which streaming jobs will run on.
@@ -214,10 +214,10 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:streamanalytics:StreamingJob"},
-                    new Pulumi.Alias { Type = "azure-native:streamanalytics/v20160301:StreamingJob"},
-                    new Pulumi.Alias { Type = "azure-native:streamanalytics/v20170401preview:StreamingJob"},
-                    new Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301:StreamingJob"},
+                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics:StreamingJob"},
+                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20160301:StreamingJob"},
+                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20170401preview:StreamingJob"},
+                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301:StreamingJob"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -239,7 +239,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview
         }
     }
 
-    public sealed class StreamingJobArgs : Pulumi.ResourceArgs
+    public sealed class StreamingJobArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The cluster which streaming jobs will run on.
@@ -406,5 +406,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview
         public StreamingJobArgs()
         {
         }
+        public static new StreamingJobArgs Empty => new StreamingJobArgs();
     }
 }

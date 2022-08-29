@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
     }
 
 
-    public sealed class GetApiDiagnosticArgs : Pulumi.InvokeArgs
+    public sealed class GetApiDiagnosticArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// API identifier. Must be unique in the current API Management service instance.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
         public GetApiDiagnosticArgs()
         {
         }
+        public static new GetApiDiagnosticArgs Empty => new GetApiDiagnosticArgs();
     }
 
-    public sealed class GetApiDiagnosticInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetApiDiagnosticInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// API identifier. Must be unique in the current API Management service instance.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
         public GetApiDiagnosticInvokeArgs()
         {
         }
+        public static new GetApiDiagnosticInvokeArgs Empty => new GetApiDiagnosticInvokeArgs();
     }
 
 
@@ -119,6 +121,10 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
         /// Resource Id of a target logger.
         /// </summary>
         public readonly string LoggerId;
+        /// <summary>
+        /// Emit custom metrics via emit-metric policy. Applicable only to Application Insights diagnostic settings.
+        /// </summary>
+        public readonly bool? Metrics;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -156,6 +162,8 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
 
             string loggerId,
 
+            bool? metrics,
+
             string name,
 
             string? operationNameFormat,
@@ -173,6 +181,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
             Id = id;
             LogClientIp = logClientIp;
             LoggerId = loggerId;
+            Metrics = metrics;
             Name = name;
             OperationNameFormat = operationNameFormat;
             Sampling = sampling;

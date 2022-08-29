@@ -131,7 +131,7 @@ class SecretKind(str, Enum):
     """
     Describes the kind of secret.
     """
-    INLINED_VALUE = "inlinedValue"
+    INLINED_VALUE = "InlinedValue"
     """
     A simple secret resource whose plaintext value is provided by the user.
     """

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20160601.Inputs
     /// <summary>
     /// The B2B partner content.
     /// </summary>
-    public sealed class B2BPartnerContentArgs : Pulumi.ResourceArgs
+    public sealed class B2BPartnerContentArgs : global::Pulumi.ResourceArgs
     {
         [Input("businessIdentities")]
         private InputList<Inputs.BusinessIdentityArgs>? _businessIdentities;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Logic.V20160601.Inputs
         public B2BPartnerContentArgs()
         {
         }
+        public static new B2BPartnerContentArgs Empty => new B2BPartnerContentArgs();
     }
 }

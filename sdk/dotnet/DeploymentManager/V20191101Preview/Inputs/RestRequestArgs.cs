@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview.Inputs
     /// <summary>
     /// The properties that make up a REST request
     /// </summary>
-    public sealed class RestRequestArgs : Pulumi.ResourceArgs
+    public sealed class RestRequestArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The authentication information required in the request to the health provider.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview.Inputs
         public RestRequestArgs()
         {
         }
+        public static new RestRequestArgs Empty => new RestRequestArgs();
     }
 }

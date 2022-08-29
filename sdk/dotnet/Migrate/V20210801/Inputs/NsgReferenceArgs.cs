@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.V20210801.Inputs
     /// <summary>
     /// Defines reference to NSG.
     /// </summary>
-    public sealed class NsgReferenceArgs : Pulumi.ResourceArgs
+    public sealed class NsgReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets the ARM resource ID of the tracked resource being referenced.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Migrate.V20210801.Inputs
         public NsgReferenceArgs()
         {
         }
+        public static new NsgReferenceArgs Empty => new NsgReferenceArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Maintenance.V20180601Preview
     /// </summary>
     [Obsolete(@"Version 2018-06-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:maintenance/v20180601preview:MaintenanceConfiguration")]
-    public partial class MaintenanceConfiguration : Pulumi.CustomResource
+    public partial class MaintenanceConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Gets or sets extensionProperties of the maintenanceConfiguration
@@ -83,12 +83,13 @@ namespace Pulumi.AzureNative.Maintenance.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:maintenance:MaintenanceConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:maintenance/v20200401:MaintenanceConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:maintenance/v20200701preview:MaintenanceConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:maintenance/v20210401preview:MaintenanceConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:maintenance/v20210501:MaintenanceConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:maintenance/v20210901preview:MaintenanceConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:maintenance:MaintenanceConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20200401:MaintenanceConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20200701preview:MaintenanceConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20210401preview:MaintenanceConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20210501:MaintenanceConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20210901preview:MaintenanceConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20220701preview:MaintenanceConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -110,7 +111,7 @@ namespace Pulumi.AzureNative.Maintenance.V20180601Preview
         }
     }
 
-    public sealed class MaintenanceConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class MaintenanceConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("extensionProperties")]
         private InputMap<string>? _extensionProperties;
@@ -169,5 +170,6 @@ namespace Pulumi.AzureNative.Maintenance.V20180601Preview
         public MaintenanceConfigurationArgs()
         {
         }
+        public static new MaintenanceConfigurationArgs Empty => new MaintenanceConfigurationArgs();
     }
 }

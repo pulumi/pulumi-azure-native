@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Web.V20210301
     }
 
 
-    public sealed class GetAppServiceEnvironmentPrivateEndpointConnectionArgs : Pulumi.InvokeArgs
+    public sealed class GetAppServiceEnvironmentPrivateEndpointConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the App Service Environment.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Web.V20210301
         public GetAppServiceEnvironmentPrivateEndpointConnectionArgs()
         {
         }
+        public static new GetAppServiceEnvironmentPrivateEndpointConnectionArgs Empty => new GetAppServiceEnvironmentPrivateEndpointConnectionArgs();
     }
 
-    public sealed class GetAppServiceEnvironmentPrivateEndpointConnectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAppServiceEnvironmentPrivateEndpointConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the App Service Environment.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Web.V20210301
         public GetAppServiceEnvironmentPrivateEndpointConnectionInvokeArgs()
         {
         }
+        public static new GetAppServiceEnvironmentPrivateEndpointConnectionInvokeArgs Empty => new GetAppServiceEnvironmentPrivateEndpointConnectionInvokeArgs();
     }
 
 

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview
     }
 
 
-    public sealed class ListContainerAppCustomHostNameAnalysisArgs : Pulumi.InvokeArgs
+    public sealed class ListContainerAppCustomHostNameAnalysisArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Container App.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.App.V20220101Preview
         public ListContainerAppCustomHostNameAnalysisArgs()
         {
         }
+        public static new ListContainerAppCustomHostNameAnalysisArgs Empty => new ListContainerAppCustomHostNameAnalysisArgs();
     }
 
-    public sealed class ListContainerAppCustomHostNameAnalysisInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListContainerAppCustomHostNameAnalysisInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Container App.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview
         public ListContainerAppCustomHostNameAnalysisInvokeArgs()
         {
         }
+        public static new ListContainerAppCustomHostNameAnalysisInvokeArgs Empty => new ListContainerAppCustomHostNameAnalysisInvokeArgs();
     }
 
 
@@ -102,7 +104,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview
         /// <summary>
         /// Raw failure information if DNS verification fails.
         /// </summary>
-        public readonly Outputs.DefaultErrorResponseResponse CustomDomainVerificationFailureInfo;
+        public readonly Outputs.CustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfo CustomDomainVerificationFailureInfo;
         /// <summary>
         /// DNS verification test result.
         /// </summary>
@@ -116,29 +118,13 @@ namespace Pulumi.AzureNative.App.V20220101Preview
         /// </summary>
         public readonly string HostName;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; if hostname is already verified; otherwise, &lt;code&gt;false&lt;/code&gt;.
         /// </summary>
         public readonly bool IsHostnameAlreadyVerified;
         /// <summary>
-        /// The name of the resource
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// TXT records visible for this hostname.
         /// </summary>
         public readonly ImmutableArray<string> TxtRecords;
-        /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        /// </summary>
-        public readonly string Type;
 
         [OutputConstructor]
         private ListContainerAppCustomHostNameAnalysisResult(
@@ -152,7 +138,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview
 
             string conflictingContainerAppResourceId,
 
-            Outputs.DefaultErrorResponseResponse customDomainVerificationFailureInfo,
+            Outputs.CustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfo customDomainVerificationFailureInfo,
 
             string customDomainVerificationTest,
 
@@ -160,17 +146,9 @@ namespace Pulumi.AzureNative.App.V20220101Preview
 
             string hostName,
 
-            string id,
-
             bool isHostnameAlreadyVerified,
 
-            string name,
-
-            Outputs.SystemDataResponse systemData,
-
-            ImmutableArray<string> txtRecords,
-
-            string type)
+            ImmutableArray<string> txtRecords)
         {
             ARecords = aRecords;
             AlternateCNameRecords = alternateCNameRecords;
@@ -181,12 +159,8 @@ namespace Pulumi.AzureNative.App.V20220101Preview
             CustomDomainVerificationTest = customDomainVerificationTest;
             HasConflictOnManagedEnvironment = hasConflictOnManagedEnvironment;
             HostName = hostName;
-            Id = id;
             IsHostnameAlreadyVerified = isHostnameAlreadyVerified;
-            Name = name;
-            SystemData = systemData;
             TxtRecords = txtRecords;
-            Type = type;
         }
     }
 }

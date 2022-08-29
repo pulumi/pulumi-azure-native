@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.V20210601.Inputs
     /// <summary>
     /// The storage profile.
     /// </summary>
-    public sealed class StorageProfileArgs : Pulumi.ResourceArgs
+    public sealed class StorageProfileArgs : global::Pulumi.ResourceArgs
     {
         [Input("storageaccounts")]
         private InputList<Inputs.StorageAccountArgs>? _storageaccounts;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.HDInsight.V20210601.Inputs
         public StorageProfileArgs()
         {
         }
+        public static new StorageProfileArgs Empty => new StorageProfileArgs();
     }
 }

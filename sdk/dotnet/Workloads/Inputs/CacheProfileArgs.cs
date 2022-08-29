@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.Inputs
     /// <summary>
     /// Cache profile
     /// </summary>
-    public sealed class CacheProfileArgs : Pulumi.ResourceArgs
+    public sealed class CacheProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cache capacity
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Workloads.Inputs
         public CacheProfileArgs()
         {
         }
+        public static new CacheProfileArgs Empty => new CacheProfileArgs();
     }
 }

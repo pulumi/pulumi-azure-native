@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220131Preview.Inputs
     /// <summary>
     /// The Private Endpoint Connection resource.
     /// </summary>
-    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A collection of information about the state of the connection between service consumer and provider.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220131Preview.Inputs
         public PrivateEndpointConnectionArgs()
         {
         }
+        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

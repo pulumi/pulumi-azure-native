@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915.Inputs
     /// <summary>
     /// Properties for plan on a custom image.
     /// </summary>
-    public sealed class CustomImagePropertiesFromPlanArgs : Pulumi.ResourceArgs
+    public sealed class CustomImagePropertiesFromPlanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The id of the plan, equivalent to name of the plan
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915.Inputs
         public CustomImagePropertiesFromPlanArgs()
         {
         }
+        public static new CustomImagePropertiesFromPlanArgs Empty => new CustomImagePropertiesFromPlanArgs();
     }
 }

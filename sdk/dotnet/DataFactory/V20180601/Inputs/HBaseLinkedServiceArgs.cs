@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// HBase server linked service.
     /// </summary>
-    public sealed class HBaseLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class HBaseLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
@@ -127,5 +127,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public HBaseLinkedServiceArgs()
         {
         }
+        public static new HBaseLinkedServiceArgs Empty => new HBaseLinkedServiceArgs();
     }
 }

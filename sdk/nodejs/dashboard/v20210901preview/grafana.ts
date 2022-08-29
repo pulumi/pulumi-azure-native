@@ -103,7 +103,7 @@ export class Grafana extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dashboard:Grafana" }, { type: "azure-native:dashboard/v20220501preview:Grafana" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dashboard:Grafana" }, { type: "azure-native:dashboard/v20220501preview:Grafana" }, { type: "azure-native:dashboard/v20220801:Grafana" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Grafana.__pulumiType, name, resourceInputs, opts);
     }

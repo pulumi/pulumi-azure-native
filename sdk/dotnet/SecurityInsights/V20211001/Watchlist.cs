@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001
     /// Represents a Watchlist in Azure Security Insights.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20211001:Watchlist")]
-    public partial class Watchlist : Pulumi.CustomResource
+    public partial class Watchlist : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The content type of the raw content. For now, only text/csv is valid
@@ -186,16 +186,19 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights:Watchlist"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:Watchlist"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:Watchlist"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210401:Watchlist"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:Watchlist"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:Watchlist"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:Watchlist"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:Watchlist"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:Watchlist"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:Watchlist"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:Watchlist"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:Watchlist"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:Watchlist"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210401:Watchlist"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:Watchlist"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:Watchlist"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:Watchlist"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:Watchlist"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:Watchlist"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:Watchlist"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:Watchlist"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801:Watchlist"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:Watchlist"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -217,7 +220,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001
         }
     }
 
-    public sealed class WatchlistArgs : Pulumi.ResourceArgs
+    public sealed class WatchlistArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The content type of the raw content. For now, only text/csv is valid
@@ -362,5 +365,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001
         public WatchlistArgs()
         {
         }
+        public static new WatchlistArgs Empty => new WatchlistArgs();
     }
 }

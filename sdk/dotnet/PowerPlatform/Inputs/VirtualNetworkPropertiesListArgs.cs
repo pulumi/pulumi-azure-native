@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.PowerPlatform.Inputs
     /// <summary>
     /// A list of private link resources
     /// </summary>
-    public sealed class VirtualNetworkPropertiesListArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkPropertiesListArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Next page link if any.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.PowerPlatform.Inputs
         public VirtualNetworkPropertiesListArgs()
         {
         }
+        public static new VirtualNetworkPropertiesListArgs Empty => new VirtualNetworkPropertiesListArgs();
     }
 }

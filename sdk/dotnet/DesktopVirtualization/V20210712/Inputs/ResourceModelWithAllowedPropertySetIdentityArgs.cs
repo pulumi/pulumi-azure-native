@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DesktopVirtualization.V20210712.Inputs
 {
 
-    public sealed class ResourceModelWithAllowedPropertySetIdentityArgs : Pulumi.ResourceArgs
+    public sealed class ResourceModelWithAllowedPropertySetIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity type.
@@ -21,5 +21,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210712.Inputs
         public ResourceModelWithAllowedPropertySetIdentityArgs()
         {
         }
+        public static new ResourceModelWithAllowedPropertySetIdentityArgs Empty => new ResourceModelWithAllowedPropertySetIdentityArgs();
     }
 }

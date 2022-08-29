@@ -38,7 +38,7 @@ export interface GetElasticSanResult {
     /**
      * Logical zone for Elastic San resource; example: ["1"].
      */
-    readonly availabilityZones: string[];
+    readonly availabilityZones?: string[];
     /**
      * Base size of the Elastic San appliance in TiB.
      */
@@ -60,17 +60,13 @@ export interface GetElasticSanResult {
      */
     readonly name: string;
     /**
-     * Provisioned MBps Elastic San appliance.
-     */
-    readonly provisionedMBps: number;
-    /**
      * State of the operation on the resource.
      */
     readonly provisioningState: string;
     /**
      * resource sku
      */
-    readonly sku?: outputs.elasticsan.v20211120preview.SkuResponse;
+    readonly sku: outputs.elasticsan.v20211120preview.SkuResponse;
     /**
      * Resource metadata required by ARM RPC
      */
@@ -87,6 +83,10 @@ export interface GetElasticSanResult {
      * Total Provisioned MBps Elastic San appliance.
      */
     readonly totalMBps: number;
+    /**
+     * Total size of the Elastic San appliance in TB.
+     */
+    readonly totalSizeTiB: number;
     /**
      * Total size of the provisioned Volumes in GiB.
      */

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Storage.V20190601
     /// </summary>
     [Obsolete(@"Version 2019-06-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storage/v20190601:FileShare")]
-    public partial class FileShare : Pulumi.CustomResource
+    public partial class FileShare : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
@@ -137,15 +137,16 @@ namespace Pulumi.AzureNative.Storage.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:storage:FileShare"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20190401:FileShare"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:FileShare"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210101:FileShare"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210201:FileShare"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210401:FileShare"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210601:FileShare"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210801:FileShare"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210901:FileShare"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage:FileShare"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20190401:FileShare"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20200801preview:FileShare"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210101:FileShare"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210201:FileShare"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210401:FileShare"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210601:FileShare"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210801:FileShare"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210901:FileShare"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20220501:FileShare"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -167,7 +168,7 @@ namespace Pulumi.AzureNative.Storage.V20190601
         }
     }
 
-    public sealed class FileShareArgs : Pulumi.ResourceArgs
+    public sealed class FileShareArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
@@ -226,5 +227,6 @@ namespace Pulumi.AzureNative.Storage.V20190601
         public FileShareArgs()
         {
         }
+        public static new FileShareArgs Empty => new FileShareArgs();
     }
 }

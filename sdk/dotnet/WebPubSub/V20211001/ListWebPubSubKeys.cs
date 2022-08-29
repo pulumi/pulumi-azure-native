@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001
     }
 
 
-    public sealed class ListWebPubSubKeysArgs : Pulumi.InvokeArgs
+    public sealed class ListWebPubSubKeysArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001
         public ListWebPubSubKeysArgs()
         {
         }
+        public static new ListWebPubSubKeysArgs Empty => new ListWebPubSubKeysArgs();
     }
 
-    public sealed class ListWebPubSubKeysInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListWebPubSubKeysInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001
         public ListWebPubSubKeysInvokeArgs()
         {
         }
+        public static new ListWebPubSubKeysInvokeArgs Empty => new ListWebPubSubKeysInvokeArgs();
     }
 
 

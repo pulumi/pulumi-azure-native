@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20160601.Inputs
     /// <summary>
     /// The X12 envelope override settings.
     /// </summary>
-    public sealed class X12EnvelopeOverrideArgs : Pulumi.ResourceArgs
+    public sealed class X12EnvelopeOverrideArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The date format.
@@ -78,5 +78,6 @@ namespace Pulumi.AzureNative.Logic.V20160601.Inputs
         public X12EnvelopeOverrideArgs()
         {
         }
+        public static new X12EnvelopeOverrideArgs Empty => new X12EnvelopeOverrideArgs();
     }
 }

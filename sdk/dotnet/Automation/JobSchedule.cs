@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Automation
     /// API Version: 2019-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:JobSchedule")]
-    public partial class JobSchedule : Pulumi.CustomResource
+    public partial class JobSchedule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Gets or sets the id of job schedule.
@@ -83,9 +83,9 @@ namespace Pulumi.AzureNative.Automation
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:automation/v20151031:JobSchedule"},
-                    new Pulumi.Alias { Type = "azure-native:automation/v20190601:JobSchedule"},
-                    new Pulumi.Alias { Type = "azure-native:automation/v20200113preview:JobSchedule"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20151031:JobSchedule"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20190601:JobSchedule"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20200113preview:JobSchedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.Automation
         }
     }
 
-    public sealed class JobScheduleArgs : Pulumi.ResourceArgs
+    public sealed class JobScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -160,5 +160,6 @@ namespace Pulumi.AzureNative.Automation
         public JobScheduleArgs()
         {
         }
+        public static new JobScheduleArgs Empty => new JobScheduleArgs();
     }
 }

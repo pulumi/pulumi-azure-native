@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20190415.Inputs
     /// <summary>
     /// Defines the parameters for the url rewrite action.
     /// </summary>
-    public sealed class UrlRewriteActionParametersArgs : Pulumi.ResourceArgs
+    public sealed class UrlRewriteActionParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Define the destination path for be used in the rewrite. This will overwrite the source pattern 
@@ -39,5 +39,6 @@ namespace Pulumi.AzureNative.Cdn.V20190415.Inputs
         public UrlRewriteActionParametersArgs()
         {
         }
+        public static new UrlRewriteActionParametersArgs Empty => new UrlRewriteActionParametersArgs();
     }
 }

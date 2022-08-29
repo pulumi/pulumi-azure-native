@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200401.Inputs
     /// <summary>
     /// Trusted Root certificates of an application gateway.
     /// </summary>
-    public sealed class ApplicationGatewayTrustedRootCertificateArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayTrustedRootCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Certificate public data.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Network.V20200401.Inputs
         public ApplicationGatewayTrustedRootCertificateArgs()
         {
         }
+        public static new ApplicationGatewayTrustedRootCertificateArgs Empty => new ApplicationGatewayTrustedRootCertificateArgs();
     }
 }

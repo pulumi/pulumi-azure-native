@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Sql
     /// API Version: 2020-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ManagedInstance")]
-    public partial class ManagedInstance : Pulumi.CustomResource
+    public partial class ManagedInstance : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Administrator username for the managed instance. Can only be specified when the managed instance is being created (and is required for creation).
@@ -211,15 +211,17 @@ namespace Pulumi.AzureNative.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:sql/v20150501preview:ManagedInstance"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20180601preview:ManagedInstance"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ManagedInstance"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ManagedInstance"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ManagedInstance"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ManagedInstance"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ManagedInstance"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ManagedInstance"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ManagedInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20150501preview:ManagedInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20180601preview:ManagedInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ManagedInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ManagedInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ManagedInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ManagedInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ManagedInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ManagedInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:ManagedInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ManagedInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ManagedInstance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -241,7 +243,7 @@ namespace Pulumi.AzureNative.Sql
         }
     }
 
-    public sealed class ManagedInstanceArgs : Pulumi.ResourceArgs
+    public sealed class ManagedInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Administrator username for the managed instance. Can only be specified when the managed instance is being created (and is required for creation).
@@ -429,5 +431,6 @@ namespace Pulumi.AzureNative.Sql
         public ManagedInstanceArgs()
         {
         }
+        public static new ManagedInstanceArgs Empty => new ManagedInstanceArgs();
     }
 }

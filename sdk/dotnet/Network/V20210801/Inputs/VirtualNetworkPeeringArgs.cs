@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
     /// <summary>
     /// Peerings in a virtual network resource.
     /// </summary>
-    public sealed class VirtualNetworkPeeringArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkPeeringArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
@@ -102,5 +102,6 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
         public VirtualNetworkPeeringArgs()
         {
         }
+        public static new VirtualNetworkPeeringArgs Empty => new VirtualNetworkPeeringArgs();
     }
 }

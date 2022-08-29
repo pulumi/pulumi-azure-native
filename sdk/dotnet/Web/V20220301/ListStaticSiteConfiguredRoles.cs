@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Web.V20220301
     }
 
 
-    public sealed class ListStaticSiteConfiguredRolesArgs : Pulumi.InvokeArgs
+    public sealed class ListStaticSiteConfiguredRolesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the static site.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Web.V20220301
         public ListStaticSiteConfiguredRolesArgs()
         {
         }
+        public static new ListStaticSiteConfiguredRolesArgs Empty => new ListStaticSiteConfiguredRolesArgs();
     }
 
-    public sealed class ListStaticSiteConfiguredRolesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListStaticSiteConfiguredRolesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the static site.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Web.V20220301
         public ListStaticSiteConfiguredRolesInvokeArgs()
         {
         }
+        public static new ListStaticSiteConfiguredRolesInvokeArgs Empty => new ListStaticSiteConfiguredRolesInvokeArgs();
     }
 
 

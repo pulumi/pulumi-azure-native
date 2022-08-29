@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearning.V20170101.Inputs
     /// <summary>
     /// Defines a global parameter in the graph.
     /// </summary>
-    public sealed class GraphParameterArgs : Pulumi.ResourceArgs
+    public sealed class GraphParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of this graph parameter.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.MachineLearning.V20170101.Inputs
         public GraphParameterArgs()
         {
         }
+        public static new GraphParameterArgs Empty => new GraphParameterArgs();
     }
 }

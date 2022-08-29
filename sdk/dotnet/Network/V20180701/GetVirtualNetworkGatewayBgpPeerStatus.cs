@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20180701
     }
 
 
-    public sealed class GetVirtualNetworkGatewayBgpPeerStatusArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkGatewayBgpPeerStatusArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The IP address of the peer to retrieve the status of.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Network.V20180701
         public GetVirtualNetworkGatewayBgpPeerStatusArgs()
         {
         }
+        public static new GetVirtualNetworkGatewayBgpPeerStatusArgs Empty => new GetVirtualNetworkGatewayBgpPeerStatusArgs();
     }
 
-    public sealed class GetVirtualNetworkGatewayBgpPeerStatusInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkGatewayBgpPeerStatusInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The IP address of the peer to retrieve the status of.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Network.V20180701
         public GetVirtualNetworkGatewayBgpPeerStatusInvokeArgs()
         {
         }
+        public static new GetVirtualNetworkGatewayBgpPeerStatusInvokeArgs Empty => new GetVirtualNetworkGatewayBgpPeerStatusInvokeArgs();
     }
 
 

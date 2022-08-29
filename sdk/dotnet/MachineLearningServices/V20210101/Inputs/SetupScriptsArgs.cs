@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210101.Inputs
     /// <summary>
     /// Details of customized scripts to execute for setting up the cluster.
     /// </summary>
-    public sealed class SetupScriptsArgs : Pulumi.ResourceArgs
+    public sealed class SetupScriptsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Customized setup scripts
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210101.Inputs
         public SetupScriptsArgs()
         {
         }
+        public static new SetupScriptsArgs Empty => new SetupScriptsArgs();
     }
 }

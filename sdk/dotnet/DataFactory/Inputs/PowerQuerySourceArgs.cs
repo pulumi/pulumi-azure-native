@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Power query source.
     /// </summary>
-    public sealed class PowerQuerySourceArgs : Pulumi.ResourceArgs
+    public sealed class PowerQuerySourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Dataset reference.
@@ -60,5 +60,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public PowerQuerySourceArgs()
         {
         }
+        public static new PowerQuerySourceArgs Empty => new PowerQuerySourceArgs();
     }
 }

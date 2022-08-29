@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20190601Preview.Inputs
     /// <summary>
     /// Defines a delta health policy used to evaluate the health of an application or one of its child entities when upgrading the cluster.
     /// </summary>
-    public sealed class ApplicationDeltaHealthPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationDeltaHealthPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The delta health policy used by default to evaluate the health of a service type when upgrading the cluster.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20190601Preview.Inputs
         public ApplicationDeltaHealthPolicyArgs()
         {
         }
+        public static new ApplicationDeltaHealthPolicyArgs Empty => new ApplicationDeltaHealthPolicyArgs();
     }
 }

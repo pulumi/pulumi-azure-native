@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210401Preview
     /// Represents a Workspace definition.
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization/v20210401preview:Workspace")]
-    public partial class Workspace : Pulumi.CustomResource
+    public partial class Workspace : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of applicationGroup resource Ids.
@@ -127,20 +127,21 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20190123preview:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20190924preview:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20191210preview:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20200921preview:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201019preview:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201102preview:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201110preview:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210114preview:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210201preview:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210309preview:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210712:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210903preview:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220210preview:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20190123preview:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20190924preview:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20191210preview:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20200921preview:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201019preview:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201102preview:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201110preview:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210114preview:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210201preview:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210309preview:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210712:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210903preview:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220210preview:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -162,7 +163,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210401Preview
         }
     }
 
-    public sealed class WorkspaceArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
     {
         [Input("applicationGroupReferences")]
         private InputList<string>? _applicationGroupReferences;
@@ -248,5 +249,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210401Preview
         public WorkspaceArgs()
         {
         }
+        public static new WorkspaceArgs Empty => new WorkspaceArgs();
     }
 }

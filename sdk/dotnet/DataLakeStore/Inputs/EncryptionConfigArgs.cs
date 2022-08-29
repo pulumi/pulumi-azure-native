@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataLakeStore.Inputs
     /// <summary>
     /// The encryption configuration for the account.
     /// </summary>
-    public sealed class EncryptionConfigArgs : Pulumi.ResourceArgs
+    public sealed class EncryptionConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Key Vault information for connecting to user managed encryption keys.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DataLakeStore.Inputs
         public EncryptionConfigArgs()
         {
         }
+        public static new EncryptionConfigArgs Empty => new EncryptionConfigArgs();
     }
 }

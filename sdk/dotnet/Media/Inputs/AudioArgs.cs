@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.Inputs
     /// <summary>
     /// Defines the common properties for all audio codecs.
     /// </summary>
-    public sealed class AudioArgs : Pulumi.ResourceArgs
+    public sealed class AudioArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The bitrate, in bits per second, of the output encoded audio.
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.Media.Inputs
         public AudioArgs()
         {
         }
+        public static new AudioArgs Empty => new AudioArgs();
     }
 }

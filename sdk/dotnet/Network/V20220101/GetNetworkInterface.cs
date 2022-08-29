@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20220101
     }
 
 
-    public sealed class GetNetworkInterfaceArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkInterfaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Expands referenced resources.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Network.V20220101
         public GetNetworkInterfaceArgs()
         {
         }
+        public static new GetNetworkInterfaceArgs Empty => new GetNetworkInterfaceArgs();
     }
 
-    public sealed class GetNetworkInterfaceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkInterfaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Expands referenced resources.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Network.V20220101
         public GetNetworkInterfaceInvokeArgs()
         {
         }
+        public static new GetNetworkInterfaceInvokeArgs Empty => new GetNetworkInterfaceInvokeArgs();
     }
 
 
@@ -92,7 +94,7 @@ namespace Pulumi.AzureNative.Network.V20220101
         /// </summary>
         public readonly Outputs.SubResourceResponse DscpConfiguration;
         /// <summary>
-        /// If the network interface is accelerated networking enabled.
+        /// If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
         /// </summary>
         public readonly bool? EnableAcceleratedNetworking;
         /// <summary>

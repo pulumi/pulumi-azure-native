@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview.Inputs
     /// <summary>
     /// Properties for the task that validates connection to SQL Server and source server requirements for online migration
     /// </summary>
-    public sealed class ConnectToSourceSqlServerSyncTaskPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ConnectToSourceSqlServerSyncTaskPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("clientData")]
         private InputMap<string>? _clientData;
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview.Inputs
         public ConnectToSourceSqlServerSyncTaskPropertiesArgs()
         {
         }
+        public static new ConnectToSourceSqlServerSyncTaskPropertiesArgs Empty => new ConnectToSourceSqlServerSyncTaskPropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS.V20211201
     /// An addon resource
     /// </summary>
     [AzureNativeResourceType("azure-native:avs/v20211201:Addon")]
-    public partial class Addon : Pulumi.CustomResource
+    public partial class Addon : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource name.
@@ -58,10 +58,10 @@ namespace Pulumi.AzureNative.AVS.V20211201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:avs:Addon"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20200717preview:Addon"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20210101preview:Addon"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20210601:Addon"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs:Addon"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200717preview:Addon"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210101preview:Addon"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:Addon"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.AVS.V20211201
         }
     }
 
-    public sealed class AddonArgs : Pulumi.ResourceArgs
+    public sealed class AddonArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the addon for the private cloud
@@ -112,5 +112,6 @@ namespace Pulumi.AzureNative.AVS.V20211201
         public AddonArgs()
         {
         }
+        public static new AddonArgs Empty => new AddonArgs();
     }
 }

@@ -28,6 +28,10 @@ namespace Pulumi.AzureNative.Solutions.V20180601.Outputs
         /// The identity type.
         /// </summary>
         public readonly string? Type;
+        /// <summary>
+        /// The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.UserAssignedResourceIdentityResponse>? UserAssignedIdentities;
 
         [OutputConstructor]
         private IdentityResponse(
@@ -35,11 +39,14 @@ namespace Pulumi.AzureNative.Solutions.V20180601.Outputs
 
             string tenantId,
 
-            string? type)
+            string? type,
+
+            ImmutableDictionary<string, Outputs.UserAssignedResourceIdentityResponse>? userAssignedIdentities)
         {
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;
+            UserAssignedIdentities = userAssignedIdentities;
         }
     }
 }

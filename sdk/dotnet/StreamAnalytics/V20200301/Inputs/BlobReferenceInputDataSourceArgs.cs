@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Inputs
     /// <summary>
     /// Describes a blob input data source that contains reference data.
     /// </summary>
-    public sealed class BlobReferenceInputDataSourceArgs : Pulumi.ResourceArgs
+    public sealed class BlobReferenceInputDataSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authentication Mode.
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Inputs
         public BlobReferenceInputDataSourceArgs()
         {
         }
+        public static new BlobReferenceInputDataSourceArgs Empty => new BlobReferenceInputDataSourceArgs();
     }
 }

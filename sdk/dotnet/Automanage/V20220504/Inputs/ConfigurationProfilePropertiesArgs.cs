@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automanage.V20220504.Inputs
     /// <summary>
     /// Automanage configuration profile properties.
     /// </summary>
-    public sealed class ConfigurationProfilePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationProfilePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// configuration dictionary of the configuration profile.
@@ -21,20 +21,9 @@ namespace Pulumi.AzureNative.Automanage.V20220504.Inputs
         [Input("configuration")]
         public Input<object>? Configuration { get; set; }
 
-        [Input("overrides")]
-        private InputList<object>? _overrides;
-
-        /// <summary>
-        /// overrides of the configuration profile.
-        /// </summary>
-        public InputList<object> Overrides
-        {
-            get => _overrides ?? (_overrides = new InputList<object>());
-            set => _overrides = value;
-        }
-
         public ConfigurationProfilePropertiesArgs()
         {
         }
+        public static new ConfigurationProfilePropertiesArgs Empty => new ConfigurationProfilePropertiesArgs();
     }
 }

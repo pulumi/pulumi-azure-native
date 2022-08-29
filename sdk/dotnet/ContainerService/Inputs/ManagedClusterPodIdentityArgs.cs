@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.Inputs
 {
 
-    public sealed class ManagedClusterPodIdentityArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterPodIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Binding selector to use for the AzureIdentityBinding resource.
@@ -39,5 +39,6 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public ManagedClusterPodIdentityArgs()
         {
         }
+        public static new ManagedClusterPodIdentityArgs Empty => new ManagedClusterPodIdentityArgs();
     }
 }

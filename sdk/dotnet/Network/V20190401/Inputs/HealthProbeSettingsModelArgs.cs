@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190401.Inputs
     /// <summary>
     /// Load balancing settings for a backend pool
     /// </summary>
-    public sealed class HealthProbeSettingsModelArgs : Pulumi.ResourceArgs
+    public sealed class HealthProbeSettingsModelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Network.V20190401.Inputs
         public HealthProbeSettingsModelArgs()
         {
         }
+        public static new HealthProbeSettingsModelArgs Empty => new HealthProbeSettingsModelArgs();
     }
 }

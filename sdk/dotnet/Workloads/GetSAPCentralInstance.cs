@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Workloads
     public static class GetSAPCentralInstance
     {
         /// <summary>
-        /// Define the SAP Central Server Instance.
+        /// Define the SAP Central Services Instance resource.
         /// API Version: 2021-12-01-preview.
         /// </summary>
         public static Task<GetSAPCentralInstanceResult> InvokeAsync(GetSAPCentralInstanceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSAPCentralInstanceResult>("azure-native:workloads:getSAPCentralInstance", args ?? new GetSAPCentralInstanceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Define the SAP Central Server Instance.
+        /// Define the SAP Central Services Instance resource.
         /// API Version: 2021-12-01-preview.
         /// </summary>
         public static Output<GetSAPCentralInstanceResult> Invoke(GetSAPCentralInstanceInvokeArgs args, InvokeOptions? options = null)
@@ -27,10 +27,10 @@ namespace Pulumi.AzureNative.Workloads
     }
 
 
-    public sealed class GetSAPCentralInstanceArgs : Pulumi.InvokeArgs
+    public sealed class GetSAPCentralInstanceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Central Instance name string modeled as parameter for auto generation to work correctly.
+        /// Central Services Instance resource name string modeled as parameter for auto generation to work correctly.
         /// </summary>
         [Input("centralInstanceName", required: true)]
         public string CentralInstanceName { get; set; } = null!;
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNative.Workloads
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Virtual Instances for SAP.
+        /// The name of the Virtual Instances for SAP solutions resource
         /// </summary>
         [Input("sapVirtualInstanceName", required: true)]
         public string SapVirtualInstanceName { get; set; } = null!;
@@ -50,12 +50,13 @@ namespace Pulumi.AzureNative.Workloads
         public GetSAPCentralInstanceArgs()
         {
         }
+        public static new GetSAPCentralInstanceArgs Empty => new GetSAPCentralInstanceArgs();
     }
 
-    public sealed class GetSAPCentralInstanceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSAPCentralInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Central Instance name string modeled as parameter for auto generation to work correctly.
+        /// Central Services Instance resource name string modeled as parameter for auto generation to work correctly.
         /// </summary>
         [Input("centralInstanceName", required: true)]
         public Input<string> CentralInstanceName { get; set; } = null!;
@@ -67,7 +68,7 @@ namespace Pulumi.AzureNative.Workloads
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Virtual Instances for SAP.
+        /// The name of the Virtual Instances for SAP solutions resource
         /// </summary>
         [Input("sapVirtualInstanceName", required: true)]
         public Input<string> SapVirtualInstanceName { get; set; } = null!;
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Workloads
         public GetSAPCentralInstanceInvokeArgs()
         {
         }
+        public static new GetSAPCentralInstanceInvokeArgs Empty => new GetSAPCentralInstanceInvokeArgs();
     }
 
 
@@ -82,15 +84,15 @@ namespace Pulumi.AzureNative.Workloads
     public sealed class GetSAPCentralInstanceResult
     {
         /// <summary>
-        /// Defines the SAP ERS Server properties.
+        /// Defines the SAP Enqueue Replication Server (ERS) properties.
         /// </summary>
         public readonly Outputs.EnqueueReplicationServerPropertiesResponse? EnqueueReplicationServerProperties;
         /// <summary>
-        /// Defines the SAP enqueue server properties.
+        /// Defines the SAP Enqueue Server properties.
         /// </summary>
         public readonly Outputs.EnqueueServerPropertiesResponse? EnqueueServerProperties;
         /// <summary>
-        /// Defines the Central Instance errors.
+        /// Defines the errors related to SAP Central Services Instance resource.
         /// </summary>
         public readonly Outputs.SAPVirtualInstanceErrorResponse Errors;
         /// <summary>
@@ -98,7 +100,7 @@ namespace Pulumi.AzureNative.Workloads
         /// </summary>
         public readonly Outputs.GatewayServerPropertiesResponse? GatewayServerProperties;
         /// <summary>
-        /// Defines the SAP Instance health.
+        /// Defines the health of SAP Instances.
         /// </summary>
         public readonly string Health;
         /// <summary>
@@ -106,15 +108,15 @@ namespace Pulumi.AzureNative.Workloads
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The central server instance id.
+        /// The central services instance number.
         /// </summary>
         public readonly string InstanceNo;
         /// <summary>
-        /// The central server kernel patch.
+        /// The central services instance Kernel Patch level.
         /// </summary>
         public readonly string KernelPatch;
         /// <summary>
-        /// The central server kernel version.
+        /// The central services instance Kernel Version.
         /// </summary>
         public readonly string KernelVersion;
         /// <summary>
@@ -122,7 +124,7 @@ namespace Pulumi.AzureNative.Workloads
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Defines the SAP message server properties.
+        /// Defines the SAP Message Server properties.
         /// </summary>
         public readonly Outputs.MessageServerPropertiesResponse? MessageServerProperties;
         /// <summary>
@@ -138,7 +140,7 @@ namespace Pulumi.AzureNative.Workloads
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// The central server subnet.
+        /// The central services instance subnet.
         /// </summary>
         public readonly string Subnet;
         /// <summary>
@@ -154,7 +156,7 @@ namespace Pulumi.AzureNative.Workloads
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The list of virtual machines.
+        /// The list of virtual machines corresponding to the Central Services instance.
         /// </summary>
         public readonly ImmutableArray<Outputs.CentralServerVmDetailsResponse> VmDetails;
 

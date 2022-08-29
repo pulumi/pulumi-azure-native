@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataProtection.V20220301.Inputs
     /// <summary>
     /// Parameters in Policy
     /// </summary>
-    public sealed class PolicyParametersArgs : Pulumi.ResourceArgs
+    public sealed class PolicyParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataStoreParametersList")]
         private InputList<Inputs.AzureOperationalStoreParametersArgs>? _dataStoreParametersList;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DataProtection.V20220301.Inputs
         public PolicyParametersArgs()
         {
         }
+        public static new PolicyParametersArgs Empty => new PolicyParametersArgs();
     }
 }

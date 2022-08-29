@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20210201.Inputs
     /// <summary>
     /// Sets the CORS rules. You can include up to five CorsRule elements in the request. 
     /// </summary>
-    public sealed class CorsRulesArgs : Pulumi.ResourceArgs
+    public sealed class CorsRulesArgs : global::Pulumi.ResourceArgs
     {
         [Input("corsRules")]
         private InputList<Inputs.CorsRuleArgs>? _corsRules;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Storage.V20210201.Inputs
         public CorsRulesArgs()
         {
         }
+        public static new CorsRulesArgs Empty => new CorsRulesArgs();
     }
 }

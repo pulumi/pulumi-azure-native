@@ -13,19 +13,13 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
     /// Response for Volume request.
     /// </summary>
     [AzureNativeResourceType("azure-native:elasticsan/v20211120preview:Volume")]
-    public partial class Volume : Pulumi.CustomResource
+    public partial class Volume : global::Pulumi.CustomResource
     {
         /// <summary>
         /// State of the operation on the resource.
         /// </summary>
         [Output("creationData")]
         public Output<Outputs.SourceCreationDataResponse?> CreationData { get; private set; } = null!;
-
-        /// <summary>
-        /// The geo-location where the resource lives.
-        /// </summary>
-        [Output("location")]
-        public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource name.
@@ -94,7 +88,7 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:elasticsan:Volume"},
+                    new global::Pulumi.Alias { Type = "azure-native:elasticsan:Volume"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -116,7 +110,7 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         }
     }
 
-    public sealed class VolumeArgs : Pulumi.ResourceArgs
+    public sealed class VolumeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// State of the operation on the resource.
@@ -129,12 +123,6 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         /// </summary>
         [Input("elasticSanName", required: true)]
         public Input<string> ElasticSanName { get; set; } = null!;
-
-        /// <summary>
-        /// The geo-location where the resource lives.
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -175,5 +163,6 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         public VolumeArgs()
         {
         }
+        public static new VolumeArgs Empty => new VolumeArgs();
     }
 }

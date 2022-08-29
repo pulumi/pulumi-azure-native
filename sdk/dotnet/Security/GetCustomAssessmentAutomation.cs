@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Security
     }
 
 
-    public sealed class GetCustomAssessmentAutomationArgs : Pulumi.InvokeArgs
+    public sealed class GetCustomAssessmentAutomationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Custom Assessment Automation.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.Security
         public GetCustomAssessmentAutomationArgs()
         {
         }
+        public static new GetCustomAssessmentAutomationArgs Empty => new GetCustomAssessmentAutomationArgs();
     }
 
-    public sealed class GetCustomAssessmentAutomationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCustomAssessmentAutomationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Custom Assessment Automation.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.Security
         public GetCustomAssessmentAutomationInvokeArgs()
         {
         }
+        public static new GetCustomAssessmentAutomationInvokeArgs Empty => new GetCustomAssessmentAutomationInvokeArgs();
     }
 
 

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Cache.V20210601
     }
 
 
-    public sealed class GetRedisArgs : Pulumi.InvokeArgs
+    public sealed class GetRedisArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Redis cache.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Cache.V20210601
         public GetRedisArgs()
         {
         }
+        public static new GetRedisArgs Empty => new GetRedisArgs();
     }
 
-    public sealed class GetRedisInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRedisInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Redis cache.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Cache.V20210601
         public GetRedisInvokeArgs()
         {
         }
+        public static new GetRedisInvokeArgs Empty => new GetRedisInvokeArgs();
     }
 
 
@@ -128,7 +130,7 @@ namespace Pulumi.AzureNative.Cache.V20210601
         /// </summary>
         public readonly Outputs.RedisCommonPropertiesResponseRedisConfiguration? RedisConfiguration;
         /// <summary>
-        /// Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
+        /// Redis version. This should be in the form 'major[.minor[.build]]' (only 'major' is required) or the value 'latest' which refers to the latest stable Redis version that is available. Only the major and minor version are used in a PUT/PATCH request. Supported versions: 4.0, 6.0.
         /// </summary>
         public readonly string? RedisVersion;
         /// <summary>

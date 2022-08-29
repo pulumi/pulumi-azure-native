@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
     /// Api Version Set Contract details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20180101:ApiVersionSet")]
-    public partial class ApiVersionSet : Pulumi.CustomResource
+    public partial class ApiVersionSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Description of API Version Set.
@@ -82,18 +82,18 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:apimanagement:ApiVersionSet"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiVersionSet"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiVersionSet"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiVersionSet"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiVersionSet"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiVersionSet"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiVersionSet"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ApiVersionSet"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:ApiVersionSet"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:ApiVersionSet"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ApiVersionSet"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ApiVersionSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:ApiVersionSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiVersionSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiVersionSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiVersionSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiVersionSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiVersionSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiVersionSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ApiVersionSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:ApiVersionSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:ApiVersionSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ApiVersionSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ApiVersionSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
         }
     }
 
-    public sealed class ApiVersionSetArgs : Pulumi.ResourceArgs
+    public sealed class ApiVersionSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of API Version Set.
@@ -168,5 +168,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
         public ApiVersionSetArgs()
         {
         }
+        public static new ApiVersionSetArgs Empty => new ApiVersionSetArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview.Inputs
     /// <summary>
     /// Detail about the webhook object.
     /// </summary>
-    public sealed class WebhookArgs : Pulumi.ResourceArgs
+    public sealed class WebhookArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag to instruct the backend service to rotate webhook secret.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview.Inputs
         public WebhookArgs()
         {
         }
+        public static new WebhookArgs Empty => new WebhookArgs();
     }
 }

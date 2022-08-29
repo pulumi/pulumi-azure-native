@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20200930.Inputs
     /// <summary>
     /// This is the OS disk image.
     /// </summary>
-    public sealed class GalleryOSDiskImageArgs : Pulumi.ResourceArgs
+    public sealed class GalleryOSDiskImageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Compute.V20200930.Inputs
         public GalleryOSDiskImageArgs()
         {
         }
+        public static new GalleryOSDiskImageArgs Empty => new GalleryOSDiskImageArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210701.Inputs
     /// <summary>
     /// A2A Cross-Cluster Migration enable protection input.
     /// </summary>
-    public sealed class A2ACrossClusterMigrationEnableProtectionInputArgs : Pulumi.ResourceArgs
+    public sealed class A2ACrossClusterMigrationEnableProtectionInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The fabric specific object Id of the virtual machine.
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210701.Inputs
         public A2ACrossClusterMigrationEnableProtectionInputArgs()
         {
         }
+        public static new A2ACrossClusterMigrationEnableProtectionInputArgs Empty => new A2ACrossClusterMigrationEnableProtectionInputArgs();
     }
 }

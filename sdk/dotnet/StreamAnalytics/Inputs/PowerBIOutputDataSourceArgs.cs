@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.Inputs
     /// <summary>
     /// Describes a Power BI output data source.
     /// </summary>
-    public sealed class PowerBIOutputDataSourceArgs : Pulumi.ResourceArgs
+    public sealed class PowerBIOutputDataSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Power BI dataset. Required on PUT (CreateOrReplace) requests.
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.Inputs
         public PowerBIOutputDataSourceArgs()
         {
         }
+        public static new PowerBIOutputDataSourceArgs Empty => new PowerBIOutputDataSourceArgs();
     }
 }

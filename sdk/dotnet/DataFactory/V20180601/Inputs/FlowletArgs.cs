@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Data flow flowlet
     /// </summary>
-    public sealed class FlowletArgs : Pulumi.ResourceArgs
+    public sealed class FlowletArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -103,5 +103,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public FlowletArgs()
         {
         }
+        public static new FlowletArgs Empty => new FlowletArgs();
     }
 }

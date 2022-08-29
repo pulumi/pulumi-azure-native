@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Blockchain.V20180601Preview.Inputs
     /// <summary>
     /// Blockchain member Sku in payload
     /// </summary>
-    public sealed class SkuArgs : Pulumi.ResourceArgs
+    public sealed class SkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets Sku name
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Blockchain.V20180601Preview.Inputs
         public SkuArgs()
         {
         }
+        public static new SkuArgs Empty => new SkuArgs();
     }
 }

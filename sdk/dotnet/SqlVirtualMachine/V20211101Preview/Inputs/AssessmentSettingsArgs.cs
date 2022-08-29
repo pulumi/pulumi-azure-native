@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview.Inputs
     /// <summary>
     /// Configure assessment for databases in your SQL virtual machine.
     /// </summary>
-    public sealed class AssessmentSettingsArgs : Pulumi.ResourceArgs
+    public sealed class AssessmentSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable or disable assessment feature on SQL virtual machine.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview.Inputs
         public AssessmentSettingsArgs()
         {
         }
+        public static new AssessmentSettingsArgs Empty => new AssessmentSettingsArgs();
     }
 }

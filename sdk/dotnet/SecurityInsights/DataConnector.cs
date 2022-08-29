@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// </summary>
     [Obsolete(@"Please use one of the variants: AADDataConnector, AATPDataConnector, ASCDataConnector, AwsCloudTrailDataConnector, MCASDataConnector, MDATPDataConnector, OfficeDataConnector, TIDataConnector.")]
     [AzureNativeResourceType("azure-native:securityinsights:DataConnector")]
-    public partial class DataConnector : Pulumi.CustomResource
+    public partial class DataConnector : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Etag of the azure resource
@@ -66,16 +66,19 @@ namespace Pulumi.AzureNative.SecurityInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:DataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:DataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:DataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:DataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:DataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:DataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:DataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:DataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:DataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801:DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:DataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -97,7 +100,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         }
     }
 
-    public sealed class DataConnectorArgs : Pulumi.ResourceArgs
+    public sealed class DataConnectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Connector ID
@@ -126,5 +129,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         public DataConnectorArgs()
         {
         }
+        public static new DataConnectorArgs Empty => new DataConnectorArgs();
     }
 }

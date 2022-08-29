@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
     /// <summary>
     /// A SynapseSpark compute.
     /// </summary>
-    public sealed class SynapseSparkArgs : Pulumi.ResourceArgs
+    public sealed class SynapseSparkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of compute
@@ -28,12 +28,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
-        /// </summary>
-        [Input("disableLocalAuth")]
-        public Input<bool>? DisableLocalAuth { get; set; }
-
         [Input("properties")]
         public Input<Inputs.SynapseSparkPropertiesArgs>? Properties { get; set; }
 
@@ -46,5 +40,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
         public SynapseSparkArgs()
         {
         }
+        public static new SynapseSparkArgs Empty => new SynapseSparkArgs();
     }
 }

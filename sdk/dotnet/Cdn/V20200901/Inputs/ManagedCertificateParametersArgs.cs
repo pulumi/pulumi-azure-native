@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901.Inputs
     /// <summary>
     /// Managed Certificate used for https
     /// </summary>
-    public sealed class ManagedCertificateParametersArgs : Pulumi.ResourceArgs
+    public sealed class ManagedCertificateParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of the Secret to create.
@@ -25,5 +25,6 @@ namespace Pulumi.AzureNative.Cdn.V20200901.Inputs
         public ManagedCertificateParametersArgs()
         {
         }
+        public static new ManagedCertificateParametersArgs Empty => new ManagedCertificateParametersArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Maintenance.V20210501
     /// Maintenance configuration record type
     /// </summary>
     [AzureNativeResourceType("azure-native:maintenance/v20210501:MaintenanceConfiguration")]
-    public partial class MaintenanceConfiguration : Pulumi.CustomResource
+    public partial class MaintenanceConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Duration of the maintenance window in HH:mm format. If not provided, default value will be used based on maintenance scope provided. Example: 05:00.
@@ -124,12 +124,13 @@ namespace Pulumi.AzureNative.Maintenance.V20210501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:maintenance:MaintenanceConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:maintenance/v20180601preview:MaintenanceConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:maintenance/v20200401:MaintenanceConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:maintenance/v20200701preview:MaintenanceConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:maintenance/v20210401preview:MaintenanceConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:maintenance/v20210901preview:MaintenanceConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:maintenance:MaintenanceConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20180601preview:MaintenanceConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20200401:MaintenanceConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20200701preview:MaintenanceConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20210401preview:MaintenanceConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20210901preview:MaintenanceConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20220701preview:MaintenanceConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -151,7 +152,7 @@ namespace Pulumi.AzureNative.Maintenance.V20210501
         }
     }
 
-    public sealed class MaintenanceConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class MaintenanceConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Duration of the maintenance window in HH:mm format. If not provided, default value will be used based on maintenance scope provided. Example: 05:00.
@@ -246,5 +247,6 @@ namespace Pulumi.AzureNative.Maintenance.V20210501
         public MaintenanceConfigurationArgs()
         {
         }
+        public static new MaintenanceConfigurationArgs Empty => new MaintenanceConfigurationArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Insights
     /// API Version: 2019-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:ActionGroup")]
-    public partial class ActionGroup : Pulumi.CustomResource
+    public partial class ActionGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The list of ARM role receivers that are part of this action group. Roles are Azure RBAC roles and only built-in roles are supported.
@@ -59,22 +59,10 @@ namespace Pulumi.AzureNative.Insights
         public Output<string> GroupShortName { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource identity
-        /// </summary>
-        [Output("identity")]
-        public Output<string> Identity { get; private set; } = null!;
-
-        /// <summary>
         /// The list of ITSM receivers that are part of this action group.
         /// </summary>
         [Output("itsmReceivers")]
         public Output<ImmutableArray<Outputs.ItsmReceiverResponse>> ItsmReceivers { get; private set; } = null!;
-
-        /// <summary>
-        /// Azure resource kind
-        /// </summary>
-        [Output("kind")]
-        public Output<string> Kind { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -149,14 +137,14 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:insights/v20170401:ActionGroup"},
-                    new Pulumi.Alias { Type = "azure-native:insights/v20180301:ActionGroup"},
-                    new Pulumi.Alias { Type = "azure-native:insights/v20180901:ActionGroup"},
-                    new Pulumi.Alias { Type = "azure-native:insights/v20190301:ActionGroup"},
-                    new Pulumi.Alias { Type = "azure-native:insights/v20190601:ActionGroup"},
-                    new Pulumi.Alias { Type = "azure-native:insights/v20210901:ActionGroup"},
-                    new Pulumi.Alias { Type = "azure-native:insights/v20220401:ActionGroup"},
-                    new Pulumi.Alias { Type = "azure-native:insights/v20220601:ActionGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20170401:ActionGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20180301:ActionGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20180901:ActionGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20190301:ActionGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20190601:ActionGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20210901:ActionGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20220401:ActionGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20220601:ActionGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -178,7 +166,7 @@ namespace Pulumi.AzureNative.Insights
         }
     }
 
-    public sealed class ActionGroupArgs : Pulumi.ResourceArgs
+    public sealed class ActionGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the action group.
@@ -346,5 +334,6 @@ namespace Pulumi.AzureNative.Insights
         {
             Enabled = true;
         }
+        public static new ActionGroupArgs Empty => new ActionGroupArgs();
     }
 }

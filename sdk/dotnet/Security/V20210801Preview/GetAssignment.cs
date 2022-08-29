@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Security.V20210801Preview
     }
 
 
-    public sealed class GetAssignmentArgs : Pulumi.InvokeArgs
+    public sealed class GetAssignmentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The security assignment key - unique key for the standard assignment
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Security.V20210801Preview
         public GetAssignmentArgs()
         {
         }
+        public static new GetAssignmentArgs Empty => new GetAssignmentArgs();
     }
 
-    public sealed class GetAssignmentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAssignmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The security assignment key - unique key for the standard assignment
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Security.V20210801Preview
         public GetAssignmentInvokeArgs()
         {
         }
+        public static new GetAssignmentInvokeArgs Empty => new GetAssignmentInvokeArgs();
     }
 
 

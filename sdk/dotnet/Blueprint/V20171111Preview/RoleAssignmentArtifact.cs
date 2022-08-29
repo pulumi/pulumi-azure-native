@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
     /// Blueprint artifact applies Azure role assignment.
     /// </summary>
     [AzureNativeResourceType("azure-native:blueprint/v20171111preview:RoleAssignmentArtifact")]
-    public partial class RoleAssignmentArtifact : Pulumi.CustomResource
+    public partial class RoleAssignmentArtifact : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Artifacts which need to be deployed before the specified artifact.
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
         }
     }
 
-    public sealed class RoleAssignmentArtifactArgs : Pulumi.ResourceArgs
+    public sealed class RoleAssignmentArtifactArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// name of the artifact.
@@ -192,5 +192,6 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
         public RoleAssignmentArtifactArgs()
         {
         }
+        public static new RoleAssignmentArtifactArgs Empty => new RoleAssignmentArtifactArgs();
     }
 }

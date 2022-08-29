@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Automanage.V20220504
     }
 
 
-    public sealed class GetConfigurationProfileHCIAssignmentArgs : Pulumi.InvokeArgs
+    public sealed class GetConfigurationProfileHCIAssignmentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Arc machine.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Automanage.V20220504
         public GetConfigurationProfileHCIAssignmentArgs()
         {
         }
+        public static new GetConfigurationProfileHCIAssignmentArgs Empty => new GetConfigurationProfileHCIAssignmentArgs();
     }
 
-    public sealed class GetConfigurationProfileHCIAssignmentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConfigurationProfileHCIAssignmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Arc machine.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Automanage.V20220504
         public GetConfigurationProfileHCIAssignmentInvokeArgs()
         {
         }
+        public static new GetConfigurationProfileHCIAssignmentInvokeArgs Empty => new GetConfigurationProfileHCIAssignmentInvokeArgs();
     }
 
 
@@ -83,6 +85,10 @@ namespace Pulumi.AzureNative.Automanage.V20220504
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Azure resource id. Indicates if this resource is managed by another Azure resource.
+        /// </summary>
+        public readonly string ManagedBy;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -104,6 +110,8 @@ namespace Pulumi.AzureNative.Automanage.V20220504
         private GetConfigurationProfileHCIAssignmentResult(
             string id,
 
+            string managedBy,
+
             string name,
 
             Outputs.ConfigurationProfileAssignmentPropertiesResponse properties,
@@ -113,6 +121,7 @@ namespace Pulumi.AzureNative.Automanage.V20220504
             string type)
         {
             Id = id;
+            ManagedBy = managedBy;
             Name = name;
             Properties = properties;
             SystemData = systemData;

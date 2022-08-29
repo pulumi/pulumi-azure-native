@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logz
     /// API Version: 2022-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:logz:MetricsSource")]
-    public partial class MetricsSource : Pulumi.CustomResource
+    public partial class MetricsSource : global::Pulumi.CustomResource
     {
         [Output("identity")]
         public Output<Outputs.IdentityPropertiesResponse?> Identity { get; private set; } = null!;
@@ -73,7 +73,7 @@ namespace Pulumi.AzureNative.Logz
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:logz/v20220101preview:MetricsSource"},
+                    new global::Pulumi.Alias { Type = "azure-native:logz/v20220101preview:MetricsSource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.Logz
         }
     }
 
-    public sealed class MetricsSourceArgs : Pulumi.ResourceArgs
+    public sealed class MetricsSourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("identity")]
         public Input<Inputs.IdentityPropertiesArgs>? Identity { get; set; }
@@ -138,5 +138,6 @@ namespace Pulumi.AzureNative.Logz
         public MetricsSourceArgs()
         {
         }
+        public static new MetricsSourceArgs Empty => new MetricsSourceArgs();
     }
 }

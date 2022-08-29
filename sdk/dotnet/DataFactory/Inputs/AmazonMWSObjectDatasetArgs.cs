@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Amazon Marketplace Web Service dataset.
     /// </summary>
-    public sealed class AmazonMWSObjectDatasetArgs : Pulumi.ResourceArgs
+    public sealed class AmazonMWSObjectDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,5 +85,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public AmazonMWSObjectDatasetArgs()
         {
         }
+        public static new AmazonMWSObjectDatasetArgs Empty => new AmazonMWSObjectDatasetArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization.V20200901.Inputs
     /// <summary>
     /// A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
     /// </summary>
-    public sealed class NonComplianceMessageArgs : Pulumi.ResourceArgs
+    public sealed class NonComplianceMessageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Authorization.V20200901.Inputs
         public NonComplianceMessageArgs()
         {
         }
+        public static new NonComplianceMessageArgs Empty => new NonComplianceMessageArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Web
     }
 
 
-    public sealed class ListWebAppMetadataArgs : Pulumi.InvokeArgs
+    public sealed class ListWebAppMetadataArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the app.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.Web
         public ListWebAppMetadataArgs()
         {
         }
+        public static new ListWebAppMetadataArgs Empty => new ListWebAppMetadataArgs();
     }
 
-    public sealed class ListWebAppMetadataInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListWebAppMetadataInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the app.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.Web
         public ListWebAppMetadataInvokeArgs()
         {
         }
+        public static new ListWebAppMetadataInvokeArgs Empty => new ListWebAppMetadataInvokeArgs();
     }
 
 

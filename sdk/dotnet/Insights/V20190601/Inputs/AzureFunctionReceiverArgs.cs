@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20190601.Inputs
     /// <summary>
     /// An azure function receiver.
     /// </summary>
-    public sealed class AzureFunctionReceiverArgs : Pulumi.ResourceArgs
+    public sealed class AzureFunctionReceiverArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The azure resource id of the function app.
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.Insights.V20190601.Inputs
         {
             UseCommonAlertSchema = false;
         }
+        public static new AzureFunctionReceiverArgs Empty => new AzureFunctionReceiverArgs();
     }
 }

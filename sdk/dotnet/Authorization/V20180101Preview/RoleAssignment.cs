@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization.V20180101Preview
     /// Role Assignments
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization/v20180101preview:RoleAssignment")]
-    public partial class RoleAssignment : Pulumi.CustomResource
+    public partial class RoleAssignment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Delegation flag for the role assignment
@@ -76,14 +76,15 @@ namespace Pulumi.AzureNative.Authorization.V20180101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:authorization:RoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20150701:RoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20171001preview:RoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20180901preview:RoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20200301preview:RoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20200401preview:RoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20200801preview:RoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20201001preview:RoleAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization:RoleAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20150701:RoleAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20171001preview:RoleAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20180901preview:RoleAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20200301preview:RoleAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20200401preview:RoleAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20200801preview:RoleAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20201001preview:RoleAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20220401:RoleAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -105,7 +106,7 @@ namespace Pulumi.AzureNative.Authorization.V20180101Preview
         }
     }
 
-    public sealed class RoleAssignmentArgs : Pulumi.ResourceArgs
+    public sealed class RoleAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The delegation flag used for creating a role assignment
@@ -140,5 +141,6 @@ namespace Pulumi.AzureNative.Authorization.V20180101Preview
         public RoleAssignmentArgs()
         {
         }
+        public static new RoleAssignmentArgs Empty => new RoleAssignmentArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
     }
 
 
-    public sealed class GetVirtualMachineRdpFileContentsArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualMachineRdpFileContentsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the lab.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         public GetVirtualMachineRdpFileContentsArgs()
         {
         }
+        public static new GetVirtualMachineRdpFileContentsArgs Empty => new GetVirtualMachineRdpFileContentsArgs();
     }
 
-    public sealed class GetVirtualMachineRdpFileContentsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualMachineRdpFileContentsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the lab.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         public GetVirtualMachineRdpFileContentsInvokeArgs()
         {
         }
+        public static new GetVirtualMachineRdpFileContentsInvokeArgs Empty => new GetVirtualMachineRdpFileContentsInvokeArgs();
     }
 
 

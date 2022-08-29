@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20180820Preview
     /// </summary>
     [Obsolete(@"Version 2018-08-20-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:healthcareapis/v20180820preview:Service")]
-    public partial class Service : Pulumi.CustomResource
+    public partial class Service : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An etag associated with the resource, used for optimistic concurrency when editing it.
@@ -89,15 +89,16 @@ namespace Pulumi.AzureNative.HealthcareApis.V20180820Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis:Service"},
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20190916:Service"},
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20200315:Service"},
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20200330:Service"},
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20210111:Service"},
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20210601preview:Service"},
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:Service"},
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20220131preview:Service"},
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20190916:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20200315:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20200330:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20210111:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20210601preview:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220131preview:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220601:Service"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -119,7 +120,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20180820Preview
         }
     }
 
-    public sealed class ServiceArgs : Pulumi.ResourceArgs
+    public sealed class ServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Setting indicating whether the service has a managed identity associated with it.
@@ -172,5 +173,6 @@ namespace Pulumi.AzureNative.HealthcareApis.V20180820Preview
         public ServiceArgs()
         {
         }
+        public static new ServiceArgs Empty => new ServiceArgs();
     }
 }

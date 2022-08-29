@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NetApp.V20210401
     /// Snapshot policy information
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp/v20210401:SnapshotPolicy")]
-    public partial class SnapshotPolicy : Pulumi.CustomResource
+    public partial class SnapshotPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Schedule for daily snapshots
@@ -106,20 +106,21 @@ namespace Pulumi.AzureNative.NetApp.V20210401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:netapp:SnapshotPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20200501:SnapshotPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20200601:SnapshotPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20200701:SnapshotPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20200801:SnapshotPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20200901:SnapshotPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20201101:SnapshotPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20201201:SnapshotPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20210201:SnapshotPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20210401preview:SnapshotPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20210601:SnapshotPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20210801:SnapshotPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20211001:SnapshotPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20220101:SnapshotPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp:SnapshotPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200501:SnapshotPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200601:SnapshotPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200701:SnapshotPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200801:SnapshotPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200901:SnapshotPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20201101:SnapshotPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20201201:SnapshotPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210201:SnapshotPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210401preview:SnapshotPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210601:SnapshotPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210801:SnapshotPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20211001:SnapshotPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220101:SnapshotPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220301:SnapshotPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -141,7 +142,7 @@ namespace Pulumi.AzureNative.NetApp.V20210401
         }
     }
 
-    public sealed class SnapshotPolicyArgs : Pulumi.ResourceArgs
+    public sealed class SnapshotPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the NetApp account
@@ -212,5 +213,6 @@ namespace Pulumi.AzureNative.NetApp.V20210401
         public SnapshotPolicyArgs()
         {
         }
+        public static new SnapshotPolicyArgs Empty => new SnapshotPolicyArgs();
     }
 }

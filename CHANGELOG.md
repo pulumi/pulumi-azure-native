@@ -2,20 +2,116 @@
 
 ## HEAD (Unreleased)
 
+- All Java packages changed to be more intuitive, unfortunately this is a breaking change for Java version
+  [#1829](https://github.com/pulumi/pulumi-azure-native/pull/1829)
+
+## 1.71.0 (2022-8-26)
+
+- Upgrade to latest version of Azure Rest API Specs.
+- Upgrade to pulumi/pulumi v3.38.0
+
+## 1.70.0 (2022-8-24)
+
+- Upgrade to latest version of Azure Rest API Specs.
+
+## 1.69.0 (2022-8-23)
+
+- Upgrade to latest version of Azure Rest API Specs.
+
+## 1.68.2 (2022-08-16)
+
+- Remove go docs from Go SDK. Previously we exceeded the Go SDK limit which caused all go get operations to fail
+  [#1914](https://github.com/pulumi/pulumi-azure-native/pull/1914)
+
+## 1.68.1 (2022-08-15)
+
+- Releasing binaries as v1.68.1 due to an issue in v1.68.0 publishing
+
+## 1.68.0 (2022-08-12)
+
+- Memory usage for most programs is greatly reduced [#1689](https://github.com/pulumi/pulumi-azure-native/pull/1689)
+- Changes to how AutoNaming works for the provider [#1901](https://github.com/pulumi/pulumi-azure-native/pull/1901)
+
+### Upstream breaking changes
+
+- Resource "azure-native:insights:ActionGroup" missing output "identity"
+- Resource "azure-native:insights:ActionGroup" missing output "kind"
+- Resource "azure-native:automation:HybridRunbookWorkerGroup" missing input "name"
+- Function "azure-native:app:listContainerAppCustomHostNameAnalysis" missing output "id"
+- Function "azure-native:app:listContainerAppCustomHostNameAnalysis" missing output "systemData"
+- Function "azure-native:app:listContainerAppCustomHostNameAnalysis" missing output "type"
+- Function "azure-native:app:listContainerAppCustomHostNameAnalysis" missing output "name"
+- Function "azure-native:insights:getActionGroup" missing output "identity"
+- Function "azure-native:insights:getActionGroup" missing output "kind"
+- Function "azure-native:app:listContainerAppCustomHostNameAnalysis" output "customDomainVerificationFailureInfo" type changed from "#/types/azure-native:app:DefaultErrorResponseResponse" to "#/types/azure-native:app:CustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfo"
+- Type "azure-native:security:ApplicationConditionOperator" missing
+- Type "azure-native:security:ApplicationCondition" missing
+- Type "azure-native:security:ApplicationConditionResponse" missing
+- Type "azure-native:app:DefaultErrorResponseResponse" missing
+- Type "azure-native:app:DefaultErrorResponseResponseError" missing
+- Type "azure-native:app:DefaultErrorResponseResponseDetails" missing
+
+#### New functions
+
+- `azure-native:solutions:listApplicationAllowedUpgradePlans`
+
+## 1.67.0 (2022-07-12)
+
+### Upstream breaking changes
+
+- Resource "azure-native:elasticsan:Volume" missing input "location"
+- Resource "azure-native:elasticsan:Volume" missing output "location"
+- Resource "azure-native:elasticsan:ElasticSan" missing output "provisionedMBps"
+- Resource "azure-native:elasticsan:VolumeGroup" missing input "location"
+- Resource "azure-native:elasticsan:VolumeGroup" missing output "location"
+- Resource "azure-native:automation:HybridRunbookWorkerGroup" missing output "hybridRunbookWorkers"
+- Function "azure-native:elasticsan:getVolume" missing output "location"
+- Function "azure-native:automation:getHybridRunbookWorkerGroup" missing output "hybridRunbookWorkers"
+- Function "azure-native:elasticsan:getElasticSan" missing output "provisionedMBps"
+- Function "azure-native:elasticsan:getVolumeGroup" missing output "location"
+- Type "azure-native:automation:HybridRunbookWorkerLegacyResponse" missing
+
+#### New resources
+
+- `azure-native:authorization:ScopeAccessReviewHistoryDefinitionById`
+- `azure-native:authorization:ScopeAccessReviewScheduleDefinitionById`
+- `azure-native:databricks:AccessConnector`
+- `azure-native:desktopvirtualization:ScalingPlanPooledSchedule`
+- `azure-native:security:Application`
+- `azure-native:security:SecurityConnectorApplication`
+- `azure-native:web:AppServiceEnvironmentAseCustomDnsSuffixConfiguration`
+- `azure-native:web:StaticSiteLinkedBackend`
+- `azure-native:web:StaticSiteLinkedBackendForBuild`
+
+#### New functions
+
+- `azure-native:authorization:getScopeAccessReviewHistoryDefinitionById`
+- `azure-native:authorization:getScopeAccessReviewScheduleDefinitionById`
+- `azure-native:databricks:getAccessConnector`
+- `azure-native:desktopvirtualization:getScalingPlanPooledSchedule`
+- `azure-native:security:getApplication`
+- `azure-native:security:getSecurityConnectorApplication`
+- `azure-native:resourceconnector:listApplianceClusterCustomerUserCredential`
+- `azure-native:web:getAppServiceEnvironmentAseCustomDnsSuffixConfiguration`
+- `azure-native:web:getStaticSiteLinkedBackend`
+- `azure-native:web:getStaticSiteLinkedBackendForBuild`
+- `azure-native:web:listWorkflowRunActionExpressionTraces`
+- `azure-native:web:listWorkflowRunActionRepetitionExpressionTraces`
+- `azure-native:web:listWorkflowTriggerCallbackUrl`
+
 ## 1.66.0 (2022-06-23)
 
 Resource "azure-native:iotcentral:App" changed from 2018-09-01 to 2021-06-01
 Resource "azure-native:iotcentral:getApp" changed from 2018-09-01 to 2021-06-01
 
-#### New resources:
+#### New resources
 
 - `azure-native:devhub:Workflow`
 - `azure-native:security:GovernanceAssignment`
 - `azure-native:security:GovernanceRule`
 - `azure-native:security:SecurityConnectorGovernanceRule`
 
-
-#### New functions:
+#### New functions
 
 - `azure-native:devhub:getGitHubOAuth`
 - `azure-native:devhub:getWorkflow`
@@ -23,7 +119,7 @@ Resource "azure-native:iotcentral:getApp" changed from 2018-09-01 to 2021-06-01
 - `azure-native:security:getGovernanceRule`
 - `azure-native:security:getSecurityConnectorGovernanceRule`
 
-#### Found API changes:
+#### Found API changes
 
 ```
 New resource "azure-native:devhub:Workflow"
@@ -439,12 +535,13 @@ New resource "azure-native:relay/v20211101:WCFRelayAuthorizationRule"
 ## 1.63.0 (2022-04-22)
 
 ## Breaking changes from Microsoft
-- Notebooks namespace removed in https://github.com/Azure/azure-rest-api-specs/pull/18482. Service is still in private preview.
+
+- Notebooks namespace removed in <https://github.com/Azure/azure-rest-api-specs/pull/18482>. Service is still in private preview.
 - Type "azure-native:app:GithubActionConfiguration" missing property "dockerfilePath"
 - Type "azure-native:app:GithubActionConfigurationResponse" missing property "dockerfilePath"
 - Type "azure-native:network:OrderBy" input "order" type changed from "string" to "object"
 
-#### New resources:
+#### New resources
 
 - `azure-native:costmanagement:ScheduledAction`
 - `azure-native:costmanagement:ScheduledActionByScope`
@@ -463,7 +560,7 @@ New resource "azure-native:relay/v20211101:WCFRelayAuthorizationRule"
 - `azure-native:scvmm:VirtualNetwork`
 - `azure-native:scvmm:VmmServer`
 
-#### New functions:
+#### New functions
 
 - `azure-native:costmanagement:getScheduledAction`
 - `azure-native:costmanagement:getScheduledActionByScope`
@@ -540,9 +637,9 @@ New resource "azure-native:relay/v20211101:WCFRelayAuthorizationRule"
 
 ## 1.58.0 (2022-02-14)
 
-- Fix go module size issue introduced in v1.57.0 (https://github.com/pulumi/pulumi-azure-native/issues/1502)
+- Fix go module size issue introduced in v1.57.0 (<https://github.com/pulumi/pulumi-azure-native/issues/1502>)
 
-### New resources:
+### New resources
 
 - `azure-native:azureactivedirectory/v20210401:GuestUsage`
 - `azure-native:containerservice/v20220101:Snapshot`
@@ -684,7 +781,7 @@ New resource "azure-native:relay/v20211101:WCFRelayAuthorizationRule"
 
 - Update to `pulumi/pulumi` 3.20.0
 - Go SDK improvements:
-  - Removed unused input types, see https://github.com/pulumi/pulumi/pull/7943
+  - Removed unused input types, see <https://github.com/pulumi/pulumi/pull/7943>
   - All comments for resources, types, and properties restored
   - SDK size reduced by 30%
 
@@ -1193,7 +1290,7 @@ New resource "azure-native:relay/v20211101:WCFRelayAuthorizationRule"
 ### Updated API versions for top-level resources
 
 - `authorization:ManagementLock*` resources and functions updated from `2016-09-01` to `2017-04-01`
-- `aadiam.privateLinkForAzureAd" changed from `2020-03-01-preview`to`2020-03-01`
+- `aadiam.privateLinkForAzureAd" changed from`2020-03-01-preview`to`2020-03-01`
 
 ---
 

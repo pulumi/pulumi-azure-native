@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20160901.Inputs
     /// <summary>
     /// Defines a health policy used to evaluate the health of the cluster or of a cluster node.
     /// </summary>
-    public sealed class ClusterHealthPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ClusterHealthPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10. 
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20160901.Inputs
         public ClusterHealthPolicyArgs()
         {
         }
+        public static new ClusterHealthPolicyArgs Empty => new ClusterHealthPolicyArgs();
     }
 }

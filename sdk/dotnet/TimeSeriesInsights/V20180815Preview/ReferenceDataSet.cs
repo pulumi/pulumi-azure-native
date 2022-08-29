@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
     /// </summary>
     [Obsolete(@"Version 2018-08-15-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:timeseriesinsights/v20180815preview:ReferenceDataSet")]
-    public partial class ReferenceDataSet : Pulumi.CustomResource
+    public partial class ReferenceDataSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The time the resource was created.
@@ -89,12 +89,12 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights:ReferenceDataSet"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:ReferenceDataSet"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:ReferenceDataSet"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:ReferenceDataSet"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:ReferenceDataSet"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:ReferenceDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights:ReferenceDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:ReferenceDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:ReferenceDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:ReferenceDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:ReferenceDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:ReferenceDataSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
         }
     }
 
-    public sealed class ReferenceDataSetArgs : Pulumi.ResourceArgs
+    public sealed class ReferenceDataSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
@@ -175,5 +175,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
         public ReferenceDataSetArgs()
         {
         }
+        public static new ReferenceDataSetArgs Empty => new ReferenceDataSetArgs();
     }
 }

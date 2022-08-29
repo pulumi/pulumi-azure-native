@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
     }
 
 
-    public sealed class GetCloudEdgeManagementRoleArgs : Pulumi.InvokeArgs
+    public sealed class GetCloudEdgeManagementRoleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
         public GetCloudEdgeManagementRoleArgs()
         {
         }
+        public static new GetCloudEdgeManagementRoleArgs Empty => new GetCloudEdgeManagementRoleArgs();
     }
 
-    public sealed class GetCloudEdgeManagementRoleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCloudEdgeManagementRoleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
         public GetCloudEdgeManagementRoleInvokeArgs()
         {
         }
+        public static new GetCloudEdgeManagementRoleInvokeArgs Empty => new GetCloudEdgeManagementRoleInvokeArgs();
     }
 
 

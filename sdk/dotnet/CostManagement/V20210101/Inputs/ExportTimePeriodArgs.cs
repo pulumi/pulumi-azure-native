@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.V20210101.Inputs
     /// <summary>
     /// The date range for data in the export. This should only be specified with timeFrame set to 'Custom'. The maximum date range is 3 months.
     /// </summary>
-    public sealed class ExportTimePeriodArgs : Pulumi.ResourceArgs
+    public sealed class ExportTimePeriodArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The start date for export data.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.CostManagement.V20210101.Inputs
         public ExportTimePeriodArgs()
         {
         }
+        public static new ExportTimePeriodArgs Empty => new ExportTimePeriodArgs();
     }
 }

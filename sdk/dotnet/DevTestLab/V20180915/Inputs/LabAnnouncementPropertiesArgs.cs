@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915.Inputs
     /// <summary>
     /// Properties of a lab's announcement banner
     /// </summary>
-    public sealed class LabAnnouncementPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class LabAnnouncementPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is the lab announcement active/enabled at this time?
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915.Inputs
         public LabAnnouncementPropertiesArgs()
         {
         }
+        public static new LabAnnouncementPropertiesArgs Empty => new LabAnnouncementPropertiesArgs();
     }
 }

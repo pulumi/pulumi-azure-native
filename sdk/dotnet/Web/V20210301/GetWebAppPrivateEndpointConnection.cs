@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Web.V20210301
     }
 
 
-    public sealed class GetWebAppPrivateEndpointConnectionArgs : Pulumi.InvokeArgs
+    public sealed class GetWebAppPrivateEndpointConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the site.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Web.V20210301
         public GetWebAppPrivateEndpointConnectionArgs()
         {
         }
+        public static new GetWebAppPrivateEndpointConnectionArgs Empty => new GetWebAppPrivateEndpointConnectionArgs();
     }
 
-    public sealed class GetWebAppPrivateEndpointConnectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWebAppPrivateEndpointConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the site.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Web.V20210301
         public GetWebAppPrivateEndpointConnectionInvokeArgs()
         {
         }
+        public static new GetWebAppPrivateEndpointConnectionInvokeArgs Empty => new GetWebAppPrivateEndpointConnectionInvokeArgs();
     }
 
 

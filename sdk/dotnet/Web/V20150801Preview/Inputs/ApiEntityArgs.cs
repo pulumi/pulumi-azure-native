@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20150801Preview.Inputs
     /// <summary>
     /// API Management
     /// </summary>
-    public sealed class ApiEntityArgs : Pulumi.ResourceArgs
+    public sealed class ApiEntityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// API definition Url - url where the swagger can be downloaded from
@@ -156,5 +156,6 @@ namespace Pulumi.AzureNative.Web.V20150801Preview.Inputs
         public ApiEntityArgs()
         {
         }
+        public static new ApiEntityArgs Empty => new ApiEntityArgs();
     }
 }

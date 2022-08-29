@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Insights
     /// API Version: 2019-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:DataCollectionRuleAssociation")]
-    public partial class DataCollectionRuleAssociation : Pulumi.CustomResource
+    public partial class DataCollectionRuleAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The resource ID of the data collection rule that is to be associated.
@@ -77,9 +77,9 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:insights/v20191101preview:DataCollectionRuleAssociation"},
-                    new Pulumi.Alias { Type = "azure-native:insights/v20210401:DataCollectionRuleAssociation"},
-                    new Pulumi.Alias { Type = "azure-native:insights/v20210901preview:DataCollectionRuleAssociation"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20191101preview:DataCollectionRuleAssociation"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20210401:DataCollectionRuleAssociation"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20210901preview:DataCollectionRuleAssociation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.Insights
         }
     }
 
-    public sealed class DataCollectionRuleAssociationArgs : Pulumi.ResourceArgs
+    public sealed class DataCollectionRuleAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the association. The name is case insensitive.
@@ -130,5 +130,6 @@ namespace Pulumi.AzureNative.Insights
         public DataCollectionRuleAssociationArgs()
         {
         }
+        public static new DataCollectionRuleAssociationArgs Empty => new DataCollectionRuleAssociationArgs();
     }
 }

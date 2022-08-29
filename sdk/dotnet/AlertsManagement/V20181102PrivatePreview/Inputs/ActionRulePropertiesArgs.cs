@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20181102PrivatePreview.Inputs
     /// <summary>
     /// Action rule properties defining scope, conditions, suppression logic for action rule
     /// </summary>
-    public sealed class ActionRulePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ActionRulePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.AlertsManagement.V20181102PrivatePreview.Inputs
         public ActionRulePropertiesArgs()
         {
         }
+        public static new ActionRulePropertiesArgs Empty => new ActionRulePropertiesArgs();
     }
 }

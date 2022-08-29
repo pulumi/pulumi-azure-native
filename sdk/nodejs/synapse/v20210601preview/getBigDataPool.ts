@@ -73,6 +73,10 @@ export interface GetBigDataPoolResult {
      */
     readonly id: string;
     /**
+     * Whether autotune is required or not.
+     */
+    readonly isAutotuneEnabled?: boolean;
+    /**
      * Whether compute isolation is required or not.
      */
     readonly isComputeIsolationEnabled?: boolean;

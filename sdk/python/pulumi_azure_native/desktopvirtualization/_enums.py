@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'ApplicationGroupType',
     'CommandLineSetting',
+    'DayOfWeek',
     'HostPoolType',
     'LoadBalancerType',
     'Operation',
@@ -38,6 +39,16 @@ class CommandLineSetting(str, Enum):
     DO_NOT_ALLOW = "DoNotAllow"
     ALLOW = "Allow"
     REQUIRE = "Require"
+
+
+class DayOfWeek(str, Enum):
+    MONDAY = "Monday"
+    TUESDAY = "Tuesday"
+    WEDNESDAY = "Wednesday"
+    THURSDAY = "Thursday"
+    FRIDAY = "Friday"
+    SATURDAY = "Saturday"
+    SUNDAY = "Sunday"
 
 
 class HostPoolType(str, Enum):

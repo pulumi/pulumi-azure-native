@@ -53,11 +53,13 @@ import * as v20210201preview from "./v20210201preview";
 import * as v20210301 from "./v20210301";
 import * as v20210501 from "./v20210501";
 import * as v20210501preview from "./v20210501preview";
+import * as v20210601 from "./v20210601";
 import * as v20210801 from "./v20210801";
 import * as v20220101 from "./v20220101";
 import * as v20220201preview from "./v20220201preview";
 import * as v20220401preview from "./v20220401preview";
 import * as v20220501 from "./v20220501";
+import * as v20220701 from "./v20220701";
 
 export {
     v20150501preview,
@@ -111,11 +113,13 @@ export {
     v20210301,
     v20210501,
     v20210501preview,
+    v20210601,
     v20210801,
     v20220101,
     v20220201preview,
     v20220401preview,
     v20220501,
+    v20220701,
 };
 
 export const Access = {

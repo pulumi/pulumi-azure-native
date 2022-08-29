@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220201.Inputs
     /// <summary>
     /// Weekly retention schedule.
     /// </summary>
-    public sealed class WeeklyRetentionScheduleArgs : Pulumi.ResourceArgs
+    public sealed class WeeklyRetentionScheduleArgs : global::Pulumi.ResourceArgs
     {
         [Input("daysOfTheWeek")]
         private InputList<Pulumi.AzureNative.RecoveryServices.V20220201.DayOfWeek>? _daysOfTheWeek;
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220201.Inputs
         public WeeklyRetentionScheduleArgs()
         {
         }
+        public static new WeeklyRetentionScheduleArgs Empty => new WeeklyRetentionScheduleArgs();
     }
 }

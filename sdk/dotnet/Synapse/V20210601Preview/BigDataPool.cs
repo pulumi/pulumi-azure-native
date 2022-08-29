@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
     /// A Big Data pool
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse/v20210601preview:BigDataPool")]
-    public partial class BigDataPool : Pulumi.CustomResource
+    public partial class BigDataPool : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Auto-pausing properties
@@ -56,6 +56,12 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// </summary>
         [Output("dynamicExecutorAllocation")]
         public Output<Outputs.DynamicExecutorAllocationResponse?> DynamicExecutorAllocation { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether autotune is required or not.
+        /// </summary>
+        [Output("isAutotuneEnabled")]
+        public Output<bool?> IsAutotuneEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Whether compute isolation is required or not.
@@ -172,13 +178,13 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:synapse:BigDataPool"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:BigDataPool"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20201201:BigDataPool"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210301:BigDataPool"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:BigDataPool"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210501:BigDataPool"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601:BigDataPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse:BigDataPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:BigDataPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20201201:BigDataPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210301:BigDataPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:BigDataPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210501:BigDataPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601:BigDataPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -200,7 +206,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         }
     }
 
-    public sealed class BigDataPoolArgs : Pulumi.ResourceArgs
+    public sealed class BigDataPoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Auto-pausing properties
@@ -255,6 +261,12 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// </summary>
         [Input("force")]
         public Input<bool>? Force { get; set; }
+
+        /// <summary>
+        /// Whether autotune is required or not.
+        /// </summary>
+        [Input("isAutotuneEnabled")]
+        public Input<bool>? IsAutotuneEnabled { get; set; }
 
         /// <summary>
         /// Whether compute isolation is required or not.
@@ -349,5 +361,6 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         public BigDataPoolArgs()
         {
         }
+        public static new BigDataPoolArgs Empty => new BigDataPoolArgs();
     }
 }

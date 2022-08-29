@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20211001
     /// Specifies information about the gallery Application Version that you want to create or update.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute/v20211001:GalleryApplicationVersion")]
-    public partial class GalleryApplicationVersion : Pulumi.CustomResource
+    public partial class GalleryApplicationVersion : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource location
@@ -82,12 +82,13 @@ namespace Pulumi.AzureNative.Compute.V20211001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:compute:GalleryApplicationVersion"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20190301:GalleryApplicationVersion"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:GalleryApplicationVersion"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20191201:GalleryApplicationVersion"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20200930:GalleryApplicationVersion"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210701:GalleryApplicationVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute:GalleryApplicationVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190301:GalleryApplicationVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190701:GalleryApplicationVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20191201:GalleryApplicationVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200930:GalleryApplicationVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:GalleryApplicationVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220103:GalleryApplicationVersion"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -109,7 +110,7 @@ namespace Pulumi.AzureNative.Compute.V20211001
         }
     }
 
-    public sealed class GalleryApplicationVersionArgs : Pulumi.ResourceArgs
+    public sealed class GalleryApplicationVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the gallery Application Definition in which the Application Version is to be created.
@@ -162,5 +163,6 @@ namespace Pulumi.AzureNative.Compute.V20211001
         public GalleryApplicationVersionArgs()
         {
         }
+        public static new GalleryApplicationVersionArgs Empty => new GalleryApplicationVersionArgs();
     }
 }

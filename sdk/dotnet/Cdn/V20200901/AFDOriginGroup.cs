@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901
     /// AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn/v20200901:AFDOriginGroup")]
-    public partial class AFDOriginGroup : Pulumi.CustomResource
+    public partial class AFDOriginGroup : global::Pulumi.CustomResource
     {
         [Output("deploymentStatus")]
         public Output<string> DeploymentStatus { get; private set; } = null!;
@@ -97,8 +97,8 @@ namespace Pulumi.AzureNative.Cdn.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:cdn:AFDOriginGroup"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20210601:AFDOriginGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn:AFDOriginGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:AFDOriginGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901
         }
     }
 
-    public sealed class AFDOriginGroupArgs : Pulumi.ResourceArgs
+    public sealed class AFDOriginGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Health probe settings to the origin that is used to determine the health of the origin.
@@ -173,5 +173,6 @@ namespace Pulumi.AzureNative.Cdn.V20200901
         public AFDOriginGroupArgs()
         {
         }
+        public static new AFDOriginGroupArgs Empty => new AFDOriginGroupArgs();
     }
 }

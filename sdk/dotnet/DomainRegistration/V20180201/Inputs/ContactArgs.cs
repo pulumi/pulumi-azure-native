@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DomainRegistration.V20180201.Inputs
     /// Contact information for domain registration. If 'Domain Privacy' option is not selected then the contact information is made publicly available through the Whois 
     /// directories as per ICANN requirements.
     /// </summary>
-    public sealed class ContactArgs : Pulumi.ResourceArgs
+    public sealed class ContactArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Mailing address.
@@ -73,5 +73,6 @@ namespace Pulumi.AzureNative.DomainRegistration.V20180201.Inputs
         public ContactArgs()
         {
         }
+        public static new ContactArgs Empty => new ContactArgs();
     }
 }

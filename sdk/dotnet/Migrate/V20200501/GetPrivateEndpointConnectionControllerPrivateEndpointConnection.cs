@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Migrate.V20200501
     }
 
 
-    public sealed class GetPrivateEndpointConnectionControllerPrivateEndpointConnectionArgs : Pulumi.InvokeArgs
+    public sealed class GetPrivateEndpointConnectionControllerPrivateEndpointConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Migrate project name.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Migrate.V20200501
         public GetPrivateEndpointConnectionControllerPrivateEndpointConnectionArgs()
         {
         }
+        public static new GetPrivateEndpointConnectionControllerPrivateEndpointConnectionArgs Empty => new GetPrivateEndpointConnectionControllerPrivateEndpointConnectionArgs();
     }
 
-    public sealed class GetPrivateEndpointConnectionControllerPrivateEndpointConnectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPrivateEndpointConnectionControllerPrivateEndpointConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Migrate project name.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Migrate.V20200501
         public GetPrivateEndpointConnectionControllerPrivateEndpointConnectionInvokeArgs()
         {
         }
+        public static new GetPrivateEndpointConnectionControllerPrivateEndpointConnectionInvokeArgs Empty => new GetPrivateEndpointConnectionControllerPrivateEndpointConnectionInvokeArgs();
     }
 
 

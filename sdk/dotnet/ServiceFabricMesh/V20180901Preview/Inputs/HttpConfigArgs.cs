@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Inputs
     /// <summary>
     /// Describes the http configuration for external connectivity for this network.
     /// </summary>
-    public sealed class HttpConfigArgs : Pulumi.ResourceArgs
+    public sealed class HttpConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("hosts", required: true)]
         private InputList<Inputs.HttpHostConfigArgs>? _hosts;
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Inputs
         public HttpConfigArgs()
         {
         }
+        public static new HttpConfigArgs Empty => new HttpConfigArgs();
     }
 }

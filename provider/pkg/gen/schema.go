@@ -15,7 +15,6 @@
 package gen
 
 import (
-	"encoding/json"
 	"fmt"
 	"log"
 	"net/url"
@@ -23,6 +22,8 @@ import (
 	"path/filepath"
 	"sort"
 	"strings"
+
+	"github.com/segmentio/encoding/json"
 
 	"github.com/blang/semver"
 	"github.com/go-openapi/spec"
@@ -183,6 +184,9 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 	csharpNamespaces := map[string]string{
 		"azure-native": "AzureNative",
 	}
+	javaPackages := map[string]string{
+		"azure-native": "azurenative",
+	}
 	pythonModuleNames := map[string]string{}
 	golangImportAliases := map[string]string{}
 
@@ -209,12 +213,14 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 				examples:   exampleMap,
 			}
 
-			// Populate C#, Python and Go module mapping.
+			// Populate C#, Java, Python and Go module mapping.
 			module := gen.providerToModule(providerName)
 			csharpNamespaces[strings.ToLower(providerName)] = providerName
+			javaPackages[module] = strings.ToLower(providerName)
 			if version != "" {
 				csVersion := strings.Title(csharpVersionReplacer.Replace(version))
 				csharpNamespaces[module] = fmt.Sprintf("%s.%s", providerName, csVersion)
+				javaPackages[module] = fmt.Sprintf("%s.%s", strings.ToLower(providerName), version)
 			}
 			pythonModuleNames[module] = module
 			golangImportAliases[filepath.Join(goBasePath, module)] = strings.ToLower(providerName)
@@ -290,6 +296,10 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 			"System.Collections.Immutable": "5.0.0",
 		},
 		"namespaces": csharpNamespaces,
+	})
+
+	pkg.Language["java"] = rawMessage(map[string]interface{}{
+		"packages": javaPackages,
 	})
 
 	return &pkg, &metadata, exampleMap, nil
@@ -1086,8 +1096,9 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			// TODO: Get rid of this in https://github.com/pulumi/pulumi-azure-native/issues/331
 			continue
 		}
-		// Workaround for https://github.com/pulumi/pulumi/issues/9883 - remove once merged
-		if name == "conditionSets" && property.Items.Schema.Ref.String() == "#/definitions/GovernanceRuleConditionSets" {
+		// TODO: Workaround for https://github.com/pulumi/pulumi/issues/9883 - remove once merged
+		if (name == "conditionSets" && property.Items.Schema.Ref.String() == "#/definitions/GovernanceRuleConditionSets") ||
+			(name == "conditionSets" && property.Items.Schema.Ref.String() == "#/definitions/ApplicationConditionSets") {
 			continue
 		}
 
@@ -1425,14 +1436,22 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 	}
 
 	// TODO: Remove this switch if https://github.com/Azure/azure-rest-api-specs/issues/13167 is fixed
-	var defaultValue interface{}
-	switch typeSpec.Type {
-	case "object":
-		if schema.Default != nil {
-			fmt.Printf("Default value '%v' can't be specified for an object property %q\n", schema.Default, name)
+	defaultValue := schema.Default
+	if defaultValue != nil && typeSpec.Type == "object" {
+		fmt.Printf("Default value '%v' can't be specified for an object property %q\n", schema.Default, name)
+		defaultValue = nil
+	}
+	// TODO: Find a better way of detecting when we won't support a default value:
+	// E.g. #/types/azure-native:machinelearningservices%2Fv20220601preview:LabelingJobResponse/properties/mlAssistConfiguration/default:
+	// type Union<azure-native:machinelearningservices/v20220601preview:MLAssistConfigurationDisabledResponse, azure-native:machinelearningservices/v20220601preview:MLAssistConfigurationEnabledResponse>
+	// cannot have a constant value; only booleans, integers, numbers and strings may have constant values;
+	// HACK: Check if the default value looks like JSON and remove it.
+	switch schema.Default.(type) {
+	case string:
+		if strings.HasPrefix(schema.Default.(string), "{") {
+			fmt.Printf("Default value '%v' appears to be an object %q\n", schema.Default, name)
+			defaultValue = nil
 		}
-	default:
-		defaultValue = schema.Default
 	}
 
 	propertySpec := pschema.PropertySpec{
@@ -1515,23 +1534,15 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 
 			if v, has := m.pkg.Types[tok]; has {
 				// TODO: @stack72 handle this as part of https://github.com/pulumi/pulumi-azure-native/issues/1606
-				if strings.HasPrefix(tok, "azure-native:eventgrid:") ||
-				    tok == "azure-native:authorization:PrincipalResponse" && len(v.Properties) == 2 ||
-					tok == "azure-native:netapp:ExportPolicyRuleResponse" && len(v.Properties) == 14 ||
-					tok == "azure-native:netapp:ReplicationObject" && len(v.Properties) == 5 ||
-					tok == "azure-native:netapp:ExportPolicyRule" && len(v.Properties) == 14 ||
-					tok == "azure-native:securityinsights/v20211001:IncidentOwnerInfoResponse" && len(v.Properties) == 5 ||
-					tok == "azure-native:securityinsights/v20211001:IncidentOwnerInfo" && len(v.Properties) == 5 ||
-					tok == "azure-native:automanage:ConfigurationProfileAssignmentProperties" && len(v.Properties) == 4 ||
-					tok == "azure-native:automanage:ConfigurationProfileAssignmentPropertiesResponse" && len(v.Properties) == 6 {
-					// TODO: this was needed to unblock nightly generation: generalize this case.
+				if tok == "azure-native:netapp:ReplicationObject" && len(v.Properties) == 5 {
 					v = spec
 				}
-				err := compatibleTypes(spec, v, isOutput)
+				merged, err := mergeTypes(spec, v, isOutput)
 				if err != nil {
 					return nil, errors.Wrapf(err, "incompatible type %q for resource %q (%q)", tok, m.resourceName,
 						m.resourceToken)
 				}
+				spec = *merged
 			}
 
 			m.pkg.Types[tok] = spec
@@ -1623,49 +1634,58 @@ func (m *moduleGenerator) inlineTypeName(ctx *openapi.ReferenceContext, property
 	return result
 }
 
-// compatibleTypes checks that two type specs are allowed to be represented as a single schema type.
+// mergeTypes checks that two type specs are allowed to be represented as a single schema type.
 // If you face an error coming from this function for a new API change, consider changing the typeNameOverride map
 // or adjusting the way the top-level resources are projected in versioner.go.
-func compatibleTypes(t1 schema.ComplexTypeSpec, t2 schema.ComplexTypeSpec, isOutput bool) error {
+func mergeTypes(t1 schema.ComplexTypeSpec, t2 schema.ComplexTypeSpec, isOutput bool) (*schema.ComplexTypeSpec, error) {
 	if t1.Type != t2.Type {
-		return errors.Errorf("types do not match: %s vs %s", t1.Type, t2.Type)
-	}
-	if len(t1.Properties) != len(t2.Properties) {
-		return errors.Errorf("property count do not match: %d vs %d", len(t1.Properties), len(t2.Properties))
-	}
-	if !isOutput && len(t1.Required) != len(t2.Required) {
-		return errors.Errorf("required property count do not match: %d vs %d", len(t1.Required), len(t2.Required))
+		return nil, errors.Errorf("types do not match: %s vs %s", t1.Type, t2.Type)
 	}
 
-	// Check that every property of T2 exists in T1 and has the same type.
-	t1props := map[string]pschema.PropertySpec{}
+	if !isOutput {
+		// Check that every required property of T1 and T2 exists in T1 and has the same type (for intputs only).
+		t1Required := codegen.NewStringSet(t1.Required...)
+		t2Required := codegen.NewStringSet(t2.Required...)
+		t1Only := t1Required.Subtract(t2Required)
+		t2Only := t2Required.Subtract(t1Required)
+		if len(t1Only) != 0 || len(t2Only) != 0 {
+			var requiredErrors []string
+			if len(t1Only) != 0 {
+				t1Fmt := strings.Join(t1Only.SortedValues(), ",")
+				requiredErrors = append(requiredErrors, fmt.Sprintf("only required in A: %s", t1Fmt))
+			}
+			if len(t2Only) != 0 {
+				t2Fmt := strings.Join(t2Only.SortedValues(), ",")
+				requiredErrors = append(requiredErrors, fmt.Sprintf("only required in B: %s", t2Fmt))
+			}
+			return nil, errors.Errorf("required properties do not match: %s", strings.Join(requiredErrors, "; "))
+		}
+	}
+
+	if t1.Properties == nil && t2.Properties == nil {
+		return &t1, nil
+	}
+	mergedProperties := map[string]pschema.PropertySpec{}
 	for name, p := range t1.Properties {
-		t1props[name] = p
+		mergedProperties[name] = p
 	}
 	for name, p2 := range t2.Properties {
-		if p1, ok := t1props[name]; ok {
-			if p1.Type != p2.Type {
-				return errors.Errorf("property %q types do not match: %s vs %s", name, p1.Type, p2.Type)
-			}
-			if p1.Ref != p2.Ref {
-				return errors.Errorf("property %q refs do not match: %s vs %s", name, p1.Ref, p2.Ref)
-			}
-		} else {
-			return errors.Errorf("property %q exists in one but not the other", name)
+		p1, found := mergedProperties[name]
+		if !found {
+			mergedProperties[name] = p2
+			continue
+		}
+		if p1.Type != p2.Type {
+			return nil, errors.Errorf("property %q types do not match: %s vs %s", name, p1.Type, p2.Type)
+		}
+		if p1.Ref != p2.Ref {
+			return nil, errors.Errorf("property %q refs do not match: %s vs %s", name, p1.Ref, p2.Ref)
 		}
 	}
 
-	// Check that required properties are the same. Output types aren't that important in this regards.
-	if !isOutput {
-		t1reqs := codegen.NewStringSet(t1.Required...)
-		for _, name := range t2.Required {
-			if !t1reqs.Has(name) {
-				return errors.Errorf("property %q is required in one but not the other", name)
-			}
-		}
-	}
-
-	return nil
+	merged := t1
+	merged.Properties = mergedProperties
+	return &merged, nil
 }
 
 // genEnumType generates the enum type.

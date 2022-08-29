@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.Inputs
     /// <summary>
     /// The private link service ip configuration.
     /// </summary>
-    public sealed class PrivateLinkServiceIpConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class PrivateLinkServiceIpConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID.
@@ -60,5 +60,6 @@ namespace Pulumi.AzureNative.Network.Inputs
         public PrivateLinkServiceIpConfigurationArgs()
         {
         }
+        public static new PrivateLinkServiceIpConfigurationArgs Empty => new PrivateLinkServiceIpConfigurationArgs();
     }
 }

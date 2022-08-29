@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview.Inputs
     /// <summary>
     /// Properties for the task that collects user tables for the given list of databases
     /// </summary>
-    public sealed class GetUserTablesMySqlTaskPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class GetUserTablesMySqlTaskPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("clientData")]
         private InputMap<string>? _clientData;
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview.Inputs
         public GetUserTablesMySqlTaskPropertiesArgs()
         {
         }
+        public static new GetUserTablesMySqlTaskPropertiesArgs Empty => new GetUserTablesMySqlTaskPropertiesArgs();
     }
 }

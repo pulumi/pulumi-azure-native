@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.Inputs
     /// <summary>
     /// Describes an Azure SQL database output data source.
     /// </summary>
-    public sealed class AzureSqlDatabaseOutputDataSourceArgs : Pulumi.ResourceArgs
+    public sealed class AzureSqlDatabaseOutputDataSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Azure SQL database. Required on PUT (CreateOrReplace) requests.
@@ -55,5 +55,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.Inputs
         public AzureSqlDatabaseOutputDataSourceArgs()
         {
         }
+        public static new AzureSqlDatabaseOutputDataSourceArgs Empty => new AzureSqlDatabaseOutputDataSourceArgs();
     }
 }

@@ -101,7 +101,7 @@ export class EmailService extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:communication/v20211001preview:EmailService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:communication/v20211001preview:EmailService" }, { type: "azure-native:communication/v20220701preview:EmailService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EmailService.__pulumiType, name, resourceInputs, opts);
     }

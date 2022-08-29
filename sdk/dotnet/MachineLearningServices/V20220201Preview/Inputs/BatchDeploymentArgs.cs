@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// Batch inference settings per deployment.
     /// </summary>
-    public sealed class BatchDeploymentArgs : Pulumi.ResourceArgs
+    public sealed class BatchDeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Code configuration for the endpoint deployment.
@@ -134,5 +134,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
             OutputAction = "AppendRow";
             OutputFileName = "predictions.csv";
         }
+        public static new BatchDeploymentArgs Empty => new BatchDeploymentArgs();
     }
 }

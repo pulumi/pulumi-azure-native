@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190901.Inputs
     /// <summary>
     /// Properties of the revoked VPN client certificate of VpnServerConfiguration.
     /// </summary>
-    public sealed class VpnServerConfigVpnClientRevokedCertificateArgs : Pulumi.ResourceArgs
+    public sealed class VpnServerConfigVpnClientRevokedCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The certificate name.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Network.V20190901.Inputs
         public VpnServerConfigVpnClientRevokedCertificateArgs()
         {
         }
+        public static new VpnServerConfigVpnClientRevokedCertificateArgs Empty => new VpnServerConfigVpnClientRevokedCertificateArgs();
     }
 }

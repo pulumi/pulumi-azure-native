@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
     /// <summary>
     /// NetworkSecurityGroup resource.
     /// </summary>
-    public sealed class NetworkSecurityGroupArgs : Pulumi.ResourceArgs
+    public sealed class NetworkSecurityGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When enabled, flows created from Network Security Group connections will be re-evaluated when rules are updates. Initial enablement will trigger re-evaluation.
@@ -60,5 +60,6 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
         public NetworkSecurityGroupArgs()
         {
         }
+        public static new NetworkSecurityGroupArgs Empty => new NetworkSecurityGroupArgs();
     }
 }

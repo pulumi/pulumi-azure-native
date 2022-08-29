@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20140401
     /// Represents a database data masking policy.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20140401:DataMaskingPolicy")]
-    public partial class DataMaskingPolicy : Pulumi.CustomResource
+    public partial class DataMaskingPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The list of the application principals. This is a legacy parameter and is no longer used.
@@ -88,7 +88,9 @@ namespace Pulumi.AzureNative.Sql.V20140401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:sql:DataMaskingPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql:DataMaskingPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:DataMaskingPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:DataMaskingPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -110,7 +112,7 @@ namespace Pulumi.AzureNative.Sql.V20140401
         }
     }
 
-    public sealed class DataMaskingPolicyArgs : Pulumi.ResourceArgs
+    public sealed class DataMaskingPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the database for which the data masking rule applies.
@@ -151,5 +153,6 @@ namespace Pulumi.AzureNative.Sql.V20140401
         public DataMaskingPolicyArgs()
         {
         }
+        public static new DataMaskingPolicyArgs Empty => new DataMaskingPolicyArgs();
     }
 }

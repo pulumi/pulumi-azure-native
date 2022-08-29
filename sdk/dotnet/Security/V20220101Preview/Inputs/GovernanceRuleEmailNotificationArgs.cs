@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20220101Preview.Inputs
     /// <summary>
     /// The governance email weekly notification configuration.
     /// </summary>
-    public sealed class GovernanceRuleEmailNotificationArgs : Pulumi.ResourceArgs
+    public sealed class GovernanceRuleEmailNotificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Defines whether manager email notifications are disabled.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Security.V20220101Preview.Inputs
         public GovernanceRuleEmailNotificationArgs()
         {
         }
+        public static new GovernanceRuleEmailNotificationArgs Empty => new GovernanceRuleEmailNotificationArgs();
     }
 }

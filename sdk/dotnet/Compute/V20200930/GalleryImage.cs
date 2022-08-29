@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20200930
     /// Specifies information about the gallery image definition that you want to create or update.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute/v20200930:GalleryImage")]
-    public partial class GalleryImage : Pulumi.CustomResource
+    public partial class GalleryImage : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The description of this gallery image definition resource. This property is updatable.
@@ -148,13 +148,14 @@ namespace Pulumi.AzureNative.Compute.V20200930
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:compute:GalleryImage"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20180601:GalleryImage"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20190301:GalleryImage"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:GalleryImage"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20191201:GalleryImage"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210701:GalleryImage"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20211001:GalleryImage"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute:GalleryImage"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180601:GalleryImage"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190301:GalleryImage"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190701:GalleryImage"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20191201:GalleryImage"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:GalleryImage"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211001:GalleryImage"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220103:GalleryImage"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -176,7 +177,7 @@ namespace Pulumi.AzureNative.Compute.V20200930
         }
     }
 
-    public sealed class GalleryImageArgs : Pulumi.ResourceArgs
+    public sealed class GalleryImageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of this gallery image definition resource. This property is updatable.
@@ -301,5 +302,6 @@ namespace Pulumi.AzureNative.Compute.V20200930
         public GalleryImageArgs()
         {
         }
+        public static new GalleryImageArgs Empty => new GalleryImageArgs();
     }
 }

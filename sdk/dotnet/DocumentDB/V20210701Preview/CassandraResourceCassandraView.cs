@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210701Preview
     /// An Azure Cosmos DB Cassandra view.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb/v20210701preview:CassandraResourceCassandraView")]
-    public partial class CassandraResourceCassandraView : Pulumi.CustomResource
+    public partial class CassandraResourceCassandraView : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Identity for the resource.
@@ -76,10 +76,11 @@ namespace Pulumi.AzureNative.DocumentDB.V20210701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:documentdb:CassandraResourceCassandraView"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:CassandraResourceCassandraView"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:CassandraResourceCassandraView"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:CassandraResourceCassandraView"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb:CassandraResourceCassandraView"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:CassandraResourceCassandraView"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:CassandraResourceCassandraView"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:CassandraResourceCassandraView"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:CassandraResourceCassandraView"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -101,7 +102,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210701Preview
         }
     }
 
-    public sealed class CassandraResourceCassandraViewArgs : Pulumi.ResourceArgs
+    public sealed class CassandraResourceCassandraViewArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cosmos DB database account name.
@@ -166,5 +167,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20210701Preview
         public CassandraResourceCassandraViewArgs()
         {
         }
+        public static new CassandraResourceCassandraViewArgs Empty => new CassandraResourceCassandraViewArgs();
     }
 }

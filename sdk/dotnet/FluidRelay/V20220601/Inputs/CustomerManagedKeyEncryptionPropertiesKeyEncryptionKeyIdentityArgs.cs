@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.FluidRelay.V20220601.Inputs
     /// <summary>
     /// All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
     /// </summary>
-    public sealed class CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentityArgs : Pulumi.ResourceArgs
+    public sealed class CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Values can be SystemAssigned or UserAssigned
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.FluidRelay.V20220601.Inputs
         public CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentityArgs()
         {
         }
+        public static new CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentityArgs Empty => new CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentityArgs();
     }
 }

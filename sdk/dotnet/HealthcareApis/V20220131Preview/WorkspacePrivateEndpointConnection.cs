@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220131Preview
     /// The Private Endpoint Connection resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis/v20220131preview:WorkspacePrivateEndpointConnection")]
-    public partial class WorkspacePrivateEndpointConnection : Pulumi.CustomResource
+    public partial class WorkspacePrivateEndpointConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -76,9 +76,10 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220131Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis:WorkspacePrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:WorkspacePrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:WorkspacePrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis:WorkspacePrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:WorkspacePrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:WorkspacePrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220601:WorkspacePrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -100,7 +101,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220131Preview
         }
     }
 
-    public sealed class WorkspacePrivateEndpointConnectionArgs : Pulumi.ResourceArgs
+    public sealed class WorkspacePrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the private endpoint connection associated with the Azure resource
@@ -129,5 +130,6 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220131Preview
         public WorkspacePrivateEndpointConnectionArgs()
         {
         }
+        public static new WorkspacePrivateEndpointConnectionArgs Empty => new WorkspacePrivateEndpointConnectionArgs();
     }
 }

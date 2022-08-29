@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180601Preview.Inputs
     /// <summary>
     /// Represents an Asset for input into a Job.
     /// </summary>
-    public sealed class JobInputAssetArgs : Pulumi.ResourceArgs
+    public sealed class JobInputAssetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the input Asset.
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.Media.V20180601Preview.Inputs
         public JobInputAssetArgs()
         {
         }
+        public static new JobInputAssetArgs Empty => new JobInputAssetArgs();
     }
 }

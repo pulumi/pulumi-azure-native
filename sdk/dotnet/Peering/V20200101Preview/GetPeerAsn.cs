@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Peering.V20200101Preview
     }
 
 
-    public sealed class GetPeerAsnArgs : Pulumi.InvokeArgs
+    public sealed class GetPeerAsnArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The peer ASN name.
@@ -37,9 +37,10 @@ namespace Pulumi.AzureNative.Peering.V20200101Preview
         public GetPeerAsnArgs()
         {
         }
+        public static new GetPeerAsnArgs Empty => new GetPeerAsnArgs();
     }
 
-    public sealed class GetPeerAsnInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPeerAsnInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The peer ASN name.
@@ -50,6 +51,7 @@ namespace Pulumi.AzureNative.Peering.V20200101Preview
         public GetPeerAsnInvokeArgs()
         {
         }
+        public static new GetPeerAsnInvokeArgs Empty => new GetPeerAsnInvokeArgs();
     }
 
 

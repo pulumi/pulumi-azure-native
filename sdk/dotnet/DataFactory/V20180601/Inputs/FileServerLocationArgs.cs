@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// The location of file server dataset.
     /// </summary>
-    public sealed class FileServerLocationArgs : Pulumi.ResourceArgs
+    public sealed class FileServerLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specify the file name of dataset. Type: string (or Expression with resultType string).
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public FileServerLocationArgs()
         {
         }
+        public static new FileServerLocationArgs Empty => new FileServerLocationArgs();
     }
 }

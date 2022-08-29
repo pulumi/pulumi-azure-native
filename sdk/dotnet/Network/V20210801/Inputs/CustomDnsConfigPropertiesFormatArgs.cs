@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
     /// <summary>
     /// Contains custom Dns resolution configuration from customer.
     /// </summary>
-    public sealed class CustomDnsConfigPropertiesFormatArgs : Pulumi.ResourceArgs
+    public sealed class CustomDnsConfigPropertiesFormatArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Fqdn that resolves to private endpoint ip address.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
         public CustomDnsConfigPropertiesFormatArgs()
         {
         }
+        public static new CustomDnsConfigPropertiesFormatArgs Empty => new CustomDnsConfigPropertiesFormatArgs();
     }
 }

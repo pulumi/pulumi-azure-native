@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview
     /// Event Subscription
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid/v20211015preview:DomainTopicEventSubscription")]
-    public partial class DomainTopicEventSubscription : Pulumi.CustomResource
+    public partial class DomainTopicEventSubscription : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
@@ -128,8 +128,8 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:eventgrid:DomainTopicEventSubscription"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:DomainTopicEventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid:DomainTopicEventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:DomainTopicEventSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -151,7 +151,7 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview
         }
     }
 
-    public sealed class DomainTopicEventSubscriptionArgs : Pulumi.ResourceArgs
+    public sealed class DomainTopicEventSubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
@@ -245,5 +245,6 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview
         {
             EventDeliverySchema = "EventGridSchema";
         }
+        public static new DomainTopicEventSubscriptionArgs Empty => new DomainTopicEventSubscriptionArgs();
     }
 }

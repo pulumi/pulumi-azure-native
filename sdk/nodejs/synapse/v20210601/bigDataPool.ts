@@ -64,6 +64,10 @@ export class BigDataPool extends pulumi.CustomResource {
      */
     public readonly dynamicExecutorAllocation!: pulumi.Output<outputs.synapse.v20210601.DynamicExecutorAllocationResponse | undefined>;
     /**
+     * Whether autotune is required or not.
+     */
+    public readonly isAutotuneEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Whether compute isolation is required or not.
      */
     public readonly isComputeIsolationEnabled!: pulumi.Output<boolean | undefined>;
@@ -149,6 +153,7 @@ export class BigDataPool extends pulumi.CustomResource {
             resourceInputs["defaultSparkLogFolder"] = args ? args.defaultSparkLogFolder : undefined;
             resourceInputs["dynamicExecutorAllocation"] = args ? args.dynamicExecutorAllocation : undefined;
             resourceInputs["force"] = args ? args.force : undefined;
+            resourceInputs["isAutotuneEnabled"] = args ? args.isAutotuneEnabled : undefined;
             resourceInputs["isComputeIsolationEnabled"] = args ? args.isComputeIsolationEnabled : undefined;
             resourceInputs["libraryRequirements"] = args ? args.libraryRequirements : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -175,6 +180,7 @@ export class BigDataPool extends pulumi.CustomResource {
             resourceInputs["customLibraries"] = undefined /*out*/;
             resourceInputs["defaultSparkLogFolder"] = undefined /*out*/;
             resourceInputs["dynamicExecutorAllocation"] = undefined /*out*/;
+            resourceInputs["isAutotuneEnabled"] = undefined /*out*/;
             resourceInputs["isComputeIsolationEnabled"] = undefined /*out*/;
             resourceInputs["lastSucceededTimestamp"] = undefined /*out*/;
             resourceInputs["libraryRequirements"] = undefined /*out*/;
@@ -234,6 +240,10 @@ export interface BigDataPoolArgs {
      * Whether to stop any running jobs in the Big Data pool
      */
     force?: pulumi.Input<boolean>;
+    /**
+     * Whether autotune is required or not.
+     */
+    isAutotuneEnabled?: pulumi.Input<boolean>;
     /**
      * Whether compute isolation is required or not.
      */

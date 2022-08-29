@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20171012.Inputs
     /// <summary>
     /// Defines the parameters for the URL path condition.
     /// </summary>
-    public sealed class UrlPathConditionParametersArgs : Pulumi.ResourceArgs
+    public sealed class UrlPathConditionParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The match type for the condition of the delivery rule
@@ -33,5 +33,6 @@ namespace Pulumi.AzureNative.Cdn.V20171012.Inputs
         public UrlPathConditionParametersArgs()
         {
         }
+        public static new UrlPathConditionParametersArgs Empty => new UrlPathConditionParametersArgs();
     }
 }

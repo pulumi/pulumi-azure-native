@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Sql
     /// API Version: 2020-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ServerKey")]
-    public partial class ServerKey : Pulumi.CustomResource
+    public partial class ServerKey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Key auto rotation opt-in flag. Either true or false.
@@ -89,14 +89,16 @@ namespace Pulumi.AzureNative.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:sql/v20150501preview:ServerKey"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ServerKey"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ServerKey"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ServerKey"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ServerKey"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ServerKey"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ServerKey"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ServerKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20150501preview:ServerKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ServerKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ServerKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ServerKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ServerKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ServerKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ServerKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:ServerKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ServerKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ServerKey"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +120,7 @@ namespace Pulumi.AzureNative.Sql
         }
     }
 
-    public sealed class ServerKeyArgs : Pulumi.ResourceArgs
+    public sealed class ServerKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the server key to be operated on (updated or created). The key name is required to be in the format of 'vault_key_version'. For example, if the keyId is https://YourVaultName.vault.azure.net/keys/YourKeyName/YourKeyVersion, then the server key name should be formatted as: YourVaultName_YourKeyName_YourKeyVersion
@@ -153,5 +155,6 @@ namespace Pulumi.AzureNative.Sql
         public ServerKeyArgs()
         {
         }
+        public static new ServerKeyArgs Empty => new ServerKeyArgs();
     }
 }

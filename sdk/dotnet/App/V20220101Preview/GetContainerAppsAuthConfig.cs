@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview
     }
 
 
-    public sealed class GetContainerAppsAuthConfigArgs : Pulumi.InvokeArgs
+    public sealed class GetContainerAppsAuthConfigArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Container App.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.App.V20220101Preview
         public GetContainerAppsAuthConfigArgs()
         {
         }
+        public static new GetContainerAppsAuthConfigArgs Empty => new GetContainerAppsAuthConfigArgs();
     }
 
-    public sealed class GetContainerAppsAuthConfigInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetContainerAppsAuthConfigInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Container App.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview
         public GetContainerAppsAuthConfigInvokeArgs()
         {
         }
+        public static new GetContainerAppsAuthConfigInvokeArgs Empty => new GetContainerAppsAuthConfigInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Linked service for CosmosDB (MongoDB API) data source.
     /// </summary>
-    public sealed class CosmosDbMongoDbApiLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class CosmosDbMongoDbApiLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -79,5 +79,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public CosmosDbMongoDbApiLinkedServiceArgs()
         {
         }
+        public static new CosmosDbMongoDbApiLinkedServiceArgs Empty => new CosmosDbMongoDbApiLinkedServiceArgs();
     }
 }

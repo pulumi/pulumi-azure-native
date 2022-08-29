@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationalInsights.Inputs
     /// <summary>
     /// Table's schema.
     /// </summary>
-    public sealed class SchemaArgs : Pulumi.ResourceArgs
+    public sealed class SchemaArgs : global::Pulumi.ResourceArgs
     {
         [Input("columns")]
         private InputList<Inputs.ColumnArgs>? _columns;
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.OperationalInsights.Inputs
         public SchemaArgs()
         {
         }
+        public static new SchemaArgs Empty => new SchemaArgs();
     }
 }

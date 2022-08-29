@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Azure ML Service linked service.
     /// </summary>
-    public sealed class AzureMLServiceLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class AzureMLServiceLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -103,5 +103,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public AzureMLServiceLinkedServiceArgs()
         {
         }
+        public static new AzureMLServiceLinkedServiceArgs Empty => new AzureMLServiceLinkedServiceArgs();
     }
 }

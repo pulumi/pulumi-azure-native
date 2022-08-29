@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20220214.Inputs
     /// <summary>
     /// Describes an image source from [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
     /// </summary>
-    public sealed class ImageTemplatePlatformImageSourceArgs : Pulumi.ResourceArgs
+    public sealed class ImageTemplatePlatformImageSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Image offer from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
@@ -55,5 +55,6 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20220214.Inputs
         public ImageTemplatePlatformImageSourceArgs()
         {
         }
+        public static new ImageTemplatePlatformImageSourceArgs Empty => new ImageTemplatePlatformImageSourceArgs();
     }
 }

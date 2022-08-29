@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity Azure Data Lake source.
     /// </summary>
-    public sealed class AzureDataLakeStoreSourceArgs : Pulumi.ResourceArgs
+    public sealed class AzureDataLakeStoreSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -55,5 +55,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public AzureDataLakeStoreSourceArgs()
         {
         }
+        public static new AzureDataLakeStoreSourceArgs Empty => new AzureDataLakeStoreSourceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.Inputs
     /// <summary>
     /// HTTP Proxy configuration for the VM.
     /// </summary>
-    public sealed class HttpProxyConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class HttpProxyConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets httpsProxy url.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.Inputs
         public HttpProxyConfigurationArgs()
         {
         }
+        public static new HttpProxyConfigurationArgs Empty => new HttpProxyConfigurationArgs();
     }
 }

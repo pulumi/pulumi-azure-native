@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
     /// <summary>
     /// A DataFactory compute.
     /// </summary>
-    public sealed class DatabricksArgs : Pulumi.ResourceArgs
+    public sealed class DatabricksArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of compute
@@ -27,12 +27,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
-        /// </summary>
-        [Input("disableLocalAuth")]
-        public Input<bool>? DisableLocalAuth { get; set; }
 
         /// <summary>
         /// Properties of Databricks
@@ -49,5 +43,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
         public DatabricksArgs()
         {
         }
+        public static new DatabricksArgs Empty => new DatabricksArgs();
     }
 }

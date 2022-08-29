@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningCompute.Inputs
     /// <summary>
     /// Properties of Storage Account.
     /// </summary>
-    public sealed class StorageAccountPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class StorageAccountPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARM resource ID of the Azure Storage Account to store CLI specific files. If not provided one will be created. This cannot be changed once the cluster is created.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.MachineLearningCompute.Inputs
         public StorageAccountPropertiesArgs()
         {
         }
+        public static new StorageAccountPropertiesArgs Empty => new StorageAccountPropertiesArgs();
     }
 }

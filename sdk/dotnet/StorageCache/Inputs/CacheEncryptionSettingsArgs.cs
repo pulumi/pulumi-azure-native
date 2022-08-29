@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageCache.Inputs
     /// <summary>
     /// Cache encryption settings.
     /// </summary>
-    public sealed class CacheEncryptionSettingsArgs : Pulumi.ResourceArgs
+    public sealed class CacheEncryptionSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the location of the key encryption key in Key Vault.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.StorageCache.Inputs
         public CacheEncryptionSettingsArgs()
         {
         }
+        public static new CacheEncryptionSettingsArgs Empty => new CacheEncryptionSettingsArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Scheduler.V20160301.Inputs
 {
 
-    public sealed class JobErrorActionArgs : Pulumi.ResourceArgs
+    public sealed class JobErrorActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the storage queue message.
@@ -51,5 +51,6 @@ namespace Pulumi.AzureNative.Scheduler.V20160301.Inputs
         public JobErrorActionArgs()
         {
         }
+        public static new JobErrorActionArgs Empty => new JobErrorActionArgs();
     }
 }

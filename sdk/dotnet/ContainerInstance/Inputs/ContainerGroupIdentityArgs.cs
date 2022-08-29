@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerInstance.Inputs
     /// <summary>
     /// Identity for the container group.
     /// </summary>
-    public sealed class ContainerGroupIdentityArgs : Pulumi.ResourceArgs
+    public sealed class ContainerGroupIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.ContainerInstance.Inputs
         public ContainerGroupIdentityArgs()
         {
         }
+        public static new ContainerGroupIdentityArgs Empty => new ContainerGroupIdentityArgs();
     }
 }

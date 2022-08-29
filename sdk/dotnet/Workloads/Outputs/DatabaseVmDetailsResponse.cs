@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Workloads.Outputs
 {
 
     /// <summary>
-    /// The Database VM Details.
+    /// Database VM details.
     /// </summary>
     [OutputType]
     public sealed class DatabaseVmDetailsResponse

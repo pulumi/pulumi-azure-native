@@ -13,8 +13,20 @@ namespace Pulumi.AzureNative.Authorization.Inputs
     /// <summary>
     /// Descriptor for what needs to be reviewed
     /// </summary>
-    public sealed class AccessReviewScopeArgs : Pulumi.ResourceArgs
+    public sealed class AccessReviewScopeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// This is used to indicate the resource id(s) to exclude
+        /// </summary>
+        [Input("excludeResourceId")]
+        public Input<string>? ExcludeResourceId { get; set; }
+
+        /// <summary>
+        /// This is used to indicate the role definition id(s) to exclude
+        /// </summary>
+        [Input("excludeRoleDefinitionId")]
+        public Input<string>? ExcludeRoleDefinitionId { get; set; }
+
         /// <summary>
         /// Flag to indicate whether to expand nested memberships or not.
         /// </summary>
@@ -27,8 +39,21 @@ namespace Pulumi.AzureNative.Authorization.Inputs
         [Input("inactiveDuration")]
         public Input<string>? InactiveDuration { get; set; }
 
+        /// <summary>
+        /// Flag to indicate whether to expand nested memberships or not.
+        /// </summary>
+        [Input("includeAccessBelowResource")]
+        public Input<bool>? IncludeAccessBelowResource { get; set; }
+
+        /// <summary>
+        /// Flag to indicate whether to expand nested memberships or not.
+        /// </summary>
+        [Input("includeInheritedAccess")]
+        public Input<bool>? IncludeInheritedAccess { get; set; }
+
         public AccessReviewScopeArgs()
         {
         }
+        public static new AccessReviewScopeArgs Empty => new AccessReviewScopeArgs();
     }
 }

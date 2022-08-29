@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     }
 
 
-    public sealed class GetInventoryItemArgs : Pulumi.InvokeArgs
+    public sealed class GetInventoryItemArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the inventoryItem.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public GetInventoryItemArgs()
         {
         }
+        public static new GetInventoryItemArgs Empty => new GetInventoryItemArgs();
     }
 
-    public sealed class GetInventoryItemInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetInventoryItemInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the inventoryItem.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public GetInventoryItemInvokeArgs()
         {
         }
+        public static new GetInventoryItemInvokeArgs Empty => new GetInventoryItemInvokeArgs();
     }
 
 

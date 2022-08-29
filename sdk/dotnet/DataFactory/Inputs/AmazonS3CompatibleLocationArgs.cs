@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The location of Amazon S3 Compatible dataset.
     /// </summary>
-    public sealed class AmazonS3CompatibleLocationArgs : Pulumi.ResourceArgs
+    public sealed class AmazonS3CompatibleLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specify the bucketName of Amazon S3 Compatible. Type: string (or Expression with resultType string)
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public AmazonS3CompatibleLocationArgs()
         {
         }
+        public static new AmazonS3CompatibleLocationArgs Empty => new AmazonS3CompatibleLocationArgs();
     }
 }

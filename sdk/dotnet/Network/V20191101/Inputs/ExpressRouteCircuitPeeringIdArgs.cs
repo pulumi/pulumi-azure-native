@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20191101.Inputs
     /// <summary>
     /// ExpressRoute circuit peering identifier.
     /// </summary>
-    public sealed class ExpressRouteCircuitPeeringIdArgs : Pulumi.ResourceArgs
+    public sealed class ExpressRouteCircuitPeeringIdArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the ExpressRoute circuit peering.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Network.V20191101.Inputs
         public ExpressRouteCircuitPeeringIdArgs()
         {
         }
+        public static new ExpressRouteCircuitPeeringIdArgs Empty => new ExpressRouteCircuitPeeringIdArgs();
     }
 }

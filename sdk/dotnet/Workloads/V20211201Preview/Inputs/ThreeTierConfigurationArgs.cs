@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
     /// <summary>
     /// Gets or sets the three tier SAP configuration.
     /// </summary>
-    public sealed class ThreeTierConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ThreeTierConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application resource group where SAP system resources will be deployed.
@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
         public Input<Inputs.DatabaseConfigurationArgs> DatabaseServer { get; set; } = null!;
 
         /// <summary>
-        /// The deployment Type.
+        /// The type of SAP deployment, single server or Three tier.
         /// Expected value is 'ThreeTier'.
         /// </summary>
         [Input("deploymentType", required: true)]
@@ -61,5 +61,6 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
         public ThreeTierConfigurationArgs()
         {
         }
+        public static new ThreeTierConfigurationArgs Empty => new ThreeTierConfigurationArgs();
     }
 }

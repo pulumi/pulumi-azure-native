@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200401.Inputs
     /// <summary>
     /// Defines a managed rule set.
     /// </summary>
-    public sealed class ManagedRuleSetArgs : Pulumi.ResourceArgs
+    public sealed class ManagedRuleSetArgs : global::Pulumi.ResourceArgs
     {
         [Input("ruleGroupOverrides")]
         private InputList<Inputs.ManagedRuleGroupOverrideArgs>? _ruleGroupOverrides;
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Network.V20200401.Inputs
         public ManagedRuleSetArgs()
         {
         }
+        public static new ManagedRuleSetArgs Empty => new ManagedRuleSetArgs();
     }
 }

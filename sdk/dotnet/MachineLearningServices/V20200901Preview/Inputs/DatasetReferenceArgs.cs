@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview.Inputs
     /// <summary>
     /// The dataset reference object.
     /// </summary>
-    public sealed class DatasetReferenceArgs : Pulumi.ResourceArgs
+    public sealed class DatasetReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The id of the dataset reference.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview.Inputs
         public DatasetReferenceArgs()
         {
         }
+        public static new DatasetReferenceArgs Empty => new DatasetReferenceArgs();
     }
 }

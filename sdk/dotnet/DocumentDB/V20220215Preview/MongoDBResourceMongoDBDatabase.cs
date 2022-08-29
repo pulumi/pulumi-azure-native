@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20220215Preview
     /// An Azure Cosmos DB MongoDB database.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb/v20220215preview:MongoDBResourceMongoDBDatabase")]
-    public partial class MongoDBResourceMongoDBDatabase : Pulumi.CustomResource
+    public partial class MongoDBResourceMongoDBDatabase : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Identity for the resource.
@@ -76,29 +76,31 @@ namespace Pulumi.AzureNative.DocumentDB.V20220215Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:documentdb:MongoDBResourceMongoDBDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20150401:MongoDBResourceMongoDBDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20150408:MongoDBResourceMongoDBDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20151106:MongoDBResourceMongoDBDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20160319:MongoDBResourceMongoDBDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20160331:MongoDBResourceMongoDBDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20190801:MongoDBResourceMongoDBDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20191212:MongoDBResourceMongoDBDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200301:MongoDBResourceMongoDBDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200401:MongoDBResourceMongoDBDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:MongoDBResourceMongoDBDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200901:MongoDBResourceMongoDBDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210115:MongoDBResourceMongoDBDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:MongoDBResourceMongoDBDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210315:MongoDBResourceMongoDBDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:MongoDBResourceMongoDBDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210415:MongoDBResourceMongoDBDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210515:MongoDBResourceMongoDBDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210615:MongoDBResourceMongoDBDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:MongoDBResourceMongoDBDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211015:MongoDBResourceMongoDBDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:MongoDBResourceMongoDBDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:MongoDBResourceMongoDBDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb:MongoDBResourceMongoDBDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20150401:MongoDBResourceMongoDBDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20150408:MongoDBResourceMongoDBDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20151106:MongoDBResourceMongoDBDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20160319:MongoDBResourceMongoDBDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20160331:MongoDBResourceMongoDBDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20190801:MongoDBResourceMongoDBDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20191212:MongoDBResourceMongoDBDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200301:MongoDBResourceMongoDBDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200401:MongoDBResourceMongoDBDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:MongoDBResourceMongoDBDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200901:MongoDBResourceMongoDBDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210115:MongoDBResourceMongoDBDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:MongoDBResourceMongoDBDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210315:MongoDBResourceMongoDBDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:MongoDBResourceMongoDBDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210415:MongoDBResourceMongoDBDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210515:MongoDBResourceMongoDBDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210615:MongoDBResourceMongoDBDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:MongoDBResourceMongoDBDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015:MongoDBResourceMongoDBDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:MongoDBResourceMongoDBDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:MongoDBResourceMongoDBDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515:MongoDBResourceMongoDBDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:MongoDBResourceMongoDBDatabase"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -120,7 +122,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20220215Preview
         }
     }
 
-    public sealed class MongoDBResourceMongoDBDatabaseArgs : Pulumi.ResourceArgs
+    public sealed class MongoDBResourceMongoDBDatabaseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cosmos DB database account name.
@@ -179,5 +181,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20220215Preview
         public MongoDBResourceMongoDBDatabaseArgs()
         {
         }
+        public static new MongoDBResourceMongoDBDatabaseArgs Empty => new MongoDBResourceMongoDBDatabaseArgs();
     }
 }

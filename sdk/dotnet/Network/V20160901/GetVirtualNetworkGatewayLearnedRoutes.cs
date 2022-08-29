@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20160901
     }
 
 
-    public sealed class GetVirtualNetworkGatewayLearnedRoutesArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkGatewayLearnedRoutesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Network.V20160901
         public GetVirtualNetworkGatewayLearnedRoutesArgs()
         {
         }
+        public static new GetVirtualNetworkGatewayLearnedRoutesArgs Empty => new GetVirtualNetworkGatewayLearnedRoutesArgs();
     }
 
-    public sealed class GetVirtualNetworkGatewayLearnedRoutesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkGatewayLearnedRoutesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Network.V20160901
         public GetVirtualNetworkGatewayLearnedRoutesInvokeArgs()
         {
         }
+        public static new GetVirtualNetworkGatewayLearnedRoutesInvokeArgs Empty => new GetVirtualNetworkGatewayLearnedRoutesInvokeArgs();
     }
 
 

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Kusto.V20210101
     }
 
 
-    public sealed class GetClusterPrincipalAssignmentArgs : Pulumi.InvokeArgs
+    public sealed class GetClusterPrincipalAssignmentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Kusto.V20210101
         public GetClusterPrincipalAssignmentArgs()
         {
         }
+        public static new GetClusterPrincipalAssignmentArgs Empty => new GetClusterPrincipalAssignmentArgs();
     }
 
-    public sealed class GetClusterPrincipalAssignmentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetClusterPrincipalAssignmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Kusto.V20210101
         public GetClusterPrincipalAssignmentInvokeArgs()
         {
         }
+        public static new GetClusterPrincipalAssignmentInvokeArgs Empty => new GetClusterPrincipalAssignmentInvokeArgs();
     }
 
 

@@ -77,7 +77,7 @@ export interface GetSAPSizingRecommendationsArgs {
  */
 export interface GetSAPSizingRecommendationsResult {
     /**
-     * The deployment Type.
+     * The type of SAP deployment, single server or Three tier.
      */
     readonly deploymentType: string;
 }

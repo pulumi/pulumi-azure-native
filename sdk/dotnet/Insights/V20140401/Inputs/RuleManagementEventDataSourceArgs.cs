@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20140401.Inputs
     /// <summary>
     /// A rule management event data source. The discriminator fields is always RuleManagementEventDataSource in this case.
     /// </summary>
-    public sealed class RuleManagementEventDataSourceArgs : Pulumi.ResourceArgs
+    public sealed class RuleManagementEventDataSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// the claims.
@@ -103,5 +103,6 @@ namespace Pulumi.AzureNative.Insights.V20140401.Inputs
         public RuleManagementEventDataSourceArgs()
         {
         }
+        public static new RuleManagementEventDataSourceArgs Empty => new RuleManagementEventDataSourceArgs();
     }
 }

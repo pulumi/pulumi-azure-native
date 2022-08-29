@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataProtection.V20210101.Inputs
     /// <summary>
     /// Backup Instance
     /// </summary>
-    public sealed class BackupInstanceArgs : Pulumi.ResourceArgs
+    public sealed class BackupInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the data source information.
@@ -45,5 +45,6 @@ namespace Pulumi.AzureNative.DataProtection.V20210101.Inputs
         public BackupInstanceArgs()
         {
         }
+        public static new BackupInstanceArgs Empty => new BackupInstanceArgs();
     }
 }

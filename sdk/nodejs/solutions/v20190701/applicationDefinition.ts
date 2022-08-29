@@ -108,6 +108,10 @@ export class ApplicationDefinition extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.solutions.v20190701.SkuResponse | undefined>;
     /**
+     * The storage account id for bring your own storage scenario.
+     */
+    public readonly storageAccountId!: pulumi.Output<string | undefined>;
+    /**
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -152,6 +156,7 @@ export class ApplicationDefinition extends pulumi.CustomResource {
             resourceInputs["policies"] = args ? args.policies : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -174,11 +179,12 @@ export class ApplicationDefinition extends pulumi.CustomResource {
             resourceInputs["packageFileUri"] = undefined /*out*/;
             resourceInputs["policies"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["storageAccountId"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:solutions:ApplicationDefinition" }, { type: "azure-native:solutions/v20160901preview:ApplicationDefinition" }, { type: "azure-native:solutions/v20170901:ApplicationDefinition" }, { type: "azure-native:solutions/v20180601:ApplicationDefinition" }, { type: "azure-native:solutions/v20200821preview:ApplicationDefinition" }, { type: "azure-native:solutions/v20210701:ApplicationDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:solutions:ApplicationDefinition" }, { type: "azure-native:solutions/v20160901preview:ApplicationDefinition" }, { type: "azure-native:solutions/v20170901:ApplicationDefinition" }, { type: "azure-native:solutions/v20171201:ApplicationDefinition" }, { type: "azure-native:solutions/v20180201:ApplicationDefinition" }, { type: "azure-native:solutions/v20180301:ApplicationDefinition" }, { type: "azure-native:solutions/v20180601:ApplicationDefinition" }, { type: "azure-native:solutions/v20180901preview:ApplicationDefinition" }, { type: "azure-native:solutions/v20200821preview:ApplicationDefinition" }, { type: "azure-native:solutions/v20210201preview:ApplicationDefinition" }, { type: "azure-native:solutions/v20210701:ApplicationDefinition" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApplicationDefinition.__pulumiType, name, resourceInputs, opts);
     }
@@ -264,6 +270,10 @@ export interface ApplicationDefinitionArgs {
      * The SKU of the resource.
      */
     sku?: pulumi.Input<inputs.solutions.v20190701.SkuArgs>;
+    /**
+     * The storage account id for bring your own storage scenario.
+     */
+    storageAccountId?: pulumi.Input<string>;
     /**
      * Resource tags
      */

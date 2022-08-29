@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
     /// Represents a SourceControl in Azure Security Insights.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20220401preview:SourceControl")]
-    public partial class SourceControl : Pulumi.CustomResource
+    public partial class SourceControl : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Array of source control content types.
@@ -112,13 +112,15 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights:SourceControl"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:SourceControl"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:SourceControl"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:SourceControl"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:SourceControl"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:SourceControl"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:SourceControl"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:SourceControl"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:SourceControl"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:SourceControl"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:SourceControl"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:SourceControl"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:SourceControl"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:SourceControl"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:SourceControl"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:SourceControl"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -140,7 +142,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
         }
     }
 
-    public sealed class SourceControlArgs : Pulumi.ResourceArgs
+    public sealed class SourceControlArgs : global::Pulumi.ResourceArgs
     {
         [Input("contentTypes", required: true)]
         private InputList<Union<string, Pulumi.AzureNative.SecurityInsights.V20220401Preview.ContentType>>? _contentTypes;
@@ -223,5 +225,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
         public SourceControlArgs()
         {
         }
+        public static new SourceControlArgs Empty => new SourceControlArgs();
     }
 }

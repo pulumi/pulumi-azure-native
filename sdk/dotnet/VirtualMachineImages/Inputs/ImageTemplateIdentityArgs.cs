@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Inputs
     /// <summary>
     /// Identity for the image template.
     /// </summary>
-    public sealed class ImageTemplateIdentityArgs : Pulumi.ResourceArgs
+    public sealed class ImageTemplateIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of identity used for the image template. The type 'None' will remove any identities from the image template.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Inputs
         public ImageTemplateIdentityArgs()
         {
         }
+        public static new ImageTemplateIdentityArgs Empty => new ImageTemplateIdentityArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// API Version: 2021-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:CodeContainer")]
-    public partial class CodeContainer : Pulumi.CustomResource
+    public partial class CodeContainer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -65,9 +65,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:CodeContainer"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:CodeContainer"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:CodeContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:CodeContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:CodeContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:CodeContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:CodeContainer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -89,7 +90,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         }
     }
 
-    public sealed class CodeContainerArgs : Pulumi.ResourceArgs
+    public sealed class CodeContainerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Container name.
@@ -118,5 +119,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public CodeContainerArgs()
         {
         }
+        public static new CodeContainerArgs Empty => new CodeContainerArgs();
     }
 }

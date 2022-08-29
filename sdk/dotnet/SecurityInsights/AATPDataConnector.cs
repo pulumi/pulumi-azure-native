@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// API Version: 2020-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:AATPDataConnector")]
-    public partial class AATPDataConnector : Pulumi.CustomResource
+    public partial class AATPDataConnector : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The available data types for the connector.
@@ -85,16 +85,19 @@ namespace Pulumi.AzureNative.SecurityInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:AATPDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:AATPDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:AATPDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:AATPDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:AATPDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:AATPDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:AATPDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:AATPDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:AATPDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:AATPDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:AATPDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:AATPDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:AATPDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:AATPDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:AATPDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:AATPDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:AATPDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:AATPDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:AATPDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:AATPDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:AATPDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801:AATPDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:AATPDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -116,7 +119,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         }
     }
 
-    public sealed class AATPDataConnectorArgs : Pulumi.ResourceArgs
+    public sealed class AATPDataConnectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Connector ID
@@ -158,5 +161,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         public AATPDataConnectorArgs()
         {
         }
+        public static new AATPDataConnectorArgs Empty => new AATPDataConnectorArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20200801.Inputs
     /// <summary>
     /// The properties of the feedback queue for cloud-to-device messages.
     /// </summary>
-    public sealed class FeedbackPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class FeedbackPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The lock duration for the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Devices.V20200801.Inputs
         public FeedbackPropertiesArgs()
         {
         }
+        public static new FeedbackPropertiesArgs Empty => new FeedbackPropertiesArgs();
     }
 }

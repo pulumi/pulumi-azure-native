@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20210501
     }
 
 
-    public sealed class GetPrivateLinkServicePrivateEndpointConnectionArgs : Pulumi.InvokeArgs
+    public sealed class GetPrivateLinkServicePrivateEndpointConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Expands referenced resources.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.Network.V20210501
         public GetPrivateLinkServicePrivateEndpointConnectionArgs()
         {
         }
+        public static new GetPrivateLinkServicePrivateEndpointConnectionArgs Empty => new GetPrivateLinkServicePrivateEndpointConnectionArgs();
     }
 
-    public sealed class GetPrivateLinkServicePrivateEndpointConnectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPrivateLinkServicePrivateEndpointConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Expands referenced resources.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.Network.V20210501
         public GetPrivateLinkServicePrivateEndpointConnectionInvokeArgs()
         {
         }
+        public static new GetPrivateLinkServicePrivateEndpointConnectionInvokeArgs Empty => new GetPrivateLinkServicePrivateEndpointConnectionInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Confluent.V20200301.Inputs
     /// <summary>
     /// Confluent offer detail
     /// </summary>
-    public sealed class OrganizationResourcePropertiesOfferDetailArgs : Pulumi.ResourceArgs
+    public sealed class OrganizationResourcePropertiesOfferDetailArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Offer Id
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Confluent.V20200301.Inputs
         public OrganizationResourcePropertiesOfferDetailArgs()
         {
         }
+        public static new OrganizationResourcePropertiesOfferDetailArgs Empty => new OrganizationResourcePropertiesOfferDetailArgs();
     }
 }

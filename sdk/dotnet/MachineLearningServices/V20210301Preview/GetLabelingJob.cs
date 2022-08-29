@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
     }
 
 
-    public sealed class GetLabelingJobArgs : Pulumi.InvokeArgs
+    public sealed class GetLabelingJobArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name and identifier for the LabelingJob.
@@ -60,9 +60,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         public GetLabelingJobArgs()
         {
         }
+        public static new GetLabelingJobArgs Empty => new GetLabelingJobArgs();
     }
 
-    public sealed class GetLabelingJobInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLabelingJobInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name and identifier for the LabelingJob.
@@ -97,6 +98,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         public GetLabelingJobInvokeArgs()
         {
         }
+        public static new GetLabelingJobInvokeArgs Empty => new GetLabelingJobInvokeArgs();
     }
 
 

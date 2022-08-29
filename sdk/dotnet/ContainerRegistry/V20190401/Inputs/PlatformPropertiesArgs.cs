@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190401.Inputs
     /// <summary>
     /// The platform properties against which the run has to happen.
     /// </summary>
-    public sealed class PlatformPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class PlatformPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The OS architecture.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190401.Inputs
         public PlatformPropertiesArgs()
         {
         }
+        public static new PlatformPropertiesArgs Empty => new PlatformPropertiesArgs();
     }
 }

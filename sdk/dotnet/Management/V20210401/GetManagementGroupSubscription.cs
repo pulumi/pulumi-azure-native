@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Management.V20210401
     }
 
 
-    public sealed class GetManagementGroupSubscriptionArgs : Pulumi.InvokeArgs
+    public sealed class GetManagementGroupSubscriptionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Management Group ID.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Management.V20210401
         public GetManagementGroupSubscriptionArgs()
         {
         }
+        public static new GetManagementGroupSubscriptionArgs Empty => new GetManagementGroupSubscriptionArgs();
     }
 
-    public sealed class GetManagementGroupSubscriptionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetManagementGroupSubscriptionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Management Group ID.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Management.V20210401
         public GetManagementGroupSubscriptionInvokeArgs()
         {
         }
+        public static new GetManagementGroupSubscriptionInvokeArgs Empty => new GetManagementGroupSubscriptionInvokeArgs();
     }
 
 
@@ -80,9 +82,9 @@ namespace Pulumi.AzureNative.Management.V20210401
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The ID of the parent management group.
+        /// The ID, name and displayName of the parent management group.
         /// </summary>
-        public readonly Outputs.DescendantParentGroupInfoResponse? Parent;
+        public readonly Outputs.ParentGroupBagInfoResponse? Parent;
         /// <summary>
         /// The state of the subscription.
         /// </summary>
@@ -104,7 +106,7 @@ namespace Pulumi.AzureNative.Management.V20210401
 
             string name,
 
-            Outputs.DescendantParentGroupInfoResponse? parent,
+            Outputs.ParentGroupBagInfoResponse? parent,
 
             string? state,
 

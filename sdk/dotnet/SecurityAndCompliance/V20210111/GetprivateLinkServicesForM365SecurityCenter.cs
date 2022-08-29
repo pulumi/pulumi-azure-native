@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
     }
 
 
-    public sealed class GetprivateLinkServicesForM365SecurityCenterArgs : Pulumi.InvokeArgs
+    public sealed class GetprivateLinkServicesForM365SecurityCenterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the service instance.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
         public GetprivateLinkServicesForM365SecurityCenterArgs()
         {
         }
+        public static new GetprivateLinkServicesForM365SecurityCenterArgs Empty => new GetprivateLinkServicesForM365SecurityCenterArgs();
     }
 
-    public sealed class GetprivateLinkServicesForM365SecurityCenterInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetprivateLinkServicesForM365SecurityCenterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the service instance.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
         public GetprivateLinkServicesForM365SecurityCenterInvokeArgs()
         {
         }
+        public static new GetprivateLinkServicesForM365SecurityCenterInvokeArgs Empty => new GetprivateLinkServicesForM365SecurityCenterInvokeArgs();
     }
 
 

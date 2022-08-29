@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.RecoveryServices
     }
 
 
-    public sealed class GetReplicationvCenterArgs : Pulumi.InvokeArgs
+    public sealed class GetReplicationvCenterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Fabric name.
@@ -56,9 +56,10 @@ namespace Pulumi.AzureNative.RecoveryServices
         public GetReplicationvCenterArgs()
         {
         }
+        public static new GetReplicationvCenterArgs Empty => new GetReplicationvCenterArgs();
     }
 
-    public sealed class GetReplicationvCenterInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetReplicationvCenterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Fabric name.
@@ -87,6 +88,7 @@ namespace Pulumi.AzureNative.RecoveryServices
         public GetReplicationvCenterInvokeArgs()
         {
         }
+        public static new GetReplicationvCenterInvokeArgs Empty => new GetReplicationvCenterInvokeArgs();
     }
 
 

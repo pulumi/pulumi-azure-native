@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OffAzure.V20200707
     /// Site REST Resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:offazure/v20200707:HyperVSite")]
-    public partial class HyperVSite : Pulumi.CustomResource
+    public partial class HyperVSite : global::Pulumi.CustomResource
     {
         /// <summary>
         /// eTag for concurrency control.
@@ -79,8 +79,8 @@ namespace Pulumi.AzureNative.OffAzure.V20200707
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:offazure:HyperVSite"},
-                    new Pulumi.Alias { Type = "azure-native:offazure/v20200101:HyperVSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:offazure:HyperVSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20200101:HyperVSite"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.OffAzure.V20200707
         }
     }
 
-    public sealed class HyperVSiteArgs : Pulumi.ResourceArgs
+    public sealed class HyperVSiteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// eTag for concurrency control.
@@ -151,5 +151,6 @@ namespace Pulumi.AzureNative.OffAzure.V20200707
         public HyperVSiteArgs()
         {
         }
+        public static new HyperVSiteArgs Empty => new HyperVSiteArgs();
     }
 }

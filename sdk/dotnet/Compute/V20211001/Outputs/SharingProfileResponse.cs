@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Compute.V20211001.Outputs
         /// <summary>
         /// Information of community gallery if current gallery is shared to community.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CommunityGalleryInfoResponse> CommunityGalleryInfo;
+        public readonly Outputs.CommunityGalleryInfoResponse? CommunityGalleryInfo;
         /// <summary>
         /// A list of sharing profile groups.
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Compute.V20211001.Outputs
 
         [OutputConstructor]
         private SharingProfileResponse(
-            ImmutableArray<Outputs.CommunityGalleryInfoResponse> communityGalleryInfo,
+            Outputs.CommunityGalleryInfoResponse? communityGalleryInfo,
 
             ImmutableArray<Outputs.SharingProfileGroupResponse> groups,
 

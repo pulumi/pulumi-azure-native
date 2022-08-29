@@ -19,11 +19,11 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Outputs
         /// <summary>
         /// The identity principal ID
         /// </summary>
-        public readonly string? PrincipalId;
+        public readonly string PrincipalId;
         /// <summary>
         /// The identity tenantId
         /// </summary>
-        public readonly string? TenantId;
+        public readonly string TenantId;
         /// <summary>
         /// The identity type
         /// </summary>
@@ -31,9 +31,9 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Outputs
 
         [OutputConstructor]
         private IdentityResponse(
-            string? principalId,
+            string principalId,
 
-            string? tenantId,
+            string tenantId,
 
             string? type)
         {

@@ -39,7 +39,7 @@ export class ElasticSan extends pulumi.CustomResource {
     /**
      * Logical zone for Elastic San resource; example: ["1"].
      */
-    public readonly availabilityZones!: pulumi.Output<string[]>;
+    public readonly availabilityZones!: pulumi.Output<string[] | undefined>;
     /**
      * Base size of the Elastic San appliance in TiB.
      */
@@ -57,17 +57,13 @@ export class ElasticSan extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Provisioned MBps Elastic San appliance.
-     */
-    public /*out*/ readonly provisionedMBps!: pulumi.Output<number>;
-    /**
      * State of the operation on the resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * resource sku
      */
-    public readonly sku!: pulumi.Output<outputs.elasticsan.SkuResponse | undefined>;
+    public readonly sku!: pulumi.Output<outputs.elasticsan.SkuResponse>;
     /**
      * Resource metadata required by ARM RPC
      */
@@ -84,6 +80,10 @@ export class ElasticSan extends pulumi.CustomResource {
      * Total Provisioned MBps Elastic San appliance.
      */
     public /*out*/ readonly totalMBps!: pulumi.Output<number>;
+    /**
+     * Total size of the Elastic San appliance in TB.
+     */
+    public /*out*/ readonly totalSizeTiB!: pulumi.Output<number>;
     /**
      * Total size of the provisioned Volumes in GiB.
      */
@@ -108,9 +108,6 @@ export class ElasticSan extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.availabilityZones === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'availabilityZones'");
-            }
             if ((!args || args.baseSizeTiB === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'baseSizeTiB'");
             }
@@ -119,6 +116,9 @@ export class ElasticSan extends pulumi.CustomResource {
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if ((!args || args.sku === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'sku'");
             }
             resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
             resourceInputs["baseSizeTiB"] = args ? args.baseSizeTiB : undefined;
@@ -129,11 +129,11 @@ export class ElasticSan extends pulumi.CustomResource {
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisionedMBps"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["totalIops"] = undefined /*out*/;
             resourceInputs["totalMBps"] = undefined /*out*/;
+            resourceInputs["totalSizeTiB"] = undefined /*out*/;
             resourceInputs["totalVolumeSizeGiB"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["volumeGroupCount"] = undefined /*out*/;
@@ -143,13 +143,13 @@ export class ElasticSan extends pulumi.CustomResource {
             resourceInputs["extendedCapacitySizeTiB"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisionedMBps"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["totalIops"] = undefined /*out*/;
             resourceInputs["totalMBps"] = undefined /*out*/;
+            resourceInputs["totalSizeTiB"] = undefined /*out*/;
             resourceInputs["totalVolumeSizeGiB"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["volumeGroupCount"] = undefined /*out*/;
@@ -168,7 +168,7 @@ export interface ElasticSanArgs {
     /**
      * Logical zone for Elastic San resource; example: ["1"].
      */
-    availabilityZones: pulumi.Input<pulumi.Input<string>[]>;
+    availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Base size of the Elastic San appliance in TiB.
      */
@@ -192,7 +192,7 @@ export interface ElasticSanArgs {
     /**
      * resource sku
      */
-    sku?: pulumi.Input<inputs.elasticsan.SkuArgs>;
+    sku: pulumi.Input<inputs.elasticsan.SkuArgs>;
     /**
      * Azure resource tags.
      */

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     /// API Version: 2021-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization:MSIXPackage")]
-    public partial class MSIXPackage : Pulumi.CustomResource
+    public partial class MSIXPackage : global::Pulumi.CustomResource
     {
         /// <summary>
         /// User friendly Name to be displayed in the portal. 
@@ -119,17 +119,18 @@ namespace Pulumi.AzureNative.DesktopVirtualization
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20200921preview:MSIXPackage"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201019preview:MSIXPackage"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201102preview:MSIXPackage"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201110preview:MSIXPackage"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210114preview:MSIXPackage"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210201preview:MSIXPackage"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210309preview:MSIXPackage"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210401preview:MSIXPackage"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210712:MSIXPackage"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210903preview:MSIXPackage"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220210preview:MSIXPackage"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20200921preview:MSIXPackage"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201019preview:MSIXPackage"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201102preview:MSIXPackage"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201110preview:MSIXPackage"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210114preview:MSIXPackage"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210201preview:MSIXPackage"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210309preview:MSIXPackage"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210401preview:MSIXPackage"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210712:MSIXPackage"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210903preview:MSIXPackage"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220210preview:MSIXPackage"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:MSIXPackage"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -151,7 +152,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         }
     }
 
-    public sealed class MSIXPackageArgs : Pulumi.ResourceArgs
+    public sealed class MSIXPackageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// User friendly Name to be displayed in the portal. 
@@ -252,5 +253,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public MSIXPackageArgs()
         {
         }
+        public static new MSIXPackageArgs Empty => new MSIXPackageArgs();
     }
 }

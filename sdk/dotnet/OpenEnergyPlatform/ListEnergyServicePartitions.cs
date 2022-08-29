@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.OpenEnergyPlatform
     }
 
 
-    public sealed class ListEnergyServicePartitionsArgs : Pulumi.InvokeArgs
+    public sealed class ListEnergyServicePartitionsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.OpenEnergyPlatform
         public ListEnergyServicePartitionsArgs()
         {
         }
+        public static new ListEnergyServicePartitionsArgs Empty => new ListEnergyServicePartitionsArgs();
     }
 
-    public sealed class ListEnergyServicePartitionsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListEnergyServicePartitionsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.OpenEnergyPlatform
         public ListEnergyServicePartitionsInvokeArgs()
         {
         }
+        public static new ListEnergyServicePartitionsInvokeArgs Empty => new ListEnergyServicePartitionsInvokeArgs();
     }
 
 

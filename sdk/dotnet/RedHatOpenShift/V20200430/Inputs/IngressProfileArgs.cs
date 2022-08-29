@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20200430.Inputs
     /// <summary>
     /// IngressProfile represents an ingress profile.
     /// </summary>
-    public sealed class IngressProfileArgs : Pulumi.ResourceArgs
+    public sealed class IngressProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IP of the ingress (immutable).
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20200430.Inputs
         public IngressProfileArgs()
         {
         }
+        public static new IngressProfileArgs Empty => new IngressProfileArgs();
     }
 }

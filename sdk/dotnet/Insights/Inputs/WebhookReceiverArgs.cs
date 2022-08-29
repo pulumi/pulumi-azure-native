@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.Inputs
     /// <summary>
     /// A webhook receiver.
     /// </summary>
-    public sealed class WebhookReceiverArgs : Pulumi.ResourceArgs
+    public sealed class WebhookReceiverArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates the identifier uri for aad auth.
@@ -62,5 +62,6 @@ namespace Pulumi.AzureNative.Insights.Inputs
             UseAadAuth = false;
             UseCommonAlertSchema = false;
         }
+        public static new WebhookReceiverArgs Empty => new WebhookReceiverArgs();
     }
 }

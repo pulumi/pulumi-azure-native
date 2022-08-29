@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
     /// <summary>
     /// The Defender for Databases AWS offering
     /// </summary>
-    public sealed class DefenderFoDatabasesAwsOfferingArgs : Pulumi.ResourceArgs
+    public sealed class DefenderFoDatabasesAwsOfferingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARC autoprovisioning configuration
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
         public DefenderFoDatabasesAwsOfferingArgs()
         {
         }
+        public static new DefenderFoDatabasesAwsOfferingArgs Empty => new DefenderFoDatabasesAwsOfferingArgs();
     }
 }

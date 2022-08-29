@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Chaos.V20210915Preview
     /// Model that represents a Capability resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:chaos/v20210915preview:Capability")]
-    public partial class Capability : Pulumi.CustomResource
+    public partial class Capability : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -64,7 +64,8 @@ namespace Pulumi.AzureNative.Chaos.V20210915Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:chaos:Capability"},
+                    new global::Pulumi.Alias { Type = "azure-native:chaos:Capability"},
+                    new global::Pulumi.Alias { Type = "azure-native:chaos/v20220701preview:Capability"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -86,7 +87,7 @@ namespace Pulumi.AzureNative.Chaos.V20210915Preview
         }
     }
 
-    public sealed class CapabilityArgs : Pulumi.ResourceArgs
+    public sealed class CapabilityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// String that represents a Capability resource name.
@@ -127,5 +128,6 @@ namespace Pulumi.AzureNative.Chaos.V20210915Preview
         public CapabilityArgs()
         {
         }
+        public static new CapabilityArgs Empty => new CapabilityArgs();
     }
 }

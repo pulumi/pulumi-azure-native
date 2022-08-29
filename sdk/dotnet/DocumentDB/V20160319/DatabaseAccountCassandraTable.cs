@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20160319
     /// </summary>
     [Obsolete(@"Version 2016-03-19 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:documentdb/v20160319:DatabaseAccountCassandraTable")]
-    public partial class DatabaseAccountCassandraTable : Pulumi.CustomResource
+    public partial class DatabaseAccountCassandraTable : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Time to live of the Cosmos DB Cassandra table
@@ -77,29 +77,31 @@ namespace Pulumi.AzureNative.DocumentDB.V20160319
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:documentdb:DatabaseAccountCassandraTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20150401:DatabaseAccountCassandraTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20150408:DatabaseAccountCassandraTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20151106:DatabaseAccountCassandraTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20160331:DatabaseAccountCassandraTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20190801:DatabaseAccountCassandraTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20191212:DatabaseAccountCassandraTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200301:DatabaseAccountCassandraTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200401:DatabaseAccountCassandraTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:DatabaseAccountCassandraTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200901:DatabaseAccountCassandraTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210115:DatabaseAccountCassandraTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:DatabaseAccountCassandraTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210315:DatabaseAccountCassandraTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:DatabaseAccountCassandraTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210415:DatabaseAccountCassandraTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210515:DatabaseAccountCassandraTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210615:DatabaseAccountCassandraTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:DatabaseAccountCassandraTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211015:DatabaseAccountCassandraTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:DatabaseAccountCassandraTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:DatabaseAccountCassandraTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:DatabaseAccountCassandraTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb:DatabaseAccountCassandraTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20150401:DatabaseAccountCassandraTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20150408:DatabaseAccountCassandraTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20151106:DatabaseAccountCassandraTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20160331:DatabaseAccountCassandraTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20190801:DatabaseAccountCassandraTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20191212:DatabaseAccountCassandraTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200301:DatabaseAccountCassandraTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200401:DatabaseAccountCassandraTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:DatabaseAccountCassandraTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200901:DatabaseAccountCassandraTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210115:DatabaseAccountCassandraTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:DatabaseAccountCassandraTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210315:DatabaseAccountCassandraTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:DatabaseAccountCassandraTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210415:DatabaseAccountCassandraTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210515:DatabaseAccountCassandraTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210615:DatabaseAccountCassandraTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:DatabaseAccountCassandraTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015:DatabaseAccountCassandraTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:DatabaseAccountCassandraTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:DatabaseAccountCassandraTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:DatabaseAccountCassandraTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515:DatabaseAccountCassandraTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:DatabaseAccountCassandraTable"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -121,7 +123,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20160319
         }
     }
 
-    public sealed class DatabaseAccountCassandraTableArgs : Pulumi.ResourceArgs
+    public sealed class DatabaseAccountCassandraTableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cosmos DB database account name.
@@ -168,5 +170,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20160319
         public DatabaseAccountCassandraTableArgs()
         {
         }
+        public static new DatabaseAccountCassandraTableArgs Empty => new DatabaseAccountCassandraTableArgs();
     }
 }

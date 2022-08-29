@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601
     }
 
 
-    public sealed class GetProfileArgs : Pulumi.InvokeArgs
+    public sealed class GetProfileArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         public GetProfileArgs()
         {
         }
+        public static new GetProfileArgs Empty => new GetProfileArgs();
     }
 
-    public sealed class GetProfileInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         public GetProfileInvokeArgs()
         {
         }
+        public static new GetProfileInvokeArgs Empty => new GetProfileInvokeArgs();
     }
 
 

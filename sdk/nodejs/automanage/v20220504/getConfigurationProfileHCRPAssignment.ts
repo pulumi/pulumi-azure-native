@@ -45,6 +45,10 @@ export interface GetConfigurationProfileHCRPAssignmentResult {
      */
     readonly id: string;
     /**
+     * Azure resource id. Indicates if this resource is managed by another Azure resource.
+     */
+    readonly managedBy: string;
+    /**
      * The name of the resource
      */
     readonly name: string;

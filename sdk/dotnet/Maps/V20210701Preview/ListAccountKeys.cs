@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Maps.V20210701Preview
     }
 
 
-    public sealed class ListAccountKeysArgs : Pulumi.InvokeArgs
+    public sealed class ListAccountKeysArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Maps Account.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Maps.V20210701Preview
         public ListAccountKeysArgs()
         {
         }
+        public static new ListAccountKeysArgs Empty => new ListAccountKeysArgs();
     }
 
-    public sealed class ListAccountKeysInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListAccountKeysInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Maps Account.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Maps.V20210701Preview
         public ListAccountKeysInvokeArgs()
         {
         }
+        public static new ListAccountKeysInvokeArgs Empty => new ListAccountKeysInvokeArgs();
     }
 
 

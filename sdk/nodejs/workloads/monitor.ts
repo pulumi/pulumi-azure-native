@@ -92,6 +92,10 @@ export class Monitor extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Sets the preference for zone redundancy on resources created for the SAP monitor. By default resources will be created which do not support zone redundancy.
+     */
+    public readonly zoneRedundancyPreference!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Monitor resource with the given unique name, arguments, and options.
@@ -117,6 +121,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["routingPreference"] = args ? args.routingPreference : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["zoneRedundancyPreference"] = args ? args.zoneRedundancyPreference : undefined;
             resourceInputs["errors"] = undefined /*out*/;
             resourceInputs["msiArmId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -138,6 +143,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["zoneRedundancyPreference"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:workloads/v20211201preview:monitor" }] };
@@ -190,4 +196,8 @@ export interface MonitorArgs {
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Sets the preference for zone redundancy on resources created for the SAP monitor. By default resources will be created which do not support zone redundancy.
+     */
+    zoneRedundancyPreference?: pulumi.Input<string>;
 }

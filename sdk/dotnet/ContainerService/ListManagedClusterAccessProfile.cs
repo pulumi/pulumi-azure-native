@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
 
-    public sealed class ListManagedClusterAccessProfileArgs : Pulumi.InvokeArgs
+    public sealed class ListManagedClusterAccessProfileArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.ContainerService
         public ListManagedClusterAccessProfileArgs()
         {
         }
+        public static new ListManagedClusterAccessProfileArgs Empty => new ListManagedClusterAccessProfileArgs();
     }
 
-    public sealed class ListManagedClusterAccessProfileInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListManagedClusterAccessProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.ContainerService
         public ListManagedClusterAccessProfileInvokeArgs()
         {
         }
+        public static new ListManagedClusterAccessProfileInvokeArgs Empty => new ListManagedClusterAccessProfileInvokeArgs();
     }
 
 

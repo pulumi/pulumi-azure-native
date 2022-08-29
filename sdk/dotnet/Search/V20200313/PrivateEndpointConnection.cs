@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Search.V20200313
     /// </summary>
     [Obsolete(@"Version 2020-03-13 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:search/v20200313:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the private endpoint connection.
@@ -59,11 +59,11 @@ namespace Pulumi.AzureNative.Search.V20200313
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:search:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:search/v20191001preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:search/v20200801:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:search/v20200801preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:search/v20210401preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:search:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:search/v20191001preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:search/v20200801:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:search/v20200801preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:search/v20210401preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -85,7 +85,7 @@ namespace Pulumi.AzureNative.Search.V20200313
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the private endpoint connection to the Azure Cognitive Search service with the specified resource group.
@@ -114,5 +114,6 @@ namespace Pulumi.AzureNative.Search.V20200313
         public PrivateEndpointConnectionArgs()
         {
         }
+        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

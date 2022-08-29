@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SaaS.V20180301Beta
     }
 
 
-    public sealed class ListSaasSubscriptionLevelAccessTokenArgs : Pulumi.InvokeArgs
+    public sealed class ListSaasSubscriptionLevelAccessTokenArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.SaaS.V20180301Beta
         public ListSaasSubscriptionLevelAccessTokenArgs()
         {
         }
+        public static new ListSaasSubscriptionLevelAccessTokenArgs Empty => new ListSaasSubscriptionLevelAccessTokenArgs();
     }
 
-    public sealed class ListSaasSubscriptionLevelAccessTokenInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListSaasSubscriptionLevelAccessTokenInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.SaaS.V20180301Beta
         public ListSaasSubscriptionLevelAccessTokenInvokeArgs()
         {
         }
+        public static new ListSaasSubscriptionLevelAccessTokenInvokeArgs Empty => new ListSaasSubscriptionLevelAccessTokenInvokeArgs();
     }
 
 

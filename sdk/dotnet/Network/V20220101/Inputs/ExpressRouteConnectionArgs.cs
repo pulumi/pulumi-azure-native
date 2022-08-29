@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
     /// <summary>
     /// ExpressRouteConnection resource.
     /// </summary>
-    public sealed class ExpressRouteConnectionArgs : Pulumi.ResourceArgs
+    public sealed class ExpressRouteConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authorization key to establish the connection.
@@ -66,5 +66,6 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
         public ExpressRouteConnectionArgs()
         {
         }
+        public static new ExpressRouteConnectionArgs Empty => new ExpressRouteConnectionArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Aad.V20210501
     }
 
 
-    public sealed class GetOuContainerArgs : Pulumi.InvokeArgs
+    public sealed class GetOuContainerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the domain service.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Aad.V20210501
         public GetOuContainerArgs()
         {
         }
+        public static new GetOuContainerArgs Empty => new GetOuContainerArgs();
     }
 
-    public sealed class GetOuContainerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetOuContainerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the domain service.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Aad.V20210501
         public GetOuContainerInvokeArgs()
         {
         }
+        public static new GetOuContainerInvokeArgs Empty => new GetOuContainerInvokeArgs();
     }
 
 

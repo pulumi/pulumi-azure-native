@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
     /// Azure Resource Manager resource envelope.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20210301preview:Datastore")]
-    public partial class Datastore : Pulumi.CustomResource
+    public partial class Datastore : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -64,10 +64,11 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:Datastore"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200501preview:Datastore"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:Datastore"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:Datastore"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:Datastore"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200501preview:Datastore"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:Datastore"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:Datastore"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:Datastore"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -89,7 +90,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         }
     }
 
-    public sealed class DatastoreArgs : Pulumi.ResourceArgs
+    public sealed class DatastoreArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Datastore name.
@@ -124,5 +125,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         public DatastoreArgs()
         {
         }
+        public static new DatastoreArgs Empty => new DatastoreArgs();
     }
 }

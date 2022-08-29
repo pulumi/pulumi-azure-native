@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.Inputs
     /// <summary>
     /// Defines the parameters for the url redirect action.
     /// </summary>
-    public sealed class UrlRedirectActionParametersArgs : Pulumi.ResourceArgs
+    public sealed class UrlRedirectActionParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Fragment to add to the redirect URL. Fragment is the part of the URL that comes after #. Do not include the #.
@@ -57,5 +57,6 @@ namespace Pulumi.AzureNative.Cdn.Inputs
         public UrlRedirectActionParametersArgs()
         {
         }
+        public static new UrlRedirectActionParametersArgs Empty => new UrlRedirectActionParametersArgs();
     }
 }

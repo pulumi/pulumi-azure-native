@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.WebPubSub
     /// API Version: 2021-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:webpubsub:WebPubSubHub")]
-    public partial class WebPubSubHub : Pulumi.CustomResource
+    public partial class WebPubSubHub : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource.
@@ -65,7 +65,7 @@ namespace Pulumi.AzureNative.WebPubSub
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:webpubsub/v20211001:WebPubSubHub"},
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20211001:WebPubSubHub"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -87,7 +87,7 @@ namespace Pulumi.AzureNative.WebPubSub
         }
     }
 
-    public sealed class WebPubSubHubArgs : Pulumi.ResourceArgs
+    public sealed class WebPubSubHubArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The hub name.
@@ -116,5 +116,6 @@ namespace Pulumi.AzureNative.WebPubSub
         public WebPubSubHubArgs()
         {
         }
+        public static new WebPubSubHubArgs Empty => new WebPubSubHubArgs();
     }
 }

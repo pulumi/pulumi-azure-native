@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.Inputs
     /// <summary>
     /// Each pivot must contain a 'type' and 'name'.
     /// </summary>
-    public sealed class PivotPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class PivotPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Data field to show in view.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.CostManagement.Inputs
         public PivotPropertiesArgs()
         {
         }
+        public static new PivotPropertiesArgs Empty => new PivotPropertiesArgs();
     }
 }

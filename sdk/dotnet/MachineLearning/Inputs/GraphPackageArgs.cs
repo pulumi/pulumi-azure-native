@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearning.Inputs
     /// <summary>
     /// Defines the graph of modules making up the machine learning solution.
     /// </summary>
-    public sealed class GraphPackageArgs : Pulumi.ResourceArgs
+    public sealed class GraphPackageArgs : global::Pulumi.ResourceArgs
     {
         [Input("edges")]
         private InputList<Inputs.GraphEdgeArgs>? _edges;
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.MachineLearning.Inputs
         public GraphPackageArgs()
         {
         }
+        public static new GraphPackageArgs Empty => new GraphPackageArgs();
     }
 }

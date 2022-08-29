@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Marketplace.V20220301
     }
 
 
-    public sealed class GetPrivateStoreCollectionArgs : Pulumi.InvokeArgs
+    public sealed class GetPrivateStoreCollectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The collection ID
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Marketplace.V20220301
         public GetPrivateStoreCollectionArgs()
         {
         }
+        public static new GetPrivateStoreCollectionArgs Empty => new GetPrivateStoreCollectionArgs();
     }
 
-    public sealed class GetPrivateStoreCollectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPrivateStoreCollectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The collection ID
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Marketplace.V20220301
         public GetPrivateStoreCollectionInvokeArgs()
         {
         }
+        public static new GetPrivateStoreCollectionInvokeArgs Empty => new GetPrivateStoreCollectionInvokeArgs();
     }
 
 
@@ -68,17 +70,17 @@ namespace Pulumi.AzureNative.Marketplace.V20220301
     public sealed class GetPrivateStoreCollectionResult
     {
         /// <summary>
-        /// Indicating whether all items are approved for this collection (=true) or not (=false).
-        /// </summary>
-        public readonly bool AllItemsApproved;
-        /// <summary>
-        /// Gets the modified date of all items approved.
-        /// </summary>
-        public readonly string AllItemsApprovedModifiedAt;
-        /// <summary>
         /// Indicating whether all subscriptions are selected (=true) or not (=false).
         /// </summary>
         public readonly bool? AllSubscriptions;
+        /// <summary>
+        /// Indicating whether all items are approved for this collection (=true) or not (=false).
+        /// </summary>
+        public readonly bool ApproveAllItems;
+        /// <summary>
+        /// Gets the modified date of all items approved.
+        /// </summary>
+        public readonly string ApproveAllItemsModifiedAt;
         /// <summary>
         /// Gets or sets the association with Commercial's Billing Account.
         /// </summary>
@@ -122,11 +124,11 @@ namespace Pulumi.AzureNative.Marketplace.V20220301
 
         [OutputConstructor]
         private GetPrivateStoreCollectionResult(
-            bool allItemsApproved,
-
-            string allItemsApprovedModifiedAt,
-
             bool? allSubscriptions,
+
+            bool approveAllItems,
+
+            string approveAllItemsModifiedAt,
 
             string? claim,
 
@@ -148,9 +150,9 @@ namespace Pulumi.AzureNative.Marketplace.V20220301
 
             string type)
         {
-            AllItemsApproved = allItemsApproved;
-            AllItemsApprovedModifiedAt = allItemsApprovedModifiedAt;
             AllSubscriptions = allSubscriptions;
+            ApproveAllItems = approveAllItems;
+            ApproveAllItemsModifiedAt = approveAllItemsModifiedAt;
             Claim = claim;
             CollectionId = collectionId;
             CollectionName = collectionName;

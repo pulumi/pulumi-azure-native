@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// SharePoint Online List linked service.
     /// </summary>
-    public sealed class SharePointOnlineListLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class SharePointOnlineListLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -91,5 +91,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public SharePointOnlineListLinkedServiceArgs()
         {
         }
+        public static new SharePointOnlineListLinkedServiceArgs Empty => new SharePointOnlineListLinkedServiceArgs();
     }
 }

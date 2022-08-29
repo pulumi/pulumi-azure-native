@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Sql
     /// API Version: 2014-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:GeoBackupPolicy")]
-    public partial class GeoBackupPolicy : Pulumi.CustomResource
+    public partial class GeoBackupPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Kind of geo backup policy.  This is metadata used for the Azure portal experience.
@@ -77,7 +77,9 @@ namespace Pulumi.AzureNative.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:sql/v20140401:GeoBackupPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20140401:GeoBackupPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:GeoBackupPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:GeoBackupPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -99,7 +101,7 @@ namespace Pulumi.AzureNative.Sql
         }
     }
 
-    public sealed class GeoBackupPolicyArgs : Pulumi.ResourceArgs
+    public sealed class GeoBackupPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the database.
@@ -134,5 +136,6 @@ namespace Pulumi.AzureNative.Sql
         public GeoBackupPolicyArgs()
         {
         }
+        public static new GeoBackupPolicyArgs Empty => new GeoBackupPolicyArgs();
     }
 }

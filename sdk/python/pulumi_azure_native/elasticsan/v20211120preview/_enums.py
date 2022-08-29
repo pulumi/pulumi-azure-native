@@ -27,15 +27,7 @@ class EncryptionType(str, Enum):
     """
     ENCRYPTION_AT_REST_WITH_PLATFORM_KEY = "EncryptionAtRestWithPlatformKey"
     """
-    Volume is encrypted at rest with Platform managed key. It is the default encryption type. This is not a valid encryption type for disk encryption sets.
-    """
-    ENCRYPTION_AT_REST_WITH_CUSTOMER_KEY = "EncryptionAtRestWithCustomerKey"
-    """
-    Volume is encrypted at rest with Customer managed key that can be changed and revoked by a customer.
-    """
-    ENCRYPTION_AT_REST_WITH_PLATFORM_AND_CUSTOMER_KEYS = "EncryptionAtRestWithPlatformAndCustomerKeys"
-    """
-    Volume is encrypted at rest with 2 layers of encryption. One of the keys is Customer managed and the other key is Platform managed.
+    Volume is encrypted at rest with Platform managed key. It is the default encryption type.
     """
 
 
@@ -43,17 +35,13 @@ class Name(str, Enum):
     """
     The sku name.
     """
-    STANDARD_LRS = "Standard_LRS"
-    """
-    Standard locally redundant storage
-    """
     PREMIUM_LRS = "Premium_LRS"
     """
     Premium locally redundant storage
     """
-    STANDARD_ZRS = "Standard_ZRS"
+    PREMIUM_ZRS = "Premium_ZRS"
     """
-    Standard zone redundant storage
+    Premium zone redundant storage
     """
 
 
@@ -69,17 +57,9 @@ class Tier(str, Enum):
     """
     The sku tier.
     """
-    HERO = "Hero"
+    PREMIUM = "Premium"
     """
-    Hero
-    """
-    SATELLITE = "Satellite"
-    """
-    Satellite
-    """
-    HUB = "Hub"
-    """
-    Hub
+    Premium Tier
     """
 
 
@@ -88,6 +68,3 @@ class VolumeCreateOption(str, Enum):
     This enumerates the possible sources of a volume creation.
     """
     NONE = "None"
-    FROM_VOLUME = "FromVolume"
-    FROM_DISK_SNAPSHOT = "FromDiskSnapshot"
-    EXPORT = "Export"

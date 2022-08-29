@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201.Inputs
     /// <summary>
     /// Operation request details.
     /// </summary>
-    public sealed class RequestContractArgs : Pulumi.ResourceArgs
+    public sealed class RequestContractArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Operation request description.
@@ -60,5 +60,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201.Inputs
         public RequestContractArgs()
         {
         }
+        public static new RequestContractArgs Empty => new RequestContractArgs();
     }
 }

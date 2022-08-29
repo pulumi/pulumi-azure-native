@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20171115Preview.Inputs
     /// <summary>
     /// An Azure SKU instance
     /// </summary>
-    public sealed class ServiceSkuArgs : Pulumi.ResourceArgs
+    public sealed class ServiceSkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The capacity of the SKU, if it supports scaling
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.DataMigration.V20171115Preview.Inputs
         public ServiceSkuArgs()
         {
         }
+        public static new ServiceSkuArgs Empty => new ServiceSkuArgs();
     }
 }

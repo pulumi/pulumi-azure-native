@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.IoTCentral.V20210601.Inputs
     /// <summary>
     /// Managed service identity (either system assigned, or none)
     /// </summary>
-    public sealed class SystemAssignedServiceIdentityArgs : Pulumi.ResourceArgs
+    public sealed class SystemAssignedServiceIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of managed service identity (either system assigned, or none).
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.IoTCentral.V20210601.Inputs
         public SystemAssignedServiceIdentityArgs()
         {
         }
+        public static new SystemAssignedServiceIdentityArgs Empty => new SystemAssignedServiceIdentityArgs();
     }
 }

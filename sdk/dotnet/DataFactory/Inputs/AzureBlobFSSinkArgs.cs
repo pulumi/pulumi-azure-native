@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity Azure Data Lake Storage Gen2 sink.
     /// </summary>
-    public sealed class AzureBlobFSSinkArgs : Pulumi.ResourceArgs
+    public sealed class AzureBlobFSSinkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of copy behavior for copy sink.
@@ -79,5 +79,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public AzureBlobFSSinkArgs()
         {
         }
+        public static new AzureBlobFSSinkArgs Empty => new AzureBlobFSSinkArgs();
     }
 }

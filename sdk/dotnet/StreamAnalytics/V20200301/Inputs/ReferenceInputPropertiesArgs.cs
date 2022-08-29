@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Inputs
     /// <summary>
     /// The properties that are associated with an input containing reference data.
     /// </summary>
-    public sealed class ReferenceInputPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ReferenceInputPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes how input data is compressed
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Inputs
         /// Describes an input data source that contains reference data. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Input("datasource")]
-        public InputUnion<Inputs.AzureSqlReferenceInputDataSourceArgs, Inputs.BlobReferenceInputDataSourceArgs>? Datasource { get; set; }
+        public object? Datasource { get; set; }
 
         /// <summary>
         /// partitionKey Describes a key in the input data which is used for partitioning the input data
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Inputs
         public ReferenceInputPropertiesArgs()
         {
         }
+        public static new ReferenceInputPropertiesArgs Empty => new ReferenceInputPropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearning.V20160501Preview.Inputs
     /// <summary>
     /// Specifies a node in the web service graph. The node can either be an input, output or asset node, so only one of the corresponding id properties is populated at any given time.
     /// </summary>
-    public sealed class GraphNodeArgs : Pulumi.ResourceArgs
+    public sealed class GraphNodeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The id of the asset represented by this node.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.MachineLearning.V20160501Preview.Inputs
         public GraphNodeArgs()
         {
         }
+        public static new GraphNodeArgs Empty => new GraphNodeArgs();
     }
 }

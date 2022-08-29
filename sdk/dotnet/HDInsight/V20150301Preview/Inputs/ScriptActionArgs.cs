@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview.Inputs
     /// <summary>
     /// Describes a script action on role on the cluster.
     /// </summary>
-    public sealed class ScriptActionArgs : Pulumi.ResourceArgs
+    public sealed class ScriptActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the script action.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview.Inputs
         public ScriptActionArgs()
         {
         }
+        public static new ScriptActionArgs Empty => new ScriptActionArgs();
     }
 }

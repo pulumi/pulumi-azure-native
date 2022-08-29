@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20210401Preview.Inputs
     /// <summary>
     /// EventHandler template item settings.
     /// </summary>
-    public sealed class EventHandlerTemplateArgs : Pulumi.ResourceArgs
+    public sealed class EventHandlerTemplateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the auth settings for an event handler. If not set, no auth is used.
@@ -50,5 +50,6 @@ namespace Pulumi.AzureNative.WebPubSub.V20210401Preview.Inputs
         public EventHandlerTemplateArgs()
         {
         }
+        public static new EventHandlerTemplateArgs Empty => new EventHandlerTemplateArgs();
     }
 }

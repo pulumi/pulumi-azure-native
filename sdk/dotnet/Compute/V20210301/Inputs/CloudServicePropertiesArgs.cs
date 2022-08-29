@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20210301.Inputs
     /// <summary>
     /// Cloud service properties
     /// </summary>
-    public sealed class CloudServicePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class CloudServicePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// (Optional) Indicates whether the role sku properties (roleProfile.roles.sku) specified in the model/template should override the role instance count and vm size specified in the .cscfg and .csdef respectively.
@@ -84,5 +84,6 @@ namespace Pulumi.AzureNative.Compute.V20210301.Inputs
         public CloudServicePropertiesArgs()
         {
         }
+        public static new CloudServicePropertiesArgs Empty => new CloudServicePropertiesArgs();
     }
 }

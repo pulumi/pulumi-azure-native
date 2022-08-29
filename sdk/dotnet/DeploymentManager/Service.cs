@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DeploymentManager
     /// API Version: 2019-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:deploymentmanager:Service")]
-    public partial class Service : Pulumi.CustomResource
+    public partial class Service : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -77,8 +77,8 @@ namespace Pulumi.AzureNative.DeploymentManager
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:deploymentmanager/v20180901preview:Service"},
-                    new Pulumi.Alias { Type = "azure-native:deploymentmanager/v20191101preview:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:deploymentmanager/v20180901preview:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:deploymentmanager/v20191101preview:Service"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.DeploymentManager
         }
     }
 
-    public sealed class ServiceArgs : Pulumi.ResourceArgs
+    public sealed class ServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -153,5 +153,6 @@ namespace Pulumi.AzureNative.DeploymentManager
         public ServiceArgs()
         {
         }
+        public static new ServiceArgs Empty => new ServiceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180601Preview.Inputs
     /// <summary>
     /// Represents input files for a Job.
     /// </summary>
-    public sealed class JobInputClipArgs : Pulumi.ResourceArgs
+    public sealed class JobInputClipArgs : global::Pulumi.ResourceArgs
     {
         [Input("files")]
         private InputList<string>? _files;
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.Media.V20180601Preview.Inputs
         public JobInputClipArgs()
         {
         }
+        public static new JobInputClipArgs Empty => new JobInputClipArgs();
     }
 }

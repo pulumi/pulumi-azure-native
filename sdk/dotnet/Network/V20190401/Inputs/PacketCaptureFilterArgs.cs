@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190401.Inputs
     /// <summary>
     /// Filter that is applied to packet capture request. Multiple filters can be applied.
     /// </summary>
-    public sealed class PacketCaptureFilterArgs : Pulumi.ResourceArgs
+    public sealed class PacketCaptureFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5"? for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Default = null.
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.Network.V20190401.Inputs
         {
             Protocol = "Any";
         }
+        public static new PacketCaptureFilterArgs Empty => new PacketCaptureFilterArgs();
     }
 }

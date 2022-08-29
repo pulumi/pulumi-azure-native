@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.DevSpaces.V20190401
     }
 
 
-    public sealed class ListControllerConnectionDetailsArgs : Pulumi.InvokeArgs
+    public sealed class ListControllerConnectionDetailsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the resource.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.DevSpaces.V20190401
         public ListControllerConnectionDetailsArgs()
         {
         }
+        public static new ListControllerConnectionDetailsArgs Empty => new ListControllerConnectionDetailsArgs();
     }
 
-    public sealed class ListControllerConnectionDetailsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListControllerConnectionDetailsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the resource.
@@ -67,6 +68,7 @@ namespace Pulumi.AzureNative.DevSpaces.V20190401
         public ListControllerConnectionDetailsInvokeArgs()
         {
         }
+        public static new ListControllerConnectionDetailsInvokeArgs Empty => new ListControllerConnectionDetailsInvokeArgs();
     }
 
 

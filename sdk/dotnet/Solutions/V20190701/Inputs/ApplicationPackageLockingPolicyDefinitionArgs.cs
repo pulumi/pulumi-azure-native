@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Solutions.V20190701.Inputs
     /// <summary>
     /// Managed application locking policy.
     /// </summary>
-    public sealed class ApplicationPackageLockingPolicyDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationPackageLockingPolicyDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedActions")]
         private InputList<string>? _allowedActions;
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Solutions.V20190701.Inputs
         public ApplicationPackageLockingPolicyDefinitionArgs()
         {
         }
+        public static new ApplicationPackageLockingPolicyDefinitionArgs Empty => new ApplicationPackageLockingPolicyDefinitionArgs();
     }
 }

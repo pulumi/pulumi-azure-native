@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBox.V20210301.Inputs
     /// <summary>
     /// Msi identity details of the resource
     /// </summary>
-    public sealed class ResourceIdentityArgs : Pulumi.ResourceArgs
+    public sealed class ResourceIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identity type
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.DataBox.V20210301.Inputs
         {
             Type = "None";
         }
+        public static new ResourceIdentityArgs Empty => new ResourceIdentityArgs();
     }
 }

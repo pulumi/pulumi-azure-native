@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Cache.V20180301
     /// </summary>
     [Obsolete(@"Version 2018-03-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:cache/v20180301:PatchSchedule")]
-    public partial class PatchSchedule : Pulumi.CustomResource
+    public partial class PatchSchedule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource name.
@@ -59,12 +59,13 @@ namespace Pulumi.AzureNative.Cache.V20180301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:cache:PatchSchedule"},
-                    new Pulumi.Alias { Type = "azure-native:cache/v20171001:PatchSchedule"},
-                    new Pulumi.Alias { Type = "azure-native:cache/v20190701:PatchSchedule"},
-                    new Pulumi.Alias { Type = "azure-native:cache/v20200601:PatchSchedule"},
-                    new Pulumi.Alias { Type = "azure-native:cache/v20201201:PatchSchedule"},
-                    new Pulumi.Alias { Type = "azure-native:cache/v20210601:PatchSchedule"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache:PatchSchedule"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20171001:PatchSchedule"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20190701:PatchSchedule"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20200601:PatchSchedule"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20201201:PatchSchedule"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20210601:PatchSchedule"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20220501:PatchSchedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -86,7 +87,7 @@ namespace Pulumi.AzureNative.Cache.V20180301
         }
     }
 
-    public sealed class PatchScheduleArgs : Pulumi.ResourceArgs
+    public sealed class PatchScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Default string modeled as parameter for auto generation to work correctly.
@@ -121,5 +122,6 @@ namespace Pulumi.AzureNative.Cache.V20180301
         public PatchScheduleArgs()
         {
         }
+        public static new PatchScheduleArgs Empty => new PatchScheduleArgs();
     }
 }

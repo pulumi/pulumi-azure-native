@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.AVS
     }
 
 
-    public sealed class GetWorkloadNetworkDnsZoneArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkloadNetworkDnsZoneArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// NSX DNS Zone identifier. Generally the same as the DNS Zone's display name
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.AVS
         public GetWorkloadNetworkDnsZoneArgs()
         {
         }
+        public static new GetWorkloadNetworkDnsZoneArgs Empty => new GetWorkloadNetworkDnsZoneArgs();
     }
 
-    public sealed class GetWorkloadNetworkDnsZoneInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkloadNetworkDnsZoneInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// NSX DNS Zone identifier. Generally the same as the DNS Zone's display name
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.AVS
         public GetWorkloadNetworkDnsZoneInvokeArgs()
         {
         }
+        public static new GetWorkloadNetworkDnsZoneInvokeArgs Empty => new GetWorkloadNetworkDnsZoneInvokeArgs();
     }
 
 

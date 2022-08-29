@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210901PrivatePreview.Inputs
     /// <summary>
     /// Represents a scaling mechanism for adding or removing named partitions of a stateless service. Partition names are in the format '0','1'...'N-1'.
     /// </summary>
-    public sealed class AddRemoveIncrementalNamedPartitionScalingMechanismArgs : Pulumi.ResourceArgs
+    public sealed class AddRemoveIncrementalNamedPartitionScalingMechanismArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enumerates the ways that a service can be partitioned.
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210901PrivatePreview.Inputs
         public AddRemoveIncrementalNamedPartitionScalingMechanismArgs()
         {
         }
+        public static new AddRemoveIncrementalNamedPartitionScalingMechanismArgs Empty => new AddRemoveIncrementalNamedPartitionScalingMechanismArgs();
     }
 }

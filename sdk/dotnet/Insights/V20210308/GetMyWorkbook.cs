@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Insights.V20210308
     }
 
 
-    public sealed class GetMyWorkbookArgs : Pulumi.InvokeArgs
+    public sealed class GetMyWorkbookArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Insights.V20210308
         public GetMyWorkbookArgs()
         {
         }
+        public static new GetMyWorkbookArgs Empty => new GetMyWorkbookArgs();
     }
 
-    public sealed class GetMyWorkbookInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMyWorkbookInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Insights.V20210308
         public GetMyWorkbookInvokeArgs()
         {
         }
+        public static new GetMyWorkbookInvokeArgs Empty => new GetMyWorkbookInvokeArgs();
     }
 
 

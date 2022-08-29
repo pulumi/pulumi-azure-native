@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview.Inputs
     /// <summary>
     /// Azure active directory application.
     /// </summary>
-    public sealed class AADAppArgs : Pulumi.ResourceArgs
+    public sealed class AADAppArgs : global::Pulumi.ResourceArgs
     {
         [Input("aadSecret", required: true)]
         public Input<string> AadSecret { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview.Inputs
         public AADAppArgs()
         {
         }
+        public static new AADAppArgs Empty => new AADAppArgs();
     }
 }

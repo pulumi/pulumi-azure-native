@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
     /// Represents OfficeIRM (Microsoft Insider Risk Management) data connector.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20220401preview:OfficeIRMDataConnector")]
-    public partial class OfficeIRMDataConnector : Pulumi.CustomResource
+    public partial class OfficeIRMDataConnector : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The available data types for the connector.
@@ -90,16 +90,19 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights:OfficeIRMDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:OfficeIRMDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:OfficeIRMDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:OfficeIRMDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:OfficeIRMDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:OfficeIRMDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:OfficeIRMDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:OfficeIRMDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:OfficeIRMDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:OfficeIRMDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:OfficeIRMDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:OfficeIRMDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:OfficeIRMDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:OfficeIRMDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:OfficeIRMDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:OfficeIRMDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:OfficeIRMDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:OfficeIRMDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:OfficeIRMDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:OfficeIRMDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:OfficeIRMDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801:OfficeIRMDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:OfficeIRMDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -121,7 +124,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
         }
     }
 
-    public sealed class OfficeIRMDataConnectorArgs : Pulumi.ResourceArgs
+    public sealed class OfficeIRMDataConnectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Connector ID
@@ -163,5 +166,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
         public OfficeIRMDataConnectorArgs()
         {
         }
+        public static new OfficeIRMDataConnectorArgs Empty => new OfficeIRMDataConnectorArgs();
     }
 }

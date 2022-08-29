@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Filter and return results from input array based on the conditions.
     /// </summary>
-    public sealed class FilterActivityArgs : Pulumi.ResourceArgs
+    public sealed class FilterActivityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Condition to be used for filtering the input.
@@ -61,5 +61,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public FilterActivityArgs()
         {
         }
+        public static new FilterActivityArgs Empty => new FilterActivityArgs();
     }
 }

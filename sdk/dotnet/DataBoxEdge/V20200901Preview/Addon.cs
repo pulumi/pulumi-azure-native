@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
     /// </summary>
     [Obsolete(@"Version 2020-09-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:databoxedge/v20200901preview:Addon")]
-    public partial class Addon : Pulumi.CustomResource
+    public partial class Addon : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Addon type.
@@ -65,15 +65,15 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:databoxedge:Addon"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:Addon"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:Addon"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:Addon"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:Addon"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:Addon"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:Addon"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:Addon"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:Addon"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:Addon"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:Addon"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:Addon"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:Addon"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:Addon"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:Addon"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:Addon"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:Addon"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:Addon"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
         }
     }
 
-    public sealed class AddonArgs : Pulumi.ResourceArgs
+    public sealed class AddonArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The addon name.
@@ -130,5 +130,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
         public AddonArgs()
         {
         }
+        public static new AddonArgs Empty => new AddonArgs();
     }
 }

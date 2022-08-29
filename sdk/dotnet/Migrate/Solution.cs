@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Migrate
     /// API Version: 2018-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:Solution")]
-    public partial class Solution : Pulumi.CustomResource
+    public partial class Solution : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Gets or sets the ETAG for optimistic concurrency control.
@@ -65,7 +65,7 @@ namespace Pulumi.AzureNative.Migrate
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:migrate/v20180901preview:Solution"},
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20180901preview:Solution"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -87,7 +87,7 @@ namespace Pulumi.AzureNative.Migrate
         }
     }
 
-    public sealed class SolutionArgs : Pulumi.ResourceArgs
+    public sealed class SolutionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Azure Migrate project.
@@ -116,5 +116,6 @@ namespace Pulumi.AzureNative.Migrate
         public SolutionArgs()
         {
         }
+        public static new SolutionArgs Empty => new SolutionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KeyVault.Inputs
     /// <summary>
     /// The attributes of the key.
     /// </summary>
-    public sealed class KeyAttributesArgs : Pulumi.ResourceArgs
+    public sealed class KeyAttributesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines whether or not the object is enabled.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.KeyVault.Inputs
         public KeyAttributesArgs()
         {
         }
+        public static new KeyAttributesArgs Empty => new KeyAttributesArgs();
     }
 }

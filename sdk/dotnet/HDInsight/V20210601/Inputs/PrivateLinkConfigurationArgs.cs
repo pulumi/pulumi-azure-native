@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.V20210601.Inputs
     /// <summary>
     /// The private link configuration.
     /// </summary>
-    public sealed class PrivateLinkConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class PrivateLinkConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The HDInsight private linkable sub-resource name to apply the private link configuration to. For example, 'headnode', 'gateway', 'edgenode'.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.HDInsight.V20210601.Inputs
         public PrivateLinkConfigurationArgs()
         {
         }
+        public static new PrivateLinkConfigurationArgs Empty => new PrivateLinkConfigurationArgs();
     }
 }

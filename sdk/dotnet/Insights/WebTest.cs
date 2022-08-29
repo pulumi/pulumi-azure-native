@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Insights
     /// API Version: 2015-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:WebTest")]
-    public partial class WebTest : Pulumi.CustomResource
+    public partial class WebTest : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An XML configuration specification for a WebTest.
@@ -137,9 +137,10 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:insights/v20150501:WebTest"},
-                    new Pulumi.Alias { Type = "azure-native:insights/v20180501preview:WebTest"},
-                    new Pulumi.Alias { Type = "azure-native:insights/v20201005preview:WebTest"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20150501:WebTest"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20180501preview:WebTest"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20201005preview:WebTest"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20220615:WebTest"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -161,7 +162,7 @@ namespace Pulumi.AzureNative.Insights
         }
     }
 
-    public sealed class WebTestArgs : Pulumi.ResourceArgs
+    public sealed class WebTestArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An XML configuration specification for a WebTest.
@@ -266,5 +267,6 @@ namespace Pulumi.AzureNative.Insights
             Timeout = 30;
             WebTestKind = Pulumi.AzureNative.Insights.WebTestKind.Ping;
         }
+        public static new WebTestArgs Empty => new WebTestArgs();
     }
 }

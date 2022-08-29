@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20190601Preview.Inputs
     /// <summary>
     /// The storage account information for storing Service Fabric diagnostic logs.
     /// </summary>
-    public sealed class DiagnosticsStorageAccountConfigArgs : Pulumi.ResourceArgs
+    public sealed class DiagnosticsStorageAccountConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The blob endpoint of the azure storage account.
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20190601Preview.Inputs
         public DiagnosticsStorageAccountConfigArgs()
         {
         }
+        public static new DiagnosticsStorageAccountConfigArgs Empty => new DiagnosticsStorageAccountConfigArgs();
     }
 }

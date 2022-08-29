@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A copy activity Azure Table sink.
     /// </summary>
-    public sealed class AzureTableSinkArgs : Pulumi.ResourceArgs
+    public sealed class AzureTableSinkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure Table default partition key value. Type: string (or Expression with resultType string).
@@ -85,5 +85,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public AzureTableSinkArgs()
         {
         }
+        public static new AzureTableSinkArgs Empty => new AzureTableSinkArgs();
     }
 }

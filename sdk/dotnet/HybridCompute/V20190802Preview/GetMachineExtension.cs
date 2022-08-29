@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20190802Preview
     }
 
 
-    public sealed class GetMachineExtensionArgs : Pulumi.InvokeArgs
+    public sealed class GetMachineExtensionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the machine extension.
@@ -49,9 +49,10 @@ namespace Pulumi.AzureNative.HybridCompute.V20190802Preview
         public GetMachineExtensionArgs()
         {
         }
+        public static new GetMachineExtensionArgs Empty => new GetMachineExtensionArgs();
     }
 
-    public sealed class GetMachineExtensionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMachineExtensionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the machine extension.
@@ -74,6 +75,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20190802Preview
         public GetMachineExtensionInvokeArgs()
         {
         }
+        public static new GetMachineExtensionInvokeArgs Empty => new GetMachineExtensionInvokeArgs();
     }
 
 

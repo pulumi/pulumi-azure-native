@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// </summary>
     [Obsolete(@"Please use one of the variants: AnomalySecurityMLAnalyticsSettings.")]
     [AzureNativeResourceType("azure-native:securityinsights:SecurityMLAnalyticsSetting")]
-    public partial class SecurityMLAnalyticsSetting : Pulumi.CustomResource
+    public partial class SecurityMLAnalyticsSetting : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Etag of the azure resource
@@ -72,8 +72,10 @@ namespace Pulumi.AzureNative.SecurityInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:SecurityMLAnalyticsSetting"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:SecurityMLAnalyticsSetting"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:SecurityMLAnalyticsSetting"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:SecurityMLAnalyticsSetting"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:SecurityMLAnalyticsSetting"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:SecurityMLAnalyticsSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -95,7 +97,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         }
     }
 
-    public sealed class SecurityMLAnalyticsSettingArgs : Pulumi.ResourceArgs
+    public sealed class SecurityMLAnalyticsSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The kind of security ML Analytics Settings
@@ -124,5 +126,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         public SecurityMLAnalyticsSettingArgs()
         {
         }
+        public static new SecurityMLAnalyticsSettingArgs Empty => new SecurityMLAnalyticsSettingArgs();
     }
 }

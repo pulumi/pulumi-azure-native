@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview
     /// The integration account agreement.
     /// </summary>
     [AzureNativeResourceType("azure-native:logic/v20180701preview:IntegrationAccountAgreement")]
-    public partial class IntegrationAccountAgreement : Pulumi.CustomResource
+    public partial class IntegrationAccountAgreement : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The agreement type.
@@ -118,10 +118,10 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:logic:IntegrationAccountAgreement"},
-                    new Pulumi.Alias { Type = "azure-native:logic/v20150801preview:IntegrationAccountAgreement"},
-                    new Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountAgreement"},
-                    new Pulumi.Alias { Type = "azure-native:logic/v20190501:IntegrationAccountAgreement"},
+                    new global::Pulumi.Alias { Type = "azure-native:logic:IntegrationAccountAgreement"},
+                    new global::Pulumi.Alias { Type = "azure-native:logic/v20150801preview:IntegrationAccountAgreement"},
+                    new global::Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountAgreement"},
+                    new global::Pulumi.Alias { Type = "azure-native:logic/v20190501:IntegrationAccountAgreement"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -143,7 +143,7 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview
         }
     }
 
-    public sealed class IntegrationAccountAgreementArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationAccountAgreementArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The integration account agreement name.
@@ -226,5 +226,6 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview
         public IntegrationAccountAgreementArgs()
         {
         }
+        public static new IntegrationAccountAgreementArgs Empty => new IntegrationAccountAgreementArgs();
     }
 }

@@ -179,7 +179,9 @@
         "ResourceManagementPrivateLink": "2020-05-01",
         "RoleAssignment": "2020-10-01-preview",
         "RoleDefinition": "2018-01-01-preview",
-        "RoleManagementPolicyAssignment": "2020-10-01"
+        "RoleManagementPolicyAssignment": "2020-10-01",
+        "ScopeAccessReviewHistoryDefinitionById": "2021-12-01-preview",
+        "ScopeAccessReviewScheduleDefinitionById": "2021-12-01-preview"
     },
     "Automanage": {
         "Account": "2020-06-30-preview",
@@ -601,7 +603,8 @@
         "listShareSynchronizations": "2020-09-01"
     },
     "Databricks": {
-        "PrivateEndpointConnection": "2021-04-01-preview",
+        "AccessConnector": "2022-04-01-preview",
+        "PrivateEndpointConnection": "2022-04-01-preview",
         "Workspace": "2018-04-01",
         "vNetPeering": "2018-04-01"
     },
@@ -634,8 +637,10 @@
         "PrivateEndpointConnectionByHostPool": "2021-04-01-preview",
         "PrivateEndpointConnectionByWorkspace": "2021-04-01-preview",
         "ScalingPlan": "2021-02-01-preview",
+        "ScalingPlanPooledSchedule": "2022-04-01-preview",
         "Workspace": "2021-02-01-preview"
     },
+    "DevCenter": {},
     "DevHub": {
         "Workflow": "2022-04-01-preview",
         "getGitHubOAuth": "2022-04-01-preview"
@@ -1402,7 +1407,7 @@
         "VCenter": "2020-01-01"
     },
     "OpenEnergyPlatform": {
-        "EnergyService": "2021-06-01-preview",
+        "EnergyService": "2022-04-04-preview",
         "listEnergyServicePartitions": "2022-04-04-preview"
     },
     "OperationalInsights": {
@@ -1541,6 +1546,7 @@
     },
     "ResourceConnector": {
         "Appliance": "2021-10-31-preview",
+        "listApplianceClusterCustomerUserCredential": "2022-04-15-preview",
         "listApplianceClusterUserCredential": "2021-10-31-preview"
     },
     "ResourceGraph": {
@@ -1589,6 +1595,7 @@
         "AdaptiveApplicationControl": "2020-01-01",
         "AdvancedThreatProtection": "2019-01-01",
         "AlertsSuppressionRule": "2019-01-01-preview",
+        "Application": "2022-07-01-preview",
         "Assessment": "2020-01-01",
         "AssessmentMetadataInSubscription": "2020-01-01",
         "Assignment": "2021-08-01-preview",
@@ -1601,6 +1608,7 @@
         "IotSecuritySolution": "2019-08-01",
         "JitNetworkAccessPolicy": "2020-01-01",
         "SecurityConnector": "2021-07-01-preview",
+        "SecurityConnectorApplication": "2022-07-01-preview",
         "SecurityContact": "2020-01-01-preview",
         "ServerVulnerabilityAssessment": "2020-01-01",
         "SqlVulnerabilityAssessmentBaselineRule": "2020-07-01-preview",
@@ -1818,6 +1826,7 @@
         "Cache": "2021-03-01",
         "StorageTarget": "2021-03-01"
     },
+    "StorageMover": {},
     "StoragePool": {
         "DiskPool": "2020-03-15-preview",
         "IscsiTarget": "2020-03-15-preview"

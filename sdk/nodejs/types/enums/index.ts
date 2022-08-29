@@ -4,6 +4,7 @@
 // Export sub-modules:
 import * as aad from "./aad";
 import * as aadiam from "./aadiam";
+import * as agfoodplatform from "./agfoodplatform";
 import * as alertsmanagement from "./alertsmanagement";
 import * as analysisservices from "./analysisservices";
 import * as apimanagement from "./apimanagement";
@@ -59,6 +60,7 @@ import * as dbforpostgresql from "./dbforpostgresql";
 import * as delegatednetwork from "./delegatednetwork";
 import * as deploymentmanager from "./deploymentmanager";
 import * as desktopvirtualization from "./desktopvirtualization";
+import * as devcenter from "./devcenter";
 import * as devhub from "./devhub";
 import * as devices from "./devices";
 import * as deviceupdate from "./deviceupdate";
@@ -151,6 +153,7 @@ import * as sql from "./sql";
 import * as sqlvirtualmachine from "./sqlvirtualmachine";
 import * as storage from "./storage";
 import * as storagecache from "./storagecache";
+import * as storagemover from "./storagemover";
 import * as storagepool from "./storagepool";
 import * as storagesync from "./storagesync";
 import * as storsimple from "./storsimple";
@@ -172,6 +175,7 @@ import * as workloads from "./workloads";
 export {
     aad,
     aadiam,
+    agfoodplatform,
     alertsmanagement,
     analysisservices,
     apimanagement,
@@ -227,6 +231,7 @@ export {
     delegatednetwork,
     deploymentmanager,
     desktopvirtualization,
+    devcenter,
     devhub,
     devices,
     deviceupdate,
@@ -319,6 +324,7 @@ export {
     sqlvirtualmachine,
     storage,
     storagecache,
+    storagemover,
     storagepool,
     storagesync,
     storsimple,

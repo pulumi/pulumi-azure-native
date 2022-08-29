@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The AmazonRdsForOracle database dataset.
     /// </summary>
-    public sealed class AmazonRdsForOracleTableDatasetArgs : Pulumi.ResourceArgs
+    public sealed class AmazonRdsForOracleTableDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,5 +85,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public AmazonRdsForOracleTableDatasetArgs()
         {
         }
+        public static new AmazonRdsForOracleTableDatasetArgs Empty => new AmazonRdsForOracleTableDatasetArgs();
     }
 }

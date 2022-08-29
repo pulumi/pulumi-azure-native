@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20210801.Inputs
     /// <summary>
     /// Details about a user assigned identity.
     /// </summary>
-    public sealed class UserAssignedIdentityArgs : Pulumi.ResourceArgs
+    public sealed class UserAssignedIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The client ID of the user assigned identity.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.ContainerService.V20210801.Inputs
         public UserAssignedIdentityArgs()
         {
         }
+        public static new UserAssignedIdentityArgs Empty => new UserAssignedIdentityArgs();
     }
 }

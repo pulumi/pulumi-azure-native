@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SignalRService.Inputs
     /// <summary>
     /// ACL for a private endpoint
     /// </summary>
-    public sealed class PrivateEndpointACLArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointACLArgs : global::Pulumi.ResourceArgs
     {
         [Input("allow")]
         private InputList<Union<string, Pulumi.AzureNative.SignalRService.SignalRRequestType>>? _allow;
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.SignalRService.Inputs
         public PrivateEndpointACLArgs()
         {
         }
+        public static new PrivateEndpointACLArgs Empty => new PrivateEndpointACLArgs();
     }
 }

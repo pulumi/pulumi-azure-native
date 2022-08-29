@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Inputs
     /// <summary>
     /// Describes a MongoDB shard key
     /// </summary>
-    public sealed class MongoDbShardKeySettingArgs : Pulumi.ResourceArgs
+    public sealed class MongoDbShardKeySettingArgs : global::Pulumi.ResourceArgs
     {
         [Input("fields", required: true)]
         private InputList<Inputs.MongoDbShardKeyFieldArgs>? _fields;
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Inputs
         public MongoDbShardKeySettingArgs()
         {
         }
+        public static new MongoDbShardKeySettingArgs Empty => new MongoDbShardKeySettingArgs();
     }
 }

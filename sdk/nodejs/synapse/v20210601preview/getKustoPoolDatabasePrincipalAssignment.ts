@@ -51,6 +51,10 @@ export interface GetKustoPoolDatabasePrincipalAssignmentArgs {
  */
 export interface GetKustoPoolDatabasePrincipalAssignmentResult {
     /**
+     * The service principal object id in AAD (Azure active directory)
+     */
+    readonly aadObjectId: string;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;

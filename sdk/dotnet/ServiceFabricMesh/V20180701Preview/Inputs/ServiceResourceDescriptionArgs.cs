@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview.Inputs
     /// <summary>
     /// This type describes a service resource.
     /// </summary>
-    public sealed class ServiceResourceDescriptionArgs : Pulumi.ResourceArgs
+    public sealed class ServiceResourceDescriptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("codePackages", required: true)]
         private InputList<Inputs.ContainerCodePackagePropertiesArgs>? _codePackages;
@@ -78,5 +78,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview.Inputs
         public ServiceResourceDescriptionArgs()
         {
         }
+        public static new ServiceResourceDescriptionArgs Empty => new ServiceResourceDescriptionArgs();
     }
 }

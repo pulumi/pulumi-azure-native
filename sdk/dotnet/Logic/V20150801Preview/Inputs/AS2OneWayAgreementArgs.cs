@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
-    public sealed class AS2OneWayAgreementArgs : Pulumi.ResourceArgs
+    public sealed class AS2OneWayAgreementArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AS2 protocol settings.
@@ -33,5 +33,6 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
         public AS2OneWayAgreementArgs()
         {
         }
+        public static new AS2OneWayAgreementArgs Empty => new AS2OneWayAgreementArgs();
     }
 }

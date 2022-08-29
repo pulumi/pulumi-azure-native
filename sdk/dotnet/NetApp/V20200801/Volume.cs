@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.NetApp.V20200801
     /// </summary>
     [Obsolete(@"Version 2020-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:netapp/v20200801:Volume")]
-    public partial class Volume : Pulumi.CustomResource
+    public partial class Volume : global::Pulumi.CustomResource
     {
         /// <summary>
         /// UUID v4 or resource identifier used to identify the Backup.
@@ -176,29 +176,30 @@ namespace Pulumi.AzureNative.NetApp.V20200801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:netapp:Volume"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20170815:Volume"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20190501:Volume"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20190601:Volume"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20190701:Volume"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20190801:Volume"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20191001:Volume"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20191101:Volume"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20200201:Volume"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20200301:Volume"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20200501:Volume"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20200601:Volume"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20200701:Volume"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20200901:Volume"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20201101:Volume"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20201201:Volume"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20210201:Volume"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20210401:Volume"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20210401preview:Volume"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20210601:Volume"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20210801:Volume"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20211001:Volume"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20220101:Volume"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp:Volume"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20170815:Volume"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20190501:Volume"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20190601:Volume"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20190701:Volume"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20190801:Volume"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20191001:Volume"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20191101:Volume"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200201:Volume"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200301:Volume"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200501:Volume"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200601:Volume"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200701:Volume"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200901:Volume"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20201101:Volume"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20201201:Volume"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210201:Volume"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210401:Volume"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210401preview:Volume"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210601:Volume"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210801:Volume"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20211001:Volume"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220101:Volume"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220301:Volume"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -220,7 +221,7 @@ namespace Pulumi.AzureNative.NetApp.V20200801
         }
     }
 
-    public sealed class VolumeArgs : Pulumi.ResourceArgs
+    public sealed class VolumeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the NetApp account
@@ -366,5 +367,6 @@ namespace Pulumi.AzureNative.NetApp.V20200801
             ThroughputMibps = 0;
             UsageThreshold = 107374182400;
         }
+        public static new VolumeArgs Empty => new VolumeArgs();
     }
 }

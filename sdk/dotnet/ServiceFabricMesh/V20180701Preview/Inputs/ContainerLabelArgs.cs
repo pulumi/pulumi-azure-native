@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview.Inputs
     /// <summary>
     /// Describes a container label.
     /// </summary>
-    public sealed class ContainerLabelArgs : Pulumi.ResourceArgs
+    public sealed class ContainerLabelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the container label.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview.Inputs
         public ContainerLabelArgs()
         {
         }
+        public static new ContainerLabelArgs Empty => new ContainerLabelArgs();
     }
 }

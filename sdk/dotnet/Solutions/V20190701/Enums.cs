@@ -232,6 +232,38 @@ namespace Pulumi.AzureNative.Solutions.V20190701
     }
 
     /// <summary>
+    /// The type of JIT schedule.
+    /// </summary>
+    [EnumType]
+    public readonly struct JitSchedulingType : IEquatable<JitSchedulingType>
+    {
+        private readonly string _value;
+
+        private JitSchedulingType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static JitSchedulingType NotSpecified { get; } = new JitSchedulingType("NotSpecified");
+        public static JitSchedulingType Once { get; } = new JitSchedulingType("Once");
+        public static JitSchedulingType Recurring { get; } = new JitSchedulingType("Recurring");
+
+        public static bool operator ==(JitSchedulingType left, JitSchedulingType right) => left.Equals(right);
+        public static bool operator !=(JitSchedulingType left, JitSchedulingType right) => !left.Equals(right);
+
+        public static explicit operator string(JitSchedulingType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is JitSchedulingType other && Equals(other);
+        public bool Equals(JitSchedulingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The identity type.
     /// </summary>
     [EnumType]

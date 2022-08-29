@@ -167,7 +167,7 @@ export class FhirService extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis:FhirService" }, { type: "azure-native:healthcareapis/v20210601preview:FhirService" }, { type: "azure-native:healthcareapis/v20220131preview:FhirService" }, { type: "azure-native:healthcareapis/v20220515:FhirService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis:FhirService" }, { type: "azure-native:healthcareapis/v20210601preview:FhirService" }, { type: "azure-native:healthcareapis/v20220131preview:FhirService" }, { type: "azure-native:healthcareapis/v20220515:FhirService" }, { type: "azure-native:healthcareapis/v20220601:FhirService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FhirService.__pulumiType, name, resourceInputs, opts);
     }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220101Preview
     /// Packet core data plane resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork/v20220101preview:PacketCoreDataPlane")]
-    public partial class PacketCoreDataPlane : Pulumi.CustomResource
+    public partial class PacketCoreDataPlane : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The timestamp of resource creation (UTC).
@@ -112,8 +112,9 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:mobilenetwork:PacketCoreDataPlane"},
-                    new Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220301preview:PacketCoreDataPlane"},
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork:PacketCoreDataPlane"},
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220301preview:PacketCoreDataPlane"},
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220401preview:PacketCoreDataPlane"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -135,7 +136,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220101Preview
         }
     }
 
-    public sealed class PacketCoreDataPlaneArgs : Pulumi.ResourceArgs
+    public sealed class PacketCoreDataPlaneArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The timestamp of resource creation (UTC).
@@ -218,5 +219,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220101Preview
         public PacketCoreDataPlaneArgs()
         {
         }
+        public static new PacketCoreDataPlaneArgs Empty => new PacketCoreDataPlaneArgs();
     }
 }

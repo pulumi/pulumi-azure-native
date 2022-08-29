@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211101
     /// Recovery plan details.
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices/v20211101:ReplicationRecoveryPlan")]
-    public partial class ReplicationRecoveryPlan : Pulumi.CustomResource
+    public partial class ReplicationRecoveryPlan : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource Location
@@ -64,21 +64,24 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices:ReplicationRecoveryPlan"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20160810:ReplicationRecoveryPlan"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationRecoveryPlan"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180710:ReplicationRecoveryPlan"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210210:ReplicationRecoveryPlan"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210301:ReplicationRecoveryPlan"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210401:ReplicationRecoveryPlan"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210601:ReplicationRecoveryPlan"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210701:ReplicationRecoveryPlan"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210801:ReplicationRecoveryPlan"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20211001:ReplicationRecoveryPlan"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20211201:ReplicationRecoveryPlan"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220101:ReplicationRecoveryPlan"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220201:ReplicationRecoveryPlan"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220301:ReplicationRecoveryPlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices:ReplicationRecoveryPlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20160810:ReplicationRecoveryPlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationRecoveryPlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20180710:ReplicationRecoveryPlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210210:ReplicationRecoveryPlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210301:ReplicationRecoveryPlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210401:ReplicationRecoveryPlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210601:ReplicationRecoveryPlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210701:ReplicationRecoveryPlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210801:ReplicationRecoveryPlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20211001:ReplicationRecoveryPlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20211201:ReplicationRecoveryPlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220101:ReplicationRecoveryPlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220201:ReplicationRecoveryPlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220301:ReplicationRecoveryPlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220401:ReplicationRecoveryPlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220501:ReplicationRecoveryPlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220801:ReplicationRecoveryPlan"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -100,7 +103,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211101
         }
     }
 
-    public sealed class ReplicationRecoveryPlanArgs : Pulumi.ResourceArgs
+    public sealed class ReplicationRecoveryPlanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Recovery plan creation properties.
@@ -129,5 +132,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211101
         public ReplicationRecoveryPlanArgs()
         {
         }
+        public static new ReplicationRecoveryPlanArgs Empty => new ReplicationRecoveryPlanArgs();
     }
 }

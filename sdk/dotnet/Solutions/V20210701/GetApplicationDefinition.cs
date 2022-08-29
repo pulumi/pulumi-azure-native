@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Solutions.V20210701
     }
 
 
-    public sealed class GetApplicationDefinitionArgs : Pulumi.InvokeArgs
+    public sealed class GetApplicationDefinitionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the managed application definition.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Solutions.V20210701
         public GetApplicationDefinitionArgs()
         {
         }
+        public static new GetApplicationDefinitionArgs Empty => new GetApplicationDefinitionArgs();
     }
 
-    public sealed class GetApplicationDefinitionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetApplicationDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the managed application definition.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Solutions.V20210701
         public GetApplicationDefinitionInvokeArgs()
         {
         }
+        public static new GetApplicationDefinitionInvokeArgs Empty => new GetApplicationDefinitionInvokeArgs();
     }
 
 
@@ -140,10 +142,6 @@ namespace Pulumi.AzureNative.Solutions.V20210701
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationPolicyResponse> Policies;
         /// <summary>
-        /// Provisioning state.
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
         /// The SKU of the resource.
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
@@ -202,8 +200,6 @@ namespace Pulumi.AzureNative.Solutions.V20210701
 
             ImmutableArray<Outputs.ApplicationPolicyResponse> policies,
 
-            string provisioningState,
-
             Outputs.SkuResponse? sku,
 
             string? storageAccountId,
@@ -232,7 +228,6 @@ namespace Pulumi.AzureNative.Solutions.V20210701
             NotificationPolicy = notificationPolicy;
             PackageFileUri = packageFileUri;
             Policies = policies;
-            ProvisioningState = provisioningState;
             Sku = sku;
             StorageAccountId = storageAccountId;
             SystemData = systemData;

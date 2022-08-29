@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20211115Preview
     }
 
 
-    public sealed class GetSqlResourceSqlRoleAssignmentArgs : Pulumi.InvokeArgs
+    public sealed class GetSqlResourceSqlRoleAssignmentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Cosmos DB database account name.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.DocumentDB.V20211115Preview
         public GetSqlResourceSqlRoleAssignmentArgs()
         {
         }
+        public static new GetSqlResourceSqlRoleAssignmentArgs Empty => new GetSqlResourceSqlRoleAssignmentArgs();
     }
 
-    public sealed class GetSqlResourceSqlRoleAssignmentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSqlResourceSqlRoleAssignmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Cosmos DB database account name.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20211115Preview
         public GetSqlResourceSqlRoleAssignmentInvokeArgs()
         {
         }
+        public static new GetSqlResourceSqlRoleAssignmentInvokeArgs Empty => new GetSqlResourceSqlRoleAssignmentInvokeArgs();
     }
 
 

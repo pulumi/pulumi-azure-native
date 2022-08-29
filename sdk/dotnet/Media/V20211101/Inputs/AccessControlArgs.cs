@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20211101.Inputs
 {
 
-    public sealed class AccessControlArgs : Pulumi.ResourceArgs
+    public sealed class AccessControlArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The behavior for IP access control in Key Delivery.
@@ -33,5 +33,6 @@ namespace Pulumi.AzureNative.Media.V20211101.Inputs
         public AccessControlArgs()
         {
         }
+        public static new AccessControlArgs Empty => new AccessControlArgs();
     }
 }

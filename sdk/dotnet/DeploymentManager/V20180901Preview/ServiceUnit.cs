@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
     /// </summary>
     [Obsolete(@"Version 2018-09-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:deploymentmanager/v20180901preview:ServiceUnit")]
-    public partial class ServiceUnit : Pulumi.CustomResource
+    public partial class ServiceUnit : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The artifacts for the service unit.
@@ -83,8 +83,8 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:deploymentmanager:ServiceUnit"},
-                    new Pulumi.Alias { Type = "azure-native:deploymentmanager/v20191101preview:ServiceUnit"},
+                    new global::Pulumi.Alias { Type = "azure-native:deploymentmanager:ServiceUnit"},
+                    new global::Pulumi.Alias { Type = "azure-native:deploymentmanager/v20191101preview:ServiceUnit"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
         }
     }
 
-    public sealed class ServiceUnitArgs : Pulumi.ResourceArgs
+    public sealed class ServiceUnitArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The artifacts for the service unit.
@@ -171,5 +171,6 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
         public ServiceUnitArgs()
         {
         }
+        public static new ServiceUnitArgs Empty => new ServiceUnitArgs();
     }
 }

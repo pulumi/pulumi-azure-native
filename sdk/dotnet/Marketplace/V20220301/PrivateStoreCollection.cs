@@ -13,25 +13,25 @@ namespace Pulumi.AzureNative.Marketplace.V20220301
     /// The Collection data structure.
     /// </summary>
     [AzureNativeResourceType("azure-native:marketplace/v20220301:PrivateStoreCollection")]
-    public partial class PrivateStoreCollection : Pulumi.CustomResource
+    public partial class PrivateStoreCollection : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Indicating whether all items are approved for this collection (=true) or not (=false).
-        /// </summary>
-        [Output("allItemsApproved")]
-        public Output<bool> AllItemsApproved { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets the modified date of all items approved.
-        /// </summary>
-        [Output("allItemsApprovedModifiedAt")]
-        public Output<string> AllItemsApprovedModifiedAt { get; private set; } = null!;
-
         /// <summary>
         /// Indicating whether all subscriptions are selected (=true) or not (=false).
         /// </summary>
         [Output("allSubscriptions")]
         public Output<bool?> AllSubscriptions { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicating whether all items are approved for this collection (=true) or not (=false).
+        /// </summary>
+        [Output("approveAllItems")]
+        public Output<bool> ApproveAllItems { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the modified date of all items approved.
+        /// </summary>
+        [Output("approveAllItemsModifiedAt")]
+        public Output<string> ApproveAllItemsModifiedAt { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the association with Commercial's Billing Account.
@@ -112,9 +112,9 @@ namespace Pulumi.AzureNative.Marketplace.V20220301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:marketplace:PrivateStoreCollection"},
-                    new Pulumi.Alias { Type = "azure-native:marketplace/v20210601:PrivateStoreCollection"},
-                    new Pulumi.Alias { Type = "azure-native:marketplace/v20211201:PrivateStoreCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:marketplace:PrivateStoreCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:marketplace/v20210601:PrivateStoreCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:marketplace/v20211201:PrivateStoreCollection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.Marketplace.V20220301
         }
     }
 
-    public sealed class PrivateStoreCollectionArgs : Pulumi.ResourceArgs
+    public sealed class PrivateStoreCollectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicating whether all subscriptions are selected (=true) or not (=false).
@@ -189,5 +189,6 @@ namespace Pulumi.AzureNative.Marketplace.V20220301
         public PrivateStoreCollectionArgs()
         {
         }
+        public static new PrivateStoreCollectionArgs Empty => new PrivateStoreCollectionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VisualStudio.V20171101Preview
     /// The response to an account resource GET request.
     /// </summary>
     [AzureNativeResourceType("azure-native:visualstudio/v20171101preview:Account")]
-    public partial class Account : Pulumi.CustomResource
+    public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource location.
@@ -70,8 +70,8 @@ namespace Pulumi.AzureNative.VisualStudio.V20171101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:visualstudio:Account"},
-                    new Pulumi.Alias { Type = "azure-native:visualstudio/v20140401preview:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:visualstudio:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:visualstudio/v20140401preview:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.VisualStudio.V20171101Preview
         }
     }
 
-    public sealed class AccountArgs : Pulumi.ResourceArgs
+    public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The account name.
@@ -152,5 +152,6 @@ namespace Pulumi.AzureNative.VisualStudio.V20171101Preview
         public AccountArgs()
         {
         }
+        public static new AccountArgs Empty => new AccountArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20211001.Inputs
     /// <summary>
     /// Sysctl settings for Linux agent nodes.
     /// </summary>
-    public sealed class SysctlConfigArgs : Pulumi.ResourceArgs
+    public sealed class SysctlConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Sysctl setting fs.aio-max-nr.
@@ -186,5 +186,6 @@ namespace Pulumi.AzureNative.ContainerService.V20211001.Inputs
         public SysctlConfigArgs()
         {
         }
+        public static new SysctlConfigArgs Empty => new SysctlConfigArgs();
     }
 }

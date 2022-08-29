@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20220101Preview.Inputs
     /// <summary>
     /// Describe the additional data of GovernanceAssignment - optional
     /// </summary>
-    public sealed class GovernanceAssignmentAdditionalDataArgs : Pulumi.ResourceArgs
+    public sealed class GovernanceAssignmentAdditionalDataArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Ticket link associated with this GovernanceAssignment - for example: https://snow.com
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Security.V20220101Preview.Inputs
         public GovernanceAssignmentAdditionalDataArgs()
         {
         }
+        public static new GovernanceAssignmentAdditionalDataArgs Empty => new GovernanceAssignmentAdditionalDataArgs();
     }
 }

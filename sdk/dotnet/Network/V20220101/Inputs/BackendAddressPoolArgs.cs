@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
     /// <summary>
     /// Pool of backend IP addresses.
     /// </summary>
-    public sealed class BackendAddressPoolArgs : Pulumi.ResourceArgs
+    public sealed class BackendAddressPoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amount of seconds Load Balancer waits for before sending RESET to client and backend address.
@@ -66,5 +66,6 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
         public BackendAddressPoolArgs()
         {
         }
+        public static new BackendAddressPoolArgs Empty => new BackendAddressPoolArgs();
     }
 }

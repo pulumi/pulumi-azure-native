@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Security.V20150601Preview
 {
     [Obsolete(@"Version 2015-06-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:security/v20150601preview:AdaptiveApplicationControl")]
-    public partial class AdaptiveApplicationControl : Pulumi.CustomResource
+    public partial class AdaptiveApplicationControl : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The configuration status of the VM/server group or machine or rule on the machine
@@ -95,8 +95,8 @@ namespace Pulumi.AzureNative.Security.V20150601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:security:AdaptiveApplicationControl"},
-                    new Pulumi.Alias { Type = "azure-native:security/v20200101:AdaptiveApplicationControl"},
+                    new global::Pulumi.Alias { Type = "azure-native:security:AdaptiveApplicationControl"},
+                    new global::Pulumi.Alias { Type = "azure-native:security/v20200101:AdaptiveApplicationControl"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.Security.V20150601Preview
         }
     }
 
-    public sealed class AdaptiveApplicationControlArgs : Pulumi.ResourceArgs
+    public sealed class AdaptiveApplicationControlArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The location where ASC stores the data of the subscription. can be retrieved from Get locations
@@ -163,5 +163,6 @@ namespace Pulumi.AzureNative.Security.V20150601Preview
         public AdaptiveApplicationControlArgs()
         {
         }
+        public static new AdaptiveApplicationControlArgs Empty => new AdaptiveApplicationControlArgs();
     }
 }

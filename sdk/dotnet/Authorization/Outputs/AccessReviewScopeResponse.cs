@@ -21,6 +21,14 @@ namespace Pulumi.AzureNative.Authorization.Outputs
         /// </summary>
         public readonly string AssignmentState;
         /// <summary>
+        /// This is used to indicate the resource id(s) to exclude
+        /// </summary>
+        public readonly string? ExcludeResourceId;
+        /// <summary>
+        /// This is used to indicate the role definition id(s) to exclude
+        /// </summary>
+        public readonly string? ExcludeRoleDefinitionId;
+        /// <summary>
         /// Flag to indicate whether to expand nested memberships or not.
         /// </summary>
         public readonly bool? ExpandNestedMemberships;
@@ -28,6 +36,14 @@ namespace Pulumi.AzureNative.Authorization.Outputs
         /// Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
         /// </summary>
         public readonly string? InactiveDuration;
+        /// <summary>
+        /// Flag to indicate whether to expand nested memberships or not.
+        /// </summary>
+        public readonly bool? IncludeAccessBelowResource;
+        /// <summary>
+        /// Flag to indicate whether to expand nested memberships or not.
+        /// </summary>
+        public readonly bool? IncludeInheritedAccess;
         /// <summary>
         /// The identity type user/servicePrincipal to review
         /// </summary>
@@ -45,9 +61,17 @@ namespace Pulumi.AzureNative.Authorization.Outputs
         private AccessReviewScopeResponse(
             string assignmentState,
 
+            string? excludeResourceId,
+
+            string? excludeRoleDefinitionId,
+
             bool? expandNestedMemberships,
 
             string? inactiveDuration,
+
+            bool? includeAccessBelowResource,
+
+            bool? includeInheritedAccess,
 
             string principalType,
 
@@ -56,8 +80,12 @@ namespace Pulumi.AzureNative.Authorization.Outputs
             string roleDefinitionId)
         {
             AssignmentState = assignmentState;
+            ExcludeResourceId = excludeResourceId;
+            ExcludeRoleDefinitionId = excludeRoleDefinitionId;
             ExpandNestedMemberships = expandNestedMemberships;
             InactiveDuration = inactiveDuration;
+            IncludeAccessBelowResource = includeAccessBelowResource;
+            IncludeInheritedAccess = includeInheritedAccess;
             PrincipalType = principalType;
             ResourceId = resourceId;
             RoleDefinitionId = roleDefinitionId;

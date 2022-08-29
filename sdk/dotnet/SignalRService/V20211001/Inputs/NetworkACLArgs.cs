@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SignalRService.V20211001.Inputs
     /// <summary>
     /// Network ACL
     /// </summary>
-    public sealed class NetworkACLArgs : Pulumi.ResourceArgs
+    public sealed class NetworkACLArgs : global::Pulumi.ResourceArgs
     {
         [Input("allow")]
         private InputList<Union<string, Pulumi.AzureNative.SignalRService.V20211001.SignalRRequestType>>? _allow;
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.SignalRService.V20211001.Inputs
         public NetworkACLArgs()
         {
         }
+        public static new NetworkACLArgs Empty => new NetworkACLArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20201201.Inputs
     /// <summary>
     /// The protection policy of a virtual machine scale set VM.
     /// </summary>
-    public sealed class VirtualMachineScaleSetVMProtectionPolicyArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineScaleSetVMProtectionPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates that the virtual machine scale set VM shouldn't be considered for deletion during a scale-in operation.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Compute.V20201201.Inputs
         public VirtualMachineScaleSetVMProtectionPolicyArgs()
         {
         }
+        public static new VirtualMachineScaleSetVMProtectionPolicyArgs Empty => new VirtualMachineScaleSetVMProtectionPolicyArgs();
     }
 }

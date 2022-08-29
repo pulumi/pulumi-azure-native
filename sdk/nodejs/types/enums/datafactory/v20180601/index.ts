@@ -27,6 +27,15 @@ export const AzureSearchIndexWriteBehaviorType = {
  */
 export type AzureSearchIndexWriteBehaviorType = (typeof AzureSearchIndexWriteBehaviorType)[keyof typeof AzureSearchIndexWriteBehaviorType];
 
+export const BigDataPoolReferenceType = {
+    BigDataPoolReference: "BigDataPoolReference",
+} as const;
+
+/**
+ * Big data pool reference type.
+ */
+export type BigDataPoolReferenceType = (typeof BigDataPoolReferenceType)[keyof typeof BigDataPoolReferenceType];
+
 export const BlobEventTypes = {
     Microsoft_Storage_BlobCreated: "Microsoft.Storage.BlobCreated",
     Microsoft_Storage_BlobDeleted: "Microsoft.Storage.BlobDeleted",
@@ -360,6 +369,27 @@ export const MongoDbAuthenticationType = {
  */
 export type MongoDbAuthenticationType = (typeof MongoDbAuthenticationType)[keyof typeof MongoDbAuthenticationType];
 
+export const NotebookParameterType = {
+    String: "string",
+    Int: "int",
+    Float: "float",
+    Bool: "bool",
+} as const;
+
+/**
+ * Notebook parameter type.
+ */
+export type NotebookParameterType = (typeof NotebookParameterType)[keyof typeof NotebookParameterType];
+
+export const NotebookReferenceType = {
+    NotebookReference: "NotebookReference",
+} as const;
+
+/**
+ * Synapse notebook reference type.
+ */
+export type NotebookReferenceType = (typeof NotebookReferenceType)[keyof typeof NotebookReferenceType];
+
 export const ODataAadServicePrincipalCredentialType = {
     ServicePrincipalKey: "ServicePrincipalKey",
     ServicePrincipalCert: "ServicePrincipalCert",
@@ -590,6 +620,15 @@ export const SparkAuthenticationType = {
  * The authentication method used to access the Spark server.
  */
 export type SparkAuthenticationType = (typeof SparkAuthenticationType)[keyof typeof SparkAuthenticationType];
+
+export const SparkJobReferenceType = {
+    SparkJobDefinitionReference: "SparkJobDefinitionReference",
+} as const;
+
+/**
+ * Synapse spark job reference type.
+ */
+export type SparkJobReferenceType = (typeof SparkJobReferenceType)[keyof typeof SparkJobReferenceType];
 
 export const SparkServerType = {
     SharkServer: "SharkServer",

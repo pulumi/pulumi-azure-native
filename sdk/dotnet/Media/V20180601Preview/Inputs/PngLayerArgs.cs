@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180601Preview.Inputs
     /// <summary>
     /// Describes the settings to produce a PNG image from the input video.
     /// </summary>
-    public sealed class PngLayerArgs : Pulumi.ResourceArgs
+    public sealed class PngLayerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.Media.V20180601Preview.Inputs
         public PngLayerArgs()
         {
         }
+        public static new PngLayerArgs Empty => new PngLayerArgs();
     }
 }

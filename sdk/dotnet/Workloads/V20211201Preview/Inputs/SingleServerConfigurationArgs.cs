@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
     /// <summary>
     /// Gets or sets the single server configuration.
     /// </summary>
-    public sealed class SingleServerConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class SingleServerConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application resource group where SAP system resources will be deployed.
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
         public InputUnion<string, Pulumi.AzureNative.Workloads.V20211201Preview.SAPDatabaseType>? DatabaseType { get; set; }
 
         /// <summary>
-        /// The deployment Type.
+        /// The type of SAP deployment, single server or Three tier.
         /// Expected value is 'SingleServer'.
         /// </summary>
         [Input("deploymentType", required: true)]
@@ -55,5 +55,6 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
         public SingleServerConfigurationArgs()
         {
         }
+        public static new SingleServerConfigurationArgs Empty => new SingleServerConfigurationArgs();
     }
 }

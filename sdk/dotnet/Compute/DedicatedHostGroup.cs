@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Compute
     /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:DedicatedHostGroup")]
-    public partial class DedicatedHostGroup : Pulumi.CustomResource
+    public partial class DedicatedHostGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A list of references to all dedicated hosts in the dedicated host group.
@@ -95,15 +95,16 @@ namespace Pulumi.AzureNative.Compute
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:compute/v20190301:DedicatedHostGroup"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:DedicatedHostGroup"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20191201:DedicatedHostGroup"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20200601:DedicatedHostGroup"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20201201:DedicatedHostGroup"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210301:DedicatedHostGroup"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210401:DedicatedHostGroup"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210701:DedicatedHostGroup"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20211101:DedicatedHostGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190301:DedicatedHostGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190701:DedicatedHostGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20191201:DedicatedHostGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200601:DedicatedHostGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20201201:DedicatedHostGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210301:DedicatedHostGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:DedicatedHostGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:DedicatedHostGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211101:DedicatedHostGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220301:DedicatedHostGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -125,7 +126,7 @@ namespace Pulumi.AzureNative.Compute
         }
     }
 
-    public sealed class DedicatedHostGroupArgs : Pulumi.ResourceArgs
+    public sealed class DedicatedHostGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the dedicated host group.
@@ -184,5 +185,6 @@ namespace Pulumi.AzureNative.Compute
         public DedicatedHostGroupArgs()
         {
         }
+        public static new DedicatedHostGroupArgs Empty => new DedicatedHostGroupArgs();
     }
 }

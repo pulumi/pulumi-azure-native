@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A linked service for an SSH File Transfer Protocol (SFTP) server. 
     /// </summary>
-    public sealed class SftpServerLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class SftpServerLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -127,5 +127,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public SftpServerLinkedServiceArgs()
         {
         }
+        public static new SftpServerLinkedServiceArgs Empty => new SftpServerLinkedServiceArgs();
     }
 }

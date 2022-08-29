@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.StorageSync.V20180701
     /// </summary>
     [Obsolete(@"Version 2018-07-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storagesync/v20180701:StorageSyncService")]
-    public partial class StorageSyncService : Pulumi.CustomResource
+    public partial class StorageSyncService : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -77,16 +77,16 @@ namespace Pulumi.AzureNative.StorageSync.V20180701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:storagesync:StorageSyncService"},
-                    new Pulumi.Alias { Type = "azure-native:storagesync/v20170605preview:StorageSyncService"},
-                    new Pulumi.Alias { Type = "azure-native:storagesync/v20180402:StorageSyncService"},
-                    new Pulumi.Alias { Type = "azure-native:storagesync/v20181001:StorageSyncService"},
-                    new Pulumi.Alias { Type = "azure-native:storagesync/v20190201:StorageSyncService"},
-                    new Pulumi.Alias { Type = "azure-native:storagesync/v20190301:StorageSyncService"},
-                    new Pulumi.Alias { Type = "azure-native:storagesync/v20190601:StorageSyncService"},
-                    new Pulumi.Alias { Type = "azure-native:storagesync/v20191001:StorageSyncService"},
-                    new Pulumi.Alias { Type = "azure-native:storagesync/v20200301:StorageSyncService"},
-                    new Pulumi.Alias { Type = "azure-native:storagesync/v20200901:StorageSyncService"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagesync:StorageSyncService"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20170605preview:StorageSyncService"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20180402:StorageSyncService"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20181001:StorageSyncService"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20190201:StorageSyncService"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20190301:StorageSyncService"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20190601:StorageSyncService"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20191001:StorageSyncService"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20200301:StorageSyncService"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20200901:StorageSyncService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.StorageSync.V20180701
         }
     }
 
-    public sealed class StorageSyncServiceArgs : Pulumi.ResourceArgs
+    public sealed class StorageSyncServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
@@ -146,5 +146,6 @@ namespace Pulumi.AzureNative.StorageSync.V20180701
         public StorageSyncServiceArgs()
         {
         }
+        public static new StorageSyncServiceArgs Empty => new StorageSyncServiceArgs();
     }
 }

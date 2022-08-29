@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// VNet properties for managed integration runtime.
     /// </summary>
-    public sealed class IntegrationRuntimeVNetPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationRuntimeVNetPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the subnet this integration runtime will join.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public IntegrationRuntimeVNetPropertiesArgs()
         {
         }
+        public static new IntegrationRuntimeVNetPropertiesArgs Empty => new IntegrationRuntimeVNetPropertiesArgs();
     }
 }

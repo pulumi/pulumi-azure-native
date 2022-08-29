@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Kusto.V20210101
     /// Class representing a cluster principal assignment.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto/v20210101:ClusterPrincipalAssignment")]
-    public partial class ClusterPrincipalAssignment : Pulumi.CustomResource
+    public partial class ClusterPrincipalAssignment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -94,13 +94,13 @@ namespace Pulumi.AzureNative.Kusto.V20210101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:kusto:ClusterPrincipalAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20191109:ClusterPrincipalAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20200215:ClusterPrincipalAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20200614:ClusterPrincipalAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20200918:ClusterPrincipalAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20210827:ClusterPrincipalAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20220201:ClusterPrincipalAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto:ClusterPrincipalAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20191109:ClusterPrincipalAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20200215:ClusterPrincipalAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20200614:ClusterPrincipalAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20200918:ClusterPrincipalAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20210827:ClusterPrincipalAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20220201:ClusterPrincipalAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.Kusto.V20210101
         }
     }
 
-    public sealed class ClusterPrincipalAssignmentArgs : Pulumi.ResourceArgs
+    public sealed class ClusterPrincipalAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -169,5 +169,6 @@ namespace Pulumi.AzureNative.Kusto.V20210101
         public ClusterPrincipalAssignmentArgs()
         {
         }
+        public static new ClusterPrincipalAssignmentArgs Empty => new ClusterPrincipalAssignmentArgs();
     }
 }

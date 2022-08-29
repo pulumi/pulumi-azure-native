@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.V20150801
     /// </summary>
     [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:web/v20150801:SiteAuthSettings")]
-    public partial class SiteAuthSettings : Pulumi.CustomResource
+    public partial class SiteAuthSettings : global::Pulumi.CustomResource
     {
         [Output("aadClientId")]
         public Output<string?> AadClientId { get; private set; } = null!;
@@ -227,20 +227,20 @@ namespace Pulumi.AzureNative.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:web:SiteAuthSettings"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20160801:SiteAuthSettings"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20180201:SiteAuthSettings"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20181101:SiteAuthSettings"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20190801:SiteAuthSettings"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200601:SiteAuthSettings"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200901:SiteAuthSettings"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201001:SiteAuthSettings"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201201:SiteAuthSettings"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210101:SiteAuthSettings"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210115:SiteAuthSettings"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210201:SiteAuthSettings"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210301:SiteAuthSettings"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20220301:SiteAuthSettings"},
+                    new global::Pulumi.Alias { Type = "azure-native:web:SiteAuthSettings"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:SiteAuthSettings"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:SiteAuthSettings"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:SiteAuthSettings"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:SiteAuthSettings"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:SiteAuthSettings"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:SiteAuthSettings"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:SiteAuthSettings"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:SiteAuthSettings"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:SiteAuthSettings"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:SiteAuthSettings"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:SiteAuthSettings"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:SiteAuthSettings"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:SiteAuthSettings"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -262,7 +262,7 @@ namespace Pulumi.AzureNative.Web.V20150801
         }
     }
 
-    public sealed class SiteAuthSettingsArgs : Pulumi.ResourceArgs
+    public sealed class SiteAuthSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("aadClientId")]
         public Input<string>? AadClientId { get; set; }
@@ -501,5 +501,6 @@ namespace Pulumi.AzureNative.Web.V20150801
         public SiteAuthSettingsArgs()
         {
         }
+        public static new SiteAuthSettingsArgs Empty => new SiteAuthSettingsArgs();
     }
 }

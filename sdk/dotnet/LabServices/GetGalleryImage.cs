@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.LabServices
     }
 
 
-    public sealed class GetGalleryImageArgs : Pulumi.InvokeArgs
+    public sealed class GetGalleryImageArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specify the $expand query. Example: 'properties($select=author)'
@@ -56,9 +56,10 @@ namespace Pulumi.AzureNative.LabServices
         public GetGalleryImageArgs()
         {
         }
+        public static new GetGalleryImageArgs Empty => new GetGalleryImageArgs();
     }
 
-    public sealed class GetGalleryImageInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGalleryImageInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specify the $expand query. Example: 'properties($select=author)'
@@ -87,6 +88,7 @@ namespace Pulumi.AzureNative.LabServices
         public GetGalleryImageInvokeArgs()
         {
         }
+        public static new GetGalleryImageInvokeArgs Empty => new GetGalleryImageInvokeArgs();
     }
 
 

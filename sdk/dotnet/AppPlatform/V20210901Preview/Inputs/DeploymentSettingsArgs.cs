@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20210901Preview.Inputs
     /// <summary>
     /// Deployment settings payload
     /// </summary>
-    public sealed class DeploymentSettingsArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Container liveness and readiness probe settings
@@ -75,5 +75,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20210901Preview.Inputs
             MemoryInGB = 1;
             RuntimeVersion = "Java_8";
         }
+        public static new DeploymentSettingsArgs Empty => new DeploymentSettingsArgs();
     }
 }

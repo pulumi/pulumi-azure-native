@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web
     /// API Version: 2022-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:AppServiceEnvironmentAseCustomDnsSuffixConfiguration")]
-    public partial class AppServiceEnvironmentAseCustomDnsSuffixConfiguration : Pulumi.CustomResource
+    public partial class AppServiceEnvironmentAseCustomDnsSuffixConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The URL referencing the Azure Key Vault certificate secret that should be used as the default SSL/TLS certificate for sites with the custom domain suffix.
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:web/v20220301:AppServiceEnvironmentAseCustomDnsSuffixConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:AppServiceEnvironmentAseCustomDnsSuffixConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -105,7 +105,7 @@ namespace Pulumi.AzureNative.Web
         }
     }
 
-    public sealed class AppServiceEnvironmentAseCustomDnsSuffixConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class AppServiceEnvironmentAseCustomDnsSuffixConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The URL referencing the Azure Key Vault certificate secret that should be used as the default SSL/TLS certificate for sites with the custom domain suffix.
@@ -146,5 +146,6 @@ namespace Pulumi.AzureNative.Web
         public AppServiceEnvironmentAseCustomDnsSuffixConfigurationArgs()
         {
         }
+        public static new AppServiceEnvironmentAseCustomDnsSuffixConfigurationArgs Empty => new AppServiceEnvironmentAseCustomDnsSuffixConfigurationArgs();
     }
 }

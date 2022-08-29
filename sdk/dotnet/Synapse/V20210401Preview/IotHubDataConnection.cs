@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview
     /// Class representing an iot hub data connection.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse/v20210401preview:IotHubDataConnection")]
-    public partial class IotHubDataConnection : Pulumi.CustomResource
+    public partial class IotHubDataConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The iot hub consumer group.
@@ -126,8 +126,8 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:synapse:IotHubDataConnection"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:IotHubDataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse:IotHubDataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:IotHubDataConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -149,7 +149,7 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview
         }
     }
 
-    public sealed class IotHubDataConnectionArgs : Pulumi.ResourceArgs
+    public sealed class IotHubDataConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The iot hub consumer group.
@@ -245,5 +245,6 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview
         public IotHubDataConnectionArgs()
         {
         }
+        public static new IotHubDataConnectionArgs Empty => new IotHubDataConnectionArgs();
     }
 }

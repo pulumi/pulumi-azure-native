@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Storage
     }
 
 
-    public sealed class GetObjectReplicationPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetObjectReplicationPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Storage
         public GetObjectReplicationPolicyArgs()
         {
         }
+        public static new GetObjectReplicationPolicyArgs Empty => new GetObjectReplicationPolicyArgs();
     }
 
-    public sealed class GetObjectReplicationPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetObjectReplicationPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Storage
         public GetObjectReplicationPolicyInvokeArgs()
         {
         }
+        public static new GetObjectReplicationPolicyInvokeArgs Empty => new GetObjectReplicationPolicyInvokeArgs();
     }
 
 

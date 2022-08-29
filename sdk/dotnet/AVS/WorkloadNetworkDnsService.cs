@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AVS
     /// API Version: 2020-07-17-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:WorkloadNetworkDnsService")]
-    public partial class WorkloadNetworkDnsService : Pulumi.CustomResource
+    public partial class WorkloadNetworkDnsService : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Default DNS zone of the DNS Service.
@@ -101,10 +101,10 @@ namespace Pulumi.AzureNative.AVS
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:avs/v20200717preview:WorkloadNetworkDnsService"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20210101preview:WorkloadNetworkDnsService"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20210601:WorkloadNetworkDnsService"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20211201:WorkloadNetworkDnsService"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200717preview:WorkloadNetworkDnsService"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210101preview:WorkloadNetworkDnsService"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:WorkloadNetworkDnsService"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:WorkloadNetworkDnsService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNative.AVS
         }
     }
 
-    public sealed class WorkloadNetworkDnsServiceArgs : Pulumi.ResourceArgs
+    public sealed class WorkloadNetworkDnsServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Default DNS zone of the DNS Service.
@@ -191,5 +191,6 @@ namespace Pulumi.AzureNative.AVS
         public WorkloadNetworkDnsServiceArgs()
         {
         }
+        public static new WorkloadNetworkDnsServiceArgs Empty => new WorkloadNetworkDnsServiceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview.Inputs
     /// <summary>
     /// Input for the task that collects user tables for the given list of databases
     /// </summary>
-    public sealed class GetUserTablesSqlSyncTaskInputArgs : Pulumi.ResourceArgs
+    public sealed class GetUserTablesSqlSyncTaskInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("selectedSourceDatabases", required: true)]
         private InputList<string>? _selectedSourceDatabases;
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview.Inputs
         public GetUserTablesSqlSyncTaskInputArgs()
         {
         }
+        public static new GetUserTablesSqlSyncTaskInputArgs Empty => new GetUserTablesSqlSyncTaskInputArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601
     }
 
 
-    public sealed class GetBigDataPoolArgs : Pulumi.InvokeArgs
+    public sealed class GetBigDataPoolArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Big Data pool name
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Synapse.V20210601
         public GetBigDataPoolArgs()
         {
         }
+        public static new GetBigDataPoolArgs Empty => new GetBigDataPoolArgs();
     }
 
-    public sealed class GetBigDataPoolInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBigDataPoolInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Big Data pool name
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601
         public GetBigDataPoolInvokeArgs()
         {
         }
+        public static new GetBigDataPoolInvokeArgs Empty => new GetBigDataPoolInvokeArgs();
     }
 
 
@@ -111,6 +113,10 @@ namespace Pulumi.AzureNative.Synapse.V20210601
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Whether autotune is required or not.
+        /// </summary>
+        public readonly bool? IsAutotuneEnabled;
         /// <summary>
         /// Whether compute isolation is required or not.
         /// </summary>
@@ -190,6 +196,8 @@ namespace Pulumi.AzureNative.Synapse.V20210601
 
             string id,
 
+            bool? isAutotuneEnabled,
+
             bool? isComputeIsolationEnabled,
 
             string lastSucceededTimestamp,
@@ -228,6 +236,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601
             DefaultSparkLogFolder = defaultSparkLogFolder;
             DynamicExecutorAllocation = dynamicExecutorAllocation;
             Id = id;
+            IsAutotuneEnabled = isAutotuneEnabled;
             IsComputeIsolationEnabled = isComputeIsolationEnabled;
             LastSucceededTimestamp = lastSucceededTimestamp;
             LibraryRequirements = libraryRequirements;

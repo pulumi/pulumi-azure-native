@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Workloads
     }
 
 
-    public sealed class GetSAPSupportedSkuArgs : Pulumi.InvokeArgs
+    public sealed class GetSAPSupportedSkuArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The geo-location where the resource is to be created.
@@ -74,9 +74,10 @@ namespace Pulumi.AzureNative.Workloads
         public GetSAPSupportedSkuArgs()
         {
         }
+        public static new GetSAPSupportedSkuArgs Empty => new GetSAPSupportedSkuArgs();
     }
 
-    public sealed class GetSAPSupportedSkuInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSAPSupportedSkuInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The geo-location where the resource is to be created.
@@ -123,6 +124,7 @@ namespace Pulumi.AzureNative.Workloads
         public GetSAPSupportedSkuInvokeArgs()
         {
         }
+        public static new GetSAPSupportedSkuInvokeArgs Empty => new GetSAPSupportedSkuInvokeArgs();
     }
 
 

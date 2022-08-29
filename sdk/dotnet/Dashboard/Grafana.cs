@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Dashboard
     /// API Version: 2022-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:dashboard:Grafana")]
-    public partial class Grafana : Pulumi.CustomResource
+    public partial class Grafana : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The managed identity of the grafana resource.
@@ -89,8 +89,9 @@ namespace Pulumi.AzureNative.Dashboard
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:dashboard/v20210901preview:Grafana"},
-                    new Pulumi.Alias { Type = "azure-native:dashboard/v20220501preview:Grafana"},
+                    new global::Pulumi.Alias { Type = "azure-native:dashboard/v20210901preview:Grafana"},
+                    new global::Pulumi.Alias { Type = "azure-native:dashboard/v20220501preview:Grafana"},
+                    new global::Pulumi.Alias { Type = "azure-native:dashboard/v20220801:Grafana"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -112,7 +113,7 @@ namespace Pulumi.AzureNative.Dashboard
         }
     }
 
-    public sealed class GrafanaArgs : Pulumi.ResourceArgs
+    public sealed class GrafanaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The managed identity of the grafana resource.
@@ -165,5 +166,6 @@ namespace Pulumi.AzureNative.Dashboard
         public GrafanaArgs()
         {
         }
+        public static new GrafanaArgs Empty => new GrafanaArgs();
     }
 }

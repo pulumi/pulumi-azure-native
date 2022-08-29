@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Cache.V20190701
     }
 
 
-    public sealed class GetPatchScheduleArgs : Pulumi.InvokeArgs
+    public sealed class GetPatchScheduleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Default string modeled as parameter for auto generation to work correctly.
@@ -49,9 +49,10 @@ namespace Pulumi.AzureNative.Cache.V20190701
         public GetPatchScheduleArgs()
         {
         }
+        public static new GetPatchScheduleArgs Empty => new GetPatchScheduleArgs();
     }
 
-    public sealed class GetPatchScheduleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPatchScheduleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Default string modeled as parameter for auto generation to work correctly.
@@ -74,6 +75,7 @@ namespace Pulumi.AzureNative.Cache.V20190701
         public GetPatchScheduleInvokeArgs()
         {
         }
+        public static new GetPatchScheduleInvokeArgs Empty => new GetPatchScheduleInvokeArgs();
     }
 
 

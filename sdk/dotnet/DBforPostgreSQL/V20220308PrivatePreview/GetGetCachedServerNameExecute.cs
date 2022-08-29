@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20220308PrivatePreview
     }
 
 
-    public sealed class GetGetCachedServerNameExecuteArgs : Pulumi.InvokeArgs
+    public sealed class GetGetCachedServerNameExecuteArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the location.
@@ -60,9 +60,10 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20220308PrivatePreview
         public GetGetCachedServerNameExecuteArgs()
         {
         }
+        public static new GetGetCachedServerNameExecuteArgs Empty => new GetGetCachedServerNameExecuteArgs();
     }
 
-    public sealed class GetGetCachedServerNameExecuteInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGetCachedServerNameExecuteInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the location.
@@ -97,6 +98,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20220308PrivatePreview
         public GetGetCachedServerNameExecuteInvokeArgs()
         {
         }
+        public static new GetGetCachedServerNameExecuteInvokeArgs Empty => new GetGetCachedServerNameExecuteInvokeArgs();
     }
 
 

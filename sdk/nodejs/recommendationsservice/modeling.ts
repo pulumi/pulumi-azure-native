@@ -96,7 +96,7 @@ export class Modeling extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:recommendationsservice/v20220201:Modeling" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:recommendationsservice/v20220201:Modeling" }, { type: "azure-native:recommendationsservice/v20220301preview:Modeling" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Modeling.__pulumiType, name, resourceInputs, opts);
     }

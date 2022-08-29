@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Inputs
     /// <summary>
     /// Set the connectivity, storage and workload settings.
     /// </summary>
-    public sealed class ServerConfigurationsManagementSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ServerConfigurationsManagementSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Additional SQL feature settings.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Inputs
         public ServerConfigurationsManagementSettingsArgs()
         {
         }
+        public static new ServerConfigurationsManagementSettingsArgs Empty => new ServerConfigurationsManagementSettingsArgs();
     }
 }

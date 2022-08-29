@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// Sweep job definition.
     /// </summary>
-    public sealed class SweepJobArgs : Pulumi.ResourceArgs
+    public sealed class SweepJobArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARM resource ID of the compute resource.
@@ -168,5 +168,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
             ExperimentName = "Default";
             IsArchived = false;
         }
+        public static new SweepJobArgs Empty => new SweepJobArgs();
     }
 }

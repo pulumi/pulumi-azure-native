@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210501.Inputs
     /// <summary>
     /// Subnet in a virtual network resource.
     /// </summary>
-    public sealed class SubnetArgs : Pulumi.ResourceArgs
+    public sealed class SubnetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The address prefix for the subnet.
@@ -146,5 +146,6 @@ namespace Pulumi.AzureNative.Network.V20210501.Inputs
             PrivateEndpointNetworkPolicies = "Enabled";
             PrivateLinkServiceNetworkPolicies = "Enabled";
         }
+        public static new SubnetArgs Empty => new SubnetArgs();
     }
 }

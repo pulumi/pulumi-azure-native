@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20210801
     }
 
 
-    public sealed class ListFirewallPolicyIdpsSignatureArgs : Pulumi.InvokeArgs
+    public sealed class ListFirewallPolicyIdpsSignatureArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.FilterItems>? _filters;
@@ -78,9 +78,10 @@ namespace Pulumi.AzureNative.Network.V20210801
         public ListFirewallPolicyIdpsSignatureArgs()
         {
         }
+        public static new ListFirewallPolicyIdpsSignatureArgs Empty => new ListFirewallPolicyIdpsSignatureArgs();
     }
 
-    public sealed class ListFirewallPolicyIdpsSignatureInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListFirewallPolicyIdpsSignatureInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.FilterItemsArgs>? _filters;
@@ -133,6 +134,7 @@ namespace Pulumi.AzureNative.Network.V20210801
         public ListFirewallPolicyIdpsSignatureInvokeArgs()
         {
         }
+        public static new ListFirewallPolicyIdpsSignatureInvokeArgs Empty => new ListFirewallPolicyIdpsSignatureInvokeArgs();
     }
 
 

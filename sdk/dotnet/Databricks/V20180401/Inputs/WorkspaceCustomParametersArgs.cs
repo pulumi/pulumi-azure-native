@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Databricks.V20180401.Inputs
     /// <summary>
     /// Custom Parameters used for Cluster Creation.
     /// </summary>
-    public sealed class WorkspaceCustomParametersArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceCustomParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of a Azure Machine Learning workspace to link with Databricks workspace
@@ -108,5 +108,6 @@ namespace Pulumi.AzureNative.Databricks.V20180401.Inputs
         public WorkspaceCustomParametersArgs()
         {
         }
+        public static new WorkspaceCustomParametersArgs Empty => new WorkspaceCustomParametersArgs();
     }
 }

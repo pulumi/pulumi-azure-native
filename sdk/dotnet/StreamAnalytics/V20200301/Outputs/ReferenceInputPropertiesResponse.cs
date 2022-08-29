@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Outputs
         /// <summary>
         /// Describes an input data source that contains reference data. Required on PUT (CreateOrReplace) requests.
         /// </summary>
-        public readonly Union<Outputs.AzureSqlReferenceInputDataSourceResponse, Outputs.BlobReferenceInputDataSourceResponse>? Datasource;
+        public readonly object? Datasource;
         /// <summary>
         /// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Outputs
         private ReferenceInputPropertiesResponse(
             Outputs.CompressionResponse? compression,
 
-            Union<Outputs.AzureSqlReferenceInputDataSourceResponse, Outputs.BlobReferenceInputDataSourceResponse>? datasource,
+            object? datasource,
 
             Outputs.DiagnosticsResponse diagnostics,
 

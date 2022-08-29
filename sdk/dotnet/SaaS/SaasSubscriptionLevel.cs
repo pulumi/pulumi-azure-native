@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.SaaS
     /// API Version: 2018-03-01-beta.
     /// </summary>
     [AzureNativeResourceType("azure-native:saas:SaasSubscriptionLevel")]
-    public partial class SaasSubscriptionLevel : Pulumi.CustomResource
+    public partial class SaasSubscriptionLevel : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -65,7 +65,7 @@ namespace Pulumi.AzureNative.SaaS
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:saas/v20180301beta:SaasSubscriptionLevel"},
+                    new global::Pulumi.Alias { Type = "azure-native:saas/v20180301beta:SaasSubscriptionLevel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -87,7 +87,7 @@ namespace Pulumi.AzureNative.SaaS
         }
     }
 
-    public sealed class SaasSubscriptionLevelArgs : Pulumi.ResourceArgs
+    public sealed class SaasSubscriptionLevelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource location. Only value allowed for SaaS is 'global'
@@ -134,5 +134,6 @@ namespace Pulumi.AzureNative.SaaS
         public SaasSubscriptionLevelArgs()
         {
         }
+        public static new SaasSubscriptionLevelArgs Empty => new SaasSubscriptionLevelArgs();
     }
 }

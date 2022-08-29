@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The path of the Dynamics AX OData entity.
     /// </summary>
-    public sealed class DynamicsAXResourceDatasetArgs : Pulumi.ResourceArgs
+    public sealed class DynamicsAXResourceDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,5 +85,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public DynamicsAXResourceDatasetArgs()
         {
         }
+        public static new DynamicsAXResourceDatasetArgs Empty => new DynamicsAXResourceDatasetArgs();
     }
 }

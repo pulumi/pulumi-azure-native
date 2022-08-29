@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview.Inputs
     /// <summary>
     /// Cross-Origin Resource Sharing property
     /// </summary>
-    public sealed class GatewayCorsPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class GatewayCorsPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether user credentials are supported on cross-site requests. Valid values: `true`, `false`.
@@ -78,5 +78,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview.Inputs
         public GatewayCorsPropertiesArgs()
         {
         }
+        public static new GatewayCorsPropertiesArgs Empty => new GatewayCorsPropertiesArgs();
     }
 }

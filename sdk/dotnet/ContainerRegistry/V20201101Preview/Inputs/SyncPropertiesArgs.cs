@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview.Inputs
     /// <summary>
     /// The sync properties of the connected registry with its parent.
     /// </summary>
-    public sealed class SyncPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class SyncPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The period of time for which a message is available to sync before it is expired. Specify the duration using the format P[n]Y[n]M[n]DT[n]H[n]M[n]S as per ISO8601.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview.Inputs
         public SyncPropertiesArgs()
         {
         }
+        public static new SyncPropertiesArgs Empty => new SyncPropertiesArgs();
     }
 }

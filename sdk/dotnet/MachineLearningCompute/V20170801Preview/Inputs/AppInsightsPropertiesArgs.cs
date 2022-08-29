@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningCompute.V20170801Preview.Inputs
     /// <summary>
     /// Properties of App Insights.
     /// </summary>
-    public sealed class AppInsightsPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class AppInsightsPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARM resource ID of the App Insights.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.MachineLearningCompute.V20170801Preview.Inputs
         public AppInsightsPropertiesArgs()
         {
         }
+        public static new AppInsightsPropertiesArgs Empty => new AppInsightsPropertiesArgs();
     }
 }

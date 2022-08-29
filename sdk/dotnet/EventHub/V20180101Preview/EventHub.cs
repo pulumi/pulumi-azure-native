@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventHub.V20180101Preview
     /// Single item in List or Get Event Hub operation
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub/v20180101preview:EventHub")]
-    public partial class EventHub : Pulumi.CustomResource
+    public partial class EventHub : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Properties of capture description
@@ -94,14 +94,14 @@ namespace Pulumi.AzureNative.EventHub.V20180101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:eventhub:EventHub"},
-                    new Pulumi.Alias { Type = "azure-native:eventhub/v20140901:EventHub"},
-                    new Pulumi.Alias { Type = "azure-native:eventhub/v20150801:EventHub"},
-                    new Pulumi.Alias { Type = "azure-native:eventhub/v20170401:EventHub"},
-                    new Pulumi.Alias { Type = "azure-native:eventhub/v20210101preview:EventHub"},
-                    new Pulumi.Alias { Type = "azure-native:eventhub/v20210601preview:EventHub"},
-                    new Pulumi.Alias { Type = "azure-native:eventhub/v20211101:EventHub"},
-                    new Pulumi.Alias { Type = "azure-native:eventhub/v20220101preview:EventHub"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub:EventHub"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20140901:EventHub"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20150801:EventHub"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20170401:EventHub"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210101preview:EventHub"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210601preview:EventHub"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20211101:EventHub"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20220101preview:EventHub"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -123,7 +123,7 @@ namespace Pulumi.AzureNative.EventHub.V20180101Preview
         }
     }
 
-    public sealed class EventHubArgs : Pulumi.ResourceArgs
+    public sealed class EventHubArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Properties of capture description
@@ -170,5 +170,6 @@ namespace Pulumi.AzureNative.EventHub.V20180101Preview
         public EventHubArgs()
         {
         }
+        public static new EventHubArgs Empty => new EventHubArgs();
     }
 }

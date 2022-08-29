@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20161201.Inputs
     /// <summary>
     /// Azure Sql workload-specific container.
     /// </summary>
-    public sealed class AzureSqlContainerArgs : Pulumi.ResourceArgs
+    public sealed class AzureSqlContainerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of backup management for the container.
@@ -52,5 +52,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20161201.Inputs
         public AzureSqlContainerArgs()
         {
         }
+        public static new AzureSqlContainerArgs Empty => new AzureSqlContainerArgs();
     }
 }

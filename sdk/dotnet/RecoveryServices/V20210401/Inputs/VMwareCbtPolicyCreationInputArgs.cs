@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210401.Inputs
     /// <summary>
     /// VMware Cbt policy creation input.
     /// </summary>
-    public sealed class VMwareCbtPolicyCreationInputArgs : Pulumi.ResourceArgs
+    public sealed class VMwareCbtPolicyCreationInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The app consistent snapshot frequency (in minutes).
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210401.Inputs
         public VMwareCbtPolicyCreationInputArgs()
         {
         }
+        public static new VMwareCbtPolicyCreationInputArgs Empty => new VMwareCbtPolicyCreationInputArgs();
     }
 }

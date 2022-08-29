@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Insights
     }
 
 
-    public sealed class GetActionGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetActionGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the action group.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.Insights
         public GetActionGroupArgs()
         {
         }
+        public static new GetActionGroupArgs Empty => new GetActionGroupArgs();
     }
 
-    public sealed class GetActionGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetActionGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the action group.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.Insights
         public GetActionGroupInvokeArgs()
         {
         }
+        public static new GetActionGroupInvokeArgs Empty => new GetActionGroupInvokeArgs();
     }
 
 
@@ -102,17 +104,9 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Azure resource identity
-        /// </summary>
-        public readonly string Identity;
-        /// <summary>
         /// The list of ITSM receivers that are part of this action group.
         /// </summary>
         public readonly ImmutableArray<Outputs.ItsmReceiverResponse> ItsmReceivers;
-        /// <summary>
-        /// Azure resource kind
-        /// </summary>
-        public readonly string Kind;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -164,11 +158,7 @@ namespace Pulumi.AzureNative.Insights
 
             string id,
 
-            string identity,
-
             ImmutableArray<Outputs.ItsmReceiverResponse> itsmReceivers,
-
-            string kind,
 
             string location,
 
@@ -194,9 +184,7 @@ namespace Pulumi.AzureNative.Insights
             Enabled = enabled;
             GroupShortName = groupShortName;
             Id = id;
-            Identity = identity;
             ItsmReceivers = itsmReceivers;
-            Kind = kind;
             Location = location;
             LogicAppReceivers = logicAppReceivers;
             Name = name;

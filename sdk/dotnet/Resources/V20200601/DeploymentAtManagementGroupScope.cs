@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Resources.V20200601
     /// Deployment information.
     /// </summary>
     [AzureNativeResourceType("azure-native:resources/v20200601:DeploymentAtManagementGroupScope")]
-    public partial class DeploymentAtManagementGroupScope : Pulumi.CustomResource
+    public partial class DeploymentAtManagementGroupScope : global::Pulumi.CustomResource
     {
         /// <summary>
         /// the location of the deployment.
@@ -70,16 +70,16 @@ namespace Pulumi.AzureNative.Resources.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:resources:DeploymentAtManagementGroupScope"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20190501:DeploymentAtManagementGroupScope"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20190510:DeploymentAtManagementGroupScope"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20190701:DeploymentAtManagementGroupScope"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20190801:DeploymentAtManagementGroupScope"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20191001:DeploymentAtManagementGroupScope"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20200801:DeploymentAtManagementGroupScope"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20201001:DeploymentAtManagementGroupScope"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20210101:DeploymentAtManagementGroupScope"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20210401:DeploymentAtManagementGroupScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources:DeploymentAtManagementGroupScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20190501:DeploymentAtManagementGroupScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20190510:DeploymentAtManagementGroupScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20190701:DeploymentAtManagementGroupScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20190801:DeploymentAtManagementGroupScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20191001:DeploymentAtManagementGroupScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20200801:DeploymentAtManagementGroupScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20201001:DeploymentAtManagementGroupScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20210101:DeploymentAtManagementGroupScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20210401:DeploymentAtManagementGroupScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.Resources.V20200601
         }
     }
 
-    public sealed class DeploymentAtManagementGroupScopeArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentAtManagementGroupScopeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the deployment.
@@ -142,5 +142,6 @@ namespace Pulumi.AzureNative.Resources.V20200601
         public DeploymentAtManagementGroupScopeArgs()
         {
         }
+        public static new DeploymentAtManagementGroupScopeArgs Empty => new DeploymentAtManagementGroupScopeArgs();
     }
 }

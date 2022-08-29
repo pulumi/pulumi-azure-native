@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200401Preview
     /// Describes a virtual network link.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20200401preview:VirtualNetworkLink")]
-    public partial class VirtualNetworkLink : Pulumi.CustomResource
+    public partial class VirtualNetworkLink : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ETag of the virtual network link.
@@ -80,6 +80,10 @@ namespace Pulumi.AzureNative.Network.V20200401Preview
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220701:VirtualNetworkLink"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -100,7 +104,7 @@ namespace Pulumi.AzureNative.Network.V20200401Preview
         }
     }
 
-    public sealed class VirtualNetworkLinkArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkLinkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the DNS forwarding ruleset.
@@ -141,5 +145,6 @@ namespace Pulumi.AzureNative.Network.V20200401Preview
         public VirtualNetworkLinkArgs()
         {
         }
+        public static new VirtualNetworkLinkArgs Empty => new VirtualNetworkLinkArgs();
     }
 }

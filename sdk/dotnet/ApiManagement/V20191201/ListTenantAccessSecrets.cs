@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
     }
 
 
-    public sealed class ListTenantAccessSecretsArgs : Pulumi.InvokeArgs
+    public sealed class ListTenantAccessSecretsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier of the Access configuration.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
         public ListTenantAccessSecretsArgs()
         {
         }
+        public static new ListTenantAccessSecretsArgs Empty => new ListTenantAccessSecretsArgs();
     }
 
-    public sealed class ListTenantAccessSecretsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListTenantAccessSecretsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier of the Access configuration.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
         public ListTenantAccessSecretsInvokeArgs()
         {
         }
+        public static new ListTenantAccessSecretsInvokeArgs Empty => new ListTenantAccessSecretsInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Kubernetes.V20200101Preview.Inputs
     /// <summary>
     /// Identity for the connected cluster.
     /// </summary>
-    public sealed class ConnectedClusterIdentityArgs : Pulumi.ResourceArgs
+    public sealed class ConnectedClusterIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Kubernetes.V20200101Preview.Inputs
         public ConnectedClusterIdentityArgs()
         {
         }
+        public static new ConnectedClusterIdentityArgs Empty => new ConnectedClusterIdentityArgs();
     }
 }

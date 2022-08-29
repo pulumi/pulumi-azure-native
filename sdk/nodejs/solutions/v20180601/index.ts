@@ -9,6 +9,9 @@ export * from "./application";
 export * from "./applicationDefinition";
 export * from "./getApplication";
 export * from "./getApplicationDefinition";
+export * from "./getJitRequest";
+export * from "./jitRequest";
+export * from "./listApplicationTokens";
 
 // Export enums:
 export * from "../../types/enums/solutions/v20180601";
@@ -16,6 +19,7 @@ export * from "../../types/enums/solutions/v20180601";
 // Import resources to register:
 import { Application } from "./application";
 import { ApplicationDefinition } from "./applicationDefinition";
+import { JitRequest } from "./jitRequest";
 
 const _module = {
     version: utilities.getVersion(),
@@ -25,6 +29,8 @@ const _module = {
                 return new Application(name, <any>undefined, { urn })
             case "azure-native:solutions/v20180601:ApplicationDefinition":
                 return new ApplicationDefinition(name, <any>undefined, { urn })
+            case "azure-native:solutions/v20180601:JitRequest":
+                return new JitRequest(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

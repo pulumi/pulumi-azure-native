@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataShare.V20210801
     /// An ADLS Gen 2 folder data set.
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare/v20210801:ADLSGen2FolderDataSet")]
-    public partial class ADLSGen2FolderDataSet : Pulumi.CustomResource
+    public partial class ADLSGen2FolderDataSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Unique id for identifying a data set resource
@@ -108,11 +108,11 @@ namespace Pulumi.AzureNative.DataShare.V20210801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:datashare:ADLSGen2FolderDataSet"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:ADLSGen2FolderDataSet"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:ADLSGen2FolderDataSet"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20200901:ADLSGen2FolderDataSet"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:ADLSGen2FolderDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:ADLSGen2FolderDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:ADLSGen2FolderDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:ADLSGen2FolderDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:ADLSGen2FolderDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:ADLSGen2FolderDataSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.DataShare.V20210801
         }
     }
 
-    public sealed class ADLSGen2FolderDataSetArgs : Pulumi.ResourceArgs
+    public sealed class ADLSGen2FolderDataSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -200,5 +200,6 @@ namespace Pulumi.AzureNative.DataShare.V20210801
         public ADLSGen2FolderDataSetArgs()
         {
         }
+        public static new ADLSGen2FolderDataSetArgs Empty => new ADLSGen2FolderDataSetArgs();
     }
 }

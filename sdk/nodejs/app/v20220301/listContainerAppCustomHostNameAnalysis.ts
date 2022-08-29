@@ -63,7 +63,7 @@ export interface ListContainerAppCustomHostNameAnalysisResult {
     /**
      * Raw failure information if DNS verification fails.
      */
-    readonly customDomainVerificationFailureInfo: outputs.app.v20220301.DefaultErrorResponseResponse;
+    readonly customDomainVerificationFailureInfo: outputs.app.v20220301.CustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfo;
     /**
      * DNS verification test result.
      */
@@ -77,29 +77,13 @@ export interface ListContainerAppCustomHostNameAnalysisResult {
      */
     readonly hostName: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-     */
-    readonly id: string;
-    /**
      * <code>true</code> if hostname is already verified; otherwise, <code>false</code>.
      */
     readonly isHostnameAlreadyVerified: boolean;
     /**
-     * The name of the resource
-     */
-    readonly name: string;
-    /**
-     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
-     */
-    readonly systemData: outputs.app.v20220301.SystemDataResponse;
-    /**
      * TXT records visible for this hostname.
      */
     readonly txtRecords?: string[];
-    /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-     */
-    readonly type: string;
 }
 
 export function listContainerAppCustomHostNameAnalysisOutput(args: ListContainerAppCustomHostNameAnalysisOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListContainerAppCustomHostNameAnalysisResult> {

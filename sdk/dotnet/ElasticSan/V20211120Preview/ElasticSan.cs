@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
     /// Response for ElasticSan request.
     /// </summary>
     [AzureNativeResourceType("azure-native:elasticsan/v20211120preview:ElasticSan")]
-    public partial class ElasticSan : Pulumi.CustomResource
+    public partial class ElasticSan : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Logical zone for Elastic San resource; example: ["1"].
@@ -46,12 +46,6 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioned MBps Elastic San appliance.
-        /// </summary>
-        [Output("provisionedMBps")]
-        public Output<double> ProvisionedMBps { get; private set; } = null!;
-
-        /// <summary>
         /// State of the operation on the resource.
         /// </summary>
         [Output("provisioningState")]
@@ -61,7 +55,7 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         /// resource sku
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource metadata required by ARM RPC
@@ -86,6 +80,12 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         /// </summary>
         [Output("totalMBps")]
         public Output<double> TotalMBps { get; private set; } = null!;
+
+        /// <summary>
+        /// Total size of the Elastic San appliance in TB.
+        /// </summary>
+        [Output("totalSizeTiB")]
+        public Output<double> TotalSizeTiB { get; private set; } = null!;
 
         /// <summary>
         /// Total size of the provisioned Volumes in GiB.
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:elasticsan:ElasticSan"},
+                    new global::Pulumi.Alias { Type = "azure-native:elasticsan:ElasticSan"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -152,9 +152,9 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         }
     }
 
-    public sealed class ElasticSanArgs : Pulumi.ResourceArgs
+    public sealed class ElasticSanArgs : global::Pulumi.ResourceArgs
     {
-        [Input("availabilityZones", required: true)]
+        [Input("availabilityZones")]
         private InputList<string>? _availabilityZones;
 
         /// <summary>
@@ -199,8 +199,8 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         /// <summary>
         /// resource sku
         /// </summary>
-        [Input("sku")]
-        public Input<Inputs.SkuArgs>? Sku { get; set; }
+        [Input("sku", required: true)]
+        public Input<Inputs.SkuArgs> Sku { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -217,5 +217,6 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         public ElasticSanArgs()
         {
         }
+        public static new ElasticSanArgs Empty => new ElasticSanArgs();
     }
 }

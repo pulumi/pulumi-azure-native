@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.Inputs
     /// <summary>
     /// Properties for creating a schedule.
     /// </summary>
-    public sealed class ScheduleCreationParameterArgs : Pulumi.ResourceArgs
+    public sealed class ScheduleCreationParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If the schedule will occur once each day of the week, specify the daily recurrence.
@@ -85,5 +85,6 @@ namespace Pulumi.AzureNative.DevTestLab.Inputs
         {
             Status = "Disabled";
         }
+        public static new ScheduleCreationParameterArgs Empty => new ScheduleCreationParameterArgs();
     }
 }

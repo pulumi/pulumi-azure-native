@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The Azure Data Explorer (Kusto) dataset.
     /// </summary>
-    public sealed class AzureDataExplorerTableDatasetArgs : Pulumi.ResourceArgs
+    public sealed class AzureDataExplorerTableDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,5 +85,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public AzureDataExplorerTableDatasetArgs()
         {
         }
+        public static new AzureDataExplorerTableDatasetArgs Empty => new AzureDataExplorerTableDatasetArgs();
     }
 }

@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Outputs
         /// </summary>
         public readonly Outputs.DatabaseConfigurationResponse DatabaseServer;
         /// <summary>
-        /// The deployment Type.
+        /// The type of SAP deployment, single server or Three tier.
         /// Expected value is 'ThreeTier'.
         /// </summary>
         public readonly string DeploymentType;

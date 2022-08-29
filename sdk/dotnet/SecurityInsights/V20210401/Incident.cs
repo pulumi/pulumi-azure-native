@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210401
     /// Represents an incident in Azure Security Insights.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20210401:Incident")]
-    public partial class Incident : Pulumi.CustomResource
+    public partial class Incident : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Additional data on the incident
@@ -166,17 +166,20 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights:Incident"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:Incident"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:Incident"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:Incident"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:Incident"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:Incident"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:Incident"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:Incident"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:Incident"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:Incident"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:Incident"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:Incident"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:Incident"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:Incident"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:Incident"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:Incident"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:Incident"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:Incident"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:Incident"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:Incident"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:Incident"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:Incident"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:Incident"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801:Incident"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:Incident"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -198,7 +201,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210401
         }
     }
 
-    public sealed class IncidentArgs : Pulumi.ResourceArgs
+    public sealed class IncidentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The reason the incident was closed
@@ -293,5 +296,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210401
         public IncidentArgs()
         {
         }
+        public static new IncidentArgs Empty => new IncidentArgs();
     }
 }

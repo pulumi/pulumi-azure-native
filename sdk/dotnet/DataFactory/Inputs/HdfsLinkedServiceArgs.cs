@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Hadoop Distributed File System (HDFS) linked service.
     /// </summary>
-    public sealed class HdfsLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class HdfsLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -91,5 +91,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public HdfsLinkedServiceArgs()
         {
         }
+        public static new HdfsLinkedServiceArgs Empty => new HdfsLinkedServiceArgs();
     }
 }

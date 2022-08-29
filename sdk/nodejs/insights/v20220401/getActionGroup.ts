@@ -72,17 +72,9 @@ export interface GetActionGroupResult {
      */
     readonly id: string;
     /**
-     * Azure resource identity
-     */
-    readonly identity: string;
-    /**
      * The list of ITSM receivers that are part of this action group.
      */
     readonly itsmReceivers?: outputs.insights.v20220401.ItsmReceiverResponse[];
-    /**
-     * Azure resource kind
-     */
-    readonly kind: string;
     /**
      * Resource location
      */

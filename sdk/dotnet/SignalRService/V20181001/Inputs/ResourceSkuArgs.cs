@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SignalRService.V20181001.Inputs
     /// <summary>
     /// The billing information of the SignalR resource.
     /// </summary>
-    public sealed class ResourceSkuArgs : Pulumi.ResourceArgs
+    public sealed class ResourceSkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Optional, integer. The unit count of SignalR resource. 1 by default.
@@ -56,5 +56,6 @@ namespace Pulumi.AzureNative.SignalRService.V20181001.Inputs
         public ResourceSkuArgs()
         {
         }
+        public static new ResourceSkuArgs Empty => new ResourceSkuArgs();
     }
 }

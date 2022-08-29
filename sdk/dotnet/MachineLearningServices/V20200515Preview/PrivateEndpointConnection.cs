@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200515Preview
     /// The Private Endpoint Connection resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20200515preview:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The identity of the resource.
@@ -94,22 +94,23 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200515Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200101:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200218preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200301:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200401:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200501preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200601:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200801:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200901preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210101:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210401:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210701:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220101preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200101:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200218preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200301:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200401:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200501preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200601:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200801:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200901preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210101:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210401:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210701:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220101preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -131,7 +132,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200515Preview
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity of the resource.
@@ -190,5 +191,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200515Preview
         public PrivateEndpointConnectionArgs()
         {
         }
+        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

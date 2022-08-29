@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory.V20190101Preview
     }
 
 
-    public sealed class GetB2CTenantArgs : Pulumi.InvokeArgs
+    public sealed class GetB2CTenantArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -36,9 +36,10 @@ namespace Pulumi.AzureNative.AzureActiveDirectory.V20190101Preview
         public GetB2CTenantArgs()
         {
         }
+        public static new GetB2CTenantArgs Empty => new GetB2CTenantArgs();
     }
 
-    public sealed class GetB2CTenantInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetB2CTenantInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -55,6 +56,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory.V20190101Preview
         public GetB2CTenantInvokeArgs()
         {
         }
+        public static new GetB2CTenantInvokeArgs Empty => new GetB2CTenantInvokeArgs();
     }
 
 

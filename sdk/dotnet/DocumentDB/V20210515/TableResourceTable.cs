@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210515
     /// An Azure Cosmos DB Table.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb/v20210515:TableResourceTable")]
-    public partial class TableResourceTable : Pulumi.CustomResource
+    public partial class TableResourceTable : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The location of the resource group to which the resource belongs.
@@ -70,29 +70,31 @@ namespace Pulumi.AzureNative.DocumentDB.V20210515
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:documentdb:TableResourceTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20150401:TableResourceTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20150408:TableResourceTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20151106:TableResourceTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20160319:TableResourceTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20160331:TableResourceTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20190801:TableResourceTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20191212:TableResourceTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200301:TableResourceTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200401:TableResourceTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:TableResourceTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200901:TableResourceTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210115:TableResourceTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:TableResourceTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210315:TableResourceTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:TableResourceTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210415:TableResourceTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210615:TableResourceTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:TableResourceTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211015:TableResourceTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:TableResourceTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:TableResourceTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20150401:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20150408:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20151106:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20160319:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20160331:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20190801:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20191212:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200301:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200401:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200901:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210115:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210315:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210415:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210615:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:TableResourceTable"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -114,7 +116,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210515
         }
     }
 
-    public sealed class TableResourceTableArgs : Pulumi.ResourceArgs
+    public sealed class TableResourceTableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cosmos DB database account name.
@@ -167,5 +169,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20210515
         public TableResourceTableArgs()
         {
         }
+        public static new TableResourceTableArgs Empty => new TableResourceTableArgs();
     }
 }

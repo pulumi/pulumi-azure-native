@@ -16,6 +16,7 @@ import * as v20210401preview from "./v20210401preview";
 import * as v20210712 from "./v20210712";
 import * as v20210903preview from "./v20210903preview";
 import * as v20220210preview from "./v20220210preview";
+import * as v20220401preview from "./v20220401preview";
 
 export {
     v20190123preview,
@@ -32,6 +33,7 @@ export {
     v20210712,
     v20210903preview,
     v20220210preview,
+    v20220401preview,
 };
 
 export const ApplicationGroupType = {
@@ -54,6 +56,18 @@ export const CommandLineSetting = {
  * Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
  */
 export type CommandLineSetting = (typeof CommandLineSetting)[keyof typeof CommandLineSetting];
+
+export const DayOfWeek = {
+    Monday: "Monday",
+    Tuesday: "Tuesday",
+    Wednesday: "Wednesday",
+    Thursday: "Thursday",
+    Friday: "Friday",
+    Saturday: "Saturday",
+    Sunday: "Sunday",
+} as const;
+
+export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
 
 export const HostPoolType = {
     /**

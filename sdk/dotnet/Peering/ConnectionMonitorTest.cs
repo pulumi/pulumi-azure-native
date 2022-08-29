@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Peering
     /// API Version: 2021-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:peering:ConnectionMonitorTest")]
-    public partial class ConnectionMonitorTest : Pulumi.CustomResource
+    public partial class ConnectionMonitorTest : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Connection Monitor test destination
@@ -95,8 +95,9 @@ namespace Pulumi.AzureNative.Peering
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:peering/v20210601:ConnectionMonitorTest"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20220101:ConnectionMonitorTest"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20210601:ConnectionMonitorTest"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20220101:ConnectionMonitorTest"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20220601:ConnectionMonitorTest"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +119,7 @@ namespace Pulumi.AzureNative.Peering
         }
     }
 
-    public sealed class ConnectionMonitorTestArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionMonitorTestArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the connection monitor test
@@ -165,5 +166,6 @@ namespace Pulumi.AzureNative.Peering
         public ConnectionMonitorTestArgs()
         {
         }
+        public static new ConnectionMonitorTestArgs Empty => new ConnectionMonitorTestArgs();
     }
 }

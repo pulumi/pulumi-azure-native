@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Sql
     /// API Version: 2020-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:WorkloadGroup")]
-    public partial class WorkloadGroup : Pulumi.CustomResource
+    public partial class WorkloadGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The workload group importance level.
@@ -89,14 +89,16 @@ namespace Pulumi.AzureNative.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:sql/v20190601preview:WorkloadGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:WorkloadGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:WorkloadGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:WorkloadGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:WorkloadGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:WorkloadGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:WorkloadGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:WorkloadGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20190601preview:WorkloadGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:WorkloadGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:WorkloadGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:WorkloadGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:WorkloadGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:WorkloadGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:WorkloadGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:WorkloadGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:WorkloadGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:WorkloadGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +120,7 @@ namespace Pulumi.AzureNative.Sql
         }
     }
 
-    public sealed class WorkloadGroupArgs : Pulumi.ResourceArgs
+    public sealed class WorkloadGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the database.
@@ -183,5 +185,6 @@ namespace Pulumi.AzureNative.Sql
         public WorkloadGroupArgs()
         {
         }
+        public static new WorkloadGroupArgs Empty => new WorkloadGroupArgs();
     }
 }

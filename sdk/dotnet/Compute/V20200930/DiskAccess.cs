@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20200930
     /// disk access resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute/v20200930:DiskAccess")]
-    public partial class DiskAccess : Pulumi.CustomResource
+    public partial class DiskAccess : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource location
@@ -82,13 +82,14 @@ namespace Pulumi.AzureNative.Compute.V20200930
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:compute:DiskAccess"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20200501:DiskAccess"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20200630:DiskAccess"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20201201:DiskAccess"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210401:DiskAccess"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210801:DiskAccess"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20211201:DiskAccess"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute:DiskAccess"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200501:DiskAccess"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200630:DiskAccess"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20201201:DiskAccess"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:DiskAccess"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210801:DiskAccess"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211201:DiskAccess"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220302:DiskAccess"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -110,7 +111,7 @@ namespace Pulumi.AzureNative.Compute.V20200930
         }
     }
 
-    public sealed class DiskAccessArgs : Pulumi.ResourceArgs
+    public sealed class DiskAccessArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
@@ -145,5 +146,6 @@ namespace Pulumi.AzureNative.Compute.V20200930
         public DiskAccessArgs()
         {
         }
+        public static new DiskAccessArgs Empty => new DiskAccessArgs();
     }
 }

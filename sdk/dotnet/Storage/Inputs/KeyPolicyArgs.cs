@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.Inputs
     /// <summary>
     /// KeyPolicy assigned to the storage account.
     /// </summary>
-    public sealed class KeyPolicyArgs : Pulumi.ResourceArgs
+    public sealed class KeyPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key expiration period in days.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Storage.Inputs
         public KeyPolicyArgs()
         {
         }
+        public static new KeyPolicyArgs Empty => new KeyPolicyArgs();
     }
 }

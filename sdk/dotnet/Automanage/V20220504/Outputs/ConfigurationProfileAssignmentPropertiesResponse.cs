@@ -21,10 +21,6 @@ namespace Pulumi.AzureNative.Automanage.V20220504.Outputs
         /// </summary>
         public readonly string? ConfigurationProfile;
         /// <summary>
-        /// The profileOverrides setting for the configuration profile assignment.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object>? ProfileOverrides;
-        /// <summary>
         /// The status of onboarding, which only appears in the response.
         /// </summary>
         public readonly string Status;
@@ -37,14 +33,11 @@ namespace Pulumi.AzureNative.Automanage.V20220504.Outputs
         private ConfigurationProfileAssignmentPropertiesResponse(
             string? configurationProfile,
 
-            ImmutableDictionary<string, object>? profileOverrides,
-
             string status,
 
             string targetId)
         {
             ConfigurationProfile = configurationProfile;
-            ProfileOverrides = profileOverrides;
             Status = status;
             TargetId = targetId;
         }

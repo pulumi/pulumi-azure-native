@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Scheduler.V20140801Preview.Inputs
 {
 
-    public sealed class JobMaxRecurrenceArgs : Pulumi.ResourceArgs
+    public sealed class JobMaxRecurrenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
@@ -27,5 +27,6 @@ namespace Pulumi.AzureNative.Scheduler.V20140801Preview.Inputs
         public JobMaxRecurrenceArgs()
         {
         }
+        public static new JobMaxRecurrenceArgs Empty => new JobMaxRecurrenceArgs();
     }
 }

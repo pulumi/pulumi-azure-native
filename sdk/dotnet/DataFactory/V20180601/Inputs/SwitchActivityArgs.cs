@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// This activity evaluates an expression and executes activities under the cases property that correspond to the expression evaluation expected in the equals property.
     /// </summary>
-    public sealed class SwitchActivityArgs : Pulumi.ResourceArgs
+    public sealed class SwitchActivityArgs : global::Pulumi.ResourceArgs
     {
         [Input("cases")]
         private InputList<Inputs.SwitchCaseArgs>? _cases;
@@ -91,5 +91,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public SwitchActivityArgs()
         {
         }
+        public static new SwitchActivityArgs Empty => new SwitchActivityArgs();
     }
 }

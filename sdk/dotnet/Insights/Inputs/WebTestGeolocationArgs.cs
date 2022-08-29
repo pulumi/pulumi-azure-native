@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.Inputs
     /// <summary>
     /// Geo-physical location to run a web test from. You must specify one or more locations for the test to run from.
     /// </summary>
-    public sealed class WebTestGeolocationArgs : Pulumi.ResourceArgs
+    public sealed class WebTestGeolocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Location ID for the webtest to run from.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Insights.Inputs
         public WebTestGeolocationArgs()
         {
         }
+        public static new WebTestGeolocationArgs Empty => new WebTestGeolocationArgs();
     }
 }

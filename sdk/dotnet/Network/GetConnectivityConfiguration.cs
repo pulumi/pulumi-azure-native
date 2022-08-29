@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network
     }
 
 
-    public sealed class GetConnectivityConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class GetConnectivityConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the network manager connectivity configuration.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Network
         public GetConnectivityConfigurationArgs()
         {
         }
+        public static new GetConnectivityConfigurationArgs Empty => new GetConnectivityConfigurationArgs();
     }
 
-    public sealed class GetConnectivityConfigurationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConnectivityConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the network manager connectivity configuration.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Network
         public GetConnectivityConfigurationInvokeArgs()
         {
         }
+        public static new GetConnectivityConfigurationInvokeArgs Empty => new GetConnectivityConfigurationInvokeArgs();
     }
 
 

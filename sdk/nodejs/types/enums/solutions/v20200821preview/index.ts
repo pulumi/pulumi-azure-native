@@ -79,6 +79,17 @@ export const JitApproverType = {
  */
 export type JitApproverType = (typeof JitApproverType)[keyof typeof JitApproverType];
 
+export const JitSchedulingType = {
+    NotSpecified: "NotSpecified",
+    Once: "Once",
+    Recurring: "Recurring",
+} as const;
+
+/**
+ * The type of JIT schedule.
+ */
+export type JitSchedulingType = (typeof JitSchedulingType)[keyof typeof JitSchedulingType];
+
 export const ResourceIdentityType = {
     SystemAssigned: "SystemAssigned",
     UserAssigned: "UserAssigned",

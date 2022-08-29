@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20150501.Inputs
     /// <summary>
     /// An Application Insights component daily data volume cap
     /// </summary>
-    public sealed class ApplicationInsightsComponentDataVolumeCapArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationInsightsComponentDataVolumeCapArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Daily data volume cap in GB.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Insights.V20150501.Inputs
         public ApplicationInsightsComponentDataVolumeCapArgs()
         {
         }
+        public static new ApplicationInsightsComponentDataVolumeCapArgs Empty => new ApplicationInsightsComponentDataVolumeCapArgs();
     }
 }

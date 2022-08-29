@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20200901
     /// </summary>
     [Obsolete(@"Version 2020-09-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:documentdb/v20200901:NotebookWorkspace")]
-    public partial class NotebookWorkspace : Pulumi.CustomResource
+    public partial class NotebookWorkspace : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the database account.
@@ -65,24 +65,26 @@ namespace Pulumi.AzureNative.DocumentDB.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:documentdb:NotebookWorkspace"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20190801:NotebookWorkspace"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20191212:NotebookWorkspace"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200301:NotebookWorkspace"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200401:NotebookWorkspace"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:NotebookWorkspace"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210115:NotebookWorkspace"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:NotebookWorkspace"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210315:NotebookWorkspace"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:NotebookWorkspace"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210415:NotebookWorkspace"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210515:NotebookWorkspace"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210615:NotebookWorkspace"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:NotebookWorkspace"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211015:NotebookWorkspace"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:NotebookWorkspace"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:NotebookWorkspace"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:NotebookWorkspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb:NotebookWorkspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20190801:NotebookWorkspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20191212:NotebookWorkspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200301:NotebookWorkspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200401:NotebookWorkspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:NotebookWorkspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210115:NotebookWorkspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:NotebookWorkspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210315:NotebookWorkspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:NotebookWorkspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210415:NotebookWorkspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210515:NotebookWorkspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210615:NotebookWorkspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:NotebookWorkspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015:NotebookWorkspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:NotebookWorkspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:NotebookWorkspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:NotebookWorkspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515:NotebookWorkspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:NotebookWorkspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -104,7 +106,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20200901
         }
     }
 
-    public sealed class NotebookWorkspaceArgs : Pulumi.ResourceArgs
+    public sealed class NotebookWorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cosmos DB database account name.
@@ -127,5 +129,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20200901
         public NotebookWorkspaceArgs()
         {
         }
+        public static new NotebookWorkspaceArgs Empty => new NotebookWorkspaceArgs();
     }
 }

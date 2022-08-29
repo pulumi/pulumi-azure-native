@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Elastic.V20200701.Inputs
     /// <summary>
     /// Set of rules for sending logs for the Monitor resource.
     /// </summary>
-    public sealed class LogRulesArgs : Pulumi.ResourceArgs
+    public sealed class LogRulesArgs : global::Pulumi.ResourceArgs
     {
         [Input("filteringTags")]
         private InputList<Inputs.FilteringTagArgs>? _filteringTags;
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Elastic.V20200701.Inputs
         public LogRulesArgs()
         {
         }
+        public static new LogRulesArgs Empty => new LogRulesArgs();
     }
 }

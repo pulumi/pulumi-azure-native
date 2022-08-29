@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.V20210622.Inputs
     /// <summary>
     /// Definition of RunAs credential to use for hybrid worker.
     /// </summary>
-    public sealed class RunAsCredentialAssociationPropertyArgs : Pulumi.ResourceArgs
+    public sealed class RunAsCredentialAssociationPropertyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the name of the credential.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Automation.V20210622.Inputs
         public RunAsCredentialAssociationPropertyArgs()
         {
         }
+        public static new RunAsCredentialAssociationPropertyArgs Empty => new RunAsCredentialAssociationPropertyArgs();
     }
 }

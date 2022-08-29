@@ -13,8 +13,14 @@ namespace Pulumi.AzureNative.Cache.V20201201.Inputs
     /// <summary>
     /// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
     /// </summary>
-    public sealed class RedisCommonPropertiesRedisConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class RedisCommonPropertiesRedisConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies whether the aof backup is enabled
+        /// </summary>
+        [Input("aofBackupEnabled")]
+        public Input<string>? AofBackupEnabled { get; set; }
+
         /// <summary>
         /// First storage account connection string
         /// </summary>
@@ -26,6 +32,12 @@ namespace Pulumi.AzureNative.Cache.V20201201.Inputs
         /// </summary>
         [Input("aofStorageConnectionString1")]
         public Input<string>? AofStorageConnectionString1 { get; set; }
+
+        /// <summary>
+        /// Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view.
+        /// </summary>
+        [Input("authnotrequired")]
+        public Input<string>? Authnotrequired { get; set; }
 
         /// <summary>
         /// Value in megabytes reserved for fragmentation per shard
@@ -78,5 +90,6 @@ namespace Pulumi.AzureNative.Cache.V20201201.Inputs
         public RedisCommonPropertiesRedisConfigurationArgs()
         {
         }
+        public static new RedisCommonPropertiesRedisConfigurationArgs Empty => new RedisCommonPropertiesRedisConfigurationArgs();
     }
 }

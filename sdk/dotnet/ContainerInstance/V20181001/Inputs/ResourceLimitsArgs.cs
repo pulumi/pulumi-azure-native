@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20181001.Inputs
     /// <summary>
     /// The resource limits.
     /// </summary>
-    public sealed class ResourceLimitsArgs : Pulumi.ResourceArgs
+    public sealed class ResourceLimitsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The CPU limit of this container instance.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.ContainerInstance.V20181001.Inputs
         public ResourceLimitsArgs()
         {
         }
+        public static new ResourceLimitsArgs Empty => new ResourceLimitsArgs();
     }
 }

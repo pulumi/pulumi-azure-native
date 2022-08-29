@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Storage
     /// API Version: 2021-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:BlobContainer")]
-    public partial class BlobContainer : Pulumi.CustomResource
+    public partial class BlobContainer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Default the container to use specified encryption scope for all writes.
@@ -155,19 +155,20 @@ namespace Pulumi.AzureNative.Storage
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:storage/v20180201:BlobContainer"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20180301preview:BlobContainer"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20180701:BlobContainer"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20181101:BlobContainer"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20190401:BlobContainer"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20190601:BlobContainer"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:BlobContainer"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210101:BlobContainer"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210201:BlobContainer"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210401:BlobContainer"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210601:BlobContainer"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210801:BlobContainer"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210901:BlobContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20180201:BlobContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20180301preview:BlobContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20180701:BlobContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20181101:BlobContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20190401:BlobContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20190601:BlobContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20200801preview:BlobContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210101:BlobContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210201:BlobContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210401:BlobContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210601:BlobContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210801:BlobContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210901:BlobContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20220501:BlobContainer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -189,7 +190,7 @@ namespace Pulumi.AzureNative.Storage
         }
     }
 
-    public sealed class BlobContainerArgs : Pulumi.ResourceArgs
+    public sealed class BlobContainerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -242,5 +243,6 @@ namespace Pulumi.AzureNative.Storage
         public BlobContainerArgs()
         {
         }
+        public static new BlobContainerArgs Empty => new BlobContainerArgs();
     }
 }

@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
- * Define the SAP Application Server Instance.
+ * Define the SAP Application Server Instance resource.
  */
 export class SAPApplicationServerInstance extends pulumi.CustomResource {
     /**
@@ -40,39 +40,39 @@ export class SAPApplicationServerInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly errors!: pulumi.Output<outputs.workloads.v20211201preview.SAPVirtualInstanceErrorResponse>;
     /**
-     * The application server gateway Port.
+     * Application server instance gateway Port.
      */
     public /*out*/ readonly gatewayPort!: pulumi.Output<number>;
     /**
-     * Defines the SAP Instance health.
+     * Defines the health of SAP Instances.
      */
     public /*out*/ readonly health!: pulumi.Output<string>;
     /**
-     * The application server SAP host name.
+     * Application server instance SAP hostname.
      */
     public /*out*/ readonly hostname!: pulumi.Output<string>;
     /**
-     * The application server ICM HTTP Port.
+     * Application server instance ICM HTTP Port.
      */
     public /*out*/ readonly icmHttpPort!: pulumi.Output<number>;
     /**
-     * The application server ICM HTTPS Port.
+     * Application server instance ICM HTTPS Port.
      */
     public /*out*/ readonly icmHttpsPort!: pulumi.Output<number>;
     /**
-     * The application server instance id.
+     * Application server Instance Number.
      */
     public /*out*/ readonly instanceNo!: pulumi.Output<string>;
     /**
-     * The application server SAP IP Address.
+     *  Application server instance SAP IP Address.
      */
     public /*out*/ readonly ipAddress!: pulumi.Output<string>;
     /**
-     * The application server SAP kernel patch.
+     * Application server instance SAP Kernel Patch level.
      */
     public /*out*/ readonly kernelPatch!: pulumi.Output<string>;
     /**
-     * The application server SAP kernel version.
+     *  Application server instance SAP Kernel Version.
      */
     public /*out*/ readonly kernelVersion!: pulumi.Output<string>;
     /**
@@ -92,7 +92,7 @@ export class SAPApplicationServerInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * The application server subnet.
+     * Application server Subnet.
      */
     public /*out*/ readonly subnet!: pulumi.Output<string>;
     /**
@@ -184,7 +184,7 @@ export class SAPApplicationServerInstance extends pulumi.CustomResource {
  */
 export interface SAPApplicationServerInstanceArgs {
     /**
-     * The name of SAP Application Server instance.
+     * The name of SAP Application Server instance resource.
      */
     applicationInstanceName?: pulumi.Input<string>;
     /**
@@ -196,7 +196,7 @@ export interface SAPApplicationServerInstanceArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the Virtual Instances for SAP.
+     * The name of the Virtual Instances for SAP solutions resource
      */
     sapVirtualInstanceName: pulumi.Input<string>;
     /**

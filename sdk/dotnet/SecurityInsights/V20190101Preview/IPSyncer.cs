@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
     /// Settings with single toggle.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20190101preview:IPSyncer")]
-    public partial class IPSyncer : Pulumi.CustomResource
+    public partial class IPSyncer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Etag of the azure resource
@@ -78,14 +78,16 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights:IPSyncer"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:IPSyncer"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:IPSyncer"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:IPSyncer"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:IPSyncer"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:IPSyncer"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:IPSyncer"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:IPSyncer"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:IPSyncer"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:IPSyncer"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:IPSyncer"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:IPSyncer"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:IPSyncer"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:IPSyncer"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:IPSyncer"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:IPSyncer"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:IPSyncer"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:IPSyncer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -107,7 +109,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         }
     }
 
-    public sealed class IPSyncerArgs : Pulumi.ResourceArgs
+    public sealed class IPSyncerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// 
@@ -143,5 +145,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         public IPSyncerArgs()
         {
         }
+        public static new IPSyncerArgs Empty => new IPSyncerArgs();
     }
 }

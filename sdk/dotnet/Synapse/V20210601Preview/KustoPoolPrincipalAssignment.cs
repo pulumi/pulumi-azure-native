@@ -13,8 +13,14 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
     /// Class representing a cluster principal assignment.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse/v20210601preview:KustoPoolPrincipalAssignment")]
-    public partial class KustoPoolPrincipalAssignment : Pulumi.CustomResource
+    public partial class KustoPoolPrincipalAssignment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The service principal object id in AAD (Azure active directory)
+        /// </summary>
+        [Output("aadObjectId")]
+        public Output<string> AadObjectId { get; private set; } = null!;
+
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -100,8 +106,8 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:synapse:KustoPoolPrincipalAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:KustoPoolPrincipalAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse:KustoPoolPrincipalAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:KustoPoolPrincipalAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -123,7 +129,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         }
     }
 
-    public sealed class KustoPoolPrincipalAssignmentArgs : Pulumi.ResourceArgs
+    public sealed class KustoPoolPrincipalAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Kusto pool.
@@ -176,5 +182,6 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         public KustoPoolPrincipalAssignmentArgs()
         {
         }
+        public static new KustoPoolPrincipalAssignmentArgs Empty => new KustoPoolPrincipalAssignmentArgs();
     }
 }

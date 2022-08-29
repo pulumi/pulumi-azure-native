@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
     /// Represents MTP (Microsoft Threat Protection) data connector.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20210901preview:MTPDataConnector")]
-    public partial class MTPDataConnector : Pulumi.CustomResource
+    public partial class MTPDataConnector : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The available data types for the connector.
@@ -90,16 +90,19 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights:MTPDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:MTPDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:MTPDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:MTPDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:MTPDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:MTPDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:MTPDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:MTPDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:MTPDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:MTPDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:MTPDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:MTPDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:MTPDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:MTPDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:MTPDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:MTPDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:MTPDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:MTPDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:MTPDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:MTPDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:MTPDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801:MTPDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:MTPDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -121,7 +124,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
         }
     }
 
-    public sealed class MTPDataConnectorArgs : Pulumi.ResourceArgs
+    public sealed class MTPDataConnectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Connector ID
@@ -163,5 +166,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
         public MTPDataConnectorArgs()
         {
         }
+        public static new MTPDataConnectorArgs Empty => new MTPDataConnectorArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.HealthcareApis
     /// API Version: 2022-05-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis:DicomService")]
-    public partial class DicomService : Pulumi.CustomResource
+    public partial class DicomService : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Dicom Service authentication configuration.
@@ -119,10 +119,11 @@ namespace Pulumi.AzureNative.HealthcareApis
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20210601preview:DicomService"},
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:DicomService"},
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20220131preview:DicomService"},
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:DicomService"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20210601preview:DicomService"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:DicomService"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220131preview:DicomService"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:DicomService"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220601:DicomService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -144,7 +145,7 @@ namespace Pulumi.AzureNative.HealthcareApis
         }
     }
 
-    public sealed class DicomServiceArgs : Pulumi.ResourceArgs
+    public sealed class DicomServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Dicom Service Cors configuration.
@@ -197,5 +198,6 @@ namespace Pulumi.AzureNative.HealthcareApis
         public DicomServiceArgs()
         {
         }
+        public static new DicomServiceArgs Empty => new DicomServiceArgs();
     }
 }

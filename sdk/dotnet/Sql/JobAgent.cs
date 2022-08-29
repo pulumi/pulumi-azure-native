@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Sql
     /// API Version: 2020-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:JobAgent")]
-    public partial class JobAgent : Pulumi.CustomResource
+    public partial class JobAgent : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource ID of the database to store job metadata in.
@@ -83,14 +83,16 @@ namespace Pulumi.AzureNative.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:sql/v20170301preview:JobAgent"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:JobAgent"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:JobAgent"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:JobAgent"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:JobAgent"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:JobAgent"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:JobAgent"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:JobAgent"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20170301preview:JobAgent"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:JobAgent"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:JobAgent"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:JobAgent"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:JobAgent"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:JobAgent"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:JobAgent"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:JobAgent"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:JobAgent"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:JobAgent"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -112,7 +114,7 @@ namespace Pulumi.AzureNative.Sql
         }
     }
 
-    public sealed class JobAgentArgs : Pulumi.ResourceArgs
+    public sealed class JobAgentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID of the database to store job metadata in.
@@ -165,5 +167,6 @@ namespace Pulumi.AzureNative.Sql
         public JobAgentArgs()
         {
         }
+        public static new JobAgentArgs Empty => new JobAgentArgs();
     }
 }

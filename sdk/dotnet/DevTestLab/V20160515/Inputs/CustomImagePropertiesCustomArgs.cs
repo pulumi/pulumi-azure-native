@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
     /// <summary>
     /// Properties for creating a custom image from a VHD.
     /// </summary>
-    public sealed class CustomImagePropertiesCustomArgs : Pulumi.ResourceArgs
+    public sealed class CustomImagePropertiesCustomArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The image name.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
         public CustomImagePropertiesCustomArgs()
         {
         }
+        public static new CustomImagePropertiesCustomArgs Empty => new CustomImagePropertiesCustomArgs();
     }
 }

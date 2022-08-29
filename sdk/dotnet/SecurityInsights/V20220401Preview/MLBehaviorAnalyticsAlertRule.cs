@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
     /// Represents MLBehaviorAnalytics alert rule.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20220401preview:MLBehaviorAnalyticsAlertRule")]
-    public partial class MLBehaviorAnalyticsAlertRule : Pulumi.CustomResource
+    public partial class MLBehaviorAnalyticsAlertRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Name of the alert rule template used to create this rule.
@@ -126,16 +126,19 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights:MLBehaviorAnalyticsAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:MLBehaviorAnalyticsAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:MLBehaviorAnalyticsAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:MLBehaviorAnalyticsAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:MLBehaviorAnalyticsAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:MLBehaviorAnalyticsAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:MLBehaviorAnalyticsAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:MLBehaviorAnalyticsAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:MLBehaviorAnalyticsAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:MLBehaviorAnalyticsAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:MLBehaviorAnalyticsAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:MLBehaviorAnalyticsAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:MLBehaviorAnalyticsAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:MLBehaviorAnalyticsAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:MLBehaviorAnalyticsAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:MLBehaviorAnalyticsAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:MLBehaviorAnalyticsAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:MLBehaviorAnalyticsAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:MLBehaviorAnalyticsAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:MLBehaviorAnalyticsAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:MLBehaviorAnalyticsAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801:MLBehaviorAnalyticsAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:MLBehaviorAnalyticsAlertRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -157,7 +160,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
         }
     }
 
-    public sealed class MLBehaviorAnalyticsAlertRuleArgs : Pulumi.ResourceArgs
+    public sealed class MLBehaviorAnalyticsAlertRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Name of the alert rule template used to create this rule.
@@ -199,5 +202,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
         public MLBehaviorAnalyticsAlertRuleArgs()
         {
         }
+        public static new MLBehaviorAnalyticsAlertRuleArgs Empty => new MLBehaviorAnalyticsAlertRuleArgs();
     }
 }

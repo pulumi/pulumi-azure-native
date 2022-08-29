@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20170701Preview.Inputs
     /// <summary>
     /// Specifies a metric to load balance a service during runtime.
     /// </summary>
-    public sealed class ServiceLoadMetricDescriptionArgs : Pulumi.ResourceArgs
+    public sealed class ServiceLoadMetricDescriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Used only for Stateless services. The default amount of load, as a number, that this service creates for this metric.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20170701Preview.Inputs
         public ServiceLoadMetricDescriptionArgs()
         {
         }
+        public static new ServiceLoadMetricDescriptionArgs Empty => new ServiceLoadMetricDescriptionArgs();
     }
 }

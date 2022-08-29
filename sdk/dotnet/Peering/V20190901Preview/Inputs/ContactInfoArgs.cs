@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Peering.V20190901Preview.Inputs
     /// <summary>
     /// The contact information of the peer.
     /// </summary>
-    public sealed class ContactInfoArgs : Pulumi.ResourceArgs
+    public sealed class ContactInfoArgs : global::Pulumi.ResourceArgs
     {
         [Input("emails")]
         private InputList<string>? _emails;
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Peering.V20190901Preview.Inputs
         public ContactInfoArgs()
         {
         }
+        public static new ContactInfoArgs Empty => new ContactInfoArgs();
     }
 }

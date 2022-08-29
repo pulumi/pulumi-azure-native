@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20160201Preview.Inputs
     /// <summary>
     /// The SKU of the cognitive services account.
     /// </summary>
-    public sealed class SkuArgs : Pulumi.ResourceArgs
+    public sealed class SkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the sku name. Required for account creation, optional for update.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.CognitiveServices.V20160201Preview.Inputs
         public SkuArgs()
         {
         }
+        public static new SkuArgs Empty => new SkuArgs();
     }
 }

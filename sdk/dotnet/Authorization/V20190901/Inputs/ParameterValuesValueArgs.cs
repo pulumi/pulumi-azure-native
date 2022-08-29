@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization.V20190901.Inputs
     /// <summary>
     /// The value of a parameter.
     /// </summary>
-    public sealed class ParameterValuesValueArgs : Pulumi.ResourceArgs
+    public sealed class ParameterValuesValueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value of the parameter.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Authorization.V20190901.Inputs
         public ParameterValuesValueArgs()
         {
         }
+        public static new ParameterValuesValueArgs Empty => new ParameterValuesValueArgs();
     }
 }

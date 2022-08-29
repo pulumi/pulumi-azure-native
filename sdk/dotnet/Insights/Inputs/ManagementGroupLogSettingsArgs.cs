@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.Inputs
     /// <summary>
     /// Part of Management Group diagnostic setting. Specifies the settings for a particular log.
     /// </summary>
-    public sealed class ManagementGroupLogSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ManagementGroupLogSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Insights.Inputs
         public ManagementGroupLogSettingsArgs()
         {
         }
+        public static new ManagementGroupLogSettingsArgs Empty => new ManagementGroupLogSettingsArgs();
     }
 }

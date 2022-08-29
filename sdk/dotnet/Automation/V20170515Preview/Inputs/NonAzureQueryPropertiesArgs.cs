@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.V20170515Preview.Inputs
     /// <summary>
     /// Non Azure query for the update configuration.
     /// </summary>
-    public sealed class NonAzureQueryPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class NonAzureQueryPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Log Analytics Saved Search name.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Automation.V20170515Preview.Inputs
         public NonAzureQueryPropertiesArgs()
         {
         }
+        public static new NonAzureQueryPropertiesArgs Empty => new NonAzureQueryPropertiesArgs();
     }
 }

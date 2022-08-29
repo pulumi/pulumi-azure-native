@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview
     /// An Azure SQL Database sync group.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20211101preview:SyncGroup")]
-    public partial class SyncGroup : Pulumi.CustomResource
+    public partial class SyncGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Conflict logging retention period.
@@ -124,15 +124,17 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:sql:SyncGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20150501preview:SyncGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20190601preview:SyncGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:SyncGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:SyncGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:SyncGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:SyncGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:SyncGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:SyncGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql:SyncGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20150501preview:SyncGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20190601preview:SyncGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:SyncGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:SyncGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:SyncGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:SyncGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:SyncGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:SyncGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:SyncGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:SyncGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -154,7 +156,7 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview
         }
     }
 
-    public sealed class SyncGroupArgs : Pulumi.ResourceArgs
+    public sealed class SyncGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Conflict logging retention period.
@@ -243,5 +245,6 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview
         public SyncGroupArgs()
         {
         }
+        public static new SyncGroupArgs Empty => new SyncGroupArgs();
     }
 }

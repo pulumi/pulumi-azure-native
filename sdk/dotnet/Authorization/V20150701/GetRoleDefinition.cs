@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Authorization.V20150701
     }
 
 
-    public sealed class GetRoleDefinitionArgs : Pulumi.InvokeArgs
+    public sealed class GetRoleDefinitionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the role definition.
@@ -43,9 +43,10 @@ namespace Pulumi.AzureNative.Authorization.V20150701
         public GetRoleDefinitionArgs()
         {
         }
+        public static new GetRoleDefinitionArgs Empty => new GetRoleDefinitionArgs();
     }
 
-    public sealed class GetRoleDefinitionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRoleDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the role definition.
@@ -62,6 +63,7 @@ namespace Pulumi.AzureNative.Authorization.V20150701
         public GetRoleDefinitionInvokeArgs()
         {
         }
+        public static new GetRoleDefinitionInvokeArgs Empty => new GetRoleDefinitionInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20210201Preview
     /// Workload classifier operations for a data warehouse
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20210201preview:WorkloadClassifier")]
-    public partial class WorkloadClassifier : Pulumi.CustomResource
+    public partial class WorkloadClassifier : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The workload classifier context.
@@ -88,14 +88,16 @@ namespace Pulumi.AzureNative.Sql.V20210201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:sql:WorkloadClassifier"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20190601preview:WorkloadClassifier"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:WorkloadClassifier"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:WorkloadClassifier"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:WorkloadClassifier"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:WorkloadClassifier"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:WorkloadClassifier"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:WorkloadClassifier"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql:WorkloadClassifier"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20190601preview:WorkloadClassifier"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:WorkloadClassifier"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:WorkloadClassifier"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:WorkloadClassifier"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:WorkloadClassifier"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:WorkloadClassifier"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:WorkloadClassifier"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:WorkloadClassifier"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:WorkloadClassifier"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +119,7 @@ namespace Pulumi.AzureNative.Sql.V20210201Preview
         }
     }
 
-    public sealed class WorkloadClassifierArgs : Pulumi.ResourceArgs
+    public sealed class WorkloadClassifierArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The workload classifier context.
@@ -188,5 +190,6 @@ namespace Pulumi.AzureNative.Sql.V20210201Preview
         public WorkloadClassifierArgs()
         {
         }
+        public static new WorkloadClassifierArgs Empty => new WorkloadClassifierArgs();
     }
 }

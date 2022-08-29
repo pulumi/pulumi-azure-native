@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// VNet properties for managed integration runtime.
     /// </summary>
-    public sealed class IntegrationRuntimeVNetPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationRuntimeVNetPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("publicIPs")]
         private InputList<string>? _publicIPs;
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public IntegrationRuntimeVNetPropertiesArgs()
         {
         }
+        public static new IntegrationRuntimeVNetPropertiesArgs Empty => new IntegrationRuntimeVNetPropertiesArgs();
     }
 }

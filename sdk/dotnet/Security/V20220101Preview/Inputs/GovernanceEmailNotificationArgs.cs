@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20220101Preview.Inputs
     /// <summary>
     /// The governance email weekly notification configuration.
     /// </summary>
-    public sealed class GovernanceEmailNotificationArgs : Pulumi.ResourceArgs
+    public sealed class GovernanceEmailNotificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Exclude manager from weekly email notification.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Security.V20220101Preview.Inputs
         public GovernanceEmailNotificationArgs()
         {
         }
+        public static new GovernanceEmailNotificationArgs Empty => new GovernanceEmailNotificationArgs();
     }
 }

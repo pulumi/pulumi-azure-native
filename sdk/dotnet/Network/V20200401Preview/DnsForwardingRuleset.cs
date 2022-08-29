@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200401Preview
     /// Describes a DNS forwarding ruleset.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20200401preview:DnsForwardingRuleset")]
-    public partial class DnsForwardingRuleset : Pulumi.CustomResource
+    public partial class DnsForwardingRuleset : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The reference to the DNS resolver outbound endpoints that are used to route DNS queries matching the forwarding rules in the ruleset to the target DNS servers.
@@ -94,7 +94,8 @@ namespace Pulumi.AzureNative.Network.V20200401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network:DnsForwardingRuleset"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:DnsForwardingRuleset"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220701:DnsForwardingRuleset"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -116,7 +117,7 @@ namespace Pulumi.AzureNative.Network.V20200401Preview
         }
     }
 
-    public sealed class DnsForwardingRulesetArgs : Pulumi.ResourceArgs
+    public sealed class DnsForwardingRulesetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the DNS forwarding ruleset.
@@ -163,5 +164,6 @@ namespace Pulumi.AzureNative.Network.V20200401Preview
         public DnsForwardingRulesetArgs()
         {
         }
+        public static new DnsForwardingRulesetArgs Empty => new DnsForwardingRulesetArgs();
     }
 }

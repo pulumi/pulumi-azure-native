@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20200301.Inputs
     /// <summary>
     /// The properties of a routing rule that your IoT hub uses to route messages to endpoints.
     /// </summary>
-    public sealed class RoutePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class RoutePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.Devices.V20200301.Inputs
         public RoutePropertiesArgs()
         {
         }
+        public static new RoutePropertiesArgs Empty => new RoutePropertiesArgs();
     }
 }

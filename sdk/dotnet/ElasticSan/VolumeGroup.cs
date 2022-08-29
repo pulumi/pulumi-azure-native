@@ -14,19 +14,13 @@ namespace Pulumi.AzureNative.ElasticSan
     /// API Version: 2021-11-20-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:elasticsan:VolumeGroup")]
-    public partial class VolumeGroup : Pulumi.CustomResource
+    public partial class VolumeGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Type of encryption
         /// </summary>
         [Output("encryption")]
-        public Output<string> Encryption { get; private set; } = null!;
-
-        /// <summary>
-        /// The geo-location where the resource lives.
-        /// </summary>
-        [Output("location")]
-        public Output<string?> Location { get; private set; } = null!;
+        public Output<string?> Encryption { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource name.
@@ -44,7 +38,7 @@ namespace Pulumi.AzureNative.ElasticSan
         /// Type of storage target
         /// </summary>
         [Output("protocolType")]
-        public Output<string> ProtocolType { get; private set; } = null!;
+        public Output<string?> ProtocolType { get; private set; } = null!;
 
         /// <summary>
         /// State of the operation on the resource.
@@ -95,7 +89,7 @@ namespace Pulumi.AzureNative.ElasticSan
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:elasticsan/v20211120preview:VolumeGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:elasticsan/v20211120preview:VolumeGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +111,7 @@ namespace Pulumi.AzureNative.ElasticSan
         }
     }
 
-    public sealed class VolumeGroupArgs : Pulumi.ResourceArgs
+    public sealed class VolumeGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the ElasticSan.
@@ -128,14 +122,8 @@ namespace Pulumi.AzureNative.ElasticSan
         /// <summary>
         /// Type of encryption
         /// </summary>
-        [Input("encryption", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.ElasticSan.EncryptionType> Encryption { get; set; } = null!;
-
-        /// <summary>
-        /// The geo-location where the resource lives.
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
+        [Input("encryption")]
+        public InputUnion<string, Pulumi.AzureNative.ElasticSan.EncryptionType>? Encryption { get; set; }
 
         /// <summary>
         /// A collection of rules governing the accessibility from specific network locations.
@@ -146,8 +134,8 @@ namespace Pulumi.AzureNative.ElasticSan
         /// <summary>
         /// Type of storage target
         /// </summary>
-        [Input("protocolType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.ElasticSan.StorageTargetType> ProtocolType { get; set; } = null!;
+        [Input("protocolType")]
+        public InputUnion<string, Pulumi.AzureNative.ElasticSan.StorageTargetType>? ProtocolType { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -176,5 +164,6 @@ namespace Pulumi.AzureNative.ElasticSan
         public VolumeGroupArgs()
         {
         }
+        public static new VolumeGroupArgs Empty => new VolumeGroupArgs();
     }
 }

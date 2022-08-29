@@ -12,6 +12,7 @@ import * as v20210401preview from "./v20210401preview";
 import * as v20210601preview from "./v20210601preview";
 import * as v20211001 from "./v20211001";
 import * as v20211101preview from "./v20211101preview";
+import * as v20220701 from "./v20220701";
 
 export {
     v20150601,
@@ -24,6 +25,7 @@ export {
     v20210601preview,
     v20211001,
     v20211101preview,
+    v20220701,
 };
 
 export const ActionsRequired = {

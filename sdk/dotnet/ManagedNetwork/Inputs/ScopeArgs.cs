@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ManagedNetwork.Inputs
     /// <summary>
     /// Scope of a Managed Network
     /// </summary>
-    public sealed class ScopeArgs : Pulumi.ResourceArgs
+    public sealed class ScopeArgs : global::Pulumi.ResourceArgs
     {
         [Input("managementGroups")]
         private InputList<Inputs.ResourceIdArgs>? _managementGroups;
@@ -66,5 +66,6 @@ namespace Pulumi.AzureNative.ManagedNetwork.Inputs
         public ScopeArgs()
         {
         }
+        public static new ScopeArgs Empty => new ScopeArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
     }
 
 
-    public sealed class GetDynamics365DataConnectorArgs : Pulumi.InvokeArgs
+    public sealed class GetDynamics365DataConnectorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Connector ID
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
         public GetDynamics365DataConnectorArgs()
         {
         }
+        public static new GetDynamics365DataConnectorArgs Empty => new GetDynamics365DataConnectorArgs();
     }
 
-    public sealed class GetDynamics365DataConnectorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDynamics365DataConnectorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Connector ID
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
         public GetDynamics365DataConnectorInvokeArgs()
         {
         }
+        public static new GetDynamics365DataConnectorInvokeArgs Empty => new GetDynamics365DataConnectorInvokeArgs();
     }
 
 

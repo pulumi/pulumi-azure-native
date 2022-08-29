@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20210401.Inputs
 {
 
-    public sealed class ScheduledEventsProfileArgs : Pulumi.ResourceArgs
+    public sealed class ScheduledEventsProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies Terminate Scheduled Event related configurations.
@@ -21,5 +21,6 @@ namespace Pulumi.AzureNative.Compute.V20210401.Inputs
         public ScheduledEventsProfileArgs()
         {
         }
+        public static new ScheduledEventsProfileArgs Empty => new ScheduledEventsProfileArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20211201Preview.Inputs
     /// <summary>
     /// The Vulnerability Assessment autoprovisioning configuration
     /// </summary>
-    public sealed class DefenderForServersGcpOfferingVaAutoProvisioningArgs : Pulumi.ResourceArgs
+    public sealed class DefenderForServersGcpOfferingVaAutoProvisioningArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// configuration for Vulnerability Assessment autoprovisioning
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Security.V20211201Preview.Inputs
         public DefenderForServersGcpOfferingVaAutoProvisioningArgs()
         {
         }
+        public static new DefenderForServersGcpOfferingVaAutoProvisioningArgs Empty => new DefenderForServersGcpOfferingVaAutoProvisioningArgs();
     }
 }

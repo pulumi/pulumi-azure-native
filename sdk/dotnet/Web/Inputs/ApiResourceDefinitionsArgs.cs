@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.Inputs
     /// <summary>
     /// API Definitions
     /// </summary>
-    public sealed class ApiResourceDefinitionsArgs : Pulumi.ResourceArgs
+    public sealed class ApiResourceDefinitionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The modified swagger URL
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Web.Inputs
         public ApiResourceDefinitionsArgs()
         {
         }
+        public static new ApiResourceDefinitionsArgs Empty => new ApiResourceDefinitionsArgs();
     }
 }

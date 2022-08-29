@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NetApp.V20201201
     /// NetApp account resource
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp/v20201201:Account")]
-    public partial class Account : Pulumi.CustomResource
+    public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Active Directories
@@ -88,29 +88,30 @@ namespace Pulumi.AzureNative.NetApp.V20201201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:netapp:Account"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20170815:Account"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20190501:Account"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20190601:Account"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20190701:Account"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20190801:Account"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20191001:Account"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20191101:Account"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20200201:Account"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20200301:Account"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20200501:Account"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20200601:Account"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20200701:Account"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20200801:Account"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20200901:Account"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20201101:Account"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20210201:Account"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20210401:Account"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20210401preview:Account"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20210601:Account"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20210801:Account"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20211001:Account"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20220101:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20170815:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20190501:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20190601:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20190701:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20190801:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20191001:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20191101:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200201:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200301:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200501:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200601:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200701:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200801:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200901:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20201101:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210201:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210401:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210401preview:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210601:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210801:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20211001:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220101:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220301:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -132,7 +133,7 @@ namespace Pulumi.AzureNative.NetApp.V20201201
         }
     }
 
-    public sealed class AccountArgs : Pulumi.ResourceArgs
+    public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the NetApp account
@@ -185,5 +186,6 @@ namespace Pulumi.AzureNative.NetApp.V20201201
         public AccountArgs()
         {
         }
+        public static new AccountArgs Empty => new AccountArgs();
     }
 }

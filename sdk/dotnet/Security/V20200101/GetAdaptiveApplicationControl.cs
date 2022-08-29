@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Security.V20200101
     }
 
 
-    public sealed class GetAdaptiveApplicationControlArgs : Pulumi.InvokeArgs
+    public sealed class GetAdaptiveApplicationControlArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The location where ASC stores the data of the subscription. can be retrieved from Get locations
@@ -36,9 +36,10 @@ namespace Pulumi.AzureNative.Security.V20200101
         public GetAdaptiveApplicationControlArgs()
         {
         }
+        public static new GetAdaptiveApplicationControlArgs Empty => new GetAdaptiveApplicationControlArgs();
     }
 
-    public sealed class GetAdaptiveApplicationControlInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAdaptiveApplicationControlInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The location where ASC stores the data of the subscription. can be retrieved from Get locations
@@ -55,6 +56,7 @@ namespace Pulumi.AzureNative.Security.V20200101
         public GetAdaptiveApplicationControlInvokeArgs()
         {
         }
+        public static new GetAdaptiveApplicationControlInvokeArgs Empty => new GetAdaptiveApplicationControlInvokeArgs();
     }
 
 

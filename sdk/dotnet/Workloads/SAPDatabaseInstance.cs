@@ -10,32 +10,32 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Workloads
 {
     /// <summary>
-    /// Define the SAP Database Instance.
+    /// Define the Database resource.
     /// API Version: 2021-12-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads:SAPDatabaseInstance")]
-    public partial class SAPDatabaseInstance : Pulumi.CustomResource
+    public partial class SAPDatabaseInstance : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The database SID.
+        /// Database SID name.
         /// </summary>
         [Output("databaseSid")]
         public Output<string> DatabaseSid { get; private set; } = null!;
 
         /// <summary>
-        /// The SAP database type.
+        /// Database type, that is if the DB is HANA, DB2, Oracle, SAP ASE, Max DB or MS SQL Server.
         /// </summary>
         [Output("databaseType")]
         public Output<string> DatabaseType { get; private set; } = null!;
 
         /// <summary>
-        /// Defines the Database Instance errors.
+        /// Defines the errors related to Database resource.
         /// </summary>
         [Output("errors")]
         public Output<Outputs.SAPVirtualInstanceErrorResponse> Errors { get; private set; } = null!;
 
         /// <summary>
-        /// The database IP Address.
+        /// Database IP Address.
         /// </summary>
         [Output("ipAddress")]
         public Output<string> IpAddress { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AzureNative.Workloads
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The database subnet.
+        /// Database subnet.
         /// </summary>
         [Output("subnet")]
         public Output<string> Subnet { get; private set; } = null!;
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.Workloads
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// The list of virtual machines.
+        /// The list of virtual machines corresponding to the Database resource.
         /// </summary>
         [Output("vmDetails")]
         public Output<ImmutableArray<Outputs.DatabaseVmDetailsResponse>> VmDetails { get; private set; } = null!;
@@ -119,7 +119,7 @@ namespace Pulumi.AzureNative.Workloads
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:SAPDatabaseInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:SAPDatabaseInstance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -141,10 +141,10 @@ namespace Pulumi.AzureNative.Workloads
         }
     }
 
-    public sealed class SAPDatabaseInstanceArgs : Pulumi.ResourceArgs
+    public sealed class SAPDatabaseInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Database Instance string modeled as parameter for auto generation to work correctly.
+        /// Database resource name string modeled as parameter for auto generation to work correctly.
         /// </summary>
         [Input("databaseInstanceName")]
         public Input<string>? DatabaseInstanceName { get; set; }
@@ -162,7 +162,7 @@ namespace Pulumi.AzureNative.Workloads
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Virtual Instances for SAP.
+        /// The name of the Virtual Instances for SAP solutions resource
         /// </summary>
         [Input("sapVirtualInstanceName", required: true)]
         public Input<string> SapVirtualInstanceName { get; set; } = null!;
@@ -182,5 +182,6 @@ namespace Pulumi.AzureNative.Workloads
         public SAPDatabaseInstanceArgs()
         {
         }
+        public static new SAPDatabaseInstanceArgs Empty => new SAPDatabaseInstanceArgs();
     }
 }

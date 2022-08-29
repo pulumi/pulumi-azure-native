@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20171103Preview.Inputs
     /// <summary>
     /// Specifies the operating system settings for the HANA instance.
     /// </summary>
-    public sealed class OSProfileArgs : Pulumi.ResourceArgs
+    public sealed class OSProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the host OS name of the HANA instance.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20171103Preview.Inputs
         public OSProfileArgs()
         {
         }
+        public static new OSProfileArgs Empty => new OSProfileArgs();
     }
 }

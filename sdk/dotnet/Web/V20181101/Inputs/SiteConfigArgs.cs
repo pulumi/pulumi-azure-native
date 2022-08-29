@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20181101.Inputs
     /// <summary>
     /// Configuration of an App Service app.
     /// </summary>
-    public sealed class SiteConfigArgs : Pulumi.ResourceArgs
+    public sealed class SiteConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; if Always On is enabled; otherwise, &lt;code&gt;false&lt;/code&gt;.
@@ -382,5 +382,6 @@ namespace Pulumi.AzureNative.Web.V20181101.Inputs
             LocalMySqlEnabled = false;
             NetFrameworkVersion = "v4.6";
         }
+        public static new SiteConfigArgs Empty => new SiteConfigArgs();
     }
 }

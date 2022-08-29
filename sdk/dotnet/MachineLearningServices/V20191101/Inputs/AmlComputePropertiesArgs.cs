@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20191101.Inputs
     /// <summary>
     /// AML Compute properties
     /// </summary>
-    public sealed class AmlComputePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class AmlComputePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
@@ -55,5 +55,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20191101.Inputs
         {
             RemoteLoginPortPublicAccess = "NotSpecified";
         }
+        public static new AmlComputePropertiesArgs Empty => new AmlComputePropertiesArgs();
     }
 }

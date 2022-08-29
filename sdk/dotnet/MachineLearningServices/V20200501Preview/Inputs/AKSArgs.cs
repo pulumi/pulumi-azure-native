@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview.Inputs
     /// <summary>
     /// A Machine Learning compute based on AKS.
     /// </summary>
-    public sealed class AKSArgs : Pulumi.ResourceArgs
+    public sealed class AKSArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Location for the underlying compute
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview.Inputs
         public AKSArgs()
         {
         }
+        public static new AKSArgs Empty => new AKSArgs();
     }
 }

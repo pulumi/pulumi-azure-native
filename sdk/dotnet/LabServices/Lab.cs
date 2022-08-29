@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.LabServices
     /// API Version: 2018-10-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:labservices:Lab")]
-    public partial class Lab : Pulumi.CustomResource
+    public partial class Lab : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Object id of the user that created the lab.
@@ -131,7 +131,7 @@ namespace Pulumi.AzureNative.LabServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:labservices/v20181015:Lab"},
+                    new global::Pulumi.Alias { Type = "azure-native:labservices/v20181015:Lab"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -153,7 +153,7 @@ namespace Pulumi.AzureNative.LabServices
         }
     }
 
-    public sealed class LabArgs : Pulumi.ResourceArgs
+    public sealed class LabArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the lab Account.
@@ -224,5 +224,6 @@ namespace Pulumi.AzureNative.LabServices
         public LabArgs()
         {
         }
+        public static new LabArgs Empty => new LabArgs();
     }
 }

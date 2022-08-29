@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS.V20200320.Inputs
     /// <summary>
     /// The properties of a default cluster
     /// </summary>
-    public sealed class ManagementClusterArgs : Pulumi.ResourceArgs
+    public sealed class ManagementClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The cluster size
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.AVS.V20200320.Inputs
         public ManagementClusterArgs()
         {
         }
+        public static new ManagementClusterArgs Empty => new ManagementClusterArgs();
     }
 }

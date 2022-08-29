@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataFactory
     /// API Version: 2018-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:datafactory:Pipeline")]
-    public partial class Pipeline : Pulumi.CustomResource
+    public partial class Pipeline : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of activities in pipeline.
@@ -113,8 +113,8 @@ namespace Pulumi.AzureNative.DataFactory
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:datafactory/v20170901preview:Pipeline"},
-                    new Pulumi.Alias { Type = "azure-native:datafactory/v20180601:Pipeline"},
+                    new global::Pulumi.Alias { Type = "azure-native:datafactory/v20170901preview:Pipeline"},
+                    new global::Pulumi.Alias { Type = "azure-native:datafactory/v20180601:Pipeline"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.DataFactory
         }
     }
 
-    public sealed class PipelineArgs : Pulumi.ResourceArgs
+    public sealed class PipelineArgs : global::Pulumi.ResourceArgs
     {
         [Input("activities")]
         private InputList<object>? _activities;
@@ -243,5 +243,6 @@ namespace Pulumi.AzureNative.DataFactory
         public PipelineArgs()
         {
         }
+        public static new PipelineArgs Empty => new PipelineArgs();
     }
 }

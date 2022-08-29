@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.Inputs
     /// <summary>
     /// Container App Dapr configuration.
     /// </summary>
-    public sealed class DaprArgs : Pulumi.ResourceArgs
+    public sealed class DaprArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Dapr application identifier
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.App.Inputs
         public DaprArgs()
         {
         }
+        public static new DaprArgs Empty => new DaprArgs();
     }
 }

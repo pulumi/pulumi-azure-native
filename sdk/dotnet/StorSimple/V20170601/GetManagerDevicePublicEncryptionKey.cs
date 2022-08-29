@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
     }
 
 
-    public sealed class GetManagerDevicePublicEncryptionKeyArgs : Pulumi.InvokeArgs
+    public sealed class GetManagerDevicePublicEncryptionKeyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         public GetManagerDevicePublicEncryptionKeyArgs()
         {
         }
+        public static new GetManagerDevicePublicEncryptionKeyArgs Empty => new GetManagerDevicePublicEncryptionKeyArgs();
     }
 
-    public sealed class GetManagerDevicePublicEncryptionKeyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetManagerDevicePublicEncryptionKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         public GetManagerDevicePublicEncryptionKeyInvokeArgs()
         {
         }
+        public static new GetManagerDevicePublicEncryptionKeyInvokeArgs Empty => new GetManagerDevicePublicEncryptionKeyInvokeArgs();
     }
 
 

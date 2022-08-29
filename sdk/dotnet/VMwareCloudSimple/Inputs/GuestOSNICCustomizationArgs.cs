@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VMwareCloudSimple.Inputs
     /// <summary>
     /// Guest OS nic customization
     /// </summary>
-    public sealed class GuestOSNICCustomizationArgs : Pulumi.ResourceArgs
+    public sealed class GuestOSNICCustomizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// IP address allocation method
@@ -72,5 +72,6 @@ namespace Pulumi.AzureNative.VMwareCloudSimple.Inputs
         public GuestOSNICCustomizationArgs()
         {
         }
+        public static new GuestOSNICCustomizationArgs Empty => new GuestOSNICCustomizationArgs();
     }
 }

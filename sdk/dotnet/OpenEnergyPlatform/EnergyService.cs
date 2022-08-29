@@ -10,10 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.OpenEnergyPlatform
 {
     /// <summary>
-    /// API Version: 2021-06-01-preview.
+    /// API Version: 2022-04-04-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:openenergyplatform:EnergyService")]
-    public partial class EnergyService : Pulumi.CustomResource
+    public partial class EnergyService : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Geo-location where the resource lives.
@@ -73,8 +73,8 @@ namespace Pulumi.AzureNative.OpenEnergyPlatform
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:openenergyplatform/v20210601preview:EnergyService"},
-                    new Pulumi.Alias { Type = "azure-native:openenergyplatform/v20220404preview:EnergyService"},
+                    new global::Pulumi.Alias { Type = "azure-native:openenergyplatform/v20210601preview:EnergyService"},
+                    new global::Pulumi.Alias { Type = "azure-native:openenergyplatform/v20220404preview:EnergyService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.OpenEnergyPlatform
         }
     }
 
-    public sealed class EnergyServiceArgs : Pulumi.ResourceArgs
+    public sealed class EnergyServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Geo-location where the resource lives.
@@ -134,5 +134,6 @@ namespace Pulumi.AzureNative.OpenEnergyPlatform
         public EnergyServiceArgs()
         {
         }
+        public static new EnergyServiceArgs Empty => new EnergyServiceArgs();
     }
 }

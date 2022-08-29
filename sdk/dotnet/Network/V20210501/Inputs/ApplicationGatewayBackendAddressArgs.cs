@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210501.Inputs
     /// <summary>
     /// Backend address of an application gateway.
     /// </summary>
-    public sealed class ApplicationGatewayBackendAddressArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayBackendAddressArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Fully qualified domain name (FQDN).
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Network.V20210501.Inputs
         public ApplicationGatewayBackendAddressArgs()
         {
         }
+        public static new ApplicationGatewayBackendAddressArgs Empty => new ApplicationGatewayBackendAddressArgs();
     }
 }

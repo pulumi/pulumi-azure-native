@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20220201Preview
     /// Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabric/v20220201preview:NodeType")]
-    public partial class NodeType : Pulumi.CustomResource
+    public partial class NodeType : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Additional managed data disks.
@@ -250,14 +250,15 @@ namespace Pulumi.AzureNative.ServiceFabric.V20220201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:servicefabric:NodeType"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20200101preview:NodeType"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20210101preview:NodeType"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20210501:NodeType"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20210701preview:NodeType"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20210901privatepreview:NodeType"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20211101preview:NodeType"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20220101:NodeType"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric:NodeType"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20200101preview:NodeType"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210101preview:NodeType"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210501:NodeType"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210701preview:NodeType"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210901privatepreview:NodeType"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20211101preview:NodeType"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220101:NodeType"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220601preview:NodeType"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -279,7 +280,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20220201Preview
         }
     }
 
-    public sealed class NodeTypeArgs : Pulumi.ResourceArgs
+    public sealed class NodeTypeArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalDataDisks")]
         private InputList<Inputs.VmssDataDiskArgs>? _additionalDataDisks;
@@ -545,5 +546,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20220201Preview
             IsStateless = false;
             MultiplePlacementGroups = false;
         }
+        public static new NodeTypeArgs Empty => new NodeTypeArgs();
     }
 }

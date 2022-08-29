@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logz.Inputs
     /// <summary>
     /// Definition of the properties for a TagRules resource.
     /// </summary>
-    public sealed class MetricsTagRulesPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class MetricsTagRulesPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("metricRules")]
         private InputList<Inputs.MetricRulesArgs>? _metricRules;
@@ -32,5 +32,6 @@ namespace Pulumi.AzureNative.Logz.Inputs
         public MetricsTagRulesPropertiesArgs()
         {
         }
+        public static new MetricsTagRulesPropertiesArgs Empty => new MetricsTagRulesPropertiesArgs();
     }
 }

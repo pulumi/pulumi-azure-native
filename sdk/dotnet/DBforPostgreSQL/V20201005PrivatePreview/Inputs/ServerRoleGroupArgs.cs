@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview.Inputs
     /// <summary>
     /// Represents a server role group.
     /// </summary>
-    public sealed class ServerRoleGroupArgs : Pulumi.ResourceArgs
+    public sealed class ServerRoleGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If high availability is enabled or not for the server.
@@ -60,5 +60,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview.Inputs
         public ServerRoleGroupArgs()
         {
         }
+        public static new ServerRoleGroupArgs Empty => new ServerRoleGroupArgs();
     }
 }

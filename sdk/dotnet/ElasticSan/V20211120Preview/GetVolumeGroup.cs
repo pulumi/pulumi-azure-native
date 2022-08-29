@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
     }
 
 
-    public sealed class GetVolumeGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetVolumeGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the ElasticSan.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         public GetVolumeGroupArgs()
         {
         }
+        public static new GetVolumeGroupArgs Empty => new GetVolumeGroupArgs();
     }
 
-    public sealed class GetVolumeGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVolumeGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the ElasticSan.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         public GetVolumeGroupInvokeArgs()
         {
         }
+        public static new GetVolumeGroupInvokeArgs Empty => new GetVolumeGroupInvokeArgs();
     }
 
 
@@ -82,15 +84,11 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         /// <summary>
         /// Type of encryption
         /// </summary>
-        public readonly string Encryption;
+        public readonly string? Encryption;
         /// <summary>
         /// Azure resource identifier.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The geo-location where the resource lives.
-        /// </summary>
-        public readonly string? Location;
         /// <summary>
         /// Azure resource name.
         /// </summary>
@@ -102,7 +100,7 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         /// <summary>
         /// Type of storage target
         /// </summary>
-        public readonly string ProtocolType;
+        public readonly string? ProtocolType;
         /// <summary>
         /// State of the operation on the resource.
         /// </summary>
@@ -122,17 +120,15 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
 
         [OutputConstructor]
         private GetVolumeGroupResult(
-            string encryption,
+            string? encryption,
 
             string id,
-
-            string? location,
 
             string name,
 
             Outputs.NetworkRuleSetResponse? networkAcls,
 
-            string protocolType,
+            string? protocolType,
 
             string provisioningState,
 
@@ -144,7 +140,6 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         {
             Encryption = encryption;
             Id = id;
-            Location = location;
             Name = name;
             NetworkAcls = networkAcls;
             ProtocolType = protocolType;

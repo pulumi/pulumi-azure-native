@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Authorization.V20190601
     }
 
 
-    public sealed class GetPolicySetDefinitionAtManagementGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetPolicySetDefinitionAtManagementGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the management group.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Authorization.V20190601
         public GetPolicySetDefinitionAtManagementGroupArgs()
         {
         }
+        public static new GetPolicySetDefinitionAtManagementGroupArgs Empty => new GetPolicySetDefinitionAtManagementGroupArgs();
     }
 
-    public sealed class GetPolicySetDefinitionAtManagementGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPolicySetDefinitionAtManagementGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the management group.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Authorization.V20190601
         public GetPolicySetDefinitionAtManagementGroupInvokeArgs()
         {
         }
+        public static new GetPolicySetDefinitionAtManagementGroupInvokeArgs Empty => new GetPolicySetDefinitionAtManagementGroupInvokeArgs();
     }
 
 

@@ -112,7 +112,7 @@ export class BookmarkRelation extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20210901preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20211001preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20220101preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20220401preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20220501preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20220601preview:BookmarkRelation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20210901preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20211001preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20220101preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20220401preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20220501preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20220601preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20220701preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20220801preview:BookmarkRelation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BookmarkRelation.__pulumiType, name, resourceInputs, opts);
     }

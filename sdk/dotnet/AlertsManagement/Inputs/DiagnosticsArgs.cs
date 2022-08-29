@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AlertsManagement.Inputs
     /// <summary>
     /// Action rule with diagnostics configuration
     /// </summary>
-    public sealed class DiagnosticsArgs : Pulumi.ResourceArgs
+    public sealed class DiagnosticsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// conditions on which alerts will be filtered
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.AlertsManagement.Inputs
         public DiagnosticsArgs()
         {
         }
+        public static new DiagnosticsArgs Empty => new DiagnosticsArgs();
     }
 }

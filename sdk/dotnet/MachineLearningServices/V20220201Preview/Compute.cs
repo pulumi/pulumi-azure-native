@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview
     /// Machine Learning compute object wrapped into ARM resource envelope.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20220201preview:Compute")]
-    public partial class Compute : Pulumi.CustomResource
+    public partial class Compute : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The identity of the resource.
@@ -88,27 +88,28 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:Compute"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20180301preview:Compute"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20181119:Compute"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20190501:Compute"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20190601:Compute"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20191101:Compute"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200101:Compute"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200218preview:Compute"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200301:Compute"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200401:Compute"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200501preview:Compute"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200515preview:Compute"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200601:Compute"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200801:Compute"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200901preview:Compute"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210101:Compute"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:Compute"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210401:Compute"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210701:Compute"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220101preview:Compute"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:Compute"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:Compute"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20180301preview:Compute"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20181119:Compute"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20190501:Compute"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20190601:Compute"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20191101:Compute"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200101:Compute"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200218preview:Compute"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200301:Compute"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200401:Compute"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200501preview:Compute"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200515preview:Compute"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200601:Compute"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200801:Compute"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200901preview:Compute"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210101:Compute"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:Compute"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210401:Compute"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210701:Compute"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220101preview:Compute"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:Compute"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:Compute"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -130,7 +131,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview
         }
     }
 
-    public sealed class ComputeArgs : Pulumi.ResourceArgs
+    public sealed class ComputeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Azure Machine Learning compute.
@@ -189,5 +190,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview
         public ComputeArgs()
         {
         }
+        public static new ComputeArgs Empty => new ComputeArgs();
     }
 }

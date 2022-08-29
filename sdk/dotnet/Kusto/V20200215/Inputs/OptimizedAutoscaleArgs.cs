@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Kusto.V20200215.Inputs
     /// <summary>
     /// A class that contains the optimized auto scale definition.
     /// </summary>
-    public sealed class OptimizedAutoscaleArgs : Pulumi.ResourceArgs
+    public sealed class OptimizedAutoscaleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A boolean value that indicate if the optimized autoscale feature is enabled or not.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Kusto.V20200215.Inputs
         public OptimizedAutoscaleArgs()
         {
         }
+        public static new OptimizedAutoscaleArgs Empty => new OptimizedAutoscaleArgs();
     }
 }

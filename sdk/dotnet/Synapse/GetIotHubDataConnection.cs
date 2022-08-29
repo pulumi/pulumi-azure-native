@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Synapse
     }
 
 
-    public sealed class GetIotHubDataConnectionArgs : Pulumi.InvokeArgs
+    public sealed class GetIotHubDataConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the data connection.
@@ -62,9 +62,10 @@ namespace Pulumi.AzureNative.Synapse
         public GetIotHubDataConnectionArgs()
         {
         }
+        public static new GetIotHubDataConnectionArgs Empty => new GetIotHubDataConnectionArgs();
     }
 
-    public sealed class GetIotHubDataConnectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetIotHubDataConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the data connection.
@@ -99,6 +100,7 @@ namespace Pulumi.AzureNative.Synapse
         public GetIotHubDataConnectionInvokeArgs()
         {
         }
+        public static new GetIotHubDataConnectionInvokeArgs Empty => new GetIotHubDataConnectionInvokeArgs();
     }
 
 

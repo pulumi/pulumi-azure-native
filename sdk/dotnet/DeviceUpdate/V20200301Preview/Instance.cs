@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
     /// Device Update instance details.
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceupdate/v20200301preview:Instance")]
-    public partial class Instance : Pulumi.CustomResource
+    public partial class Instance : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Parent Device Update Account name which Instance belongs to.
@@ -100,8 +100,9 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:deviceupdate:Instance"},
-                    new Pulumi.Alias { Type = "azure-native:deviceupdate/v20220401preview:Instance"},
+                    new global::Pulumi.Alias { Type = "azure-native:deviceupdate:Instance"},
+                    new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20220401preview:Instance"},
+                    new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20221001:Instance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -123,7 +124,7 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
         }
     }
 
-    public sealed class InstanceArgs : Pulumi.ResourceArgs
+    public sealed class InstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Account name.
@@ -188,5 +189,6 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
         public InstanceArgs()
         {
         }
+        public static new InstanceArgs Empty => new InstanceArgs();
     }
 }

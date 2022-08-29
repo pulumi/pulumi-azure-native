@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.V20150801
     /// </summary>
     [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:web/v20150801:CertificateCsr")]
-    public partial class CertificateCsr : Pulumi.CustomResource
+    public partial class CertificateCsr : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Actual CSR string created
@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.Web.V20150801
         }
     }
 
-    public sealed class CertificateCsrArgs : Pulumi.ResourceArgs
+    public sealed class CertificateCsrArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Actual CSR string created
@@ -214,5 +214,6 @@ namespace Pulumi.AzureNative.Web.V20150801
         public CertificateCsrArgs()
         {
         }
+        public static new CertificateCsrArgs Empty => new CertificateCsrArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Batch.V20181201
     /// </summary>
     [Obsolete(@"Version 2018-12-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:batch/v20181201:Pool")]
-    public partial class Pool : Pulumi.CustomResource
+    public partial class Pool : global::Pulumi.CustomResource
     {
         [Output("allocationState")]
         public Output<string> AllocationState { get; private set; } = null!;
@@ -173,17 +173,17 @@ namespace Pulumi.AzureNative.Batch.V20181201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:batch:Pool"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20170901:Pool"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20190401:Pool"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20190801:Pool"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20200301:Pool"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20200501:Pool"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20200901:Pool"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20210101:Pool"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20210601:Pool"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20220101:Pool"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20220601:Pool"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch:Pool"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20170901:Pool"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20190401:Pool"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20190801:Pool"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20200301:Pool"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20200501:Pool"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20200901:Pool"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20210101:Pool"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20210601:Pool"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20220101:Pool"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20220601:Pool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -205,7 +205,7 @@ namespace Pulumi.AzureNative.Batch.V20181201
         }
     }
 
-    public sealed class PoolArgs : Pulumi.ResourceArgs
+    public sealed class PoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Batch account.
@@ -332,5 +332,6 @@ namespace Pulumi.AzureNative.Batch.V20181201
         public PoolArgs()
         {
         }
+        public static new PoolArgs Empty => new PoolArgs();
     }
 }

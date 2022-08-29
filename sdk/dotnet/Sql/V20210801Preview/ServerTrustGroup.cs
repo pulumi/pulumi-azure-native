@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
     /// A server trust group.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20210801preview:ServerTrustGroup")]
-    public partial class ServerTrustGroup : Pulumi.CustomResource
+    public partial class ServerTrustGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Group members information for the server trust group.
@@ -64,13 +64,15 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:sql:ServerTrustGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ServerTrustGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ServerTrustGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ServerTrustGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ServerTrustGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ServerTrustGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ServerTrustGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql:ServerTrustGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ServerTrustGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ServerTrustGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ServerTrustGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ServerTrustGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ServerTrustGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:ServerTrustGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ServerTrustGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ServerTrustGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -92,7 +94,7 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
         }
     }
 
-    public sealed class ServerTrustGroupArgs : Pulumi.ResourceArgs
+    public sealed class ServerTrustGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("groupMembers", required: true)]
         private InputList<Inputs.ServerInfoArgs>? _groupMembers;
@@ -139,5 +141,6 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
         public ServerTrustGroupArgs()
         {
         }
+        public static new ServerTrustGroupArgs Empty => new ServerTrustGroupArgs();
     }
 }

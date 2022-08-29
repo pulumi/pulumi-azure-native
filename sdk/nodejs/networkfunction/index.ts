@@ -16,10 +16,12 @@ export * from "../types/enums/networkfunction";
 // Export sub-modules:
 import * as v20210901preview from "./v20210901preview";
 import * as v20220501 from "./v20220501";
+import * as v20220801 from "./v20220801";
 
 export {
     v20210901preview,
     v20220501,
+    v20220801,
 };
 
 // Import resources to register:

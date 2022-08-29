@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     }
 
 
-    public sealed class GetStorageAccountCredentialArgs : Pulumi.InvokeArgs
+    public sealed class GetStorageAccountCredentialArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of storage account credential to be fetched.
@@ -49,9 +49,10 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public GetStorageAccountCredentialArgs()
         {
         }
+        public static new GetStorageAccountCredentialArgs Empty => new GetStorageAccountCredentialArgs();
     }
 
-    public sealed class GetStorageAccountCredentialInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStorageAccountCredentialInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of storage account credential to be fetched.
@@ -74,6 +75,7 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public GetStorageAccountCredentialInvokeArgs()
         {
         }
+        public static new GetStorageAccountCredentialInvokeArgs Empty => new GetStorageAccountCredentialInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS.V20210601
     /// NSX Public IP Block
     /// </summary>
     [AzureNativeResourceType("azure-native:avs/v20210601:WorkloadNetworkPublicIP")]
-    public partial class WorkloadNetworkPublicIP : Pulumi.CustomResource
+    public partial class WorkloadNetworkPublicIP : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Display name of the Public IP Block.
@@ -76,8 +76,8 @@ namespace Pulumi.AzureNative.AVS.V20210601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:avs:WorkloadNetworkPublicIP"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20211201:WorkloadNetworkPublicIP"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs:WorkloadNetworkPublicIP"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:WorkloadNetworkPublicIP"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.AVS.V20210601
         }
     }
 
-    public sealed class WorkloadNetworkPublicIPArgs : Pulumi.ResourceArgs
+    public sealed class WorkloadNetworkPublicIPArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Display name of the Public IP Block.
@@ -134,5 +134,6 @@ namespace Pulumi.AzureNative.AVS.V20210601
         public WorkloadNetworkPublicIPArgs()
         {
         }
+        public static new WorkloadNetworkPublicIPArgs Empty => new WorkloadNetworkPublicIPArgs();
     }
 }

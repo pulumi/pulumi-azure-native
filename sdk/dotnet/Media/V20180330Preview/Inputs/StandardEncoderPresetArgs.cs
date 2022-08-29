@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180330Preview.Inputs
     /// <summary>
     /// Describes all the settings to be used when encoding the input video with the Standard Encoder.
     /// </summary>
-    public sealed class StandardEncoderPresetArgs : Pulumi.ResourceArgs
+    public sealed class StandardEncoderPresetArgs : global::Pulumi.ResourceArgs
     {
         [Input("codecs")]
         private InputList<object>? _codecs;
@@ -55,5 +55,6 @@ namespace Pulumi.AzureNative.Media.V20180330Preview.Inputs
         public StandardEncoderPresetArgs()
         {
         }
+        public static new StandardEncoderPresetArgs Empty => new StandardEncoderPresetArgs();
     }
 }

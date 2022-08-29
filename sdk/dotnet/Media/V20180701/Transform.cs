@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180701
     /// A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
     /// </summary>
     [AzureNativeResourceType("azure-native:media/v20180701:Transform")]
-    public partial class Transform : Pulumi.CustomResource
+    public partial class Transform : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The UTC date and time when the Transform was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
@@ -76,12 +76,12 @@ namespace Pulumi.AzureNative.Media.V20180701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:media:Transform"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20180330preview:Transform"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20180601preview:Transform"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20200501:Transform"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20210601:Transform"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20211101:Transform"},
+                    new global::Pulumi.Alias { Type = "azure-native:media:Transform"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20180330preview:Transform"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20180601preview:Transform"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20200501:Transform"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20210601:Transform"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20211101:Transform"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -103,7 +103,7 @@ namespace Pulumi.AzureNative.Media.V20180701
         }
     }
 
-    public sealed class TransformArgs : Pulumi.ResourceArgs
+    public sealed class TransformArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -144,5 +144,6 @@ namespace Pulumi.AzureNative.Media.V20180701
         public TransformArgs()
         {
         }
+        public static new TransformArgs Empty => new TransformArgs();
     }
 }

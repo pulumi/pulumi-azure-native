@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative
     /// The provider type for the native Azure package.
     /// </summary>
     [AzureNativeResourceType("pulumi:providers:azure-native")]
-    public partial class Provider : Pulumi.ProviderResource
+    public partial class Provider : global::Pulumi.ProviderResource
     {
         /// <summary>
         /// Create a Provider resource with the given unique name, arguments, and options.
@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative
         }
     }
 
-    public sealed class ProviderArgs : Pulumi.ResourceArgs
+    public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
         [Input("auxiliaryTenantIds", json: true)]
         private InputList<string>? _auxiliaryTenantIds;
@@ -155,5 +155,6 @@ namespace Pulumi.AzureNative
             Environment = "public";
             UseMsi = false;
         }
+        public static new ProviderArgs Empty => new ProviderArgs();
     }
 }

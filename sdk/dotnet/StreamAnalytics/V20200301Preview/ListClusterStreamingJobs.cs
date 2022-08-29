@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301Preview
     }
 
 
-    public sealed class ListClusterStreamingJobsArgs : Pulumi.InvokeArgs
+    public sealed class ListClusterStreamingJobsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the cluster.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301Preview
         public ListClusterStreamingJobsArgs()
         {
         }
+        public static new ListClusterStreamingJobsArgs Empty => new ListClusterStreamingJobsArgs();
     }
 
-    public sealed class ListClusterStreamingJobsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListClusterStreamingJobsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the cluster.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301Preview
         public ListClusterStreamingJobsInvokeArgs()
         {
         }
+        public static new ListClusterStreamingJobsInvokeArgs Empty => new ListClusterStreamingJobsInvokeArgs();
     }
 
 

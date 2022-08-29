@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
     /// A stored credential that can be used by a job to connect to target databases.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20201101preview:JobCredential")]
-    public partial class JobCredential : Pulumi.CustomResource
+    public partial class JobCredential : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource name.
@@ -58,14 +58,16 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:sql:JobCredential"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20170301preview:JobCredential"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:JobCredential"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:JobCredential"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:JobCredential"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:JobCredential"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:JobCredential"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:JobCredential"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql:JobCredential"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20170301preview:JobCredential"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:JobCredential"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:JobCredential"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:JobCredential"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:JobCredential"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:JobCredential"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:JobCredential"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:JobCredential"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:JobCredential"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -87,7 +89,7 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         }
     }
 
-    public sealed class JobCredentialArgs : Pulumi.ResourceArgs
+    public sealed class JobCredentialArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the credential.
@@ -128,5 +130,6 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         public JobCredentialArgs()
         {
         }
+        public static new JobCredentialArgs Empty => new JobCredentialArgs();
     }
 }

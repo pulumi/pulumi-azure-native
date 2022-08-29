@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// API Version: 2020-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:FusionAlertRule")]
-    public partial class FusionAlertRule : Pulumi.CustomResource
+    public partial class FusionAlertRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Name of the alert rule template used to create this rule.
@@ -115,16 +115,19 @@ namespace Pulumi.AzureNative.SecurityInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:FusionAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:FusionAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:FusionAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:FusionAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:FusionAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:FusionAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:FusionAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:FusionAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:FusionAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:FusionAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:FusionAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:FusionAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:FusionAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:FusionAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:FusionAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:FusionAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:FusionAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:FusionAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:FusionAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:FusionAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:FusionAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801:FusionAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:FusionAlertRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -146,7 +149,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         }
     }
 
-    public sealed class FusionAlertRuleArgs : Pulumi.ResourceArgs
+    public sealed class FusionAlertRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Name of the alert rule template used to create this rule.
@@ -188,5 +191,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         public FusionAlertRuleArgs()
         {
         }
+        public static new FusionAlertRuleArgs Empty => new FusionAlertRuleArgs();
     }
 }

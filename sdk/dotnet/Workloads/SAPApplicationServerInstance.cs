@@ -10,11 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Workloads
 {
     /// <summary>
-    /// Define the SAP Application Server Instance.
+    /// Define the SAP Application Server Instance resource.
     /// API Version: 2021-12-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads:SAPApplicationServerInstance")]
-    public partial class SAPApplicationServerInstance : Pulumi.CustomResource
+    public partial class SAPApplicationServerInstance : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Defines the Application Instance errors.
@@ -23,55 +23,55 @@ namespace Pulumi.AzureNative.Workloads
         public Output<Outputs.SAPVirtualInstanceErrorResponse> Errors { get; private set; } = null!;
 
         /// <summary>
-        /// The application server gateway Port.
+        /// Application server instance gateway Port.
         /// </summary>
         [Output("gatewayPort")]
         public Output<double> GatewayPort { get; private set; } = null!;
 
         /// <summary>
-        /// Defines the SAP Instance health.
+        /// Defines the health of SAP Instances.
         /// </summary>
         [Output("health")]
         public Output<string> Health { get; private set; } = null!;
 
         /// <summary>
-        /// The application server SAP host name.
+        /// Application server instance SAP hostname.
         /// </summary>
         [Output("hostname")]
         public Output<string> Hostname { get; private set; } = null!;
 
         /// <summary>
-        /// The application server ICM HTTP Port.
+        /// Application server instance ICM HTTP Port.
         /// </summary>
         [Output("icmHttpPort")]
         public Output<double> IcmHttpPort { get; private set; } = null!;
 
         /// <summary>
-        /// The application server ICM HTTPS Port.
+        /// Application server instance ICM HTTPS Port.
         /// </summary>
         [Output("icmHttpsPort")]
         public Output<double> IcmHttpsPort { get; private set; } = null!;
 
         /// <summary>
-        /// The application server instance id.
+        /// Application server Instance Number.
         /// </summary>
         [Output("instanceNo")]
         public Output<string> InstanceNo { get; private set; } = null!;
 
         /// <summary>
-        /// The application server SAP IP Address.
+        ///  Application server instance SAP IP Address.
         /// </summary>
         [Output("ipAddress")]
         public Output<string> IpAddress { get; private set; } = null!;
 
         /// <summary>
-        /// The application server SAP kernel patch.
+        /// Application server instance SAP Kernel Patch level.
         /// </summary>
         [Output("kernelPatch")]
         public Output<string> KernelPatch { get; private set; } = null!;
 
         /// <summary>
-        /// The application server SAP kernel version.
+        ///  Application server instance SAP Kernel Version.
         /// </summary>
         [Output("kernelVersion")]
         public Output<string> KernelVersion { get; private set; } = null!;
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.Workloads
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The application server subnet.
+        /// Application server Subnet.
         /// </summary>
         [Output("subnet")]
         public Output<string> Subnet { get; private set; } = null!;
@@ -155,7 +155,7 @@ namespace Pulumi.AzureNative.Workloads
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:SAPApplicationServerInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:SAPApplicationServerInstance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -177,10 +177,10 @@ namespace Pulumi.AzureNative.Workloads
         }
     }
 
-    public sealed class SAPApplicationServerInstanceArgs : Pulumi.ResourceArgs
+    public sealed class SAPApplicationServerInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of SAP Application Server instance.
+        /// The name of SAP Application Server instance resource.
         /// </summary>
         [Input("applicationInstanceName")]
         public Input<string>? ApplicationInstanceName { get; set; }
@@ -198,7 +198,7 @@ namespace Pulumi.AzureNative.Workloads
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Virtual Instances for SAP.
+        /// The name of the Virtual Instances for SAP solutions resource
         /// </summary>
         [Input("sapVirtualInstanceName", required: true)]
         public Input<string> SapVirtualInstanceName { get; set; } = null!;
@@ -218,5 +218,6 @@ namespace Pulumi.AzureNative.Workloads
         public SAPApplicationServerInstanceArgs()
         {
         }
+        public static new SAPApplicationServerInstanceArgs Empty => new SAPApplicationServerInstanceArgs();
     }
 }

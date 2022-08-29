@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AppPlatform
     /// API Version: 2020-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:CustomDomain")]
-    public partial class CustomDomain : Pulumi.CustomResource
+    public partial class CustomDomain : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource.
@@ -59,14 +59,14 @@ namespace Pulumi.AzureNative.AppPlatform
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20200701:CustomDomain"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20201101preview:CustomDomain"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20210601preview:CustomDomain"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20210901preview:CustomDomain"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:CustomDomain"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:CustomDomain"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220401:CustomDomain"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:CustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20200701:CustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20201101preview:CustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20210601preview:CustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20210901preview:CustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:CustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:CustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220401:CustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:CustomDomain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.AppPlatform
         }
     }
 
-    public sealed class CustomDomainArgs : Pulumi.ResourceArgs
+    public sealed class CustomDomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the App resource.
@@ -123,5 +123,6 @@ namespace Pulumi.AzureNative.AppPlatform
         public CustomDomainArgs()
         {
         }
+        public static new CustomDomainArgs Empty => new CustomDomainArgs();
     }
 }

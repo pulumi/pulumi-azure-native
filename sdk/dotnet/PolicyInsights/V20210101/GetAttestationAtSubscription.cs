@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.PolicyInsights.V20210101
     }
 
 
-    public sealed class GetAttestationAtSubscriptionArgs : Pulumi.InvokeArgs
+    public sealed class GetAttestationAtSubscriptionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the attestation.
@@ -36,9 +36,10 @@ namespace Pulumi.AzureNative.PolicyInsights.V20210101
         public GetAttestationAtSubscriptionArgs()
         {
         }
+        public static new GetAttestationAtSubscriptionArgs Empty => new GetAttestationAtSubscriptionArgs();
     }
 
-    public sealed class GetAttestationAtSubscriptionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAttestationAtSubscriptionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the attestation.
@@ -49,6 +50,7 @@ namespace Pulumi.AzureNative.PolicyInsights.V20210101
         public GetAttestationAtSubscriptionInvokeArgs()
         {
         }
+        public static new GetAttestationAtSubscriptionInvokeArgs Empty => new GetAttestationAtSubscriptionInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20200601.Inputs
 {
 
-    public sealed class GlobalValidationArgs : Pulumi.ResourceArgs
+    public sealed class GlobalValidationArgs : global::Pulumi.ResourceArgs
     {
         [Input("excludedPaths")]
         private InputList<string>? _excludedPaths;
@@ -38,5 +38,6 @@ namespace Pulumi.AzureNative.Web.V20200601.Inputs
         public GlobalValidationArgs()
         {
         }
+        public static new GlobalValidationArgs Empty => new GlobalValidationArgs();
     }
 }

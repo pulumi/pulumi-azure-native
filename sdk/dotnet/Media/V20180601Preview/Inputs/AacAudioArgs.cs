@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180601Preview.Inputs
     /// <summary>
     /// Describes Advanced Audio Codec (AAC) audio encoding settings.
     /// </summary>
-    public sealed class AacAudioArgs : Pulumi.ResourceArgs
+    public sealed class AacAudioArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The bitrate, in bits per second, of the output encoded audio.
@@ -55,5 +55,6 @@ namespace Pulumi.AzureNative.Media.V20180601Preview.Inputs
         public AacAudioArgs()
         {
         }
+        public static new AacAudioArgs Empty => new AacAudioArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Sql
     }
 
 
-    public sealed class GetEncryptionProtectorArgs : Pulumi.InvokeArgs
+    public sealed class GetEncryptionProtectorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the encryption protector to be retrieved.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Sql
         public GetEncryptionProtectorArgs()
         {
         }
+        public static new GetEncryptionProtectorArgs Empty => new GetEncryptionProtectorArgs();
     }
 
-    public sealed class GetEncryptionProtectorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEncryptionProtectorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the encryption protector to be retrieved.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Sql
         public GetEncryptionProtectorInvokeArgs()
         {
         }
+        public static new GetEncryptionProtectorInvokeArgs Empty => new GetEncryptionProtectorInvokeArgs();
     }
 
 

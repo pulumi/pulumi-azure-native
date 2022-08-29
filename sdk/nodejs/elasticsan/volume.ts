@@ -41,10 +41,6 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly creationData!: pulumi.Output<outputs.elasticsan.SourceCreationDataResponse | undefined>;
     /**
-     * The geo-location where the resource lives.
-     */
-    public readonly location!: pulumi.Output<string | undefined>;
-    /**
      * Azure resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -95,7 +91,6 @@ export class Volume extends pulumi.CustomResource {
             }
             resourceInputs["creationData"] = args ? args.creationData : undefined;
             resourceInputs["elasticSanName"] = args ? args.elasticSanName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sizeGiB"] = args ? args.sizeGiB : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -108,7 +103,6 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["volumeId"] = undefined /*out*/;
         } else {
             resourceInputs["creationData"] = undefined /*out*/;
-            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["sizeGiB"] = undefined /*out*/;
             resourceInputs["storageTarget"] = undefined /*out*/;
@@ -136,10 +130,6 @@ export interface VolumeArgs {
      * The name of the ElasticSan.
      */
     elasticSanName: pulumi.Input<string>;
-    /**
-     * The geo-location where the resource lives.
-     */
-    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

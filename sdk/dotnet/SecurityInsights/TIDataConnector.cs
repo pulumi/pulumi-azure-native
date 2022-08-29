@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// API Version: 2020-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:TIDataConnector")]
-    public partial class TIDataConnector : Pulumi.CustomResource
+    public partial class TIDataConnector : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The available data types for the connector.
@@ -91,16 +91,19 @@ namespace Pulumi.AzureNative.SecurityInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:TIDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:TIDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:TIDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:TIDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:TIDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:TIDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:TIDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:TIDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:TIDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:TIDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:TIDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:TIDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:TIDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:TIDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:TIDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:TIDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:TIDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:TIDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:TIDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:TIDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:TIDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801:TIDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:TIDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -122,7 +125,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         }
     }
 
-    public sealed class TIDataConnectorArgs : Pulumi.ResourceArgs
+    public sealed class TIDataConnectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Connector ID
@@ -170,5 +173,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         public TIDataConnectorArgs()
         {
         }
+        public static new TIDataConnectorArgs Empty => new TIDataConnectorArgs();
     }
 }

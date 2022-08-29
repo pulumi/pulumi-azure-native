@@ -117,7 +117,7 @@ export class InventoryItem extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere/v20201001preview:InventoryItem" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere/v20201001preview:InventoryItem" }, { type: "azure-native:connectedvmwarevsphere/v20220110preview:InventoryItem" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(InventoryItem.__pulumiType, name, resourceInputs, opts);
     }

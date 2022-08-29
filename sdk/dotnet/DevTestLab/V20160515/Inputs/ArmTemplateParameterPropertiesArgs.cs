@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
     /// <summary>
     /// Properties of an Azure Resource Manager template parameter.
     /// </summary>
-    public sealed class ArmTemplateParameterPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ArmTemplateParameterPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the template parameter.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
         public ArmTemplateParameterPropertiesArgs()
         {
         }
+        public static new ArmTemplateParameterPropertiesArgs Empty => new ArmTemplateParameterPropertiesArgs();
     }
 }

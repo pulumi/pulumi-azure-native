@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301
     }
 
 
-    public sealed class GetPrivateEndpointArgs : Pulumi.InvokeArgs
+    public sealed class GetPrivateEndpointArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the cluster.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301
         public GetPrivateEndpointArgs()
         {
         }
+        public static new GetPrivateEndpointArgs Empty => new GetPrivateEndpointArgs();
     }
 
-    public sealed class GetPrivateEndpointInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPrivateEndpointInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the cluster.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301
         public GetPrivateEndpointInvokeArgs()
         {
         }
+        public static new GetPrivateEndpointInvokeArgs Empty => new GetPrivateEndpointInvokeArgs();
     }
 
 

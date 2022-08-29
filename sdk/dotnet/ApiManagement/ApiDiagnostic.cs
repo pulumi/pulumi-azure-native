@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ApiManagement
     /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:ApiDiagnostic")]
-    public partial class ApiDiagnostic : Pulumi.CustomResource
+    public partial class ApiDiagnostic : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies for what type of messages sampling settings should not apply.
@@ -51,6 +51,12 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         [Output("loggerId")]
         public Output<string> LoggerId { get; private set; } = null!;
+
+        /// <summary>
+        /// Emit custom metrics via emit-metric policy. Applicable only to Application Insights diagnostic settings.
+        /// </summary>
+        [Output("metrics")]
+        public Output<bool?> Metrics { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -107,18 +113,18 @@ namespace Pulumi.AzureNative.ApiManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiDiagnostic"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiDiagnostic"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiDiagnostic"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiDiagnostic"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiDiagnostic"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiDiagnostic"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiDiagnostic"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ApiDiagnostic"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:ApiDiagnostic"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:ApiDiagnostic"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ApiDiagnostic"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ApiDiagnostic"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiDiagnostic"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiDiagnostic"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiDiagnostic"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiDiagnostic"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiDiagnostic"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiDiagnostic"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiDiagnostic"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ApiDiagnostic"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:ApiDiagnostic"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:ApiDiagnostic"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ApiDiagnostic"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ApiDiagnostic"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -140,7 +146,7 @@ namespace Pulumi.AzureNative.ApiManagement
         }
     }
 
-    public sealed class ApiDiagnosticArgs : Pulumi.ResourceArgs
+    public sealed class ApiDiagnosticArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies for what type of messages sampling settings should not apply.
@@ -191,6 +197,12 @@ namespace Pulumi.AzureNative.ApiManagement
         public Input<string> LoggerId { get; set; } = null!;
 
         /// <summary>
+        /// Emit custom metrics via emit-metric policy. Applicable only to Application Insights diagnostic settings.
+        /// </summary>
+        [Input("metrics")]
+        public Input<bool>? Metrics { get; set; }
+
+        /// <summary>
         /// The format of the Operation Name for Application Insights telemetries. Default is Name.
         /// </summary>
         [Input("operationNameFormat")]
@@ -223,5 +235,6 @@ namespace Pulumi.AzureNative.ApiManagement
         public ApiDiagnosticArgs()
         {
         }
+        public static new ApiDiagnosticArgs Empty => new ApiDiagnosticArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Custom linked service.
     /// </summary>
-    public sealed class CustomDataSourceLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class CustomDataSourceLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -61,5 +61,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public CustomDataSourceLinkedServiceArgs()
         {
         }
+        public static new CustomDataSourceLinkedServiceArgs Empty => new CustomDataSourceLinkedServiceArgs();
     }
 }

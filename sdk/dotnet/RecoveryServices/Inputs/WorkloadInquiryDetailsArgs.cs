@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
     /// <summary>
     /// Details of an inquired protectable item.
     /// </summary>
-    public sealed class WorkloadInquiryDetailsArgs : Pulumi.ResourceArgs
+    public sealed class WorkloadInquiryDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Inquiry validation such as permissions and other backup validations.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public WorkloadInquiryDetailsArgs()
         {
         }
+        public static new WorkloadInquiryDetailsArgs Empty => new WorkloadInquiryDetailsArgs();
     }
 }

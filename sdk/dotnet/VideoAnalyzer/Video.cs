@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
     /// API Version: 2021-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:videoanalyzer:Video")]
-    public partial class Video : Pulumi.CustomResource
+    public partial class Video : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Optional video description provided by the user. Value can be up to 2048 characters long.
@@ -89,8 +89,8 @@ namespace Pulumi.AzureNative.VideoAnalyzer
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:videoanalyzer/v20210501preview:Video"},
-                    new Pulumi.Alias { Type = "azure-native:videoanalyzer/v20211101preview:Video"},
+                    new global::Pulumi.Alias { Type = "azure-native:videoanalyzer/v20210501preview:Video"},
+                    new global::Pulumi.Alias { Type = "azure-native:videoanalyzer/v20211101preview:Video"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         }
     }
 
-    public sealed class VideoArgs : Pulumi.ResourceArgs
+    public sealed class VideoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Video Analyzer account name.
@@ -147,5 +147,6 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         public VideoArgs()
         {
         }
+        public static new VideoArgs Empty => new VideoArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201.Inputs
     /// Tiering Policy for a target tier.
     /// If the policy is not specified for a given target tier, service retains the existing configured tiering policy for that tier
     /// </summary>
-    public sealed class TieringPolicyArgs : Pulumi.ResourceArgs
+    public sealed class TieringPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Number of days/weeks/months/years to retain backups in current tier before tiering.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201.Inputs
         public TieringPolicyArgs()
         {
         }
+        public static new TieringPolicyArgs Empty => new TieringPolicyArgs();
     }
 }

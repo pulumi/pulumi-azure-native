@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// API Version: 2020-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:Action")]
-    public partial class Action : Pulumi.CustomResource
+    public partial class Action : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Etag of the action.
@@ -71,16 +71,19 @@ namespace Pulumi.AzureNative.SecurityInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:Action"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:Action"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:Action"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:Action"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:Action"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:Action"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:Action"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:Action"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:Action"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:Action"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:Action"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:Action"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:Action"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:Action"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:Action"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:Action"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:Action"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:Action"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:Action"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:Action"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:Action"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801:Action"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:Action"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -102,7 +105,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         }
     }
 
-    public sealed class ActionArgs : Pulumi.ResourceArgs
+    public sealed class ActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Action ID
@@ -143,5 +146,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         public ActionArgs()
         {
         }
+        public static new ActionArgs Empty => new ActionArgs();
     }
 }

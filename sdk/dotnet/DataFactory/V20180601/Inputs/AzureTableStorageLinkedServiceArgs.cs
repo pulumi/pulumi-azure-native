@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// The azure table storage linked service.
     /// </summary>
-    public sealed class AzureTableStorageLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class AzureTableStorageLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure key vault secret reference of accountKey in connection string.
@@ -91,5 +91,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public AzureTableStorageLinkedServiceArgs()
         {
         }
+        public static new AzureTableStorageLinkedServiceArgs Empty => new AzureTableStorageLinkedServiceArgs();
     }
 }

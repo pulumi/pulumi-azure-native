@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Web
     }
 
 
-    public sealed class ListWebAppPublishingCredentialsArgs : Pulumi.InvokeArgs
+    public sealed class ListWebAppPublishingCredentialsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the app.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.Web
         public ListWebAppPublishingCredentialsArgs()
         {
         }
+        public static new ListWebAppPublishingCredentialsArgs Empty => new ListWebAppPublishingCredentialsArgs();
     }
 
-    public sealed class ListWebAppPublishingCredentialsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListWebAppPublishingCredentialsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the app.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.Web
         public ListWebAppPublishingCredentialsInvokeArgs()
         {
         }
+        public static new ListWebAppPublishingCredentialsInvokeArgs Empty => new ListWebAppPublishingCredentialsInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DBforPostgreSQL.V20210410PrivatePreview.Inputs
 {
 
-    public sealed class ServerPropertiesPrivateDnsZoneArgumentsArgs : Pulumi.ResourceArgs
+    public sealed class ServerPropertiesPrivateDnsZoneArgumentsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// private dns zone arm resource id.
@@ -21,5 +21,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210410PrivatePreview.Inputs
         public ServerPropertiesPrivateDnsZoneArgumentsArgs()
         {
         }
+        public static new ServerPropertiesPrivateDnsZoneArgumentsArgs Empty => new ServerPropertiesPrivateDnsZoneArgumentsArgs();
     }
 }

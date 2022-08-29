@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
     /// <summary>
     /// The operation for configuring intrusion detection.
     /// </summary>
-    public sealed class FirewallPolicyIntrusionDetectionConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyIntrusionDetectionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("bypassTrafficSettings")]
         private InputList<Inputs.FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsArgs>? _bypassTrafficSettings;
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
         public FirewallPolicyIntrusionDetectionConfigurationArgs()
         {
         }
+        public static new FirewallPolicyIntrusionDetectionConfigurationArgs Empty => new FirewallPolicyIntrusionDetectionConfigurationArgs();
     }
 }

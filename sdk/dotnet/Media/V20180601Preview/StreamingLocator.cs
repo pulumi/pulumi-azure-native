@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180601Preview
     /// A Streaming Locator resource
     /// </summary>
     [AzureNativeResourceType("azure-native:media/v20180601preview:StreamingLocator")]
-    public partial class StreamingLocator : Pulumi.CustomResource
+    public partial class StreamingLocator : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An Alternative Media Identifier associated with the StreamingLocator.  This identifier can be used to distinguish different StreamingLocators for the same Asset for authorization purposes in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
@@ -106,12 +106,12 @@ namespace Pulumi.AzureNative.Media.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:media:StreamingLocator"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20180330preview:StreamingLocator"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20180701:StreamingLocator"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20200501:StreamingLocator"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20210601:StreamingLocator"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20211101:StreamingLocator"},
+                    new global::Pulumi.Alias { Type = "azure-native:media:StreamingLocator"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20180330preview:StreamingLocator"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20180701:StreamingLocator"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20200501:StreamingLocator"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20210601:StreamingLocator"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20211101:StreamingLocator"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -133,7 +133,7 @@ namespace Pulumi.AzureNative.Media.V20180601Preview
         }
     }
 
-    public sealed class StreamingLocatorArgs : Pulumi.ResourceArgs
+    public sealed class StreamingLocatorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -210,5 +210,6 @@ namespace Pulumi.AzureNative.Media.V20180601Preview
         public StreamingLocatorArgs()
         {
         }
+        public static new StreamingLocatorArgs Empty => new StreamingLocatorArgs();
     }
 }

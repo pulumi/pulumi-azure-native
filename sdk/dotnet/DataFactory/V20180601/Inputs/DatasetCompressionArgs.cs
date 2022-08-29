@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// The compression method used on a dataset.
     /// </summary>
-    public sealed class DatasetCompressionArgs : Pulumi.ResourceArgs
+    public sealed class DatasetCompressionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The dataset compression level. Type: string (or Expression with resultType string).
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public DatasetCompressionArgs()
         {
         }
+        public static new DatasetCompressionArgs Empty => new DatasetCompressionArgs();
     }
 }

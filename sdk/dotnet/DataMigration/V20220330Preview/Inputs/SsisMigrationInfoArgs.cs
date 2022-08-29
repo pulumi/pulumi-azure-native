@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Inputs
     /// <summary>
     /// SSIS migration info with SSIS store type, overwrite policy.
     /// </summary>
-    public sealed class SsisMigrationInfoArgs : Pulumi.ResourceArgs
+    public sealed class SsisMigrationInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The overwrite option for the SSIS environment migration
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Inputs
         public SsisMigrationInfoArgs()
         {
         }
+        public static new SsisMigrationInfoArgs Empty => new SsisMigrationInfoArgs();
     }
 }

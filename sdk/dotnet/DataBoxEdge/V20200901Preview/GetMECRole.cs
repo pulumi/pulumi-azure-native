@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
     }
 
 
-    public sealed class GetMECRoleArgs : Pulumi.InvokeArgs
+    public sealed class GetMECRoleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
         public GetMECRoleArgs()
         {
         }
+        public static new GetMECRoleArgs Empty => new GetMECRoleArgs();
     }
 
-    public sealed class GetMECRoleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMECRoleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
         public GetMECRoleInvokeArgs()
         {
         }
+        public static new GetMECRoleInvokeArgs Empty => new GetMECRoleInvokeArgs();
     }
 
 

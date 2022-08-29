@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20190802Preview
     /// </summary>
     [Obsolete(@"Version 2019-08-02-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:hybridcompute/v20190802preview:MachineExtension")]
-    public partial class MachineExtension : Pulumi.CustomResource
+    public partial class MachineExtension : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
@@ -125,19 +125,20 @@ namespace Pulumi.AzureNative.HybridCompute.V20190802Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute:MachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20191212:MachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20200730preview:MachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20200802:MachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20200815preview:MachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210128preview:MachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210325preview:MachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210422preview:MachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210517preview:MachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210520:MachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210610preview:MachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20211210preview:MachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20220310:MachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute:MachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20191212:MachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20200730preview:MachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20200802:MachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20200815preview:MachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20210128preview:MachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20210325preview:MachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20210422preview:MachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20210517preview:MachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20210520:MachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20210610preview:MachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20211210preview:MachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20220310:MachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20220510preview:MachineExtension"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -159,7 +160,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20190802Preview
         }
     }
 
-    public sealed class MachineExtensionArgs : Pulumi.ResourceArgs
+    public sealed class MachineExtensionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
@@ -248,5 +249,6 @@ namespace Pulumi.AzureNative.HybridCompute.V20190802Preview
         public MachineExtensionArgs()
         {
         }
+        public static new MachineExtensionArgs Empty => new MachineExtensionArgs();
     }
 }

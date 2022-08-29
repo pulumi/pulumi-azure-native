@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210401.Inputs
 {
 
-    public sealed class RGitHubPackageArgs : Pulumi.ResourceArgs
+    public sealed class RGitHubPackageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Personal access token to install from a private repo
@@ -27,5 +27,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210401.Inputs
         public RGitHubPackageArgs()
         {
         }
+        public static new RGitHubPackageArgs Empty => new RGitHubPackageArgs();
     }
 }

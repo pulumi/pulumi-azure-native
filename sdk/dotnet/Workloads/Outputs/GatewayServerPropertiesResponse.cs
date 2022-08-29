@@ -17,11 +17,11 @@ namespace Pulumi.AzureNative.Workloads.Outputs
     public sealed class GatewayServerPropertiesResponse
     {
         /// <summary>
-        /// Defines the SAP Instance health.
+        /// Defines the health of SAP Instances.
         /// </summary>
         public readonly string Health;
         /// <summary>
-        /// The gateway Port.
+        /// Gateway Port.
         /// </summary>
         public readonly double Port;
 

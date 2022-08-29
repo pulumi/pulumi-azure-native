@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20210630.Inputs
     /// <summary>
     /// Input for the task that migrates Oracle databases to Azure Database for PostgreSQL for online migrations
     /// </summary>
-    public sealed class MigrateOracleAzureDbPostgreSqlSyncTaskInputArgs : Pulumi.ResourceArgs
+    public sealed class MigrateOracleAzureDbPostgreSqlSyncTaskInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("selectedDatabases", required: true)]
         private InputList<Inputs.MigrateOracleAzureDbPostgreSqlSyncDatabaseInputArgs>? _selectedDatabases;
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.DataMigration.V20210630.Inputs
         public MigrateOracleAzureDbPostgreSqlSyncTaskInputArgs()
         {
         }
+        public static new MigrateOracleAzureDbPostgreSqlSyncTaskInputArgs Empty => new MigrateOracleAzureDbPostgreSqlSyncTaskInputArgs();
     }
 }

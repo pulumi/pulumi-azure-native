@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     /// API Version: 2021-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization:PrivateEndpointConnectionByWorkspace")]
-    public partial class PrivateEndpointConnectionByWorkspace : Pulumi.CustomResource
+    public partial class PrivateEndpointConnectionByWorkspace : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -77,9 +77,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210401preview:PrivateEndpointConnectionByWorkspace"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210903preview:PrivateEndpointConnectionByWorkspace"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220210preview:PrivateEndpointConnectionByWorkspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210401preview:PrivateEndpointConnectionByWorkspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210903preview:PrivateEndpointConnectionByWorkspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220210preview:PrivateEndpointConnectionByWorkspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:PrivateEndpointConnectionByWorkspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -101,7 +102,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         }
     }
 
-    public sealed class PrivateEndpointConnectionByWorkspaceArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionByWorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the private endpoint connection associated with the Azure resource
@@ -130,5 +131,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public PrivateEndpointConnectionByWorkspaceArgs()
         {
         }
+        public static new PrivateEndpointConnectionByWorkspaceArgs Empty => new PrivateEndpointConnectionByWorkspaceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20160430Preview.Inputs
     /// <summary>
     /// The vault id is an Azure Resource Manager Resource id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}
     /// </summary>
-    public sealed class SourceVaultArgs : Pulumi.ResourceArgs
+    public sealed class SourceVaultArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource Id
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Compute.V20160430Preview.Inputs
         public SourceVaultArgs()
         {
         }
+        public static new SourceVaultArgs Empty => new SourceVaultArgs();
     }
 }

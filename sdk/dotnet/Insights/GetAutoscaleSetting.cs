@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Insights
     }
 
 
-    public sealed class GetAutoscaleSettingArgs : Pulumi.InvokeArgs
+    public sealed class GetAutoscaleSettingArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The autoscale setting name.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.Insights
         public GetAutoscaleSettingArgs()
         {
         }
+        public static new GetAutoscaleSettingArgs Empty => new GetAutoscaleSettingArgs();
     }
 
-    public sealed class GetAutoscaleSettingInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAutoscaleSettingInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The autoscale setting name.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.Insights
         public GetAutoscaleSettingInvokeArgs()
         {
         }
+        public static new GetAutoscaleSettingInvokeArgs Empty => new GetAutoscaleSettingInvokeArgs();
     }
 
 
@@ -70,7 +72,7 @@ namespace Pulumi.AzureNative.Insights
     public sealed class GetAutoscaleSettingResult
     {
         /// <summary>
-        /// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+        /// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>

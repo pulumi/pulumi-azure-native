@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20210901.Inputs
     /// <summary>
     /// Image registry credential.
     /// </summary>
-    public sealed class ImageRegistryCredentialArgs : Pulumi.ResourceArgs
+    public sealed class ImageRegistryCredentialArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity for the private registry.
@@ -42,11 +42,12 @@ namespace Pulumi.AzureNative.ContainerInstance.V20210901.Inputs
         /// <summary>
         /// The username for the private registry.
         /// </summary>
-        [Input("username", required: true)]
-        public Input<string> Username { get; set; } = null!;
+        [Input("username")]
+        public Input<string>? Username { get; set; }
 
         public ImageRegistryCredentialArgs()
         {
         }
+        public static new ImageRegistryCredentialArgs Empty => new ImageRegistryCredentialArgs();
     }
 }

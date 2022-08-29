@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20200512Preview
     /// Extension resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:agfoodplatform/v20200512preview:Extension")]
-    public partial class Extension : Pulumi.CustomResource
+    public partial class Extension : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ETag value to implement optimistic concurrency.
@@ -94,7 +94,8 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20200512Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:agfoodplatform:Extension"},
+                    new global::Pulumi.Alias { Type = "azure-native:agfoodplatform:Extension"},
+                    new global::Pulumi.Alias { Type = "azure-native:agfoodplatform/v20210901preview:Extension"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -116,7 +117,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20200512Preview
         }
     }
 
-    public sealed class ExtensionArgs : Pulumi.ResourceArgs
+    public sealed class ExtensionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Id of extension resource.
@@ -139,5 +140,6 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20200512Preview
         public ExtensionArgs()
         {
         }
+        public static new ExtensionArgs Empty => new ExtensionArgs();
     }
 }

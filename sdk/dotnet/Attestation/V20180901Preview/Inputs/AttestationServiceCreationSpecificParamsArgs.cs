@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Attestation.V20180901Preview.Inputs
     /// <summary>
     /// Client supplied parameters used to create a new attestation service instance.
     /// </summary>
-    public sealed class AttestationServiceCreationSpecificParamsArgs : Pulumi.ResourceArgs
+    public sealed class AttestationServiceCreationSpecificParamsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of attestation policy.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Attestation.V20180901Preview.Inputs
         public AttestationServiceCreationSpecificParamsArgs()
         {
         }
+        public static new AttestationServiceCreationSpecificParamsArgs Empty => new AttestationServiceCreationSpecificParamsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20160330.Inputs
     /// <summary>
     /// Inbound NAT rule of the loadbalancer
     /// </summary>
-    public sealed class InboundNatRuleArgs : Pulumi.ResourceArgs
+    public sealed class InboundNatRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets a reference to a private ip address defined on a NetworkInterface of a VM. Traffic sent to frontendPort of each of the frontendIPConfigurations is forwarded to the backed IP
@@ -84,5 +84,6 @@ namespace Pulumi.AzureNative.Network.V20160330.Inputs
         public InboundNatRuleArgs()
         {
         }
+        public static new InboundNatRuleArgs Empty => new InboundNatRuleArgs();
     }
 }

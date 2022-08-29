@@ -64,17 +64,9 @@ export class ActionGroup extends pulumi.CustomResource {
      */
     public readonly groupShortName!: pulumi.Output<string>;
     /**
-     * Azure resource identity
-     */
-    public /*out*/ readonly identity!: pulumi.Output<string>;
-    /**
      * The list of ITSM receivers that are part of this action group.
      */
     public readonly itsmReceivers!: pulumi.Output<outputs.insights.v20190601.ItsmReceiverResponse[] | undefined>;
-    /**
-     * Azure resource kind
-     */
-    public /*out*/ readonly kind!: pulumi.Output<string>;
     /**
      * Resource location
      */
@@ -144,8 +136,6 @@ export class ActionGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["voiceReceivers"] = args ? args.voiceReceivers : undefined;
             resourceInputs["webhookReceivers"] = args ? args.webhookReceivers : undefined;
-            resourceInputs["identity"] = undefined /*out*/;
-            resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -156,9 +146,7 @@ export class ActionGroup extends pulumi.CustomResource {
             resourceInputs["emailReceivers"] = undefined /*out*/;
             resourceInputs["enabled"] = undefined /*out*/;
             resourceInputs["groupShortName"] = undefined /*out*/;
-            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["itsmReceivers"] = undefined /*out*/;
-            resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["logicAppReceivers"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

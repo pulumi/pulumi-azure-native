@@ -53,7 +53,7 @@ export interface GetNetworkInterfaceResult {
      */
     readonly dscpConfiguration: outputs.network.v20220101.SubResourceResponse;
     /**
-     * If the network interface is accelerated networking enabled.
+     * If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
      */
     readonly enableAcceleratedNetworking?: boolean;
     /**

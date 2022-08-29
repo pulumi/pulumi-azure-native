@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180330Preview.Inputs
     /// <summary>
     /// Describes the properties of a video overlay.
     /// </summary>
-    public sealed class VideoOverlayArgs : Pulumi.ResourceArgs
+    public sealed class VideoOverlayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.
@@ -79,5 +79,6 @@ namespace Pulumi.AzureNative.Media.V20180330Preview.Inputs
         public VideoOverlayArgs()
         {
         }
+        public static new VideoOverlayArgs Empty => new VideoOverlayArgs();
     }
 }

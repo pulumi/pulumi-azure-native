@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview
     /// Azure Resource Manager resource envelope.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20220201preview:ModelContainer")]
-    public partial class ModelContainer : Pulumi.CustomResource
+    public partial class ModelContainer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// [Required] Additional attributes of the entity.
@@ -64,9 +64,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:ModelContainer"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:ModelContainer"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:ModelContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:ModelContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:ModelContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:ModelContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:ModelContainer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -88,7 +89,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview
         }
     }
 
-    public sealed class ModelContainerArgs : Pulumi.ResourceArgs
+    public sealed class ModelContainerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] Additional attributes of the entity.
@@ -117,5 +118,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview
         public ModelContainerArgs()
         {
         }
+        public static new ModelContainerArgs Empty => new ModelContainerArgs();
     }
 }

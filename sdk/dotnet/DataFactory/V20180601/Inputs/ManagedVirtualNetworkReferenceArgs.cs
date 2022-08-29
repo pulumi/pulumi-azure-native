@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Managed Virtual Network reference type.
     /// </summary>
-    public sealed class ManagedVirtualNetworkReferenceArgs : Pulumi.ResourceArgs
+    public sealed class ManagedVirtualNetworkReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Reference ManagedVirtualNetwork name.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public ManagedVirtualNetworkReferenceArgs()
         {
         }
+        public static new ManagedVirtualNetworkReferenceArgs Empty => new ManagedVirtualNetworkReferenceArgs();
     }
 }

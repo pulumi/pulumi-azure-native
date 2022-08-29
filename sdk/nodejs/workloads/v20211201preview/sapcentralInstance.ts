@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
- * Define the SAP Central Server Instance.
+ * Define the SAP Central Services Instance resource.
  */
 export class SAPCentralInstance extends pulumi.CustomResource {
     /**
@@ -36,15 +36,15 @@ export class SAPCentralInstance extends pulumi.CustomResource {
     }
 
     /**
-     * Defines the SAP ERS Server properties.
+     * Defines the SAP Enqueue Replication Server (ERS) properties.
      */
     public /*out*/ readonly enqueueReplicationServerProperties!: pulumi.Output<outputs.workloads.v20211201preview.EnqueueReplicationServerPropertiesResponse | undefined>;
     /**
-     * Defines the SAP enqueue server properties.
+     * Defines the SAP Enqueue Server properties.
      */
     public /*out*/ readonly enqueueServerProperties!: pulumi.Output<outputs.workloads.v20211201preview.EnqueueServerPropertiesResponse | undefined>;
     /**
-     * Defines the Central Instance errors.
+     * Defines the errors related to SAP Central Services Instance resource.
      */
     public /*out*/ readonly errors!: pulumi.Output<outputs.workloads.v20211201preview.SAPVirtualInstanceErrorResponse>;
     /**
@@ -52,19 +52,19 @@ export class SAPCentralInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly gatewayServerProperties!: pulumi.Output<outputs.workloads.v20211201preview.GatewayServerPropertiesResponse | undefined>;
     /**
-     * Defines the SAP Instance health.
+     * Defines the health of SAP Instances.
      */
     public /*out*/ readonly health!: pulumi.Output<string>;
     /**
-     * The central server instance id.
+     * The central services instance number.
      */
     public /*out*/ readonly instanceNo!: pulumi.Output<string>;
     /**
-     * The central server kernel patch.
+     * The central services instance Kernel Patch level.
      */
     public /*out*/ readonly kernelPatch!: pulumi.Output<string>;
     /**
-     * The central server kernel version.
+     * The central services instance Kernel Version.
      */
     public /*out*/ readonly kernelVersion!: pulumi.Output<string>;
     /**
@@ -72,7 +72,7 @@ export class SAPCentralInstance extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Defines the SAP message server properties.
+     * Defines the SAP Message Server properties.
      */
     public /*out*/ readonly messageServerProperties!: pulumi.Output<outputs.workloads.v20211201preview.MessageServerPropertiesResponse | undefined>;
     /**
@@ -88,7 +88,7 @@ export class SAPCentralInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * The central server subnet.
+     * The central services instance subnet.
      */
     public /*out*/ readonly subnet!: pulumi.Output<string>;
     /**
@@ -104,7 +104,7 @@ export class SAPCentralInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * The list of virtual machines.
+     * The list of virtual machines corresponding to the Central Services instance.
      */
     public /*out*/ readonly vmDetails!: pulumi.Output<outputs.workloads.v20211201preview.CentralServerVmDetailsResponse[]>;
 
@@ -178,7 +178,7 @@ export class SAPCentralInstance extends pulumi.CustomResource {
  */
 export interface SAPCentralInstanceArgs {
     /**
-     * Central Instance name string modeled as parameter for auto generation to work correctly.
+     * Central Services Instance resource name string modeled as parameter for auto generation to work correctly.
      */
     centralInstanceName?: pulumi.Input<string>;
     /**
@@ -190,7 +190,7 @@ export interface SAPCentralInstanceArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the Virtual Instances for SAP.
+     * The name of the Virtual Instances for SAP solutions resource
      */
     sapVirtualInstanceName: pulumi.Input<string>;
     /**

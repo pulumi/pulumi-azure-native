@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview
     /// Represents Codeless UI data connector.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20220501preview:CodelessUiDataConnector")]
-    public partial class CodelessUiDataConnector : Pulumi.CustomResource
+    public partial class CodelessUiDataConnector : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Config to describe the instructions blade
@@ -84,16 +84,19 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights:CodelessUiDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:CodelessUiDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:CodelessUiDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:CodelessUiDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:CodelessUiDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:CodelessUiDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:CodelessUiDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:CodelessUiDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:CodelessUiDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:CodelessUiDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:CodelessUiDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:CodelessUiDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:CodelessUiDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:CodelessUiDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:CodelessUiDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:CodelessUiDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:CodelessUiDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:CodelessUiDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:CodelessUiDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:CodelessUiDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:CodelessUiDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801:CodelessUiDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:CodelessUiDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -115,7 +118,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview
         }
     }
 
-    public sealed class CodelessUiDataConnectorArgs : Pulumi.ResourceArgs
+    public sealed class CodelessUiDataConnectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Config to describe the instructions blade
@@ -151,5 +154,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview
         public CodelessUiDataConnectorArgs()
         {
         }
+        public static new CodelessUiDataConnectorArgs Empty => new CodelessUiDataConnectorArgs();
     }
 }

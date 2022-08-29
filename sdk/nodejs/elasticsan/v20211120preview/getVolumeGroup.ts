@@ -43,15 +43,11 @@ export interface GetVolumeGroupResult {
     /**
      * Type of encryption
      */
-    readonly encryption: string;
+    readonly encryption?: string;
     /**
      * Azure resource identifier.
      */
     readonly id: string;
-    /**
-     * The geo-location where the resource lives.
-     */
-    readonly location?: string;
     /**
      * Azure resource name.
      */
@@ -63,7 +59,7 @@ export interface GetVolumeGroupResult {
     /**
      * Type of storage target
      */
-    readonly protocolType: string;
+    readonly protocolType?: string;
     /**
      * State of the operation on the resource.
      */

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview
     }
 
 
-    public sealed class GetRegistryBuildSourceUploadUrlArgs : Pulumi.InvokeArgs
+    public sealed class GetRegistryBuildSourceUploadUrlArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the container registry.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview
         public GetRegistryBuildSourceUploadUrlArgs()
         {
         }
+        public static new GetRegistryBuildSourceUploadUrlArgs Empty => new GetRegistryBuildSourceUploadUrlArgs();
     }
 
-    public sealed class GetRegistryBuildSourceUploadUrlInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRegistryBuildSourceUploadUrlInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the container registry.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview
         public GetRegistryBuildSourceUploadUrlInvokeArgs()
         {
         }
+        public static new GetRegistryBuildSourceUploadUrlInvokeArgs Empty => new GetRegistryBuildSourceUploadUrlInvokeArgs();
     }
 
 

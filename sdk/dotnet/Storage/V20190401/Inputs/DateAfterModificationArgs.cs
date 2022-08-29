@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20190401.Inputs
     /// <summary>
     /// Object to define the number of days after last modification.
     /// </summary>
-    public sealed class DateAfterModificationArgs : Pulumi.ResourceArgs
+    public sealed class DateAfterModificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Value indicating the age in days after last modification
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Storage.V20190401.Inputs
         public DateAfterModificationArgs()
         {
         }
+        public static new DateAfterModificationArgs Empty => new DateAfterModificationArgs();
     }
 }

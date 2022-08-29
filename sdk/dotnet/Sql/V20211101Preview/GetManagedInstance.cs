@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview
     }
 
 
-    public sealed class GetManagedInstanceArgs : Pulumi.InvokeArgs
+    public sealed class GetManagedInstanceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The child resources to include in the response.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview
         public GetManagedInstanceArgs()
         {
         }
+        public static new GetManagedInstanceArgs Empty => new GetManagedInstanceArgs();
     }
 
-    public sealed class GetManagedInstanceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetManagedInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The child resources to include in the response.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview
         public GetManagedInstanceInvokeArgs()
         {
         }
+        public static new GetManagedInstanceInvokeArgs Empty => new GetManagedInstanceInvokeArgs();
     }
 
 

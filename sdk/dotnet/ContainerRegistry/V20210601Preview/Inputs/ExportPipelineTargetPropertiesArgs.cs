@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210601Preview.Inputs
     /// <summary>
     /// The properties of the export pipeline target.
     /// </summary>
-    public sealed class ExportPipelineTargetPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ExportPipelineTargetPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// They key vault secret uri to obtain the target storage SAS token.
@@ -38,5 +38,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210601Preview.Inputs
         public ExportPipelineTargetPropertiesArgs()
         {
         }
+        public static new ExportPipelineTargetPropertiesArgs Empty => new ExportPipelineTargetPropertiesArgs();
     }
 }

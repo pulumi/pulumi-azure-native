@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
     /// Mobile network resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork/v20220301preview:MobileNetwork")]
-    public partial class MobileNetwork : Pulumi.CustomResource
+    public partial class MobileNetwork : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The timestamp of resource creation (UTC).
@@ -124,8 +124,9 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:mobilenetwork:MobileNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220101preview:MobileNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork:MobileNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220101preview:MobileNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220401preview:MobileNetwork"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -147,7 +148,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
         }
     }
 
-    public sealed class MobileNetworkArgs : Pulumi.ResourceArgs
+    public sealed class MobileNetworkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The timestamp of resource creation (UTC).
@@ -224,5 +225,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
         public MobileNetworkArgs()
         {
         }
+        public static new MobileNetworkArgs Empty => new MobileNetworkArgs();
     }
 }

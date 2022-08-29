@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecommendationsService.V20220201
     /// Account resource details.
     /// </summary>
     [AzureNativeResourceType("azure-native:recommendationsservice/v20220201:Account")]
-    public partial class Account : Pulumi.CustomResource
+    public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -76,7 +76,8 @@ namespace Pulumi.AzureNative.RecommendationsService.V20220201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:recommendationsservice:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:recommendationsservice:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:recommendationsservice/v20220301preview:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -98,7 +99,7 @@ namespace Pulumi.AzureNative.RecommendationsService.V20220201
         }
     }
 
-    public sealed class AccountArgs : Pulumi.ResourceArgs
+    public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the RecommendationsService Account resource.
@@ -139,5 +140,6 @@ namespace Pulumi.AzureNative.RecommendationsService.V20220201
         public AccountArgs()
         {
         }
+        public static new AccountArgs Empty => new AccountArgs();
     }
 }

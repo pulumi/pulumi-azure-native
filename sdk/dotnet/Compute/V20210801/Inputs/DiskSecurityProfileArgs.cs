@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20210801.Inputs
     /// <summary>
     /// Contains the security related information for the resource.
     /// </summary>
-    public sealed class DiskSecurityProfileArgs : Pulumi.ResourceArgs
+    public sealed class DiskSecurityProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ResourceId of the disk encryption set associated to Confidential VM supported disk encrypted with customer managed key
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Compute.V20210801.Inputs
         public DiskSecurityProfileArgs()
         {
         }
+        public static new DiskSecurityProfileArgs Empty => new DiskSecurityProfileArgs();
     }
 }

@@ -13,8 +13,14 @@ namespace Pulumi.AzureNative.Automanage.V20220504
     /// Configuration profile assignment is an association between a VM and automanage profile configuration.
     /// </summary>
     [AzureNativeResourceType("azure-native:automanage/v20220504:ConfigurationProfileHCRPAssignment")]
-    public partial class ConfigurationProfileHCRPAssignment : Pulumi.CustomResource
+    public partial class ConfigurationProfileHCRPAssignment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Azure resource id. Indicates if this resource is managed by another Azure resource.
+        /// </summary>
+        [Output("managedBy")]
+        public Output<string> ManagedBy { get; private set; } = null!;
+
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -64,7 +70,7 @@ namespace Pulumi.AzureNative.Automanage.V20220504
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:automanage/v20210430preview:ConfigurationProfileHCRPAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:automanage/v20210430preview:ConfigurationProfileHCRPAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -86,7 +92,7 @@ namespace Pulumi.AzureNative.Automanage.V20220504
         }
     }
 
-    public sealed class ConfigurationProfileHCRPAssignmentArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationProfileHCRPAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the configuration profile assignment. Only default is supported.
@@ -115,5 +121,6 @@ namespace Pulumi.AzureNative.Automanage.V20220504
         public ConfigurationProfileHCRPAssignmentArgs()
         {
         }
+        public static new ConfigurationProfileHCRPAssignmentArgs Empty => new ConfigurationProfileHCRPAssignmentArgs();
     }
 }

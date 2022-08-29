@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20160901.Inputs
     /// <summary>
     /// IPConfiguration in a network interface.
     /// </summary>
-    public sealed class NetworkInterfaceIPConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class NetworkInterfaceIPConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("applicationGatewayBackendAddressPools")]
         private InputList<Inputs.ApplicationGatewayBackendAddressPoolArgs>? _applicationGatewayBackendAddressPools;
@@ -108,5 +108,6 @@ namespace Pulumi.AzureNative.Network.V20160901.Inputs
         public NetworkInterfaceIPConfigurationArgs()
         {
         }
+        public static new NetworkInterfaceIPConfigurationArgs Empty => new NetworkInterfaceIPConfigurationArgs();
     }
 }

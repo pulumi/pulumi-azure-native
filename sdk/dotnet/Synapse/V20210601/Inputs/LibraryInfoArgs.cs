@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601.Inputs
     /// <summary>
     /// Library/package information of a Big Data pool powered by Apache Spark
     /// </summary>
-    public sealed class LibraryInfoArgs : Pulumi.ResourceArgs
+    public sealed class LibraryInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Storage blob container name.
@@ -39,8 +39,15 @@ namespace Pulumi.AzureNative.Synapse.V20210601.Inputs
         [Input("type")]
         public Input<string>? Type { get; set; }
 
+        /// <summary>
+        /// The last update time of the library.
+        /// </summary>
+        [Input("uploadedTimestamp")]
+        public Input<string>? UploadedTimestamp { get; set; }
+
         public LibraryInfoArgs()
         {
         }
+        public static new LibraryInfoArgs Empty => new LibraryInfoArgs();
     }
 }

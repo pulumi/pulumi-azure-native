@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.AVS.V20200717Preview
     }
 
 
-    public sealed class GetWorkloadNetworkDnsServiceArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkloadNetworkDnsServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// NSX DNS Service identifier. Generally the same as the DNS Service's display name
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.AVS.V20200717Preview
         public GetWorkloadNetworkDnsServiceArgs()
         {
         }
+        public static new GetWorkloadNetworkDnsServiceArgs Empty => new GetWorkloadNetworkDnsServiceArgs();
     }
 
-    public sealed class GetWorkloadNetworkDnsServiceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkloadNetworkDnsServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// NSX DNS Service identifier. Generally the same as the DNS Service's display name
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.AVS.V20200717Preview
         public GetWorkloadNetworkDnsServiceInvokeArgs()
         {
         }
+        public static new GetWorkloadNetworkDnsServiceInvokeArgs Empty => new GetWorkloadNetworkDnsServiceInvokeArgs();
     }
 
 

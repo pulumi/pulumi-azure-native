@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20210601Preview.Inputs
     /// <summary>
     /// Persistent disk payload
     /// </summary>
-    public sealed class PersistentDiskArgs : Pulumi.ResourceArgs
+    public sealed class PersistentDiskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Mount path of the persistent disk
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20210601Preview.Inputs
         public PersistentDiskArgs()
         {
         }
+        public static new PersistentDiskArgs Empty => new PersistentDiskArgs();
     }
 }

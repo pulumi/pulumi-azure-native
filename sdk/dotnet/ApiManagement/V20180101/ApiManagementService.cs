@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
     /// A single API Management service resource in List or Get response.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20180101:ApiManagementService")]
-    public partial class ApiManagementService : Pulumi.CustomResource
+    public partial class ApiManagementService : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Additional datacenter locations of the API Management service.
@@ -196,20 +196,20 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:apimanagement:ApiManagementService"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:ApiManagementService"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:ApiManagementService"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiManagementService"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiManagementService"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiManagementService"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiManagementService"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiManagementService"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiManagementService"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ApiManagementService"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:ApiManagementService"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:ApiManagementService"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ApiManagementService"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ApiManagementService"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:ApiManagementService"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:ApiManagementService"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:ApiManagementService"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiManagementService"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiManagementService"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiManagementService"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiManagementService"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiManagementService"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiManagementService"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ApiManagementService"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:ApiManagementService"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:ApiManagementService"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ApiManagementService"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ApiManagementService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -231,7 +231,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
         }
     }
 
-    public sealed class ApiManagementServiceArgs : Pulumi.ResourceArgs
+    public sealed class ApiManagementServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalLocations")]
         private InputList<Inputs.AdditionalLocationArgs>? _additionalLocations;
@@ -357,5 +357,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
         {
             VirtualNetworkType = "None";
         }
+        public static new ApiManagementServiceArgs Empty => new ApiManagementServiceArgs();
     }
 }

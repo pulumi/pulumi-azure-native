@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.V20150801
     /// </summary>
     [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:web/v20150801:SiteAuthSettingsSlot")]
-    public partial class SiteAuthSettingsSlot : Pulumi.CustomResource
+    public partial class SiteAuthSettingsSlot : global::Pulumi.CustomResource
     {
         [Output("aadClientId")]
         public Output<string?> AadClientId { get; private set; } = null!;
@@ -227,20 +227,20 @@ namespace Pulumi.AzureNative.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:web:SiteAuthSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20160801:SiteAuthSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20180201:SiteAuthSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20181101:SiteAuthSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20190801:SiteAuthSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200601:SiteAuthSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200901:SiteAuthSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201001:SiteAuthSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201201:SiteAuthSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210101:SiteAuthSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210115:SiteAuthSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210201:SiteAuthSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210301:SiteAuthSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20220301:SiteAuthSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web:SiteAuthSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:SiteAuthSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:SiteAuthSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:SiteAuthSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:SiteAuthSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:SiteAuthSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:SiteAuthSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:SiteAuthSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:SiteAuthSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:SiteAuthSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:SiteAuthSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:SiteAuthSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:SiteAuthSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:SiteAuthSettingsSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -262,7 +262,7 @@ namespace Pulumi.AzureNative.Web.V20150801
         }
     }
 
-    public sealed class SiteAuthSettingsSlotArgs : Pulumi.ResourceArgs
+    public sealed class SiteAuthSettingsSlotArgs : global::Pulumi.ResourceArgs
     {
         [Input("aadClientId")]
         public Input<string>? AadClientId { get; set; }
@@ -507,5 +507,6 @@ namespace Pulumi.AzureNative.Web.V20150801
         public SiteAuthSettingsSlotArgs()
         {
         }
+        public static new SiteAuthSettingsSlotArgs Empty => new SiteAuthSettingsSlotArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity Xero Service source.
     /// </summary>
-    public sealed class XeroSourceArgs : Pulumi.ResourceArgs
+    public sealed class XeroSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public XeroSourceArgs()
         {
         }
+        public static new XeroSourceArgs Empty => new XeroSourceArgs();
     }
 }

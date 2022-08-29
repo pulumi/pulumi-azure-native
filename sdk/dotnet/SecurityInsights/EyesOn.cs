@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// API Version: 2021-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:EyesOn")]
-    public partial class EyesOn : Pulumi.CustomResource
+    public partial class EyesOn : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Etag of the azure resource
@@ -85,14 +85,16 @@ namespace Pulumi.AzureNative.SecurityInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:EyesOn"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:EyesOn"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:EyesOn"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:EyesOn"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:EyesOn"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:EyesOn"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:EyesOn"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:EyesOn"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:EyesOn"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:EyesOn"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:EyesOn"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:EyesOn"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:EyesOn"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:EyesOn"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:EyesOn"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:EyesOn"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:EyesOn"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:EyesOn"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -114,7 +116,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         }
     }
 
-    public sealed class EyesOnArgs : Pulumi.ResourceArgs
+    public sealed class EyesOnArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The kind of the setting
@@ -150,5 +152,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         public EyesOnArgs()
         {
         }
+        public static new EyesOnArgs Empty => new EyesOnArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Batch.V20220601.Inputs
     /// <summary>
     /// The network configuration for a pool.
     /// </summary>
-    public sealed class NetworkConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class NetworkConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("dynamicVNetAssignmentScope")]
         public Input<Pulumi.AzureNative.Batch.V20220601.DynamicVNetAssignmentScope>? DynamicVNetAssignmentScope { get; set; }
@@ -39,5 +39,6 @@ namespace Pulumi.AzureNative.Batch.V20220601.Inputs
         public NetworkConfigurationArgs()
         {
         }
+        public static new NetworkConfigurationArgs Empty => new NetworkConfigurationArgs();
     }
 }

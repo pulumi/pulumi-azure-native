@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Workloads
     public static class GetSAPVirtualInstance
     {
         /// <summary>
-        /// Define the Virtual Instance for SAP.
+        /// Define the Virtual Instance for SAP solutions resource.
         /// API Version: 2021-12-01-preview.
         /// </summary>
         public static Task<GetSAPVirtualInstanceResult> InvokeAsync(GetSAPVirtualInstanceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSAPVirtualInstanceResult>("azure-native:workloads:getSAPVirtualInstance", args ?? new GetSAPVirtualInstanceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Define the Virtual Instance for SAP.
+        /// Define the Virtual Instance for SAP solutions resource.
         /// API Version: 2021-12-01-preview.
         /// </summary>
         public static Output<GetSAPVirtualInstanceResult> Invoke(GetSAPVirtualInstanceInvokeArgs args, InvokeOptions? options = null)
@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Workloads
     }
 
 
-    public sealed class GetSAPVirtualInstanceArgs : Pulumi.InvokeArgs
+    public sealed class GetSAPVirtualInstanceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Workloads
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Virtual Instances for SAP.
+        /// The name of the Virtual Instances for SAP solutions resource
         /// </summary>
         [Input("sapVirtualInstanceName", required: true)]
         public string SapVirtualInstanceName { get; set; } = null!;
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.Workloads
         public GetSAPVirtualInstanceArgs()
         {
         }
+        public static new GetSAPVirtualInstanceArgs Empty => new GetSAPVirtualInstanceArgs();
     }
 
-    public sealed class GetSAPVirtualInstanceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSAPVirtualInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -55,7 +56,7 @@ namespace Pulumi.AzureNative.Workloads
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Virtual Instances for SAP.
+        /// The name of the Virtual Instances for SAP solutions resource
         /// </summary>
         [Input("sapVirtualInstanceName", required: true)]
         public Input<string> SapVirtualInstanceName { get; set; } = null!;
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.Workloads
         public GetSAPVirtualInstanceInvokeArgs()
         {
         }
+        public static new GetSAPVirtualInstanceInvokeArgs Empty => new GetSAPVirtualInstanceInvokeArgs();
     }
 
 
@@ -70,7 +72,7 @@ namespace Pulumi.AzureNative.Workloads
     public sealed class GetSAPVirtualInstanceResult
     {
         /// <summary>
-        /// Defines if an existing SAP system is being registered or a new SAP system is being created
+        /// Defines if the SAP system is being created using Azure Center for SAP solutions (ACSS) or if an existing SAP system is being registered with ACSS
         /// </summary>
         public readonly object Configuration;
         /// <summary>
@@ -78,11 +80,11 @@ namespace Pulumi.AzureNative.Workloads
         /// </summary>
         public readonly string Environment;
         /// <summary>
-        /// Defines the Virtual Instance for SAP errors.
+        /// Indicates any errors on the Virtual Instance for SAP solutions resource.
         /// </summary>
         public readonly Outputs.SAPVirtualInstanceErrorResponse Errors;
         /// <summary>
-        /// Defines the SAP Instance health.
+        /// Defines the health of SAP Instances.
         /// </summary>
         public readonly string Health;
         /// <summary>

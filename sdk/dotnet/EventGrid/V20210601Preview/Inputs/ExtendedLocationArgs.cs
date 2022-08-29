@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20210601Preview.Inputs
     /// <summary>
     /// Definition of an Extended Location
     /// </summary>
-    public sealed class ExtendedLocationArgs : Pulumi.ResourceArgs
+    public sealed class ExtendedLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Fully qualified name of the extended location.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.EventGrid.V20210601Preview.Inputs
         public ExtendedLocationArgs()
         {
         }
+        public static new ExtendedLocationArgs Empty => new ExtendedLocationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorSimple.Inputs
     /// <summary>
     /// The schedule for bandwidth setting.
     /// </summary>
-    public sealed class BandwidthScheduleArgs : Pulumi.ResourceArgs
+    public sealed class BandwidthScheduleArgs : global::Pulumi.ResourceArgs
     {
         [Input("days", required: true)]
         private InputList<Pulumi.AzureNative.StorSimple.DayOfWeek>? _days;
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.StorSimple.Inputs
         public BandwidthScheduleArgs()
         {
         }
+        public static new BandwidthScheduleArgs Empty => new BandwidthScheduleArgs();
     }
 }

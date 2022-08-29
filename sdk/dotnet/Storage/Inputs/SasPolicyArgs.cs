@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.Inputs
     /// <summary>
     /// SasPolicy assigned to the storage account.
     /// </summary>
-    public sealed class SasPolicyArgs : Pulumi.ResourceArgs
+    public sealed class SasPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The SAS expiration action. Can only be Log.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.Storage.Inputs
         {
             ExpirationAction = "Log";
         }
+        public static new SasPolicyArgs Empty => new SasPolicyArgs();
     }
 }

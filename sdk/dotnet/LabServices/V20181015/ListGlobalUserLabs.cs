@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.LabServices.V20181015
     }
 
 
-    public sealed class ListGlobalUserLabsArgs : Pulumi.InvokeArgs
+    public sealed class ListGlobalUserLabsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the user.
@@ -36,9 +36,10 @@ namespace Pulumi.AzureNative.LabServices.V20181015
         public ListGlobalUserLabsArgs()
         {
         }
+        public static new ListGlobalUserLabsArgs Empty => new ListGlobalUserLabsArgs();
     }
 
-    public sealed class ListGlobalUserLabsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListGlobalUserLabsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the user.
@@ -49,6 +50,7 @@ namespace Pulumi.AzureNative.LabServices.V20181015
         public ListGlobalUserLabsInvokeArgs()
         {
         }
+        public static new ListGlobalUserLabsInvokeArgs Empty => new ListGlobalUserLabsInvokeArgs();
     }
 
 

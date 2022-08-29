@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataShare.V20210801.Inputs
     /// <summary>
     /// Table level sharing properties dto for kusto data set properties
     /// </summary>
-    public sealed class TableLevelSharingPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class TableLevelSharingPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("externalTablesToExclude")]
         private InputList<string>? _externalTablesToExclude;
@@ -90,5 +90,6 @@ namespace Pulumi.AzureNative.DataShare.V20210801.Inputs
         public TableLevelSharingPropertiesArgs()
         {
         }
+        public static new TableLevelSharingPropertiesArgs Empty => new TableLevelSharingPropertiesArgs();
     }
 }

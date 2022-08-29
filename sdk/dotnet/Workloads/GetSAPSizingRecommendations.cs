@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Workloads
     }
 
 
-    public sealed class GetSAPSizingRecommendationsArgs : Pulumi.InvokeArgs
+    public sealed class GetSAPSizingRecommendationsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The geo-location where the resource is to be created.
@@ -92,9 +92,10 @@ namespace Pulumi.AzureNative.Workloads
         public GetSAPSizingRecommendationsArgs()
         {
         }
+        public static new GetSAPSizingRecommendationsArgs Empty => new GetSAPSizingRecommendationsArgs();
     }
 
-    public sealed class GetSAPSizingRecommendationsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSAPSizingRecommendationsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The geo-location where the resource is to be created.
@@ -159,6 +160,7 @@ namespace Pulumi.AzureNative.Workloads
         public GetSAPSizingRecommendationsInvokeArgs()
         {
         }
+        public static new GetSAPSizingRecommendationsInvokeArgs Empty => new GetSAPSizingRecommendationsInvokeArgs();
     }
 
 
@@ -166,7 +168,7 @@ namespace Pulumi.AzureNative.Workloads
     public sealed class GetSAPSizingRecommendationsResult
     {
         /// <summary>
-        /// The deployment Type.
+        /// The type of SAP deployment, single server or Three tier.
         /// </summary>
         public readonly string DeploymentType;
 

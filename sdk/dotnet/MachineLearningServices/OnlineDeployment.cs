@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// API Version: 2021-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:OnlineDeployment")]
-    public partial class OnlineDeployment : Pulumi.CustomResource
+    public partial class OnlineDeployment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Service identity associated with a resource.
@@ -88,9 +88,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:OnlineDeployment"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:OnlineDeployment"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:OnlineDeployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:OnlineDeployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:OnlineDeployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:OnlineDeployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:OnlineDeployment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -112,7 +113,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         }
     }
 
-    public sealed class OnlineDeploymentArgs : Pulumi.ResourceArgs
+    public sealed class OnlineDeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Inference Endpoint Deployment name.
@@ -177,5 +178,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public OnlineDeploymentArgs()
         {
         }
+        public static new OnlineDeploymentArgs Empty => new OnlineDeploymentArgs();
     }
 }
