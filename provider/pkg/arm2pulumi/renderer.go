@@ -4,23 +4,26 @@ package arm2pulumi
 
 import (
 	"fmt"
-	"github.com/hashicorp/hcl/v2"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/debug"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/gen"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
-	"github.com/pulumi/pulumi/pkg/v3/codegen/dotnet"
-	gogen "github.com/pulumi/pulumi/pkg/v3/codegen/go"
-	hcl2 "github.com/pulumi/pulumi/pkg/v3/codegen/pcl"
-	"github.com/pulumi/pulumi/pkg/v3/codegen/hcl2/syntax"
-	"github.com/pulumi/pulumi/pkg/v3/codegen/nodejs"
-	"github.com/pulumi/pulumi/pkg/v3/codegen/python"
-	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"io"
 	"io/ioutil"
 	"log"
 	"os"
 	"path/filepath"
 	"strings"
+
+	"github.com/hashicorp/hcl/v2"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/debug"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/gen"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
+	"github.com/pulumi/pulumi-java/pkg/codegen/java"
+	yaml "github.com/pulumi/pulumi-yaml/pkg/pulumiyaml/codegen"
+	"github.com/pulumi/pulumi/pkg/v3/codegen/dotnet"
+	gogen "github.com/pulumi/pulumi/pkg/v3/codegen/go"
+	"github.com/pulumi/pulumi/pkg/v3/codegen/hcl2/syntax"
+	"github.com/pulumi/pulumi/pkg/v3/codegen/nodejs"
+	hcl2 "github.com/pulumi/pulumi/pkg/v3/codegen/pcl"
+	"github.com/pulumi/pulumi/pkg/v3/codegen/python"
+	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/pcl"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/hcl2/model"
@@ -372,20 +375,25 @@ func (r *Renderer) RenderPrograms(body *model.Body, languages []string) (map[str
 
 	var errs []error
 	for _, lang := range languages {
-		var files map[string][]byte
+		var gen programGenFn
 
 		switch lang {
 		case "dotnet":
-			files, err = recoverableProgramGen(program, dotnet.GenerateProgram)
+			gen = dotnet.GenerateProgram
 		case "go":
-			files, err = recoverableProgramGen(program, gogen.GenerateProgram)
+			gen = gogen.GenerateProgram
 		case "nodejs":
-			files, err = recoverableProgramGen(program, nodejs.GenerateProgram)
+			gen = nodejs.GenerateProgram
 		case "python":
-			files, err = recoverableProgramGen(program, python.GenerateProgram)
+			gen = python.GenerateProgram
+		case "java":
+			gen = java.GenerateProgram
+		case "yaml":
+			gen = yaml.GenerateProgram
 		default:
 			continue
 		}
+		files, err := recoverableProgramGen(program, gen)
 		if err != nil {
 			log.Printf("Program generation failed for language: %s, %+v", lang, err)
 			err = fmt.Errorf("generating program for language %s: %w", lang, err)
