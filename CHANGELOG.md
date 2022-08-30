@@ -5,6 +5,9 @@
 - All Java packages changed to be more intuitive, unfortunately this is a breaking change for Java version
   [#1829](https://github.com/pulumi/pulumi-azure-native/pull/1829)
 
+## 1.72.0 (2022-08-30)
+- Upgrade to latest version of Azure Rest API Specs.
+
 ## 1.71.0 (2022-8-26)
 
 - Upgrade to latest version of Azure Rest API Specs.
