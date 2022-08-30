@@ -34,6 +34,12 @@ func NewEnvironmentType(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:devcenter/v20220901preview:EnvironmentType"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource EnvironmentType
 	err := ctx.RegisterResource("azure-native:devcenter/v20220801preview:EnvironmentType", name, args, &resource, opts...)
 	if err != nil {

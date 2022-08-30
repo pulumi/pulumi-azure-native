@@ -89,6 +89,8 @@ export class EnvironmentType extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220901preview:EnvironmentType" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EnvironmentType.__pulumiType, name, resourceInputs, opts);
     }
 }

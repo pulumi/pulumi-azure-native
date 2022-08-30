@@ -87,6 +87,7 @@ import * as healthbot from "./healthbot";
 import * as healthcareapis from "./healthcareapis";
 import * as hybridcompute from "./hybridcompute";
 import * as hybridconnectivity from "./hybridconnectivity";
+import * as hybridcontainerservice from "./hybridcontainerservice";
 import * as hybriddata from "./hybriddata";
 import * as hybridnetwork from "./hybridnetwork";
 import * as importexport from "./importexport";
@@ -258,6 +259,7 @@ export {
     healthcareapis,
     hybridcompute,
     hybridconnectivity,
+    hybridcontainerservice,
     hybriddata,
     hybridnetwork,
     importexport,

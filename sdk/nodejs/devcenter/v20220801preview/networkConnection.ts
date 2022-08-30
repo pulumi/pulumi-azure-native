@@ -145,6 +145,8 @@ export class NetworkConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220901preview:NetworkConnection" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkConnection.__pulumiType, name, resourceInputs, opts);
     }
 }

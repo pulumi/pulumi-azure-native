@@ -197,6 +197,8 @@ if typing.TYPE_CHECKING:
     hybridcompute = __hybridcompute
     import pulumi_azure_native.hybridconnectivity as __hybridconnectivity
     hybridconnectivity = __hybridconnectivity
+    import pulumi_azure_native.hybridcontainerservice as __hybridcontainerservice
+    hybridcontainerservice = __hybridcontainerservice
     import pulumi_azure_native.hybriddata as __hybriddata
     hybriddata = __hybriddata
     import pulumi_azure_native.hybridnetwork as __hybridnetwork
@@ -482,6 +484,7 @@ else:
     healthcareapis = _utilities.lazy_import('pulumi_azure_native.healthcareapis')
     hybridcompute = _utilities.lazy_import('pulumi_azure_native.hybridcompute')
     hybridconnectivity = _utilities.lazy_import('pulumi_azure_native.hybridconnectivity')
+    hybridcontainerservice = _utilities.lazy_import('pulumi_azure_native.hybridcontainerservice')
     hybriddata = _utilities.lazy_import('pulumi_azure_native.hybriddata')
     hybridnetwork = _utilities.lazy_import('pulumi_azure_native.hybridnetwork')
     importexport = _utilities.lazy_import('pulumi_azure_native.importexport')
@@ -7485,6 +7488,24 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "devcenter/v20220901preview",
+  "fqn": "pulumi_azure_native.devcenter.v20220901preview",
+  "classes": {
+   "azure-native:devcenter/v20220901preview:AttachedNetworkByDevCenter": "AttachedNetworkByDevCenter",
+   "azure-native:devcenter/v20220901preview:Catalog": "Catalog",
+   "azure-native:devcenter/v20220901preview:DevBoxDefinition": "DevBoxDefinition",
+   "azure-native:devcenter/v20220901preview:DevCenter": "DevCenter",
+   "azure-native:devcenter/v20220901preview:EnvironmentType": "EnvironmentType",
+   "azure-native:devcenter/v20220901preview:Gallery": "Gallery",
+   "azure-native:devcenter/v20220901preview:NetworkConnection": "NetworkConnection",
+   "azure-native:devcenter/v20220901preview:Pool": "Pool",
+   "azure-native:devcenter/v20220901preview:Project": "Project",
+   "azure-native:devcenter/v20220901preview:ProjectEnvironmentType": "ProjectEnvironmentType",
+   "azure-native:devcenter/v20220901preview:Schedule": "Schedule"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "devhub",
   "fqn": "pulumi_azure_native.devhub",
   "classes": {
@@ -10006,6 +10027,18 @@ _utilities.register(
   "fqn": "pulumi_azure_native.hybridconnectivity.v20220501preview",
   "classes": {
    "azure-native:hybridconnectivity/v20220501preview:Endpoint": "Endpoint"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "hybridcontainerservice/v20220501preview",
+  "fqn": "pulumi_azure_native.hybridcontainerservice.v20220501preview",
+  "classes": {
+   "azure-native:hybridcontainerservice/v20220501preview:HybridIdentityMetadatum": "HybridIdentityMetadatum",
+   "azure-native:hybridcontainerservice/v20220501preview:ProvisionedCluster": "ProvisionedCluster",
+   "azure-native:hybridcontainerservice/v20220501preview:agentPool": "AgentPool",
+   "azure-native:hybridcontainerservice/v20220501preview:storageSpaceRetrieve": "StorageSpaceRetrieve",
+   "azure-native:hybridcontainerservice/v20220501preview:virtualNetworkRetrieve": "VirtualNetworkRetrieve"
   }
  },
  {
