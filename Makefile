@@ -172,7 +172,7 @@ build_dotnet::
 
 generate_go::
 	$(WORKING_DIR)/bin/$(CODEGEN) go ${VERSION}
-	
+
 build_go::
 	# Only building the top level packages and building 1 package at a time to avoid OOMing
 	cd sdk/ && \
@@ -208,3 +208,6 @@ install_sdks:: install_dotnet_sdk install_python_sdk install_nodejs_sdk
 only_build:: build
 
 .PHONY: init_submodules update_submodules ensure generate_schema generate build_provider build arm2pulumi_coverage_report versions
+
+test.lazy-imports-test::
+	cd examples/lazy-imports-test && yarn link @pulumi/azure-native && yarn install && NODE_OPTIONS=--max-old-space-size=8192 yarn run tsc
