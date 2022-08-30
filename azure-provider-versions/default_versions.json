@@ -887,6 +887,7 @@
         "listEndpointCredentials": "2022-05-01-preview",
         "listEndpointManagedProxyDetails": "2022-05-01-preview"
     },
+    "HybridContainerService": {},
     "HybridData": {
         "DataManager": "2019-06-01",
         "DataStore": "2019-06-01",

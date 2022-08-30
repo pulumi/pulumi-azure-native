@@ -1266,6 +1266,7 @@
       {
         "resourceType": "Spring",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-05-01-preview",
           "2022-04-01",
           "2022-03-01-preview",
@@ -1279,6 +1280,7 @@
       {
         "resourceType": "Spring/apps",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-05-01-preview",
           "2022-04-01",
           "2022-03-01-preview",
@@ -1292,6 +1294,7 @@
       {
         "resourceType": "Spring/apps/deployments",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-05-01-preview",
           "2022-04-01",
           "2022-03-01-preview",
@@ -1305,6 +1308,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-05-01-preview",
           "2022-04-01",
           "2022-03-01-preview",
@@ -1318,6 +1322,7 @@
       {
         "resourceType": "locations/checkNameAvailability",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-05-01-preview",
           "2022-04-01",
           "2022-03-01-preview",
@@ -1331,6 +1336,7 @@
       {
         "resourceType": "locations/operationResults",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-05-01-preview",
           "2022-04-01",
           "2022-03-01-preview",
@@ -1344,6 +1350,7 @@
       {
         "resourceType": "locations/operationStatus",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-05-01-preview",
           "2022-04-01",
           "2022-03-01-preview",
@@ -1357,6 +1364,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-05-01-preview",
           "2022-04-01",
           "2022-03-01-preview",
@@ -12313,7 +12321,6 @@
       {
         "resourceType": "operations",
         "apiVersions": [
-          "2022-08-09-privatepreview",
           "2022-07-05-preview",
           "2022-06-03-privatepreview",
           "2022-04-01-preview",
