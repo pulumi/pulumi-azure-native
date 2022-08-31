@@ -1,5 +1,46 @@
 [
   {
+    "namespace": "Dell.Storage",
+    "resourceTypes": [
+      {
+        "resourceType": "checkNameAvailability",
+        "apiVersions": [
+          "2022-06-09-preview"
+        ]
+      },
+      {
+        "resourceType": "locations",
+        "apiVersions": [
+          "2022-06-09-preview"
+        ]
+      },
+      {
+        "resourceType": "locations/operationStatuses",
+        "apiVersions": [
+          "2022-06-09-preview"
+        ]
+      },
+      {
+        "resourceType": "operations",
+        "apiVersions": [
+          "2022-06-09-preview"
+        ]
+      },
+      {
+        "resourceType": "registeredSubscriptions",
+        "apiVersions": [
+          "2022-06-09-preview"
+        ]
+      },
+      {
+        "resourceType": "storages",
+        "apiVersions": [
+          "2022-06-09-preview"
+        ]
+      }
+    ]
+  },
+  {
     "namespace": "Dynatrace.Observability",
     "resourceTypes": [
       {
@@ -2551,7 +2592,6 @@
         "resourceType": "registrations",
         "apiVersions": [
           "2022-06-01",
-          "2021-05-01-preview",
           "2020-06-01-preview",
           "2017-06-01"
         ]
@@ -11566,6 +11606,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-05-01",
           "2022-04-01",
           "2022-03-01",
@@ -12321,6 +12362,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2022-08-09-privatepreview",
           "2022-07-05-preview",
           "2022-06-03-privatepreview",
           "2022-04-01-preview",
@@ -13819,6 +13861,8 @@
       {
         "resourceType": "checkNameAvailability",
         "apiVersions": [
+          "2022-07-01-preview",
+          "2022-05-05-preview",
           "2021-10-01-preview",
           "2021-09-01-preview",
           "2020-07-01-preview",
@@ -13828,6 +13872,8 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2022-07-01-preview",
+          "2022-05-05-preview",
           "2021-10-01-preview",
           "2021-09-01-preview",
           "2020-07-01-preview",
@@ -13837,6 +13883,8 @@
       {
         "resourceType": "locations/operationStatuses",
         "apiVersions": [
+          "2022-07-01-preview",
+          "2022-05-05-preview",
           "2021-10-01-preview",
           "2021-09-01-preview",
           "2020-07-01-preview",
@@ -13846,6 +13894,8 @@
       {
         "resourceType": "monitors",
         "apiVersions": [
+          "2022-07-01-preview",
+          "2022-05-05-preview",
           "2021-10-01-preview",
           "2021-09-01-preview",
           "2020-07-01-preview",
@@ -13855,6 +13905,8 @@
       {
         "resourceType": "monitors/tagRules",
         "apiVersions": [
+          "2022-07-01-preview",
+          "2022-05-05-preview",
           "2021-10-01-preview",
           "2021-09-01-preview",
           "2020-07-01-preview",
@@ -13864,6 +13916,8 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2022-07-01-preview",
+          "2022-05-05-preview",
           "2021-10-01-preview",
           "2021-09-01-preview",
           "2020-07-01-preview",
@@ -33495,6 +33549,35 @@
           "2017-11-15",
           "2017-05-31-privatepreview",
           "2017-02-28-preview"
+        ]
+      }
+    ]
+  },
+  {
+    "namespace": "Microsoft.UsageBilling",
+    "resourceTypes": [
+      {
+        "resourceType": "accounts",
+        "apiVersions": [
+          "2021-05-01-preview"
+        ]
+      },
+      {
+        "resourceType": "locations",
+        "apiVersions": [
+          "2021-05-01-preview"
+        ]
+      },
+      {
+        "resourceType": "locations/operationResults",
+        "apiVersions": [
+          "2021-05-01-preview"
+        ]
+      },
+      {
+        "resourceType": "operations",
+        "apiVersions": [
+          "2021-05-01-preview"
         ]
       }
     ]
