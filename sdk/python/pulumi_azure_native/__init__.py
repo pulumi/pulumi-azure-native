@@ -12410,9 +12410,16 @@ _utilities.register(
   "mod": "media/v20220801",
   "fqn": "pulumi_azure_native.media.v20220801",
   "classes": {
+   "azure-native:media/v20220801:AccountFilter": "AccountFilter",
+   "azure-native:media/v20220801:Asset": "Asset",
+   "azure-native:media/v20220801:AssetFilter": "AssetFilter",
+   "azure-native:media/v20220801:ContentKeyPolicy": "ContentKeyPolicy",
    "azure-native:media/v20220801:LiveEvent": "LiveEvent",
    "azure-native:media/v20220801:LiveOutput": "LiveOutput",
-   "azure-native:media/v20220801:StreamingEndpoint": "StreamingEndpoint"
+   "azure-native:media/v20220801:StreamingEndpoint": "StreamingEndpoint",
+   "azure-native:media/v20220801:StreamingLocator": "StreamingLocator",
+   "azure-native:media/v20220801:StreamingPolicy": "StreamingPolicy",
+   "azure-native:media/v20220801:Track": "Track"
   }
  },
  {

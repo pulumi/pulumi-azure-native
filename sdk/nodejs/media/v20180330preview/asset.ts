@@ -118,7 +118,7 @@ export class Asset extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:media:Asset" }, { type: "azure-native:media/v20180601preview:Asset" }, { type: "azure-native:media/v20180701:Asset" }, { type: "azure-native:media/v20200501:Asset" }, { type: "azure-native:media/v20210601:Asset" }, { type: "azure-native:media/v20211101:Asset" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:media:Asset" }, { type: "azure-native:media/v20180601preview:Asset" }, { type: "azure-native:media/v20180701:Asset" }, { type: "azure-native:media/v20200501:Asset" }, { type: "azure-native:media/v20210601:Asset" }, { type: "azure-native:media/v20211101:Asset" }, { type: "azure-native:media/v20220801:Asset" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Asset.__pulumiType, name, resourceInputs, opts);
     }

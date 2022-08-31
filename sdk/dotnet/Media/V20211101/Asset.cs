@@ -112,6 +112,7 @@ namespace Pulumi.AzureNative.Media.V20211101
                     new global::Pulumi.Alias { Type = "azure-native:media/v20180701:Asset"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20200501:Asset"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20210601:Asset"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20220801:Asset"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

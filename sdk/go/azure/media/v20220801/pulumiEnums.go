@@ -3,6 +3,106 @@
 
 package v20220801
 
+type AssetContainerPermission string
+
+const (
+	// The SAS URL will allow read access to the container.
+	AssetContainerPermissionRead = AssetContainerPermission("Read")
+	// The SAS URL will allow read and write access to the container.
+	AssetContainerPermissionReadWrite = AssetContainerPermission("ReadWrite")
+	// The SAS URL will allow read, write and delete access to the container.
+	AssetContainerPermissionReadWriteDelete = AssetContainerPermission("ReadWriteDelete")
+)
+
+type ContentKeyPolicyFairPlayRentalAndLeaseKeyType string
+
+const (
+	// Represents a ContentKeyPolicyFairPlayRentalAndLeaseKeyType that is unavailable in current API version.
+	ContentKeyPolicyFairPlayRentalAndLeaseKeyTypeUnknown = ContentKeyPolicyFairPlayRentalAndLeaseKeyType("Unknown")
+	// Key duration is not specified.
+	ContentKeyPolicyFairPlayRentalAndLeaseKeyTypeUndefined = ContentKeyPolicyFairPlayRentalAndLeaseKeyType("Undefined")
+	// Dual expiry for offline rental.
+	ContentKeyPolicyFairPlayRentalAndLeaseKeyTypeDualExpiry = ContentKeyPolicyFairPlayRentalAndLeaseKeyType("DualExpiry")
+	// Content key can be persisted with an unlimited duration
+	ContentKeyPolicyFairPlayRentalAndLeaseKeyTypePersistentUnlimited = ContentKeyPolicyFairPlayRentalAndLeaseKeyType("PersistentUnlimited")
+	// Content key can be persisted and the valid duration is limited by the Rental Duration value
+	ContentKeyPolicyFairPlayRentalAndLeaseKeyTypePersistentLimited = ContentKeyPolicyFairPlayRentalAndLeaseKeyType("PersistentLimited")
+)
+
+type ContentKeyPolicyPlayReadyContentType string
+
+const (
+	// Represents a ContentKeyPolicyPlayReadyContentType that is unavailable in current API version.
+	ContentKeyPolicyPlayReadyContentTypeUnknown = ContentKeyPolicyPlayReadyContentType("Unknown")
+	// Unspecified content type.
+	ContentKeyPolicyPlayReadyContentTypeUnspecified = ContentKeyPolicyPlayReadyContentType("Unspecified")
+	// Ultraviolet download content type.
+	ContentKeyPolicyPlayReadyContentTypeUltraVioletDownload = ContentKeyPolicyPlayReadyContentType("UltraVioletDownload")
+	// Ultraviolet streaming content type.
+	ContentKeyPolicyPlayReadyContentTypeUltraVioletStreaming = ContentKeyPolicyPlayReadyContentType("UltraVioletStreaming")
+)
+
+type ContentKeyPolicyPlayReadyLicenseType string
+
+const (
+	// Represents a ContentKeyPolicyPlayReadyLicenseType that is unavailable in current API version.
+	ContentKeyPolicyPlayReadyLicenseTypeUnknown = ContentKeyPolicyPlayReadyLicenseType("Unknown")
+	// Non persistent license.
+	ContentKeyPolicyPlayReadyLicenseTypeNonPersistent = ContentKeyPolicyPlayReadyLicenseType("NonPersistent")
+	// Persistent license. Allows offline playback.
+	ContentKeyPolicyPlayReadyLicenseTypePersistent = ContentKeyPolicyPlayReadyLicenseType("Persistent")
+)
+
+type ContentKeyPolicyPlayReadyUnknownOutputPassingOption string
+
+const (
+	// Represents a ContentKeyPolicyPlayReadyUnknownOutputPassingOption that is unavailable in current API version.
+	ContentKeyPolicyPlayReadyUnknownOutputPassingOptionUnknown = ContentKeyPolicyPlayReadyUnknownOutputPassingOption("Unknown")
+	// Passing the video portion of protected content to an Unknown Output is not allowed.
+	ContentKeyPolicyPlayReadyUnknownOutputPassingOptionNotAllowed = ContentKeyPolicyPlayReadyUnknownOutputPassingOption("NotAllowed")
+	// Passing the video portion of protected content to an Unknown Output is allowed.
+	ContentKeyPolicyPlayReadyUnknownOutputPassingOptionAllowed = ContentKeyPolicyPlayReadyUnknownOutputPassingOption("Allowed")
+	// Passing the video portion of protected content to an Unknown Output is allowed but with constrained resolution.
+	ContentKeyPolicyPlayReadyUnknownOutputPassingOptionAllowedWithVideoConstriction = ContentKeyPolicyPlayReadyUnknownOutputPassingOption("AllowedWithVideoConstriction")
+)
+
+type ContentKeyPolicyRestrictionTokenType string
+
+const (
+	// Represents a ContentKeyPolicyRestrictionTokenType that is unavailable in current API version.
+	ContentKeyPolicyRestrictionTokenTypeUnknown = ContentKeyPolicyRestrictionTokenType("Unknown")
+	// Simple Web Token.
+	ContentKeyPolicyRestrictionTokenTypeSwt = ContentKeyPolicyRestrictionTokenType("Swt")
+	// JSON Web Token.
+	ContentKeyPolicyRestrictionTokenTypeJwt = ContentKeyPolicyRestrictionTokenType("Jwt")
+)
+
+type FilterTrackPropertyCompareOperation string
+
+const (
+	// The equal operation.
+	FilterTrackPropertyCompareOperationEqual = FilterTrackPropertyCompareOperation("Equal")
+	// The not equal operation.
+	FilterTrackPropertyCompareOperationNotEqual = FilterTrackPropertyCompareOperation("NotEqual")
+)
+
+type FilterTrackPropertyType string
+
+const (
+	// The unknown track property type.
+	FilterTrackPropertyTypeUnknown = FilterTrackPropertyType("Unknown")
+	// The type.
+	FilterTrackPropertyTypeType = FilterTrackPropertyType("Type")
+	// The name.
+	FilterTrackPropertyTypeName = FilterTrackPropertyType("Name")
+	// The language.
+	FilterTrackPropertyTypeLanguage = FilterTrackPropertyType("Language")
+	// The fourCC.
+	FilterTrackPropertyTypeFourCC = FilterTrackPropertyType("FourCC")
+	// The bitrate.
+	FilterTrackPropertyTypeBitrate = FilterTrackPropertyType("Bitrate")
+)
+
 type LiveEventEncodingType string
 
 const (
@@ -27,6 +127,19 @@ const (
 	LiveEventInputProtocolRTMP = LiveEventInputProtocol("RTMP")
 )
 
+type SecurityLevel string
+
+const (
+	// Represents a SecurityLevel that is unavailable in current API version.
+	SecurityLevelUnknown = SecurityLevel("Unknown")
+	// For clients under development or test. No protection against unauthorized use.
+	SecurityLevelSL150 = SecurityLevel("SL150")
+	// For hardened devices and applications consuming commercial content. Software or hardware protection.
+	SecurityLevelSL2000 = SecurityLevel("SL2000")
+	// For hardened devices only. Hardware protection.
+	SecurityLevelSL3000 = SecurityLevel("SL3000")
+)
+
 type StreamOptionsFlag string
 
 const (
@@ -47,6 +160,33 @@ const (
 	StretchModeAutoSize = StretchMode("AutoSize")
 	// Pad the output (with either letterbox or pillar box) to honor the output resolution, while ensuring that the active video region in the output has the same aspect ratio as the input. For example, if the input is 1920x1080 and the encoding preset asks for 1280x1280, then the output will be at 1280x1280, which contains an inner rectangle of 1280x720 at aspect ratio of 16:9, and pillar box regions 280 pixels wide at the left and right.
 	StretchModeAutoFit = StretchMode("AutoFit")
+)
+
+type TrackPropertyCompareOperation string
+
+const (
+	// Unknown track property compare operation
+	TrackPropertyCompareOperationUnknown = TrackPropertyCompareOperation("Unknown")
+	// Equal operation
+	TrackPropertyCompareOperationEqual = TrackPropertyCompareOperation("Equal")
+)
+
+type TrackPropertyType string
+
+const (
+	// Unknown track property
+	TrackPropertyTypeUnknown = TrackPropertyType("Unknown")
+	// Track FourCC
+	TrackPropertyTypeFourCC = TrackPropertyType("FourCC")
+)
+
+type Visibility string
+
+const (
+	// The track is hidden to video player.
+	VisibilityHidden = Visibility("Hidden")
+	// The track is visible to video player.
+	VisibilityVisible = Visibility("Visible")
 )
 
 func init() {

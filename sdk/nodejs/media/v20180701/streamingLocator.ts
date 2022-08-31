@@ -137,7 +137,7 @@ export class StreamingLocator extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:media:StreamingLocator" }, { type: "azure-native:media/v20180330preview:StreamingLocator" }, { type: "azure-native:media/v20180601preview:StreamingLocator" }, { type: "azure-native:media/v20200501:StreamingLocator" }, { type: "azure-native:media/v20210601:StreamingLocator" }, { type: "azure-native:media/v20211101:StreamingLocator" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:media:StreamingLocator" }, { type: "azure-native:media/v20180330preview:StreamingLocator" }, { type: "azure-native:media/v20180601preview:StreamingLocator" }, { type: "azure-native:media/v20200501:StreamingLocator" }, { type: "azure-native:media/v20210601:StreamingLocator" }, { type: "azure-native:media/v20211101:StreamingLocator" }, { type: "azure-native:media/v20220801:StreamingLocator" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StreamingLocator.__pulumiType, name, resourceInputs, opts);
     }

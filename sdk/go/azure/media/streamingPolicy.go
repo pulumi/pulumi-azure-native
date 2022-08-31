@@ -57,6 +57,9 @@ func NewStreamingPolicy(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:media/v20211101:StreamingPolicy"),
 		},
+		{
+			Type: pulumi.String("azure-native:media/v20220801:StreamingPolicy"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource StreamingPolicy

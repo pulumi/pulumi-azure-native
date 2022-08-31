@@ -5,31 +5,72 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./accountFilter";
+export * from "./asset";
+export * from "./assetFilter";
+export * from "./contentKeyPolicy";
+export * from "./getAccountFilter";
+export * from "./getAsset";
+export * from "./getAssetEncryptionKey";
+export * from "./getAssetFilter";
+export * from "./getContentKeyPolicy";
+export * from "./getContentKeyPolicyPropertiesWithSecrets";
 export * from "./getLiveEvent";
 export * from "./getLiveOutput";
 export * from "./getStreamingEndpoint";
+export * from "./getStreamingLocator";
+export * from "./getStreamingPolicy";
+export * from "./getTrack";
+export * from "./listAssetContainerSas";
+export * from "./listAssetStreamingLocators";
+export * from "./listStreamingLocatorContentKeys";
+export * from "./listStreamingLocatorPaths";
 export * from "./liveEvent";
 export * from "./liveOutput";
 export * from "./streamingEndpoint";
+export * from "./streamingLocator";
+export * from "./streamingPolicy";
+export * from "./track";
 
 // Export enums:
 export * from "../../types/enums/media/v20220801";
 
 // Import resources to register:
+import { AccountFilter } from "./accountFilter";
+import { Asset } from "./asset";
+import { AssetFilter } from "./assetFilter";
+import { ContentKeyPolicy } from "./contentKeyPolicy";
 import { LiveEvent } from "./liveEvent";
 import { LiveOutput } from "./liveOutput";
 import { StreamingEndpoint } from "./streamingEndpoint";
+import { StreamingLocator } from "./streamingLocator";
+import { StreamingPolicy } from "./streamingPolicy";
+import { Track } from "./track";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:media/v20220801:AccountFilter":
+                return new AccountFilter(name, <any>undefined, { urn })
+            case "azure-native:media/v20220801:Asset":
+                return new Asset(name, <any>undefined, { urn })
+            case "azure-native:media/v20220801:AssetFilter":
+                return new AssetFilter(name, <any>undefined, { urn })
+            case "azure-native:media/v20220801:ContentKeyPolicy":
+                return new ContentKeyPolicy(name, <any>undefined, { urn })
             case "azure-native:media/v20220801:LiveEvent":
                 return new LiveEvent(name, <any>undefined, { urn })
             case "azure-native:media/v20220801:LiveOutput":
                 return new LiveOutput(name, <any>undefined, { urn })
             case "azure-native:media/v20220801:StreamingEndpoint":
                 return new StreamingEndpoint(name, <any>undefined, { urn })
+            case "azure-native:media/v20220801:StreamingLocator":
+                return new StreamingLocator(name, <any>undefined, { urn })
+            case "azure-native:media/v20220801:StreamingPolicy":
+                return new StreamingPolicy(name, <any>undefined, { urn })
+            case "azure-native:media/v20220801:Track":
+                return new Track(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

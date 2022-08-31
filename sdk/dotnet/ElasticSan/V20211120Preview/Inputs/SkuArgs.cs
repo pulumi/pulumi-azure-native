@@ -19,13 +19,13 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview.Inputs
         /// The sku name.
         /// </summary>
         [Input("name", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.ElasticSan.V20211120Preview.Name> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ElasticSan.V20211120Preview.SkuName> Name { get; set; } = null!;
 
         /// <summary>
         /// The sku tier.
         /// </summary>
         [Input("tier")]
-        public InputUnion<string, Pulumi.AzureNative.ElasticSan.V20211120Preview.Tier>? Tier { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ElasticSan.V20211120Preview.SkuTier>? Tier { get; set; }
 
         public SkuArgs()
         {

@@ -23,7 +23,7 @@ export const EncryptionType = {
  */
 export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
 
-export const Name = {
+export const SkuName = {
     /**
      * Premium locally redundant storage
      */
@@ -37,7 +37,19 @@ export const Name = {
 /**
  * The sku name.
  */
-export type Name = (typeof Name)[keyof typeof Name];
+export type SkuName = (typeof SkuName)[keyof typeof SkuName];
+
+export const SkuTier = {
+    /**
+     * Premium Tier
+     */
+    Premium: "Premium",
+} as const;
+
+/**
+ * The sku tier.
+ */
+export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];
 
 export const StorageTargetType = {
     Iscsi: "Iscsi",
@@ -48,18 +60,6 @@ export const StorageTargetType = {
  * Type of storage target
  */
 export type StorageTargetType = (typeof StorageTargetType)[keyof typeof StorageTargetType];
-
-export const Tier = {
-    /**
-     * Premium Tier
-     */
-    Premium: "Premium",
-} as const;
-
-/**
- * The sku tier.
- */
-export type Tier = (typeof Tier)[keyof typeof Tier];
 
 export const VolumeCreateOption = {
     None: "None",

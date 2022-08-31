@@ -7,9 +7,9 @@ from enum import Enum
 __all__ = [
     'Action',
     'EncryptionType',
-    'Name',
+    'SkuName',
+    'SkuTier',
     'StorageTargetType',
-    'Tier',
     'VolumeCreateOption',
 ]
 
@@ -31,7 +31,7 @@ class EncryptionType(str, Enum):
     """
 
 
-class Name(str, Enum):
+class SkuName(str, Enum):
     """
     The sku name.
     """
@@ -45,15 +45,7 @@ class Name(str, Enum):
     """
 
 
-class StorageTargetType(str, Enum):
-    """
-    Type of storage target
-    """
-    ISCSI = "Iscsi"
-    NONE = "None"
-
-
-class Tier(str, Enum):
+class SkuTier(str, Enum):
     """
     The sku tier.
     """
@@ -61,6 +53,14 @@ class Tier(str, Enum):
     """
     Premium Tier
     """
+
+
+class StorageTargetType(str, Enum):
+    """
+    Type of storage target
+    """
+    ISCSI = "Iscsi"
+    NONE = "None"
 
 
 class VolumeCreateOption(str, Enum):
