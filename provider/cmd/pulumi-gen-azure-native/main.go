@@ -7,8 +7,9 @@ import (
 	"fmt"
 	"os"
 	"path"
-	"regexp"
+	"path/filepath"
 	"strings"
+	"text/template"
 
 	"github.com/segmentio/encoding/json"
 
@@ -245,8 +246,6 @@ func emitPackage(pkgSpec *schema.PackageSpec, language, outDir string) error {
 		return errors.Wrapf(err, "generating %s package", language)
 	}
 
-	// go-split ... add go.mods
-
 	for f, contents := range files {
 		if err := emitFile(outDir, f, contents); err != nil {
 			return errors.Wrapf(err, "emitting file %v", f)
@@ -269,20 +268,6 @@ func emitSplitPackage(pkgSpec *schema.PackageSpec, language, outDir string) erro
 		return errors.Wrapf(err, "generating %s package", language)
 	}
 
-	// go-split ... add go.mods
-	files["pulumi-azure-native-sdk/go.mod"] = []byte(`
-module github.com/pulumi/pulumi-azure-native-sdk
-
-go 1.17
-
-require (
-	github.com/blang/semver v3.5.1+incompatible
-	github.com/pkg/errors v0.9.1
-	github.com/pulumi/pulumi/sdk/v3 v3.37.2
-)
-`)
-
-	re := regexp.MustCompile(`^pulumi-azure-native-sdk\/([^\/]+)\/init\.go$`)
 	var version string
 	if ppkg.Version != nil {
 		buildVersion := *ppkg.Version
@@ -296,29 +281,25 @@ require (
 	} else {
 		version = "latest"
 	}
+	files["pulumi-azure-native-sdk/go.mod"] = []byte(goModTemplate(GoMod{}))
+
 	for f, contents := range files {
 		if err := emitFile(outDir, f, contents); err != nil {
 			return errors.Wrapf(err, "emitting file %v", f)
 		}
 
-		if matches := re.FindStringSubmatch(f); len(matches) > 0 {
-			// 1 is the first capture group
-			module := matches[1]
-			modPath := fmt.Sprintf("pulumi-azure-native-sdk/%s/go.mod", module)
-			modContent := fmt.Sprintf(`
-module github.com/pulumi/pulumi-azure-native-sdk/%s
-
-go 1.17
-
-require (
-	github.com/blang/semver v3.5.1+incompatible
-	github.com/pkg/errors v0.9.1
-	github.com/pulumi/pulumi-azure-native-sdk %s
-	github.com/pulumi/pulumi/sdk/v3 v3.37.2
-)
-
-replace github.com/pulumi/pulumi-azure-native-sdk %s => ../
-`, module, version, version)
+		matched, err := filepath.Match("pulumi-azure-native-sdk/*/init.go", f)
+		if err != nil {
+			return err
+		}
+		if matched {
+			dir := filepath.Dir(f)
+			module := filepath.Base(dir)
+			modPath := filepath.Join(dir, "go.mod")
+			modContent := goModTemplate(GoMod{
+				Version:       version,
+				SubmoduleName: module,
+			})
 
 			if err := emitFile(outDir, modPath, []byte(modContent)); err != nil {
 				return errors.Wrapf(err, "emitting file %v", modPath)
@@ -327,6 +308,51 @@ replace github.com/pulumi/pulumi-azure-native-sdk %s => ../
 	}
 
 	return nil
+}
+
+type GoMod struct {
+	Version       string
+	SubmoduleName string
+}
+
+var goModTemplateCache *template.Template
+
+func goModTemplate(goMod GoMod) string {
+	var err error
+	if goModTemplateCache == nil {
+		goModTemplateCache, err = template.New("go-mod").Parse(`
+{{ if eq .SubmoduleName "" }}
+module github.com/pulumi/pulumi-azure-native-sdk
+{{ else }}
+module github.com/pulumi/pulumi-azure-native-sdk/{{ .SubmoduleName }}
+{{ end }}
+
+go 1.17
+
+require (
+	github.com/blang/semver v3.5.1+incompatible
+	github.com/pkg/errors v0.9.1
+{{ if ne .SubmoduleName "" }}
+	github.com/pulumi/pulumi-azure-native-sdk {{ .Version }}
+{{ end }}
+	github.com/pulumi/pulumi/sdk/v3 v3.37.2
+)
+
+{{ if ne .SubmoduleName "" }}
+replace github.com/pulumi/pulumi-azure-native-sdk {{ .Version }} => ../
+{{ end }}
+`)
+		if err != nil {
+			panic(err)
+		}
+	}
+
+	var result bytes.Buffer
+	err = goModTemplateCache.Execute(&result, goMod)
+	if err != nil {
+		panic(err)
+	}
+	return result.String()
 }
 
 // emitFile creates a file in a given directory and writes the byte contents to it.
