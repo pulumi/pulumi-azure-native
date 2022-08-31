@@ -589,6 +589,19 @@
     "ScalingPlan": "2021-07-12",
     "Workspace": "2021-07-12"
   },
+  "DevCenter": {
+    "AttachedNetworkByDevCenter": "2022-09-01-preview",
+    "Catalog": "2022-09-01-preview",
+    "DevBoxDefinition": "2022-09-01-preview",
+    "DevCenter": "2022-09-01-preview",
+    "EnvironmentType": "2022-09-01-preview",
+    "Gallery": "2022-09-01-preview",
+    "NetworkConnection": "2022-09-01-preview",
+    "Pool": "2022-09-01-preview",
+    "Project": "2022-09-01-preview",
+    "ProjectEnvironmentType": "2022-09-01-preview",
+    "Schedule": "2022-09-01-preview"
+  },
   "DevHub": {
     "Workflow": "2022-04-01-preview",
     "getGitHubOAuth": "2022-04-01-preview"
@@ -822,6 +835,13 @@
     "Endpoint": "2022-05-01-preview",
     "listEndpointCredentials": "2022-05-01-preview",
     "listEndpointManagedProxyDetails": "2022-05-01-preview"
+  },
+  "HybridContainerService": {
+    "HybridIdentityMetadatum": "2022-05-01-preview",
+    "ProvisionedCluster": "2022-05-01-preview",
+    "agentPool": "2022-05-01-preview",
+    "storageSpaceRetrieve": "2022-05-01-preview",
+    "virtualNetworkRetrieve": "2022-05-01-preview"
   },
   "HybridData": {
     "DataManager": "2019-06-01",
@@ -1400,16 +1420,16 @@
     "ProtectionContainer": "2022-03-01",
     "ProtectionIntent": "2022-03-01",
     "ProtectionPolicy": "2022-03-01",
-    "ReplicationFabric": "2022-03-01",
-    "ReplicationMigrationItem": "2022-03-01",
-    "ReplicationNetworkMapping": "2022-03-01",
-    "ReplicationPolicy": "2022-03-01",
-    "ReplicationProtectedItem": "2022-03-01",
-    "ReplicationProtectionContainerMapping": "2022-03-01",
-    "ReplicationRecoveryPlan": "2022-03-01",
-    "ReplicationRecoveryServicesProvider": "2022-03-01",
-    "ReplicationStorageClassificationMapping": "2022-03-01",
-    "ReplicationvCenter": "2022-03-01",
+    "ReplicationFabric": "2022-04-01",
+    "ReplicationMigrationItem": "2022-04-01",
+    "ReplicationNetworkMapping": "2022-04-01",
+    "ReplicationPolicy": "2022-04-01",
+    "ReplicationProtectedItem": "2022-04-01",
+    "ReplicationProtectionContainerMapping": "2022-04-01",
+    "ReplicationRecoveryPlan": "2022-04-01",
+    "ReplicationRecoveryServicesProvider": "2022-04-01",
+    "ReplicationStorageClassificationMapping": "2022-04-01",
+    "ReplicationvCenter": "2022-04-01",
     "ResourceGuardProxy": "2022-03-01",
     "Vault": "2022-04-01",
     "getRecoveryPointAccessToken": "2021-11-15"
@@ -1686,6 +1706,13 @@
   "StorageCache": {
     "Cache": "2022-05-01",
     "StorageTarget": "2022-05-01"
+  },
+  "StorageMover": {
+    "Agent": "2022-07-01-preview",
+    "Endpoint": "2022-07-01-preview",
+    "JobDefinition": "2022-07-01-preview",
+    "Project": "2022-07-01-preview",
+    "StorageMover": "2022-07-01-preview"
   },
   "StoragePool": {
     "DiskPool": "2021-08-01",

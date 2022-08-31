@@ -144,12 +144,20 @@
     ],
     "2020-01-01": [
       "Suppression"
+    ],
+    "2022-09-01": [
+      "Suppression"
     ]
   },
   "AgFoodPlatform": {
     "2020-05-12-preview": [
       "Extension",
       "FarmBeatsModel"
+    ],
+    "2021-09-01-preview": [
+      "Extension",
+      "FarmBeatsModel",
+      "PrivateEndpointConnection"
     ]
   },
   "AlertsManagement": {
@@ -1243,6 +1251,12 @@
     "2022-04-01": [
       "RoleAssignment",
       "RoleDefinition"
+    ],
+    "2022-08-01-preview": [
+      "Variable",
+      "VariableAtManagementGroup",
+      "VariableValue",
+      "VariableValueAtManagementGroup"
     ]
   },
   "Automanage": {
@@ -1667,6 +1681,16 @@
       "listBotConnectionServiceProviders",
       "listBotConnectionWithSecrets",
       "listChannelWithKeys"
+    ],
+    "2022-06-15-preview": [
+      "Bot",
+      "BotConnection",
+      "Channel",
+      "PrivateEndpointConnection",
+      "listBotConnectionServiceProviders",
+      "listBotConnectionWithSecrets",
+      "listChannelWithKeys",
+      "listQnAMakerEndpointKey"
     ]
   },
   "Cache": {
@@ -1761,6 +1785,14 @@
       "PrivateEndpointConnection",
       "RedisEnterprise",
       "listDatabaseKeys"
+    ],
+    "2022-05-01": [
+      "FirewallRule",
+      "LinkedServer",
+      "PatchSchedule",
+      "PrivateEndpointConnection",
+      "Redis",
+      "listRedisKeys"
     ]
   },
   "Capacity": {
@@ -2351,6 +2383,45 @@
       "DiskAccessAPrivateEndpointConnection",
       "DiskEncryptionSet",
       "Snapshot"
+    ],
+    "2022-01-03": [
+      "Gallery",
+      "GalleryApplication",
+      "GalleryApplicationVersion",
+      "GalleryImage",
+      "GalleryImageVersion"
+    ],
+    "2022-03-01": [
+      "AvailabilitySet",
+      "CapacityReservation",
+      "CapacityReservationGroup",
+      "DedicatedHost",
+      "DedicatedHostGroup",
+      "Image",
+      "ProximityPlacementGroup",
+      "RestorePoint",
+      "RestorePointCollection",
+      "SshPublicKey",
+      "VirtualMachine",
+      "VirtualMachineExtension",
+      "VirtualMachineRunCommandByVirtualMachine",
+      "VirtualMachineScaleSet",
+      "VirtualMachineScaleSetExtension",
+      "VirtualMachineScaleSetVM",
+      "VirtualMachineScaleSetVMExtension",
+      "VirtualMachineScaleSetVMRunCommand",
+      "getLogAnalyticExportRequestRateByInterval",
+      "getLogAnalyticExportThrottledRequests"
+    ],
+    "2022-03-02": [
+      "Disk",
+      "DiskAccess",
+      "DiskAccessAPrivateEndpointConnection",
+      "DiskEncryptionSet",
+      "Snapshot"
+    ],
+    "2022-04-04": [
+      "CloudService"
     ]
   },
   "ConfidentialLedger": {
@@ -3026,6 +3097,31 @@
       "listManagedClusterAdminCredentials",
       "listManagedClusterMonitoringUserCredentials",
       "listManagedClusterUserCredentials"
+    ],
+    "2022-07-01": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
+    ],
+    "2022-07-02-preview": [
+      "AgentPool",
+      "Fleet",
+      "FleetMember",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "ManagedClusterSnapshot",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listFleetCredentials",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
     ]
   },
   "CostManagement": {
@@ -3214,6 +3310,7 @@
       "getGetPrivateDnsZoneSuffixExecute"
     ],
     "2021-12-01-preview": [
+      "AzureADAdministrator",
       "Database",
       "FirewallRule",
       "Server",
@@ -3856,6 +3953,12 @@
       "PrivateEndpointConnection",
       "Workspace",
       "vNetPeering"
+    ],
+    "2022-10-01-preview": [
+      "AccessConnector",
+      "PrivateEndpointConnection",
+      "Workspace",
+      "vNetPeering"
     ]
   },
   "Datadog": {
@@ -4030,6 +4133,19 @@
   },
   "DevCenter": {
     "2022-08-01-preview": [
+      "AttachedNetworkByDevCenter",
+      "Catalog",
+      "DevBoxDefinition",
+      "DevCenter",
+      "EnvironmentType",
+      "Gallery",
+      "NetworkConnection",
+      "Pool",
+      "Project",
+      "ProjectEnvironmentType",
+      "Schedule"
+    ],
+    "2022-09-01-preview": [
       "AttachedNetworkByDevCenter",
       "Catalog",
       "DevBoxDefinition",
@@ -4370,6 +4486,14 @@
       "IotDpsResourcePrivateEndpointConnection",
       "listIotDpsResourceKeys",
       "listIotDpsResourceKeysForKeyName"
+    ],
+    "2022-04-30-preview": [
+      "Certificate",
+      "IotHubResource",
+      "IotHubResourceEventHubConsumerGroup",
+      "PrivateEndpointConnection",
+      "listIotHubResourceKeys",
+      "listIotHubResourceKeysForKeyName"
     ]
   },
   "DigitalTwins": {
@@ -5731,6 +5855,15 @@
       "listEndpointManagedProxyDetails"
     ]
   },
+  "HybridContainerService": {
+    "2022-05-01-preview": [
+      "HybridIdentityMetadatum",
+      "ProvisionedCluster",
+      "agentPool",
+      "storageSpaceRetrieve",
+      "virtualNetworkRetrieve"
+    ]
+  },
   "HybridData": {
     "2016-06-01": [
       "DataManager",
@@ -6262,6 +6395,12 @@
       "LabPlan",
       "Schedule",
       "User"
+    ],
+    "2022-08-01": [
+      "Lab",
+      "LabPlan",
+      "Schedule",
+      "User"
     ]
   },
   "LoadTestService": {
@@ -6721,6 +6860,41 @@
       "listWorkspaceNotebookAccessToken",
       "listWorkspaceNotebookKeys",
       "listWorkspaceStorageAccountKeys"
+    ],
+    "2022-06-01-preview": [
+      "BatchDeployment",
+      "BatchEndpoint",
+      "CodeContainer",
+      "CodeVersion",
+      "ComponentContainer",
+      "ComponentVersion",
+      "Compute",
+      "DataContainer",
+      "DataVersion",
+      "Datastore",
+      "EnvironmentContainer",
+      "EnvironmentVersion",
+      "Job",
+      "LabelingJob",
+      "ModelContainer",
+      "ModelVersion",
+      "OnlineDeployment",
+      "OnlineEndpoint",
+      "PrivateEndpointConnection",
+      "Schedule",
+      "Workspace",
+      "WorkspaceConnection",
+      "getOnlineDeploymentLogs",
+      "getOnlineEndpointToken",
+      "listBatchEndpointKeys",
+      "listComputeKeys",
+      "listComputeNodes",
+      "listDatastoreSecrets",
+      "listOnlineEndpointKeys",
+      "listWorkspaceKeys",
+      "listWorkspaceNotebookAccessToken",
+      "listWorkspaceNotebookKeys",
+      "listWorkspaceStorageAccountKeys"
     ]
   },
   "Maintenance": {
@@ -7057,6 +7231,11 @@
       "listMediaServiceEdgePolicies",
       "listStreamingLocatorContentKeys",
       "listStreamingLocatorPaths"
+    ],
+    "2022-08-01": [
+      "LiveEvent",
+      "LiveOutput",
+      "StreamingEndpoint"
     ]
   },
   "Migrate": {
@@ -10047,6 +10226,15 @@
       "Prefix",
       "RegisteredAsn",
       "RegisteredPrefix"
+    ],
+    "2022-06-01": [
+      "ConnectionMonitorTest",
+      "PeerAsn",
+      "Peering",
+      "PeeringService",
+      "Prefix",
+      "RegisteredAsn",
+      "RegisteredPrefix"
     ]
   },
   "PolicyInsights": {
@@ -10207,6 +10395,11 @@
   },
   "RecommendationsService": {
     "2022-02-01": [
+      "Account",
+      "Modeling",
+      "ServiceEndpoint"
+    ],
+    "2022-03-01-preview": [
       "Account",
       "Modeling",
       "ServiceEndpoint"
@@ -10533,7 +10726,29 @@
       "Vault"
     ],
     "2022-04-01": [
+      "ReplicationFabric",
+      "ReplicationMigrationItem",
+      "ReplicationNetworkMapping",
+      "ReplicationPolicy",
+      "ReplicationProtectedItem",
+      "ReplicationProtectionContainerMapping",
+      "ReplicationRecoveryPlan",
+      "ReplicationRecoveryServicesProvider",
+      "ReplicationStorageClassificationMapping",
+      "ReplicationvCenter",
       "Vault"
+    ],
+    "2022-05-01": [
+      "ReplicationFabric",
+      "ReplicationMigrationItem",
+      "ReplicationNetworkMapping",
+      "ReplicationPolicy",
+      "ReplicationProtectedItem",
+      "ReplicationProtectionContainerMapping",
+      "ReplicationRecoveryPlan",
+      "ReplicationRecoveryServicesProvider",
+      "ReplicationStorageClassificationMapping",
+      "ReplicationvCenter"
     ],
     "2022-06-01-preview": [
       "PrivateEndpointConnection",
@@ -10542,6 +10757,18 @@
       "ProtectionIntent",
       "ProtectionPolicy",
       "ResourceGuardProxy"
+    ],
+    "2022-08-01": [
+      "ReplicationFabric",
+      "ReplicationMigrationItem",
+      "ReplicationNetworkMapping",
+      "ReplicationPolicy",
+      "ReplicationProtectedItem",
+      "ReplicationProtectionContainerMapping",
+      "ReplicationRecoveryPlan",
+      "ReplicationRecoveryServicesProvider",
+      "ReplicationStorageClassificationMapping",
+      "ReplicationvCenter"
     ]
   },
   "RedHatOpenShift": {
@@ -11162,6 +11389,44 @@
       "BookmarkRelation",
       "DataConnector",
       "EntityQuery",
+      "Incident",
+      "IncidentComment",
+      "IncidentRelation",
+      "Metadata",
+      "ProductSetting",
+      "SecurityMLAnalyticsSetting",
+      "SentinelOnboardingState",
+      "SourceControl",
+      "ThreatIntelligenceIndicator",
+      "Watchlist",
+      "WatchlistItem",
+      "getEntitiesGetTimeline",
+      "getEntityInsights",
+      "listSourceControlRepositories"
+    ],
+    "2022-08-01": [
+      "Action",
+      "AlertRule",
+      "AutomationRule",
+      "Bookmark",
+      "DataConnector",
+      "Incident",
+      "IncidentComment",
+      "IncidentRelation",
+      "SentinelOnboardingState",
+      "ThreatIntelligenceIndicator",
+      "Watchlist",
+      "WatchlistItem"
+    ],
+    "2022-08-01-preview": [
+      "Action",
+      "AlertRule",
+      "AutomationRule",
+      "Bookmark",
+      "BookmarkRelation",
+      "DataConnector",
+      "EntityQuery",
+      "FileImport",
       "Incident",
       "IncidentComment",
       "IncidentRelation",
@@ -12007,6 +12272,65 @@
       "WorkloadClassifier",
       "WorkloadGroup"
     ],
+    "2021-11-01": [
+      "BackupShortTermRetentionPolicy",
+      "DataMaskingPolicy",
+      "Database",
+      "DatabaseAdvisor",
+      "DatabaseBlobAuditingPolicy",
+      "DatabaseSecurityAlertPolicy",
+      "DatabaseVulnerabilityAssessment",
+      "DatabaseVulnerabilityAssessmentRuleBaseline",
+      "DistributedAvailabilityGroup",
+      "ElasticPool",
+      "EncryptionProtector",
+      "ExtendedDatabaseBlobAuditingPolicy",
+      "ExtendedServerBlobAuditingPolicy",
+      "FailoverGroup",
+      "FirewallRule",
+      "GeoBackupPolicy",
+      "IPv6FirewallRule",
+      "InstanceFailoverGroup",
+      "InstancePool",
+      "Job",
+      "JobAgent",
+      "JobCredential",
+      "JobStep",
+      "JobTargetGroup",
+      "LongTermRetentionPolicy",
+      "ManagedDatabase",
+      "ManagedDatabaseSensitivityLabel",
+      "ManagedDatabaseVulnerabilityAssessment",
+      "ManagedDatabaseVulnerabilityAssessmentRuleBaseline",
+      "ManagedInstance",
+      "ManagedInstanceAdministrator",
+      "ManagedInstanceAzureADOnlyAuthentication",
+      "ManagedInstanceKey",
+      "ManagedInstancePrivateEndpointConnection",
+      "ManagedInstanceVulnerabilityAssessment",
+      "ManagedServerDnsAlias",
+      "OutboundFirewallRule",
+      "PrivateEndpointConnection",
+      "SensitivityLabel",
+      "Server",
+      "ServerAdvisor",
+      "ServerAzureADAdministrator",
+      "ServerAzureADOnlyAuthentication",
+      "ServerBlobAuditingPolicy",
+      "ServerDnsAlias",
+      "ServerKey",
+      "ServerSecurityAlertPolicy",
+      "ServerTrustCertificate",
+      "ServerTrustGroup",
+      "ServerVulnerabilityAssessment",
+      "SyncAgent",
+      "SyncGroup",
+      "SyncMember",
+      "TransparentDataEncryption",
+      "VirtualNetworkRule",
+      "WorkloadClassifier",
+      "WorkloadGroup"
+    ],
     "2021-11-01-preview": [
       "BackupShortTermRetentionPolicy",
       "Database",
@@ -12144,6 +12468,11 @@
       "SqlVirtualMachineGroup"
     ],
     "2022-02-01-preview": [
+      "AvailabilityGroupListener",
+      "SqlVirtualMachine",
+      "SqlVirtualMachineGroup"
+    ],
+    "2022-07-01-preview": [
       "AvailabilityGroupListener",
       "SqlVirtualMachine",
       "SqlVirtualMachineGroup"
@@ -12410,6 +12739,28 @@
       "listStorageAccountServiceSAS"
     ],
     "2021-09-01": [
+      "BlobContainer",
+      "BlobContainerImmutabilityPolicy",
+      "BlobInventoryPolicy",
+      "BlobServiceProperties",
+      "EncryptionScope",
+      "FileServiceProperties",
+      "FileShare",
+      "LocalUser",
+      "ManagementPolicy",
+      "ObjectReplicationPolicy",
+      "PrivateEndpointConnection",
+      "Queue",
+      "QueueServiceProperties",
+      "StorageAccount",
+      "Table",
+      "TableServiceProperties",
+      "listLocalUserKeys",
+      "listStorageAccountKeys",
+      "listStorageAccountSAS",
+      "listStorageAccountServiceSAS"
+    ],
+    "2022-05-01": [
       "BlobContainer",
       "BlobContainerImmutabilityPolicy",
       "BlobInventoryPolicy",
@@ -12900,6 +13251,9 @@
       "Account"
     ],
     "2022-04-13-preview": [
+      "Account"
+    ],
+    "2022-07-20-preview": [
       "Account"
     ],
     "2022-08-01": [

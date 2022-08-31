@@ -336,6 +336,8 @@ DesktopVirtualization:
     PrivateEndpointConnectionByHostPool: 2021-04-01-preview
     PrivateEndpointConnectionByWorkspace: 2021-04-01-preview
     ScalingPlanPooledSchedule: 2022-04-01-preview
+DevCenter:
+  tracking: 2022-09-01-preview
 DevHub:
   tracking: 2022-04-01-preview
 DevOps:
@@ -467,6 +469,8 @@ HybridCompute:
     PrivateLinkScope: 2021-03-25-preview
     PrivateLinkScopedResource: 2020-08-15-preview
 HybridConnectivity:
+  tracking: 2022-05-01-preview
+HybridContainerService:
   tracking: 2022-05-01-preview
 HybridData:
   tracking: "2019-06-01"
@@ -1061,6 +1065,8 @@ Storage:
     listLocalUserKeys: "2021-08-01"
 StorageCache:
   tracking: "2021-03-01"
+StorageMover:
+  tracking: 2022-07-01-preview
 StoragePool:
   tracking: 2020-03-15-preview
 StorageSync:
