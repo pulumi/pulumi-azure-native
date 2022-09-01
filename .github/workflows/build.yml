@@ -330,15 +330,16 @@ jobs:
     - name: UnTar SDK folder
       run: tar -zxf ${{ github.workspace}}/sdk/${{ matrix.language}}.tar.gz -C ${{
         github.workspace}}/sdk/${{ matrix.language}}
-    - name: Tar split Go SDK folder
-      if: ${{ matrix.language == 'go' }}
-      run: tar -zcf sdk/pulumi-azure-native-sdk.tar.gz -C sdk/pulumi-azure-native-sdk .
-    - name: Upload split Go artifacts
-      uses: actions/upload-artifact@v2
+    - name: Download Go split SDK
+      uses: actions/download-artifact@v2
       if: ${{ matrix.language == 'go' }}
       with:
         name: pulumi-azure-native-sdk.tar.gz
-        path: ${{ github.workspace}}/sdk/pulumi-azure-native-sdk.tar.gz
+        path: ${{ github.workspace}}/sdk/
+    - name: UnTar Go split SDK folder
+      if: ${{ matrix.language == 'go' }}
+      run: tar -zxf ${{ github.workspace}}/sdk/pulumi-azure-native-sdk.tar.gz -C ${{
+        github.workspace}}/sdk/pulumi-azure-native-sdk.tar.gz
     - name: Update path
       run: echo "${{ github.workspace }}/bin" >> $GITHUB_PATH
     - name: Install Node dependencies
@@ -507,14 +508,16 @@ jobs:
     - name: Uncompress java SDK
       run: tar -zxf ${{github.workspace}}/sdk/java.tar.gz -C
         ${{github.workspace}}/sdk/java
-    - name: Download go SDK
+    - name: Download Go split SDK
       uses: actions/download-artifact@v2
+      if: ${{ matrix.language == 'go' }}
       with:
-        name: nodejs-sdk.tar.gz
+        name: pulumi-azure-native-sdk.tar.gz
         path: ${{ github.workspace}}/sdk/
-    - name: Uncompress go SDK
-      run: tar -zxf ${{github.workspace}}/sdk/nodejs.tar.gz -C
-        ${{github.workspace}}/sdk/nodejs
+    - name: UnTar Go split SDK folder
+      if: ${{ matrix.language == 'go' }}
+      run: tar -zxf ${{ github.workspace}}/sdk/pulumi-azure-native-sdk.tar.gz -C ${{
+        github.workspace}}/sdk/pulumi-azure-native-sdk.tar.gz
     - name: Install Twine
       run: python -m pip install pip twine
     - name: Publish SDKs
