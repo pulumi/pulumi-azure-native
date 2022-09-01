@@ -22,6 +22,11 @@ env:
   TRAVIS_OS_NAME: linux
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   PULUMI_GO_DEP_ROOT: ${{ github.workspace }}/..
+  PUBLISH_REPO_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+  PUBLISH_REPO_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
+  SIGNING_KEY_ID: ${{ secrets.JAVA_SIGNING_KEY_ID }}
+  SIGNING_KEY: ${{ secrets.JAVA_SIGNING_KEY }}
+  SIGNING_PASSWORD: ${{ secrets.JAVA_SIGNING_PASSWORD }}
   ARM_CLIENT_ID: 30e520fa-12b4-4e21-b473-9426c5ac2e1e
   ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
   ARM_ENVIRONMENT: public
@@ -160,11 +165,14 @@ jobs:
         - "3.7"
         nodeversion:
         - 14.x
+        javaversion:
+        - "11"
         language:
         - nodejs
         - python
         - dotnet
         - go
+        - java
     name: build_sdks
     steps:
     - name: Checkout Repo
@@ -202,6 +210,12 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: ${{matrix.pythonversion}}
+    - name: Setup Java
+      uses: actions/setup-java@v3
+      with:
+        java-version: ${{matrix.javaversion}}
+        distribution: temurin
+        cache: gradle
     - name: Download provider + tfgen binaries
       if: ${{ matrix.language != 'dotnet' }}
       uses: actions/download-artifact@v2
@@ -259,11 +273,14 @@ jobs:
         - "3.7"
         nodeversion:
         - 14.x
+        javaversion:
+        - "11"
         language:
         - nodejs
         - python
         - dotnet
         - go
+        - java
     name: test
     steps:
     - name: Checkout Repo
@@ -301,6 +318,12 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: ${{matrix.pythonversion}}
+    - name: Setup Java
+      uses: actions/setup-java@v3
+      with:
+        java-version: ${{matrix.javaversion}}
+        distribution: temurin
+        cache: gradle
     - name: Download provider + tfgen binaries
       uses: actions/download-artifact@v2
       with:
@@ -350,12 +373,12 @@ jobs:
     if: github.event_name == 'repository_dispatch' ||
       github.event.pull_request.head.repo.full_name == github.repository
   sentinel:
-   if: github.event_name == 'repository_dispatch' ||
-       github.event.pull_request.head.repo.full_name == github.repository
-   name: sentinel
-   needs:
-     - test
-   runs-on: ubuntu-latest
-   steps:
-     - name: Is workflow a success
-       run: echo yes
+    runs-on: ubuntu-latest
+    name: sentinel
+    steps:
+    - name: Is workflow a success
+      run: echo yes
+    if: github.event_name == 'repository_dispatch' ||
+      github.event.pull_request.head.repo.full_name == github.repository
+    needs:
+    - test
