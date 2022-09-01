@@ -78,6 +78,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:Deployment"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:Deployment"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220401:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220901preview:Deployment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

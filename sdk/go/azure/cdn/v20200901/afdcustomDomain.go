@@ -49,6 +49,9 @@ func NewAFDCustomDomain(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:cdn/v20210601:AFDCustomDomain"),
 		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20220501preview:AFDCustomDomain"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AFDCustomDomain

@@ -116,7 +116,7 @@ export class AFDEndpoint extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cdn:AFDEndpoint" }, { type: "azure-native:cdn/v20210601:AFDEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn:AFDEndpoint" }, { type: "azure-native:cdn/v20210601:AFDEndpoint" }, { type: "azure-native:cdn/v20220501preview:AFDEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AFDEndpoint.__pulumiType, name, resourceInputs, opts);
     }

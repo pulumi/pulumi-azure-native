@@ -258,7 +258,7 @@ class Policy(pulumi.CustomResource):
             __props__.__dict__["resource_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cdn/v20190615:Policy"), pulumi.Alias(type_="azure-native:cdn/v20190615preview:Policy"), pulumi.Alias(type_="azure-native:cdn/v20200331:Policy"), pulumi.Alias(type_="azure-native:cdn/v20200415:Policy"), pulumi.Alias(type_="azure-native:cdn/v20200901:Policy"), pulumi.Alias(type_="azure-native:cdn/v20210601:Policy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cdn/v20190615:Policy"), pulumi.Alias(type_="azure-native:cdn/v20190615preview:Policy"), pulumi.Alias(type_="azure-native:cdn/v20200331:Policy"), pulumi.Alias(type_="azure-native:cdn/v20200415:Policy"), pulumi.Alias(type_="azure-native:cdn/v20200901:Policy"), pulumi.Alias(type_="azure-native:cdn/v20210601:Policy"), pulumi.Alias(type_="azure-native:cdn/v20220501preview:Policy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Policy, __self__).__init__(
             'azure-native:cdn:Policy',

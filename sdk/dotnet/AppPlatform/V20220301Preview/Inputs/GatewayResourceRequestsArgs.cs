@@ -29,6 +29,8 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview.Inputs
 
         public GatewayResourceRequestsArgs()
         {
+            Cpu = "1";
+            Memory = "2Gi";
         }
         public static new GatewayResourceRequestsArgs Empty => new GatewayResourceRequestsArgs();
     }

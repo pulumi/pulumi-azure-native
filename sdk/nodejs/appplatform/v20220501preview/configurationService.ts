@@ -83,7 +83,7 @@ export class ConfigurationService extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appplatform:ConfigurationService" }, { type: "azure-native:appplatform/v20220101preview:ConfigurationService" }, { type: "azure-native:appplatform/v20220301preview:ConfigurationService" }, { type: "azure-native:appplatform/v20220401:ConfigurationService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform:ConfigurationService" }, { type: "azure-native:appplatform/v20220101preview:ConfigurationService" }, { type: "azure-native:appplatform/v20220301preview:ConfigurationService" }, { type: "azure-native:appplatform/v20220401:ConfigurationService" }, { type: "azure-native:appplatform/v20220901preview:ConfigurationService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConfigurationService.__pulumiType, name, resourceInputs, opts);
     }

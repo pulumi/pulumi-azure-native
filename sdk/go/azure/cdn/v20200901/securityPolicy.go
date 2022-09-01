@@ -42,6 +42,9 @@ func NewSecurityPolicy(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:cdn/v20210601:SecurityPolicy"),
 		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20220501preview:SecurityPolicy"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SecurityPolicy

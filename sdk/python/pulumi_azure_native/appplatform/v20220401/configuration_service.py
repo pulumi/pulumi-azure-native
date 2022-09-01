@@ -151,7 +151,7 @@ class ConfigurationService(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform:ConfigurationService"), pulumi.Alias(type_="azure-native:appplatform/v20220101preview:ConfigurationService"), pulumi.Alias(type_="azure-native:appplatform/v20220301preview:ConfigurationService"), pulumi.Alias(type_="azure-native:appplatform/v20220501preview:ConfigurationService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform:ConfigurationService"), pulumi.Alias(type_="azure-native:appplatform/v20220101preview:ConfigurationService"), pulumi.Alias(type_="azure-native:appplatform/v20220301preview:ConfigurationService"), pulumi.Alias(type_="azure-native:appplatform/v20220501preview:ConfigurationService"), pulumi.Alias(type_="azure-native:appplatform/v20220901preview:ConfigurationService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConfigurationService, __self__).__init__(
             'azure-native:appplatform/v20220401:ConfigurationService',

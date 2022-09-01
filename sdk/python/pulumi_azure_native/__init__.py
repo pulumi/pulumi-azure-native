@@ -1861,6 +1861,29 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "appplatform/v20220901preview",
+  "fqn": "pulumi_azure_native.appplatform.v20220901preview",
+  "classes": {
+   "azure-native:appplatform/v20220901preview:ApiPortal": "ApiPortal",
+   "azure-native:appplatform/v20220901preview:ApiPortalCustomDomain": "ApiPortalCustomDomain",
+   "azure-native:appplatform/v20220901preview:App": "App",
+   "azure-native:appplatform/v20220901preview:Binding": "Binding",
+   "azure-native:appplatform/v20220901preview:BuildServiceBuilder": "BuildServiceBuilder",
+   "azure-native:appplatform/v20220901preview:BuildpackBinding": "BuildpackBinding",
+   "azure-native:appplatform/v20220901preview:Certificate": "Certificate",
+   "azure-native:appplatform/v20220901preview:ConfigurationService": "ConfigurationService",
+   "azure-native:appplatform/v20220901preview:CustomDomain": "CustomDomain",
+   "azure-native:appplatform/v20220901preview:Deployment": "Deployment",
+   "azure-native:appplatform/v20220901preview:Gateway": "Gateway",
+   "azure-native:appplatform/v20220901preview:GatewayCustomDomain": "GatewayCustomDomain",
+   "azure-native:appplatform/v20220901preview:GatewayRouteConfig": "GatewayRouteConfig",
+   "azure-native:appplatform/v20220901preview:Service": "Service",
+   "azure-native:appplatform/v20220901preview:ServiceRegistry": "ServiceRegistry",
+   "azure-native:appplatform/v20220901preview:Storage": "Storage"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "attestation",
   "fqn": "pulumi_azure_native.attestation",
   "classes": {
@@ -3520,6 +3543,28 @@ _utilities.register(
    "azure-native:cdn/v20210601:RuleSet": "RuleSet",
    "azure-native:cdn/v20210601:Secret": "Secret",
    "azure-native:cdn/v20210601:SecurityPolicy": "SecurityPolicy"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "cdn/v20220501preview",
+  "fqn": "pulumi_azure_native.cdn.v20220501preview",
+  "classes": {
+   "azure-native:cdn/v20220501preview:AFDCustomDomain": "AFDCustomDomain",
+   "azure-native:cdn/v20220501preview:AFDEndpoint": "AFDEndpoint",
+   "azure-native:cdn/v20220501preview:AFDOrigin": "AFDOrigin",
+   "azure-native:cdn/v20220501preview:AFDOriginGroup": "AFDOriginGroup",
+   "azure-native:cdn/v20220501preview:CustomDomain": "CustomDomain",
+   "azure-native:cdn/v20220501preview:Endpoint": "Endpoint",
+   "azure-native:cdn/v20220501preview:Origin": "Origin",
+   "azure-native:cdn/v20220501preview:OriginGroup": "OriginGroup",
+   "azure-native:cdn/v20220501preview:Policy": "Policy",
+   "azure-native:cdn/v20220501preview:Profile": "Profile",
+   "azure-native:cdn/v20220501preview:Route": "Route",
+   "azure-native:cdn/v20220501preview:Rule": "Rule",
+   "azure-native:cdn/v20220501preview:RuleSet": "RuleSet",
+   "azure-native:cdn/v20220501preview:Secret": "Secret",
+   "azure-native:cdn/v20220501preview:SecurityPolicy": "SecurityPolicy"
   }
  },
  {

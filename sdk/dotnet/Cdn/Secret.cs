@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.Cdn
                 {
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:Secret"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:Secret"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20220501preview:Secret"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

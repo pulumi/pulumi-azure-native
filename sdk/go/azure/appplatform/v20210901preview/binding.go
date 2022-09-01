@@ -60,6 +60,9 @@ func NewBinding(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:appplatform/v20220501preview:Binding"),
 		},
+		{
+			Type: pulumi.String("azure-native:appplatform/v20220901preview:Binding"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Binding
