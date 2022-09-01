@@ -4,6 +4,20 @@
 
 from .. import _utilities
 import typing
+# Export this package's modules as members:
+from ._enums import *
+from .agent_pool import *
+from .get_hybrid_identity_metadatum import *
+from .get_provisioned_cluster import *
+from .getagent_pool import *
+from .getstorage_space_retrieve import *
+from .getvirtual_network_retrieve import *
+from .hybrid_identity_metadatum import *
+from .provisioned_cluster import *
+from .storage_space_retrieve import *
+from .virtual_network_retrieve import *
+from ._inputs import *
+from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:

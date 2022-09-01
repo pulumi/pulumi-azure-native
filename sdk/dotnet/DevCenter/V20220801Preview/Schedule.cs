@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter:Schedule"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:Schedule"},
                 },
             };

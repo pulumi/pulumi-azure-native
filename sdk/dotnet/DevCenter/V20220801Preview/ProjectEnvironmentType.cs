@@ -106,6 +106,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter:ProjectEnvironmentType"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:ProjectEnvironmentType"},
                 },
             };

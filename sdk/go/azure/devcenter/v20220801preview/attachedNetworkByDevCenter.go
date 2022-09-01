@@ -42,6 +42,9 @@ func NewAttachedNetworkByDevCenter(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devcenter:AttachedNetworkByDevCenter"),
+		},
+		{
 			Type: pulumi.String("azure-native:devcenter/v20220901preview:AttachedNetworkByDevCenter"),
 		},
 	})

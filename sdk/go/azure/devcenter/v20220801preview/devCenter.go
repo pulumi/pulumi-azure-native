@@ -35,6 +35,9 @@ func NewDevCenter(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devcenter:DevCenter"),
+		},
+		{
 			Type: pulumi.String("azure-native:devcenter/v20220901preview:DevCenter"),
 		},
 	})

@@ -36,6 +36,12 @@ func NewEndpoint(ctx *pulumi.Context,
 	if args.StorageMoverName == nil {
 		return nil, errors.New("invalid value for required argument 'StorageMoverName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:storagemover:Endpoint"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Endpoint
 	err := ctx.RegisterResource("azure-native:storagemover/v20220701preview:Endpoint", name, args, &resource, opts...)
 	if err != nil {

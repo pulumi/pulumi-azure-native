@@ -37,6 +37,12 @@ func NewProvisionedCluster(ctx *pulumi.Context,
 	if args.Properties != nil {
 		args.Properties = args.Properties.ToProvisionedClustersAllPropertiesPtrOutput().ApplyT(func(v *ProvisionedClustersAllProperties) *ProvisionedClustersAllProperties { return v.Defaults() }).(ProvisionedClustersAllPropertiesPtrOutput)
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:hybridcontainerservice:ProvisionedCluster"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ProvisionedCluster
 	err := ctx.RegisterResource("azure-native:hybridcontainerservice/v20220501preview:ProvisionedCluster", name, args, &resource, opts...)
 	if err != nil {

@@ -94,6 +94,8 @@ export class StorageSpaceRetrieve extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridcontainerservice:storageSpaceRetrieve" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageSpaceRetrieve.__pulumiType, name, resourceInputs, opts);
     }
 }

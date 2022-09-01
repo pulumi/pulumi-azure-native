@@ -34,6 +34,12 @@ func NewProject(ctx *pulumi.Context,
 	if args.StorageMoverName == nil {
 		return nil, errors.New("invalid value for required argument 'StorageMoverName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:storagemover:Project"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Project
 	err := ctx.RegisterResource("azure-native:storagemover/v20220701preview:Project", name, args, &resource, opts...)
 	if err != nil {
