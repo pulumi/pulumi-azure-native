@@ -70,10 +70,7 @@ func main() {
 				break
 			}
 			// Also, emit the resource metadata for the provider.
-			if err = emitMetadata(meta, arm2pulumiDir, "main"); err != nil {
-				break
-			}
-			err = emitDefaultVersions(azureProviders, path.Join(".", "azure-provider-versions"))
+			err = emitMetadata(meta, arm2pulumiDir, "main")
 
 		case "docs":
 			outdir := path.Join(".", "provider", "cmd", "pulumi-resource-azure-native")
@@ -206,40 +203,6 @@ func emitMetadata(metadata *resources.AzureAPIMetadata, outDir string, goPackage
 	}
 
 	return nil
-}
-
-func emitDefaultVersions(azureProviders openapi.AzureProviders, outDir string) error {
-	minVersions := make(map[string]string)
-	summary := make(map[string]map[string]string)
-	for providerName, pkgSpec := range azureProviders {
-		minVersion := ""
-		providerSummary := make(map[string]string)
-		for k, resource := range pkgSpec[""].Resources {
-			version := resource.Swagger.Info.Version
-			providerSummary[k] = resource.Swagger.Info.Version
-			if minVersion == "" || version < minVersion {
-				minVersion = version
-			}
-		}
-		for k, invoke := range pkgSpec[""].Invokes {
-			version := invoke.Swagger.Info.Version
-			providerSummary[k] = invoke.Swagger.Info.Version
-			if minVersion == "" || version < minVersion {
-				minVersion = version
-			}
-		}
-		summary[providerName] = providerSummary
-		minVersions[providerName] = minVersion
-	}
-
-	minContent, _ := json.MarshalIndent(minVersions, "", "    ")
-	emitFile(outDir, "min_versions.json", minContent)
-
-	content, err := json.MarshalIndent(summary, "", "    ")
-	if err != nil {
-		return err
-	}
-	return emitFile(outDir, "default_versions.json", content)
 }
 
 func generate(ppkg *schema.Package, language string) (map[string][]byte, error) {
