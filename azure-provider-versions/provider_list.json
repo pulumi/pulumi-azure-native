@@ -2560,6 +2560,53 @@
     ]
   },
   {
+    "namespace": "Microsoft.AzureSphereV2",
+    "resourceTypes": [
+      {
+        "resourceType": "catalogs",
+        "apiVersions": [
+          "2022-09-01-privatepreview"
+        ]
+      },
+      {
+        "resourceType": "catalogs/certificates",
+        "apiVersions": [
+          "2022-09-01-privatepreview"
+        ]
+      },
+      {
+        "resourceType": "catalogs/deviceRegistrations",
+        "apiVersions": [
+          "2022-09-01-privatepreview"
+        ]
+      },
+      {
+        "resourceType": "catalogs/provisioningPackages",
+        "apiVersions": [
+          "2022-09-01-privatepreview"
+        ]
+      },
+      {
+        "resourceType": "locations",
+        "apiVersions": [
+          "2022-09-01-privatepreview"
+        ]
+      },
+      {
+        "resourceType": "locations/operationStatuses",
+        "apiVersions": [
+          "2022-09-01-privatepreview"
+        ]
+      },
+      {
+        "resourceType": "operations",
+        "apiVersions": [
+          "2022-09-01-privatepreview"
+        ]
+      }
+    ]
+  },
+  {
     "namespace": "Microsoft.AzureStack",
     "resourceTypes": [
       {
@@ -14448,7 +14495,9 @@
           "2021-06-01-preview",
           "2021-01-01-preview",
           "2018-01-01-preview",
-          "2017-04-01"
+          "2017-04-01",
+          "2015-08-01",
+          "2014-09-01"
         ]
       },
       {
@@ -27438,7 +27487,9 @@
           "2021-06-01-preview",
           "2021-01-01-preview",
           "2018-01-01-preview",
-          "2017-04-01"
+          "2017-04-01",
+          "2015-08-01",
+          "2014-09-01"
         ]
       },
       {
