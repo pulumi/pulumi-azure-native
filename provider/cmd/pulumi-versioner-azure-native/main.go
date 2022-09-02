@@ -81,7 +81,7 @@ func handleCommand(args []string, outputDir, versionFile string) error {
 }
 
 func writeAll(outputDir string) error {
-	providers, err := openapi.SpecVersions()
+	providers, err := openapi.SpecVersions("*")
 	if err != nil {
 		return err
 	}
@@ -94,7 +94,17 @@ func writeAll(outputDir string) error {
 	specVersions := versioning.FindSpecVersions(providers)
 	specResourceVersions := versioning.FormatResourceVersions(specVersions)
 	activePathVersionsJson := providerlist.FormatProviderPathVersionsJson(activePathVersions)
-	v1 := openapi.CalculateProviderDefaults(activePathVersions, providers)
+
+	v1Config, err := versioning.ReadDefaultConfig(path.Join(outputDir, "v1-config.yaml"))
+	if err != nil {
+		return err
+	}
+
+	v1, err := versioning.DefaultConfigToCuratedVersion(specVersions, v1Config)
+	if err != nil {
+		return err
+	}
+
 	deprecated := versioning.FindDeprecations(specVersions, v1)
 	pending := versioning.FindNewerVersions(specVersions, v1)
 	specAfterRemovals := versioning.RemoveDeprecations(specVersions, deprecated)
@@ -119,7 +129,7 @@ func writeAll(outputDir string) error {
 }
 
 func spec(outputDir string) error {
-	providers, err := openapi.SpecVersions()
+	providers, err := openapi.SpecVersions("*")
 	if err != nil {
 		return err
 	}

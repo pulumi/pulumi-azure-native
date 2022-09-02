@@ -58,6 +58,12 @@ func NewJobDefinition(ctx *pulumi.Context,
 	if args.TargetName == nil {
 		return nil, errors.New("invalid value for required argument 'TargetName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:storagemover:JobDefinition"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource JobDefinition
 	err := ctx.RegisterResource("azure-native:storagemover/v20220701preview:JobDefinition", name, args, &resource, opts...)
 	if err != nil {

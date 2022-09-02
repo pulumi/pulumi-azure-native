@@ -36,6 +36,9 @@ func NewProject(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devcenter:Project"),
+		},
+		{
 			Type: pulumi.String("azure-native:devcenter/v20220901preview:Project"),
 		},
 	})

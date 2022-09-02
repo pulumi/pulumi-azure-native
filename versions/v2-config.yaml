@@ -227,6 +227,8 @@ DeploymentManager:
     tracking: 2019-11-01-preview
 DesktopVirtualization:
     tracking: "2021-07-12"
+DevCenter:
+  tracking: 2022-09-01-preview
 DevHub:
     tracking: 2022-04-01-preview
 DevOps:
@@ -298,6 +300,8 @@ HybridCompute:
     tracking: "2022-03-10"
 HybridConnectivity:
     tracking: 2022-05-01-preview
+HybridContainerService:
+  tracking: 2022-05-01-preview
 HybridData:
     tracking: "2019-06-01"
 HybridNetwork:
@@ -615,16 +619,6 @@ RecoveryServices:
         ProtectionContainer: "2022-03-01"
         ProtectionIntent: "2022-03-01"
         ProtectionPolicy: "2022-03-01"
-        ReplicationFabric: "2022-03-01"
-        ReplicationMigrationItem: "2022-03-01"
-        ReplicationNetworkMapping: "2022-03-01"
-        ReplicationPolicy: "2022-03-01"
-        ReplicationProtectedItem: "2022-03-01"
-        ReplicationProtectionContainerMapping: "2022-03-01"
-        ReplicationRecoveryPlan: "2022-03-01"
-        ReplicationRecoveryServicesProvider: "2022-03-01"
-        ReplicationStorageClassificationMapping: "2022-03-01"
-        ReplicationvCenter: "2022-03-01"
         ResourceGuardProxy: "2022-03-01"
         getRecoveryPointAccessToken: "2021-11-15"
 RedHatOpenShift:
@@ -705,6 +699,8 @@ Storage:
     tracking: "2021-09-01"
 StorageCache:
     tracking: "2022-05-01"
+StorageMover:
+  tracking: 2022-07-01-preview
 StoragePool:
     tracking: "2021-08-01"
 StorageSync:

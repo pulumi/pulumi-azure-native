@@ -33,6 +33,12 @@ func NewVirtualNetworkRetrieve(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:hybridcontainerservice:virtualNetworkRetrieve"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource VirtualNetworkRetrieve
 	err := ctx.RegisterResource("azure-native:hybridcontainerservice/v20220501preview:virtualNetworkRetrieve", name, args, &resource, opts...)
 	if err != nil {

@@ -50,6 +50,12 @@ func NewAgent(ctx *pulumi.Context,
 	if args.StorageMoverName == nil {
 		return nil, errors.New("invalid value for required argument 'StorageMoverName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:storagemover:Agent"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Agent
 	err := ctx.RegisterResource("azure-native:storagemover/v20220701preview:Agent", name, args, &resource, opts...)
 	if err != nil {

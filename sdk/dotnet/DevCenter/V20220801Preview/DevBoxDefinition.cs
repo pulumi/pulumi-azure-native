@@ -112,6 +112,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter:DevBoxDefinition"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:DevBoxDefinition"},
                 },
             };

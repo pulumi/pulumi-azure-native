@@ -7515,6 +7515,24 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "devcenter",
+  "fqn": "pulumi_azure_native.devcenter",
+  "classes": {
+   "azure-native:devcenter:AttachedNetworkByDevCenter": "AttachedNetworkByDevCenter",
+   "azure-native:devcenter:Catalog": "Catalog",
+   "azure-native:devcenter:DevBoxDefinition": "DevBoxDefinition",
+   "azure-native:devcenter:DevCenter": "DevCenter",
+   "azure-native:devcenter:EnvironmentType": "EnvironmentType",
+   "azure-native:devcenter:Gallery": "Gallery",
+   "azure-native:devcenter:NetworkConnection": "NetworkConnection",
+   "azure-native:devcenter:Pool": "Pool",
+   "azure-native:devcenter:Project": "Project",
+   "azure-native:devcenter:ProjectEnvironmentType": "ProjectEnvironmentType",
+   "azure-native:devcenter:Schedule": "Schedule"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "devcenter/v20220801preview",
   "fqn": "pulumi_azure_native.devcenter.v20220801preview",
   "classes": {
@@ -10072,6 +10090,18 @@ _utilities.register(
   "fqn": "pulumi_azure_native.hybridconnectivity.v20220501preview",
   "classes": {
    "azure-native:hybridconnectivity/v20220501preview:Endpoint": "Endpoint"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "hybridcontainerservice",
+  "fqn": "pulumi_azure_native.hybridcontainerservice",
+  "classes": {
+   "azure-native:hybridcontainerservice:HybridIdentityMetadatum": "HybridIdentityMetadatum",
+   "azure-native:hybridcontainerservice:ProvisionedCluster": "ProvisionedCluster",
+   "azure-native:hybridcontainerservice:agentPool": "AgentPool",
+   "azure-native:hybridcontainerservice:storageSpaceRetrieve": "StorageSpaceRetrieve",
+   "azure-native:hybridcontainerservice:virtualNetworkRetrieve": "VirtualNetworkRetrieve"
   }
  },
  {
@@ -20338,6 +20368,18 @@ _utilities.register(
   "classes": {
    "azure-native:storagecache/v20220501:Cache": "Cache",
    "azure-native:storagecache/v20220501:StorageTarget": "StorageTarget"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "storagemover",
+  "fqn": "pulumi_azure_native.storagemover",
+  "classes": {
+   "azure-native:storagemover:Agent": "Agent",
+   "azure-native:storagemover:Endpoint": "Endpoint",
+   "azure-native:storagemover:JobDefinition": "JobDefinition",
+   "azure-native:storagemover:Project": "Project",
+   "azure-native:storagemover:StorageMover": "StorageMover"
   }
  },
  {

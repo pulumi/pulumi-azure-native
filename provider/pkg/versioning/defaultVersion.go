@@ -10,6 +10,7 @@ import (
 	"io/ioutil"
 	"os"
 	"sort"
+	"strings"
 	"time"
 )
 
@@ -52,24 +53,36 @@ func ReadDefaultConfig(path string) (DefaultConfig, error) {
 func DefaultConfigToCuratedVersion(spec SpecVersions, defaultConfig DefaultConfig) (openapi.CuratedVersion, error) {
 	var err error
 	curatedVersion := openapi.CuratedVersion{}
-	for providerName, providerSpec := range defaultConfig {
+	for providerName, versionResources := range spec {
 		definitions := map[openapi.DefinitionName]openapi.ApiVersion{}
+		providerSpec, ok := defaultConfig[providerName]
+		if !ok {
+			if len(versionResources) > 0 {
+				var versions []string
+				for version, _ := range versionResources {
+					versions = append(versions, version)
+				}
+				err = multierror.Append(err, fmt.Errorf("no version specified for %s, available versions: %s", providerName, strings.Join(versions, ", ")))
+				continue
+			}
+		}
 		if providerSpec.Tracking != nil {
-			for _, resourceName := range spec[providerName][*providerSpec.Tracking] {
+			for _, resourceName := range versionResources[*providerSpec.Tracking] {
 				definitions[resourceName] = *providerSpec.Tracking
 			}
 		}
 		if providerSpec.Additions != nil {
 			for resourceName, apiVersion := range *providerSpec.Additions {
 				if existingVersion, ok := definitions[resourceName]; ok {
-					err = multierror.Append(fmt.Errorf("duplicate resource %s from %s and %s\n", resourceName, apiVersion, existingVersion))
+					err = multierror.Append(err, fmt.Errorf("duplicate resource %s:%s from %s and %s", providerName, resourceName, apiVersion, existingVersion))
+				} else {
+					definitions[resourceName] = apiVersion
 				}
-				definitions[resourceName] = apiVersion
 			}
 		}
 		curatedVersion[providerName] = definitions
 	}
-	return curatedVersion, err
+	return curatedVersion, multierror.Flatten(err)
 }
 
 func buildSpec(versions VersionResources) ProviderSpec {

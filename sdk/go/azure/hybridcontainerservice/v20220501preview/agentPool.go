@@ -58,6 +58,12 @@ func NewAgentPool(ctx *pulumi.Context,
 	if isZero(args.OsType) {
 		args.OsType = pulumi.StringPtr("Linux")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:hybridcontainerservice:agentPool"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource AgentPool
 	err := ctx.RegisterResource("azure-native:hybridcontainerservice/v20220501preview:agentPool", name, args, &resource, opts...)
 	if err != nil {
