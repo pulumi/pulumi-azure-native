@@ -1303,7 +1303,6 @@
         "NetworkWatcher": "2020-11-01",
         "NspAccessRule": "2021-02-01-preview",
         "NspAssociation": "2021-02-01-preview",
-        "NspAssociationsProxy": "2021-02-01-preview",
         "NspProfile": "2021-02-01-preview",
         "OutboundEndpoint": "2020-04-01-preview",
         "P2sVpnGateway": "2020-11-01",
