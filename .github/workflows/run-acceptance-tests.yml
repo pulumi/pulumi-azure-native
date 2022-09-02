@@ -351,6 +351,9 @@ jobs:
       with:
         name: ${{ matrix.language }}-sdk.tar.gz
         path: ${{ github.workspace}}/sdk/
+    - name: UnTar SDK folder
+      run: tar -zxf ${{ github.workspace}}/sdk/${{ matrix.language}}.tar.gz -C ${{
+        github.workspace}}/sdk/${{ matrix.language}}
     - name: Download Go split SDK
       uses: actions/download-artifact@v2
       if: ${{ matrix.language == 'go' }}
