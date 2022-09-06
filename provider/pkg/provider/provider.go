@@ -162,10 +162,6 @@ func (p *azureNativeProvider) Attach(context context.Context, req *rpc.PluginAtt
 func (k *azureNativeProvider) Configure(ctx context.Context,
 	req *rpc.ConfigureRequest) (*rpc.ConfigureResponse, error) {
 
-	if err := assertAzVersion(); err != nil {
-		return nil, errors.Wrap(err, "checking az version")
-	}
-
 	for key, val := range req.GetVariables() {
 		k.config[strings.TrimPrefix(key, "azure-native:config:")] = val
 	}
@@ -201,58 +197,6 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	return &rpc.ConfigureResponse{
 		SupportsPreview: true,
 	}, nil
-}
-
-func assertAzVersion() error {
-	const versionHint = "Please make sure the Azure CLI 2.37 or greater, but less than 3.x, is installed."
-
-	_, err := exec.LookPath("az")
-	if err != nil {
-		return fmt.Errorf("could not find `az`. %s", versionHint)
-	}
-
-	var azVersion struct {
-		Cli string `json:"azure-cli"`
-	}
-	err = jsonUnmarshalAzCmd(&azVersion, "version")
-	if err != nil {
-		return errors.Wrap(err, fmt.Sprintf("could not determine az version. %s", versionHint))
-	}
-
-	actual, err := goversion.NewVersion(azVersion.Cli)
-	if err != nil {
-		return fmt.Errorf("could not parse az version %q: %+v. %s", azVersion.Cli, err, versionHint)
-	}
-
-	if actual.LessThan(minAzVersion) || actual.GreaterThanOrEqual(nextMajorAzVersion) {
-		return fmt.Errorf("found incompatible az version %s. %s", actual, versionHint)
-	}
-
-	return nil
-}
-
-func jsonUnmarshalAzCmd(i interface{}, arg ...string) error {
-	var stderr bytes.Buffer
-	var stdout bytes.Buffer
-
-	cmd := exec.Command("az", arg...)
-
-	cmd.Stderr = &stderr
-	cmd.Stdout = &stdout
-
-	if err := cmd.Run(); err != nil {
-		err := fmt.Errorf("running az: %+v", err)
-		if stdErrStr := stderr.String(); stdErrStr != "" {
-			err = fmt.Errorf("%s: %s", err, strings.TrimSpace(stdErrStr))
-		}
-		return err
-	}
-
-	if err := json.Unmarshal(stdout.Bytes(), i); err != nil {
-		return fmt.Errorf("unmarshaling the result of Azure CLI: %v", err)
-	}
-
-	return nil
 }
 
 // Invoke dynamically executes a built-in function in the provider.
@@ -1747,18 +1691,31 @@ func (k *azureNativeProvider) getAuthConfig() (*authentication.Config, error) {
 			return nil, errors.Wrapf(err, "failed to unmarshal '%s' as Auxiliary Tenants", auxTenantsString)
 		}
 	}
-	useMsi := k.getConfig("useMsi", "ARM_USE_MSI") == "true"
 	envName := k.getConfig("environment", "ARM_ENVIRONMENT")
 	if envName == "" {
 		envName = "public"
 	}
+
+	useMsi := k.getConfig("useMsi", "ARM_USE_MSI") == "true"
+	clientSecret := k.getConfig("clientSecret", "ARM_CLIENT_SECRET")
+	clientCertPath := k.getConfig("clientCertificatePath", "ARM_CLIENT_CERTIFICATE_PATH")
+	// Without either of those, we need the `az` CLI to authenticate. Check that we have a good
+	// version (#1565). The check needs to happen before builder.Build(), or we return the less
+	// fitting error message from go-azure-helpers.
+	if !useMsi && clientSecret == "" && clientCertPath == "" {
+		err := assertAzVersion()
+		if err != nil {
+			return nil, err
+		}
+	}
+
 	builder := &authentication.Builder{
 		SubscriptionID: k.getConfig("subscriptionId", "ARM_SUBSCRIPTION_ID"),
 		ClientID:       k.getConfig("clientId", "ARM_CLIENT_ID"),
-		ClientSecret:   k.getConfig("clientSecret", "ARM_CLIENT_SECRET"),
+		ClientSecret:   clientSecret,
 		TenantID:       k.getConfig("tenantId", "ARM_TENANT_ID"),
 		Environment:    envName,
-		ClientCertPath: k.getConfig("clientCertificatePath", "ARM_CLIENT_CERTIFICATE_PATH"),
+		ClientCertPath: clientCertPath,
 		ClientCertPassword: k.getConfig("clientCertificatePassword",
 			"ARM_CLIENT_CERTIFICATE_PASSWORD"),
 		MsiEndpoint:          k.getConfig("msiEndpoint", "ARM_MSI_ENDPOINT"),
@@ -1774,6 +1731,58 @@ func (k *azureNativeProvider) getAuthConfig() (*authentication.Config, error) {
 	}
 
 	return builder.Build()
+}
+
+func assertAzVersion() error {
+	const versionHint = "Please make sure the Azure CLI 2.37 or greater, but less than 3.x, is installed or configure another authentication method."
+
+	_, err := exec.LookPath("az")
+	if err != nil {
+		return fmt.Errorf("could not find `az`. %s", versionHint)
+	}
+
+	var azVersion struct {
+		Cli string `json:"azure-cli"`
+	}
+	err = jsonUnmarshalAzCmd(&azVersion, "version")
+	if err != nil {
+		return errors.Wrap(err, fmt.Sprintf("could not determine az version. %s", versionHint))
+	}
+
+	actual, err := goversion.NewVersion(azVersion.Cli)
+	if err != nil {
+		return fmt.Errorf("could not parse az version %q: %+v. %s", azVersion.Cli, err, versionHint)
+	}
+
+	if actual.LessThan(minAzVersion) || actual.GreaterThanOrEqual(nextMajorAzVersion) {
+		return fmt.Errorf("found incompatible az version %s. %s", actual, versionHint)
+	}
+
+	return nil
+}
+
+func jsonUnmarshalAzCmd(i interface{}, arg ...string) error {
+	var stderr bytes.Buffer
+	var stdout bytes.Buffer
+
+	cmd := exec.Command("az", arg...)
+
+	cmd.Stderr = &stderr
+	cmd.Stdout = &stdout
+
+	if err := cmd.Run(); err != nil {
+		err := fmt.Errorf("running az: %+v", err)
+		if stdErrStr := stderr.String(); stdErrStr != "" {
+			err = fmt.Errorf("%s: %s", err, strings.TrimSpace(stdErrStr))
+		}
+		return err
+	}
+
+	if err := json.Unmarshal(stdout.Bytes(), i); err != nil {
+		return fmt.Errorf("unmarshaling the result of Azure CLI: %v", err)
+	}
+
+	return nil
 }
 
 func (k *azureNativeProvider) getAuthorizers(authConfig *authentication.Config) (tokenAuth autorest.Authorizer,
