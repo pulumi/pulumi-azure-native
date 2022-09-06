@@ -40,7 +40,13 @@ func main() {
 		version = os.Args[2]
 	}
 
-	azureProviders := openapi.AllVersions()
+	// Use DEBUG_CODEGEN to just generate a single namespace (e.g. "Compute") for quick testing
+	namespaces := os.Getenv("DEBUG_CODEGEN_NAMESPACES")
+	if namespaces == "" {
+		namespaces = "*"
+	}
+
+	azureProviders := openapi.ReadVersions(namespaces)
 
 	pkgSpec, meta, _, err := gen.PulumiSchema(azureProviders)
 	if err != nil {
