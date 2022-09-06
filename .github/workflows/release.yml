@@ -444,11 +444,6 @@ jobs:
       with:
         path: ci-scripts
         repository: pulumi/scripts
-    - name: Checkout Go SDK repo
-      uses: actions/checkout@v2
-      with:
-        repository: pulumi/pulumi-azure-native-sdk
-        path: sdk/pulumi-azure-native-sdk
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
@@ -512,14 +507,17 @@ jobs:
     - name: Uncompress java SDK
       run: tar -zxf ${{github.workspace}}/sdk/java.tar.gz -C
         ${{github.workspace}}/sdk/java
+    - name: Checkout Go SDK repo
+      uses: actions/checkout@v2
+      with:
+        repository: pulumi/pulumi-azure-native-sdk
+        path: sdk/pulumi-azure-native-sdk
     - name: Download Go split SDK
       uses: actions/download-artifact@v2
-      if: ${{ matrix.language == 'go' }}
       with:
         name: pulumi-azure-native-sdk.tar.gz
         path: ${{ github.workspace}}/sdk/
     - name: UnTar Go split SDK folder
-      if: ${{ matrix.language == 'go' }}
       run: |
         mkdir -p ${{github.workspace}}/sdk/pulumi-azure-native-sdk
         tar -zxf ${{ github.workspace}}/sdk/pulumi-azure-native-sdk.tar.gz -C ${{github.workspace}}/sdk/pulumi-azure-native-sdk

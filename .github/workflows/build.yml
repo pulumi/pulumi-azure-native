@@ -509,14 +509,17 @@ jobs:
     - name: Uncompress java SDK
       run: tar -zxf ${{github.workspace}}/sdk/java.tar.gz -C
         ${{github.workspace}}/sdk/java
+    - name: Checkout Go SDK repo
+      uses: actions/checkout@v2
+      with:
+        repository: pulumi/pulumi-azure-native-sdk
+        path: sdk/pulumi-azure-native-sdk
     - name: Download Go split SDK
       uses: actions/download-artifact@v2
-      if: ${{ matrix.language == 'go' }}
       with:
         name: pulumi-azure-native-sdk.tar.gz
         path: ${{ github.workspace}}/sdk/
     - name: UnTar Go split SDK folder
-      if: ${{ matrix.language == 'go' }}
       run: |
         mkdir -p ${{github.workspace}}/sdk/pulumi-azure-native-sdk
         tar -zxf ${{ github.workspace}}/sdk/pulumi-azure-native-sdk.tar.gz -C ${{github.workspace}}/sdk/pulumi-azure-native-sdk
@@ -535,6 +538,17 @@ jobs:
         arguments: publishToSonatype closeAndReleaseSonatypeStagingRepository
         build-root-directory: ./sdk/java
         gradle-version: 7.4.1
+    - name: Publish Split Go SDK
+      run: |
+        VERSION="v$(pulumictl get version --language generic)"
+        make prepublish_go
+        cd sdk/pulumi-azure-native-sdk
+        git add .
+        git commit -m "$VERSION"
+        git tag "$VERSION"
+        # Find go.mod's, get parent dir name, concat with version, set as a tag
+        find */go.mod -type f -exec sh -c "dirname {} | xargs basename | xargs printf "%s/$VERSION" | xargs git tag" \;
+        git push origin --tags
     - if: failure() && github.event_name == 'push'
       name: Notify Slack
       uses: 8398a7/action-slack@v3
