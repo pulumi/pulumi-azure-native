@@ -128,6 +128,8 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
     - name: Build Provider
       run: make provider
+    - name: Build Versioner
+      run: make versioner
     - name: Check worktree clean
       run: ./ci-scripts/ci/check-worktree-is-clean
     - run: git status --porcelain
