@@ -1081,6 +1081,31 @@
       "getBuildServiceResourceUploadUrl",
       "getDeploymentLogFileUrl",
       "listServiceTestKeys"
+    ],
+    "2022-09-01-preview": [
+      "ApiPortal",
+      "ApiPortalCustomDomain",
+      "App",
+      "Binding",
+      "BuildServiceBuilder",
+      "BuildpackBinding",
+      "Certificate",
+      "ConfigurationService",
+      "CustomDomain",
+      "Deployment",
+      "Gateway",
+      "GatewayCustomDomain",
+      "GatewayRouteConfig",
+      "Service",
+      "ServiceRegistry",
+      "Storage",
+      "getAppResourceUploadUrl",
+      "getBuildServiceBuildResultLog",
+      "getBuildServiceResourceUploadUrl",
+      "getDeploymentLogFileUrl",
+      "getDeploymentRemoteDebuggingConfig",
+      "listBuildServiceBuilderDeployments",
+      "listServiceTestKeys"
     ]
   },
   "Attestation": {
@@ -1491,6 +1516,11 @@
       "ArcSetting",
       "Cluster",
       "Extension"
+    ],
+    "2022-09-01": [
+      "ArcSetting",
+      "Cluster",
+      "Extension"
     ]
   },
   "BareMetalInfrastructure": {
@@ -1894,6 +1924,24 @@
       "getProfileSupportedOptimizationTypes"
     ],
     "2021-06-01": [
+      "AFDCustomDomain",
+      "AFDEndpoint",
+      "AFDOrigin",
+      "AFDOriginGroup",
+      "CustomDomain",
+      "Endpoint",
+      "Origin",
+      "OriginGroup",
+      "Policy",
+      "Profile",
+      "Route",
+      "Rule",
+      "RuleSet",
+      "Secret",
+      "SecurityPolicy",
+      "getProfileSupportedOptimizationTypes"
+    ],
+    "2022-05-01-preview": [
       "AFDCustomDomain",
       "AFDEndpoint",
       "AFDOrigin",
@@ -5059,6 +5107,33 @@
       "listDatabaseAccountConnectionStrings",
       "listDatabaseAccountKeys",
       "listNotebookWorkspaceConnectionInfo"
+    ],
+    "2022-08-15": [
+      "CassandraCluster",
+      "CassandraDataCenter",
+      "CassandraResourceCassandraKeyspace",
+      "CassandraResourceCassandraTable",
+      "DatabaseAccount",
+      "GremlinResourceGremlinDatabase",
+      "GremlinResourceGremlinGraph",
+      "MongoDBResourceMongoDBCollection",
+      "MongoDBResourceMongoDBDatabase",
+      "MongoDBResourceMongoRoleDefinition",
+      "MongoDBResourceMongoUserDefinition",
+      "NotebookWorkspace",
+      "PrivateEndpointConnection",
+      "Service",
+      "SqlResourceSqlContainer",
+      "SqlResourceSqlDatabase",
+      "SqlResourceSqlRoleAssignment",
+      "SqlResourceSqlRoleDefinition",
+      "SqlResourceSqlStoredProcedure",
+      "SqlResourceSqlTrigger",
+      "SqlResourceSqlUserDefinedFunction",
+      "TableResourceTable",
+      "listDatabaseAccountConnectionStrings",
+      "listDatabaseAccountKeys",
+      "listNotebookWorkspaceConnectionInfo"
     ]
   },
   "DomainRegistration": {
@@ -5155,6 +5230,12 @@
       "OrderItemByName",
       "listConfigurations",
       "listProductFamilies"
+    ],
+    "2022-05-01-preview": [
+      "Address",
+      "OrderItem",
+      "listProductsAndConfigurationProductFamilies",
+      "listProductsAndConfigurations"
     ]
   },
   "EdgeOrderPartner": {
@@ -6074,6 +6155,7 @@
       "ActionGroup"
     ],
     "2022-06-15": [
+      "ScheduledQueryRule",
       "WebTest"
     ],
     "2022-10-01": [
@@ -7233,9 +7315,22 @@
       "listStreamingLocatorPaths"
     ],
     "2022-08-01": [
+      "AccountFilter",
+      "Asset",
+      "AssetFilter",
+      "ContentKeyPolicy",
       "LiveEvent",
       "LiveOutput",
-      "StreamingEndpoint"
+      "StreamingEndpoint",
+      "StreamingLocator",
+      "StreamingPolicy",
+      "Track",
+      "getAssetEncryptionKey",
+      "getContentKeyPolicyPropertiesWithSecrets",
+      "listAssetContainerSas",
+      "listAssetStreamingLocators",
+      "listStreamingLocatorContentKeys",
+      "listStreamingLocatorPaths"
     ]
   },
   "Migrate": {
@@ -9531,7 +9626,6 @@
       "NetworkSecurityPerimeter",
       "NspAccessRule",
       "NspAssociation",
-      "NspAssociationsProxy",
       "NspProfile",
       "SecurityAdminConfiguration",
       "SecurityUserConfiguration",
@@ -11419,6 +11513,30 @@
       "WatchlistItem"
     ],
     "2022-08-01-preview": [
+      "Action",
+      "AlertRule",
+      "AutomationRule",
+      "Bookmark",
+      "BookmarkRelation",
+      "DataConnector",
+      "EntityQuery",
+      "FileImport",
+      "Incident",
+      "IncidentComment",
+      "IncidentRelation",
+      "Metadata",
+      "ProductSetting",
+      "SecurityMLAnalyticsSetting",
+      "SentinelOnboardingState",
+      "SourceControl",
+      "ThreatIntelligenceIndicator",
+      "Watchlist",
+      "WatchlistItem",
+      "getEntitiesGetTimeline",
+      "getEntityInsights",
+      "listSourceControlRepositories"
+    ],
+    "2022-09-01-preview": [
       "Action",
       "AlertRule",
       "AutomationRule",

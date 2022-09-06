@@ -60,7 +60,8 @@
     "2022-01-01-preview",
     "2022-03-01-preview",
     "2022-04-01",
-    "2022-05-01-preview"
+    "2022-05-01-preview",
+    "2022-09-01-preview"
   ],
   "Attestation": [
     "2021-06-01-preview"
@@ -129,7 +130,8 @@
     "2021-09-01",
     "2022-01-01",
     "2022-03-01",
-    "2022-05-01"
+    "2022-05-01",
+    "2022-09-01"
   ],
   "BareMetalInfrastructure": [],
   "Batch": [
@@ -160,7 +162,8 @@
   ],
   "Capacity": [],
   "Cdn": [
-    "2021-06-01"
+    "2021-06-01",
+    "2022-05-01-preview"
   ],
   "CertificateRegistration": [
     "2020-12-01",
@@ -440,7 +443,8 @@
     "2021-11-15-preview",
     "2022-02-15-preview",
     "2022-05-15",
-    "2022-05-15-preview"
+    "2022-05-15-preview",
+    "2022-08-15"
   ],
   "DomainRegistration": [
     "2020-12-01",
@@ -452,7 +456,9 @@
   ],
   "Dynamics365Fraudprotection": [],
   "DynamicsTelemetry": [],
-  "EdgeOrder": [],
+  "EdgeOrder": [
+    "2022-05-01-preview"
+  ],
   "EdgeOrderPartner": [],
   "Education": [],
   "Elastic": [
@@ -931,7 +937,8 @@
     "2022-06-01-preview",
     "2022-07-01-preview",
     "2022-08-01",
-    "2022-08-01-preview"
+    "2022-08-01-preview",
+    "2022-09-01-preview"
   ],
   "SerialConsole": [],
   "ServiceBus": [
