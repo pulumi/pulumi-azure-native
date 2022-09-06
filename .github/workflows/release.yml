@@ -539,8 +539,9 @@ jobs:
         build-root-directory: ./sdk/java
         gradle-version: 7.4.1
     - name: Publish Split Go SDK
-      run: >-
+      run: |
         VERSION="v$(pulumictl get version --language generic)"
+        make prepublish_go
         cd sdk/pulumi-azure-native-sdk
         git add .
         git commit -m "$VERSION"
