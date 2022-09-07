@@ -201,8 +201,10 @@ build_go::
 	find sdk/pulumi-azure-native-sdk -type d -maxdepth 1 -exec sh -c "cd \"{}\" && go mod tidy && go build" \;
 
 prepublish_go:
-	find sdk/pulumi-azure-native-sdk -name go.mod -type f -maxdepth 2 -exec sed -i '' '/replace github\.com\/pulumi\/pulumi-azure-native-sdk /d' {} \;
-	find sdk/pulumi-azure-native-sdk -name go.sum -type f -maxdepth 2 -exec rm "{}" \;
+	@# must use `sed -i -e` to be portable - but leaves go.mod-e behind on macos
+	find sdk/pulumi-azure-native-sdk -maxdepth 2 -type f -name go.mod -exec sed -i -e '/replace github\.com\/pulumi\/pulumi-azure-native-sdk /d' {} \;
+	find sdk/pulumi-azure-native-sdk -maxdepth 2 -type f -name go.mod-e -delete
+	find sdk/pulumi-azure-native-sdk -maxdepth 2 -type f -name go.sum -delete
 
 clean::
 	rm -rf $$(find sdk/nodejs -mindepth 1 -maxdepth 1 ! -name "go.mod")
