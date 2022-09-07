@@ -156,7 +156,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci:Cluster" }, { type: "azure-native:azurestackhci/v20201001:Cluster" }, { type: "azure-native:azurestackhci/v20210101preview:Cluster" }, { type: "azure-native:azurestackhci/v20210901:Cluster" }, { type: "azure-native:azurestackhci/v20220101:Cluster" }, { type: "azure-native:azurestackhci/v20220301:Cluster" }, { type: "azure-native:azurestackhci/v20220501:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci:Cluster" }, { type: "azure-native:azurestackhci/v20201001:Cluster" }, { type: "azure-native:azurestackhci/v20210101preview:Cluster" }, { type: "azure-native:azurestackhci/v20210901:Cluster" }, { type: "azure-native:azurestackhci/v20220101:Cluster" }, { type: "azure-native:azurestackhci/v20220301:Cluster" }, { type: "azure-native:azurestackhci/v20220501:Cluster" }, { type: "azure-native:azurestackhci/v20220901:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }

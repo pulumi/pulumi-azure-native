@@ -59,10 +59,10 @@ namespace Pulumi.AzureNative.Network
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Subscription id in the ARM id format.
+        /// List of subscription ids
         /// </summary>
         [Output("subscriptions")]
-        public Output<ImmutableArray<string>> Subscriptions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubscriptionIdResponse>> Subscriptions { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -210,14 +210,14 @@ namespace Pulumi.AzureNative.Network
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("subscriptions")]
-        private InputList<string>? _subscriptions;
+        private InputList<Inputs.SubscriptionIdArgs>? _subscriptions;
 
         /// <summary>
-        /// Subscription id in the ARM id format.
+        /// List of subscription ids
         /// </summary>
-        public InputList<string> Subscriptions
+        public InputList<Inputs.SubscriptionIdArgs> Subscriptions
         {
-            get => _subscriptions ?? (_subscriptions = new InputList<string>());
+            get => _subscriptions ?? (_subscriptions = new InputList<Inputs.SubscriptionIdArgs>());
             set => _subscriptions = value;
         }
 

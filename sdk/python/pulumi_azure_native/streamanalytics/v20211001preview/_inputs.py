@@ -4921,13 +4921,29 @@ class ServiceBusTopicOutputDataSourceArgs:
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
+                 capacity: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[Union[str, 'SkuName']]] = None):
         """
         The properties that are associated with a SKU.
+        :param pulumi.Input[int] capacity: The capacity of the SKU.
         :param pulumi.Input[Union[str, 'SkuName']] name: The name of the SKU. Required on PUT (CreateOrReplace) requests.
         """
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
         if name is not None:
             pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The capacity of the SKU.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "capacity", value)
 
     @property
     @pulumi.getter

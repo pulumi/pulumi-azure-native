@@ -27,12 +27,13 @@ type LookupNspProfileArgs struct {
 
 
 type LookupNspProfileResult struct {
-	AccessRulesVersion string            `pulumi:"accessRulesVersion"`
-	Id                 string            `pulumi:"id"`
-	Location           *string           `pulumi:"location"`
-	Name               string            `pulumi:"name"`
-	Tags               map[string]string `pulumi:"tags"`
-	Type               string            `pulumi:"type"`
+	AccessRulesVersion        string            `pulumi:"accessRulesVersion"`
+	DiagnosticSettingsVersion string            `pulumi:"diagnosticSettingsVersion"`
+	Id                        string            `pulumi:"id"`
+	Location                  *string           `pulumi:"location"`
+	Name                      string            `pulumi:"name"`
+	Tags                      map[string]string `pulumi:"tags"`
+	Type                      string            `pulumi:"type"`
 }
 
 func LookupNspProfileOutput(ctx *pulumi.Context, args LookupNspProfileOutputArgs, opts ...pulumi.InvokeOption) LookupNspProfileResultOutput {
@@ -75,6 +76,10 @@ func (o LookupNspProfileResultOutput) ToLookupNspProfileResultOutputWithContext(
 
 func (o LookupNspProfileResultOutput) AccessRulesVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNspProfileResult) string { return v.AccessRulesVersion }).(pulumi.StringOutput)
+}
+
+func (o LookupNspProfileResultOutput) DiagnosticSettingsVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNspProfileResult) string { return v.DiagnosticSettingsVersion }).(pulumi.StringOutput)
 }
 
 func (o LookupNspProfileResultOutput) Id() pulumi.StringOutput {

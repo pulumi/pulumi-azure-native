@@ -20,7 +20,6 @@ export * from "./getNetworkManager";
 export * from "./getNetworkSecurityPerimeter";
 export * from "./getNspAccessRule";
 export * from "./getNspAssociation";
-export * from "./getNspAssociationsProxy";
 export * from "./getNspProfile";
 export * from "./getSecurityAdminConfiguration";
 export * from "./getSecurityUserConfiguration";
@@ -39,7 +38,6 @@ export * from "./networkManager";
 export * from "./networkSecurityPerimeter";
 export * from "./nspAccessRule";
 export * from "./nspAssociation";
-export * from "./nspAssociationsProxy";
 export * from "./nspProfile";
 export * from "./securityAdminConfiguration";
 export * from "./securityUserConfiguration";
@@ -60,7 +58,6 @@ import { NetworkManager } from "./networkManager";
 import { NetworkSecurityPerimeter } from "./networkSecurityPerimeter";
 import { NspAccessRule } from "./nspAccessRule";
 import { NspAssociation } from "./nspAssociation";
-import { NspAssociationsProxy } from "./nspAssociationsProxy";
 import { NspProfile } from "./nspProfile";
 import { SecurityAdminConfiguration } from "./securityAdminConfiguration";
 import { SecurityUserConfiguration } from "./securityUserConfiguration";
@@ -91,8 +88,6 @@ const _module = {
                 return new NspAccessRule(name, <any>undefined, { urn })
             case "azure-native:network/v20210201preview:NspAssociation":
                 return new NspAssociation(name, <any>undefined, { urn })
-            case "azure-native:network/v20210201preview:NspAssociationsProxy":
-                return new NspAssociationsProxy(name, <any>undefined, { urn })
             case "azure-native:network/v20210201preview:NspProfile":
                 return new NspProfile(name, <any>undefined, { urn })
             case "azure-native:network/v20210201preview:SecurityAdminConfiguration":

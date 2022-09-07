@@ -107,7 +107,7 @@ export class MongoDBResourceMongoUserDefinition extends pulumi.CustomResource {
             resourceInputs["userName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:MongoDBResourceMongoUserDefinition" }, { type: "azure-native:documentdb/v20211015preview:MongoDBResourceMongoUserDefinition" }, { type: "azure-native:documentdb/v20211115preview:MongoDBResourceMongoUserDefinition" }, { type: "azure-native:documentdb/v20220515preview:MongoDBResourceMongoUserDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:MongoDBResourceMongoUserDefinition" }, { type: "azure-native:documentdb/v20211015preview:MongoDBResourceMongoUserDefinition" }, { type: "azure-native:documentdb/v20211115preview:MongoDBResourceMongoUserDefinition" }, { type: "azure-native:documentdb/v20220515preview:MongoDBResourceMongoUserDefinition" }, { type: "azure-native:documentdb/v20220815:MongoDBResourceMongoUserDefinition" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MongoDBResourceMongoUserDefinition.__pulumiType, name, resourceInputs, opts);
     }

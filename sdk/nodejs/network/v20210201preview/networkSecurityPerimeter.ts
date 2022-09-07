@@ -37,7 +37,7 @@ export class NetworkSecurityPerimeter extends pulumi.CustomResource {
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
@@ -45,7 +45,7 @@ export class NetworkSecurityPerimeter extends pulumi.CustomResource {
     /**
      * perimeter guid of the network security perimeter.
      */
-    public readonly perimeterGuid!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly perimeterGuid!: pulumi.Output<string>;
     /**
      * The provisioning state of the scope assignment resource.
      */
@@ -77,9 +77,9 @@ export class NetworkSecurityPerimeter extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkSecurityPerimeterName"] = args ? args.networkSecurityPerimeterName : undefined;
-            resourceInputs["perimeterGuid"] = args ? args.perimeterGuid : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["perimeterGuid"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -117,10 +117,6 @@ export interface NetworkSecurityPerimeterArgs {
      * The name of the network security perimeter.
      */
     networkSecurityPerimeterName?: pulumi.Input<string>;
-    /**
-     * perimeter guid of the network security perimeter.
-     */
-    perimeterGuid?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

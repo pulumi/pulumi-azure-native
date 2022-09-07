@@ -54,7 +54,7 @@ class GetNetworkSecurityPerimeterResult:
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> Optional[str]:
         """
         Resource location.
         """
@@ -70,7 +70,7 @@ class GetNetworkSecurityPerimeterResult:
 
     @property
     @pulumi.getter(name="perimeterGuid")
-    def perimeter_guid(self) -> Optional[str]:
+    def perimeter_guid(self) -> str:
         """
         perimeter guid of the network security perimeter.
         """

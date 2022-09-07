@@ -14,9 +14,9 @@ import (
 type NetworkSecurityPerimeter struct {
 	pulumi.CustomResourceState
 
-	Location          pulumi.StringOutput    `pulumi:"location"`
+	Location          pulumi.StringPtrOutput `pulumi:"location"`
 	Name              pulumi.StringOutput    `pulumi:"name"`
-	PerimeterGuid     pulumi.StringPtrOutput `pulumi:"perimeterGuid"`
+	PerimeterGuid     pulumi.StringOutput    `pulumi:"perimeterGuid"`
 	ProvisioningState pulumi.StringOutput    `pulumi:"provisioningState"`
 	Tags              pulumi.StringMapOutput `pulumi:"tags"`
 	Type              pulumi.StringOutput    `pulumi:"type"`
@@ -77,7 +77,6 @@ type networkSecurityPerimeterArgs struct {
 	Location                     *string           `pulumi:"location"`
 	Name                         *string           `pulumi:"name"`
 	NetworkSecurityPerimeterName *string           `pulumi:"networkSecurityPerimeterName"`
-	PerimeterGuid                *string           `pulumi:"perimeterGuid"`
 	ResourceGroupName            string            `pulumi:"resourceGroupName"`
 	Tags                         map[string]string `pulumi:"tags"`
 }
@@ -88,7 +87,6 @@ type NetworkSecurityPerimeterArgs struct {
 	Location                     pulumi.StringPtrInput
 	Name                         pulumi.StringPtrInput
 	NetworkSecurityPerimeterName pulumi.StringPtrInput
-	PerimeterGuid                pulumi.StringPtrInput
 	ResourceGroupName            pulumi.StringInput
 	Tags                         pulumi.StringMapInput
 }
@@ -130,16 +128,16 @@ func (o NetworkSecurityPerimeterOutput) ToNetworkSecurityPerimeterOutputWithCont
 	return o
 }
 
-func (o NetworkSecurityPerimeterOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v *NetworkSecurityPerimeter) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+func (o NetworkSecurityPerimeterOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkSecurityPerimeter) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
 }
 
 func (o NetworkSecurityPerimeterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkSecurityPerimeter) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o NetworkSecurityPerimeterOutput) PerimeterGuid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NetworkSecurityPerimeter) pulumi.StringPtrOutput { return v.PerimeterGuid }).(pulumi.StringPtrOutput)
+func (o NetworkSecurityPerimeterOutput) PerimeterGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkSecurityPerimeter) pulumi.StringOutput { return v.PerimeterGuid }).(pulumi.StringOutput)
 }
 
 func (o NetworkSecurityPerimeterOutput) ProvisioningState() pulumi.StringOutput {

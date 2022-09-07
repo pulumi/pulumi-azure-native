@@ -36,7 +36,7 @@ type LookupNspAccessRuleResult struct {
 	Name                      string                             `pulumi:"name"`
 	NetworkSecurityPerimeters []PerimeterBasedAccessRuleResponse `pulumi:"networkSecurityPerimeters"`
 	ProvisioningState         string                             `pulumi:"provisioningState"`
-	Subscriptions             []string                           `pulumi:"subscriptions"`
+	Subscriptions             []SubscriptionIdResponse           `pulumi:"subscriptions"`
 	Tags                      map[string]string                  `pulumi:"tags"`
 	Type                      string                             `pulumi:"type"`
 }
@@ -114,8 +114,8 @@ func (o LookupNspAccessRuleResultOutput) ProvisioningState() pulumi.StringOutput
 	return o.ApplyT(func(v LookupNspAccessRuleResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-func (o LookupNspAccessRuleResultOutput) Subscriptions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupNspAccessRuleResult) []string { return v.Subscriptions }).(pulumi.StringArrayOutput)
+func (o LookupNspAccessRuleResultOutput) Subscriptions() SubscriptionIdResponseArrayOutput {
+	return o.ApplyT(func(v LookupNspAccessRuleResult) []SubscriptionIdResponse { return v.Subscriptions }).(SubscriptionIdResponseArrayOutput)
 }
 
 func (o LookupNspAccessRuleResultOutput) Tags() pulumi.StringMapOutput {

@@ -5,19 +5,24 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./getScheduledQueryRule";
 export * from "./getWebTest";
+export * from "./scheduledQueryRule";
 export * from "./webTest";
 
 // Export enums:
 export * from "../../types/enums/insights/v20220615";
 
 // Import resources to register:
+import { ScheduledQueryRule } from "./scheduledQueryRule";
 import { WebTest } from "./webTest";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:insights/v20220615:ScheduledQueryRule":
+                return new ScheduledQueryRule(name, <any>undefined, { urn })
             case "azure-native:insights/v20220615:WebTest":
                 return new WebTest(name, <any>undefined, { urn })
             default:

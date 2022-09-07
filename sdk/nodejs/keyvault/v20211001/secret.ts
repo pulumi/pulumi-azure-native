@@ -111,7 +111,7 @@ export interface SecretArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Name of the secret
+     * Name of the secret. The value you provide may be copied globally for the purpose of running the service. The value provided should not include personally identifiable or sensitive information.
      */
     secretName?: pulumi.Input<string>;
     /**

@@ -28,7 +28,7 @@ class NspAccessRuleArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_security_perimeters: Optional[pulumi.Input[Sequence[pulumi.Input['PerimeterBasedAccessRuleArgs']]]] = None,
-                 subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionIdArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a NspAccessRule resource.
@@ -43,7 +43,7 @@ class NspAccessRuleArgs:
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the access rule that is unique within a profile. This name can be used to access the resource.
         :param pulumi.Input[Sequence[pulumi.Input['PerimeterBasedAccessRuleArgs']]] network_security_perimeters: Inbound rule specified by the perimeter id.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subscriptions: Subscription id in the ARM id format.
+        :param pulumi.Input[Sequence[pulumi.Input['SubscriptionIdArgs']]] subscriptions: List of subscription ids
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "network_security_perimeter_name", network_security_perimeter_name)
@@ -204,14 +204,14 @@ class NspAccessRuleArgs:
 
     @property
     @pulumi.getter
-    def subscriptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def subscriptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionIdArgs']]]]:
         """
-        Subscription id in the ARM id format.
+        List of subscription ids
         """
         return pulumi.get(self, "subscriptions")
 
     @subscriptions.setter
-    def subscriptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def subscriptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionIdArgs']]]]):
         pulumi.set(self, "subscriptions", value)
 
     @property
@@ -243,7 +243,7 @@ class NspAccessRule(pulumi.CustomResource):
                  network_security_perimeters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PerimeterBasedAccessRuleArgs']]]]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubscriptionIdArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -263,7 +263,7 @@ class NspAccessRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PerimeterBasedAccessRuleArgs']]]] network_security_perimeters: Inbound rule specified by the perimeter id.
         :param pulumi.Input[str] profile_name: The name of the NSP profile.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subscriptions: Subscription id in the ARM id format.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubscriptionIdArgs']]]] subscriptions: List of subscription ids
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -302,7 +302,7 @@ class NspAccessRule(pulumi.CustomResource):
                  network_security_perimeters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PerimeterBasedAccessRuleArgs']]]]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubscriptionIdArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -428,9 +428,9 @@ class NspAccessRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subscriptions(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def subscriptions(self) -> pulumi.Output[Optional[Sequence['outputs.SubscriptionIdResponse']]]:
         """
-        Subscription id in the ARM id format.
+        List of subscription ids
         """
         return pulumi.get(self, "subscriptions")
 

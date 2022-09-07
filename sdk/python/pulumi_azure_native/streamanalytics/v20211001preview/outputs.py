@@ -5268,13 +5268,25 @@ class SkuResponse(dict):
     The properties that are associated with a SKU.
     """
     def __init__(__self__, *,
+                 capacity: Optional[int] = None,
                  name: Optional[str] = None):
         """
         The properties that are associated with a SKU.
+        :param int capacity: The capacity of the SKU.
         :param str name: The name of the SKU. Required on PUT (CreateOrReplace) requests.
         """
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
         if name is not None:
             pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[int]:
+        """
+        The capacity of the SKU.
+        """
+        return pulumi.get(self, "capacity")
 
     @property
     @pulumi.getter

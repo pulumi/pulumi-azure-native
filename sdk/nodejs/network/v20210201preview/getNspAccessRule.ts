@@ -78,9 +78,9 @@ export interface GetNspAccessRuleResult {
      */
     readonly provisioningState: string;
     /**
-     * Subscription id in the ARM id format.
+     * List of subscription ids
      */
-    readonly subscriptions?: string[];
+    readonly subscriptions?: outputs.network.v20210201preview.SubscriptionIdResponse[];
     /**
      * Resource tags.
      */

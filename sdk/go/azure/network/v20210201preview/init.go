@@ -41,8 +41,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NspAccessRule{}
 	case "azure-native:network/v20210201preview:NspAssociation":
 		r = &NspAssociation{}
-	case "azure-native:network/v20210201preview:NspAssociationsProxy":
-		r = &NspAssociationsProxy{}
 	case "azure-native:network/v20210201preview:NspProfile":
 		r = &NspProfile{}
 	case "azure-native:network/v20210201preview:SecurityAdminConfiguration":

@@ -65,9 +65,9 @@ export class NspAccessRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Subscription id in the ARM id format.
+     * List of subscription ids
      */
-    public readonly subscriptions!: pulumi.Output<string[] | undefined>;
+    public readonly subscriptions!: pulumi.Output<outputs.network.SubscriptionIdResponse[] | undefined>;
     /**
      * Resource tags.
      */
@@ -180,9 +180,9 @@ export interface NspAccessRuleArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Subscription id in the ARM id format.
+     * List of subscription ids
      */
-    subscriptions?: pulumi.Input<pulumi.Input<string>[]>;
+    subscriptions?: pulumi.Input<pulumi.Input<inputs.network.SubscriptionIdArgs>[]>;
     /**
      * Resource tags.
      */

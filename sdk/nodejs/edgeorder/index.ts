@@ -18,10 +18,12 @@ export * from "../types/enums/edgeorder";
 // Export sub-modules:
 import * as v20201201preview from "./v20201201preview";
 import * as v20211201 from "./v20211201";
+import * as v20220501preview from "./v20220501preview";
 
 export {
     v20201201preview,
     v20211201,
+    v20220501preview,
 };
 
 // Import resources to register:

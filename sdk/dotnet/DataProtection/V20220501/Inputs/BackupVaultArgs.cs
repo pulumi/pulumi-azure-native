@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.DataProtection.V20220501.Inputs
     public sealed class BackupVaultArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Is vault protected by resource guard
+        /// </summary>
+        [Input("isVaultProtectedByResourceGuard")]
+        public Input<bool>? IsVaultProtectedByResourceGuard { get; set; }
+
+        /// <summary>
         /// Monitoring Settings
         /// </summary>
         [Input("monitoringSettings")]

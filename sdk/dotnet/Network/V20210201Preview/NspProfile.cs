@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         public Output<string> AccessRulesVersion { get; private set; } = null!;
 
         /// <summary>
+        /// Version number that increases with every update to diagnostic settings within the profile.
+        /// </summary>
+        [Output("diagnosticSettingsVersion")]
+        public Output<string> DiagnosticSettingsVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]

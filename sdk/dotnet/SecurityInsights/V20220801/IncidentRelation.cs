@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:IncidentRelation"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:IncidentRelation"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:IncidentRelation"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220901preview:IncidentRelation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

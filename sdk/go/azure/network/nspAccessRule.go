@@ -21,7 +21,7 @@ type NspAccessRule struct {
 	Name                      pulumi.StringOutput                         `pulumi:"name"`
 	NetworkSecurityPerimeters PerimeterBasedAccessRuleResponseArrayOutput `pulumi:"networkSecurityPerimeters"`
 	ProvisioningState         pulumi.StringOutput                         `pulumi:"provisioningState"`
-	Subscriptions             pulumi.StringArrayOutput                    `pulumi:"subscriptions"`
+	Subscriptions             SubscriptionIdResponseArrayOutput           `pulumi:"subscriptions"`
 	Tags                      pulumi.StringMapOutput                      `pulumi:"tags"`
 	Type                      pulumi.StringOutput                         `pulumi:"type"`
 }
@@ -91,7 +91,7 @@ type nspAccessRuleArgs struct {
 	NetworkSecurityPerimeters    []PerimeterBasedAccessRule `pulumi:"networkSecurityPerimeters"`
 	ProfileName                  string                     `pulumi:"profileName"`
 	ResourceGroupName            string                     `pulumi:"resourceGroupName"`
-	Subscriptions                []string                   `pulumi:"subscriptions"`
+	Subscriptions                []SubscriptionId           `pulumi:"subscriptions"`
 	Tags                         map[string]string          `pulumi:"tags"`
 }
 
@@ -108,7 +108,7 @@ type NspAccessRuleArgs struct {
 	NetworkSecurityPerimeters    PerimeterBasedAccessRuleArrayInput
 	ProfileName                  pulumi.StringInput
 	ResourceGroupName            pulumi.StringInput
-	Subscriptions                pulumi.StringArrayInput
+	Subscriptions                SubscriptionIdArrayInput
 	Tags                         pulumi.StringMapInput
 }
 
@@ -177,8 +177,8 @@ func (o NspAccessRuleOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *NspAccessRule) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-func (o NspAccessRuleOutput) Subscriptions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *NspAccessRule) pulumi.StringArrayOutput { return v.Subscriptions }).(pulumi.StringArrayOutput)
+func (o NspAccessRuleOutput) Subscriptions() SubscriptionIdResponseArrayOutput {
+	return o.ApplyT(func(v *NspAccessRule) SubscriptionIdResponseArrayOutput { return v.Subscriptions }).(SubscriptionIdResponseArrayOutput)
 }
 
 func (o NspAccessRuleOutput) Tags() pulumi.StringMapOutput {

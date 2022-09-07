@@ -116,6 +116,9 @@ func NewDatabaseAccountCassandraKeyspace(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:documentdb/v20220515preview:DatabaseAccountCassandraKeyspace"),
 		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20220815:DatabaseAccountCassandraKeyspace"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DatabaseAccountCassandraKeyspace

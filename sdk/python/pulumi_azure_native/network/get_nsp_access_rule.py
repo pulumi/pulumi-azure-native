@@ -123,9 +123,9 @@ class GetNspAccessRuleResult:
 
     @property
     @pulumi.getter
-    def subscriptions(self) -> Optional[Sequence[str]]:
+    def subscriptions(self) -> Optional[Sequence['outputs.SubscriptionIdResponse']]:
         """
-        Subscription id in the ARM id format.
+        List of subscription ids
         """
         return pulumi.get(self, "subscriptions")
 

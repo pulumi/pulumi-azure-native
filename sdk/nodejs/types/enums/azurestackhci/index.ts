@@ -8,6 +8,7 @@ import * as v20210901 from "./v20210901";
 import * as v20220101 from "./v20220101";
 import * as v20220301 from "./v20220301";
 import * as v20220501 from "./v20220501";
+import * as v20220901 from "./v20220901";
 
 export {
     v20201001,
@@ -16,6 +17,7 @@ export {
     v20220101,
     v20220301,
     v20220501,
+    v20220901,
 };
 
 export const CreatedByType = {

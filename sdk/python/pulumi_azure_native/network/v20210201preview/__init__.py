@@ -21,7 +21,6 @@ from .get_network_manager import *
 from .get_network_security_perimeter import *
 from .get_nsp_access_rule import *
 from .get_nsp_association import *
-from .get_nsp_associations_proxy import *
 from .get_nsp_profile import *
 from .get_security_admin_configuration import *
 from .get_security_user_configuration import *
@@ -40,7 +39,6 @@ from .network_manager import *
 from .network_security_perimeter import *
 from .nsp_access_rule import *
 from .nsp_association import *
-from .nsp_associations_proxy import *
 from .nsp_profile import *
 from .security_admin_configuration import *
 from .security_user_configuration import *

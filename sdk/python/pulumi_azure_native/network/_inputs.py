@@ -256,6 +256,7 @@ __all__ = [
     'SubResource',
     'SubResourceArgs',
     'SubnetArgs',
+    'SubscriptionIdArgs',
     'TargetDnsServerArgs',
     'TrafficAnalyticsConfigurationPropertiesArgs',
     'TrafficAnalyticsPropertiesArgs',
@@ -18536,6 +18537,29 @@ class SubnetArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class SubscriptionIdArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] id: Subscription id in the ARM id format.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Subscription id in the ARM id format.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type

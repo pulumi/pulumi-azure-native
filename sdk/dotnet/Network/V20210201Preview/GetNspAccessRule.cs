@@ -126,9 +126,9 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Subscription id in the ARM id format.
+        /// List of subscription ids
         /// </summary>
-        public readonly ImmutableArray<string> Subscriptions;
+        public readonly ImmutableArray<Outputs.SubscriptionIdResponse> Subscriptions;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -156,7 +156,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
 
             string provisioningState,
 
-            ImmutableArray<string> subscriptions,
+            ImmutableArray<Outputs.SubscriptionIdResponse> subscriptions,
 
             ImmutableDictionary<string, string>? tags,
 

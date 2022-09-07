@@ -167,6 +167,8 @@ export class FileImport extends pulumi.CustomResource {
             resourceInputs["validRecordCount"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20220901preview:FileImport" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FileImport.__pulumiType, name, resourceInputs, opts);
     }
 }

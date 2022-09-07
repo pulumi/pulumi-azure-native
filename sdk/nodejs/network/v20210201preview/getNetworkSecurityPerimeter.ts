@@ -41,7 +41,7 @@ export interface GetNetworkSecurityPerimeterResult {
     /**
      * Resource location.
      */
-    readonly location: string;
+    readonly location?: string;
     /**
      * Resource name.
      */
@@ -49,7 +49,7 @@ export interface GetNetworkSecurityPerimeterResult {
     /**
      * perimeter guid of the network security perimeter.
      */
-    readonly perimeterGuid?: string;
+    readonly perimeterGuid: string;
     /**
      * The provisioning state of the scope assignment resource.
      */

@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         /// <summary>
         /// Resource location.
         /// </summary>
-        public readonly string Location;
+        public readonly string? Location;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         /// <summary>
         /// perimeter guid of the network security perimeter.
         /// </summary>
-        public readonly string? PerimeterGuid;
+        public readonly string PerimeterGuid;
         /// <summary>
         /// The provisioning state of the scope assignment resource.
         /// </summary>
@@ -102,11 +102,11 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         private GetNetworkSecurityPerimeterResult(
             string id,
 
-            string location,
+            string? location,
 
             string name,
 
-            string? perimeterGuid,
+            string perimeterGuid,
 
             string provisioningState,
 

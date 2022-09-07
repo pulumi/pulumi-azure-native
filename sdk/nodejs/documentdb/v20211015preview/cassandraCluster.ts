@@ -91,7 +91,7 @@ export class CassandraCluster extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:CassandraCluster" }, { type: "azure-native:documentdb/v20210301preview:CassandraCluster" }, { type: "azure-native:documentdb/v20210401preview:CassandraCluster" }, { type: "azure-native:documentdb/v20210701preview:CassandraCluster" }, { type: "azure-native:documentdb/v20211015:CassandraCluster" }, { type: "azure-native:documentdb/v20211115preview:CassandraCluster" }, { type: "azure-native:documentdb/v20220215preview:CassandraCluster" }, { type: "azure-native:documentdb/v20220515:CassandraCluster" }, { type: "azure-native:documentdb/v20220515preview:CassandraCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:CassandraCluster" }, { type: "azure-native:documentdb/v20210301preview:CassandraCluster" }, { type: "azure-native:documentdb/v20210401preview:CassandraCluster" }, { type: "azure-native:documentdb/v20210701preview:CassandraCluster" }, { type: "azure-native:documentdb/v20211015:CassandraCluster" }, { type: "azure-native:documentdb/v20211115preview:CassandraCluster" }, { type: "azure-native:documentdb/v20220215preview:CassandraCluster" }, { type: "azure-native:documentdb/v20220515:CassandraCluster" }, { type: "azure-native:documentdb/v20220515preview:CassandraCluster" }, { type: "azure-native:documentdb/v20220815:CassandraCluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CassandraCluster.__pulumiType, name, resourceInputs, opts);
     }

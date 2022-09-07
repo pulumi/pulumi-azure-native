@@ -57,6 +57,12 @@ func NewFileImport(ctx *pulumi.Context,
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20220901preview:FileImport"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource FileImport
 	err := ctx.RegisterResource("azure-native:securityinsights/v20220801preview:FileImport", name, args, &resource, opts...)
 	if err != nil {

@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string AccessRulesVersion;
         /// <summary>
+        /// Version number that increases with every update to diagnostic settings within the profile.
+        /// </summary>
+        public readonly string DiagnosticSettingsVersion;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
@@ -112,6 +116,8 @@ namespace Pulumi.AzureNative.Network
         private GetNspProfileResult(
             string accessRulesVersion,
 
+            string diagnosticSettingsVersion,
+
             string id,
 
             string? location,
@@ -123,6 +129,7 @@ namespace Pulumi.AzureNative.Network
             string type)
         {
             AccessRulesVersion = accessRulesVersion;
+            DiagnosticSettingsVersion = diagnosticSettingsVersion;
             Id = id;
             Location = location;
             Name = name;

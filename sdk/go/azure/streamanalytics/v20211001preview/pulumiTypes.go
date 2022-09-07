@@ -2915,7 +2915,8 @@ type ServiceBusTopicOutputDataSourceResponse struct {
 }
 
 type Sku struct {
-	Name *string `pulumi:"name"`
+	Capacity *int    `pulumi:"capacity"`
+	Name     *string `pulumi:"name"`
 }
 
 
@@ -2930,7 +2931,8 @@ type SkuInput interface {
 }
 
 type SkuArgs struct {
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Name     pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -3010,6 +3012,10 @@ func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 	}).(SkuPtrOutput)
 }
 
+func (o SkuOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Sku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
 func (o SkuOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -3038,6 +3044,15 @@ func (o SkuPtrOutput) Elem() SkuOutput {
 	}).(SkuOutput)
 }
 
+func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Sku) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.IntPtrOutput)
+}
+
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -3048,7 +3063,8 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type SkuResponse struct {
-	Name *string `pulumi:"name"`
+	Capacity *int    `pulumi:"capacity"`
+	Name     *string `pulumi:"name"`
 }
 
 type SkuResponseOutput struct{ *pulumi.OutputState }
@@ -3063,6 +3079,10 @@ func (o SkuResponseOutput) ToSkuResponseOutput() SkuResponseOutput {
 
 func (o SkuResponseOutput) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
 	return o
+}
+
+func (o SkuResponseOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
 func (o SkuResponseOutput) Name() pulumi.StringPtrOutput {
@@ -3091,6 +3111,15 @@ func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
 		var ret SkuResponse
 		return ret
 	}).(SkuResponseOutput)
+}
+
+func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SkuResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {

@@ -103,7 +103,6 @@ export * from "./getNetworkVirtualAppliance";
 export * from "./getNetworkWatcher";
 export * from "./getNspAccessRule";
 export * from "./getNspAssociation";
-export * from "./getNspAssociationsProxy";
 export * from "./getNspProfile";
 export * from "./getOutboundEndpoint";
 export * from "./getP2sVpnGateway";
@@ -203,7 +202,6 @@ export * from "./networkVirtualAppliance";
 export * from "./networkWatcher";
 export * from "./nspAccessRule";
 export * from "./nspAssociation";
-export * from "./nspAssociationsProxy";
 export * from "./nspProfile";
 export * from "./outboundEndpoint";
 export * from "./p2sVpnGateway";
@@ -455,7 +453,6 @@ import { NetworkVirtualAppliance } from "./networkVirtualAppliance";
 import { NetworkWatcher } from "./networkWatcher";
 import { NspAccessRule } from "./nspAccessRule";
 import { NspAssociation } from "./nspAssociation";
-import { NspAssociationsProxy } from "./nspAssociationsProxy";
 import { NspProfile } from "./nspProfile";
 import { OutboundEndpoint } from "./outboundEndpoint";
 import { P2sVpnGateway } from "./p2sVpnGateway";
@@ -635,8 +632,6 @@ const _module = {
                 return new NspAccessRule(name, <any>undefined, { urn })
             case "azure-native:network:NspAssociation":
                 return new NspAssociation(name, <any>undefined, { urn })
-            case "azure-native:network:NspAssociationsProxy":
-                return new NspAssociationsProxy(name, <any>undefined, { urn })
             case "azure-native:network:NspProfile":
                 return new NspProfile(name, <any>undefined, { urn })
             case "azure-native:network:OutboundEndpoint":

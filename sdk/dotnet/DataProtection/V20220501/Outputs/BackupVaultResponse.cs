@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.DataProtection.V20220501.Outputs
     public sealed class BackupVaultResponse
     {
         /// <summary>
+        /// Is vault protected by resource guard
+        /// </summary>
+        public readonly bool? IsVaultProtectedByResourceGuard;
+        /// <summary>
         /// Monitoring Settings
         /// </summary>
         public readonly Outputs.MonitoringSettingsResponse? MonitoringSettings;
@@ -39,6 +43,8 @@ namespace Pulumi.AzureNative.DataProtection.V20220501.Outputs
 
         [OutputConstructor]
         private BackupVaultResponse(
+            bool? isVaultProtectedByResourceGuard,
+
             Outputs.MonitoringSettingsResponse? monitoringSettings,
 
             string provisioningState,
@@ -49,6 +55,7 @@ namespace Pulumi.AzureNative.DataProtection.V20220501.Outputs
 
             ImmutableArray<Outputs.StorageSettingResponse> storageSettings)
         {
+            IsVaultProtectedByResourceGuard = isVaultProtectedByResourceGuard;
             MonitoringSettings = monitoringSettings;
             ProvisioningState = provisioningState;
             ResourceMoveDetails = resourceMoveDetails;

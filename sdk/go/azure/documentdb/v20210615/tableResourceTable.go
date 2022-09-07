@@ -114,6 +114,9 @@ func NewTableResourceTable(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:documentdb/v20220515preview:TableResourceTable"),
 		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20220815:TableResourceTable"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource TableResourceTable

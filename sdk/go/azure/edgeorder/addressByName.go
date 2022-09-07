@@ -44,6 +44,9 @@ func NewAddressByName(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:edgeorder/v20211201:AddressByName"),
 		},
+		{
+			Type: pulumi.String("azure-native:edgeorder/v20220501preview:AddressByName"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AddressByName

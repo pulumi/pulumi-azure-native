@@ -14,11 +14,12 @@ import (
 type NspProfile struct {
 	pulumi.CustomResourceState
 
-	AccessRulesVersion pulumi.StringOutput    `pulumi:"accessRulesVersion"`
-	Location           pulumi.StringPtrOutput `pulumi:"location"`
-	Name               pulumi.StringOutput    `pulumi:"name"`
-	Tags               pulumi.StringMapOutput `pulumi:"tags"`
-	Type               pulumi.StringOutput    `pulumi:"type"`
+	AccessRulesVersion        pulumi.StringOutput    `pulumi:"accessRulesVersion"`
+	DiagnosticSettingsVersion pulumi.StringOutput    `pulumi:"diagnosticSettingsVersion"`
+	Location                  pulumi.StringPtrOutput `pulumi:"location"`
+	Name                      pulumi.StringOutput    `pulumi:"name"`
+	Tags                      pulumi.StringMapOutput `pulumi:"tags"`
+	Type                      pulumi.StringOutput    `pulumi:"type"`
 }
 
 
@@ -131,6 +132,10 @@ func (o NspProfileOutput) ToNspProfileOutputWithContext(ctx context.Context) Nsp
 
 func (o NspProfileOutput) AccessRulesVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *NspProfile) pulumi.StringOutput { return v.AccessRulesVersion }).(pulumi.StringOutput)
+}
+
+func (o NspProfileOutput) DiagnosticSettingsVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *NspProfile) pulumi.StringOutput { return v.DiagnosticSettingsVersion }).(pulumi.StringOutput)
 }
 
 func (o NspProfileOutput) Location() pulumi.StringPtrOutput {
