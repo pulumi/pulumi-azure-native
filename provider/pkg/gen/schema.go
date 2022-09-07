@@ -21,6 +21,7 @@ import (
 	"os"
 	"path/filepath"
 	"sort"
+	"strconv"
 	"strings"
 
 	"github.com/segmentio/encoding/json"
@@ -1441,14 +1442,28 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 		fmt.Printf("Default value '%v' can't be specified for an object property %q\n", schema.Default, name)
 		defaultValue = nil
 	}
-	// TODO: Find a better way of detecting when we won't support a default value:
-	// E.g. #/types/azure-native:machinelearningservices%2Fv20220601preview:LabelingJobResponse/properties/mlAssistConfiguration/default:
-	// type Union<azure-native:machinelearningservices/v20220601preview:MLAssistConfigurationDisabledResponse, azure-native:machinelearningservices/v20220601preview:MLAssistConfigurationEnabledResponse>
-	// cannot have a constant value; only booleans, integers, numbers and strings may have constant values;
-	// HACK: Check if the default value looks like JSON and remove it.
+
+	// Convert default values which are represented using strings instead of their actual types
 	switch schema.Default.(type) {
 	case string:
-		if strings.HasPrefix(schema.Default.(string), "{") {
+		defaultString := schema.Default.(string)
+		switch typeSpec.Type {
+		case "boolean":
+			defaultValue, err = strconv.ParseBool(defaultString)
+		case "number":
+			defaultValue, err = strconv.ParseFloat(defaultString, 32)
+		case "integer":
+			defaultValue, err = strconv.ParseInt(defaultString, 10, 32)
+		}
+		if err != nil {
+			defaultValue = nil
+		}
+		// TODO: Find a better way of detecting when we won't support a default value:
+		// E.g. #/types/azure-native:machinelearningservices%2Fv20220601preview:LabelingJobResponse/properties/mlAssistConfiguration/default:
+		// type Union<azure-native:machinelearningservices/v20220601preview:MLAssistConfigurationDisabledResponse, azure-native:machinelearningservices/v20220601preview:MLAssistConfigurationEnabledResponse>
+		// cannot have a constant value; only booleans, integers, numbers and strings may have constant values;
+		// HACK: Check if the default value looks like JSON and remove it.
+		if strings.HasPrefix(defaultString, "{") {
 			fmt.Printf("Default value '%v' appears to be an object %q\n", schema.Default, name)
 			defaultValue = nil
 		}
