@@ -2,6 +2,12 @@
 
 ## HEAD (Unreleased)
 
+## 1.75.0 (2022-09-07)
+- Upgrade to latest version of Azure Rest API Specs.
+- Upstream breaking changes:
+  - [Elastiscan renamed Name and Tier fields to add "Sku" prefix](https://github.com/Azure/azure-rest-api-specs/pull/20359)
+  - [Network NspAssociationReconcile and NspProfile type changes](https://github.com/Azure/azure-rest-api-specs/pull/20167)
+
 ## 1.74.0 (2022-09-02)
 - Upgrade to latest version of Azure Rest API Specs.
 - All Java packages changed to be more intuitive, unfortunately this is a breaking change for Java version
