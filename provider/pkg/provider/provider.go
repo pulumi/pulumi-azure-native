@@ -170,10 +170,17 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 
 	authConfig, err := k.getAuthConfig()
 	if err != nil {
+		if authConfig == nil {
+			//we have an incompatible version
+			return nil, fmt.Errorf("failed to load application credentials:\n"+
+				"Details: %v\n\n"+
+				"\t You can upgrade the Az CLI by running `az upgrade`. \n"+
+				"\tSee https://www.pulumi.com/registry/packages/azure-native/installation-configuration/ for more information.", err)
+		}
 		return nil, fmt.Errorf("failed to load application credentials:\n"+
 			"Details: %v\n\n"+
 			"\tPlease make sure you have signed in via 'az login' or configured another authentication method.\n\n"+
-			"\tSee https://www.pulumi.com/registry/packages/azure/installation-configuration/ for more information.", err)
+			"\tSee https://www.pulumi.com/registry/packages/azure-native/installation-configuration/ for more information.", err)
 	}
 
 	envName := authConfig.Environment
