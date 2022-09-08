@@ -5,20 +5,39 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./extension";
-export * from "./farmBeatsModel";
-export * from "./getExtension";
-export * from "./getFarmBeatsModel";
-export * from "./getPrivateEndpointConnection";
-export * from "./privateEndpointConnection";
+export { ExtensionArgs } from "./extension";
+export type Extension = import("./extension").Extension;
+export const Extension: typeof import("./extension").Extension = null as any;
+
+export { FarmBeatsModelArgs } from "./farmBeatsModel";
+export type FarmBeatsModel = import("./farmBeatsModel").FarmBeatsModel;
+export const FarmBeatsModel: typeof import("./farmBeatsModel").FarmBeatsModel = null as any;
+
+export { GetExtensionArgs, GetExtensionResult, GetExtensionOutputArgs } from "./getExtension";
+export const getExtension: typeof import("./getExtension").getExtension = null as any;
+export const getExtensionOutput: typeof import("./getExtension").getExtensionOutput = null as any;
+
+export { GetFarmBeatsModelArgs, GetFarmBeatsModelResult, GetFarmBeatsModelOutputArgs } from "./getFarmBeatsModel";
+export const getFarmBeatsModel: typeof import("./getFarmBeatsModel").getFarmBeatsModel = null as any;
+export const getFarmBeatsModelOutput: typeof import("./getFarmBeatsModel").getFarmBeatsModelOutput = null as any;
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+
+utilities.lazyLoad(exports, ["Extension"], () => require("./extension"));
+utilities.lazyLoad(exports, ["FarmBeatsModel"], () => require("./farmBeatsModel"));
+utilities.lazyLoad(exports, ["getExtension","getExtensionOutput"], () => require("./getExtension"));
+utilities.lazyLoad(exports, ["getFarmBeatsModel","getFarmBeatsModelOutput"], () => require("./getFarmBeatsModel"));
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
 
 // Export enums:
 export * from "../../types/enums/agfoodplatform/v20210901preview";
-
-// Import resources to register:
-import { Extension } from "./extension";
-import { FarmBeatsModel } from "./farmBeatsModel";
-import { PrivateEndpointConnection } from "./privateEndpointConnection";
 
 const _module = {
     version: utilities.getVersion(),

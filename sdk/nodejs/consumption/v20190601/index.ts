@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./budget";
-export * from "./getBudget";
+export { BudgetArgs } from "./budget";
+export type Budget = import("./budget").Budget;
+export const Budget: typeof import("./budget").Budget = null as any;
+
+export { GetBudgetArgs, GetBudgetResult, GetBudgetOutputArgs } from "./getBudget";
+export const getBudget: typeof import("./getBudget").getBudget = null as any;
+export const getBudgetOutput: typeof import("./getBudget").getBudgetOutput = null as any;
+
+utilities.lazyLoad(exports, ["Budget"], () => require("./budget"));
+utilities.lazyLoad(exports, ["getBudget","getBudgetOutput"], () => require("./getBudget"));
 
 // Export enums:
 export * from "../../types/enums/consumption/v20190601";
-
-// Import resources to register:
-import { Budget } from "./budget";
 
 const _module = {
     version: utilities.getVersion(),

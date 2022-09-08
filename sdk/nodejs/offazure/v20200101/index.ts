@@ -5,14 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getHyperVSite";
-export * from "./getSite";
-export * from "./hyperVSite";
-export * from "./site";
+export { GetHyperVSiteArgs, GetHyperVSiteResult, GetHyperVSiteOutputArgs } from "./getHyperVSite";
+export const getHyperVSite: typeof import("./getHyperVSite").getHyperVSite = null as any;
+export const getHyperVSiteOutput: typeof import("./getHyperVSite").getHyperVSiteOutput = null as any;
 
-// Import resources to register:
-import { HyperVSite } from "./hyperVSite";
-import { Site } from "./site";
+export { GetSiteArgs, GetSiteResult, GetSiteOutputArgs } from "./getSite";
+export const getSite: typeof import("./getSite").getSite = null as any;
+export const getSiteOutput: typeof import("./getSite").getSiteOutput = null as any;
+
+export { HyperVSiteArgs } from "./hyperVSite";
+export type HyperVSite = import("./hyperVSite").HyperVSite;
+export const HyperVSite: typeof import("./hyperVSite").HyperVSite = null as any;
+
+export { SiteArgs } from "./site";
+export type Site = import("./site").Site;
+export const Site: typeof import("./site").Site = null as any;
+
+utilities.lazyLoad(exports, ["getHyperVSite","getHyperVSiteOutput"], () => require("./getHyperVSite"));
+utilities.lazyLoad(exports, ["getSite","getSiteOutput"], () => require("./getSite"));
+utilities.lazyLoad(exports, ["HyperVSite"], () => require("./hyperVSite"));
+utilities.lazyLoad(exports, ["Site"], () => require("./site"));
 
 const _module = {
     version: utilities.getVersion(),

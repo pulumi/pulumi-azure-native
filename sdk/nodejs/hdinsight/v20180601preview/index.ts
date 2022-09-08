@@ -5,18 +5,34 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./application";
-export * from "./cluster";
-export * from "./getApplication";
-export * from "./getCluster";
-export * from "./getClusterGatewaySettings";
+export { ApplicationArgs } from "./application";
+export type Application = import("./application").Application;
+export const Application: typeof import("./application").Application = null as any;
+
+export { ClusterArgs } from "./cluster";
+export type Cluster = import("./cluster").Cluster;
+export const Cluster: typeof import("./cluster").Cluster = null as any;
+
+export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
+export const getApplication: typeof import("./getApplication").getApplication = null as any;
+export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
+
+export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
+export const getCluster: typeof import("./getCluster").getCluster = null as any;
+export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
+
+export { GetClusterGatewaySettingsArgs, GetClusterGatewaySettingsResult, GetClusterGatewaySettingsOutputArgs } from "./getClusterGatewaySettings";
+export const getClusterGatewaySettings: typeof import("./getClusterGatewaySettings").getClusterGatewaySettings = null as any;
+export const getClusterGatewaySettingsOutput: typeof import("./getClusterGatewaySettings").getClusterGatewaySettingsOutput = null as any;
+
+utilities.lazyLoad(exports, ["Application"], () => require("./application"));
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
+utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
+utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
+utilities.lazyLoad(exports, ["getClusterGatewaySettings","getClusterGatewaySettingsOutput"], () => require("./getClusterGatewaySettings"));
 
 // Export enums:
 export * from "../../types/enums/hdinsight/v20180601preview";
-
-// Import resources to register:
-import { Application } from "./application";
-import { Cluster } from "./cluster";
 
 const _module = {
     version: utilities.getVersion(),

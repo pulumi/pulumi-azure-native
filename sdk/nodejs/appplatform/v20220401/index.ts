@@ -5,46 +5,134 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./app";
-export * from "./binding";
-export * from "./buildServiceBuilder";
-export * from "./buildpackBinding";
-export * from "./certificate";
-export * from "./configurationService";
-export * from "./customDomain";
-export * from "./deployment";
-export * from "./getApp";
-export * from "./getAppResourceUploadUrl";
-export * from "./getBinding";
-export * from "./getBuildServiceBuildResultLog";
-export * from "./getBuildServiceBuilder";
-export * from "./getBuildServiceResourceUploadUrl";
-export * from "./getBuildpackBinding";
-export * from "./getCertificate";
-export * from "./getConfigurationService";
-export * from "./getCustomDomain";
-export * from "./getDeployment";
-export * from "./getDeploymentLogFileUrl";
-export * from "./getService";
-export * from "./getServiceRegistry";
-export * from "./listServiceTestKeys";
-export * from "./service";
-export * from "./serviceRegistry";
+export { AppArgs } from "./app";
+export type App = import("./app").App;
+export const App: typeof import("./app").App = null as any;
+
+export { BindingArgs } from "./binding";
+export type Binding = import("./binding").Binding;
+export const Binding: typeof import("./binding").Binding = null as any;
+
+export { BuildServiceBuilderArgs } from "./buildServiceBuilder";
+export type BuildServiceBuilder = import("./buildServiceBuilder").BuildServiceBuilder;
+export const BuildServiceBuilder: typeof import("./buildServiceBuilder").BuildServiceBuilder = null as any;
+
+export { BuildpackBindingArgs } from "./buildpackBinding";
+export type BuildpackBinding = import("./buildpackBinding").BuildpackBinding;
+export const BuildpackBinding: typeof import("./buildpackBinding").BuildpackBinding = null as any;
+
+export { CertificateArgs } from "./certificate";
+export type Certificate = import("./certificate").Certificate;
+export const Certificate: typeof import("./certificate").Certificate = null as any;
+
+export { ConfigurationServiceArgs } from "./configurationService";
+export type ConfigurationService = import("./configurationService").ConfigurationService;
+export const ConfigurationService: typeof import("./configurationService").ConfigurationService = null as any;
+
+export { CustomDomainArgs } from "./customDomain";
+export type CustomDomain = import("./customDomain").CustomDomain;
+export const CustomDomain: typeof import("./customDomain").CustomDomain = null as any;
+
+export { DeploymentArgs } from "./deployment";
+export type Deployment = import("./deployment").Deployment;
+export const Deployment: typeof import("./deployment").Deployment = null as any;
+
+export { GetAppArgs, GetAppResult, GetAppOutputArgs } from "./getApp";
+export const getApp: typeof import("./getApp").getApp = null as any;
+export const getAppOutput: typeof import("./getApp").getAppOutput = null as any;
+
+export { GetAppResourceUploadUrlArgs, GetAppResourceUploadUrlResult, GetAppResourceUploadUrlOutputArgs } from "./getAppResourceUploadUrl";
+export const getAppResourceUploadUrl: typeof import("./getAppResourceUploadUrl").getAppResourceUploadUrl = null as any;
+export const getAppResourceUploadUrlOutput: typeof import("./getAppResourceUploadUrl").getAppResourceUploadUrlOutput = null as any;
+
+export { GetBindingArgs, GetBindingResult, GetBindingOutputArgs } from "./getBinding";
+export const getBinding: typeof import("./getBinding").getBinding = null as any;
+export const getBindingOutput: typeof import("./getBinding").getBindingOutput = null as any;
+
+export { GetBuildServiceBuildResultLogArgs, GetBuildServiceBuildResultLogResult, GetBuildServiceBuildResultLogOutputArgs } from "./getBuildServiceBuildResultLog";
+export const getBuildServiceBuildResultLog: typeof import("./getBuildServiceBuildResultLog").getBuildServiceBuildResultLog = null as any;
+export const getBuildServiceBuildResultLogOutput: typeof import("./getBuildServiceBuildResultLog").getBuildServiceBuildResultLogOutput = null as any;
+
+export { GetBuildServiceBuilderArgs, GetBuildServiceBuilderResult, GetBuildServiceBuilderOutputArgs } from "./getBuildServiceBuilder";
+export const getBuildServiceBuilder: typeof import("./getBuildServiceBuilder").getBuildServiceBuilder = null as any;
+export const getBuildServiceBuilderOutput: typeof import("./getBuildServiceBuilder").getBuildServiceBuilderOutput = null as any;
+
+export { GetBuildServiceResourceUploadUrlArgs, GetBuildServiceResourceUploadUrlResult, GetBuildServiceResourceUploadUrlOutputArgs } from "./getBuildServiceResourceUploadUrl";
+export const getBuildServiceResourceUploadUrl: typeof import("./getBuildServiceResourceUploadUrl").getBuildServiceResourceUploadUrl = null as any;
+export const getBuildServiceResourceUploadUrlOutput: typeof import("./getBuildServiceResourceUploadUrl").getBuildServiceResourceUploadUrlOutput = null as any;
+
+export { GetBuildpackBindingArgs, GetBuildpackBindingResult, GetBuildpackBindingOutputArgs } from "./getBuildpackBinding";
+export const getBuildpackBinding: typeof import("./getBuildpackBinding").getBuildpackBinding = null as any;
+export const getBuildpackBindingOutput: typeof import("./getBuildpackBinding").getBuildpackBindingOutput = null as any;
+
+export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
+export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
+export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
+
+export { GetConfigurationServiceArgs, GetConfigurationServiceResult, GetConfigurationServiceOutputArgs } from "./getConfigurationService";
+export const getConfigurationService: typeof import("./getConfigurationService").getConfigurationService = null as any;
+export const getConfigurationServiceOutput: typeof import("./getConfigurationService").getConfigurationServiceOutput = null as any;
+
+export { GetCustomDomainArgs, GetCustomDomainResult, GetCustomDomainOutputArgs } from "./getCustomDomain";
+export const getCustomDomain: typeof import("./getCustomDomain").getCustomDomain = null as any;
+export const getCustomDomainOutput: typeof import("./getCustomDomain").getCustomDomainOutput = null as any;
+
+export { GetDeploymentArgs, GetDeploymentResult, GetDeploymentOutputArgs } from "./getDeployment";
+export const getDeployment: typeof import("./getDeployment").getDeployment = null as any;
+export const getDeploymentOutput: typeof import("./getDeployment").getDeploymentOutput = null as any;
+
+export { GetDeploymentLogFileUrlArgs, GetDeploymentLogFileUrlResult, GetDeploymentLogFileUrlOutputArgs } from "./getDeploymentLogFileUrl";
+export const getDeploymentLogFileUrl: typeof import("./getDeploymentLogFileUrl").getDeploymentLogFileUrl = null as any;
+export const getDeploymentLogFileUrlOutput: typeof import("./getDeploymentLogFileUrl").getDeploymentLogFileUrlOutput = null as any;
+
+export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
+export const getService: typeof import("./getService").getService = null as any;
+export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
+
+export { GetServiceRegistryArgs, GetServiceRegistryResult, GetServiceRegistryOutputArgs } from "./getServiceRegistry";
+export const getServiceRegistry: typeof import("./getServiceRegistry").getServiceRegistry = null as any;
+export const getServiceRegistryOutput: typeof import("./getServiceRegistry").getServiceRegistryOutput = null as any;
+
+export { ListServiceTestKeysArgs, ListServiceTestKeysResult, ListServiceTestKeysOutputArgs } from "./listServiceTestKeys";
+export const listServiceTestKeys: typeof import("./listServiceTestKeys").listServiceTestKeys = null as any;
+export const listServiceTestKeysOutput: typeof import("./listServiceTestKeys").listServiceTestKeysOutput = null as any;
+
+export { ServiceArgs } from "./service";
+export type Service = import("./service").Service;
+export const Service: typeof import("./service").Service = null as any;
+
+export { ServiceRegistryArgs } from "./serviceRegistry";
+export type ServiceRegistry = import("./serviceRegistry").ServiceRegistry;
+export const ServiceRegistry: typeof import("./serviceRegistry").ServiceRegistry = null as any;
+
+utilities.lazyLoad(exports, ["App"], () => require("./app"));
+utilities.lazyLoad(exports, ["Binding"], () => require("./binding"));
+utilities.lazyLoad(exports, ["BuildServiceBuilder"], () => require("./buildServiceBuilder"));
+utilities.lazyLoad(exports, ["BuildpackBinding"], () => require("./buildpackBinding"));
+utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
+utilities.lazyLoad(exports, ["ConfigurationService"], () => require("./configurationService"));
+utilities.lazyLoad(exports, ["CustomDomain"], () => require("./customDomain"));
+utilities.lazyLoad(exports, ["Deployment"], () => require("./deployment"));
+utilities.lazyLoad(exports, ["getApp","getAppOutput"], () => require("./getApp"));
+utilities.lazyLoad(exports, ["getAppResourceUploadUrl","getAppResourceUploadUrlOutput"], () => require("./getAppResourceUploadUrl"));
+utilities.lazyLoad(exports, ["getBinding","getBindingOutput"], () => require("./getBinding"));
+utilities.lazyLoad(exports, ["getBuildServiceBuildResultLog","getBuildServiceBuildResultLogOutput"], () => require("./getBuildServiceBuildResultLog"));
+utilities.lazyLoad(exports, ["getBuildServiceBuilder","getBuildServiceBuilderOutput"], () => require("./getBuildServiceBuilder"));
+utilities.lazyLoad(exports, ["getBuildServiceResourceUploadUrl","getBuildServiceResourceUploadUrlOutput"], () => require("./getBuildServiceResourceUploadUrl"));
+utilities.lazyLoad(exports, ["getBuildpackBinding","getBuildpackBindingOutput"], () => require("./getBuildpackBinding"));
+utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
+utilities.lazyLoad(exports, ["getConfigurationService","getConfigurationServiceOutput"], () => require("./getConfigurationService"));
+utilities.lazyLoad(exports, ["getCustomDomain","getCustomDomainOutput"], () => require("./getCustomDomain"));
+utilities.lazyLoad(exports, ["getDeployment","getDeploymentOutput"], () => require("./getDeployment"));
+utilities.lazyLoad(exports, ["getDeploymentLogFileUrl","getDeploymentLogFileUrlOutput"], () => require("./getDeploymentLogFileUrl"));
+utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
+utilities.lazyLoad(exports, ["getServiceRegistry","getServiceRegistryOutput"], () => require("./getServiceRegistry"));
+utilities.lazyLoad(exports, ["listServiceTestKeys","listServiceTestKeysOutput"], () => require("./listServiceTestKeys"));
+utilities.lazyLoad(exports, ["Service"], () => require("./service"));
+utilities.lazyLoad(exports, ["ServiceRegistry"], () => require("./serviceRegistry"));
 
 // Export enums:
 export * from "../../types/enums/appplatform/v20220401";
-
-// Import resources to register:
-import { App } from "./app";
-import { Binding } from "./binding";
-import { BuildServiceBuilder } from "./buildServiceBuilder";
-import { BuildpackBinding } from "./buildpackBinding";
-import { Certificate } from "./certificate";
-import { ConfigurationService } from "./configurationService";
-import { CustomDomain } from "./customDomain";
-import { Deployment } from "./deployment";
-import { Service } from "./service";
-import { ServiceRegistry } from "./serviceRegistry";
 
 const _module = {
     version: utilities.getVersion(),

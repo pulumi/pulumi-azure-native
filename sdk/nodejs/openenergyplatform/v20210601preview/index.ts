@@ -5,11 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./energyService";
-export * from "./getEnergyService";
+export { EnergyServiceArgs } from "./energyService";
+export type EnergyService = import("./energyService").EnergyService;
+export const EnergyService: typeof import("./energyService").EnergyService = null as any;
 
-// Import resources to register:
-import { EnergyService } from "./energyService";
+export { GetEnergyServiceArgs, GetEnergyServiceResult, GetEnergyServiceOutputArgs } from "./getEnergyService";
+export const getEnergyService: typeof import("./getEnergyService").getEnergyService = null as any;
+export const getEnergyServiceOutput: typeof import("./getEnergyService").getEnergyServiceOutput = null as any;
+
+utilities.lazyLoad(exports, ["EnergyService"], () => require("./energyService"));
+utilities.lazyLoad(exports, ["getEnergyService","getEnergyServiceOutput"], () => require("./getEnergyService"));
 
 const _module = {
     version: utilities.getVersion(),

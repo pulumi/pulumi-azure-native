@@ -5,23 +5,49 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getLab";
-export * from "./getLabPlan";
-export * from "./getSchedule";
-export * from "./getUser";
-export * from "./lab";
-export * from "./labPlan";
-export * from "./schedule";
-export * from "./user";
+export { GetLabArgs, GetLabResult, GetLabOutputArgs } from "./getLab";
+export const getLab: typeof import("./getLab").getLab = null as any;
+export const getLabOutput: typeof import("./getLab").getLabOutput = null as any;
+
+export { GetLabPlanArgs, GetLabPlanResult, GetLabPlanOutputArgs } from "./getLabPlan";
+export const getLabPlan: typeof import("./getLabPlan").getLabPlan = null as any;
+export const getLabPlanOutput: typeof import("./getLabPlan").getLabPlanOutput = null as any;
+
+export { GetScheduleArgs, GetScheduleResult, GetScheduleOutputArgs } from "./getSchedule";
+export const getSchedule: typeof import("./getSchedule").getSchedule = null as any;
+export const getScheduleOutput: typeof import("./getSchedule").getScheduleOutput = null as any;
+
+export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
+export const getUser: typeof import("./getUser").getUser = null as any;
+export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
+
+export { LabArgs } from "./lab";
+export type Lab = import("./lab").Lab;
+export const Lab: typeof import("./lab").Lab = null as any;
+
+export { LabPlanArgs } from "./labPlan";
+export type LabPlan = import("./labPlan").LabPlan;
+export const LabPlan: typeof import("./labPlan").LabPlan = null as any;
+
+export { ScheduleArgs } from "./schedule";
+export type Schedule = import("./schedule").Schedule;
+export const Schedule: typeof import("./schedule").Schedule = null as any;
+
+export { UserArgs } from "./user";
+export type User = import("./user").User;
+export const User: typeof import("./user").User = null as any;
+
+utilities.lazyLoad(exports, ["getLab","getLabOutput"], () => require("./getLab"));
+utilities.lazyLoad(exports, ["getLabPlan","getLabPlanOutput"], () => require("./getLabPlan"));
+utilities.lazyLoad(exports, ["getSchedule","getScheduleOutput"], () => require("./getSchedule"));
+utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
+utilities.lazyLoad(exports, ["Lab"], () => require("./lab"));
+utilities.lazyLoad(exports, ["LabPlan"], () => require("./labPlan"));
+utilities.lazyLoad(exports, ["Schedule"], () => require("./schedule"));
+utilities.lazyLoad(exports, ["User"], () => require("./user"));
 
 // Export enums:
 export * from "../../types/enums/labservices/v20211001preview";
-
-// Import resources to register:
-import { Lab } from "./lab";
-import { LabPlan } from "./labPlan";
-import { Schedule } from "./schedule";
-import { User } from "./user";
 
 const _module = {
     version: utilities.getVersion(),

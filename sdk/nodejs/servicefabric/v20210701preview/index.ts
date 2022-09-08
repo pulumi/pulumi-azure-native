@@ -5,29 +5,69 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./application";
-export * from "./applicationType";
-export * from "./applicationTypeVersion";
-export * from "./getApplication";
-export * from "./getApplicationType";
-export * from "./getApplicationTypeVersion";
-export * from "./getManagedCluster";
-export * from "./getNodeType";
-export * from "./getService";
-export * from "./managedCluster";
-export * from "./nodeType";
-export * from "./service";
+export { ApplicationArgs } from "./application";
+export type Application = import("./application").Application;
+export const Application: typeof import("./application").Application = null as any;
+
+export { ApplicationTypeArgs } from "./applicationType";
+export type ApplicationType = import("./applicationType").ApplicationType;
+export const ApplicationType: typeof import("./applicationType").ApplicationType = null as any;
+
+export { ApplicationTypeVersionArgs } from "./applicationTypeVersion";
+export type ApplicationTypeVersion = import("./applicationTypeVersion").ApplicationTypeVersion;
+export const ApplicationTypeVersion: typeof import("./applicationTypeVersion").ApplicationTypeVersion = null as any;
+
+export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
+export const getApplication: typeof import("./getApplication").getApplication = null as any;
+export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
+
+export { GetApplicationTypeArgs, GetApplicationTypeResult, GetApplicationTypeOutputArgs } from "./getApplicationType";
+export const getApplicationType: typeof import("./getApplicationType").getApplicationType = null as any;
+export const getApplicationTypeOutput: typeof import("./getApplicationType").getApplicationTypeOutput = null as any;
+
+export { GetApplicationTypeVersionArgs, GetApplicationTypeVersionResult, GetApplicationTypeVersionOutputArgs } from "./getApplicationTypeVersion";
+export const getApplicationTypeVersion: typeof import("./getApplicationTypeVersion").getApplicationTypeVersion = null as any;
+export const getApplicationTypeVersionOutput: typeof import("./getApplicationTypeVersion").getApplicationTypeVersionOutput = null as any;
+
+export { GetManagedClusterArgs, GetManagedClusterResult, GetManagedClusterOutputArgs } from "./getManagedCluster";
+export const getManagedCluster: typeof import("./getManagedCluster").getManagedCluster = null as any;
+export const getManagedClusterOutput: typeof import("./getManagedCluster").getManagedClusterOutput = null as any;
+
+export { GetNodeTypeArgs, GetNodeTypeResult, GetNodeTypeOutputArgs } from "./getNodeType";
+export const getNodeType: typeof import("./getNodeType").getNodeType = null as any;
+export const getNodeTypeOutput: typeof import("./getNodeType").getNodeTypeOutput = null as any;
+
+export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
+export const getService: typeof import("./getService").getService = null as any;
+export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
+
+export { ManagedClusterArgs } from "./managedCluster";
+export type ManagedCluster = import("./managedCluster").ManagedCluster;
+export const ManagedCluster: typeof import("./managedCluster").ManagedCluster = null as any;
+
+export { NodeTypeArgs } from "./nodeType";
+export type NodeType = import("./nodeType").NodeType;
+export const NodeType: typeof import("./nodeType").NodeType = null as any;
+
+export { ServiceArgs } from "./service";
+export type Service = import("./service").Service;
+export const Service: typeof import("./service").Service = null as any;
+
+utilities.lazyLoad(exports, ["Application"], () => require("./application"));
+utilities.lazyLoad(exports, ["ApplicationType"], () => require("./applicationType"));
+utilities.lazyLoad(exports, ["ApplicationTypeVersion"], () => require("./applicationTypeVersion"));
+utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
+utilities.lazyLoad(exports, ["getApplicationType","getApplicationTypeOutput"], () => require("./getApplicationType"));
+utilities.lazyLoad(exports, ["getApplicationTypeVersion","getApplicationTypeVersionOutput"], () => require("./getApplicationTypeVersion"));
+utilities.lazyLoad(exports, ["getManagedCluster","getManagedClusterOutput"], () => require("./getManagedCluster"));
+utilities.lazyLoad(exports, ["getNodeType","getNodeTypeOutput"], () => require("./getNodeType"));
+utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
+utilities.lazyLoad(exports, ["ManagedCluster"], () => require("./managedCluster"));
+utilities.lazyLoad(exports, ["NodeType"], () => require("./nodeType"));
+utilities.lazyLoad(exports, ["Service"], () => require("./service"));
 
 // Export enums:
 export * from "../../types/enums/servicefabric/v20210701preview";
-
-// Import resources to register:
-import { Application } from "./application";
-import { ApplicationType } from "./applicationType";
-import { ApplicationTypeVersion } from "./applicationTypeVersion";
-import { ManagedCluster } from "./managedCluster";
-import { NodeType } from "./nodeType";
-import { Service } from "./service";
 
 const _module = {
     version: utilities.getVersion(),

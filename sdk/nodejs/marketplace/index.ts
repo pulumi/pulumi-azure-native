@@ -5,15 +5,51 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getPrivateStoreCollection";
-export * from "./getPrivateStoreCollectionOffer";
-export * from "./getPrivateStoreOffer";
-export * from "./listPrivateStoreNewPlansNotifications";
-export * from "./listPrivateStoreStopSellOffersPlansNotifications";
-export * from "./listPrivateStoreSubscriptionsContext";
-export * from "./privateStoreCollection";
-export * from "./privateStoreCollectionOffer";
-export * from "./privateStoreOffer";
+export { GetPrivateStoreCollectionArgs, GetPrivateStoreCollectionResult, GetPrivateStoreCollectionOutputArgs } from "./getPrivateStoreCollection";
+export const getPrivateStoreCollection: typeof import("./getPrivateStoreCollection").getPrivateStoreCollection = null as any;
+export const getPrivateStoreCollectionOutput: typeof import("./getPrivateStoreCollection").getPrivateStoreCollectionOutput = null as any;
+
+export { GetPrivateStoreCollectionOfferArgs, GetPrivateStoreCollectionOfferResult, GetPrivateStoreCollectionOfferOutputArgs } from "./getPrivateStoreCollectionOffer";
+export const getPrivateStoreCollectionOffer: typeof import("./getPrivateStoreCollectionOffer").getPrivateStoreCollectionOffer = null as any;
+export const getPrivateStoreCollectionOfferOutput: typeof import("./getPrivateStoreCollectionOffer").getPrivateStoreCollectionOfferOutput = null as any;
+
+export { GetPrivateStoreOfferArgs, GetPrivateStoreOfferResult, GetPrivateStoreOfferOutputArgs } from "./getPrivateStoreOffer";
+export const getPrivateStoreOffer: typeof import("./getPrivateStoreOffer").getPrivateStoreOffer = null as any;
+export const getPrivateStoreOfferOutput: typeof import("./getPrivateStoreOffer").getPrivateStoreOfferOutput = null as any;
+
+export { ListPrivateStoreNewPlansNotificationsArgs, ListPrivateStoreNewPlansNotificationsResult, ListPrivateStoreNewPlansNotificationsOutputArgs } from "./listPrivateStoreNewPlansNotifications";
+export const listPrivateStoreNewPlansNotifications: typeof import("./listPrivateStoreNewPlansNotifications").listPrivateStoreNewPlansNotifications = null as any;
+export const listPrivateStoreNewPlansNotificationsOutput: typeof import("./listPrivateStoreNewPlansNotifications").listPrivateStoreNewPlansNotificationsOutput = null as any;
+
+export { ListPrivateStoreStopSellOffersPlansNotificationsArgs, ListPrivateStoreStopSellOffersPlansNotificationsResult, ListPrivateStoreStopSellOffersPlansNotificationsOutputArgs } from "./listPrivateStoreStopSellOffersPlansNotifications";
+export const listPrivateStoreStopSellOffersPlansNotifications: typeof import("./listPrivateStoreStopSellOffersPlansNotifications").listPrivateStoreStopSellOffersPlansNotifications = null as any;
+export const listPrivateStoreStopSellOffersPlansNotificationsOutput: typeof import("./listPrivateStoreStopSellOffersPlansNotifications").listPrivateStoreStopSellOffersPlansNotificationsOutput = null as any;
+
+export { ListPrivateStoreSubscriptionsContextArgs, ListPrivateStoreSubscriptionsContextResult, ListPrivateStoreSubscriptionsContextOutputArgs } from "./listPrivateStoreSubscriptionsContext";
+export const listPrivateStoreSubscriptionsContext: typeof import("./listPrivateStoreSubscriptionsContext").listPrivateStoreSubscriptionsContext = null as any;
+export const listPrivateStoreSubscriptionsContextOutput: typeof import("./listPrivateStoreSubscriptionsContext").listPrivateStoreSubscriptionsContextOutput = null as any;
+
+export { PrivateStoreCollectionArgs } from "./privateStoreCollection";
+export type PrivateStoreCollection = import("./privateStoreCollection").PrivateStoreCollection;
+export const PrivateStoreCollection: typeof import("./privateStoreCollection").PrivateStoreCollection = null as any;
+
+export { PrivateStoreCollectionOfferArgs } from "./privateStoreCollectionOffer";
+export type PrivateStoreCollectionOffer = import("./privateStoreCollectionOffer").PrivateStoreCollectionOffer;
+export const PrivateStoreCollectionOffer: typeof import("./privateStoreCollectionOffer").PrivateStoreCollectionOffer = null as any;
+
+export { PrivateStoreOfferArgs } from "./privateStoreOffer";
+export type PrivateStoreOffer = import("./privateStoreOffer").PrivateStoreOffer;
+export const PrivateStoreOffer: typeof import("./privateStoreOffer").PrivateStoreOffer = null as any;
+
+utilities.lazyLoad(exports, ["getPrivateStoreCollection","getPrivateStoreCollectionOutput"], () => require("./getPrivateStoreCollection"));
+utilities.lazyLoad(exports, ["getPrivateStoreCollectionOffer","getPrivateStoreCollectionOfferOutput"], () => require("./getPrivateStoreCollectionOffer"));
+utilities.lazyLoad(exports, ["getPrivateStoreOffer","getPrivateStoreOfferOutput"], () => require("./getPrivateStoreOffer"));
+utilities.lazyLoad(exports, ["listPrivateStoreNewPlansNotifications","listPrivateStoreNewPlansNotificationsOutput"], () => require("./listPrivateStoreNewPlansNotifications"));
+utilities.lazyLoad(exports, ["listPrivateStoreStopSellOffersPlansNotifications","listPrivateStoreStopSellOffersPlansNotificationsOutput"], () => require("./listPrivateStoreStopSellOffersPlansNotifications"));
+utilities.lazyLoad(exports, ["listPrivateStoreSubscriptionsContext","listPrivateStoreSubscriptionsContextOutput"], () => require("./listPrivateStoreSubscriptionsContext"));
+utilities.lazyLoad(exports, ["PrivateStoreCollection"], () => require("./privateStoreCollection"));
+utilities.lazyLoad(exports, ["PrivateStoreCollectionOffer"], () => require("./privateStoreCollectionOffer"));
+utilities.lazyLoad(exports, ["PrivateStoreOffer"], () => require("./privateStoreOffer"));
 
 // Export enums:
 export * from "../types/enums/marketplace";
@@ -30,11 +66,6 @@ export {
     v20211201,
     v20220301,
 };
-
-// Import resources to register:
-import { PrivateStoreCollection } from "./privateStoreCollection";
-import { PrivateStoreCollectionOffer } from "./privateStoreCollectionOffer";
-import { PrivateStoreOffer } from "./privateStoreOffer";
 
 const _module = {
     version: utilities.getVersion(),

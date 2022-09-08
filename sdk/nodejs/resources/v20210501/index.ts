@@ -5,14 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getTemplateSpec";
-export * from "./getTemplateSpecVersion";
-export * from "./templateSpec";
-export * from "./templateSpecVersion";
+export { GetTemplateSpecArgs, GetTemplateSpecResult, GetTemplateSpecOutputArgs } from "./getTemplateSpec";
+export const getTemplateSpec: typeof import("./getTemplateSpec").getTemplateSpec = null as any;
+export const getTemplateSpecOutput: typeof import("./getTemplateSpec").getTemplateSpecOutput = null as any;
 
-// Import resources to register:
-import { TemplateSpec } from "./templateSpec";
-import { TemplateSpecVersion } from "./templateSpecVersion";
+export { GetTemplateSpecVersionArgs, GetTemplateSpecVersionResult, GetTemplateSpecVersionOutputArgs } from "./getTemplateSpecVersion";
+export const getTemplateSpecVersion: typeof import("./getTemplateSpecVersion").getTemplateSpecVersion = null as any;
+export const getTemplateSpecVersionOutput: typeof import("./getTemplateSpecVersion").getTemplateSpecVersionOutput = null as any;
+
+export { TemplateSpecArgs } from "./templateSpec";
+export type TemplateSpec = import("./templateSpec").TemplateSpec;
+export const TemplateSpec: typeof import("./templateSpec").TemplateSpec = null as any;
+
+export { TemplateSpecVersionArgs } from "./templateSpecVersion";
+export type TemplateSpecVersion = import("./templateSpecVersion").TemplateSpecVersion;
+export const TemplateSpecVersion: typeof import("./templateSpecVersion").TemplateSpecVersion = null as any;
+
+utilities.lazyLoad(exports, ["getTemplateSpec","getTemplateSpecOutput"], () => require("./getTemplateSpec"));
+utilities.lazyLoad(exports, ["getTemplateSpecVersion","getTemplateSpecVersionOutput"], () => require("./getTemplateSpecVersion"));
+utilities.lazyLoad(exports, ["TemplateSpec"], () => require("./templateSpec"));
+utilities.lazyLoad(exports, ["TemplateSpecVersion"], () => require("./templateSpecVersion"));
 
 const _module = {
     version: utilities.getVersion(),

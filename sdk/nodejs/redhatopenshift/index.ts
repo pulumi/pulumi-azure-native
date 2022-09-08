@@ -5,10 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getOpenShiftCluster";
-export * from "./listOpenShiftClusterAdminCredentials";
-export * from "./listOpenShiftClusterCredentials";
-export * from "./openShiftCluster";
+export { GetOpenShiftClusterArgs, GetOpenShiftClusterResult, GetOpenShiftClusterOutputArgs } from "./getOpenShiftCluster";
+export const getOpenShiftCluster: typeof import("./getOpenShiftCluster").getOpenShiftCluster = null as any;
+export const getOpenShiftClusterOutput: typeof import("./getOpenShiftCluster").getOpenShiftClusterOutput = null as any;
+
+export { ListOpenShiftClusterAdminCredentialsArgs, ListOpenShiftClusterAdminCredentialsResult, ListOpenShiftClusterAdminCredentialsOutputArgs } from "./listOpenShiftClusterAdminCredentials";
+export const listOpenShiftClusterAdminCredentials: typeof import("./listOpenShiftClusterAdminCredentials").listOpenShiftClusterAdminCredentials = null as any;
+export const listOpenShiftClusterAdminCredentialsOutput: typeof import("./listOpenShiftClusterAdminCredentials").listOpenShiftClusterAdminCredentialsOutput = null as any;
+
+export { ListOpenShiftClusterCredentialsArgs, ListOpenShiftClusterCredentialsResult, ListOpenShiftClusterCredentialsOutputArgs } from "./listOpenShiftClusterCredentials";
+export const listOpenShiftClusterCredentials: typeof import("./listOpenShiftClusterCredentials").listOpenShiftClusterCredentials = null as any;
+export const listOpenShiftClusterCredentialsOutput: typeof import("./listOpenShiftClusterCredentials").listOpenShiftClusterCredentialsOutput = null as any;
+
+export { OpenShiftClusterArgs } from "./openShiftCluster";
+export type OpenShiftCluster = import("./openShiftCluster").OpenShiftCluster;
+export const OpenShiftCluster: typeof import("./openShiftCluster").OpenShiftCluster = null as any;
+
+utilities.lazyLoad(exports, ["getOpenShiftCluster","getOpenShiftClusterOutput"], () => require("./getOpenShiftCluster"));
+utilities.lazyLoad(exports, ["listOpenShiftClusterAdminCredentials","listOpenShiftClusterAdminCredentialsOutput"], () => require("./listOpenShiftClusterAdminCredentials"));
+utilities.lazyLoad(exports, ["listOpenShiftClusterCredentials","listOpenShiftClusterCredentialsOutput"], () => require("./listOpenShiftClusterCredentials"));
+utilities.lazyLoad(exports, ["OpenShiftCluster"], () => require("./openShiftCluster"));
 
 // Export sub-modules:
 import * as v20200430 from "./v20200430";
@@ -20,9 +36,6 @@ export {
     v20210901preview,
     v20220401,
 };
-
-// Import resources to register:
-import { OpenShiftCluster } from "./openShiftCluster";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,32 +5,79 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./backupShortTermRetentionPolicy";
-export * from "./database";
-export * from "./elasticPool";
-export * from "./getBackupShortTermRetentionPolicy";
-export * from "./getDatabase";
-export * from "./getElasticPool";
-export * from "./getInstanceFailoverGroup";
-export * from "./getManagedDatabaseVulnerabilityAssessment";
-export * from "./getManagedDatabaseVulnerabilityAssessmentRuleBaseline";
-export * from "./getManagedInstanceKey";
-export * from "./instanceFailoverGroup";
-export * from "./managedDatabaseVulnerabilityAssessment";
-export * from "./managedDatabaseVulnerabilityAssessmentRuleBaseline";
-export * from "./managedInstanceKey";
+export { BackupShortTermRetentionPolicyArgs } from "./backupShortTermRetentionPolicy";
+export type BackupShortTermRetentionPolicy = import("./backupShortTermRetentionPolicy").BackupShortTermRetentionPolicy;
+export const BackupShortTermRetentionPolicy: typeof import("./backupShortTermRetentionPolicy").BackupShortTermRetentionPolicy = null as any;
+
+export { DatabaseArgs } from "./database";
+export type Database = import("./database").Database;
+export const Database: typeof import("./database").Database = null as any;
+
+export { ElasticPoolArgs } from "./elasticPool";
+export type ElasticPool = import("./elasticPool").ElasticPool;
+export const ElasticPool: typeof import("./elasticPool").ElasticPool = null as any;
+
+export { GetBackupShortTermRetentionPolicyArgs, GetBackupShortTermRetentionPolicyResult, GetBackupShortTermRetentionPolicyOutputArgs } from "./getBackupShortTermRetentionPolicy";
+export const getBackupShortTermRetentionPolicy: typeof import("./getBackupShortTermRetentionPolicy").getBackupShortTermRetentionPolicy = null as any;
+export const getBackupShortTermRetentionPolicyOutput: typeof import("./getBackupShortTermRetentionPolicy").getBackupShortTermRetentionPolicyOutput = null as any;
+
+export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
+export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
+export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
+
+export { GetElasticPoolArgs, GetElasticPoolResult, GetElasticPoolOutputArgs } from "./getElasticPool";
+export const getElasticPool: typeof import("./getElasticPool").getElasticPool = null as any;
+export const getElasticPoolOutput: typeof import("./getElasticPool").getElasticPoolOutput = null as any;
+
+export { GetInstanceFailoverGroupArgs, GetInstanceFailoverGroupResult, GetInstanceFailoverGroupOutputArgs } from "./getInstanceFailoverGroup";
+export const getInstanceFailoverGroup: typeof import("./getInstanceFailoverGroup").getInstanceFailoverGroup = null as any;
+export const getInstanceFailoverGroupOutput: typeof import("./getInstanceFailoverGroup").getInstanceFailoverGroupOutput = null as any;
+
+export { GetManagedDatabaseVulnerabilityAssessmentArgs, GetManagedDatabaseVulnerabilityAssessmentResult, GetManagedDatabaseVulnerabilityAssessmentOutputArgs } from "./getManagedDatabaseVulnerabilityAssessment";
+export const getManagedDatabaseVulnerabilityAssessment: typeof import("./getManagedDatabaseVulnerabilityAssessment").getManagedDatabaseVulnerabilityAssessment = null as any;
+export const getManagedDatabaseVulnerabilityAssessmentOutput: typeof import("./getManagedDatabaseVulnerabilityAssessment").getManagedDatabaseVulnerabilityAssessmentOutput = null as any;
+
+export { GetManagedDatabaseVulnerabilityAssessmentRuleBaselineArgs, GetManagedDatabaseVulnerabilityAssessmentRuleBaselineResult, GetManagedDatabaseVulnerabilityAssessmentRuleBaselineOutputArgs } from "./getManagedDatabaseVulnerabilityAssessmentRuleBaseline";
+export const getManagedDatabaseVulnerabilityAssessmentRuleBaseline: typeof import("./getManagedDatabaseVulnerabilityAssessmentRuleBaseline").getManagedDatabaseVulnerabilityAssessmentRuleBaseline = null as any;
+export const getManagedDatabaseVulnerabilityAssessmentRuleBaselineOutput: typeof import("./getManagedDatabaseVulnerabilityAssessmentRuleBaseline").getManagedDatabaseVulnerabilityAssessmentRuleBaselineOutput = null as any;
+
+export { GetManagedInstanceKeyArgs, GetManagedInstanceKeyResult, GetManagedInstanceKeyOutputArgs } from "./getManagedInstanceKey";
+export const getManagedInstanceKey: typeof import("./getManagedInstanceKey").getManagedInstanceKey = null as any;
+export const getManagedInstanceKeyOutput: typeof import("./getManagedInstanceKey").getManagedInstanceKeyOutput = null as any;
+
+export { InstanceFailoverGroupArgs } from "./instanceFailoverGroup";
+export type InstanceFailoverGroup = import("./instanceFailoverGroup").InstanceFailoverGroup;
+export const InstanceFailoverGroup: typeof import("./instanceFailoverGroup").InstanceFailoverGroup = null as any;
+
+export { ManagedDatabaseVulnerabilityAssessmentArgs } from "./managedDatabaseVulnerabilityAssessment";
+export type ManagedDatabaseVulnerabilityAssessment = import("./managedDatabaseVulnerabilityAssessment").ManagedDatabaseVulnerabilityAssessment;
+export const ManagedDatabaseVulnerabilityAssessment: typeof import("./managedDatabaseVulnerabilityAssessment").ManagedDatabaseVulnerabilityAssessment = null as any;
+
+export { ManagedDatabaseVulnerabilityAssessmentRuleBaselineArgs } from "./managedDatabaseVulnerabilityAssessmentRuleBaseline";
+export type ManagedDatabaseVulnerabilityAssessmentRuleBaseline = import("./managedDatabaseVulnerabilityAssessmentRuleBaseline").ManagedDatabaseVulnerabilityAssessmentRuleBaseline;
+export const ManagedDatabaseVulnerabilityAssessmentRuleBaseline: typeof import("./managedDatabaseVulnerabilityAssessmentRuleBaseline").ManagedDatabaseVulnerabilityAssessmentRuleBaseline = null as any;
+
+export { ManagedInstanceKeyArgs } from "./managedInstanceKey";
+export type ManagedInstanceKey = import("./managedInstanceKey").ManagedInstanceKey;
+export const ManagedInstanceKey: typeof import("./managedInstanceKey").ManagedInstanceKey = null as any;
+
+utilities.lazyLoad(exports, ["BackupShortTermRetentionPolicy"], () => require("./backupShortTermRetentionPolicy"));
+utilities.lazyLoad(exports, ["Database"], () => require("./database"));
+utilities.lazyLoad(exports, ["ElasticPool"], () => require("./elasticPool"));
+utilities.lazyLoad(exports, ["getBackupShortTermRetentionPolicy","getBackupShortTermRetentionPolicyOutput"], () => require("./getBackupShortTermRetentionPolicy"));
+utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
+utilities.lazyLoad(exports, ["getElasticPool","getElasticPoolOutput"], () => require("./getElasticPool"));
+utilities.lazyLoad(exports, ["getInstanceFailoverGroup","getInstanceFailoverGroupOutput"], () => require("./getInstanceFailoverGroup"));
+utilities.lazyLoad(exports, ["getManagedDatabaseVulnerabilityAssessment","getManagedDatabaseVulnerabilityAssessmentOutput"], () => require("./getManagedDatabaseVulnerabilityAssessment"));
+utilities.lazyLoad(exports, ["getManagedDatabaseVulnerabilityAssessmentRuleBaseline","getManagedDatabaseVulnerabilityAssessmentRuleBaselineOutput"], () => require("./getManagedDatabaseVulnerabilityAssessmentRuleBaseline"));
+utilities.lazyLoad(exports, ["getManagedInstanceKey","getManagedInstanceKeyOutput"], () => require("./getManagedInstanceKey"));
+utilities.lazyLoad(exports, ["InstanceFailoverGroup"], () => require("./instanceFailoverGroup"));
+utilities.lazyLoad(exports, ["ManagedDatabaseVulnerabilityAssessment"], () => require("./managedDatabaseVulnerabilityAssessment"));
+utilities.lazyLoad(exports, ["ManagedDatabaseVulnerabilityAssessmentRuleBaseline"], () => require("./managedDatabaseVulnerabilityAssessmentRuleBaseline"));
+utilities.lazyLoad(exports, ["ManagedInstanceKey"], () => require("./managedInstanceKey"));
 
 // Export enums:
 export * from "../../types/enums/sql/v20171001preview";
-
-// Import resources to register:
-import { BackupShortTermRetentionPolicy } from "./backupShortTermRetentionPolicy";
-import { Database } from "./database";
-import { ElasticPool } from "./elasticPool";
-import { InstanceFailoverGroup } from "./instanceFailoverGroup";
-import { ManagedDatabaseVulnerabilityAssessment } from "./managedDatabaseVulnerabilityAssessment";
-import { ManagedDatabaseVulnerabilityAssessmentRuleBaseline } from "./managedDatabaseVulnerabilityAssessmentRuleBaseline";
-import { ManagedInstanceKey } from "./managedInstanceKey";
 
 const _module = {
     version: utilities.getVersion(),

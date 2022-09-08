@@ -5,24 +5,96 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./attestationAtResource";
-export * from "./attestationAtResourceGroup";
-export * from "./attestationAtSubscription";
-export * from "./getAttestationAtResource";
-export * from "./getAttestationAtResourceGroup";
-export * from "./getAttestationAtSubscription";
-export * from "./getRemediationAtManagementGroup";
-export * from "./getRemediationAtResource";
-export * from "./getRemediationAtResourceGroup";
-export * from "./getRemediationAtSubscription";
-export * from "./listRemediationDeploymentsAtManagementGroup";
-export * from "./listRemediationDeploymentsAtResource";
-export * from "./listRemediationDeploymentsAtResourceGroup";
-export * from "./listRemediationDeploymentsAtSubscription";
-export * from "./remediationAtManagementGroup";
-export * from "./remediationAtResource";
-export * from "./remediationAtResourceGroup";
-export * from "./remediationAtSubscription";
+export { AttestationAtResourceArgs } from "./attestationAtResource";
+export type AttestationAtResource = import("./attestationAtResource").AttestationAtResource;
+export const AttestationAtResource: typeof import("./attestationAtResource").AttestationAtResource = null as any;
+
+export { AttestationAtResourceGroupArgs } from "./attestationAtResourceGroup";
+export type AttestationAtResourceGroup = import("./attestationAtResourceGroup").AttestationAtResourceGroup;
+export const AttestationAtResourceGroup: typeof import("./attestationAtResourceGroup").AttestationAtResourceGroup = null as any;
+
+export { AttestationAtSubscriptionArgs } from "./attestationAtSubscription";
+export type AttestationAtSubscription = import("./attestationAtSubscription").AttestationAtSubscription;
+export const AttestationAtSubscription: typeof import("./attestationAtSubscription").AttestationAtSubscription = null as any;
+
+export { GetAttestationAtResourceArgs, GetAttestationAtResourceResult, GetAttestationAtResourceOutputArgs } from "./getAttestationAtResource";
+export const getAttestationAtResource: typeof import("./getAttestationAtResource").getAttestationAtResource = null as any;
+export const getAttestationAtResourceOutput: typeof import("./getAttestationAtResource").getAttestationAtResourceOutput = null as any;
+
+export { GetAttestationAtResourceGroupArgs, GetAttestationAtResourceGroupResult, GetAttestationAtResourceGroupOutputArgs } from "./getAttestationAtResourceGroup";
+export const getAttestationAtResourceGroup: typeof import("./getAttestationAtResourceGroup").getAttestationAtResourceGroup = null as any;
+export const getAttestationAtResourceGroupOutput: typeof import("./getAttestationAtResourceGroup").getAttestationAtResourceGroupOutput = null as any;
+
+export { GetAttestationAtSubscriptionArgs, GetAttestationAtSubscriptionResult, GetAttestationAtSubscriptionOutputArgs } from "./getAttestationAtSubscription";
+export const getAttestationAtSubscription: typeof import("./getAttestationAtSubscription").getAttestationAtSubscription = null as any;
+export const getAttestationAtSubscriptionOutput: typeof import("./getAttestationAtSubscription").getAttestationAtSubscriptionOutput = null as any;
+
+export { GetRemediationAtManagementGroupArgs, GetRemediationAtManagementGroupResult, GetRemediationAtManagementGroupOutputArgs } from "./getRemediationAtManagementGroup";
+export const getRemediationAtManagementGroup: typeof import("./getRemediationAtManagementGroup").getRemediationAtManagementGroup = null as any;
+export const getRemediationAtManagementGroupOutput: typeof import("./getRemediationAtManagementGroup").getRemediationAtManagementGroupOutput = null as any;
+
+export { GetRemediationAtResourceArgs, GetRemediationAtResourceResult, GetRemediationAtResourceOutputArgs } from "./getRemediationAtResource";
+export const getRemediationAtResource: typeof import("./getRemediationAtResource").getRemediationAtResource = null as any;
+export const getRemediationAtResourceOutput: typeof import("./getRemediationAtResource").getRemediationAtResourceOutput = null as any;
+
+export { GetRemediationAtResourceGroupArgs, GetRemediationAtResourceGroupResult, GetRemediationAtResourceGroupOutputArgs } from "./getRemediationAtResourceGroup";
+export const getRemediationAtResourceGroup: typeof import("./getRemediationAtResourceGroup").getRemediationAtResourceGroup = null as any;
+export const getRemediationAtResourceGroupOutput: typeof import("./getRemediationAtResourceGroup").getRemediationAtResourceGroupOutput = null as any;
+
+export { GetRemediationAtSubscriptionArgs, GetRemediationAtSubscriptionResult, GetRemediationAtSubscriptionOutputArgs } from "./getRemediationAtSubscription";
+export const getRemediationAtSubscription: typeof import("./getRemediationAtSubscription").getRemediationAtSubscription = null as any;
+export const getRemediationAtSubscriptionOutput: typeof import("./getRemediationAtSubscription").getRemediationAtSubscriptionOutput = null as any;
+
+export { ListRemediationDeploymentsAtManagementGroupArgs, ListRemediationDeploymentsAtManagementGroupResult, ListRemediationDeploymentsAtManagementGroupOutputArgs } from "./listRemediationDeploymentsAtManagementGroup";
+export const listRemediationDeploymentsAtManagementGroup: typeof import("./listRemediationDeploymentsAtManagementGroup").listRemediationDeploymentsAtManagementGroup = null as any;
+export const listRemediationDeploymentsAtManagementGroupOutput: typeof import("./listRemediationDeploymentsAtManagementGroup").listRemediationDeploymentsAtManagementGroupOutput = null as any;
+
+export { ListRemediationDeploymentsAtResourceArgs, ListRemediationDeploymentsAtResourceResult, ListRemediationDeploymentsAtResourceOutputArgs } from "./listRemediationDeploymentsAtResource";
+export const listRemediationDeploymentsAtResource: typeof import("./listRemediationDeploymentsAtResource").listRemediationDeploymentsAtResource = null as any;
+export const listRemediationDeploymentsAtResourceOutput: typeof import("./listRemediationDeploymentsAtResource").listRemediationDeploymentsAtResourceOutput = null as any;
+
+export { ListRemediationDeploymentsAtResourceGroupArgs, ListRemediationDeploymentsAtResourceGroupResult, ListRemediationDeploymentsAtResourceGroupOutputArgs } from "./listRemediationDeploymentsAtResourceGroup";
+export const listRemediationDeploymentsAtResourceGroup: typeof import("./listRemediationDeploymentsAtResourceGroup").listRemediationDeploymentsAtResourceGroup = null as any;
+export const listRemediationDeploymentsAtResourceGroupOutput: typeof import("./listRemediationDeploymentsAtResourceGroup").listRemediationDeploymentsAtResourceGroupOutput = null as any;
+
+export { ListRemediationDeploymentsAtSubscriptionArgs, ListRemediationDeploymentsAtSubscriptionResult, ListRemediationDeploymentsAtSubscriptionOutputArgs } from "./listRemediationDeploymentsAtSubscription";
+export const listRemediationDeploymentsAtSubscription: typeof import("./listRemediationDeploymentsAtSubscription").listRemediationDeploymentsAtSubscription = null as any;
+export const listRemediationDeploymentsAtSubscriptionOutput: typeof import("./listRemediationDeploymentsAtSubscription").listRemediationDeploymentsAtSubscriptionOutput = null as any;
+
+export { RemediationAtManagementGroupArgs } from "./remediationAtManagementGroup";
+export type RemediationAtManagementGroup = import("./remediationAtManagementGroup").RemediationAtManagementGroup;
+export const RemediationAtManagementGroup: typeof import("./remediationAtManagementGroup").RemediationAtManagementGroup = null as any;
+
+export { RemediationAtResourceArgs } from "./remediationAtResource";
+export type RemediationAtResource = import("./remediationAtResource").RemediationAtResource;
+export const RemediationAtResource: typeof import("./remediationAtResource").RemediationAtResource = null as any;
+
+export { RemediationAtResourceGroupArgs } from "./remediationAtResourceGroup";
+export type RemediationAtResourceGroup = import("./remediationAtResourceGroup").RemediationAtResourceGroup;
+export const RemediationAtResourceGroup: typeof import("./remediationAtResourceGroup").RemediationAtResourceGroup = null as any;
+
+export { RemediationAtSubscriptionArgs } from "./remediationAtSubscription";
+export type RemediationAtSubscription = import("./remediationAtSubscription").RemediationAtSubscription;
+export const RemediationAtSubscription: typeof import("./remediationAtSubscription").RemediationAtSubscription = null as any;
+
+utilities.lazyLoad(exports, ["AttestationAtResource"], () => require("./attestationAtResource"));
+utilities.lazyLoad(exports, ["AttestationAtResourceGroup"], () => require("./attestationAtResourceGroup"));
+utilities.lazyLoad(exports, ["AttestationAtSubscription"], () => require("./attestationAtSubscription"));
+utilities.lazyLoad(exports, ["getAttestationAtResource","getAttestationAtResourceOutput"], () => require("./getAttestationAtResource"));
+utilities.lazyLoad(exports, ["getAttestationAtResourceGroup","getAttestationAtResourceGroupOutput"], () => require("./getAttestationAtResourceGroup"));
+utilities.lazyLoad(exports, ["getAttestationAtSubscription","getAttestationAtSubscriptionOutput"], () => require("./getAttestationAtSubscription"));
+utilities.lazyLoad(exports, ["getRemediationAtManagementGroup","getRemediationAtManagementGroupOutput"], () => require("./getRemediationAtManagementGroup"));
+utilities.lazyLoad(exports, ["getRemediationAtResource","getRemediationAtResourceOutput"], () => require("./getRemediationAtResource"));
+utilities.lazyLoad(exports, ["getRemediationAtResourceGroup","getRemediationAtResourceGroupOutput"], () => require("./getRemediationAtResourceGroup"));
+utilities.lazyLoad(exports, ["getRemediationAtSubscription","getRemediationAtSubscriptionOutput"], () => require("./getRemediationAtSubscription"));
+utilities.lazyLoad(exports, ["listRemediationDeploymentsAtManagementGroup","listRemediationDeploymentsAtManagementGroupOutput"], () => require("./listRemediationDeploymentsAtManagementGroup"));
+utilities.lazyLoad(exports, ["listRemediationDeploymentsAtResource","listRemediationDeploymentsAtResourceOutput"], () => require("./listRemediationDeploymentsAtResource"));
+utilities.lazyLoad(exports, ["listRemediationDeploymentsAtResourceGroup","listRemediationDeploymentsAtResourceGroupOutput"], () => require("./listRemediationDeploymentsAtResourceGroup"));
+utilities.lazyLoad(exports, ["listRemediationDeploymentsAtSubscription","listRemediationDeploymentsAtSubscriptionOutput"], () => require("./listRemediationDeploymentsAtSubscription"));
+utilities.lazyLoad(exports, ["RemediationAtManagementGroup"], () => require("./remediationAtManagementGroup"));
+utilities.lazyLoad(exports, ["RemediationAtResource"], () => require("./remediationAtResource"));
+utilities.lazyLoad(exports, ["RemediationAtResourceGroup"], () => require("./remediationAtResourceGroup"));
+utilities.lazyLoad(exports, ["RemediationAtSubscription"], () => require("./remediationAtSubscription"));
 
 // Export enums:
 export * from "../types/enums/policyinsights";
@@ -39,15 +111,6 @@ export {
     v20210101,
     v20211001,
 };
-
-// Import resources to register:
-import { AttestationAtResource } from "./attestationAtResource";
-import { AttestationAtResourceGroup } from "./attestationAtResourceGroup";
-import { AttestationAtSubscription } from "./attestationAtSubscription";
-import { RemediationAtManagementGroup } from "./remediationAtManagementGroup";
-import { RemediationAtResource } from "./remediationAtResource";
-import { RemediationAtResourceGroup } from "./remediationAtResourceGroup";
-import { RemediationAtSubscription } from "./remediationAtSubscription";
 
 const _module = {
     version: utilities.getVersion(),

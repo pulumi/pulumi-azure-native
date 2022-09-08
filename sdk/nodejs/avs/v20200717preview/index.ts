@@ -5,48 +5,134 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./addon";
-export * from "./authorization";
-export * from "./cluster";
-export * from "./getAddon";
-export * from "./getAuthorization";
-export * from "./getCluster";
-export * from "./getGlobalReachConnection";
-export * from "./getHcxEnterpriseSite";
-export * from "./getPrivateCloud";
-export * from "./getWorkloadNetworkDhcp";
-export * from "./getWorkloadNetworkDnsService";
-export * from "./getWorkloadNetworkDnsZone";
-export * from "./getWorkloadNetworkPortMirroring";
-export * from "./getWorkloadNetworkSegment";
-export * from "./getWorkloadNetworkVMGroup";
-export * from "./globalReachConnection";
-export * from "./hcxEnterpriseSite";
-export * from "./listPrivateCloudAdminCredentials";
-export * from "./privateCloud";
-export * from "./workloadNetworkDhcp";
-export * from "./workloadNetworkDnsService";
-export * from "./workloadNetworkDnsZone";
-export * from "./workloadNetworkPortMirroring";
-export * from "./workloadNetworkSegment";
-export * from "./workloadNetworkVMGroup";
+export { AddonArgs } from "./addon";
+export type Addon = import("./addon").Addon;
+export const Addon: typeof import("./addon").Addon = null as any;
+
+export { AuthorizationArgs } from "./authorization";
+export type Authorization = import("./authorization").Authorization;
+export const Authorization: typeof import("./authorization").Authorization = null as any;
+
+export { ClusterArgs } from "./cluster";
+export type Cluster = import("./cluster").Cluster;
+export const Cluster: typeof import("./cluster").Cluster = null as any;
+
+export { GetAddonArgs, GetAddonResult, GetAddonOutputArgs } from "./getAddon";
+export const getAddon: typeof import("./getAddon").getAddon = null as any;
+export const getAddonOutput: typeof import("./getAddon").getAddonOutput = null as any;
+
+export { GetAuthorizationArgs, GetAuthorizationResult, GetAuthorizationOutputArgs } from "./getAuthorization";
+export const getAuthorization: typeof import("./getAuthorization").getAuthorization = null as any;
+export const getAuthorizationOutput: typeof import("./getAuthorization").getAuthorizationOutput = null as any;
+
+export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
+export const getCluster: typeof import("./getCluster").getCluster = null as any;
+export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
+
+export { GetGlobalReachConnectionArgs, GetGlobalReachConnectionResult, GetGlobalReachConnectionOutputArgs } from "./getGlobalReachConnection";
+export const getGlobalReachConnection: typeof import("./getGlobalReachConnection").getGlobalReachConnection = null as any;
+export const getGlobalReachConnectionOutput: typeof import("./getGlobalReachConnection").getGlobalReachConnectionOutput = null as any;
+
+export { GetHcxEnterpriseSiteArgs, GetHcxEnterpriseSiteResult, GetHcxEnterpriseSiteOutputArgs } from "./getHcxEnterpriseSite";
+export const getHcxEnterpriseSite: typeof import("./getHcxEnterpriseSite").getHcxEnterpriseSite = null as any;
+export const getHcxEnterpriseSiteOutput: typeof import("./getHcxEnterpriseSite").getHcxEnterpriseSiteOutput = null as any;
+
+export { GetPrivateCloudArgs, GetPrivateCloudResult, GetPrivateCloudOutputArgs } from "./getPrivateCloud";
+export const getPrivateCloud: typeof import("./getPrivateCloud").getPrivateCloud = null as any;
+export const getPrivateCloudOutput: typeof import("./getPrivateCloud").getPrivateCloudOutput = null as any;
+
+export { GetWorkloadNetworkDhcpArgs, GetWorkloadNetworkDhcpResult, GetWorkloadNetworkDhcpOutputArgs } from "./getWorkloadNetworkDhcp";
+export const getWorkloadNetworkDhcp: typeof import("./getWorkloadNetworkDhcp").getWorkloadNetworkDhcp = null as any;
+export const getWorkloadNetworkDhcpOutput: typeof import("./getWorkloadNetworkDhcp").getWorkloadNetworkDhcpOutput = null as any;
+
+export { GetWorkloadNetworkDnsServiceArgs, GetWorkloadNetworkDnsServiceResult, GetWorkloadNetworkDnsServiceOutputArgs } from "./getWorkloadNetworkDnsService";
+export const getWorkloadNetworkDnsService: typeof import("./getWorkloadNetworkDnsService").getWorkloadNetworkDnsService = null as any;
+export const getWorkloadNetworkDnsServiceOutput: typeof import("./getWorkloadNetworkDnsService").getWorkloadNetworkDnsServiceOutput = null as any;
+
+export { GetWorkloadNetworkDnsZoneArgs, GetWorkloadNetworkDnsZoneResult, GetWorkloadNetworkDnsZoneOutputArgs } from "./getWorkloadNetworkDnsZone";
+export const getWorkloadNetworkDnsZone: typeof import("./getWorkloadNetworkDnsZone").getWorkloadNetworkDnsZone = null as any;
+export const getWorkloadNetworkDnsZoneOutput: typeof import("./getWorkloadNetworkDnsZone").getWorkloadNetworkDnsZoneOutput = null as any;
+
+export { GetWorkloadNetworkPortMirroringArgs, GetWorkloadNetworkPortMirroringResult, GetWorkloadNetworkPortMirroringOutputArgs } from "./getWorkloadNetworkPortMirroring";
+export const getWorkloadNetworkPortMirroring: typeof import("./getWorkloadNetworkPortMirroring").getWorkloadNetworkPortMirroring = null as any;
+export const getWorkloadNetworkPortMirroringOutput: typeof import("./getWorkloadNetworkPortMirroring").getWorkloadNetworkPortMirroringOutput = null as any;
+
+export { GetWorkloadNetworkSegmentArgs, GetWorkloadNetworkSegmentResult, GetWorkloadNetworkSegmentOutputArgs } from "./getWorkloadNetworkSegment";
+export const getWorkloadNetworkSegment: typeof import("./getWorkloadNetworkSegment").getWorkloadNetworkSegment = null as any;
+export const getWorkloadNetworkSegmentOutput: typeof import("./getWorkloadNetworkSegment").getWorkloadNetworkSegmentOutput = null as any;
+
+export { GetWorkloadNetworkVMGroupArgs, GetWorkloadNetworkVMGroupResult, GetWorkloadNetworkVMGroupOutputArgs } from "./getWorkloadNetworkVMGroup";
+export const getWorkloadNetworkVMGroup: typeof import("./getWorkloadNetworkVMGroup").getWorkloadNetworkVMGroup = null as any;
+export const getWorkloadNetworkVMGroupOutput: typeof import("./getWorkloadNetworkVMGroup").getWorkloadNetworkVMGroupOutput = null as any;
+
+export { GlobalReachConnectionArgs } from "./globalReachConnection";
+export type GlobalReachConnection = import("./globalReachConnection").GlobalReachConnection;
+export const GlobalReachConnection: typeof import("./globalReachConnection").GlobalReachConnection = null as any;
+
+export { HcxEnterpriseSiteArgs } from "./hcxEnterpriseSite";
+export type HcxEnterpriseSite = import("./hcxEnterpriseSite").HcxEnterpriseSite;
+export const HcxEnterpriseSite: typeof import("./hcxEnterpriseSite").HcxEnterpriseSite = null as any;
+
+export { ListPrivateCloudAdminCredentialsArgs, ListPrivateCloudAdminCredentialsResult, ListPrivateCloudAdminCredentialsOutputArgs } from "./listPrivateCloudAdminCredentials";
+export const listPrivateCloudAdminCredentials: typeof import("./listPrivateCloudAdminCredentials").listPrivateCloudAdminCredentials = null as any;
+export const listPrivateCloudAdminCredentialsOutput: typeof import("./listPrivateCloudAdminCredentials").listPrivateCloudAdminCredentialsOutput = null as any;
+
+export { PrivateCloudArgs } from "./privateCloud";
+export type PrivateCloud = import("./privateCloud").PrivateCloud;
+export const PrivateCloud: typeof import("./privateCloud").PrivateCloud = null as any;
+
+export { WorkloadNetworkDhcpArgs } from "./workloadNetworkDhcp";
+export type WorkloadNetworkDhcp = import("./workloadNetworkDhcp").WorkloadNetworkDhcp;
+export const WorkloadNetworkDhcp: typeof import("./workloadNetworkDhcp").WorkloadNetworkDhcp = null as any;
+
+export { WorkloadNetworkDnsServiceArgs } from "./workloadNetworkDnsService";
+export type WorkloadNetworkDnsService = import("./workloadNetworkDnsService").WorkloadNetworkDnsService;
+export const WorkloadNetworkDnsService: typeof import("./workloadNetworkDnsService").WorkloadNetworkDnsService = null as any;
+
+export { WorkloadNetworkDnsZoneArgs } from "./workloadNetworkDnsZone";
+export type WorkloadNetworkDnsZone = import("./workloadNetworkDnsZone").WorkloadNetworkDnsZone;
+export const WorkloadNetworkDnsZone: typeof import("./workloadNetworkDnsZone").WorkloadNetworkDnsZone = null as any;
+
+export { WorkloadNetworkPortMirroringArgs } from "./workloadNetworkPortMirroring";
+export type WorkloadNetworkPortMirroring = import("./workloadNetworkPortMirroring").WorkloadNetworkPortMirroring;
+export const WorkloadNetworkPortMirroring: typeof import("./workloadNetworkPortMirroring").WorkloadNetworkPortMirroring = null as any;
+
+export { WorkloadNetworkSegmentArgs } from "./workloadNetworkSegment";
+export type WorkloadNetworkSegment = import("./workloadNetworkSegment").WorkloadNetworkSegment;
+export const WorkloadNetworkSegment: typeof import("./workloadNetworkSegment").WorkloadNetworkSegment = null as any;
+
+export { WorkloadNetworkVMGroupArgs } from "./workloadNetworkVMGroup";
+export type WorkloadNetworkVMGroup = import("./workloadNetworkVMGroup").WorkloadNetworkVMGroup;
+export const WorkloadNetworkVMGroup: typeof import("./workloadNetworkVMGroup").WorkloadNetworkVMGroup = null as any;
+
+utilities.lazyLoad(exports, ["Addon"], () => require("./addon"));
+utilities.lazyLoad(exports, ["Authorization"], () => require("./authorization"));
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
+utilities.lazyLoad(exports, ["getAddon","getAddonOutput"], () => require("./getAddon"));
+utilities.lazyLoad(exports, ["getAuthorization","getAuthorizationOutput"], () => require("./getAuthorization"));
+utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
+utilities.lazyLoad(exports, ["getGlobalReachConnection","getGlobalReachConnectionOutput"], () => require("./getGlobalReachConnection"));
+utilities.lazyLoad(exports, ["getHcxEnterpriseSite","getHcxEnterpriseSiteOutput"], () => require("./getHcxEnterpriseSite"));
+utilities.lazyLoad(exports, ["getPrivateCloud","getPrivateCloudOutput"], () => require("./getPrivateCloud"));
+utilities.lazyLoad(exports, ["getWorkloadNetworkDhcp","getWorkloadNetworkDhcpOutput"], () => require("./getWorkloadNetworkDhcp"));
+utilities.lazyLoad(exports, ["getWorkloadNetworkDnsService","getWorkloadNetworkDnsServiceOutput"], () => require("./getWorkloadNetworkDnsService"));
+utilities.lazyLoad(exports, ["getWorkloadNetworkDnsZone","getWorkloadNetworkDnsZoneOutput"], () => require("./getWorkloadNetworkDnsZone"));
+utilities.lazyLoad(exports, ["getWorkloadNetworkPortMirroring","getWorkloadNetworkPortMirroringOutput"], () => require("./getWorkloadNetworkPortMirroring"));
+utilities.lazyLoad(exports, ["getWorkloadNetworkSegment","getWorkloadNetworkSegmentOutput"], () => require("./getWorkloadNetworkSegment"));
+utilities.lazyLoad(exports, ["getWorkloadNetworkVMGroup","getWorkloadNetworkVMGroupOutput"], () => require("./getWorkloadNetworkVMGroup"));
+utilities.lazyLoad(exports, ["GlobalReachConnection"], () => require("./globalReachConnection"));
+utilities.lazyLoad(exports, ["HcxEnterpriseSite"], () => require("./hcxEnterpriseSite"));
+utilities.lazyLoad(exports, ["listPrivateCloudAdminCredentials","listPrivateCloudAdminCredentialsOutput"], () => require("./listPrivateCloudAdminCredentials"));
+utilities.lazyLoad(exports, ["PrivateCloud"], () => require("./privateCloud"));
+utilities.lazyLoad(exports, ["WorkloadNetworkDhcp"], () => require("./workloadNetworkDhcp"));
+utilities.lazyLoad(exports, ["WorkloadNetworkDnsService"], () => require("./workloadNetworkDnsService"));
+utilities.lazyLoad(exports, ["WorkloadNetworkDnsZone"], () => require("./workloadNetworkDnsZone"));
+utilities.lazyLoad(exports, ["WorkloadNetworkPortMirroring"], () => require("./workloadNetworkPortMirroring"));
+utilities.lazyLoad(exports, ["WorkloadNetworkSegment"], () => require("./workloadNetworkSegment"));
+utilities.lazyLoad(exports, ["WorkloadNetworkVMGroup"], () => require("./workloadNetworkVMGroup"));
 
 // Export enums:
 export * from "../../types/enums/avs/v20200717preview";
-
-// Import resources to register:
-import { Addon } from "./addon";
-import { Authorization } from "./authorization";
-import { Cluster } from "./cluster";
-import { GlobalReachConnection } from "./globalReachConnection";
-import { HcxEnterpriseSite } from "./hcxEnterpriseSite";
-import { PrivateCloud } from "./privateCloud";
-import { WorkloadNetworkDhcp } from "./workloadNetworkDhcp";
-import { WorkloadNetworkDnsService } from "./workloadNetworkDnsService";
-import { WorkloadNetworkDnsZone } from "./workloadNetworkDnsZone";
-import { WorkloadNetworkPortMirroring } from "./workloadNetworkPortMirroring";
-import { WorkloadNetworkSegment } from "./workloadNetworkSegment";
-import { WorkloadNetworkVMGroup } from "./workloadNetworkVMGroup";
 
 const _module = {
     version: utilities.getVersion(),

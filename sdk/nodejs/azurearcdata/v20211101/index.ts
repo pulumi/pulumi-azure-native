@@ -5,20 +5,39 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./dataController";
-export * from "./getDataController";
-export * from "./getSqlManagedInstance";
-export * from "./getSqlServerInstance";
-export * from "./sqlManagedInstance";
-export * from "./sqlServerInstance";
+export { DataControllerArgs } from "./dataController";
+export type DataController = import("./dataController").DataController;
+export const DataController: typeof import("./dataController").DataController = null as any;
+
+export { GetDataControllerArgs, GetDataControllerResult, GetDataControllerOutputArgs } from "./getDataController";
+export const getDataController: typeof import("./getDataController").getDataController = null as any;
+export const getDataControllerOutput: typeof import("./getDataController").getDataControllerOutput = null as any;
+
+export { GetSqlManagedInstanceArgs, GetSqlManagedInstanceResult, GetSqlManagedInstanceOutputArgs } from "./getSqlManagedInstance";
+export const getSqlManagedInstance: typeof import("./getSqlManagedInstance").getSqlManagedInstance = null as any;
+export const getSqlManagedInstanceOutput: typeof import("./getSqlManagedInstance").getSqlManagedInstanceOutput = null as any;
+
+export { GetSqlServerInstanceArgs, GetSqlServerInstanceResult, GetSqlServerInstanceOutputArgs } from "./getSqlServerInstance";
+export const getSqlServerInstance: typeof import("./getSqlServerInstance").getSqlServerInstance = null as any;
+export const getSqlServerInstanceOutput: typeof import("./getSqlServerInstance").getSqlServerInstanceOutput = null as any;
+
+export { SqlManagedInstanceArgs } from "./sqlManagedInstance";
+export type SqlManagedInstance = import("./sqlManagedInstance").SqlManagedInstance;
+export const SqlManagedInstance: typeof import("./sqlManagedInstance").SqlManagedInstance = null as any;
+
+export { SqlServerInstanceArgs } from "./sqlServerInstance";
+export type SqlServerInstance = import("./sqlServerInstance").SqlServerInstance;
+export const SqlServerInstance: typeof import("./sqlServerInstance").SqlServerInstance = null as any;
+
+utilities.lazyLoad(exports, ["DataController"], () => require("./dataController"));
+utilities.lazyLoad(exports, ["getDataController","getDataControllerOutput"], () => require("./getDataController"));
+utilities.lazyLoad(exports, ["getSqlManagedInstance","getSqlManagedInstanceOutput"], () => require("./getSqlManagedInstance"));
+utilities.lazyLoad(exports, ["getSqlServerInstance","getSqlServerInstanceOutput"], () => require("./getSqlServerInstance"));
+utilities.lazyLoad(exports, ["SqlManagedInstance"], () => require("./sqlManagedInstance"));
+utilities.lazyLoad(exports, ["SqlServerInstance"], () => require("./sqlServerInstance"));
 
 // Export enums:
 export * from "../../types/enums/azurearcdata/v20211101";
-
-// Import resources to register:
-import { DataController } from "./dataController";
-import { SqlManagedInstance } from "./sqlManagedInstance";
-import { SqlServerInstance } from "./sqlServerInstance";
 
 const _module = {
     version: utilities.getVersion(),

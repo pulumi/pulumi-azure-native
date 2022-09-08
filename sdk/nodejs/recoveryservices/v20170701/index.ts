@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getProtectionIntent";
-export * from "./protectionIntent";
+export { GetProtectionIntentArgs, GetProtectionIntentResult, GetProtectionIntentOutputArgs } from "./getProtectionIntent";
+export const getProtectionIntent: typeof import("./getProtectionIntent").getProtectionIntent = null as any;
+export const getProtectionIntentOutput: typeof import("./getProtectionIntent").getProtectionIntentOutput = null as any;
+
+export { ProtectionIntentArgs } from "./protectionIntent";
+export type ProtectionIntent = import("./protectionIntent").ProtectionIntent;
+export const ProtectionIntent: typeof import("./protectionIntent").ProtectionIntent = null as any;
+
+utilities.lazyLoad(exports, ["getProtectionIntent","getProtectionIntentOutput"], () => require("./getProtectionIntent"));
+utilities.lazyLoad(exports, ["ProtectionIntent"], () => require("./protectionIntent"));
 
 // Export enums:
 export * from "../../types/enums/recoveryservices/v20170701";
-
-// Import resources to register:
-import { ProtectionIntent } from "./protectionIntent";
 
 const _module = {
     version: utilities.getVersion(),

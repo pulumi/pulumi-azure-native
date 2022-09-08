@@ -5,36 +5,94 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./artifactSourceResource";
-export * from "./customImageResource";
-export * from "./formulaResource";
-export * from "./getArtifactSourceResource";
-export * from "./getCustomImageResource";
-export * from "./getFormulaResource";
-export * from "./getLabResource";
-export * from "./getPolicyResource";
-export * from "./getScheduleResource";
-export * from "./getVirtualMachineResource";
-export * from "./getVirtualNetworkResource";
-export * from "./labResource";
-export * from "./listLabVhds";
-export * from "./policyResource";
-export * from "./scheduleResource";
-export * from "./virtualMachineResource";
-export * from "./virtualNetworkResource";
+export { ArtifactSourceResourceArgs } from "./artifactSourceResource";
+export type ArtifactSourceResource = import("./artifactSourceResource").ArtifactSourceResource;
+export const ArtifactSourceResource: typeof import("./artifactSourceResource").ArtifactSourceResource = null as any;
+
+export { CustomImageResourceArgs } from "./customImageResource";
+export type CustomImageResource = import("./customImageResource").CustomImageResource;
+export const CustomImageResource: typeof import("./customImageResource").CustomImageResource = null as any;
+
+export { FormulaResourceArgs } from "./formulaResource";
+export type FormulaResource = import("./formulaResource").FormulaResource;
+export const FormulaResource: typeof import("./formulaResource").FormulaResource = null as any;
+
+export { GetArtifactSourceResourceArgs, GetArtifactSourceResourceResult, GetArtifactSourceResourceOutputArgs } from "./getArtifactSourceResource";
+export const getArtifactSourceResource: typeof import("./getArtifactSourceResource").getArtifactSourceResource = null as any;
+export const getArtifactSourceResourceOutput: typeof import("./getArtifactSourceResource").getArtifactSourceResourceOutput = null as any;
+
+export { GetCustomImageResourceArgs, GetCustomImageResourceResult, GetCustomImageResourceOutputArgs } from "./getCustomImageResource";
+export const getCustomImageResource: typeof import("./getCustomImageResource").getCustomImageResource = null as any;
+export const getCustomImageResourceOutput: typeof import("./getCustomImageResource").getCustomImageResourceOutput = null as any;
+
+export { GetFormulaResourceArgs, GetFormulaResourceResult, GetFormulaResourceOutputArgs } from "./getFormulaResource";
+export const getFormulaResource: typeof import("./getFormulaResource").getFormulaResource = null as any;
+export const getFormulaResourceOutput: typeof import("./getFormulaResource").getFormulaResourceOutput = null as any;
+
+export { GetLabResourceArgs, GetLabResourceResult, GetLabResourceOutputArgs } from "./getLabResource";
+export const getLabResource: typeof import("./getLabResource").getLabResource = null as any;
+export const getLabResourceOutput: typeof import("./getLabResource").getLabResourceOutput = null as any;
+
+export { GetPolicyResourceArgs, GetPolicyResourceResult, GetPolicyResourceOutputArgs } from "./getPolicyResource";
+export const getPolicyResource: typeof import("./getPolicyResource").getPolicyResource = null as any;
+export const getPolicyResourceOutput: typeof import("./getPolicyResource").getPolicyResourceOutput = null as any;
+
+export { GetScheduleResourceArgs, GetScheduleResourceResult, GetScheduleResourceOutputArgs } from "./getScheduleResource";
+export const getScheduleResource: typeof import("./getScheduleResource").getScheduleResource = null as any;
+export const getScheduleResourceOutput: typeof import("./getScheduleResource").getScheduleResourceOutput = null as any;
+
+export { GetVirtualMachineResourceArgs, GetVirtualMachineResourceResult, GetVirtualMachineResourceOutputArgs } from "./getVirtualMachineResource";
+export const getVirtualMachineResource: typeof import("./getVirtualMachineResource").getVirtualMachineResource = null as any;
+export const getVirtualMachineResourceOutput: typeof import("./getVirtualMachineResource").getVirtualMachineResourceOutput = null as any;
+
+export { GetVirtualNetworkResourceArgs, GetVirtualNetworkResourceResult, GetVirtualNetworkResourceOutputArgs } from "./getVirtualNetworkResource";
+export const getVirtualNetworkResource: typeof import("./getVirtualNetworkResource").getVirtualNetworkResource = null as any;
+export const getVirtualNetworkResourceOutput: typeof import("./getVirtualNetworkResource").getVirtualNetworkResourceOutput = null as any;
+
+export { LabResourceArgs } from "./labResource";
+export type LabResource = import("./labResource").LabResource;
+export const LabResource: typeof import("./labResource").LabResource = null as any;
+
+export { ListLabVhdsArgs, ListLabVhdsResult, ListLabVhdsOutputArgs } from "./listLabVhds";
+export const listLabVhds: typeof import("./listLabVhds").listLabVhds = null as any;
+export const listLabVhdsOutput: typeof import("./listLabVhds").listLabVhdsOutput = null as any;
+
+export { PolicyResourceArgs } from "./policyResource";
+export type PolicyResource = import("./policyResource").PolicyResource;
+export const PolicyResource: typeof import("./policyResource").PolicyResource = null as any;
+
+export { ScheduleResourceArgs } from "./scheduleResource";
+export type ScheduleResource = import("./scheduleResource").ScheduleResource;
+export const ScheduleResource: typeof import("./scheduleResource").ScheduleResource = null as any;
+
+export { VirtualMachineResourceArgs } from "./virtualMachineResource";
+export type VirtualMachineResource = import("./virtualMachineResource").VirtualMachineResource;
+export const VirtualMachineResource: typeof import("./virtualMachineResource").VirtualMachineResource = null as any;
+
+export { VirtualNetworkResourceArgs } from "./virtualNetworkResource";
+export type VirtualNetworkResource = import("./virtualNetworkResource").VirtualNetworkResource;
+export const VirtualNetworkResource: typeof import("./virtualNetworkResource").VirtualNetworkResource = null as any;
+
+utilities.lazyLoad(exports, ["ArtifactSourceResource"], () => require("./artifactSourceResource"));
+utilities.lazyLoad(exports, ["CustomImageResource"], () => require("./customImageResource"));
+utilities.lazyLoad(exports, ["FormulaResource"], () => require("./formulaResource"));
+utilities.lazyLoad(exports, ["getArtifactSourceResource","getArtifactSourceResourceOutput"], () => require("./getArtifactSourceResource"));
+utilities.lazyLoad(exports, ["getCustomImageResource","getCustomImageResourceOutput"], () => require("./getCustomImageResource"));
+utilities.lazyLoad(exports, ["getFormulaResource","getFormulaResourceOutput"], () => require("./getFormulaResource"));
+utilities.lazyLoad(exports, ["getLabResource","getLabResourceOutput"], () => require("./getLabResource"));
+utilities.lazyLoad(exports, ["getPolicyResource","getPolicyResourceOutput"], () => require("./getPolicyResource"));
+utilities.lazyLoad(exports, ["getScheduleResource","getScheduleResourceOutput"], () => require("./getScheduleResource"));
+utilities.lazyLoad(exports, ["getVirtualMachineResource","getVirtualMachineResourceOutput"], () => require("./getVirtualMachineResource"));
+utilities.lazyLoad(exports, ["getVirtualNetworkResource","getVirtualNetworkResourceOutput"], () => require("./getVirtualNetworkResource"));
+utilities.lazyLoad(exports, ["LabResource"], () => require("./labResource"));
+utilities.lazyLoad(exports, ["listLabVhds","listLabVhdsOutput"], () => require("./listLabVhds"));
+utilities.lazyLoad(exports, ["PolicyResource"], () => require("./policyResource"));
+utilities.lazyLoad(exports, ["ScheduleResource"], () => require("./scheduleResource"));
+utilities.lazyLoad(exports, ["VirtualMachineResource"], () => require("./virtualMachineResource"));
+utilities.lazyLoad(exports, ["VirtualNetworkResource"], () => require("./virtualNetworkResource"));
 
 // Export enums:
 export * from "../../types/enums/devtestlab/v20150521preview";
-
-// Import resources to register:
-import { ArtifactSourceResource } from "./artifactSourceResource";
-import { CustomImageResource } from "./customImageResource";
-import { FormulaResource } from "./formulaResource";
-import { LabResource } from "./labResource";
-import { PolicyResource } from "./policyResource";
-import { ScheduleResource } from "./scheduleResource";
-import { VirtualMachineResource } from "./virtualMachineResource";
-import { VirtualNetworkResource } from "./virtualNetworkResource";
 
 const _module = {
     version: utilities.getVersion(),

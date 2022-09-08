@@ -5,14 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./diagnosticSetting";
-export * from "./getDiagnosticSetting";
-export * from "./getSubscriptionDiagnosticSetting";
-export * from "./subscriptionDiagnosticSetting";
+export { DiagnosticSettingArgs } from "./diagnosticSetting";
+export type DiagnosticSetting = import("./diagnosticSetting").DiagnosticSetting;
+export const DiagnosticSetting: typeof import("./diagnosticSetting").DiagnosticSetting = null as any;
 
-// Import resources to register:
-import { DiagnosticSetting } from "./diagnosticSetting";
-import { SubscriptionDiagnosticSetting } from "./subscriptionDiagnosticSetting";
+export { GetDiagnosticSettingArgs, GetDiagnosticSettingResult, GetDiagnosticSettingOutputArgs } from "./getDiagnosticSetting";
+export const getDiagnosticSetting: typeof import("./getDiagnosticSetting").getDiagnosticSetting = null as any;
+export const getDiagnosticSettingOutput: typeof import("./getDiagnosticSetting").getDiagnosticSettingOutput = null as any;
+
+export { GetSubscriptionDiagnosticSettingArgs, GetSubscriptionDiagnosticSettingResult, GetSubscriptionDiagnosticSettingOutputArgs } from "./getSubscriptionDiagnosticSetting";
+export const getSubscriptionDiagnosticSetting: typeof import("./getSubscriptionDiagnosticSetting").getSubscriptionDiagnosticSetting = null as any;
+export const getSubscriptionDiagnosticSettingOutput: typeof import("./getSubscriptionDiagnosticSetting").getSubscriptionDiagnosticSettingOutput = null as any;
+
+export { SubscriptionDiagnosticSettingArgs } from "./subscriptionDiagnosticSetting";
+export type SubscriptionDiagnosticSetting = import("./subscriptionDiagnosticSetting").SubscriptionDiagnosticSetting;
+export const SubscriptionDiagnosticSetting: typeof import("./subscriptionDiagnosticSetting").SubscriptionDiagnosticSetting = null as any;
+
+utilities.lazyLoad(exports, ["DiagnosticSetting"], () => require("./diagnosticSetting"));
+utilities.lazyLoad(exports, ["getDiagnosticSetting","getDiagnosticSettingOutput"], () => require("./getDiagnosticSetting"));
+utilities.lazyLoad(exports, ["getSubscriptionDiagnosticSetting","getSubscriptionDiagnosticSettingOutput"], () => require("./getSubscriptionDiagnosticSetting"));
+utilities.lazyLoad(exports, ["SubscriptionDiagnosticSetting"], () => require("./subscriptionDiagnosticSetting"));
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./accessReviewScheduleDefinitionById";
-export * from "./getAccessReviewScheduleDefinitionById";
+export { AccessReviewScheduleDefinitionByIdArgs } from "./accessReviewScheduleDefinitionById";
+export type AccessReviewScheduleDefinitionById = import("./accessReviewScheduleDefinitionById").AccessReviewScheduleDefinitionById;
+export const AccessReviewScheduleDefinitionById: typeof import("./accessReviewScheduleDefinitionById").AccessReviewScheduleDefinitionById = null as any;
+
+export { GetAccessReviewScheduleDefinitionByIdArgs, GetAccessReviewScheduleDefinitionByIdResult, GetAccessReviewScheduleDefinitionByIdOutputArgs } from "./getAccessReviewScheduleDefinitionById";
+export const getAccessReviewScheduleDefinitionById: typeof import("./getAccessReviewScheduleDefinitionById").getAccessReviewScheduleDefinitionById = null as any;
+export const getAccessReviewScheduleDefinitionByIdOutput: typeof import("./getAccessReviewScheduleDefinitionById").getAccessReviewScheduleDefinitionByIdOutput = null as any;
+
+utilities.lazyLoad(exports, ["AccessReviewScheduleDefinitionById"], () => require("./accessReviewScheduleDefinitionById"));
+utilities.lazyLoad(exports, ["getAccessReviewScheduleDefinitionById","getAccessReviewScheduleDefinitionByIdOutput"], () => require("./getAccessReviewScheduleDefinitionById"));
 
 // Export enums:
 export * from "../../types/enums/authorization/v20180501preview";
-
-// Import resources to register:
-import { AccessReviewScheduleDefinitionById } from "./accessReviewScheduleDefinitionById";
 
 const _module = {
     version: utilities.getVersion(),

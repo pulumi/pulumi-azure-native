@@ -5,23 +5,49 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./digitalTwin";
-export * from "./digitalTwinsEndpoint";
-export * from "./getDigitalTwin";
-export * from "./getDigitalTwinsEndpoint";
-export * from "./getPrivateEndpointConnection";
-export * from "./getTimeSeriesDatabaseConnection";
-export * from "./privateEndpointConnection";
-export * from "./timeSeriesDatabaseConnection";
+export { DigitalTwinArgs } from "./digitalTwin";
+export type DigitalTwin = import("./digitalTwin").DigitalTwin;
+export const DigitalTwin: typeof import("./digitalTwin").DigitalTwin = null as any;
+
+export { DigitalTwinsEndpointArgs } from "./digitalTwinsEndpoint";
+export type DigitalTwinsEndpoint = import("./digitalTwinsEndpoint").DigitalTwinsEndpoint;
+export const DigitalTwinsEndpoint: typeof import("./digitalTwinsEndpoint").DigitalTwinsEndpoint = null as any;
+
+export { GetDigitalTwinArgs, GetDigitalTwinResult, GetDigitalTwinOutputArgs } from "./getDigitalTwin";
+export const getDigitalTwin: typeof import("./getDigitalTwin").getDigitalTwin = null as any;
+export const getDigitalTwinOutput: typeof import("./getDigitalTwin").getDigitalTwinOutput = null as any;
+
+export { GetDigitalTwinsEndpointArgs, GetDigitalTwinsEndpointResult, GetDigitalTwinsEndpointOutputArgs } from "./getDigitalTwinsEndpoint";
+export const getDigitalTwinsEndpoint: typeof import("./getDigitalTwinsEndpoint").getDigitalTwinsEndpoint = null as any;
+export const getDigitalTwinsEndpointOutput: typeof import("./getDigitalTwinsEndpoint").getDigitalTwinsEndpointOutput = null as any;
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+
+export { GetTimeSeriesDatabaseConnectionArgs, GetTimeSeriesDatabaseConnectionResult, GetTimeSeriesDatabaseConnectionOutputArgs } from "./getTimeSeriesDatabaseConnection";
+export const getTimeSeriesDatabaseConnection: typeof import("./getTimeSeriesDatabaseConnection").getTimeSeriesDatabaseConnection = null as any;
+export const getTimeSeriesDatabaseConnectionOutput: typeof import("./getTimeSeriesDatabaseConnection").getTimeSeriesDatabaseConnectionOutput = null as any;
+
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+
+export { TimeSeriesDatabaseConnectionArgs } from "./timeSeriesDatabaseConnection";
+export type TimeSeriesDatabaseConnection = import("./timeSeriesDatabaseConnection").TimeSeriesDatabaseConnection;
+export const TimeSeriesDatabaseConnection: typeof import("./timeSeriesDatabaseConnection").TimeSeriesDatabaseConnection = null as any;
+
+utilities.lazyLoad(exports, ["DigitalTwin"], () => require("./digitalTwin"));
+utilities.lazyLoad(exports, ["DigitalTwinsEndpoint"], () => require("./digitalTwinsEndpoint"));
+utilities.lazyLoad(exports, ["getDigitalTwin","getDigitalTwinOutput"], () => require("./getDigitalTwin"));
+utilities.lazyLoad(exports, ["getDigitalTwinsEndpoint","getDigitalTwinsEndpointOutput"], () => require("./getDigitalTwinsEndpoint"));
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+utilities.lazyLoad(exports, ["getTimeSeriesDatabaseConnection","getTimeSeriesDatabaseConnectionOutput"], () => require("./getTimeSeriesDatabaseConnection"));
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+utilities.lazyLoad(exports, ["TimeSeriesDatabaseConnection"], () => require("./timeSeriesDatabaseConnection"));
 
 // Export enums:
 export * from "../../types/enums/digitaltwins/v20220531";
-
-// Import resources to register:
-import { DigitalTwin } from "./digitalTwin";
-import { DigitalTwinsEndpoint } from "./digitalTwinsEndpoint";
-import { PrivateEndpointConnection } from "./privateEndpointConnection";
-import { TimeSeriesDatabaseConnection } from "./timeSeriesDatabaseConnection";
 
 const _module = {
     version: utilities.getVersion(),

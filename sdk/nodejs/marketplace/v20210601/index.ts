@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getPrivateStoreCollection";
-export * from "./getPrivateStoreCollectionOffer";
-export * from "./privateStoreCollection";
-export * from "./privateStoreCollectionOffer";
+export { GetPrivateStoreCollectionArgs, GetPrivateStoreCollectionResult, GetPrivateStoreCollectionOutputArgs } from "./getPrivateStoreCollection";
+export const getPrivateStoreCollection: typeof import("./getPrivateStoreCollection").getPrivateStoreCollection = null as any;
+export const getPrivateStoreCollectionOutput: typeof import("./getPrivateStoreCollection").getPrivateStoreCollectionOutput = null as any;
+
+export { GetPrivateStoreCollectionOfferArgs, GetPrivateStoreCollectionOfferResult, GetPrivateStoreCollectionOfferOutputArgs } from "./getPrivateStoreCollectionOffer";
+export const getPrivateStoreCollectionOffer: typeof import("./getPrivateStoreCollectionOffer").getPrivateStoreCollectionOffer = null as any;
+export const getPrivateStoreCollectionOfferOutput: typeof import("./getPrivateStoreCollectionOffer").getPrivateStoreCollectionOfferOutput = null as any;
+
+export { PrivateStoreCollectionArgs } from "./privateStoreCollection";
+export type PrivateStoreCollection = import("./privateStoreCollection").PrivateStoreCollection;
+export const PrivateStoreCollection: typeof import("./privateStoreCollection").PrivateStoreCollection = null as any;
+
+export { PrivateStoreCollectionOfferArgs } from "./privateStoreCollectionOffer";
+export type PrivateStoreCollectionOffer = import("./privateStoreCollectionOffer").PrivateStoreCollectionOffer;
+export const PrivateStoreCollectionOffer: typeof import("./privateStoreCollectionOffer").PrivateStoreCollectionOffer = null as any;
+
+utilities.lazyLoad(exports, ["getPrivateStoreCollection","getPrivateStoreCollectionOutput"], () => require("./getPrivateStoreCollection"));
+utilities.lazyLoad(exports, ["getPrivateStoreCollectionOffer","getPrivateStoreCollectionOfferOutput"], () => require("./getPrivateStoreCollectionOffer"));
+utilities.lazyLoad(exports, ["PrivateStoreCollection"], () => require("./privateStoreCollection"));
+utilities.lazyLoad(exports, ["PrivateStoreCollectionOffer"], () => require("./privateStoreCollectionOffer"));
 
 // Export enums:
 export * from "../../types/enums/marketplace/v20210601";
-
-// Import resources to register:
-import { PrivateStoreCollection } from "./privateStoreCollection";
-import { PrivateStoreCollectionOffer } from "./privateStoreCollectionOffer";
 
 const _module = {
     version: utilities.getVersion(),

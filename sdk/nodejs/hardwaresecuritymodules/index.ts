@@ -5,8 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./dedicatedHsm";
-export * from "./getDedicatedHsm";
+export { DedicatedHsmArgs } from "./dedicatedHsm";
+export type DedicatedHsm = import("./dedicatedHsm").DedicatedHsm;
+export const DedicatedHsm: typeof import("./dedicatedHsm").DedicatedHsm = null as any;
+
+export { GetDedicatedHsmArgs, GetDedicatedHsmResult, GetDedicatedHsmOutputArgs } from "./getDedicatedHsm";
+export const getDedicatedHsm: typeof import("./getDedicatedHsm").getDedicatedHsm = null as any;
+export const getDedicatedHsmOutput: typeof import("./getDedicatedHsm").getDedicatedHsmOutput = null as any;
+
+utilities.lazyLoad(exports, ["DedicatedHsm"], () => require("./dedicatedHsm"));
+utilities.lazyLoad(exports, ["getDedicatedHsm","getDedicatedHsmOutput"], () => require("./getDedicatedHsm"));
 
 // Export enums:
 export * from "../types/enums/hardwaresecuritymodules";
@@ -19,9 +27,6 @@ export {
     v20181031preview,
     v20211130,
 };
-
-// Import resources to register:
-import { DedicatedHsm } from "./dedicatedHsm";
 
 const _module = {
     version: utilities.getVersion(),

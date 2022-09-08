@@ -5,30 +5,74 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./customDomain";
-export * from "./endpoint";
-export * from "./getCustomDomain";
-export * from "./getEndpoint";
-export * from "./getOrigin";
-export * from "./getOriginGroup";
-export * from "./getPolicy";
-export * from "./getProfile";
-export * from "./getProfileSupportedOptimizationTypes";
-export * from "./origin";
-export * from "./originGroup";
-export * from "./policy";
-export * from "./profile";
+export { CustomDomainArgs } from "./customDomain";
+export type CustomDomain = import("./customDomain").CustomDomain;
+export const CustomDomain: typeof import("./customDomain").CustomDomain = null as any;
+
+export { EndpointArgs } from "./endpoint";
+export type Endpoint = import("./endpoint").Endpoint;
+export const Endpoint: typeof import("./endpoint").Endpoint = null as any;
+
+export { GetCustomDomainArgs, GetCustomDomainResult, GetCustomDomainOutputArgs } from "./getCustomDomain";
+export const getCustomDomain: typeof import("./getCustomDomain").getCustomDomain = null as any;
+export const getCustomDomainOutput: typeof import("./getCustomDomain").getCustomDomainOutput = null as any;
+
+export { GetEndpointArgs, GetEndpointResult, GetEndpointOutputArgs } from "./getEndpoint";
+export const getEndpoint: typeof import("./getEndpoint").getEndpoint = null as any;
+export const getEndpointOutput: typeof import("./getEndpoint").getEndpointOutput = null as any;
+
+export { GetOriginArgs, GetOriginResult, GetOriginOutputArgs } from "./getOrigin";
+export const getOrigin: typeof import("./getOrigin").getOrigin = null as any;
+export const getOriginOutput: typeof import("./getOrigin").getOriginOutput = null as any;
+
+export { GetOriginGroupArgs, GetOriginGroupResult, GetOriginGroupOutputArgs } from "./getOriginGroup";
+export const getOriginGroup: typeof import("./getOriginGroup").getOriginGroup = null as any;
+export const getOriginGroupOutput: typeof import("./getOriginGroup").getOriginGroupOutput = null as any;
+
+export { GetPolicyArgs, GetPolicyResult, GetPolicyOutputArgs } from "./getPolicy";
+export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;
+export const getPolicyOutput: typeof import("./getPolicy").getPolicyOutput = null as any;
+
+export { GetProfileArgs, GetProfileResult, GetProfileOutputArgs } from "./getProfile";
+export const getProfile: typeof import("./getProfile").getProfile = null as any;
+export const getProfileOutput: typeof import("./getProfile").getProfileOutput = null as any;
+
+export { GetProfileSupportedOptimizationTypesArgs, GetProfileSupportedOptimizationTypesResult, GetProfileSupportedOptimizationTypesOutputArgs } from "./getProfileSupportedOptimizationTypes";
+export const getProfileSupportedOptimizationTypes: typeof import("./getProfileSupportedOptimizationTypes").getProfileSupportedOptimizationTypes = null as any;
+export const getProfileSupportedOptimizationTypesOutput: typeof import("./getProfileSupportedOptimizationTypes").getProfileSupportedOptimizationTypesOutput = null as any;
+
+export { OriginArgs } from "./origin";
+export type Origin = import("./origin").Origin;
+export const Origin: typeof import("./origin").Origin = null as any;
+
+export { OriginGroupArgs } from "./originGroup";
+export type OriginGroup = import("./originGroup").OriginGroup;
+export const OriginGroup: typeof import("./originGroup").OriginGroup = null as any;
+
+export { PolicyArgs } from "./policy";
+export type Policy = import("./policy").Policy;
+export const Policy: typeof import("./policy").Policy = null as any;
+
+export { ProfileArgs } from "./profile";
+export type Profile = import("./profile").Profile;
+export const Profile: typeof import("./profile").Profile = null as any;
+
+utilities.lazyLoad(exports, ["CustomDomain"], () => require("./customDomain"));
+utilities.lazyLoad(exports, ["Endpoint"], () => require("./endpoint"));
+utilities.lazyLoad(exports, ["getCustomDomain","getCustomDomainOutput"], () => require("./getCustomDomain"));
+utilities.lazyLoad(exports, ["getEndpoint","getEndpointOutput"], () => require("./getEndpoint"));
+utilities.lazyLoad(exports, ["getOrigin","getOriginOutput"], () => require("./getOrigin"));
+utilities.lazyLoad(exports, ["getOriginGroup","getOriginGroupOutput"], () => require("./getOriginGroup"));
+utilities.lazyLoad(exports, ["getPolicy","getPolicyOutput"], () => require("./getPolicy"));
+utilities.lazyLoad(exports, ["getProfile","getProfileOutput"], () => require("./getProfile"));
+utilities.lazyLoad(exports, ["getProfileSupportedOptimizationTypes","getProfileSupportedOptimizationTypesOutput"], () => require("./getProfileSupportedOptimizationTypes"));
+utilities.lazyLoad(exports, ["Origin"], () => require("./origin"));
+utilities.lazyLoad(exports, ["OriginGroup"], () => require("./originGroup"));
+utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
+utilities.lazyLoad(exports, ["Profile"], () => require("./profile"));
 
 // Export enums:
 export * from "../../types/enums/cdn/v20200331";
-
-// Import resources to register:
-import { CustomDomain } from "./customDomain";
-import { Endpoint } from "./endpoint";
-import { Origin } from "./origin";
-import { OriginGroup } from "./originGroup";
-import { Policy } from "./policy";
-import { Profile } from "./profile";
 
 const _module = {
     version: utilities.getVersion(),

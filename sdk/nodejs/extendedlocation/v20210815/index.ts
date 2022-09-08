@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./customLocation";
-export * from "./getCustomLocation";
+export { CustomLocationArgs } from "./customLocation";
+export type CustomLocation = import("./customLocation").CustomLocation;
+export const CustomLocation: typeof import("./customLocation").CustomLocation = null as any;
+
+export { GetCustomLocationArgs, GetCustomLocationResult, GetCustomLocationOutputArgs } from "./getCustomLocation";
+export const getCustomLocation: typeof import("./getCustomLocation").getCustomLocation = null as any;
+export const getCustomLocationOutput: typeof import("./getCustomLocation").getCustomLocationOutput = null as any;
+
+utilities.lazyLoad(exports, ["CustomLocation"], () => require("./customLocation"));
+utilities.lazyLoad(exports, ["getCustomLocation","getCustomLocationOutput"], () => require("./getCustomLocation"));
 
 // Export enums:
 export * from "../../types/enums/extendedlocation/v20210815";
-
-// Import resources to register:
-import { CustomLocation } from "./customLocation";
 
 const _module = {
     version: utilities.getVersion(),

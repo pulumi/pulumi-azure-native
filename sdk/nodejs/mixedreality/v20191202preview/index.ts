@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getRemoteRenderingAccount";
-export * from "./getSpatialAnchorsAccount";
-export * from "./remoteRenderingAccount";
-export * from "./spatialAnchorsAccount";
+export { GetRemoteRenderingAccountArgs, GetRemoteRenderingAccountResult, GetRemoteRenderingAccountOutputArgs } from "./getRemoteRenderingAccount";
+export const getRemoteRenderingAccount: typeof import("./getRemoteRenderingAccount").getRemoteRenderingAccount = null as any;
+export const getRemoteRenderingAccountOutput: typeof import("./getRemoteRenderingAccount").getRemoteRenderingAccountOutput = null as any;
+
+export { GetSpatialAnchorsAccountArgs, GetSpatialAnchorsAccountResult, GetSpatialAnchorsAccountOutputArgs } from "./getSpatialAnchorsAccount";
+export const getSpatialAnchorsAccount: typeof import("./getSpatialAnchorsAccount").getSpatialAnchorsAccount = null as any;
+export const getSpatialAnchorsAccountOutput: typeof import("./getSpatialAnchorsAccount").getSpatialAnchorsAccountOutput = null as any;
+
+export { RemoteRenderingAccountArgs } from "./remoteRenderingAccount";
+export type RemoteRenderingAccount = import("./remoteRenderingAccount").RemoteRenderingAccount;
+export const RemoteRenderingAccount: typeof import("./remoteRenderingAccount").RemoteRenderingAccount = null as any;
+
+export { SpatialAnchorsAccountArgs } from "./spatialAnchorsAccount";
+export type SpatialAnchorsAccount = import("./spatialAnchorsAccount").SpatialAnchorsAccount;
+export const SpatialAnchorsAccount: typeof import("./spatialAnchorsAccount").SpatialAnchorsAccount = null as any;
+
+utilities.lazyLoad(exports, ["getRemoteRenderingAccount","getRemoteRenderingAccountOutput"], () => require("./getRemoteRenderingAccount"));
+utilities.lazyLoad(exports, ["getSpatialAnchorsAccount","getSpatialAnchorsAccountOutput"], () => require("./getSpatialAnchorsAccount"));
+utilities.lazyLoad(exports, ["RemoteRenderingAccount"], () => require("./remoteRenderingAccount"));
+utilities.lazyLoad(exports, ["SpatialAnchorsAccount"], () => require("./spatialAnchorsAccount"));
 
 // Export enums:
 export * from "../../types/enums/mixedreality/v20191202preview";
-
-// Import resources to register:
-import { RemoteRenderingAccount } from "./remoteRenderingAccount";
-import { SpatialAnchorsAccount } from "./spatialAnchorsAccount";
 
 const _module = {
     version: utilities.getVersion(),

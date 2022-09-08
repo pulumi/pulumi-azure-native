@@ -5,14 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getGuestDiagnosticsSettingsAssociation";
-export * from "./getguestDiagnosticsSetting";
-export * from "./guestDiagnosticsSetting";
-export * from "./guestDiagnosticsSettingsAssociation";
+export { GetGuestDiagnosticsSettingsAssociationArgs, GetGuestDiagnosticsSettingsAssociationResult, GetGuestDiagnosticsSettingsAssociationOutputArgs } from "./getGuestDiagnosticsSettingsAssociation";
+export const getGuestDiagnosticsSettingsAssociation: typeof import("./getGuestDiagnosticsSettingsAssociation").getGuestDiagnosticsSettingsAssociation = null as any;
+export const getGuestDiagnosticsSettingsAssociationOutput: typeof import("./getGuestDiagnosticsSettingsAssociation").getGuestDiagnosticsSettingsAssociationOutput = null as any;
 
-// Import resources to register:
-import { GuestDiagnosticsSettingsAssociation } from "./guestDiagnosticsSettingsAssociation";
-import { GuestDiagnosticsSetting } from "./guestDiagnosticsSetting";
+export { GetguestDiagnosticsSettingArgs, GetguestDiagnosticsSettingResult, GetguestDiagnosticsSettingOutputArgs } from "./getguestDiagnosticsSetting";
+export const getguestDiagnosticsSetting: typeof import("./getguestDiagnosticsSetting").getguestDiagnosticsSetting = null as any;
+export const getguestDiagnosticsSettingOutput: typeof import("./getguestDiagnosticsSetting").getguestDiagnosticsSettingOutput = null as any;
+
+export { GuestDiagnosticsSettingArgs } from "./guestDiagnosticsSetting";
+export type GuestDiagnosticsSetting = import("./guestDiagnosticsSetting").GuestDiagnosticsSetting;
+export const GuestDiagnosticsSetting: typeof import("./guestDiagnosticsSetting").GuestDiagnosticsSetting = null as any;
+
+export { GuestDiagnosticsSettingsAssociationArgs } from "./guestDiagnosticsSettingsAssociation";
+export type GuestDiagnosticsSettingsAssociation = import("./guestDiagnosticsSettingsAssociation").GuestDiagnosticsSettingsAssociation;
+export const GuestDiagnosticsSettingsAssociation: typeof import("./guestDiagnosticsSettingsAssociation").GuestDiagnosticsSettingsAssociation = null as any;
+
+utilities.lazyLoad(exports, ["getGuestDiagnosticsSettingsAssociation","getGuestDiagnosticsSettingsAssociationOutput"], () => require("./getGuestDiagnosticsSettingsAssociation"));
+utilities.lazyLoad(exports, ["getguestDiagnosticsSetting","getguestDiagnosticsSettingOutput"], () => require("./getguestDiagnosticsSetting"));
+utilities.lazyLoad(exports, ["GuestDiagnosticsSetting"], () => require("./guestDiagnosticsSetting"));
+utilities.lazyLoad(exports, ["GuestDiagnosticsSettingsAssociation"], () => require("./guestDiagnosticsSettingsAssociation"));
 
 const _module = {
     version: utilities.getVersion(),

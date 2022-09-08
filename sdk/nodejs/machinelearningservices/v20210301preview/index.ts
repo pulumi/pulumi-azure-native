@@ -5,79 +5,254 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./batchDeployment";
-export * from "./batchEndpoint";
-export * from "./codeContainer";
-export * from "./codeVersion";
-export * from "./compute";
-export * from "./dataContainer";
-export * from "./dataVersion";
-export * from "./datastore";
-export * from "./environmentContainer";
-export * from "./environmentSpecificationVersion";
-export * from "./getBatchDeployment";
-export * from "./getBatchEndpoint";
-export * from "./getCodeContainer";
-export * from "./getCodeVersion";
-export * from "./getCompute";
-export * from "./getDataContainer";
-export * from "./getDataVersion";
-export * from "./getDatastore";
-export * from "./getEnvironmentContainer";
-export * from "./getEnvironmentSpecificationVersion";
-export * from "./getJob";
-export * from "./getLabelingJob";
-export * from "./getModelContainer";
-export * from "./getModelVersion";
-export * from "./getOnlineDeployment";
-export * from "./getOnlineDeploymentLogs";
-export * from "./getOnlineEndpoint";
-export * from "./getOnlineEndpointToken";
-export * from "./getPrivateEndpointConnection";
-export * from "./getWorkspace";
-export * from "./getWorkspaceConnection";
-export * from "./job";
-export * from "./labelingJob";
-export * from "./listBatchEndpointKeys";
-export * from "./listComputeKeys";
-export * from "./listComputeNodes";
-export * from "./listDatastoreSecrets";
-export * from "./listOnlineEndpointKeys";
-export * from "./listWorkspaceKeys";
-export * from "./listWorkspaceNotebookAccessToken";
-export * from "./listWorkspaceNotebookKeys";
-export * from "./listWorkspaceStorageAccountKeys";
-export * from "./modelContainer";
-export * from "./modelVersion";
-export * from "./onlineDeployment";
-export * from "./onlineEndpoint";
-export * from "./privateEndpointConnection";
-export * from "./workspace";
-export * from "./workspaceConnection";
+export { BatchDeploymentArgs } from "./batchDeployment";
+export type BatchDeployment = import("./batchDeployment").BatchDeployment;
+export const BatchDeployment: typeof import("./batchDeployment").BatchDeployment = null as any;
+
+export { BatchEndpointArgs } from "./batchEndpoint";
+export type BatchEndpoint = import("./batchEndpoint").BatchEndpoint;
+export const BatchEndpoint: typeof import("./batchEndpoint").BatchEndpoint = null as any;
+
+export { CodeContainerArgs } from "./codeContainer";
+export type CodeContainer = import("./codeContainer").CodeContainer;
+export const CodeContainer: typeof import("./codeContainer").CodeContainer = null as any;
+
+export { CodeVersionArgs } from "./codeVersion";
+export type CodeVersion = import("./codeVersion").CodeVersion;
+export const CodeVersion: typeof import("./codeVersion").CodeVersion = null as any;
+
+export { ComputeArgs } from "./compute";
+export type Compute = import("./compute").Compute;
+export const Compute: typeof import("./compute").Compute = null as any;
+
+export { DataContainerArgs } from "./dataContainer";
+export type DataContainer = import("./dataContainer").DataContainer;
+export const DataContainer: typeof import("./dataContainer").DataContainer = null as any;
+
+export { DataVersionArgs } from "./dataVersion";
+export type DataVersion = import("./dataVersion").DataVersion;
+export const DataVersion: typeof import("./dataVersion").DataVersion = null as any;
+
+export { DatastoreArgs } from "./datastore";
+export type Datastore = import("./datastore").Datastore;
+export const Datastore: typeof import("./datastore").Datastore = null as any;
+
+export { EnvironmentContainerArgs } from "./environmentContainer";
+export type EnvironmentContainer = import("./environmentContainer").EnvironmentContainer;
+export const EnvironmentContainer: typeof import("./environmentContainer").EnvironmentContainer = null as any;
+
+export { EnvironmentSpecificationVersionArgs } from "./environmentSpecificationVersion";
+export type EnvironmentSpecificationVersion = import("./environmentSpecificationVersion").EnvironmentSpecificationVersion;
+export const EnvironmentSpecificationVersion: typeof import("./environmentSpecificationVersion").EnvironmentSpecificationVersion = null as any;
+
+export { GetBatchDeploymentArgs, GetBatchDeploymentResult, GetBatchDeploymentOutputArgs } from "./getBatchDeployment";
+export const getBatchDeployment: typeof import("./getBatchDeployment").getBatchDeployment = null as any;
+export const getBatchDeploymentOutput: typeof import("./getBatchDeployment").getBatchDeploymentOutput = null as any;
+
+export { GetBatchEndpointArgs, GetBatchEndpointResult, GetBatchEndpointOutputArgs } from "./getBatchEndpoint";
+export const getBatchEndpoint: typeof import("./getBatchEndpoint").getBatchEndpoint = null as any;
+export const getBatchEndpointOutput: typeof import("./getBatchEndpoint").getBatchEndpointOutput = null as any;
+
+export { GetCodeContainerArgs, GetCodeContainerResult, GetCodeContainerOutputArgs } from "./getCodeContainer";
+export const getCodeContainer: typeof import("./getCodeContainer").getCodeContainer = null as any;
+export const getCodeContainerOutput: typeof import("./getCodeContainer").getCodeContainerOutput = null as any;
+
+export { GetCodeVersionArgs, GetCodeVersionResult, GetCodeVersionOutputArgs } from "./getCodeVersion";
+export const getCodeVersion: typeof import("./getCodeVersion").getCodeVersion = null as any;
+export const getCodeVersionOutput: typeof import("./getCodeVersion").getCodeVersionOutput = null as any;
+
+export { GetComputeArgs, GetComputeResult, GetComputeOutputArgs } from "./getCompute";
+export const getCompute: typeof import("./getCompute").getCompute = null as any;
+export const getComputeOutput: typeof import("./getCompute").getComputeOutput = null as any;
+
+export { GetDataContainerArgs, GetDataContainerResult, GetDataContainerOutputArgs } from "./getDataContainer";
+export const getDataContainer: typeof import("./getDataContainer").getDataContainer = null as any;
+export const getDataContainerOutput: typeof import("./getDataContainer").getDataContainerOutput = null as any;
+
+export { GetDataVersionArgs, GetDataVersionResult, GetDataVersionOutputArgs } from "./getDataVersion";
+export const getDataVersion: typeof import("./getDataVersion").getDataVersion = null as any;
+export const getDataVersionOutput: typeof import("./getDataVersion").getDataVersionOutput = null as any;
+
+export { GetDatastoreArgs, GetDatastoreResult, GetDatastoreOutputArgs } from "./getDatastore";
+export const getDatastore: typeof import("./getDatastore").getDatastore = null as any;
+export const getDatastoreOutput: typeof import("./getDatastore").getDatastoreOutput = null as any;
+
+export { GetEnvironmentContainerArgs, GetEnvironmentContainerResult, GetEnvironmentContainerOutputArgs } from "./getEnvironmentContainer";
+export const getEnvironmentContainer: typeof import("./getEnvironmentContainer").getEnvironmentContainer = null as any;
+export const getEnvironmentContainerOutput: typeof import("./getEnvironmentContainer").getEnvironmentContainerOutput = null as any;
+
+export { GetEnvironmentSpecificationVersionArgs, GetEnvironmentSpecificationVersionResult, GetEnvironmentSpecificationVersionOutputArgs } from "./getEnvironmentSpecificationVersion";
+export const getEnvironmentSpecificationVersion: typeof import("./getEnvironmentSpecificationVersion").getEnvironmentSpecificationVersion = null as any;
+export const getEnvironmentSpecificationVersionOutput: typeof import("./getEnvironmentSpecificationVersion").getEnvironmentSpecificationVersionOutput = null as any;
+
+export { GetJobArgs, GetJobResult, GetJobOutputArgs } from "./getJob";
+export const getJob: typeof import("./getJob").getJob = null as any;
+export const getJobOutput: typeof import("./getJob").getJobOutput = null as any;
+
+export { GetLabelingJobArgs, GetLabelingJobResult, GetLabelingJobOutputArgs } from "./getLabelingJob";
+export const getLabelingJob: typeof import("./getLabelingJob").getLabelingJob = null as any;
+export const getLabelingJobOutput: typeof import("./getLabelingJob").getLabelingJobOutput = null as any;
+
+export { GetModelContainerArgs, GetModelContainerResult, GetModelContainerOutputArgs } from "./getModelContainer";
+export const getModelContainer: typeof import("./getModelContainer").getModelContainer = null as any;
+export const getModelContainerOutput: typeof import("./getModelContainer").getModelContainerOutput = null as any;
+
+export { GetModelVersionArgs, GetModelVersionResult, GetModelVersionOutputArgs } from "./getModelVersion";
+export const getModelVersion: typeof import("./getModelVersion").getModelVersion = null as any;
+export const getModelVersionOutput: typeof import("./getModelVersion").getModelVersionOutput = null as any;
+
+export { GetOnlineDeploymentArgs, GetOnlineDeploymentResult, GetOnlineDeploymentOutputArgs } from "./getOnlineDeployment";
+export const getOnlineDeployment: typeof import("./getOnlineDeployment").getOnlineDeployment = null as any;
+export const getOnlineDeploymentOutput: typeof import("./getOnlineDeployment").getOnlineDeploymentOutput = null as any;
+
+export { GetOnlineDeploymentLogsArgs, GetOnlineDeploymentLogsResult, GetOnlineDeploymentLogsOutputArgs } from "./getOnlineDeploymentLogs";
+export const getOnlineDeploymentLogs: typeof import("./getOnlineDeploymentLogs").getOnlineDeploymentLogs = null as any;
+export const getOnlineDeploymentLogsOutput: typeof import("./getOnlineDeploymentLogs").getOnlineDeploymentLogsOutput = null as any;
+
+export { GetOnlineEndpointArgs, GetOnlineEndpointResult, GetOnlineEndpointOutputArgs } from "./getOnlineEndpoint";
+export const getOnlineEndpoint: typeof import("./getOnlineEndpoint").getOnlineEndpoint = null as any;
+export const getOnlineEndpointOutput: typeof import("./getOnlineEndpoint").getOnlineEndpointOutput = null as any;
+
+export { GetOnlineEndpointTokenArgs, GetOnlineEndpointTokenResult, GetOnlineEndpointTokenOutputArgs } from "./getOnlineEndpointToken";
+export const getOnlineEndpointToken: typeof import("./getOnlineEndpointToken").getOnlineEndpointToken = null as any;
+export const getOnlineEndpointTokenOutput: typeof import("./getOnlineEndpointToken").getOnlineEndpointTokenOutput = null as any;
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+
+export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
+export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
+export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
+
+export { GetWorkspaceConnectionArgs, GetWorkspaceConnectionResult, GetWorkspaceConnectionOutputArgs } from "./getWorkspaceConnection";
+export const getWorkspaceConnection: typeof import("./getWorkspaceConnection").getWorkspaceConnection = null as any;
+export const getWorkspaceConnectionOutput: typeof import("./getWorkspaceConnection").getWorkspaceConnectionOutput = null as any;
+
+export { JobArgs } from "./job";
+export type Job = import("./job").Job;
+export const Job: typeof import("./job").Job = null as any;
+
+export { LabelingJobArgs } from "./labelingJob";
+export type LabelingJob = import("./labelingJob").LabelingJob;
+export const LabelingJob: typeof import("./labelingJob").LabelingJob = null as any;
+
+export { ListBatchEndpointKeysArgs, ListBatchEndpointKeysResult, ListBatchEndpointKeysOutputArgs } from "./listBatchEndpointKeys";
+export const listBatchEndpointKeys: typeof import("./listBatchEndpointKeys").listBatchEndpointKeys = null as any;
+export const listBatchEndpointKeysOutput: typeof import("./listBatchEndpointKeys").listBatchEndpointKeysOutput = null as any;
+
+export { ListComputeKeysArgs, ListComputeKeysResult, ListComputeKeysOutputArgs } from "./listComputeKeys";
+export const listComputeKeys: typeof import("./listComputeKeys").listComputeKeys = null as any;
+export const listComputeKeysOutput: typeof import("./listComputeKeys").listComputeKeysOutput = null as any;
+
+export { ListComputeNodesArgs, ListComputeNodesResult, ListComputeNodesOutputArgs } from "./listComputeNodes";
+export const listComputeNodes: typeof import("./listComputeNodes").listComputeNodes = null as any;
+export const listComputeNodesOutput: typeof import("./listComputeNodes").listComputeNodesOutput = null as any;
+
+export { ListDatastoreSecretsArgs, ListDatastoreSecretsResult, ListDatastoreSecretsOutputArgs } from "./listDatastoreSecrets";
+export const listDatastoreSecrets: typeof import("./listDatastoreSecrets").listDatastoreSecrets = null as any;
+export const listDatastoreSecretsOutput: typeof import("./listDatastoreSecrets").listDatastoreSecretsOutput = null as any;
+
+export { ListOnlineEndpointKeysArgs, ListOnlineEndpointKeysResult, ListOnlineEndpointKeysOutputArgs } from "./listOnlineEndpointKeys";
+export const listOnlineEndpointKeys: typeof import("./listOnlineEndpointKeys").listOnlineEndpointKeys = null as any;
+export const listOnlineEndpointKeysOutput: typeof import("./listOnlineEndpointKeys").listOnlineEndpointKeysOutput = null as any;
+
+export { ListWorkspaceKeysArgs, ListWorkspaceKeysResult, ListWorkspaceKeysOutputArgs } from "./listWorkspaceKeys";
+export const listWorkspaceKeys: typeof import("./listWorkspaceKeys").listWorkspaceKeys = null as any;
+export const listWorkspaceKeysOutput: typeof import("./listWorkspaceKeys").listWorkspaceKeysOutput = null as any;
+
+export { ListWorkspaceNotebookAccessTokenArgs, ListWorkspaceNotebookAccessTokenResult, ListWorkspaceNotebookAccessTokenOutputArgs } from "./listWorkspaceNotebookAccessToken";
+export const listWorkspaceNotebookAccessToken: typeof import("./listWorkspaceNotebookAccessToken").listWorkspaceNotebookAccessToken = null as any;
+export const listWorkspaceNotebookAccessTokenOutput: typeof import("./listWorkspaceNotebookAccessToken").listWorkspaceNotebookAccessTokenOutput = null as any;
+
+export { ListWorkspaceNotebookKeysArgs, ListWorkspaceNotebookKeysResult, ListWorkspaceNotebookKeysOutputArgs } from "./listWorkspaceNotebookKeys";
+export const listWorkspaceNotebookKeys: typeof import("./listWorkspaceNotebookKeys").listWorkspaceNotebookKeys = null as any;
+export const listWorkspaceNotebookKeysOutput: typeof import("./listWorkspaceNotebookKeys").listWorkspaceNotebookKeysOutput = null as any;
+
+export { ListWorkspaceStorageAccountKeysArgs, ListWorkspaceStorageAccountKeysResult, ListWorkspaceStorageAccountKeysOutputArgs } from "./listWorkspaceStorageAccountKeys";
+export const listWorkspaceStorageAccountKeys: typeof import("./listWorkspaceStorageAccountKeys").listWorkspaceStorageAccountKeys = null as any;
+export const listWorkspaceStorageAccountKeysOutput: typeof import("./listWorkspaceStorageAccountKeys").listWorkspaceStorageAccountKeysOutput = null as any;
+
+export { ModelContainerArgs } from "./modelContainer";
+export type ModelContainer = import("./modelContainer").ModelContainer;
+export const ModelContainer: typeof import("./modelContainer").ModelContainer = null as any;
+
+export { ModelVersionArgs } from "./modelVersion";
+export type ModelVersion = import("./modelVersion").ModelVersion;
+export const ModelVersion: typeof import("./modelVersion").ModelVersion = null as any;
+
+export { OnlineDeploymentArgs } from "./onlineDeployment";
+export type OnlineDeployment = import("./onlineDeployment").OnlineDeployment;
+export const OnlineDeployment: typeof import("./onlineDeployment").OnlineDeployment = null as any;
+
+export { OnlineEndpointArgs } from "./onlineEndpoint";
+export type OnlineEndpoint = import("./onlineEndpoint").OnlineEndpoint;
+export const OnlineEndpoint: typeof import("./onlineEndpoint").OnlineEndpoint = null as any;
+
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+
+export { WorkspaceArgs } from "./workspace";
+export type Workspace = import("./workspace").Workspace;
+export const Workspace: typeof import("./workspace").Workspace = null as any;
+
+export { WorkspaceConnectionArgs } from "./workspaceConnection";
+export type WorkspaceConnection = import("./workspaceConnection").WorkspaceConnection;
+export const WorkspaceConnection: typeof import("./workspaceConnection").WorkspaceConnection = null as any;
+
+utilities.lazyLoad(exports, ["BatchDeployment"], () => require("./batchDeployment"));
+utilities.lazyLoad(exports, ["BatchEndpoint"], () => require("./batchEndpoint"));
+utilities.lazyLoad(exports, ["CodeContainer"], () => require("./codeContainer"));
+utilities.lazyLoad(exports, ["CodeVersion"], () => require("./codeVersion"));
+utilities.lazyLoad(exports, ["Compute"], () => require("./compute"));
+utilities.lazyLoad(exports, ["DataContainer"], () => require("./dataContainer"));
+utilities.lazyLoad(exports, ["DataVersion"], () => require("./dataVersion"));
+utilities.lazyLoad(exports, ["Datastore"], () => require("./datastore"));
+utilities.lazyLoad(exports, ["EnvironmentContainer"], () => require("./environmentContainer"));
+utilities.lazyLoad(exports, ["EnvironmentSpecificationVersion"], () => require("./environmentSpecificationVersion"));
+utilities.lazyLoad(exports, ["getBatchDeployment","getBatchDeploymentOutput"], () => require("./getBatchDeployment"));
+utilities.lazyLoad(exports, ["getBatchEndpoint","getBatchEndpointOutput"], () => require("./getBatchEndpoint"));
+utilities.lazyLoad(exports, ["getCodeContainer","getCodeContainerOutput"], () => require("./getCodeContainer"));
+utilities.lazyLoad(exports, ["getCodeVersion","getCodeVersionOutput"], () => require("./getCodeVersion"));
+utilities.lazyLoad(exports, ["getCompute","getComputeOutput"], () => require("./getCompute"));
+utilities.lazyLoad(exports, ["getDataContainer","getDataContainerOutput"], () => require("./getDataContainer"));
+utilities.lazyLoad(exports, ["getDataVersion","getDataVersionOutput"], () => require("./getDataVersion"));
+utilities.lazyLoad(exports, ["getDatastore","getDatastoreOutput"], () => require("./getDatastore"));
+utilities.lazyLoad(exports, ["getEnvironmentContainer","getEnvironmentContainerOutput"], () => require("./getEnvironmentContainer"));
+utilities.lazyLoad(exports, ["getEnvironmentSpecificationVersion","getEnvironmentSpecificationVersionOutput"], () => require("./getEnvironmentSpecificationVersion"));
+utilities.lazyLoad(exports, ["getJob","getJobOutput"], () => require("./getJob"));
+utilities.lazyLoad(exports, ["getLabelingJob","getLabelingJobOutput"], () => require("./getLabelingJob"));
+utilities.lazyLoad(exports, ["getModelContainer","getModelContainerOutput"], () => require("./getModelContainer"));
+utilities.lazyLoad(exports, ["getModelVersion","getModelVersionOutput"], () => require("./getModelVersion"));
+utilities.lazyLoad(exports, ["getOnlineDeployment","getOnlineDeploymentOutput"], () => require("./getOnlineDeployment"));
+utilities.lazyLoad(exports, ["getOnlineDeploymentLogs","getOnlineDeploymentLogsOutput"], () => require("./getOnlineDeploymentLogs"));
+utilities.lazyLoad(exports, ["getOnlineEndpoint","getOnlineEndpointOutput"], () => require("./getOnlineEndpoint"));
+utilities.lazyLoad(exports, ["getOnlineEndpointToken","getOnlineEndpointTokenOutput"], () => require("./getOnlineEndpointToken"));
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
+utilities.lazyLoad(exports, ["getWorkspaceConnection","getWorkspaceConnectionOutput"], () => require("./getWorkspaceConnection"));
+utilities.lazyLoad(exports, ["Job"], () => require("./job"));
+utilities.lazyLoad(exports, ["LabelingJob"], () => require("./labelingJob"));
+utilities.lazyLoad(exports, ["listBatchEndpointKeys","listBatchEndpointKeysOutput"], () => require("./listBatchEndpointKeys"));
+utilities.lazyLoad(exports, ["listComputeKeys","listComputeKeysOutput"], () => require("./listComputeKeys"));
+utilities.lazyLoad(exports, ["listComputeNodes","listComputeNodesOutput"], () => require("./listComputeNodes"));
+utilities.lazyLoad(exports, ["listDatastoreSecrets","listDatastoreSecretsOutput"], () => require("./listDatastoreSecrets"));
+utilities.lazyLoad(exports, ["listOnlineEndpointKeys","listOnlineEndpointKeysOutput"], () => require("./listOnlineEndpointKeys"));
+utilities.lazyLoad(exports, ["listWorkspaceKeys","listWorkspaceKeysOutput"], () => require("./listWorkspaceKeys"));
+utilities.lazyLoad(exports, ["listWorkspaceNotebookAccessToken","listWorkspaceNotebookAccessTokenOutput"], () => require("./listWorkspaceNotebookAccessToken"));
+utilities.lazyLoad(exports, ["listWorkspaceNotebookKeys","listWorkspaceNotebookKeysOutput"], () => require("./listWorkspaceNotebookKeys"));
+utilities.lazyLoad(exports, ["listWorkspaceStorageAccountKeys","listWorkspaceStorageAccountKeysOutput"], () => require("./listWorkspaceStorageAccountKeys"));
+utilities.lazyLoad(exports, ["ModelContainer"], () => require("./modelContainer"));
+utilities.lazyLoad(exports, ["ModelVersion"], () => require("./modelVersion"));
+utilities.lazyLoad(exports, ["OnlineDeployment"], () => require("./onlineDeployment"));
+utilities.lazyLoad(exports, ["OnlineEndpoint"], () => require("./onlineEndpoint"));
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
+utilities.lazyLoad(exports, ["WorkspaceConnection"], () => require("./workspaceConnection"));
 
 // Export enums:
 export * from "../../types/enums/machinelearningservices/v20210301preview";
-
-// Import resources to register:
-import { BatchDeployment } from "./batchDeployment";
-import { BatchEndpoint } from "./batchEndpoint";
-import { CodeContainer } from "./codeContainer";
-import { CodeVersion } from "./codeVersion";
-import { Compute } from "./compute";
-import { DataContainer } from "./dataContainer";
-import { DataVersion } from "./dataVersion";
-import { Datastore } from "./datastore";
-import { EnvironmentContainer } from "./environmentContainer";
-import { EnvironmentSpecificationVersion } from "./environmentSpecificationVersion";
-import { Job } from "./job";
-import { LabelingJob } from "./labelingJob";
-import { ModelContainer } from "./modelContainer";
-import { ModelVersion } from "./modelVersion";
-import { OnlineDeployment } from "./onlineDeployment";
-import { OnlineEndpoint } from "./onlineEndpoint";
-import { PrivateEndpointConnection } from "./privateEndpointConnection";
-import { Workspace } from "./workspace";
-import { WorkspaceConnection } from "./workspaceConnection";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,8 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getLedger";
-export * from "./ledger";
+export { GetLedgerArgs, GetLedgerResult, GetLedgerOutputArgs } from "./getLedger";
+export const getLedger: typeof import("./getLedger").getLedger = null as any;
+export const getLedgerOutput: typeof import("./getLedger").getLedgerOutput = null as any;
+
+export { LedgerArgs } from "./ledger";
+export type Ledger = import("./ledger").Ledger;
+export const Ledger: typeof import("./ledger").Ledger = null as any;
+
+utilities.lazyLoad(exports, ["getLedger","getLedgerOutput"], () => require("./getLedger"));
+utilities.lazyLoad(exports, ["Ledger"], () => require("./ledger"));
 
 // Export enums:
 export * from "../types/enums/confidentialledger";
@@ -21,9 +29,6 @@ export {
     v20210513preview,
     v20220513,
 };
-
-// Import resources to register:
-import { Ledger } from "./ledger";
 
 const _module = {
     version: utilities.getVersion(),

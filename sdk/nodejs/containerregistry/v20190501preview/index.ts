@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getScopeMap";
-export * from "./getToken";
-export * from "./scopeMap";
-export * from "./token";
+export { GetScopeMapArgs, GetScopeMapResult, GetScopeMapOutputArgs } from "./getScopeMap";
+export const getScopeMap: typeof import("./getScopeMap").getScopeMap = null as any;
+export const getScopeMapOutput: typeof import("./getScopeMap").getScopeMapOutput = null as any;
+
+export { GetTokenArgs, GetTokenResult, GetTokenOutputArgs } from "./getToken";
+export const getToken: typeof import("./getToken").getToken = null as any;
+export const getTokenOutput: typeof import("./getToken").getTokenOutput = null as any;
+
+export { ScopeMapArgs } from "./scopeMap";
+export type ScopeMap = import("./scopeMap").ScopeMap;
+export const ScopeMap: typeof import("./scopeMap").ScopeMap = null as any;
+
+export { TokenArgs } from "./token";
+export type Token = import("./token").Token;
+export const Token: typeof import("./token").Token = null as any;
+
+utilities.lazyLoad(exports, ["getScopeMap","getScopeMapOutput"], () => require("./getScopeMap"));
+utilities.lazyLoad(exports, ["getToken","getTokenOutput"], () => require("./getToken"));
+utilities.lazyLoad(exports, ["ScopeMap"], () => require("./scopeMap"));
+utilities.lazyLoad(exports, ["Token"], () => require("./token"));
 
 // Export enums:
 export * from "../../types/enums/containerregistry/v20190501preview";
-
-// Import resources to register:
-import { ScopeMap } from "./scopeMap";
-import { Token } from "./token";
 
 const _module = {
     version: utilities.getVersion(),

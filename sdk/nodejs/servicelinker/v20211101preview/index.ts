@@ -5,15 +5,24 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getLinker";
-export * from "./linker";
-export * from "./listLinkerConfigurations";
+export { GetLinkerArgs, GetLinkerResult, GetLinkerOutputArgs } from "./getLinker";
+export const getLinker: typeof import("./getLinker").getLinker = null as any;
+export const getLinkerOutput: typeof import("./getLinker").getLinkerOutput = null as any;
+
+export { LinkerArgs } from "./linker";
+export type Linker = import("./linker").Linker;
+export const Linker: typeof import("./linker").Linker = null as any;
+
+export { ListLinkerConfigurationsArgs, ListLinkerConfigurationsResult, ListLinkerConfigurationsOutputArgs } from "./listLinkerConfigurations";
+export const listLinkerConfigurations: typeof import("./listLinkerConfigurations").listLinkerConfigurations = null as any;
+export const listLinkerConfigurationsOutput: typeof import("./listLinkerConfigurations").listLinkerConfigurationsOutput = null as any;
+
+utilities.lazyLoad(exports, ["getLinker","getLinkerOutput"], () => require("./getLinker"));
+utilities.lazyLoad(exports, ["Linker"], () => require("./linker"));
+utilities.lazyLoad(exports, ["listLinkerConfigurations","listLinkerConfigurationsOutput"], () => require("./listLinkerConfigurations"));
 
 // Export enums:
 export * from "../../types/enums/servicelinker/v20211101preview";
-
-// Import resources to register:
-import { Linker } from "./linker";
 
 const _module = {
     version: utilities.getVersion(),

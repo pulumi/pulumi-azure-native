@@ -5,8 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getHybridUseBenefit";
-export * from "./hybridUseBenefit";
+export { GetHybridUseBenefitArgs, GetHybridUseBenefitResult, GetHybridUseBenefitOutputArgs } from "./getHybridUseBenefit";
+export const getHybridUseBenefit: typeof import("./getHybridUseBenefit").getHybridUseBenefit = null as any;
+export const getHybridUseBenefitOutput: typeof import("./getHybridUseBenefit").getHybridUseBenefitOutput = null as any;
+
+export { HybridUseBenefitArgs } from "./hybridUseBenefit";
+export type HybridUseBenefit = import("./hybridUseBenefit").HybridUseBenefit;
+export const HybridUseBenefit: typeof import("./hybridUseBenefit").HybridUseBenefit = null as any;
+
+utilities.lazyLoad(exports, ["getHybridUseBenefit","getHybridUseBenefitOutput"], () => require("./getHybridUseBenefit"));
+utilities.lazyLoad(exports, ["HybridUseBenefit"], () => require("./hybridUseBenefit"));
 
 // Export sub-modules:
 import * as v20190601preview from "./v20190601preview";
@@ -16,9 +24,6 @@ export {
     v20190601preview,
     v20191201,
 };
-
-// Import resources to register:
-import { HybridUseBenefit } from "./hybridUseBenefit";
 
 const _module = {
     version: utilities.getVersion(),

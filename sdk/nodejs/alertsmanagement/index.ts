@@ -5,10 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./actionRuleByName";
-export * from "./getActionRuleByName";
-export * from "./getSmartDetectorAlertRule";
-export * from "./smartDetectorAlertRule";
+export { ActionRuleByNameArgs } from "./actionRuleByName";
+export type ActionRuleByName = import("./actionRuleByName").ActionRuleByName;
+export const ActionRuleByName: typeof import("./actionRuleByName").ActionRuleByName = null as any;
+
+export { GetActionRuleByNameArgs, GetActionRuleByNameResult, GetActionRuleByNameOutputArgs } from "./getActionRuleByName";
+export const getActionRuleByName: typeof import("./getActionRuleByName").getActionRuleByName = null as any;
+export const getActionRuleByNameOutput: typeof import("./getActionRuleByName").getActionRuleByNameOutput = null as any;
+
+export { GetSmartDetectorAlertRuleArgs, GetSmartDetectorAlertRuleResult, GetSmartDetectorAlertRuleOutputArgs } from "./getSmartDetectorAlertRule";
+export const getSmartDetectorAlertRule: typeof import("./getSmartDetectorAlertRule").getSmartDetectorAlertRule = null as any;
+export const getSmartDetectorAlertRuleOutput: typeof import("./getSmartDetectorAlertRule").getSmartDetectorAlertRuleOutput = null as any;
+
+export { SmartDetectorAlertRuleArgs } from "./smartDetectorAlertRule";
+export type SmartDetectorAlertRule = import("./smartDetectorAlertRule").SmartDetectorAlertRule;
+export const SmartDetectorAlertRule: typeof import("./smartDetectorAlertRule").SmartDetectorAlertRule = null as any;
+
+utilities.lazyLoad(exports, ["ActionRuleByName"], () => require("./actionRuleByName"));
+utilities.lazyLoad(exports, ["getActionRuleByName","getActionRuleByNameOutput"], () => require("./getActionRuleByName"));
+utilities.lazyLoad(exports, ["getSmartDetectorAlertRule","getSmartDetectorAlertRuleOutput"], () => require("./getSmartDetectorAlertRule"));
+utilities.lazyLoad(exports, ["SmartDetectorAlertRule"], () => require("./smartDetectorAlertRule"));
 
 // Export enums:
 export * from "../types/enums/alertsmanagement";
@@ -31,10 +47,6 @@ export {
     v20210808,
     v20210808preview,
 };
-
-// Import resources to register:
-import { ActionRuleByName } from "./actionRuleByName";
-import { SmartDetectorAlertRule } from "./smartDetectorAlertRule";
 
 const _module = {
     version: utilities.getVersion(),

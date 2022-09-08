@@ -5,20 +5,39 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./export";
-export * from "./getExport";
-export * from "./getView";
-export * from "./getViewByScope";
-export * from "./view";
-export * from "./viewByScope";
+export { ExportArgs } from "./export";
+export type Export = import("./export").Export;
+export const Export: typeof import("./export").Export = null as any;
+
+export { GetExportArgs, GetExportResult, GetExportOutputArgs } from "./getExport";
+export const getExport: typeof import("./getExport").getExport = null as any;
+export const getExportOutput: typeof import("./getExport").getExportOutput = null as any;
+
+export { GetViewArgs, GetViewResult, GetViewOutputArgs } from "./getView";
+export const getView: typeof import("./getView").getView = null as any;
+export const getViewOutput: typeof import("./getView").getViewOutput = null as any;
+
+export { GetViewByScopeArgs, GetViewByScopeResult, GetViewByScopeOutputArgs } from "./getViewByScope";
+export const getViewByScope: typeof import("./getViewByScope").getViewByScope = null as any;
+export const getViewByScopeOutput: typeof import("./getViewByScope").getViewByScopeOutput = null as any;
+
+export { ViewArgs } from "./view";
+export type View = import("./view").View;
+export const View: typeof import("./view").View = null as any;
+
+export { ViewByScopeArgs } from "./viewByScope";
+export type ViewByScope = import("./viewByScope").ViewByScope;
+export const ViewByScope: typeof import("./viewByScope").ViewByScope = null as any;
+
+utilities.lazyLoad(exports, ["Export"], () => require("./export"));
+utilities.lazyLoad(exports, ["getExport","getExportOutput"], () => require("./getExport"));
+utilities.lazyLoad(exports, ["getView","getViewOutput"], () => require("./getView"));
+utilities.lazyLoad(exports, ["getViewByScope","getViewByScopeOutput"], () => require("./getViewByScope"));
+utilities.lazyLoad(exports, ["View"], () => require("./view"));
+utilities.lazyLoad(exports, ["ViewByScope"], () => require("./viewByScope"));
 
 // Export enums:
 export * from "../../types/enums/costmanagement/v20211001";
-
-// Import resources to register:
-import { Export } from "./export";
-import { View } from "./view";
-import { ViewByScope } from "./viewByScope";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,121 +5,379 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./aaddataConnector";
-export * from "./aatpdataConnector";
-export * from "./action";
-export * from "./alertRule";
-export * from "./anomalies";
-export * from "./ascdataConnector";
-export * from "./automationRule";
-export * from "./awsCloudTrailDataConnector";
-export * from "./bookmark";
-export * from "./bookmarkRelation";
-export * from "./dataConnector";
-export * from "./dynamics365DataConnector";
-export * from "./entityAnalytics";
-export * from "./eyesOn";
-export * from "./fusionAlertRule";
-export * from "./getAADDataConnector";
-export * from "./getAATPDataConnector";
-export * from "./getASCDataConnector";
-export * from "./getAction";
-export * from "./getAlertRule";
-export * from "./getAnomalies";
-export * from "./getAutomationRule";
-export * from "./getAwsCloudTrailDataConnector";
-export * from "./getBookmark";
-export * from "./getBookmarkRelation";
-export * from "./getDataConnector";
-export * from "./getDynamics365DataConnector";
-export * from "./getEntitiesGetTimeline";
-export * from "./getEntityAnalytics";
-export * from "./getEntityInsights";
-export * from "./getEyesOn";
-export * from "./getFusionAlertRule";
-export * from "./getIPSyncer";
-export * from "./getIncident";
-export * from "./getIncidentComment";
-export * from "./getIncidentRelation";
-export * from "./getMCASDataConnector";
-export * from "./getMDATPDataConnector";
-export * from "./getMLBehaviorAnalyticsAlertRule";
-export * from "./getMSTIDataConnector";
-export * from "./getMTPDataConnector";
-export * from "./getMicrosoftSecurityIncidentCreationAlertRule";
-export * from "./getOfficeATPDataConnector";
-export * from "./getOfficeDataConnector";
-export * from "./getProductSetting";
-export * from "./getScheduledAlertRule";
-export * from "./getTIDataConnector";
-export * from "./getThreatIntelligenceAlertRule";
-export * from "./getThreatIntelligenceIndicator";
-export * from "./getTiTaxiiDataConnector";
-export * from "./getUeba";
-export * from "./getWatchlist";
-export * from "./getWatchlistItem";
-export * from "./incident";
-export * from "./incidentComment";
-export * from "./incidentRelation";
-export * from "./ipsyncer";
-export * from "./mcasdataConnector";
-export * from "./mdatpdataConnector";
-export * from "./microsoftSecurityIncidentCreationAlertRule";
-export * from "./mlbehaviorAnalyticsAlertRule";
-export * from "./mstidataConnector";
-export * from "./mtpdataConnector";
-export * from "./officeATPDataConnector";
-export * from "./officeDataConnector";
-export * from "./productSetting";
-export * from "./scheduledAlertRule";
-export * from "./threatIntelligenceAlertRule";
-export * from "./threatIntelligenceIndicator";
-export * from "./tiTaxiiDataConnector";
-export * from "./tidataConnector";
-export * from "./ueba";
-export * from "./watchlist";
-export * from "./watchlistItem";
+export { AADDataConnectorArgs } from "./aaddataConnector";
+export type AADDataConnector = import("./aaddataConnector").AADDataConnector;
+export const AADDataConnector: typeof import("./aaddataConnector").AADDataConnector = null as any;
+
+export { AATPDataConnectorArgs } from "./aatpdataConnector";
+export type AATPDataConnector = import("./aatpdataConnector").AATPDataConnector;
+export const AATPDataConnector: typeof import("./aatpdataConnector").AATPDataConnector = null as any;
+
+export { ActionArgs } from "./action";
+export type Action = import("./action").Action;
+export const Action: typeof import("./action").Action = null as any;
+
+export { AlertRuleArgs } from "./alertRule";
+export type AlertRule = import("./alertRule").AlertRule;
+export const AlertRule: typeof import("./alertRule").AlertRule = null as any;
+
+export { AnomaliesArgs } from "./anomalies";
+export type Anomalies = import("./anomalies").Anomalies;
+export const Anomalies: typeof import("./anomalies").Anomalies = null as any;
+
+export { ASCDataConnectorArgs } from "./ascdataConnector";
+export type ASCDataConnector = import("./ascdataConnector").ASCDataConnector;
+export const ASCDataConnector: typeof import("./ascdataConnector").ASCDataConnector = null as any;
+
+export { AutomationRuleArgs } from "./automationRule";
+export type AutomationRule = import("./automationRule").AutomationRule;
+export const AutomationRule: typeof import("./automationRule").AutomationRule = null as any;
+
+export { AwsCloudTrailDataConnectorArgs } from "./awsCloudTrailDataConnector";
+export type AwsCloudTrailDataConnector = import("./awsCloudTrailDataConnector").AwsCloudTrailDataConnector;
+export const AwsCloudTrailDataConnector: typeof import("./awsCloudTrailDataConnector").AwsCloudTrailDataConnector = null as any;
+
+export { BookmarkArgs } from "./bookmark";
+export type Bookmark = import("./bookmark").Bookmark;
+export const Bookmark: typeof import("./bookmark").Bookmark = null as any;
+
+export { BookmarkRelationArgs } from "./bookmarkRelation";
+export type BookmarkRelation = import("./bookmarkRelation").BookmarkRelation;
+export const BookmarkRelation: typeof import("./bookmarkRelation").BookmarkRelation = null as any;
+
+export { DataConnectorArgs } from "./dataConnector";
+export type DataConnector = import("./dataConnector").DataConnector;
+export const DataConnector: typeof import("./dataConnector").DataConnector = null as any;
+
+export { Dynamics365DataConnectorArgs } from "./dynamics365DataConnector";
+export type Dynamics365DataConnector = import("./dynamics365DataConnector").Dynamics365DataConnector;
+export const Dynamics365DataConnector: typeof import("./dynamics365DataConnector").Dynamics365DataConnector = null as any;
+
+export { EntityAnalyticsArgs } from "./entityAnalytics";
+export type EntityAnalytics = import("./entityAnalytics").EntityAnalytics;
+export const EntityAnalytics: typeof import("./entityAnalytics").EntityAnalytics = null as any;
+
+export { EyesOnArgs } from "./eyesOn";
+export type EyesOn = import("./eyesOn").EyesOn;
+export const EyesOn: typeof import("./eyesOn").EyesOn = null as any;
+
+export { FusionAlertRuleArgs } from "./fusionAlertRule";
+export type FusionAlertRule = import("./fusionAlertRule").FusionAlertRule;
+export const FusionAlertRule: typeof import("./fusionAlertRule").FusionAlertRule = null as any;
+
+export { GetAADDataConnectorArgs, GetAADDataConnectorResult, GetAADDataConnectorOutputArgs } from "./getAADDataConnector";
+export const getAADDataConnector: typeof import("./getAADDataConnector").getAADDataConnector = null as any;
+export const getAADDataConnectorOutput: typeof import("./getAADDataConnector").getAADDataConnectorOutput = null as any;
+
+export { GetAATPDataConnectorArgs, GetAATPDataConnectorResult, GetAATPDataConnectorOutputArgs } from "./getAATPDataConnector";
+export const getAATPDataConnector: typeof import("./getAATPDataConnector").getAATPDataConnector = null as any;
+export const getAATPDataConnectorOutput: typeof import("./getAATPDataConnector").getAATPDataConnectorOutput = null as any;
+
+export { GetASCDataConnectorArgs, GetASCDataConnectorResult, GetASCDataConnectorOutputArgs } from "./getASCDataConnector";
+export const getASCDataConnector: typeof import("./getASCDataConnector").getASCDataConnector = null as any;
+export const getASCDataConnectorOutput: typeof import("./getASCDataConnector").getASCDataConnectorOutput = null as any;
+
+export { GetActionArgs, GetActionResult, GetActionOutputArgs } from "./getAction";
+export const getAction: typeof import("./getAction").getAction = null as any;
+export const getActionOutput: typeof import("./getAction").getActionOutput = null as any;
+
+export { GetAlertRuleArgs, GetAlertRuleResult, GetAlertRuleOutputArgs } from "./getAlertRule";
+export const getAlertRule: typeof import("./getAlertRule").getAlertRule = null as any;
+export const getAlertRuleOutput: typeof import("./getAlertRule").getAlertRuleOutput = null as any;
+
+export { GetAnomaliesArgs, GetAnomaliesResult, GetAnomaliesOutputArgs } from "./getAnomalies";
+export const getAnomalies: typeof import("./getAnomalies").getAnomalies = null as any;
+export const getAnomaliesOutput: typeof import("./getAnomalies").getAnomaliesOutput = null as any;
+
+export { GetAutomationRuleArgs, GetAutomationRuleResult, GetAutomationRuleOutputArgs } from "./getAutomationRule";
+export const getAutomationRule: typeof import("./getAutomationRule").getAutomationRule = null as any;
+export const getAutomationRuleOutput: typeof import("./getAutomationRule").getAutomationRuleOutput = null as any;
+
+export { GetAwsCloudTrailDataConnectorArgs, GetAwsCloudTrailDataConnectorResult, GetAwsCloudTrailDataConnectorOutputArgs } from "./getAwsCloudTrailDataConnector";
+export const getAwsCloudTrailDataConnector: typeof import("./getAwsCloudTrailDataConnector").getAwsCloudTrailDataConnector = null as any;
+export const getAwsCloudTrailDataConnectorOutput: typeof import("./getAwsCloudTrailDataConnector").getAwsCloudTrailDataConnectorOutput = null as any;
+
+export { GetBookmarkArgs, GetBookmarkResult, GetBookmarkOutputArgs } from "./getBookmark";
+export const getBookmark: typeof import("./getBookmark").getBookmark = null as any;
+export const getBookmarkOutput: typeof import("./getBookmark").getBookmarkOutput = null as any;
+
+export { GetBookmarkRelationArgs, GetBookmarkRelationResult, GetBookmarkRelationOutputArgs } from "./getBookmarkRelation";
+export const getBookmarkRelation: typeof import("./getBookmarkRelation").getBookmarkRelation = null as any;
+export const getBookmarkRelationOutput: typeof import("./getBookmarkRelation").getBookmarkRelationOutput = null as any;
+
+export { GetDataConnectorArgs, GetDataConnectorResult, GetDataConnectorOutputArgs } from "./getDataConnector";
+export const getDataConnector: typeof import("./getDataConnector").getDataConnector = null as any;
+export const getDataConnectorOutput: typeof import("./getDataConnector").getDataConnectorOutput = null as any;
+
+export { GetDynamics365DataConnectorArgs, GetDynamics365DataConnectorResult, GetDynamics365DataConnectorOutputArgs } from "./getDynamics365DataConnector";
+export const getDynamics365DataConnector: typeof import("./getDynamics365DataConnector").getDynamics365DataConnector = null as any;
+export const getDynamics365DataConnectorOutput: typeof import("./getDynamics365DataConnector").getDynamics365DataConnectorOutput = null as any;
+
+export { GetEntitiesGetTimelineArgs, GetEntitiesGetTimelineResult, GetEntitiesGetTimelineOutputArgs } from "./getEntitiesGetTimeline";
+export const getEntitiesGetTimeline: typeof import("./getEntitiesGetTimeline").getEntitiesGetTimeline = null as any;
+export const getEntitiesGetTimelineOutput: typeof import("./getEntitiesGetTimeline").getEntitiesGetTimelineOutput = null as any;
+
+export { GetEntityAnalyticsArgs, GetEntityAnalyticsResult, GetEntityAnalyticsOutputArgs } from "./getEntityAnalytics";
+export const getEntityAnalytics: typeof import("./getEntityAnalytics").getEntityAnalytics = null as any;
+export const getEntityAnalyticsOutput: typeof import("./getEntityAnalytics").getEntityAnalyticsOutput = null as any;
+
+export { GetEntityInsightsArgs, GetEntityInsightsResult, GetEntityInsightsOutputArgs } from "./getEntityInsights";
+export const getEntityInsights: typeof import("./getEntityInsights").getEntityInsights = null as any;
+export const getEntityInsightsOutput: typeof import("./getEntityInsights").getEntityInsightsOutput = null as any;
+
+export { GetEyesOnArgs, GetEyesOnResult, GetEyesOnOutputArgs } from "./getEyesOn";
+export const getEyesOn: typeof import("./getEyesOn").getEyesOn = null as any;
+export const getEyesOnOutput: typeof import("./getEyesOn").getEyesOnOutput = null as any;
+
+export { GetFusionAlertRuleArgs, GetFusionAlertRuleResult, GetFusionAlertRuleOutputArgs } from "./getFusionAlertRule";
+export const getFusionAlertRule: typeof import("./getFusionAlertRule").getFusionAlertRule = null as any;
+export const getFusionAlertRuleOutput: typeof import("./getFusionAlertRule").getFusionAlertRuleOutput = null as any;
+
+export { GetIPSyncerArgs, GetIPSyncerResult, GetIPSyncerOutputArgs } from "./getIPSyncer";
+export const getIPSyncer: typeof import("./getIPSyncer").getIPSyncer = null as any;
+export const getIPSyncerOutput: typeof import("./getIPSyncer").getIPSyncerOutput = null as any;
+
+export { GetIncidentArgs, GetIncidentResult, GetIncidentOutputArgs } from "./getIncident";
+export const getIncident: typeof import("./getIncident").getIncident = null as any;
+export const getIncidentOutput: typeof import("./getIncident").getIncidentOutput = null as any;
+
+export { GetIncidentCommentArgs, GetIncidentCommentResult, GetIncidentCommentOutputArgs } from "./getIncidentComment";
+export const getIncidentComment: typeof import("./getIncidentComment").getIncidentComment = null as any;
+export const getIncidentCommentOutput: typeof import("./getIncidentComment").getIncidentCommentOutput = null as any;
+
+export { GetIncidentRelationArgs, GetIncidentRelationResult, GetIncidentRelationOutputArgs } from "./getIncidentRelation";
+export const getIncidentRelation: typeof import("./getIncidentRelation").getIncidentRelation = null as any;
+export const getIncidentRelationOutput: typeof import("./getIncidentRelation").getIncidentRelationOutput = null as any;
+
+export { GetMCASDataConnectorArgs, GetMCASDataConnectorResult, GetMCASDataConnectorOutputArgs } from "./getMCASDataConnector";
+export const getMCASDataConnector: typeof import("./getMCASDataConnector").getMCASDataConnector = null as any;
+export const getMCASDataConnectorOutput: typeof import("./getMCASDataConnector").getMCASDataConnectorOutput = null as any;
+
+export { GetMDATPDataConnectorArgs, GetMDATPDataConnectorResult, GetMDATPDataConnectorOutputArgs } from "./getMDATPDataConnector";
+export const getMDATPDataConnector: typeof import("./getMDATPDataConnector").getMDATPDataConnector = null as any;
+export const getMDATPDataConnectorOutput: typeof import("./getMDATPDataConnector").getMDATPDataConnectorOutput = null as any;
+
+export { GetMLBehaviorAnalyticsAlertRuleArgs, GetMLBehaviorAnalyticsAlertRuleResult, GetMLBehaviorAnalyticsAlertRuleOutputArgs } from "./getMLBehaviorAnalyticsAlertRule";
+export const getMLBehaviorAnalyticsAlertRule: typeof import("./getMLBehaviorAnalyticsAlertRule").getMLBehaviorAnalyticsAlertRule = null as any;
+export const getMLBehaviorAnalyticsAlertRuleOutput: typeof import("./getMLBehaviorAnalyticsAlertRule").getMLBehaviorAnalyticsAlertRuleOutput = null as any;
+
+export { GetMSTIDataConnectorArgs, GetMSTIDataConnectorResult, GetMSTIDataConnectorOutputArgs } from "./getMSTIDataConnector";
+export const getMSTIDataConnector: typeof import("./getMSTIDataConnector").getMSTIDataConnector = null as any;
+export const getMSTIDataConnectorOutput: typeof import("./getMSTIDataConnector").getMSTIDataConnectorOutput = null as any;
+
+export { GetMTPDataConnectorArgs, GetMTPDataConnectorResult, GetMTPDataConnectorOutputArgs } from "./getMTPDataConnector";
+export const getMTPDataConnector: typeof import("./getMTPDataConnector").getMTPDataConnector = null as any;
+export const getMTPDataConnectorOutput: typeof import("./getMTPDataConnector").getMTPDataConnectorOutput = null as any;
+
+export { GetMicrosoftSecurityIncidentCreationAlertRuleArgs, GetMicrosoftSecurityIncidentCreationAlertRuleResult, GetMicrosoftSecurityIncidentCreationAlertRuleOutputArgs } from "./getMicrosoftSecurityIncidentCreationAlertRule";
+export const getMicrosoftSecurityIncidentCreationAlertRule: typeof import("./getMicrosoftSecurityIncidentCreationAlertRule").getMicrosoftSecurityIncidentCreationAlertRule = null as any;
+export const getMicrosoftSecurityIncidentCreationAlertRuleOutput: typeof import("./getMicrosoftSecurityIncidentCreationAlertRule").getMicrosoftSecurityIncidentCreationAlertRuleOutput = null as any;
+
+export { GetOfficeATPDataConnectorArgs, GetOfficeATPDataConnectorResult, GetOfficeATPDataConnectorOutputArgs } from "./getOfficeATPDataConnector";
+export const getOfficeATPDataConnector: typeof import("./getOfficeATPDataConnector").getOfficeATPDataConnector = null as any;
+export const getOfficeATPDataConnectorOutput: typeof import("./getOfficeATPDataConnector").getOfficeATPDataConnectorOutput = null as any;
+
+export { GetOfficeDataConnectorArgs, GetOfficeDataConnectorResult, GetOfficeDataConnectorOutputArgs } from "./getOfficeDataConnector";
+export const getOfficeDataConnector: typeof import("./getOfficeDataConnector").getOfficeDataConnector = null as any;
+export const getOfficeDataConnectorOutput: typeof import("./getOfficeDataConnector").getOfficeDataConnectorOutput = null as any;
+
+export { GetProductSettingArgs, GetProductSettingResult, GetProductSettingOutputArgs } from "./getProductSetting";
+export const getProductSetting: typeof import("./getProductSetting").getProductSetting = null as any;
+export const getProductSettingOutput: typeof import("./getProductSetting").getProductSettingOutput = null as any;
+
+export { GetScheduledAlertRuleArgs, GetScheduledAlertRuleResult, GetScheduledAlertRuleOutputArgs } from "./getScheduledAlertRule";
+export const getScheduledAlertRule: typeof import("./getScheduledAlertRule").getScheduledAlertRule = null as any;
+export const getScheduledAlertRuleOutput: typeof import("./getScheduledAlertRule").getScheduledAlertRuleOutput = null as any;
+
+export { GetTIDataConnectorArgs, GetTIDataConnectorResult, GetTIDataConnectorOutputArgs } from "./getTIDataConnector";
+export const getTIDataConnector: typeof import("./getTIDataConnector").getTIDataConnector = null as any;
+export const getTIDataConnectorOutput: typeof import("./getTIDataConnector").getTIDataConnectorOutput = null as any;
+
+export { GetThreatIntelligenceAlertRuleArgs, GetThreatIntelligenceAlertRuleResult, GetThreatIntelligenceAlertRuleOutputArgs } from "./getThreatIntelligenceAlertRule";
+export const getThreatIntelligenceAlertRule: typeof import("./getThreatIntelligenceAlertRule").getThreatIntelligenceAlertRule = null as any;
+export const getThreatIntelligenceAlertRuleOutput: typeof import("./getThreatIntelligenceAlertRule").getThreatIntelligenceAlertRuleOutput = null as any;
+
+export { GetThreatIntelligenceIndicatorArgs, GetThreatIntelligenceIndicatorResult, GetThreatIntelligenceIndicatorOutputArgs } from "./getThreatIntelligenceIndicator";
+export const getThreatIntelligenceIndicator: typeof import("./getThreatIntelligenceIndicator").getThreatIntelligenceIndicator = null as any;
+export const getThreatIntelligenceIndicatorOutput: typeof import("./getThreatIntelligenceIndicator").getThreatIntelligenceIndicatorOutput = null as any;
+
+export { GetTiTaxiiDataConnectorArgs, GetTiTaxiiDataConnectorResult, GetTiTaxiiDataConnectorOutputArgs } from "./getTiTaxiiDataConnector";
+export const getTiTaxiiDataConnector: typeof import("./getTiTaxiiDataConnector").getTiTaxiiDataConnector = null as any;
+export const getTiTaxiiDataConnectorOutput: typeof import("./getTiTaxiiDataConnector").getTiTaxiiDataConnectorOutput = null as any;
+
+export { GetUebaArgs, GetUebaResult, GetUebaOutputArgs } from "./getUeba";
+export const getUeba: typeof import("./getUeba").getUeba = null as any;
+export const getUebaOutput: typeof import("./getUeba").getUebaOutput = null as any;
+
+export { GetWatchlistArgs, GetWatchlistResult, GetWatchlistOutputArgs } from "./getWatchlist";
+export const getWatchlist: typeof import("./getWatchlist").getWatchlist = null as any;
+export const getWatchlistOutput: typeof import("./getWatchlist").getWatchlistOutput = null as any;
+
+export { GetWatchlistItemArgs, GetWatchlistItemResult, GetWatchlistItemOutputArgs } from "./getWatchlistItem";
+export const getWatchlistItem: typeof import("./getWatchlistItem").getWatchlistItem = null as any;
+export const getWatchlistItemOutput: typeof import("./getWatchlistItem").getWatchlistItemOutput = null as any;
+
+export { IncidentArgs } from "./incident";
+export type Incident = import("./incident").Incident;
+export const Incident: typeof import("./incident").Incident = null as any;
+
+export { IncidentCommentArgs } from "./incidentComment";
+export type IncidentComment = import("./incidentComment").IncidentComment;
+export const IncidentComment: typeof import("./incidentComment").IncidentComment = null as any;
+
+export { IncidentRelationArgs } from "./incidentRelation";
+export type IncidentRelation = import("./incidentRelation").IncidentRelation;
+export const IncidentRelation: typeof import("./incidentRelation").IncidentRelation = null as any;
+
+export { IPSyncerArgs } from "./ipsyncer";
+export type IPSyncer = import("./ipsyncer").IPSyncer;
+export const IPSyncer: typeof import("./ipsyncer").IPSyncer = null as any;
+
+export { MCASDataConnectorArgs } from "./mcasdataConnector";
+export type MCASDataConnector = import("./mcasdataConnector").MCASDataConnector;
+export const MCASDataConnector: typeof import("./mcasdataConnector").MCASDataConnector = null as any;
+
+export { MDATPDataConnectorArgs } from "./mdatpdataConnector";
+export type MDATPDataConnector = import("./mdatpdataConnector").MDATPDataConnector;
+export const MDATPDataConnector: typeof import("./mdatpdataConnector").MDATPDataConnector = null as any;
+
+export { MicrosoftSecurityIncidentCreationAlertRuleArgs } from "./microsoftSecurityIncidentCreationAlertRule";
+export type MicrosoftSecurityIncidentCreationAlertRule = import("./microsoftSecurityIncidentCreationAlertRule").MicrosoftSecurityIncidentCreationAlertRule;
+export const MicrosoftSecurityIncidentCreationAlertRule: typeof import("./microsoftSecurityIncidentCreationAlertRule").MicrosoftSecurityIncidentCreationAlertRule = null as any;
+
+export { MLBehaviorAnalyticsAlertRuleArgs } from "./mlbehaviorAnalyticsAlertRule";
+export type MLBehaviorAnalyticsAlertRule = import("./mlbehaviorAnalyticsAlertRule").MLBehaviorAnalyticsAlertRule;
+export const MLBehaviorAnalyticsAlertRule: typeof import("./mlbehaviorAnalyticsAlertRule").MLBehaviorAnalyticsAlertRule = null as any;
+
+export { MSTIDataConnectorArgs } from "./mstidataConnector";
+export type MSTIDataConnector = import("./mstidataConnector").MSTIDataConnector;
+export const MSTIDataConnector: typeof import("./mstidataConnector").MSTIDataConnector = null as any;
+
+export { MTPDataConnectorArgs } from "./mtpdataConnector";
+export type MTPDataConnector = import("./mtpdataConnector").MTPDataConnector;
+export const MTPDataConnector: typeof import("./mtpdataConnector").MTPDataConnector = null as any;
+
+export { OfficeATPDataConnectorArgs } from "./officeATPDataConnector";
+export type OfficeATPDataConnector = import("./officeATPDataConnector").OfficeATPDataConnector;
+export const OfficeATPDataConnector: typeof import("./officeATPDataConnector").OfficeATPDataConnector = null as any;
+
+export { OfficeDataConnectorArgs } from "./officeDataConnector";
+export type OfficeDataConnector = import("./officeDataConnector").OfficeDataConnector;
+export const OfficeDataConnector: typeof import("./officeDataConnector").OfficeDataConnector = null as any;
+
+export { ProductSettingArgs } from "./productSetting";
+export type ProductSetting = import("./productSetting").ProductSetting;
+export const ProductSetting: typeof import("./productSetting").ProductSetting = null as any;
+
+export { ScheduledAlertRuleArgs } from "./scheduledAlertRule";
+export type ScheduledAlertRule = import("./scheduledAlertRule").ScheduledAlertRule;
+export const ScheduledAlertRule: typeof import("./scheduledAlertRule").ScheduledAlertRule = null as any;
+
+export { ThreatIntelligenceAlertRuleArgs } from "./threatIntelligenceAlertRule";
+export type ThreatIntelligenceAlertRule = import("./threatIntelligenceAlertRule").ThreatIntelligenceAlertRule;
+export const ThreatIntelligenceAlertRule: typeof import("./threatIntelligenceAlertRule").ThreatIntelligenceAlertRule = null as any;
+
+export { ThreatIntelligenceIndicatorArgs } from "./threatIntelligenceIndicator";
+export type ThreatIntelligenceIndicator = import("./threatIntelligenceIndicator").ThreatIntelligenceIndicator;
+export const ThreatIntelligenceIndicator: typeof import("./threatIntelligenceIndicator").ThreatIntelligenceIndicator = null as any;
+
+export { TiTaxiiDataConnectorArgs } from "./tiTaxiiDataConnector";
+export type TiTaxiiDataConnector = import("./tiTaxiiDataConnector").TiTaxiiDataConnector;
+export const TiTaxiiDataConnector: typeof import("./tiTaxiiDataConnector").TiTaxiiDataConnector = null as any;
+
+export { TIDataConnectorArgs } from "./tidataConnector";
+export type TIDataConnector = import("./tidataConnector").TIDataConnector;
+export const TIDataConnector: typeof import("./tidataConnector").TIDataConnector = null as any;
+
+export { UebaArgs } from "./ueba";
+export type Ueba = import("./ueba").Ueba;
+export const Ueba: typeof import("./ueba").Ueba = null as any;
+
+export { WatchlistArgs } from "./watchlist";
+export type Watchlist = import("./watchlist").Watchlist;
+export const Watchlist: typeof import("./watchlist").Watchlist = null as any;
+
+export { WatchlistItemArgs } from "./watchlistItem";
+export type WatchlistItem = import("./watchlistItem").WatchlistItem;
+export const WatchlistItem: typeof import("./watchlistItem").WatchlistItem = null as any;
+
+utilities.lazyLoad(exports, ["AADDataConnector"], () => require("./aaddataConnector"));
+utilities.lazyLoad(exports, ["AATPDataConnector"], () => require("./aatpdataConnector"));
+utilities.lazyLoad(exports, ["Action"], () => require("./action"));
+utilities.lazyLoad(exports, ["AlertRule"], () => require("./alertRule"));
+utilities.lazyLoad(exports, ["Anomalies"], () => require("./anomalies"));
+utilities.lazyLoad(exports, ["ASCDataConnector"], () => require("./ascdataConnector"));
+utilities.lazyLoad(exports, ["AutomationRule"], () => require("./automationRule"));
+utilities.lazyLoad(exports, ["AwsCloudTrailDataConnector"], () => require("./awsCloudTrailDataConnector"));
+utilities.lazyLoad(exports, ["Bookmark"], () => require("./bookmark"));
+utilities.lazyLoad(exports, ["BookmarkRelation"], () => require("./bookmarkRelation"));
+utilities.lazyLoad(exports, ["DataConnector"], () => require("./dataConnector"));
+utilities.lazyLoad(exports, ["Dynamics365DataConnector"], () => require("./dynamics365DataConnector"));
+utilities.lazyLoad(exports, ["EntityAnalytics"], () => require("./entityAnalytics"));
+utilities.lazyLoad(exports, ["EyesOn"], () => require("./eyesOn"));
+utilities.lazyLoad(exports, ["FusionAlertRule"], () => require("./fusionAlertRule"));
+utilities.lazyLoad(exports, ["getAADDataConnector","getAADDataConnectorOutput"], () => require("./getAADDataConnector"));
+utilities.lazyLoad(exports, ["getAATPDataConnector","getAATPDataConnectorOutput"], () => require("./getAATPDataConnector"));
+utilities.lazyLoad(exports, ["getASCDataConnector","getASCDataConnectorOutput"], () => require("./getASCDataConnector"));
+utilities.lazyLoad(exports, ["getAction","getActionOutput"], () => require("./getAction"));
+utilities.lazyLoad(exports, ["getAlertRule","getAlertRuleOutput"], () => require("./getAlertRule"));
+utilities.lazyLoad(exports, ["getAnomalies","getAnomaliesOutput"], () => require("./getAnomalies"));
+utilities.lazyLoad(exports, ["getAutomationRule","getAutomationRuleOutput"], () => require("./getAutomationRule"));
+utilities.lazyLoad(exports, ["getAwsCloudTrailDataConnector","getAwsCloudTrailDataConnectorOutput"], () => require("./getAwsCloudTrailDataConnector"));
+utilities.lazyLoad(exports, ["getBookmark","getBookmarkOutput"], () => require("./getBookmark"));
+utilities.lazyLoad(exports, ["getBookmarkRelation","getBookmarkRelationOutput"], () => require("./getBookmarkRelation"));
+utilities.lazyLoad(exports, ["getDataConnector","getDataConnectorOutput"], () => require("./getDataConnector"));
+utilities.lazyLoad(exports, ["getDynamics365DataConnector","getDynamics365DataConnectorOutput"], () => require("./getDynamics365DataConnector"));
+utilities.lazyLoad(exports, ["getEntitiesGetTimeline","getEntitiesGetTimelineOutput"], () => require("./getEntitiesGetTimeline"));
+utilities.lazyLoad(exports, ["getEntityAnalytics","getEntityAnalyticsOutput"], () => require("./getEntityAnalytics"));
+utilities.lazyLoad(exports, ["getEntityInsights","getEntityInsightsOutput"], () => require("./getEntityInsights"));
+utilities.lazyLoad(exports, ["getEyesOn","getEyesOnOutput"], () => require("./getEyesOn"));
+utilities.lazyLoad(exports, ["getFusionAlertRule","getFusionAlertRuleOutput"], () => require("./getFusionAlertRule"));
+utilities.lazyLoad(exports, ["getIPSyncer","getIPSyncerOutput"], () => require("./getIPSyncer"));
+utilities.lazyLoad(exports, ["getIncident","getIncidentOutput"], () => require("./getIncident"));
+utilities.lazyLoad(exports, ["getIncidentComment","getIncidentCommentOutput"], () => require("./getIncidentComment"));
+utilities.lazyLoad(exports, ["getIncidentRelation","getIncidentRelationOutput"], () => require("./getIncidentRelation"));
+utilities.lazyLoad(exports, ["getMCASDataConnector","getMCASDataConnectorOutput"], () => require("./getMCASDataConnector"));
+utilities.lazyLoad(exports, ["getMDATPDataConnector","getMDATPDataConnectorOutput"], () => require("./getMDATPDataConnector"));
+utilities.lazyLoad(exports, ["getMLBehaviorAnalyticsAlertRule","getMLBehaviorAnalyticsAlertRuleOutput"], () => require("./getMLBehaviorAnalyticsAlertRule"));
+utilities.lazyLoad(exports, ["getMSTIDataConnector","getMSTIDataConnectorOutput"], () => require("./getMSTIDataConnector"));
+utilities.lazyLoad(exports, ["getMTPDataConnector","getMTPDataConnectorOutput"], () => require("./getMTPDataConnector"));
+utilities.lazyLoad(exports, ["getMicrosoftSecurityIncidentCreationAlertRule","getMicrosoftSecurityIncidentCreationAlertRuleOutput"], () => require("./getMicrosoftSecurityIncidentCreationAlertRule"));
+utilities.lazyLoad(exports, ["getOfficeATPDataConnector","getOfficeATPDataConnectorOutput"], () => require("./getOfficeATPDataConnector"));
+utilities.lazyLoad(exports, ["getOfficeDataConnector","getOfficeDataConnectorOutput"], () => require("./getOfficeDataConnector"));
+utilities.lazyLoad(exports, ["getProductSetting","getProductSettingOutput"], () => require("./getProductSetting"));
+utilities.lazyLoad(exports, ["getScheduledAlertRule","getScheduledAlertRuleOutput"], () => require("./getScheduledAlertRule"));
+utilities.lazyLoad(exports, ["getTIDataConnector","getTIDataConnectorOutput"], () => require("./getTIDataConnector"));
+utilities.lazyLoad(exports, ["getThreatIntelligenceAlertRule","getThreatIntelligenceAlertRuleOutput"], () => require("./getThreatIntelligenceAlertRule"));
+utilities.lazyLoad(exports, ["getThreatIntelligenceIndicator","getThreatIntelligenceIndicatorOutput"], () => require("./getThreatIntelligenceIndicator"));
+utilities.lazyLoad(exports, ["getTiTaxiiDataConnector","getTiTaxiiDataConnectorOutput"], () => require("./getTiTaxiiDataConnector"));
+utilities.lazyLoad(exports, ["getUeba","getUebaOutput"], () => require("./getUeba"));
+utilities.lazyLoad(exports, ["getWatchlist","getWatchlistOutput"], () => require("./getWatchlist"));
+utilities.lazyLoad(exports, ["getWatchlistItem","getWatchlistItemOutput"], () => require("./getWatchlistItem"));
+utilities.lazyLoad(exports, ["Incident"], () => require("./incident"));
+utilities.lazyLoad(exports, ["IncidentComment"], () => require("./incidentComment"));
+utilities.lazyLoad(exports, ["IncidentRelation"], () => require("./incidentRelation"));
+utilities.lazyLoad(exports, ["IPSyncer"], () => require("./ipsyncer"));
+utilities.lazyLoad(exports, ["MCASDataConnector"], () => require("./mcasdataConnector"));
+utilities.lazyLoad(exports, ["MDATPDataConnector"], () => require("./mdatpdataConnector"));
+utilities.lazyLoad(exports, ["MicrosoftSecurityIncidentCreationAlertRule"], () => require("./microsoftSecurityIncidentCreationAlertRule"));
+utilities.lazyLoad(exports, ["MLBehaviorAnalyticsAlertRule"], () => require("./mlbehaviorAnalyticsAlertRule"));
+utilities.lazyLoad(exports, ["MSTIDataConnector"], () => require("./mstidataConnector"));
+utilities.lazyLoad(exports, ["MTPDataConnector"], () => require("./mtpdataConnector"));
+utilities.lazyLoad(exports, ["OfficeATPDataConnector"], () => require("./officeATPDataConnector"));
+utilities.lazyLoad(exports, ["OfficeDataConnector"], () => require("./officeDataConnector"));
+utilities.lazyLoad(exports, ["ProductSetting"], () => require("./productSetting"));
+utilities.lazyLoad(exports, ["ScheduledAlertRule"], () => require("./scheduledAlertRule"));
+utilities.lazyLoad(exports, ["ThreatIntelligenceAlertRule"], () => require("./threatIntelligenceAlertRule"));
+utilities.lazyLoad(exports, ["ThreatIntelligenceIndicator"], () => require("./threatIntelligenceIndicator"));
+utilities.lazyLoad(exports, ["TiTaxiiDataConnector"], () => require("./tiTaxiiDataConnector"));
+utilities.lazyLoad(exports, ["TIDataConnector"], () => require("./tidataConnector"));
+utilities.lazyLoad(exports, ["Ueba"], () => require("./ueba"));
+utilities.lazyLoad(exports, ["Watchlist"], () => require("./watchlist"));
+utilities.lazyLoad(exports, ["WatchlistItem"], () => require("./watchlistItem"));
 
 // Export enums:
 export * from "../../types/enums/securityinsights/v20190101preview";
-
-// Import resources to register:
-import { AADDataConnector } from "./aaddataConnector";
-import { AATPDataConnector } from "./aatpdataConnector";
-import { ASCDataConnector } from "./ascdataConnector";
-import { Action } from "./action";
-import { AlertRule } from "./alertRule";
-import { Anomalies } from "./anomalies";
-import { AutomationRule } from "./automationRule";
-import { AwsCloudTrailDataConnector } from "./awsCloudTrailDataConnector";
-import { Bookmark } from "./bookmark";
-import { BookmarkRelation } from "./bookmarkRelation";
-import { DataConnector } from "./dataConnector";
-import { Dynamics365DataConnector } from "./dynamics365DataConnector";
-import { EntityAnalytics } from "./entityAnalytics";
-import { EyesOn } from "./eyesOn";
-import { FusionAlertRule } from "./fusionAlertRule";
-import { IPSyncer } from "./ipsyncer";
-import { Incident } from "./incident";
-import { IncidentComment } from "./incidentComment";
-import { IncidentRelation } from "./incidentRelation";
-import { MCASDataConnector } from "./mcasdataConnector";
-import { MDATPDataConnector } from "./mdatpdataConnector";
-import { MLBehaviorAnalyticsAlertRule } from "./mlbehaviorAnalyticsAlertRule";
-import { MSTIDataConnector } from "./mstidataConnector";
-import { MTPDataConnector } from "./mtpdataConnector";
-import { MicrosoftSecurityIncidentCreationAlertRule } from "./microsoftSecurityIncidentCreationAlertRule";
-import { OfficeATPDataConnector } from "./officeATPDataConnector";
-import { OfficeDataConnector } from "./officeDataConnector";
-import { ProductSetting } from "./productSetting";
-import { ScheduledAlertRule } from "./scheduledAlertRule";
-import { TIDataConnector } from "./tidataConnector";
-import { ThreatIntelligenceAlertRule } from "./threatIntelligenceAlertRule";
-import { ThreatIntelligenceIndicator } from "./threatIntelligenceIndicator";
-import { TiTaxiiDataConnector } from "./tiTaxiiDataConnector";
-import { Ueba } from "./ueba";
-import { Watchlist } from "./watchlist";
-import { WatchlistItem } from "./watchlistItem";
 
 const _module = {
     version: utilities.getVersion(),

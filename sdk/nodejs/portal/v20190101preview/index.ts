@@ -5,14 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./dashboard";
-export * from "./getDashboard";
-export * from "./getTenantConfiguration";
-export * from "./tenantConfiguration";
+export { DashboardArgs } from "./dashboard";
+export type Dashboard = import("./dashboard").Dashboard;
+export const Dashboard: typeof import("./dashboard").Dashboard = null as any;
 
-// Import resources to register:
-import { Dashboard } from "./dashboard";
-import { TenantConfiguration } from "./tenantConfiguration";
+export { GetDashboardArgs, GetDashboardResult, GetDashboardOutputArgs } from "./getDashboard";
+export const getDashboard: typeof import("./getDashboard").getDashboard = null as any;
+export const getDashboardOutput: typeof import("./getDashboard").getDashboardOutput = null as any;
+
+export { GetTenantConfigurationArgs, GetTenantConfigurationResult, GetTenantConfigurationOutputArgs } from "./getTenantConfiguration";
+export const getTenantConfiguration: typeof import("./getTenantConfiguration").getTenantConfiguration = null as any;
+export const getTenantConfigurationOutput: typeof import("./getTenantConfiguration").getTenantConfigurationOutput = null as any;
+
+export { TenantConfigurationArgs } from "./tenantConfiguration";
+export type TenantConfiguration = import("./tenantConfiguration").TenantConfiguration;
+export const TenantConfiguration: typeof import("./tenantConfiguration").TenantConfiguration = null as any;
+
+utilities.lazyLoad(exports, ["Dashboard"], () => require("./dashboard"));
+utilities.lazyLoad(exports, ["getDashboard","getDashboardOutput"], () => require("./getDashboard"));
+utilities.lazyLoad(exports, ["getTenantConfiguration","getTenantConfigurationOutput"], () => require("./getTenantConfiguration"));
+utilities.lazyLoad(exports, ["TenantConfiguration"], () => require("./tenantConfiguration"));
 
 const _module = {
     version: utilities.getVersion(),

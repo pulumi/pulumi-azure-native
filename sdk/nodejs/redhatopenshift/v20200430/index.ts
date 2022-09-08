@@ -5,12 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getOpenShiftCluster";
-export * from "./listOpenShiftClusterCredentials";
-export * from "./openShiftCluster";
+export { GetOpenShiftClusterArgs, GetOpenShiftClusterResult, GetOpenShiftClusterOutputArgs } from "./getOpenShiftCluster";
+export const getOpenShiftCluster: typeof import("./getOpenShiftCluster").getOpenShiftCluster = null as any;
+export const getOpenShiftClusterOutput: typeof import("./getOpenShiftCluster").getOpenShiftClusterOutput = null as any;
 
-// Import resources to register:
-import { OpenShiftCluster } from "./openShiftCluster";
+export { ListOpenShiftClusterCredentialsArgs, ListOpenShiftClusterCredentialsResult, ListOpenShiftClusterCredentialsOutputArgs } from "./listOpenShiftClusterCredentials";
+export const listOpenShiftClusterCredentials: typeof import("./listOpenShiftClusterCredentials").listOpenShiftClusterCredentials = null as any;
+export const listOpenShiftClusterCredentialsOutput: typeof import("./listOpenShiftClusterCredentials").listOpenShiftClusterCredentialsOutput = null as any;
+
+export { OpenShiftClusterArgs } from "./openShiftCluster";
+export type OpenShiftCluster = import("./openShiftCluster").OpenShiftCluster;
+export const OpenShiftCluster: typeof import("./openShiftCluster").OpenShiftCluster = null as any;
+
+utilities.lazyLoad(exports, ["getOpenShiftCluster","getOpenShiftClusterOutput"], () => require("./getOpenShiftCluster"));
+utilities.lazyLoad(exports, ["listOpenShiftClusterCredentials","listOpenShiftClusterCredentialsOutput"], () => require("./listOpenShiftClusterCredentials"));
+utilities.lazyLoad(exports, ["OpenShiftCluster"], () => require("./openShiftCluster"));
 
 const _module = {
     version: utilities.getVersion(),

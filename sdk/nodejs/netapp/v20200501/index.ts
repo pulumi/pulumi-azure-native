@@ -5,32 +5,79 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./account";
-export * from "./backup";
-export * from "./backupPolicy";
-export * from "./getAccount";
-export * from "./getBackup";
-export * from "./getBackupPolicy";
-export * from "./getPool";
-export * from "./getSnapshot";
-export * from "./getSnapshotPolicy";
-export * from "./getVolume";
-export * from "./pool";
-export * from "./snapshot";
-export * from "./snapshotPolicy";
-export * from "./volume";
+export { AccountArgs } from "./account";
+export type Account = import("./account").Account;
+export const Account: typeof import("./account").Account = null as any;
+
+export { BackupArgs } from "./backup";
+export type Backup = import("./backup").Backup;
+export const Backup: typeof import("./backup").Backup = null as any;
+
+export { BackupPolicyArgs } from "./backupPolicy";
+export type BackupPolicy = import("./backupPolicy").BackupPolicy;
+export const BackupPolicy: typeof import("./backupPolicy").BackupPolicy = null as any;
+
+export { GetAccountArgs, GetAccountResult, GetAccountOutputArgs } from "./getAccount";
+export const getAccount: typeof import("./getAccount").getAccount = null as any;
+export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
+
+export { GetBackupArgs, GetBackupResult, GetBackupOutputArgs } from "./getBackup";
+export const getBackup: typeof import("./getBackup").getBackup = null as any;
+export const getBackupOutput: typeof import("./getBackup").getBackupOutput = null as any;
+
+export { GetBackupPolicyArgs, GetBackupPolicyResult, GetBackupPolicyOutputArgs } from "./getBackupPolicy";
+export const getBackupPolicy: typeof import("./getBackupPolicy").getBackupPolicy = null as any;
+export const getBackupPolicyOutput: typeof import("./getBackupPolicy").getBackupPolicyOutput = null as any;
+
+export { GetPoolArgs, GetPoolResult, GetPoolOutputArgs } from "./getPool";
+export const getPool: typeof import("./getPool").getPool = null as any;
+export const getPoolOutput: typeof import("./getPool").getPoolOutput = null as any;
+
+export { GetSnapshotArgs, GetSnapshotResult, GetSnapshotOutputArgs } from "./getSnapshot";
+export const getSnapshot: typeof import("./getSnapshot").getSnapshot = null as any;
+export const getSnapshotOutput: typeof import("./getSnapshot").getSnapshotOutput = null as any;
+
+export { GetSnapshotPolicyArgs, GetSnapshotPolicyResult, GetSnapshotPolicyOutputArgs } from "./getSnapshotPolicy";
+export const getSnapshotPolicy: typeof import("./getSnapshotPolicy").getSnapshotPolicy = null as any;
+export const getSnapshotPolicyOutput: typeof import("./getSnapshotPolicy").getSnapshotPolicyOutput = null as any;
+
+export { GetVolumeArgs, GetVolumeResult, GetVolumeOutputArgs } from "./getVolume";
+export const getVolume: typeof import("./getVolume").getVolume = null as any;
+export const getVolumeOutput: typeof import("./getVolume").getVolumeOutput = null as any;
+
+export { PoolArgs } from "./pool";
+export type Pool = import("./pool").Pool;
+export const Pool: typeof import("./pool").Pool = null as any;
+
+export { SnapshotArgs } from "./snapshot";
+export type Snapshot = import("./snapshot").Snapshot;
+export const Snapshot: typeof import("./snapshot").Snapshot = null as any;
+
+export { SnapshotPolicyArgs } from "./snapshotPolicy";
+export type SnapshotPolicy = import("./snapshotPolicy").SnapshotPolicy;
+export const SnapshotPolicy: typeof import("./snapshotPolicy").SnapshotPolicy = null as any;
+
+export { VolumeArgs } from "./volume";
+export type Volume = import("./volume").Volume;
+export const Volume: typeof import("./volume").Volume = null as any;
+
+utilities.lazyLoad(exports, ["Account"], () => require("./account"));
+utilities.lazyLoad(exports, ["Backup"], () => require("./backup"));
+utilities.lazyLoad(exports, ["BackupPolicy"], () => require("./backupPolicy"));
+utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
+utilities.lazyLoad(exports, ["getBackup","getBackupOutput"], () => require("./getBackup"));
+utilities.lazyLoad(exports, ["getBackupPolicy","getBackupPolicyOutput"], () => require("./getBackupPolicy"));
+utilities.lazyLoad(exports, ["getPool","getPoolOutput"], () => require("./getPool"));
+utilities.lazyLoad(exports, ["getSnapshot","getSnapshotOutput"], () => require("./getSnapshot"));
+utilities.lazyLoad(exports, ["getSnapshotPolicy","getSnapshotPolicyOutput"], () => require("./getSnapshotPolicy"));
+utilities.lazyLoad(exports, ["getVolume","getVolumeOutput"], () => require("./getVolume"));
+utilities.lazyLoad(exports, ["Pool"], () => require("./pool"));
+utilities.lazyLoad(exports, ["Snapshot"], () => require("./snapshot"));
+utilities.lazyLoad(exports, ["SnapshotPolicy"], () => require("./snapshotPolicy"));
+utilities.lazyLoad(exports, ["Volume"], () => require("./volume"));
 
 // Export enums:
 export * from "../../types/enums/netapp/v20200501";
-
-// Import resources to register:
-import { Account } from "./account";
-import { Backup } from "./backup";
-import { BackupPolicy } from "./backupPolicy";
-import { Pool } from "./pool";
-import { Snapshot } from "./snapshot";
-import { SnapshotPolicy } from "./snapshotPolicy";
-import { Volume } from "./volume";
 
 const _module = {
     version: utilities.getVersion(),

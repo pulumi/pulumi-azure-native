@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./dataCollectionRule";
-export * from "./dataCollectionRuleAssociation";
-export * from "./getDataCollectionRule";
-export * from "./getDataCollectionRuleAssociation";
+export { DataCollectionRuleArgs } from "./dataCollectionRule";
+export type DataCollectionRule = import("./dataCollectionRule").DataCollectionRule;
+export const DataCollectionRule: typeof import("./dataCollectionRule").DataCollectionRule = null as any;
+
+export { DataCollectionRuleAssociationArgs } from "./dataCollectionRuleAssociation";
+export type DataCollectionRuleAssociation = import("./dataCollectionRuleAssociation").DataCollectionRuleAssociation;
+export const DataCollectionRuleAssociation: typeof import("./dataCollectionRuleAssociation").DataCollectionRuleAssociation = null as any;
+
+export { GetDataCollectionRuleArgs, GetDataCollectionRuleResult, GetDataCollectionRuleOutputArgs } from "./getDataCollectionRule";
+export const getDataCollectionRule: typeof import("./getDataCollectionRule").getDataCollectionRule = null as any;
+export const getDataCollectionRuleOutput: typeof import("./getDataCollectionRule").getDataCollectionRuleOutput = null as any;
+
+export { GetDataCollectionRuleAssociationArgs, GetDataCollectionRuleAssociationResult, GetDataCollectionRuleAssociationOutputArgs } from "./getDataCollectionRuleAssociation";
+export const getDataCollectionRuleAssociation: typeof import("./getDataCollectionRuleAssociation").getDataCollectionRuleAssociation = null as any;
+export const getDataCollectionRuleAssociationOutput: typeof import("./getDataCollectionRuleAssociation").getDataCollectionRuleAssociationOutput = null as any;
+
+utilities.lazyLoad(exports, ["DataCollectionRule"], () => require("./dataCollectionRule"));
+utilities.lazyLoad(exports, ["DataCollectionRuleAssociation"], () => require("./dataCollectionRuleAssociation"));
+utilities.lazyLoad(exports, ["getDataCollectionRule","getDataCollectionRuleOutput"], () => require("./getDataCollectionRule"));
+utilities.lazyLoad(exports, ["getDataCollectionRuleAssociation","getDataCollectionRuleAssociationOutput"], () => require("./getDataCollectionRuleAssociation"));
 
 // Export enums:
 export * from "../../types/enums/insights/v20191101preview";
-
-// Import resources to register:
-import { DataCollectionRule } from "./dataCollectionRule";
-import { DataCollectionRuleAssociation } from "./dataCollectionRuleAssociation";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,35 +5,151 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./applicationGroup";
-export * from "./cluster";
-export * from "./consumerGroup";
-export * from "./disasterRecoveryConfig";
-export * from "./eventHub";
-export * from "./eventHubAuthorizationRule";
-export * from "./getApplicationGroup";
-export * from "./getCluster";
-export * from "./getConsumerGroup";
-export * from "./getDisasterRecoveryConfig";
-export * from "./getEventHub";
-export * from "./getEventHubAuthorizationRule";
-export * from "./getNamespace";
-export * from "./getNamespaceAuthorizationRule";
-export * from "./getNamespaceIpFilterRule";
-export * from "./getNamespaceNetworkRuleSet";
-export * from "./getNamespaceVirtualNetworkRule";
-export * from "./getPrivateEndpointConnection";
-export * from "./getSchemaRegistry";
-export * from "./listDisasterRecoveryConfigKeys";
-export * from "./listEventHubKeys";
-export * from "./listNamespaceKeys";
-export * from "./namespace";
-export * from "./namespaceAuthorizationRule";
-export * from "./namespaceIpFilterRule";
-export * from "./namespaceNetworkRuleSet";
-export * from "./namespaceVirtualNetworkRule";
-export * from "./privateEndpointConnection";
-export * from "./schemaRegistry";
+export { ApplicationGroupArgs } from "./applicationGroup";
+export type ApplicationGroup = import("./applicationGroup").ApplicationGroup;
+export const ApplicationGroup: typeof import("./applicationGroup").ApplicationGroup = null as any;
+
+export { ClusterArgs } from "./cluster";
+export type Cluster = import("./cluster").Cluster;
+export const Cluster: typeof import("./cluster").Cluster = null as any;
+
+export { ConsumerGroupArgs } from "./consumerGroup";
+export type ConsumerGroup = import("./consumerGroup").ConsumerGroup;
+export const ConsumerGroup: typeof import("./consumerGroup").ConsumerGroup = null as any;
+
+export { DisasterRecoveryConfigArgs } from "./disasterRecoveryConfig";
+export type DisasterRecoveryConfig = import("./disasterRecoveryConfig").DisasterRecoveryConfig;
+export const DisasterRecoveryConfig: typeof import("./disasterRecoveryConfig").DisasterRecoveryConfig = null as any;
+
+export { EventHubArgs } from "./eventHub";
+export type EventHub = import("./eventHub").EventHub;
+export const EventHub: typeof import("./eventHub").EventHub = null as any;
+
+export { EventHubAuthorizationRuleArgs } from "./eventHubAuthorizationRule";
+export type EventHubAuthorizationRule = import("./eventHubAuthorizationRule").EventHubAuthorizationRule;
+export const EventHubAuthorizationRule: typeof import("./eventHubAuthorizationRule").EventHubAuthorizationRule = null as any;
+
+export { GetApplicationGroupArgs, GetApplicationGroupResult, GetApplicationGroupOutputArgs } from "./getApplicationGroup";
+export const getApplicationGroup: typeof import("./getApplicationGroup").getApplicationGroup = null as any;
+export const getApplicationGroupOutput: typeof import("./getApplicationGroup").getApplicationGroupOutput = null as any;
+
+export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
+export const getCluster: typeof import("./getCluster").getCluster = null as any;
+export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
+
+export { GetConsumerGroupArgs, GetConsumerGroupResult, GetConsumerGroupOutputArgs } from "./getConsumerGroup";
+export const getConsumerGroup: typeof import("./getConsumerGroup").getConsumerGroup = null as any;
+export const getConsumerGroupOutput: typeof import("./getConsumerGroup").getConsumerGroupOutput = null as any;
+
+export { GetDisasterRecoveryConfigArgs, GetDisasterRecoveryConfigResult, GetDisasterRecoveryConfigOutputArgs } from "./getDisasterRecoveryConfig";
+export const getDisasterRecoveryConfig: typeof import("./getDisasterRecoveryConfig").getDisasterRecoveryConfig = null as any;
+export const getDisasterRecoveryConfigOutput: typeof import("./getDisasterRecoveryConfig").getDisasterRecoveryConfigOutput = null as any;
+
+export { GetEventHubArgs, GetEventHubResult, GetEventHubOutputArgs } from "./getEventHub";
+export const getEventHub: typeof import("./getEventHub").getEventHub = null as any;
+export const getEventHubOutput: typeof import("./getEventHub").getEventHubOutput = null as any;
+
+export { GetEventHubAuthorizationRuleArgs, GetEventHubAuthorizationRuleResult, GetEventHubAuthorizationRuleOutputArgs } from "./getEventHubAuthorizationRule";
+export const getEventHubAuthorizationRule: typeof import("./getEventHubAuthorizationRule").getEventHubAuthorizationRule = null as any;
+export const getEventHubAuthorizationRuleOutput: typeof import("./getEventHubAuthorizationRule").getEventHubAuthorizationRuleOutput = null as any;
+
+export { GetNamespaceArgs, GetNamespaceResult, GetNamespaceOutputArgs } from "./getNamespace";
+export const getNamespace: typeof import("./getNamespace").getNamespace = null as any;
+export const getNamespaceOutput: typeof import("./getNamespace").getNamespaceOutput = null as any;
+
+export { GetNamespaceAuthorizationRuleArgs, GetNamespaceAuthorizationRuleResult, GetNamespaceAuthorizationRuleOutputArgs } from "./getNamespaceAuthorizationRule";
+export const getNamespaceAuthorizationRule: typeof import("./getNamespaceAuthorizationRule").getNamespaceAuthorizationRule = null as any;
+export const getNamespaceAuthorizationRuleOutput: typeof import("./getNamespaceAuthorizationRule").getNamespaceAuthorizationRuleOutput = null as any;
+
+export { GetNamespaceIpFilterRuleArgs, GetNamespaceIpFilterRuleResult, GetNamespaceIpFilterRuleOutputArgs } from "./getNamespaceIpFilterRule";
+export const getNamespaceIpFilterRule: typeof import("./getNamespaceIpFilterRule").getNamespaceIpFilterRule = null as any;
+export const getNamespaceIpFilterRuleOutput: typeof import("./getNamespaceIpFilterRule").getNamespaceIpFilterRuleOutput = null as any;
+
+export { GetNamespaceNetworkRuleSetArgs, GetNamespaceNetworkRuleSetResult, GetNamespaceNetworkRuleSetOutputArgs } from "./getNamespaceNetworkRuleSet";
+export const getNamespaceNetworkRuleSet: typeof import("./getNamespaceNetworkRuleSet").getNamespaceNetworkRuleSet = null as any;
+export const getNamespaceNetworkRuleSetOutput: typeof import("./getNamespaceNetworkRuleSet").getNamespaceNetworkRuleSetOutput = null as any;
+
+export { GetNamespaceVirtualNetworkRuleArgs, GetNamespaceVirtualNetworkRuleResult, GetNamespaceVirtualNetworkRuleOutputArgs } from "./getNamespaceVirtualNetworkRule";
+export const getNamespaceVirtualNetworkRule: typeof import("./getNamespaceVirtualNetworkRule").getNamespaceVirtualNetworkRule = null as any;
+export const getNamespaceVirtualNetworkRuleOutput: typeof import("./getNamespaceVirtualNetworkRule").getNamespaceVirtualNetworkRuleOutput = null as any;
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+
+export { GetSchemaRegistryArgs, GetSchemaRegistryResult, GetSchemaRegistryOutputArgs } from "./getSchemaRegistry";
+export const getSchemaRegistry: typeof import("./getSchemaRegistry").getSchemaRegistry = null as any;
+export const getSchemaRegistryOutput: typeof import("./getSchemaRegistry").getSchemaRegistryOutput = null as any;
+
+export { ListDisasterRecoveryConfigKeysArgs, ListDisasterRecoveryConfigKeysResult, ListDisasterRecoveryConfigKeysOutputArgs } from "./listDisasterRecoveryConfigKeys";
+export const listDisasterRecoveryConfigKeys: typeof import("./listDisasterRecoveryConfigKeys").listDisasterRecoveryConfigKeys = null as any;
+export const listDisasterRecoveryConfigKeysOutput: typeof import("./listDisasterRecoveryConfigKeys").listDisasterRecoveryConfigKeysOutput = null as any;
+
+export { ListEventHubKeysArgs, ListEventHubKeysResult, ListEventHubKeysOutputArgs } from "./listEventHubKeys";
+export const listEventHubKeys: typeof import("./listEventHubKeys").listEventHubKeys = null as any;
+export const listEventHubKeysOutput: typeof import("./listEventHubKeys").listEventHubKeysOutput = null as any;
+
+export { ListNamespaceKeysArgs, ListNamespaceKeysResult, ListNamespaceKeysOutputArgs } from "./listNamespaceKeys";
+export const listNamespaceKeys: typeof import("./listNamespaceKeys").listNamespaceKeys = null as any;
+export const listNamespaceKeysOutput: typeof import("./listNamespaceKeys").listNamespaceKeysOutput = null as any;
+
+export { NamespaceArgs } from "./namespace";
+export type Namespace = import("./namespace").Namespace;
+export const Namespace: typeof import("./namespace").Namespace = null as any;
+
+export { NamespaceAuthorizationRuleArgs } from "./namespaceAuthorizationRule";
+export type NamespaceAuthorizationRule = import("./namespaceAuthorizationRule").NamespaceAuthorizationRule;
+export const NamespaceAuthorizationRule: typeof import("./namespaceAuthorizationRule").NamespaceAuthorizationRule = null as any;
+
+export { NamespaceIpFilterRuleArgs } from "./namespaceIpFilterRule";
+export type NamespaceIpFilterRule = import("./namespaceIpFilterRule").NamespaceIpFilterRule;
+export const NamespaceIpFilterRule: typeof import("./namespaceIpFilterRule").NamespaceIpFilterRule = null as any;
+
+export { NamespaceNetworkRuleSetArgs } from "./namespaceNetworkRuleSet";
+export type NamespaceNetworkRuleSet = import("./namespaceNetworkRuleSet").NamespaceNetworkRuleSet;
+export const NamespaceNetworkRuleSet: typeof import("./namespaceNetworkRuleSet").NamespaceNetworkRuleSet = null as any;
+
+export { NamespaceVirtualNetworkRuleArgs } from "./namespaceVirtualNetworkRule";
+export type NamespaceVirtualNetworkRule = import("./namespaceVirtualNetworkRule").NamespaceVirtualNetworkRule;
+export const NamespaceVirtualNetworkRule: typeof import("./namespaceVirtualNetworkRule").NamespaceVirtualNetworkRule = null as any;
+
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+
+export { SchemaRegistryArgs } from "./schemaRegistry";
+export type SchemaRegistry = import("./schemaRegistry").SchemaRegistry;
+export const SchemaRegistry: typeof import("./schemaRegistry").SchemaRegistry = null as any;
+
+utilities.lazyLoad(exports, ["ApplicationGroup"], () => require("./applicationGroup"));
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
+utilities.lazyLoad(exports, ["ConsumerGroup"], () => require("./consumerGroup"));
+utilities.lazyLoad(exports, ["DisasterRecoveryConfig"], () => require("./disasterRecoveryConfig"));
+utilities.lazyLoad(exports, ["EventHub"], () => require("./eventHub"));
+utilities.lazyLoad(exports, ["EventHubAuthorizationRule"], () => require("./eventHubAuthorizationRule"));
+utilities.lazyLoad(exports, ["getApplicationGroup","getApplicationGroupOutput"], () => require("./getApplicationGroup"));
+utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
+utilities.lazyLoad(exports, ["getConsumerGroup","getConsumerGroupOutput"], () => require("./getConsumerGroup"));
+utilities.lazyLoad(exports, ["getDisasterRecoveryConfig","getDisasterRecoveryConfigOutput"], () => require("./getDisasterRecoveryConfig"));
+utilities.lazyLoad(exports, ["getEventHub","getEventHubOutput"], () => require("./getEventHub"));
+utilities.lazyLoad(exports, ["getEventHubAuthorizationRule","getEventHubAuthorizationRuleOutput"], () => require("./getEventHubAuthorizationRule"));
+utilities.lazyLoad(exports, ["getNamespace","getNamespaceOutput"], () => require("./getNamespace"));
+utilities.lazyLoad(exports, ["getNamespaceAuthorizationRule","getNamespaceAuthorizationRuleOutput"], () => require("./getNamespaceAuthorizationRule"));
+utilities.lazyLoad(exports, ["getNamespaceIpFilterRule","getNamespaceIpFilterRuleOutput"], () => require("./getNamespaceIpFilterRule"));
+utilities.lazyLoad(exports, ["getNamespaceNetworkRuleSet","getNamespaceNetworkRuleSetOutput"], () => require("./getNamespaceNetworkRuleSet"));
+utilities.lazyLoad(exports, ["getNamespaceVirtualNetworkRule","getNamespaceVirtualNetworkRuleOutput"], () => require("./getNamespaceVirtualNetworkRule"));
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+utilities.lazyLoad(exports, ["getSchemaRegistry","getSchemaRegistryOutput"], () => require("./getSchemaRegistry"));
+utilities.lazyLoad(exports, ["listDisasterRecoveryConfigKeys","listDisasterRecoveryConfigKeysOutput"], () => require("./listDisasterRecoveryConfigKeys"));
+utilities.lazyLoad(exports, ["listEventHubKeys","listEventHubKeysOutput"], () => require("./listEventHubKeys"));
+utilities.lazyLoad(exports, ["listNamespaceKeys","listNamespaceKeysOutput"], () => require("./listNamespaceKeys"));
+utilities.lazyLoad(exports, ["Namespace"], () => require("./namespace"));
+utilities.lazyLoad(exports, ["NamespaceAuthorizationRule"], () => require("./namespaceAuthorizationRule"));
+utilities.lazyLoad(exports, ["NamespaceIpFilterRule"], () => require("./namespaceIpFilterRule"));
+utilities.lazyLoad(exports, ["NamespaceNetworkRuleSet"], () => require("./namespaceNetworkRuleSet"));
+utilities.lazyLoad(exports, ["NamespaceVirtualNetworkRule"], () => require("./namespaceVirtualNetworkRule"));
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+utilities.lazyLoad(exports, ["SchemaRegistry"], () => require("./schemaRegistry"));
 
 // Export enums:
 export * from "../types/enums/eventhub";
@@ -58,21 +174,6 @@ export {
     v20211101,
     v20220101preview,
 };
-
-// Import resources to register:
-import { ApplicationGroup } from "./applicationGroup";
-import { Cluster } from "./cluster";
-import { ConsumerGroup } from "./consumerGroup";
-import { DisasterRecoveryConfig } from "./disasterRecoveryConfig";
-import { EventHub } from "./eventHub";
-import { EventHubAuthorizationRule } from "./eventHubAuthorizationRule";
-import { Namespace } from "./namespace";
-import { NamespaceAuthorizationRule } from "./namespaceAuthorizationRule";
-import { NamespaceIpFilterRule } from "./namespaceIpFilterRule";
-import { NamespaceNetworkRuleSet } from "./namespaceNetworkRuleSet";
-import { NamespaceVirtualNetworkRule } from "./namespaceVirtualNetworkRule";
-import { PrivateEndpointConnection } from "./privateEndpointConnection";
-import { SchemaRegistry } from "./schemaRegistry";
 
 const _module = {
     version: utilities.getVersion(),

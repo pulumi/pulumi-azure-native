@@ -5,37 +5,99 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./availabilitySet";
-export * from "./getAvailabilitySet";
-export * from "./getImage";
-export * from "./getLogAnalyticExportRequestRateByInterval";
-export * from "./getLogAnalyticExportThrottledRequests";
-export * from "./getProximityPlacementGroup";
-export * from "./getVirtualMachine";
-export * from "./getVirtualMachineExtension";
-export * from "./getVirtualMachineScaleSet";
-export * from "./getVirtualMachineScaleSetExtension";
-export * from "./getVirtualMachineScaleSetVM";
-export * from "./image";
-export * from "./proximityPlacementGroup";
-export * from "./virtualMachine";
-export * from "./virtualMachineExtension";
-export * from "./virtualMachineScaleSet";
-export * from "./virtualMachineScaleSetExtension";
-export * from "./virtualMachineScaleSetVM";
+export { AvailabilitySetArgs } from "./availabilitySet";
+export type AvailabilitySet = import("./availabilitySet").AvailabilitySet;
+export const AvailabilitySet: typeof import("./availabilitySet").AvailabilitySet = null as any;
+
+export { GetAvailabilitySetArgs, GetAvailabilitySetResult, GetAvailabilitySetOutputArgs } from "./getAvailabilitySet";
+export const getAvailabilitySet: typeof import("./getAvailabilitySet").getAvailabilitySet = null as any;
+export const getAvailabilitySetOutput: typeof import("./getAvailabilitySet").getAvailabilitySetOutput = null as any;
+
+export { GetImageArgs, GetImageResult, GetImageOutputArgs } from "./getImage";
+export const getImage: typeof import("./getImage").getImage = null as any;
+export const getImageOutput: typeof import("./getImage").getImageOutput = null as any;
+
+export { GetLogAnalyticExportRequestRateByIntervalArgs, GetLogAnalyticExportRequestRateByIntervalResult, GetLogAnalyticExportRequestRateByIntervalOutputArgs } from "./getLogAnalyticExportRequestRateByInterval";
+export const getLogAnalyticExportRequestRateByInterval: typeof import("./getLogAnalyticExportRequestRateByInterval").getLogAnalyticExportRequestRateByInterval = null as any;
+export const getLogAnalyticExportRequestRateByIntervalOutput: typeof import("./getLogAnalyticExportRequestRateByInterval").getLogAnalyticExportRequestRateByIntervalOutput = null as any;
+
+export { GetLogAnalyticExportThrottledRequestsArgs, GetLogAnalyticExportThrottledRequestsResult, GetLogAnalyticExportThrottledRequestsOutputArgs } from "./getLogAnalyticExportThrottledRequests";
+export const getLogAnalyticExportThrottledRequests: typeof import("./getLogAnalyticExportThrottledRequests").getLogAnalyticExportThrottledRequests = null as any;
+export const getLogAnalyticExportThrottledRequestsOutput: typeof import("./getLogAnalyticExportThrottledRequests").getLogAnalyticExportThrottledRequestsOutput = null as any;
+
+export { GetProximityPlacementGroupArgs, GetProximityPlacementGroupResult, GetProximityPlacementGroupOutputArgs } from "./getProximityPlacementGroup";
+export const getProximityPlacementGroup: typeof import("./getProximityPlacementGroup").getProximityPlacementGroup = null as any;
+export const getProximityPlacementGroupOutput: typeof import("./getProximityPlacementGroup").getProximityPlacementGroupOutput = null as any;
+
+export { GetVirtualMachineArgs, GetVirtualMachineResult, GetVirtualMachineOutputArgs } from "./getVirtualMachine";
+export const getVirtualMachine: typeof import("./getVirtualMachine").getVirtualMachine = null as any;
+export const getVirtualMachineOutput: typeof import("./getVirtualMachine").getVirtualMachineOutput = null as any;
+
+export { GetVirtualMachineExtensionArgs, GetVirtualMachineExtensionResult, GetVirtualMachineExtensionOutputArgs } from "./getVirtualMachineExtension";
+export const getVirtualMachineExtension: typeof import("./getVirtualMachineExtension").getVirtualMachineExtension = null as any;
+export const getVirtualMachineExtensionOutput: typeof import("./getVirtualMachineExtension").getVirtualMachineExtensionOutput = null as any;
+
+export { GetVirtualMachineScaleSetArgs, GetVirtualMachineScaleSetResult, GetVirtualMachineScaleSetOutputArgs } from "./getVirtualMachineScaleSet";
+export const getVirtualMachineScaleSet: typeof import("./getVirtualMachineScaleSet").getVirtualMachineScaleSet = null as any;
+export const getVirtualMachineScaleSetOutput: typeof import("./getVirtualMachineScaleSet").getVirtualMachineScaleSetOutput = null as any;
+
+export { GetVirtualMachineScaleSetExtensionArgs, GetVirtualMachineScaleSetExtensionResult, GetVirtualMachineScaleSetExtensionOutputArgs } from "./getVirtualMachineScaleSetExtension";
+export const getVirtualMachineScaleSetExtension: typeof import("./getVirtualMachineScaleSetExtension").getVirtualMachineScaleSetExtension = null as any;
+export const getVirtualMachineScaleSetExtensionOutput: typeof import("./getVirtualMachineScaleSetExtension").getVirtualMachineScaleSetExtensionOutput = null as any;
+
+export { GetVirtualMachineScaleSetVMArgs, GetVirtualMachineScaleSetVMResult, GetVirtualMachineScaleSetVMOutputArgs } from "./getVirtualMachineScaleSetVM";
+export const getVirtualMachineScaleSetVM: typeof import("./getVirtualMachineScaleSetVM").getVirtualMachineScaleSetVM = null as any;
+export const getVirtualMachineScaleSetVMOutput: typeof import("./getVirtualMachineScaleSetVM").getVirtualMachineScaleSetVMOutput = null as any;
+
+export { ImageArgs } from "./image";
+export type Image = import("./image").Image;
+export const Image: typeof import("./image").Image = null as any;
+
+export { ProximityPlacementGroupArgs } from "./proximityPlacementGroup";
+export type ProximityPlacementGroup = import("./proximityPlacementGroup").ProximityPlacementGroup;
+export const ProximityPlacementGroup: typeof import("./proximityPlacementGroup").ProximityPlacementGroup = null as any;
+
+export { VirtualMachineArgs } from "./virtualMachine";
+export type VirtualMachine = import("./virtualMachine").VirtualMachine;
+export const VirtualMachine: typeof import("./virtualMachine").VirtualMachine = null as any;
+
+export { VirtualMachineExtensionArgs } from "./virtualMachineExtension";
+export type VirtualMachineExtension = import("./virtualMachineExtension").VirtualMachineExtension;
+export const VirtualMachineExtension: typeof import("./virtualMachineExtension").VirtualMachineExtension = null as any;
+
+export { VirtualMachineScaleSetArgs } from "./virtualMachineScaleSet";
+export type VirtualMachineScaleSet = import("./virtualMachineScaleSet").VirtualMachineScaleSet;
+export const VirtualMachineScaleSet: typeof import("./virtualMachineScaleSet").VirtualMachineScaleSet = null as any;
+
+export { VirtualMachineScaleSetExtensionArgs } from "./virtualMachineScaleSetExtension";
+export type VirtualMachineScaleSetExtension = import("./virtualMachineScaleSetExtension").VirtualMachineScaleSetExtension;
+export const VirtualMachineScaleSetExtension: typeof import("./virtualMachineScaleSetExtension").VirtualMachineScaleSetExtension = null as any;
+
+export { VirtualMachineScaleSetVMArgs } from "./virtualMachineScaleSetVM";
+export type VirtualMachineScaleSetVM = import("./virtualMachineScaleSetVM").VirtualMachineScaleSetVM;
+export const VirtualMachineScaleSetVM: typeof import("./virtualMachineScaleSetVM").VirtualMachineScaleSetVM = null as any;
+
+utilities.lazyLoad(exports, ["AvailabilitySet"], () => require("./availabilitySet"));
+utilities.lazyLoad(exports, ["getAvailabilitySet","getAvailabilitySetOutput"], () => require("./getAvailabilitySet"));
+utilities.lazyLoad(exports, ["getImage","getImageOutput"], () => require("./getImage"));
+utilities.lazyLoad(exports, ["getLogAnalyticExportRequestRateByInterval","getLogAnalyticExportRequestRateByIntervalOutput"], () => require("./getLogAnalyticExportRequestRateByInterval"));
+utilities.lazyLoad(exports, ["getLogAnalyticExportThrottledRequests","getLogAnalyticExportThrottledRequestsOutput"], () => require("./getLogAnalyticExportThrottledRequests"));
+utilities.lazyLoad(exports, ["getProximityPlacementGroup","getProximityPlacementGroupOutput"], () => require("./getProximityPlacementGroup"));
+utilities.lazyLoad(exports, ["getVirtualMachine","getVirtualMachineOutput"], () => require("./getVirtualMachine"));
+utilities.lazyLoad(exports, ["getVirtualMachineExtension","getVirtualMachineExtensionOutput"], () => require("./getVirtualMachineExtension"));
+utilities.lazyLoad(exports, ["getVirtualMachineScaleSet","getVirtualMachineScaleSetOutput"], () => require("./getVirtualMachineScaleSet"));
+utilities.lazyLoad(exports, ["getVirtualMachineScaleSetExtension","getVirtualMachineScaleSetExtensionOutput"], () => require("./getVirtualMachineScaleSetExtension"));
+utilities.lazyLoad(exports, ["getVirtualMachineScaleSetVM","getVirtualMachineScaleSetVMOutput"], () => require("./getVirtualMachineScaleSetVM"));
+utilities.lazyLoad(exports, ["Image"], () => require("./image"));
+utilities.lazyLoad(exports, ["ProximityPlacementGroup"], () => require("./proximityPlacementGroup"));
+utilities.lazyLoad(exports, ["VirtualMachine"], () => require("./virtualMachine"));
+utilities.lazyLoad(exports, ["VirtualMachineExtension"], () => require("./virtualMachineExtension"));
+utilities.lazyLoad(exports, ["VirtualMachineScaleSet"], () => require("./virtualMachineScaleSet"));
+utilities.lazyLoad(exports, ["VirtualMachineScaleSetExtension"], () => require("./virtualMachineScaleSetExtension"));
+utilities.lazyLoad(exports, ["VirtualMachineScaleSetVM"], () => require("./virtualMachineScaleSetVM"));
 
 // Export enums:
 export * from "../../types/enums/compute/v20181001";
-
-// Import resources to register:
-import { AvailabilitySet } from "./availabilitySet";
-import { Image } from "./image";
-import { ProximityPlacementGroup } from "./proximityPlacementGroup";
-import { VirtualMachine } from "./virtualMachine";
-import { VirtualMachineExtension } from "./virtualMachineExtension";
-import { VirtualMachineScaleSet } from "./virtualMachineScaleSet";
-import { VirtualMachineScaleSetExtension } from "./virtualMachineScaleSetExtension";
-import { VirtualMachineScaleSetVM } from "./virtualMachineScaleSetVM";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,23 +5,56 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./configurationProfile";
-export * from "./configurationProfileAssignment";
-export * from "./configurationProfileHCIAssignment";
-export * from "./configurationProfileHCRPAssignment";
-export * from "./configurationProfilesVersion";
-export * from "./getConfigurationProfile";
-export * from "./getConfigurationProfileAssignment";
-export * from "./getConfigurationProfileHCIAssignment";
-export * from "./getConfigurationProfileHCRPAssignment";
-export * from "./getConfigurationProfilesVersion";
+export { ConfigurationProfileArgs } from "./configurationProfile";
+export type ConfigurationProfile = import("./configurationProfile").ConfigurationProfile;
+export const ConfigurationProfile: typeof import("./configurationProfile").ConfigurationProfile = null as any;
 
-// Import resources to register:
-import { ConfigurationProfile } from "./configurationProfile";
-import { ConfigurationProfileAssignment } from "./configurationProfileAssignment";
-import { ConfigurationProfileHCIAssignment } from "./configurationProfileHCIAssignment";
-import { ConfigurationProfileHCRPAssignment } from "./configurationProfileHCRPAssignment";
-import { ConfigurationProfilesVersion } from "./configurationProfilesVersion";
+export { ConfigurationProfileAssignmentArgs } from "./configurationProfileAssignment";
+export type ConfigurationProfileAssignment = import("./configurationProfileAssignment").ConfigurationProfileAssignment;
+export const ConfigurationProfileAssignment: typeof import("./configurationProfileAssignment").ConfigurationProfileAssignment = null as any;
+
+export { ConfigurationProfileHCIAssignmentArgs } from "./configurationProfileHCIAssignment";
+export type ConfigurationProfileHCIAssignment = import("./configurationProfileHCIAssignment").ConfigurationProfileHCIAssignment;
+export const ConfigurationProfileHCIAssignment: typeof import("./configurationProfileHCIAssignment").ConfigurationProfileHCIAssignment = null as any;
+
+export { ConfigurationProfileHCRPAssignmentArgs } from "./configurationProfileHCRPAssignment";
+export type ConfigurationProfileHCRPAssignment = import("./configurationProfileHCRPAssignment").ConfigurationProfileHCRPAssignment;
+export const ConfigurationProfileHCRPAssignment: typeof import("./configurationProfileHCRPAssignment").ConfigurationProfileHCRPAssignment = null as any;
+
+export { ConfigurationProfilesVersionArgs } from "./configurationProfilesVersion";
+export type ConfigurationProfilesVersion = import("./configurationProfilesVersion").ConfigurationProfilesVersion;
+export const ConfigurationProfilesVersion: typeof import("./configurationProfilesVersion").ConfigurationProfilesVersion = null as any;
+
+export { GetConfigurationProfileArgs, GetConfigurationProfileResult, GetConfigurationProfileOutputArgs } from "./getConfigurationProfile";
+export const getConfigurationProfile: typeof import("./getConfigurationProfile").getConfigurationProfile = null as any;
+export const getConfigurationProfileOutput: typeof import("./getConfigurationProfile").getConfigurationProfileOutput = null as any;
+
+export { GetConfigurationProfileAssignmentArgs, GetConfigurationProfileAssignmentResult, GetConfigurationProfileAssignmentOutputArgs } from "./getConfigurationProfileAssignment";
+export const getConfigurationProfileAssignment: typeof import("./getConfigurationProfileAssignment").getConfigurationProfileAssignment = null as any;
+export const getConfigurationProfileAssignmentOutput: typeof import("./getConfigurationProfileAssignment").getConfigurationProfileAssignmentOutput = null as any;
+
+export { GetConfigurationProfileHCIAssignmentArgs, GetConfigurationProfileHCIAssignmentResult, GetConfigurationProfileHCIAssignmentOutputArgs } from "./getConfigurationProfileHCIAssignment";
+export const getConfigurationProfileHCIAssignment: typeof import("./getConfigurationProfileHCIAssignment").getConfigurationProfileHCIAssignment = null as any;
+export const getConfigurationProfileHCIAssignmentOutput: typeof import("./getConfigurationProfileHCIAssignment").getConfigurationProfileHCIAssignmentOutput = null as any;
+
+export { GetConfigurationProfileHCRPAssignmentArgs, GetConfigurationProfileHCRPAssignmentResult, GetConfigurationProfileHCRPAssignmentOutputArgs } from "./getConfigurationProfileHCRPAssignment";
+export const getConfigurationProfileHCRPAssignment: typeof import("./getConfigurationProfileHCRPAssignment").getConfigurationProfileHCRPAssignment = null as any;
+export const getConfigurationProfileHCRPAssignmentOutput: typeof import("./getConfigurationProfileHCRPAssignment").getConfigurationProfileHCRPAssignmentOutput = null as any;
+
+export { GetConfigurationProfilesVersionArgs, GetConfigurationProfilesVersionResult, GetConfigurationProfilesVersionOutputArgs } from "./getConfigurationProfilesVersion";
+export const getConfigurationProfilesVersion: typeof import("./getConfigurationProfilesVersion").getConfigurationProfilesVersion = null as any;
+export const getConfigurationProfilesVersionOutput: typeof import("./getConfigurationProfilesVersion").getConfigurationProfilesVersionOutput = null as any;
+
+utilities.lazyLoad(exports, ["ConfigurationProfile"], () => require("./configurationProfile"));
+utilities.lazyLoad(exports, ["ConfigurationProfileAssignment"], () => require("./configurationProfileAssignment"));
+utilities.lazyLoad(exports, ["ConfigurationProfileHCIAssignment"], () => require("./configurationProfileHCIAssignment"));
+utilities.lazyLoad(exports, ["ConfigurationProfileHCRPAssignment"], () => require("./configurationProfileHCRPAssignment"));
+utilities.lazyLoad(exports, ["ConfigurationProfilesVersion"], () => require("./configurationProfilesVersion"));
+utilities.lazyLoad(exports, ["getConfigurationProfile","getConfigurationProfileOutput"], () => require("./getConfigurationProfile"));
+utilities.lazyLoad(exports, ["getConfigurationProfileAssignment","getConfigurationProfileAssignmentOutput"], () => require("./getConfigurationProfileAssignment"));
+utilities.lazyLoad(exports, ["getConfigurationProfileHCIAssignment","getConfigurationProfileHCIAssignmentOutput"], () => require("./getConfigurationProfileHCIAssignment"));
+utilities.lazyLoad(exports, ["getConfigurationProfileHCRPAssignment","getConfigurationProfileHCRPAssignmentOutput"], () => require("./getConfigurationProfileHCRPAssignment"));
+utilities.lazyLoad(exports, ["getConfigurationProfilesVersion","getConfigurationProfilesVersionOutput"], () => require("./getConfigurationProfilesVersion"));
 
 const _module = {
     version: utilities.getVersion(),

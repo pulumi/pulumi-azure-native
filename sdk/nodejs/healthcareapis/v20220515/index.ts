@@ -5,35 +5,89 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./dicomService";
-export * from "./fhirService";
-export * from "./getDicomService";
-export * from "./getFhirService";
-export * from "./getIotConnector";
-export * from "./getIotConnectorFhirDestination";
-export * from "./getPrivateEndpointConnection";
-export * from "./getService";
-export * from "./getWorkspace";
-export * from "./getWorkspacePrivateEndpointConnection";
-export * from "./iotConnector";
-export * from "./iotConnectorFhirDestination";
-export * from "./privateEndpointConnection";
-export * from "./service";
-export * from "./workspace";
-export * from "./workspacePrivateEndpointConnection";
+export { DicomServiceArgs } from "./dicomService";
+export type DicomService = import("./dicomService").DicomService;
+export const DicomService: typeof import("./dicomService").DicomService = null as any;
+
+export { FhirServiceArgs } from "./fhirService";
+export type FhirService = import("./fhirService").FhirService;
+export const FhirService: typeof import("./fhirService").FhirService = null as any;
+
+export { GetDicomServiceArgs, GetDicomServiceResult, GetDicomServiceOutputArgs } from "./getDicomService";
+export const getDicomService: typeof import("./getDicomService").getDicomService = null as any;
+export const getDicomServiceOutput: typeof import("./getDicomService").getDicomServiceOutput = null as any;
+
+export { GetFhirServiceArgs, GetFhirServiceResult, GetFhirServiceOutputArgs } from "./getFhirService";
+export const getFhirService: typeof import("./getFhirService").getFhirService = null as any;
+export const getFhirServiceOutput: typeof import("./getFhirService").getFhirServiceOutput = null as any;
+
+export { GetIotConnectorArgs, GetIotConnectorResult, GetIotConnectorOutputArgs } from "./getIotConnector";
+export const getIotConnector: typeof import("./getIotConnector").getIotConnector = null as any;
+export const getIotConnectorOutput: typeof import("./getIotConnector").getIotConnectorOutput = null as any;
+
+export { GetIotConnectorFhirDestinationArgs, GetIotConnectorFhirDestinationResult, GetIotConnectorFhirDestinationOutputArgs } from "./getIotConnectorFhirDestination";
+export const getIotConnectorFhirDestination: typeof import("./getIotConnectorFhirDestination").getIotConnectorFhirDestination = null as any;
+export const getIotConnectorFhirDestinationOutput: typeof import("./getIotConnectorFhirDestination").getIotConnectorFhirDestinationOutput = null as any;
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+
+export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
+export const getService: typeof import("./getService").getService = null as any;
+export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
+
+export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
+export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
+export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
+
+export { GetWorkspacePrivateEndpointConnectionArgs, GetWorkspacePrivateEndpointConnectionResult, GetWorkspacePrivateEndpointConnectionOutputArgs } from "./getWorkspacePrivateEndpointConnection";
+export const getWorkspacePrivateEndpointConnection: typeof import("./getWorkspacePrivateEndpointConnection").getWorkspacePrivateEndpointConnection = null as any;
+export const getWorkspacePrivateEndpointConnectionOutput: typeof import("./getWorkspacePrivateEndpointConnection").getWorkspacePrivateEndpointConnectionOutput = null as any;
+
+export { IotConnectorArgs } from "./iotConnector";
+export type IotConnector = import("./iotConnector").IotConnector;
+export const IotConnector: typeof import("./iotConnector").IotConnector = null as any;
+
+export { IotConnectorFhirDestinationArgs } from "./iotConnectorFhirDestination";
+export type IotConnectorFhirDestination = import("./iotConnectorFhirDestination").IotConnectorFhirDestination;
+export const IotConnectorFhirDestination: typeof import("./iotConnectorFhirDestination").IotConnectorFhirDestination = null as any;
+
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+
+export { ServiceArgs } from "./service";
+export type Service = import("./service").Service;
+export const Service: typeof import("./service").Service = null as any;
+
+export { WorkspaceArgs } from "./workspace";
+export type Workspace = import("./workspace").Workspace;
+export const Workspace: typeof import("./workspace").Workspace = null as any;
+
+export { WorkspacePrivateEndpointConnectionArgs } from "./workspacePrivateEndpointConnection";
+export type WorkspacePrivateEndpointConnection = import("./workspacePrivateEndpointConnection").WorkspacePrivateEndpointConnection;
+export const WorkspacePrivateEndpointConnection: typeof import("./workspacePrivateEndpointConnection").WorkspacePrivateEndpointConnection = null as any;
+
+utilities.lazyLoad(exports, ["DicomService"], () => require("./dicomService"));
+utilities.lazyLoad(exports, ["FhirService"], () => require("./fhirService"));
+utilities.lazyLoad(exports, ["getDicomService","getDicomServiceOutput"], () => require("./getDicomService"));
+utilities.lazyLoad(exports, ["getFhirService","getFhirServiceOutput"], () => require("./getFhirService"));
+utilities.lazyLoad(exports, ["getIotConnector","getIotConnectorOutput"], () => require("./getIotConnector"));
+utilities.lazyLoad(exports, ["getIotConnectorFhirDestination","getIotConnectorFhirDestinationOutput"], () => require("./getIotConnectorFhirDestination"));
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
+utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
+utilities.lazyLoad(exports, ["getWorkspacePrivateEndpointConnection","getWorkspacePrivateEndpointConnectionOutput"], () => require("./getWorkspacePrivateEndpointConnection"));
+utilities.lazyLoad(exports, ["IotConnector"], () => require("./iotConnector"));
+utilities.lazyLoad(exports, ["IotConnectorFhirDestination"], () => require("./iotConnectorFhirDestination"));
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+utilities.lazyLoad(exports, ["Service"], () => require("./service"));
+utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
+utilities.lazyLoad(exports, ["WorkspacePrivateEndpointConnection"], () => require("./workspacePrivateEndpointConnection"));
 
 // Export enums:
 export * from "../../types/enums/healthcareapis/v20220515";
-
-// Import resources to register:
-import { DicomService } from "./dicomService";
-import { FhirService } from "./fhirService";
-import { IotConnector } from "./iotConnector";
-import { IotConnectorFhirDestination } from "./iotConnectorFhirDestination";
-import { PrivateEndpointConnection } from "./privateEndpointConnection";
-import { Service } from "./service";
-import { Workspace } from "./workspace";
-import { WorkspacePrivateEndpointConnection } from "./workspacePrivateEndpointConnection";
 
 const _module = {
     version: utilities.getVersion(),

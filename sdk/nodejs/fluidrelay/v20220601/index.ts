@@ -5,15 +5,24 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./fluidRelayServer";
-export * from "./getFluidRelayServer";
-export * from "./listFluidRelayServerKeys";
+export { FluidRelayServerArgs } from "./fluidRelayServer";
+export type FluidRelayServer = import("./fluidRelayServer").FluidRelayServer;
+export const FluidRelayServer: typeof import("./fluidRelayServer").FluidRelayServer = null as any;
+
+export { GetFluidRelayServerArgs, GetFluidRelayServerResult, GetFluidRelayServerOutputArgs } from "./getFluidRelayServer";
+export const getFluidRelayServer: typeof import("./getFluidRelayServer").getFluidRelayServer = null as any;
+export const getFluidRelayServerOutput: typeof import("./getFluidRelayServer").getFluidRelayServerOutput = null as any;
+
+export { ListFluidRelayServerKeysArgs, ListFluidRelayServerKeysResult, ListFluidRelayServerKeysOutputArgs } from "./listFluidRelayServerKeys";
+export const listFluidRelayServerKeys: typeof import("./listFluidRelayServerKeys").listFluidRelayServerKeys = null as any;
+export const listFluidRelayServerKeysOutput: typeof import("./listFluidRelayServerKeys").listFluidRelayServerKeysOutput = null as any;
+
+utilities.lazyLoad(exports, ["FluidRelayServer"], () => require("./fluidRelayServer"));
+utilities.lazyLoad(exports, ["getFluidRelayServer","getFluidRelayServerOutput"], () => require("./getFluidRelayServer"));
+utilities.lazyLoad(exports, ["listFluidRelayServerKeys","listFluidRelayServerKeysOutput"], () => require("./listFluidRelayServerKeys"));
 
 // Export enums:
 export * from "../../types/enums/fluidrelay/v20220601";
-
-// Import resources to register:
-import { FluidRelayServer } from "./fluidRelayServer";
 
 const _module = {
     version: utilities.getVersion(),

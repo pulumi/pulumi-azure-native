@@ -5,11 +5,31 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./federatedIdentityCredential";
-export * from "./getFederatedIdentityCredential";
-export * from "./getUserAssignedIdentity";
-export * from "./listUserAssignedIdentityAssociatedResources";
-export * from "./userAssignedIdentity";
+export { FederatedIdentityCredentialArgs } from "./federatedIdentityCredential";
+export type FederatedIdentityCredential = import("./federatedIdentityCredential").FederatedIdentityCredential;
+export const FederatedIdentityCredential: typeof import("./federatedIdentityCredential").FederatedIdentityCredential = null as any;
+
+export { GetFederatedIdentityCredentialArgs, GetFederatedIdentityCredentialResult, GetFederatedIdentityCredentialOutputArgs } from "./getFederatedIdentityCredential";
+export const getFederatedIdentityCredential: typeof import("./getFederatedIdentityCredential").getFederatedIdentityCredential = null as any;
+export const getFederatedIdentityCredentialOutput: typeof import("./getFederatedIdentityCredential").getFederatedIdentityCredentialOutput = null as any;
+
+export { GetUserAssignedIdentityArgs, GetUserAssignedIdentityResult, GetUserAssignedIdentityOutputArgs } from "./getUserAssignedIdentity";
+export const getUserAssignedIdentity: typeof import("./getUserAssignedIdentity").getUserAssignedIdentity = null as any;
+export const getUserAssignedIdentityOutput: typeof import("./getUserAssignedIdentity").getUserAssignedIdentityOutput = null as any;
+
+export { ListUserAssignedIdentityAssociatedResourcesArgs, ListUserAssignedIdentityAssociatedResourcesResult, ListUserAssignedIdentityAssociatedResourcesOutputArgs } from "./listUserAssignedIdentityAssociatedResources";
+export const listUserAssignedIdentityAssociatedResources: typeof import("./listUserAssignedIdentityAssociatedResources").listUserAssignedIdentityAssociatedResources = null as any;
+export const listUserAssignedIdentityAssociatedResourcesOutput: typeof import("./listUserAssignedIdentityAssociatedResources").listUserAssignedIdentityAssociatedResourcesOutput = null as any;
+
+export { UserAssignedIdentityArgs } from "./userAssignedIdentity";
+export type UserAssignedIdentity = import("./userAssignedIdentity").UserAssignedIdentity;
+export const UserAssignedIdentity: typeof import("./userAssignedIdentity").UserAssignedIdentity = null as any;
+
+utilities.lazyLoad(exports, ["FederatedIdentityCredential"], () => require("./federatedIdentityCredential"));
+utilities.lazyLoad(exports, ["getFederatedIdentityCredential","getFederatedIdentityCredentialOutput"], () => require("./getFederatedIdentityCredential"));
+utilities.lazyLoad(exports, ["getUserAssignedIdentity","getUserAssignedIdentityOutput"], () => require("./getUserAssignedIdentity"));
+utilities.lazyLoad(exports, ["listUserAssignedIdentityAssociatedResources","listUserAssignedIdentityAssociatedResourcesOutput"], () => require("./listUserAssignedIdentityAssociatedResources"));
+utilities.lazyLoad(exports, ["UserAssignedIdentity"], () => require("./userAssignedIdentity"));
 
 // Export sub-modules:
 import * as v20150831preview from "./v20150831preview";
@@ -23,10 +43,6 @@ export {
     v20210930preview,
     v20220131preview,
 };
-
-// Import resources to register:
-import { FederatedIdentityCredential } from "./federatedIdentityCredential";
-import { UserAssignedIdentity } from "./userAssignedIdentity";
 
 const _module = {
     version: utilities.getVersion(),

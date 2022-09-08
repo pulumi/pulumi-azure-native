@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getReportConfig";
-export * from "./getReportConfigByResourceGroupName";
-export * from "./reportConfig";
-export * from "./reportConfigByResourceGroupName";
+export { GetReportConfigArgs, GetReportConfigResult, GetReportConfigOutputArgs } from "./getReportConfig";
+export const getReportConfig: typeof import("./getReportConfig").getReportConfig = null as any;
+export const getReportConfigOutput: typeof import("./getReportConfig").getReportConfigOutput = null as any;
+
+export { GetReportConfigByResourceGroupNameArgs, GetReportConfigByResourceGroupNameResult, GetReportConfigByResourceGroupNameOutputArgs } from "./getReportConfigByResourceGroupName";
+export const getReportConfigByResourceGroupName: typeof import("./getReportConfigByResourceGroupName").getReportConfigByResourceGroupName = null as any;
+export const getReportConfigByResourceGroupNameOutput: typeof import("./getReportConfigByResourceGroupName").getReportConfigByResourceGroupNameOutput = null as any;
+
+export { ReportConfigArgs } from "./reportConfig";
+export type ReportConfig = import("./reportConfig").ReportConfig;
+export const ReportConfig: typeof import("./reportConfig").ReportConfig = null as any;
+
+export { ReportConfigByResourceGroupNameArgs } from "./reportConfigByResourceGroupName";
+export type ReportConfigByResourceGroupName = import("./reportConfigByResourceGroupName").ReportConfigByResourceGroupName;
+export const ReportConfigByResourceGroupName: typeof import("./reportConfigByResourceGroupName").ReportConfigByResourceGroupName = null as any;
+
+utilities.lazyLoad(exports, ["getReportConfig","getReportConfigOutput"], () => require("./getReportConfig"));
+utilities.lazyLoad(exports, ["getReportConfigByResourceGroupName","getReportConfigByResourceGroupNameOutput"], () => require("./getReportConfigByResourceGroupName"));
+utilities.lazyLoad(exports, ["ReportConfig"], () => require("./reportConfig"));
+utilities.lazyLoad(exports, ["ReportConfigByResourceGroupName"], () => require("./reportConfigByResourceGroupName"));
 
 // Export enums:
 export * from "../../types/enums/costmanagement/v20180531";
-
-// Import resources to register:
-import { ReportConfig } from "./reportConfig";
-import { ReportConfigByResourceGroupName } from "./reportConfigByResourceGroupName";
 
 const _module = {
     version: utilities.getVersion(),

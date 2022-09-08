@@ -5,10 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./b2ctenant";
-export * from "./getB2CTenant";
-export * from "./getGuestUsage";
-export * from "./guestUsage";
+export { B2CTenantArgs } from "./b2ctenant";
+export type B2CTenant = import("./b2ctenant").B2CTenant;
+export const B2CTenant: typeof import("./b2ctenant").B2CTenant = null as any;
+
+export { GetB2CTenantArgs, GetB2CTenantResult, GetB2CTenantOutputArgs } from "./getB2CTenant";
+export const getB2CTenant: typeof import("./getB2CTenant").getB2CTenant = null as any;
+export const getB2CTenantOutput: typeof import("./getB2CTenant").getB2CTenantOutput = null as any;
+
+export { GetGuestUsageArgs, GetGuestUsageResult, GetGuestUsageOutputArgs } from "./getGuestUsage";
+export const getGuestUsage: typeof import("./getGuestUsage").getGuestUsage = null as any;
+export const getGuestUsageOutput: typeof import("./getGuestUsage").getGuestUsageOutput = null as any;
+
+export { GuestUsageArgs } from "./guestUsage";
+export type GuestUsage = import("./guestUsage").GuestUsage;
+export const GuestUsage: typeof import("./guestUsage").GuestUsage = null as any;
+
+utilities.lazyLoad(exports, ["B2CTenant"], () => require("./b2ctenant"));
+utilities.lazyLoad(exports, ["getB2CTenant","getB2CTenantOutput"], () => require("./getB2CTenant"));
+utilities.lazyLoad(exports, ["getGuestUsage","getGuestUsageOutput"], () => require("./getGuestUsage"));
+utilities.lazyLoad(exports, ["GuestUsage"], () => require("./guestUsage"));
 
 // Export enums:
 export * from "../types/enums/azureactivedirectory";
@@ -23,10 +39,6 @@ export {
     v20200501preview,
     v20210401,
 };
-
-// Import resources to register:
-import { B2CTenant } from "./b2ctenant";
-import { GuestUsage } from "./guestUsage";
 
 const _module = {
     version: utilities.getVersion(),

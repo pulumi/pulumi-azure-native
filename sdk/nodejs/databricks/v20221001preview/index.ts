@@ -5,23 +5,49 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./accessConnector";
-export * from "./getAccessConnector";
-export * from "./getPrivateEndpointConnection";
-export * from "./getWorkspace";
-export * from "./getvNetPeering";
-export * from "./privateEndpointConnection";
-export * from "./vnetPeering";
-export * from "./workspace";
+export { AccessConnectorArgs } from "./accessConnector";
+export type AccessConnector = import("./accessConnector").AccessConnector;
+export const AccessConnector: typeof import("./accessConnector").AccessConnector = null as any;
+
+export { GetAccessConnectorArgs, GetAccessConnectorResult, GetAccessConnectorOutputArgs } from "./getAccessConnector";
+export const getAccessConnector: typeof import("./getAccessConnector").getAccessConnector = null as any;
+export const getAccessConnectorOutput: typeof import("./getAccessConnector").getAccessConnectorOutput = null as any;
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+
+export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
+export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
+export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
+
+export { GetvNetPeeringArgs, GetvNetPeeringResult, GetvNetPeeringOutputArgs } from "./getvNetPeering";
+export const getvNetPeering: typeof import("./getvNetPeering").getvNetPeering = null as any;
+export const getvNetPeeringOutput: typeof import("./getvNetPeering").getvNetPeeringOutput = null as any;
+
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+
+export { VNetPeeringArgs } from "./vnetPeering";
+export type VNetPeering = import("./vnetPeering").VNetPeering;
+export const VNetPeering: typeof import("./vnetPeering").VNetPeering = null as any;
+
+export { WorkspaceArgs } from "./workspace";
+export type Workspace = import("./workspace").Workspace;
+export const Workspace: typeof import("./workspace").Workspace = null as any;
+
+utilities.lazyLoad(exports, ["AccessConnector"], () => require("./accessConnector"));
+utilities.lazyLoad(exports, ["getAccessConnector","getAccessConnectorOutput"], () => require("./getAccessConnector"));
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
+utilities.lazyLoad(exports, ["getvNetPeering","getvNetPeeringOutput"], () => require("./getvNetPeering"));
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+utilities.lazyLoad(exports, ["VNetPeering"], () => require("./vnetPeering"));
+utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
 
 // Export enums:
 export * from "../../types/enums/databricks/v20221001preview";
-
-// Import resources to register:
-import { AccessConnector } from "./accessConnector";
-import { PrivateEndpointConnection } from "./privateEndpointConnection";
-import { Workspace } from "./workspace";
-import { VNetPeering } from "./vnetPeering";
 
 const _module = {
     version: utilities.getVersion(),

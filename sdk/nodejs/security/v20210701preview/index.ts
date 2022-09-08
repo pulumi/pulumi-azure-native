@@ -5,20 +5,39 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./customAssessmentAutomation";
-export * from "./customEntityStoreAssignment";
-export * from "./getCustomAssessmentAutomation";
-export * from "./getCustomEntityStoreAssignment";
-export * from "./getSecurityConnector";
-export * from "./securityConnector";
+export { CustomAssessmentAutomationArgs } from "./customAssessmentAutomation";
+export type CustomAssessmentAutomation = import("./customAssessmentAutomation").CustomAssessmentAutomation;
+export const CustomAssessmentAutomation: typeof import("./customAssessmentAutomation").CustomAssessmentAutomation = null as any;
+
+export { CustomEntityStoreAssignmentArgs } from "./customEntityStoreAssignment";
+export type CustomEntityStoreAssignment = import("./customEntityStoreAssignment").CustomEntityStoreAssignment;
+export const CustomEntityStoreAssignment: typeof import("./customEntityStoreAssignment").CustomEntityStoreAssignment = null as any;
+
+export { GetCustomAssessmentAutomationArgs, GetCustomAssessmentAutomationResult, GetCustomAssessmentAutomationOutputArgs } from "./getCustomAssessmentAutomation";
+export const getCustomAssessmentAutomation: typeof import("./getCustomAssessmentAutomation").getCustomAssessmentAutomation = null as any;
+export const getCustomAssessmentAutomationOutput: typeof import("./getCustomAssessmentAutomation").getCustomAssessmentAutomationOutput = null as any;
+
+export { GetCustomEntityStoreAssignmentArgs, GetCustomEntityStoreAssignmentResult, GetCustomEntityStoreAssignmentOutputArgs } from "./getCustomEntityStoreAssignment";
+export const getCustomEntityStoreAssignment: typeof import("./getCustomEntityStoreAssignment").getCustomEntityStoreAssignment = null as any;
+export const getCustomEntityStoreAssignmentOutput: typeof import("./getCustomEntityStoreAssignment").getCustomEntityStoreAssignmentOutput = null as any;
+
+export { GetSecurityConnectorArgs, GetSecurityConnectorResult, GetSecurityConnectorOutputArgs } from "./getSecurityConnector";
+export const getSecurityConnector: typeof import("./getSecurityConnector").getSecurityConnector = null as any;
+export const getSecurityConnectorOutput: typeof import("./getSecurityConnector").getSecurityConnectorOutput = null as any;
+
+export { SecurityConnectorArgs } from "./securityConnector";
+export type SecurityConnector = import("./securityConnector").SecurityConnector;
+export const SecurityConnector: typeof import("./securityConnector").SecurityConnector = null as any;
+
+utilities.lazyLoad(exports, ["CustomAssessmentAutomation"], () => require("./customAssessmentAutomation"));
+utilities.lazyLoad(exports, ["CustomEntityStoreAssignment"], () => require("./customEntityStoreAssignment"));
+utilities.lazyLoad(exports, ["getCustomAssessmentAutomation","getCustomAssessmentAutomationOutput"], () => require("./getCustomAssessmentAutomation"));
+utilities.lazyLoad(exports, ["getCustomEntityStoreAssignment","getCustomEntityStoreAssignmentOutput"], () => require("./getCustomEntityStoreAssignment"));
+utilities.lazyLoad(exports, ["getSecurityConnector","getSecurityConnectorOutput"], () => require("./getSecurityConnector"));
+utilities.lazyLoad(exports, ["SecurityConnector"], () => require("./securityConnector"));
 
 // Export enums:
 export * from "../../types/enums/security/v20210701preview";
-
-// Import resources to register:
-import { CustomAssessmentAutomation } from "./customAssessmentAutomation";
-import { CustomEntityStoreAssignment } from "./customEntityStoreAssignment";
-import { SecurityConnector } from "./securityConnector";
 
 const _module = {
     version: utilities.getVersion(),

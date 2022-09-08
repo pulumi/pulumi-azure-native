@@ -5,16 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./endpoint";
-export * from "./getEndpoint";
-export * from "./listEndpointCredentials";
-export * from "./listEndpointManagedProxyDetails";
+export { EndpointArgs } from "./endpoint";
+export type Endpoint = import("./endpoint").Endpoint;
+export const Endpoint: typeof import("./endpoint").Endpoint = null as any;
+
+export { GetEndpointArgs, GetEndpointResult, GetEndpointOutputArgs } from "./getEndpoint";
+export const getEndpoint: typeof import("./getEndpoint").getEndpoint = null as any;
+export const getEndpointOutput: typeof import("./getEndpoint").getEndpointOutput = null as any;
+
+export { ListEndpointCredentialsArgs, ListEndpointCredentialsResult, ListEndpointCredentialsOutputArgs } from "./listEndpointCredentials";
+export const listEndpointCredentials: typeof import("./listEndpointCredentials").listEndpointCredentials = null as any;
+export const listEndpointCredentialsOutput: typeof import("./listEndpointCredentials").listEndpointCredentialsOutput = null as any;
+
+export { ListEndpointManagedProxyDetailsArgs, ListEndpointManagedProxyDetailsResult, ListEndpointManagedProxyDetailsOutputArgs } from "./listEndpointManagedProxyDetails";
+export const listEndpointManagedProxyDetails: typeof import("./listEndpointManagedProxyDetails").listEndpointManagedProxyDetails = null as any;
+export const listEndpointManagedProxyDetailsOutput: typeof import("./listEndpointManagedProxyDetails").listEndpointManagedProxyDetailsOutput = null as any;
+
+utilities.lazyLoad(exports, ["Endpoint"], () => require("./endpoint"));
+utilities.lazyLoad(exports, ["getEndpoint","getEndpointOutput"], () => require("./getEndpoint"));
+utilities.lazyLoad(exports, ["listEndpointCredentials","listEndpointCredentialsOutput"], () => require("./listEndpointCredentials"));
+utilities.lazyLoad(exports, ["listEndpointManagedProxyDetails","listEndpointManagedProxyDetailsOutput"], () => require("./listEndpointManagedProxyDetails"));
 
 // Export enums:
 export * from "../../types/enums/hybridconnectivity/v20220501preview";
-
-// Import resources to register:
-import { Endpoint } from "./endpoint";
 
 const _module = {
     version: utilities.getVersion(),

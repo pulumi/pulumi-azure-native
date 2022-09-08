@@ -5,12 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./communicationService";
-export * from "./getCommunicationService";
-export * from "./listCommunicationServiceKeys";
+export { CommunicationServiceArgs } from "./communicationService";
+export type CommunicationService = import("./communicationService").CommunicationService;
+export const CommunicationService: typeof import("./communicationService").CommunicationService = null as any;
 
-// Import resources to register:
-import { CommunicationService } from "./communicationService";
+export { GetCommunicationServiceArgs, GetCommunicationServiceResult, GetCommunicationServiceOutputArgs } from "./getCommunicationService";
+export const getCommunicationService: typeof import("./getCommunicationService").getCommunicationService = null as any;
+export const getCommunicationServiceOutput: typeof import("./getCommunicationService").getCommunicationServiceOutput = null as any;
+
+export { ListCommunicationServiceKeysArgs, ListCommunicationServiceKeysResult, ListCommunicationServiceKeysOutputArgs } from "./listCommunicationServiceKeys";
+export const listCommunicationServiceKeys: typeof import("./listCommunicationServiceKeys").listCommunicationServiceKeys = null as any;
+export const listCommunicationServiceKeysOutput: typeof import("./listCommunicationServiceKeys").listCommunicationServiceKeysOutput = null as any;
+
+utilities.lazyLoad(exports, ["CommunicationService"], () => require("./communicationService"));
+utilities.lazyLoad(exports, ["getCommunicationService","getCommunicationServiceOutput"], () => require("./getCommunicationService"));
+utilities.lazyLoad(exports, ["listCommunicationServiceKeys","listCommunicationServiceKeysOutput"], () => require("./listCommunicationServiceKeys"));
 
 const _module = {
     version: utilities.getVersion(),

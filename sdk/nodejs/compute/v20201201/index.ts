@@ -5,70 +5,209 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./availabilitySet";
-export * from "./dedicatedHost";
-export * from "./dedicatedHostGroup";
-export * from "./disk";
-export * from "./diskAccess";
-export * from "./diskAccessAPrivateEndpointConnection";
-export * from "./diskEncryptionSet";
-export * from "./getAvailabilitySet";
-export * from "./getDedicatedHost";
-export * from "./getDedicatedHostGroup";
-export * from "./getDisk";
-export * from "./getDiskAccess";
-export * from "./getDiskAccessAPrivateEndpointConnection";
-export * from "./getDiskEncryptionSet";
-export * from "./getImage";
-export * from "./getLogAnalyticExportRequestRateByInterval";
-export * from "./getLogAnalyticExportThrottledRequests";
-export * from "./getProximityPlacementGroup";
-export * from "./getSnapshot";
-export * from "./getSshPublicKey";
-export * from "./getVirtualMachine";
-export * from "./getVirtualMachineExtension";
-export * from "./getVirtualMachineRunCommandByVirtualMachine";
-export * from "./getVirtualMachineScaleSet";
-export * from "./getVirtualMachineScaleSetExtension";
-export * from "./getVirtualMachineScaleSetVM";
-export * from "./getVirtualMachineScaleSetVMExtension";
-export * from "./getVirtualMachineScaleSetVMRunCommand";
-export * from "./image";
-export * from "./proximityPlacementGroup";
-export * from "./snapshot";
-export * from "./sshPublicKey";
-export * from "./virtualMachine";
-export * from "./virtualMachineExtension";
-export * from "./virtualMachineRunCommandByVirtualMachine";
-export * from "./virtualMachineScaleSet";
-export * from "./virtualMachineScaleSetExtension";
-export * from "./virtualMachineScaleSetVM";
-export * from "./virtualMachineScaleSetVMExtension";
-export * from "./virtualMachineScaleSetVMRunCommand";
+export { AvailabilitySetArgs } from "./availabilitySet";
+export type AvailabilitySet = import("./availabilitySet").AvailabilitySet;
+export const AvailabilitySet: typeof import("./availabilitySet").AvailabilitySet = null as any;
+
+export { DedicatedHostArgs } from "./dedicatedHost";
+export type DedicatedHost = import("./dedicatedHost").DedicatedHost;
+export const DedicatedHost: typeof import("./dedicatedHost").DedicatedHost = null as any;
+
+export { DedicatedHostGroupArgs } from "./dedicatedHostGroup";
+export type DedicatedHostGroup = import("./dedicatedHostGroup").DedicatedHostGroup;
+export const DedicatedHostGroup: typeof import("./dedicatedHostGroup").DedicatedHostGroup = null as any;
+
+export { DiskArgs } from "./disk";
+export type Disk = import("./disk").Disk;
+export const Disk: typeof import("./disk").Disk = null as any;
+
+export { DiskAccessArgs } from "./diskAccess";
+export type DiskAccess = import("./diskAccess").DiskAccess;
+export const DiskAccess: typeof import("./diskAccess").DiskAccess = null as any;
+
+export { DiskAccessAPrivateEndpointConnectionArgs } from "./diskAccessAPrivateEndpointConnection";
+export type DiskAccessAPrivateEndpointConnection = import("./diskAccessAPrivateEndpointConnection").DiskAccessAPrivateEndpointConnection;
+export const DiskAccessAPrivateEndpointConnection: typeof import("./diskAccessAPrivateEndpointConnection").DiskAccessAPrivateEndpointConnection = null as any;
+
+export { DiskEncryptionSetArgs } from "./diskEncryptionSet";
+export type DiskEncryptionSet = import("./diskEncryptionSet").DiskEncryptionSet;
+export const DiskEncryptionSet: typeof import("./diskEncryptionSet").DiskEncryptionSet = null as any;
+
+export { GetAvailabilitySetArgs, GetAvailabilitySetResult, GetAvailabilitySetOutputArgs } from "./getAvailabilitySet";
+export const getAvailabilitySet: typeof import("./getAvailabilitySet").getAvailabilitySet = null as any;
+export const getAvailabilitySetOutput: typeof import("./getAvailabilitySet").getAvailabilitySetOutput = null as any;
+
+export { GetDedicatedHostArgs, GetDedicatedHostResult, GetDedicatedHostOutputArgs } from "./getDedicatedHost";
+export const getDedicatedHost: typeof import("./getDedicatedHost").getDedicatedHost = null as any;
+export const getDedicatedHostOutput: typeof import("./getDedicatedHost").getDedicatedHostOutput = null as any;
+
+export { GetDedicatedHostGroupArgs, GetDedicatedHostGroupResult, GetDedicatedHostGroupOutputArgs } from "./getDedicatedHostGroup";
+export const getDedicatedHostGroup: typeof import("./getDedicatedHostGroup").getDedicatedHostGroup = null as any;
+export const getDedicatedHostGroupOutput: typeof import("./getDedicatedHostGroup").getDedicatedHostGroupOutput = null as any;
+
+export { GetDiskArgs, GetDiskResult, GetDiskOutputArgs } from "./getDisk";
+export const getDisk: typeof import("./getDisk").getDisk = null as any;
+export const getDiskOutput: typeof import("./getDisk").getDiskOutput = null as any;
+
+export { GetDiskAccessArgs, GetDiskAccessResult, GetDiskAccessOutputArgs } from "./getDiskAccess";
+export const getDiskAccess: typeof import("./getDiskAccess").getDiskAccess = null as any;
+export const getDiskAccessOutput: typeof import("./getDiskAccess").getDiskAccessOutput = null as any;
+
+export { GetDiskAccessAPrivateEndpointConnectionArgs, GetDiskAccessAPrivateEndpointConnectionResult, GetDiskAccessAPrivateEndpointConnectionOutputArgs } from "./getDiskAccessAPrivateEndpointConnection";
+export const getDiskAccessAPrivateEndpointConnection: typeof import("./getDiskAccessAPrivateEndpointConnection").getDiskAccessAPrivateEndpointConnection = null as any;
+export const getDiskAccessAPrivateEndpointConnectionOutput: typeof import("./getDiskAccessAPrivateEndpointConnection").getDiskAccessAPrivateEndpointConnectionOutput = null as any;
+
+export { GetDiskEncryptionSetArgs, GetDiskEncryptionSetResult, GetDiskEncryptionSetOutputArgs } from "./getDiskEncryptionSet";
+export const getDiskEncryptionSet: typeof import("./getDiskEncryptionSet").getDiskEncryptionSet = null as any;
+export const getDiskEncryptionSetOutput: typeof import("./getDiskEncryptionSet").getDiskEncryptionSetOutput = null as any;
+
+export { GetImageArgs, GetImageResult, GetImageOutputArgs } from "./getImage";
+export const getImage: typeof import("./getImage").getImage = null as any;
+export const getImageOutput: typeof import("./getImage").getImageOutput = null as any;
+
+export { GetLogAnalyticExportRequestRateByIntervalArgs, GetLogAnalyticExportRequestRateByIntervalResult, GetLogAnalyticExportRequestRateByIntervalOutputArgs } from "./getLogAnalyticExportRequestRateByInterval";
+export const getLogAnalyticExportRequestRateByInterval: typeof import("./getLogAnalyticExportRequestRateByInterval").getLogAnalyticExportRequestRateByInterval = null as any;
+export const getLogAnalyticExportRequestRateByIntervalOutput: typeof import("./getLogAnalyticExportRequestRateByInterval").getLogAnalyticExportRequestRateByIntervalOutput = null as any;
+
+export { GetLogAnalyticExportThrottledRequestsArgs, GetLogAnalyticExportThrottledRequestsResult, GetLogAnalyticExportThrottledRequestsOutputArgs } from "./getLogAnalyticExportThrottledRequests";
+export const getLogAnalyticExportThrottledRequests: typeof import("./getLogAnalyticExportThrottledRequests").getLogAnalyticExportThrottledRequests = null as any;
+export const getLogAnalyticExportThrottledRequestsOutput: typeof import("./getLogAnalyticExportThrottledRequests").getLogAnalyticExportThrottledRequestsOutput = null as any;
+
+export { GetProximityPlacementGroupArgs, GetProximityPlacementGroupResult, GetProximityPlacementGroupOutputArgs } from "./getProximityPlacementGroup";
+export const getProximityPlacementGroup: typeof import("./getProximityPlacementGroup").getProximityPlacementGroup = null as any;
+export const getProximityPlacementGroupOutput: typeof import("./getProximityPlacementGroup").getProximityPlacementGroupOutput = null as any;
+
+export { GetSnapshotArgs, GetSnapshotResult, GetSnapshotOutputArgs } from "./getSnapshot";
+export const getSnapshot: typeof import("./getSnapshot").getSnapshot = null as any;
+export const getSnapshotOutput: typeof import("./getSnapshot").getSnapshotOutput = null as any;
+
+export { GetSshPublicKeyArgs, GetSshPublicKeyResult, GetSshPublicKeyOutputArgs } from "./getSshPublicKey";
+export const getSshPublicKey: typeof import("./getSshPublicKey").getSshPublicKey = null as any;
+export const getSshPublicKeyOutput: typeof import("./getSshPublicKey").getSshPublicKeyOutput = null as any;
+
+export { GetVirtualMachineArgs, GetVirtualMachineResult, GetVirtualMachineOutputArgs } from "./getVirtualMachine";
+export const getVirtualMachine: typeof import("./getVirtualMachine").getVirtualMachine = null as any;
+export const getVirtualMachineOutput: typeof import("./getVirtualMachine").getVirtualMachineOutput = null as any;
+
+export { GetVirtualMachineExtensionArgs, GetVirtualMachineExtensionResult, GetVirtualMachineExtensionOutputArgs } from "./getVirtualMachineExtension";
+export const getVirtualMachineExtension: typeof import("./getVirtualMachineExtension").getVirtualMachineExtension = null as any;
+export const getVirtualMachineExtensionOutput: typeof import("./getVirtualMachineExtension").getVirtualMachineExtensionOutput = null as any;
+
+export { GetVirtualMachineRunCommandByVirtualMachineArgs, GetVirtualMachineRunCommandByVirtualMachineResult, GetVirtualMachineRunCommandByVirtualMachineOutputArgs } from "./getVirtualMachineRunCommandByVirtualMachine";
+export const getVirtualMachineRunCommandByVirtualMachine: typeof import("./getVirtualMachineRunCommandByVirtualMachine").getVirtualMachineRunCommandByVirtualMachine = null as any;
+export const getVirtualMachineRunCommandByVirtualMachineOutput: typeof import("./getVirtualMachineRunCommandByVirtualMachine").getVirtualMachineRunCommandByVirtualMachineOutput = null as any;
+
+export { GetVirtualMachineScaleSetArgs, GetVirtualMachineScaleSetResult, GetVirtualMachineScaleSetOutputArgs } from "./getVirtualMachineScaleSet";
+export const getVirtualMachineScaleSet: typeof import("./getVirtualMachineScaleSet").getVirtualMachineScaleSet = null as any;
+export const getVirtualMachineScaleSetOutput: typeof import("./getVirtualMachineScaleSet").getVirtualMachineScaleSetOutput = null as any;
+
+export { GetVirtualMachineScaleSetExtensionArgs, GetVirtualMachineScaleSetExtensionResult, GetVirtualMachineScaleSetExtensionOutputArgs } from "./getVirtualMachineScaleSetExtension";
+export const getVirtualMachineScaleSetExtension: typeof import("./getVirtualMachineScaleSetExtension").getVirtualMachineScaleSetExtension = null as any;
+export const getVirtualMachineScaleSetExtensionOutput: typeof import("./getVirtualMachineScaleSetExtension").getVirtualMachineScaleSetExtensionOutput = null as any;
+
+export { GetVirtualMachineScaleSetVMArgs, GetVirtualMachineScaleSetVMResult, GetVirtualMachineScaleSetVMOutputArgs } from "./getVirtualMachineScaleSetVM";
+export const getVirtualMachineScaleSetVM: typeof import("./getVirtualMachineScaleSetVM").getVirtualMachineScaleSetVM = null as any;
+export const getVirtualMachineScaleSetVMOutput: typeof import("./getVirtualMachineScaleSetVM").getVirtualMachineScaleSetVMOutput = null as any;
+
+export { GetVirtualMachineScaleSetVMExtensionArgs, GetVirtualMachineScaleSetVMExtensionResult, GetVirtualMachineScaleSetVMExtensionOutputArgs } from "./getVirtualMachineScaleSetVMExtension";
+export const getVirtualMachineScaleSetVMExtension: typeof import("./getVirtualMachineScaleSetVMExtension").getVirtualMachineScaleSetVMExtension = null as any;
+export const getVirtualMachineScaleSetVMExtensionOutput: typeof import("./getVirtualMachineScaleSetVMExtension").getVirtualMachineScaleSetVMExtensionOutput = null as any;
+
+export { GetVirtualMachineScaleSetVMRunCommandArgs, GetVirtualMachineScaleSetVMRunCommandResult, GetVirtualMachineScaleSetVMRunCommandOutputArgs } from "./getVirtualMachineScaleSetVMRunCommand";
+export const getVirtualMachineScaleSetVMRunCommand: typeof import("./getVirtualMachineScaleSetVMRunCommand").getVirtualMachineScaleSetVMRunCommand = null as any;
+export const getVirtualMachineScaleSetVMRunCommandOutput: typeof import("./getVirtualMachineScaleSetVMRunCommand").getVirtualMachineScaleSetVMRunCommandOutput = null as any;
+
+export { ImageArgs } from "./image";
+export type Image = import("./image").Image;
+export const Image: typeof import("./image").Image = null as any;
+
+export { ProximityPlacementGroupArgs } from "./proximityPlacementGroup";
+export type ProximityPlacementGroup = import("./proximityPlacementGroup").ProximityPlacementGroup;
+export const ProximityPlacementGroup: typeof import("./proximityPlacementGroup").ProximityPlacementGroup = null as any;
+
+export { SnapshotArgs } from "./snapshot";
+export type Snapshot = import("./snapshot").Snapshot;
+export const Snapshot: typeof import("./snapshot").Snapshot = null as any;
+
+export { SshPublicKeyArgs } from "./sshPublicKey";
+export type SshPublicKey = import("./sshPublicKey").SshPublicKey;
+export const SshPublicKey: typeof import("./sshPublicKey").SshPublicKey = null as any;
+
+export { VirtualMachineArgs } from "./virtualMachine";
+export type VirtualMachine = import("./virtualMachine").VirtualMachine;
+export const VirtualMachine: typeof import("./virtualMachine").VirtualMachine = null as any;
+
+export { VirtualMachineExtensionArgs } from "./virtualMachineExtension";
+export type VirtualMachineExtension = import("./virtualMachineExtension").VirtualMachineExtension;
+export const VirtualMachineExtension: typeof import("./virtualMachineExtension").VirtualMachineExtension = null as any;
+
+export { VirtualMachineRunCommandByVirtualMachineArgs } from "./virtualMachineRunCommandByVirtualMachine";
+export type VirtualMachineRunCommandByVirtualMachine = import("./virtualMachineRunCommandByVirtualMachine").VirtualMachineRunCommandByVirtualMachine;
+export const VirtualMachineRunCommandByVirtualMachine: typeof import("./virtualMachineRunCommandByVirtualMachine").VirtualMachineRunCommandByVirtualMachine = null as any;
+
+export { VirtualMachineScaleSetArgs } from "./virtualMachineScaleSet";
+export type VirtualMachineScaleSet = import("./virtualMachineScaleSet").VirtualMachineScaleSet;
+export const VirtualMachineScaleSet: typeof import("./virtualMachineScaleSet").VirtualMachineScaleSet = null as any;
+
+export { VirtualMachineScaleSetExtensionArgs } from "./virtualMachineScaleSetExtension";
+export type VirtualMachineScaleSetExtension = import("./virtualMachineScaleSetExtension").VirtualMachineScaleSetExtension;
+export const VirtualMachineScaleSetExtension: typeof import("./virtualMachineScaleSetExtension").VirtualMachineScaleSetExtension = null as any;
+
+export { VirtualMachineScaleSetVMArgs } from "./virtualMachineScaleSetVM";
+export type VirtualMachineScaleSetVM = import("./virtualMachineScaleSetVM").VirtualMachineScaleSetVM;
+export const VirtualMachineScaleSetVM: typeof import("./virtualMachineScaleSetVM").VirtualMachineScaleSetVM = null as any;
+
+export { VirtualMachineScaleSetVMExtensionArgs } from "./virtualMachineScaleSetVMExtension";
+export type VirtualMachineScaleSetVMExtension = import("./virtualMachineScaleSetVMExtension").VirtualMachineScaleSetVMExtension;
+export const VirtualMachineScaleSetVMExtension: typeof import("./virtualMachineScaleSetVMExtension").VirtualMachineScaleSetVMExtension = null as any;
+
+export { VirtualMachineScaleSetVMRunCommandArgs } from "./virtualMachineScaleSetVMRunCommand";
+export type VirtualMachineScaleSetVMRunCommand = import("./virtualMachineScaleSetVMRunCommand").VirtualMachineScaleSetVMRunCommand;
+export const VirtualMachineScaleSetVMRunCommand: typeof import("./virtualMachineScaleSetVMRunCommand").VirtualMachineScaleSetVMRunCommand = null as any;
+
+utilities.lazyLoad(exports, ["AvailabilitySet"], () => require("./availabilitySet"));
+utilities.lazyLoad(exports, ["DedicatedHost"], () => require("./dedicatedHost"));
+utilities.lazyLoad(exports, ["DedicatedHostGroup"], () => require("./dedicatedHostGroup"));
+utilities.lazyLoad(exports, ["Disk"], () => require("./disk"));
+utilities.lazyLoad(exports, ["DiskAccess"], () => require("./diskAccess"));
+utilities.lazyLoad(exports, ["DiskAccessAPrivateEndpointConnection"], () => require("./diskAccessAPrivateEndpointConnection"));
+utilities.lazyLoad(exports, ["DiskEncryptionSet"], () => require("./diskEncryptionSet"));
+utilities.lazyLoad(exports, ["getAvailabilitySet","getAvailabilitySetOutput"], () => require("./getAvailabilitySet"));
+utilities.lazyLoad(exports, ["getDedicatedHost","getDedicatedHostOutput"], () => require("./getDedicatedHost"));
+utilities.lazyLoad(exports, ["getDedicatedHostGroup","getDedicatedHostGroupOutput"], () => require("./getDedicatedHostGroup"));
+utilities.lazyLoad(exports, ["getDisk","getDiskOutput"], () => require("./getDisk"));
+utilities.lazyLoad(exports, ["getDiskAccess","getDiskAccessOutput"], () => require("./getDiskAccess"));
+utilities.lazyLoad(exports, ["getDiskAccessAPrivateEndpointConnection","getDiskAccessAPrivateEndpointConnectionOutput"], () => require("./getDiskAccessAPrivateEndpointConnection"));
+utilities.lazyLoad(exports, ["getDiskEncryptionSet","getDiskEncryptionSetOutput"], () => require("./getDiskEncryptionSet"));
+utilities.lazyLoad(exports, ["getImage","getImageOutput"], () => require("./getImage"));
+utilities.lazyLoad(exports, ["getLogAnalyticExportRequestRateByInterval","getLogAnalyticExportRequestRateByIntervalOutput"], () => require("./getLogAnalyticExportRequestRateByInterval"));
+utilities.lazyLoad(exports, ["getLogAnalyticExportThrottledRequests","getLogAnalyticExportThrottledRequestsOutput"], () => require("./getLogAnalyticExportThrottledRequests"));
+utilities.lazyLoad(exports, ["getProximityPlacementGroup","getProximityPlacementGroupOutput"], () => require("./getProximityPlacementGroup"));
+utilities.lazyLoad(exports, ["getSnapshot","getSnapshotOutput"], () => require("./getSnapshot"));
+utilities.lazyLoad(exports, ["getSshPublicKey","getSshPublicKeyOutput"], () => require("./getSshPublicKey"));
+utilities.lazyLoad(exports, ["getVirtualMachine","getVirtualMachineOutput"], () => require("./getVirtualMachine"));
+utilities.lazyLoad(exports, ["getVirtualMachineExtension","getVirtualMachineExtensionOutput"], () => require("./getVirtualMachineExtension"));
+utilities.lazyLoad(exports, ["getVirtualMachineRunCommandByVirtualMachine","getVirtualMachineRunCommandByVirtualMachineOutput"], () => require("./getVirtualMachineRunCommandByVirtualMachine"));
+utilities.lazyLoad(exports, ["getVirtualMachineScaleSet","getVirtualMachineScaleSetOutput"], () => require("./getVirtualMachineScaleSet"));
+utilities.lazyLoad(exports, ["getVirtualMachineScaleSetExtension","getVirtualMachineScaleSetExtensionOutput"], () => require("./getVirtualMachineScaleSetExtension"));
+utilities.lazyLoad(exports, ["getVirtualMachineScaleSetVM","getVirtualMachineScaleSetVMOutput"], () => require("./getVirtualMachineScaleSetVM"));
+utilities.lazyLoad(exports, ["getVirtualMachineScaleSetVMExtension","getVirtualMachineScaleSetVMExtensionOutput"], () => require("./getVirtualMachineScaleSetVMExtension"));
+utilities.lazyLoad(exports, ["getVirtualMachineScaleSetVMRunCommand","getVirtualMachineScaleSetVMRunCommandOutput"], () => require("./getVirtualMachineScaleSetVMRunCommand"));
+utilities.lazyLoad(exports, ["Image"], () => require("./image"));
+utilities.lazyLoad(exports, ["ProximityPlacementGroup"], () => require("./proximityPlacementGroup"));
+utilities.lazyLoad(exports, ["Snapshot"], () => require("./snapshot"));
+utilities.lazyLoad(exports, ["SshPublicKey"], () => require("./sshPublicKey"));
+utilities.lazyLoad(exports, ["VirtualMachine"], () => require("./virtualMachine"));
+utilities.lazyLoad(exports, ["VirtualMachineExtension"], () => require("./virtualMachineExtension"));
+utilities.lazyLoad(exports, ["VirtualMachineRunCommandByVirtualMachine"], () => require("./virtualMachineRunCommandByVirtualMachine"));
+utilities.lazyLoad(exports, ["VirtualMachineScaleSet"], () => require("./virtualMachineScaleSet"));
+utilities.lazyLoad(exports, ["VirtualMachineScaleSetExtension"], () => require("./virtualMachineScaleSetExtension"));
+utilities.lazyLoad(exports, ["VirtualMachineScaleSetVM"], () => require("./virtualMachineScaleSetVM"));
+utilities.lazyLoad(exports, ["VirtualMachineScaleSetVMExtension"], () => require("./virtualMachineScaleSetVMExtension"));
+utilities.lazyLoad(exports, ["VirtualMachineScaleSetVMRunCommand"], () => require("./virtualMachineScaleSetVMRunCommand"));
 
 // Export enums:
 export * from "../../types/enums/compute/v20201201";
-
-// Import resources to register:
-import { AvailabilitySet } from "./availabilitySet";
-import { DedicatedHost } from "./dedicatedHost";
-import { DedicatedHostGroup } from "./dedicatedHostGroup";
-import { Disk } from "./disk";
-import { DiskAccess } from "./diskAccess";
-import { DiskAccessAPrivateEndpointConnection } from "./diskAccessAPrivateEndpointConnection";
-import { DiskEncryptionSet } from "./diskEncryptionSet";
-import { Image } from "./image";
-import { ProximityPlacementGroup } from "./proximityPlacementGroup";
-import { Snapshot } from "./snapshot";
-import { SshPublicKey } from "./sshPublicKey";
-import { VirtualMachine } from "./virtualMachine";
-import { VirtualMachineExtension } from "./virtualMachineExtension";
-import { VirtualMachineRunCommandByVirtualMachine } from "./virtualMachineRunCommandByVirtualMachine";
-import { VirtualMachineScaleSet } from "./virtualMachineScaleSet";
-import { VirtualMachineScaleSetExtension } from "./virtualMachineScaleSetExtension";
-import { VirtualMachineScaleSetVM } from "./virtualMachineScaleSetVM";
-import { VirtualMachineScaleSetVMExtension } from "./virtualMachineScaleSetVMExtension";
-import { VirtualMachineScaleSetVMRunCommand } from "./virtualMachineScaleSetVMRunCommand";
 
 const _module = {
     version: utilities.getVersion(),

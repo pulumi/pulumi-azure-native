@@ -5,9 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./controller";
-export * from "./getController";
-export * from "./listControllerConnectionDetails";
+export { ControllerArgs } from "./controller";
+export type Controller = import("./controller").Controller;
+export const Controller: typeof import("./controller").Controller = null as any;
+
+export { GetControllerArgs, GetControllerResult, GetControllerOutputArgs } from "./getController";
+export const getController: typeof import("./getController").getController = null as any;
+export const getControllerOutput: typeof import("./getController").getControllerOutput = null as any;
+
+export { ListControllerConnectionDetailsArgs, ListControllerConnectionDetailsResult, ListControllerConnectionDetailsOutputArgs } from "./listControllerConnectionDetails";
+export const listControllerConnectionDetails: typeof import("./listControllerConnectionDetails").listControllerConnectionDetails = null as any;
+export const listControllerConnectionDetailsOutput: typeof import("./listControllerConnectionDetails").listControllerConnectionDetailsOutput = null as any;
+
+utilities.lazyLoad(exports, ["Controller"], () => require("./controller"));
+utilities.lazyLoad(exports, ["getController","getControllerOutput"], () => require("./getController"));
+utilities.lazyLoad(exports, ["listControllerConnectionDetails","listControllerConnectionDetailsOutput"], () => require("./listControllerConnectionDetails"));
 
 // Export enums:
 export * from "../types/enums/devspaces";
@@ -18,9 +30,6 @@ import * as v20190401 from "./v20190401";
 export {
     v20190401,
 };
-
-// Import resources to register:
-import { Controller } from "./controller";
 
 const _module = {
     version: utilities.getVersion(),

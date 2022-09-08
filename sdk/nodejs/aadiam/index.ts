@@ -5,14 +5,46 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./azureADMetric";
-export * from "./diagnosticSetting";
-export * from "./getDiagnosticSetting";
-export * from "./getPrivateEndpointConnection";
-export * from "./getazureADMetric";
-export * from "./getprivateLinkForAzureAd";
-export * from "./privateEndpointConnection";
-export * from "./privateLinkForAzureAd";
+export { AzureADMetricArgs } from "./azureADMetric";
+export type AzureADMetric = import("./azureADMetric").AzureADMetric;
+export const AzureADMetric: typeof import("./azureADMetric").AzureADMetric = null as any;
+
+export { DiagnosticSettingArgs } from "./diagnosticSetting";
+export type DiagnosticSetting = import("./diagnosticSetting").DiagnosticSetting;
+export const DiagnosticSetting: typeof import("./diagnosticSetting").DiagnosticSetting = null as any;
+
+export { GetDiagnosticSettingArgs, GetDiagnosticSettingResult, GetDiagnosticSettingOutputArgs } from "./getDiagnosticSetting";
+export const getDiagnosticSetting: typeof import("./getDiagnosticSetting").getDiagnosticSetting = null as any;
+export const getDiagnosticSettingOutput: typeof import("./getDiagnosticSetting").getDiagnosticSettingOutput = null as any;
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+
+export { GetazureADMetricArgs, GetazureADMetricResult, GetazureADMetricOutputArgs } from "./getazureADMetric";
+export const getazureADMetric: typeof import("./getazureADMetric").getazureADMetric = null as any;
+export const getazureADMetricOutput: typeof import("./getazureADMetric").getazureADMetricOutput = null as any;
+
+export { GetprivateLinkForAzureAdArgs, GetprivateLinkForAzureAdResult, GetprivateLinkForAzureAdOutputArgs } from "./getprivateLinkForAzureAd";
+export const getprivateLinkForAzureAd: typeof import("./getprivateLinkForAzureAd").getprivateLinkForAzureAd = null as any;
+export const getprivateLinkForAzureAdOutput: typeof import("./getprivateLinkForAzureAd").getprivateLinkForAzureAdOutput = null as any;
+
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+
+export { PrivateLinkForAzureAdArgs } from "./privateLinkForAzureAd";
+export type PrivateLinkForAzureAd = import("./privateLinkForAzureAd").PrivateLinkForAzureAd;
+export const PrivateLinkForAzureAd: typeof import("./privateLinkForAzureAd").PrivateLinkForAzureAd = null as any;
+
+utilities.lazyLoad(exports, ["AzureADMetric"], () => require("./azureADMetric"));
+utilities.lazyLoad(exports, ["DiagnosticSetting"], () => require("./diagnosticSetting"));
+utilities.lazyLoad(exports, ["getDiagnosticSetting","getDiagnosticSettingOutput"], () => require("./getDiagnosticSetting"));
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+utilities.lazyLoad(exports, ["getazureADMetric","getazureADMetricOutput"], () => require("./getazureADMetric"));
+utilities.lazyLoad(exports, ["getprivateLinkForAzureAd","getprivateLinkForAzureAdOutput"], () => require("./getprivateLinkForAzureAd"));
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+utilities.lazyLoad(exports, ["PrivateLinkForAzureAd"], () => require("./privateLinkForAzureAd"));
 
 // Export enums:
 export * from "../types/enums/aadiam";
@@ -31,12 +63,6 @@ export {
     v20200301preview,
     v20200701preview,
 };
-
-// Import resources to register:
-import { DiagnosticSetting } from "./diagnosticSetting";
-import { PrivateEndpointConnection } from "./privateEndpointConnection";
-import { AzureADMetric } from "./azureADMetric";
-import { PrivateLinkForAzureAd } from "./privateLinkForAzureAd";
 
 const _module = {
     version: utilities.getVersion(),

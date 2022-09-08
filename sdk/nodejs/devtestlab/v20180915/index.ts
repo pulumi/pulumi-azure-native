@@ -5,70 +5,214 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./artifactSource";
-export * from "./customImage";
-export * from "./disk";
-export * from "./environment";
-export * from "./formula";
-export * from "./getArtifactSource";
-export * from "./getCustomImage";
-export * from "./getDisk";
-export * from "./getEnvironment";
-export * from "./getFormula";
-export * from "./getGlobalSchedule";
-export * from "./getLab";
-export * from "./getNotificationChannel";
-export * from "./getPolicy";
-export * from "./getSchedule";
-export * from "./getSecret";
-export * from "./getServiceFabric";
-export * from "./getServiceFabricSchedule";
-export * from "./getServiceRunner";
-export * from "./getUser";
-export * from "./getVirtualMachine";
-export * from "./getVirtualMachineRdpFileContents";
-export * from "./getVirtualMachineSchedule";
-export * from "./getVirtualNetwork";
-export * from "./globalSchedule";
-export * from "./lab";
-export * from "./listLabVhds";
-export * from "./listScheduleApplicable";
-export * from "./listServiceFabricApplicableSchedules";
-export * from "./listVirtualMachineApplicableSchedules";
-export * from "./notificationChannel";
-export * from "./policy";
-export * from "./schedule";
-export * from "./secret";
-export * from "./serviceFabric";
-export * from "./serviceFabricSchedule";
-export * from "./serviceRunner";
-export * from "./user";
-export * from "./virtualMachine";
-export * from "./virtualMachineSchedule";
-export * from "./virtualNetwork";
+export { ArtifactSourceArgs } from "./artifactSource";
+export type ArtifactSource = import("./artifactSource").ArtifactSource;
+export const ArtifactSource: typeof import("./artifactSource").ArtifactSource = null as any;
+
+export { CustomImageArgs } from "./customImage";
+export type CustomImage = import("./customImage").CustomImage;
+export const CustomImage: typeof import("./customImage").CustomImage = null as any;
+
+export { DiskArgs } from "./disk";
+export type Disk = import("./disk").Disk;
+export const Disk: typeof import("./disk").Disk = null as any;
+
+export { EnvironmentArgs } from "./environment";
+export type Environment = import("./environment").Environment;
+export const Environment: typeof import("./environment").Environment = null as any;
+
+export { FormulaArgs } from "./formula";
+export type Formula = import("./formula").Formula;
+export const Formula: typeof import("./formula").Formula = null as any;
+
+export { GetArtifactSourceArgs, GetArtifactSourceResult, GetArtifactSourceOutputArgs } from "./getArtifactSource";
+export const getArtifactSource: typeof import("./getArtifactSource").getArtifactSource = null as any;
+export const getArtifactSourceOutput: typeof import("./getArtifactSource").getArtifactSourceOutput = null as any;
+
+export { GetCustomImageArgs, GetCustomImageResult, GetCustomImageOutputArgs } from "./getCustomImage";
+export const getCustomImage: typeof import("./getCustomImage").getCustomImage = null as any;
+export const getCustomImageOutput: typeof import("./getCustomImage").getCustomImageOutput = null as any;
+
+export { GetDiskArgs, GetDiskResult, GetDiskOutputArgs } from "./getDisk";
+export const getDisk: typeof import("./getDisk").getDisk = null as any;
+export const getDiskOutput: typeof import("./getDisk").getDiskOutput = null as any;
+
+export { GetEnvironmentArgs, GetEnvironmentResult, GetEnvironmentOutputArgs } from "./getEnvironment";
+export const getEnvironment: typeof import("./getEnvironment").getEnvironment = null as any;
+export const getEnvironmentOutput: typeof import("./getEnvironment").getEnvironmentOutput = null as any;
+
+export { GetFormulaArgs, GetFormulaResult, GetFormulaOutputArgs } from "./getFormula";
+export const getFormula: typeof import("./getFormula").getFormula = null as any;
+export const getFormulaOutput: typeof import("./getFormula").getFormulaOutput = null as any;
+
+export { GetGlobalScheduleArgs, GetGlobalScheduleResult, GetGlobalScheduleOutputArgs } from "./getGlobalSchedule";
+export const getGlobalSchedule: typeof import("./getGlobalSchedule").getGlobalSchedule = null as any;
+export const getGlobalScheduleOutput: typeof import("./getGlobalSchedule").getGlobalScheduleOutput = null as any;
+
+export { GetLabArgs, GetLabResult, GetLabOutputArgs } from "./getLab";
+export const getLab: typeof import("./getLab").getLab = null as any;
+export const getLabOutput: typeof import("./getLab").getLabOutput = null as any;
+
+export { GetNotificationChannelArgs, GetNotificationChannelResult, GetNotificationChannelOutputArgs } from "./getNotificationChannel";
+export const getNotificationChannel: typeof import("./getNotificationChannel").getNotificationChannel = null as any;
+export const getNotificationChannelOutput: typeof import("./getNotificationChannel").getNotificationChannelOutput = null as any;
+
+export { GetPolicyArgs, GetPolicyResult, GetPolicyOutputArgs } from "./getPolicy";
+export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;
+export const getPolicyOutput: typeof import("./getPolicy").getPolicyOutput = null as any;
+
+export { GetScheduleArgs, GetScheduleResult, GetScheduleOutputArgs } from "./getSchedule";
+export const getSchedule: typeof import("./getSchedule").getSchedule = null as any;
+export const getScheduleOutput: typeof import("./getSchedule").getScheduleOutput = null as any;
+
+export { GetSecretArgs, GetSecretResult, GetSecretOutputArgs } from "./getSecret";
+export const getSecret: typeof import("./getSecret").getSecret = null as any;
+export const getSecretOutput: typeof import("./getSecret").getSecretOutput = null as any;
+
+export { GetServiceFabricArgs, GetServiceFabricResult, GetServiceFabricOutputArgs } from "./getServiceFabric";
+export const getServiceFabric: typeof import("./getServiceFabric").getServiceFabric = null as any;
+export const getServiceFabricOutput: typeof import("./getServiceFabric").getServiceFabricOutput = null as any;
+
+export { GetServiceFabricScheduleArgs, GetServiceFabricScheduleResult, GetServiceFabricScheduleOutputArgs } from "./getServiceFabricSchedule";
+export const getServiceFabricSchedule: typeof import("./getServiceFabricSchedule").getServiceFabricSchedule = null as any;
+export const getServiceFabricScheduleOutput: typeof import("./getServiceFabricSchedule").getServiceFabricScheduleOutput = null as any;
+
+export { GetServiceRunnerArgs, GetServiceRunnerResult, GetServiceRunnerOutputArgs } from "./getServiceRunner";
+export const getServiceRunner: typeof import("./getServiceRunner").getServiceRunner = null as any;
+export const getServiceRunnerOutput: typeof import("./getServiceRunner").getServiceRunnerOutput = null as any;
+
+export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
+export const getUser: typeof import("./getUser").getUser = null as any;
+export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
+
+export { GetVirtualMachineArgs, GetVirtualMachineResult, GetVirtualMachineOutputArgs } from "./getVirtualMachine";
+export const getVirtualMachine: typeof import("./getVirtualMachine").getVirtualMachine = null as any;
+export const getVirtualMachineOutput: typeof import("./getVirtualMachine").getVirtualMachineOutput = null as any;
+
+export { GetVirtualMachineRdpFileContentsArgs, GetVirtualMachineRdpFileContentsResult, GetVirtualMachineRdpFileContentsOutputArgs } from "./getVirtualMachineRdpFileContents";
+export const getVirtualMachineRdpFileContents: typeof import("./getVirtualMachineRdpFileContents").getVirtualMachineRdpFileContents = null as any;
+export const getVirtualMachineRdpFileContentsOutput: typeof import("./getVirtualMachineRdpFileContents").getVirtualMachineRdpFileContentsOutput = null as any;
+
+export { GetVirtualMachineScheduleArgs, GetVirtualMachineScheduleResult, GetVirtualMachineScheduleOutputArgs } from "./getVirtualMachineSchedule";
+export const getVirtualMachineSchedule: typeof import("./getVirtualMachineSchedule").getVirtualMachineSchedule = null as any;
+export const getVirtualMachineScheduleOutput: typeof import("./getVirtualMachineSchedule").getVirtualMachineScheduleOutput = null as any;
+
+export { GetVirtualNetworkArgs, GetVirtualNetworkResult, GetVirtualNetworkOutputArgs } from "./getVirtualNetwork";
+export const getVirtualNetwork: typeof import("./getVirtualNetwork").getVirtualNetwork = null as any;
+export const getVirtualNetworkOutput: typeof import("./getVirtualNetwork").getVirtualNetworkOutput = null as any;
+
+export { GlobalScheduleArgs } from "./globalSchedule";
+export type GlobalSchedule = import("./globalSchedule").GlobalSchedule;
+export const GlobalSchedule: typeof import("./globalSchedule").GlobalSchedule = null as any;
+
+export { LabArgs } from "./lab";
+export type Lab = import("./lab").Lab;
+export const Lab: typeof import("./lab").Lab = null as any;
+
+export { ListLabVhdsArgs, ListLabVhdsResult, ListLabVhdsOutputArgs } from "./listLabVhds";
+export const listLabVhds: typeof import("./listLabVhds").listLabVhds = null as any;
+export const listLabVhdsOutput: typeof import("./listLabVhds").listLabVhdsOutput = null as any;
+
+export { ListScheduleApplicableArgs, ListScheduleApplicableResult, ListScheduleApplicableOutputArgs } from "./listScheduleApplicable";
+export const listScheduleApplicable: typeof import("./listScheduleApplicable").listScheduleApplicable = null as any;
+export const listScheduleApplicableOutput: typeof import("./listScheduleApplicable").listScheduleApplicableOutput = null as any;
+
+export { ListServiceFabricApplicableSchedulesArgs, ListServiceFabricApplicableSchedulesResult, ListServiceFabricApplicableSchedulesOutputArgs } from "./listServiceFabricApplicableSchedules";
+export const listServiceFabricApplicableSchedules: typeof import("./listServiceFabricApplicableSchedules").listServiceFabricApplicableSchedules = null as any;
+export const listServiceFabricApplicableSchedulesOutput: typeof import("./listServiceFabricApplicableSchedules").listServiceFabricApplicableSchedulesOutput = null as any;
+
+export { ListVirtualMachineApplicableSchedulesArgs, ListVirtualMachineApplicableSchedulesResult, ListVirtualMachineApplicableSchedulesOutputArgs } from "./listVirtualMachineApplicableSchedules";
+export const listVirtualMachineApplicableSchedules: typeof import("./listVirtualMachineApplicableSchedules").listVirtualMachineApplicableSchedules = null as any;
+export const listVirtualMachineApplicableSchedulesOutput: typeof import("./listVirtualMachineApplicableSchedules").listVirtualMachineApplicableSchedulesOutput = null as any;
+
+export { NotificationChannelArgs } from "./notificationChannel";
+export type NotificationChannel = import("./notificationChannel").NotificationChannel;
+export const NotificationChannel: typeof import("./notificationChannel").NotificationChannel = null as any;
+
+export { PolicyArgs } from "./policy";
+export type Policy = import("./policy").Policy;
+export const Policy: typeof import("./policy").Policy = null as any;
+
+export { ScheduleArgs } from "./schedule";
+export type Schedule = import("./schedule").Schedule;
+export const Schedule: typeof import("./schedule").Schedule = null as any;
+
+export { SecretArgs } from "./secret";
+export type Secret = import("./secret").Secret;
+export const Secret: typeof import("./secret").Secret = null as any;
+
+export { ServiceFabricArgs } from "./serviceFabric";
+export type ServiceFabric = import("./serviceFabric").ServiceFabric;
+export const ServiceFabric: typeof import("./serviceFabric").ServiceFabric = null as any;
+
+export { ServiceFabricScheduleArgs } from "./serviceFabricSchedule";
+export type ServiceFabricSchedule = import("./serviceFabricSchedule").ServiceFabricSchedule;
+export const ServiceFabricSchedule: typeof import("./serviceFabricSchedule").ServiceFabricSchedule = null as any;
+
+export { ServiceRunnerArgs } from "./serviceRunner";
+export type ServiceRunner = import("./serviceRunner").ServiceRunner;
+export const ServiceRunner: typeof import("./serviceRunner").ServiceRunner = null as any;
+
+export { UserArgs } from "./user";
+export type User = import("./user").User;
+export const User: typeof import("./user").User = null as any;
+
+export { VirtualMachineArgs } from "./virtualMachine";
+export type VirtualMachine = import("./virtualMachine").VirtualMachine;
+export const VirtualMachine: typeof import("./virtualMachine").VirtualMachine = null as any;
+
+export { VirtualMachineScheduleArgs } from "./virtualMachineSchedule";
+export type VirtualMachineSchedule = import("./virtualMachineSchedule").VirtualMachineSchedule;
+export const VirtualMachineSchedule: typeof import("./virtualMachineSchedule").VirtualMachineSchedule = null as any;
+
+export { VirtualNetworkArgs } from "./virtualNetwork";
+export type VirtualNetwork = import("./virtualNetwork").VirtualNetwork;
+export const VirtualNetwork: typeof import("./virtualNetwork").VirtualNetwork = null as any;
+
+utilities.lazyLoad(exports, ["ArtifactSource"], () => require("./artifactSource"));
+utilities.lazyLoad(exports, ["CustomImage"], () => require("./customImage"));
+utilities.lazyLoad(exports, ["Disk"], () => require("./disk"));
+utilities.lazyLoad(exports, ["Environment"], () => require("./environment"));
+utilities.lazyLoad(exports, ["Formula"], () => require("./formula"));
+utilities.lazyLoad(exports, ["getArtifactSource","getArtifactSourceOutput"], () => require("./getArtifactSource"));
+utilities.lazyLoad(exports, ["getCustomImage","getCustomImageOutput"], () => require("./getCustomImage"));
+utilities.lazyLoad(exports, ["getDisk","getDiskOutput"], () => require("./getDisk"));
+utilities.lazyLoad(exports, ["getEnvironment","getEnvironmentOutput"], () => require("./getEnvironment"));
+utilities.lazyLoad(exports, ["getFormula","getFormulaOutput"], () => require("./getFormula"));
+utilities.lazyLoad(exports, ["getGlobalSchedule","getGlobalScheduleOutput"], () => require("./getGlobalSchedule"));
+utilities.lazyLoad(exports, ["getLab","getLabOutput"], () => require("./getLab"));
+utilities.lazyLoad(exports, ["getNotificationChannel","getNotificationChannelOutput"], () => require("./getNotificationChannel"));
+utilities.lazyLoad(exports, ["getPolicy","getPolicyOutput"], () => require("./getPolicy"));
+utilities.lazyLoad(exports, ["getSchedule","getScheduleOutput"], () => require("./getSchedule"));
+utilities.lazyLoad(exports, ["getSecret","getSecretOutput"], () => require("./getSecret"));
+utilities.lazyLoad(exports, ["getServiceFabric","getServiceFabricOutput"], () => require("./getServiceFabric"));
+utilities.lazyLoad(exports, ["getServiceFabricSchedule","getServiceFabricScheduleOutput"], () => require("./getServiceFabricSchedule"));
+utilities.lazyLoad(exports, ["getServiceRunner","getServiceRunnerOutput"], () => require("./getServiceRunner"));
+utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
+utilities.lazyLoad(exports, ["getVirtualMachine","getVirtualMachineOutput"], () => require("./getVirtualMachine"));
+utilities.lazyLoad(exports, ["getVirtualMachineRdpFileContents","getVirtualMachineRdpFileContentsOutput"], () => require("./getVirtualMachineRdpFileContents"));
+utilities.lazyLoad(exports, ["getVirtualMachineSchedule","getVirtualMachineScheduleOutput"], () => require("./getVirtualMachineSchedule"));
+utilities.lazyLoad(exports, ["getVirtualNetwork","getVirtualNetworkOutput"], () => require("./getVirtualNetwork"));
+utilities.lazyLoad(exports, ["GlobalSchedule"], () => require("./globalSchedule"));
+utilities.lazyLoad(exports, ["Lab"], () => require("./lab"));
+utilities.lazyLoad(exports, ["listLabVhds","listLabVhdsOutput"], () => require("./listLabVhds"));
+utilities.lazyLoad(exports, ["listScheduleApplicable","listScheduleApplicableOutput"], () => require("./listScheduleApplicable"));
+utilities.lazyLoad(exports, ["listServiceFabricApplicableSchedules","listServiceFabricApplicableSchedulesOutput"], () => require("./listServiceFabricApplicableSchedules"));
+utilities.lazyLoad(exports, ["listVirtualMachineApplicableSchedules","listVirtualMachineApplicableSchedulesOutput"], () => require("./listVirtualMachineApplicableSchedules"));
+utilities.lazyLoad(exports, ["NotificationChannel"], () => require("./notificationChannel"));
+utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
+utilities.lazyLoad(exports, ["Schedule"], () => require("./schedule"));
+utilities.lazyLoad(exports, ["Secret"], () => require("./secret"));
+utilities.lazyLoad(exports, ["ServiceFabric"], () => require("./serviceFabric"));
+utilities.lazyLoad(exports, ["ServiceFabricSchedule"], () => require("./serviceFabricSchedule"));
+utilities.lazyLoad(exports, ["ServiceRunner"], () => require("./serviceRunner"));
+utilities.lazyLoad(exports, ["User"], () => require("./user"));
+utilities.lazyLoad(exports, ["VirtualMachine"], () => require("./virtualMachine"));
+utilities.lazyLoad(exports, ["VirtualMachineSchedule"], () => require("./virtualMachineSchedule"));
+utilities.lazyLoad(exports, ["VirtualNetwork"], () => require("./virtualNetwork"));
 
 // Export enums:
 export * from "../../types/enums/devtestlab/v20180915";
-
-// Import resources to register:
-import { ArtifactSource } from "./artifactSource";
-import { CustomImage } from "./customImage";
-import { Disk } from "./disk";
-import { Environment } from "./environment";
-import { Formula } from "./formula";
-import { GlobalSchedule } from "./globalSchedule";
-import { Lab } from "./lab";
-import { NotificationChannel } from "./notificationChannel";
-import { Policy } from "./policy";
-import { Schedule } from "./schedule";
-import { Secret } from "./secret";
-import { ServiceFabric } from "./serviceFabric";
-import { ServiceFabricSchedule } from "./serviceFabricSchedule";
-import { ServiceRunner } from "./serviceRunner";
-import { User } from "./user";
-import { VirtualMachine } from "./virtualMachine";
-import { VirtualMachineSchedule } from "./virtualMachineSchedule";
-import { VirtualNetwork } from "./virtualNetwork";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,20 +5,44 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getNamespace";
-export * from "./getNotificationHub";
-export * from "./getNotificationHubPnsCredentials";
-export * from "./listNamespaceKeys";
-export * from "./listNotificationHubKeys";
-export * from "./namespace";
-export * from "./notificationHub";
+export { GetNamespaceArgs, GetNamespaceResult, GetNamespaceOutputArgs } from "./getNamespace";
+export const getNamespace: typeof import("./getNamespace").getNamespace = null as any;
+export const getNamespaceOutput: typeof import("./getNamespace").getNamespaceOutput = null as any;
+
+export { GetNotificationHubArgs, GetNotificationHubResult, GetNotificationHubOutputArgs } from "./getNotificationHub";
+export const getNotificationHub: typeof import("./getNotificationHub").getNotificationHub = null as any;
+export const getNotificationHubOutput: typeof import("./getNotificationHub").getNotificationHubOutput = null as any;
+
+export { GetNotificationHubPnsCredentialsArgs, GetNotificationHubPnsCredentialsResult, GetNotificationHubPnsCredentialsOutputArgs } from "./getNotificationHubPnsCredentials";
+export const getNotificationHubPnsCredentials: typeof import("./getNotificationHubPnsCredentials").getNotificationHubPnsCredentials = null as any;
+export const getNotificationHubPnsCredentialsOutput: typeof import("./getNotificationHubPnsCredentials").getNotificationHubPnsCredentialsOutput = null as any;
+
+export { ListNamespaceKeysArgs, ListNamespaceKeysResult, ListNamespaceKeysOutputArgs } from "./listNamespaceKeys";
+export const listNamespaceKeys: typeof import("./listNamespaceKeys").listNamespaceKeys = null as any;
+export const listNamespaceKeysOutput: typeof import("./listNamespaceKeys").listNamespaceKeysOutput = null as any;
+
+export { ListNotificationHubKeysArgs, ListNotificationHubKeysResult, ListNotificationHubKeysOutputArgs } from "./listNotificationHubKeys";
+export const listNotificationHubKeys: typeof import("./listNotificationHubKeys").listNotificationHubKeys = null as any;
+export const listNotificationHubKeysOutput: typeof import("./listNotificationHubKeys").listNotificationHubKeysOutput = null as any;
+
+export { NamespaceArgs } from "./namespace";
+export type Namespace = import("./namespace").Namespace;
+export const Namespace: typeof import("./namespace").Namespace = null as any;
+
+export { NotificationHubArgs } from "./notificationHub";
+export type NotificationHub = import("./notificationHub").NotificationHub;
+export const NotificationHub: typeof import("./notificationHub").NotificationHub = null as any;
+
+utilities.lazyLoad(exports, ["getNamespace","getNamespaceOutput"], () => require("./getNamespace"));
+utilities.lazyLoad(exports, ["getNotificationHub","getNotificationHubOutput"], () => require("./getNotificationHub"));
+utilities.lazyLoad(exports, ["getNotificationHubPnsCredentials","getNotificationHubPnsCredentialsOutput"], () => require("./getNotificationHubPnsCredentials"));
+utilities.lazyLoad(exports, ["listNamespaceKeys","listNamespaceKeysOutput"], () => require("./listNamespaceKeys"));
+utilities.lazyLoad(exports, ["listNotificationHubKeys","listNotificationHubKeysOutput"], () => require("./listNotificationHubKeys"));
+utilities.lazyLoad(exports, ["Namespace"], () => require("./namespace"));
+utilities.lazyLoad(exports, ["NotificationHub"], () => require("./notificationHub"));
 
 // Export enums:
 export * from "../../types/enums/notificationhubs/v20140901";
-
-// Import resources to register:
-import { Namespace } from "./namespace";
-import { NotificationHub } from "./notificationHub";
 
 const _module = {
     version: utilities.getVersion(),

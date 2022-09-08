@@ -5,16 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./apiManagementService";
-export * from "./getApiManagementService";
-export * from "./getApiManagementServiceSsoToken";
-export * from "./getUserSharedAccessToken";
+export { ApiManagementServiceArgs } from "./apiManagementService";
+export type ApiManagementService = import("./apiManagementService").ApiManagementService;
+export const ApiManagementService: typeof import("./apiManagementService").ApiManagementService = null as any;
+
+export { GetApiManagementServiceArgs, GetApiManagementServiceResult, GetApiManagementServiceOutputArgs } from "./getApiManagementService";
+export const getApiManagementService: typeof import("./getApiManagementService").getApiManagementService = null as any;
+export const getApiManagementServiceOutput: typeof import("./getApiManagementService").getApiManagementServiceOutput = null as any;
+
+export { GetApiManagementServiceSsoTokenArgs, GetApiManagementServiceSsoTokenResult, GetApiManagementServiceSsoTokenOutputArgs } from "./getApiManagementServiceSsoToken";
+export const getApiManagementServiceSsoToken: typeof import("./getApiManagementServiceSsoToken").getApiManagementServiceSsoToken = null as any;
+export const getApiManagementServiceSsoTokenOutput: typeof import("./getApiManagementServiceSsoToken").getApiManagementServiceSsoTokenOutput = null as any;
+
+export { GetUserSharedAccessTokenArgs, GetUserSharedAccessTokenResult, GetUserSharedAccessTokenOutputArgs } from "./getUserSharedAccessToken";
+export const getUserSharedAccessToken: typeof import("./getUserSharedAccessToken").getUserSharedAccessToken = null as any;
+export const getUserSharedAccessTokenOutput: typeof import("./getUserSharedAccessToken").getUserSharedAccessTokenOutput = null as any;
+
+utilities.lazyLoad(exports, ["ApiManagementService"], () => require("./apiManagementService"));
+utilities.lazyLoad(exports, ["getApiManagementService","getApiManagementServiceOutput"], () => require("./getApiManagementService"));
+utilities.lazyLoad(exports, ["getApiManagementServiceSsoToken","getApiManagementServiceSsoTokenOutput"], () => require("./getApiManagementServiceSsoToken"));
+utilities.lazyLoad(exports, ["getUserSharedAccessToken","getUserSharedAccessTokenOutput"], () => require("./getUserSharedAccessToken"));
 
 // Export enums:
 export * from "../../types/enums/apimanagement/v20161010";
-
-// Import resources to register:
-import { ApiManagementService } from "./apiManagementService";
 
 const _module = {
     version: utilities.getVersion(),

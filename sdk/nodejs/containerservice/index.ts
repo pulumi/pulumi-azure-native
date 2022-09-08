@@ -5,26 +5,106 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./agentPool";
-export * from "./getAgentPool";
-export * from "./getMaintenanceConfiguration";
-export * from "./getManagedCluster";
-export * from "./getManagedClusterSnapshot";
-export * from "./getOpenShiftManagedCluster";
-export * from "./getPrivateEndpointConnection";
-export * from "./getSnapshot";
-export * from "./getTrustedAccessRoleBinding";
-export * from "./listManagedClusterAccessProfile";
-export * from "./listManagedClusterAdminCredentials";
-export * from "./listManagedClusterMonitoringUserCredentials";
-export * from "./listManagedClusterUserCredentials";
-export * from "./maintenanceConfiguration";
-export * from "./managedCluster";
-export * from "./managedClusterSnapshot";
-export * from "./openShiftManagedCluster";
-export * from "./privateEndpointConnection";
-export * from "./snapshot";
-export * from "./trustedAccessRoleBinding";
+export { AgentPoolArgs } from "./agentPool";
+export type AgentPool = import("./agentPool").AgentPool;
+export const AgentPool: typeof import("./agentPool").AgentPool = null as any;
+
+export { GetAgentPoolArgs, GetAgentPoolResult, GetAgentPoolOutputArgs } from "./getAgentPool";
+export const getAgentPool: typeof import("./getAgentPool").getAgentPool = null as any;
+export const getAgentPoolOutput: typeof import("./getAgentPool").getAgentPoolOutput = null as any;
+
+export { GetMaintenanceConfigurationArgs, GetMaintenanceConfigurationResult, GetMaintenanceConfigurationOutputArgs } from "./getMaintenanceConfiguration";
+export const getMaintenanceConfiguration: typeof import("./getMaintenanceConfiguration").getMaintenanceConfiguration = null as any;
+export const getMaintenanceConfigurationOutput: typeof import("./getMaintenanceConfiguration").getMaintenanceConfigurationOutput = null as any;
+
+export { GetManagedClusterArgs, GetManagedClusterResult, GetManagedClusterOutputArgs } from "./getManagedCluster";
+export const getManagedCluster: typeof import("./getManagedCluster").getManagedCluster = null as any;
+export const getManagedClusterOutput: typeof import("./getManagedCluster").getManagedClusterOutput = null as any;
+
+export { GetManagedClusterSnapshotArgs, GetManagedClusterSnapshotResult, GetManagedClusterSnapshotOutputArgs } from "./getManagedClusterSnapshot";
+export const getManagedClusterSnapshot: typeof import("./getManagedClusterSnapshot").getManagedClusterSnapshot = null as any;
+export const getManagedClusterSnapshotOutput: typeof import("./getManagedClusterSnapshot").getManagedClusterSnapshotOutput = null as any;
+
+export { GetOpenShiftManagedClusterArgs, GetOpenShiftManagedClusterResult, GetOpenShiftManagedClusterOutputArgs } from "./getOpenShiftManagedCluster";
+export const getOpenShiftManagedCluster: typeof import("./getOpenShiftManagedCluster").getOpenShiftManagedCluster = null as any;
+export const getOpenShiftManagedClusterOutput: typeof import("./getOpenShiftManagedCluster").getOpenShiftManagedClusterOutput = null as any;
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+
+export { GetSnapshotArgs, GetSnapshotResult, GetSnapshotOutputArgs } from "./getSnapshot";
+export const getSnapshot: typeof import("./getSnapshot").getSnapshot = null as any;
+export const getSnapshotOutput: typeof import("./getSnapshot").getSnapshotOutput = null as any;
+
+export { GetTrustedAccessRoleBindingArgs, GetTrustedAccessRoleBindingResult, GetTrustedAccessRoleBindingOutputArgs } from "./getTrustedAccessRoleBinding";
+export const getTrustedAccessRoleBinding: typeof import("./getTrustedAccessRoleBinding").getTrustedAccessRoleBinding = null as any;
+export const getTrustedAccessRoleBindingOutput: typeof import("./getTrustedAccessRoleBinding").getTrustedAccessRoleBindingOutput = null as any;
+
+export { ListManagedClusterAccessProfileArgs, ListManagedClusterAccessProfileResult, ListManagedClusterAccessProfileOutputArgs } from "./listManagedClusterAccessProfile";
+export const listManagedClusterAccessProfile: typeof import("./listManagedClusterAccessProfile").listManagedClusterAccessProfile = null as any;
+export const listManagedClusterAccessProfileOutput: typeof import("./listManagedClusterAccessProfile").listManagedClusterAccessProfileOutput = null as any;
+
+export { ListManagedClusterAdminCredentialsArgs, ListManagedClusterAdminCredentialsResult, ListManagedClusterAdminCredentialsOutputArgs } from "./listManagedClusterAdminCredentials";
+export const listManagedClusterAdminCredentials: typeof import("./listManagedClusterAdminCredentials").listManagedClusterAdminCredentials = null as any;
+export const listManagedClusterAdminCredentialsOutput: typeof import("./listManagedClusterAdminCredentials").listManagedClusterAdminCredentialsOutput = null as any;
+
+export { ListManagedClusterMonitoringUserCredentialsArgs, ListManagedClusterMonitoringUserCredentialsResult, ListManagedClusterMonitoringUserCredentialsOutputArgs } from "./listManagedClusterMonitoringUserCredentials";
+export const listManagedClusterMonitoringUserCredentials: typeof import("./listManagedClusterMonitoringUserCredentials").listManagedClusterMonitoringUserCredentials = null as any;
+export const listManagedClusterMonitoringUserCredentialsOutput: typeof import("./listManagedClusterMonitoringUserCredentials").listManagedClusterMonitoringUserCredentialsOutput = null as any;
+
+export { ListManagedClusterUserCredentialsArgs, ListManagedClusterUserCredentialsResult, ListManagedClusterUserCredentialsOutputArgs } from "./listManagedClusterUserCredentials";
+export const listManagedClusterUserCredentials: typeof import("./listManagedClusterUserCredentials").listManagedClusterUserCredentials = null as any;
+export const listManagedClusterUserCredentialsOutput: typeof import("./listManagedClusterUserCredentials").listManagedClusterUserCredentialsOutput = null as any;
+
+export { MaintenanceConfigurationArgs } from "./maintenanceConfiguration";
+export type MaintenanceConfiguration = import("./maintenanceConfiguration").MaintenanceConfiguration;
+export const MaintenanceConfiguration: typeof import("./maintenanceConfiguration").MaintenanceConfiguration = null as any;
+
+export { ManagedClusterArgs } from "./managedCluster";
+export type ManagedCluster = import("./managedCluster").ManagedCluster;
+export const ManagedCluster: typeof import("./managedCluster").ManagedCluster = null as any;
+
+export { ManagedClusterSnapshotArgs } from "./managedClusterSnapshot";
+export type ManagedClusterSnapshot = import("./managedClusterSnapshot").ManagedClusterSnapshot;
+export const ManagedClusterSnapshot: typeof import("./managedClusterSnapshot").ManagedClusterSnapshot = null as any;
+
+export { OpenShiftManagedClusterArgs } from "./openShiftManagedCluster";
+export type OpenShiftManagedCluster = import("./openShiftManagedCluster").OpenShiftManagedCluster;
+export const OpenShiftManagedCluster: typeof import("./openShiftManagedCluster").OpenShiftManagedCluster = null as any;
+
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+
+export { SnapshotArgs } from "./snapshot";
+export type Snapshot = import("./snapshot").Snapshot;
+export const Snapshot: typeof import("./snapshot").Snapshot = null as any;
+
+export { TrustedAccessRoleBindingArgs } from "./trustedAccessRoleBinding";
+export type TrustedAccessRoleBinding = import("./trustedAccessRoleBinding").TrustedAccessRoleBinding;
+export const TrustedAccessRoleBinding: typeof import("./trustedAccessRoleBinding").TrustedAccessRoleBinding = null as any;
+
+utilities.lazyLoad(exports, ["AgentPool"], () => require("./agentPool"));
+utilities.lazyLoad(exports, ["getAgentPool","getAgentPoolOutput"], () => require("./getAgentPool"));
+utilities.lazyLoad(exports, ["getMaintenanceConfiguration","getMaintenanceConfigurationOutput"], () => require("./getMaintenanceConfiguration"));
+utilities.lazyLoad(exports, ["getManagedCluster","getManagedClusterOutput"], () => require("./getManagedCluster"));
+utilities.lazyLoad(exports, ["getManagedClusterSnapshot","getManagedClusterSnapshotOutput"], () => require("./getManagedClusterSnapshot"));
+utilities.lazyLoad(exports, ["getOpenShiftManagedCluster","getOpenShiftManagedClusterOutput"], () => require("./getOpenShiftManagedCluster"));
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+utilities.lazyLoad(exports, ["getSnapshot","getSnapshotOutput"], () => require("./getSnapshot"));
+utilities.lazyLoad(exports, ["getTrustedAccessRoleBinding","getTrustedAccessRoleBindingOutput"], () => require("./getTrustedAccessRoleBinding"));
+utilities.lazyLoad(exports, ["listManagedClusterAccessProfile","listManagedClusterAccessProfileOutput"], () => require("./listManagedClusterAccessProfile"));
+utilities.lazyLoad(exports, ["listManagedClusterAdminCredentials","listManagedClusterAdminCredentialsOutput"], () => require("./listManagedClusterAdminCredentials"));
+utilities.lazyLoad(exports, ["listManagedClusterMonitoringUserCredentials","listManagedClusterMonitoringUserCredentialsOutput"], () => require("./listManagedClusterMonitoringUserCredentials"));
+utilities.lazyLoad(exports, ["listManagedClusterUserCredentials","listManagedClusterUserCredentialsOutput"], () => require("./listManagedClusterUserCredentials"));
+utilities.lazyLoad(exports, ["MaintenanceConfiguration"], () => require("./maintenanceConfiguration"));
+utilities.lazyLoad(exports, ["ManagedCluster"], () => require("./managedCluster"));
+utilities.lazyLoad(exports, ["ManagedClusterSnapshot"], () => require("./managedClusterSnapshot"));
+utilities.lazyLoad(exports, ["OpenShiftManagedCluster"], () => require("./openShiftManagedCluster"));
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+utilities.lazyLoad(exports, ["Snapshot"], () => require("./snapshot"));
+utilities.lazyLoad(exports, ["TrustedAccessRoleBinding"], () => require("./trustedAccessRoleBinding"));
 
 // Export enums:
 export * from "../types/enums/containerservice";
@@ -127,16 +207,6 @@ export {
     v20220701,
     v20220702preview,
 };
-
-// Import resources to register:
-import { AgentPool } from "./agentPool";
-import { MaintenanceConfiguration } from "./maintenanceConfiguration";
-import { ManagedCluster } from "./managedCluster";
-import { ManagedClusterSnapshot } from "./managedClusterSnapshot";
-import { OpenShiftManagedCluster } from "./openShiftManagedCluster";
-import { PrivateEndpointConnection } from "./privateEndpointConnection";
-import { Snapshot } from "./snapshot";
-import { TrustedAccessRoleBinding } from "./trustedAccessRoleBinding";
 
 const _module = {
     version: utilities.getVersion(),

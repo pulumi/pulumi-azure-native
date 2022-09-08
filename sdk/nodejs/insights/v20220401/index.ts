@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./actionGroup";
-export * from "./getActionGroup";
-export * from "./getWorkbook";
-export * from "./workbook";
+export { ActionGroupArgs } from "./actionGroup";
+export type ActionGroup = import("./actionGroup").ActionGroup;
+export const ActionGroup: typeof import("./actionGroup").ActionGroup = null as any;
+
+export { GetActionGroupArgs, GetActionGroupResult, GetActionGroupOutputArgs } from "./getActionGroup";
+export const getActionGroup: typeof import("./getActionGroup").getActionGroup = null as any;
+export const getActionGroupOutput: typeof import("./getActionGroup").getActionGroupOutput = null as any;
+
+export { GetWorkbookArgs, GetWorkbookResult, GetWorkbookOutputArgs } from "./getWorkbook";
+export const getWorkbook: typeof import("./getWorkbook").getWorkbook = null as any;
+export const getWorkbookOutput: typeof import("./getWorkbook").getWorkbookOutput = null as any;
+
+export { WorkbookArgs } from "./workbook";
+export type Workbook = import("./workbook").Workbook;
+export const Workbook: typeof import("./workbook").Workbook = null as any;
+
+utilities.lazyLoad(exports, ["ActionGroup"], () => require("./actionGroup"));
+utilities.lazyLoad(exports, ["getActionGroup","getActionGroupOutput"], () => require("./getActionGroup"));
+utilities.lazyLoad(exports, ["getWorkbook","getWorkbookOutput"], () => require("./getWorkbook"));
+utilities.lazyLoad(exports, ["Workbook"], () => require("./workbook"));
 
 // Export enums:
 export * from "../../types/enums/insights/v20220401";
-
-// Import resources to register:
-import { ActionGroup } from "./actionGroup";
-import { Workbook } from "./workbook";
 
 const _module = {
     version: utilities.getVersion(),

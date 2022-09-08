@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./accessReviewHistoryDefinitionById";
-export * from "./accessReviewScheduleDefinitionById";
-export * from "./getAccessReviewHistoryDefinitionById";
-export * from "./getAccessReviewScheduleDefinitionById";
+export { AccessReviewHistoryDefinitionByIdArgs } from "./accessReviewHistoryDefinitionById";
+export type AccessReviewHistoryDefinitionById = import("./accessReviewHistoryDefinitionById").AccessReviewHistoryDefinitionById;
+export const AccessReviewHistoryDefinitionById: typeof import("./accessReviewHistoryDefinitionById").AccessReviewHistoryDefinitionById = null as any;
+
+export { AccessReviewScheduleDefinitionByIdArgs } from "./accessReviewScheduleDefinitionById";
+export type AccessReviewScheduleDefinitionById = import("./accessReviewScheduleDefinitionById").AccessReviewScheduleDefinitionById;
+export const AccessReviewScheduleDefinitionById: typeof import("./accessReviewScheduleDefinitionById").AccessReviewScheduleDefinitionById = null as any;
+
+export { GetAccessReviewHistoryDefinitionByIdArgs, GetAccessReviewHistoryDefinitionByIdResult, GetAccessReviewHistoryDefinitionByIdOutputArgs } from "./getAccessReviewHistoryDefinitionById";
+export const getAccessReviewHistoryDefinitionById: typeof import("./getAccessReviewHistoryDefinitionById").getAccessReviewHistoryDefinitionById = null as any;
+export const getAccessReviewHistoryDefinitionByIdOutput: typeof import("./getAccessReviewHistoryDefinitionById").getAccessReviewHistoryDefinitionByIdOutput = null as any;
+
+export { GetAccessReviewScheduleDefinitionByIdArgs, GetAccessReviewScheduleDefinitionByIdResult, GetAccessReviewScheduleDefinitionByIdOutputArgs } from "./getAccessReviewScheduleDefinitionById";
+export const getAccessReviewScheduleDefinitionById: typeof import("./getAccessReviewScheduleDefinitionById").getAccessReviewScheduleDefinitionById = null as any;
+export const getAccessReviewScheduleDefinitionByIdOutput: typeof import("./getAccessReviewScheduleDefinitionById").getAccessReviewScheduleDefinitionByIdOutput = null as any;
+
+utilities.lazyLoad(exports, ["AccessReviewHistoryDefinitionById"], () => require("./accessReviewHistoryDefinitionById"));
+utilities.lazyLoad(exports, ["AccessReviewScheduleDefinitionById"], () => require("./accessReviewScheduleDefinitionById"));
+utilities.lazyLoad(exports, ["getAccessReviewHistoryDefinitionById","getAccessReviewHistoryDefinitionByIdOutput"], () => require("./getAccessReviewHistoryDefinitionById"));
+utilities.lazyLoad(exports, ["getAccessReviewScheduleDefinitionById","getAccessReviewScheduleDefinitionByIdOutput"], () => require("./getAccessReviewScheduleDefinitionById"));
 
 // Export enums:
 export * from "../../types/enums/authorization/v20211116preview";
-
-// Import resources to register:
-import { AccessReviewHistoryDefinitionById } from "./accessReviewHistoryDefinitionById";
-import { AccessReviewScheduleDefinitionById } from "./accessReviewScheduleDefinitionById";
 
 const _module = {
     version: utilities.getVersion(),

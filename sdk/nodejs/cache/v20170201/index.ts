@@ -5,24 +5,54 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./firewallRule";
-export * from "./getFirewallRule";
-export * from "./getPatchSchedule";
-export * from "./getRedis";
-export * from "./getRedisLinkedServer";
-export * from "./listRedisKeys";
-export * from "./patchSchedule";
-export * from "./redis";
-export * from "./redisLinkedServer";
+export { FirewallRuleArgs } from "./firewallRule";
+export type FirewallRule = import("./firewallRule").FirewallRule;
+export const FirewallRule: typeof import("./firewallRule").FirewallRule = null as any;
+
+export { GetFirewallRuleArgs, GetFirewallRuleResult, GetFirewallRuleOutputArgs } from "./getFirewallRule";
+export const getFirewallRule: typeof import("./getFirewallRule").getFirewallRule = null as any;
+export const getFirewallRuleOutput: typeof import("./getFirewallRule").getFirewallRuleOutput = null as any;
+
+export { GetPatchScheduleArgs, GetPatchScheduleResult, GetPatchScheduleOutputArgs } from "./getPatchSchedule";
+export const getPatchSchedule: typeof import("./getPatchSchedule").getPatchSchedule = null as any;
+export const getPatchScheduleOutput: typeof import("./getPatchSchedule").getPatchScheduleOutput = null as any;
+
+export { GetRedisArgs, GetRedisResult, GetRedisOutputArgs } from "./getRedis";
+export const getRedis: typeof import("./getRedis").getRedis = null as any;
+export const getRedisOutput: typeof import("./getRedis").getRedisOutput = null as any;
+
+export { GetRedisLinkedServerArgs, GetRedisLinkedServerResult, GetRedisLinkedServerOutputArgs } from "./getRedisLinkedServer";
+export const getRedisLinkedServer: typeof import("./getRedisLinkedServer").getRedisLinkedServer = null as any;
+export const getRedisLinkedServerOutput: typeof import("./getRedisLinkedServer").getRedisLinkedServerOutput = null as any;
+
+export { ListRedisKeysArgs, ListRedisKeysResult, ListRedisKeysOutputArgs } from "./listRedisKeys";
+export const listRedisKeys: typeof import("./listRedisKeys").listRedisKeys = null as any;
+export const listRedisKeysOutput: typeof import("./listRedisKeys").listRedisKeysOutput = null as any;
+
+export { PatchScheduleArgs } from "./patchSchedule";
+export type PatchSchedule = import("./patchSchedule").PatchSchedule;
+export const PatchSchedule: typeof import("./patchSchedule").PatchSchedule = null as any;
+
+export { RedisArgs } from "./redis";
+export type Redis = import("./redis").Redis;
+export const Redis: typeof import("./redis").Redis = null as any;
+
+export { RedisLinkedServerArgs } from "./redisLinkedServer";
+export type RedisLinkedServer = import("./redisLinkedServer").RedisLinkedServer;
+export const RedisLinkedServer: typeof import("./redisLinkedServer").RedisLinkedServer = null as any;
+
+utilities.lazyLoad(exports, ["FirewallRule"], () => require("./firewallRule"));
+utilities.lazyLoad(exports, ["getFirewallRule","getFirewallRuleOutput"], () => require("./getFirewallRule"));
+utilities.lazyLoad(exports, ["getPatchSchedule","getPatchScheduleOutput"], () => require("./getPatchSchedule"));
+utilities.lazyLoad(exports, ["getRedis","getRedisOutput"], () => require("./getRedis"));
+utilities.lazyLoad(exports, ["getRedisLinkedServer","getRedisLinkedServerOutput"], () => require("./getRedisLinkedServer"));
+utilities.lazyLoad(exports, ["listRedisKeys","listRedisKeysOutput"], () => require("./listRedisKeys"));
+utilities.lazyLoad(exports, ["PatchSchedule"], () => require("./patchSchedule"));
+utilities.lazyLoad(exports, ["Redis"], () => require("./redis"));
+utilities.lazyLoad(exports, ["RedisLinkedServer"], () => require("./redisLinkedServer"));
 
 // Export enums:
 export * from "../../types/enums/cache/v20170201";
-
-// Import resources to register:
-import { FirewallRule } from "./firewallRule";
-import { PatchSchedule } from "./patchSchedule";
-import { Redis } from "./redis";
-import { RedisLinkedServer } from "./redisLinkedServer";
 
 const _module = {
     version: utilities.getVersion(),

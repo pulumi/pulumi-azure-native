@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./assignment";
-export * from "./getAssignment";
-export * from "./getStandard";
-export * from "./standard";
+export { AssignmentArgs } from "./assignment";
+export type Assignment = import("./assignment").Assignment;
+export const Assignment: typeof import("./assignment").Assignment = null as any;
+
+export { GetAssignmentArgs, GetAssignmentResult, GetAssignmentOutputArgs } from "./getAssignment";
+export const getAssignment: typeof import("./getAssignment").getAssignment = null as any;
+export const getAssignmentOutput: typeof import("./getAssignment").getAssignmentOutput = null as any;
+
+export { GetStandardArgs, GetStandardResult, GetStandardOutputArgs } from "./getStandard";
+export const getStandard: typeof import("./getStandard").getStandard = null as any;
+export const getStandardOutput: typeof import("./getStandard").getStandardOutput = null as any;
+
+export { StandardArgs } from "./standard";
+export type Standard = import("./standard").Standard;
+export const Standard: typeof import("./standard").Standard = null as any;
+
+utilities.lazyLoad(exports, ["Assignment"], () => require("./assignment"));
+utilities.lazyLoad(exports, ["getAssignment","getAssignmentOutput"], () => require("./getAssignment"));
+utilities.lazyLoad(exports, ["getStandard","getStandardOutput"], () => require("./getStandard"));
+utilities.lazyLoad(exports, ["Standard"], () => require("./standard"));
 
 // Export enums:
 export * from "../../types/enums/security/v20210801preview";
-
-// Import resources to register:
-import { Assignment } from "./assignment";
-import { Standard } from "./standard";
 
 const _module = {
     version: utilities.getVersion(),

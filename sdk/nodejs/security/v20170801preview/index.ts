@@ -5,26 +5,59 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./advancedThreatProtection";
-export * from "./deviceSecurityGroup";
-export * from "./getAdvancedThreatProtection";
-export * from "./getDeviceSecurityGroup";
-export * from "./getIotSecuritySolution";
-export * from "./getSecurityContact";
-export * from "./getWorkspaceSetting";
-export * from "./iotSecuritySolution";
-export * from "./securityContact";
-export * from "./workspaceSetting";
+export { AdvancedThreatProtectionArgs } from "./advancedThreatProtection";
+export type AdvancedThreatProtection = import("./advancedThreatProtection").AdvancedThreatProtection;
+export const AdvancedThreatProtection: typeof import("./advancedThreatProtection").AdvancedThreatProtection = null as any;
+
+export { DeviceSecurityGroupArgs } from "./deviceSecurityGroup";
+export type DeviceSecurityGroup = import("./deviceSecurityGroup").DeviceSecurityGroup;
+export const DeviceSecurityGroup: typeof import("./deviceSecurityGroup").DeviceSecurityGroup = null as any;
+
+export { GetAdvancedThreatProtectionArgs, GetAdvancedThreatProtectionResult, GetAdvancedThreatProtectionOutputArgs } from "./getAdvancedThreatProtection";
+export const getAdvancedThreatProtection: typeof import("./getAdvancedThreatProtection").getAdvancedThreatProtection = null as any;
+export const getAdvancedThreatProtectionOutput: typeof import("./getAdvancedThreatProtection").getAdvancedThreatProtectionOutput = null as any;
+
+export { GetDeviceSecurityGroupArgs, GetDeviceSecurityGroupResult, GetDeviceSecurityGroupOutputArgs } from "./getDeviceSecurityGroup";
+export const getDeviceSecurityGroup: typeof import("./getDeviceSecurityGroup").getDeviceSecurityGroup = null as any;
+export const getDeviceSecurityGroupOutput: typeof import("./getDeviceSecurityGroup").getDeviceSecurityGroupOutput = null as any;
+
+export { GetIotSecuritySolutionArgs, GetIotSecuritySolutionResult, GetIotSecuritySolutionOutputArgs } from "./getIotSecuritySolution";
+export const getIotSecuritySolution: typeof import("./getIotSecuritySolution").getIotSecuritySolution = null as any;
+export const getIotSecuritySolutionOutput: typeof import("./getIotSecuritySolution").getIotSecuritySolutionOutput = null as any;
+
+export { GetSecurityContactArgs, GetSecurityContactResult, GetSecurityContactOutputArgs } from "./getSecurityContact";
+export const getSecurityContact: typeof import("./getSecurityContact").getSecurityContact = null as any;
+export const getSecurityContactOutput: typeof import("./getSecurityContact").getSecurityContactOutput = null as any;
+
+export { GetWorkspaceSettingArgs, GetWorkspaceSettingResult, GetWorkspaceSettingOutputArgs } from "./getWorkspaceSetting";
+export const getWorkspaceSetting: typeof import("./getWorkspaceSetting").getWorkspaceSetting = null as any;
+export const getWorkspaceSettingOutput: typeof import("./getWorkspaceSetting").getWorkspaceSettingOutput = null as any;
+
+export { IotSecuritySolutionArgs } from "./iotSecuritySolution";
+export type IotSecuritySolution = import("./iotSecuritySolution").IotSecuritySolution;
+export const IotSecuritySolution: typeof import("./iotSecuritySolution").IotSecuritySolution = null as any;
+
+export { SecurityContactArgs } from "./securityContact";
+export type SecurityContact = import("./securityContact").SecurityContact;
+export const SecurityContact: typeof import("./securityContact").SecurityContact = null as any;
+
+export { WorkspaceSettingArgs } from "./workspaceSetting";
+export type WorkspaceSetting = import("./workspaceSetting").WorkspaceSetting;
+export const WorkspaceSetting: typeof import("./workspaceSetting").WorkspaceSetting = null as any;
+
+utilities.lazyLoad(exports, ["AdvancedThreatProtection"], () => require("./advancedThreatProtection"));
+utilities.lazyLoad(exports, ["DeviceSecurityGroup"], () => require("./deviceSecurityGroup"));
+utilities.lazyLoad(exports, ["getAdvancedThreatProtection","getAdvancedThreatProtectionOutput"], () => require("./getAdvancedThreatProtection"));
+utilities.lazyLoad(exports, ["getDeviceSecurityGroup","getDeviceSecurityGroupOutput"], () => require("./getDeviceSecurityGroup"));
+utilities.lazyLoad(exports, ["getIotSecuritySolution","getIotSecuritySolutionOutput"], () => require("./getIotSecuritySolution"));
+utilities.lazyLoad(exports, ["getSecurityContact","getSecurityContactOutput"], () => require("./getSecurityContact"));
+utilities.lazyLoad(exports, ["getWorkspaceSetting","getWorkspaceSettingOutput"], () => require("./getWorkspaceSetting"));
+utilities.lazyLoad(exports, ["IotSecuritySolution"], () => require("./iotSecuritySolution"));
+utilities.lazyLoad(exports, ["SecurityContact"], () => require("./securityContact"));
+utilities.lazyLoad(exports, ["WorkspaceSetting"], () => require("./workspaceSetting"));
 
 // Export enums:
 export * from "../../types/enums/security/v20170801preview";
-
-// Import resources to register:
-import { AdvancedThreatProtection } from "./advancedThreatProtection";
-import { DeviceSecurityGroup } from "./deviceSecurityGroup";
-import { IotSecuritySolution } from "./iotSecuritySolution";
-import { SecurityContact } from "./securityContact";
-import { WorkspaceSetting } from "./workspaceSetting";
 
 const _module = {
     version: utilities.getVersion(),

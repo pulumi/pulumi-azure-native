@@ -5,8 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getOrganization";
-export * from "./organization";
+export { GetOrganizationArgs, GetOrganizationResult, GetOrganizationOutputArgs } from "./getOrganization";
+export const getOrganization: typeof import("./getOrganization").getOrganization = null as any;
+export const getOrganizationOutput: typeof import("./getOrganization").getOrganizationOutput = null as any;
+
+export { OrganizationArgs } from "./organization";
+export type Organization = import("./organization").Organization;
+export const Organization: typeof import("./organization").Organization = null as any;
+
+utilities.lazyLoad(exports, ["getOrganization","getOrganizationOutput"], () => require("./getOrganization"));
+utilities.lazyLoad(exports, ["Organization"], () => require("./organization"));
 
 // Export sub-modules:
 import * as v20200301 from "./v20200301";
@@ -22,9 +30,6 @@ export {
     v20210901preview,
     v20211201,
 };
-
-// Import resources to register:
-import { Organization } from "./organization";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getOpenShiftManagedCluster";
-export * from "./openShiftManagedCluster";
+export { GetOpenShiftManagedClusterArgs, GetOpenShiftManagedClusterResult, GetOpenShiftManagedClusterOutputArgs } from "./getOpenShiftManagedCluster";
+export const getOpenShiftManagedCluster: typeof import("./getOpenShiftManagedCluster").getOpenShiftManagedCluster = null as any;
+export const getOpenShiftManagedClusterOutput: typeof import("./getOpenShiftManagedCluster").getOpenShiftManagedClusterOutput = null as any;
+
+export { OpenShiftManagedClusterArgs } from "./openShiftManagedCluster";
+export type OpenShiftManagedCluster = import("./openShiftManagedCluster").OpenShiftManagedCluster;
+export const OpenShiftManagedCluster: typeof import("./openShiftManagedCluster").OpenShiftManagedCluster = null as any;
+
+utilities.lazyLoad(exports, ["getOpenShiftManagedCluster","getOpenShiftManagedClusterOutput"], () => require("./getOpenShiftManagedCluster"));
+utilities.lazyLoad(exports, ["OpenShiftManagedCluster"], () => require("./openShiftManagedCluster"));
 
 // Export enums:
 export * from "../../types/enums/containerservice/v20180930preview";
-
-// Import resources to register:
-import { OpenShiftManagedCluster } from "./openShiftManagedCluster";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,16 +5,56 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./agent";
-export * from "./endpoint";
-export * from "./getAgent";
-export * from "./getEndpoint";
-export * from "./getJobDefinition";
-export * from "./getProject";
-export * from "./getStorageMover";
-export * from "./jobDefinition";
-export * from "./project";
-export * from "./storageMover";
+export { AgentArgs } from "./agent";
+export type Agent = import("./agent").Agent;
+export const Agent: typeof import("./agent").Agent = null as any;
+
+export { EndpointArgs } from "./endpoint";
+export type Endpoint = import("./endpoint").Endpoint;
+export const Endpoint: typeof import("./endpoint").Endpoint = null as any;
+
+export { GetAgentArgs, GetAgentResult, GetAgentOutputArgs } from "./getAgent";
+export const getAgent: typeof import("./getAgent").getAgent = null as any;
+export const getAgentOutput: typeof import("./getAgent").getAgentOutput = null as any;
+
+export { GetEndpointArgs, GetEndpointResult, GetEndpointOutputArgs } from "./getEndpoint";
+export const getEndpoint: typeof import("./getEndpoint").getEndpoint = null as any;
+export const getEndpointOutput: typeof import("./getEndpoint").getEndpointOutput = null as any;
+
+export { GetJobDefinitionArgs, GetJobDefinitionResult, GetJobDefinitionOutputArgs } from "./getJobDefinition";
+export const getJobDefinition: typeof import("./getJobDefinition").getJobDefinition = null as any;
+export const getJobDefinitionOutput: typeof import("./getJobDefinition").getJobDefinitionOutput = null as any;
+
+export { GetProjectArgs, GetProjectResult, GetProjectOutputArgs } from "./getProject";
+export const getProject: typeof import("./getProject").getProject = null as any;
+export const getProjectOutput: typeof import("./getProject").getProjectOutput = null as any;
+
+export { GetStorageMoverArgs, GetStorageMoverResult, GetStorageMoverOutputArgs } from "./getStorageMover";
+export const getStorageMover: typeof import("./getStorageMover").getStorageMover = null as any;
+export const getStorageMoverOutput: typeof import("./getStorageMover").getStorageMoverOutput = null as any;
+
+export { JobDefinitionArgs } from "./jobDefinition";
+export type JobDefinition = import("./jobDefinition").JobDefinition;
+export const JobDefinition: typeof import("./jobDefinition").JobDefinition = null as any;
+
+export { ProjectArgs } from "./project";
+export type Project = import("./project").Project;
+export const Project: typeof import("./project").Project = null as any;
+
+export { StorageMoverArgs } from "./storageMover";
+export type StorageMover = import("./storageMover").StorageMover;
+export const StorageMover: typeof import("./storageMover").StorageMover = null as any;
+
+utilities.lazyLoad(exports, ["Agent"], () => require("./agent"));
+utilities.lazyLoad(exports, ["Endpoint"], () => require("./endpoint"));
+utilities.lazyLoad(exports, ["getAgent","getAgentOutput"], () => require("./getAgent"));
+utilities.lazyLoad(exports, ["getEndpoint","getEndpointOutput"], () => require("./getEndpoint"));
+utilities.lazyLoad(exports, ["getJobDefinition","getJobDefinitionOutput"], () => require("./getJobDefinition"));
+utilities.lazyLoad(exports, ["getProject","getProjectOutput"], () => require("./getProject"));
+utilities.lazyLoad(exports, ["getStorageMover","getStorageMoverOutput"], () => require("./getStorageMover"));
+utilities.lazyLoad(exports, ["JobDefinition"], () => require("./jobDefinition"));
+utilities.lazyLoad(exports, ["Project"], () => require("./project"));
+utilities.lazyLoad(exports, ["StorageMover"], () => require("./storageMover"));
 
 // Export enums:
 export * from "../types/enums/storagemover";
@@ -25,13 +65,6 @@ import * as v20220701preview from "./v20220701preview";
 export {
     v20220701preview,
 };
-
-// Import resources to register:
-import { Agent } from "./agent";
-import { Endpoint } from "./endpoint";
-import { JobDefinition } from "./jobDefinition";
-import { Project } from "./project";
-import { StorageMover } from "./storageMover";
 
 const _module = {
     version: utilities.getVersion(),

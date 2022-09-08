@@ -5,18 +5,34 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getSignalR";
-export * from "./getSignalRPrivateEndpointConnection";
-export * from "./listSignalRKeys";
-export * from "./signalR";
-export * from "./signalRPrivateEndpointConnection";
+export { GetSignalRArgs, GetSignalRResult, GetSignalROutputArgs } from "./getSignalR";
+export const getSignalR: typeof import("./getSignalR").getSignalR = null as any;
+export const getSignalROutput: typeof import("./getSignalR").getSignalROutput = null as any;
+
+export { GetSignalRPrivateEndpointConnectionArgs, GetSignalRPrivateEndpointConnectionResult, GetSignalRPrivateEndpointConnectionOutputArgs } from "./getSignalRPrivateEndpointConnection";
+export const getSignalRPrivateEndpointConnection: typeof import("./getSignalRPrivateEndpointConnection").getSignalRPrivateEndpointConnection = null as any;
+export const getSignalRPrivateEndpointConnectionOutput: typeof import("./getSignalRPrivateEndpointConnection").getSignalRPrivateEndpointConnectionOutput = null as any;
+
+export { ListSignalRKeysArgs, ListSignalRKeysResult, ListSignalRKeysOutputArgs } from "./listSignalRKeys";
+export const listSignalRKeys: typeof import("./listSignalRKeys").listSignalRKeys = null as any;
+export const listSignalRKeysOutput: typeof import("./listSignalRKeys").listSignalRKeysOutput = null as any;
+
+export { SignalRArgs } from "./signalR";
+export type SignalR = import("./signalR").SignalR;
+export const SignalR: typeof import("./signalR").SignalR = null as any;
+
+export { SignalRPrivateEndpointConnectionArgs } from "./signalRPrivateEndpointConnection";
+export type SignalRPrivateEndpointConnection = import("./signalRPrivateEndpointConnection").SignalRPrivateEndpointConnection;
+export const SignalRPrivateEndpointConnection: typeof import("./signalRPrivateEndpointConnection").SignalRPrivateEndpointConnection = null as any;
+
+utilities.lazyLoad(exports, ["getSignalR","getSignalROutput"], () => require("./getSignalR"));
+utilities.lazyLoad(exports, ["getSignalRPrivateEndpointConnection","getSignalRPrivateEndpointConnectionOutput"], () => require("./getSignalRPrivateEndpointConnection"));
+utilities.lazyLoad(exports, ["listSignalRKeys","listSignalRKeysOutput"], () => require("./listSignalRKeys"));
+utilities.lazyLoad(exports, ["SignalR"], () => require("./signalR"));
+utilities.lazyLoad(exports, ["SignalRPrivateEndpointConnection"], () => require("./signalRPrivateEndpointConnection"));
 
 // Export enums:
 export * from "../../types/enums/signalrservice/v20200501";
-
-// Import resources to register:
-import { SignalR } from "./signalR";
-import { SignalRPrivateEndpointConnection } from "./signalRPrivateEndpointConnection";
 
 const _module = {
     version: utilities.getVersion(),

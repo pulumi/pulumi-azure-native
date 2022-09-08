@@ -5,20 +5,39 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./arcSetting";
-export * from "./cluster";
-export * from "./extension";
-export * from "./getArcSetting";
-export * from "./getCluster";
-export * from "./getExtension";
+export { ArcSettingArgs } from "./arcSetting";
+export type ArcSetting = import("./arcSetting").ArcSetting;
+export const ArcSetting: typeof import("./arcSetting").ArcSetting = null as any;
+
+export { ClusterArgs } from "./cluster";
+export type Cluster = import("./cluster").Cluster;
+export const Cluster: typeof import("./cluster").Cluster = null as any;
+
+export { ExtensionArgs } from "./extension";
+export type Extension = import("./extension").Extension;
+export const Extension: typeof import("./extension").Extension = null as any;
+
+export { GetArcSettingArgs, GetArcSettingResult, GetArcSettingOutputArgs } from "./getArcSetting";
+export const getArcSetting: typeof import("./getArcSetting").getArcSetting = null as any;
+export const getArcSettingOutput: typeof import("./getArcSetting").getArcSettingOutput = null as any;
+
+export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
+export const getCluster: typeof import("./getCluster").getCluster = null as any;
+export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
+
+export { GetExtensionArgs, GetExtensionResult, GetExtensionOutputArgs } from "./getExtension";
+export const getExtension: typeof import("./getExtension").getExtension = null as any;
+export const getExtensionOutput: typeof import("./getExtension").getExtensionOutput = null as any;
+
+utilities.lazyLoad(exports, ["ArcSetting"], () => require("./arcSetting"));
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
+utilities.lazyLoad(exports, ["Extension"], () => require("./extension"));
+utilities.lazyLoad(exports, ["getArcSetting","getArcSettingOutput"], () => require("./getArcSetting"));
+utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
+utilities.lazyLoad(exports, ["getExtension","getExtensionOutput"], () => require("./getExtension"));
 
 // Export enums:
 export * from "../../types/enums/azurestackhci/v20220501";
-
-// Import resources to register:
-import { ArcSetting } from "./arcSetting";
-import { Cluster } from "./cluster";
-import { Extension } from "./extension";
 
 const _module = {
     version: utilities.getVersion(),

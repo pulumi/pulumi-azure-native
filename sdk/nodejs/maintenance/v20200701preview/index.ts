@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getMaintenanceConfiguration";
-export * from "./maintenanceConfiguration";
+export { GetMaintenanceConfigurationArgs, GetMaintenanceConfigurationResult, GetMaintenanceConfigurationOutputArgs } from "./getMaintenanceConfiguration";
+export const getMaintenanceConfiguration: typeof import("./getMaintenanceConfiguration").getMaintenanceConfiguration = null as any;
+export const getMaintenanceConfigurationOutput: typeof import("./getMaintenanceConfiguration").getMaintenanceConfigurationOutput = null as any;
+
+export { MaintenanceConfigurationArgs } from "./maintenanceConfiguration";
+export type MaintenanceConfiguration = import("./maintenanceConfiguration").MaintenanceConfiguration;
+export const MaintenanceConfiguration: typeof import("./maintenanceConfiguration").MaintenanceConfiguration = null as any;
+
+utilities.lazyLoad(exports, ["getMaintenanceConfiguration","getMaintenanceConfigurationOutput"], () => require("./getMaintenanceConfiguration"));
+utilities.lazyLoad(exports, ["MaintenanceConfiguration"], () => require("./maintenanceConfiguration"));
 
 // Export enums:
 export * from "../../types/enums/maintenance/v20200701preview";
-
-// Import resources to register:
-import { MaintenanceConfiguration } from "./maintenanceConfiguration";
 
 const _module = {
     version: utilities.getVersion(),

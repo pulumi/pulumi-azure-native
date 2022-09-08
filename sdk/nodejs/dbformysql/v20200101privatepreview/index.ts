@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getServerKey";
-export * from "./serverKey";
+export { GetServerKeyArgs, GetServerKeyResult, GetServerKeyOutputArgs } from "./getServerKey";
+export const getServerKey: typeof import("./getServerKey").getServerKey = null as any;
+export const getServerKeyOutput: typeof import("./getServerKey").getServerKeyOutput = null as any;
+
+export { ServerKeyArgs } from "./serverKey";
+export type ServerKey = import("./serverKey").ServerKey;
+export const ServerKey: typeof import("./serverKey").ServerKey = null as any;
+
+utilities.lazyLoad(exports, ["getServerKey","getServerKeyOutput"], () => require("./getServerKey"));
+utilities.lazyLoad(exports, ["ServerKey"], () => require("./serverKey"));
 
 // Export enums:
 export * from "../../types/enums/dbformysql/v20200101privatepreview";
-
-// Import resources to register:
-import { ServerKey } from "./serverKey";
 
 const _module = {
     version: utilities.getVersion(),

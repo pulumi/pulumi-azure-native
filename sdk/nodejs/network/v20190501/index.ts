@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./frontDoor";
-export * from "./getFrontDoor";
+export { FrontDoorArgs } from "./frontDoor";
+export type FrontDoor = import("./frontDoor").FrontDoor;
+export const FrontDoor: typeof import("./frontDoor").FrontDoor = null as any;
+
+export { GetFrontDoorArgs, GetFrontDoorResult, GetFrontDoorOutputArgs } from "./getFrontDoor";
+export const getFrontDoor: typeof import("./getFrontDoor").getFrontDoor = null as any;
+export const getFrontDoorOutput: typeof import("./getFrontDoor").getFrontDoorOutput = null as any;
+
+utilities.lazyLoad(exports, ["FrontDoor"], () => require("./frontDoor"));
+utilities.lazyLoad(exports, ["getFrontDoor","getFrontDoorOutput"], () => require("./getFrontDoor"));
 
 // Export enums:
 export * from "../../types/enums/network/v20190501";
-
-// Import resources to register:
-import { FrontDoor } from "./frontDoor";
 
 const _module = {
     version: utilities.getVersion(),

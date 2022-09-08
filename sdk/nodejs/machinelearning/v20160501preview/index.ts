@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./commitmentPlan";
-export * from "./getCommitmentPlan";
-export * from "./getWebService";
-export * from "./webService";
+export { CommitmentPlanArgs } from "./commitmentPlan";
+export type CommitmentPlan = import("./commitmentPlan").CommitmentPlan;
+export const CommitmentPlan: typeof import("./commitmentPlan").CommitmentPlan = null as any;
+
+export { GetCommitmentPlanArgs, GetCommitmentPlanResult, GetCommitmentPlanOutputArgs } from "./getCommitmentPlan";
+export const getCommitmentPlan: typeof import("./getCommitmentPlan").getCommitmentPlan = null as any;
+export const getCommitmentPlanOutput: typeof import("./getCommitmentPlan").getCommitmentPlanOutput = null as any;
+
+export { GetWebServiceArgs, GetWebServiceResult, GetWebServiceOutputArgs } from "./getWebService";
+export const getWebService: typeof import("./getWebService").getWebService = null as any;
+export const getWebServiceOutput: typeof import("./getWebService").getWebServiceOutput = null as any;
+
+export { WebServiceArgs } from "./webService";
+export type WebService = import("./webService").WebService;
+export const WebService: typeof import("./webService").WebService = null as any;
+
+utilities.lazyLoad(exports, ["CommitmentPlan"], () => require("./commitmentPlan"));
+utilities.lazyLoad(exports, ["getCommitmentPlan","getCommitmentPlanOutput"], () => require("./getCommitmentPlan"));
+utilities.lazyLoad(exports, ["getWebService","getWebServiceOutput"], () => require("./getWebService"));
+utilities.lazyLoad(exports, ["WebService"], () => require("./webService"));
 
 // Export enums:
 export * from "../../types/enums/machinelearning/v20160501preview";
-
-// Import resources to register:
-import { CommitmentPlan } from "./commitmentPlan";
-import { WebService } from "./webService";
 
 const _module = {
     version: utilities.getVersion(),

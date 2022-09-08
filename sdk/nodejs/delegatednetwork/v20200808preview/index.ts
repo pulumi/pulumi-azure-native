@@ -5,20 +5,39 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./controllerDetails";
-export * from "./delegatedSubnetServiceDetails";
-export * from "./getControllerDetails";
-export * from "./getDelegatedSubnetServiceDetails";
-export * from "./getOrchestratorInstanceServiceDetails";
-export * from "./orchestratorInstanceServiceDetails";
+export { ControllerDetailsArgs } from "./controllerDetails";
+export type ControllerDetails = import("./controllerDetails").ControllerDetails;
+export const ControllerDetails: typeof import("./controllerDetails").ControllerDetails = null as any;
+
+export { DelegatedSubnetServiceDetailsArgs } from "./delegatedSubnetServiceDetails";
+export type DelegatedSubnetServiceDetails = import("./delegatedSubnetServiceDetails").DelegatedSubnetServiceDetails;
+export const DelegatedSubnetServiceDetails: typeof import("./delegatedSubnetServiceDetails").DelegatedSubnetServiceDetails = null as any;
+
+export { GetControllerDetailsArgs, GetControllerDetailsResult, GetControllerDetailsOutputArgs } from "./getControllerDetails";
+export const getControllerDetails: typeof import("./getControllerDetails").getControllerDetails = null as any;
+export const getControllerDetailsOutput: typeof import("./getControllerDetails").getControllerDetailsOutput = null as any;
+
+export { GetDelegatedSubnetServiceDetailsArgs, GetDelegatedSubnetServiceDetailsResult, GetDelegatedSubnetServiceDetailsOutputArgs } from "./getDelegatedSubnetServiceDetails";
+export const getDelegatedSubnetServiceDetails: typeof import("./getDelegatedSubnetServiceDetails").getDelegatedSubnetServiceDetails = null as any;
+export const getDelegatedSubnetServiceDetailsOutput: typeof import("./getDelegatedSubnetServiceDetails").getDelegatedSubnetServiceDetailsOutput = null as any;
+
+export { GetOrchestratorInstanceServiceDetailsArgs, GetOrchestratorInstanceServiceDetailsResult, GetOrchestratorInstanceServiceDetailsOutputArgs } from "./getOrchestratorInstanceServiceDetails";
+export const getOrchestratorInstanceServiceDetails: typeof import("./getOrchestratorInstanceServiceDetails").getOrchestratorInstanceServiceDetails = null as any;
+export const getOrchestratorInstanceServiceDetailsOutput: typeof import("./getOrchestratorInstanceServiceDetails").getOrchestratorInstanceServiceDetailsOutput = null as any;
+
+export { OrchestratorInstanceServiceDetailsArgs } from "./orchestratorInstanceServiceDetails";
+export type OrchestratorInstanceServiceDetails = import("./orchestratorInstanceServiceDetails").OrchestratorInstanceServiceDetails;
+export const OrchestratorInstanceServiceDetails: typeof import("./orchestratorInstanceServiceDetails").OrchestratorInstanceServiceDetails = null as any;
+
+utilities.lazyLoad(exports, ["ControllerDetails"], () => require("./controllerDetails"));
+utilities.lazyLoad(exports, ["DelegatedSubnetServiceDetails"], () => require("./delegatedSubnetServiceDetails"));
+utilities.lazyLoad(exports, ["getControllerDetails","getControllerDetailsOutput"], () => require("./getControllerDetails"));
+utilities.lazyLoad(exports, ["getDelegatedSubnetServiceDetails","getDelegatedSubnetServiceDetailsOutput"], () => require("./getDelegatedSubnetServiceDetails"));
+utilities.lazyLoad(exports, ["getOrchestratorInstanceServiceDetails","getOrchestratorInstanceServiceDetailsOutput"], () => require("./getOrchestratorInstanceServiceDetails"));
+utilities.lazyLoad(exports, ["OrchestratorInstanceServiceDetails"], () => require("./orchestratorInstanceServiceDetails"));
 
 // Export enums:
 export * from "../../types/enums/delegatednetwork/v20200808preview";
-
-// Import resources to register:
-import { ControllerDetails } from "./controllerDetails";
-import { DelegatedSubnetServiceDetails } from "./delegatedSubnetServiceDetails";
-import { OrchestratorInstanceServiceDetails } from "./orchestratorInstanceServiceDetails";
 
 const _module = {
     version: utilities.getVersion(),

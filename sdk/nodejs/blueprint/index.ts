@@ -5,20 +5,76 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./artifact";
-export * from "./assignment";
-export * from "./blueprint";
-export * from "./getArtifact";
-export * from "./getAssignment";
-export * from "./getBlueprint";
-export * from "./getPolicyAssignmentArtifact";
-export * from "./getPublishedBlueprint";
-export * from "./getRoleAssignmentArtifact";
-export * from "./getTemplateArtifact";
-export * from "./policyAssignmentArtifact";
-export * from "./publishedBlueprint";
-export * from "./roleAssignmentArtifact";
-export * from "./templateArtifact";
+export { ArtifactArgs } from "./artifact";
+export type Artifact = import("./artifact").Artifact;
+export const Artifact: typeof import("./artifact").Artifact = null as any;
+
+export { AssignmentArgs } from "./assignment";
+export type Assignment = import("./assignment").Assignment;
+export const Assignment: typeof import("./assignment").Assignment = null as any;
+
+export { BlueprintArgs } from "./blueprint";
+export type Blueprint = import("./blueprint").Blueprint;
+export const Blueprint: typeof import("./blueprint").Blueprint = null as any;
+
+export { GetArtifactArgs, GetArtifactResult, GetArtifactOutputArgs } from "./getArtifact";
+export const getArtifact: typeof import("./getArtifact").getArtifact = null as any;
+export const getArtifactOutput: typeof import("./getArtifact").getArtifactOutput = null as any;
+
+export { GetAssignmentArgs, GetAssignmentResult, GetAssignmentOutputArgs } from "./getAssignment";
+export const getAssignment: typeof import("./getAssignment").getAssignment = null as any;
+export const getAssignmentOutput: typeof import("./getAssignment").getAssignmentOutput = null as any;
+
+export { GetBlueprintArgs, GetBlueprintResult, GetBlueprintOutputArgs } from "./getBlueprint";
+export const getBlueprint: typeof import("./getBlueprint").getBlueprint = null as any;
+export const getBlueprintOutput: typeof import("./getBlueprint").getBlueprintOutput = null as any;
+
+export { GetPolicyAssignmentArtifactArgs, GetPolicyAssignmentArtifactResult, GetPolicyAssignmentArtifactOutputArgs } from "./getPolicyAssignmentArtifact";
+export const getPolicyAssignmentArtifact: typeof import("./getPolicyAssignmentArtifact").getPolicyAssignmentArtifact = null as any;
+export const getPolicyAssignmentArtifactOutput: typeof import("./getPolicyAssignmentArtifact").getPolicyAssignmentArtifactOutput = null as any;
+
+export { GetPublishedBlueprintArgs, GetPublishedBlueprintResult, GetPublishedBlueprintOutputArgs } from "./getPublishedBlueprint";
+export const getPublishedBlueprint: typeof import("./getPublishedBlueprint").getPublishedBlueprint = null as any;
+export const getPublishedBlueprintOutput: typeof import("./getPublishedBlueprint").getPublishedBlueprintOutput = null as any;
+
+export { GetRoleAssignmentArtifactArgs, GetRoleAssignmentArtifactResult, GetRoleAssignmentArtifactOutputArgs } from "./getRoleAssignmentArtifact";
+export const getRoleAssignmentArtifact: typeof import("./getRoleAssignmentArtifact").getRoleAssignmentArtifact = null as any;
+export const getRoleAssignmentArtifactOutput: typeof import("./getRoleAssignmentArtifact").getRoleAssignmentArtifactOutput = null as any;
+
+export { GetTemplateArtifactArgs, GetTemplateArtifactResult, GetTemplateArtifactOutputArgs } from "./getTemplateArtifact";
+export const getTemplateArtifact: typeof import("./getTemplateArtifact").getTemplateArtifact = null as any;
+export const getTemplateArtifactOutput: typeof import("./getTemplateArtifact").getTemplateArtifactOutput = null as any;
+
+export { PolicyAssignmentArtifactArgs } from "./policyAssignmentArtifact";
+export type PolicyAssignmentArtifact = import("./policyAssignmentArtifact").PolicyAssignmentArtifact;
+export const PolicyAssignmentArtifact: typeof import("./policyAssignmentArtifact").PolicyAssignmentArtifact = null as any;
+
+export { PublishedBlueprintArgs } from "./publishedBlueprint";
+export type PublishedBlueprint = import("./publishedBlueprint").PublishedBlueprint;
+export const PublishedBlueprint: typeof import("./publishedBlueprint").PublishedBlueprint = null as any;
+
+export { RoleAssignmentArtifactArgs } from "./roleAssignmentArtifact";
+export type RoleAssignmentArtifact = import("./roleAssignmentArtifact").RoleAssignmentArtifact;
+export const RoleAssignmentArtifact: typeof import("./roleAssignmentArtifact").RoleAssignmentArtifact = null as any;
+
+export { TemplateArtifactArgs } from "./templateArtifact";
+export type TemplateArtifact = import("./templateArtifact").TemplateArtifact;
+export const TemplateArtifact: typeof import("./templateArtifact").TemplateArtifact = null as any;
+
+utilities.lazyLoad(exports, ["Artifact"], () => require("./artifact"));
+utilities.lazyLoad(exports, ["Assignment"], () => require("./assignment"));
+utilities.lazyLoad(exports, ["Blueprint"], () => require("./blueprint"));
+utilities.lazyLoad(exports, ["getArtifact","getArtifactOutput"], () => require("./getArtifact"));
+utilities.lazyLoad(exports, ["getAssignment","getAssignmentOutput"], () => require("./getAssignment"));
+utilities.lazyLoad(exports, ["getBlueprint","getBlueprintOutput"], () => require("./getBlueprint"));
+utilities.lazyLoad(exports, ["getPolicyAssignmentArtifact","getPolicyAssignmentArtifactOutput"], () => require("./getPolicyAssignmentArtifact"));
+utilities.lazyLoad(exports, ["getPublishedBlueprint","getPublishedBlueprintOutput"], () => require("./getPublishedBlueprint"));
+utilities.lazyLoad(exports, ["getRoleAssignmentArtifact","getRoleAssignmentArtifactOutput"], () => require("./getRoleAssignmentArtifact"));
+utilities.lazyLoad(exports, ["getTemplateArtifact","getTemplateArtifactOutput"], () => require("./getTemplateArtifact"));
+utilities.lazyLoad(exports, ["PolicyAssignmentArtifact"], () => require("./policyAssignmentArtifact"));
+utilities.lazyLoad(exports, ["PublishedBlueprint"], () => require("./publishedBlueprint"));
+utilities.lazyLoad(exports, ["RoleAssignmentArtifact"], () => require("./roleAssignmentArtifact"));
+utilities.lazyLoad(exports, ["TemplateArtifact"], () => require("./templateArtifact"));
 
 // Export enums:
 export * from "../types/enums/blueprint";
@@ -31,15 +87,6 @@ export {
     v20171111preview,
     v20181101preview,
 };
-
-// Import resources to register:
-import { Artifact } from "./artifact";
-import { Assignment } from "./assignment";
-import { Blueprint } from "./blueprint";
-import { PolicyAssignmentArtifact } from "./policyAssignmentArtifact";
-import { PublishedBlueprint } from "./publishedBlueprint";
-import { RoleAssignmentArtifact } from "./roleAssignmentArtifact";
-import { TemplateArtifact } from "./templateArtifact";
 
 const _module = {
     version: utilities.getVersion(),

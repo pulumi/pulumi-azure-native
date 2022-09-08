@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./attestationProvider";
-export * from "./getAttestationProvider";
-export * from "./getPrivateEndpointConnection";
-export * from "./privateEndpointConnection";
+export { AttestationProviderArgs } from "./attestationProvider";
+export type AttestationProvider = import("./attestationProvider").AttestationProvider;
+export const AttestationProvider: typeof import("./attestationProvider").AttestationProvider = null as any;
+
+export { GetAttestationProviderArgs, GetAttestationProviderResult, GetAttestationProviderOutputArgs } from "./getAttestationProvider";
+export const getAttestationProvider: typeof import("./getAttestationProvider").getAttestationProvider = null as any;
+export const getAttestationProviderOutput: typeof import("./getAttestationProvider").getAttestationProviderOutput = null as any;
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+
+utilities.lazyLoad(exports, ["AttestationProvider"], () => require("./attestationProvider"));
+utilities.lazyLoad(exports, ["getAttestationProvider","getAttestationProviderOutput"], () => require("./getAttestationProvider"));
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
 
 // Export enums:
 export * from "../../types/enums/attestation/v20210601preview";
-
-// Import resources to register:
-import { AttestationProvider } from "./attestationProvider";
-import { PrivateEndpointConnection } from "./privateEndpointConnection";
 
 const _module = {
     version: utilities.getVersion(),

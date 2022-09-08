@@ -5,23 +5,49 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./accessReviewHistoryDefinitionById";
-export * from "./accessReviewScheduleDefinitionById";
-export * from "./getAccessReviewHistoryDefinitionById";
-export * from "./getAccessReviewScheduleDefinitionById";
-export * from "./getScopeAccessReviewHistoryDefinitionById";
-export * from "./getScopeAccessReviewScheduleDefinitionById";
-export * from "./scopeAccessReviewHistoryDefinitionById";
-export * from "./scopeAccessReviewScheduleDefinitionById";
+export { AccessReviewHistoryDefinitionByIdArgs } from "./accessReviewHistoryDefinitionById";
+export type AccessReviewHistoryDefinitionById = import("./accessReviewHistoryDefinitionById").AccessReviewHistoryDefinitionById;
+export const AccessReviewHistoryDefinitionById: typeof import("./accessReviewHistoryDefinitionById").AccessReviewHistoryDefinitionById = null as any;
+
+export { AccessReviewScheduleDefinitionByIdArgs } from "./accessReviewScheduleDefinitionById";
+export type AccessReviewScheduleDefinitionById = import("./accessReviewScheduleDefinitionById").AccessReviewScheduleDefinitionById;
+export const AccessReviewScheduleDefinitionById: typeof import("./accessReviewScheduleDefinitionById").AccessReviewScheduleDefinitionById = null as any;
+
+export { GetAccessReviewHistoryDefinitionByIdArgs, GetAccessReviewHistoryDefinitionByIdResult, GetAccessReviewHistoryDefinitionByIdOutputArgs } from "./getAccessReviewHistoryDefinitionById";
+export const getAccessReviewHistoryDefinitionById: typeof import("./getAccessReviewHistoryDefinitionById").getAccessReviewHistoryDefinitionById = null as any;
+export const getAccessReviewHistoryDefinitionByIdOutput: typeof import("./getAccessReviewHistoryDefinitionById").getAccessReviewHistoryDefinitionByIdOutput = null as any;
+
+export { GetAccessReviewScheduleDefinitionByIdArgs, GetAccessReviewScheduleDefinitionByIdResult, GetAccessReviewScheduleDefinitionByIdOutputArgs } from "./getAccessReviewScheduleDefinitionById";
+export const getAccessReviewScheduleDefinitionById: typeof import("./getAccessReviewScheduleDefinitionById").getAccessReviewScheduleDefinitionById = null as any;
+export const getAccessReviewScheduleDefinitionByIdOutput: typeof import("./getAccessReviewScheduleDefinitionById").getAccessReviewScheduleDefinitionByIdOutput = null as any;
+
+export { GetScopeAccessReviewHistoryDefinitionByIdArgs, GetScopeAccessReviewHistoryDefinitionByIdResult, GetScopeAccessReviewHistoryDefinitionByIdOutputArgs } from "./getScopeAccessReviewHistoryDefinitionById";
+export const getScopeAccessReviewHistoryDefinitionById: typeof import("./getScopeAccessReviewHistoryDefinitionById").getScopeAccessReviewHistoryDefinitionById = null as any;
+export const getScopeAccessReviewHistoryDefinitionByIdOutput: typeof import("./getScopeAccessReviewHistoryDefinitionById").getScopeAccessReviewHistoryDefinitionByIdOutput = null as any;
+
+export { GetScopeAccessReviewScheduleDefinitionByIdArgs, GetScopeAccessReviewScheduleDefinitionByIdResult, GetScopeAccessReviewScheduleDefinitionByIdOutputArgs } from "./getScopeAccessReviewScheduleDefinitionById";
+export const getScopeAccessReviewScheduleDefinitionById: typeof import("./getScopeAccessReviewScheduleDefinitionById").getScopeAccessReviewScheduleDefinitionById = null as any;
+export const getScopeAccessReviewScheduleDefinitionByIdOutput: typeof import("./getScopeAccessReviewScheduleDefinitionById").getScopeAccessReviewScheduleDefinitionByIdOutput = null as any;
+
+export { ScopeAccessReviewHistoryDefinitionByIdArgs } from "./scopeAccessReviewHistoryDefinitionById";
+export type ScopeAccessReviewHistoryDefinitionById = import("./scopeAccessReviewHistoryDefinitionById").ScopeAccessReviewHistoryDefinitionById;
+export const ScopeAccessReviewHistoryDefinitionById: typeof import("./scopeAccessReviewHistoryDefinitionById").ScopeAccessReviewHistoryDefinitionById = null as any;
+
+export { ScopeAccessReviewScheduleDefinitionByIdArgs } from "./scopeAccessReviewScheduleDefinitionById";
+export type ScopeAccessReviewScheduleDefinitionById = import("./scopeAccessReviewScheduleDefinitionById").ScopeAccessReviewScheduleDefinitionById;
+export const ScopeAccessReviewScheduleDefinitionById: typeof import("./scopeAccessReviewScheduleDefinitionById").ScopeAccessReviewScheduleDefinitionById = null as any;
+
+utilities.lazyLoad(exports, ["AccessReviewHistoryDefinitionById"], () => require("./accessReviewHistoryDefinitionById"));
+utilities.lazyLoad(exports, ["AccessReviewScheduleDefinitionById"], () => require("./accessReviewScheduleDefinitionById"));
+utilities.lazyLoad(exports, ["getAccessReviewHistoryDefinitionById","getAccessReviewHistoryDefinitionByIdOutput"], () => require("./getAccessReviewHistoryDefinitionById"));
+utilities.lazyLoad(exports, ["getAccessReviewScheduleDefinitionById","getAccessReviewScheduleDefinitionByIdOutput"], () => require("./getAccessReviewScheduleDefinitionById"));
+utilities.lazyLoad(exports, ["getScopeAccessReviewHistoryDefinitionById","getScopeAccessReviewHistoryDefinitionByIdOutput"], () => require("./getScopeAccessReviewHistoryDefinitionById"));
+utilities.lazyLoad(exports, ["getScopeAccessReviewScheduleDefinitionById","getScopeAccessReviewScheduleDefinitionByIdOutput"], () => require("./getScopeAccessReviewScheduleDefinitionById"));
+utilities.lazyLoad(exports, ["ScopeAccessReviewHistoryDefinitionById"], () => require("./scopeAccessReviewHistoryDefinitionById"));
+utilities.lazyLoad(exports, ["ScopeAccessReviewScheduleDefinitionById"], () => require("./scopeAccessReviewScheduleDefinitionById"));
 
 // Export enums:
 export * from "../../types/enums/authorization/v20211201preview";
-
-// Import resources to register:
-import { AccessReviewHistoryDefinitionById } from "./accessReviewHistoryDefinitionById";
-import { AccessReviewScheduleDefinitionById } from "./accessReviewScheduleDefinitionById";
-import { ScopeAccessReviewHistoryDefinitionById } from "./scopeAccessReviewHistoryDefinitionById";
-import { ScopeAccessReviewScheduleDefinitionById } from "./scopeAccessReviewScheduleDefinitionById";
 
 const _module = {
     version: utilities.getVersion(),

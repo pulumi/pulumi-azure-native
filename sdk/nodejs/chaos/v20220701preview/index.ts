@@ -5,20 +5,39 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./capability";
-export * from "./experiment";
-export * from "./getCapability";
-export * from "./getExperiment";
-export * from "./getTarget";
-export * from "./target";
+export { CapabilityArgs } from "./capability";
+export type Capability = import("./capability").Capability;
+export const Capability: typeof import("./capability").Capability = null as any;
+
+export { ExperimentArgs } from "./experiment";
+export type Experiment = import("./experiment").Experiment;
+export const Experiment: typeof import("./experiment").Experiment = null as any;
+
+export { GetCapabilityArgs, GetCapabilityResult, GetCapabilityOutputArgs } from "./getCapability";
+export const getCapability: typeof import("./getCapability").getCapability = null as any;
+export const getCapabilityOutput: typeof import("./getCapability").getCapabilityOutput = null as any;
+
+export { GetExperimentArgs, GetExperimentResult, GetExperimentOutputArgs } from "./getExperiment";
+export const getExperiment: typeof import("./getExperiment").getExperiment = null as any;
+export const getExperimentOutput: typeof import("./getExperiment").getExperimentOutput = null as any;
+
+export { GetTargetArgs, GetTargetResult, GetTargetOutputArgs } from "./getTarget";
+export const getTarget: typeof import("./getTarget").getTarget = null as any;
+export const getTargetOutput: typeof import("./getTarget").getTargetOutput = null as any;
+
+export { TargetArgs } from "./target";
+export type Target = import("./target").Target;
+export const Target: typeof import("./target").Target = null as any;
+
+utilities.lazyLoad(exports, ["Capability"], () => require("./capability"));
+utilities.lazyLoad(exports, ["Experiment"], () => require("./experiment"));
+utilities.lazyLoad(exports, ["getCapability","getCapabilityOutput"], () => require("./getCapability"));
+utilities.lazyLoad(exports, ["getExperiment","getExperimentOutput"], () => require("./getExperiment"));
+utilities.lazyLoad(exports, ["getTarget","getTargetOutput"], () => require("./getTarget"));
+utilities.lazyLoad(exports, ["Target"], () => require("./target"));
 
 // Export enums:
 export * from "../../types/enums/chaos/v20220701preview";
-
-// Import resources to register:
-import { Capability } from "./capability";
-import { Experiment } from "./experiment";
-import { Target } from "./target";
 
 const _module = {
     version: utilities.getVersion(),

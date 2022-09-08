@@ -5,14 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./androidMAMPolicyByName";
-export * from "./getAndroidMAMPolicyByName";
-export * from "./getIoMAMPolicyByName";
-export * from "./ioMAMPolicyByName";
+export { AndroidMAMPolicyByNameArgs } from "./androidMAMPolicyByName";
+export type AndroidMAMPolicyByName = import("./androidMAMPolicyByName").AndroidMAMPolicyByName;
+export const AndroidMAMPolicyByName: typeof import("./androidMAMPolicyByName").AndroidMAMPolicyByName = null as any;
 
-// Import resources to register:
-import { AndroidMAMPolicyByName } from "./androidMAMPolicyByName";
-import { IoMAMPolicyByName } from "./ioMAMPolicyByName";
+export { GetAndroidMAMPolicyByNameArgs, GetAndroidMAMPolicyByNameResult, GetAndroidMAMPolicyByNameOutputArgs } from "./getAndroidMAMPolicyByName";
+export const getAndroidMAMPolicyByName: typeof import("./getAndroidMAMPolicyByName").getAndroidMAMPolicyByName = null as any;
+export const getAndroidMAMPolicyByNameOutput: typeof import("./getAndroidMAMPolicyByName").getAndroidMAMPolicyByNameOutput = null as any;
+
+export { GetIoMAMPolicyByNameArgs, GetIoMAMPolicyByNameResult, GetIoMAMPolicyByNameOutputArgs } from "./getIoMAMPolicyByName";
+export const getIoMAMPolicyByName: typeof import("./getIoMAMPolicyByName").getIoMAMPolicyByName = null as any;
+export const getIoMAMPolicyByNameOutput: typeof import("./getIoMAMPolicyByName").getIoMAMPolicyByNameOutput = null as any;
+
+export { IoMAMPolicyByNameArgs } from "./ioMAMPolicyByName";
+export type IoMAMPolicyByName = import("./ioMAMPolicyByName").IoMAMPolicyByName;
+export const IoMAMPolicyByName: typeof import("./ioMAMPolicyByName").IoMAMPolicyByName = null as any;
+
+utilities.lazyLoad(exports, ["AndroidMAMPolicyByName"], () => require("./androidMAMPolicyByName"));
+utilities.lazyLoad(exports, ["getAndroidMAMPolicyByName","getAndroidMAMPolicyByNameOutput"], () => require("./getAndroidMAMPolicyByName"));
+utilities.lazyLoad(exports, ["getIoMAMPolicyByName","getIoMAMPolicyByNameOutput"], () => require("./getIoMAMPolicyByName"));
+utilities.lazyLoad(exports, ["IoMAMPolicyByName"], () => require("./ioMAMPolicyByName"));
 
 const _module = {
     version: utilities.getVersion(),

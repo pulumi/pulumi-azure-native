@@ -5,23 +5,49 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./console";
-export * from "./consoleWithLocation";
-export * from "./getConsole";
-export * from "./getConsoleWithLocation";
-export * from "./getUserSettings";
-export * from "./getUserSettingsWithLocation";
-export * from "./userSettings";
-export * from "./userSettingsWithLocation";
+export { ConsoleArgs } from "./console";
+export type Console = import("./console").Console;
+export const Console: typeof import("./console").Console = null as any;
+
+export { ConsoleWithLocationArgs } from "./consoleWithLocation";
+export type ConsoleWithLocation = import("./consoleWithLocation").ConsoleWithLocation;
+export const ConsoleWithLocation: typeof import("./consoleWithLocation").ConsoleWithLocation = null as any;
+
+export { GetConsoleArgs, GetConsoleResult, GetConsoleOutputArgs } from "./getConsole";
+export const getConsole: typeof import("./getConsole").getConsole = null as any;
+export const getConsoleOutput: typeof import("./getConsole").getConsoleOutput = null as any;
+
+export { GetConsoleWithLocationArgs, GetConsoleWithLocationResult, GetConsoleWithLocationOutputArgs } from "./getConsoleWithLocation";
+export const getConsoleWithLocation: typeof import("./getConsoleWithLocation").getConsoleWithLocation = null as any;
+export const getConsoleWithLocationOutput: typeof import("./getConsoleWithLocation").getConsoleWithLocationOutput = null as any;
+
+export { GetUserSettingsArgs, GetUserSettingsResult, GetUserSettingsOutputArgs } from "./getUserSettings";
+export const getUserSettings: typeof import("./getUserSettings").getUserSettings = null as any;
+export const getUserSettingsOutput: typeof import("./getUserSettings").getUserSettingsOutput = null as any;
+
+export { GetUserSettingsWithLocationArgs, GetUserSettingsWithLocationResult, GetUserSettingsWithLocationOutputArgs } from "./getUserSettingsWithLocation";
+export const getUserSettingsWithLocation: typeof import("./getUserSettingsWithLocation").getUserSettingsWithLocation = null as any;
+export const getUserSettingsWithLocationOutput: typeof import("./getUserSettingsWithLocation").getUserSettingsWithLocationOutput = null as any;
+
+export { UserSettingsArgs } from "./userSettings";
+export type UserSettings = import("./userSettings").UserSettings;
+export const UserSettings: typeof import("./userSettings").UserSettings = null as any;
+
+export { UserSettingsWithLocationArgs } from "./userSettingsWithLocation";
+export type UserSettingsWithLocation = import("./userSettingsWithLocation").UserSettingsWithLocation;
+export const UserSettingsWithLocation: typeof import("./userSettingsWithLocation").UserSettingsWithLocation = null as any;
+
+utilities.lazyLoad(exports, ["Console"], () => require("./console"));
+utilities.lazyLoad(exports, ["ConsoleWithLocation"], () => require("./consoleWithLocation"));
+utilities.lazyLoad(exports, ["getConsole","getConsoleOutput"], () => require("./getConsole"));
+utilities.lazyLoad(exports, ["getConsoleWithLocation","getConsoleWithLocationOutput"], () => require("./getConsoleWithLocation"));
+utilities.lazyLoad(exports, ["getUserSettings","getUserSettingsOutput"], () => require("./getUserSettings"));
+utilities.lazyLoad(exports, ["getUserSettingsWithLocation","getUserSettingsWithLocationOutput"], () => require("./getUserSettingsWithLocation"));
+utilities.lazyLoad(exports, ["UserSettings"], () => require("./userSettings"));
+utilities.lazyLoad(exports, ["UserSettingsWithLocation"], () => require("./userSettingsWithLocation"));
 
 // Export enums:
 export * from "../../types/enums/portal/v20181001";
-
-// Import resources to register:
-import { Console } from "./console";
-import { ConsoleWithLocation } from "./consoleWithLocation";
-import { UserSettings } from "./userSettings";
-import { UserSettingsWithLocation } from "./userSettingsWithLocation";
 
 const _module = {
     version: utilities.getVersion(),

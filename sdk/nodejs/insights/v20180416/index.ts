@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getScheduledQueryRule";
-export * from "./scheduledQueryRule";
+export { GetScheduledQueryRuleArgs, GetScheduledQueryRuleResult, GetScheduledQueryRuleOutputArgs } from "./getScheduledQueryRule";
+export const getScheduledQueryRule: typeof import("./getScheduledQueryRule").getScheduledQueryRule = null as any;
+export const getScheduledQueryRuleOutput: typeof import("./getScheduledQueryRule").getScheduledQueryRuleOutput = null as any;
+
+export { ScheduledQueryRuleArgs } from "./scheduledQueryRule";
+export type ScheduledQueryRule = import("./scheduledQueryRule").ScheduledQueryRule;
+export const ScheduledQueryRule: typeof import("./scheduledQueryRule").ScheduledQueryRule = null as any;
+
+utilities.lazyLoad(exports, ["getScheduledQueryRule","getScheduledQueryRuleOutput"], () => require("./getScheduledQueryRule"));
+utilities.lazyLoad(exports, ["ScheduledQueryRule"], () => require("./scheduledQueryRule"));
 
 // Export enums:
 export * from "../../types/enums/insights/v20180416";
-
-// Import resources to register:
-import { ScheduledQueryRule } from "./scheduledQueryRule";
 
 const _module = {
     version: utilities.getVersion(),

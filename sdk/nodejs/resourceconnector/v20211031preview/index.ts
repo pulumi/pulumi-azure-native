@@ -5,15 +5,24 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./appliance";
-export * from "./getAppliance";
-export * from "./listApplianceClusterUserCredential";
+export { ApplianceArgs } from "./appliance";
+export type Appliance = import("./appliance").Appliance;
+export const Appliance: typeof import("./appliance").Appliance = null as any;
+
+export { GetApplianceArgs, GetApplianceResult, GetApplianceOutputArgs } from "./getAppliance";
+export const getAppliance: typeof import("./getAppliance").getAppliance = null as any;
+export const getApplianceOutput: typeof import("./getAppliance").getApplianceOutput = null as any;
+
+export { ListApplianceClusterUserCredentialArgs, ListApplianceClusterUserCredentialResult, ListApplianceClusterUserCredentialOutputArgs } from "./listApplianceClusterUserCredential";
+export const listApplianceClusterUserCredential: typeof import("./listApplianceClusterUserCredential").listApplianceClusterUserCredential = null as any;
+export const listApplianceClusterUserCredentialOutput: typeof import("./listApplianceClusterUserCredential").listApplianceClusterUserCredentialOutput = null as any;
+
+utilities.lazyLoad(exports, ["Appliance"], () => require("./appliance"));
+utilities.lazyLoad(exports, ["getAppliance","getApplianceOutput"], () => require("./getAppliance"));
+utilities.lazyLoad(exports, ["listApplianceClusterUserCredential","listApplianceClusterUserCredentialOutput"], () => require("./listApplianceClusterUserCredential"));
 
 // Export enums:
 export * from "../../types/enums/resourceconnector/v20211031preview";
-
-// Import resources to register:
-import { Appliance } from "./appliance";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getMediaGraph";
-export * from "./mediaGraph";
+export { GetMediaGraphArgs, GetMediaGraphResult, GetMediaGraphOutputArgs } from "./getMediaGraph";
+export const getMediaGraph: typeof import("./getMediaGraph").getMediaGraph = null as any;
+export const getMediaGraphOutput: typeof import("./getMediaGraph").getMediaGraphOutput = null as any;
+
+export { MediaGraphArgs } from "./mediaGraph";
+export type MediaGraph = import("./mediaGraph").MediaGraph;
+export const MediaGraph: typeof import("./mediaGraph").MediaGraph = null as any;
+
+utilities.lazyLoad(exports, ["getMediaGraph","getMediaGraphOutput"], () => require("./getMediaGraph"));
+utilities.lazyLoad(exports, ["MediaGraph"], () => require("./mediaGraph"));
 
 // Export enums:
 export * from "../../types/enums/media/v20200201preview";
-
-// Import resources to register:
-import { MediaGraph } from "./mediaGraph";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,69 +5,320 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./actionGroup";
-export * from "./activityLogAlert";
-export * from "./alertRule";
-export * from "./analyticsItem";
-export * from "./autoscaleSetting";
-export * from "./component";
-export * from "./componentCurrentBillingFeature";
-export * from "./componentLinkedStorageAccount";
-export * from "./dataCollectionEndpoint";
-export * from "./dataCollectionRule";
-export * from "./dataCollectionRuleAssociation";
-export * from "./diagnosticSetting";
-export * from "./exportConfiguration";
-export * from "./favorite";
-export * from "./getActionGroup";
-export * from "./getActivityLogAlert";
-export * from "./getAlertRule";
-export * from "./getAnalyticsItem";
-export * from "./getAutoscaleSetting";
-export * from "./getComponent";
-export * from "./getComponentCurrentBillingFeature";
-export * from "./getComponentLinkedStorageAccount";
-export * from "./getDataCollectionEndpoint";
-export * from "./getDataCollectionRule";
-export * from "./getDataCollectionRuleAssociation";
-export * from "./getDiagnosticServiceTokenReadOnly";
-export * from "./getDiagnosticServiceTokenReadWrite";
-export * from "./getDiagnosticSetting";
-export * from "./getExportConfiguration";
-export * from "./getFavorite";
-export * from "./getGuestDiagnosticsSettingsAssociation";
-export * from "./getLiveToken";
-export * from "./getLogProfile";
-export * from "./getManagementGroupDiagnosticSetting";
-export * from "./getMetricAlert";
-export * from "./getMyWorkbook";
-export * from "./getPrivateEndpointConnection";
-export * from "./getPrivateLinkScope";
-export * from "./getPrivateLinkScopedResource";
-export * from "./getProactiveDetectionConfiguration";
-export * from "./getScheduledQueryRule";
-export * from "./getSubscriptionDiagnosticSetting";
-export * from "./getTestResultFile";
-export * from "./getWebTest";
-export * from "./getWorkbook";
-export * from "./getWorkbookTemplate";
-export * from "./getguestDiagnosticsSetting";
-export * from "./guestDiagnosticsSetting";
-export * from "./guestDiagnosticsSettingsAssociation";
-export * from "./listEASubscriptionListMigrationDatePost";
-export * from "./logProfile";
-export * from "./managementGroupDiagnosticSetting";
-export * from "./metricAlert";
-export * from "./myWorkbook";
-export * from "./privateEndpointConnection";
-export * from "./privateLinkScope";
-export * from "./privateLinkScopedResource";
-export * from "./proactiveDetectionConfiguration";
-export * from "./scheduledQueryRule";
-export * from "./subscriptionDiagnosticSetting";
-export * from "./webTest";
-export * from "./workbook";
-export * from "./workbookTemplate";
+export { ActionGroupArgs } from "./actionGroup";
+export type ActionGroup = import("./actionGroup").ActionGroup;
+export const ActionGroup: typeof import("./actionGroup").ActionGroup = null as any;
+
+export { ActivityLogAlertArgs } from "./activityLogAlert";
+export type ActivityLogAlert = import("./activityLogAlert").ActivityLogAlert;
+export const ActivityLogAlert: typeof import("./activityLogAlert").ActivityLogAlert = null as any;
+
+export { AlertRuleArgs } from "./alertRule";
+export type AlertRule = import("./alertRule").AlertRule;
+export const AlertRule: typeof import("./alertRule").AlertRule = null as any;
+
+export { AnalyticsItemArgs } from "./analyticsItem";
+export type AnalyticsItem = import("./analyticsItem").AnalyticsItem;
+export const AnalyticsItem: typeof import("./analyticsItem").AnalyticsItem = null as any;
+
+export { AutoscaleSettingArgs } from "./autoscaleSetting";
+export type AutoscaleSetting = import("./autoscaleSetting").AutoscaleSetting;
+export const AutoscaleSetting: typeof import("./autoscaleSetting").AutoscaleSetting = null as any;
+
+export { ComponentArgs } from "./component";
+export type Component = import("./component").Component;
+export const Component: typeof import("./component").Component = null as any;
+
+export { ComponentCurrentBillingFeatureArgs } from "./componentCurrentBillingFeature";
+export type ComponentCurrentBillingFeature = import("./componentCurrentBillingFeature").ComponentCurrentBillingFeature;
+export const ComponentCurrentBillingFeature: typeof import("./componentCurrentBillingFeature").ComponentCurrentBillingFeature = null as any;
+
+export { ComponentLinkedStorageAccountArgs } from "./componentLinkedStorageAccount";
+export type ComponentLinkedStorageAccount = import("./componentLinkedStorageAccount").ComponentLinkedStorageAccount;
+export const ComponentLinkedStorageAccount: typeof import("./componentLinkedStorageAccount").ComponentLinkedStorageAccount = null as any;
+
+export { DataCollectionEndpointArgs } from "./dataCollectionEndpoint";
+export type DataCollectionEndpoint = import("./dataCollectionEndpoint").DataCollectionEndpoint;
+export const DataCollectionEndpoint: typeof import("./dataCollectionEndpoint").DataCollectionEndpoint = null as any;
+
+export { DataCollectionRuleArgs } from "./dataCollectionRule";
+export type DataCollectionRule = import("./dataCollectionRule").DataCollectionRule;
+export const DataCollectionRule: typeof import("./dataCollectionRule").DataCollectionRule = null as any;
+
+export { DataCollectionRuleAssociationArgs } from "./dataCollectionRuleAssociation";
+export type DataCollectionRuleAssociation = import("./dataCollectionRuleAssociation").DataCollectionRuleAssociation;
+export const DataCollectionRuleAssociation: typeof import("./dataCollectionRuleAssociation").DataCollectionRuleAssociation = null as any;
+
+export { DiagnosticSettingArgs } from "./diagnosticSetting";
+export type DiagnosticSetting = import("./diagnosticSetting").DiagnosticSetting;
+export const DiagnosticSetting: typeof import("./diagnosticSetting").DiagnosticSetting = null as any;
+
+export { ExportConfigurationArgs } from "./exportConfiguration";
+export type ExportConfiguration = import("./exportConfiguration").ExportConfiguration;
+export const ExportConfiguration: typeof import("./exportConfiguration").ExportConfiguration = null as any;
+
+export { FavoriteArgs } from "./favorite";
+export type Favorite = import("./favorite").Favorite;
+export const Favorite: typeof import("./favorite").Favorite = null as any;
+
+export { GetActionGroupArgs, GetActionGroupResult, GetActionGroupOutputArgs } from "./getActionGroup";
+export const getActionGroup: typeof import("./getActionGroup").getActionGroup = null as any;
+export const getActionGroupOutput: typeof import("./getActionGroup").getActionGroupOutput = null as any;
+
+export { GetActivityLogAlertArgs, GetActivityLogAlertResult, GetActivityLogAlertOutputArgs } from "./getActivityLogAlert";
+export const getActivityLogAlert: typeof import("./getActivityLogAlert").getActivityLogAlert = null as any;
+export const getActivityLogAlertOutput: typeof import("./getActivityLogAlert").getActivityLogAlertOutput = null as any;
+
+export { GetAlertRuleArgs, GetAlertRuleResult, GetAlertRuleOutputArgs } from "./getAlertRule";
+export const getAlertRule: typeof import("./getAlertRule").getAlertRule = null as any;
+export const getAlertRuleOutput: typeof import("./getAlertRule").getAlertRuleOutput = null as any;
+
+export { GetAnalyticsItemArgs, GetAnalyticsItemResult, GetAnalyticsItemOutputArgs } from "./getAnalyticsItem";
+export const getAnalyticsItem: typeof import("./getAnalyticsItem").getAnalyticsItem = null as any;
+export const getAnalyticsItemOutput: typeof import("./getAnalyticsItem").getAnalyticsItemOutput = null as any;
+
+export { GetAutoscaleSettingArgs, GetAutoscaleSettingResult, GetAutoscaleSettingOutputArgs } from "./getAutoscaleSetting";
+export const getAutoscaleSetting: typeof import("./getAutoscaleSetting").getAutoscaleSetting = null as any;
+export const getAutoscaleSettingOutput: typeof import("./getAutoscaleSetting").getAutoscaleSettingOutput = null as any;
+
+export { GetComponentArgs, GetComponentResult, GetComponentOutputArgs } from "./getComponent";
+export const getComponent: typeof import("./getComponent").getComponent = null as any;
+export const getComponentOutput: typeof import("./getComponent").getComponentOutput = null as any;
+
+export { GetComponentCurrentBillingFeatureArgs, GetComponentCurrentBillingFeatureResult, GetComponentCurrentBillingFeatureOutputArgs } from "./getComponentCurrentBillingFeature";
+export const getComponentCurrentBillingFeature: typeof import("./getComponentCurrentBillingFeature").getComponentCurrentBillingFeature = null as any;
+export const getComponentCurrentBillingFeatureOutput: typeof import("./getComponentCurrentBillingFeature").getComponentCurrentBillingFeatureOutput = null as any;
+
+export { GetComponentLinkedStorageAccountArgs, GetComponentLinkedStorageAccountResult, GetComponentLinkedStorageAccountOutputArgs } from "./getComponentLinkedStorageAccount";
+export const getComponentLinkedStorageAccount: typeof import("./getComponentLinkedStorageAccount").getComponentLinkedStorageAccount = null as any;
+export const getComponentLinkedStorageAccountOutput: typeof import("./getComponentLinkedStorageAccount").getComponentLinkedStorageAccountOutput = null as any;
+
+export { GetDataCollectionEndpointArgs, GetDataCollectionEndpointResult, GetDataCollectionEndpointOutputArgs } from "./getDataCollectionEndpoint";
+export const getDataCollectionEndpoint: typeof import("./getDataCollectionEndpoint").getDataCollectionEndpoint = null as any;
+export const getDataCollectionEndpointOutput: typeof import("./getDataCollectionEndpoint").getDataCollectionEndpointOutput = null as any;
+
+export { GetDataCollectionRuleArgs, GetDataCollectionRuleResult, GetDataCollectionRuleOutputArgs } from "./getDataCollectionRule";
+export const getDataCollectionRule: typeof import("./getDataCollectionRule").getDataCollectionRule = null as any;
+export const getDataCollectionRuleOutput: typeof import("./getDataCollectionRule").getDataCollectionRuleOutput = null as any;
+
+export { GetDataCollectionRuleAssociationArgs, GetDataCollectionRuleAssociationResult, GetDataCollectionRuleAssociationOutputArgs } from "./getDataCollectionRuleAssociation";
+export const getDataCollectionRuleAssociation: typeof import("./getDataCollectionRuleAssociation").getDataCollectionRuleAssociation = null as any;
+export const getDataCollectionRuleAssociationOutput: typeof import("./getDataCollectionRuleAssociation").getDataCollectionRuleAssociationOutput = null as any;
+
+export { GetDiagnosticServiceTokenReadOnlyArgs, GetDiagnosticServiceTokenReadOnlyResult, GetDiagnosticServiceTokenReadOnlyOutputArgs } from "./getDiagnosticServiceTokenReadOnly";
+export const getDiagnosticServiceTokenReadOnly: typeof import("./getDiagnosticServiceTokenReadOnly").getDiagnosticServiceTokenReadOnly = null as any;
+export const getDiagnosticServiceTokenReadOnlyOutput: typeof import("./getDiagnosticServiceTokenReadOnly").getDiagnosticServiceTokenReadOnlyOutput = null as any;
+
+export { GetDiagnosticServiceTokenReadWriteArgs, GetDiagnosticServiceTokenReadWriteResult, GetDiagnosticServiceTokenReadWriteOutputArgs } from "./getDiagnosticServiceTokenReadWrite";
+export const getDiagnosticServiceTokenReadWrite: typeof import("./getDiagnosticServiceTokenReadWrite").getDiagnosticServiceTokenReadWrite = null as any;
+export const getDiagnosticServiceTokenReadWriteOutput: typeof import("./getDiagnosticServiceTokenReadWrite").getDiagnosticServiceTokenReadWriteOutput = null as any;
+
+export { GetDiagnosticSettingArgs, GetDiagnosticSettingResult, GetDiagnosticSettingOutputArgs } from "./getDiagnosticSetting";
+export const getDiagnosticSetting: typeof import("./getDiagnosticSetting").getDiagnosticSetting = null as any;
+export const getDiagnosticSettingOutput: typeof import("./getDiagnosticSetting").getDiagnosticSettingOutput = null as any;
+
+export { GetExportConfigurationArgs, GetExportConfigurationResult, GetExportConfigurationOutputArgs } from "./getExportConfiguration";
+export const getExportConfiguration: typeof import("./getExportConfiguration").getExportConfiguration = null as any;
+export const getExportConfigurationOutput: typeof import("./getExportConfiguration").getExportConfigurationOutput = null as any;
+
+export { GetFavoriteArgs, GetFavoriteResult, GetFavoriteOutputArgs } from "./getFavorite";
+export const getFavorite: typeof import("./getFavorite").getFavorite = null as any;
+export const getFavoriteOutput: typeof import("./getFavorite").getFavoriteOutput = null as any;
+
+export { GetGuestDiagnosticsSettingsAssociationArgs, GetGuestDiagnosticsSettingsAssociationResult, GetGuestDiagnosticsSettingsAssociationOutputArgs } from "./getGuestDiagnosticsSettingsAssociation";
+export const getGuestDiagnosticsSettingsAssociation: typeof import("./getGuestDiagnosticsSettingsAssociation").getGuestDiagnosticsSettingsAssociation = null as any;
+export const getGuestDiagnosticsSettingsAssociationOutput: typeof import("./getGuestDiagnosticsSettingsAssociation").getGuestDiagnosticsSettingsAssociationOutput = null as any;
+
+export { GetLiveTokenArgs, GetLiveTokenResult, GetLiveTokenOutputArgs } from "./getLiveToken";
+export const getLiveToken: typeof import("./getLiveToken").getLiveToken = null as any;
+export const getLiveTokenOutput: typeof import("./getLiveToken").getLiveTokenOutput = null as any;
+
+export { GetLogProfileArgs, GetLogProfileResult, GetLogProfileOutputArgs } from "./getLogProfile";
+export const getLogProfile: typeof import("./getLogProfile").getLogProfile = null as any;
+export const getLogProfileOutput: typeof import("./getLogProfile").getLogProfileOutput = null as any;
+
+export { GetManagementGroupDiagnosticSettingArgs, GetManagementGroupDiagnosticSettingResult, GetManagementGroupDiagnosticSettingOutputArgs } from "./getManagementGroupDiagnosticSetting";
+export const getManagementGroupDiagnosticSetting: typeof import("./getManagementGroupDiagnosticSetting").getManagementGroupDiagnosticSetting = null as any;
+export const getManagementGroupDiagnosticSettingOutput: typeof import("./getManagementGroupDiagnosticSetting").getManagementGroupDiagnosticSettingOutput = null as any;
+
+export { GetMetricAlertArgs, GetMetricAlertResult, GetMetricAlertOutputArgs } from "./getMetricAlert";
+export const getMetricAlert: typeof import("./getMetricAlert").getMetricAlert = null as any;
+export const getMetricAlertOutput: typeof import("./getMetricAlert").getMetricAlertOutput = null as any;
+
+export { GetMyWorkbookArgs, GetMyWorkbookResult, GetMyWorkbookOutputArgs } from "./getMyWorkbook";
+export const getMyWorkbook: typeof import("./getMyWorkbook").getMyWorkbook = null as any;
+export const getMyWorkbookOutput: typeof import("./getMyWorkbook").getMyWorkbookOutput = null as any;
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+
+export { GetPrivateLinkScopeArgs, GetPrivateLinkScopeResult, GetPrivateLinkScopeOutputArgs } from "./getPrivateLinkScope";
+export const getPrivateLinkScope: typeof import("./getPrivateLinkScope").getPrivateLinkScope = null as any;
+export const getPrivateLinkScopeOutput: typeof import("./getPrivateLinkScope").getPrivateLinkScopeOutput = null as any;
+
+export { GetPrivateLinkScopedResourceArgs, GetPrivateLinkScopedResourceResult, GetPrivateLinkScopedResourceOutputArgs } from "./getPrivateLinkScopedResource";
+export const getPrivateLinkScopedResource: typeof import("./getPrivateLinkScopedResource").getPrivateLinkScopedResource = null as any;
+export const getPrivateLinkScopedResourceOutput: typeof import("./getPrivateLinkScopedResource").getPrivateLinkScopedResourceOutput = null as any;
+
+export { GetProactiveDetectionConfigurationArgs, GetProactiveDetectionConfigurationResult, GetProactiveDetectionConfigurationOutputArgs } from "./getProactiveDetectionConfiguration";
+export const getProactiveDetectionConfiguration: typeof import("./getProactiveDetectionConfiguration").getProactiveDetectionConfiguration = null as any;
+export const getProactiveDetectionConfigurationOutput: typeof import("./getProactiveDetectionConfiguration").getProactiveDetectionConfigurationOutput = null as any;
+
+export { GetScheduledQueryRuleArgs, GetScheduledQueryRuleResult, GetScheduledQueryRuleOutputArgs } from "./getScheduledQueryRule";
+export const getScheduledQueryRule: typeof import("./getScheduledQueryRule").getScheduledQueryRule = null as any;
+export const getScheduledQueryRuleOutput: typeof import("./getScheduledQueryRule").getScheduledQueryRuleOutput = null as any;
+
+export { GetSubscriptionDiagnosticSettingArgs, GetSubscriptionDiagnosticSettingResult, GetSubscriptionDiagnosticSettingOutputArgs } from "./getSubscriptionDiagnosticSetting";
+export const getSubscriptionDiagnosticSetting: typeof import("./getSubscriptionDiagnosticSetting").getSubscriptionDiagnosticSetting = null as any;
+export const getSubscriptionDiagnosticSettingOutput: typeof import("./getSubscriptionDiagnosticSetting").getSubscriptionDiagnosticSettingOutput = null as any;
+
+export { GetTestResultFileArgs, GetTestResultFileResult, GetTestResultFileOutputArgs } from "./getTestResultFile";
+export const getTestResultFile: typeof import("./getTestResultFile").getTestResultFile = null as any;
+export const getTestResultFileOutput: typeof import("./getTestResultFile").getTestResultFileOutput = null as any;
+
+export { GetWebTestArgs, GetWebTestResult, GetWebTestOutputArgs } from "./getWebTest";
+export const getWebTest: typeof import("./getWebTest").getWebTest = null as any;
+export const getWebTestOutput: typeof import("./getWebTest").getWebTestOutput = null as any;
+
+export { GetWorkbookArgs, GetWorkbookResult, GetWorkbookOutputArgs } from "./getWorkbook";
+export const getWorkbook: typeof import("./getWorkbook").getWorkbook = null as any;
+export const getWorkbookOutput: typeof import("./getWorkbook").getWorkbookOutput = null as any;
+
+export { GetWorkbookTemplateArgs, GetWorkbookTemplateResult, GetWorkbookTemplateOutputArgs } from "./getWorkbookTemplate";
+export const getWorkbookTemplate: typeof import("./getWorkbookTemplate").getWorkbookTemplate = null as any;
+export const getWorkbookTemplateOutput: typeof import("./getWorkbookTemplate").getWorkbookTemplateOutput = null as any;
+
+export { GetguestDiagnosticsSettingArgs, GetguestDiagnosticsSettingResult, GetguestDiagnosticsSettingOutputArgs } from "./getguestDiagnosticsSetting";
+export const getguestDiagnosticsSetting: typeof import("./getguestDiagnosticsSetting").getguestDiagnosticsSetting = null as any;
+export const getguestDiagnosticsSettingOutput: typeof import("./getguestDiagnosticsSetting").getguestDiagnosticsSettingOutput = null as any;
+
+export { GuestDiagnosticsSettingArgs } from "./guestDiagnosticsSetting";
+export type GuestDiagnosticsSetting = import("./guestDiagnosticsSetting").GuestDiagnosticsSetting;
+export const GuestDiagnosticsSetting: typeof import("./guestDiagnosticsSetting").GuestDiagnosticsSetting = null as any;
+
+export { GuestDiagnosticsSettingsAssociationArgs } from "./guestDiagnosticsSettingsAssociation";
+export type GuestDiagnosticsSettingsAssociation = import("./guestDiagnosticsSettingsAssociation").GuestDiagnosticsSettingsAssociation;
+export const GuestDiagnosticsSettingsAssociation: typeof import("./guestDiagnosticsSettingsAssociation").GuestDiagnosticsSettingsAssociation = null as any;
+
+export { ListEASubscriptionListMigrationDatePostArgs, ListEASubscriptionListMigrationDatePostResult } from "./listEASubscriptionListMigrationDatePost";
+export const listEASubscriptionListMigrationDatePost: typeof import("./listEASubscriptionListMigrationDatePost").listEASubscriptionListMigrationDatePost = null as any;
+
+export { LogProfileArgs } from "./logProfile";
+export type LogProfile = import("./logProfile").LogProfile;
+export const LogProfile: typeof import("./logProfile").LogProfile = null as any;
+
+export { ManagementGroupDiagnosticSettingArgs } from "./managementGroupDiagnosticSetting";
+export type ManagementGroupDiagnosticSetting = import("./managementGroupDiagnosticSetting").ManagementGroupDiagnosticSetting;
+export const ManagementGroupDiagnosticSetting: typeof import("./managementGroupDiagnosticSetting").ManagementGroupDiagnosticSetting = null as any;
+
+export { MetricAlertArgs } from "./metricAlert";
+export type MetricAlert = import("./metricAlert").MetricAlert;
+export const MetricAlert: typeof import("./metricAlert").MetricAlert = null as any;
+
+export { MyWorkbookArgs } from "./myWorkbook";
+export type MyWorkbook = import("./myWorkbook").MyWorkbook;
+export const MyWorkbook: typeof import("./myWorkbook").MyWorkbook = null as any;
+
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+
+export { PrivateLinkScopeArgs } from "./privateLinkScope";
+export type PrivateLinkScope = import("./privateLinkScope").PrivateLinkScope;
+export const PrivateLinkScope: typeof import("./privateLinkScope").PrivateLinkScope = null as any;
+
+export { PrivateLinkScopedResourceArgs } from "./privateLinkScopedResource";
+export type PrivateLinkScopedResource = import("./privateLinkScopedResource").PrivateLinkScopedResource;
+export const PrivateLinkScopedResource: typeof import("./privateLinkScopedResource").PrivateLinkScopedResource = null as any;
+
+export { ProactiveDetectionConfigurationArgs } from "./proactiveDetectionConfiguration";
+export type ProactiveDetectionConfiguration = import("./proactiveDetectionConfiguration").ProactiveDetectionConfiguration;
+export const ProactiveDetectionConfiguration: typeof import("./proactiveDetectionConfiguration").ProactiveDetectionConfiguration = null as any;
+
+export { ScheduledQueryRuleArgs } from "./scheduledQueryRule";
+export type ScheduledQueryRule = import("./scheduledQueryRule").ScheduledQueryRule;
+export const ScheduledQueryRule: typeof import("./scheduledQueryRule").ScheduledQueryRule = null as any;
+
+export { SubscriptionDiagnosticSettingArgs } from "./subscriptionDiagnosticSetting";
+export type SubscriptionDiagnosticSetting = import("./subscriptionDiagnosticSetting").SubscriptionDiagnosticSetting;
+export const SubscriptionDiagnosticSetting: typeof import("./subscriptionDiagnosticSetting").SubscriptionDiagnosticSetting = null as any;
+
+export { WebTestArgs } from "./webTest";
+export type WebTest = import("./webTest").WebTest;
+export const WebTest: typeof import("./webTest").WebTest = null as any;
+
+export { WorkbookArgs } from "./workbook";
+export type Workbook = import("./workbook").Workbook;
+export const Workbook: typeof import("./workbook").Workbook = null as any;
+
+export { WorkbookTemplateArgs } from "./workbookTemplate";
+export type WorkbookTemplate = import("./workbookTemplate").WorkbookTemplate;
+export const WorkbookTemplate: typeof import("./workbookTemplate").WorkbookTemplate = null as any;
+
+utilities.lazyLoad(exports, ["ActionGroup"], () => require("./actionGroup"));
+utilities.lazyLoad(exports, ["ActivityLogAlert"], () => require("./activityLogAlert"));
+utilities.lazyLoad(exports, ["AlertRule"], () => require("./alertRule"));
+utilities.lazyLoad(exports, ["AnalyticsItem"], () => require("./analyticsItem"));
+utilities.lazyLoad(exports, ["AutoscaleSetting"], () => require("./autoscaleSetting"));
+utilities.lazyLoad(exports, ["Component"], () => require("./component"));
+utilities.lazyLoad(exports, ["ComponentCurrentBillingFeature"], () => require("./componentCurrentBillingFeature"));
+utilities.lazyLoad(exports, ["ComponentLinkedStorageAccount"], () => require("./componentLinkedStorageAccount"));
+utilities.lazyLoad(exports, ["DataCollectionEndpoint"], () => require("./dataCollectionEndpoint"));
+utilities.lazyLoad(exports, ["DataCollectionRule"], () => require("./dataCollectionRule"));
+utilities.lazyLoad(exports, ["DataCollectionRuleAssociation"], () => require("./dataCollectionRuleAssociation"));
+utilities.lazyLoad(exports, ["DiagnosticSetting"], () => require("./diagnosticSetting"));
+utilities.lazyLoad(exports, ["ExportConfiguration"], () => require("./exportConfiguration"));
+utilities.lazyLoad(exports, ["Favorite"], () => require("./favorite"));
+utilities.lazyLoad(exports, ["getActionGroup","getActionGroupOutput"], () => require("./getActionGroup"));
+utilities.lazyLoad(exports, ["getActivityLogAlert","getActivityLogAlertOutput"], () => require("./getActivityLogAlert"));
+utilities.lazyLoad(exports, ["getAlertRule","getAlertRuleOutput"], () => require("./getAlertRule"));
+utilities.lazyLoad(exports, ["getAnalyticsItem","getAnalyticsItemOutput"], () => require("./getAnalyticsItem"));
+utilities.lazyLoad(exports, ["getAutoscaleSetting","getAutoscaleSettingOutput"], () => require("./getAutoscaleSetting"));
+utilities.lazyLoad(exports, ["getComponent","getComponentOutput"], () => require("./getComponent"));
+utilities.lazyLoad(exports, ["getComponentCurrentBillingFeature","getComponentCurrentBillingFeatureOutput"], () => require("./getComponentCurrentBillingFeature"));
+utilities.lazyLoad(exports, ["getComponentLinkedStorageAccount","getComponentLinkedStorageAccountOutput"], () => require("./getComponentLinkedStorageAccount"));
+utilities.lazyLoad(exports, ["getDataCollectionEndpoint","getDataCollectionEndpointOutput"], () => require("./getDataCollectionEndpoint"));
+utilities.lazyLoad(exports, ["getDataCollectionRule","getDataCollectionRuleOutput"], () => require("./getDataCollectionRule"));
+utilities.lazyLoad(exports, ["getDataCollectionRuleAssociation","getDataCollectionRuleAssociationOutput"], () => require("./getDataCollectionRuleAssociation"));
+utilities.lazyLoad(exports, ["getDiagnosticServiceTokenReadOnly","getDiagnosticServiceTokenReadOnlyOutput"], () => require("./getDiagnosticServiceTokenReadOnly"));
+utilities.lazyLoad(exports, ["getDiagnosticServiceTokenReadWrite","getDiagnosticServiceTokenReadWriteOutput"], () => require("./getDiagnosticServiceTokenReadWrite"));
+utilities.lazyLoad(exports, ["getDiagnosticSetting","getDiagnosticSettingOutput"], () => require("./getDiagnosticSetting"));
+utilities.lazyLoad(exports, ["getExportConfiguration","getExportConfigurationOutput"], () => require("./getExportConfiguration"));
+utilities.lazyLoad(exports, ["getFavorite","getFavoriteOutput"], () => require("./getFavorite"));
+utilities.lazyLoad(exports, ["getGuestDiagnosticsSettingsAssociation","getGuestDiagnosticsSettingsAssociationOutput"], () => require("./getGuestDiagnosticsSettingsAssociation"));
+utilities.lazyLoad(exports, ["getLiveToken","getLiveTokenOutput"], () => require("./getLiveToken"));
+utilities.lazyLoad(exports, ["getLogProfile","getLogProfileOutput"], () => require("./getLogProfile"));
+utilities.lazyLoad(exports, ["getManagementGroupDiagnosticSetting","getManagementGroupDiagnosticSettingOutput"], () => require("./getManagementGroupDiagnosticSetting"));
+utilities.lazyLoad(exports, ["getMetricAlert","getMetricAlertOutput"], () => require("./getMetricAlert"));
+utilities.lazyLoad(exports, ["getMyWorkbook","getMyWorkbookOutput"], () => require("./getMyWorkbook"));
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+utilities.lazyLoad(exports, ["getPrivateLinkScope","getPrivateLinkScopeOutput"], () => require("./getPrivateLinkScope"));
+utilities.lazyLoad(exports, ["getPrivateLinkScopedResource","getPrivateLinkScopedResourceOutput"], () => require("./getPrivateLinkScopedResource"));
+utilities.lazyLoad(exports, ["getProactiveDetectionConfiguration","getProactiveDetectionConfigurationOutput"], () => require("./getProactiveDetectionConfiguration"));
+utilities.lazyLoad(exports, ["getScheduledQueryRule","getScheduledQueryRuleOutput"], () => require("./getScheduledQueryRule"));
+utilities.lazyLoad(exports, ["getSubscriptionDiagnosticSetting","getSubscriptionDiagnosticSettingOutput"], () => require("./getSubscriptionDiagnosticSetting"));
+utilities.lazyLoad(exports, ["getTestResultFile","getTestResultFileOutput"], () => require("./getTestResultFile"));
+utilities.lazyLoad(exports, ["getWebTest","getWebTestOutput"], () => require("./getWebTest"));
+utilities.lazyLoad(exports, ["getWorkbook","getWorkbookOutput"], () => require("./getWorkbook"));
+utilities.lazyLoad(exports, ["getWorkbookTemplate","getWorkbookTemplateOutput"], () => require("./getWorkbookTemplate"));
+utilities.lazyLoad(exports, ["getguestDiagnosticsSetting","getguestDiagnosticsSettingOutput"], () => require("./getguestDiagnosticsSetting"));
+utilities.lazyLoad(exports, ["GuestDiagnosticsSetting"], () => require("./guestDiagnosticsSetting"));
+utilities.lazyLoad(exports, ["GuestDiagnosticsSettingsAssociation"], () => require("./guestDiagnosticsSettingsAssociation"));
+utilities.lazyLoad(exports, ["listEASubscriptionListMigrationDatePost"], () => require("./listEASubscriptionListMigrationDatePost"));
+utilities.lazyLoad(exports, ["LogProfile"], () => require("./logProfile"));
+utilities.lazyLoad(exports, ["ManagementGroupDiagnosticSetting"], () => require("./managementGroupDiagnosticSetting"));
+utilities.lazyLoad(exports, ["MetricAlert"], () => require("./metricAlert"));
+utilities.lazyLoad(exports, ["MyWorkbook"], () => require("./myWorkbook"));
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+utilities.lazyLoad(exports, ["PrivateLinkScope"], () => require("./privateLinkScope"));
+utilities.lazyLoad(exports, ["PrivateLinkScopedResource"], () => require("./privateLinkScopedResource"));
+utilities.lazyLoad(exports, ["ProactiveDetectionConfiguration"], () => require("./proactiveDetectionConfiguration"));
+utilities.lazyLoad(exports, ["ScheduledQueryRule"], () => require("./scheduledQueryRule"));
+utilities.lazyLoad(exports, ["SubscriptionDiagnosticSetting"], () => require("./subscriptionDiagnosticSetting"));
+utilities.lazyLoad(exports, ["WebTest"], () => require("./webTest"));
+utilities.lazyLoad(exports, ["Workbook"], () => require("./workbook"));
+utilities.lazyLoad(exports, ["WorkbookTemplate"], () => require("./workbookTemplate"));
 
 // Export enums:
 export * from "../types/enums/insights";
@@ -160,37 +411,6 @@ export {
     v20220615,
     v20221001,
 };
-
-// Import resources to register:
-import { ActionGroup } from "./actionGroup";
-import { ActivityLogAlert } from "./activityLogAlert";
-import { AlertRule } from "./alertRule";
-import { AnalyticsItem } from "./analyticsItem";
-import { AutoscaleSetting } from "./autoscaleSetting";
-import { Component } from "./component";
-import { ComponentCurrentBillingFeature } from "./componentCurrentBillingFeature";
-import { ComponentLinkedStorageAccount } from "./componentLinkedStorageAccount";
-import { DataCollectionEndpoint } from "./dataCollectionEndpoint";
-import { DataCollectionRule } from "./dataCollectionRule";
-import { DataCollectionRuleAssociation } from "./dataCollectionRuleAssociation";
-import { DiagnosticSetting } from "./diagnosticSetting";
-import { ExportConfiguration } from "./exportConfiguration";
-import { Favorite } from "./favorite";
-import { GuestDiagnosticsSettingsAssociation } from "./guestDiagnosticsSettingsAssociation";
-import { LogProfile } from "./logProfile";
-import { ManagementGroupDiagnosticSetting } from "./managementGroupDiagnosticSetting";
-import { MetricAlert } from "./metricAlert";
-import { MyWorkbook } from "./myWorkbook";
-import { PrivateEndpointConnection } from "./privateEndpointConnection";
-import { PrivateLinkScope } from "./privateLinkScope";
-import { PrivateLinkScopedResource } from "./privateLinkScopedResource";
-import { ProactiveDetectionConfiguration } from "./proactiveDetectionConfiguration";
-import { ScheduledQueryRule } from "./scheduledQueryRule";
-import { SubscriptionDiagnosticSetting } from "./subscriptionDiagnosticSetting";
-import { WebTest } from "./webTest";
-import { Workbook } from "./workbook";
-import { WorkbookTemplate } from "./workbookTemplate";
-import { GuestDiagnosticsSetting } from "./guestDiagnosticsSetting";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,10 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./appServiceCertificateOrder";
-export * from "./appServiceCertificateOrderCertificate";
-export * from "./getAppServiceCertificateOrder";
-export * from "./getAppServiceCertificateOrderCertificate";
+export { AppServiceCertificateOrderArgs } from "./appServiceCertificateOrder";
+export type AppServiceCertificateOrder = import("./appServiceCertificateOrder").AppServiceCertificateOrder;
+export const AppServiceCertificateOrder: typeof import("./appServiceCertificateOrder").AppServiceCertificateOrder = null as any;
+
+export { AppServiceCertificateOrderCertificateArgs } from "./appServiceCertificateOrderCertificate";
+export type AppServiceCertificateOrderCertificate = import("./appServiceCertificateOrderCertificate").AppServiceCertificateOrderCertificate;
+export const AppServiceCertificateOrderCertificate: typeof import("./appServiceCertificateOrderCertificate").AppServiceCertificateOrderCertificate = null as any;
+
+export { GetAppServiceCertificateOrderArgs, GetAppServiceCertificateOrderResult, GetAppServiceCertificateOrderOutputArgs } from "./getAppServiceCertificateOrder";
+export const getAppServiceCertificateOrder: typeof import("./getAppServiceCertificateOrder").getAppServiceCertificateOrder = null as any;
+export const getAppServiceCertificateOrderOutput: typeof import("./getAppServiceCertificateOrder").getAppServiceCertificateOrderOutput = null as any;
+
+export { GetAppServiceCertificateOrderCertificateArgs, GetAppServiceCertificateOrderCertificateResult, GetAppServiceCertificateOrderCertificateOutputArgs } from "./getAppServiceCertificateOrderCertificate";
+export const getAppServiceCertificateOrderCertificate: typeof import("./getAppServiceCertificateOrderCertificate").getAppServiceCertificateOrderCertificate = null as any;
+export const getAppServiceCertificateOrderCertificateOutput: typeof import("./getAppServiceCertificateOrderCertificate").getAppServiceCertificateOrderCertificateOutput = null as any;
+
+utilities.lazyLoad(exports, ["AppServiceCertificateOrder"], () => require("./appServiceCertificateOrder"));
+utilities.lazyLoad(exports, ["AppServiceCertificateOrderCertificate"], () => require("./appServiceCertificateOrderCertificate"));
+utilities.lazyLoad(exports, ["getAppServiceCertificateOrder","getAppServiceCertificateOrderOutput"], () => require("./getAppServiceCertificateOrder"));
+utilities.lazyLoad(exports, ["getAppServiceCertificateOrderCertificate","getAppServiceCertificateOrderCertificateOutput"], () => require("./getAppServiceCertificateOrderCertificate"));
 
 // Export enums:
 export * from "../types/enums/certificateregistration";
@@ -41,10 +57,6 @@ export {
     v20210301,
     v20220301,
 };
-
-// Import resources to register:
-import { AppServiceCertificateOrder } from "./appServiceCertificateOrder";
-import { AppServiceCertificateOrderCertificate } from "./appServiceCertificateOrderCertificate";
 
 const _module = {
     version: utilities.getVersion(),

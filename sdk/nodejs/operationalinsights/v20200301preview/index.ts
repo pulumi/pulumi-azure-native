@@ -5,36 +5,94 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./cluster";
-export * from "./dataExport";
-export * from "./dataSource";
-export * from "./getCluster";
-export * from "./getDataExport";
-export * from "./getDataSource";
-export * from "./getLinkedService";
-export * from "./getLinkedStorageAccount";
-export * from "./getSavedSearch";
-export * from "./getSharedKeys";
-export * from "./getStorageInsightConfig";
-export * from "./getWorkspace";
-export * from "./linkedService";
-export * from "./linkedStorageAccount";
-export * from "./savedSearch";
-export * from "./storageInsightConfig";
-export * from "./workspace";
+export { ClusterArgs } from "./cluster";
+export type Cluster = import("./cluster").Cluster;
+export const Cluster: typeof import("./cluster").Cluster = null as any;
+
+export { DataExportArgs } from "./dataExport";
+export type DataExport = import("./dataExport").DataExport;
+export const DataExport: typeof import("./dataExport").DataExport = null as any;
+
+export { DataSourceArgs } from "./dataSource";
+export type DataSource = import("./dataSource").DataSource;
+export const DataSource: typeof import("./dataSource").DataSource = null as any;
+
+export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
+export const getCluster: typeof import("./getCluster").getCluster = null as any;
+export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
+
+export { GetDataExportArgs, GetDataExportResult, GetDataExportOutputArgs } from "./getDataExport";
+export const getDataExport: typeof import("./getDataExport").getDataExport = null as any;
+export const getDataExportOutput: typeof import("./getDataExport").getDataExportOutput = null as any;
+
+export { GetDataSourceArgs, GetDataSourceResult, GetDataSourceOutputArgs } from "./getDataSource";
+export const getDataSource: typeof import("./getDataSource").getDataSource = null as any;
+export const getDataSourceOutput: typeof import("./getDataSource").getDataSourceOutput = null as any;
+
+export { GetLinkedServiceArgs, GetLinkedServiceResult, GetLinkedServiceOutputArgs } from "./getLinkedService";
+export const getLinkedService: typeof import("./getLinkedService").getLinkedService = null as any;
+export const getLinkedServiceOutput: typeof import("./getLinkedService").getLinkedServiceOutput = null as any;
+
+export { GetLinkedStorageAccountArgs, GetLinkedStorageAccountResult, GetLinkedStorageAccountOutputArgs } from "./getLinkedStorageAccount";
+export const getLinkedStorageAccount: typeof import("./getLinkedStorageAccount").getLinkedStorageAccount = null as any;
+export const getLinkedStorageAccountOutput: typeof import("./getLinkedStorageAccount").getLinkedStorageAccountOutput = null as any;
+
+export { GetSavedSearchArgs, GetSavedSearchResult, GetSavedSearchOutputArgs } from "./getSavedSearch";
+export const getSavedSearch: typeof import("./getSavedSearch").getSavedSearch = null as any;
+export const getSavedSearchOutput: typeof import("./getSavedSearch").getSavedSearchOutput = null as any;
+
+export { GetSharedKeysArgs, GetSharedKeysResult, GetSharedKeysOutputArgs } from "./getSharedKeys";
+export const getSharedKeys: typeof import("./getSharedKeys").getSharedKeys = null as any;
+export const getSharedKeysOutput: typeof import("./getSharedKeys").getSharedKeysOutput = null as any;
+
+export { GetStorageInsightConfigArgs, GetStorageInsightConfigResult, GetStorageInsightConfigOutputArgs } from "./getStorageInsightConfig";
+export const getStorageInsightConfig: typeof import("./getStorageInsightConfig").getStorageInsightConfig = null as any;
+export const getStorageInsightConfigOutput: typeof import("./getStorageInsightConfig").getStorageInsightConfigOutput = null as any;
+
+export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
+export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
+export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
+
+export { LinkedServiceArgs } from "./linkedService";
+export type LinkedService = import("./linkedService").LinkedService;
+export const LinkedService: typeof import("./linkedService").LinkedService = null as any;
+
+export { LinkedStorageAccountArgs } from "./linkedStorageAccount";
+export type LinkedStorageAccount = import("./linkedStorageAccount").LinkedStorageAccount;
+export const LinkedStorageAccount: typeof import("./linkedStorageAccount").LinkedStorageAccount = null as any;
+
+export { SavedSearchArgs } from "./savedSearch";
+export type SavedSearch = import("./savedSearch").SavedSearch;
+export const SavedSearch: typeof import("./savedSearch").SavedSearch = null as any;
+
+export { StorageInsightConfigArgs } from "./storageInsightConfig";
+export type StorageInsightConfig = import("./storageInsightConfig").StorageInsightConfig;
+export const StorageInsightConfig: typeof import("./storageInsightConfig").StorageInsightConfig = null as any;
+
+export { WorkspaceArgs } from "./workspace";
+export type Workspace = import("./workspace").Workspace;
+export const Workspace: typeof import("./workspace").Workspace = null as any;
+
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
+utilities.lazyLoad(exports, ["DataExport"], () => require("./dataExport"));
+utilities.lazyLoad(exports, ["DataSource"], () => require("./dataSource"));
+utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
+utilities.lazyLoad(exports, ["getDataExport","getDataExportOutput"], () => require("./getDataExport"));
+utilities.lazyLoad(exports, ["getDataSource","getDataSourceOutput"], () => require("./getDataSource"));
+utilities.lazyLoad(exports, ["getLinkedService","getLinkedServiceOutput"], () => require("./getLinkedService"));
+utilities.lazyLoad(exports, ["getLinkedStorageAccount","getLinkedStorageAccountOutput"], () => require("./getLinkedStorageAccount"));
+utilities.lazyLoad(exports, ["getSavedSearch","getSavedSearchOutput"], () => require("./getSavedSearch"));
+utilities.lazyLoad(exports, ["getSharedKeys","getSharedKeysOutput"], () => require("./getSharedKeys"));
+utilities.lazyLoad(exports, ["getStorageInsightConfig","getStorageInsightConfigOutput"], () => require("./getStorageInsightConfig"));
+utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
+utilities.lazyLoad(exports, ["LinkedService"], () => require("./linkedService"));
+utilities.lazyLoad(exports, ["LinkedStorageAccount"], () => require("./linkedStorageAccount"));
+utilities.lazyLoad(exports, ["SavedSearch"], () => require("./savedSearch"));
+utilities.lazyLoad(exports, ["StorageInsightConfig"], () => require("./storageInsightConfig"));
+utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
 
 // Export enums:
 export * from "../../types/enums/operationalinsights/v20200301preview";
-
-// Import resources to register:
-import { Cluster } from "./cluster";
-import { DataExport } from "./dataExport";
-import { DataSource } from "./dataSource";
-import { LinkedService } from "./linkedService";
-import { LinkedStorageAccount } from "./linkedStorageAccount";
-import { SavedSearch } from "./savedSearch";
-import { StorageInsightConfig } from "./storageInsightConfig";
-import { Workspace } from "./workspace";
 
 const _module = {
     version: utilities.getVersion(),

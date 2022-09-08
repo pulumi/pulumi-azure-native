@@ -5,26 +5,106 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getPhpWorkload";
-export * from "./getProviderInstance";
-export * from "./getSAPApplicationServerInstance";
-export * from "./getSAPAvailabilityZoneDetails";
-export * from "./getSAPCentralInstance";
-export * from "./getSAPDatabaseInstance";
-export * from "./getSAPDiskConfigurations";
-export * from "./getSAPSizingRecommendations";
-export * from "./getSAPSupportedSku";
-export * from "./getSAPVirtualInstance";
-export * from "./getWordpressInstance";
-export * from "./getmonitor";
-export * from "./monitor";
-export * from "./phpWorkload";
-export * from "./providerInstance";
-export * from "./sapapplicationServerInstance";
-export * from "./sapcentralInstance";
-export * from "./sapdatabaseInstance";
-export * from "./sapvirtualInstance";
-export * from "./wordpressInstance";
+export { GetPhpWorkloadArgs, GetPhpWorkloadResult, GetPhpWorkloadOutputArgs } from "./getPhpWorkload";
+export const getPhpWorkload: typeof import("./getPhpWorkload").getPhpWorkload = null as any;
+export const getPhpWorkloadOutput: typeof import("./getPhpWorkload").getPhpWorkloadOutput = null as any;
+
+export { GetProviderInstanceArgs, GetProviderInstanceResult, GetProviderInstanceOutputArgs } from "./getProviderInstance";
+export const getProviderInstance: typeof import("./getProviderInstance").getProviderInstance = null as any;
+export const getProviderInstanceOutput: typeof import("./getProviderInstance").getProviderInstanceOutput = null as any;
+
+export { GetSAPApplicationServerInstanceArgs, GetSAPApplicationServerInstanceResult, GetSAPApplicationServerInstanceOutputArgs } from "./getSAPApplicationServerInstance";
+export const getSAPApplicationServerInstance: typeof import("./getSAPApplicationServerInstance").getSAPApplicationServerInstance = null as any;
+export const getSAPApplicationServerInstanceOutput: typeof import("./getSAPApplicationServerInstance").getSAPApplicationServerInstanceOutput = null as any;
+
+export { GetSAPAvailabilityZoneDetailsArgs, GetSAPAvailabilityZoneDetailsResult, GetSAPAvailabilityZoneDetailsOutputArgs } from "./getSAPAvailabilityZoneDetails";
+export const getSAPAvailabilityZoneDetails: typeof import("./getSAPAvailabilityZoneDetails").getSAPAvailabilityZoneDetails = null as any;
+export const getSAPAvailabilityZoneDetailsOutput: typeof import("./getSAPAvailabilityZoneDetails").getSAPAvailabilityZoneDetailsOutput = null as any;
+
+export { GetSAPCentralInstanceArgs, GetSAPCentralInstanceResult, GetSAPCentralInstanceOutputArgs } from "./getSAPCentralInstance";
+export const getSAPCentralInstance: typeof import("./getSAPCentralInstance").getSAPCentralInstance = null as any;
+export const getSAPCentralInstanceOutput: typeof import("./getSAPCentralInstance").getSAPCentralInstanceOutput = null as any;
+
+export { GetSAPDatabaseInstanceArgs, GetSAPDatabaseInstanceResult, GetSAPDatabaseInstanceOutputArgs } from "./getSAPDatabaseInstance";
+export const getSAPDatabaseInstance: typeof import("./getSAPDatabaseInstance").getSAPDatabaseInstance = null as any;
+export const getSAPDatabaseInstanceOutput: typeof import("./getSAPDatabaseInstance").getSAPDatabaseInstanceOutput = null as any;
+
+export { GetSAPDiskConfigurationsArgs, GetSAPDiskConfigurationsResult, GetSAPDiskConfigurationsOutputArgs } from "./getSAPDiskConfigurations";
+export const getSAPDiskConfigurations: typeof import("./getSAPDiskConfigurations").getSAPDiskConfigurations = null as any;
+export const getSAPDiskConfigurationsOutput: typeof import("./getSAPDiskConfigurations").getSAPDiskConfigurationsOutput = null as any;
+
+export { GetSAPSizingRecommendationsArgs, GetSAPSizingRecommendationsResult, GetSAPSizingRecommendationsOutputArgs } from "./getSAPSizingRecommendations";
+export const getSAPSizingRecommendations: typeof import("./getSAPSizingRecommendations").getSAPSizingRecommendations = null as any;
+export const getSAPSizingRecommendationsOutput: typeof import("./getSAPSizingRecommendations").getSAPSizingRecommendationsOutput = null as any;
+
+export { GetSAPSupportedSkuArgs, GetSAPSupportedSkuResult, GetSAPSupportedSkuOutputArgs } from "./getSAPSupportedSku";
+export const getSAPSupportedSku: typeof import("./getSAPSupportedSku").getSAPSupportedSku = null as any;
+export const getSAPSupportedSkuOutput: typeof import("./getSAPSupportedSku").getSAPSupportedSkuOutput = null as any;
+
+export { GetSAPVirtualInstanceArgs, GetSAPVirtualInstanceResult, GetSAPVirtualInstanceOutputArgs } from "./getSAPVirtualInstance";
+export const getSAPVirtualInstance: typeof import("./getSAPVirtualInstance").getSAPVirtualInstance = null as any;
+export const getSAPVirtualInstanceOutput: typeof import("./getSAPVirtualInstance").getSAPVirtualInstanceOutput = null as any;
+
+export { GetWordpressInstanceArgs, GetWordpressInstanceResult, GetWordpressInstanceOutputArgs } from "./getWordpressInstance";
+export const getWordpressInstance: typeof import("./getWordpressInstance").getWordpressInstance = null as any;
+export const getWordpressInstanceOutput: typeof import("./getWordpressInstance").getWordpressInstanceOutput = null as any;
+
+export { GetmonitorArgs, GetmonitorResult, GetmonitorOutputArgs } from "./getmonitor";
+export const getmonitor: typeof import("./getmonitor").getmonitor = null as any;
+export const getmonitorOutput: typeof import("./getmonitor").getmonitorOutput = null as any;
+
+export { MonitorArgs } from "./monitor";
+export type Monitor = import("./monitor").Monitor;
+export const Monitor: typeof import("./monitor").Monitor = null as any;
+
+export { PhpWorkloadArgs } from "./phpWorkload";
+export type PhpWorkload = import("./phpWorkload").PhpWorkload;
+export const PhpWorkload: typeof import("./phpWorkload").PhpWorkload = null as any;
+
+export { ProviderInstanceArgs } from "./providerInstance";
+export type ProviderInstance = import("./providerInstance").ProviderInstance;
+export const ProviderInstance: typeof import("./providerInstance").ProviderInstance = null as any;
+
+export { SAPApplicationServerInstanceArgs } from "./sapapplicationServerInstance";
+export type SAPApplicationServerInstance = import("./sapapplicationServerInstance").SAPApplicationServerInstance;
+export const SAPApplicationServerInstance: typeof import("./sapapplicationServerInstance").SAPApplicationServerInstance = null as any;
+
+export { SAPCentralInstanceArgs } from "./sapcentralInstance";
+export type SAPCentralInstance = import("./sapcentralInstance").SAPCentralInstance;
+export const SAPCentralInstance: typeof import("./sapcentralInstance").SAPCentralInstance = null as any;
+
+export { SAPDatabaseInstanceArgs } from "./sapdatabaseInstance";
+export type SAPDatabaseInstance = import("./sapdatabaseInstance").SAPDatabaseInstance;
+export const SAPDatabaseInstance: typeof import("./sapdatabaseInstance").SAPDatabaseInstance = null as any;
+
+export { SAPVirtualInstanceArgs } from "./sapvirtualInstance";
+export type SAPVirtualInstance = import("./sapvirtualInstance").SAPVirtualInstance;
+export const SAPVirtualInstance: typeof import("./sapvirtualInstance").SAPVirtualInstance = null as any;
+
+export { WordpressInstanceArgs } from "./wordpressInstance";
+export type WordpressInstance = import("./wordpressInstance").WordpressInstance;
+export const WordpressInstance: typeof import("./wordpressInstance").WordpressInstance = null as any;
+
+utilities.lazyLoad(exports, ["getPhpWorkload","getPhpWorkloadOutput"], () => require("./getPhpWorkload"));
+utilities.lazyLoad(exports, ["getProviderInstance","getProviderInstanceOutput"], () => require("./getProviderInstance"));
+utilities.lazyLoad(exports, ["getSAPApplicationServerInstance","getSAPApplicationServerInstanceOutput"], () => require("./getSAPApplicationServerInstance"));
+utilities.lazyLoad(exports, ["getSAPAvailabilityZoneDetails","getSAPAvailabilityZoneDetailsOutput"], () => require("./getSAPAvailabilityZoneDetails"));
+utilities.lazyLoad(exports, ["getSAPCentralInstance","getSAPCentralInstanceOutput"], () => require("./getSAPCentralInstance"));
+utilities.lazyLoad(exports, ["getSAPDatabaseInstance","getSAPDatabaseInstanceOutput"], () => require("./getSAPDatabaseInstance"));
+utilities.lazyLoad(exports, ["getSAPDiskConfigurations","getSAPDiskConfigurationsOutput"], () => require("./getSAPDiskConfigurations"));
+utilities.lazyLoad(exports, ["getSAPSizingRecommendations","getSAPSizingRecommendationsOutput"], () => require("./getSAPSizingRecommendations"));
+utilities.lazyLoad(exports, ["getSAPSupportedSku","getSAPSupportedSkuOutput"], () => require("./getSAPSupportedSku"));
+utilities.lazyLoad(exports, ["getSAPVirtualInstance","getSAPVirtualInstanceOutput"], () => require("./getSAPVirtualInstance"));
+utilities.lazyLoad(exports, ["getWordpressInstance","getWordpressInstanceOutput"], () => require("./getWordpressInstance"));
+utilities.lazyLoad(exports, ["getmonitor","getmonitorOutput"], () => require("./getmonitor"));
+utilities.lazyLoad(exports, ["Monitor"], () => require("./monitor"));
+utilities.lazyLoad(exports, ["PhpWorkload"], () => require("./phpWorkload"));
+utilities.lazyLoad(exports, ["ProviderInstance"], () => require("./providerInstance"));
+utilities.lazyLoad(exports, ["SAPApplicationServerInstance"], () => require("./sapapplicationServerInstance"));
+utilities.lazyLoad(exports, ["SAPCentralInstance"], () => require("./sapcentralInstance"));
+utilities.lazyLoad(exports, ["SAPDatabaseInstance"], () => require("./sapdatabaseInstance"));
+utilities.lazyLoad(exports, ["SAPVirtualInstance"], () => require("./sapvirtualInstance"));
+utilities.lazyLoad(exports, ["WordpressInstance"], () => require("./wordpressInstance"));
 
 // Export enums:
 export * from "../types/enums/workloads";
@@ -35,16 +115,6 @@ import * as v20211201preview from "./v20211201preview";
 export {
     v20211201preview,
 };
-
-// Import resources to register:
-import { PhpWorkload } from "./phpWorkload";
-import { ProviderInstance } from "./providerInstance";
-import { SAPApplicationServerInstance } from "./sapapplicationServerInstance";
-import { SAPCentralInstance } from "./sapcentralInstance";
-import { SAPDatabaseInstance } from "./sapdatabaseInstance";
-import { SAPVirtualInstance } from "./sapvirtualInstance";
-import { WordpressInstance } from "./wordpressInstance";
-import { Monitor } from "./monitor";
 
 const _module = {
     version: utilities.getVersion(),

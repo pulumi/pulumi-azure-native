@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./connector";
-export * from "./getConnector";
-export * from "./getSecurityContact";
-export * from "./securityContact";
+export { ConnectorArgs } from "./connector";
+export type Connector = import("./connector").Connector;
+export const Connector: typeof import("./connector").Connector = null as any;
+
+export { GetConnectorArgs, GetConnectorResult, GetConnectorOutputArgs } from "./getConnector";
+export const getConnector: typeof import("./getConnector").getConnector = null as any;
+export const getConnectorOutput: typeof import("./getConnector").getConnectorOutput = null as any;
+
+export { GetSecurityContactArgs, GetSecurityContactResult, GetSecurityContactOutputArgs } from "./getSecurityContact";
+export const getSecurityContact: typeof import("./getSecurityContact").getSecurityContact = null as any;
+export const getSecurityContactOutput: typeof import("./getSecurityContact").getSecurityContactOutput = null as any;
+
+export { SecurityContactArgs } from "./securityContact";
+export type SecurityContact = import("./securityContact").SecurityContact;
+export const SecurityContact: typeof import("./securityContact").SecurityContact = null as any;
+
+utilities.lazyLoad(exports, ["Connector"], () => require("./connector"));
+utilities.lazyLoad(exports, ["getConnector","getConnectorOutput"], () => require("./getConnector"));
+utilities.lazyLoad(exports, ["getSecurityContact","getSecurityContactOutput"], () => require("./getSecurityContact"));
+utilities.lazyLoad(exports, ["SecurityContact"], () => require("./securityContact"));
 
 // Export enums:
 export * from "../../types/enums/security/v20200101preview";
-
-// Import resources to register:
-import { Connector } from "./connector";
-import { SecurityContact } from "./securityContact";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,36 +5,99 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./certificate";
-export * from "./dpsCertificate";
-export * from "./getCertificate";
-export * from "./getDpsCertificate";
-export * from "./getIotDpsResource";
-export * from "./getIotDpsResourcePrivateEndpointConnection";
-export * from "./getIotHubResource";
-export * from "./getIotHubResourceEventHubConsumerGroup";
-export * from "./getPrivateEndpointConnection";
-export * from "./iotDpsResource";
-export * from "./iotDpsResourcePrivateEndpointConnection";
-export * from "./iotHubResource";
-export * from "./iotHubResourceEventHubConsumerGroup";
-export * from "./listIotDpsResourceKeys";
-export * from "./listIotDpsResourceKeysForKeyName";
-export * from "./listIotHubResourceKeys";
-export * from "./listIotHubResourceKeysForKeyName";
-export * from "./privateEndpointConnection";
+export { CertificateArgs } from "./certificate";
+export type Certificate = import("./certificate").Certificate;
+export const Certificate: typeof import("./certificate").Certificate = null as any;
+
+export { DpsCertificateArgs } from "./dpsCertificate";
+export type DpsCertificate = import("./dpsCertificate").DpsCertificate;
+export const DpsCertificate: typeof import("./dpsCertificate").DpsCertificate = null as any;
+
+export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
+export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
+export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
+
+export { GetDpsCertificateArgs, GetDpsCertificateResult, GetDpsCertificateOutputArgs } from "./getDpsCertificate";
+export const getDpsCertificate: typeof import("./getDpsCertificate").getDpsCertificate = null as any;
+export const getDpsCertificateOutput: typeof import("./getDpsCertificate").getDpsCertificateOutput = null as any;
+
+export { GetIotDpsResourceArgs, GetIotDpsResourceResult, GetIotDpsResourceOutputArgs } from "./getIotDpsResource";
+export const getIotDpsResource: typeof import("./getIotDpsResource").getIotDpsResource = null as any;
+export const getIotDpsResourceOutput: typeof import("./getIotDpsResource").getIotDpsResourceOutput = null as any;
+
+export { GetIotDpsResourcePrivateEndpointConnectionArgs, GetIotDpsResourcePrivateEndpointConnectionResult, GetIotDpsResourcePrivateEndpointConnectionOutputArgs } from "./getIotDpsResourcePrivateEndpointConnection";
+export const getIotDpsResourcePrivateEndpointConnection: typeof import("./getIotDpsResourcePrivateEndpointConnection").getIotDpsResourcePrivateEndpointConnection = null as any;
+export const getIotDpsResourcePrivateEndpointConnectionOutput: typeof import("./getIotDpsResourcePrivateEndpointConnection").getIotDpsResourcePrivateEndpointConnectionOutput = null as any;
+
+export { GetIotHubResourceArgs, GetIotHubResourceResult, GetIotHubResourceOutputArgs } from "./getIotHubResource";
+export const getIotHubResource: typeof import("./getIotHubResource").getIotHubResource = null as any;
+export const getIotHubResourceOutput: typeof import("./getIotHubResource").getIotHubResourceOutput = null as any;
+
+export { GetIotHubResourceEventHubConsumerGroupArgs, GetIotHubResourceEventHubConsumerGroupResult, GetIotHubResourceEventHubConsumerGroupOutputArgs } from "./getIotHubResourceEventHubConsumerGroup";
+export const getIotHubResourceEventHubConsumerGroup: typeof import("./getIotHubResourceEventHubConsumerGroup").getIotHubResourceEventHubConsumerGroup = null as any;
+export const getIotHubResourceEventHubConsumerGroupOutput: typeof import("./getIotHubResourceEventHubConsumerGroup").getIotHubResourceEventHubConsumerGroupOutput = null as any;
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+
+export { IotDpsResourceArgs } from "./iotDpsResource";
+export type IotDpsResource = import("./iotDpsResource").IotDpsResource;
+export const IotDpsResource: typeof import("./iotDpsResource").IotDpsResource = null as any;
+
+export { IotDpsResourcePrivateEndpointConnectionArgs } from "./iotDpsResourcePrivateEndpointConnection";
+export type IotDpsResourcePrivateEndpointConnection = import("./iotDpsResourcePrivateEndpointConnection").IotDpsResourcePrivateEndpointConnection;
+export const IotDpsResourcePrivateEndpointConnection: typeof import("./iotDpsResourcePrivateEndpointConnection").IotDpsResourcePrivateEndpointConnection = null as any;
+
+export { IotHubResourceArgs } from "./iotHubResource";
+export type IotHubResource = import("./iotHubResource").IotHubResource;
+export const IotHubResource: typeof import("./iotHubResource").IotHubResource = null as any;
+
+export { IotHubResourceEventHubConsumerGroupArgs } from "./iotHubResourceEventHubConsumerGroup";
+export type IotHubResourceEventHubConsumerGroup = import("./iotHubResourceEventHubConsumerGroup").IotHubResourceEventHubConsumerGroup;
+export const IotHubResourceEventHubConsumerGroup: typeof import("./iotHubResourceEventHubConsumerGroup").IotHubResourceEventHubConsumerGroup = null as any;
+
+export { ListIotDpsResourceKeysArgs, ListIotDpsResourceKeysResult, ListIotDpsResourceKeysOutputArgs } from "./listIotDpsResourceKeys";
+export const listIotDpsResourceKeys: typeof import("./listIotDpsResourceKeys").listIotDpsResourceKeys = null as any;
+export const listIotDpsResourceKeysOutput: typeof import("./listIotDpsResourceKeys").listIotDpsResourceKeysOutput = null as any;
+
+export { ListIotDpsResourceKeysForKeyNameArgs, ListIotDpsResourceKeysForKeyNameResult, ListIotDpsResourceKeysForKeyNameOutputArgs } from "./listIotDpsResourceKeysForKeyName";
+export const listIotDpsResourceKeysForKeyName: typeof import("./listIotDpsResourceKeysForKeyName").listIotDpsResourceKeysForKeyName = null as any;
+export const listIotDpsResourceKeysForKeyNameOutput: typeof import("./listIotDpsResourceKeysForKeyName").listIotDpsResourceKeysForKeyNameOutput = null as any;
+
+export { ListIotHubResourceKeysArgs, ListIotHubResourceKeysResult, ListIotHubResourceKeysOutputArgs } from "./listIotHubResourceKeys";
+export const listIotHubResourceKeys: typeof import("./listIotHubResourceKeys").listIotHubResourceKeys = null as any;
+export const listIotHubResourceKeysOutput: typeof import("./listIotHubResourceKeys").listIotHubResourceKeysOutput = null as any;
+
+export { ListIotHubResourceKeysForKeyNameArgs, ListIotHubResourceKeysForKeyNameResult, ListIotHubResourceKeysForKeyNameOutputArgs } from "./listIotHubResourceKeysForKeyName";
+export const listIotHubResourceKeysForKeyName: typeof import("./listIotHubResourceKeysForKeyName").listIotHubResourceKeysForKeyName = null as any;
+export const listIotHubResourceKeysForKeyNameOutput: typeof import("./listIotHubResourceKeysForKeyName").listIotHubResourceKeysForKeyNameOutput = null as any;
+
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+
+utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
+utilities.lazyLoad(exports, ["DpsCertificate"], () => require("./dpsCertificate"));
+utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
+utilities.lazyLoad(exports, ["getDpsCertificate","getDpsCertificateOutput"], () => require("./getDpsCertificate"));
+utilities.lazyLoad(exports, ["getIotDpsResource","getIotDpsResourceOutput"], () => require("./getIotDpsResource"));
+utilities.lazyLoad(exports, ["getIotDpsResourcePrivateEndpointConnection","getIotDpsResourcePrivateEndpointConnectionOutput"], () => require("./getIotDpsResourcePrivateEndpointConnection"));
+utilities.lazyLoad(exports, ["getIotHubResource","getIotHubResourceOutput"], () => require("./getIotHubResource"));
+utilities.lazyLoad(exports, ["getIotHubResourceEventHubConsumerGroup","getIotHubResourceEventHubConsumerGroupOutput"], () => require("./getIotHubResourceEventHubConsumerGroup"));
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+utilities.lazyLoad(exports, ["IotDpsResource"], () => require("./iotDpsResource"));
+utilities.lazyLoad(exports, ["IotDpsResourcePrivateEndpointConnection"], () => require("./iotDpsResourcePrivateEndpointConnection"));
+utilities.lazyLoad(exports, ["IotHubResource"], () => require("./iotHubResource"));
+utilities.lazyLoad(exports, ["IotHubResourceEventHubConsumerGroup"], () => require("./iotHubResourceEventHubConsumerGroup"));
+utilities.lazyLoad(exports, ["listIotDpsResourceKeys","listIotDpsResourceKeysOutput"], () => require("./listIotDpsResourceKeys"));
+utilities.lazyLoad(exports, ["listIotDpsResourceKeysForKeyName","listIotDpsResourceKeysForKeyNameOutput"], () => require("./listIotDpsResourceKeysForKeyName"));
+utilities.lazyLoad(exports, ["listIotHubResourceKeys","listIotHubResourceKeysOutput"], () => require("./listIotHubResourceKeys"));
+utilities.lazyLoad(exports, ["listIotHubResourceKeysForKeyName","listIotHubResourceKeysForKeyNameOutput"], () => require("./listIotHubResourceKeysForKeyName"));
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
 
 // Export enums:
 export * from "../../types/enums/devices/v20200301";
-
-// Import resources to register:
-import { Certificate } from "./certificate";
-import { DpsCertificate } from "./dpsCertificate";
-import { IotDpsResource } from "./iotDpsResource";
-import { IotDpsResourcePrivateEndpointConnection } from "./iotDpsResourcePrivateEndpointConnection";
-import { IotHubResource } from "./iotHubResource";
-import { IotHubResourceEventHubConsumerGroup } from "./iotHubResourceEventHubConsumerGroup";
-import { PrivateEndpointConnection } from "./privateEndpointConnection";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,21 +5,44 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./communicationService";
-export * from "./domain";
-export * from "./emailService";
-export * from "./getCommunicationService";
-export * from "./getDomain";
-export * from "./getEmailService";
-export * from "./listCommunicationServiceKeys";
+export { CommunicationServiceArgs } from "./communicationService";
+export type CommunicationService = import("./communicationService").CommunicationService;
+export const CommunicationService: typeof import("./communicationService").CommunicationService = null as any;
+
+export { DomainArgs } from "./domain";
+export type Domain = import("./domain").Domain;
+export const Domain: typeof import("./domain").Domain = null as any;
+
+export { EmailServiceArgs } from "./emailService";
+export type EmailService = import("./emailService").EmailService;
+export const EmailService: typeof import("./emailService").EmailService = null as any;
+
+export { GetCommunicationServiceArgs, GetCommunicationServiceResult, GetCommunicationServiceOutputArgs } from "./getCommunicationService";
+export const getCommunicationService: typeof import("./getCommunicationService").getCommunicationService = null as any;
+export const getCommunicationServiceOutput: typeof import("./getCommunicationService").getCommunicationServiceOutput = null as any;
+
+export { GetDomainArgs, GetDomainResult, GetDomainOutputArgs } from "./getDomain";
+export const getDomain: typeof import("./getDomain").getDomain = null as any;
+export const getDomainOutput: typeof import("./getDomain").getDomainOutput = null as any;
+
+export { GetEmailServiceArgs, GetEmailServiceResult, GetEmailServiceOutputArgs } from "./getEmailService";
+export const getEmailService: typeof import("./getEmailService").getEmailService = null as any;
+export const getEmailServiceOutput: typeof import("./getEmailService").getEmailServiceOutput = null as any;
+
+export { ListCommunicationServiceKeysArgs, ListCommunicationServiceKeysResult, ListCommunicationServiceKeysOutputArgs } from "./listCommunicationServiceKeys";
+export const listCommunicationServiceKeys: typeof import("./listCommunicationServiceKeys").listCommunicationServiceKeys = null as any;
+export const listCommunicationServiceKeysOutput: typeof import("./listCommunicationServiceKeys").listCommunicationServiceKeysOutput = null as any;
+
+utilities.lazyLoad(exports, ["CommunicationService"], () => require("./communicationService"));
+utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
+utilities.lazyLoad(exports, ["EmailService"], () => require("./emailService"));
+utilities.lazyLoad(exports, ["getCommunicationService","getCommunicationServiceOutput"], () => require("./getCommunicationService"));
+utilities.lazyLoad(exports, ["getDomain","getDomainOutput"], () => require("./getDomain"));
+utilities.lazyLoad(exports, ["getEmailService","getEmailServiceOutput"], () => require("./getEmailService"));
+utilities.lazyLoad(exports, ["listCommunicationServiceKeys","listCommunicationServiceKeysOutput"], () => require("./listCommunicationServiceKeys"));
 
 // Export enums:
 export * from "../../types/enums/communication/v20220701preview";
-
-// Import resources to register:
-import { CommunicationService } from "./communicationService";
-import { Domain } from "./domain";
-import { EmailService } from "./emailService";
 
 const _module = {
     version: utilities.getVersion(),

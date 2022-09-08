@@ -5,16 +5,55 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./defenderSetting";
-export * from "./deviceGroup";
-export * from "./getDefenderSetting";
-export * from "./getDeviceGroup";
-export * from "./getOnPremiseSensor";
-export * from "./getSensor";
-export * from "./getSite";
-export * from "./onPremiseSensor";
-export * from "./sensor";
-export * from "./site";
+export { DefenderSettingArgs } from "./defenderSetting";
+export type DefenderSetting = import("./defenderSetting").DefenderSetting;
+export const DefenderSetting: typeof import("./defenderSetting").DefenderSetting = null as any;
+
+export { DeviceGroupArgs } from "./deviceGroup";
+export type DeviceGroup = import("./deviceGroup").DeviceGroup;
+export const DeviceGroup: typeof import("./deviceGroup").DeviceGroup = null as any;
+
+export { GetDefenderSettingArgs, GetDefenderSettingResult } from "./getDefenderSetting";
+export const getDefenderSetting: typeof import("./getDefenderSetting").getDefenderSetting = null as any;
+
+export { GetDeviceGroupArgs, GetDeviceGroupResult, GetDeviceGroupOutputArgs } from "./getDeviceGroup";
+export const getDeviceGroup: typeof import("./getDeviceGroup").getDeviceGroup = null as any;
+export const getDeviceGroupOutput: typeof import("./getDeviceGroup").getDeviceGroupOutput = null as any;
+
+export { GetOnPremiseSensorArgs, GetOnPremiseSensorResult, GetOnPremiseSensorOutputArgs } from "./getOnPremiseSensor";
+export const getOnPremiseSensor: typeof import("./getOnPremiseSensor").getOnPremiseSensor = null as any;
+export const getOnPremiseSensorOutput: typeof import("./getOnPremiseSensor").getOnPremiseSensorOutput = null as any;
+
+export { GetSensorArgs, GetSensorResult, GetSensorOutputArgs } from "./getSensor";
+export const getSensor: typeof import("./getSensor").getSensor = null as any;
+export const getSensorOutput: typeof import("./getSensor").getSensorOutput = null as any;
+
+export { GetSiteArgs, GetSiteResult, GetSiteOutputArgs } from "./getSite";
+export const getSite: typeof import("./getSite").getSite = null as any;
+export const getSiteOutput: typeof import("./getSite").getSiteOutput = null as any;
+
+export { OnPremiseSensorArgs } from "./onPremiseSensor";
+export type OnPremiseSensor = import("./onPremiseSensor").OnPremiseSensor;
+export const OnPremiseSensor: typeof import("./onPremiseSensor").OnPremiseSensor = null as any;
+
+export { SensorArgs } from "./sensor";
+export type Sensor = import("./sensor").Sensor;
+export const Sensor: typeof import("./sensor").Sensor = null as any;
+
+export { SiteArgs } from "./site";
+export type Site = import("./site").Site;
+export const Site: typeof import("./site").Site = null as any;
+
+utilities.lazyLoad(exports, ["DefenderSetting"], () => require("./defenderSetting"));
+utilities.lazyLoad(exports, ["DeviceGroup"], () => require("./deviceGroup"));
+utilities.lazyLoad(exports, ["getDefenderSetting"], () => require("./getDefenderSetting"));
+utilities.lazyLoad(exports, ["getDeviceGroup","getDeviceGroupOutput"], () => require("./getDeviceGroup"));
+utilities.lazyLoad(exports, ["getOnPremiseSensor","getOnPremiseSensorOutput"], () => require("./getOnPremiseSensor"));
+utilities.lazyLoad(exports, ["getSensor","getSensorOutput"], () => require("./getSensor"));
+utilities.lazyLoad(exports, ["getSite","getSiteOutput"], () => require("./getSite"));
+utilities.lazyLoad(exports, ["OnPremiseSensor"], () => require("./onPremiseSensor"));
+utilities.lazyLoad(exports, ["Sensor"], () => require("./sensor"));
+utilities.lazyLoad(exports, ["Site"], () => require("./site"));
 
 // Export enums:
 export * from "../types/enums/iotsecurity";
@@ -25,13 +64,6 @@ import * as v20210201preview from "./v20210201preview";
 export {
     v20210201preview,
 };
-
-// Import resources to register:
-import { DefenderSetting } from "./defenderSetting";
-import { DeviceGroup } from "./deviceGroup";
-import { OnPremiseSensor } from "./onPremiseSensor";
-import { Sensor } from "./sensor";
-import { Site } from "./site";
 
 const _module = {
     version: utilities.getVersion(),

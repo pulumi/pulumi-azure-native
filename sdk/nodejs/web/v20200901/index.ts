@@ -5,178 +5,594 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./appServiceEnvironment";
-export * from "./appServicePlan";
-export * from "./appServicePlanRouteForVnet";
-export * from "./certificate";
-export * from "./getAppServiceEnvironment";
-export * from "./getAppServicePlan";
-export * from "./getCertificate";
-export * from "./getStaticSite";
-export * from "./getWebApp";
-export * from "./getWebAppDeployment";
-export * from "./getWebAppDeploymentSlot";
-export * from "./getWebAppDiagnosticLogsConfiguration";
-export * from "./getWebAppDomainOwnershipIdentifier";
-export * from "./getWebAppDomainOwnershipIdentifierSlot";
-export * from "./getWebAppFunction";
-export * from "./getWebAppHostNameBinding";
-export * from "./getWebAppHostNameBindingSlot";
-export * from "./getWebAppHybridConnection";
-export * from "./getWebAppHybridConnectionSlot";
-export * from "./getWebAppInstanceFunctionSlot";
-export * from "./getWebAppPremierAddOn";
-export * from "./getWebAppPremierAddOnSlot";
-export * from "./getWebAppPrivateEndpointConnection";
-export * from "./getWebAppPublicCertificate";
-export * from "./getWebAppPublicCertificateSlot";
-export * from "./getWebAppRelayServiceConnection";
-export * from "./getWebAppRelayServiceConnectionSlot";
-export * from "./getWebAppSiteExtension";
-export * from "./getWebAppSiteExtensionSlot";
-export * from "./getWebAppSlot";
-export * from "./getWebAppSlotConfigurationNames";
-export * from "./getWebAppSourceControl";
-export * from "./getWebAppSourceControlSlot";
-export * from "./getWebAppSwiftVirtualNetworkConnection";
-export * from "./getWebAppSwiftVirtualNetworkConnectionSlot";
-export * from "./getWebAppVnetConnection";
-export * from "./getWebAppVnetConnectionSlot";
-export * from "./listAppServicePlanHybridConnectionKeys";
-export * from "./listSiteIdentifiersAssignedToHostName";
-export * from "./listStaticSiteBuildFunctionAppSettings";
-export * from "./listStaticSiteFunctionAppSettings";
-export * from "./listStaticSiteSecrets";
-export * from "./listStaticSiteUsers";
-export * from "./listWebAppApplicationSettings";
-export * from "./listWebAppApplicationSettingsSlot";
-export * from "./listWebAppAuthSettings";
-export * from "./listWebAppAuthSettingsSlot";
-export * from "./listWebAppAzureStorageAccounts";
-export * from "./listWebAppAzureStorageAccountsSlot";
-export * from "./listWebAppBackupConfiguration";
-export * from "./listWebAppBackupConfigurationSlot";
-export * from "./listWebAppBackupStatusSecrets";
-export * from "./listWebAppBackupStatusSecretsSlot";
-export * from "./listWebAppConnectionStrings";
-export * from "./listWebAppConnectionStringsSlot";
-export * from "./listWebAppFunctionKeys";
-export * from "./listWebAppFunctionKeysSlot";
-export * from "./listWebAppFunctionSecrets";
-export * from "./listWebAppFunctionSecretsSlot";
-export * from "./listWebAppHostKeys";
-export * from "./listWebAppHostKeysSlot";
-export * from "./listWebAppMetadata";
-export * from "./listWebAppMetadataSlot";
-export * from "./listWebAppPublishingCredentials";
-export * from "./listWebAppPublishingCredentialsSlot";
-export * from "./listWebAppSiteBackups";
-export * from "./listWebAppSiteBackupsSlot";
-export * from "./listWebAppSitePushSettings";
-export * from "./listWebAppSitePushSettingsSlot";
-export * from "./listWebAppSyncFunctionTriggers";
-export * from "./listWebAppSyncFunctionTriggersSlot";
-export * from "./staticSite";
-export * from "./webApp";
-export * from "./webAppApplicationSettings";
-export * from "./webAppApplicationSettingsSlot";
-export * from "./webAppAuthSettings";
-export * from "./webAppAuthSettingsSlot";
-export * from "./webAppAuthSettingsV2";
-export * from "./webAppAuthSettingsV2Slot";
-export * from "./webAppAzureStorageAccounts";
-export * from "./webAppAzureStorageAccountsSlot";
-export * from "./webAppBackupConfiguration";
-export * from "./webAppBackupConfigurationSlot";
-export * from "./webAppConnectionStrings";
-export * from "./webAppConnectionStringsSlot";
-export * from "./webAppDeployment";
-export * from "./webAppDeploymentSlot";
-export * from "./webAppDiagnosticLogsConfiguration";
-export * from "./webAppDomainOwnershipIdentifier";
-export * from "./webAppDomainOwnershipIdentifierSlot";
-export * from "./webAppFunction";
-export * from "./webAppHostNameBinding";
-export * from "./webAppHostNameBindingSlot";
-export * from "./webAppHybridConnection";
-export * from "./webAppHybridConnectionSlot";
-export * from "./webAppInstanceFunctionSlot";
-export * from "./webAppMetadata";
-export * from "./webAppMetadataSlot";
-export * from "./webAppPremierAddOn";
-export * from "./webAppPremierAddOnSlot";
-export * from "./webAppPrivateEndpointConnection";
-export * from "./webAppPublicCertificate";
-export * from "./webAppPublicCertificateSlot";
-export * from "./webAppRelayServiceConnection";
-export * from "./webAppRelayServiceConnectionSlot";
-export * from "./webAppSiteExtension";
-export * from "./webAppSiteExtensionSlot";
-export * from "./webAppSitePushSettings";
-export * from "./webAppSitePushSettingsSlot";
-export * from "./webAppSlot";
-export * from "./webAppSlotConfigurationNames";
-export * from "./webAppSourceControl";
-export * from "./webAppSourceControlSlot";
-export * from "./webAppSwiftVirtualNetworkConnection";
-export * from "./webAppSwiftVirtualNetworkConnectionSlot";
-export * from "./webAppVnetConnection";
-export * from "./webAppVnetConnectionSlot";
+export { AppServiceEnvironmentArgs } from "./appServiceEnvironment";
+export type AppServiceEnvironment = import("./appServiceEnvironment").AppServiceEnvironment;
+export const AppServiceEnvironment: typeof import("./appServiceEnvironment").AppServiceEnvironment = null as any;
+
+export { AppServicePlanArgs } from "./appServicePlan";
+export type AppServicePlan = import("./appServicePlan").AppServicePlan;
+export const AppServicePlan: typeof import("./appServicePlan").AppServicePlan = null as any;
+
+export { AppServicePlanRouteForVnetArgs } from "./appServicePlanRouteForVnet";
+export type AppServicePlanRouteForVnet = import("./appServicePlanRouteForVnet").AppServicePlanRouteForVnet;
+export const AppServicePlanRouteForVnet: typeof import("./appServicePlanRouteForVnet").AppServicePlanRouteForVnet = null as any;
+
+export { CertificateArgs } from "./certificate";
+export type Certificate = import("./certificate").Certificate;
+export const Certificate: typeof import("./certificate").Certificate = null as any;
+
+export { GetAppServiceEnvironmentArgs, GetAppServiceEnvironmentResult, GetAppServiceEnvironmentOutputArgs } from "./getAppServiceEnvironment";
+export const getAppServiceEnvironment: typeof import("./getAppServiceEnvironment").getAppServiceEnvironment = null as any;
+export const getAppServiceEnvironmentOutput: typeof import("./getAppServiceEnvironment").getAppServiceEnvironmentOutput = null as any;
+
+export { GetAppServicePlanArgs, GetAppServicePlanResult, GetAppServicePlanOutputArgs } from "./getAppServicePlan";
+export const getAppServicePlan: typeof import("./getAppServicePlan").getAppServicePlan = null as any;
+export const getAppServicePlanOutput: typeof import("./getAppServicePlan").getAppServicePlanOutput = null as any;
+
+export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
+export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
+export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
+
+export { GetStaticSiteArgs, GetStaticSiteResult, GetStaticSiteOutputArgs } from "./getStaticSite";
+export const getStaticSite: typeof import("./getStaticSite").getStaticSite = null as any;
+export const getStaticSiteOutput: typeof import("./getStaticSite").getStaticSiteOutput = null as any;
+
+export { GetWebAppArgs, GetWebAppResult, GetWebAppOutputArgs } from "./getWebApp";
+export const getWebApp: typeof import("./getWebApp").getWebApp = null as any;
+export const getWebAppOutput: typeof import("./getWebApp").getWebAppOutput = null as any;
+
+export { GetWebAppDeploymentArgs, GetWebAppDeploymentResult, GetWebAppDeploymentOutputArgs } from "./getWebAppDeployment";
+export const getWebAppDeployment: typeof import("./getWebAppDeployment").getWebAppDeployment = null as any;
+export const getWebAppDeploymentOutput: typeof import("./getWebAppDeployment").getWebAppDeploymentOutput = null as any;
+
+export { GetWebAppDeploymentSlotArgs, GetWebAppDeploymentSlotResult, GetWebAppDeploymentSlotOutputArgs } from "./getWebAppDeploymentSlot";
+export const getWebAppDeploymentSlot: typeof import("./getWebAppDeploymentSlot").getWebAppDeploymentSlot = null as any;
+export const getWebAppDeploymentSlotOutput: typeof import("./getWebAppDeploymentSlot").getWebAppDeploymentSlotOutput = null as any;
+
+export { GetWebAppDiagnosticLogsConfigurationArgs, GetWebAppDiagnosticLogsConfigurationResult, GetWebAppDiagnosticLogsConfigurationOutputArgs } from "./getWebAppDiagnosticLogsConfiguration";
+export const getWebAppDiagnosticLogsConfiguration: typeof import("./getWebAppDiagnosticLogsConfiguration").getWebAppDiagnosticLogsConfiguration = null as any;
+export const getWebAppDiagnosticLogsConfigurationOutput: typeof import("./getWebAppDiagnosticLogsConfiguration").getWebAppDiagnosticLogsConfigurationOutput = null as any;
+
+export { GetWebAppDomainOwnershipIdentifierArgs, GetWebAppDomainOwnershipIdentifierResult, GetWebAppDomainOwnershipIdentifierOutputArgs } from "./getWebAppDomainOwnershipIdentifier";
+export const getWebAppDomainOwnershipIdentifier: typeof import("./getWebAppDomainOwnershipIdentifier").getWebAppDomainOwnershipIdentifier = null as any;
+export const getWebAppDomainOwnershipIdentifierOutput: typeof import("./getWebAppDomainOwnershipIdentifier").getWebAppDomainOwnershipIdentifierOutput = null as any;
+
+export { GetWebAppDomainOwnershipIdentifierSlotArgs, GetWebAppDomainOwnershipIdentifierSlotResult, GetWebAppDomainOwnershipIdentifierSlotOutputArgs } from "./getWebAppDomainOwnershipIdentifierSlot";
+export const getWebAppDomainOwnershipIdentifierSlot: typeof import("./getWebAppDomainOwnershipIdentifierSlot").getWebAppDomainOwnershipIdentifierSlot = null as any;
+export const getWebAppDomainOwnershipIdentifierSlotOutput: typeof import("./getWebAppDomainOwnershipIdentifierSlot").getWebAppDomainOwnershipIdentifierSlotOutput = null as any;
+
+export { GetWebAppFunctionArgs, GetWebAppFunctionResult, GetWebAppFunctionOutputArgs } from "./getWebAppFunction";
+export const getWebAppFunction: typeof import("./getWebAppFunction").getWebAppFunction = null as any;
+export const getWebAppFunctionOutput: typeof import("./getWebAppFunction").getWebAppFunctionOutput = null as any;
+
+export { GetWebAppHostNameBindingArgs, GetWebAppHostNameBindingResult, GetWebAppHostNameBindingOutputArgs } from "./getWebAppHostNameBinding";
+export const getWebAppHostNameBinding: typeof import("./getWebAppHostNameBinding").getWebAppHostNameBinding = null as any;
+export const getWebAppHostNameBindingOutput: typeof import("./getWebAppHostNameBinding").getWebAppHostNameBindingOutput = null as any;
+
+export { GetWebAppHostNameBindingSlotArgs, GetWebAppHostNameBindingSlotResult, GetWebAppHostNameBindingSlotOutputArgs } from "./getWebAppHostNameBindingSlot";
+export const getWebAppHostNameBindingSlot: typeof import("./getWebAppHostNameBindingSlot").getWebAppHostNameBindingSlot = null as any;
+export const getWebAppHostNameBindingSlotOutput: typeof import("./getWebAppHostNameBindingSlot").getWebAppHostNameBindingSlotOutput = null as any;
+
+export { GetWebAppHybridConnectionArgs, GetWebAppHybridConnectionResult, GetWebAppHybridConnectionOutputArgs } from "./getWebAppHybridConnection";
+export const getWebAppHybridConnection: typeof import("./getWebAppHybridConnection").getWebAppHybridConnection = null as any;
+export const getWebAppHybridConnectionOutput: typeof import("./getWebAppHybridConnection").getWebAppHybridConnectionOutput = null as any;
+
+export { GetWebAppHybridConnectionSlotArgs, GetWebAppHybridConnectionSlotResult, GetWebAppHybridConnectionSlotOutputArgs } from "./getWebAppHybridConnectionSlot";
+export const getWebAppHybridConnectionSlot: typeof import("./getWebAppHybridConnectionSlot").getWebAppHybridConnectionSlot = null as any;
+export const getWebAppHybridConnectionSlotOutput: typeof import("./getWebAppHybridConnectionSlot").getWebAppHybridConnectionSlotOutput = null as any;
+
+export { GetWebAppInstanceFunctionSlotArgs, GetWebAppInstanceFunctionSlotResult, GetWebAppInstanceFunctionSlotOutputArgs } from "./getWebAppInstanceFunctionSlot";
+export const getWebAppInstanceFunctionSlot: typeof import("./getWebAppInstanceFunctionSlot").getWebAppInstanceFunctionSlot = null as any;
+export const getWebAppInstanceFunctionSlotOutput: typeof import("./getWebAppInstanceFunctionSlot").getWebAppInstanceFunctionSlotOutput = null as any;
+
+export { GetWebAppPremierAddOnArgs, GetWebAppPremierAddOnResult, GetWebAppPremierAddOnOutputArgs } from "./getWebAppPremierAddOn";
+export const getWebAppPremierAddOn: typeof import("./getWebAppPremierAddOn").getWebAppPremierAddOn = null as any;
+export const getWebAppPremierAddOnOutput: typeof import("./getWebAppPremierAddOn").getWebAppPremierAddOnOutput = null as any;
+
+export { GetWebAppPremierAddOnSlotArgs, GetWebAppPremierAddOnSlotResult, GetWebAppPremierAddOnSlotOutputArgs } from "./getWebAppPremierAddOnSlot";
+export const getWebAppPremierAddOnSlot: typeof import("./getWebAppPremierAddOnSlot").getWebAppPremierAddOnSlot = null as any;
+export const getWebAppPremierAddOnSlotOutput: typeof import("./getWebAppPremierAddOnSlot").getWebAppPremierAddOnSlotOutput = null as any;
+
+export { GetWebAppPrivateEndpointConnectionArgs, GetWebAppPrivateEndpointConnectionResult, GetWebAppPrivateEndpointConnectionOutputArgs } from "./getWebAppPrivateEndpointConnection";
+export const getWebAppPrivateEndpointConnection: typeof import("./getWebAppPrivateEndpointConnection").getWebAppPrivateEndpointConnection = null as any;
+export const getWebAppPrivateEndpointConnectionOutput: typeof import("./getWebAppPrivateEndpointConnection").getWebAppPrivateEndpointConnectionOutput = null as any;
+
+export { GetWebAppPublicCertificateArgs, GetWebAppPublicCertificateResult, GetWebAppPublicCertificateOutputArgs } from "./getWebAppPublicCertificate";
+export const getWebAppPublicCertificate: typeof import("./getWebAppPublicCertificate").getWebAppPublicCertificate = null as any;
+export const getWebAppPublicCertificateOutput: typeof import("./getWebAppPublicCertificate").getWebAppPublicCertificateOutput = null as any;
+
+export { GetWebAppPublicCertificateSlotArgs, GetWebAppPublicCertificateSlotResult, GetWebAppPublicCertificateSlotOutputArgs } from "./getWebAppPublicCertificateSlot";
+export const getWebAppPublicCertificateSlot: typeof import("./getWebAppPublicCertificateSlot").getWebAppPublicCertificateSlot = null as any;
+export const getWebAppPublicCertificateSlotOutput: typeof import("./getWebAppPublicCertificateSlot").getWebAppPublicCertificateSlotOutput = null as any;
+
+export { GetWebAppRelayServiceConnectionArgs, GetWebAppRelayServiceConnectionResult, GetWebAppRelayServiceConnectionOutputArgs } from "./getWebAppRelayServiceConnection";
+export const getWebAppRelayServiceConnection: typeof import("./getWebAppRelayServiceConnection").getWebAppRelayServiceConnection = null as any;
+export const getWebAppRelayServiceConnectionOutput: typeof import("./getWebAppRelayServiceConnection").getWebAppRelayServiceConnectionOutput = null as any;
+
+export { GetWebAppRelayServiceConnectionSlotArgs, GetWebAppRelayServiceConnectionSlotResult, GetWebAppRelayServiceConnectionSlotOutputArgs } from "./getWebAppRelayServiceConnectionSlot";
+export const getWebAppRelayServiceConnectionSlot: typeof import("./getWebAppRelayServiceConnectionSlot").getWebAppRelayServiceConnectionSlot = null as any;
+export const getWebAppRelayServiceConnectionSlotOutput: typeof import("./getWebAppRelayServiceConnectionSlot").getWebAppRelayServiceConnectionSlotOutput = null as any;
+
+export { GetWebAppSiteExtensionArgs, GetWebAppSiteExtensionResult, GetWebAppSiteExtensionOutputArgs } from "./getWebAppSiteExtension";
+export const getWebAppSiteExtension: typeof import("./getWebAppSiteExtension").getWebAppSiteExtension = null as any;
+export const getWebAppSiteExtensionOutput: typeof import("./getWebAppSiteExtension").getWebAppSiteExtensionOutput = null as any;
+
+export { GetWebAppSiteExtensionSlotArgs, GetWebAppSiteExtensionSlotResult, GetWebAppSiteExtensionSlotOutputArgs } from "./getWebAppSiteExtensionSlot";
+export const getWebAppSiteExtensionSlot: typeof import("./getWebAppSiteExtensionSlot").getWebAppSiteExtensionSlot = null as any;
+export const getWebAppSiteExtensionSlotOutput: typeof import("./getWebAppSiteExtensionSlot").getWebAppSiteExtensionSlotOutput = null as any;
+
+export { GetWebAppSlotArgs, GetWebAppSlotResult, GetWebAppSlotOutputArgs } from "./getWebAppSlot";
+export const getWebAppSlot: typeof import("./getWebAppSlot").getWebAppSlot = null as any;
+export const getWebAppSlotOutput: typeof import("./getWebAppSlot").getWebAppSlotOutput = null as any;
+
+export { GetWebAppSlotConfigurationNamesArgs, GetWebAppSlotConfigurationNamesResult, GetWebAppSlotConfigurationNamesOutputArgs } from "./getWebAppSlotConfigurationNames";
+export const getWebAppSlotConfigurationNames: typeof import("./getWebAppSlotConfigurationNames").getWebAppSlotConfigurationNames = null as any;
+export const getWebAppSlotConfigurationNamesOutput: typeof import("./getWebAppSlotConfigurationNames").getWebAppSlotConfigurationNamesOutput = null as any;
+
+export { GetWebAppSourceControlArgs, GetWebAppSourceControlResult, GetWebAppSourceControlOutputArgs } from "./getWebAppSourceControl";
+export const getWebAppSourceControl: typeof import("./getWebAppSourceControl").getWebAppSourceControl = null as any;
+export const getWebAppSourceControlOutput: typeof import("./getWebAppSourceControl").getWebAppSourceControlOutput = null as any;
+
+export { GetWebAppSourceControlSlotArgs, GetWebAppSourceControlSlotResult, GetWebAppSourceControlSlotOutputArgs } from "./getWebAppSourceControlSlot";
+export const getWebAppSourceControlSlot: typeof import("./getWebAppSourceControlSlot").getWebAppSourceControlSlot = null as any;
+export const getWebAppSourceControlSlotOutput: typeof import("./getWebAppSourceControlSlot").getWebAppSourceControlSlotOutput = null as any;
+
+export { GetWebAppSwiftVirtualNetworkConnectionArgs, GetWebAppSwiftVirtualNetworkConnectionResult, GetWebAppSwiftVirtualNetworkConnectionOutputArgs } from "./getWebAppSwiftVirtualNetworkConnection";
+export const getWebAppSwiftVirtualNetworkConnection: typeof import("./getWebAppSwiftVirtualNetworkConnection").getWebAppSwiftVirtualNetworkConnection = null as any;
+export const getWebAppSwiftVirtualNetworkConnectionOutput: typeof import("./getWebAppSwiftVirtualNetworkConnection").getWebAppSwiftVirtualNetworkConnectionOutput = null as any;
+
+export { GetWebAppSwiftVirtualNetworkConnectionSlotArgs, GetWebAppSwiftVirtualNetworkConnectionSlotResult, GetWebAppSwiftVirtualNetworkConnectionSlotOutputArgs } from "./getWebAppSwiftVirtualNetworkConnectionSlot";
+export const getWebAppSwiftVirtualNetworkConnectionSlot: typeof import("./getWebAppSwiftVirtualNetworkConnectionSlot").getWebAppSwiftVirtualNetworkConnectionSlot = null as any;
+export const getWebAppSwiftVirtualNetworkConnectionSlotOutput: typeof import("./getWebAppSwiftVirtualNetworkConnectionSlot").getWebAppSwiftVirtualNetworkConnectionSlotOutput = null as any;
+
+export { GetWebAppVnetConnectionArgs, GetWebAppVnetConnectionResult, GetWebAppVnetConnectionOutputArgs } from "./getWebAppVnetConnection";
+export const getWebAppVnetConnection: typeof import("./getWebAppVnetConnection").getWebAppVnetConnection = null as any;
+export const getWebAppVnetConnectionOutput: typeof import("./getWebAppVnetConnection").getWebAppVnetConnectionOutput = null as any;
+
+export { GetWebAppVnetConnectionSlotArgs, GetWebAppVnetConnectionSlotResult, GetWebAppVnetConnectionSlotOutputArgs } from "./getWebAppVnetConnectionSlot";
+export const getWebAppVnetConnectionSlot: typeof import("./getWebAppVnetConnectionSlot").getWebAppVnetConnectionSlot = null as any;
+export const getWebAppVnetConnectionSlotOutput: typeof import("./getWebAppVnetConnectionSlot").getWebAppVnetConnectionSlotOutput = null as any;
+
+export { ListAppServicePlanHybridConnectionKeysArgs, ListAppServicePlanHybridConnectionKeysResult, ListAppServicePlanHybridConnectionKeysOutputArgs } from "./listAppServicePlanHybridConnectionKeys";
+export const listAppServicePlanHybridConnectionKeys: typeof import("./listAppServicePlanHybridConnectionKeys").listAppServicePlanHybridConnectionKeys = null as any;
+export const listAppServicePlanHybridConnectionKeysOutput: typeof import("./listAppServicePlanHybridConnectionKeys").listAppServicePlanHybridConnectionKeysOutput = null as any;
+
+export { ListSiteIdentifiersAssignedToHostNameArgs, ListSiteIdentifiersAssignedToHostNameResult, ListSiteIdentifiersAssignedToHostNameOutputArgs } from "./listSiteIdentifiersAssignedToHostName";
+export const listSiteIdentifiersAssignedToHostName: typeof import("./listSiteIdentifiersAssignedToHostName").listSiteIdentifiersAssignedToHostName = null as any;
+export const listSiteIdentifiersAssignedToHostNameOutput: typeof import("./listSiteIdentifiersAssignedToHostName").listSiteIdentifiersAssignedToHostNameOutput = null as any;
+
+export { ListStaticSiteBuildFunctionAppSettingsArgs, ListStaticSiteBuildFunctionAppSettingsResult, ListStaticSiteBuildFunctionAppSettingsOutputArgs } from "./listStaticSiteBuildFunctionAppSettings";
+export const listStaticSiteBuildFunctionAppSettings: typeof import("./listStaticSiteBuildFunctionAppSettings").listStaticSiteBuildFunctionAppSettings = null as any;
+export const listStaticSiteBuildFunctionAppSettingsOutput: typeof import("./listStaticSiteBuildFunctionAppSettings").listStaticSiteBuildFunctionAppSettingsOutput = null as any;
+
+export { ListStaticSiteFunctionAppSettingsArgs, ListStaticSiteFunctionAppSettingsResult, ListStaticSiteFunctionAppSettingsOutputArgs } from "./listStaticSiteFunctionAppSettings";
+export const listStaticSiteFunctionAppSettings: typeof import("./listStaticSiteFunctionAppSettings").listStaticSiteFunctionAppSettings = null as any;
+export const listStaticSiteFunctionAppSettingsOutput: typeof import("./listStaticSiteFunctionAppSettings").listStaticSiteFunctionAppSettingsOutput = null as any;
+
+export { ListStaticSiteSecretsArgs, ListStaticSiteSecretsResult, ListStaticSiteSecretsOutputArgs } from "./listStaticSiteSecrets";
+export const listStaticSiteSecrets: typeof import("./listStaticSiteSecrets").listStaticSiteSecrets = null as any;
+export const listStaticSiteSecretsOutput: typeof import("./listStaticSiteSecrets").listStaticSiteSecretsOutput = null as any;
+
+export { ListStaticSiteUsersArgs, ListStaticSiteUsersResult, ListStaticSiteUsersOutputArgs } from "./listStaticSiteUsers";
+export const listStaticSiteUsers: typeof import("./listStaticSiteUsers").listStaticSiteUsers = null as any;
+export const listStaticSiteUsersOutput: typeof import("./listStaticSiteUsers").listStaticSiteUsersOutput = null as any;
+
+export { ListWebAppApplicationSettingsArgs, ListWebAppApplicationSettingsResult, ListWebAppApplicationSettingsOutputArgs } from "./listWebAppApplicationSettings";
+export const listWebAppApplicationSettings: typeof import("./listWebAppApplicationSettings").listWebAppApplicationSettings = null as any;
+export const listWebAppApplicationSettingsOutput: typeof import("./listWebAppApplicationSettings").listWebAppApplicationSettingsOutput = null as any;
+
+export { ListWebAppApplicationSettingsSlotArgs, ListWebAppApplicationSettingsSlotResult, ListWebAppApplicationSettingsSlotOutputArgs } from "./listWebAppApplicationSettingsSlot";
+export const listWebAppApplicationSettingsSlot: typeof import("./listWebAppApplicationSettingsSlot").listWebAppApplicationSettingsSlot = null as any;
+export const listWebAppApplicationSettingsSlotOutput: typeof import("./listWebAppApplicationSettingsSlot").listWebAppApplicationSettingsSlotOutput = null as any;
+
+export { ListWebAppAuthSettingsArgs, ListWebAppAuthSettingsResult, ListWebAppAuthSettingsOutputArgs } from "./listWebAppAuthSettings";
+export const listWebAppAuthSettings: typeof import("./listWebAppAuthSettings").listWebAppAuthSettings = null as any;
+export const listWebAppAuthSettingsOutput: typeof import("./listWebAppAuthSettings").listWebAppAuthSettingsOutput = null as any;
+
+export { ListWebAppAuthSettingsSlotArgs, ListWebAppAuthSettingsSlotResult, ListWebAppAuthSettingsSlotOutputArgs } from "./listWebAppAuthSettingsSlot";
+export const listWebAppAuthSettingsSlot: typeof import("./listWebAppAuthSettingsSlot").listWebAppAuthSettingsSlot = null as any;
+export const listWebAppAuthSettingsSlotOutput: typeof import("./listWebAppAuthSettingsSlot").listWebAppAuthSettingsSlotOutput = null as any;
+
+export { ListWebAppAzureStorageAccountsArgs, ListWebAppAzureStorageAccountsResult, ListWebAppAzureStorageAccountsOutputArgs } from "./listWebAppAzureStorageAccounts";
+export const listWebAppAzureStorageAccounts: typeof import("./listWebAppAzureStorageAccounts").listWebAppAzureStorageAccounts = null as any;
+export const listWebAppAzureStorageAccountsOutput: typeof import("./listWebAppAzureStorageAccounts").listWebAppAzureStorageAccountsOutput = null as any;
+
+export { ListWebAppAzureStorageAccountsSlotArgs, ListWebAppAzureStorageAccountsSlotResult, ListWebAppAzureStorageAccountsSlotOutputArgs } from "./listWebAppAzureStorageAccountsSlot";
+export const listWebAppAzureStorageAccountsSlot: typeof import("./listWebAppAzureStorageAccountsSlot").listWebAppAzureStorageAccountsSlot = null as any;
+export const listWebAppAzureStorageAccountsSlotOutput: typeof import("./listWebAppAzureStorageAccountsSlot").listWebAppAzureStorageAccountsSlotOutput = null as any;
+
+export { ListWebAppBackupConfigurationArgs, ListWebAppBackupConfigurationResult, ListWebAppBackupConfigurationOutputArgs } from "./listWebAppBackupConfiguration";
+export const listWebAppBackupConfiguration: typeof import("./listWebAppBackupConfiguration").listWebAppBackupConfiguration = null as any;
+export const listWebAppBackupConfigurationOutput: typeof import("./listWebAppBackupConfiguration").listWebAppBackupConfigurationOutput = null as any;
+
+export { ListWebAppBackupConfigurationSlotArgs, ListWebAppBackupConfigurationSlotResult, ListWebAppBackupConfigurationSlotOutputArgs } from "./listWebAppBackupConfigurationSlot";
+export const listWebAppBackupConfigurationSlot: typeof import("./listWebAppBackupConfigurationSlot").listWebAppBackupConfigurationSlot = null as any;
+export const listWebAppBackupConfigurationSlotOutput: typeof import("./listWebAppBackupConfigurationSlot").listWebAppBackupConfigurationSlotOutput = null as any;
+
+export { ListWebAppBackupStatusSecretsArgs, ListWebAppBackupStatusSecretsResult, ListWebAppBackupStatusSecretsOutputArgs } from "./listWebAppBackupStatusSecrets";
+export const listWebAppBackupStatusSecrets: typeof import("./listWebAppBackupStatusSecrets").listWebAppBackupStatusSecrets = null as any;
+export const listWebAppBackupStatusSecretsOutput: typeof import("./listWebAppBackupStatusSecrets").listWebAppBackupStatusSecretsOutput = null as any;
+
+export { ListWebAppBackupStatusSecretsSlotArgs, ListWebAppBackupStatusSecretsSlotResult, ListWebAppBackupStatusSecretsSlotOutputArgs } from "./listWebAppBackupStatusSecretsSlot";
+export const listWebAppBackupStatusSecretsSlot: typeof import("./listWebAppBackupStatusSecretsSlot").listWebAppBackupStatusSecretsSlot = null as any;
+export const listWebAppBackupStatusSecretsSlotOutput: typeof import("./listWebAppBackupStatusSecretsSlot").listWebAppBackupStatusSecretsSlotOutput = null as any;
+
+export { ListWebAppConnectionStringsArgs, ListWebAppConnectionStringsResult, ListWebAppConnectionStringsOutputArgs } from "./listWebAppConnectionStrings";
+export const listWebAppConnectionStrings: typeof import("./listWebAppConnectionStrings").listWebAppConnectionStrings = null as any;
+export const listWebAppConnectionStringsOutput: typeof import("./listWebAppConnectionStrings").listWebAppConnectionStringsOutput = null as any;
+
+export { ListWebAppConnectionStringsSlotArgs, ListWebAppConnectionStringsSlotResult, ListWebAppConnectionStringsSlotOutputArgs } from "./listWebAppConnectionStringsSlot";
+export const listWebAppConnectionStringsSlot: typeof import("./listWebAppConnectionStringsSlot").listWebAppConnectionStringsSlot = null as any;
+export const listWebAppConnectionStringsSlotOutput: typeof import("./listWebAppConnectionStringsSlot").listWebAppConnectionStringsSlotOutput = null as any;
+
+export { ListWebAppFunctionKeysArgs, ListWebAppFunctionKeysResult, ListWebAppFunctionKeysOutputArgs } from "./listWebAppFunctionKeys";
+export const listWebAppFunctionKeys: typeof import("./listWebAppFunctionKeys").listWebAppFunctionKeys = null as any;
+export const listWebAppFunctionKeysOutput: typeof import("./listWebAppFunctionKeys").listWebAppFunctionKeysOutput = null as any;
+
+export { ListWebAppFunctionKeysSlotArgs, ListWebAppFunctionKeysSlotResult, ListWebAppFunctionKeysSlotOutputArgs } from "./listWebAppFunctionKeysSlot";
+export const listWebAppFunctionKeysSlot: typeof import("./listWebAppFunctionKeysSlot").listWebAppFunctionKeysSlot = null as any;
+export const listWebAppFunctionKeysSlotOutput: typeof import("./listWebAppFunctionKeysSlot").listWebAppFunctionKeysSlotOutput = null as any;
+
+export { ListWebAppFunctionSecretsArgs, ListWebAppFunctionSecretsResult, ListWebAppFunctionSecretsOutputArgs } from "./listWebAppFunctionSecrets";
+export const listWebAppFunctionSecrets: typeof import("./listWebAppFunctionSecrets").listWebAppFunctionSecrets = null as any;
+export const listWebAppFunctionSecretsOutput: typeof import("./listWebAppFunctionSecrets").listWebAppFunctionSecretsOutput = null as any;
+
+export { ListWebAppFunctionSecretsSlotArgs, ListWebAppFunctionSecretsSlotResult, ListWebAppFunctionSecretsSlotOutputArgs } from "./listWebAppFunctionSecretsSlot";
+export const listWebAppFunctionSecretsSlot: typeof import("./listWebAppFunctionSecretsSlot").listWebAppFunctionSecretsSlot = null as any;
+export const listWebAppFunctionSecretsSlotOutput: typeof import("./listWebAppFunctionSecretsSlot").listWebAppFunctionSecretsSlotOutput = null as any;
+
+export { ListWebAppHostKeysArgs, ListWebAppHostKeysResult, ListWebAppHostKeysOutputArgs } from "./listWebAppHostKeys";
+export const listWebAppHostKeys: typeof import("./listWebAppHostKeys").listWebAppHostKeys = null as any;
+export const listWebAppHostKeysOutput: typeof import("./listWebAppHostKeys").listWebAppHostKeysOutput = null as any;
+
+export { ListWebAppHostKeysSlotArgs, ListWebAppHostKeysSlotResult, ListWebAppHostKeysSlotOutputArgs } from "./listWebAppHostKeysSlot";
+export const listWebAppHostKeysSlot: typeof import("./listWebAppHostKeysSlot").listWebAppHostKeysSlot = null as any;
+export const listWebAppHostKeysSlotOutput: typeof import("./listWebAppHostKeysSlot").listWebAppHostKeysSlotOutput = null as any;
+
+export { ListWebAppMetadataArgs, ListWebAppMetadataResult, ListWebAppMetadataOutputArgs } from "./listWebAppMetadata";
+export const listWebAppMetadata: typeof import("./listWebAppMetadata").listWebAppMetadata = null as any;
+export const listWebAppMetadataOutput: typeof import("./listWebAppMetadata").listWebAppMetadataOutput = null as any;
+
+export { ListWebAppMetadataSlotArgs, ListWebAppMetadataSlotResult, ListWebAppMetadataSlotOutputArgs } from "./listWebAppMetadataSlot";
+export const listWebAppMetadataSlot: typeof import("./listWebAppMetadataSlot").listWebAppMetadataSlot = null as any;
+export const listWebAppMetadataSlotOutput: typeof import("./listWebAppMetadataSlot").listWebAppMetadataSlotOutput = null as any;
+
+export { ListWebAppPublishingCredentialsArgs, ListWebAppPublishingCredentialsResult, ListWebAppPublishingCredentialsOutputArgs } from "./listWebAppPublishingCredentials";
+export const listWebAppPublishingCredentials: typeof import("./listWebAppPublishingCredentials").listWebAppPublishingCredentials = null as any;
+export const listWebAppPublishingCredentialsOutput: typeof import("./listWebAppPublishingCredentials").listWebAppPublishingCredentialsOutput = null as any;
+
+export { ListWebAppPublishingCredentialsSlotArgs, ListWebAppPublishingCredentialsSlotResult, ListWebAppPublishingCredentialsSlotOutputArgs } from "./listWebAppPublishingCredentialsSlot";
+export const listWebAppPublishingCredentialsSlot: typeof import("./listWebAppPublishingCredentialsSlot").listWebAppPublishingCredentialsSlot = null as any;
+export const listWebAppPublishingCredentialsSlotOutput: typeof import("./listWebAppPublishingCredentialsSlot").listWebAppPublishingCredentialsSlotOutput = null as any;
+
+export { ListWebAppSiteBackupsArgs, ListWebAppSiteBackupsResult, ListWebAppSiteBackupsOutputArgs } from "./listWebAppSiteBackups";
+export const listWebAppSiteBackups: typeof import("./listWebAppSiteBackups").listWebAppSiteBackups = null as any;
+export const listWebAppSiteBackupsOutput: typeof import("./listWebAppSiteBackups").listWebAppSiteBackupsOutput = null as any;
+
+export { ListWebAppSiteBackupsSlotArgs, ListWebAppSiteBackupsSlotResult, ListWebAppSiteBackupsSlotOutputArgs } from "./listWebAppSiteBackupsSlot";
+export const listWebAppSiteBackupsSlot: typeof import("./listWebAppSiteBackupsSlot").listWebAppSiteBackupsSlot = null as any;
+export const listWebAppSiteBackupsSlotOutput: typeof import("./listWebAppSiteBackupsSlot").listWebAppSiteBackupsSlotOutput = null as any;
+
+export { ListWebAppSitePushSettingsArgs, ListWebAppSitePushSettingsResult, ListWebAppSitePushSettingsOutputArgs } from "./listWebAppSitePushSettings";
+export const listWebAppSitePushSettings: typeof import("./listWebAppSitePushSettings").listWebAppSitePushSettings = null as any;
+export const listWebAppSitePushSettingsOutput: typeof import("./listWebAppSitePushSettings").listWebAppSitePushSettingsOutput = null as any;
+
+export { ListWebAppSitePushSettingsSlotArgs, ListWebAppSitePushSettingsSlotResult, ListWebAppSitePushSettingsSlotOutputArgs } from "./listWebAppSitePushSettingsSlot";
+export const listWebAppSitePushSettingsSlot: typeof import("./listWebAppSitePushSettingsSlot").listWebAppSitePushSettingsSlot = null as any;
+export const listWebAppSitePushSettingsSlotOutput: typeof import("./listWebAppSitePushSettingsSlot").listWebAppSitePushSettingsSlotOutput = null as any;
+
+export { ListWebAppSyncFunctionTriggersArgs, ListWebAppSyncFunctionTriggersResult, ListWebAppSyncFunctionTriggersOutputArgs } from "./listWebAppSyncFunctionTriggers";
+export const listWebAppSyncFunctionTriggers: typeof import("./listWebAppSyncFunctionTriggers").listWebAppSyncFunctionTriggers = null as any;
+export const listWebAppSyncFunctionTriggersOutput: typeof import("./listWebAppSyncFunctionTriggers").listWebAppSyncFunctionTriggersOutput = null as any;
+
+export { ListWebAppSyncFunctionTriggersSlotArgs, ListWebAppSyncFunctionTriggersSlotResult, ListWebAppSyncFunctionTriggersSlotOutputArgs } from "./listWebAppSyncFunctionTriggersSlot";
+export const listWebAppSyncFunctionTriggersSlot: typeof import("./listWebAppSyncFunctionTriggersSlot").listWebAppSyncFunctionTriggersSlot = null as any;
+export const listWebAppSyncFunctionTriggersSlotOutput: typeof import("./listWebAppSyncFunctionTriggersSlot").listWebAppSyncFunctionTriggersSlotOutput = null as any;
+
+export { StaticSiteArgs } from "./staticSite";
+export type StaticSite = import("./staticSite").StaticSite;
+export const StaticSite: typeof import("./staticSite").StaticSite = null as any;
+
+export { WebAppArgs } from "./webApp";
+export type WebApp = import("./webApp").WebApp;
+export const WebApp: typeof import("./webApp").WebApp = null as any;
+
+export { WebAppApplicationSettingsArgs } from "./webAppApplicationSettings";
+export type WebAppApplicationSettings = import("./webAppApplicationSettings").WebAppApplicationSettings;
+export const WebAppApplicationSettings: typeof import("./webAppApplicationSettings").WebAppApplicationSettings = null as any;
+
+export { WebAppApplicationSettingsSlotArgs } from "./webAppApplicationSettingsSlot";
+export type WebAppApplicationSettingsSlot = import("./webAppApplicationSettingsSlot").WebAppApplicationSettingsSlot;
+export const WebAppApplicationSettingsSlot: typeof import("./webAppApplicationSettingsSlot").WebAppApplicationSettingsSlot = null as any;
+
+export { WebAppAuthSettingsArgs } from "./webAppAuthSettings";
+export type WebAppAuthSettings = import("./webAppAuthSettings").WebAppAuthSettings;
+export const WebAppAuthSettings: typeof import("./webAppAuthSettings").WebAppAuthSettings = null as any;
+
+export { WebAppAuthSettingsSlotArgs } from "./webAppAuthSettingsSlot";
+export type WebAppAuthSettingsSlot = import("./webAppAuthSettingsSlot").WebAppAuthSettingsSlot;
+export const WebAppAuthSettingsSlot: typeof import("./webAppAuthSettingsSlot").WebAppAuthSettingsSlot = null as any;
+
+export { WebAppAuthSettingsV2Args } from "./webAppAuthSettingsV2";
+export type WebAppAuthSettingsV2 = import("./webAppAuthSettingsV2").WebAppAuthSettingsV2;
+export const WebAppAuthSettingsV2: typeof import("./webAppAuthSettingsV2").WebAppAuthSettingsV2 = null as any;
+
+export { WebAppAuthSettingsV2SlotArgs } from "./webAppAuthSettingsV2Slot";
+export type WebAppAuthSettingsV2Slot = import("./webAppAuthSettingsV2Slot").WebAppAuthSettingsV2Slot;
+export const WebAppAuthSettingsV2Slot: typeof import("./webAppAuthSettingsV2Slot").WebAppAuthSettingsV2Slot = null as any;
+
+export { WebAppAzureStorageAccountsArgs } from "./webAppAzureStorageAccounts";
+export type WebAppAzureStorageAccounts = import("./webAppAzureStorageAccounts").WebAppAzureStorageAccounts;
+export const WebAppAzureStorageAccounts: typeof import("./webAppAzureStorageAccounts").WebAppAzureStorageAccounts = null as any;
+
+export { WebAppAzureStorageAccountsSlotArgs } from "./webAppAzureStorageAccountsSlot";
+export type WebAppAzureStorageAccountsSlot = import("./webAppAzureStorageAccountsSlot").WebAppAzureStorageAccountsSlot;
+export const WebAppAzureStorageAccountsSlot: typeof import("./webAppAzureStorageAccountsSlot").WebAppAzureStorageAccountsSlot = null as any;
+
+export { WebAppBackupConfigurationArgs } from "./webAppBackupConfiguration";
+export type WebAppBackupConfiguration = import("./webAppBackupConfiguration").WebAppBackupConfiguration;
+export const WebAppBackupConfiguration: typeof import("./webAppBackupConfiguration").WebAppBackupConfiguration = null as any;
+
+export { WebAppBackupConfigurationSlotArgs } from "./webAppBackupConfigurationSlot";
+export type WebAppBackupConfigurationSlot = import("./webAppBackupConfigurationSlot").WebAppBackupConfigurationSlot;
+export const WebAppBackupConfigurationSlot: typeof import("./webAppBackupConfigurationSlot").WebAppBackupConfigurationSlot = null as any;
+
+export { WebAppConnectionStringsArgs } from "./webAppConnectionStrings";
+export type WebAppConnectionStrings = import("./webAppConnectionStrings").WebAppConnectionStrings;
+export const WebAppConnectionStrings: typeof import("./webAppConnectionStrings").WebAppConnectionStrings = null as any;
+
+export { WebAppConnectionStringsSlotArgs } from "./webAppConnectionStringsSlot";
+export type WebAppConnectionStringsSlot = import("./webAppConnectionStringsSlot").WebAppConnectionStringsSlot;
+export const WebAppConnectionStringsSlot: typeof import("./webAppConnectionStringsSlot").WebAppConnectionStringsSlot = null as any;
+
+export { WebAppDeploymentArgs } from "./webAppDeployment";
+export type WebAppDeployment = import("./webAppDeployment").WebAppDeployment;
+export const WebAppDeployment: typeof import("./webAppDeployment").WebAppDeployment = null as any;
+
+export { WebAppDeploymentSlotArgs } from "./webAppDeploymentSlot";
+export type WebAppDeploymentSlot = import("./webAppDeploymentSlot").WebAppDeploymentSlot;
+export const WebAppDeploymentSlot: typeof import("./webAppDeploymentSlot").WebAppDeploymentSlot = null as any;
+
+export { WebAppDiagnosticLogsConfigurationArgs } from "./webAppDiagnosticLogsConfiguration";
+export type WebAppDiagnosticLogsConfiguration = import("./webAppDiagnosticLogsConfiguration").WebAppDiagnosticLogsConfiguration;
+export const WebAppDiagnosticLogsConfiguration: typeof import("./webAppDiagnosticLogsConfiguration").WebAppDiagnosticLogsConfiguration = null as any;
+
+export { WebAppDomainOwnershipIdentifierArgs } from "./webAppDomainOwnershipIdentifier";
+export type WebAppDomainOwnershipIdentifier = import("./webAppDomainOwnershipIdentifier").WebAppDomainOwnershipIdentifier;
+export const WebAppDomainOwnershipIdentifier: typeof import("./webAppDomainOwnershipIdentifier").WebAppDomainOwnershipIdentifier = null as any;
+
+export { WebAppDomainOwnershipIdentifierSlotArgs } from "./webAppDomainOwnershipIdentifierSlot";
+export type WebAppDomainOwnershipIdentifierSlot = import("./webAppDomainOwnershipIdentifierSlot").WebAppDomainOwnershipIdentifierSlot;
+export const WebAppDomainOwnershipIdentifierSlot: typeof import("./webAppDomainOwnershipIdentifierSlot").WebAppDomainOwnershipIdentifierSlot = null as any;
+
+export { WebAppFunctionArgs } from "./webAppFunction";
+export type WebAppFunction = import("./webAppFunction").WebAppFunction;
+export const WebAppFunction: typeof import("./webAppFunction").WebAppFunction = null as any;
+
+export { WebAppHostNameBindingArgs } from "./webAppHostNameBinding";
+export type WebAppHostNameBinding = import("./webAppHostNameBinding").WebAppHostNameBinding;
+export const WebAppHostNameBinding: typeof import("./webAppHostNameBinding").WebAppHostNameBinding = null as any;
+
+export { WebAppHostNameBindingSlotArgs } from "./webAppHostNameBindingSlot";
+export type WebAppHostNameBindingSlot = import("./webAppHostNameBindingSlot").WebAppHostNameBindingSlot;
+export const WebAppHostNameBindingSlot: typeof import("./webAppHostNameBindingSlot").WebAppHostNameBindingSlot = null as any;
+
+export { WebAppHybridConnectionArgs } from "./webAppHybridConnection";
+export type WebAppHybridConnection = import("./webAppHybridConnection").WebAppHybridConnection;
+export const WebAppHybridConnection: typeof import("./webAppHybridConnection").WebAppHybridConnection = null as any;
+
+export { WebAppHybridConnectionSlotArgs } from "./webAppHybridConnectionSlot";
+export type WebAppHybridConnectionSlot = import("./webAppHybridConnectionSlot").WebAppHybridConnectionSlot;
+export const WebAppHybridConnectionSlot: typeof import("./webAppHybridConnectionSlot").WebAppHybridConnectionSlot = null as any;
+
+export { WebAppInstanceFunctionSlotArgs } from "./webAppInstanceFunctionSlot";
+export type WebAppInstanceFunctionSlot = import("./webAppInstanceFunctionSlot").WebAppInstanceFunctionSlot;
+export const WebAppInstanceFunctionSlot: typeof import("./webAppInstanceFunctionSlot").WebAppInstanceFunctionSlot = null as any;
+
+export { WebAppMetadataArgs } from "./webAppMetadata";
+export type WebAppMetadata = import("./webAppMetadata").WebAppMetadata;
+export const WebAppMetadata: typeof import("./webAppMetadata").WebAppMetadata = null as any;
+
+export { WebAppMetadataSlotArgs } from "./webAppMetadataSlot";
+export type WebAppMetadataSlot = import("./webAppMetadataSlot").WebAppMetadataSlot;
+export const WebAppMetadataSlot: typeof import("./webAppMetadataSlot").WebAppMetadataSlot = null as any;
+
+export { WebAppPremierAddOnArgs } from "./webAppPremierAddOn";
+export type WebAppPremierAddOn = import("./webAppPremierAddOn").WebAppPremierAddOn;
+export const WebAppPremierAddOn: typeof import("./webAppPremierAddOn").WebAppPremierAddOn = null as any;
+
+export { WebAppPremierAddOnSlotArgs } from "./webAppPremierAddOnSlot";
+export type WebAppPremierAddOnSlot = import("./webAppPremierAddOnSlot").WebAppPremierAddOnSlot;
+export const WebAppPremierAddOnSlot: typeof import("./webAppPremierAddOnSlot").WebAppPremierAddOnSlot = null as any;
+
+export { WebAppPrivateEndpointConnectionArgs } from "./webAppPrivateEndpointConnection";
+export type WebAppPrivateEndpointConnection = import("./webAppPrivateEndpointConnection").WebAppPrivateEndpointConnection;
+export const WebAppPrivateEndpointConnection: typeof import("./webAppPrivateEndpointConnection").WebAppPrivateEndpointConnection = null as any;
+
+export { WebAppPublicCertificateArgs } from "./webAppPublicCertificate";
+export type WebAppPublicCertificate = import("./webAppPublicCertificate").WebAppPublicCertificate;
+export const WebAppPublicCertificate: typeof import("./webAppPublicCertificate").WebAppPublicCertificate = null as any;
+
+export { WebAppPublicCertificateSlotArgs } from "./webAppPublicCertificateSlot";
+export type WebAppPublicCertificateSlot = import("./webAppPublicCertificateSlot").WebAppPublicCertificateSlot;
+export const WebAppPublicCertificateSlot: typeof import("./webAppPublicCertificateSlot").WebAppPublicCertificateSlot = null as any;
+
+export { WebAppRelayServiceConnectionArgs } from "./webAppRelayServiceConnection";
+export type WebAppRelayServiceConnection = import("./webAppRelayServiceConnection").WebAppRelayServiceConnection;
+export const WebAppRelayServiceConnection: typeof import("./webAppRelayServiceConnection").WebAppRelayServiceConnection = null as any;
+
+export { WebAppRelayServiceConnectionSlotArgs } from "./webAppRelayServiceConnectionSlot";
+export type WebAppRelayServiceConnectionSlot = import("./webAppRelayServiceConnectionSlot").WebAppRelayServiceConnectionSlot;
+export const WebAppRelayServiceConnectionSlot: typeof import("./webAppRelayServiceConnectionSlot").WebAppRelayServiceConnectionSlot = null as any;
+
+export { WebAppSiteExtensionArgs } from "./webAppSiteExtension";
+export type WebAppSiteExtension = import("./webAppSiteExtension").WebAppSiteExtension;
+export const WebAppSiteExtension: typeof import("./webAppSiteExtension").WebAppSiteExtension = null as any;
+
+export { WebAppSiteExtensionSlotArgs } from "./webAppSiteExtensionSlot";
+export type WebAppSiteExtensionSlot = import("./webAppSiteExtensionSlot").WebAppSiteExtensionSlot;
+export const WebAppSiteExtensionSlot: typeof import("./webAppSiteExtensionSlot").WebAppSiteExtensionSlot = null as any;
+
+export { WebAppSitePushSettingsArgs } from "./webAppSitePushSettings";
+export type WebAppSitePushSettings = import("./webAppSitePushSettings").WebAppSitePushSettings;
+export const WebAppSitePushSettings: typeof import("./webAppSitePushSettings").WebAppSitePushSettings = null as any;
+
+export { WebAppSitePushSettingsSlotArgs } from "./webAppSitePushSettingsSlot";
+export type WebAppSitePushSettingsSlot = import("./webAppSitePushSettingsSlot").WebAppSitePushSettingsSlot;
+export const WebAppSitePushSettingsSlot: typeof import("./webAppSitePushSettingsSlot").WebAppSitePushSettingsSlot = null as any;
+
+export { WebAppSlotArgs } from "./webAppSlot";
+export type WebAppSlot = import("./webAppSlot").WebAppSlot;
+export const WebAppSlot: typeof import("./webAppSlot").WebAppSlot = null as any;
+
+export { WebAppSlotConfigurationNamesArgs } from "./webAppSlotConfigurationNames";
+export type WebAppSlotConfigurationNames = import("./webAppSlotConfigurationNames").WebAppSlotConfigurationNames;
+export const WebAppSlotConfigurationNames: typeof import("./webAppSlotConfigurationNames").WebAppSlotConfigurationNames = null as any;
+
+export { WebAppSourceControlArgs } from "./webAppSourceControl";
+export type WebAppSourceControl = import("./webAppSourceControl").WebAppSourceControl;
+export const WebAppSourceControl: typeof import("./webAppSourceControl").WebAppSourceControl = null as any;
+
+export { WebAppSourceControlSlotArgs } from "./webAppSourceControlSlot";
+export type WebAppSourceControlSlot = import("./webAppSourceControlSlot").WebAppSourceControlSlot;
+export const WebAppSourceControlSlot: typeof import("./webAppSourceControlSlot").WebAppSourceControlSlot = null as any;
+
+export { WebAppSwiftVirtualNetworkConnectionArgs } from "./webAppSwiftVirtualNetworkConnection";
+export type WebAppSwiftVirtualNetworkConnection = import("./webAppSwiftVirtualNetworkConnection").WebAppSwiftVirtualNetworkConnection;
+export const WebAppSwiftVirtualNetworkConnection: typeof import("./webAppSwiftVirtualNetworkConnection").WebAppSwiftVirtualNetworkConnection = null as any;
+
+export { WebAppSwiftVirtualNetworkConnectionSlotArgs } from "./webAppSwiftVirtualNetworkConnectionSlot";
+export type WebAppSwiftVirtualNetworkConnectionSlot = import("./webAppSwiftVirtualNetworkConnectionSlot").WebAppSwiftVirtualNetworkConnectionSlot;
+export const WebAppSwiftVirtualNetworkConnectionSlot: typeof import("./webAppSwiftVirtualNetworkConnectionSlot").WebAppSwiftVirtualNetworkConnectionSlot = null as any;
+
+export { WebAppVnetConnectionArgs } from "./webAppVnetConnection";
+export type WebAppVnetConnection = import("./webAppVnetConnection").WebAppVnetConnection;
+export const WebAppVnetConnection: typeof import("./webAppVnetConnection").WebAppVnetConnection = null as any;
+
+export { WebAppVnetConnectionSlotArgs } from "./webAppVnetConnectionSlot";
+export type WebAppVnetConnectionSlot = import("./webAppVnetConnectionSlot").WebAppVnetConnectionSlot;
+export const WebAppVnetConnectionSlot: typeof import("./webAppVnetConnectionSlot").WebAppVnetConnectionSlot = null as any;
+
+utilities.lazyLoad(exports, ["AppServiceEnvironment"], () => require("./appServiceEnvironment"));
+utilities.lazyLoad(exports, ["AppServicePlan"], () => require("./appServicePlan"));
+utilities.lazyLoad(exports, ["AppServicePlanRouteForVnet"], () => require("./appServicePlanRouteForVnet"));
+utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
+utilities.lazyLoad(exports, ["getAppServiceEnvironment","getAppServiceEnvironmentOutput"], () => require("./getAppServiceEnvironment"));
+utilities.lazyLoad(exports, ["getAppServicePlan","getAppServicePlanOutput"], () => require("./getAppServicePlan"));
+utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
+utilities.lazyLoad(exports, ["getStaticSite","getStaticSiteOutput"], () => require("./getStaticSite"));
+utilities.lazyLoad(exports, ["getWebApp","getWebAppOutput"], () => require("./getWebApp"));
+utilities.lazyLoad(exports, ["getWebAppDeployment","getWebAppDeploymentOutput"], () => require("./getWebAppDeployment"));
+utilities.lazyLoad(exports, ["getWebAppDeploymentSlot","getWebAppDeploymentSlotOutput"], () => require("./getWebAppDeploymentSlot"));
+utilities.lazyLoad(exports, ["getWebAppDiagnosticLogsConfiguration","getWebAppDiagnosticLogsConfigurationOutput"], () => require("./getWebAppDiagnosticLogsConfiguration"));
+utilities.lazyLoad(exports, ["getWebAppDomainOwnershipIdentifier","getWebAppDomainOwnershipIdentifierOutput"], () => require("./getWebAppDomainOwnershipIdentifier"));
+utilities.lazyLoad(exports, ["getWebAppDomainOwnershipIdentifierSlot","getWebAppDomainOwnershipIdentifierSlotOutput"], () => require("./getWebAppDomainOwnershipIdentifierSlot"));
+utilities.lazyLoad(exports, ["getWebAppFunction","getWebAppFunctionOutput"], () => require("./getWebAppFunction"));
+utilities.lazyLoad(exports, ["getWebAppHostNameBinding","getWebAppHostNameBindingOutput"], () => require("./getWebAppHostNameBinding"));
+utilities.lazyLoad(exports, ["getWebAppHostNameBindingSlot","getWebAppHostNameBindingSlotOutput"], () => require("./getWebAppHostNameBindingSlot"));
+utilities.lazyLoad(exports, ["getWebAppHybridConnection","getWebAppHybridConnectionOutput"], () => require("./getWebAppHybridConnection"));
+utilities.lazyLoad(exports, ["getWebAppHybridConnectionSlot","getWebAppHybridConnectionSlotOutput"], () => require("./getWebAppHybridConnectionSlot"));
+utilities.lazyLoad(exports, ["getWebAppInstanceFunctionSlot","getWebAppInstanceFunctionSlotOutput"], () => require("./getWebAppInstanceFunctionSlot"));
+utilities.lazyLoad(exports, ["getWebAppPremierAddOn","getWebAppPremierAddOnOutput"], () => require("./getWebAppPremierAddOn"));
+utilities.lazyLoad(exports, ["getWebAppPremierAddOnSlot","getWebAppPremierAddOnSlotOutput"], () => require("./getWebAppPremierAddOnSlot"));
+utilities.lazyLoad(exports, ["getWebAppPrivateEndpointConnection","getWebAppPrivateEndpointConnectionOutput"], () => require("./getWebAppPrivateEndpointConnection"));
+utilities.lazyLoad(exports, ["getWebAppPublicCertificate","getWebAppPublicCertificateOutput"], () => require("./getWebAppPublicCertificate"));
+utilities.lazyLoad(exports, ["getWebAppPublicCertificateSlot","getWebAppPublicCertificateSlotOutput"], () => require("./getWebAppPublicCertificateSlot"));
+utilities.lazyLoad(exports, ["getWebAppRelayServiceConnection","getWebAppRelayServiceConnectionOutput"], () => require("./getWebAppRelayServiceConnection"));
+utilities.lazyLoad(exports, ["getWebAppRelayServiceConnectionSlot","getWebAppRelayServiceConnectionSlotOutput"], () => require("./getWebAppRelayServiceConnectionSlot"));
+utilities.lazyLoad(exports, ["getWebAppSiteExtension","getWebAppSiteExtensionOutput"], () => require("./getWebAppSiteExtension"));
+utilities.lazyLoad(exports, ["getWebAppSiteExtensionSlot","getWebAppSiteExtensionSlotOutput"], () => require("./getWebAppSiteExtensionSlot"));
+utilities.lazyLoad(exports, ["getWebAppSlot","getWebAppSlotOutput"], () => require("./getWebAppSlot"));
+utilities.lazyLoad(exports, ["getWebAppSlotConfigurationNames","getWebAppSlotConfigurationNamesOutput"], () => require("./getWebAppSlotConfigurationNames"));
+utilities.lazyLoad(exports, ["getWebAppSourceControl","getWebAppSourceControlOutput"], () => require("./getWebAppSourceControl"));
+utilities.lazyLoad(exports, ["getWebAppSourceControlSlot","getWebAppSourceControlSlotOutput"], () => require("./getWebAppSourceControlSlot"));
+utilities.lazyLoad(exports, ["getWebAppSwiftVirtualNetworkConnection","getWebAppSwiftVirtualNetworkConnectionOutput"], () => require("./getWebAppSwiftVirtualNetworkConnection"));
+utilities.lazyLoad(exports, ["getWebAppSwiftVirtualNetworkConnectionSlot","getWebAppSwiftVirtualNetworkConnectionSlotOutput"], () => require("./getWebAppSwiftVirtualNetworkConnectionSlot"));
+utilities.lazyLoad(exports, ["getWebAppVnetConnection","getWebAppVnetConnectionOutput"], () => require("./getWebAppVnetConnection"));
+utilities.lazyLoad(exports, ["getWebAppVnetConnectionSlot","getWebAppVnetConnectionSlotOutput"], () => require("./getWebAppVnetConnectionSlot"));
+utilities.lazyLoad(exports, ["listAppServicePlanHybridConnectionKeys","listAppServicePlanHybridConnectionKeysOutput"], () => require("./listAppServicePlanHybridConnectionKeys"));
+utilities.lazyLoad(exports, ["listSiteIdentifiersAssignedToHostName","listSiteIdentifiersAssignedToHostNameOutput"], () => require("./listSiteIdentifiersAssignedToHostName"));
+utilities.lazyLoad(exports, ["listStaticSiteBuildFunctionAppSettings","listStaticSiteBuildFunctionAppSettingsOutput"], () => require("./listStaticSiteBuildFunctionAppSettings"));
+utilities.lazyLoad(exports, ["listStaticSiteFunctionAppSettings","listStaticSiteFunctionAppSettingsOutput"], () => require("./listStaticSiteFunctionAppSettings"));
+utilities.lazyLoad(exports, ["listStaticSiteSecrets","listStaticSiteSecretsOutput"], () => require("./listStaticSiteSecrets"));
+utilities.lazyLoad(exports, ["listStaticSiteUsers","listStaticSiteUsersOutput"], () => require("./listStaticSiteUsers"));
+utilities.lazyLoad(exports, ["listWebAppApplicationSettings","listWebAppApplicationSettingsOutput"], () => require("./listWebAppApplicationSettings"));
+utilities.lazyLoad(exports, ["listWebAppApplicationSettingsSlot","listWebAppApplicationSettingsSlotOutput"], () => require("./listWebAppApplicationSettingsSlot"));
+utilities.lazyLoad(exports, ["listWebAppAuthSettings","listWebAppAuthSettingsOutput"], () => require("./listWebAppAuthSettings"));
+utilities.lazyLoad(exports, ["listWebAppAuthSettingsSlot","listWebAppAuthSettingsSlotOutput"], () => require("./listWebAppAuthSettingsSlot"));
+utilities.lazyLoad(exports, ["listWebAppAzureStorageAccounts","listWebAppAzureStorageAccountsOutput"], () => require("./listWebAppAzureStorageAccounts"));
+utilities.lazyLoad(exports, ["listWebAppAzureStorageAccountsSlot","listWebAppAzureStorageAccountsSlotOutput"], () => require("./listWebAppAzureStorageAccountsSlot"));
+utilities.lazyLoad(exports, ["listWebAppBackupConfiguration","listWebAppBackupConfigurationOutput"], () => require("./listWebAppBackupConfiguration"));
+utilities.lazyLoad(exports, ["listWebAppBackupConfigurationSlot","listWebAppBackupConfigurationSlotOutput"], () => require("./listWebAppBackupConfigurationSlot"));
+utilities.lazyLoad(exports, ["listWebAppBackupStatusSecrets","listWebAppBackupStatusSecretsOutput"], () => require("./listWebAppBackupStatusSecrets"));
+utilities.lazyLoad(exports, ["listWebAppBackupStatusSecretsSlot","listWebAppBackupStatusSecretsSlotOutput"], () => require("./listWebAppBackupStatusSecretsSlot"));
+utilities.lazyLoad(exports, ["listWebAppConnectionStrings","listWebAppConnectionStringsOutput"], () => require("./listWebAppConnectionStrings"));
+utilities.lazyLoad(exports, ["listWebAppConnectionStringsSlot","listWebAppConnectionStringsSlotOutput"], () => require("./listWebAppConnectionStringsSlot"));
+utilities.lazyLoad(exports, ["listWebAppFunctionKeys","listWebAppFunctionKeysOutput"], () => require("./listWebAppFunctionKeys"));
+utilities.lazyLoad(exports, ["listWebAppFunctionKeysSlot","listWebAppFunctionKeysSlotOutput"], () => require("./listWebAppFunctionKeysSlot"));
+utilities.lazyLoad(exports, ["listWebAppFunctionSecrets","listWebAppFunctionSecretsOutput"], () => require("./listWebAppFunctionSecrets"));
+utilities.lazyLoad(exports, ["listWebAppFunctionSecretsSlot","listWebAppFunctionSecretsSlotOutput"], () => require("./listWebAppFunctionSecretsSlot"));
+utilities.lazyLoad(exports, ["listWebAppHostKeys","listWebAppHostKeysOutput"], () => require("./listWebAppHostKeys"));
+utilities.lazyLoad(exports, ["listWebAppHostKeysSlot","listWebAppHostKeysSlotOutput"], () => require("./listWebAppHostKeysSlot"));
+utilities.lazyLoad(exports, ["listWebAppMetadata","listWebAppMetadataOutput"], () => require("./listWebAppMetadata"));
+utilities.lazyLoad(exports, ["listWebAppMetadataSlot","listWebAppMetadataSlotOutput"], () => require("./listWebAppMetadataSlot"));
+utilities.lazyLoad(exports, ["listWebAppPublishingCredentials","listWebAppPublishingCredentialsOutput"], () => require("./listWebAppPublishingCredentials"));
+utilities.lazyLoad(exports, ["listWebAppPublishingCredentialsSlot","listWebAppPublishingCredentialsSlotOutput"], () => require("./listWebAppPublishingCredentialsSlot"));
+utilities.lazyLoad(exports, ["listWebAppSiteBackups","listWebAppSiteBackupsOutput"], () => require("./listWebAppSiteBackups"));
+utilities.lazyLoad(exports, ["listWebAppSiteBackupsSlot","listWebAppSiteBackupsSlotOutput"], () => require("./listWebAppSiteBackupsSlot"));
+utilities.lazyLoad(exports, ["listWebAppSitePushSettings","listWebAppSitePushSettingsOutput"], () => require("./listWebAppSitePushSettings"));
+utilities.lazyLoad(exports, ["listWebAppSitePushSettingsSlot","listWebAppSitePushSettingsSlotOutput"], () => require("./listWebAppSitePushSettingsSlot"));
+utilities.lazyLoad(exports, ["listWebAppSyncFunctionTriggers","listWebAppSyncFunctionTriggersOutput"], () => require("./listWebAppSyncFunctionTriggers"));
+utilities.lazyLoad(exports, ["listWebAppSyncFunctionTriggersSlot","listWebAppSyncFunctionTriggersSlotOutput"], () => require("./listWebAppSyncFunctionTriggersSlot"));
+utilities.lazyLoad(exports, ["StaticSite"], () => require("./staticSite"));
+utilities.lazyLoad(exports, ["WebApp"], () => require("./webApp"));
+utilities.lazyLoad(exports, ["WebAppApplicationSettings"], () => require("./webAppApplicationSettings"));
+utilities.lazyLoad(exports, ["WebAppApplicationSettingsSlot"], () => require("./webAppApplicationSettingsSlot"));
+utilities.lazyLoad(exports, ["WebAppAuthSettings"], () => require("./webAppAuthSettings"));
+utilities.lazyLoad(exports, ["WebAppAuthSettingsSlot"], () => require("./webAppAuthSettingsSlot"));
+utilities.lazyLoad(exports, ["WebAppAuthSettingsV2"], () => require("./webAppAuthSettingsV2"));
+utilities.lazyLoad(exports, ["WebAppAuthSettingsV2Slot"], () => require("./webAppAuthSettingsV2Slot"));
+utilities.lazyLoad(exports, ["WebAppAzureStorageAccounts"], () => require("./webAppAzureStorageAccounts"));
+utilities.lazyLoad(exports, ["WebAppAzureStorageAccountsSlot"], () => require("./webAppAzureStorageAccountsSlot"));
+utilities.lazyLoad(exports, ["WebAppBackupConfiguration"], () => require("./webAppBackupConfiguration"));
+utilities.lazyLoad(exports, ["WebAppBackupConfigurationSlot"], () => require("./webAppBackupConfigurationSlot"));
+utilities.lazyLoad(exports, ["WebAppConnectionStrings"], () => require("./webAppConnectionStrings"));
+utilities.lazyLoad(exports, ["WebAppConnectionStringsSlot"], () => require("./webAppConnectionStringsSlot"));
+utilities.lazyLoad(exports, ["WebAppDeployment"], () => require("./webAppDeployment"));
+utilities.lazyLoad(exports, ["WebAppDeploymentSlot"], () => require("./webAppDeploymentSlot"));
+utilities.lazyLoad(exports, ["WebAppDiagnosticLogsConfiguration"], () => require("./webAppDiagnosticLogsConfiguration"));
+utilities.lazyLoad(exports, ["WebAppDomainOwnershipIdentifier"], () => require("./webAppDomainOwnershipIdentifier"));
+utilities.lazyLoad(exports, ["WebAppDomainOwnershipIdentifierSlot"], () => require("./webAppDomainOwnershipIdentifierSlot"));
+utilities.lazyLoad(exports, ["WebAppFunction"], () => require("./webAppFunction"));
+utilities.lazyLoad(exports, ["WebAppHostNameBinding"], () => require("./webAppHostNameBinding"));
+utilities.lazyLoad(exports, ["WebAppHostNameBindingSlot"], () => require("./webAppHostNameBindingSlot"));
+utilities.lazyLoad(exports, ["WebAppHybridConnection"], () => require("./webAppHybridConnection"));
+utilities.lazyLoad(exports, ["WebAppHybridConnectionSlot"], () => require("./webAppHybridConnectionSlot"));
+utilities.lazyLoad(exports, ["WebAppInstanceFunctionSlot"], () => require("./webAppInstanceFunctionSlot"));
+utilities.lazyLoad(exports, ["WebAppMetadata"], () => require("./webAppMetadata"));
+utilities.lazyLoad(exports, ["WebAppMetadataSlot"], () => require("./webAppMetadataSlot"));
+utilities.lazyLoad(exports, ["WebAppPremierAddOn"], () => require("./webAppPremierAddOn"));
+utilities.lazyLoad(exports, ["WebAppPremierAddOnSlot"], () => require("./webAppPremierAddOnSlot"));
+utilities.lazyLoad(exports, ["WebAppPrivateEndpointConnection"], () => require("./webAppPrivateEndpointConnection"));
+utilities.lazyLoad(exports, ["WebAppPublicCertificate"], () => require("./webAppPublicCertificate"));
+utilities.lazyLoad(exports, ["WebAppPublicCertificateSlot"], () => require("./webAppPublicCertificateSlot"));
+utilities.lazyLoad(exports, ["WebAppRelayServiceConnection"], () => require("./webAppRelayServiceConnection"));
+utilities.lazyLoad(exports, ["WebAppRelayServiceConnectionSlot"], () => require("./webAppRelayServiceConnectionSlot"));
+utilities.lazyLoad(exports, ["WebAppSiteExtension"], () => require("./webAppSiteExtension"));
+utilities.lazyLoad(exports, ["WebAppSiteExtensionSlot"], () => require("./webAppSiteExtensionSlot"));
+utilities.lazyLoad(exports, ["WebAppSitePushSettings"], () => require("./webAppSitePushSettings"));
+utilities.lazyLoad(exports, ["WebAppSitePushSettingsSlot"], () => require("./webAppSitePushSettingsSlot"));
+utilities.lazyLoad(exports, ["WebAppSlot"], () => require("./webAppSlot"));
+utilities.lazyLoad(exports, ["WebAppSlotConfigurationNames"], () => require("./webAppSlotConfigurationNames"));
+utilities.lazyLoad(exports, ["WebAppSourceControl"], () => require("./webAppSourceControl"));
+utilities.lazyLoad(exports, ["WebAppSourceControlSlot"], () => require("./webAppSourceControlSlot"));
+utilities.lazyLoad(exports, ["WebAppSwiftVirtualNetworkConnection"], () => require("./webAppSwiftVirtualNetworkConnection"));
+utilities.lazyLoad(exports, ["WebAppSwiftVirtualNetworkConnectionSlot"], () => require("./webAppSwiftVirtualNetworkConnectionSlot"));
+utilities.lazyLoad(exports, ["WebAppVnetConnection"], () => require("./webAppVnetConnection"));
+utilities.lazyLoad(exports, ["WebAppVnetConnectionSlot"], () => require("./webAppVnetConnectionSlot"));
 
 // Export enums:
 export * from "../../types/enums/web/v20200901";
-
-// Import resources to register:
-import { AppServiceEnvironment } from "./appServiceEnvironment";
-import { AppServicePlan } from "./appServicePlan";
-import { AppServicePlanRouteForVnet } from "./appServicePlanRouteForVnet";
-import { Certificate } from "./certificate";
-import { StaticSite } from "./staticSite";
-import { WebApp } from "./webApp";
-import { WebAppApplicationSettings } from "./webAppApplicationSettings";
-import { WebAppApplicationSettingsSlot } from "./webAppApplicationSettingsSlot";
-import { WebAppAuthSettings } from "./webAppAuthSettings";
-import { WebAppAuthSettingsSlot } from "./webAppAuthSettingsSlot";
-import { WebAppAuthSettingsV2 } from "./webAppAuthSettingsV2";
-import { WebAppAuthSettingsV2Slot } from "./webAppAuthSettingsV2Slot";
-import { WebAppAzureStorageAccounts } from "./webAppAzureStorageAccounts";
-import { WebAppAzureStorageAccountsSlot } from "./webAppAzureStorageAccountsSlot";
-import { WebAppBackupConfiguration } from "./webAppBackupConfiguration";
-import { WebAppBackupConfigurationSlot } from "./webAppBackupConfigurationSlot";
-import { WebAppConnectionStrings } from "./webAppConnectionStrings";
-import { WebAppConnectionStringsSlot } from "./webAppConnectionStringsSlot";
-import { WebAppDeployment } from "./webAppDeployment";
-import { WebAppDeploymentSlot } from "./webAppDeploymentSlot";
-import { WebAppDiagnosticLogsConfiguration } from "./webAppDiagnosticLogsConfiguration";
-import { WebAppDomainOwnershipIdentifier } from "./webAppDomainOwnershipIdentifier";
-import { WebAppDomainOwnershipIdentifierSlot } from "./webAppDomainOwnershipIdentifierSlot";
-import { WebAppFunction } from "./webAppFunction";
-import { WebAppHostNameBinding } from "./webAppHostNameBinding";
-import { WebAppHostNameBindingSlot } from "./webAppHostNameBindingSlot";
-import { WebAppHybridConnection } from "./webAppHybridConnection";
-import { WebAppHybridConnectionSlot } from "./webAppHybridConnectionSlot";
-import { WebAppInstanceFunctionSlot } from "./webAppInstanceFunctionSlot";
-import { WebAppMetadata } from "./webAppMetadata";
-import { WebAppMetadataSlot } from "./webAppMetadataSlot";
-import { WebAppPremierAddOn } from "./webAppPremierAddOn";
-import { WebAppPremierAddOnSlot } from "./webAppPremierAddOnSlot";
-import { WebAppPrivateEndpointConnection } from "./webAppPrivateEndpointConnection";
-import { WebAppPublicCertificate } from "./webAppPublicCertificate";
-import { WebAppPublicCertificateSlot } from "./webAppPublicCertificateSlot";
-import { WebAppRelayServiceConnection } from "./webAppRelayServiceConnection";
-import { WebAppRelayServiceConnectionSlot } from "./webAppRelayServiceConnectionSlot";
-import { WebAppSiteExtension } from "./webAppSiteExtension";
-import { WebAppSiteExtensionSlot } from "./webAppSiteExtensionSlot";
-import { WebAppSitePushSettings } from "./webAppSitePushSettings";
-import { WebAppSitePushSettingsSlot } from "./webAppSitePushSettingsSlot";
-import { WebAppSlot } from "./webAppSlot";
-import { WebAppSlotConfigurationNames } from "./webAppSlotConfigurationNames";
-import { WebAppSourceControl } from "./webAppSourceControl";
-import { WebAppSourceControlSlot } from "./webAppSourceControlSlot";
-import { WebAppSwiftVirtualNetworkConnection } from "./webAppSwiftVirtualNetworkConnection";
-import { WebAppSwiftVirtualNetworkConnectionSlot } from "./webAppSwiftVirtualNetworkConnectionSlot";
-import { WebAppVnetConnection } from "./webAppVnetConnection";
-import { WebAppVnetConnectionSlot } from "./webAppVnetConnectionSlot";
 
 const _module = {
     version: utilities.getVersion(),

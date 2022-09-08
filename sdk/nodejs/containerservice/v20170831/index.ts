@@ -5,15 +5,24 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getManagedCluster";
-export * from "./listManagedClusterAccessProfile";
-export * from "./managedCluster";
+export { GetManagedClusterArgs, GetManagedClusterResult, GetManagedClusterOutputArgs } from "./getManagedCluster";
+export const getManagedCluster: typeof import("./getManagedCluster").getManagedCluster = null as any;
+export const getManagedClusterOutput: typeof import("./getManagedCluster").getManagedClusterOutput = null as any;
+
+export { ListManagedClusterAccessProfileArgs, ListManagedClusterAccessProfileResult, ListManagedClusterAccessProfileOutputArgs } from "./listManagedClusterAccessProfile";
+export const listManagedClusterAccessProfile: typeof import("./listManagedClusterAccessProfile").listManagedClusterAccessProfile = null as any;
+export const listManagedClusterAccessProfileOutput: typeof import("./listManagedClusterAccessProfile").listManagedClusterAccessProfileOutput = null as any;
+
+export { ManagedClusterArgs } from "./managedCluster";
+export type ManagedCluster = import("./managedCluster").ManagedCluster;
+export const ManagedCluster: typeof import("./managedCluster").ManagedCluster = null as any;
+
+utilities.lazyLoad(exports, ["getManagedCluster","getManagedClusterOutput"], () => require("./getManagedCluster"));
+utilities.lazyLoad(exports, ["listManagedClusterAccessProfile","listManagedClusterAccessProfileOutput"], () => require("./listManagedClusterAccessProfile"));
+utilities.lazyLoad(exports, ["ManagedCluster"], () => require("./managedCluster"));
 
 // Export enums:
 export * from "../../types/enums/containerservice/v20170831";
-
-// Import resources to register:
-import { ManagedCluster } from "./managedCluster";
 
 const _module = {
     version: utilities.getVersion(),

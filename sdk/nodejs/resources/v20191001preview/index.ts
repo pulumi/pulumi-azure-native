@@ -5,20 +5,39 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./azureCliScript";
-export * from "./azurePowerShellScript";
-export * from "./deploymentScript";
-export * from "./getAzureCliScript";
-export * from "./getAzurePowerShellScript";
-export * from "./getDeploymentScript";
+export { AzureCliScriptArgs } from "./azureCliScript";
+export type AzureCliScript = import("./azureCliScript").AzureCliScript;
+export const AzureCliScript: typeof import("./azureCliScript").AzureCliScript = null as any;
+
+export { AzurePowerShellScriptArgs } from "./azurePowerShellScript";
+export type AzurePowerShellScript = import("./azurePowerShellScript").AzurePowerShellScript;
+export const AzurePowerShellScript: typeof import("./azurePowerShellScript").AzurePowerShellScript = null as any;
+
+export { DeploymentScriptArgs } from "./deploymentScript";
+export type DeploymentScript = import("./deploymentScript").DeploymentScript;
+export const DeploymentScript: typeof import("./deploymentScript").DeploymentScript = null as any;
+
+export { GetAzureCliScriptArgs, GetAzureCliScriptResult, GetAzureCliScriptOutputArgs } from "./getAzureCliScript";
+export const getAzureCliScript: typeof import("./getAzureCliScript").getAzureCliScript = null as any;
+export const getAzureCliScriptOutput: typeof import("./getAzureCliScript").getAzureCliScriptOutput = null as any;
+
+export { GetAzurePowerShellScriptArgs, GetAzurePowerShellScriptResult, GetAzurePowerShellScriptOutputArgs } from "./getAzurePowerShellScript";
+export const getAzurePowerShellScript: typeof import("./getAzurePowerShellScript").getAzurePowerShellScript = null as any;
+export const getAzurePowerShellScriptOutput: typeof import("./getAzurePowerShellScript").getAzurePowerShellScriptOutput = null as any;
+
+export { GetDeploymentScriptArgs, GetDeploymentScriptResult, GetDeploymentScriptOutputArgs } from "./getDeploymentScript";
+export const getDeploymentScript: typeof import("./getDeploymentScript").getDeploymentScript = null as any;
+export const getDeploymentScriptOutput: typeof import("./getDeploymentScript").getDeploymentScriptOutput = null as any;
+
+utilities.lazyLoad(exports, ["AzureCliScript"], () => require("./azureCliScript"));
+utilities.lazyLoad(exports, ["AzurePowerShellScript"], () => require("./azurePowerShellScript"));
+utilities.lazyLoad(exports, ["DeploymentScript"], () => require("./deploymentScript"));
+utilities.lazyLoad(exports, ["getAzureCliScript","getAzureCliScriptOutput"], () => require("./getAzureCliScript"));
+utilities.lazyLoad(exports, ["getAzurePowerShellScript","getAzurePowerShellScriptOutput"], () => require("./getAzurePowerShellScript"));
+utilities.lazyLoad(exports, ["getDeploymentScript","getDeploymentScriptOutput"], () => require("./getDeploymentScript"));
 
 // Export enums:
 export * from "../../types/enums/resources/v20191001preview";
-
-// Import resources to register:
-import { AzureCliScript } from "./azureCliScript";
-import { AzurePowerShellScript } from "./azurePowerShellScript";
-import { DeploymentScript } from "./deploymentScript";
 
 const _module = {
     version: utilities.getVersion(),

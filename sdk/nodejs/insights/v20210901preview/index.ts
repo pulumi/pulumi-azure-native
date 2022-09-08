@@ -5,20 +5,39 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./dataCollectionEndpoint";
-export * from "./dataCollectionRule";
-export * from "./dataCollectionRuleAssociation";
-export * from "./getDataCollectionEndpoint";
-export * from "./getDataCollectionRule";
-export * from "./getDataCollectionRuleAssociation";
+export { DataCollectionEndpointArgs } from "./dataCollectionEndpoint";
+export type DataCollectionEndpoint = import("./dataCollectionEndpoint").DataCollectionEndpoint;
+export const DataCollectionEndpoint: typeof import("./dataCollectionEndpoint").DataCollectionEndpoint = null as any;
+
+export { DataCollectionRuleArgs } from "./dataCollectionRule";
+export type DataCollectionRule = import("./dataCollectionRule").DataCollectionRule;
+export const DataCollectionRule: typeof import("./dataCollectionRule").DataCollectionRule = null as any;
+
+export { DataCollectionRuleAssociationArgs } from "./dataCollectionRuleAssociation";
+export type DataCollectionRuleAssociation = import("./dataCollectionRuleAssociation").DataCollectionRuleAssociation;
+export const DataCollectionRuleAssociation: typeof import("./dataCollectionRuleAssociation").DataCollectionRuleAssociation = null as any;
+
+export { GetDataCollectionEndpointArgs, GetDataCollectionEndpointResult, GetDataCollectionEndpointOutputArgs } from "./getDataCollectionEndpoint";
+export const getDataCollectionEndpoint: typeof import("./getDataCollectionEndpoint").getDataCollectionEndpoint = null as any;
+export const getDataCollectionEndpointOutput: typeof import("./getDataCollectionEndpoint").getDataCollectionEndpointOutput = null as any;
+
+export { GetDataCollectionRuleArgs, GetDataCollectionRuleResult, GetDataCollectionRuleOutputArgs } from "./getDataCollectionRule";
+export const getDataCollectionRule: typeof import("./getDataCollectionRule").getDataCollectionRule = null as any;
+export const getDataCollectionRuleOutput: typeof import("./getDataCollectionRule").getDataCollectionRuleOutput = null as any;
+
+export { GetDataCollectionRuleAssociationArgs, GetDataCollectionRuleAssociationResult, GetDataCollectionRuleAssociationOutputArgs } from "./getDataCollectionRuleAssociation";
+export const getDataCollectionRuleAssociation: typeof import("./getDataCollectionRuleAssociation").getDataCollectionRuleAssociation = null as any;
+export const getDataCollectionRuleAssociationOutput: typeof import("./getDataCollectionRuleAssociation").getDataCollectionRuleAssociationOutput = null as any;
+
+utilities.lazyLoad(exports, ["DataCollectionEndpoint"], () => require("./dataCollectionEndpoint"));
+utilities.lazyLoad(exports, ["DataCollectionRule"], () => require("./dataCollectionRule"));
+utilities.lazyLoad(exports, ["DataCollectionRuleAssociation"], () => require("./dataCollectionRuleAssociation"));
+utilities.lazyLoad(exports, ["getDataCollectionEndpoint","getDataCollectionEndpointOutput"], () => require("./getDataCollectionEndpoint"));
+utilities.lazyLoad(exports, ["getDataCollectionRule","getDataCollectionRuleOutput"], () => require("./getDataCollectionRule"));
+utilities.lazyLoad(exports, ["getDataCollectionRuleAssociation","getDataCollectionRuleAssociationOutput"], () => require("./getDataCollectionRuleAssociation"));
 
 // Export enums:
 export * from "../../types/enums/insights/v20210901preview";
-
-// Import resources to register:
-import { DataCollectionEndpoint } from "./dataCollectionEndpoint";
-import { DataCollectionRule } from "./dataCollectionRule";
-import { DataCollectionRuleAssociation } from "./dataCollectionRuleAssociation";
 
 const _module = {
     version: utilities.getVersion(),

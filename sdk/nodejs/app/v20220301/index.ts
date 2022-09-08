@@ -5,35 +5,94 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./certificate";
-export * from "./containerApp";
-export * from "./containerAppsAuthConfig";
-export * from "./containerAppsSourceControl";
-export * from "./daprComponent";
-export * from "./getCertificate";
-export * from "./getContainerApp";
-export * from "./getContainerAppsAuthConfig";
-export * from "./getContainerAppsSourceControl";
-export * from "./getDaprComponent";
-export * from "./getManagedEnvironment";
-export * from "./getManagedEnvironmentsStorage";
-export * from "./listContainerAppCustomHostNameAnalysis";
-export * from "./listContainerAppSecrets";
-export * from "./listDaprComponentSecrets";
-export * from "./managedEnvironment";
-export * from "./managedEnvironmentsStorage";
+export { CertificateArgs } from "./certificate";
+export type Certificate = import("./certificate").Certificate;
+export const Certificate: typeof import("./certificate").Certificate = null as any;
+
+export { ContainerAppArgs } from "./containerApp";
+export type ContainerApp = import("./containerApp").ContainerApp;
+export const ContainerApp: typeof import("./containerApp").ContainerApp = null as any;
+
+export { ContainerAppsAuthConfigArgs } from "./containerAppsAuthConfig";
+export type ContainerAppsAuthConfig = import("./containerAppsAuthConfig").ContainerAppsAuthConfig;
+export const ContainerAppsAuthConfig: typeof import("./containerAppsAuthConfig").ContainerAppsAuthConfig = null as any;
+
+export { ContainerAppsSourceControlArgs } from "./containerAppsSourceControl";
+export type ContainerAppsSourceControl = import("./containerAppsSourceControl").ContainerAppsSourceControl;
+export const ContainerAppsSourceControl: typeof import("./containerAppsSourceControl").ContainerAppsSourceControl = null as any;
+
+export { DaprComponentArgs } from "./daprComponent";
+export type DaprComponent = import("./daprComponent").DaprComponent;
+export const DaprComponent: typeof import("./daprComponent").DaprComponent = null as any;
+
+export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
+export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
+export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
+
+export { GetContainerAppArgs, GetContainerAppResult, GetContainerAppOutputArgs } from "./getContainerApp";
+export const getContainerApp: typeof import("./getContainerApp").getContainerApp = null as any;
+export const getContainerAppOutput: typeof import("./getContainerApp").getContainerAppOutput = null as any;
+
+export { GetContainerAppsAuthConfigArgs, GetContainerAppsAuthConfigResult, GetContainerAppsAuthConfigOutputArgs } from "./getContainerAppsAuthConfig";
+export const getContainerAppsAuthConfig: typeof import("./getContainerAppsAuthConfig").getContainerAppsAuthConfig = null as any;
+export const getContainerAppsAuthConfigOutput: typeof import("./getContainerAppsAuthConfig").getContainerAppsAuthConfigOutput = null as any;
+
+export { GetContainerAppsSourceControlArgs, GetContainerAppsSourceControlResult, GetContainerAppsSourceControlOutputArgs } from "./getContainerAppsSourceControl";
+export const getContainerAppsSourceControl: typeof import("./getContainerAppsSourceControl").getContainerAppsSourceControl = null as any;
+export const getContainerAppsSourceControlOutput: typeof import("./getContainerAppsSourceControl").getContainerAppsSourceControlOutput = null as any;
+
+export { GetDaprComponentArgs, GetDaprComponentResult, GetDaprComponentOutputArgs } from "./getDaprComponent";
+export const getDaprComponent: typeof import("./getDaprComponent").getDaprComponent = null as any;
+export const getDaprComponentOutput: typeof import("./getDaprComponent").getDaprComponentOutput = null as any;
+
+export { GetManagedEnvironmentArgs, GetManagedEnvironmentResult, GetManagedEnvironmentOutputArgs } from "./getManagedEnvironment";
+export const getManagedEnvironment: typeof import("./getManagedEnvironment").getManagedEnvironment = null as any;
+export const getManagedEnvironmentOutput: typeof import("./getManagedEnvironment").getManagedEnvironmentOutput = null as any;
+
+export { GetManagedEnvironmentsStorageArgs, GetManagedEnvironmentsStorageResult, GetManagedEnvironmentsStorageOutputArgs } from "./getManagedEnvironmentsStorage";
+export const getManagedEnvironmentsStorage: typeof import("./getManagedEnvironmentsStorage").getManagedEnvironmentsStorage = null as any;
+export const getManagedEnvironmentsStorageOutput: typeof import("./getManagedEnvironmentsStorage").getManagedEnvironmentsStorageOutput = null as any;
+
+export { ListContainerAppCustomHostNameAnalysisArgs, ListContainerAppCustomHostNameAnalysisResult, ListContainerAppCustomHostNameAnalysisOutputArgs } from "./listContainerAppCustomHostNameAnalysis";
+export const listContainerAppCustomHostNameAnalysis: typeof import("./listContainerAppCustomHostNameAnalysis").listContainerAppCustomHostNameAnalysis = null as any;
+export const listContainerAppCustomHostNameAnalysisOutput: typeof import("./listContainerAppCustomHostNameAnalysis").listContainerAppCustomHostNameAnalysisOutput = null as any;
+
+export { ListContainerAppSecretsArgs, ListContainerAppSecretsResult, ListContainerAppSecretsOutputArgs } from "./listContainerAppSecrets";
+export const listContainerAppSecrets: typeof import("./listContainerAppSecrets").listContainerAppSecrets = null as any;
+export const listContainerAppSecretsOutput: typeof import("./listContainerAppSecrets").listContainerAppSecretsOutput = null as any;
+
+export { ListDaprComponentSecretsArgs, ListDaprComponentSecretsResult, ListDaprComponentSecretsOutputArgs } from "./listDaprComponentSecrets";
+export const listDaprComponentSecrets: typeof import("./listDaprComponentSecrets").listDaprComponentSecrets = null as any;
+export const listDaprComponentSecretsOutput: typeof import("./listDaprComponentSecrets").listDaprComponentSecretsOutput = null as any;
+
+export { ManagedEnvironmentArgs } from "./managedEnvironment";
+export type ManagedEnvironment = import("./managedEnvironment").ManagedEnvironment;
+export const ManagedEnvironment: typeof import("./managedEnvironment").ManagedEnvironment = null as any;
+
+export { ManagedEnvironmentsStorageArgs } from "./managedEnvironmentsStorage";
+export type ManagedEnvironmentsStorage = import("./managedEnvironmentsStorage").ManagedEnvironmentsStorage;
+export const ManagedEnvironmentsStorage: typeof import("./managedEnvironmentsStorage").ManagedEnvironmentsStorage = null as any;
+
+utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
+utilities.lazyLoad(exports, ["ContainerApp"], () => require("./containerApp"));
+utilities.lazyLoad(exports, ["ContainerAppsAuthConfig"], () => require("./containerAppsAuthConfig"));
+utilities.lazyLoad(exports, ["ContainerAppsSourceControl"], () => require("./containerAppsSourceControl"));
+utilities.lazyLoad(exports, ["DaprComponent"], () => require("./daprComponent"));
+utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
+utilities.lazyLoad(exports, ["getContainerApp","getContainerAppOutput"], () => require("./getContainerApp"));
+utilities.lazyLoad(exports, ["getContainerAppsAuthConfig","getContainerAppsAuthConfigOutput"], () => require("./getContainerAppsAuthConfig"));
+utilities.lazyLoad(exports, ["getContainerAppsSourceControl","getContainerAppsSourceControlOutput"], () => require("./getContainerAppsSourceControl"));
+utilities.lazyLoad(exports, ["getDaprComponent","getDaprComponentOutput"], () => require("./getDaprComponent"));
+utilities.lazyLoad(exports, ["getManagedEnvironment","getManagedEnvironmentOutput"], () => require("./getManagedEnvironment"));
+utilities.lazyLoad(exports, ["getManagedEnvironmentsStorage","getManagedEnvironmentsStorageOutput"], () => require("./getManagedEnvironmentsStorage"));
+utilities.lazyLoad(exports, ["listContainerAppCustomHostNameAnalysis","listContainerAppCustomHostNameAnalysisOutput"], () => require("./listContainerAppCustomHostNameAnalysis"));
+utilities.lazyLoad(exports, ["listContainerAppSecrets","listContainerAppSecretsOutput"], () => require("./listContainerAppSecrets"));
+utilities.lazyLoad(exports, ["listDaprComponentSecrets","listDaprComponentSecretsOutput"], () => require("./listDaprComponentSecrets"));
+utilities.lazyLoad(exports, ["ManagedEnvironment"], () => require("./managedEnvironment"));
+utilities.lazyLoad(exports, ["ManagedEnvironmentsStorage"], () => require("./managedEnvironmentsStorage"));
 
 // Export enums:
 export * from "../../types/enums/app/v20220301";
-
-// Import resources to register:
-import { Certificate } from "./certificate";
-import { ContainerApp } from "./containerApp";
-import { ContainerAppsAuthConfig } from "./containerAppsAuthConfig";
-import { ContainerAppsSourceControl } from "./containerAppsSourceControl";
-import { DaprComponent } from "./daprComponent";
-import { ManagedEnvironment } from "./managedEnvironment";
-import { ManagedEnvironmentsStorage } from "./managedEnvironmentsStorage";
 
 const _module = {
     version: utilities.getVersion(),

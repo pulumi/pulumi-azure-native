@@ -5,26 +5,59 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./application";
-export * from "./applicationGroup";
-export * from "./getApplication";
-export * from "./getApplicationGroup";
-export * from "./getHostPool";
-export * from "./getMSIXPackage";
-export * from "./getWorkspace";
-export * from "./hostPool";
-export * from "./msixpackage";
-export * from "./workspace";
+export { ApplicationArgs } from "./application";
+export type Application = import("./application").Application;
+export const Application: typeof import("./application").Application = null as any;
+
+export { ApplicationGroupArgs } from "./applicationGroup";
+export type ApplicationGroup = import("./applicationGroup").ApplicationGroup;
+export const ApplicationGroup: typeof import("./applicationGroup").ApplicationGroup = null as any;
+
+export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
+export const getApplication: typeof import("./getApplication").getApplication = null as any;
+export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
+
+export { GetApplicationGroupArgs, GetApplicationGroupResult, GetApplicationGroupOutputArgs } from "./getApplicationGroup";
+export const getApplicationGroup: typeof import("./getApplicationGroup").getApplicationGroup = null as any;
+export const getApplicationGroupOutput: typeof import("./getApplicationGroup").getApplicationGroupOutput = null as any;
+
+export { GetHostPoolArgs, GetHostPoolResult, GetHostPoolOutputArgs } from "./getHostPool";
+export const getHostPool: typeof import("./getHostPool").getHostPool = null as any;
+export const getHostPoolOutput: typeof import("./getHostPool").getHostPoolOutput = null as any;
+
+export { GetMSIXPackageArgs, GetMSIXPackageResult, GetMSIXPackageOutputArgs } from "./getMSIXPackage";
+export const getMSIXPackage: typeof import("./getMSIXPackage").getMSIXPackage = null as any;
+export const getMSIXPackageOutput: typeof import("./getMSIXPackage").getMSIXPackageOutput = null as any;
+
+export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
+export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
+export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
+
+export { HostPoolArgs } from "./hostPool";
+export type HostPool = import("./hostPool").HostPool;
+export const HostPool: typeof import("./hostPool").HostPool = null as any;
+
+export { MSIXPackageArgs } from "./msixpackage";
+export type MSIXPackage = import("./msixpackage").MSIXPackage;
+export const MSIXPackage: typeof import("./msixpackage").MSIXPackage = null as any;
+
+export { WorkspaceArgs } from "./workspace";
+export type Workspace = import("./workspace").Workspace;
+export const Workspace: typeof import("./workspace").Workspace = null as any;
+
+utilities.lazyLoad(exports, ["Application"], () => require("./application"));
+utilities.lazyLoad(exports, ["ApplicationGroup"], () => require("./applicationGroup"));
+utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
+utilities.lazyLoad(exports, ["getApplicationGroup","getApplicationGroupOutput"], () => require("./getApplicationGroup"));
+utilities.lazyLoad(exports, ["getHostPool","getHostPoolOutput"], () => require("./getHostPool"));
+utilities.lazyLoad(exports, ["getMSIXPackage","getMSIXPackageOutput"], () => require("./getMSIXPackage"));
+utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
+utilities.lazyLoad(exports, ["HostPool"], () => require("./hostPool"));
+utilities.lazyLoad(exports, ["MSIXPackage"], () => require("./msixpackage"));
+utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
 
 // Export enums:
 export * from "../../types/enums/desktopvirtualization/v20200921preview";
-
-// Import resources to register:
-import { Application } from "./application";
-import { ApplicationGroup } from "./applicationGroup";
-import { HostPool } from "./hostPool";
-import { MSIXPackage } from "./msixpackage";
-import { Workspace } from "./workspace";
 
 const _module = {
     version: utilities.getVersion(),

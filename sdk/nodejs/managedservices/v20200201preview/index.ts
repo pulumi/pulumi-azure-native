@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getRegistrationAssignment";
-export * from "./getRegistrationDefinition";
-export * from "./registrationAssignment";
-export * from "./registrationDefinition";
+export { GetRegistrationAssignmentArgs, GetRegistrationAssignmentResult, GetRegistrationAssignmentOutputArgs } from "./getRegistrationAssignment";
+export const getRegistrationAssignment: typeof import("./getRegistrationAssignment").getRegistrationAssignment = null as any;
+export const getRegistrationAssignmentOutput: typeof import("./getRegistrationAssignment").getRegistrationAssignmentOutput = null as any;
+
+export { GetRegistrationDefinitionArgs, GetRegistrationDefinitionResult, GetRegistrationDefinitionOutputArgs } from "./getRegistrationDefinition";
+export const getRegistrationDefinition: typeof import("./getRegistrationDefinition").getRegistrationDefinition = null as any;
+export const getRegistrationDefinitionOutput: typeof import("./getRegistrationDefinition").getRegistrationDefinitionOutput = null as any;
+
+export { RegistrationAssignmentArgs } from "./registrationAssignment";
+export type RegistrationAssignment = import("./registrationAssignment").RegistrationAssignment;
+export const RegistrationAssignment: typeof import("./registrationAssignment").RegistrationAssignment = null as any;
+
+export { RegistrationDefinitionArgs } from "./registrationDefinition";
+export type RegistrationDefinition = import("./registrationDefinition").RegistrationDefinition;
+export const RegistrationDefinition: typeof import("./registrationDefinition").RegistrationDefinition = null as any;
+
+utilities.lazyLoad(exports, ["getRegistrationAssignment","getRegistrationAssignmentOutput"], () => require("./getRegistrationAssignment"));
+utilities.lazyLoad(exports, ["getRegistrationDefinition","getRegistrationDefinitionOutput"], () => require("./getRegistrationDefinition"));
+utilities.lazyLoad(exports, ["RegistrationAssignment"], () => require("./registrationAssignment"));
+utilities.lazyLoad(exports, ["RegistrationDefinition"], () => require("./registrationDefinition"));
 
 // Export enums:
 export * from "../../types/enums/managedservices/v20200201preview";
-
-// Import resources to register:
-import { RegistrationAssignment } from "./registrationAssignment";
-import { RegistrationDefinition } from "./registrationDefinition";
 
 const _module = {
     version: utilities.getVersion(),

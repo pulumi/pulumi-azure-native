@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./apiManagementService";
-export * from "./getApiManagementService";
+export { ApiManagementServiceArgs } from "./apiManagementService";
+export type ApiManagementService = import("./apiManagementService").ApiManagementService;
+export const ApiManagementService: typeof import("./apiManagementService").ApiManagementService = null as any;
+
+export { GetApiManagementServiceArgs, GetApiManagementServiceResult, GetApiManagementServiceOutputArgs } from "./getApiManagementService";
+export const getApiManagementService: typeof import("./getApiManagementService").getApiManagementService = null as any;
+export const getApiManagementServiceOutput: typeof import("./getApiManagementService").getApiManagementServiceOutput = null as any;
+
+utilities.lazyLoad(exports, ["ApiManagementService"], () => require("./apiManagementService"));
+utilities.lazyLoad(exports, ["getApiManagementService","getApiManagementServiceOutput"], () => require("./getApiManagementService"));
 
 // Export enums:
 export * from "../../types/enums/apimanagement/v20160707";
-
-// Import resources to register:
-import { ApiManagementService } from "./apiManagementService";
 
 const _module = {
     version: utilities.getVersion(),

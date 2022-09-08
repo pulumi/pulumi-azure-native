@@ -5,11 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getVirtualMachineImageTemplate";
-export * from "./virtualMachineImageTemplate";
+export { GetVirtualMachineImageTemplateArgs, GetVirtualMachineImageTemplateResult, GetVirtualMachineImageTemplateOutputArgs } from "./getVirtualMachineImageTemplate";
+export const getVirtualMachineImageTemplate: typeof import("./getVirtualMachineImageTemplate").getVirtualMachineImageTemplate = null as any;
+export const getVirtualMachineImageTemplateOutput: typeof import("./getVirtualMachineImageTemplate").getVirtualMachineImageTemplateOutput = null as any;
 
-// Import resources to register:
-import { VirtualMachineImageTemplate } from "./virtualMachineImageTemplate";
+export { VirtualMachineImageTemplateArgs } from "./virtualMachineImageTemplate";
+export type VirtualMachineImageTemplate = import("./virtualMachineImageTemplate").VirtualMachineImageTemplate;
+export const VirtualMachineImageTemplate: typeof import("./virtualMachineImageTemplate").VirtualMachineImageTemplate = null as any;
+
+utilities.lazyLoad(exports, ["getVirtualMachineImageTemplate","getVirtualMachineImageTemplateOutput"], () => require("./getVirtualMachineImageTemplate"));
+utilities.lazyLoad(exports, ["VirtualMachineImageTemplate"], () => require("./virtualMachineImageTemplate"));
 
 const _module = {
     version: utilities.getVersion(),

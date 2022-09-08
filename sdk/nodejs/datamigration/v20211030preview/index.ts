@@ -5,31 +5,79 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./file";
-export * from "./getFile";
-export * from "./getProject";
-export * from "./getService";
-export * from "./getServiceTask";
-export * from "./getSqlMigrationService";
-export * from "./getTask";
-export * from "./listSqlMigrationServiceAuthKeys";
-export * from "./listSqlMigrationServiceMonitoringData";
-export * from "./project";
-export * from "./service";
-export * from "./serviceTask";
-export * from "./sqlMigrationService";
-export * from "./task";
+export { FileArgs } from "./file";
+export type File = import("./file").File;
+export const File: typeof import("./file").File = null as any;
+
+export { GetFileArgs, GetFileResult, GetFileOutputArgs } from "./getFile";
+export const getFile: typeof import("./getFile").getFile = null as any;
+export const getFileOutput: typeof import("./getFile").getFileOutput = null as any;
+
+export { GetProjectArgs, GetProjectResult, GetProjectOutputArgs } from "./getProject";
+export const getProject: typeof import("./getProject").getProject = null as any;
+export const getProjectOutput: typeof import("./getProject").getProjectOutput = null as any;
+
+export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
+export const getService: typeof import("./getService").getService = null as any;
+export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
+
+export { GetServiceTaskArgs, GetServiceTaskResult, GetServiceTaskOutputArgs } from "./getServiceTask";
+export const getServiceTask: typeof import("./getServiceTask").getServiceTask = null as any;
+export const getServiceTaskOutput: typeof import("./getServiceTask").getServiceTaskOutput = null as any;
+
+export { GetSqlMigrationServiceArgs, GetSqlMigrationServiceResult, GetSqlMigrationServiceOutputArgs } from "./getSqlMigrationService";
+export const getSqlMigrationService: typeof import("./getSqlMigrationService").getSqlMigrationService = null as any;
+export const getSqlMigrationServiceOutput: typeof import("./getSqlMigrationService").getSqlMigrationServiceOutput = null as any;
+
+export { GetTaskArgs, GetTaskResult, GetTaskOutputArgs } from "./getTask";
+export const getTask: typeof import("./getTask").getTask = null as any;
+export const getTaskOutput: typeof import("./getTask").getTaskOutput = null as any;
+
+export { ListSqlMigrationServiceAuthKeysArgs, ListSqlMigrationServiceAuthKeysResult, ListSqlMigrationServiceAuthKeysOutputArgs } from "./listSqlMigrationServiceAuthKeys";
+export const listSqlMigrationServiceAuthKeys: typeof import("./listSqlMigrationServiceAuthKeys").listSqlMigrationServiceAuthKeys = null as any;
+export const listSqlMigrationServiceAuthKeysOutput: typeof import("./listSqlMigrationServiceAuthKeys").listSqlMigrationServiceAuthKeysOutput = null as any;
+
+export { ListSqlMigrationServiceMonitoringDataArgs, ListSqlMigrationServiceMonitoringDataResult, ListSqlMigrationServiceMonitoringDataOutputArgs } from "./listSqlMigrationServiceMonitoringData";
+export const listSqlMigrationServiceMonitoringData: typeof import("./listSqlMigrationServiceMonitoringData").listSqlMigrationServiceMonitoringData = null as any;
+export const listSqlMigrationServiceMonitoringDataOutput: typeof import("./listSqlMigrationServiceMonitoringData").listSqlMigrationServiceMonitoringDataOutput = null as any;
+
+export { ProjectArgs } from "./project";
+export type Project = import("./project").Project;
+export const Project: typeof import("./project").Project = null as any;
+
+export { ServiceArgs } from "./service";
+export type Service = import("./service").Service;
+export const Service: typeof import("./service").Service = null as any;
+
+export { ServiceTaskArgs } from "./serviceTask";
+export type ServiceTask = import("./serviceTask").ServiceTask;
+export const ServiceTask: typeof import("./serviceTask").ServiceTask = null as any;
+
+export { SqlMigrationServiceArgs } from "./sqlMigrationService";
+export type SqlMigrationService = import("./sqlMigrationService").SqlMigrationService;
+export const SqlMigrationService: typeof import("./sqlMigrationService").SqlMigrationService = null as any;
+
+export { TaskArgs } from "./task";
+export type Task = import("./task").Task;
+export const Task: typeof import("./task").Task = null as any;
+
+utilities.lazyLoad(exports, ["File"], () => require("./file"));
+utilities.lazyLoad(exports, ["getFile","getFileOutput"], () => require("./getFile"));
+utilities.lazyLoad(exports, ["getProject","getProjectOutput"], () => require("./getProject"));
+utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
+utilities.lazyLoad(exports, ["getServiceTask","getServiceTaskOutput"], () => require("./getServiceTask"));
+utilities.lazyLoad(exports, ["getSqlMigrationService","getSqlMigrationServiceOutput"], () => require("./getSqlMigrationService"));
+utilities.lazyLoad(exports, ["getTask","getTaskOutput"], () => require("./getTask"));
+utilities.lazyLoad(exports, ["listSqlMigrationServiceAuthKeys","listSqlMigrationServiceAuthKeysOutput"], () => require("./listSqlMigrationServiceAuthKeys"));
+utilities.lazyLoad(exports, ["listSqlMigrationServiceMonitoringData","listSqlMigrationServiceMonitoringDataOutput"], () => require("./listSqlMigrationServiceMonitoringData"));
+utilities.lazyLoad(exports, ["Project"], () => require("./project"));
+utilities.lazyLoad(exports, ["Service"], () => require("./service"));
+utilities.lazyLoad(exports, ["ServiceTask"], () => require("./serviceTask"));
+utilities.lazyLoad(exports, ["SqlMigrationService"], () => require("./sqlMigrationService"));
+utilities.lazyLoad(exports, ["Task"], () => require("./task"));
 
 // Export enums:
 export * from "../../types/enums/datamigration/v20211030preview";
-
-// Import resources to register:
-import { File } from "./file";
-import { Project } from "./project";
-import { Service } from "./service";
-import { ServiceTask } from "./serviceTask";
-import { SqlMigrationService } from "./sqlMigrationService";
-import { Task } from "./task";
 
 const _module = {
     version: utilities.getVersion(),

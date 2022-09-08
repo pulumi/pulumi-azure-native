@@ -5,57 +5,164 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./afdcustomDomain";
-export * from "./afdendpoint";
-export * from "./afdorigin";
-export * from "./afdoriginGroup";
-export * from "./customDomain";
-export * from "./endpoint";
-export * from "./getAFDCustomDomain";
-export * from "./getAFDEndpoint";
-export * from "./getAFDOrigin";
-export * from "./getAFDOriginGroup";
-export * from "./getCustomDomain";
-export * from "./getEndpoint";
-export * from "./getOrigin";
-export * from "./getOriginGroup";
-export * from "./getPolicy";
-export * from "./getProfile";
-export * from "./getProfileSupportedOptimizationTypes";
-export * from "./getRoute";
-export * from "./getRule";
-export * from "./getRuleSet";
-export * from "./getSecret";
-export * from "./getSecurityPolicy";
-export * from "./origin";
-export * from "./originGroup";
-export * from "./policy";
-export * from "./profile";
-export * from "./route";
-export * from "./rule";
-export * from "./ruleSet";
-export * from "./secret";
-export * from "./securityPolicy";
+export { AFDCustomDomainArgs } from "./afdcustomDomain";
+export type AFDCustomDomain = import("./afdcustomDomain").AFDCustomDomain;
+export const AFDCustomDomain: typeof import("./afdcustomDomain").AFDCustomDomain = null as any;
+
+export { AFDEndpointArgs } from "./afdendpoint";
+export type AFDEndpoint = import("./afdendpoint").AFDEndpoint;
+export const AFDEndpoint: typeof import("./afdendpoint").AFDEndpoint = null as any;
+
+export { AFDOriginArgs } from "./afdorigin";
+export type AFDOrigin = import("./afdorigin").AFDOrigin;
+export const AFDOrigin: typeof import("./afdorigin").AFDOrigin = null as any;
+
+export { AFDOriginGroupArgs } from "./afdoriginGroup";
+export type AFDOriginGroup = import("./afdoriginGroup").AFDOriginGroup;
+export const AFDOriginGroup: typeof import("./afdoriginGroup").AFDOriginGroup = null as any;
+
+export { CustomDomainArgs } from "./customDomain";
+export type CustomDomain = import("./customDomain").CustomDomain;
+export const CustomDomain: typeof import("./customDomain").CustomDomain = null as any;
+
+export { EndpointArgs } from "./endpoint";
+export type Endpoint = import("./endpoint").Endpoint;
+export const Endpoint: typeof import("./endpoint").Endpoint = null as any;
+
+export { GetAFDCustomDomainArgs, GetAFDCustomDomainResult, GetAFDCustomDomainOutputArgs } from "./getAFDCustomDomain";
+export const getAFDCustomDomain: typeof import("./getAFDCustomDomain").getAFDCustomDomain = null as any;
+export const getAFDCustomDomainOutput: typeof import("./getAFDCustomDomain").getAFDCustomDomainOutput = null as any;
+
+export { GetAFDEndpointArgs, GetAFDEndpointResult, GetAFDEndpointOutputArgs } from "./getAFDEndpoint";
+export const getAFDEndpoint: typeof import("./getAFDEndpoint").getAFDEndpoint = null as any;
+export const getAFDEndpointOutput: typeof import("./getAFDEndpoint").getAFDEndpointOutput = null as any;
+
+export { GetAFDOriginArgs, GetAFDOriginResult, GetAFDOriginOutputArgs } from "./getAFDOrigin";
+export const getAFDOrigin: typeof import("./getAFDOrigin").getAFDOrigin = null as any;
+export const getAFDOriginOutput: typeof import("./getAFDOrigin").getAFDOriginOutput = null as any;
+
+export { GetAFDOriginGroupArgs, GetAFDOriginGroupResult, GetAFDOriginGroupOutputArgs } from "./getAFDOriginGroup";
+export const getAFDOriginGroup: typeof import("./getAFDOriginGroup").getAFDOriginGroup = null as any;
+export const getAFDOriginGroupOutput: typeof import("./getAFDOriginGroup").getAFDOriginGroupOutput = null as any;
+
+export { GetCustomDomainArgs, GetCustomDomainResult, GetCustomDomainOutputArgs } from "./getCustomDomain";
+export const getCustomDomain: typeof import("./getCustomDomain").getCustomDomain = null as any;
+export const getCustomDomainOutput: typeof import("./getCustomDomain").getCustomDomainOutput = null as any;
+
+export { GetEndpointArgs, GetEndpointResult, GetEndpointOutputArgs } from "./getEndpoint";
+export const getEndpoint: typeof import("./getEndpoint").getEndpoint = null as any;
+export const getEndpointOutput: typeof import("./getEndpoint").getEndpointOutput = null as any;
+
+export { GetOriginArgs, GetOriginResult, GetOriginOutputArgs } from "./getOrigin";
+export const getOrigin: typeof import("./getOrigin").getOrigin = null as any;
+export const getOriginOutput: typeof import("./getOrigin").getOriginOutput = null as any;
+
+export { GetOriginGroupArgs, GetOriginGroupResult, GetOriginGroupOutputArgs } from "./getOriginGroup";
+export const getOriginGroup: typeof import("./getOriginGroup").getOriginGroup = null as any;
+export const getOriginGroupOutput: typeof import("./getOriginGroup").getOriginGroupOutput = null as any;
+
+export { GetPolicyArgs, GetPolicyResult, GetPolicyOutputArgs } from "./getPolicy";
+export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;
+export const getPolicyOutput: typeof import("./getPolicy").getPolicyOutput = null as any;
+
+export { GetProfileArgs, GetProfileResult, GetProfileOutputArgs } from "./getProfile";
+export const getProfile: typeof import("./getProfile").getProfile = null as any;
+export const getProfileOutput: typeof import("./getProfile").getProfileOutput = null as any;
+
+export { GetProfileSupportedOptimizationTypesArgs, GetProfileSupportedOptimizationTypesResult, GetProfileSupportedOptimizationTypesOutputArgs } from "./getProfileSupportedOptimizationTypes";
+export const getProfileSupportedOptimizationTypes: typeof import("./getProfileSupportedOptimizationTypes").getProfileSupportedOptimizationTypes = null as any;
+export const getProfileSupportedOptimizationTypesOutput: typeof import("./getProfileSupportedOptimizationTypes").getProfileSupportedOptimizationTypesOutput = null as any;
+
+export { GetRouteArgs, GetRouteResult, GetRouteOutputArgs } from "./getRoute";
+export const getRoute: typeof import("./getRoute").getRoute = null as any;
+export const getRouteOutput: typeof import("./getRoute").getRouteOutput = null as any;
+
+export { GetRuleArgs, GetRuleResult, GetRuleOutputArgs } from "./getRule";
+export const getRule: typeof import("./getRule").getRule = null as any;
+export const getRuleOutput: typeof import("./getRule").getRuleOutput = null as any;
+
+export { GetRuleSetArgs, GetRuleSetResult, GetRuleSetOutputArgs } from "./getRuleSet";
+export const getRuleSet: typeof import("./getRuleSet").getRuleSet = null as any;
+export const getRuleSetOutput: typeof import("./getRuleSet").getRuleSetOutput = null as any;
+
+export { GetSecretArgs, GetSecretResult, GetSecretOutputArgs } from "./getSecret";
+export const getSecret: typeof import("./getSecret").getSecret = null as any;
+export const getSecretOutput: typeof import("./getSecret").getSecretOutput = null as any;
+
+export { GetSecurityPolicyArgs, GetSecurityPolicyResult, GetSecurityPolicyOutputArgs } from "./getSecurityPolicy";
+export const getSecurityPolicy: typeof import("./getSecurityPolicy").getSecurityPolicy = null as any;
+export const getSecurityPolicyOutput: typeof import("./getSecurityPolicy").getSecurityPolicyOutput = null as any;
+
+export { OriginArgs } from "./origin";
+export type Origin = import("./origin").Origin;
+export const Origin: typeof import("./origin").Origin = null as any;
+
+export { OriginGroupArgs } from "./originGroup";
+export type OriginGroup = import("./originGroup").OriginGroup;
+export const OriginGroup: typeof import("./originGroup").OriginGroup = null as any;
+
+export { PolicyArgs } from "./policy";
+export type Policy = import("./policy").Policy;
+export const Policy: typeof import("./policy").Policy = null as any;
+
+export { ProfileArgs } from "./profile";
+export type Profile = import("./profile").Profile;
+export const Profile: typeof import("./profile").Profile = null as any;
+
+export { RouteArgs } from "./route";
+export type Route = import("./route").Route;
+export const Route: typeof import("./route").Route = null as any;
+
+export { RuleArgs } from "./rule";
+export type Rule = import("./rule").Rule;
+export const Rule: typeof import("./rule").Rule = null as any;
+
+export { RuleSetArgs } from "./ruleSet";
+export type RuleSet = import("./ruleSet").RuleSet;
+export const RuleSet: typeof import("./ruleSet").RuleSet = null as any;
+
+export { SecretArgs } from "./secret";
+export type Secret = import("./secret").Secret;
+export const Secret: typeof import("./secret").Secret = null as any;
+
+export { SecurityPolicyArgs } from "./securityPolicy";
+export type SecurityPolicy = import("./securityPolicy").SecurityPolicy;
+export const SecurityPolicy: typeof import("./securityPolicy").SecurityPolicy = null as any;
+
+utilities.lazyLoad(exports, ["AFDCustomDomain"], () => require("./afdcustomDomain"));
+utilities.lazyLoad(exports, ["AFDEndpoint"], () => require("./afdendpoint"));
+utilities.lazyLoad(exports, ["AFDOrigin"], () => require("./afdorigin"));
+utilities.lazyLoad(exports, ["AFDOriginGroup"], () => require("./afdoriginGroup"));
+utilities.lazyLoad(exports, ["CustomDomain"], () => require("./customDomain"));
+utilities.lazyLoad(exports, ["Endpoint"], () => require("./endpoint"));
+utilities.lazyLoad(exports, ["getAFDCustomDomain","getAFDCustomDomainOutput"], () => require("./getAFDCustomDomain"));
+utilities.lazyLoad(exports, ["getAFDEndpoint","getAFDEndpointOutput"], () => require("./getAFDEndpoint"));
+utilities.lazyLoad(exports, ["getAFDOrigin","getAFDOriginOutput"], () => require("./getAFDOrigin"));
+utilities.lazyLoad(exports, ["getAFDOriginGroup","getAFDOriginGroupOutput"], () => require("./getAFDOriginGroup"));
+utilities.lazyLoad(exports, ["getCustomDomain","getCustomDomainOutput"], () => require("./getCustomDomain"));
+utilities.lazyLoad(exports, ["getEndpoint","getEndpointOutput"], () => require("./getEndpoint"));
+utilities.lazyLoad(exports, ["getOrigin","getOriginOutput"], () => require("./getOrigin"));
+utilities.lazyLoad(exports, ["getOriginGroup","getOriginGroupOutput"], () => require("./getOriginGroup"));
+utilities.lazyLoad(exports, ["getPolicy","getPolicyOutput"], () => require("./getPolicy"));
+utilities.lazyLoad(exports, ["getProfile","getProfileOutput"], () => require("./getProfile"));
+utilities.lazyLoad(exports, ["getProfileSupportedOptimizationTypes","getProfileSupportedOptimizationTypesOutput"], () => require("./getProfileSupportedOptimizationTypes"));
+utilities.lazyLoad(exports, ["getRoute","getRouteOutput"], () => require("./getRoute"));
+utilities.lazyLoad(exports, ["getRule","getRuleOutput"], () => require("./getRule"));
+utilities.lazyLoad(exports, ["getRuleSet","getRuleSetOutput"], () => require("./getRuleSet"));
+utilities.lazyLoad(exports, ["getSecret","getSecretOutput"], () => require("./getSecret"));
+utilities.lazyLoad(exports, ["getSecurityPolicy","getSecurityPolicyOutput"], () => require("./getSecurityPolicy"));
+utilities.lazyLoad(exports, ["Origin"], () => require("./origin"));
+utilities.lazyLoad(exports, ["OriginGroup"], () => require("./originGroup"));
+utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
+utilities.lazyLoad(exports, ["Profile"], () => require("./profile"));
+utilities.lazyLoad(exports, ["Route"], () => require("./route"));
+utilities.lazyLoad(exports, ["Rule"], () => require("./rule"));
+utilities.lazyLoad(exports, ["RuleSet"], () => require("./ruleSet"));
+utilities.lazyLoad(exports, ["Secret"], () => require("./secret"));
+utilities.lazyLoad(exports, ["SecurityPolicy"], () => require("./securityPolicy"));
 
 // Export enums:
 export * from "../../types/enums/cdn/v20210601";
-
-// Import resources to register:
-import { AFDCustomDomain } from "./afdcustomDomain";
-import { AFDEndpoint } from "./afdendpoint";
-import { AFDOrigin } from "./afdorigin";
-import { AFDOriginGroup } from "./afdoriginGroup";
-import { CustomDomain } from "./customDomain";
-import { Endpoint } from "./endpoint";
-import { Origin } from "./origin";
-import { OriginGroup } from "./originGroup";
-import { Policy } from "./policy";
-import { Profile } from "./profile";
-import { Route } from "./route";
-import { Rule } from "./rule";
-import { RuleSet } from "./ruleSet";
-import { Secret } from "./secret";
-import { SecurityPolicy } from "./securityPolicy";
 
 const _module = {
     version: utilities.getVersion(),

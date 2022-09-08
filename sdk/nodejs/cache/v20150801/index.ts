@@ -5,15 +5,24 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getRedis";
-export * from "./listRedisKeys";
-export * from "./redis";
+export { GetRedisArgs, GetRedisResult, GetRedisOutputArgs } from "./getRedis";
+export const getRedis: typeof import("./getRedis").getRedis = null as any;
+export const getRedisOutput: typeof import("./getRedis").getRedisOutput = null as any;
+
+export { ListRedisKeysArgs, ListRedisKeysResult, ListRedisKeysOutputArgs } from "./listRedisKeys";
+export const listRedisKeys: typeof import("./listRedisKeys").listRedisKeys = null as any;
+export const listRedisKeysOutput: typeof import("./listRedisKeys").listRedisKeysOutput = null as any;
+
+export { RedisArgs } from "./redis";
+export type Redis = import("./redis").Redis;
+export const Redis: typeof import("./redis").Redis = null as any;
+
+utilities.lazyLoad(exports, ["getRedis","getRedisOutput"], () => require("./getRedis"));
+utilities.lazyLoad(exports, ["listRedisKeys","listRedisKeysOutput"], () => require("./listRedisKeys"));
+utilities.lazyLoad(exports, ["Redis"], () => require("./redis"));
 
 // Export enums:
 export * from "../../types/enums/cache/v20150801";
-
-// Import resources to register:
-import { Redis } from "./redis";
 
 const _module = {
     version: utilities.getVersion(),

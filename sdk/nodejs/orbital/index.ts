@@ -5,13 +5,41 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./contact";
-export * from "./contactProfile";
-export * from "./getContact";
-export * from "./getContactProfile";
-export * from "./getSpacecraft";
-export * from "./listSpacecraftAvailableContacts";
-export * from "./spacecraft";
+export { ContactArgs } from "./contact";
+export type Contact = import("./contact").Contact;
+export const Contact: typeof import("./contact").Contact = null as any;
+
+export { ContactProfileArgs } from "./contactProfile";
+export type ContactProfile = import("./contactProfile").ContactProfile;
+export const ContactProfile: typeof import("./contactProfile").ContactProfile = null as any;
+
+export { GetContactArgs, GetContactResult, GetContactOutputArgs } from "./getContact";
+export const getContact: typeof import("./getContact").getContact = null as any;
+export const getContactOutput: typeof import("./getContact").getContactOutput = null as any;
+
+export { GetContactProfileArgs, GetContactProfileResult, GetContactProfileOutputArgs } from "./getContactProfile";
+export const getContactProfile: typeof import("./getContactProfile").getContactProfile = null as any;
+export const getContactProfileOutput: typeof import("./getContactProfile").getContactProfileOutput = null as any;
+
+export { GetSpacecraftArgs, GetSpacecraftResult, GetSpacecraftOutputArgs } from "./getSpacecraft";
+export const getSpacecraft: typeof import("./getSpacecraft").getSpacecraft = null as any;
+export const getSpacecraftOutput: typeof import("./getSpacecraft").getSpacecraftOutput = null as any;
+
+export { ListSpacecraftAvailableContactsArgs, ListSpacecraftAvailableContactsResult, ListSpacecraftAvailableContactsOutputArgs } from "./listSpacecraftAvailableContacts";
+export const listSpacecraftAvailableContacts: typeof import("./listSpacecraftAvailableContacts").listSpacecraftAvailableContacts = null as any;
+export const listSpacecraftAvailableContactsOutput: typeof import("./listSpacecraftAvailableContacts").listSpacecraftAvailableContactsOutput = null as any;
+
+export { SpacecraftArgs } from "./spacecraft";
+export type Spacecraft = import("./spacecraft").Spacecraft;
+export const Spacecraft: typeof import("./spacecraft").Spacecraft = null as any;
+
+utilities.lazyLoad(exports, ["Contact"], () => require("./contact"));
+utilities.lazyLoad(exports, ["ContactProfile"], () => require("./contactProfile"));
+utilities.lazyLoad(exports, ["getContact","getContactOutput"], () => require("./getContact"));
+utilities.lazyLoad(exports, ["getContactProfile","getContactProfileOutput"], () => require("./getContactProfile"));
+utilities.lazyLoad(exports, ["getSpacecraft","getSpacecraftOutput"], () => require("./getSpacecraft"));
+utilities.lazyLoad(exports, ["listSpacecraftAvailableContacts","listSpacecraftAvailableContactsOutput"], () => require("./listSpacecraftAvailableContacts"));
+utilities.lazyLoad(exports, ["Spacecraft"], () => require("./spacecraft"));
 
 // Export enums:
 export * from "../types/enums/orbital";
@@ -24,11 +52,6 @@ export {
     v20210404preview,
     v20220301,
 };
-
-// Import resources to register:
-import { Contact } from "./contact";
-import { ContactProfile } from "./contactProfile";
-import { Spacecraft } from "./spacecraft";
 
 const _module = {
     version: utilities.getVersion(),

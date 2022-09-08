@@ -5,13 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getIngestionSetting";
-export * from "./ingestionSetting";
-export * from "./listIngestionSettingConnectionStrings";
-export * from "./listIngestionSettingTokens";
+export { GetIngestionSettingArgs, GetIngestionSettingResult, GetIngestionSettingOutputArgs } from "./getIngestionSetting";
+export const getIngestionSetting: typeof import("./getIngestionSetting").getIngestionSetting = null as any;
+export const getIngestionSettingOutput: typeof import("./getIngestionSetting").getIngestionSettingOutput = null as any;
 
-// Import resources to register:
-import { IngestionSetting } from "./ingestionSetting";
+export { IngestionSettingArgs } from "./ingestionSetting";
+export type IngestionSetting = import("./ingestionSetting").IngestionSetting;
+export const IngestionSetting: typeof import("./ingestionSetting").IngestionSetting = null as any;
+
+export { ListIngestionSettingConnectionStringsArgs, ListIngestionSettingConnectionStringsResult, ListIngestionSettingConnectionStringsOutputArgs } from "./listIngestionSettingConnectionStrings";
+export const listIngestionSettingConnectionStrings: typeof import("./listIngestionSettingConnectionStrings").listIngestionSettingConnectionStrings = null as any;
+export const listIngestionSettingConnectionStringsOutput: typeof import("./listIngestionSettingConnectionStrings").listIngestionSettingConnectionStringsOutput = null as any;
+
+export { ListIngestionSettingTokensArgs, ListIngestionSettingTokensResult, ListIngestionSettingTokensOutputArgs } from "./listIngestionSettingTokens";
+export const listIngestionSettingTokens: typeof import("./listIngestionSettingTokens").listIngestionSettingTokens = null as any;
+export const listIngestionSettingTokensOutput: typeof import("./listIngestionSettingTokens").listIngestionSettingTokensOutput = null as any;
+
+utilities.lazyLoad(exports, ["getIngestionSetting","getIngestionSettingOutput"], () => require("./getIngestionSetting"));
+utilities.lazyLoad(exports, ["IngestionSetting"], () => require("./ingestionSetting"));
+utilities.lazyLoad(exports, ["listIngestionSettingConnectionStrings","listIngestionSettingConnectionStringsOutput"], () => require("./listIngestionSettingConnectionStrings"));
+utilities.lazyLoad(exports, ["listIngestionSettingTokens","listIngestionSettingTokensOutput"], () => require("./listIngestionSettingTokens"));
 
 const _module = {
     version: utilities.getVersion(),

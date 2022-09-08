@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getSourceControlConfiguration";
-export * from "./sourceControlConfiguration";
+export { GetSourceControlConfigurationArgs, GetSourceControlConfigurationResult, GetSourceControlConfigurationOutputArgs } from "./getSourceControlConfiguration";
+export const getSourceControlConfiguration: typeof import("./getSourceControlConfiguration").getSourceControlConfiguration = null as any;
+export const getSourceControlConfigurationOutput: typeof import("./getSourceControlConfiguration").getSourceControlConfigurationOutput = null as any;
+
+export { SourceControlConfigurationArgs } from "./sourceControlConfiguration";
+export type SourceControlConfiguration = import("./sourceControlConfiguration").SourceControlConfiguration;
+export const SourceControlConfiguration: typeof import("./sourceControlConfiguration").SourceControlConfiguration = null as any;
+
+utilities.lazyLoad(exports, ["getSourceControlConfiguration","getSourceControlConfigurationOutput"], () => require("./getSourceControlConfiguration"));
+utilities.lazyLoad(exports, ["SourceControlConfiguration"], () => require("./sourceControlConfiguration"));
 
 // Export enums:
 export * from "../../types/enums/kubernetesconfiguration/v20191101preview";
-
-// Import resources to register:
-import { SourceControlConfiguration } from "./sourceControlConfiguration";
 
 const _module = {
     version: utilities.getVersion(),

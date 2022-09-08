@@ -5,17 +5,61 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getNamespace";
-export * from "./getNamespaceAuthorizationRule";
-export * from "./getNotificationHub";
-export * from "./getNotificationHubAuthorizationRule";
-export * from "./getNotificationHubPnsCredentials";
-export * from "./listNamespaceKeys";
-export * from "./listNotificationHubKeys";
-export * from "./namespace";
-export * from "./namespaceAuthorizationRule";
-export * from "./notificationHub";
-export * from "./notificationHubAuthorizationRule";
+export { GetNamespaceArgs, GetNamespaceResult, GetNamespaceOutputArgs } from "./getNamespace";
+export const getNamespace: typeof import("./getNamespace").getNamespace = null as any;
+export const getNamespaceOutput: typeof import("./getNamespace").getNamespaceOutput = null as any;
+
+export { GetNamespaceAuthorizationRuleArgs, GetNamespaceAuthorizationRuleResult, GetNamespaceAuthorizationRuleOutputArgs } from "./getNamespaceAuthorizationRule";
+export const getNamespaceAuthorizationRule: typeof import("./getNamespaceAuthorizationRule").getNamespaceAuthorizationRule = null as any;
+export const getNamespaceAuthorizationRuleOutput: typeof import("./getNamespaceAuthorizationRule").getNamespaceAuthorizationRuleOutput = null as any;
+
+export { GetNotificationHubArgs, GetNotificationHubResult, GetNotificationHubOutputArgs } from "./getNotificationHub";
+export const getNotificationHub: typeof import("./getNotificationHub").getNotificationHub = null as any;
+export const getNotificationHubOutput: typeof import("./getNotificationHub").getNotificationHubOutput = null as any;
+
+export { GetNotificationHubAuthorizationRuleArgs, GetNotificationHubAuthorizationRuleResult, GetNotificationHubAuthorizationRuleOutputArgs } from "./getNotificationHubAuthorizationRule";
+export const getNotificationHubAuthorizationRule: typeof import("./getNotificationHubAuthorizationRule").getNotificationHubAuthorizationRule = null as any;
+export const getNotificationHubAuthorizationRuleOutput: typeof import("./getNotificationHubAuthorizationRule").getNotificationHubAuthorizationRuleOutput = null as any;
+
+export { GetNotificationHubPnsCredentialsArgs, GetNotificationHubPnsCredentialsResult, GetNotificationHubPnsCredentialsOutputArgs } from "./getNotificationHubPnsCredentials";
+export const getNotificationHubPnsCredentials: typeof import("./getNotificationHubPnsCredentials").getNotificationHubPnsCredentials = null as any;
+export const getNotificationHubPnsCredentialsOutput: typeof import("./getNotificationHubPnsCredentials").getNotificationHubPnsCredentialsOutput = null as any;
+
+export { ListNamespaceKeysArgs, ListNamespaceKeysResult, ListNamespaceKeysOutputArgs } from "./listNamespaceKeys";
+export const listNamespaceKeys: typeof import("./listNamespaceKeys").listNamespaceKeys = null as any;
+export const listNamespaceKeysOutput: typeof import("./listNamespaceKeys").listNamespaceKeysOutput = null as any;
+
+export { ListNotificationHubKeysArgs, ListNotificationHubKeysResult, ListNotificationHubKeysOutputArgs } from "./listNotificationHubKeys";
+export const listNotificationHubKeys: typeof import("./listNotificationHubKeys").listNotificationHubKeys = null as any;
+export const listNotificationHubKeysOutput: typeof import("./listNotificationHubKeys").listNotificationHubKeysOutput = null as any;
+
+export { NamespaceArgs } from "./namespace";
+export type Namespace = import("./namespace").Namespace;
+export const Namespace: typeof import("./namespace").Namespace = null as any;
+
+export { NamespaceAuthorizationRuleArgs } from "./namespaceAuthorizationRule";
+export type NamespaceAuthorizationRule = import("./namespaceAuthorizationRule").NamespaceAuthorizationRule;
+export const NamespaceAuthorizationRule: typeof import("./namespaceAuthorizationRule").NamespaceAuthorizationRule = null as any;
+
+export { NotificationHubArgs } from "./notificationHub";
+export type NotificationHub = import("./notificationHub").NotificationHub;
+export const NotificationHub: typeof import("./notificationHub").NotificationHub = null as any;
+
+export { NotificationHubAuthorizationRuleArgs } from "./notificationHubAuthorizationRule";
+export type NotificationHubAuthorizationRule = import("./notificationHubAuthorizationRule").NotificationHubAuthorizationRule;
+export const NotificationHubAuthorizationRule: typeof import("./notificationHubAuthorizationRule").NotificationHubAuthorizationRule = null as any;
+
+utilities.lazyLoad(exports, ["getNamespace","getNamespaceOutput"], () => require("./getNamespace"));
+utilities.lazyLoad(exports, ["getNamespaceAuthorizationRule","getNamespaceAuthorizationRuleOutput"], () => require("./getNamespaceAuthorizationRule"));
+utilities.lazyLoad(exports, ["getNotificationHub","getNotificationHubOutput"], () => require("./getNotificationHub"));
+utilities.lazyLoad(exports, ["getNotificationHubAuthorizationRule","getNotificationHubAuthorizationRuleOutput"], () => require("./getNotificationHubAuthorizationRule"));
+utilities.lazyLoad(exports, ["getNotificationHubPnsCredentials","getNotificationHubPnsCredentialsOutput"], () => require("./getNotificationHubPnsCredentials"));
+utilities.lazyLoad(exports, ["listNamespaceKeys","listNamespaceKeysOutput"], () => require("./listNamespaceKeys"));
+utilities.lazyLoad(exports, ["listNotificationHubKeys","listNotificationHubKeysOutput"], () => require("./listNotificationHubKeys"));
+utilities.lazyLoad(exports, ["Namespace"], () => require("./namespace"));
+utilities.lazyLoad(exports, ["NamespaceAuthorizationRule"], () => require("./namespaceAuthorizationRule"));
+utilities.lazyLoad(exports, ["NotificationHub"], () => require("./notificationHub"));
+utilities.lazyLoad(exports, ["NotificationHubAuthorizationRule"], () => require("./notificationHubAuthorizationRule"));
 
 // Export enums:
 export * from "../types/enums/notificationhubs";
@@ -30,12 +74,6 @@ export {
     v20160301,
     v20170401,
 };
-
-// Import resources to register:
-import { Namespace } from "./namespace";
-import { NamespaceAuthorizationRule } from "./namespaceAuthorizationRule";
-import { NotificationHub } from "./notificationHub";
-import { NotificationHubAuthorizationRule } from "./notificationHubAuthorizationRule";
 
 const _module = {
     version: utilities.getVersion(),

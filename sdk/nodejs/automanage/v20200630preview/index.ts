@@ -5,20 +5,39 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./account";
-export * from "./configurationProfileAssignment";
-export * from "./configurationProfilePreference";
-export * from "./getAccount";
-export * from "./getConfigurationProfileAssignment";
-export * from "./getConfigurationProfilePreference";
+export { AccountArgs } from "./account";
+export type Account = import("./account").Account;
+export const Account: typeof import("./account").Account = null as any;
+
+export { ConfigurationProfileAssignmentArgs } from "./configurationProfileAssignment";
+export type ConfigurationProfileAssignment = import("./configurationProfileAssignment").ConfigurationProfileAssignment;
+export const ConfigurationProfileAssignment: typeof import("./configurationProfileAssignment").ConfigurationProfileAssignment = null as any;
+
+export { ConfigurationProfilePreferenceArgs } from "./configurationProfilePreference";
+export type ConfigurationProfilePreference = import("./configurationProfilePreference").ConfigurationProfilePreference;
+export const ConfigurationProfilePreference: typeof import("./configurationProfilePreference").ConfigurationProfilePreference = null as any;
+
+export { GetAccountArgs, GetAccountResult, GetAccountOutputArgs } from "./getAccount";
+export const getAccount: typeof import("./getAccount").getAccount = null as any;
+export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
+
+export { GetConfigurationProfileAssignmentArgs, GetConfigurationProfileAssignmentResult, GetConfigurationProfileAssignmentOutputArgs } from "./getConfigurationProfileAssignment";
+export const getConfigurationProfileAssignment: typeof import("./getConfigurationProfileAssignment").getConfigurationProfileAssignment = null as any;
+export const getConfigurationProfileAssignmentOutput: typeof import("./getConfigurationProfileAssignment").getConfigurationProfileAssignmentOutput = null as any;
+
+export { GetConfigurationProfilePreferenceArgs, GetConfigurationProfilePreferenceResult, GetConfigurationProfilePreferenceOutputArgs } from "./getConfigurationProfilePreference";
+export const getConfigurationProfilePreference: typeof import("./getConfigurationProfilePreference").getConfigurationProfilePreference = null as any;
+export const getConfigurationProfilePreferenceOutput: typeof import("./getConfigurationProfilePreference").getConfigurationProfilePreferenceOutput = null as any;
+
+utilities.lazyLoad(exports, ["Account"], () => require("./account"));
+utilities.lazyLoad(exports, ["ConfigurationProfileAssignment"], () => require("./configurationProfileAssignment"));
+utilities.lazyLoad(exports, ["ConfigurationProfilePreference"], () => require("./configurationProfilePreference"));
+utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
+utilities.lazyLoad(exports, ["getConfigurationProfileAssignment","getConfigurationProfileAssignmentOutput"], () => require("./getConfigurationProfileAssignment"));
+utilities.lazyLoad(exports, ["getConfigurationProfilePreference","getConfigurationProfilePreferenceOutput"], () => require("./getConfigurationProfilePreference"));
 
 // Export enums:
 export * from "../../types/enums/automanage/v20200630preview";
-
-// Import resources to register:
-import { Account } from "./account";
-import { ConfigurationProfileAssignment } from "./configurationProfileAssignment";
-import { ConfigurationProfilePreference } from "./configurationProfilePreference";
 
 const _module = {
     version: utilities.getVersion(),

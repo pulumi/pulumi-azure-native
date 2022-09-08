@@ -5,10 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./domainService";
-export * from "./getDomainService";
-export * from "./getOuContainer";
-export * from "./ouContainer";
+export { DomainServiceArgs } from "./domainService";
+export type DomainService = import("./domainService").DomainService;
+export const DomainService: typeof import("./domainService").DomainService = null as any;
+
+export { GetDomainServiceArgs, GetDomainServiceResult, GetDomainServiceOutputArgs } from "./getDomainService";
+export const getDomainService: typeof import("./getDomainService").getDomainService = null as any;
+export const getDomainServiceOutput: typeof import("./getDomainService").getDomainServiceOutput = null as any;
+
+export { GetOuContainerArgs, GetOuContainerResult, GetOuContainerOutputArgs } from "./getOuContainer";
+export const getOuContainer: typeof import("./getOuContainer").getOuContainer = null as any;
+export const getOuContainerOutput: typeof import("./getOuContainer").getOuContainerOutput = null as any;
+
+export { OuContainerArgs } from "./ouContainer";
+export type OuContainer = import("./ouContainer").OuContainer;
+export const OuContainer: typeof import("./ouContainer").OuContainer = null as any;
+
+utilities.lazyLoad(exports, ["DomainService"], () => require("./domainService"));
+utilities.lazyLoad(exports, ["getDomainService","getDomainServiceOutput"], () => require("./getDomainService"));
+utilities.lazyLoad(exports, ["getOuContainer","getOuContainerOutput"], () => require("./getOuContainer"));
+utilities.lazyLoad(exports, ["OuContainer"], () => require("./ouContainer"));
 
 // Export enums:
 export * from "../types/enums/aad";
@@ -27,10 +43,6 @@ export {
     v20210301,
     v20210501,
 };
-
-// Import resources to register:
-import { DomainService } from "./domainService";
-import { OuContainer } from "./ouContainer";
 
 const _module = {
     version: utilities.getVersion(),

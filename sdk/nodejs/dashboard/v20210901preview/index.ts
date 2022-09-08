@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getGrafana";
-export * from "./grafana";
+export { GetGrafanaArgs, GetGrafanaResult, GetGrafanaOutputArgs } from "./getGrafana";
+export const getGrafana: typeof import("./getGrafana").getGrafana = null as any;
+export const getGrafanaOutput: typeof import("./getGrafana").getGrafanaOutput = null as any;
+
+export { GrafanaArgs } from "./grafana";
+export type Grafana = import("./grafana").Grafana;
+export const Grafana: typeof import("./grafana").Grafana = null as any;
+
+utilities.lazyLoad(exports, ["getGrafana","getGrafanaOutput"], () => require("./getGrafana"));
+utilities.lazyLoad(exports, ["Grafana"], () => require("./grafana"));
 
 // Export enums:
 export * from "../../types/enums/dashboard/v20210901preview";
-
-// Import resources to register:
-import { Grafana } from "./grafana";
 
 const _module = {
     version: utilities.getVersion(),

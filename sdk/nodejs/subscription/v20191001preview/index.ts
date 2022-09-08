@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getSubscriptionAlias";
-export * from "./subscriptionAlias";
+export { GetSubscriptionAliasArgs, GetSubscriptionAliasResult, GetSubscriptionAliasOutputArgs } from "./getSubscriptionAlias";
+export const getSubscriptionAlias: typeof import("./getSubscriptionAlias").getSubscriptionAlias = null as any;
+export const getSubscriptionAliasOutput: typeof import("./getSubscriptionAlias").getSubscriptionAliasOutput = null as any;
+
+export { SubscriptionAliasArgs } from "./subscriptionAlias";
+export type SubscriptionAlias = import("./subscriptionAlias").SubscriptionAlias;
+export const SubscriptionAlias: typeof import("./subscriptionAlias").SubscriptionAlias = null as any;
+
+utilities.lazyLoad(exports, ["getSubscriptionAlias","getSubscriptionAliasOutput"], () => require("./getSubscriptionAlias"));
+utilities.lazyLoad(exports, ["SubscriptionAlias"], () => require("./subscriptionAlias"));
 
 // Export enums:
 export * from "../../types/enums/subscription/v20191001preview";
-
-// Import resources to register:
-import { SubscriptionAlias } from "./subscriptionAlias";
 
 const _module = {
     version: utilities.getVersion(),

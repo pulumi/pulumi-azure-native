@@ -5,21 +5,44 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./cluster";
-export * from "./database";
-export * from "./eventHubConnection";
-export * from "./getCluster";
-export * from "./getDatabase";
-export * from "./getEventHubConnection";
-export * from "./listDatabasePrincipals";
+export { ClusterArgs } from "./cluster";
+export type Cluster = import("./cluster").Cluster;
+export const Cluster: typeof import("./cluster").Cluster = null as any;
+
+export { DatabaseArgs } from "./database";
+export type Database = import("./database").Database;
+export const Database: typeof import("./database").Database = null as any;
+
+export { EventHubConnectionArgs } from "./eventHubConnection";
+export type EventHubConnection = import("./eventHubConnection").EventHubConnection;
+export const EventHubConnection: typeof import("./eventHubConnection").EventHubConnection = null as any;
+
+export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
+export const getCluster: typeof import("./getCluster").getCluster = null as any;
+export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
+
+export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
+export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
+export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
+
+export { GetEventHubConnectionArgs, GetEventHubConnectionResult, GetEventHubConnectionOutputArgs } from "./getEventHubConnection";
+export const getEventHubConnection: typeof import("./getEventHubConnection").getEventHubConnection = null as any;
+export const getEventHubConnectionOutput: typeof import("./getEventHubConnection").getEventHubConnectionOutput = null as any;
+
+export { ListDatabasePrincipalsArgs, ListDatabasePrincipalsResult, ListDatabasePrincipalsOutputArgs } from "./listDatabasePrincipals";
+export const listDatabasePrincipals: typeof import("./listDatabasePrincipals").listDatabasePrincipals = null as any;
+export const listDatabasePrincipalsOutput: typeof import("./listDatabasePrincipals").listDatabasePrincipalsOutput = null as any;
+
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
+utilities.lazyLoad(exports, ["Database"], () => require("./database"));
+utilities.lazyLoad(exports, ["EventHubConnection"], () => require("./eventHubConnection"));
+utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
+utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
+utilities.lazyLoad(exports, ["getEventHubConnection","getEventHubConnectionOutput"], () => require("./getEventHubConnection"));
+utilities.lazyLoad(exports, ["listDatabasePrincipals","listDatabasePrincipalsOutput"], () => require("./listDatabasePrincipals"));
 
 // Export enums:
 export * from "../../types/enums/kusto/v20170907privatepreview";
-
-// Import resources to register:
-import { Cluster } from "./cluster";
-import { Database } from "./database";
-import { EventHubConnection } from "./eventHubConnection";
 
 const _module = {
     version: utilities.getVersion(),

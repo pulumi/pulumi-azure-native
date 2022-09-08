@@ -5,8 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getSubscriptionFeatureRegistration";
-export * from "./subscriptionFeatureRegistration";
+export { GetSubscriptionFeatureRegistrationArgs, GetSubscriptionFeatureRegistrationResult, GetSubscriptionFeatureRegistrationOutputArgs } from "./getSubscriptionFeatureRegistration";
+export const getSubscriptionFeatureRegistration: typeof import("./getSubscriptionFeatureRegistration").getSubscriptionFeatureRegistration = null as any;
+export const getSubscriptionFeatureRegistrationOutput: typeof import("./getSubscriptionFeatureRegistration").getSubscriptionFeatureRegistrationOutput = null as any;
+
+export { SubscriptionFeatureRegistrationArgs } from "./subscriptionFeatureRegistration";
+export type SubscriptionFeatureRegistration = import("./subscriptionFeatureRegistration").SubscriptionFeatureRegistration;
+export const SubscriptionFeatureRegistration: typeof import("./subscriptionFeatureRegistration").SubscriptionFeatureRegistration = null as any;
+
+utilities.lazyLoad(exports, ["getSubscriptionFeatureRegistration","getSubscriptionFeatureRegistrationOutput"], () => require("./getSubscriptionFeatureRegistration"));
+utilities.lazyLoad(exports, ["SubscriptionFeatureRegistration"], () => require("./subscriptionFeatureRegistration"));
 
 // Export enums:
 export * from "../types/enums/features";
@@ -17,9 +25,6 @@ import * as v20210701 from "./v20210701";
 export {
     v20210701,
 };
-
-// Import resources to register:
-import { SubscriptionFeatureRegistration } from "./subscriptionFeatureRegistration";
 
 const _module = {
     version: utilities.getVersion(),

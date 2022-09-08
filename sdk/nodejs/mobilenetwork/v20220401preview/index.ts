@@ -5,45 +5,124 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./attachedDataNetwork";
-export * from "./dataNetwork";
-export * from "./getAttachedDataNetwork";
-export * from "./getDataNetwork";
-export * from "./getMobileNetwork";
-export * from "./getPacketCoreControlPlane";
-export * from "./getPacketCoreDataPlane";
-export * from "./getService";
-export * from "./getSim";
-export * from "./getSimGroup";
-export * from "./getSimPolicy";
-export * from "./getSite";
-export * from "./getSlice";
-export * from "./listMobileNetworkSimIds";
-export * from "./mobileNetwork";
-export * from "./packetCoreControlPlane";
-export * from "./packetCoreDataPlane";
-export * from "./service";
-export * from "./sim";
-export * from "./simGroup";
-export * from "./simPolicy";
-export * from "./site";
-export * from "./slice";
+export { AttachedDataNetworkArgs } from "./attachedDataNetwork";
+export type AttachedDataNetwork = import("./attachedDataNetwork").AttachedDataNetwork;
+export const AttachedDataNetwork: typeof import("./attachedDataNetwork").AttachedDataNetwork = null as any;
+
+export { DataNetworkArgs } from "./dataNetwork";
+export type DataNetwork = import("./dataNetwork").DataNetwork;
+export const DataNetwork: typeof import("./dataNetwork").DataNetwork = null as any;
+
+export { GetAttachedDataNetworkArgs, GetAttachedDataNetworkResult, GetAttachedDataNetworkOutputArgs } from "./getAttachedDataNetwork";
+export const getAttachedDataNetwork: typeof import("./getAttachedDataNetwork").getAttachedDataNetwork = null as any;
+export const getAttachedDataNetworkOutput: typeof import("./getAttachedDataNetwork").getAttachedDataNetworkOutput = null as any;
+
+export { GetDataNetworkArgs, GetDataNetworkResult, GetDataNetworkOutputArgs } from "./getDataNetwork";
+export const getDataNetwork: typeof import("./getDataNetwork").getDataNetwork = null as any;
+export const getDataNetworkOutput: typeof import("./getDataNetwork").getDataNetworkOutput = null as any;
+
+export { GetMobileNetworkArgs, GetMobileNetworkResult, GetMobileNetworkOutputArgs } from "./getMobileNetwork";
+export const getMobileNetwork: typeof import("./getMobileNetwork").getMobileNetwork = null as any;
+export const getMobileNetworkOutput: typeof import("./getMobileNetwork").getMobileNetworkOutput = null as any;
+
+export { GetPacketCoreControlPlaneArgs, GetPacketCoreControlPlaneResult, GetPacketCoreControlPlaneOutputArgs } from "./getPacketCoreControlPlane";
+export const getPacketCoreControlPlane: typeof import("./getPacketCoreControlPlane").getPacketCoreControlPlane = null as any;
+export const getPacketCoreControlPlaneOutput: typeof import("./getPacketCoreControlPlane").getPacketCoreControlPlaneOutput = null as any;
+
+export { GetPacketCoreDataPlaneArgs, GetPacketCoreDataPlaneResult, GetPacketCoreDataPlaneOutputArgs } from "./getPacketCoreDataPlane";
+export const getPacketCoreDataPlane: typeof import("./getPacketCoreDataPlane").getPacketCoreDataPlane = null as any;
+export const getPacketCoreDataPlaneOutput: typeof import("./getPacketCoreDataPlane").getPacketCoreDataPlaneOutput = null as any;
+
+export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
+export const getService: typeof import("./getService").getService = null as any;
+export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
+
+export { GetSimArgs, GetSimResult, GetSimOutputArgs } from "./getSim";
+export const getSim: typeof import("./getSim").getSim = null as any;
+export const getSimOutput: typeof import("./getSim").getSimOutput = null as any;
+
+export { GetSimGroupArgs, GetSimGroupResult, GetSimGroupOutputArgs } from "./getSimGroup";
+export const getSimGroup: typeof import("./getSimGroup").getSimGroup = null as any;
+export const getSimGroupOutput: typeof import("./getSimGroup").getSimGroupOutput = null as any;
+
+export { GetSimPolicyArgs, GetSimPolicyResult, GetSimPolicyOutputArgs } from "./getSimPolicy";
+export const getSimPolicy: typeof import("./getSimPolicy").getSimPolicy = null as any;
+export const getSimPolicyOutput: typeof import("./getSimPolicy").getSimPolicyOutput = null as any;
+
+export { GetSiteArgs, GetSiteResult, GetSiteOutputArgs } from "./getSite";
+export const getSite: typeof import("./getSite").getSite = null as any;
+export const getSiteOutput: typeof import("./getSite").getSiteOutput = null as any;
+
+export { GetSliceArgs, GetSliceResult, GetSliceOutputArgs } from "./getSlice";
+export const getSlice: typeof import("./getSlice").getSlice = null as any;
+export const getSliceOutput: typeof import("./getSlice").getSliceOutput = null as any;
+
+export { ListMobileNetworkSimIdsArgs, ListMobileNetworkSimIdsResult, ListMobileNetworkSimIdsOutputArgs } from "./listMobileNetworkSimIds";
+export const listMobileNetworkSimIds: typeof import("./listMobileNetworkSimIds").listMobileNetworkSimIds = null as any;
+export const listMobileNetworkSimIdsOutput: typeof import("./listMobileNetworkSimIds").listMobileNetworkSimIdsOutput = null as any;
+
+export { MobileNetworkArgs } from "./mobileNetwork";
+export type MobileNetwork = import("./mobileNetwork").MobileNetwork;
+export const MobileNetwork: typeof import("./mobileNetwork").MobileNetwork = null as any;
+
+export { PacketCoreControlPlaneArgs } from "./packetCoreControlPlane";
+export type PacketCoreControlPlane = import("./packetCoreControlPlane").PacketCoreControlPlane;
+export const PacketCoreControlPlane: typeof import("./packetCoreControlPlane").PacketCoreControlPlane = null as any;
+
+export { PacketCoreDataPlaneArgs } from "./packetCoreDataPlane";
+export type PacketCoreDataPlane = import("./packetCoreDataPlane").PacketCoreDataPlane;
+export const PacketCoreDataPlane: typeof import("./packetCoreDataPlane").PacketCoreDataPlane = null as any;
+
+export { ServiceArgs } from "./service";
+export type Service = import("./service").Service;
+export const Service: typeof import("./service").Service = null as any;
+
+export { SimArgs } from "./sim";
+export type Sim = import("./sim").Sim;
+export const Sim: typeof import("./sim").Sim = null as any;
+
+export { SimGroupArgs } from "./simGroup";
+export type SimGroup = import("./simGroup").SimGroup;
+export const SimGroup: typeof import("./simGroup").SimGroup = null as any;
+
+export { SimPolicyArgs } from "./simPolicy";
+export type SimPolicy = import("./simPolicy").SimPolicy;
+export const SimPolicy: typeof import("./simPolicy").SimPolicy = null as any;
+
+export { SiteArgs } from "./site";
+export type Site = import("./site").Site;
+export const Site: typeof import("./site").Site = null as any;
+
+export { SliceArgs } from "./slice";
+export type Slice = import("./slice").Slice;
+export const Slice: typeof import("./slice").Slice = null as any;
+
+utilities.lazyLoad(exports, ["AttachedDataNetwork"], () => require("./attachedDataNetwork"));
+utilities.lazyLoad(exports, ["DataNetwork"], () => require("./dataNetwork"));
+utilities.lazyLoad(exports, ["getAttachedDataNetwork","getAttachedDataNetworkOutput"], () => require("./getAttachedDataNetwork"));
+utilities.lazyLoad(exports, ["getDataNetwork","getDataNetworkOutput"], () => require("./getDataNetwork"));
+utilities.lazyLoad(exports, ["getMobileNetwork","getMobileNetworkOutput"], () => require("./getMobileNetwork"));
+utilities.lazyLoad(exports, ["getPacketCoreControlPlane","getPacketCoreControlPlaneOutput"], () => require("./getPacketCoreControlPlane"));
+utilities.lazyLoad(exports, ["getPacketCoreDataPlane","getPacketCoreDataPlaneOutput"], () => require("./getPacketCoreDataPlane"));
+utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
+utilities.lazyLoad(exports, ["getSim","getSimOutput"], () => require("./getSim"));
+utilities.lazyLoad(exports, ["getSimGroup","getSimGroupOutput"], () => require("./getSimGroup"));
+utilities.lazyLoad(exports, ["getSimPolicy","getSimPolicyOutput"], () => require("./getSimPolicy"));
+utilities.lazyLoad(exports, ["getSite","getSiteOutput"], () => require("./getSite"));
+utilities.lazyLoad(exports, ["getSlice","getSliceOutput"], () => require("./getSlice"));
+utilities.lazyLoad(exports, ["listMobileNetworkSimIds","listMobileNetworkSimIdsOutput"], () => require("./listMobileNetworkSimIds"));
+utilities.lazyLoad(exports, ["MobileNetwork"], () => require("./mobileNetwork"));
+utilities.lazyLoad(exports, ["PacketCoreControlPlane"], () => require("./packetCoreControlPlane"));
+utilities.lazyLoad(exports, ["PacketCoreDataPlane"], () => require("./packetCoreDataPlane"));
+utilities.lazyLoad(exports, ["Service"], () => require("./service"));
+utilities.lazyLoad(exports, ["Sim"], () => require("./sim"));
+utilities.lazyLoad(exports, ["SimGroup"], () => require("./simGroup"));
+utilities.lazyLoad(exports, ["SimPolicy"], () => require("./simPolicy"));
+utilities.lazyLoad(exports, ["Site"], () => require("./site"));
+utilities.lazyLoad(exports, ["Slice"], () => require("./slice"));
 
 // Export enums:
 export * from "../../types/enums/mobilenetwork/v20220401preview";
-
-// Import resources to register:
-import { AttachedDataNetwork } from "./attachedDataNetwork";
-import { DataNetwork } from "./dataNetwork";
-import { MobileNetwork } from "./mobileNetwork";
-import { PacketCoreControlPlane } from "./packetCoreControlPlane";
-import { PacketCoreDataPlane } from "./packetCoreDataPlane";
-import { Service } from "./service";
-import { Sim } from "./sim";
-import { SimGroup } from "./simGroup";
-import { SimPolicy } from "./simPolicy";
-import { Site } from "./site";
-import { Slice } from "./slice";
 
 const _module = {
     version: utilities.getVersion(),

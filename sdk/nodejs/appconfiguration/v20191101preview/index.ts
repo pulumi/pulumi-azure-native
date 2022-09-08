@@ -5,19 +5,39 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./configurationStore";
-export * from "./getConfigurationStore";
-export * from "./getPrivateEndpointConnection";
-export * from "./listConfigurationStoreKeyValue";
-export * from "./listConfigurationStoreKeys";
-export * from "./privateEndpointConnection";
+export { ConfigurationStoreArgs } from "./configurationStore";
+export type ConfigurationStore = import("./configurationStore").ConfigurationStore;
+export const ConfigurationStore: typeof import("./configurationStore").ConfigurationStore = null as any;
+
+export { GetConfigurationStoreArgs, GetConfigurationStoreResult, GetConfigurationStoreOutputArgs } from "./getConfigurationStore";
+export const getConfigurationStore: typeof import("./getConfigurationStore").getConfigurationStore = null as any;
+export const getConfigurationStoreOutput: typeof import("./getConfigurationStore").getConfigurationStoreOutput = null as any;
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+
+export { ListConfigurationStoreKeyValueArgs, ListConfigurationStoreKeyValueResult, ListConfigurationStoreKeyValueOutputArgs } from "./listConfigurationStoreKeyValue";
+export const listConfigurationStoreKeyValue: typeof import("./listConfigurationStoreKeyValue").listConfigurationStoreKeyValue = null as any;
+export const listConfigurationStoreKeyValueOutput: typeof import("./listConfigurationStoreKeyValue").listConfigurationStoreKeyValueOutput = null as any;
+
+export { ListConfigurationStoreKeysArgs, ListConfigurationStoreKeysResult, ListConfigurationStoreKeysOutputArgs } from "./listConfigurationStoreKeys";
+export const listConfigurationStoreKeys: typeof import("./listConfigurationStoreKeys").listConfigurationStoreKeys = null as any;
+export const listConfigurationStoreKeysOutput: typeof import("./listConfigurationStoreKeys").listConfigurationStoreKeysOutput = null as any;
+
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+
+utilities.lazyLoad(exports, ["ConfigurationStore"], () => require("./configurationStore"));
+utilities.lazyLoad(exports, ["getConfigurationStore","getConfigurationStoreOutput"], () => require("./getConfigurationStore"));
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+utilities.lazyLoad(exports, ["listConfigurationStoreKeyValue","listConfigurationStoreKeyValueOutput"], () => require("./listConfigurationStoreKeyValue"));
+utilities.lazyLoad(exports, ["listConfigurationStoreKeys","listConfigurationStoreKeysOutput"], () => require("./listConfigurationStoreKeys"));
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
 
 // Export enums:
 export * from "../../types/enums/appconfiguration/v20191101preview";
-
-// Import resources to register:
-import { ConfigurationStore } from "./configurationStore";
-import { PrivateEndpointConnection } from "./privateEndpointConnection";
 
 const _module = {
     version: utilities.getVersion(),

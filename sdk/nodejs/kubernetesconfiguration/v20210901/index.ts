@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./extension";
-export * from "./getExtension";
+export { ExtensionArgs } from "./extension";
+export type Extension = import("./extension").Extension;
+export const Extension: typeof import("./extension").Extension = null as any;
+
+export { GetExtensionArgs, GetExtensionResult, GetExtensionOutputArgs } from "./getExtension";
+export const getExtension: typeof import("./getExtension").getExtension = null as any;
+export const getExtensionOutput: typeof import("./getExtension").getExtensionOutput = null as any;
+
+utilities.lazyLoad(exports, ["Extension"], () => require("./extension"));
+utilities.lazyLoad(exports, ["getExtension","getExtensionOutput"], () => require("./getExtension"));
 
 // Export enums:
 export * from "../../types/enums/kubernetesconfiguration/v20210901";
-
-// Import resources to register:
-import { Extension } from "./extension";
 
 const _module = {
     version: utilities.getVersion(),

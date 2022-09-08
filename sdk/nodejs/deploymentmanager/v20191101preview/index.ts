@@ -5,29 +5,69 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./artifactSource";
-export * from "./getArtifactSource";
-export * from "./getRollout";
-export * from "./getService";
-export * from "./getServiceTopology";
-export * from "./getServiceUnit";
-export * from "./getStep";
-export * from "./rollout";
-export * from "./service";
-export * from "./serviceTopology";
-export * from "./serviceUnit";
-export * from "./step";
+export { ArtifactSourceArgs } from "./artifactSource";
+export type ArtifactSource = import("./artifactSource").ArtifactSource;
+export const ArtifactSource: typeof import("./artifactSource").ArtifactSource = null as any;
+
+export { GetArtifactSourceArgs, GetArtifactSourceResult, GetArtifactSourceOutputArgs } from "./getArtifactSource";
+export const getArtifactSource: typeof import("./getArtifactSource").getArtifactSource = null as any;
+export const getArtifactSourceOutput: typeof import("./getArtifactSource").getArtifactSourceOutput = null as any;
+
+export { GetRolloutArgs, GetRolloutResult, GetRolloutOutputArgs } from "./getRollout";
+export const getRollout: typeof import("./getRollout").getRollout = null as any;
+export const getRolloutOutput: typeof import("./getRollout").getRolloutOutput = null as any;
+
+export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
+export const getService: typeof import("./getService").getService = null as any;
+export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
+
+export { GetServiceTopologyArgs, GetServiceTopologyResult, GetServiceTopologyOutputArgs } from "./getServiceTopology";
+export const getServiceTopology: typeof import("./getServiceTopology").getServiceTopology = null as any;
+export const getServiceTopologyOutput: typeof import("./getServiceTopology").getServiceTopologyOutput = null as any;
+
+export { GetServiceUnitArgs, GetServiceUnitResult, GetServiceUnitOutputArgs } from "./getServiceUnit";
+export const getServiceUnit: typeof import("./getServiceUnit").getServiceUnit = null as any;
+export const getServiceUnitOutput: typeof import("./getServiceUnit").getServiceUnitOutput = null as any;
+
+export { GetStepArgs, GetStepResult, GetStepOutputArgs } from "./getStep";
+export const getStep: typeof import("./getStep").getStep = null as any;
+export const getStepOutput: typeof import("./getStep").getStepOutput = null as any;
+
+export { RolloutArgs } from "./rollout";
+export type Rollout = import("./rollout").Rollout;
+export const Rollout: typeof import("./rollout").Rollout = null as any;
+
+export { ServiceArgs } from "./service";
+export type Service = import("./service").Service;
+export const Service: typeof import("./service").Service = null as any;
+
+export { ServiceTopologyArgs } from "./serviceTopology";
+export type ServiceTopology = import("./serviceTopology").ServiceTopology;
+export const ServiceTopology: typeof import("./serviceTopology").ServiceTopology = null as any;
+
+export { ServiceUnitArgs } from "./serviceUnit";
+export type ServiceUnit = import("./serviceUnit").ServiceUnit;
+export const ServiceUnit: typeof import("./serviceUnit").ServiceUnit = null as any;
+
+export { StepArgs } from "./step";
+export type Step = import("./step").Step;
+export const Step: typeof import("./step").Step = null as any;
+
+utilities.lazyLoad(exports, ["ArtifactSource"], () => require("./artifactSource"));
+utilities.lazyLoad(exports, ["getArtifactSource","getArtifactSourceOutput"], () => require("./getArtifactSource"));
+utilities.lazyLoad(exports, ["getRollout","getRolloutOutput"], () => require("./getRollout"));
+utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
+utilities.lazyLoad(exports, ["getServiceTopology","getServiceTopologyOutput"], () => require("./getServiceTopology"));
+utilities.lazyLoad(exports, ["getServiceUnit","getServiceUnitOutput"], () => require("./getServiceUnit"));
+utilities.lazyLoad(exports, ["getStep","getStepOutput"], () => require("./getStep"));
+utilities.lazyLoad(exports, ["Rollout"], () => require("./rollout"));
+utilities.lazyLoad(exports, ["Service"], () => require("./service"));
+utilities.lazyLoad(exports, ["ServiceTopology"], () => require("./serviceTopology"));
+utilities.lazyLoad(exports, ["ServiceUnit"], () => require("./serviceUnit"));
+utilities.lazyLoad(exports, ["Step"], () => require("./step"));
 
 // Export enums:
 export * from "../../types/enums/deploymentmanager/v20191101preview";
-
-// Import resources to register:
-import { ArtifactSource } from "./artifactSource";
-import { Rollout } from "./rollout";
-import { Service } from "./service";
-import { ServiceTopology } from "./serviceTopology";
-import { ServiceUnit } from "./serviceUnit";
-import { Step } from "./step";
 
 const _module = {
     version: utilities.getVersion(),

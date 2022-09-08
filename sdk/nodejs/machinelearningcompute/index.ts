@@ -5,9 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getOperationalizationCluster";
-export * from "./listOperationalizationClusterKeys";
-export * from "./operationalizationCluster";
+export { GetOperationalizationClusterArgs, GetOperationalizationClusterResult, GetOperationalizationClusterOutputArgs } from "./getOperationalizationCluster";
+export const getOperationalizationCluster: typeof import("./getOperationalizationCluster").getOperationalizationCluster = null as any;
+export const getOperationalizationClusterOutput: typeof import("./getOperationalizationCluster").getOperationalizationClusterOutput = null as any;
+
+export { ListOperationalizationClusterKeysArgs, ListOperationalizationClusterKeysResult, ListOperationalizationClusterKeysOutputArgs } from "./listOperationalizationClusterKeys";
+export const listOperationalizationClusterKeys: typeof import("./listOperationalizationClusterKeys").listOperationalizationClusterKeys = null as any;
+export const listOperationalizationClusterKeysOutput: typeof import("./listOperationalizationClusterKeys").listOperationalizationClusterKeysOutput = null as any;
+
+export { OperationalizationClusterArgs } from "./operationalizationCluster";
+export type OperationalizationCluster = import("./operationalizationCluster").OperationalizationCluster;
+export const OperationalizationCluster: typeof import("./operationalizationCluster").OperationalizationCluster = null as any;
+
+utilities.lazyLoad(exports, ["getOperationalizationCluster","getOperationalizationClusterOutput"], () => require("./getOperationalizationCluster"));
+utilities.lazyLoad(exports, ["listOperationalizationClusterKeys","listOperationalizationClusterKeysOutput"], () => require("./listOperationalizationClusterKeys"));
+utilities.lazyLoad(exports, ["OperationalizationCluster"], () => require("./operationalizationCluster"));
 
 // Export enums:
 export * from "../types/enums/machinelearningcompute";
@@ -20,9 +32,6 @@ export {
     v20170601preview,
     v20170801preview,
 };
-
-// Import resources to register:
-import { OperationalizationCluster } from "./operationalizationCluster";
 
 const _module = {
     version: utilities.getVersion(),

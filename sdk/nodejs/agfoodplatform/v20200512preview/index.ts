@@ -5,14 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./extension";
-export * from "./farmBeatsModel";
-export * from "./getExtension";
-export * from "./getFarmBeatsModel";
+export { ExtensionArgs } from "./extension";
+export type Extension = import("./extension").Extension;
+export const Extension: typeof import("./extension").Extension = null as any;
 
-// Import resources to register:
-import { Extension } from "./extension";
-import { FarmBeatsModel } from "./farmBeatsModel";
+export { FarmBeatsModelArgs } from "./farmBeatsModel";
+export type FarmBeatsModel = import("./farmBeatsModel").FarmBeatsModel;
+export const FarmBeatsModel: typeof import("./farmBeatsModel").FarmBeatsModel = null as any;
+
+export { GetExtensionArgs, GetExtensionResult, GetExtensionOutputArgs } from "./getExtension";
+export const getExtension: typeof import("./getExtension").getExtension = null as any;
+export const getExtensionOutput: typeof import("./getExtension").getExtensionOutput = null as any;
+
+export { GetFarmBeatsModelArgs, GetFarmBeatsModelResult, GetFarmBeatsModelOutputArgs } from "./getFarmBeatsModel";
+export const getFarmBeatsModel: typeof import("./getFarmBeatsModel").getFarmBeatsModel = null as any;
+export const getFarmBeatsModelOutput: typeof import("./getFarmBeatsModel").getFarmBeatsModelOutput = null as any;
+
+utilities.lazyLoad(exports, ["Extension"], () => require("./extension"));
+utilities.lazyLoad(exports, ["FarmBeatsModel"], () => require("./farmBeatsModel"));
+utilities.lazyLoad(exports, ["getExtension","getExtensionOutput"], () => require("./getExtension"));
+utilities.lazyLoad(exports, ["getFarmBeatsModel","getFarmBeatsModelOutput"], () => require("./getFarmBeatsModel"));
 
 const _module = {
     version: utilities.getVersion(),
