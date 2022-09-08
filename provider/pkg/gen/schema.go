@@ -1989,3 +1989,24 @@ func SetGoBasePath(pkgSpec schema.PackageSpec, importBasePath string) *schema.Pa
 	pkgSpec.Language["go"] = rawMessage(goLanguage)
 	return &pkgSpec
 }
+
+// GoModVersion Creates a valid go mod version from our pulumictl version.
+// Essentially, this removes any '+xxx' additions. See tests for examples.
+func GoModVersion(packageVersion *semver.Version) string {
+	if packageVersion == nil {
+		return "latest"
+	}
+	buildVersion := *packageVersion
+	// Only include patch Pre (the first Pre), if set.
+	if buildVersion.Pre != nil {
+		buildVersion.Pre = buildVersion.Pre[:1]
+		if buildVersion.Build != nil {
+			for _, build := range buildVersion.Build {
+				buildVersion.Pre = append(buildVersion.Pre, semver.PRVersion{VersionStr: build})
+			}
+		}
+	}
+	// Ignore build versions
+	buildVersion.Build = nil
+	return "v" + buildVersion.String()
+}

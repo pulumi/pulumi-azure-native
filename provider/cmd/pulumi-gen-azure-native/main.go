@@ -268,19 +268,8 @@ func emitSplitPackage(pkgSpec *schema.PackageSpec, language, outDir string) erro
 		return errors.Wrapf(err, "generating %s package", language)
 	}
 
-	var version string
-	if ppkg.Version != nil {
-		buildVersion := *ppkg.Version
-		// Ignore build versions
-		buildVersion.Build = nil
-		// Only include patch Pre (the first Pre), if set.
-		if buildVersion.Pre != nil {
-			buildVersion.Pre = buildVersion.Pre[:1]
-		}
-		version = "v" + buildVersion.String()
-	} else {
-		version = "latest"
-	}
+	version := gen.GoModVersion(ppkg.Version)
+	files["pulumi-azure-native-sdk/version.txt"] = []byte(version)
 	files["pulumi-azure-native-sdk/go.mod"] = []byte(goModTemplate(GoMod{}))
 
 	for f, contents := range files {

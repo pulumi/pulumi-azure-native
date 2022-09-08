@@ -205,6 +205,7 @@ prepublish_go:
 	find sdk/pulumi-azure-native-sdk -maxdepth 2 -type f -name go.mod -exec sed -i -e '/replace github\.com\/pulumi\/pulumi-azure-native-sdk /d' {} \;
 	find sdk/pulumi-azure-native-sdk -maxdepth 2 -type f -name go.mod-e -delete
 	find sdk/pulumi-azure-native-sdk -maxdepth 2 -type f -name go.sum -delete
+	cp README.md sdk/pulumi-azure-native-sdk/
 
 clean::
 	rm -rf $$(find sdk/nodejs -mindepth 1 -maxdepth 1 ! -name "go.mod")

@@ -545,9 +545,9 @@ jobs:
         tar -zxf ${{ github.workspace}}/sdk/pulumi-azure-native-sdk.tar.gz -C ${{github.workspace}}/sdk/pulumi-azure-native-sdk
     - name: Publish Split Go SDK
       run: |
-        VERSION="v$(pulumictl get version --language generic)"
         make prepublish_go
         cd sdk/pulumi-azure-native-sdk
+        VERSION="$(cat version.txt)"
         git config user.name "Pulumi Bot"
         git config user.email "bot@pulumi.com"
         git add .
