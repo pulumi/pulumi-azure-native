@@ -5,17 +5,36 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getManagementAssociation";
-export * from "./getManagementConfiguration";
-export * from "./getSolution";
-export * from "./managementAssociation";
-export * from "./managementConfiguration";
-export * from "./solution";
+export { GetManagementAssociationArgs, GetManagementAssociationResult, GetManagementAssociationOutputArgs } from "./getManagementAssociation";
+export const getManagementAssociation: typeof import("./getManagementAssociation").getManagementAssociation = null as any;
+export const getManagementAssociationOutput: typeof import("./getManagementAssociation").getManagementAssociationOutput = null as any;
 
-// Import resources to register:
-import { ManagementAssociation } from "./managementAssociation";
-import { ManagementConfiguration } from "./managementConfiguration";
-import { Solution } from "./solution";
+export { GetManagementConfigurationArgs, GetManagementConfigurationResult, GetManagementConfigurationOutputArgs } from "./getManagementConfiguration";
+export const getManagementConfiguration: typeof import("./getManagementConfiguration").getManagementConfiguration = null as any;
+export const getManagementConfigurationOutput: typeof import("./getManagementConfiguration").getManagementConfigurationOutput = null as any;
+
+export { GetSolutionArgs, GetSolutionResult, GetSolutionOutputArgs } from "./getSolution";
+export const getSolution: typeof import("./getSolution").getSolution = null as any;
+export const getSolutionOutput: typeof import("./getSolution").getSolutionOutput = null as any;
+
+export { ManagementAssociationArgs } from "./managementAssociation";
+export type ManagementAssociation = import("./managementAssociation").ManagementAssociation;
+export const ManagementAssociation: typeof import("./managementAssociation").ManagementAssociation = null as any;
+
+export { ManagementConfigurationArgs } from "./managementConfiguration";
+export type ManagementConfiguration = import("./managementConfiguration").ManagementConfiguration;
+export const ManagementConfiguration: typeof import("./managementConfiguration").ManagementConfiguration = null as any;
+
+export { SolutionArgs } from "./solution";
+export type Solution = import("./solution").Solution;
+export const Solution: typeof import("./solution").Solution = null as any;
+
+utilities.lazyLoad(exports, ["getManagementAssociation","getManagementAssociationOutput"], () => require("./getManagementAssociation"));
+utilities.lazyLoad(exports, ["getManagementConfiguration","getManagementConfigurationOutput"], () => require("./getManagementConfiguration"));
+utilities.lazyLoad(exports, ["getSolution","getSolutionOutput"], () => require("./getSolution"));
+utilities.lazyLoad(exports, ["ManagementAssociation"], () => require("./managementAssociation"));
+utilities.lazyLoad(exports, ["ManagementConfiguration"], () => require("./managementConfiguration"));
+utilities.lazyLoad(exports, ["Solution"], () => require("./solution"));
 
 const _module = {
     version: utilities.getVersion(),

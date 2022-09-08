@@ -5,18 +5,34 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getMediaService";
-export * from "./getPrivateEndpointConnection";
-export * from "./listMediaServiceEdgePolicies";
-export * from "./mediaService";
-export * from "./privateEndpointConnection";
+export { GetMediaServiceArgs, GetMediaServiceResult, GetMediaServiceOutputArgs } from "./getMediaService";
+export const getMediaService: typeof import("./getMediaService").getMediaService = null as any;
+export const getMediaServiceOutput: typeof import("./getMediaService").getMediaServiceOutput = null as any;
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+
+export { ListMediaServiceEdgePoliciesArgs, ListMediaServiceEdgePoliciesResult, ListMediaServiceEdgePoliciesOutputArgs } from "./listMediaServiceEdgePolicies";
+export const listMediaServiceEdgePolicies: typeof import("./listMediaServiceEdgePolicies").listMediaServiceEdgePolicies = null as any;
+export const listMediaServiceEdgePoliciesOutput: typeof import("./listMediaServiceEdgePolicies").listMediaServiceEdgePoliciesOutput = null as any;
+
+export { MediaServiceArgs } from "./mediaService";
+export type MediaService = import("./mediaService").MediaService;
+export const MediaService: typeof import("./mediaService").MediaService = null as any;
+
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+
+utilities.lazyLoad(exports, ["getMediaService","getMediaServiceOutput"], () => require("./getMediaService"));
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+utilities.lazyLoad(exports, ["listMediaServiceEdgePolicies","listMediaServiceEdgePoliciesOutput"], () => require("./listMediaServiceEdgePolicies"));
+utilities.lazyLoad(exports, ["MediaService"], () => require("./mediaService"));
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
 
 // Export enums:
 export * from "../../types/enums/media/v20210501";
-
-// Import resources to register:
-import { MediaService } from "./mediaService";
-import { PrivateEndpointConnection } from "./privateEndpointConnection";
 
 const _module = {
     version: utilities.getVersion(),

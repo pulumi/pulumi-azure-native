@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getWebService";
-export * from "./webService";
+export { GetWebServiceArgs, GetWebServiceResult, GetWebServiceOutputArgs } from "./getWebService";
+export const getWebService: typeof import("./getWebService").getWebService = null as any;
+export const getWebServiceOutput: typeof import("./getWebService").getWebServiceOutput = null as any;
+
+export { WebServiceArgs } from "./webService";
+export type WebService = import("./webService").WebService;
+export const WebService: typeof import("./webService").WebService = null as any;
+
+utilities.lazyLoad(exports, ["getWebService","getWebServiceOutput"], () => require("./getWebService"));
+utilities.lazyLoad(exports, ["WebService"], () => require("./webService"));
 
 // Export enums:
 export * from "../../types/enums/machinelearning/v20170101";
-
-// Import resources to register:
-import { WebService } from "./webService";
 
 const _module = {
     version: utilities.getVersion(),

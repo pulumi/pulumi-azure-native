@@ -5,11 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./attestationProvider";
-export * from "./getAttestationProvider";
+export { AttestationProviderArgs } from "./attestationProvider";
+export type AttestationProvider = import("./attestationProvider").AttestationProvider;
+export const AttestationProvider: typeof import("./attestationProvider").AttestationProvider = null as any;
 
-// Import resources to register:
-import { AttestationProvider } from "./attestationProvider";
+export { GetAttestationProviderArgs, GetAttestationProviderResult, GetAttestationProviderOutputArgs } from "./getAttestationProvider";
+export const getAttestationProvider: typeof import("./getAttestationProvider").getAttestationProvider = null as any;
+export const getAttestationProviderOutput: typeof import("./getAttestationProvider").getAttestationProviderOutput = null as any;
+
+utilities.lazyLoad(exports, ["AttestationProvider"], () => require("./attestationProvider"));
+utilities.lazyLoad(exports, ["getAttestationProvider","getAttestationProviderOutput"], () => require("./getAttestationProvider"));
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getScheduledQueryRule";
-export * from "./getWorkbook";
-export * from "./scheduledQueryRule";
-export * from "./workbook";
+export { GetScheduledQueryRuleArgs, GetScheduledQueryRuleResult, GetScheduledQueryRuleOutputArgs } from "./getScheduledQueryRule";
+export const getScheduledQueryRule: typeof import("./getScheduledQueryRule").getScheduledQueryRule = null as any;
+export const getScheduledQueryRuleOutput: typeof import("./getScheduledQueryRule").getScheduledQueryRuleOutput = null as any;
+
+export { GetWorkbookArgs, GetWorkbookResult, GetWorkbookOutputArgs } from "./getWorkbook";
+export const getWorkbook: typeof import("./getWorkbook").getWorkbook = null as any;
+export const getWorkbookOutput: typeof import("./getWorkbook").getWorkbookOutput = null as any;
+
+export { ScheduledQueryRuleArgs } from "./scheduledQueryRule";
+export type ScheduledQueryRule = import("./scheduledQueryRule").ScheduledQueryRule;
+export const ScheduledQueryRule: typeof import("./scheduledQueryRule").ScheduledQueryRule = null as any;
+
+export { WorkbookArgs } from "./workbook";
+export type Workbook = import("./workbook").Workbook;
+export const Workbook: typeof import("./workbook").Workbook = null as any;
+
+utilities.lazyLoad(exports, ["getScheduledQueryRule","getScheduledQueryRuleOutput"], () => require("./getScheduledQueryRule"));
+utilities.lazyLoad(exports, ["getWorkbook","getWorkbookOutput"], () => require("./getWorkbook"));
+utilities.lazyLoad(exports, ["ScheduledQueryRule"], () => require("./scheduledQueryRule"));
+utilities.lazyLoad(exports, ["Workbook"], () => require("./workbook"));
 
 // Export enums:
 export * from "../../types/enums/insights/v20210801";
-
-// Import resources to register:
-import { ScheduledQueryRule } from "./scheduledQueryRule";
-import { Workbook } from "./workbook";
 
 const _module = {
     version: utilities.getVersion(),

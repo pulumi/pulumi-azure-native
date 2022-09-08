@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getSecurityConnector";
-export * from "./securityConnector";
+export { GetSecurityConnectorArgs, GetSecurityConnectorResult, GetSecurityConnectorOutputArgs } from "./getSecurityConnector";
+export const getSecurityConnector: typeof import("./getSecurityConnector").getSecurityConnector = null as any;
+export const getSecurityConnectorOutput: typeof import("./getSecurityConnector").getSecurityConnectorOutput = null as any;
+
+export { SecurityConnectorArgs } from "./securityConnector";
+export type SecurityConnector = import("./securityConnector").SecurityConnector;
+export const SecurityConnector: typeof import("./securityConnector").SecurityConnector = null as any;
+
+utilities.lazyLoad(exports, ["getSecurityConnector","getSecurityConnectorOutput"], () => require("./getSecurityConnector"));
+utilities.lazyLoad(exports, ["SecurityConnector"], () => require("./securityConnector"));
 
 // Export enums:
 export * from "../../types/enums/security/v20211201preview";
-
-// Import resources to register:
-import { SecurityConnector } from "./securityConnector";
 
 const _module = {
     version: utilities.getVersion(),

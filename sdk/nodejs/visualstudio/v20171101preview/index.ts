@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./account";
-export * from "./extension";
-export * from "./getAccount";
-export * from "./getExtension";
+export { AccountArgs } from "./account";
+export type Account = import("./account").Account;
+export const Account: typeof import("./account").Account = null as any;
+
+export { ExtensionArgs } from "./extension";
+export type Extension = import("./extension").Extension;
+export const Extension: typeof import("./extension").Extension = null as any;
+
+export { GetAccountArgs, GetAccountResult, GetAccountOutputArgs } from "./getAccount";
+export const getAccount: typeof import("./getAccount").getAccount = null as any;
+export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
+
+export { GetExtensionArgs, GetExtensionResult, GetExtensionOutputArgs } from "./getExtension";
+export const getExtension: typeof import("./getExtension").getExtension = null as any;
+export const getExtensionOutput: typeof import("./getExtension").getExtensionOutput = null as any;
+
+utilities.lazyLoad(exports, ["Account"], () => require("./account"));
+utilities.lazyLoad(exports, ["Extension"], () => require("./extension"));
+utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
+utilities.lazyLoad(exports, ["getExtension","getExtensionOutput"], () => require("./getExtension"));
 
 // Export enums:
 export * from "../../types/enums/visualstudio/v20171101preview";
-
-// Import resources to register:
-import { Account } from "./account";
-import { Extension } from "./extension";
 
 const _module = {
     version: utilities.getVersion(),

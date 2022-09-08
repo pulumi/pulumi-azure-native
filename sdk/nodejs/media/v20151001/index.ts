@@ -5,12 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getMediaService";
-export * from "./listMediaServiceKeys";
-export * from "./mediaService";
+export { GetMediaServiceArgs, GetMediaServiceResult, GetMediaServiceOutputArgs } from "./getMediaService";
+export const getMediaService: typeof import("./getMediaService").getMediaService = null as any;
+export const getMediaServiceOutput: typeof import("./getMediaService").getMediaServiceOutput = null as any;
 
-// Import resources to register:
-import { MediaService } from "./mediaService";
+export { ListMediaServiceKeysArgs, ListMediaServiceKeysResult, ListMediaServiceKeysOutputArgs } from "./listMediaServiceKeys";
+export const listMediaServiceKeys: typeof import("./listMediaServiceKeys").listMediaServiceKeys = null as any;
+export const listMediaServiceKeysOutput: typeof import("./listMediaServiceKeys").listMediaServiceKeysOutput = null as any;
+
+export { MediaServiceArgs } from "./mediaService";
+export type MediaService = import("./mediaService").MediaService;
+export const MediaService: typeof import("./mediaService").MediaService = null as any;
+
+utilities.lazyLoad(exports, ["getMediaService","getMediaServiceOutput"], () => require("./getMediaService"));
+utilities.lazyLoad(exports, ["listMediaServiceKeys","listMediaServiceKeysOutput"], () => require("./listMediaServiceKeys"));
+utilities.lazyLoad(exports, ["MediaService"], () => require("./mediaService"));
 
 const _module = {
     version: utilities.getVersion(),

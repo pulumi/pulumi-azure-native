@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./b2ctenant";
-export * from "./getB2CTenant";
+export { B2CTenantArgs } from "./b2ctenant";
+export type B2CTenant = import("./b2ctenant").B2CTenant;
+export const B2CTenant: typeof import("./b2ctenant").B2CTenant = null as any;
+
+export { GetB2CTenantArgs, GetB2CTenantResult, GetB2CTenantOutputArgs } from "./getB2CTenant";
+export const getB2CTenant: typeof import("./getB2CTenant").getB2CTenant = null as any;
+export const getB2CTenantOutput: typeof import("./getB2CTenant").getB2CTenantOutput = null as any;
+
+utilities.lazyLoad(exports, ["B2CTenant"], () => require("./b2ctenant"));
+utilities.lazyLoad(exports, ["getB2CTenant","getB2CTenantOutput"], () => require("./getB2CTenant"));
 
 // Export enums:
 export * from "../../types/enums/azureactivedirectory/v20190101preview";
-
-// Import resources to register:
-import { B2CTenant } from "./b2ctenant";
 
 const _module = {
     version: utilities.getVersion(),

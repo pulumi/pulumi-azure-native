@@ -5,47 +5,134 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./attachedDatabaseConfiguration";
-export * from "./cluster";
-export * from "./clusterPrincipalAssignment";
-export * from "./dataConnection";
-export * from "./database";
-export * from "./databasePrincipalAssignment";
-export * from "./eventGridDataConnection";
-export * from "./eventHubDataConnection";
-export * from "./getAttachedDatabaseConfiguration";
-export * from "./getCluster";
-export * from "./getClusterPrincipalAssignment";
-export * from "./getDataConnection";
-export * from "./getDatabase";
-export * from "./getDatabasePrincipalAssignment";
-export * from "./getEventGridDataConnection";
-export * from "./getEventHubDataConnection";
-export * from "./getIotHubDataConnection";
-export * from "./getReadOnlyFollowingDatabase";
-export * from "./getReadWriteDatabase";
-export * from "./iotHubDataConnection";
-export * from "./listClusterFollowerDatabases";
-export * from "./listClusterLanguageExtensions";
-export * from "./listDatabasePrincipals";
-export * from "./readOnlyFollowingDatabase";
-export * from "./readWriteDatabase";
+export { AttachedDatabaseConfigurationArgs } from "./attachedDatabaseConfiguration";
+export type AttachedDatabaseConfiguration = import("./attachedDatabaseConfiguration").AttachedDatabaseConfiguration;
+export const AttachedDatabaseConfiguration: typeof import("./attachedDatabaseConfiguration").AttachedDatabaseConfiguration = null as any;
+
+export { ClusterArgs } from "./cluster";
+export type Cluster = import("./cluster").Cluster;
+export const Cluster: typeof import("./cluster").Cluster = null as any;
+
+export { ClusterPrincipalAssignmentArgs } from "./clusterPrincipalAssignment";
+export type ClusterPrincipalAssignment = import("./clusterPrincipalAssignment").ClusterPrincipalAssignment;
+export const ClusterPrincipalAssignment: typeof import("./clusterPrincipalAssignment").ClusterPrincipalAssignment = null as any;
+
+export { DataConnectionArgs } from "./dataConnection";
+export type DataConnection = import("./dataConnection").DataConnection;
+export const DataConnection: typeof import("./dataConnection").DataConnection = null as any;
+
+export { DatabaseArgs } from "./database";
+export type Database = import("./database").Database;
+export const Database: typeof import("./database").Database = null as any;
+
+export { DatabasePrincipalAssignmentArgs } from "./databasePrincipalAssignment";
+export type DatabasePrincipalAssignment = import("./databasePrincipalAssignment").DatabasePrincipalAssignment;
+export const DatabasePrincipalAssignment: typeof import("./databasePrincipalAssignment").DatabasePrincipalAssignment = null as any;
+
+export { EventGridDataConnectionArgs } from "./eventGridDataConnection";
+export type EventGridDataConnection = import("./eventGridDataConnection").EventGridDataConnection;
+export const EventGridDataConnection: typeof import("./eventGridDataConnection").EventGridDataConnection = null as any;
+
+export { EventHubDataConnectionArgs } from "./eventHubDataConnection";
+export type EventHubDataConnection = import("./eventHubDataConnection").EventHubDataConnection;
+export const EventHubDataConnection: typeof import("./eventHubDataConnection").EventHubDataConnection = null as any;
+
+export { GetAttachedDatabaseConfigurationArgs, GetAttachedDatabaseConfigurationResult, GetAttachedDatabaseConfigurationOutputArgs } from "./getAttachedDatabaseConfiguration";
+export const getAttachedDatabaseConfiguration: typeof import("./getAttachedDatabaseConfiguration").getAttachedDatabaseConfiguration = null as any;
+export const getAttachedDatabaseConfigurationOutput: typeof import("./getAttachedDatabaseConfiguration").getAttachedDatabaseConfigurationOutput = null as any;
+
+export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
+export const getCluster: typeof import("./getCluster").getCluster = null as any;
+export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
+
+export { GetClusterPrincipalAssignmentArgs, GetClusterPrincipalAssignmentResult, GetClusterPrincipalAssignmentOutputArgs } from "./getClusterPrincipalAssignment";
+export const getClusterPrincipalAssignment: typeof import("./getClusterPrincipalAssignment").getClusterPrincipalAssignment = null as any;
+export const getClusterPrincipalAssignmentOutput: typeof import("./getClusterPrincipalAssignment").getClusterPrincipalAssignmentOutput = null as any;
+
+export { GetDataConnectionArgs, GetDataConnectionResult, GetDataConnectionOutputArgs } from "./getDataConnection";
+export const getDataConnection: typeof import("./getDataConnection").getDataConnection = null as any;
+export const getDataConnectionOutput: typeof import("./getDataConnection").getDataConnectionOutput = null as any;
+
+export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
+export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
+export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
+
+export { GetDatabasePrincipalAssignmentArgs, GetDatabasePrincipalAssignmentResult, GetDatabasePrincipalAssignmentOutputArgs } from "./getDatabasePrincipalAssignment";
+export const getDatabasePrincipalAssignment: typeof import("./getDatabasePrincipalAssignment").getDatabasePrincipalAssignment = null as any;
+export const getDatabasePrincipalAssignmentOutput: typeof import("./getDatabasePrincipalAssignment").getDatabasePrincipalAssignmentOutput = null as any;
+
+export { GetEventGridDataConnectionArgs, GetEventGridDataConnectionResult, GetEventGridDataConnectionOutputArgs } from "./getEventGridDataConnection";
+export const getEventGridDataConnection: typeof import("./getEventGridDataConnection").getEventGridDataConnection = null as any;
+export const getEventGridDataConnectionOutput: typeof import("./getEventGridDataConnection").getEventGridDataConnectionOutput = null as any;
+
+export { GetEventHubDataConnectionArgs, GetEventHubDataConnectionResult, GetEventHubDataConnectionOutputArgs } from "./getEventHubDataConnection";
+export const getEventHubDataConnection: typeof import("./getEventHubDataConnection").getEventHubDataConnection = null as any;
+export const getEventHubDataConnectionOutput: typeof import("./getEventHubDataConnection").getEventHubDataConnectionOutput = null as any;
+
+export { GetIotHubDataConnectionArgs, GetIotHubDataConnectionResult, GetIotHubDataConnectionOutputArgs } from "./getIotHubDataConnection";
+export const getIotHubDataConnection: typeof import("./getIotHubDataConnection").getIotHubDataConnection = null as any;
+export const getIotHubDataConnectionOutput: typeof import("./getIotHubDataConnection").getIotHubDataConnectionOutput = null as any;
+
+export { GetReadOnlyFollowingDatabaseArgs, GetReadOnlyFollowingDatabaseResult, GetReadOnlyFollowingDatabaseOutputArgs } from "./getReadOnlyFollowingDatabase";
+export const getReadOnlyFollowingDatabase: typeof import("./getReadOnlyFollowingDatabase").getReadOnlyFollowingDatabase = null as any;
+export const getReadOnlyFollowingDatabaseOutput: typeof import("./getReadOnlyFollowingDatabase").getReadOnlyFollowingDatabaseOutput = null as any;
+
+export { GetReadWriteDatabaseArgs, GetReadWriteDatabaseResult, GetReadWriteDatabaseOutputArgs } from "./getReadWriteDatabase";
+export const getReadWriteDatabase: typeof import("./getReadWriteDatabase").getReadWriteDatabase = null as any;
+export const getReadWriteDatabaseOutput: typeof import("./getReadWriteDatabase").getReadWriteDatabaseOutput = null as any;
+
+export { IotHubDataConnectionArgs } from "./iotHubDataConnection";
+export type IotHubDataConnection = import("./iotHubDataConnection").IotHubDataConnection;
+export const IotHubDataConnection: typeof import("./iotHubDataConnection").IotHubDataConnection = null as any;
+
+export { ListClusterFollowerDatabasesArgs, ListClusterFollowerDatabasesResult, ListClusterFollowerDatabasesOutputArgs } from "./listClusterFollowerDatabases";
+export const listClusterFollowerDatabases: typeof import("./listClusterFollowerDatabases").listClusterFollowerDatabases = null as any;
+export const listClusterFollowerDatabasesOutput: typeof import("./listClusterFollowerDatabases").listClusterFollowerDatabasesOutput = null as any;
+
+export { ListClusterLanguageExtensionsArgs, ListClusterLanguageExtensionsResult, ListClusterLanguageExtensionsOutputArgs } from "./listClusterLanguageExtensions";
+export const listClusterLanguageExtensions: typeof import("./listClusterLanguageExtensions").listClusterLanguageExtensions = null as any;
+export const listClusterLanguageExtensionsOutput: typeof import("./listClusterLanguageExtensions").listClusterLanguageExtensionsOutput = null as any;
+
+export { ListDatabasePrincipalsArgs, ListDatabasePrincipalsResult, ListDatabasePrincipalsOutputArgs } from "./listDatabasePrincipals";
+export const listDatabasePrincipals: typeof import("./listDatabasePrincipals").listDatabasePrincipals = null as any;
+export const listDatabasePrincipalsOutput: typeof import("./listDatabasePrincipals").listDatabasePrincipalsOutput = null as any;
+
+export { ReadOnlyFollowingDatabaseArgs } from "./readOnlyFollowingDatabase";
+export type ReadOnlyFollowingDatabase = import("./readOnlyFollowingDatabase").ReadOnlyFollowingDatabase;
+export const ReadOnlyFollowingDatabase: typeof import("./readOnlyFollowingDatabase").ReadOnlyFollowingDatabase = null as any;
+
+export { ReadWriteDatabaseArgs } from "./readWriteDatabase";
+export type ReadWriteDatabase = import("./readWriteDatabase").ReadWriteDatabase;
+export const ReadWriteDatabase: typeof import("./readWriteDatabase").ReadWriteDatabase = null as any;
+
+utilities.lazyLoad(exports, ["AttachedDatabaseConfiguration"], () => require("./attachedDatabaseConfiguration"));
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
+utilities.lazyLoad(exports, ["ClusterPrincipalAssignment"], () => require("./clusterPrincipalAssignment"));
+utilities.lazyLoad(exports, ["DataConnection"], () => require("./dataConnection"));
+utilities.lazyLoad(exports, ["Database"], () => require("./database"));
+utilities.lazyLoad(exports, ["DatabasePrincipalAssignment"], () => require("./databasePrincipalAssignment"));
+utilities.lazyLoad(exports, ["EventGridDataConnection"], () => require("./eventGridDataConnection"));
+utilities.lazyLoad(exports, ["EventHubDataConnection"], () => require("./eventHubDataConnection"));
+utilities.lazyLoad(exports, ["getAttachedDatabaseConfiguration","getAttachedDatabaseConfigurationOutput"], () => require("./getAttachedDatabaseConfiguration"));
+utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
+utilities.lazyLoad(exports, ["getClusterPrincipalAssignment","getClusterPrincipalAssignmentOutput"], () => require("./getClusterPrincipalAssignment"));
+utilities.lazyLoad(exports, ["getDataConnection","getDataConnectionOutput"], () => require("./getDataConnection"));
+utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
+utilities.lazyLoad(exports, ["getDatabasePrincipalAssignment","getDatabasePrincipalAssignmentOutput"], () => require("./getDatabasePrincipalAssignment"));
+utilities.lazyLoad(exports, ["getEventGridDataConnection","getEventGridDataConnectionOutput"], () => require("./getEventGridDataConnection"));
+utilities.lazyLoad(exports, ["getEventHubDataConnection","getEventHubDataConnectionOutput"], () => require("./getEventHubDataConnection"));
+utilities.lazyLoad(exports, ["getIotHubDataConnection","getIotHubDataConnectionOutput"], () => require("./getIotHubDataConnection"));
+utilities.lazyLoad(exports, ["getReadOnlyFollowingDatabase","getReadOnlyFollowingDatabaseOutput"], () => require("./getReadOnlyFollowingDatabase"));
+utilities.lazyLoad(exports, ["getReadWriteDatabase","getReadWriteDatabaseOutput"], () => require("./getReadWriteDatabase"));
+utilities.lazyLoad(exports, ["IotHubDataConnection"], () => require("./iotHubDataConnection"));
+utilities.lazyLoad(exports, ["listClusterFollowerDatabases","listClusterFollowerDatabasesOutput"], () => require("./listClusterFollowerDatabases"));
+utilities.lazyLoad(exports, ["listClusterLanguageExtensions","listClusterLanguageExtensionsOutput"], () => require("./listClusterLanguageExtensions"));
+utilities.lazyLoad(exports, ["listDatabasePrincipals","listDatabasePrincipalsOutput"], () => require("./listDatabasePrincipals"));
+utilities.lazyLoad(exports, ["ReadOnlyFollowingDatabase"], () => require("./readOnlyFollowingDatabase"));
+utilities.lazyLoad(exports, ["ReadWriteDatabase"], () => require("./readWriteDatabase"));
 
 // Export enums:
 export * from "../../types/enums/kusto/v20200614";
-
-// Import resources to register:
-import { AttachedDatabaseConfiguration } from "./attachedDatabaseConfiguration";
-import { Cluster } from "./cluster";
-import { ClusterPrincipalAssignment } from "./clusterPrincipalAssignment";
-import { DataConnection } from "./dataConnection";
-import { Database } from "./database";
-import { DatabasePrincipalAssignment } from "./databasePrincipalAssignment";
-import { EventGridDataConnection } from "./eventGridDataConnection";
-import { EventHubDataConnection } from "./eventHubDataConnection";
-import { IotHubDataConnection } from "./iotHubDataConnection";
-import { ReadOnlyFollowingDatabase } from "./readOnlyFollowingDatabase";
-import { ReadWriteDatabase } from "./readWriteDatabase";
 
 const _module = {
     version: utilities.getVersion(),

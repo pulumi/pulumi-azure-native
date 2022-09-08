@@ -5,18 +5,34 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getMigrateProject";
-export * from "./getSolution";
-export * from "./getSolutionConfig";
-export * from "./migrateProject";
-export * from "./solution";
+export { GetMigrateProjectArgs, GetMigrateProjectResult, GetMigrateProjectOutputArgs } from "./getMigrateProject";
+export const getMigrateProject: typeof import("./getMigrateProject").getMigrateProject = null as any;
+export const getMigrateProjectOutput: typeof import("./getMigrateProject").getMigrateProjectOutput = null as any;
+
+export { GetSolutionArgs, GetSolutionResult, GetSolutionOutputArgs } from "./getSolution";
+export const getSolution: typeof import("./getSolution").getSolution = null as any;
+export const getSolutionOutput: typeof import("./getSolution").getSolutionOutput = null as any;
+
+export { GetSolutionConfigArgs, GetSolutionConfigResult, GetSolutionConfigOutputArgs } from "./getSolutionConfig";
+export const getSolutionConfig: typeof import("./getSolutionConfig").getSolutionConfig = null as any;
+export const getSolutionConfigOutput: typeof import("./getSolutionConfig").getSolutionConfigOutput = null as any;
+
+export { MigrateProjectArgs } from "./migrateProject";
+export type MigrateProject = import("./migrateProject").MigrateProject;
+export const MigrateProject: typeof import("./migrateProject").MigrateProject = null as any;
+
+export { SolutionArgs } from "./solution";
+export type Solution = import("./solution").Solution;
+export const Solution: typeof import("./solution").Solution = null as any;
+
+utilities.lazyLoad(exports, ["getMigrateProject","getMigrateProjectOutput"], () => require("./getMigrateProject"));
+utilities.lazyLoad(exports, ["getSolution","getSolutionOutput"], () => require("./getSolution"));
+utilities.lazyLoad(exports, ["getSolutionConfig","getSolutionConfigOutput"], () => require("./getSolutionConfig"));
+utilities.lazyLoad(exports, ["MigrateProject"], () => require("./migrateProject"));
+utilities.lazyLoad(exports, ["Solution"], () => require("./solution"));
 
 // Export enums:
 export * from "../../types/enums/migrate/v20180901preview";
-
-// Import resources to register:
-import { MigrateProject } from "./migrateProject";
-import { Solution } from "./solution";
 
 const _module = {
     version: utilities.getVersion(),

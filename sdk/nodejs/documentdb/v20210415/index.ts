@@ -5,65 +5,194 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./cassandraResourceCassandraKeyspace";
-export * from "./cassandraResourceCassandraTable";
-export * from "./databaseAccount";
-export * from "./getCassandraResourceCassandraKeyspace";
-export * from "./getCassandraResourceCassandraTable";
-export * from "./getDatabaseAccount";
-export * from "./getGremlinResourceGremlinDatabase";
-export * from "./getGremlinResourceGremlinGraph";
-export * from "./getMongoDBResourceMongoDBCollection";
-export * from "./getMongoDBResourceMongoDBDatabase";
-export * from "./getNotebookWorkspace";
-export * from "./getPrivateEndpointConnection";
-export * from "./getSqlResourceSqlContainer";
-export * from "./getSqlResourceSqlDatabase";
-export * from "./getSqlResourceSqlRoleAssignment";
-export * from "./getSqlResourceSqlRoleDefinition";
-export * from "./getSqlResourceSqlStoredProcedure";
-export * from "./getSqlResourceSqlTrigger";
-export * from "./getSqlResourceSqlUserDefinedFunction";
-export * from "./getTableResourceTable";
-export * from "./gremlinResourceGremlinDatabase";
-export * from "./gremlinResourceGremlinGraph";
-export * from "./listDatabaseAccountConnectionStrings";
-export * from "./listDatabaseAccountKeys";
-export * from "./listNotebookWorkspaceConnectionInfo";
-export * from "./mongoDBResourceMongoDBCollection";
-export * from "./mongoDBResourceMongoDBDatabase";
-export * from "./notebookWorkspace";
-export * from "./privateEndpointConnection";
-export * from "./sqlResourceSqlContainer";
-export * from "./sqlResourceSqlDatabase";
-export * from "./sqlResourceSqlRoleAssignment";
-export * from "./sqlResourceSqlRoleDefinition";
-export * from "./sqlResourceSqlStoredProcedure";
-export * from "./sqlResourceSqlTrigger";
-export * from "./sqlResourceSqlUserDefinedFunction";
-export * from "./tableResourceTable";
+export { CassandraResourceCassandraKeyspaceArgs } from "./cassandraResourceCassandraKeyspace";
+export type CassandraResourceCassandraKeyspace = import("./cassandraResourceCassandraKeyspace").CassandraResourceCassandraKeyspace;
+export const CassandraResourceCassandraKeyspace: typeof import("./cassandraResourceCassandraKeyspace").CassandraResourceCassandraKeyspace = null as any;
+
+export { CassandraResourceCassandraTableArgs } from "./cassandraResourceCassandraTable";
+export type CassandraResourceCassandraTable = import("./cassandraResourceCassandraTable").CassandraResourceCassandraTable;
+export const CassandraResourceCassandraTable: typeof import("./cassandraResourceCassandraTable").CassandraResourceCassandraTable = null as any;
+
+export { DatabaseAccountArgs } from "./databaseAccount";
+export type DatabaseAccount = import("./databaseAccount").DatabaseAccount;
+export const DatabaseAccount: typeof import("./databaseAccount").DatabaseAccount = null as any;
+
+export { GetCassandraResourceCassandraKeyspaceArgs, GetCassandraResourceCassandraKeyspaceResult, GetCassandraResourceCassandraKeyspaceOutputArgs } from "./getCassandraResourceCassandraKeyspace";
+export const getCassandraResourceCassandraKeyspace: typeof import("./getCassandraResourceCassandraKeyspace").getCassandraResourceCassandraKeyspace = null as any;
+export const getCassandraResourceCassandraKeyspaceOutput: typeof import("./getCassandraResourceCassandraKeyspace").getCassandraResourceCassandraKeyspaceOutput = null as any;
+
+export { GetCassandraResourceCassandraTableArgs, GetCassandraResourceCassandraTableResult, GetCassandraResourceCassandraTableOutputArgs } from "./getCassandraResourceCassandraTable";
+export const getCassandraResourceCassandraTable: typeof import("./getCassandraResourceCassandraTable").getCassandraResourceCassandraTable = null as any;
+export const getCassandraResourceCassandraTableOutput: typeof import("./getCassandraResourceCassandraTable").getCassandraResourceCassandraTableOutput = null as any;
+
+export { GetDatabaseAccountArgs, GetDatabaseAccountResult, GetDatabaseAccountOutputArgs } from "./getDatabaseAccount";
+export const getDatabaseAccount: typeof import("./getDatabaseAccount").getDatabaseAccount = null as any;
+export const getDatabaseAccountOutput: typeof import("./getDatabaseAccount").getDatabaseAccountOutput = null as any;
+
+export { GetGremlinResourceGremlinDatabaseArgs, GetGremlinResourceGremlinDatabaseResult, GetGremlinResourceGremlinDatabaseOutputArgs } from "./getGremlinResourceGremlinDatabase";
+export const getGremlinResourceGremlinDatabase: typeof import("./getGremlinResourceGremlinDatabase").getGremlinResourceGremlinDatabase = null as any;
+export const getGremlinResourceGremlinDatabaseOutput: typeof import("./getGremlinResourceGremlinDatabase").getGremlinResourceGremlinDatabaseOutput = null as any;
+
+export { GetGremlinResourceGremlinGraphArgs, GetGremlinResourceGremlinGraphResult, GetGremlinResourceGremlinGraphOutputArgs } from "./getGremlinResourceGremlinGraph";
+export const getGremlinResourceGremlinGraph: typeof import("./getGremlinResourceGremlinGraph").getGremlinResourceGremlinGraph = null as any;
+export const getGremlinResourceGremlinGraphOutput: typeof import("./getGremlinResourceGremlinGraph").getGremlinResourceGremlinGraphOutput = null as any;
+
+export { GetMongoDBResourceMongoDBCollectionArgs, GetMongoDBResourceMongoDBCollectionResult, GetMongoDBResourceMongoDBCollectionOutputArgs } from "./getMongoDBResourceMongoDBCollection";
+export const getMongoDBResourceMongoDBCollection: typeof import("./getMongoDBResourceMongoDBCollection").getMongoDBResourceMongoDBCollection = null as any;
+export const getMongoDBResourceMongoDBCollectionOutput: typeof import("./getMongoDBResourceMongoDBCollection").getMongoDBResourceMongoDBCollectionOutput = null as any;
+
+export { GetMongoDBResourceMongoDBDatabaseArgs, GetMongoDBResourceMongoDBDatabaseResult, GetMongoDBResourceMongoDBDatabaseOutputArgs } from "./getMongoDBResourceMongoDBDatabase";
+export const getMongoDBResourceMongoDBDatabase: typeof import("./getMongoDBResourceMongoDBDatabase").getMongoDBResourceMongoDBDatabase = null as any;
+export const getMongoDBResourceMongoDBDatabaseOutput: typeof import("./getMongoDBResourceMongoDBDatabase").getMongoDBResourceMongoDBDatabaseOutput = null as any;
+
+export { GetNotebookWorkspaceArgs, GetNotebookWorkspaceResult, GetNotebookWorkspaceOutputArgs } from "./getNotebookWorkspace";
+export const getNotebookWorkspace: typeof import("./getNotebookWorkspace").getNotebookWorkspace = null as any;
+export const getNotebookWorkspaceOutput: typeof import("./getNotebookWorkspace").getNotebookWorkspaceOutput = null as any;
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+
+export { GetSqlResourceSqlContainerArgs, GetSqlResourceSqlContainerResult, GetSqlResourceSqlContainerOutputArgs } from "./getSqlResourceSqlContainer";
+export const getSqlResourceSqlContainer: typeof import("./getSqlResourceSqlContainer").getSqlResourceSqlContainer = null as any;
+export const getSqlResourceSqlContainerOutput: typeof import("./getSqlResourceSqlContainer").getSqlResourceSqlContainerOutput = null as any;
+
+export { GetSqlResourceSqlDatabaseArgs, GetSqlResourceSqlDatabaseResult, GetSqlResourceSqlDatabaseOutputArgs } from "./getSqlResourceSqlDatabase";
+export const getSqlResourceSqlDatabase: typeof import("./getSqlResourceSqlDatabase").getSqlResourceSqlDatabase = null as any;
+export const getSqlResourceSqlDatabaseOutput: typeof import("./getSqlResourceSqlDatabase").getSqlResourceSqlDatabaseOutput = null as any;
+
+export { GetSqlResourceSqlRoleAssignmentArgs, GetSqlResourceSqlRoleAssignmentResult, GetSqlResourceSqlRoleAssignmentOutputArgs } from "./getSqlResourceSqlRoleAssignment";
+export const getSqlResourceSqlRoleAssignment: typeof import("./getSqlResourceSqlRoleAssignment").getSqlResourceSqlRoleAssignment = null as any;
+export const getSqlResourceSqlRoleAssignmentOutput: typeof import("./getSqlResourceSqlRoleAssignment").getSqlResourceSqlRoleAssignmentOutput = null as any;
+
+export { GetSqlResourceSqlRoleDefinitionArgs, GetSqlResourceSqlRoleDefinitionResult, GetSqlResourceSqlRoleDefinitionOutputArgs } from "./getSqlResourceSqlRoleDefinition";
+export const getSqlResourceSqlRoleDefinition: typeof import("./getSqlResourceSqlRoleDefinition").getSqlResourceSqlRoleDefinition = null as any;
+export const getSqlResourceSqlRoleDefinitionOutput: typeof import("./getSqlResourceSqlRoleDefinition").getSqlResourceSqlRoleDefinitionOutput = null as any;
+
+export { GetSqlResourceSqlStoredProcedureArgs, GetSqlResourceSqlStoredProcedureResult, GetSqlResourceSqlStoredProcedureOutputArgs } from "./getSqlResourceSqlStoredProcedure";
+export const getSqlResourceSqlStoredProcedure: typeof import("./getSqlResourceSqlStoredProcedure").getSqlResourceSqlStoredProcedure = null as any;
+export const getSqlResourceSqlStoredProcedureOutput: typeof import("./getSqlResourceSqlStoredProcedure").getSqlResourceSqlStoredProcedureOutput = null as any;
+
+export { GetSqlResourceSqlTriggerArgs, GetSqlResourceSqlTriggerResult, GetSqlResourceSqlTriggerOutputArgs } from "./getSqlResourceSqlTrigger";
+export const getSqlResourceSqlTrigger: typeof import("./getSqlResourceSqlTrigger").getSqlResourceSqlTrigger = null as any;
+export const getSqlResourceSqlTriggerOutput: typeof import("./getSqlResourceSqlTrigger").getSqlResourceSqlTriggerOutput = null as any;
+
+export { GetSqlResourceSqlUserDefinedFunctionArgs, GetSqlResourceSqlUserDefinedFunctionResult, GetSqlResourceSqlUserDefinedFunctionOutputArgs } from "./getSqlResourceSqlUserDefinedFunction";
+export const getSqlResourceSqlUserDefinedFunction: typeof import("./getSqlResourceSqlUserDefinedFunction").getSqlResourceSqlUserDefinedFunction = null as any;
+export const getSqlResourceSqlUserDefinedFunctionOutput: typeof import("./getSqlResourceSqlUserDefinedFunction").getSqlResourceSqlUserDefinedFunctionOutput = null as any;
+
+export { GetTableResourceTableArgs, GetTableResourceTableResult, GetTableResourceTableOutputArgs } from "./getTableResourceTable";
+export const getTableResourceTable: typeof import("./getTableResourceTable").getTableResourceTable = null as any;
+export const getTableResourceTableOutput: typeof import("./getTableResourceTable").getTableResourceTableOutput = null as any;
+
+export { GremlinResourceGremlinDatabaseArgs } from "./gremlinResourceGremlinDatabase";
+export type GremlinResourceGremlinDatabase = import("./gremlinResourceGremlinDatabase").GremlinResourceGremlinDatabase;
+export const GremlinResourceGremlinDatabase: typeof import("./gremlinResourceGremlinDatabase").GremlinResourceGremlinDatabase = null as any;
+
+export { GremlinResourceGremlinGraphArgs } from "./gremlinResourceGremlinGraph";
+export type GremlinResourceGremlinGraph = import("./gremlinResourceGremlinGraph").GremlinResourceGremlinGraph;
+export const GremlinResourceGremlinGraph: typeof import("./gremlinResourceGremlinGraph").GremlinResourceGremlinGraph = null as any;
+
+export { ListDatabaseAccountConnectionStringsArgs, ListDatabaseAccountConnectionStringsResult, ListDatabaseAccountConnectionStringsOutputArgs } from "./listDatabaseAccountConnectionStrings";
+export const listDatabaseAccountConnectionStrings: typeof import("./listDatabaseAccountConnectionStrings").listDatabaseAccountConnectionStrings = null as any;
+export const listDatabaseAccountConnectionStringsOutput: typeof import("./listDatabaseAccountConnectionStrings").listDatabaseAccountConnectionStringsOutput = null as any;
+
+export { ListDatabaseAccountKeysArgs, ListDatabaseAccountKeysResult, ListDatabaseAccountKeysOutputArgs } from "./listDatabaseAccountKeys";
+export const listDatabaseAccountKeys: typeof import("./listDatabaseAccountKeys").listDatabaseAccountKeys = null as any;
+export const listDatabaseAccountKeysOutput: typeof import("./listDatabaseAccountKeys").listDatabaseAccountKeysOutput = null as any;
+
+export { ListNotebookWorkspaceConnectionInfoArgs, ListNotebookWorkspaceConnectionInfoResult, ListNotebookWorkspaceConnectionInfoOutputArgs } from "./listNotebookWorkspaceConnectionInfo";
+export const listNotebookWorkspaceConnectionInfo: typeof import("./listNotebookWorkspaceConnectionInfo").listNotebookWorkspaceConnectionInfo = null as any;
+export const listNotebookWorkspaceConnectionInfoOutput: typeof import("./listNotebookWorkspaceConnectionInfo").listNotebookWorkspaceConnectionInfoOutput = null as any;
+
+export { MongoDBResourceMongoDBCollectionArgs } from "./mongoDBResourceMongoDBCollection";
+export type MongoDBResourceMongoDBCollection = import("./mongoDBResourceMongoDBCollection").MongoDBResourceMongoDBCollection;
+export const MongoDBResourceMongoDBCollection: typeof import("./mongoDBResourceMongoDBCollection").MongoDBResourceMongoDBCollection = null as any;
+
+export { MongoDBResourceMongoDBDatabaseArgs } from "./mongoDBResourceMongoDBDatabase";
+export type MongoDBResourceMongoDBDatabase = import("./mongoDBResourceMongoDBDatabase").MongoDBResourceMongoDBDatabase;
+export const MongoDBResourceMongoDBDatabase: typeof import("./mongoDBResourceMongoDBDatabase").MongoDBResourceMongoDBDatabase = null as any;
+
+export { NotebookWorkspaceArgs } from "./notebookWorkspace";
+export type NotebookWorkspace = import("./notebookWorkspace").NotebookWorkspace;
+export const NotebookWorkspace: typeof import("./notebookWorkspace").NotebookWorkspace = null as any;
+
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+
+export { SqlResourceSqlContainerArgs } from "./sqlResourceSqlContainer";
+export type SqlResourceSqlContainer = import("./sqlResourceSqlContainer").SqlResourceSqlContainer;
+export const SqlResourceSqlContainer: typeof import("./sqlResourceSqlContainer").SqlResourceSqlContainer = null as any;
+
+export { SqlResourceSqlDatabaseArgs } from "./sqlResourceSqlDatabase";
+export type SqlResourceSqlDatabase = import("./sqlResourceSqlDatabase").SqlResourceSqlDatabase;
+export const SqlResourceSqlDatabase: typeof import("./sqlResourceSqlDatabase").SqlResourceSqlDatabase = null as any;
+
+export { SqlResourceSqlRoleAssignmentArgs } from "./sqlResourceSqlRoleAssignment";
+export type SqlResourceSqlRoleAssignment = import("./sqlResourceSqlRoleAssignment").SqlResourceSqlRoleAssignment;
+export const SqlResourceSqlRoleAssignment: typeof import("./sqlResourceSqlRoleAssignment").SqlResourceSqlRoleAssignment = null as any;
+
+export { SqlResourceSqlRoleDefinitionArgs } from "./sqlResourceSqlRoleDefinition";
+export type SqlResourceSqlRoleDefinition = import("./sqlResourceSqlRoleDefinition").SqlResourceSqlRoleDefinition;
+export const SqlResourceSqlRoleDefinition: typeof import("./sqlResourceSqlRoleDefinition").SqlResourceSqlRoleDefinition = null as any;
+
+export { SqlResourceSqlStoredProcedureArgs } from "./sqlResourceSqlStoredProcedure";
+export type SqlResourceSqlStoredProcedure = import("./sqlResourceSqlStoredProcedure").SqlResourceSqlStoredProcedure;
+export const SqlResourceSqlStoredProcedure: typeof import("./sqlResourceSqlStoredProcedure").SqlResourceSqlStoredProcedure = null as any;
+
+export { SqlResourceSqlTriggerArgs } from "./sqlResourceSqlTrigger";
+export type SqlResourceSqlTrigger = import("./sqlResourceSqlTrigger").SqlResourceSqlTrigger;
+export const SqlResourceSqlTrigger: typeof import("./sqlResourceSqlTrigger").SqlResourceSqlTrigger = null as any;
+
+export { SqlResourceSqlUserDefinedFunctionArgs } from "./sqlResourceSqlUserDefinedFunction";
+export type SqlResourceSqlUserDefinedFunction = import("./sqlResourceSqlUserDefinedFunction").SqlResourceSqlUserDefinedFunction;
+export const SqlResourceSqlUserDefinedFunction: typeof import("./sqlResourceSqlUserDefinedFunction").SqlResourceSqlUserDefinedFunction = null as any;
+
+export { TableResourceTableArgs } from "./tableResourceTable";
+export type TableResourceTable = import("./tableResourceTable").TableResourceTable;
+export const TableResourceTable: typeof import("./tableResourceTable").TableResourceTable = null as any;
+
+utilities.lazyLoad(exports, ["CassandraResourceCassandraKeyspace"], () => require("./cassandraResourceCassandraKeyspace"));
+utilities.lazyLoad(exports, ["CassandraResourceCassandraTable"], () => require("./cassandraResourceCassandraTable"));
+utilities.lazyLoad(exports, ["DatabaseAccount"], () => require("./databaseAccount"));
+utilities.lazyLoad(exports, ["getCassandraResourceCassandraKeyspace","getCassandraResourceCassandraKeyspaceOutput"], () => require("./getCassandraResourceCassandraKeyspace"));
+utilities.lazyLoad(exports, ["getCassandraResourceCassandraTable","getCassandraResourceCassandraTableOutput"], () => require("./getCassandraResourceCassandraTable"));
+utilities.lazyLoad(exports, ["getDatabaseAccount","getDatabaseAccountOutput"], () => require("./getDatabaseAccount"));
+utilities.lazyLoad(exports, ["getGremlinResourceGremlinDatabase","getGremlinResourceGremlinDatabaseOutput"], () => require("./getGremlinResourceGremlinDatabase"));
+utilities.lazyLoad(exports, ["getGremlinResourceGremlinGraph","getGremlinResourceGremlinGraphOutput"], () => require("./getGremlinResourceGremlinGraph"));
+utilities.lazyLoad(exports, ["getMongoDBResourceMongoDBCollection","getMongoDBResourceMongoDBCollectionOutput"], () => require("./getMongoDBResourceMongoDBCollection"));
+utilities.lazyLoad(exports, ["getMongoDBResourceMongoDBDatabase","getMongoDBResourceMongoDBDatabaseOutput"], () => require("./getMongoDBResourceMongoDBDatabase"));
+utilities.lazyLoad(exports, ["getNotebookWorkspace","getNotebookWorkspaceOutput"], () => require("./getNotebookWorkspace"));
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+utilities.lazyLoad(exports, ["getSqlResourceSqlContainer","getSqlResourceSqlContainerOutput"], () => require("./getSqlResourceSqlContainer"));
+utilities.lazyLoad(exports, ["getSqlResourceSqlDatabase","getSqlResourceSqlDatabaseOutput"], () => require("./getSqlResourceSqlDatabase"));
+utilities.lazyLoad(exports, ["getSqlResourceSqlRoleAssignment","getSqlResourceSqlRoleAssignmentOutput"], () => require("./getSqlResourceSqlRoleAssignment"));
+utilities.lazyLoad(exports, ["getSqlResourceSqlRoleDefinition","getSqlResourceSqlRoleDefinitionOutput"], () => require("./getSqlResourceSqlRoleDefinition"));
+utilities.lazyLoad(exports, ["getSqlResourceSqlStoredProcedure","getSqlResourceSqlStoredProcedureOutput"], () => require("./getSqlResourceSqlStoredProcedure"));
+utilities.lazyLoad(exports, ["getSqlResourceSqlTrigger","getSqlResourceSqlTriggerOutput"], () => require("./getSqlResourceSqlTrigger"));
+utilities.lazyLoad(exports, ["getSqlResourceSqlUserDefinedFunction","getSqlResourceSqlUserDefinedFunctionOutput"], () => require("./getSqlResourceSqlUserDefinedFunction"));
+utilities.lazyLoad(exports, ["getTableResourceTable","getTableResourceTableOutput"], () => require("./getTableResourceTable"));
+utilities.lazyLoad(exports, ["GremlinResourceGremlinDatabase"], () => require("./gremlinResourceGremlinDatabase"));
+utilities.lazyLoad(exports, ["GremlinResourceGremlinGraph"], () => require("./gremlinResourceGremlinGraph"));
+utilities.lazyLoad(exports, ["listDatabaseAccountConnectionStrings","listDatabaseAccountConnectionStringsOutput"], () => require("./listDatabaseAccountConnectionStrings"));
+utilities.lazyLoad(exports, ["listDatabaseAccountKeys","listDatabaseAccountKeysOutput"], () => require("./listDatabaseAccountKeys"));
+utilities.lazyLoad(exports, ["listNotebookWorkspaceConnectionInfo","listNotebookWorkspaceConnectionInfoOutput"], () => require("./listNotebookWorkspaceConnectionInfo"));
+utilities.lazyLoad(exports, ["MongoDBResourceMongoDBCollection"], () => require("./mongoDBResourceMongoDBCollection"));
+utilities.lazyLoad(exports, ["MongoDBResourceMongoDBDatabase"], () => require("./mongoDBResourceMongoDBDatabase"));
+utilities.lazyLoad(exports, ["NotebookWorkspace"], () => require("./notebookWorkspace"));
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+utilities.lazyLoad(exports, ["SqlResourceSqlContainer"], () => require("./sqlResourceSqlContainer"));
+utilities.lazyLoad(exports, ["SqlResourceSqlDatabase"], () => require("./sqlResourceSqlDatabase"));
+utilities.lazyLoad(exports, ["SqlResourceSqlRoleAssignment"], () => require("./sqlResourceSqlRoleAssignment"));
+utilities.lazyLoad(exports, ["SqlResourceSqlRoleDefinition"], () => require("./sqlResourceSqlRoleDefinition"));
+utilities.lazyLoad(exports, ["SqlResourceSqlStoredProcedure"], () => require("./sqlResourceSqlStoredProcedure"));
+utilities.lazyLoad(exports, ["SqlResourceSqlTrigger"], () => require("./sqlResourceSqlTrigger"));
+utilities.lazyLoad(exports, ["SqlResourceSqlUserDefinedFunction"], () => require("./sqlResourceSqlUserDefinedFunction"));
+utilities.lazyLoad(exports, ["TableResourceTable"], () => require("./tableResourceTable"));
 
 // Export enums:
 export * from "../../types/enums/documentdb/v20210415";
-
-// Import resources to register:
-import { CassandraResourceCassandraKeyspace } from "./cassandraResourceCassandraKeyspace";
-import { CassandraResourceCassandraTable } from "./cassandraResourceCassandraTable";
-import { DatabaseAccount } from "./databaseAccount";
-import { GremlinResourceGremlinDatabase } from "./gremlinResourceGremlinDatabase";
-import { GremlinResourceGremlinGraph } from "./gremlinResourceGremlinGraph";
-import { MongoDBResourceMongoDBCollection } from "./mongoDBResourceMongoDBCollection";
-import { MongoDBResourceMongoDBDatabase } from "./mongoDBResourceMongoDBDatabase";
-import { NotebookWorkspace } from "./notebookWorkspace";
-import { PrivateEndpointConnection } from "./privateEndpointConnection";
-import { SqlResourceSqlContainer } from "./sqlResourceSqlContainer";
-import { SqlResourceSqlDatabase } from "./sqlResourceSqlDatabase";
-import { SqlResourceSqlRoleAssignment } from "./sqlResourceSqlRoleAssignment";
-import { SqlResourceSqlRoleDefinition } from "./sqlResourceSqlRoleDefinition";
-import { SqlResourceSqlStoredProcedure } from "./sqlResourceSqlStoredProcedure";
-import { SqlResourceSqlTrigger } from "./sqlResourceSqlTrigger";
-import { SqlResourceSqlUserDefinedFunction } from "./sqlResourceSqlUserDefinedFunction";
-import { TableResourceTable } from "./tableResourceTable";
 
 const _module = {
     version: utilities.getVersion(),

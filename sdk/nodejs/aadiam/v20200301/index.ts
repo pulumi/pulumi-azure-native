@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getPrivateEndpointConnection";
-export * from "./getprivateLinkForAzureAd";
-export * from "./privateEndpointConnection";
-export * from "./privateLinkForAzureAd";
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+
+export { GetprivateLinkForAzureAdArgs, GetprivateLinkForAzureAdResult, GetprivateLinkForAzureAdOutputArgs } from "./getprivateLinkForAzureAd";
+export const getprivateLinkForAzureAd: typeof import("./getprivateLinkForAzureAd").getprivateLinkForAzureAd = null as any;
+export const getprivateLinkForAzureAdOutput: typeof import("./getprivateLinkForAzureAd").getprivateLinkForAzureAdOutput = null as any;
+
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+
+export { PrivateLinkForAzureAdArgs } from "./privateLinkForAzureAd";
+export type PrivateLinkForAzureAd = import("./privateLinkForAzureAd").PrivateLinkForAzureAd;
+export const PrivateLinkForAzureAd: typeof import("./privateLinkForAzureAd").PrivateLinkForAzureAd = null as any;
+
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+utilities.lazyLoad(exports, ["getprivateLinkForAzureAd","getprivateLinkForAzureAdOutput"], () => require("./getprivateLinkForAzureAd"));
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+utilities.lazyLoad(exports, ["PrivateLinkForAzureAd"], () => require("./privateLinkForAzureAd"));
 
 // Export enums:
 export * from "../../types/enums/aadiam/v20200301";
-
-// Import resources to register:
-import { PrivateEndpointConnection } from "./privateEndpointConnection";
-import { PrivateLinkForAzureAd } from "./privateLinkForAzureAd";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,13 +5,41 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getEntity";
-export * from "./getHierarchySetting";
-export * from "./getManagementGroup";
-export * from "./getManagementGroupSubscription";
-export * from "./hierarchySetting";
-export * from "./managementGroup";
-export * from "./managementGroupSubscription";
+export { GetEntityArgs, GetEntityResult, GetEntityOutputArgs } from "./getEntity";
+export const getEntity: typeof import("./getEntity").getEntity = null as any;
+export const getEntityOutput: typeof import("./getEntity").getEntityOutput = null as any;
+
+export { GetHierarchySettingArgs, GetHierarchySettingResult, GetHierarchySettingOutputArgs } from "./getHierarchySetting";
+export const getHierarchySetting: typeof import("./getHierarchySetting").getHierarchySetting = null as any;
+export const getHierarchySettingOutput: typeof import("./getHierarchySetting").getHierarchySettingOutput = null as any;
+
+export { GetManagementGroupArgs, GetManagementGroupResult, GetManagementGroupOutputArgs } from "./getManagementGroup";
+export const getManagementGroup: typeof import("./getManagementGroup").getManagementGroup = null as any;
+export const getManagementGroupOutput: typeof import("./getManagementGroup").getManagementGroupOutput = null as any;
+
+export { GetManagementGroupSubscriptionArgs, GetManagementGroupSubscriptionResult, GetManagementGroupSubscriptionOutputArgs } from "./getManagementGroupSubscription";
+export const getManagementGroupSubscription: typeof import("./getManagementGroupSubscription").getManagementGroupSubscription = null as any;
+export const getManagementGroupSubscriptionOutput: typeof import("./getManagementGroupSubscription").getManagementGroupSubscriptionOutput = null as any;
+
+export { HierarchySettingArgs } from "./hierarchySetting";
+export type HierarchySetting = import("./hierarchySetting").HierarchySetting;
+export const HierarchySetting: typeof import("./hierarchySetting").HierarchySetting = null as any;
+
+export { ManagementGroupArgs } from "./managementGroup";
+export type ManagementGroup = import("./managementGroup").ManagementGroup;
+export const ManagementGroup: typeof import("./managementGroup").ManagementGroup = null as any;
+
+export { ManagementGroupSubscriptionArgs } from "./managementGroupSubscription";
+export type ManagementGroupSubscription = import("./managementGroupSubscription").ManagementGroupSubscription;
+export const ManagementGroupSubscription: typeof import("./managementGroupSubscription").ManagementGroupSubscription = null as any;
+
+utilities.lazyLoad(exports, ["getEntity","getEntityOutput"], () => require("./getEntity"));
+utilities.lazyLoad(exports, ["getHierarchySetting","getHierarchySettingOutput"], () => require("./getHierarchySetting"));
+utilities.lazyLoad(exports, ["getManagementGroup","getManagementGroupOutput"], () => require("./getManagementGroup"));
+utilities.lazyLoad(exports, ["getManagementGroupSubscription","getManagementGroupSubscriptionOutput"], () => require("./getManagementGroupSubscription"));
+utilities.lazyLoad(exports, ["HierarchySetting"], () => require("./hierarchySetting"));
+utilities.lazyLoad(exports, ["ManagementGroup"], () => require("./managementGroup"));
+utilities.lazyLoad(exports, ["ManagementGroupSubscription"], () => require("./managementGroupSubscription"));
 
 // Export sub-modules:
 import * as v20171101preview from "./v20171101preview";
@@ -33,11 +61,6 @@ export {
     v20201001,
     v20210401,
 };
-
-// Import resources to register:
-import { HierarchySetting } from "./hierarchySetting";
-import { ManagementGroup } from "./managementGroup";
-import { ManagementGroupSubscription } from "./managementGroupSubscription";
 
 const _module = {
     version: utilities.getVersion(),

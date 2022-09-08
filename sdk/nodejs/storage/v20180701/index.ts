@@ -5,26 +5,64 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./blobContainer";
-export * from "./blobContainerImmutabilityPolicy";
-export * from "./blobServiceProperties";
-export * from "./getBlobContainer";
-export * from "./getBlobContainerImmutabilityPolicy";
-export * from "./getBlobServiceProperties";
-export * from "./getStorageAccount";
-export * from "./listStorageAccountKeys";
-export * from "./listStorageAccountSAS";
-export * from "./listStorageAccountServiceSAS";
-export * from "./storageAccount";
+export { BlobContainerArgs } from "./blobContainer";
+export type BlobContainer = import("./blobContainer").BlobContainer;
+export const BlobContainer: typeof import("./blobContainer").BlobContainer = null as any;
+
+export { BlobContainerImmutabilityPolicyArgs } from "./blobContainerImmutabilityPolicy";
+export type BlobContainerImmutabilityPolicy = import("./blobContainerImmutabilityPolicy").BlobContainerImmutabilityPolicy;
+export const BlobContainerImmutabilityPolicy: typeof import("./blobContainerImmutabilityPolicy").BlobContainerImmutabilityPolicy = null as any;
+
+export { BlobServicePropertiesArgs } from "./blobServiceProperties";
+export type BlobServiceProperties = import("./blobServiceProperties").BlobServiceProperties;
+export const BlobServiceProperties: typeof import("./blobServiceProperties").BlobServiceProperties = null as any;
+
+export { GetBlobContainerArgs, GetBlobContainerResult, GetBlobContainerOutputArgs } from "./getBlobContainer";
+export const getBlobContainer: typeof import("./getBlobContainer").getBlobContainer = null as any;
+export const getBlobContainerOutput: typeof import("./getBlobContainer").getBlobContainerOutput = null as any;
+
+export { GetBlobContainerImmutabilityPolicyArgs, GetBlobContainerImmutabilityPolicyResult, GetBlobContainerImmutabilityPolicyOutputArgs } from "./getBlobContainerImmutabilityPolicy";
+export const getBlobContainerImmutabilityPolicy: typeof import("./getBlobContainerImmutabilityPolicy").getBlobContainerImmutabilityPolicy = null as any;
+export const getBlobContainerImmutabilityPolicyOutput: typeof import("./getBlobContainerImmutabilityPolicy").getBlobContainerImmutabilityPolicyOutput = null as any;
+
+export { GetBlobServicePropertiesArgs, GetBlobServicePropertiesResult, GetBlobServicePropertiesOutputArgs } from "./getBlobServiceProperties";
+export const getBlobServiceProperties: typeof import("./getBlobServiceProperties").getBlobServiceProperties = null as any;
+export const getBlobServicePropertiesOutput: typeof import("./getBlobServiceProperties").getBlobServicePropertiesOutput = null as any;
+
+export { GetStorageAccountArgs, GetStorageAccountResult, GetStorageAccountOutputArgs } from "./getStorageAccount";
+export const getStorageAccount: typeof import("./getStorageAccount").getStorageAccount = null as any;
+export const getStorageAccountOutput: typeof import("./getStorageAccount").getStorageAccountOutput = null as any;
+
+export { ListStorageAccountKeysArgs, ListStorageAccountKeysResult, ListStorageAccountKeysOutputArgs } from "./listStorageAccountKeys";
+export const listStorageAccountKeys: typeof import("./listStorageAccountKeys").listStorageAccountKeys = null as any;
+export const listStorageAccountKeysOutput: typeof import("./listStorageAccountKeys").listStorageAccountKeysOutput = null as any;
+
+export { ListStorageAccountSASArgs, ListStorageAccountSASResult, ListStorageAccountSASOutputArgs } from "./listStorageAccountSAS";
+export const listStorageAccountSAS: typeof import("./listStorageAccountSAS").listStorageAccountSAS = null as any;
+export const listStorageAccountSASOutput: typeof import("./listStorageAccountSAS").listStorageAccountSASOutput = null as any;
+
+export { ListStorageAccountServiceSASArgs, ListStorageAccountServiceSASResult, ListStorageAccountServiceSASOutputArgs } from "./listStorageAccountServiceSAS";
+export const listStorageAccountServiceSAS: typeof import("./listStorageAccountServiceSAS").listStorageAccountServiceSAS = null as any;
+export const listStorageAccountServiceSASOutput: typeof import("./listStorageAccountServiceSAS").listStorageAccountServiceSASOutput = null as any;
+
+export { StorageAccountArgs } from "./storageAccount";
+export type StorageAccount = import("./storageAccount").StorageAccount;
+export const StorageAccount: typeof import("./storageAccount").StorageAccount = null as any;
+
+utilities.lazyLoad(exports, ["BlobContainer"], () => require("./blobContainer"));
+utilities.lazyLoad(exports, ["BlobContainerImmutabilityPolicy"], () => require("./blobContainerImmutabilityPolicy"));
+utilities.lazyLoad(exports, ["BlobServiceProperties"], () => require("./blobServiceProperties"));
+utilities.lazyLoad(exports, ["getBlobContainer","getBlobContainerOutput"], () => require("./getBlobContainer"));
+utilities.lazyLoad(exports, ["getBlobContainerImmutabilityPolicy","getBlobContainerImmutabilityPolicyOutput"], () => require("./getBlobContainerImmutabilityPolicy"));
+utilities.lazyLoad(exports, ["getBlobServiceProperties","getBlobServicePropertiesOutput"], () => require("./getBlobServiceProperties"));
+utilities.lazyLoad(exports, ["getStorageAccount","getStorageAccountOutput"], () => require("./getStorageAccount"));
+utilities.lazyLoad(exports, ["listStorageAccountKeys","listStorageAccountKeysOutput"], () => require("./listStorageAccountKeys"));
+utilities.lazyLoad(exports, ["listStorageAccountSAS","listStorageAccountSASOutput"], () => require("./listStorageAccountSAS"));
+utilities.lazyLoad(exports, ["listStorageAccountServiceSAS","listStorageAccountServiceSASOutput"], () => require("./listStorageAccountServiceSAS"));
+utilities.lazyLoad(exports, ["StorageAccount"], () => require("./storageAccount"));
 
 // Export enums:
 export * from "../../types/enums/storage/v20180701";
-
-// Import resources to register:
-import { BlobContainer } from "./blobContainer";
-import { BlobContainerImmutabilityPolicy } from "./blobContainerImmutabilityPolicy";
-import { BlobServiceProperties } from "./blobServiceProperties";
-import { StorageAccount } from "./storageAccount";
 
 const _module = {
     version: utilities.getVersion(),

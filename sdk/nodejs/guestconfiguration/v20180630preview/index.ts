@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getGuestConfigurationAssignment";
-export * from "./guestConfigurationAssignment";
+export { GetGuestConfigurationAssignmentArgs, GetGuestConfigurationAssignmentResult, GetGuestConfigurationAssignmentOutputArgs } from "./getGuestConfigurationAssignment";
+export const getGuestConfigurationAssignment: typeof import("./getGuestConfigurationAssignment").getGuestConfigurationAssignment = null as any;
+export const getGuestConfigurationAssignmentOutput: typeof import("./getGuestConfigurationAssignment").getGuestConfigurationAssignmentOutput = null as any;
+
+export { GuestConfigurationAssignmentArgs } from "./guestConfigurationAssignment";
+export type GuestConfigurationAssignment = import("./guestConfigurationAssignment").GuestConfigurationAssignment;
+export const GuestConfigurationAssignment: typeof import("./guestConfigurationAssignment").GuestConfigurationAssignment = null as any;
+
+utilities.lazyLoad(exports, ["getGuestConfigurationAssignment","getGuestConfigurationAssignmentOutput"], () => require("./getGuestConfigurationAssignment"));
+utilities.lazyLoad(exports, ["GuestConfigurationAssignment"], () => require("./guestConfigurationAssignment"));
 
 // Export enums:
 export * from "../../types/enums/guestconfiguration/v20180630preview";
-
-// Import resources to register:
-import { GuestConfigurationAssignment } from "./guestConfigurationAssignment";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,11 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./azureADMetric";
-export * from "./getazureADMetric";
+export { AzureADMetricArgs } from "./azureADMetric";
+export type AzureADMetric = import("./azureADMetric").AzureADMetric;
+export const AzureADMetric: typeof import("./azureADMetric").AzureADMetric = null as any;
 
-// Import resources to register:
-import { AzureADMetric } from "./azureADMetric";
+export { GetazureADMetricArgs, GetazureADMetricResult, GetazureADMetricOutputArgs } from "./getazureADMetric";
+export const getazureADMetric: typeof import("./getazureADMetric").getazureADMetric = null as any;
+export const getazureADMetricOutput: typeof import("./getazureADMetric").getazureADMetricOutput = null as any;
+
+utilities.lazyLoad(exports, ["AzureADMetric"], () => require("./azureADMetric"));
+utilities.lazyLoad(exports, ["getazureADMetric","getazureADMetricOutput"], () => require("./getazureADMetric"));
 
 const _module = {
     version: utilities.getVersion(),

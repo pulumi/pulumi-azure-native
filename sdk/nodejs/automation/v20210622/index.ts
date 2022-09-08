@@ -5,21 +5,44 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./automationAccount";
-export * from "./getAutomationAccount";
-export * from "./getHybridRunbookWorker";
-export * from "./getHybridRunbookWorkerGroup";
-export * from "./hybridRunbookWorker";
-export * from "./hybridRunbookWorkerGroup";
-export * from "./listKeyByAutomationAccount";
+export { AutomationAccountArgs } from "./automationAccount";
+export type AutomationAccount = import("./automationAccount").AutomationAccount;
+export const AutomationAccount: typeof import("./automationAccount").AutomationAccount = null as any;
+
+export { GetAutomationAccountArgs, GetAutomationAccountResult, GetAutomationAccountOutputArgs } from "./getAutomationAccount";
+export const getAutomationAccount: typeof import("./getAutomationAccount").getAutomationAccount = null as any;
+export const getAutomationAccountOutput: typeof import("./getAutomationAccount").getAutomationAccountOutput = null as any;
+
+export { GetHybridRunbookWorkerArgs, GetHybridRunbookWorkerResult, GetHybridRunbookWorkerOutputArgs } from "./getHybridRunbookWorker";
+export const getHybridRunbookWorker: typeof import("./getHybridRunbookWorker").getHybridRunbookWorker = null as any;
+export const getHybridRunbookWorkerOutput: typeof import("./getHybridRunbookWorker").getHybridRunbookWorkerOutput = null as any;
+
+export { GetHybridRunbookWorkerGroupArgs, GetHybridRunbookWorkerGroupResult, GetHybridRunbookWorkerGroupOutputArgs } from "./getHybridRunbookWorkerGroup";
+export const getHybridRunbookWorkerGroup: typeof import("./getHybridRunbookWorkerGroup").getHybridRunbookWorkerGroup = null as any;
+export const getHybridRunbookWorkerGroupOutput: typeof import("./getHybridRunbookWorkerGroup").getHybridRunbookWorkerGroupOutput = null as any;
+
+export { HybridRunbookWorkerArgs } from "./hybridRunbookWorker";
+export type HybridRunbookWorker = import("./hybridRunbookWorker").HybridRunbookWorker;
+export const HybridRunbookWorker: typeof import("./hybridRunbookWorker").HybridRunbookWorker = null as any;
+
+export { HybridRunbookWorkerGroupArgs } from "./hybridRunbookWorkerGroup";
+export type HybridRunbookWorkerGroup = import("./hybridRunbookWorkerGroup").HybridRunbookWorkerGroup;
+export const HybridRunbookWorkerGroup: typeof import("./hybridRunbookWorkerGroup").HybridRunbookWorkerGroup = null as any;
+
+export { ListKeyByAutomationAccountArgs, ListKeyByAutomationAccountResult, ListKeyByAutomationAccountOutputArgs } from "./listKeyByAutomationAccount";
+export const listKeyByAutomationAccount: typeof import("./listKeyByAutomationAccount").listKeyByAutomationAccount = null as any;
+export const listKeyByAutomationAccountOutput: typeof import("./listKeyByAutomationAccount").listKeyByAutomationAccountOutput = null as any;
+
+utilities.lazyLoad(exports, ["AutomationAccount"], () => require("./automationAccount"));
+utilities.lazyLoad(exports, ["getAutomationAccount","getAutomationAccountOutput"], () => require("./getAutomationAccount"));
+utilities.lazyLoad(exports, ["getHybridRunbookWorker","getHybridRunbookWorkerOutput"], () => require("./getHybridRunbookWorker"));
+utilities.lazyLoad(exports, ["getHybridRunbookWorkerGroup","getHybridRunbookWorkerGroupOutput"], () => require("./getHybridRunbookWorkerGroup"));
+utilities.lazyLoad(exports, ["HybridRunbookWorker"], () => require("./hybridRunbookWorker"));
+utilities.lazyLoad(exports, ["HybridRunbookWorkerGroup"], () => require("./hybridRunbookWorkerGroup"));
+utilities.lazyLoad(exports, ["listKeyByAutomationAccount","listKeyByAutomationAccountOutput"], () => require("./listKeyByAutomationAccount"));
 
 // Export enums:
 export * from "../../types/enums/automation/v20210622";
-
-// Import resources to register:
-import { AutomationAccount } from "./automationAccount";
-import { HybridRunbookWorker } from "./hybridRunbookWorker";
-import { HybridRunbookWorkerGroup } from "./hybridRunbookWorkerGroup";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getMoveCollection";
-export * from "./getMoveResource";
-export * from "./moveCollection";
-export * from "./moveResource";
+export { GetMoveCollectionArgs, GetMoveCollectionResult, GetMoveCollectionOutputArgs } from "./getMoveCollection";
+export const getMoveCollection: typeof import("./getMoveCollection").getMoveCollection = null as any;
+export const getMoveCollectionOutput: typeof import("./getMoveCollection").getMoveCollectionOutput = null as any;
+
+export { GetMoveResourceArgs, GetMoveResourceResult, GetMoveResourceOutputArgs } from "./getMoveResource";
+export const getMoveResource: typeof import("./getMoveResource").getMoveResource = null as any;
+export const getMoveResourceOutput: typeof import("./getMoveResource").getMoveResourceOutput = null as any;
+
+export { MoveCollectionArgs } from "./moveCollection";
+export type MoveCollection = import("./moveCollection").MoveCollection;
+export const MoveCollection: typeof import("./moveCollection").MoveCollection = null as any;
+
+export { MoveResourceArgs } from "./moveResource";
+export type MoveResource = import("./moveResource").MoveResource;
+export const MoveResource: typeof import("./moveResource").MoveResource = null as any;
+
+utilities.lazyLoad(exports, ["getMoveCollection","getMoveCollectionOutput"], () => require("./getMoveCollection"));
+utilities.lazyLoad(exports, ["getMoveResource","getMoveResourceOutput"], () => require("./getMoveResource"));
+utilities.lazyLoad(exports, ["MoveCollection"], () => require("./moveCollection"));
+utilities.lazyLoad(exports, ["MoveResource"], () => require("./moveResource"));
 
 // Export enums:
 export * from "../../types/enums/migrate/v20210101";
-
-// Import resources to register:
-import { MoveCollection } from "./moveCollection";
-import { MoveResource } from "./moveResource";
 
 const _module = {
     version: utilities.getVersion(),

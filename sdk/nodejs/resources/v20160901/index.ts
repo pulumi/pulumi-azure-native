@@ -5,20 +5,39 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./deployment";
-export * from "./getDeployment";
-export * from "./getResource";
-export * from "./getResourceGroup";
-export * from "./resource";
-export * from "./resourceGroup";
+export { DeploymentArgs } from "./deployment";
+export type Deployment = import("./deployment").Deployment;
+export const Deployment: typeof import("./deployment").Deployment = null as any;
+
+export { GetDeploymentArgs, GetDeploymentResult, GetDeploymentOutputArgs } from "./getDeployment";
+export const getDeployment: typeof import("./getDeployment").getDeployment = null as any;
+export const getDeploymentOutput: typeof import("./getDeployment").getDeploymentOutput = null as any;
+
+export { GetResourceArgs, GetResourceResult, GetResourceOutputArgs } from "./getResource";
+export const getResource: typeof import("./getResource").getResource = null as any;
+export const getResourceOutput: typeof import("./getResource").getResourceOutput = null as any;
+
+export { GetResourceGroupArgs, GetResourceGroupResult, GetResourceGroupOutputArgs } from "./getResourceGroup";
+export const getResourceGroup: typeof import("./getResourceGroup").getResourceGroup = null as any;
+export const getResourceGroupOutput: typeof import("./getResourceGroup").getResourceGroupOutput = null as any;
+
+export { ResourceArgs } from "./resource";
+export type Resource = import("./resource").Resource;
+export const Resource: typeof import("./resource").Resource = null as any;
+
+export { ResourceGroupArgs } from "./resourceGroup";
+export type ResourceGroup = import("./resourceGroup").ResourceGroup;
+export const ResourceGroup: typeof import("./resourceGroup").ResourceGroup = null as any;
+
+utilities.lazyLoad(exports, ["Deployment"], () => require("./deployment"));
+utilities.lazyLoad(exports, ["getDeployment","getDeploymentOutput"], () => require("./getDeployment"));
+utilities.lazyLoad(exports, ["getResource","getResourceOutput"], () => require("./getResource"));
+utilities.lazyLoad(exports, ["getResourceGroup","getResourceGroupOutput"], () => require("./getResourceGroup"));
+utilities.lazyLoad(exports, ["Resource"], () => require("./resource"));
+utilities.lazyLoad(exports, ["ResourceGroup"], () => require("./resourceGroup"));
 
 // Export enums:
 export * from "../../types/enums/resources/v20160901";
-
-// Import resources to register:
-import { Deployment } from "./deployment";
-import { Resource } from "./resource";
-import { ResourceGroup } from "./resourceGroup";
 
 const _module = {
     version: utilities.getVersion(),

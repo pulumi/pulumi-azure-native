@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getWorkbook";
-export * from "./workbook";
+export { GetWorkbookArgs, GetWorkbookResult, GetWorkbookOutputArgs } from "./getWorkbook";
+export const getWorkbook: typeof import("./getWorkbook").getWorkbook = null as any;
+export const getWorkbookOutput: typeof import("./getWorkbook").getWorkbookOutput = null as any;
+
+export { WorkbookArgs } from "./workbook";
+export type Workbook = import("./workbook").Workbook;
+export const Workbook: typeof import("./workbook").Workbook = null as any;
+
+utilities.lazyLoad(exports, ["getWorkbook","getWorkbookOutput"], () => require("./getWorkbook"));
+utilities.lazyLoad(exports, ["Workbook"], () => require("./workbook"));
 
 // Export enums:
 export * from "../../types/enums/insights/v20180617preview";
-
-// Import resources to register:
-import { Workbook } from "./workbook";
 
 const _module = {
     version: utilities.getVersion(),

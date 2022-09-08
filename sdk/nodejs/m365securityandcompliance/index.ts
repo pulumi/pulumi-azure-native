@@ -5,30 +5,126 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getPrivateEndpointConnectionsAdtAPI";
-export * from "./getPrivateEndpointConnectionsComp";
-export * from "./getPrivateEndpointConnectionsForEDM";
-export * from "./getPrivateEndpointConnectionsForMIPPolicySync";
-export * from "./getPrivateEndpointConnectionsForSCCPowershell";
-export * from "./getPrivateEndpointConnectionsSec";
-export * from "./getprivateLinkServicesForEDMUpload";
-export * from "./getprivateLinkServicesForM365ComplianceCenter";
-export * from "./getprivateLinkServicesForM365SecurityCenter";
-export * from "./getprivateLinkServicesForMIPPolicySync";
-export * from "./getprivateLinkServicesForO365ManagementActivityAPI";
-export * from "./getprivateLinkServicesForSCCPowershell";
-export * from "./privateEndpointConnectionsAdtAPI";
-export * from "./privateEndpointConnectionsComp";
-export * from "./privateEndpointConnectionsForEDM";
-export * from "./privateEndpointConnectionsForMIPPolicySync";
-export * from "./privateEndpointConnectionsForSCCPowershell";
-export * from "./privateEndpointConnectionsSec";
-export * from "./privateLinkServicesForEDMUpload";
-export * from "./privateLinkServicesForM365ComplianceCenter";
-export * from "./privateLinkServicesForM365SecurityCenter";
-export * from "./privateLinkServicesForMIPPolicySync";
-export * from "./privateLinkServicesForO365ManagementActivityAPI";
-export * from "./privateLinkServicesForSCCPowershell";
+export { GetPrivateEndpointConnectionsAdtAPIArgs, GetPrivateEndpointConnectionsAdtAPIResult, GetPrivateEndpointConnectionsAdtAPIOutputArgs } from "./getPrivateEndpointConnectionsAdtAPI";
+export const getPrivateEndpointConnectionsAdtAPI: typeof import("./getPrivateEndpointConnectionsAdtAPI").getPrivateEndpointConnectionsAdtAPI = null as any;
+export const getPrivateEndpointConnectionsAdtAPIOutput: typeof import("./getPrivateEndpointConnectionsAdtAPI").getPrivateEndpointConnectionsAdtAPIOutput = null as any;
+
+export { GetPrivateEndpointConnectionsCompArgs, GetPrivateEndpointConnectionsCompResult, GetPrivateEndpointConnectionsCompOutputArgs } from "./getPrivateEndpointConnectionsComp";
+export const getPrivateEndpointConnectionsComp: typeof import("./getPrivateEndpointConnectionsComp").getPrivateEndpointConnectionsComp = null as any;
+export const getPrivateEndpointConnectionsCompOutput: typeof import("./getPrivateEndpointConnectionsComp").getPrivateEndpointConnectionsCompOutput = null as any;
+
+export { GetPrivateEndpointConnectionsForEDMArgs, GetPrivateEndpointConnectionsForEDMResult, GetPrivateEndpointConnectionsForEDMOutputArgs } from "./getPrivateEndpointConnectionsForEDM";
+export const getPrivateEndpointConnectionsForEDM: typeof import("./getPrivateEndpointConnectionsForEDM").getPrivateEndpointConnectionsForEDM = null as any;
+export const getPrivateEndpointConnectionsForEDMOutput: typeof import("./getPrivateEndpointConnectionsForEDM").getPrivateEndpointConnectionsForEDMOutput = null as any;
+
+export { GetPrivateEndpointConnectionsForMIPPolicySyncArgs, GetPrivateEndpointConnectionsForMIPPolicySyncResult, GetPrivateEndpointConnectionsForMIPPolicySyncOutputArgs } from "./getPrivateEndpointConnectionsForMIPPolicySync";
+export const getPrivateEndpointConnectionsForMIPPolicySync: typeof import("./getPrivateEndpointConnectionsForMIPPolicySync").getPrivateEndpointConnectionsForMIPPolicySync = null as any;
+export const getPrivateEndpointConnectionsForMIPPolicySyncOutput: typeof import("./getPrivateEndpointConnectionsForMIPPolicySync").getPrivateEndpointConnectionsForMIPPolicySyncOutput = null as any;
+
+export { GetPrivateEndpointConnectionsForSCCPowershellArgs, GetPrivateEndpointConnectionsForSCCPowershellResult, GetPrivateEndpointConnectionsForSCCPowershellOutputArgs } from "./getPrivateEndpointConnectionsForSCCPowershell";
+export const getPrivateEndpointConnectionsForSCCPowershell: typeof import("./getPrivateEndpointConnectionsForSCCPowershell").getPrivateEndpointConnectionsForSCCPowershell = null as any;
+export const getPrivateEndpointConnectionsForSCCPowershellOutput: typeof import("./getPrivateEndpointConnectionsForSCCPowershell").getPrivateEndpointConnectionsForSCCPowershellOutput = null as any;
+
+export { GetPrivateEndpointConnectionsSecArgs, GetPrivateEndpointConnectionsSecResult, GetPrivateEndpointConnectionsSecOutputArgs } from "./getPrivateEndpointConnectionsSec";
+export const getPrivateEndpointConnectionsSec: typeof import("./getPrivateEndpointConnectionsSec").getPrivateEndpointConnectionsSec = null as any;
+export const getPrivateEndpointConnectionsSecOutput: typeof import("./getPrivateEndpointConnectionsSec").getPrivateEndpointConnectionsSecOutput = null as any;
+
+export { GetprivateLinkServicesForEDMUploadArgs, GetprivateLinkServicesForEDMUploadResult, GetprivateLinkServicesForEDMUploadOutputArgs } from "./getprivateLinkServicesForEDMUpload";
+export const getprivateLinkServicesForEDMUpload: typeof import("./getprivateLinkServicesForEDMUpload").getprivateLinkServicesForEDMUpload = null as any;
+export const getprivateLinkServicesForEDMUploadOutput: typeof import("./getprivateLinkServicesForEDMUpload").getprivateLinkServicesForEDMUploadOutput = null as any;
+
+export { GetprivateLinkServicesForM365ComplianceCenterArgs, GetprivateLinkServicesForM365ComplianceCenterResult, GetprivateLinkServicesForM365ComplianceCenterOutputArgs } from "./getprivateLinkServicesForM365ComplianceCenter";
+export const getprivateLinkServicesForM365ComplianceCenter: typeof import("./getprivateLinkServicesForM365ComplianceCenter").getprivateLinkServicesForM365ComplianceCenter = null as any;
+export const getprivateLinkServicesForM365ComplianceCenterOutput: typeof import("./getprivateLinkServicesForM365ComplianceCenter").getprivateLinkServicesForM365ComplianceCenterOutput = null as any;
+
+export { GetprivateLinkServicesForM365SecurityCenterArgs, GetprivateLinkServicesForM365SecurityCenterResult, GetprivateLinkServicesForM365SecurityCenterOutputArgs } from "./getprivateLinkServicesForM365SecurityCenter";
+export const getprivateLinkServicesForM365SecurityCenter: typeof import("./getprivateLinkServicesForM365SecurityCenter").getprivateLinkServicesForM365SecurityCenter = null as any;
+export const getprivateLinkServicesForM365SecurityCenterOutput: typeof import("./getprivateLinkServicesForM365SecurityCenter").getprivateLinkServicesForM365SecurityCenterOutput = null as any;
+
+export { GetprivateLinkServicesForMIPPolicySyncArgs, GetprivateLinkServicesForMIPPolicySyncResult, GetprivateLinkServicesForMIPPolicySyncOutputArgs } from "./getprivateLinkServicesForMIPPolicySync";
+export const getprivateLinkServicesForMIPPolicySync: typeof import("./getprivateLinkServicesForMIPPolicySync").getprivateLinkServicesForMIPPolicySync = null as any;
+export const getprivateLinkServicesForMIPPolicySyncOutput: typeof import("./getprivateLinkServicesForMIPPolicySync").getprivateLinkServicesForMIPPolicySyncOutput = null as any;
+
+export { GetprivateLinkServicesForO365ManagementActivityAPIArgs, GetprivateLinkServicesForO365ManagementActivityAPIResult, GetprivateLinkServicesForO365ManagementActivityAPIOutputArgs } from "./getprivateLinkServicesForO365ManagementActivityAPI";
+export const getprivateLinkServicesForO365ManagementActivityAPI: typeof import("./getprivateLinkServicesForO365ManagementActivityAPI").getprivateLinkServicesForO365ManagementActivityAPI = null as any;
+export const getprivateLinkServicesForO365ManagementActivityAPIOutput: typeof import("./getprivateLinkServicesForO365ManagementActivityAPI").getprivateLinkServicesForO365ManagementActivityAPIOutput = null as any;
+
+export { GetprivateLinkServicesForSCCPowershellArgs, GetprivateLinkServicesForSCCPowershellResult, GetprivateLinkServicesForSCCPowershellOutputArgs } from "./getprivateLinkServicesForSCCPowershell";
+export const getprivateLinkServicesForSCCPowershell: typeof import("./getprivateLinkServicesForSCCPowershell").getprivateLinkServicesForSCCPowershell = null as any;
+export const getprivateLinkServicesForSCCPowershellOutput: typeof import("./getprivateLinkServicesForSCCPowershell").getprivateLinkServicesForSCCPowershellOutput = null as any;
+
+export { PrivateEndpointConnectionsAdtAPIArgs } from "./privateEndpointConnectionsAdtAPI";
+export type PrivateEndpointConnectionsAdtAPI = import("./privateEndpointConnectionsAdtAPI").PrivateEndpointConnectionsAdtAPI;
+export const PrivateEndpointConnectionsAdtAPI: typeof import("./privateEndpointConnectionsAdtAPI").PrivateEndpointConnectionsAdtAPI = null as any;
+
+export { PrivateEndpointConnectionsCompArgs } from "./privateEndpointConnectionsComp";
+export type PrivateEndpointConnectionsComp = import("./privateEndpointConnectionsComp").PrivateEndpointConnectionsComp;
+export const PrivateEndpointConnectionsComp: typeof import("./privateEndpointConnectionsComp").PrivateEndpointConnectionsComp = null as any;
+
+export { PrivateEndpointConnectionsForEDMArgs } from "./privateEndpointConnectionsForEDM";
+export type PrivateEndpointConnectionsForEDM = import("./privateEndpointConnectionsForEDM").PrivateEndpointConnectionsForEDM;
+export const PrivateEndpointConnectionsForEDM: typeof import("./privateEndpointConnectionsForEDM").PrivateEndpointConnectionsForEDM = null as any;
+
+export { PrivateEndpointConnectionsForMIPPolicySyncArgs } from "./privateEndpointConnectionsForMIPPolicySync";
+export type PrivateEndpointConnectionsForMIPPolicySync = import("./privateEndpointConnectionsForMIPPolicySync").PrivateEndpointConnectionsForMIPPolicySync;
+export const PrivateEndpointConnectionsForMIPPolicySync: typeof import("./privateEndpointConnectionsForMIPPolicySync").PrivateEndpointConnectionsForMIPPolicySync = null as any;
+
+export { PrivateEndpointConnectionsForSCCPowershellArgs } from "./privateEndpointConnectionsForSCCPowershell";
+export type PrivateEndpointConnectionsForSCCPowershell = import("./privateEndpointConnectionsForSCCPowershell").PrivateEndpointConnectionsForSCCPowershell;
+export const PrivateEndpointConnectionsForSCCPowershell: typeof import("./privateEndpointConnectionsForSCCPowershell").PrivateEndpointConnectionsForSCCPowershell = null as any;
+
+export { PrivateEndpointConnectionsSecArgs } from "./privateEndpointConnectionsSec";
+export type PrivateEndpointConnectionsSec = import("./privateEndpointConnectionsSec").PrivateEndpointConnectionsSec;
+export const PrivateEndpointConnectionsSec: typeof import("./privateEndpointConnectionsSec").PrivateEndpointConnectionsSec = null as any;
+
+export { PrivateLinkServicesForEDMUploadArgs } from "./privateLinkServicesForEDMUpload";
+export type PrivateLinkServicesForEDMUpload = import("./privateLinkServicesForEDMUpload").PrivateLinkServicesForEDMUpload;
+export const PrivateLinkServicesForEDMUpload: typeof import("./privateLinkServicesForEDMUpload").PrivateLinkServicesForEDMUpload = null as any;
+
+export { PrivateLinkServicesForM365ComplianceCenterArgs } from "./privateLinkServicesForM365ComplianceCenter";
+export type PrivateLinkServicesForM365ComplianceCenter = import("./privateLinkServicesForM365ComplianceCenter").PrivateLinkServicesForM365ComplianceCenter;
+export const PrivateLinkServicesForM365ComplianceCenter: typeof import("./privateLinkServicesForM365ComplianceCenter").PrivateLinkServicesForM365ComplianceCenter = null as any;
+
+export { PrivateLinkServicesForM365SecurityCenterArgs } from "./privateLinkServicesForM365SecurityCenter";
+export type PrivateLinkServicesForM365SecurityCenter = import("./privateLinkServicesForM365SecurityCenter").PrivateLinkServicesForM365SecurityCenter;
+export const PrivateLinkServicesForM365SecurityCenter: typeof import("./privateLinkServicesForM365SecurityCenter").PrivateLinkServicesForM365SecurityCenter = null as any;
+
+export { PrivateLinkServicesForMIPPolicySyncArgs } from "./privateLinkServicesForMIPPolicySync";
+export type PrivateLinkServicesForMIPPolicySync = import("./privateLinkServicesForMIPPolicySync").PrivateLinkServicesForMIPPolicySync;
+export const PrivateLinkServicesForMIPPolicySync: typeof import("./privateLinkServicesForMIPPolicySync").PrivateLinkServicesForMIPPolicySync = null as any;
+
+export { PrivateLinkServicesForO365ManagementActivityAPIArgs } from "./privateLinkServicesForO365ManagementActivityAPI";
+export type PrivateLinkServicesForO365ManagementActivityAPI = import("./privateLinkServicesForO365ManagementActivityAPI").PrivateLinkServicesForO365ManagementActivityAPI;
+export const PrivateLinkServicesForO365ManagementActivityAPI: typeof import("./privateLinkServicesForO365ManagementActivityAPI").PrivateLinkServicesForO365ManagementActivityAPI = null as any;
+
+export { PrivateLinkServicesForSCCPowershellArgs } from "./privateLinkServicesForSCCPowershell";
+export type PrivateLinkServicesForSCCPowershell = import("./privateLinkServicesForSCCPowershell").PrivateLinkServicesForSCCPowershell;
+export const PrivateLinkServicesForSCCPowershell: typeof import("./privateLinkServicesForSCCPowershell").PrivateLinkServicesForSCCPowershell = null as any;
+
+utilities.lazyLoad(exports, ["getPrivateEndpointConnectionsAdtAPI","getPrivateEndpointConnectionsAdtAPIOutput"], () => require("./getPrivateEndpointConnectionsAdtAPI"));
+utilities.lazyLoad(exports, ["getPrivateEndpointConnectionsComp","getPrivateEndpointConnectionsCompOutput"], () => require("./getPrivateEndpointConnectionsComp"));
+utilities.lazyLoad(exports, ["getPrivateEndpointConnectionsForEDM","getPrivateEndpointConnectionsForEDMOutput"], () => require("./getPrivateEndpointConnectionsForEDM"));
+utilities.lazyLoad(exports, ["getPrivateEndpointConnectionsForMIPPolicySync","getPrivateEndpointConnectionsForMIPPolicySyncOutput"], () => require("./getPrivateEndpointConnectionsForMIPPolicySync"));
+utilities.lazyLoad(exports, ["getPrivateEndpointConnectionsForSCCPowershell","getPrivateEndpointConnectionsForSCCPowershellOutput"], () => require("./getPrivateEndpointConnectionsForSCCPowershell"));
+utilities.lazyLoad(exports, ["getPrivateEndpointConnectionsSec","getPrivateEndpointConnectionsSecOutput"], () => require("./getPrivateEndpointConnectionsSec"));
+utilities.lazyLoad(exports, ["getprivateLinkServicesForEDMUpload","getprivateLinkServicesForEDMUploadOutput"], () => require("./getprivateLinkServicesForEDMUpload"));
+utilities.lazyLoad(exports, ["getprivateLinkServicesForM365ComplianceCenter","getprivateLinkServicesForM365ComplianceCenterOutput"], () => require("./getprivateLinkServicesForM365ComplianceCenter"));
+utilities.lazyLoad(exports, ["getprivateLinkServicesForM365SecurityCenter","getprivateLinkServicesForM365SecurityCenterOutput"], () => require("./getprivateLinkServicesForM365SecurityCenter"));
+utilities.lazyLoad(exports, ["getprivateLinkServicesForMIPPolicySync","getprivateLinkServicesForMIPPolicySyncOutput"], () => require("./getprivateLinkServicesForMIPPolicySync"));
+utilities.lazyLoad(exports, ["getprivateLinkServicesForO365ManagementActivityAPI","getprivateLinkServicesForO365ManagementActivityAPIOutput"], () => require("./getprivateLinkServicesForO365ManagementActivityAPI"));
+utilities.lazyLoad(exports, ["getprivateLinkServicesForSCCPowershell","getprivateLinkServicesForSCCPowershellOutput"], () => require("./getprivateLinkServicesForSCCPowershell"));
+utilities.lazyLoad(exports, ["PrivateEndpointConnectionsAdtAPI"], () => require("./privateEndpointConnectionsAdtAPI"));
+utilities.lazyLoad(exports, ["PrivateEndpointConnectionsComp"], () => require("./privateEndpointConnectionsComp"));
+utilities.lazyLoad(exports, ["PrivateEndpointConnectionsForEDM"], () => require("./privateEndpointConnectionsForEDM"));
+utilities.lazyLoad(exports, ["PrivateEndpointConnectionsForMIPPolicySync"], () => require("./privateEndpointConnectionsForMIPPolicySync"));
+utilities.lazyLoad(exports, ["PrivateEndpointConnectionsForSCCPowershell"], () => require("./privateEndpointConnectionsForSCCPowershell"));
+utilities.lazyLoad(exports, ["PrivateEndpointConnectionsSec"], () => require("./privateEndpointConnectionsSec"));
+utilities.lazyLoad(exports, ["PrivateLinkServicesForEDMUpload"], () => require("./privateLinkServicesForEDMUpload"));
+utilities.lazyLoad(exports, ["PrivateLinkServicesForM365ComplianceCenter"], () => require("./privateLinkServicesForM365ComplianceCenter"));
+utilities.lazyLoad(exports, ["PrivateLinkServicesForM365SecurityCenter"], () => require("./privateLinkServicesForM365SecurityCenter"));
+utilities.lazyLoad(exports, ["PrivateLinkServicesForMIPPolicySync"], () => require("./privateLinkServicesForMIPPolicySync"));
+utilities.lazyLoad(exports, ["PrivateLinkServicesForO365ManagementActivityAPI"], () => require("./privateLinkServicesForO365ManagementActivityAPI"));
+utilities.lazyLoad(exports, ["PrivateLinkServicesForSCCPowershell"], () => require("./privateLinkServicesForSCCPowershell"));
 
 // Export enums:
 export * from "../types/enums/m365securityandcompliance";
@@ -39,20 +135,6 @@ import * as v20210325preview from "./v20210325preview";
 export {
     v20210325preview,
 };
-
-// Import resources to register:
-import { PrivateEndpointConnectionsAdtAPI } from "./privateEndpointConnectionsAdtAPI";
-import { PrivateEndpointConnectionsComp } from "./privateEndpointConnectionsComp";
-import { PrivateEndpointConnectionsForEDM } from "./privateEndpointConnectionsForEDM";
-import { PrivateEndpointConnectionsForMIPPolicySync } from "./privateEndpointConnectionsForMIPPolicySync";
-import { PrivateEndpointConnectionsForSCCPowershell } from "./privateEndpointConnectionsForSCCPowershell";
-import { PrivateEndpointConnectionsSec } from "./privateEndpointConnectionsSec";
-import { PrivateLinkServicesForEDMUpload } from "./privateLinkServicesForEDMUpload";
-import { PrivateLinkServicesForM365ComplianceCenter } from "./privateLinkServicesForM365ComplianceCenter";
-import { PrivateLinkServicesForM365SecurityCenter } from "./privateLinkServicesForM365SecurityCenter";
-import { PrivateLinkServicesForMIPPolicySync } from "./privateLinkServicesForMIPPolicySync";
-import { PrivateLinkServicesForO365ManagementActivityAPI } from "./privateLinkServicesForO365ManagementActivityAPI";
-import { PrivateLinkServicesForSCCPowershell } from "./privateLinkServicesForSCCPowershell";
 
 const _module = {
     version: utilities.getVersion(),

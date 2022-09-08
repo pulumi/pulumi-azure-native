@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getWorkspace";
-export * from "./getvNetPeering";
-export * from "./vnetPeering";
-export * from "./workspace";
+export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
+export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
+export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
+
+export { GetvNetPeeringArgs, GetvNetPeeringResult, GetvNetPeeringOutputArgs } from "./getvNetPeering";
+export const getvNetPeering: typeof import("./getvNetPeering").getvNetPeering = null as any;
+export const getvNetPeeringOutput: typeof import("./getvNetPeering").getvNetPeeringOutput = null as any;
+
+export { VNetPeeringArgs } from "./vnetPeering";
+export type VNetPeering = import("./vnetPeering").VNetPeering;
+export const VNetPeering: typeof import("./vnetPeering").VNetPeering = null as any;
+
+export { WorkspaceArgs } from "./workspace";
+export type Workspace = import("./workspace").Workspace;
+export const Workspace: typeof import("./workspace").Workspace = null as any;
+
+utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
+utilities.lazyLoad(exports, ["getvNetPeering","getvNetPeeringOutput"], () => require("./getvNetPeering"));
+utilities.lazyLoad(exports, ["VNetPeering"], () => require("./vnetPeering"));
+utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
 
 // Export enums:
 export * from "../../types/enums/databricks/v20180401";
-
-// Import resources to register:
-import { Workspace } from "./workspace";
-import { VNetPeering } from "./vnetPeering";
 
 const _module = {
     version: utilities.getVersion(),

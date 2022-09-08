@@ -5,8 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getLoadTest";
-export * from "./loadTest";
+export { GetLoadTestArgs, GetLoadTestResult, GetLoadTestOutputArgs } from "./getLoadTest";
+export const getLoadTest: typeof import("./getLoadTest").getLoadTest = null as any;
+export const getLoadTestOutput: typeof import("./getLoadTest").getLoadTestOutput = null as any;
+
+export { LoadTestArgs } from "./loadTest";
+export type LoadTest = import("./loadTest").LoadTest;
+export const LoadTest: typeof import("./loadTest").LoadTest = null as any;
+
+utilities.lazyLoad(exports, ["getLoadTest","getLoadTestOutput"], () => require("./getLoadTest"));
+utilities.lazyLoad(exports, ["LoadTest"], () => require("./loadTest"));
 
 // Export enums:
 export * from "../types/enums/loadtestservice";
@@ -19,9 +27,6 @@ export {
     v20211201preview,
     v20220415preview,
 };
-
-// Import resources to register:
-import { LoadTest } from "./loadTest";
 
 const _module = {
     version: utilities.getVersion(),

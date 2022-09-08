@@ -5,11 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getUserAssignedIdentity";
-export * from "./userAssignedIdentity";
+export { GetUserAssignedIdentityArgs, GetUserAssignedIdentityResult, GetUserAssignedIdentityOutputArgs } from "./getUserAssignedIdentity";
+export const getUserAssignedIdentity: typeof import("./getUserAssignedIdentity").getUserAssignedIdentity = null as any;
+export const getUserAssignedIdentityOutput: typeof import("./getUserAssignedIdentity").getUserAssignedIdentityOutput = null as any;
 
-// Import resources to register:
-import { UserAssignedIdentity } from "./userAssignedIdentity";
+export { UserAssignedIdentityArgs } from "./userAssignedIdentity";
+export type UserAssignedIdentity = import("./userAssignedIdentity").UserAssignedIdentity;
+export const UserAssignedIdentity: typeof import("./userAssignedIdentity").UserAssignedIdentity = null as any;
+
+utilities.lazyLoad(exports, ["getUserAssignedIdentity","getUserAssignedIdentityOutput"], () => require("./getUserAssignedIdentity"));
+utilities.lazyLoad(exports, ["UserAssignedIdentity"], () => require("./userAssignedIdentity"));
 
 const _module = {
     version: utilities.getVersion(),

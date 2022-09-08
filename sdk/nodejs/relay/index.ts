@@ -5,23 +5,91 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getHybridConnection";
-export * from "./getHybridConnectionAuthorizationRule";
-export * from "./getNamespace";
-export * from "./getNamespaceAuthorizationRule";
-export * from "./getPrivateEndpointConnection";
-export * from "./getWCFRelay";
-export * from "./getWCFRelayAuthorizationRule";
-export * from "./hybridConnection";
-export * from "./hybridConnectionAuthorizationRule";
-export * from "./listHybridConnectionKeys";
-export * from "./listNamespaceKeys";
-export * from "./listWCFRelayKeys";
-export * from "./namespace";
-export * from "./namespaceAuthorizationRule";
-export * from "./privateEndpointConnection";
-export * from "./wcfrelay";
-export * from "./wcfrelayAuthorizationRule";
+export { GetHybridConnectionArgs, GetHybridConnectionResult, GetHybridConnectionOutputArgs } from "./getHybridConnection";
+export const getHybridConnection: typeof import("./getHybridConnection").getHybridConnection = null as any;
+export const getHybridConnectionOutput: typeof import("./getHybridConnection").getHybridConnectionOutput = null as any;
+
+export { GetHybridConnectionAuthorizationRuleArgs, GetHybridConnectionAuthorizationRuleResult, GetHybridConnectionAuthorizationRuleOutputArgs } from "./getHybridConnectionAuthorizationRule";
+export const getHybridConnectionAuthorizationRule: typeof import("./getHybridConnectionAuthorizationRule").getHybridConnectionAuthorizationRule = null as any;
+export const getHybridConnectionAuthorizationRuleOutput: typeof import("./getHybridConnectionAuthorizationRule").getHybridConnectionAuthorizationRuleOutput = null as any;
+
+export { GetNamespaceArgs, GetNamespaceResult, GetNamespaceOutputArgs } from "./getNamespace";
+export const getNamespace: typeof import("./getNamespace").getNamespace = null as any;
+export const getNamespaceOutput: typeof import("./getNamespace").getNamespaceOutput = null as any;
+
+export { GetNamespaceAuthorizationRuleArgs, GetNamespaceAuthorizationRuleResult, GetNamespaceAuthorizationRuleOutputArgs } from "./getNamespaceAuthorizationRule";
+export const getNamespaceAuthorizationRule: typeof import("./getNamespaceAuthorizationRule").getNamespaceAuthorizationRule = null as any;
+export const getNamespaceAuthorizationRuleOutput: typeof import("./getNamespaceAuthorizationRule").getNamespaceAuthorizationRuleOutput = null as any;
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+
+export { GetWCFRelayArgs, GetWCFRelayResult, GetWCFRelayOutputArgs } from "./getWCFRelay";
+export const getWCFRelay: typeof import("./getWCFRelay").getWCFRelay = null as any;
+export const getWCFRelayOutput: typeof import("./getWCFRelay").getWCFRelayOutput = null as any;
+
+export { GetWCFRelayAuthorizationRuleArgs, GetWCFRelayAuthorizationRuleResult, GetWCFRelayAuthorizationRuleOutputArgs } from "./getWCFRelayAuthorizationRule";
+export const getWCFRelayAuthorizationRule: typeof import("./getWCFRelayAuthorizationRule").getWCFRelayAuthorizationRule = null as any;
+export const getWCFRelayAuthorizationRuleOutput: typeof import("./getWCFRelayAuthorizationRule").getWCFRelayAuthorizationRuleOutput = null as any;
+
+export { HybridConnectionArgs } from "./hybridConnection";
+export type HybridConnection = import("./hybridConnection").HybridConnection;
+export const HybridConnection: typeof import("./hybridConnection").HybridConnection = null as any;
+
+export { HybridConnectionAuthorizationRuleArgs } from "./hybridConnectionAuthorizationRule";
+export type HybridConnectionAuthorizationRule = import("./hybridConnectionAuthorizationRule").HybridConnectionAuthorizationRule;
+export const HybridConnectionAuthorizationRule: typeof import("./hybridConnectionAuthorizationRule").HybridConnectionAuthorizationRule = null as any;
+
+export { ListHybridConnectionKeysArgs, ListHybridConnectionKeysResult, ListHybridConnectionKeysOutputArgs } from "./listHybridConnectionKeys";
+export const listHybridConnectionKeys: typeof import("./listHybridConnectionKeys").listHybridConnectionKeys = null as any;
+export const listHybridConnectionKeysOutput: typeof import("./listHybridConnectionKeys").listHybridConnectionKeysOutput = null as any;
+
+export { ListNamespaceKeysArgs, ListNamespaceKeysResult, ListNamespaceKeysOutputArgs } from "./listNamespaceKeys";
+export const listNamespaceKeys: typeof import("./listNamespaceKeys").listNamespaceKeys = null as any;
+export const listNamespaceKeysOutput: typeof import("./listNamespaceKeys").listNamespaceKeysOutput = null as any;
+
+export { ListWCFRelayKeysArgs, ListWCFRelayKeysResult, ListWCFRelayKeysOutputArgs } from "./listWCFRelayKeys";
+export const listWCFRelayKeys: typeof import("./listWCFRelayKeys").listWCFRelayKeys = null as any;
+export const listWCFRelayKeysOutput: typeof import("./listWCFRelayKeys").listWCFRelayKeysOutput = null as any;
+
+export { NamespaceArgs } from "./namespace";
+export type Namespace = import("./namespace").Namespace;
+export const Namespace: typeof import("./namespace").Namespace = null as any;
+
+export { NamespaceAuthorizationRuleArgs } from "./namespaceAuthorizationRule";
+export type NamespaceAuthorizationRule = import("./namespaceAuthorizationRule").NamespaceAuthorizationRule;
+export const NamespaceAuthorizationRule: typeof import("./namespaceAuthorizationRule").NamespaceAuthorizationRule = null as any;
+
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+
+export { WCFRelayArgs } from "./wcfrelay";
+export type WCFRelay = import("./wcfrelay").WCFRelay;
+export const WCFRelay: typeof import("./wcfrelay").WCFRelay = null as any;
+
+export { WCFRelayAuthorizationRuleArgs } from "./wcfrelayAuthorizationRule";
+export type WCFRelayAuthorizationRule = import("./wcfrelayAuthorizationRule").WCFRelayAuthorizationRule;
+export const WCFRelayAuthorizationRule: typeof import("./wcfrelayAuthorizationRule").WCFRelayAuthorizationRule = null as any;
+
+utilities.lazyLoad(exports, ["getHybridConnection","getHybridConnectionOutput"], () => require("./getHybridConnection"));
+utilities.lazyLoad(exports, ["getHybridConnectionAuthorizationRule","getHybridConnectionAuthorizationRuleOutput"], () => require("./getHybridConnectionAuthorizationRule"));
+utilities.lazyLoad(exports, ["getNamespace","getNamespaceOutput"], () => require("./getNamespace"));
+utilities.lazyLoad(exports, ["getNamespaceAuthorizationRule","getNamespaceAuthorizationRuleOutput"], () => require("./getNamespaceAuthorizationRule"));
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+utilities.lazyLoad(exports, ["getWCFRelay","getWCFRelayOutput"], () => require("./getWCFRelay"));
+utilities.lazyLoad(exports, ["getWCFRelayAuthorizationRule","getWCFRelayAuthorizationRuleOutput"], () => require("./getWCFRelayAuthorizationRule"));
+utilities.lazyLoad(exports, ["HybridConnection"], () => require("./hybridConnection"));
+utilities.lazyLoad(exports, ["HybridConnectionAuthorizationRule"], () => require("./hybridConnectionAuthorizationRule"));
+utilities.lazyLoad(exports, ["listHybridConnectionKeys","listHybridConnectionKeysOutput"], () => require("./listHybridConnectionKeys"));
+utilities.lazyLoad(exports, ["listNamespaceKeys","listNamespaceKeysOutput"], () => require("./listNamespaceKeys"));
+utilities.lazyLoad(exports, ["listWCFRelayKeys","listWCFRelayKeysOutput"], () => require("./listWCFRelayKeys"));
+utilities.lazyLoad(exports, ["Namespace"], () => require("./namespace"));
+utilities.lazyLoad(exports, ["NamespaceAuthorizationRule"], () => require("./namespaceAuthorizationRule"));
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+utilities.lazyLoad(exports, ["WCFRelay"], () => require("./wcfrelay"));
+utilities.lazyLoad(exports, ["WCFRelayAuthorizationRule"], () => require("./wcfrelayAuthorizationRule"));
 
 // Export enums:
 export * from "../types/enums/relay";
@@ -38,15 +106,6 @@ export {
     v20180101preview,
     v20211101,
 };
-
-// Import resources to register:
-import { HybridConnection } from "./hybridConnection";
-import { HybridConnectionAuthorizationRule } from "./hybridConnectionAuthorizationRule";
-import { Namespace } from "./namespace";
-import { NamespaceAuthorizationRule } from "./namespaceAuthorizationRule";
-import { PrivateEndpointConnection } from "./privateEndpointConnection";
-import { WCFRelay } from "./wcfrelay";
-import { WCFRelayAuthorizationRule } from "./wcfrelayAuthorizationRule";
 
 const _module = {
     version: utilities.getVersion(),

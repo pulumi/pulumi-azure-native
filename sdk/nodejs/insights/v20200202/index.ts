@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./component";
-export * from "./getComponent";
+export { ComponentArgs } from "./component";
+export type Component = import("./component").Component;
+export const Component: typeof import("./component").Component = null as any;
+
+export { GetComponentArgs, GetComponentResult, GetComponentOutputArgs } from "./getComponent";
+export const getComponent: typeof import("./getComponent").getComponent = null as any;
+export const getComponentOutput: typeof import("./getComponent").getComponentOutput = null as any;
+
+utilities.lazyLoad(exports, ["Component"], () => require("./component"));
+utilities.lazyLoad(exports, ["getComponent","getComponentOutput"], () => require("./getComponent"));
 
 // Export enums:
 export * from "../../types/enums/insights/v20200202";
-
-// Import resources to register:
-import { Component } from "./component";
 
 const _module = {
     version: utilities.getVersion(),

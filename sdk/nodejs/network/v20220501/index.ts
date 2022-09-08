@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getPolicy";
-export * from "./policy";
+export { GetPolicyArgs, GetPolicyResult, GetPolicyOutputArgs } from "./getPolicy";
+export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;
+export const getPolicyOutput: typeof import("./getPolicy").getPolicyOutput = null as any;
+
+export { PolicyArgs } from "./policy";
+export type Policy = import("./policy").Policy;
+export const Policy: typeof import("./policy").Policy = null as any;
+
+utilities.lazyLoad(exports, ["getPolicy","getPolicyOutput"], () => require("./getPolicy"));
+utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
 
 // Export enums:
 export * from "../../types/enums/network/v20220501";
-
-// Import resources to register:
-import { Policy } from "./policy";
 
 const _module = {
     version: utilities.getVersion(),

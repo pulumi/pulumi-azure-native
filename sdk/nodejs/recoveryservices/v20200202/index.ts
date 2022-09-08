@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getPrivateEndpointConnection";
-export * from "./getVault";
-export * from "./privateEndpointConnection";
-export * from "./vault";
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+
+export { GetVaultArgs, GetVaultResult, GetVaultOutputArgs } from "./getVault";
+export const getVault: typeof import("./getVault").getVault = null as any;
+export const getVaultOutput: typeof import("./getVault").getVaultOutput = null as any;
+
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+
+export { VaultArgs } from "./vault";
+export type Vault = import("./vault").Vault;
+export const Vault: typeof import("./vault").Vault = null as any;
+
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+utilities.lazyLoad(exports, ["getVault","getVaultOutput"], () => require("./getVault"));
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+utilities.lazyLoad(exports, ["Vault"], () => require("./vault"));
 
 // Export enums:
 export * from "../../types/enums/recoveryservices/v20200202";
-
-// Import resources to register:
-import { PrivateEndpointConnection } from "./privateEndpointConnection";
-import { Vault } from "./vault";
 
 const _module = {
     version: utilities.getVersion(),

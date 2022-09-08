@@ -5,19 +5,39 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getMachineLearningCompute";
-export * from "./getWorkspace";
-export * from "./listMachineLearningComputeKeys";
-export * from "./listWorkspaceKeys";
-export * from "./machineLearningCompute";
-export * from "./workspace";
+export { GetMachineLearningComputeArgs, GetMachineLearningComputeResult, GetMachineLearningComputeOutputArgs } from "./getMachineLearningCompute";
+export const getMachineLearningCompute: typeof import("./getMachineLearningCompute").getMachineLearningCompute = null as any;
+export const getMachineLearningComputeOutput: typeof import("./getMachineLearningCompute").getMachineLearningComputeOutput = null as any;
+
+export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
+export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
+export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
+
+export { ListMachineLearningComputeKeysArgs, ListMachineLearningComputeKeysResult, ListMachineLearningComputeKeysOutputArgs } from "./listMachineLearningComputeKeys";
+export const listMachineLearningComputeKeys: typeof import("./listMachineLearningComputeKeys").listMachineLearningComputeKeys = null as any;
+export const listMachineLearningComputeKeysOutput: typeof import("./listMachineLearningComputeKeys").listMachineLearningComputeKeysOutput = null as any;
+
+export { ListWorkspaceKeysArgs, ListWorkspaceKeysResult, ListWorkspaceKeysOutputArgs } from "./listWorkspaceKeys";
+export const listWorkspaceKeys: typeof import("./listWorkspaceKeys").listWorkspaceKeys = null as any;
+export const listWorkspaceKeysOutput: typeof import("./listWorkspaceKeys").listWorkspaceKeysOutput = null as any;
+
+export { MachineLearningComputeArgs } from "./machineLearningCompute";
+export type MachineLearningCompute = import("./machineLearningCompute").MachineLearningCompute;
+export const MachineLearningCompute: typeof import("./machineLearningCompute").MachineLearningCompute = null as any;
+
+export { WorkspaceArgs } from "./workspace";
+export type Workspace = import("./workspace").Workspace;
+export const Workspace: typeof import("./workspace").Workspace = null as any;
+
+utilities.lazyLoad(exports, ["getMachineLearningCompute","getMachineLearningComputeOutput"], () => require("./getMachineLearningCompute"));
+utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
+utilities.lazyLoad(exports, ["listMachineLearningComputeKeys","listMachineLearningComputeKeysOutput"], () => require("./listMachineLearningComputeKeys"));
+utilities.lazyLoad(exports, ["listWorkspaceKeys","listWorkspaceKeysOutput"], () => require("./listWorkspaceKeys"));
+utilities.lazyLoad(exports, ["MachineLearningCompute"], () => require("./machineLearningCompute"));
+utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
 
 // Export enums:
 export * from "../../types/enums/machinelearningservices/v20180301preview";
-
-// Import resources to register:
-import { MachineLearningCompute } from "./machineLearningCompute";
-import { Workspace } from "./workspace";
 
 const _module = {
     version: utilities.getVersion(),

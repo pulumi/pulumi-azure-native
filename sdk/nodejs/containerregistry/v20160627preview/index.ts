@@ -5,12 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getRegistry";
-export * from "./getRegistryCredentials";
-export * from "./registry";
+export { GetRegistryArgs, GetRegistryResult, GetRegistryOutputArgs } from "./getRegistry";
+export const getRegistry: typeof import("./getRegistry").getRegistry = null as any;
+export const getRegistryOutput: typeof import("./getRegistry").getRegistryOutput = null as any;
 
-// Import resources to register:
-import { Registry } from "./registry";
+export { GetRegistryCredentialsArgs, GetRegistryCredentialsResult, GetRegistryCredentialsOutputArgs } from "./getRegistryCredentials";
+export const getRegistryCredentials: typeof import("./getRegistryCredentials").getRegistryCredentials = null as any;
+export const getRegistryCredentialsOutput: typeof import("./getRegistryCredentials").getRegistryCredentialsOutput = null as any;
+
+export { RegistryArgs } from "./registry";
+export type Registry = import("./registry").Registry;
+export const Registry: typeof import("./registry").Registry = null as any;
+
+utilities.lazyLoad(exports, ["getRegistry","getRegistryOutput"], () => require("./getRegistry"));
+utilities.lazyLoad(exports, ["getRegistryCredentials","getRegistryCredentialsOutput"], () => require("./getRegistryCredentials"));
+utilities.lazyLoad(exports, ["Registry"], () => require("./registry"));
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,156 +5,499 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./applicationGateway";
-export * from "./applicationSecurityGroup";
-export * from "./azureFirewall";
-export * from "./connectionMonitor";
-export * from "./ddosCustomPolicy";
-export * from "./ddosProtectionPlan";
-export * from "./expressRouteCircuit";
-export * from "./expressRouteCircuitAuthorization";
-export * from "./expressRouteCircuitConnection";
-export * from "./expressRouteCircuitPeering";
-export * from "./expressRouteConnection";
-export * from "./expressRouteCrossConnectionPeering";
-export * from "./expressRouteGateway";
-export * from "./expressRoutePort";
-export * from "./getApplicationGateway";
-export * from "./getApplicationSecurityGroup";
-export * from "./getAzureFirewall";
-export * from "./getConnectionMonitor";
-export * from "./getDdosCustomPolicy";
-export * from "./getDdosProtectionPlan";
-export * from "./getExpressRouteCircuit";
-export * from "./getExpressRouteCircuitAuthorization";
-export * from "./getExpressRouteCircuitConnection";
-export * from "./getExpressRouteCircuitPeering";
-export * from "./getExpressRouteConnection";
-export * from "./getExpressRouteCrossConnectionPeering";
-export * from "./getExpressRouteGateway";
-export * from "./getExpressRoutePort";
-export * from "./getInboundNatRule";
-export * from "./getInterfaceEndpoint";
-export * from "./getLoadBalancer";
-export * from "./getLocalNetworkGateway";
-export * from "./getNetworkInterface";
-export * from "./getNetworkInterfaceTapConfiguration";
-export * from "./getNetworkProfile";
-export * from "./getNetworkSecurityGroup";
-export * from "./getNetworkWatcher";
-export * from "./getP2sVpnGateway";
-export * from "./getP2sVpnServerConfiguration";
-export * from "./getPacketCapture";
-export * from "./getPublicIPAddress";
-export * from "./getPublicIPPrefix";
-export * from "./getRoute";
-export * from "./getRouteFilter";
-export * from "./getRouteFilterRule";
-export * from "./getRouteTable";
-export * from "./getSecurityRule";
-export * from "./getServiceEndpointPolicy";
-export * from "./getServiceEndpointPolicyDefinition";
-export * from "./getSubnet";
-export * from "./getVirtualHub";
-export * from "./getVirtualNetwork";
-export * from "./getVirtualNetworkGateway";
-export * from "./getVirtualNetworkGatewayAdvertisedRoutes";
-export * from "./getVirtualNetworkGatewayBgpPeerStatus";
-export * from "./getVirtualNetworkGatewayConnection";
-export * from "./getVirtualNetworkGatewayLearnedRoutes";
-export * from "./getVirtualNetworkGatewayVpnclientIpsecParameters";
-export * from "./getVirtualNetworkPeering";
-export * from "./getVirtualNetworkTap";
-export * from "./getVirtualWan";
-export * from "./getVpnConnection";
-export * from "./getVpnGateway";
-export * from "./getVpnSite";
-export * from "./getWebApplicationFirewallPolicy";
-export * from "./inboundNatRule";
-export * from "./interfaceEndpoint";
-export * from "./loadBalancer";
-export * from "./localNetworkGateway";
-export * from "./networkInterface";
-export * from "./networkInterfaceTapConfiguration";
-export * from "./networkProfile";
-export * from "./networkSecurityGroup";
-export * from "./networkWatcher";
-export * from "./p2sVpnGateway";
-export * from "./p2sVpnServerConfiguration";
-export * from "./packetCapture";
-export * from "./publicIPAddress";
-export * from "./publicIPPrefix";
-export * from "./route";
-export * from "./routeFilter";
-export * from "./routeFilterRule";
-export * from "./routeTable";
-export * from "./securityRule";
-export * from "./serviceEndpointPolicy";
-export * from "./serviceEndpointPolicyDefinition";
-export * from "./subnet";
-export * from "./virtualHub";
-export * from "./virtualNetwork";
-export * from "./virtualNetworkGateway";
-export * from "./virtualNetworkGatewayConnection";
-export * from "./virtualNetworkPeering";
-export * from "./virtualNetworkTap";
-export * from "./virtualWan";
-export * from "./vpnConnection";
-export * from "./vpnGateway";
-export * from "./vpnSite";
-export * from "./webApplicationFirewallPolicy";
+export { ApplicationGatewayArgs } from "./applicationGateway";
+export type ApplicationGateway = import("./applicationGateway").ApplicationGateway;
+export const ApplicationGateway: typeof import("./applicationGateway").ApplicationGateway = null as any;
+
+export { ApplicationSecurityGroupArgs } from "./applicationSecurityGroup";
+export type ApplicationSecurityGroup = import("./applicationSecurityGroup").ApplicationSecurityGroup;
+export const ApplicationSecurityGroup: typeof import("./applicationSecurityGroup").ApplicationSecurityGroup = null as any;
+
+export { AzureFirewallArgs } from "./azureFirewall";
+export type AzureFirewall = import("./azureFirewall").AzureFirewall;
+export const AzureFirewall: typeof import("./azureFirewall").AzureFirewall = null as any;
+
+export { ConnectionMonitorArgs } from "./connectionMonitor";
+export type ConnectionMonitor = import("./connectionMonitor").ConnectionMonitor;
+export const ConnectionMonitor: typeof import("./connectionMonitor").ConnectionMonitor = null as any;
+
+export { DdosCustomPolicyArgs } from "./ddosCustomPolicy";
+export type DdosCustomPolicy = import("./ddosCustomPolicy").DdosCustomPolicy;
+export const DdosCustomPolicy: typeof import("./ddosCustomPolicy").DdosCustomPolicy = null as any;
+
+export { DdosProtectionPlanArgs } from "./ddosProtectionPlan";
+export type DdosProtectionPlan = import("./ddosProtectionPlan").DdosProtectionPlan;
+export const DdosProtectionPlan: typeof import("./ddosProtectionPlan").DdosProtectionPlan = null as any;
+
+export { ExpressRouteCircuitArgs } from "./expressRouteCircuit";
+export type ExpressRouteCircuit = import("./expressRouteCircuit").ExpressRouteCircuit;
+export const ExpressRouteCircuit: typeof import("./expressRouteCircuit").ExpressRouteCircuit = null as any;
+
+export { ExpressRouteCircuitAuthorizationArgs } from "./expressRouteCircuitAuthorization";
+export type ExpressRouteCircuitAuthorization = import("./expressRouteCircuitAuthorization").ExpressRouteCircuitAuthorization;
+export const ExpressRouteCircuitAuthorization: typeof import("./expressRouteCircuitAuthorization").ExpressRouteCircuitAuthorization = null as any;
+
+export { ExpressRouteCircuitConnectionArgs } from "./expressRouteCircuitConnection";
+export type ExpressRouteCircuitConnection = import("./expressRouteCircuitConnection").ExpressRouteCircuitConnection;
+export const ExpressRouteCircuitConnection: typeof import("./expressRouteCircuitConnection").ExpressRouteCircuitConnection = null as any;
+
+export { ExpressRouteCircuitPeeringArgs } from "./expressRouteCircuitPeering";
+export type ExpressRouteCircuitPeering = import("./expressRouteCircuitPeering").ExpressRouteCircuitPeering;
+export const ExpressRouteCircuitPeering: typeof import("./expressRouteCircuitPeering").ExpressRouteCircuitPeering = null as any;
+
+export { ExpressRouteConnectionArgs } from "./expressRouteConnection";
+export type ExpressRouteConnection = import("./expressRouteConnection").ExpressRouteConnection;
+export const ExpressRouteConnection: typeof import("./expressRouteConnection").ExpressRouteConnection = null as any;
+
+export { ExpressRouteCrossConnectionPeeringArgs } from "./expressRouteCrossConnectionPeering";
+export type ExpressRouteCrossConnectionPeering = import("./expressRouteCrossConnectionPeering").ExpressRouteCrossConnectionPeering;
+export const ExpressRouteCrossConnectionPeering: typeof import("./expressRouteCrossConnectionPeering").ExpressRouteCrossConnectionPeering = null as any;
+
+export { ExpressRouteGatewayArgs } from "./expressRouteGateway";
+export type ExpressRouteGateway = import("./expressRouteGateway").ExpressRouteGateway;
+export const ExpressRouteGateway: typeof import("./expressRouteGateway").ExpressRouteGateway = null as any;
+
+export { ExpressRoutePortArgs } from "./expressRoutePort";
+export type ExpressRoutePort = import("./expressRoutePort").ExpressRoutePort;
+export const ExpressRoutePort: typeof import("./expressRoutePort").ExpressRoutePort = null as any;
+
+export { GetApplicationGatewayArgs, GetApplicationGatewayResult, GetApplicationGatewayOutputArgs } from "./getApplicationGateway";
+export const getApplicationGateway: typeof import("./getApplicationGateway").getApplicationGateway = null as any;
+export const getApplicationGatewayOutput: typeof import("./getApplicationGateway").getApplicationGatewayOutput = null as any;
+
+export { GetApplicationSecurityGroupArgs, GetApplicationSecurityGroupResult, GetApplicationSecurityGroupOutputArgs } from "./getApplicationSecurityGroup";
+export const getApplicationSecurityGroup: typeof import("./getApplicationSecurityGroup").getApplicationSecurityGroup = null as any;
+export const getApplicationSecurityGroupOutput: typeof import("./getApplicationSecurityGroup").getApplicationSecurityGroupOutput = null as any;
+
+export { GetAzureFirewallArgs, GetAzureFirewallResult, GetAzureFirewallOutputArgs } from "./getAzureFirewall";
+export const getAzureFirewall: typeof import("./getAzureFirewall").getAzureFirewall = null as any;
+export const getAzureFirewallOutput: typeof import("./getAzureFirewall").getAzureFirewallOutput = null as any;
+
+export { GetConnectionMonitorArgs, GetConnectionMonitorResult, GetConnectionMonitorOutputArgs } from "./getConnectionMonitor";
+export const getConnectionMonitor: typeof import("./getConnectionMonitor").getConnectionMonitor = null as any;
+export const getConnectionMonitorOutput: typeof import("./getConnectionMonitor").getConnectionMonitorOutput = null as any;
+
+export { GetDdosCustomPolicyArgs, GetDdosCustomPolicyResult, GetDdosCustomPolicyOutputArgs } from "./getDdosCustomPolicy";
+export const getDdosCustomPolicy: typeof import("./getDdosCustomPolicy").getDdosCustomPolicy = null as any;
+export const getDdosCustomPolicyOutput: typeof import("./getDdosCustomPolicy").getDdosCustomPolicyOutput = null as any;
+
+export { GetDdosProtectionPlanArgs, GetDdosProtectionPlanResult, GetDdosProtectionPlanOutputArgs } from "./getDdosProtectionPlan";
+export const getDdosProtectionPlan: typeof import("./getDdosProtectionPlan").getDdosProtectionPlan = null as any;
+export const getDdosProtectionPlanOutput: typeof import("./getDdosProtectionPlan").getDdosProtectionPlanOutput = null as any;
+
+export { GetExpressRouteCircuitArgs, GetExpressRouteCircuitResult, GetExpressRouteCircuitOutputArgs } from "./getExpressRouteCircuit";
+export const getExpressRouteCircuit: typeof import("./getExpressRouteCircuit").getExpressRouteCircuit = null as any;
+export const getExpressRouteCircuitOutput: typeof import("./getExpressRouteCircuit").getExpressRouteCircuitOutput = null as any;
+
+export { GetExpressRouteCircuitAuthorizationArgs, GetExpressRouteCircuitAuthorizationResult, GetExpressRouteCircuitAuthorizationOutputArgs } from "./getExpressRouteCircuitAuthorization";
+export const getExpressRouteCircuitAuthorization: typeof import("./getExpressRouteCircuitAuthorization").getExpressRouteCircuitAuthorization = null as any;
+export const getExpressRouteCircuitAuthorizationOutput: typeof import("./getExpressRouteCircuitAuthorization").getExpressRouteCircuitAuthorizationOutput = null as any;
+
+export { GetExpressRouteCircuitConnectionArgs, GetExpressRouteCircuitConnectionResult, GetExpressRouteCircuitConnectionOutputArgs } from "./getExpressRouteCircuitConnection";
+export const getExpressRouteCircuitConnection: typeof import("./getExpressRouteCircuitConnection").getExpressRouteCircuitConnection = null as any;
+export const getExpressRouteCircuitConnectionOutput: typeof import("./getExpressRouteCircuitConnection").getExpressRouteCircuitConnectionOutput = null as any;
+
+export { GetExpressRouteCircuitPeeringArgs, GetExpressRouteCircuitPeeringResult, GetExpressRouteCircuitPeeringOutputArgs } from "./getExpressRouteCircuitPeering";
+export const getExpressRouteCircuitPeering: typeof import("./getExpressRouteCircuitPeering").getExpressRouteCircuitPeering = null as any;
+export const getExpressRouteCircuitPeeringOutput: typeof import("./getExpressRouteCircuitPeering").getExpressRouteCircuitPeeringOutput = null as any;
+
+export { GetExpressRouteConnectionArgs, GetExpressRouteConnectionResult, GetExpressRouteConnectionOutputArgs } from "./getExpressRouteConnection";
+export const getExpressRouteConnection: typeof import("./getExpressRouteConnection").getExpressRouteConnection = null as any;
+export const getExpressRouteConnectionOutput: typeof import("./getExpressRouteConnection").getExpressRouteConnectionOutput = null as any;
+
+export { GetExpressRouteCrossConnectionPeeringArgs, GetExpressRouteCrossConnectionPeeringResult, GetExpressRouteCrossConnectionPeeringOutputArgs } from "./getExpressRouteCrossConnectionPeering";
+export const getExpressRouteCrossConnectionPeering: typeof import("./getExpressRouteCrossConnectionPeering").getExpressRouteCrossConnectionPeering = null as any;
+export const getExpressRouteCrossConnectionPeeringOutput: typeof import("./getExpressRouteCrossConnectionPeering").getExpressRouteCrossConnectionPeeringOutput = null as any;
+
+export { GetExpressRouteGatewayArgs, GetExpressRouteGatewayResult, GetExpressRouteGatewayOutputArgs } from "./getExpressRouteGateway";
+export const getExpressRouteGateway: typeof import("./getExpressRouteGateway").getExpressRouteGateway = null as any;
+export const getExpressRouteGatewayOutput: typeof import("./getExpressRouteGateway").getExpressRouteGatewayOutput = null as any;
+
+export { GetExpressRoutePortArgs, GetExpressRoutePortResult, GetExpressRoutePortOutputArgs } from "./getExpressRoutePort";
+export const getExpressRoutePort: typeof import("./getExpressRoutePort").getExpressRoutePort = null as any;
+export const getExpressRoutePortOutput: typeof import("./getExpressRoutePort").getExpressRoutePortOutput = null as any;
+
+export { GetInboundNatRuleArgs, GetInboundNatRuleResult, GetInboundNatRuleOutputArgs } from "./getInboundNatRule";
+export const getInboundNatRule: typeof import("./getInboundNatRule").getInboundNatRule = null as any;
+export const getInboundNatRuleOutput: typeof import("./getInboundNatRule").getInboundNatRuleOutput = null as any;
+
+export { GetInterfaceEndpointArgs, GetInterfaceEndpointResult, GetInterfaceEndpointOutputArgs } from "./getInterfaceEndpoint";
+export const getInterfaceEndpoint: typeof import("./getInterfaceEndpoint").getInterfaceEndpoint = null as any;
+export const getInterfaceEndpointOutput: typeof import("./getInterfaceEndpoint").getInterfaceEndpointOutput = null as any;
+
+export { GetLoadBalancerArgs, GetLoadBalancerResult, GetLoadBalancerOutputArgs } from "./getLoadBalancer";
+export const getLoadBalancer: typeof import("./getLoadBalancer").getLoadBalancer = null as any;
+export const getLoadBalancerOutput: typeof import("./getLoadBalancer").getLoadBalancerOutput = null as any;
+
+export { GetLocalNetworkGatewayArgs, GetLocalNetworkGatewayResult, GetLocalNetworkGatewayOutputArgs } from "./getLocalNetworkGateway";
+export const getLocalNetworkGateway: typeof import("./getLocalNetworkGateway").getLocalNetworkGateway = null as any;
+export const getLocalNetworkGatewayOutput: typeof import("./getLocalNetworkGateway").getLocalNetworkGatewayOutput = null as any;
+
+export { GetNetworkInterfaceArgs, GetNetworkInterfaceResult, GetNetworkInterfaceOutputArgs } from "./getNetworkInterface";
+export const getNetworkInterface: typeof import("./getNetworkInterface").getNetworkInterface = null as any;
+export const getNetworkInterfaceOutput: typeof import("./getNetworkInterface").getNetworkInterfaceOutput = null as any;
+
+export { GetNetworkInterfaceTapConfigurationArgs, GetNetworkInterfaceTapConfigurationResult, GetNetworkInterfaceTapConfigurationOutputArgs } from "./getNetworkInterfaceTapConfiguration";
+export const getNetworkInterfaceTapConfiguration: typeof import("./getNetworkInterfaceTapConfiguration").getNetworkInterfaceTapConfiguration = null as any;
+export const getNetworkInterfaceTapConfigurationOutput: typeof import("./getNetworkInterfaceTapConfiguration").getNetworkInterfaceTapConfigurationOutput = null as any;
+
+export { GetNetworkProfileArgs, GetNetworkProfileResult, GetNetworkProfileOutputArgs } from "./getNetworkProfile";
+export const getNetworkProfile: typeof import("./getNetworkProfile").getNetworkProfile = null as any;
+export const getNetworkProfileOutput: typeof import("./getNetworkProfile").getNetworkProfileOutput = null as any;
+
+export { GetNetworkSecurityGroupArgs, GetNetworkSecurityGroupResult, GetNetworkSecurityGroupOutputArgs } from "./getNetworkSecurityGroup";
+export const getNetworkSecurityGroup: typeof import("./getNetworkSecurityGroup").getNetworkSecurityGroup = null as any;
+export const getNetworkSecurityGroupOutput: typeof import("./getNetworkSecurityGroup").getNetworkSecurityGroupOutput = null as any;
+
+export { GetNetworkWatcherArgs, GetNetworkWatcherResult, GetNetworkWatcherOutputArgs } from "./getNetworkWatcher";
+export const getNetworkWatcher: typeof import("./getNetworkWatcher").getNetworkWatcher = null as any;
+export const getNetworkWatcherOutput: typeof import("./getNetworkWatcher").getNetworkWatcherOutput = null as any;
+
+export { GetP2sVpnGatewayArgs, GetP2sVpnGatewayResult, GetP2sVpnGatewayOutputArgs } from "./getP2sVpnGateway";
+export const getP2sVpnGateway: typeof import("./getP2sVpnGateway").getP2sVpnGateway = null as any;
+export const getP2sVpnGatewayOutput: typeof import("./getP2sVpnGateway").getP2sVpnGatewayOutput = null as any;
+
+export { GetP2sVpnServerConfigurationArgs, GetP2sVpnServerConfigurationResult, GetP2sVpnServerConfigurationOutputArgs } from "./getP2sVpnServerConfiguration";
+export const getP2sVpnServerConfiguration: typeof import("./getP2sVpnServerConfiguration").getP2sVpnServerConfiguration = null as any;
+export const getP2sVpnServerConfigurationOutput: typeof import("./getP2sVpnServerConfiguration").getP2sVpnServerConfigurationOutput = null as any;
+
+export { GetPacketCaptureArgs, GetPacketCaptureResult, GetPacketCaptureOutputArgs } from "./getPacketCapture";
+export const getPacketCapture: typeof import("./getPacketCapture").getPacketCapture = null as any;
+export const getPacketCaptureOutput: typeof import("./getPacketCapture").getPacketCaptureOutput = null as any;
+
+export { GetPublicIPAddressArgs, GetPublicIPAddressResult, GetPublicIPAddressOutputArgs } from "./getPublicIPAddress";
+export const getPublicIPAddress: typeof import("./getPublicIPAddress").getPublicIPAddress = null as any;
+export const getPublicIPAddressOutput: typeof import("./getPublicIPAddress").getPublicIPAddressOutput = null as any;
+
+export { GetPublicIPPrefixArgs, GetPublicIPPrefixResult, GetPublicIPPrefixOutputArgs } from "./getPublicIPPrefix";
+export const getPublicIPPrefix: typeof import("./getPublicIPPrefix").getPublicIPPrefix = null as any;
+export const getPublicIPPrefixOutput: typeof import("./getPublicIPPrefix").getPublicIPPrefixOutput = null as any;
+
+export { GetRouteArgs, GetRouteResult, GetRouteOutputArgs } from "./getRoute";
+export const getRoute: typeof import("./getRoute").getRoute = null as any;
+export const getRouteOutput: typeof import("./getRoute").getRouteOutput = null as any;
+
+export { GetRouteFilterArgs, GetRouteFilterResult, GetRouteFilterOutputArgs } from "./getRouteFilter";
+export const getRouteFilter: typeof import("./getRouteFilter").getRouteFilter = null as any;
+export const getRouteFilterOutput: typeof import("./getRouteFilter").getRouteFilterOutput = null as any;
+
+export { GetRouteFilterRuleArgs, GetRouteFilterRuleResult, GetRouteFilterRuleOutputArgs } from "./getRouteFilterRule";
+export const getRouteFilterRule: typeof import("./getRouteFilterRule").getRouteFilterRule = null as any;
+export const getRouteFilterRuleOutput: typeof import("./getRouteFilterRule").getRouteFilterRuleOutput = null as any;
+
+export { GetRouteTableArgs, GetRouteTableResult, GetRouteTableOutputArgs } from "./getRouteTable";
+export const getRouteTable: typeof import("./getRouteTable").getRouteTable = null as any;
+export const getRouteTableOutput: typeof import("./getRouteTable").getRouteTableOutput = null as any;
+
+export { GetSecurityRuleArgs, GetSecurityRuleResult, GetSecurityRuleOutputArgs } from "./getSecurityRule";
+export const getSecurityRule: typeof import("./getSecurityRule").getSecurityRule = null as any;
+export const getSecurityRuleOutput: typeof import("./getSecurityRule").getSecurityRuleOutput = null as any;
+
+export { GetServiceEndpointPolicyArgs, GetServiceEndpointPolicyResult, GetServiceEndpointPolicyOutputArgs } from "./getServiceEndpointPolicy";
+export const getServiceEndpointPolicy: typeof import("./getServiceEndpointPolicy").getServiceEndpointPolicy = null as any;
+export const getServiceEndpointPolicyOutput: typeof import("./getServiceEndpointPolicy").getServiceEndpointPolicyOutput = null as any;
+
+export { GetServiceEndpointPolicyDefinitionArgs, GetServiceEndpointPolicyDefinitionResult, GetServiceEndpointPolicyDefinitionOutputArgs } from "./getServiceEndpointPolicyDefinition";
+export const getServiceEndpointPolicyDefinition: typeof import("./getServiceEndpointPolicyDefinition").getServiceEndpointPolicyDefinition = null as any;
+export const getServiceEndpointPolicyDefinitionOutput: typeof import("./getServiceEndpointPolicyDefinition").getServiceEndpointPolicyDefinitionOutput = null as any;
+
+export { GetSubnetArgs, GetSubnetResult, GetSubnetOutputArgs } from "./getSubnet";
+export const getSubnet: typeof import("./getSubnet").getSubnet = null as any;
+export const getSubnetOutput: typeof import("./getSubnet").getSubnetOutput = null as any;
+
+export { GetVirtualHubArgs, GetVirtualHubResult, GetVirtualHubOutputArgs } from "./getVirtualHub";
+export const getVirtualHub: typeof import("./getVirtualHub").getVirtualHub = null as any;
+export const getVirtualHubOutput: typeof import("./getVirtualHub").getVirtualHubOutput = null as any;
+
+export { GetVirtualNetworkArgs, GetVirtualNetworkResult, GetVirtualNetworkOutputArgs } from "./getVirtualNetwork";
+export const getVirtualNetwork: typeof import("./getVirtualNetwork").getVirtualNetwork = null as any;
+export const getVirtualNetworkOutput: typeof import("./getVirtualNetwork").getVirtualNetworkOutput = null as any;
+
+export { GetVirtualNetworkGatewayArgs, GetVirtualNetworkGatewayResult, GetVirtualNetworkGatewayOutputArgs } from "./getVirtualNetworkGateway";
+export const getVirtualNetworkGateway: typeof import("./getVirtualNetworkGateway").getVirtualNetworkGateway = null as any;
+export const getVirtualNetworkGatewayOutput: typeof import("./getVirtualNetworkGateway").getVirtualNetworkGatewayOutput = null as any;
+
+export { GetVirtualNetworkGatewayAdvertisedRoutesArgs, GetVirtualNetworkGatewayAdvertisedRoutesResult, GetVirtualNetworkGatewayAdvertisedRoutesOutputArgs } from "./getVirtualNetworkGatewayAdvertisedRoutes";
+export const getVirtualNetworkGatewayAdvertisedRoutes: typeof import("./getVirtualNetworkGatewayAdvertisedRoutes").getVirtualNetworkGatewayAdvertisedRoutes = null as any;
+export const getVirtualNetworkGatewayAdvertisedRoutesOutput: typeof import("./getVirtualNetworkGatewayAdvertisedRoutes").getVirtualNetworkGatewayAdvertisedRoutesOutput = null as any;
+
+export { GetVirtualNetworkGatewayBgpPeerStatusArgs, GetVirtualNetworkGatewayBgpPeerStatusResult, GetVirtualNetworkGatewayBgpPeerStatusOutputArgs } from "./getVirtualNetworkGatewayBgpPeerStatus";
+export const getVirtualNetworkGatewayBgpPeerStatus: typeof import("./getVirtualNetworkGatewayBgpPeerStatus").getVirtualNetworkGatewayBgpPeerStatus = null as any;
+export const getVirtualNetworkGatewayBgpPeerStatusOutput: typeof import("./getVirtualNetworkGatewayBgpPeerStatus").getVirtualNetworkGatewayBgpPeerStatusOutput = null as any;
+
+export { GetVirtualNetworkGatewayConnectionArgs, GetVirtualNetworkGatewayConnectionResult, GetVirtualNetworkGatewayConnectionOutputArgs } from "./getVirtualNetworkGatewayConnection";
+export const getVirtualNetworkGatewayConnection: typeof import("./getVirtualNetworkGatewayConnection").getVirtualNetworkGatewayConnection = null as any;
+export const getVirtualNetworkGatewayConnectionOutput: typeof import("./getVirtualNetworkGatewayConnection").getVirtualNetworkGatewayConnectionOutput = null as any;
+
+export { GetVirtualNetworkGatewayLearnedRoutesArgs, GetVirtualNetworkGatewayLearnedRoutesResult, GetVirtualNetworkGatewayLearnedRoutesOutputArgs } from "./getVirtualNetworkGatewayLearnedRoutes";
+export const getVirtualNetworkGatewayLearnedRoutes: typeof import("./getVirtualNetworkGatewayLearnedRoutes").getVirtualNetworkGatewayLearnedRoutes = null as any;
+export const getVirtualNetworkGatewayLearnedRoutesOutput: typeof import("./getVirtualNetworkGatewayLearnedRoutes").getVirtualNetworkGatewayLearnedRoutesOutput = null as any;
+
+export { GetVirtualNetworkGatewayVpnclientIpsecParametersArgs, GetVirtualNetworkGatewayVpnclientIpsecParametersResult, GetVirtualNetworkGatewayVpnclientIpsecParametersOutputArgs } from "./getVirtualNetworkGatewayVpnclientIpsecParameters";
+export const getVirtualNetworkGatewayVpnclientIpsecParameters: typeof import("./getVirtualNetworkGatewayVpnclientIpsecParameters").getVirtualNetworkGatewayVpnclientIpsecParameters = null as any;
+export const getVirtualNetworkGatewayVpnclientIpsecParametersOutput: typeof import("./getVirtualNetworkGatewayVpnclientIpsecParameters").getVirtualNetworkGatewayVpnclientIpsecParametersOutput = null as any;
+
+export { GetVirtualNetworkPeeringArgs, GetVirtualNetworkPeeringResult, GetVirtualNetworkPeeringOutputArgs } from "./getVirtualNetworkPeering";
+export const getVirtualNetworkPeering: typeof import("./getVirtualNetworkPeering").getVirtualNetworkPeering = null as any;
+export const getVirtualNetworkPeeringOutput: typeof import("./getVirtualNetworkPeering").getVirtualNetworkPeeringOutput = null as any;
+
+export { GetVirtualNetworkTapArgs, GetVirtualNetworkTapResult, GetVirtualNetworkTapOutputArgs } from "./getVirtualNetworkTap";
+export const getVirtualNetworkTap: typeof import("./getVirtualNetworkTap").getVirtualNetworkTap = null as any;
+export const getVirtualNetworkTapOutput: typeof import("./getVirtualNetworkTap").getVirtualNetworkTapOutput = null as any;
+
+export { GetVirtualWanArgs, GetVirtualWanResult, GetVirtualWanOutputArgs } from "./getVirtualWan";
+export const getVirtualWan: typeof import("./getVirtualWan").getVirtualWan = null as any;
+export const getVirtualWanOutput: typeof import("./getVirtualWan").getVirtualWanOutput = null as any;
+
+export { GetVpnConnectionArgs, GetVpnConnectionResult, GetVpnConnectionOutputArgs } from "./getVpnConnection";
+export const getVpnConnection: typeof import("./getVpnConnection").getVpnConnection = null as any;
+export const getVpnConnectionOutput: typeof import("./getVpnConnection").getVpnConnectionOutput = null as any;
+
+export { GetVpnGatewayArgs, GetVpnGatewayResult, GetVpnGatewayOutputArgs } from "./getVpnGateway";
+export const getVpnGateway: typeof import("./getVpnGateway").getVpnGateway = null as any;
+export const getVpnGatewayOutput: typeof import("./getVpnGateway").getVpnGatewayOutput = null as any;
+
+export { GetVpnSiteArgs, GetVpnSiteResult, GetVpnSiteOutputArgs } from "./getVpnSite";
+export const getVpnSite: typeof import("./getVpnSite").getVpnSite = null as any;
+export const getVpnSiteOutput: typeof import("./getVpnSite").getVpnSiteOutput = null as any;
+
+export { GetWebApplicationFirewallPolicyArgs, GetWebApplicationFirewallPolicyResult, GetWebApplicationFirewallPolicyOutputArgs } from "./getWebApplicationFirewallPolicy";
+export const getWebApplicationFirewallPolicy: typeof import("./getWebApplicationFirewallPolicy").getWebApplicationFirewallPolicy = null as any;
+export const getWebApplicationFirewallPolicyOutput: typeof import("./getWebApplicationFirewallPolicy").getWebApplicationFirewallPolicyOutput = null as any;
+
+export { InboundNatRuleArgs } from "./inboundNatRule";
+export type InboundNatRule = import("./inboundNatRule").InboundNatRule;
+export const InboundNatRule: typeof import("./inboundNatRule").InboundNatRule = null as any;
+
+export { InterfaceEndpointArgs } from "./interfaceEndpoint";
+export type InterfaceEndpoint = import("./interfaceEndpoint").InterfaceEndpoint;
+export const InterfaceEndpoint: typeof import("./interfaceEndpoint").InterfaceEndpoint = null as any;
+
+export { LoadBalancerArgs } from "./loadBalancer";
+export type LoadBalancer = import("./loadBalancer").LoadBalancer;
+export const LoadBalancer: typeof import("./loadBalancer").LoadBalancer = null as any;
+
+export { LocalNetworkGatewayArgs } from "./localNetworkGateway";
+export type LocalNetworkGateway = import("./localNetworkGateway").LocalNetworkGateway;
+export const LocalNetworkGateway: typeof import("./localNetworkGateway").LocalNetworkGateway = null as any;
+
+export { NetworkInterfaceArgs } from "./networkInterface";
+export type NetworkInterface = import("./networkInterface").NetworkInterface;
+export const NetworkInterface: typeof import("./networkInterface").NetworkInterface = null as any;
+
+export { NetworkInterfaceTapConfigurationArgs } from "./networkInterfaceTapConfiguration";
+export type NetworkInterfaceTapConfiguration = import("./networkInterfaceTapConfiguration").NetworkInterfaceTapConfiguration;
+export const NetworkInterfaceTapConfiguration: typeof import("./networkInterfaceTapConfiguration").NetworkInterfaceTapConfiguration = null as any;
+
+export { NetworkProfileArgs } from "./networkProfile";
+export type NetworkProfile = import("./networkProfile").NetworkProfile;
+export const NetworkProfile: typeof import("./networkProfile").NetworkProfile = null as any;
+
+export { NetworkSecurityGroupArgs } from "./networkSecurityGroup";
+export type NetworkSecurityGroup = import("./networkSecurityGroup").NetworkSecurityGroup;
+export const NetworkSecurityGroup: typeof import("./networkSecurityGroup").NetworkSecurityGroup = null as any;
+
+export { NetworkWatcherArgs } from "./networkWatcher";
+export type NetworkWatcher = import("./networkWatcher").NetworkWatcher;
+export const NetworkWatcher: typeof import("./networkWatcher").NetworkWatcher = null as any;
+
+export { P2sVpnGatewayArgs } from "./p2sVpnGateway";
+export type P2sVpnGateway = import("./p2sVpnGateway").P2sVpnGateway;
+export const P2sVpnGateway: typeof import("./p2sVpnGateway").P2sVpnGateway = null as any;
+
+export { P2sVpnServerConfigurationArgs } from "./p2sVpnServerConfiguration";
+export type P2sVpnServerConfiguration = import("./p2sVpnServerConfiguration").P2sVpnServerConfiguration;
+export const P2sVpnServerConfiguration: typeof import("./p2sVpnServerConfiguration").P2sVpnServerConfiguration = null as any;
+
+export { PacketCaptureArgs } from "./packetCapture";
+export type PacketCapture = import("./packetCapture").PacketCapture;
+export const PacketCapture: typeof import("./packetCapture").PacketCapture = null as any;
+
+export { PublicIPAddressArgs } from "./publicIPAddress";
+export type PublicIPAddress = import("./publicIPAddress").PublicIPAddress;
+export const PublicIPAddress: typeof import("./publicIPAddress").PublicIPAddress = null as any;
+
+export { PublicIPPrefixArgs } from "./publicIPPrefix";
+export type PublicIPPrefix = import("./publicIPPrefix").PublicIPPrefix;
+export const PublicIPPrefix: typeof import("./publicIPPrefix").PublicIPPrefix = null as any;
+
+export { RouteArgs } from "./route";
+export type Route = import("./route").Route;
+export const Route: typeof import("./route").Route = null as any;
+
+export { RouteFilterArgs } from "./routeFilter";
+export type RouteFilter = import("./routeFilter").RouteFilter;
+export const RouteFilter: typeof import("./routeFilter").RouteFilter = null as any;
+
+export { RouteFilterRuleArgs } from "./routeFilterRule";
+export type RouteFilterRule = import("./routeFilterRule").RouteFilterRule;
+export const RouteFilterRule: typeof import("./routeFilterRule").RouteFilterRule = null as any;
+
+export { RouteTableArgs } from "./routeTable";
+export type RouteTable = import("./routeTable").RouteTable;
+export const RouteTable: typeof import("./routeTable").RouteTable = null as any;
+
+export { SecurityRuleArgs } from "./securityRule";
+export type SecurityRule = import("./securityRule").SecurityRule;
+export const SecurityRule: typeof import("./securityRule").SecurityRule = null as any;
+
+export { ServiceEndpointPolicyArgs } from "./serviceEndpointPolicy";
+export type ServiceEndpointPolicy = import("./serviceEndpointPolicy").ServiceEndpointPolicy;
+export const ServiceEndpointPolicy: typeof import("./serviceEndpointPolicy").ServiceEndpointPolicy = null as any;
+
+export { ServiceEndpointPolicyDefinitionArgs } from "./serviceEndpointPolicyDefinition";
+export type ServiceEndpointPolicyDefinition = import("./serviceEndpointPolicyDefinition").ServiceEndpointPolicyDefinition;
+export const ServiceEndpointPolicyDefinition: typeof import("./serviceEndpointPolicyDefinition").ServiceEndpointPolicyDefinition = null as any;
+
+export { SubnetArgs } from "./subnet";
+export type Subnet = import("./subnet").Subnet;
+export const Subnet: typeof import("./subnet").Subnet = null as any;
+
+export { VirtualHubArgs } from "./virtualHub";
+export type VirtualHub = import("./virtualHub").VirtualHub;
+export const VirtualHub: typeof import("./virtualHub").VirtualHub = null as any;
+
+export { VirtualNetworkArgs } from "./virtualNetwork";
+export type VirtualNetwork = import("./virtualNetwork").VirtualNetwork;
+export const VirtualNetwork: typeof import("./virtualNetwork").VirtualNetwork = null as any;
+
+export { VirtualNetworkGatewayArgs } from "./virtualNetworkGateway";
+export type VirtualNetworkGateway = import("./virtualNetworkGateway").VirtualNetworkGateway;
+export const VirtualNetworkGateway: typeof import("./virtualNetworkGateway").VirtualNetworkGateway = null as any;
+
+export { VirtualNetworkGatewayConnectionArgs } from "./virtualNetworkGatewayConnection";
+export type VirtualNetworkGatewayConnection = import("./virtualNetworkGatewayConnection").VirtualNetworkGatewayConnection;
+export const VirtualNetworkGatewayConnection: typeof import("./virtualNetworkGatewayConnection").VirtualNetworkGatewayConnection = null as any;
+
+export { VirtualNetworkPeeringArgs } from "./virtualNetworkPeering";
+export type VirtualNetworkPeering = import("./virtualNetworkPeering").VirtualNetworkPeering;
+export const VirtualNetworkPeering: typeof import("./virtualNetworkPeering").VirtualNetworkPeering = null as any;
+
+export { VirtualNetworkTapArgs } from "./virtualNetworkTap";
+export type VirtualNetworkTap = import("./virtualNetworkTap").VirtualNetworkTap;
+export const VirtualNetworkTap: typeof import("./virtualNetworkTap").VirtualNetworkTap = null as any;
+
+export { VirtualWanArgs } from "./virtualWan";
+export type VirtualWan = import("./virtualWan").VirtualWan;
+export const VirtualWan: typeof import("./virtualWan").VirtualWan = null as any;
+
+export { VpnConnectionArgs } from "./vpnConnection";
+export type VpnConnection = import("./vpnConnection").VpnConnection;
+export const VpnConnection: typeof import("./vpnConnection").VpnConnection = null as any;
+
+export { VpnGatewayArgs } from "./vpnGateway";
+export type VpnGateway = import("./vpnGateway").VpnGateway;
+export const VpnGateway: typeof import("./vpnGateway").VpnGateway = null as any;
+
+export { VpnSiteArgs } from "./vpnSite";
+export type VpnSite = import("./vpnSite").VpnSite;
+export const VpnSite: typeof import("./vpnSite").VpnSite = null as any;
+
+export { WebApplicationFirewallPolicyArgs } from "./webApplicationFirewallPolicy";
+export type WebApplicationFirewallPolicy = import("./webApplicationFirewallPolicy").WebApplicationFirewallPolicy;
+export const WebApplicationFirewallPolicy: typeof import("./webApplicationFirewallPolicy").WebApplicationFirewallPolicy = null as any;
+
+utilities.lazyLoad(exports, ["ApplicationGateway"], () => require("./applicationGateway"));
+utilities.lazyLoad(exports, ["ApplicationSecurityGroup"], () => require("./applicationSecurityGroup"));
+utilities.lazyLoad(exports, ["AzureFirewall"], () => require("./azureFirewall"));
+utilities.lazyLoad(exports, ["ConnectionMonitor"], () => require("./connectionMonitor"));
+utilities.lazyLoad(exports, ["DdosCustomPolicy"], () => require("./ddosCustomPolicy"));
+utilities.lazyLoad(exports, ["DdosProtectionPlan"], () => require("./ddosProtectionPlan"));
+utilities.lazyLoad(exports, ["ExpressRouteCircuit"], () => require("./expressRouteCircuit"));
+utilities.lazyLoad(exports, ["ExpressRouteCircuitAuthorization"], () => require("./expressRouteCircuitAuthorization"));
+utilities.lazyLoad(exports, ["ExpressRouteCircuitConnection"], () => require("./expressRouteCircuitConnection"));
+utilities.lazyLoad(exports, ["ExpressRouteCircuitPeering"], () => require("./expressRouteCircuitPeering"));
+utilities.lazyLoad(exports, ["ExpressRouteConnection"], () => require("./expressRouteConnection"));
+utilities.lazyLoad(exports, ["ExpressRouteCrossConnectionPeering"], () => require("./expressRouteCrossConnectionPeering"));
+utilities.lazyLoad(exports, ["ExpressRouteGateway"], () => require("./expressRouteGateway"));
+utilities.lazyLoad(exports, ["ExpressRoutePort"], () => require("./expressRoutePort"));
+utilities.lazyLoad(exports, ["getApplicationGateway","getApplicationGatewayOutput"], () => require("./getApplicationGateway"));
+utilities.lazyLoad(exports, ["getApplicationSecurityGroup","getApplicationSecurityGroupOutput"], () => require("./getApplicationSecurityGroup"));
+utilities.lazyLoad(exports, ["getAzureFirewall","getAzureFirewallOutput"], () => require("./getAzureFirewall"));
+utilities.lazyLoad(exports, ["getConnectionMonitor","getConnectionMonitorOutput"], () => require("./getConnectionMonitor"));
+utilities.lazyLoad(exports, ["getDdosCustomPolicy","getDdosCustomPolicyOutput"], () => require("./getDdosCustomPolicy"));
+utilities.lazyLoad(exports, ["getDdosProtectionPlan","getDdosProtectionPlanOutput"], () => require("./getDdosProtectionPlan"));
+utilities.lazyLoad(exports, ["getExpressRouteCircuit","getExpressRouteCircuitOutput"], () => require("./getExpressRouteCircuit"));
+utilities.lazyLoad(exports, ["getExpressRouteCircuitAuthorization","getExpressRouteCircuitAuthorizationOutput"], () => require("./getExpressRouteCircuitAuthorization"));
+utilities.lazyLoad(exports, ["getExpressRouteCircuitConnection","getExpressRouteCircuitConnectionOutput"], () => require("./getExpressRouteCircuitConnection"));
+utilities.lazyLoad(exports, ["getExpressRouteCircuitPeering","getExpressRouteCircuitPeeringOutput"], () => require("./getExpressRouteCircuitPeering"));
+utilities.lazyLoad(exports, ["getExpressRouteConnection","getExpressRouteConnectionOutput"], () => require("./getExpressRouteConnection"));
+utilities.lazyLoad(exports, ["getExpressRouteCrossConnectionPeering","getExpressRouteCrossConnectionPeeringOutput"], () => require("./getExpressRouteCrossConnectionPeering"));
+utilities.lazyLoad(exports, ["getExpressRouteGateway","getExpressRouteGatewayOutput"], () => require("./getExpressRouteGateway"));
+utilities.lazyLoad(exports, ["getExpressRoutePort","getExpressRoutePortOutput"], () => require("./getExpressRoutePort"));
+utilities.lazyLoad(exports, ["getInboundNatRule","getInboundNatRuleOutput"], () => require("./getInboundNatRule"));
+utilities.lazyLoad(exports, ["getInterfaceEndpoint","getInterfaceEndpointOutput"], () => require("./getInterfaceEndpoint"));
+utilities.lazyLoad(exports, ["getLoadBalancer","getLoadBalancerOutput"], () => require("./getLoadBalancer"));
+utilities.lazyLoad(exports, ["getLocalNetworkGateway","getLocalNetworkGatewayOutput"], () => require("./getLocalNetworkGateway"));
+utilities.lazyLoad(exports, ["getNetworkInterface","getNetworkInterfaceOutput"], () => require("./getNetworkInterface"));
+utilities.lazyLoad(exports, ["getNetworkInterfaceTapConfiguration","getNetworkInterfaceTapConfigurationOutput"], () => require("./getNetworkInterfaceTapConfiguration"));
+utilities.lazyLoad(exports, ["getNetworkProfile","getNetworkProfileOutput"], () => require("./getNetworkProfile"));
+utilities.lazyLoad(exports, ["getNetworkSecurityGroup","getNetworkSecurityGroupOutput"], () => require("./getNetworkSecurityGroup"));
+utilities.lazyLoad(exports, ["getNetworkWatcher","getNetworkWatcherOutput"], () => require("./getNetworkWatcher"));
+utilities.lazyLoad(exports, ["getP2sVpnGateway","getP2sVpnGatewayOutput"], () => require("./getP2sVpnGateway"));
+utilities.lazyLoad(exports, ["getP2sVpnServerConfiguration","getP2sVpnServerConfigurationOutput"], () => require("./getP2sVpnServerConfiguration"));
+utilities.lazyLoad(exports, ["getPacketCapture","getPacketCaptureOutput"], () => require("./getPacketCapture"));
+utilities.lazyLoad(exports, ["getPublicIPAddress","getPublicIPAddressOutput"], () => require("./getPublicIPAddress"));
+utilities.lazyLoad(exports, ["getPublicIPPrefix","getPublicIPPrefixOutput"], () => require("./getPublicIPPrefix"));
+utilities.lazyLoad(exports, ["getRoute","getRouteOutput"], () => require("./getRoute"));
+utilities.lazyLoad(exports, ["getRouteFilter","getRouteFilterOutput"], () => require("./getRouteFilter"));
+utilities.lazyLoad(exports, ["getRouteFilterRule","getRouteFilterRuleOutput"], () => require("./getRouteFilterRule"));
+utilities.lazyLoad(exports, ["getRouteTable","getRouteTableOutput"], () => require("./getRouteTable"));
+utilities.lazyLoad(exports, ["getSecurityRule","getSecurityRuleOutput"], () => require("./getSecurityRule"));
+utilities.lazyLoad(exports, ["getServiceEndpointPolicy","getServiceEndpointPolicyOutput"], () => require("./getServiceEndpointPolicy"));
+utilities.lazyLoad(exports, ["getServiceEndpointPolicyDefinition","getServiceEndpointPolicyDefinitionOutput"], () => require("./getServiceEndpointPolicyDefinition"));
+utilities.lazyLoad(exports, ["getSubnet","getSubnetOutput"], () => require("./getSubnet"));
+utilities.lazyLoad(exports, ["getVirtualHub","getVirtualHubOutput"], () => require("./getVirtualHub"));
+utilities.lazyLoad(exports, ["getVirtualNetwork","getVirtualNetworkOutput"], () => require("./getVirtualNetwork"));
+utilities.lazyLoad(exports, ["getVirtualNetworkGateway","getVirtualNetworkGatewayOutput"], () => require("./getVirtualNetworkGateway"));
+utilities.lazyLoad(exports, ["getVirtualNetworkGatewayAdvertisedRoutes","getVirtualNetworkGatewayAdvertisedRoutesOutput"], () => require("./getVirtualNetworkGatewayAdvertisedRoutes"));
+utilities.lazyLoad(exports, ["getVirtualNetworkGatewayBgpPeerStatus","getVirtualNetworkGatewayBgpPeerStatusOutput"], () => require("./getVirtualNetworkGatewayBgpPeerStatus"));
+utilities.lazyLoad(exports, ["getVirtualNetworkGatewayConnection","getVirtualNetworkGatewayConnectionOutput"], () => require("./getVirtualNetworkGatewayConnection"));
+utilities.lazyLoad(exports, ["getVirtualNetworkGatewayLearnedRoutes","getVirtualNetworkGatewayLearnedRoutesOutput"], () => require("./getVirtualNetworkGatewayLearnedRoutes"));
+utilities.lazyLoad(exports, ["getVirtualNetworkGatewayVpnclientIpsecParameters","getVirtualNetworkGatewayVpnclientIpsecParametersOutput"], () => require("./getVirtualNetworkGatewayVpnclientIpsecParameters"));
+utilities.lazyLoad(exports, ["getVirtualNetworkPeering","getVirtualNetworkPeeringOutput"], () => require("./getVirtualNetworkPeering"));
+utilities.lazyLoad(exports, ["getVirtualNetworkTap","getVirtualNetworkTapOutput"], () => require("./getVirtualNetworkTap"));
+utilities.lazyLoad(exports, ["getVirtualWan","getVirtualWanOutput"], () => require("./getVirtualWan"));
+utilities.lazyLoad(exports, ["getVpnConnection","getVpnConnectionOutput"], () => require("./getVpnConnection"));
+utilities.lazyLoad(exports, ["getVpnGateway","getVpnGatewayOutput"], () => require("./getVpnGateway"));
+utilities.lazyLoad(exports, ["getVpnSite","getVpnSiteOutput"], () => require("./getVpnSite"));
+utilities.lazyLoad(exports, ["getWebApplicationFirewallPolicy","getWebApplicationFirewallPolicyOutput"], () => require("./getWebApplicationFirewallPolicy"));
+utilities.lazyLoad(exports, ["InboundNatRule"], () => require("./inboundNatRule"));
+utilities.lazyLoad(exports, ["InterfaceEndpoint"], () => require("./interfaceEndpoint"));
+utilities.lazyLoad(exports, ["LoadBalancer"], () => require("./loadBalancer"));
+utilities.lazyLoad(exports, ["LocalNetworkGateway"], () => require("./localNetworkGateway"));
+utilities.lazyLoad(exports, ["NetworkInterface"], () => require("./networkInterface"));
+utilities.lazyLoad(exports, ["NetworkInterfaceTapConfiguration"], () => require("./networkInterfaceTapConfiguration"));
+utilities.lazyLoad(exports, ["NetworkProfile"], () => require("./networkProfile"));
+utilities.lazyLoad(exports, ["NetworkSecurityGroup"], () => require("./networkSecurityGroup"));
+utilities.lazyLoad(exports, ["NetworkWatcher"], () => require("./networkWatcher"));
+utilities.lazyLoad(exports, ["P2sVpnGateway"], () => require("./p2sVpnGateway"));
+utilities.lazyLoad(exports, ["P2sVpnServerConfiguration"], () => require("./p2sVpnServerConfiguration"));
+utilities.lazyLoad(exports, ["PacketCapture"], () => require("./packetCapture"));
+utilities.lazyLoad(exports, ["PublicIPAddress"], () => require("./publicIPAddress"));
+utilities.lazyLoad(exports, ["PublicIPPrefix"], () => require("./publicIPPrefix"));
+utilities.lazyLoad(exports, ["Route"], () => require("./route"));
+utilities.lazyLoad(exports, ["RouteFilter"], () => require("./routeFilter"));
+utilities.lazyLoad(exports, ["RouteFilterRule"], () => require("./routeFilterRule"));
+utilities.lazyLoad(exports, ["RouteTable"], () => require("./routeTable"));
+utilities.lazyLoad(exports, ["SecurityRule"], () => require("./securityRule"));
+utilities.lazyLoad(exports, ["ServiceEndpointPolicy"], () => require("./serviceEndpointPolicy"));
+utilities.lazyLoad(exports, ["ServiceEndpointPolicyDefinition"], () => require("./serviceEndpointPolicyDefinition"));
+utilities.lazyLoad(exports, ["Subnet"], () => require("./subnet"));
+utilities.lazyLoad(exports, ["VirtualHub"], () => require("./virtualHub"));
+utilities.lazyLoad(exports, ["VirtualNetwork"], () => require("./virtualNetwork"));
+utilities.lazyLoad(exports, ["VirtualNetworkGateway"], () => require("./virtualNetworkGateway"));
+utilities.lazyLoad(exports, ["VirtualNetworkGatewayConnection"], () => require("./virtualNetworkGatewayConnection"));
+utilities.lazyLoad(exports, ["VirtualNetworkPeering"], () => require("./virtualNetworkPeering"));
+utilities.lazyLoad(exports, ["VirtualNetworkTap"], () => require("./virtualNetworkTap"));
+utilities.lazyLoad(exports, ["VirtualWan"], () => require("./virtualWan"));
+utilities.lazyLoad(exports, ["VpnConnection"], () => require("./vpnConnection"));
+utilities.lazyLoad(exports, ["VpnGateway"], () => require("./vpnGateway"));
+utilities.lazyLoad(exports, ["VpnSite"], () => require("./vpnSite"));
+utilities.lazyLoad(exports, ["WebApplicationFirewallPolicy"], () => require("./webApplicationFirewallPolicy"));
 
 // Export enums:
 export * from "../../types/enums/network/v20181201";
-
-// Import resources to register:
-import { ApplicationGateway } from "./applicationGateway";
-import { ApplicationSecurityGroup } from "./applicationSecurityGroup";
-import { AzureFirewall } from "./azureFirewall";
-import { ConnectionMonitor } from "./connectionMonitor";
-import { DdosCustomPolicy } from "./ddosCustomPolicy";
-import { DdosProtectionPlan } from "./ddosProtectionPlan";
-import { ExpressRouteCircuit } from "./expressRouteCircuit";
-import { ExpressRouteCircuitAuthorization } from "./expressRouteCircuitAuthorization";
-import { ExpressRouteCircuitConnection } from "./expressRouteCircuitConnection";
-import { ExpressRouteCircuitPeering } from "./expressRouteCircuitPeering";
-import { ExpressRouteConnection } from "./expressRouteConnection";
-import { ExpressRouteCrossConnectionPeering } from "./expressRouteCrossConnectionPeering";
-import { ExpressRouteGateway } from "./expressRouteGateway";
-import { ExpressRoutePort } from "./expressRoutePort";
-import { InboundNatRule } from "./inboundNatRule";
-import { InterfaceEndpoint } from "./interfaceEndpoint";
-import { LoadBalancer } from "./loadBalancer";
-import { LocalNetworkGateway } from "./localNetworkGateway";
-import { NetworkInterface } from "./networkInterface";
-import { NetworkInterfaceTapConfiguration } from "./networkInterfaceTapConfiguration";
-import { NetworkProfile } from "./networkProfile";
-import { NetworkSecurityGroup } from "./networkSecurityGroup";
-import { NetworkWatcher } from "./networkWatcher";
-import { P2sVpnGateway } from "./p2sVpnGateway";
-import { P2sVpnServerConfiguration } from "./p2sVpnServerConfiguration";
-import { PacketCapture } from "./packetCapture";
-import { PublicIPAddress } from "./publicIPAddress";
-import { PublicIPPrefix } from "./publicIPPrefix";
-import { Route } from "./route";
-import { RouteFilter } from "./routeFilter";
-import { RouteFilterRule } from "./routeFilterRule";
-import { RouteTable } from "./routeTable";
-import { SecurityRule } from "./securityRule";
-import { ServiceEndpointPolicy } from "./serviceEndpointPolicy";
-import { ServiceEndpointPolicyDefinition } from "./serviceEndpointPolicyDefinition";
-import { Subnet } from "./subnet";
-import { VirtualHub } from "./virtualHub";
-import { VirtualNetwork } from "./virtualNetwork";
-import { VirtualNetworkGateway } from "./virtualNetworkGateway";
-import { VirtualNetworkGatewayConnection } from "./virtualNetworkGatewayConnection";
-import { VirtualNetworkPeering } from "./virtualNetworkPeering";
-import { VirtualNetworkTap } from "./virtualNetworkTap";
-import { VirtualWan } from "./virtualWan";
-import { VpnConnection } from "./vpnConnection";
-import { VpnGateway } from "./vpnGateway";
-import { VpnSite } from "./vpnSite";
-import { WebApplicationFirewallPolicy } from "./webApplicationFirewallPolicy";
 
 const _module = {
     version: utilities.getVersion(),

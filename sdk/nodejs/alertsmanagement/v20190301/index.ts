@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getSmartDetectorAlertRule";
-export * from "./smartDetectorAlertRule";
+export { GetSmartDetectorAlertRuleArgs, GetSmartDetectorAlertRuleResult, GetSmartDetectorAlertRuleOutputArgs } from "./getSmartDetectorAlertRule";
+export const getSmartDetectorAlertRule: typeof import("./getSmartDetectorAlertRule").getSmartDetectorAlertRule = null as any;
+export const getSmartDetectorAlertRuleOutput: typeof import("./getSmartDetectorAlertRule").getSmartDetectorAlertRuleOutput = null as any;
+
+export { SmartDetectorAlertRuleArgs } from "./smartDetectorAlertRule";
+export type SmartDetectorAlertRule = import("./smartDetectorAlertRule").SmartDetectorAlertRule;
+export const SmartDetectorAlertRule: typeof import("./smartDetectorAlertRule").SmartDetectorAlertRule = null as any;
+
+utilities.lazyLoad(exports, ["getSmartDetectorAlertRule","getSmartDetectorAlertRuleOutput"], () => require("./getSmartDetectorAlertRule"));
+utilities.lazyLoad(exports, ["SmartDetectorAlertRule"], () => require("./smartDetectorAlertRule"));
 
 // Export enums:
 export * from "../../types/enums/alertsmanagement/v20190301";
-
-// Import resources to register:
-import { SmartDetectorAlertRule } from "./smartDetectorAlertRule";
 
 const _module = {
     version: utilities.getVersion(),

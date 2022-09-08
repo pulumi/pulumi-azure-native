@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./export";
-export * from "./getExport";
+export { ExportArgs } from "./export";
+export type Export = import("./export").Export;
+export const Export: typeof import("./export").Export = null as any;
+
+export { GetExportArgs, GetExportResult, GetExportOutputArgs } from "./getExport";
+export const getExport: typeof import("./getExport").getExport = null as any;
+export const getExportOutput: typeof import("./getExport").getExportOutput = null as any;
+
+utilities.lazyLoad(exports, ["Export"], () => require("./export"));
+utilities.lazyLoad(exports, ["getExport","getExportOutput"], () => require("./getExport"));
 
 // Export enums:
 export * from "../../types/enums/costmanagement/v20210101";
-
-// Import resources to register:
-import { Export } from "./export";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,15 +5,31 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getEntity";
-export * from "./getHierarchySetting";
-export * from "./getManagementGroup";
-export * from "./hierarchySetting";
-export * from "./managementGroup";
+export { GetEntityArgs, GetEntityResult, GetEntityOutputArgs } from "./getEntity";
+export const getEntity: typeof import("./getEntity").getEntity = null as any;
+export const getEntityOutput: typeof import("./getEntity").getEntityOutput = null as any;
 
-// Import resources to register:
-import { HierarchySetting } from "./hierarchySetting";
-import { ManagementGroup } from "./managementGroup";
+export { GetHierarchySettingArgs, GetHierarchySettingResult, GetHierarchySettingOutputArgs } from "./getHierarchySetting";
+export const getHierarchySetting: typeof import("./getHierarchySetting").getHierarchySetting = null as any;
+export const getHierarchySettingOutput: typeof import("./getHierarchySetting").getHierarchySettingOutput = null as any;
+
+export { GetManagementGroupArgs, GetManagementGroupResult, GetManagementGroupOutputArgs } from "./getManagementGroup";
+export const getManagementGroup: typeof import("./getManagementGroup").getManagementGroup = null as any;
+export const getManagementGroupOutput: typeof import("./getManagementGroup").getManagementGroupOutput = null as any;
+
+export { HierarchySettingArgs } from "./hierarchySetting";
+export type HierarchySetting = import("./hierarchySetting").HierarchySetting;
+export const HierarchySetting: typeof import("./hierarchySetting").HierarchySetting = null as any;
+
+export { ManagementGroupArgs } from "./managementGroup";
+export type ManagementGroup = import("./managementGroup").ManagementGroup;
+export const ManagementGroup: typeof import("./managementGroup").ManagementGroup = null as any;
+
+utilities.lazyLoad(exports, ["getEntity","getEntityOutput"], () => require("./getEntity"));
+utilities.lazyLoad(exports, ["getHierarchySetting","getHierarchySettingOutput"], () => require("./getHierarchySetting"));
+utilities.lazyLoad(exports, ["getManagementGroup","getManagementGroupOutput"], () => require("./getManagementGroup"));
+utilities.lazyLoad(exports, ["HierarchySetting"], () => require("./hierarchySetting"));
+utilities.lazyLoad(exports, ["ManagementGroup"], () => require("./managementGroup"));
 
 const _module = {
     version: utilities.getVersion(),

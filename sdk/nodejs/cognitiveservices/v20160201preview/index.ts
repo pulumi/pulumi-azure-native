@@ -5,15 +5,24 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./cognitiveServicesAccount";
-export * from "./getCognitiveServicesAccount";
-export * from "./listCognitiveServicesAccountKeys";
+export { CognitiveServicesAccountArgs } from "./cognitiveServicesAccount";
+export type CognitiveServicesAccount = import("./cognitiveServicesAccount").CognitiveServicesAccount;
+export const CognitiveServicesAccount: typeof import("./cognitiveServicesAccount").CognitiveServicesAccount = null as any;
+
+export { GetCognitiveServicesAccountArgs, GetCognitiveServicesAccountResult, GetCognitiveServicesAccountOutputArgs } from "./getCognitiveServicesAccount";
+export const getCognitiveServicesAccount: typeof import("./getCognitiveServicesAccount").getCognitiveServicesAccount = null as any;
+export const getCognitiveServicesAccountOutput: typeof import("./getCognitiveServicesAccount").getCognitiveServicesAccountOutput = null as any;
+
+export { ListCognitiveServicesAccountKeysArgs, ListCognitiveServicesAccountKeysResult, ListCognitiveServicesAccountKeysOutputArgs } from "./listCognitiveServicesAccountKeys";
+export const listCognitiveServicesAccountKeys: typeof import("./listCognitiveServicesAccountKeys").listCognitiveServicesAccountKeys = null as any;
+export const listCognitiveServicesAccountKeysOutput: typeof import("./listCognitiveServicesAccountKeys").listCognitiveServicesAccountKeysOutput = null as any;
+
+utilities.lazyLoad(exports, ["CognitiveServicesAccount"], () => require("./cognitiveServicesAccount"));
+utilities.lazyLoad(exports, ["getCognitiveServicesAccount","getCognitiveServicesAccountOutput"], () => require("./getCognitiveServicesAccount"));
+utilities.lazyLoad(exports, ["listCognitiveServicesAccountKeys","listCognitiveServicesAccountKeysOutput"], () => require("./listCognitiveServicesAccountKeys"));
 
 // Export enums:
 export * from "../../types/enums/cognitiveservices/v20160201preview";
-
-// Import resources to register:
-import { CognitiveServicesAccount } from "./cognitiveServicesAccount";
 
 const _module = {
     version: utilities.getVersion(),

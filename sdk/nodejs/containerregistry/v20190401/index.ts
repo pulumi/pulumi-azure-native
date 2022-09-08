@@ -5,17 +5,34 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getTask";
-export * from "./listRegistryBuildSourceUploadUrl";
-export * from "./listRunLogSasUrl";
-export * from "./listTaskDetails";
-export * from "./task";
+export { GetTaskArgs, GetTaskResult, GetTaskOutputArgs } from "./getTask";
+export const getTask: typeof import("./getTask").getTask = null as any;
+export const getTaskOutput: typeof import("./getTask").getTaskOutput = null as any;
+
+export { ListRegistryBuildSourceUploadUrlArgs, ListRegistryBuildSourceUploadUrlResult, ListRegistryBuildSourceUploadUrlOutputArgs } from "./listRegistryBuildSourceUploadUrl";
+export const listRegistryBuildSourceUploadUrl: typeof import("./listRegistryBuildSourceUploadUrl").listRegistryBuildSourceUploadUrl = null as any;
+export const listRegistryBuildSourceUploadUrlOutput: typeof import("./listRegistryBuildSourceUploadUrl").listRegistryBuildSourceUploadUrlOutput = null as any;
+
+export { ListRunLogSasUrlArgs, ListRunLogSasUrlResult, ListRunLogSasUrlOutputArgs } from "./listRunLogSasUrl";
+export const listRunLogSasUrl: typeof import("./listRunLogSasUrl").listRunLogSasUrl = null as any;
+export const listRunLogSasUrlOutput: typeof import("./listRunLogSasUrl").listRunLogSasUrlOutput = null as any;
+
+export { ListTaskDetailsArgs, ListTaskDetailsResult, ListTaskDetailsOutputArgs } from "./listTaskDetails";
+export const listTaskDetails: typeof import("./listTaskDetails").listTaskDetails = null as any;
+export const listTaskDetailsOutput: typeof import("./listTaskDetails").listTaskDetailsOutput = null as any;
+
+export { TaskArgs } from "./task";
+export type Task = import("./task").Task;
+export const Task: typeof import("./task").Task = null as any;
+
+utilities.lazyLoad(exports, ["getTask","getTaskOutput"], () => require("./getTask"));
+utilities.lazyLoad(exports, ["listRegistryBuildSourceUploadUrl","listRegistryBuildSourceUploadUrlOutput"], () => require("./listRegistryBuildSourceUploadUrl"));
+utilities.lazyLoad(exports, ["listRunLogSasUrl","listRunLogSasUrlOutput"], () => require("./listRunLogSasUrl"));
+utilities.lazyLoad(exports, ["listTaskDetails","listTaskDetailsOutput"], () => require("./listTaskDetails"));
+utilities.lazyLoad(exports, ["Task"], () => require("./task"));
 
 // Export enums:
 export * from "../../types/enums/containerregistry/v20190401";
-
-// Import resources to register:
-import { Task } from "./task";
 
 const _module = {
     version: utilities.getVersion(),

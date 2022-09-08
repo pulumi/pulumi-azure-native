@@ -5,24 +5,54 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./dataSource";
-export * from "./getDataSource";
-export * from "./getLinkedService";
-export * from "./getMachineGroup";
-export * from "./getWorkspace";
-export * from "./getWorkspaceSharedKeys";
-export * from "./linkedService";
-export * from "./machineGroup";
-export * from "./workspace";
+export { DataSourceArgs } from "./dataSource";
+export type DataSource = import("./dataSource").DataSource;
+export const DataSource: typeof import("./dataSource").DataSource = null as any;
+
+export { GetDataSourceArgs, GetDataSourceResult, GetDataSourceOutputArgs } from "./getDataSource";
+export const getDataSource: typeof import("./getDataSource").getDataSource = null as any;
+export const getDataSourceOutput: typeof import("./getDataSource").getDataSourceOutput = null as any;
+
+export { GetLinkedServiceArgs, GetLinkedServiceResult, GetLinkedServiceOutputArgs } from "./getLinkedService";
+export const getLinkedService: typeof import("./getLinkedService").getLinkedService = null as any;
+export const getLinkedServiceOutput: typeof import("./getLinkedService").getLinkedServiceOutput = null as any;
+
+export { GetMachineGroupArgs, GetMachineGroupResult, GetMachineGroupOutputArgs } from "./getMachineGroup";
+export const getMachineGroup: typeof import("./getMachineGroup").getMachineGroup = null as any;
+export const getMachineGroupOutput: typeof import("./getMachineGroup").getMachineGroupOutput = null as any;
+
+export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
+export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
+export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
+
+export { GetWorkspaceSharedKeysArgs, GetWorkspaceSharedKeysResult, GetWorkspaceSharedKeysOutputArgs } from "./getWorkspaceSharedKeys";
+export const getWorkspaceSharedKeys: typeof import("./getWorkspaceSharedKeys").getWorkspaceSharedKeys = null as any;
+export const getWorkspaceSharedKeysOutput: typeof import("./getWorkspaceSharedKeys").getWorkspaceSharedKeysOutput = null as any;
+
+export { LinkedServiceArgs } from "./linkedService";
+export type LinkedService = import("./linkedService").LinkedService;
+export const LinkedService: typeof import("./linkedService").LinkedService = null as any;
+
+export { MachineGroupArgs } from "./machineGroup";
+export type MachineGroup = import("./machineGroup").MachineGroup;
+export const MachineGroup: typeof import("./machineGroup").MachineGroup = null as any;
+
+export { WorkspaceArgs } from "./workspace";
+export type Workspace = import("./workspace").Workspace;
+export const Workspace: typeof import("./workspace").Workspace = null as any;
+
+utilities.lazyLoad(exports, ["DataSource"], () => require("./dataSource"));
+utilities.lazyLoad(exports, ["getDataSource","getDataSourceOutput"], () => require("./getDataSource"));
+utilities.lazyLoad(exports, ["getLinkedService","getLinkedServiceOutput"], () => require("./getLinkedService"));
+utilities.lazyLoad(exports, ["getMachineGroup","getMachineGroupOutput"], () => require("./getMachineGroup"));
+utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
+utilities.lazyLoad(exports, ["getWorkspaceSharedKeys","getWorkspaceSharedKeysOutput"], () => require("./getWorkspaceSharedKeys"));
+utilities.lazyLoad(exports, ["LinkedService"], () => require("./linkedService"));
+utilities.lazyLoad(exports, ["MachineGroup"], () => require("./machineGroup"));
+utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
 
 // Export enums:
 export * from "../../types/enums/operationalinsights/v20151101preview";
-
-// Import resources to register:
-import { DataSource } from "./dataSource";
-import { LinkedService } from "./linkedService";
-import { MachineGroup } from "./machineGroup";
-import { Workspace } from "./workspace";
 
 const _module = {
     version: utilities.getVersion(),

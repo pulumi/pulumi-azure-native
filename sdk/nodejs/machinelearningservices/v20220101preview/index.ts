@@ -5,29 +5,79 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./compute";
-export * from "./getCompute";
-export * from "./getPrivateEndpointConnection";
-export * from "./getWorkspace";
-export * from "./getWorkspaceConnection";
-export * from "./listComputeKeys";
-export * from "./listComputeNodes";
-export * from "./listWorkspaceKeys";
-export * from "./listWorkspaceNotebookAccessToken";
-export * from "./listWorkspaceNotebookKeys";
-export * from "./listWorkspaceStorageAccountKeys";
-export * from "./privateEndpointConnection";
-export * from "./workspace";
-export * from "./workspaceConnection";
+export { ComputeArgs } from "./compute";
+export type Compute = import("./compute").Compute;
+export const Compute: typeof import("./compute").Compute = null as any;
+
+export { GetComputeArgs, GetComputeResult, GetComputeOutputArgs } from "./getCompute";
+export const getCompute: typeof import("./getCompute").getCompute = null as any;
+export const getComputeOutput: typeof import("./getCompute").getComputeOutput = null as any;
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+
+export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
+export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
+export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
+
+export { GetWorkspaceConnectionArgs, GetWorkspaceConnectionResult, GetWorkspaceConnectionOutputArgs } from "./getWorkspaceConnection";
+export const getWorkspaceConnection: typeof import("./getWorkspaceConnection").getWorkspaceConnection = null as any;
+export const getWorkspaceConnectionOutput: typeof import("./getWorkspaceConnection").getWorkspaceConnectionOutput = null as any;
+
+export { ListComputeKeysArgs, ListComputeKeysResult, ListComputeKeysOutputArgs } from "./listComputeKeys";
+export const listComputeKeys: typeof import("./listComputeKeys").listComputeKeys = null as any;
+export const listComputeKeysOutput: typeof import("./listComputeKeys").listComputeKeysOutput = null as any;
+
+export { ListComputeNodesArgs, ListComputeNodesResult, ListComputeNodesOutputArgs } from "./listComputeNodes";
+export const listComputeNodes: typeof import("./listComputeNodes").listComputeNodes = null as any;
+export const listComputeNodesOutput: typeof import("./listComputeNodes").listComputeNodesOutput = null as any;
+
+export { ListWorkspaceKeysArgs, ListWorkspaceKeysResult, ListWorkspaceKeysOutputArgs } from "./listWorkspaceKeys";
+export const listWorkspaceKeys: typeof import("./listWorkspaceKeys").listWorkspaceKeys = null as any;
+export const listWorkspaceKeysOutput: typeof import("./listWorkspaceKeys").listWorkspaceKeysOutput = null as any;
+
+export { ListWorkspaceNotebookAccessTokenArgs, ListWorkspaceNotebookAccessTokenResult, ListWorkspaceNotebookAccessTokenOutputArgs } from "./listWorkspaceNotebookAccessToken";
+export const listWorkspaceNotebookAccessToken: typeof import("./listWorkspaceNotebookAccessToken").listWorkspaceNotebookAccessToken = null as any;
+export const listWorkspaceNotebookAccessTokenOutput: typeof import("./listWorkspaceNotebookAccessToken").listWorkspaceNotebookAccessTokenOutput = null as any;
+
+export { ListWorkspaceNotebookKeysArgs, ListWorkspaceNotebookKeysResult, ListWorkspaceNotebookKeysOutputArgs } from "./listWorkspaceNotebookKeys";
+export const listWorkspaceNotebookKeys: typeof import("./listWorkspaceNotebookKeys").listWorkspaceNotebookKeys = null as any;
+export const listWorkspaceNotebookKeysOutput: typeof import("./listWorkspaceNotebookKeys").listWorkspaceNotebookKeysOutput = null as any;
+
+export { ListWorkspaceStorageAccountKeysArgs, ListWorkspaceStorageAccountKeysResult, ListWorkspaceStorageAccountKeysOutputArgs } from "./listWorkspaceStorageAccountKeys";
+export const listWorkspaceStorageAccountKeys: typeof import("./listWorkspaceStorageAccountKeys").listWorkspaceStorageAccountKeys = null as any;
+export const listWorkspaceStorageAccountKeysOutput: typeof import("./listWorkspaceStorageAccountKeys").listWorkspaceStorageAccountKeysOutput = null as any;
+
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+
+export { WorkspaceArgs } from "./workspace";
+export type Workspace = import("./workspace").Workspace;
+export const Workspace: typeof import("./workspace").Workspace = null as any;
+
+export { WorkspaceConnectionArgs } from "./workspaceConnection";
+export type WorkspaceConnection = import("./workspaceConnection").WorkspaceConnection;
+export const WorkspaceConnection: typeof import("./workspaceConnection").WorkspaceConnection = null as any;
+
+utilities.lazyLoad(exports, ["Compute"], () => require("./compute"));
+utilities.lazyLoad(exports, ["getCompute","getComputeOutput"], () => require("./getCompute"));
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
+utilities.lazyLoad(exports, ["getWorkspaceConnection","getWorkspaceConnectionOutput"], () => require("./getWorkspaceConnection"));
+utilities.lazyLoad(exports, ["listComputeKeys","listComputeKeysOutput"], () => require("./listComputeKeys"));
+utilities.lazyLoad(exports, ["listComputeNodes","listComputeNodesOutput"], () => require("./listComputeNodes"));
+utilities.lazyLoad(exports, ["listWorkspaceKeys","listWorkspaceKeysOutput"], () => require("./listWorkspaceKeys"));
+utilities.lazyLoad(exports, ["listWorkspaceNotebookAccessToken","listWorkspaceNotebookAccessTokenOutput"], () => require("./listWorkspaceNotebookAccessToken"));
+utilities.lazyLoad(exports, ["listWorkspaceNotebookKeys","listWorkspaceNotebookKeysOutput"], () => require("./listWorkspaceNotebookKeys"));
+utilities.lazyLoad(exports, ["listWorkspaceStorageAccountKeys","listWorkspaceStorageAccountKeysOutput"], () => require("./listWorkspaceStorageAccountKeys"));
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
+utilities.lazyLoad(exports, ["WorkspaceConnection"], () => require("./workspaceConnection"));
 
 // Export enums:
 export * from "../../types/enums/machinelearningservices/v20220101preview";
-
-// Import resources to register:
-import { Compute } from "./compute";
-import { PrivateEndpointConnection } from "./privateEndpointConnection";
-import { Workspace } from "./workspace";
-import { WorkspaceConnection } from "./workspaceConnection";
 
 const _module = {
     version: utilities.getVersion(),

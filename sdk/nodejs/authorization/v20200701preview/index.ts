@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getPolicyExemption";
-export * from "./policyExemption";
+export { GetPolicyExemptionArgs, GetPolicyExemptionResult, GetPolicyExemptionOutputArgs } from "./getPolicyExemption";
+export const getPolicyExemption: typeof import("./getPolicyExemption").getPolicyExemption = null as any;
+export const getPolicyExemptionOutput: typeof import("./getPolicyExemption").getPolicyExemptionOutput = null as any;
+
+export { PolicyExemptionArgs } from "./policyExemption";
+export type PolicyExemption = import("./policyExemption").PolicyExemption;
+export const PolicyExemption: typeof import("./policyExemption").PolicyExemption = null as any;
+
+utilities.lazyLoad(exports, ["getPolicyExemption","getPolicyExemptionOutput"], () => require("./getPolicyExemption"));
+utilities.lazyLoad(exports, ["PolicyExemption"], () => require("./policyExemption"));
 
 // Export enums:
 export * from "../../types/enums/authorization/v20200701preview";
-
-// Import resources to register:
-import { PolicyExemption } from "./policyExemption";
 
 const _module = {
     version: utilities.getVersion(),

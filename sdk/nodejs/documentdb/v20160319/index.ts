@@ -5,43 +5,119 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./databaseAccount";
-export * from "./databaseAccountCassandraKeyspace";
-export * from "./databaseAccountCassandraTable";
-export * from "./databaseAccountGremlinDatabase";
-export * from "./databaseAccountGremlinGraph";
-export * from "./databaseAccountMongoDBCollection";
-export * from "./databaseAccountMongoDBDatabase";
-export * from "./databaseAccountSqlContainer";
-export * from "./databaseAccountSqlDatabase";
-export * from "./databaseAccountTable";
-export * from "./getDatabaseAccount";
-export * from "./getDatabaseAccountCassandraKeyspace";
-export * from "./getDatabaseAccountCassandraTable";
-export * from "./getDatabaseAccountGremlinDatabase";
-export * from "./getDatabaseAccountGremlinGraph";
-export * from "./getDatabaseAccountMongoDBCollection";
-export * from "./getDatabaseAccountMongoDBDatabase";
-export * from "./getDatabaseAccountSqlContainer";
-export * from "./getDatabaseAccountSqlDatabase";
-export * from "./getDatabaseAccountTable";
-export * from "./listDatabaseAccountConnectionStrings";
-export * from "./listDatabaseAccountKeys";
+export { DatabaseAccountArgs } from "./databaseAccount";
+export type DatabaseAccount = import("./databaseAccount").DatabaseAccount;
+export const DatabaseAccount: typeof import("./databaseAccount").DatabaseAccount = null as any;
+
+export { DatabaseAccountCassandraKeyspaceArgs } from "./databaseAccountCassandraKeyspace";
+export type DatabaseAccountCassandraKeyspace = import("./databaseAccountCassandraKeyspace").DatabaseAccountCassandraKeyspace;
+export const DatabaseAccountCassandraKeyspace: typeof import("./databaseAccountCassandraKeyspace").DatabaseAccountCassandraKeyspace = null as any;
+
+export { DatabaseAccountCassandraTableArgs } from "./databaseAccountCassandraTable";
+export type DatabaseAccountCassandraTable = import("./databaseAccountCassandraTable").DatabaseAccountCassandraTable;
+export const DatabaseAccountCassandraTable: typeof import("./databaseAccountCassandraTable").DatabaseAccountCassandraTable = null as any;
+
+export { DatabaseAccountGremlinDatabaseArgs } from "./databaseAccountGremlinDatabase";
+export type DatabaseAccountGremlinDatabase = import("./databaseAccountGremlinDatabase").DatabaseAccountGremlinDatabase;
+export const DatabaseAccountGremlinDatabase: typeof import("./databaseAccountGremlinDatabase").DatabaseAccountGremlinDatabase = null as any;
+
+export { DatabaseAccountGremlinGraphArgs } from "./databaseAccountGremlinGraph";
+export type DatabaseAccountGremlinGraph = import("./databaseAccountGremlinGraph").DatabaseAccountGremlinGraph;
+export const DatabaseAccountGremlinGraph: typeof import("./databaseAccountGremlinGraph").DatabaseAccountGremlinGraph = null as any;
+
+export { DatabaseAccountMongoDBCollectionArgs } from "./databaseAccountMongoDBCollection";
+export type DatabaseAccountMongoDBCollection = import("./databaseAccountMongoDBCollection").DatabaseAccountMongoDBCollection;
+export const DatabaseAccountMongoDBCollection: typeof import("./databaseAccountMongoDBCollection").DatabaseAccountMongoDBCollection = null as any;
+
+export { DatabaseAccountMongoDBDatabaseArgs } from "./databaseAccountMongoDBDatabase";
+export type DatabaseAccountMongoDBDatabase = import("./databaseAccountMongoDBDatabase").DatabaseAccountMongoDBDatabase;
+export const DatabaseAccountMongoDBDatabase: typeof import("./databaseAccountMongoDBDatabase").DatabaseAccountMongoDBDatabase = null as any;
+
+export { DatabaseAccountSqlContainerArgs } from "./databaseAccountSqlContainer";
+export type DatabaseAccountSqlContainer = import("./databaseAccountSqlContainer").DatabaseAccountSqlContainer;
+export const DatabaseAccountSqlContainer: typeof import("./databaseAccountSqlContainer").DatabaseAccountSqlContainer = null as any;
+
+export { DatabaseAccountSqlDatabaseArgs } from "./databaseAccountSqlDatabase";
+export type DatabaseAccountSqlDatabase = import("./databaseAccountSqlDatabase").DatabaseAccountSqlDatabase;
+export const DatabaseAccountSqlDatabase: typeof import("./databaseAccountSqlDatabase").DatabaseAccountSqlDatabase = null as any;
+
+export { DatabaseAccountTableArgs } from "./databaseAccountTable";
+export type DatabaseAccountTable = import("./databaseAccountTable").DatabaseAccountTable;
+export const DatabaseAccountTable: typeof import("./databaseAccountTable").DatabaseAccountTable = null as any;
+
+export { GetDatabaseAccountArgs, GetDatabaseAccountResult, GetDatabaseAccountOutputArgs } from "./getDatabaseAccount";
+export const getDatabaseAccount: typeof import("./getDatabaseAccount").getDatabaseAccount = null as any;
+export const getDatabaseAccountOutput: typeof import("./getDatabaseAccount").getDatabaseAccountOutput = null as any;
+
+export { GetDatabaseAccountCassandraKeyspaceArgs, GetDatabaseAccountCassandraKeyspaceResult, GetDatabaseAccountCassandraKeyspaceOutputArgs } from "./getDatabaseAccountCassandraKeyspace";
+export const getDatabaseAccountCassandraKeyspace: typeof import("./getDatabaseAccountCassandraKeyspace").getDatabaseAccountCassandraKeyspace = null as any;
+export const getDatabaseAccountCassandraKeyspaceOutput: typeof import("./getDatabaseAccountCassandraKeyspace").getDatabaseAccountCassandraKeyspaceOutput = null as any;
+
+export { GetDatabaseAccountCassandraTableArgs, GetDatabaseAccountCassandraTableResult, GetDatabaseAccountCassandraTableOutputArgs } from "./getDatabaseAccountCassandraTable";
+export const getDatabaseAccountCassandraTable: typeof import("./getDatabaseAccountCassandraTable").getDatabaseAccountCassandraTable = null as any;
+export const getDatabaseAccountCassandraTableOutput: typeof import("./getDatabaseAccountCassandraTable").getDatabaseAccountCassandraTableOutput = null as any;
+
+export { GetDatabaseAccountGremlinDatabaseArgs, GetDatabaseAccountGremlinDatabaseResult, GetDatabaseAccountGremlinDatabaseOutputArgs } from "./getDatabaseAccountGremlinDatabase";
+export const getDatabaseAccountGremlinDatabase: typeof import("./getDatabaseAccountGremlinDatabase").getDatabaseAccountGremlinDatabase = null as any;
+export const getDatabaseAccountGremlinDatabaseOutput: typeof import("./getDatabaseAccountGremlinDatabase").getDatabaseAccountGremlinDatabaseOutput = null as any;
+
+export { GetDatabaseAccountGremlinGraphArgs, GetDatabaseAccountGremlinGraphResult, GetDatabaseAccountGremlinGraphOutputArgs } from "./getDatabaseAccountGremlinGraph";
+export const getDatabaseAccountGremlinGraph: typeof import("./getDatabaseAccountGremlinGraph").getDatabaseAccountGremlinGraph = null as any;
+export const getDatabaseAccountGremlinGraphOutput: typeof import("./getDatabaseAccountGremlinGraph").getDatabaseAccountGremlinGraphOutput = null as any;
+
+export { GetDatabaseAccountMongoDBCollectionArgs, GetDatabaseAccountMongoDBCollectionResult, GetDatabaseAccountMongoDBCollectionOutputArgs } from "./getDatabaseAccountMongoDBCollection";
+export const getDatabaseAccountMongoDBCollection: typeof import("./getDatabaseAccountMongoDBCollection").getDatabaseAccountMongoDBCollection = null as any;
+export const getDatabaseAccountMongoDBCollectionOutput: typeof import("./getDatabaseAccountMongoDBCollection").getDatabaseAccountMongoDBCollectionOutput = null as any;
+
+export { GetDatabaseAccountMongoDBDatabaseArgs, GetDatabaseAccountMongoDBDatabaseResult, GetDatabaseAccountMongoDBDatabaseOutputArgs } from "./getDatabaseAccountMongoDBDatabase";
+export const getDatabaseAccountMongoDBDatabase: typeof import("./getDatabaseAccountMongoDBDatabase").getDatabaseAccountMongoDBDatabase = null as any;
+export const getDatabaseAccountMongoDBDatabaseOutput: typeof import("./getDatabaseAccountMongoDBDatabase").getDatabaseAccountMongoDBDatabaseOutput = null as any;
+
+export { GetDatabaseAccountSqlContainerArgs, GetDatabaseAccountSqlContainerResult, GetDatabaseAccountSqlContainerOutputArgs } from "./getDatabaseAccountSqlContainer";
+export const getDatabaseAccountSqlContainer: typeof import("./getDatabaseAccountSqlContainer").getDatabaseAccountSqlContainer = null as any;
+export const getDatabaseAccountSqlContainerOutput: typeof import("./getDatabaseAccountSqlContainer").getDatabaseAccountSqlContainerOutput = null as any;
+
+export { GetDatabaseAccountSqlDatabaseArgs, GetDatabaseAccountSqlDatabaseResult, GetDatabaseAccountSqlDatabaseOutputArgs } from "./getDatabaseAccountSqlDatabase";
+export const getDatabaseAccountSqlDatabase: typeof import("./getDatabaseAccountSqlDatabase").getDatabaseAccountSqlDatabase = null as any;
+export const getDatabaseAccountSqlDatabaseOutput: typeof import("./getDatabaseAccountSqlDatabase").getDatabaseAccountSqlDatabaseOutput = null as any;
+
+export { GetDatabaseAccountTableArgs, GetDatabaseAccountTableResult, GetDatabaseAccountTableOutputArgs } from "./getDatabaseAccountTable";
+export const getDatabaseAccountTable: typeof import("./getDatabaseAccountTable").getDatabaseAccountTable = null as any;
+export const getDatabaseAccountTableOutput: typeof import("./getDatabaseAccountTable").getDatabaseAccountTableOutput = null as any;
+
+export { ListDatabaseAccountConnectionStringsArgs, ListDatabaseAccountConnectionStringsResult, ListDatabaseAccountConnectionStringsOutputArgs } from "./listDatabaseAccountConnectionStrings";
+export const listDatabaseAccountConnectionStrings: typeof import("./listDatabaseAccountConnectionStrings").listDatabaseAccountConnectionStrings = null as any;
+export const listDatabaseAccountConnectionStringsOutput: typeof import("./listDatabaseAccountConnectionStrings").listDatabaseAccountConnectionStringsOutput = null as any;
+
+export { ListDatabaseAccountKeysArgs, ListDatabaseAccountKeysResult, ListDatabaseAccountKeysOutputArgs } from "./listDatabaseAccountKeys";
+export const listDatabaseAccountKeys: typeof import("./listDatabaseAccountKeys").listDatabaseAccountKeys = null as any;
+export const listDatabaseAccountKeysOutput: typeof import("./listDatabaseAccountKeys").listDatabaseAccountKeysOutput = null as any;
+
+utilities.lazyLoad(exports, ["DatabaseAccount"], () => require("./databaseAccount"));
+utilities.lazyLoad(exports, ["DatabaseAccountCassandraKeyspace"], () => require("./databaseAccountCassandraKeyspace"));
+utilities.lazyLoad(exports, ["DatabaseAccountCassandraTable"], () => require("./databaseAccountCassandraTable"));
+utilities.lazyLoad(exports, ["DatabaseAccountGremlinDatabase"], () => require("./databaseAccountGremlinDatabase"));
+utilities.lazyLoad(exports, ["DatabaseAccountGremlinGraph"], () => require("./databaseAccountGremlinGraph"));
+utilities.lazyLoad(exports, ["DatabaseAccountMongoDBCollection"], () => require("./databaseAccountMongoDBCollection"));
+utilities.lazyLoad(exports, ["DatabaseAccountMongoDBDatabase"], () => require("./databaseAccountMongoDBDatabase"));
+utilities.lazyLoad(exports, ["DatabaseAccountSqlContainer"], () => require("./databaseAccountSqlContainer"));
+utilities.lazyLoad(exports, ["DatabaseAccountSqlDatabase"], () => require("./databaseAccountSqlDatabase"));
+utilities.lazyLoad(exports, ["DatabaseAccountTable"], () => require("./databaseAccountTable"));
+utilities.lazyLoad(exports, ["getDatabaseAccount","getDatabaseAccountOutput"], () => require("./getDatabaseAccount"));
+utilities.lazyLoad(exports, ["getDatabaseAccountCassandraKeyspace","getDatabaseAccountCassandraKeyspaceOutput"], () => require("./getDatabaseAccountCassandraKeyspace"));
+utilities.lazyLoad(exports, ["getDatabaseAccountCassandraTable","getDatabaseAccountCassandraTableOutput"], () => require("./getDatabaseAccountCassandraTable"));
+utilities.lazyLoad(exports, ["getDatabaseAccountGremlinDatabase","getDatabaseAccountGremlinDatabaseOutput"], () => require("./getDatabaseAccountGremlinDatabase"));
+utilities.lazyLoad(exports, ["getDatabaseAccountGremlinGraph","getDatabaseAccountGremlinGraphOutput"], () => require("./getDatabaseAccountGremlinGraph"));
+utilities.lazyLoad(exports, ["getDatabaseAccountMongoDBCollection","getDatabaseAccountMongoDBCollectionOutput"], () => require("./getDatabaseAccountMongoDBCollection"));
+utilities.lazyLoad(exports, ["getDatabaseAccountMongoDBDatabase","getDatabaseAccountMongoDBDatabaseOutput"], () => require("./getDatabaseAccountMongoDBDatabase"));
+utilities.lazyLoad(exports, ["getDatabaseAccountSqlContainer","getDatabaseAccountSqlContainerOutput"], () => require("./getDatabaseAccountSqlContainer"));
+utilities.lazyLoad(exports, ["getDatabaseAccountSqlDatabase","getDatabaseAccountSqlDatabaseOutput"], () => require("./getDatabaseAccountSqlDatabase"));
+utilities.lazyLoad(exports, ["getDatabaseAccountTable","getDatabaseAccountTableOutput"], () => require("./getDatabaseAccountTable"));
+utilities.lazyLoad(exports, ["listDatabaseAccountConnectionStrings","listDatabaseAccountConnectionStringsOutput"], () => require("./listDatabaseAccountConnectionStrings"));
+utilities.lazyLoad(exports, ["listDatabaseAccountKeys","listDatabaseAccountKeysOutput"], () => require("./listDatabaseAccountKeys"));
 
 // Export enums:
 export * from "../../types/enums/documentdb/v20160319";
-
-// Import resources to register:
-import { DatabaseAccount } from "./databaseAccount";
-import { DatabaseAccountCassandraKeyspace } from "./databaseAccountCassandraKeyspace";
-import { DatabaseAccountCassandraTable } from "./databaseAccountCassandraTable";
-import { DatabaseAccountGremlinDatabase } from "./databaseAccountGremlinDatabase";
-import { DatabaseAccountGremlinGraph } from "./databaseAccountGremlinGraph";
-import { DatabaseAccountMongoDBCollection } from "./databaseAccountMongoDBCollection";
-import { DatabaseAccountMongoDBDatabase } from "./databaseAccountMongoDBDatabase";
-import { DatabaseAccountSqlContainer } from "./databaseAccountSqlContainer";
-import { DatabaseAccountSqlDatabase } from "./databaseAccountSqlDatabase";
-import { DatabaseAccountTable } from "./databaseAccountTable";
 
 const _module = {
     version: utilities.getVersion(),

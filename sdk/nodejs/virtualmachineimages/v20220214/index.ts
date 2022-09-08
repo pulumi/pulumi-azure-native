@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getVirtualMachineImageTemplate";
-export * from "./virtualMachineImageTemplate";
+export { GetVirtualMachineImageTemplateArgs, GetVirtualMachineImageTemplateResult, GetVirtualMachineImageTemplateOutputArgs } from "./getVirtualMachineImageTemplate";
+export const getVirtualMachineImageTemplate: typeof import("./getVirtualMachineImageTemplate").getVirtualMachineImageTemplate = null as any;
+export const getVirtualMachineImageTemplateOutput: typeof import("./getVirtualMachineImageTemplate").getVirtualMachineImageTemplateOutput = null as any;
+
+export { VirtualMachineImageTemplateArgs } from "./virtualMachineImageTemplate";
+export type VirtualMachineImageTemplate = import("./virtualMachineImageTemplate").VirtualMachineImageTemplate;
+export const VirtualMachineImageTemplate: typeof import("./virtualMachineImageTemplate").VirtualMachineImageTemplate = null as any;
+
+utilities.lazyLoad(exports, ["getVirtualMachineImageTemplate","getVirtualMachineImageTemplateOutput"], () => require("./getVirtualMachineImageTemplate"));
+utilities.lazyLoad(exports, ["VirtualMachineImageTemplate"], () => require("./virtualMachineImageTemplate"));
 
 // Export enums:
 export * from "../../types/enums/virtualmachineimages/v20220214";
-
-// Import resources to register:
-import { VirtualMachineImageTemplate } from "./virtualMachineImageTemplate";
 
 const _module = {
     version: utilities.getVersion(),

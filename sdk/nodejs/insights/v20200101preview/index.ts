@@ -5,11 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getManagementGroupDiagnosticSetting";
-export * from "./managementGroupDiagnosticSetting";
+export { GetManagementGroupDiagnosticSettingArgs, GetManagementGroupDiagnosticSettingResult, GetManagementGroupDiagnosticSettingOutputArgs } from "./getManagementGroupDiagnosticSetting";
+export const getManagementGroupDiagnosticSetting: typeof import("./getManagementGroupDiagnosticSetting").getManagementGroupDiagnosticSetting = null as any;
+export const getManagementGroupDiagnosticSettingOutput: typeof import("./getManagementGroupDiagnosticSetting").getManagementGroupDiagnosticSettingOutput = null as any;
 
-// Import resources to register:
-import { ManagementGroupDiagnosticSetting } from "./managementGroupDiagnosticSetting";
+export { ManagementGroupDiagnosticSettingArgs } from "./managementGroupDiagnosticSetting";
+export type ManagementGroupDiagnosticSetting = import("./managementGroupDiagnosticSetting").ManagementGroupDiagnosticSetting;
+export const ManagementGroupDiagnosticSetting: typeof import("./managementGroupDiagnosticSetting").ManagementGroupDiagnosticSetting = null as any;
+
+utilities.lazyLoad(exports, ["getManagementGroupDiagnosticSetting","getManagementGroupDiagnosticSettingOutput"], () => require("./getManagementGroupDiagnosticSetting"));
+utilities.lazyLoad(exports, ["ManagementGroupDiagnosticSetting"], () => require("./managementGroupDiagnosticSetting"));
 
 const _module = {
     version: utilities.getVersion(),

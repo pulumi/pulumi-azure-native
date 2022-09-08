@@ -5,8 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./enterpriseKnowledgeGraph";
-export * from "./getEnterpriseKnowledgeGraph";
+export { EnterpriseKnowledgeGraphArgs } from "./enterpriseKnowledgeGraph";
+export type EnterpriseKnowledgeGraph = import("./enterpriseKnowledgeGraph").EnterpriseKnowledgeGraph;
+export const EnterpriseKnowledgeGraph: typeof import("./enterpriseKnowledgeGraph").EnterpriseKnowledgeGraph = null as any;
+
+export { GetEnterpriseKnowledgeGraphArgs, GetEnterpriseKnowledgeGraphResult, GetEnterpriseKnowledgeGraphOutputArgs } from "./getEnterpriseKnowledgeGraph";
+export const getEnterpriseKnowledgeGraph: typeof import("./getEnterpriseKnowledgeGraph").getEnterpriseKnowledgeGraph = null as any;
+export const getEnterpriseKnowledgeGraphOutput: typeof import("./getEnterpriseKnowledgeGraph").getEnterpriseKnowledgeGraphOutput = null as any;
+
+utilities.lazyLoad(exports, ["EnterpriseKnowledgeGraph"], () => require("./enterpriseKnowledgeGraph"));
+utilities.lazyLoad(exports, ["getEnterpriseKnowledgeGraph","getEnterpriseKnowledgeGraphOutput"], () => require("./getEnterpriseKnowledgeGraph"));
 
 // Export enums:
 export * from "../types/enums/enterpriseknowledgegraph";
@@ -17,9 +25,6 @@ import * as v20181203 from "./v20181203";
 export {
     v20181203,
 };
-
-// Import resources to register:
-import { EnterpriseKnowledgeGraph } from "./enterpriseKnowledgeGraph";
 
 const _module = {
     version: utilities.getVersion(),

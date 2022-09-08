@@ -5,10 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./association";
-export * from "./customResourceProvider";
-export * from "./getAssociation";
-export * from "./getCustomResourceProvider";
+export { AssociationArgs } from "./association";
+export type Association = import("./association").Association;
+export const Association: typeof import("./association").Association = null as any;
+
+export { CustomResourceProviderArgs } from "./customResourceProvider";
+export type CustomResourceProvider = import("./customResourceProvider").CustomResourceProvider;
+export const CustomResourceProvider: typeof import("./customResourceProvider").CustomResourceProvider = null as any;
+
+export { GetAssociationArgs, GetAssociationResult, GetAssociationOutputArgs } from "./getAssociation";
+export const getAssociation: typeof import("./getAssociation").getAssociation = null as any;
+export const getAssociationOutput: typeof import("./getAssociation").getAssociationOutput = null as any;
+
+export { GetCustomResourceProviderArgs, GetCustomResourceProviderResult, GetCustomResourceProviderOutputArgs } from "./getCustomResourceProvider";
+export const getCustomResourceProvider: typeof import("./getCustomResourceProvider").getCustomResourceProvider = null as any;
+export const getCustomResourceProviderOutput: typeof import("./getCustomResourceProvider").getCustomResourceProviderOutput = null as any;
+
+utilities.lazyLoad(exports, ["Association"], () => require("./association"));
+utilities.lazyLoad(exports, ["CustomResourceProvider"], () => require("./customResourceProvider"));
+utilities.lazyLoad(exports, ["getAssociation","getAssociationOutput"], () => require("./getAssociation"));
+utilities.lazyLoad(exports, ["getCustomResourceProvider","getCustomResourceProviderOutput"], () => require("./getCustomResourceProvider"));
 
 // Export enums:
 export * from "../types/enums/customproviders";
@@ -19,10 +35,6 @@ import * as v20180901preview from "./v20180901preview";
 export {
     v20180901preview,
 };
-
-// Import resources to register:
-import { Association } from "./association";
-import { CustomResourceProvider } from "./customResourceProvider";
 
 const _module = {
     version: utilities.getVersion(),

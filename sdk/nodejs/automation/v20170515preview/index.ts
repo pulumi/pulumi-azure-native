@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getSoftwareUpdateConfigurationByName";
-export * from "./getSourceControl";
-export * from "./softwareUpdateConfigurationByName";
-export * from "./sourceControl";
+export { GetSoftwareUpdateConfigurationByNameArgs, GetSoftwareUpdateConfigurationByNameResult, GetSoftwareUpdateConfigurationByNameOutputArgs } from "./getSoftwareUpdateConfigurationByName";
+export const getSoftwareUpdateConfigurationByName: typeof import("./getSoftwareUpdateConfigurationByName").getSoftwareUpdateConfigurationByName = null as any;
+export const getSoftwareUpdateConfigurationByNameOutput: typeof import("./getSoftwareUpdateConfigurationByName").getSoftwareUpdateConfigurationByNameOutput = null as any;
+
+export { GetSourceControlArgs, GetSourceControlResult, GetSourceControlOutputArgs } from "./getSourceControl";
+export const getSourceControl: typeof import("./getSourceControl").getSourceControl = null as any;
+export const getSourceControlOutput: typeof import("./getSourceControl").getSourceControlOutput = null as any;
+
+export { SoftwareUpdateConfigurationByNameArgs } from "./softwareUpdateConfigurationByName";
+export type SoftwareUpdateConfigurationByName = import("./softwareUpdateConfigurationByName").SoftwareUpdateConfigurationByName;
+export const SoftwareUpdateConfigurationByName: typeof import("./softwareUpdateConfigurationByName").SoftwareUpdateConfigurationByName = null as any;
+
+export { SourceControlArgs } from "./sourceControl";
+export type SourceControl = import("./sourceControl").SourceControl;
+export const SourceControl: typeof import("./sourceControl").SourceControl = null as any;
+
+utilities.lazyLoad(exports, ["getSoftwareUpdateConfigurationByName","getSoftwareUpdateConfigurationByNameOutput"], () => require("./getSoftwareUpdateConfigurationByName"));
+utilities.lazyLoad(exports, ["getSourceControl","getSourceControlOutput"], () => require("./getSourceControl"));
+utilities.lazyLoad(exports, ["SoftwareUpdateConfigurationByName"], () => require("./softwareUpdateConfigurationByName"));
+utilities.lazyLoad(exports, ["SourceControl"], () => require("./sourceControl"));
 
 // Export enums:
 export * from "../../types/enums/automation/v20170515preview";
-
-// Import resources to register:
-import { SoftwareUpdateConfigurationByName } from "./softwareUpdateConfigurationByName";
-import { SourceControl } from "./sourceControl";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./cache";
-export * from "./getCache";
-export * from "./getStorageTarget";
-export * from "./storageTarget";
+export { CacheArgs } from "./cache";
+export type Cache = import("./cache").Cache;
+export const Cache: typeof import("./cache").Cache = null as any;
+
+export { GetCacheArgs, GetCacheResult, GetCacheOutputArgs } from "./getCache";
+export const getCache: typeof import("./getCache").getCache = null as any;
+export const getCacheOutput: typeof import("./getCache").getCacheOutput = null as any;
+
+export { GetStorageTargetArgs, GetStorageTargetResult, GetStorageTargetOutputArgs } from "./getStorageTarget";
+export const getStorageTarget: typeof import("./getStorageTarget").getStorageTarget = null as any;
+export const getStorageTargetOutput: typeof import("./getStorageTarget").getStorageTargetOutput = null as any;
+
+export { StorageTargetArgs } from "./storageTarget";
+export type StorageTarget = import("./storageTarget").StorageTarget;
+export const StorageTarget: typeof import("./storageTarget").StorageTarget = null as any;
+
+utilities.lazyLoad(exports, ["Cache"], () => require("./cache"));
+utilities.lazyLoad(exports, ["getCache","getCacheOutput"], () => require("./getCache"));
+utilities.lazyLoad(exports, ["getStorageTarget","getStorageTargetOutput"], () => require("./getStorageTarget"));
+utilities.lazyLoad(exports, ["StorageTarget"], () => require("./storageTarget"));
 
 // Export enums:
 export * from "../../types/enums/storagecache/v20210901";
-
-// Import resources to register:
-import { Cache } from "./cache";
-import { StorageTarget } from "./storageTarget";
 
 const _module = {
     version: utilities.getVersion(),

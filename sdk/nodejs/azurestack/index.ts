@@ -5,17 +5,61 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./customerSubscription";
-export * from "./getCustomerSubscription";
-export * from "./getLinkedSubscription";
-export * from "./getProduct";
-export * from "./getProducts";
-export * from "./getRegistration";
-export * from "./getRegistrationActivationKey";
-export * from "./linkedSubscription";
-export * from "./listProductDetails";
-export * from "./listProducts";
-export * from "./registration";
+export { CustomerSubscriptionArgs } from "./customerSubscription";
+export type CustomerSubscription = import("./customerSubscription").CustomerSubscription;
+export const CustomerSubscription: typeof import("./customerSubscription").CustomerSubscription = null as any;
+
+export { GetCustomerSubscriptionArgs, GetCustomerSubscriptionResult, GetCustomerSubscriptionOutputArgs } from "./getCustomerSubscription";
+export const getCustomerSubscription: typeof import("./getCustomerSubscription").getCustomerSubscription = null as any;
+export const getCustomerSubscriptionOutput: typeof import("./getCustomerSubscription").getCustomerSubscriptionOutput = null as any;
+
+export { GetLinkedSubscriptionArgs, GetLinkedSubscriptionResult, GetLinkedSubscriptionOutputArgs } from "./getLinkedSubscription";
+export const getLinkedSubscription: typeof import("./getLinkedSubscription").getLinkedSubscription = null as any;
+export const getLinkedSubscriptionOutput: typeof import("./getLinkedSubscription").getLinkedSubscriptionOutput = null as any;
+
+export { GetProductArgs, GetProductResult, GetProductOutputArgs } from "./getProduct";
+export const getProduct: typeof import("./getProduct").getProduct = null as any;
+export const getProductOutput: typeof import("./getProduct").getProductOutput = null as any;
+
+export { GetProductsArgs, GetProductsResult, GetProductsOutputArgs } from "./getProducts";
+export const getProducts: typeof import("./getProducts").getProducts = null as any;
+export const getProductsOutput: typeof import("./getProducts").getProductsOutput = null as any;
+
+export { GetRegistrationArgs, GetRegistrationResult, GetRegistrationOutputArgs } from "./getRegistration";
+export const getRegistration: typeof import("./getRegistration").getRegistration = null as any;
+export const getRegistrationOutput: typeof import("./getRegistration").getRegistrationOutput = null as any;
+
+export { GetRegistrationActivationKeyArgs, GetRegistrationActivationKeyResult, GetRegistrationActivationKeyOutputArgs } from "./getRegistrationActivationKey";
+export const getRegistrationActivationKey: typeof import("./getRegistrationActivationKey").getRegistrationActivationKey = null as any;
+export const getRegistrationActivationKeyOutput: typeof import("./getRegistrationActivationKey").getRegistrationActivationKeyOutput = null as any;
+
+export { LinkedSubscriptionArgs } from "./linkedSubscription";
+export type LinkedSubscription = import("./linkedSubscription").LinkedSubscription;
+export const LinkedSubscription: typeof import("./linkedSubscription").LinkedSubscription = null as any;
+
+export { ListProductDetailsArgs, ListProductDetailsResult, ListProductDetailsOutputArgs } from "./listProductDetails";
+export const listProductDetails: typeof import("./listProductDetails").listProductDetails = null as any;
+export const listProductDetailsOutput: typeof import("./listProductDetails").listProductDetailsOutput = null as any;
+
+export { ListProductsArgs, ListProductsResult, ListProductsOutputArgs } from "./listProducts";
+export const listProducts: typeof import("./listProducts").listProducts = null as any;
+export const listProductsOutput: typeof import("./listProducts").listProductsOutput = null as any;
+
+export { RegistrationArgs } from "./registration";
+export type Registration = import("./registration").Registration;
+export const Registration: typeof import("./registration").Registration = null as any;
+
+utilities.lazyLoad(exports, ["CustomerSubscription"], () => require("./customerSubscription"));
+utilities.lazyLoad(exports, ["getCustomerSubscription","getCustomerSubscriptionOutput"], () => require("./getCustomerSubscription"));
+utilities.lazyLoad(exports, ["getLinkedSubscription","getLinkedSubscriptionOutput"], () => require("./getLinkedSubscription"));
+utilities.lazyLoad(exports, ["getProduct","getProductOutput"], () => require("./getProduct"));
+utilities.lazyLoad(exports, ["getProducts","getProductsOutput"], () => require("./getProducts"));
+utilities.lazyLoad(exports, ["getRegistration","getRegistrationOutput"], () => require("./getRegistration"));
+utilities.lazyLoad(exports, ["getRegistrationActivationKey","getRegistrationActivationKeyOutput"], () => require("./getRegistrationActivationKey"));
+utilities.lazyLoad(exports, ["LinkedSubscription"], () => require("./linkedSubscription"));
+utilities.lazyLoad(exports, ["listProductDetails","listProductDetailsOutput"], () => require("./listProductDetails"));
+utilities.lazyLoad(exports, ["listProducts","listProductsOutput"], () => require("./listProducts"));
+utilities.lazyLoad(exports, ["Registration"], () => require("./registration"));
 
 // Export enums:
 export * from "../types/enums/azurestack";
@@ -32,11 +76,6 @@ export {
     v20200601preview,
     v20220601,
 };
-
-// Import resources to register:
-import { CustomerSubscription } from "./customerSubscription";
-import { LinkedSubscription } from "./linkedSubscription";
-import { Registration } from "./registration";
 
 const _module = {
     version: utilities.getVersion(),

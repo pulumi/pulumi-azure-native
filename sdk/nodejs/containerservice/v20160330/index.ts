@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./containerService";
-export * from "./getContainerService";
+export { ContainerServiceArgs } from "./containerService";
+export type ContainerService = import("./containerService").ContainerService;
+export const ContainerService: typeof import("./containerService").ContainerService = null as any;
+
+export { GetContainerServiceArgs, GetContainerServiceResult, GetContainerServiceOutputArgs } from "./getContainerService";
+export const getContainerService: typeof import("./getContainerService").getContainerService = null as any;
+export const getContainerServiceOutput: typeof import("./getContainerService").getContainerServiceOutput = null as any;
+
+utilities.lazyLoad(exports, ["ContainerService"], () => require("./containerService"));
+utilities.lazyLoad(exports, ["getContainerService","getContainerServiceOutput"], () => require("./getContainerService"));
 
 // Export enums:
 export * from "../../types/enums/containerservice/v20160330";
-
-// Import resources to register:
-import { ContainerService } from "./containerService";
 
 const _module = {
     version: utilities.getVersion(),

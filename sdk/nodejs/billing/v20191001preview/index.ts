@@ -5,18 +5,41 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./billingRoleAssignmentByBillingAccount";
-export * from "./billingRoleAssignmentByDepartment";
-export * from "./billingRoleAssignmentByEnrollmentAccount";
-export * from "./getBillingRoleAssignmentByBillingAccount";
-export * from "./getBillingRoleAssignmentByDepartment";
-export * from "./getBillingRoleAssignmentByEnrollmentAccount";
-export * from "./listBillingAccountInvoiceSectionsByCreateSubscriptionPermission";
+export { BillingRoleAssignmentByBillingAccountArgs } from "./billingRoleAssignmentByBillingAccount";
+export type BillingRoleAssignmentByBillingAccount = import("./billingRoleAssignmentByBillingAccount").BillingRoleAssignmentByBillingAccount;
+export const BillingRoleAssignmentByBillingAccount: typeof import("./billingRoleAssignmentByBillingAccount").BillingRoleAssignmentByBillingAccount = null as any;
 
-// Import resources to register:
-import { BillingRoleAssignmentByBillingAccount } from "./billingRoleAssignmentByBillingAccount";
-import { BillingRoleAssignmentByDepartment } from "./billingRoleAssignmentByDepartment";
-import { BillingRoleAssignmentByEnrollmentAccount } from "./billingRoleAssignmentByEnrollmentAccount";
+export { BillingRoleAssignmentByDepartmentArgs } from "./billingRoleAssignmentByDepartment";
+export type BillingRoleAssignmentByDepartment = import("./billingRoleAssignmentByDepartment").BillingRoleAssignmentByDepartment;
+export const BillingRoleAssignmentByDepartment: typeof import("./billingRoleAssignmentByDepartment").BillingRoleAssignmentByDepartment = null as any;
+
+export { BillingRoleAssignmentByEnrollmentAccountArgs } from "./billingRoleAssignmentByEnrollmentAccount";
+export type BillingRoleAssignmentByEnrollmentAccount = import("./billingRoleAssignmentByEnrollmentAccount").BillingRoleAssignmentByEnrollmentAccount;
+export const BillingRoleAssignmentByEnrollmentAccount: typeof import("./billingRoleAssignmentByEnrollmentAccount").BillingRoleAssignmentByEnrollmentAccount = null as any;
+
+export { GetBillingRoleAssignmentByBillingAccountArgs, GetBillingRoleAssignmentByBillingAccountResult, GetBillingRoleAssignmentByBillingAccountOutputArgs } from "./getBillingRoleAssignmentByBillingAccount";
+export const getBillingRoleAssignmentByBillingAccount: typeof import("./getBillingRoleAssignmentByBillingAccount").getBillingRoleAssignmentByBillingAccount = null as any;
+export const getBillingRoleAssignmentByBillingAccountOutput: typeof import("./getBillingRoleAssignmentByBillingAccount").getBillingRoleAssignmentByBillingAccountOutput = null as any;
+
+export { GetBillingRoleAssignmentByDepartmentArgs, GetBillingRoleAssignmentByDepartmentResult, GetBillingRoleAssignmentByDepartmentOutputArgs } from "./getBillingRoleAssignmentByDepartment";
+export const getBillingRoleAssignmentByDepartment: typeof import("./getBillingRoleAssignmentByDepartment").getBillingRoleAssignmentByDepartment = null as any;
+export const getBillingRoleAssignmentByDepartmentOutput: typeof import("./getBillingRoleAssignmentByDepartment").getBillingRoleAssignmentByDepartmentOutput = null as any;
+
+export { GetBillingRoleAssignmentByEnrollmentAccountArgs, GetBillingRoleAssignmentByEnrollmentAccountResult, GetBillingRoleAssignmentByEnrollmentAccountOutputArgs } from "./getBillingRoleAssignmentByEnrollmentAccount";
+export const getBillingRoleAssignmentByEnrollmentAccount: typeof import("./getBillingRoleAssignmentByEnrollmentAccount").getBillingRoleAssignmentByEnrollmentAccount = null as any;
+export const getBillingRoleAssignmentByEnrollmentAccountOutput: typeof import("./getBillingRoleAssignmentByEnrollmentAccount").getBillingRoleAssignmentByEnrollmentAccountOutput = null as any;
+
+export { ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionArgs, ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult, ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionOutputArgs } from "./listBillingAccountInvoiceSectionsByCreateSubscriptionPermission";
+export const listBillingAccountInvoiceSectionsByCreateSubscriptionPermission: typeof import("./listBillingAccountInvoiceSectionsByCreateSubscriptionPermission").listBillingAccountInvoiceSectionsByCreateSubscriptionPermission = null as any;
+export const listBillingAccountInvoiceSectionsByCreateSubscriptionPermissionOutput: typeof import("./listBillingAccountInvoiceSectionsByCreateSubscriptionPermission").listBillingAccountInvoiceSectionsByCreateSubscriptionPermissionOutput = null as any;
+
+utilities.lazyLoad(exports, ["BillingRoleAssignmentByBillingAccount"], () => require("./billingRoleAssignmentByBillingAccount"));
+utilities.lazyLoad(exports, ["BillingRoleAssignmentByDepartment"], () => require("./billingRoleAssignmentByDepartment"));
+utilities.lazyLoad(exports, ["BillingRoleAssignmentByEnrollmentAccount"], () => require("./billingRoleAssignmentByEnrollmentAccount"));
+utilities.lazyLoad(exports, ["getBillingRoleAssignmentByBillingAccount","getBillingRoleAssignmentByBillingAccountOutput"], () => require("./getBillingRoleAssignmentByBillingAccount"));
+utilities.lazyLoad(exports, ["getBillingRoleAssignmentByDepartment","getBillingRoleAssignmentByDepartmentOutput"], () => require("./getBillingRoleAssignmentByDepartment"));
+utilities.lazyLoad(exports, ["getBillingRoleAssignmentByEnrollmentAccount","getBillingRoleAssignmentByEnrollmentAccountOutput"], () => require("./getBillingRoleAssignmentByEnrollmentAccount"));
+utilities.lazyLoad(exports, ["listBillingAccountInvoiceSectionsByCreateSubscriptionPermission","listBillingAccountInvoiceSectionsByCreateSubscriptionPermissionOutput"], () => require("./listBillingAccountInvoiceSectionsByCreateSubscriptionPermission"));
 
 const _module = {
     version: utilities.getVersion(),

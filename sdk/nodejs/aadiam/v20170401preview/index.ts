@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./diagnosticSetting";
-export * from "./getDiagnosticSetting";
+export { DiagnosticSettingArgs } from "./diagnosticSetting";
+export type DiagnosticSetting = import("./diagnosticSetting").DiagnosticSetting;
+export const DiagnosticSetting: typeof import("./diagnosticSetting").DiagnosticSetting = null as any;
+
+export { GetDiagnosticSettingArgs, GetDiagnosticSettingResult, GetDiagnosticSettingOutputArgs } from "./getDiagnosticSetting";
+export const getDiagnosticSetting: typeof import("./getDiagnosticSetting").getDiagnosticSetting = null as any;
+export const getDiagnosticSettingOutput: typeof import("./getDiagnosticSetting").getDiagnosticSettingOutput = null as any;
+
+utilities.lazyLoad(exports, ["DiagnosticSetting"], () => require("./diagnosticSetting"));
+utilities.lazyLoad(exports, ["getDiagnosticSetting","getDiagnosticSettingOutput"], () => require("./getDiagnosticSetting"));
 
 // Export enums:
 export * from "../../types/enums/aadiam/v20170401preview";
-
-// Import resources to register:
-import { DiagnosticSetting } from "./diagnosticSetting";
 
 const _module = {
     version: utilities.getVersion(),

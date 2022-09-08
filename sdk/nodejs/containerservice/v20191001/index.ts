@@ -5,21 +5,49 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./agentPool";
-export * from "./getAgentPool";
-export * from "./getManagedCluster";
-export * from "./listManagedClusterAccessProfile";
-export * from "./listManagedClusterAdminCredentials";
-export * from "./listManagedClusterMonitoringUserCredentials";
-export * from "./listManagedClusterUserCredentials";
-export * from "./managedCluster";
+export { AgentPoolArgs } from "./agentPool";
+export type AgentPool = import("./agentPool").AgentPool;
+export const AgentPool: typeof import("./agentPool").AgentPool = null as any;
+
+export { GetAgentPoolArgs, GetAgentPoolResult, GetAgentPoolOutputArgs } from "./getAgentPool";
+export const getAgentPool: typeof import("./getAgentPool").getAgentPool = null as any;
+export const getAgentPoolOutput: typeof import("./getAgentPool").getAgentPoolOutput = null as any;
+
+export { GetManagedClusterArgs, GetManagedClusterResult, GetManagedClusterOutputArgs } from "./getManagedCluster";
+export const getManagedCluster: typeof import("./getManagedCluster").getManagedCluster = null as any;
+export const getManagedClusterOutput: typeof import("./getManagedCluster").getManagedClusterOutput = null as any;
+
+export { ListManagedClusterAccessProfileArgs, ListManagedClusterAccessProfileResult, ListManagedClusterAccessProfileOutputArgs } from "./listManagedClusterAccessProfile";
+export const listManagedClusterAccessProfile: typeof import("./listManagedClusterAccessProfile").listManagedClusterAccessProfile = null as any;
+export const listManagedClusterAccessProfileOutput: typeof import("./listManagedClusterAccessProfile").listManagedClusterAccessProfileOutput = null as any;
+
+export { ListManagedClusterAdminCredentialsArgs, ListManagedClusterAdminCredentialsResult, ListManagedClusterAdminCredentialsOutputArgs } from "./listManagedClusterAdminCredentials";
+export const listManagedClusterAdminCredentials: typeof import("./listManagedClusterAdminCredentials").listManagedClusterAdminCredentials = null as any;
+export const listManagedClusterAdminCredentialsOutput: typeof import("./listManagedClusterAdminCredentials").listManagedClusterAdminCredentialsOutput = null as any;
+
+export { ListManagedClusterMonitoringUserCredentialsArgs, ListManagedClusterMonitoringUserCredentialsResult, ListManagedClusterMonitoringUserCredentialsOutputArgs } from "./listManagedClusterMonitoringUserCredentials";
+export const listManagedClusterMonitoringUserCredentials: typeof import("./listManagedClusterMonitoringUserCredentials").listManagedClusterMonitoringUserCredentials = null as any;
+export const listManagedClusterMonitoringUserCredentialsOutput: typeof import("./listManagedClusterMonitoringUserCredentials").listManagedClusterMonitoringUserCredentialsOutput = null as any;
+
+export { ListManagedClusterUserCredentialsArgs, ListManagedClusterUserCredentialsResult, ListManagedClusterUserCredentialsOutputArgs } from "./listManagedClusterUserCredentials";
+export const listManagedClusterUserCredentials: typeof import("./listManagedClusterUserCredentials").listManagedClusterUserCredentials = null as any;
+export const listManagedClusterUserCredentialsOutput: typeof import("./listManagedClusterUserCredentials").listManagedClusterUserCredentialsOutput = null as any;
+
+export { ManagedClusterArgs } from "./managedCluster";
+export type ManagedCluster = import("./managedCluster").ManagedCluster;
+export const ManagedCluster: typeof import("./managedCluster").ManagedCluster = null as any;
+
+utilities.lazyLoad(exports, ["AgentPool"], () => require("./agentPool"));
+utilities.lazyLoad(exports, ["getAgentPool","getAgentPoolOutput"], () => require("./getAgentPool"));
+utilities.lazyLoad(exports, ["getManagedCluster","getManagedClusterOutput"], () => require("./getManagedCluster"));
+utilities.lazyLoad(exports, ["listManagedClusterAccessProfile","listManagedClusterAccessProfileOutput"], () => require("./listManagedClusterAccessProfile"));
+utilities.lazyLoad(exports, ["listManagedClusterAdminCredentials","listManagedClusterAdminCredentialsOutput"], () => require("./listManagedClusterAdminCredentials"));
+utilities.lazyLoad(exports, ["listManagedClusterMonitoringUserCredentials","listManagedClusterMonitoringUserCredentialsOutput"], () => require("./listManagedClusterMonitoringUserCredentials"));
+utilities.lazyLoad(exports, ["listManagedClusterUserCredentials","listManagedClusterUserCredentialsOutput"], () => require("./listManagedClusterUserCredentials"));
+utilities.lazyLoad(exports, ["ManagedCluster"], () => require("./managedCluster"));
 
 // Export enums:
 export * from "../../types/enums/containerservice/v20191001";
-
-// Import resources to register:
-import { AgentPool } from "./agentPool";
-import { ManagedCluster } from "./managedCluster";
 
 const _module = {
     version: utilities.getVersion(),

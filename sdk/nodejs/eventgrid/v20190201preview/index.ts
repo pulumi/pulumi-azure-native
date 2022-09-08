@@ -5,26 +5,64 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./domain";
-export * from "./domainTopic";
-export * from "./eventSubscription";
-export * from "./getDomain";
-export * from "./getDomainTopic";
-export * from "./getEventSubscription";
-export * from "./getEventSubscriptionFullUrl";
-export * from "./getTopic";
-export * from "./listDomainSharedAccessKeys";
-export * from "./listTopicSharedAccessKeys";
-export * from "./topic";
+export { DomainArgs } from "./domain";
+export type Domain = import("./domain").Domain;
+export const Domain: typeof import("./domain").Domain = null as any;
+
+export { DomainTopicArgs } from "./domainTopic";
+export type DomainTopic = import("./domainTopic").DomainTopic;
+export const DomainTopic: typeof import("./domainTopic").DomainTopic = null as any;
+
+export { EventSubscriptionArgs } from "./eventSubscription";
+export type EventSubscription = import("./eventSubscription").EventSubscription;
+export const EventSubscription: typeof import("./eventSubscription").EventSubscription = null as any;
+
+export { GetDomainArgs, GetDomainResult, GetDomainOutputArgs } from "./getDomain";
+export const getDomain: typeof import("./getDomain").getDomain = null as any;
+export const getDomainOutput: typeof import("./getDomain").getDomainOutput = null as any;
+
+export { GetDomainTopicArgs, GetDomainTopicResult, GetDomainTopicOutputArgs } from "./getDomainTopic";
+export const getDomainTopic: typeof import("./getDomainTopic").getDomainTopic = null as any;
+export const getDomainTopicOutput: typeof import("./getDomainTopic").getDomainTopicOutput = null as any;
+
+export { GetEventSubscriptionArgs, GetEventSubscriptionResult, GetEventSubscriptionOutputArgs } from "./getEventSubscription";
+export const getEventSubscription: typeof import("./getEventSubscription").getEventSubscription = null as any;
+export const getEventSubscriptionOutput: typeof import("./getEventSubscription").getEventSubscriptionOutput = null as any;
+
+export { GetEventSubscriptionFullUrlArgs, GetEventSubscriptionFullUrlResult, GetEventSubscriptionFullUrlOutputArgs } from "./getEventSubscriptionFullUrl";
+export const getEventSubscriptionFullUrl: typeof import("./getEventSubscriptionFullUrl").getEventSubscriptionFullUrl = null as any;
+export const getEventSubscriptionFullUrlOutput: typeof import("./getEventSubscriptionFullUrl").getEventSubscriptionFullUrlOutput = null as any;
+
+export { GetTopicArgs, GetTopicResult, GetTopicOutputArgs } from "./getTopic";
+export const getTopic: typeof import("./getTopic").getTopic = null as any;
+export const getTopicOutput: typeof import("./getTopic").getTopicOutput = null as any;
+
+export { ListDomainSharedAccessKeysArgs, ListDomainSharedAccessKeysResult, ListDomainSharedAccessKeysOutputArgs } from "./listDomainSharedAccessKeys";
+export const listDomainSharedAccessKeys: typeof import("./listDomainSharedAccessKeys").listDomainSharedAccessKeys = null as any;
+export const listDomainSharedAccessKeysOutput: typeof import("./listDomainSharedAccessKeys").listDomainSharedAccessKeysOutput = null as any;
+
+export { ListTopicSharedAccessKeysArgs, ListTopicSharedAccessKeysResult, ListTopicSharedAccessKeysOutputArgs } from "./listTopicSharedAccessKeys";
+export const listTopicSharedAccessKeys: typeof import("./listTopicSharedAccessKeys").listTopicSharedAccessKeys = null as any;
+export const listTopicSharedAccessKeysOutput: typeof import("./listTopicSharedAccessKeys").listTopicSharedAccessKeysOutput = null as any;
+
+export { TopicArgs } from "./topic";
+export type Topic = import("./topic").Topic;
+export const Topic: typeof import("./topic").Topic = null as any;
+
+utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
+utilities.lazyLoad(exports, ["DomainTopic"], () => require("./domainTopic"));
+utilities.lazyLoad(exports, ["EventSubscription"], () => require("./eventSubscription"));
+utilities.lazyLoad(exports, ["getDomain","getDomainOutput"], () => require("./getDomain"));
+utilities.lazyLoad(exports, ["getDomainTopic","getDomainTopicOutput"], () => require("./getDomainTopic"));
+utilities.lazyLoad(exports, ["getEventSubscription","getEventSubscriptionOutput"], () => require("./getEventSubscription"));
+utilities.lazyLoad(exports, ["getEventSubscriptionFullUrl","getEventSubscriptionFullUrlOutput"], () => require("./getEventSubscriptionFullUrl"));
+utilities.lazyLoad(exports, ["getTopic","getTopicOutput"], () => require("./getTopic"));
+utilities.lazyLoad(exports, ["listDomainSharedAccessKeys","listDomainSharedAccessKeysOutput"], () => require("./listDomainSharedAccessKeys"));
+utilities.lazyLoad(exports, ["listTopicSharedAccessKeys","listTopicSharedAccessKeysOutput"], () => require("./listTopicSharedAccessKeys"));
+utilities.lazyLoad(exports, ["Topic"], () => require("./topic"));
 
 // Export enums:
 export * from "../../types/enums/eventgrid/v20190201preview";
-
-// Import resources to register:
-import { Domain } from "./domain";
-import { DomainTopic } from "./domainTopic";
-import { EventSubscription } from "./eventSubscription";
-import { Topic } from "./topic";
 
 const _module = {
     version: utilities.getVersion(),

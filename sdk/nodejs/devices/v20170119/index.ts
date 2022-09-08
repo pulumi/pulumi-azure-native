@@ -5,19 +5,39 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getIotHubResource";
-export * from "./getIotHubResourceEventHubConsumerGroup";
-export * from "./iotHubResource";
-export * from "./iotHubResourceEventHubConsumerGroup";
-export * from "./listIotHubResourceKeys";
-export * from "./listIotHubResourceKeysForKeyName";
+export { GetIotHubResourceArgs, GetIotHubResourceResult, GetIotHubResourceOutputArgs } from "./getIotHubResource";
+export const getIotHubResource: typeof import("./getIotHubResource").getIotHubResource = null as any;
+export const getIotHubResourceOutput: typeof import("./getIotHubResource").getIotHubResourceOutput = null as any;
+
+export { GetIotHubResourceEventHubConsumerGroupArgs, GetIotHubResourceEventHubConsumerGroupResult, GetIotHubResourceEventHubConsumerGroupOutputArgs } from "./getIotHubResourceEventHubConsumerGroup";
+export const getIotHubResourceEventHubConsumerGroup: typeof import("./getIotHubResourceEventHubConsumerGroup").getIotHubResourceEventHubConsumerGroup = null as any;
+export const getIotHubResourceEventHubConsumerGroupOutput: typeof import("./getIotHubResourceEventHubConsumerGroup").getIotHubResourceEventHubConsumerGroupOutput = null as any;
+
+export { IotHubResourceArgs } from "./iotHubResource";
+export type IotHubResource = import("./iotHubResource").IotHubResource;
+export const IotHubResource: typeof import("./iotHubResource").IotHubResource = null as any;
+
+export { IotHubResourceEventHubConsumerGroupArgs } from "./iotHubResourceEventHubConsumerGroup";
+export type IotHubResourceEventHubConsumerGroup = import("./iotHubResourceEventHubConsumerGroup").IotHubResourceEventHubConsumerGroup;
+export const IotHubResourceEventHubConsumerGroup: typeof import("./iotHubResourceEventHubConsumerGroup").IotHubResourceEventHubConsumerGroup = null as any;
+
+export { ListIotHubResourceKeysArgs, ListIotHubResourceKeysResult, ListIotHubResourceKeysOutputArgs } from "./listIotHubResourceKeys";
+export const listIotHubResourceKeys: typeof import("./listIotHubResourceKeys").listIotHubResourceKeys = null as any;
+export const listIotHubResourceKeysOutput: typeof import("./listIotHubResourceKeys").listIotHubResourceKeysOutput = null as any;
+
+export { ListIotHubResourceKeysForKeyNameArgs, ListIotHubResourceKeysForKeyNameResult, ListIotHubResourceKeysForKeyNameOutputArgs } from "./listIotHubResourceKeysForKeyName";
+export const listIotHubResourceKeysForKeyName: typeof import("./listIotHubResourceKeysForKeyName").listIotHubResourceKeysForKeyName = null as any;
+export const listIotHubResourceKeysForKeyNameOutput: typeof import("./listIotHubResourceKeysForKeyName").listIotHubResourceKeysForKeyNameOutput = null as any;
+
+utilities.lazyLoad(exports, ["getIotHubResource","getIotHubResourceOutput"], () => require("./getIotHubResource"));
+utilities.lazyLoad(exports, ["getIotHubResourceEventHubConsumerGroup","getIotHubResourceEventHubConsumerGroupOutput"], () => require("./getIotHubResourceEventHubConsumerGroup"));
+utilities.lazyLoad(exports, ["IotHubResource"], () => require("./iotHubResource"));
+utilities.lazyLoad(exports, ["IotHubResourceEventHubConsumerGroup"], () => require("./iotHubResourceEventHubConsumerGroup"));
+utilities.lazyLoad(exports, ["listIotHubResourceKeys","listIotHubResourceKeysOutput"], () => require("./listIotHubResourceKeys"));
+utilities.lazyLoad(exports, ["listIotHubResourceKeysForKeyName","listIotHubResourceKeysForKeyNameOutput"], () => require("./listIotHubResourceKeysForKeyName"));
 
 // Export enums:
 export * from "../../types/enums/devices/v20170119";
-
-// Import resources to register:
-import { IotHubResource } from "./iotHubResource";
-import { IotHubResourceEventHubConsumerGroup } from "./iotHubResourceEventHubConsumerGroup";
 
 const _module = {
     version: utilities.getVersion(),

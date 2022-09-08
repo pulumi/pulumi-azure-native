@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./digitalTwin";
-export * from "./digitalTwinsEndpoint";
-export * from "./getDigitalTwin";
-export * from "./getDigitalTwinsEndpoint";
+export { DigitalTwinArgs } from "./digitalTwin";
+export type DigitalTwin = import("./digitalTwin").DigitalTwin;
+export const DigitalTwin: typeof import("./digitalTwin").DigitalTwin = null as any;
+
+export { DigitalTwinsEndpointArgs } from "./digitalTwinsEndpoint";
+export type DigitalTwinsEndpoint = import("./digitalTwinsEndpoint").DigitalTwinsEndpoint;
+export const DigitalTwinsEndpoint: typeof import("./digitalTwinsEndpoint").DigitalTwinsEndpoint = null as any;
+
+export { GetDigitalTwinArgs, GetDigitalTwinResult, GetDigitalTwinOutputArgs } from "./getDigitalTwin";
+export const getDigitalTwin: typeof import("./getDigitalTwin").getDigitalTwin = null as any;
+export const getDigitalTwinOutput: typeof import("./getDigitalTwin").getDigitalTwinOutput = null as any;
+
+export { GetDigitalTwinsEndpointArgs, GetDigitalTwinsEndpointResult, GetDigitalTwinsEndpointOutputArgs } from "./getDigitalTwinsEndpoint";
+export const getDigitalTwinsEndpoint: typeof import("./getDigitalTwinsEndpoint").getDigitalTwinsEndpoint = null as any;
+export const getDigitalTwinsEndpointOutput: typeof import("./getDigitalTwinsEndpoint").getDigitalTwinsEndpointOutput = null as any;
+
+utilities.lazyLoad(exports, ["DigitalTwin"], () => require("./digitalTwin"));
+utilities.lazyLoad(exports, ["DigitalTwinsEndpoint"], () => require("./digitalTwinsEndpoint"));
+utilities.lazyLoad(exports, ["getDigitalTwin","getDigitalTwinOutput"], () => require("./getDigitalTwin"));
+utilities.lazyLoad(exports, ["getDigitalTwinsEndpoint","getDigitalTwinsEndpointOutput"], () => require("./getDigitalTwinsEndpoint"));
 
 // Export enums:
 export * from "../../types/enums/digitaltwins/v20201031";
-
-// Import resources to register:
-import { DigitalTwin } from "./digitalTwin";
-import { DigitalTwinsEndpoint } from "./digitalTwinsEndpoint";
 
 const _module = {
     version: utilities.getVersion(),

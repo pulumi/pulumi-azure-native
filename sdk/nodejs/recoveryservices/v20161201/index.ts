@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getProtectionContainer";
-export * from "./protectionContainer";
+export { GetProtectionContainerArgs, GetProtectionContainerResult, GetProtectionContainerOutputArgs } from "./getProtectionContainer";
+export const getProtectionContainer: typeof import("./getProtectionContainer").getProtectionContainer = null as any;
+export const getProtectionContainerOutput: typeof import("./getProtectionContainer").getProtectionContainerOutput = null as any;
+
+export { ProtectionContainerArgs } from "./protectionContainer";
+export type ProtectionContainer = import("./protectionContainer").ProtectionContainer;
+export const ProtectionContainer: typeof import("./protectionContainer").ProtectionContainer = null as any;
+
+utilities.lazyLoad(exports, ["getProtectionContainer","getProtectionContainerOutput"], () => require("./getProtectionContainer"));
+utilities.lazyLoad(exports, ["ProtectionContainer"], () => require("./protectionContainer"));
 
 // Export enums:
 export * from "../../types/enums/recoveryservices/v20161201";
-
-// Import resources to register:
-import { ProtectionContainer } from "./protectionContainer";
 
 const _module = {
     version: utilities.getVersion(),

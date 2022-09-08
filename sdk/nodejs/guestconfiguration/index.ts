@@ -5,10 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getGuestConfigurationAssignment";
-export * from "./getGuestConfigurationHCRPAssignment";
-export * from "./guestConfigurationAssignment";
-export * from "./guestConfigurationHCRPAssignment";
+export { GetGuestConfigurationAssignmentArgs, GetGuestConfigurationAssignmentResult, GetGuestConfigurationAssignmentOutputArgs } from "./getGuestConfigurationAssignment";
+export const getGuestConfigurationAssignment: typeof import("./getGuestConfigurationAssignment").getGuestConfigurationAssignment = null as any;
+export const getGuestConfigurationAssignmentOutput: typeof import("./getGuestConfigurationAssignment").getGuestConfigurationAssignmentOutput = null as any;
+
+export { GetGuestConfigurationHCRPAssignmentArgs, GetGuestConfigurationHCRPAssignmentResult, GetGuestConfigurationHCRPAssignmentOutputArgs } from "./getGuestConfigurationHCRPAssignment";
+export const getGuestConfigurationHCRPAssignment: typeof import("./getGuestConfigurationHCRPAssignment").getGuestConfigurationHCRPAssignment = null as any;
+export const getGuestConfigurationHCRPAssignmentOutput: typeof import("./getGuestConfigurationHCRPAssignment").getGuestConfigurationHCRPAssignmentOutput = null as any;
+
+export { GuestConfigurationAssignmentArgs } from "./guestConfigurationAssignment";
+export type GuestConfigurationAssignment = import("./guestConfigurationAssignment").GuestConfigurationAssignment;
+export const GuestConfigurationAssignment: typeof import("./guestConfigurationAssignment").GuestConfigurationAssignment = null as any;
+
+export { GuestConfigurationHCRPAssignmentArgs } from "./guestConfigurationHCRPAssignment";
+export type GuestConfigurationHCRPAssignment = import("./guestConfigurationHCRPAssignment").GuestConfigurationHCRPAssignment;
+export const GuestConfigurationHCRPAssignment: typeof import("./guestConfigurationHCRPAssignment").GuestConfigurationHCRPAssignment = null as any;
+
+utilities.lazyLoad(exports, ["getGuestConfigurationAssignment","getGuestConfigurationAssignmentOutput"], () => require("./getGuestConfigurationAssignment"));
+utilities.lazyLoad(exports, ["getGuestConfigurationHCRPAssignment","getGuestConfigurationHCRPAssignmentOutput"], () => require("./getGuestConfigurationHCRPAssignment"));
+utilities.lazyLoad(exports, ["GuestConfigurationAssignment"], () => require("./guestConfigurationAssignment"));
+utilities.lazyLoad(exports, ["GuestConfigurationHCRPAssignment"], () => require("./guestConfigurationHCRPAssignment"));
 
 // Export enums:
 export * from "../types/enums/guestconfiguration";
@@ -27,10 +43,6 @@ export {
     v20210125,
     v20220125,
 };
-
-// Import resources to register:
-import { GuestConfigurationAssignment } from "./guestConfigurationAssignment";
-import { GuestConfigurationHCRPAssignment } from "./guestConfigurationHCRPAssignment";
 
 const _module = {
     version: utilities.getVersion(),

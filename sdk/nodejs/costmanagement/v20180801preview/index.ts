@@ -5,26 +5,59 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./connector";
-export * from "./getConnector";
-export * from "./getReport";
-export * from "./getReportByBillingAccount";
-export * from "./getReportByDepartment";
-export * from "./getReportByResourceGroupName";
-export * from "./report";
-export * from "./reportByBillingAccount";
-export * from "./reportByDepartment";
-export * from "./reportByResourceGroupName";
+export { ConnectorArgs } from "./connector";
+export type Connector = import("./connector").Connector;
+export const Connector: typeof import("./connector").Connector = null as any;
+
+export { GetConnectorArgs, GetConnectorResult, GetConnectorOutputArgs } from "./getConnector";
+export const getConnector: typeof import("./getConnector").getConnector = null as any;
+export const getConnectorOutput: typeof import("./getConnector").getConnectorOutput = null as any;
+
+export { GetReportArgs, GetReportResult, GetReportOutputArgs } from "./getReport";
+export const getReport: typeof import("./getReport").getReport = null as any;
+export const getReportOutput: typeof import("./getReport").getReportOutput = null as any;
+
+export { GetReportByBillingAccountArgs, GetReportByBillingAccountResult, GetReportByBillingAccountOutputArgs } from "./getReportByBillingAccount";
+export const getReportByBillingAccount: typeof import("./getReportByBillingAccount").getReportByBillingAccount = null as any;
+export const getReportByBillingAccountOutput: typeof import("./getReportByBillingAccount").getReportByBillingAccountOutput = null as any;
+
+export { GetReportByDepartmentArgs, GetReportByDepartmentResult, GetReportByDepartmentOutputArgs } from "./getReportByDepartment";
+export const getReportByDepartment: typeof import("./getReportByDepartment").getReportByDepartment = null as any;
+export const getReportByDepartmentOutput: typeof import("./getReportByDepartment").getReportByDepartmentOutput = null as any;
+
+export { GetReportByResourceGroupNameArgs, GetReportByResourceGroupNameResult, GetReportByResourceGroupNameOutputArgs } from "./getReportByResourceGroupName";
+export const getReportByResourceGroupName: typeof import("./getReportByResourceGroupName").getReportByResourceGroupName = null as any;
+export const getReportByResourceGroupNameOutput: typeof import("./getReportByResourceGroupName").getReportByResourceGroupNameOutput = null as any;
+
+export { ReportArgs } from "./report";
+export type Report = import("./report").Report;
+export const Report: typeof import("./report").Report = null as any;
+
+export { ReportByBillingAccountArgs } from "./reportByBillingAccount";
+export type ReportByBillingAccount = import("./reportByBillingAccount").ReportByBillingAccount;
+export const ReportByBillingAccount: typeof import("./reportByBillingAccount").ReportByBillingAccount = null as any;
+
+export { ReportByDepartmentArgs } from "./reportByDepartment";
+export type ReportByDepartment = import("./reportByDepartment").ReportByDepartment;
+export const ReportByDepartment: typeof import("./reportByDepartment").ReportByDepartment = null as any;
+
+export { ReportByResourceGroupNameArgs } from "./reportByResourceGroupName";
+export type ReportByResourceGroupName = import("./reportByResourceGroupName").ReportByResourceGroupName;
+export const ReportByResourceGroupName: typeof import("./reportByResourceGroupName").ReportByResourceGroupName = null as any;
+
+utilities.lazyLoad(exports, ["Connector"], () => require("./connector"));
+utilities.lazyLoad(exports, ["getConnector","getConnectorOutput"], () => require("./getConnector"));
+utilities.lazyLoad(exports, ["getReport","getReportOutput"], () => require("./getReport"));
+utilities.lazyLoad(exports, ["getReportByBillingAccount","getReportByBillingAccountOutput"], () => require("./getReportByBillingAccount"));
+utilities.lazyLoad(exports, ["getReportByDepartment","getReportByDepartmentOutput"], () => require("./getReportByDepartment"));
+utilities.lazyLoad(exports, ["getReportByResourceGroupName","getReportByResourceGroupNameOutput"], () => require("./getReportByResourceGroupName"));
+utilities.lazyLoad(exports, ["Report"], () => require("./report"));
+utilities.lazyLoad(exports, ["ReportByBillingAccount"], () => require("./reportByBillingAccount"));
+utilities.lazyLoad(exports, ["ReportByDepartment"], () => require("./reportByDepartment"));
+utilities.lazyLoad(exports, ["ReportByResourceGroupName"], () => require("./reportByResourceGroupName"));
 
 // Export enums:
 export * from "../../types/enums/costmanagement/v20180801preview";
-
-// Import resources to register:
-import { Connector } from "./connector";
-import { Report } from "./report";
-import { ReportByBillingAccount } from "./reportByBillingAccount";
-import { ReportByDepartment } from "./reportByDepartment";
-import { ReportByResourceGroupName } from "./reportByResourceGroupName";
 
 const _module = {
     version: utilities.getVersion(),

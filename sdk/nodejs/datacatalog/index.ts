@@ -5,8 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./adccatalog";
-export * from "./getADCCatalog";
+export { ADCCatalogArgs } from "./adccatalog";
+export type ADCCatalog = import("./adccatalog").ADCCatalog;
+export const ADCCatalog: typeof import("./adccatalog").ADCCatalog = null as any;
+
+export { GetADCCatalogArgs, GetADCCatalogResult, GetADCCatalogOutputArgs } from "./getADCCatalog";
+export const getADCCatalog: typeof import("./getADCCatalog").getADCCatalog = null as any;
+export const getADCCatalogOutput: typeof import("./getADCCatalog").getADCCatalogOutput = null as any;
+
+utilities.lazyLoad(exports, ["ADCCatalog"], () => require("./adccatalog"));
+utilities.lazyLoad(exports, ["getADCCatalog","getADCCatalogOutput"], () => require("./getADCCatalog"));
 
 // Export enums:
 export * from "../types/enums/datacatalog";
@@ -17,9 +25,6 @@ import * as v20160330 from "./v20160330";
 export {
     v20160330,
 };
-
-// Import resources to register:
-import { ADCCatalog } from "./adccatalog";
 
 const _module = {
     version: utilities.getVersion(),

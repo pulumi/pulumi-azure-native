@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./disk";
-export * from "./getDisk";
-export * from "./getSnapshot";
-export * from "./snapshot";
+export { DiskArgs } from "./disk";
+export type Disk = import("./disk").Disk;
+export const Disk: typeof import("./disk").Disk = null as any;
+
+export { GetDiskArgs, GetDiskResult, GetDiskOutputArgs } from "./getDisk";
+export const getDisk: typeof import("./getDisk").getDisk = null as any;
+export const getDiskOutput: typeof import("./getDisk").getDiskOutput = null as any;
+
+export { GetSnapshotArgs, GetSnapshotResult, GetSnapshotOutputArgs } from "./getSnapshot";
+export const getSnapshot: typeof import("./getSnapshot").getSnapshot = null as any;
+export const getSnapshotOutput: typeof import("./getSnapshot").getSnapshotOutput = null as any;
+
+export { SnapshotArgs } from "./snapshot";
+export type Snapshot = import("./snapshot").Snapshot;
+export const Snapshot: typeof import("./snapshot").Snapshot = null as any;
+
+utilities.lazyLoad(exports, ["Disk"], () => require("./disk"));
+utilities.lazyLoad(exports, ["getDisk","getDiskOutput"], () => require("./getDisk"));
+utilities.lazyLoad(exports, ["getSnapshot","getSnapshotOutput"], () => require("./getSnapshot"));
+utilities.lazyLoad(exports, ["Snapshot"], () => require("./snapshot"));
 
 // Export enums:
 export * from "../../types/enums/compute/v20180930";
-
-// Import resources to register:
-import { Disk } from "./disk";
-import { Snapshot } from "./snapshot";
 
 const _module = {
     version: utilities.getVersion(),

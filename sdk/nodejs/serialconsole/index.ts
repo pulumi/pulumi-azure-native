@@ -5,8 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getSerialPort";
-export * from "./serialPort";
+export { GetSerialPortArgs, GetSerialPortResult, GetSerialPortOutputArgs } from "./getSerialPort";
+export const getSerialPort: typeof import("./getSerialPort").getSerialPort = null as any;
+export const getSerialPortOutput: typeof import("./getSerialPort").getSerialPortOutput = null as any;
+
+export { SerialPortArgs } from "./serialPort";
+export type SerialPort = import("./serialPort").SerialPort;
+export const SerialPort: typeof import("./serialPort").SerialPort = null as any;
+
+utilities.lazyLoad(exports, ["getSerialPort","getSerialPortOutput"], () => require("./getSerialPort"));
+utilities.lazyLoad(exports, ["SerialPort"], () => require("./serialPort"));
 
 // Export enums:
 export * from "../types/enums/serialconsole";
@@ -17,9 +25,6 @@ import * as v20180501 from "./v20180501";
 export {
     v20180501,
 };
-
-// Import resources to register:
-import { SerialPort } from "./serialPort";
 
 const _module = {
     version: utilities.getVersion(),

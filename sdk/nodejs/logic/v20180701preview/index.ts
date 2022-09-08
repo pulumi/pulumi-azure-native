@@ -5,53 +5,169 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getIntegrationAccount";
-export * from "./getIntegrationAccountAgreement";
-export * from "./getIntegrationAccountAssembly";
-export * from "./getIntegrationAccountBatchConfiguration";
-export * from "./getIntegrationAccountCertificate";
-export * from "./getIntegrationAccountMap";
-export * from "./getIntegrationAccountPartner";
-export * from "./getIntegrationAccountSchema";
-export * from "./getIntegrationAccountSession";
-export * from "./getWorkflow";
-export * from "./integrationAccount";
-export * from "./integrationAccountAgreement";
-export * from "./integrationAccountAssembly";
-export * from "./integrationAccountBatchConfiguration";
-export * from "./integrationAccountCertificate";
-export * from "./integrationAccountMap";
-export * from "./integrationAccountPartner";
-export * from "./integrationAccountSchema";
-export * from "./integrationAccountSession";
-export * from "./listIntegrationAccountAgreementContentCallbackUrl";
-export * from "./listIntegrationAccountAssemblyContentCallbackUrl";
-export * from "./listIntegrationAccountCallbackUrl";
-export * from "./listIntegrationAccountKeyVaultKeys";
-export * from "./listIntegrationAccountMapContentCallbackUrl";
-export * from "./listIntegrationAccountPartnerContentCallbackUrl";
-export * from "./listIntegrationAccountSchemaContentCallbackUrl";
-export * from "./listWorkflowCallbackUrl";
-export * from "./listWorkflowRunActionExpressionTraces";
-export * from "./listWorkflowRunActionRepetitionExpressionTraces";
-export * from "./listWorkflowTriggerCallbackUrl";
-export * from "./listWorkflowVersionTriggerCallbackUrl";
-export * from "./workflow";
+export { GetIntegrationAccountArgs, GetIntegrationAccountResult, GetIntegrationAccountOutputArgs } from "./getIntegrationAccount";
+export const getIntegrationAccount: typeof import("./getIntegrationAccount").getIntegrationAccount = null as any;
+export const getIntegrationAccountOutput: typeof import("./getIntegrationAccount").getIntegrationAccountOutput = null as any;
+
+export { GetIntegrationAccountAgreementArgs, GetIntegrationAccountAgreementResult, GetIntegrationAccountAgreementOutputArgs } from "./getIntegrationAccountAgreement";
+export const getIntegrationAccountAgreement: typeof import("./getIntegrationAccountAgreement").getIntegrationAccountAgreement = null as any;
+export const getIntegrationAccountAgreementOutput: typeof import("./getIntegrationAccountAgreement").getIntegrationAccountAgreementOutput = null as any;
+
+export { GetIntegrationAccountAssemblyArgs, GetIntegrationAccountAssemblyResult, GetIntegrationAccountAssemblyOutputArgs } from "./getIntegrationAccountAssembly";
+export const getIntegrationAccountAssembly: typeof import("./getIntegrationAccountAssembly").getIntegrationAccountAssembly = null as any;
+export const getIntegrationAccountAssemblyOutput: typeof import("./getIntegrationAccountAssembly").getIntegrationAccountAssemblyOutput = null as any;
+
+export { GetIntegrationAccountBatchConfigurationArgs, GetIntegrationAccountBatchConfigurationResult, GetIntegrationAccountBatchConfigurationOutputArgs } from "./getIntegrationAccountBatchConfiguration";
+export const getIntegrationAccountBatchConfiguration: typeof import("./getIntegrationAccountBatchConfiguration").getIntegrationAccountBatchConfiguration = null as any;
+export const getIntegrationAccountBatchConfigurationOutput: typeof import("./getIntegrationAccountBatchConfiguration").getIntegrationAccountBatchConfigurationOutput = null as any;
+
+export { GetIntegrationAccountCertificateArgs, GetIntegrationAccountCertificateResult, GetIntegrationAccountCertificateOutputArgs } from "./getIntegrationAccountCertificate";
+export const getIntegrationAccountCertificate: typeof import("./getIntegrationAccountCertificate").getIntegrationAccountCertificate = null as any;
+export const getIntegrationAccountCertificateOutput: typeof import("./getIntegrationAccountCertificate").getIntegrationAccountCertificateOutput = null as any;
+
+export { GetIntegrationAccountMapArgs, GetIntegrationAccountMapResult, GetIntegrationAccountMapOutputArgs } from "./getIntegrationAccountMap";
+export const getIntegrationAccountMap: typeof import("./getIntegrationAccountMap").getIntegrationAccountMap = null as any;
+export const getIntegrationAccountMapOutput: typeof import("./getIntegrationAccountMap").getIntegrationAccountMapOutput = null as any;
+
+export { GetIntegrationAccountPartnerArgs, GetIntegrationAccountPartnerResult, GetIntegrationAccountPartnerOutputArgs } from "./getIntegrationAccountPartner";
+export const getIntegrationAccountPartner: typeof import("./getIntegrationAccountPartner").getIntegrationAccountPartner = null as any;
+export const getIntegrationAccountPartnerOutput: typeof import("./getIntegrationAccountPartner").getIntegrationAccountPartnerOutput = null as any;
+
+export { GetIntegrationAccountSchemaArgs, GetIntegrationAccountSchemaResult, GetIntegrationAccountSchemaOutputArgs } from "./getIntegrationAccountSchema";
+export const getIntegrationAccountSchema: typeof import("./getIntegrationAccountSchema").getIntegrationAccountSchema = null as any;
+export const getIntegrationAccountSchemaOutput: typeof import("./getIntegrationAccountSchema").getIntegrationAccountSchemaOutput = null as any;
+
+export { GetIntegrationAccountSessionArgs, GetIntegrationAccountSessionResult, GetIntegrationAccountSessionOutputArgs } from "./getIntegrationAccountSession";
+export const getIntegrationAccountSession: typeof import("./getIntegrationAccountSession").getIntegrationAccountSession = null as any;
+export const getIntegrationAccountSessionOutput: typeof import("./getIntegrationAccountSession").getIntegrationAccountSessionOutput = null as any;
+
+export { GetWorkflowArgs, GetWorkflowResult, GetWorkflowOutputArgs } from "./getWorkflow";
+export const getWorkflow: typeof import("./getWorkflow").getWorkflow = null as any;
+export const getWorkflowOutput: typeof import("./getWorkflow").getWorkflowOutput = null as any;
+
+export { IntegrationAccountArgs } from "./integrationAccount";
+export type IntegrationAccount = import("./integrationAccount").IntegrationAccount;
+export const IntegrationAccount: typeof import("./integrationAccount").IntegrationAccount = null as any;
+
+export { IntegrationAccountAgreementArgs } from "./integrationAccountAgreement";
+export type IntegrationAccountAgreement = import("./integrationAccountAgreement").IntegrationAccountAgreement;
+export const IntegrationAccountAgreement: typeof import("./integrationAccountAgreement").IntegrationAccountAgreement = null as any;
+
+export { IntegrationAccountAssemblyArgs } from "./integrationAccountAssembly";
+export type IntegrationAccountAssembly = import("./integrationAccountAssembly").IntegrationAccountAssembly;
+export const IntegrationAccountAssembly: typeof import("./integrationAccountAssembly").IntegrationAccountAssembly = null as any;
+
+export { IntegrationAccountBatchConfigurationArgs } from "./integrationAccountBatchConfiguration";
+export type IntegrationAccountBatchConfiguration = import("./integrationAccountBatchConfiguration").IntegrationAccountBatchConfiguration;
+export const IntegrationAccountBatchConfiguration: typeof import("./integrationAccountBatchConfiguration").IntegrationAccountBatchConfiguration = null as any;
+
+export { IntegrationAccountCertificateArgs } from "./integrationAccountCertificate";
+export type IntegrationAccountCertificate = import("./integrationAccountCertificate").IntegrationAccountCertificate;
+export const IntegrationAccountCertificate: typeof import("./integrationAccountCertificate").IntegrationAccountCertificate = null as any;
+
+export { IntegrationAccountMapArgs } from "./integrationAccountMap";
+export type IntegrationAccountMap = import("./integrationAccountMap").IntegrationAccountMap;
+export const IntegrationAccountMap: typeof import("./integrationAccountMap").IntegrationAccountMap = null as any;
+
+export { IntegrationAccountPartnerArgs } from "./integrationAccountPartner";
+export type IntegrationAccountPartner = import("./integrationAccountPartner").IntegrationAccountPartner;
+export const IntegrationAccountPartner: typeof import("./integrationAccountPartner").IntegrationAccountPartner = null as any;
+
+export { IntegrationAccountSchemaArgs } from "./integrationAccountSchema";
+export type IntegrationAccountSchema = import("./integrationAccountSchema").IntegrationAccountSchema;
+export const IntegrationAccountSchema: typeof import("./integrationAccountSchema").IntegrationAccountSchema = null as any;
+
+export { IntegrationAccountSessionArgs } from "./integrationAccountSession";
+export type IntegrationAccountSession = import("./integrationAccountSession").IntegrationAccountSession;
+export const IntegrationAccountSession: typeof import("./integrationAccountSession").IntegrationAccountSession = null as any;
+
+export { ListIntegrationAccountAgreementContentCallbackUrlArgs, ListIntegrationAccountAgreementContentCallbackUrlResult, ListIntegrationAccountAgreementContentCallbackUrlOutputArgs } from "./listIntegrationAccountAgreementContentCallbackUrl";
+export const listIntegrationAccountAgreementContentCallbackUrl: typeof import("./listIntegrationAccountAgreementContentCallbackUrl").listIntegrationAccountAgreementContentCallbackUrl = null as any;
+export const listIntegrationAccountAgreementContentCallbackUrlOutput: typeof import("./listIntegrationAccountAgreementContentCallbackUrl").listIntegrationAccountAgreementContentCallbackUrlOutput = null as any;
+
+export { ListIntegrationAccountAssemblyContentCallbackUrlArgs, ListIntegrationAccountAssemblyContentCallbackUrlResult, ListIntegrationAccountAssemblyContentCallbackUrlOutputArgs } from "./listIntegrationAccountAssemblyContentCallbackUrl";
+export const listIntegrationAccountAssemblyContentCallbackUrl: typeof import("./listIntegrationAccountAssemblyContentCallbackUrl").listIntegrationAccountAssemblyContentCallbackUrl = null as any;
+export const listIntegrationAccountAssemblyContentCallbackUrlOutput: typeof import("./listIntegrationAccountAssemblyContentCallbackUrl").listIntegrationAccountAssemblyContentCallbackUrlOutput = null as any;
+
+export { ListIntegrationAccountCallbackUrlArgs, ListIntegrationAccountCallbackUrlResult, ListIntegrationAccountCallbackUrlOutputArgs } from "./listIntegrationAccountCallbackUrl";
+export const listIntegrationAccountCallbackUrl: typeof import("./listIntegrationAccountCallbackUrl").listIntegrationAccountCallbackUrl = null as any;
+export const listIntegrationAccountCallbackUrlOutput: typeof import("./listIntegrationAccountCallbackUrl").listIntegrationAccountCallbackUrlOutput = null as any;
+
+export { ListIntegrationAccountKeyVaultKeysArgs, ListIntegrationAccountKeyVaultKeysResult, ListIntegrationAccountKeyVaultKeysOutputArgs } from "./listIntegrationAccountKeyVaultKeys";
+export const listIntegrationAccountKeyVaultKeys: typeof import("./listIntegrationAccountKeyVaultKeys").listIntegrationAccountKeyVaultKeys = null as any;
+export const listIntegrationAccountKeyVaultKeysOutput: typeof import("./listIntegrationAccountKeyVaultKeys").listIntegrationAccountKeyVaultKeysOutput = null as any;
+
+export { ListIntegrationAccountMapContentCallbackUrlArgs, ListIntegrationAccountMapContentCallbackUrlResult, ListIntegrationAccountMapContentCallbackUrlOutputArgs } from "./listIntegrationAccountMapContentCallbackUrl";
+export const listIntegrationAccountMapContentCallbackUrl: typeof import("./listIntegrationAccountMapContentCallbackUrl").listIntegrationAccountMapContentCallbackUrl = null as any;
+export const listIntegrationAccountMapContentCallbackUrlOutput: typeof import("./listIntegrationAccountMapContentCallbackUrl").listIntegrationAccountMapContentCallbackUrlOutput = null as any;
+
+export { ListIntegrationAccountPartnerContentCallbackUrlArgs, ListIntegrationAccountPartnerContentCallbackUrlResult, ListIntegrationAccountPartnerContentCallbackUrlOutputArgs } from "./listIntegrationAccountPartnerContentCallbackUrl";
+export const listIntegrationAccountPartnerContentCallbackUrl: typeof import("./listIntegrationAccountPartnerContentCallbackUrl").listIntegrationAccountPartnerContentCallbackUrl = null as any;
+export const listIntegrationAccountPartnerContentCallbackUrlOutput: typeof import("./listIntegrationAccountPartnerContentCallbackUrl").listIntegrationAccountPartnerContentCallbackUrlOutput = null as any;
+
+export { ListIntegrationAccountSchemaContentCallbackUrlArgs, ListIntegrationAccountSchemaContentCallbackUrlResult, ListIntegrationAccountSchemaContentCallbackUrlOutputArgs } from "./listIntegrationAccountSchemaContentCallbackUrl";
+export const listIntegrationAccountSchemaContentCallbackUrl: typeof import("./listIntegrationAccountSchemaContentCallbackUrl").listIntegrationAccountSchemaContentCallbackUrl = null as any;
+export const listIntegrationAccountSchemaContentCallbackUrlOutput: typeof import("./listIntegrationAccountSchemaContentCallbackUrl").listIntegrationAccountSchemaContentCallbackUrlOutput = null as any;
+
+export { ListWorkflowCallbackUrlArgs, ListWorkflowCallbackUrlResult, ListWorkflowCallbackUrlOutputArgs } from "./listWorkflowCallbackUrl";
+export const listWorkflowCallbackUrl: typeof import("./listWorkflowCallbackUrl").listWorkflowCallbackUrl = null as any;
+export const listWorkflowCallbackUrlOutput: typeof import("./listWorkflowCallbackUrl").listWorkflowCallbackUrlOutput = null as any;
+
+export { ListWorkflowRunActionExpressionTracesArgs, ListWorkflowRunActionExpressionTracesResult, ListWorkflowRunActionExpressionTracesOutputArgs } from "./listWorkflowRunActionExpressionTraces";
+export const listWorkflowRunActionExpressionTraces: typeof import("./listWorkflowRunActionExpressionTraces").listWorkflowRunActionExpressionTraces = null as any;
+export const listWorkflowRunActionExpressionTracesOutput: typeof import("./listWorkflowRunActionExpressionTraces").listWorkflowRunActionExpressionTracesOutput = null as any;
+
+export { ListWorkflowRunActionRepetitionExpressionTracesArgs, ListWorkflowRunActionRepetitionExpressionTracesResult, ListWorkflowRunActionRepetitionExpressionTracesOutputArgs } from "./listWorkflowRunActionRepetitionExpressionTraces";
+export const listWorkflowRunActionRepetitionExpressionTraces: typeof import("./listWorkflowRunActionRepetitionExpressionTraces").listWorkflowRunActionRepetitionExpressionTraces = null as any;
+export const listWorkflowRunActionRepetitionExpressionTracesOutput: typeof import("./listWorkflowRunActionRepetitionExpressionTraces").listWorkflowRunActionRepetitionExpressionTracesOutput = null as any;
+
+export { ListWorkflowTriggerCallbackUrlArgs, ListWorkflowTriggerCallbackUrlResult, ListWorkflowTriggerCallbackUrlOutputArgs } from "./listWorkflowTriggerCallbackUrl";
+export const listWorkflowTriggerCallbackUrl: typeof import("./listWorkflowTriggerCallbackUrl").listWorkflowTriggerCallbackUrl = null as any;
+export const listWorkflowTriggerCallbackUrlOutput: typeof import("./listWorkflowTriggerCallbackUrl").listWorkflowTriggerCallbackUrlOutput = null as any;
+
+export { ListWorkflowVersionTriggerCallbackUrlArgs, ListWorkflowVersionTriggerCallbackUrlResult, ListWorkflowVersionTriggerCallbackUrlOutputArgs } from "./listWorkflowVersionTriggerCallbackUrl";
+export const listWorkflowVersionTriggerCallbackUrl: typeof import("./listWorkflowVersionTriggerCallbackUrl").listWorkflowVersionTriggerCallbackUrl = null as any;
+export const listWorkflowVersionTriggerCallbackUrlOutput: typeof import("./listWorkflowVersionTriggerCallbackUrl").listWorkflowVersionTriggerCallbackUrlOutput = null as any;
+
+export { WorkflowArgs } from "./workflow";
+export type Workflow = import("./workflow").Workflow;
+export const Workflow: typeof import("./workflow").Workflow = null as any;
+
+utilities.lazyLoad(exports, ["getIntegrationAccount","getIntegrationAccountOutput"], () => require("./getIntegrationAccount"));
+utilities.lazyLoad(exports, ["getIntegrationAccountAgreement","getIntegrationAccountAgreementOutput"], () => require("./getIntegrationAccountAgreement"));
+utilities.lazyLoad(exports, ["getIntegrationAccountAssembly","getIntegrationAccountAssemblyOutput"], () => require("./getIntegrationAccountAssembly"));
+utilities.lazyLoad(exports, ["getIntegrationAccountBatchConfiguration","getIntegrationAccountBatchConfigurationOutput"], () => require("./getIntegrationAccountBatchConfiguration"));
+utilities.lazyLoad(exports, ["getIntegrationAccountCertificate","getIntegrationAccountCertificateOutput"], () => require("./getIntegrationAccountCertificate"));
+utilities.lazyLoad(exports, ["getIntegrationAccountMap","getIntegrationAccountMapOutput"], () => require("./getIntegrationAccountMap"));
+utilities.lazyLoad(exports, ["getIntegrationAccountPartner","getIntegrationAccountPartnerOutput"], () => require("./getIntegrationAccountPartner"));
+utilities.lazyLoad(exports, ["getIntegrationAccountSchema","getIntegrationAccountSchemaOutput"], () => require("./getIntegrationAccountSchema"));
+utilities.lazyLoad(exports, ["getIntegrationAccountSession","getIntegrationAccountSessionOutput"], () => require("./getIntegrationAccountSession"));
+utilities.lazyLoad(exports, ["getWorkflow","getWorkflowOutput"], () => require("./getWorkflow"));
+utilities.lazyLoad(exports, ["IntegrationAccount"], () => require("./integrationAccount"));
+utilities.lazyLoad(exports, ["IntegrationAccountAgreement"], () => require("./integrationAccountAgreement"));
+utilities.lazyLoad(exports, ["IntegrationAccountAssembly"], () => require("./integrationAccountAssembly"));
+utilities.lazyLoad(exports, ["IntegrationAccountBatchConfiguration"], () => require("./integrationAccountBatchConfiguration"));
+utilities.lazyLoad(exports, ["IntegrationAccountCertificate"], () => require("./integrationAccountCertificate"));
+utilities.lazyLoad(exports, ["IntegrationAccountMap"], () => require("./integrationAccountMap"));
+utilities.lazyLoad(exports, ["IntegrationAccountPartner"], () => require("./integrationAccountPartner"));
+utilities.lazyLoad(exports, ["IntegrationAccountSchema"], () => require("./integrationAccountSchema"));
+utilities.lazyLoad(exports, ["IntegrationAccountSession"], () => require("./integrationAccountSession"));
+utilities.lazyLoad(exports, ["listIntegrationAccountAgreementContentCallbackUrl","listIntegrationAccountAgreementContentCallbackUrlOutput"], () => require("./listIntegrationAccountAgreementContentCallbackUrl"));
+utilities.lazyLoad(exports, ["listIntegrationAccountAssemblyContentCallbackUrl","listIntegrationAccountAssemblyContentCallbackUrlOutput"], () => require("./listIntegrationAccountAssemblyContentCallbackUrl"));
+utilities.lazyLoad(exports, ["listIntegrationAccountCallbackUrl","listIntegrationAccountCallbackUrlOutput"], () => require("./listIntegrationAccountCallbackUrl"));
+utilities.lazyLoad(exports, ["listIntegrationAccountKeyVaultKeys","listIntegrationAccountKeyVaultKeysOutput"], () => require("./listIntegrationAccountKeyVaultKeys"));
+utilities.lazyLoad(exports, ["listIntegrationAccountMapContentCallbackUrl","listIntegrationAccountMapContentCallbackUrlOutput"], () => require("./listIntegrationAccountMapContentCallbackUrl"));
+utilities.lazyLoad(exports, ["listIntegrationAccountPartnerContentCallbackUrl","listIntegrationAccountPartnerContentCallbackUrlOutput"], () => require("./listIntegrationAccountPartnerContentCallbackUrl"));
+utilities.lazyLoad(exports, ["listIntegrationAccountSchemaContentCallbackUrl","listIntegrationAccountSchemaContentCallbackUrlOutput"], () => require("./listIntegrationAccountSchemaContentCallbackUrl"));
+utilities.lazyLoad(exports, ["listWorkflowCallbackUrl","listWorkflowCallbackUrlOutput"], () => require("./listWorkflowCallbackUrl"));
+utilities.lazyLoad(exports, ["listWorkflowRunActionExpressionTraces","listWorkflowRunActionExpressionTracesOutput"], () => require("./listWorkflowRunActionExpressionTraces"));
+utilities.lazyLoad(exports, ["listWorkflowRunActionRepetitionExpressionTraces","listWorkflowRunActionRepetitionExpressionTracesOutput"], () => require("./listWorkflowRunActionRepetitionExpressionTraces"));
+utilities.lazyLoad(exports, ["listWorkflowTriggerCallbackUrl","listWorkflowTriggerCallbackUrlOutput"], () => require("./listWorkflowTriggerCallbackUrl"));
+utilities.lazyLoad(exports, ["listWorkflowVersionTriggerCallbackUrl","listWorkflowVersionTriggerCallbackUrlOutput"], () => require("./listWorkflowVersionTriggerCallbackUrl"));
+utilities.lazyLoad(exports, ["Workflow"], () => require("./workflow"));
 
 // Export enums:
 export * from "../../types/enums/logic/v20180701preview";
-
-// Import resources to register:
-import { IntegrationAccount } from "./integrationAccount";
-import { IntegrationAccountAgreement } from "./integrationAccountAgreement";
-import { IntegrationAccountAssembly } from "./integrationAccountAssembly";
-import { IntegrationAccountBatchConfiguration } from "./integrationAccountBatchConfiguration";
-import { IntegrationAccountCertificate } from "./integrationAccountCertificate";
-import { IntegrationAccountMap } from "./integrationAccountMap";
-import { IntegrationAccountPartner } from "./integrationAccountPartner";
-import { IntegrationAccountSchema } from "./integrationAccountSchema";
-import { IntegrationAccountSession } from "./integrationAccountSession";
-import { Workflow } from "./workflow";
 
 const _module = {
     version: utilities.getVersion(),

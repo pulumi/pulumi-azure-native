@@ -5,17 +5,36 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./dataExport";
-export * from "./getDataExport";
-export * from "./getLinkedService";
-export * from "./getLinkedStorageAccount";
-export * from "./linkedService";
-export * from "./linkedStorageAccount";
+export { DataExportArgs } from "./dataExport";
+export type DataExport = import("./dataExport").DataExport;
+export const DataExport: typeof import("./dataExport").DataExport = null as any;
 
-// Import resources to register:
-import { DataExport } from "./dataExport";
-import { LinkedService } from "./linkedService";
-import { LinkedStorageAccount } from "./linkedStorageAccount";
+export { GetDataExportArgs, GetDataExportResult, GetDataExportOutputArgs } from "./getDataExport";
+export const getDataExport: typeof import("./getDataExport").getDataExport = null as any;
+export const getDataExportOutput: typeof import("./getDataExport").getDataExportOutput = null as any;
+
+export { GetLinkedServiceArgs, GetLinkedServiceResult, GetLinkedServiceOutputArgs } from "./getLinkedService";
+export const getLinkedService: typeof import("./getLinkedService").getLinkedService = null as any;
+export const getLinkedServiceOutput: typeof import("./getLinkedService").getLinkedServiceOutput = null as any;
+
+export { GetLinkedStorageAccountArgs, GetLinkedStorageAccountResult, GetLinkedStorageAccountOutputArgs } from "./getLinkedStorageAccount";
+export const getLinkedStorageAccount: typeof import("./getLinkedStorageAccount").getLinkedStorageAccount = null as any;
+export const getLinkedStorageAccountOutput: typeof import("./getLinkedStorageAccount").getLinkedStorageAccountOutput = null as any;
+
+export { LinkedServiceArgs } from "./linkedService";
+export type LinkedService = import("./linkedService").LinkedService;
+export const LinkedService: typeof import("./linkedService").LinkedService = null as any;
+
+export { LinkedStorageAccountArgs } from "./linkedStorageAccount";
+export type LinkedStorageAccount = import("./linkedStorageAccount").LinkedStorageAccount;
+export const LinkedStorageAccount: typeof import("./linkedStorageAccount").LinkedStorageAccount = null as any;
+
+utilities.lazyLoad(exports, ["DataExport"], () => require("./dataExport"));
+utilities.lazyLoad(exports, ["getDataExport","getDataExportOutput"], () => require("./getDataExport"));
+utilities.lazyLoad(exports, ["getLinkedService","getLinkedServiceOutput"], () => require("./getLinkedService"));
+utilities.lazyLoad(exports, ["getLinkedStorageAccount","getLinkedStorageAccountOutput"], () => require("./getLinkedStorageAccount"));
+utilities.lazyLoad(exports, ["LinkedService"], () => require("./linkedService"));
+utilities.lazyLoad(exports, ["LinkedStorageAccount"], () => require("./linkedStorageAccount"));
 
 const _module = {
     version: utilities.getVersion(),

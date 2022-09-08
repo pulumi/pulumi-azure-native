@@ -5,16 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getService";
-export * from "./listAdminKey";
-export * from "./listQueryKeyBySearchService";
-export * from "./service";
+export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
+export const getService: typeof import("./getService").getService = null as any;
+export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
+
+export { ListAdminKeyArgs, ListAdminKeyResult, ListAdminKeyOutputArgs } from "./listAdminKey";
+export const listAdminKey: typeof import("./listAdminKey").listAdminKey = null as any;
+export const listAdminKeyOutput: typeof import("./listAdminKey").listAdminKeyOutput = null as any;
+
+export { ListQueryKeyBySearchServiceArgs, ListQueryKeyBySearchServiceResult, ListQueryKeyBySearchServiceOutputArgs } from "./listQueryKeyBySearchService";
+export const listQueryKeyBySearchService: typeof import("./listQueryKeyBySearchService").listQueryKeyBySearchService = null as any;
+export const listQueryKeyBySearchServiceOutput: typeof import("./listQueryKeyBySearchService").listQueryKeyBySearchServiceOutput = null as any;
+
+export { ServiceArgs } from "./service";
+export type Service = import("./service").Service;
+export const Service: typeof import("./service").Service = null as any;
+
+utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
+utilities.lazyLoad(exports, ["listAdminKey","listAdminKeyOutput"], () => require("./listAdminKey"));
+utilities.lazyLoad(exports, ["listQueryKeyBySearchService","listQueryKeyBySearchServiceOutput"], () => require("./listQueryKeyBySearchService"));
+utilities.lazyLoad(exports, ["Service"], () => require("./service"));
 
 // Export enums:
 export * from "../../types/enums/search/v20150819";
-
-// Import resources to register:
-import { Service } from "./service";
 
 const _module = {
     version: utilities.getVersion(),

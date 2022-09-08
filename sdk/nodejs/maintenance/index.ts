@@ -5,12 +5,36 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./configurationAssignment";
-export * from "./configurationAssignmentParent";
-export * from "./getConfigurationAssignment";
-export * from "./getConfigurationAssignmentParent";
-export * from "./getMaintenanceConfiguration";
-export * from "./maintenanceConfiguration";
+export { ConfigurationAssignmentArgs } from "./configurationAssignment";
+export type ConfigurationAssignment = import("./configurationAssignment").ConfigurationAssignment;
+export const ConfigurationAssignment: typeof import("./configurationAssignment").ConfigurationAssignment = null as any;
+
+export { ConfigurationAssignmentParentArgs } from "./configurationAssignmentParent";
+export type ConfigurationAssignmentParent = import("./configurationAssignmentParent").ConfigurationAssignmentParent;
+export const ConfigurationAssignmentParent: typeof import("./configurationAssignmentParent").ConfigurationAssignmentParent = null as any;
+
+export { GetConfigurationAssignmentArgs, GetConfigurationAssignmentResult, GetConfigurationAssignmentOutputArgs } from "./getConfigurationAssignment";
+export const getConfigurationAssignment: typeof import("./getConfigurationAssignment").getConfigurationAssignment = null as any;
+export const getConfigurationAssignmentOutput: typeof import("./getConfigurationAssignment").getConfigurationAssignmentOutput = null as any;
+
+export { GetConfigurationAssignmentParentArgs, GetConfigurationAssignmentParentResult, GetConfigurationAssignmentParentOutputArgs } from "./getConfigurationAssignmentParent";
+export const getConfigurationAssignmentParent: typeof import("./getConfigurationAssignmentParent").getConfigurationAssignmentParent = null as any;
+export const getConfigurationAssignmentParentOutput: typeof import("./getConfigurationAssignmentParent").getConfigurationAssignmentParentOutput = null as any;
+
+export { GetMaintenanceConfigurationArgs, GetMaintenanceConfigurationResult, GetMaintenanceConfigurationOutputArgs } from "./getMaintenanceConfiguration";
+export const getMaintenanceConfiguration: typeof import("./getMaintenanceConfiguration").getMaintenanceConfiguration = null as any;
+export const getMaintenanceConfigurationOutput: typeof import("./getMaintenanceConfiguration").getMaintenanceConfigurationOutput = null as any;
+
+export { MaintenanceConfigurationArgs } from "./maintenanceConfiguration";
+export type MaintenanceConfiguration = import("./maintenanceConfiguration").MaintenanceConfiguration;
+export const MaintenanceConfiguration: typeof import("./maintenanceConfiguration").MaintenanceConfiguration = null as any;
+
+utilities.lazyLoad(exports, ["ConfigurationAssignment"], () => require("./configurationAssignment"));
+utilities.lazyLoad(exports, ["ConfigurationAssignmentParent"], () => require("./configurationAssignmentParent"));
+utilities.lazyLoad(exports, ["getConfigurationAssignment","getConfigurationAssignmentOutput"], () => require("./getConfigurationAssignment"));
+utilities.lazyLoad(exports, ["getConfigurationAssignmentParent","getConfigurationAssignmentParentOutput"], () => require("./getConfigurationAssignmentParent"));
+utilities.lazyLoad(exports, ["getMaintenanceConfiguration","getMaintenanceConfigurationOutput"], () => require("./getMaintenanceConfiguration"));
+utilities.lazyLoad(exports, ["MaintenanceConfiguration"], () => require("./maintenanceConfiguration"));
 
 // Export enums:
 export * from "../types/enums/maintenance";
@@ -33,11 +57,6 @@ export {
     v20210901preview,
     v20220701preview,
 };
-
-// Import resources to register:
-import { ConfigurationAssignment } from "./configurationAssignment";
-import { ConfigurationAssignmentParent } from "./configurationAssignmentParent";
-import { MaintenanceConfiguration } from "./maintenanceConfiguration";
 
 const _module = {
     version: utilities.getVersion(),

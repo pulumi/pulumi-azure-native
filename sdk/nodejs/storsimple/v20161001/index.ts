@@ -5,45 +5,124 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./accessControlRecord";
-export * from "./backupScheduleGroup";
-export * from "./chapSetting";
-export * from "./fileServer";
-export * from "./fileShare";
-export * from "./getAccessControlRecord";
-export * from "./getBackupScheduleGroup";
-export * from "./getChapSetting";
-export * from "./getFileServer";
-export * from "./getFileShare";
-export * from "./getIscsiDisk";
-export * from "./getIscsiServer";
-export * from "./getManager";
-export * from "./getManagerEncryptionKey";
-export * from "./getManagerExtendedInfo";
-export * from "./getStorageAccountCredential";
-export * from "./getStorageDomain";
-export * from "./iscsiDisk";
-export * from "./iscsiServer";
-export * from "./manager";
-export * from "./managerExtendedInfo";
-export * from "./storageAccountCredential";
-export * from "./storageDomain";
+export { AccessControlRecordArgs } from "./accessControlRecord";
+export type AccessControlRecord = import("./accessControlRecord").AccessControlRecord;
+export const AccessControlRecord: typeof import("./accessControlRecord").AccessControlRecord = null as any;
+
+export { BackupScheduleGroupArgs } from "./backupScheduleGroup";
+export type BackupScheduleGroup = import("./backupScheduleGroup").BackupScheduleGroup;
+export const BackupScheduleGroup: typeof import("./backupScheduleGroup").BackupScheduleGroup = null as any;
+
+export { ChapSettingArgs } from "./chapSetting";
+export type ChapSetting = import("./chapSetting").ChapSetting;
+export const ChapSetting: typeof import("./chapSetting").ChapSetting = null as any;
+
+export { FileServerArgs } from "./fileServer";
+export type FileServer = import("./fileServer").FileServer;
+export const FileServer: typeof import("./fileServer").FileServer = null as any;
+
+export { FileShareArgs } from "./fileShare";
+export type FileShare = import("./fileShare").FileShare;
+export const FileShare: typeof import("./fileShare").FileShare = null as any;
+
+export { GetAccessControlRecordArgs, GetAccessControlRecordResult, GetAccessControlRecordOutputArgs } from "./getAccessControlRecord";
+export const getAccessControlRecord: typeof import("./getAccessControlRecord").getAccessControlRecord = null as any;
+export const getAccessControlRecordOutput: typeof import("./getAccessControlRecord").getAccessControlRecordOutput = null as any;
+
+export { GetBackupScheduleGroupArgs, GetBackupScheduleGroupResult, GetBackupScheduleGroupOutputArgs } from "./getBackupScheduleGroup";
+export const getBackupScheduleGroup: typeof import("./getBackupScheduleGroup").getBackupScheduleGroup = null as any;
+export const getBackupScheduleGroupOutput: typeof import("./getBackupScheduleGroup").getBackupScheduleGroupOutput = null as any;
+
+export { GetChapSettingArgs, GetChapSettingResult, GetChapSettingOutputArgs } from "./getChapSetting";
+export const getChapSetting: typeof import("./getChapSetting").getChapSetting = null as any;
+export const getChapSettingOutput: typeof import("./getChapSetting").getChapSettingOutput = null as any;
+
+export { GetFileServerArgs, GetFileServerResult, GetFileServerOutputArgs } from "./getFileServer";
+export const getFileServer: typeof import("./getFileServer").getFileServer = null as any;
+export const getFileServerOutput: typeof import("./getFileServer").getFileServerOutput = null as any;
+
+export { GetFileShareArgs, GetFileShareResult, GetFileShareOutputArgs } from "./getFileShare";
+export const getFileShare: typeof import("./getFileShare").getFileShare = null as any;
+export const getFileShareOutput: typeof import("./getFileShare").getFileShareOutput = null as any;
+
+export { GetIscsiDiskArgs, GetIscsiDiskResult, GetIscsiDiskOutputArgs } from "./getIscsiDisk";
+export const getIscsiDisk: typeof import("./getIscsiDisk").getIscsiDisk = null as any;
+export const getIscsiDiskOutput: typeof import("./getIscsiDisk").getIscsiDiskOutput = null as any;
+
+export { GetIscsiServerArgs, GetIscsiServerResult, GetIscsiServerOutputArgs } from "./getIscsiServer";
+export const getIscsiServer: typeof import("./getIscsiServer").getIscsiServer = null as any;
+export const getIscsiServerOutput: typeof import("./getIscsiServer").getIscsiServerOutput = null as any;
+
+export { GetManagerArgs, GetManagerResult, GetManagerOutputArgs } from "./getManager";
+export const getManager: typeof import("./getManager").getManager = null as any;
+export const getManagerOutput: typeof import("./getManager").getManagerOutput = null as any;
+
+export { GetManagerEncryptionKeyArgs, GetManagerEncryptionKeyResult, GetManagerEncryptionKeyOutputArgs } from "./getManagerEncryptionKey";
+export const getManagerEncryptionKey: typeof import("./getManagerEncryptionKey").getManagerEncryptionKey = null as any;
+export const getManagerEncryptionKeyOutput: typeof import("./getManagerEncryptionKey").getManagerEncryptionKeyOutput = null as any;
+
+export { GetManagerExtendedInfoArgs, GetManagerExtendedInfoResult, GetManagerExtendedInfoOutputArgs } from "./getManagerExtendedInfo";
+export const getManagerExtendedInfo: typeof import("./getManagerExtendedInfo").getManagerExtendedInfo = null as any;
+export const getManagerExtendedInfoOutput: typeof import("./getManagerExtendedInfo").getManagerExtendedInfoOutput = null as any;
+
+export { GetStorageAccountCredentialArgs, GetStorageAccountCredentialResult, GetStorageAccountCredentialOutputArgs } from "./getStorageAccountCredential";
+export const getStorageAccountCredential: typeof import("./getStorageAccountCredential").getStorageAccountCredential = null as any;
+export const getStorageAccountCredentialOutput: typeof import("./getStorageAccountCredential").getStorageAccountCredentialOutput = null as any;
+
+export { GetStorageDomainArgs, GetStorageDomainResult, GetStorageDomainOutputArgs } from "./getStorageDomain";
+export const getStorageDomain: typeof import("./getStorageDomain").getStorageDomain = null as any;
+export const getStorageDomainOutput: typeof import("./getStorageDomain").getStorageDomainOutput = null as any;
+
+export { IscsiDiskArgs } from "./iscsiDisk";
+export type IscsiDisk = import("./iscsiDisk").IscsiDisk;
+export const IscsiDisk: typeof import("./iscsiDisk").IscsiDisk = null as any;
+
+export { IscsiServerArgs } from "./iscsiServer";
+export type IscsiServer = import("./iscsiServer").IscsiServer;
+export const IscsiServer: typeof import("./iscsiServer").IscsiServer = null as any;
+
+export { ManagerArgs } from "./manager";
+export type Manager = import("./manager").Manager;
+export const Manager: typeof import("./manager").Manager = null as any;
+
+export { ManagerExtendedInfoArgs } from "./managerExtendedInfo";
+export type ManagerExtendedInfo = import("./managerExtendedInfo").ManagerExtendedInfo;
+export const ManagerExtendedInfo: typeof import("./managerExtendedInfo").ManagerExtendedInfo = null as any;
+
+export { StorageAccountCredentialArgs } from "./storageAccountCredential";
+export type StorageAccountCredential = import("./storageAccountCredential").StorageAccountCredential;
+export const StorageAccountCredential: typeof import("./storageAccountCredential").StorageAccountCredential = null as any;
+
+export { StorageDomainArgs } from "./storageDomain";
+export type StorageDomain = import("./storageDomain").StorageDomain;
+export const StorageDomain: typeof import("./storageDomain").StorageDomain = null as any;
+
+utilities.lazyLoad(exports, ["AccessControlRecord"], () => require("./accessControlRecord"));
+utilities.lazyLoad(exports, ["BackupScheduleGroup"], () => require("./backupScheduleGroup"));
+utilities.lazyLoad(exports, ["ChapSetting"], () => require("./chapSetting"));
+utilities.lazyLoad(exports, ["FileServer"], () => require("./fileServer"));
+utilities.lazyLoad(exports, ["FileShare"], () => require("./fileShare"));
+utilities.lazyLoad(exports, ["getAccessControlRecord","getAccessControlRecordOutput"], () => require("./getAccessControlRecord"));
+utilities.lazyLoad(exports, ["getBackupScheduleGroup","getBackupScheduleGroupOutput"], () => require("./getBackupScheduleGroup"));
+utilities.lazyLoad(exports, ["getChapSetting","getChapSettingOutput"], () => require("./getChapSetting"));
+utilities.lazyLoad(exports, ["getFileServer","getFileServerOutput"], () => require("./getFileServer"));
+utilities.lazyLoad(exports, ["getFileShare","getFileShareOutput"], () => require("./getFileShare"));
+utilities.lazyLoad(exports, ["getIscsiDisk","getIscsiDiskOutput"], () => require("./getIscsiDisk"));
+utilities.lazyLoad(exports, ["getIscsiServer","getIscsiServerOutput"], () => require("./getIscsiServer"));
+utilities.lazyLoad(exports, ["getManager","getManagerOutput"], () => require("./getManager"));
+utilities.lazyLoad(exports, ["getManagerEncryptionKey","getManagerEncryptionKeyOutput"], () => require("./getManagerEncryptionKey"));
+utilities.lazyLoad(exports, ["getManagerExtendedInfo","getManagerExtendedInfoOutput"], () => require("./getManagerExtendedInfo"));
+utilities.lazyLoad(exports, ["getStorageAccountCredential","getStorageAccountCredentialOutput"], () => require("./getStorageAccountCredential"));
+utilities.lazyLoad(exports, ["getStorageDomain","getStorageDomainOutput"], () => require("./getStorageDomain"));
+utilities.lazyLoad(exports, ["IscsiDisk"], () => require("./iscsiDisk"));
+utilities.lazyLoad(exports, ["IscsiServer"], () => require("./iscsiServer"));
+utilities.lazyLoad(exports, ["Manager"], () => require("./manager"));
+utilities.lazyLoad(exports, ["ManagerExtendedInfo"], () => require("./managerExtendedInfo"));
+utilities.lazyLoad(exports, ["StorageAccountCredential"], () => require("./storageAccountCredential"));
+utilities.lazyLoad(exports, ["StorageDomain"], () => require("./storageDomain"));
 
 // Export enums:
 export * from "../../types/enums/storsimple/v20161001";
-
-// Import resources to register:
-import { AccessControlRecord } from "./accessControlRecord";
-import { BackupScheduleGroup } from "./backupScheduleGroup";
-import { ChapSetting } from "./chapSetting";
-import { FileServer } from "./fileServer";
-import { FileShare } from "./fileShare";
-import { IscsiDisk } from "./iscsiDisk";
-import { IscsiServer } from "./iscsiServer";
-import { Manager } from "./manager";
-import { ManagerExtendedInfo } from "./managerExtendedInfo";
-import { StorageAccountCredential } from "./storageAccountCredential";
-import { StorageDomain } from "./storageDomain";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,23 +5,49 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./availabilitySet";
-export * from "./getAvailabilitySet";
-export * from "./getVirtualMachine";
-export * from "./getVirtualMachineExtension";
-export * from "./getVirtualMachineScaleSet";
-export * from "./virtualMachine";
-export * from "./virtualMachineExtension";
-export * from "./virtualMachineScaleSet";
+export { AvailabilitySetArgs } from "./availabilitySet";
+export type AvailabilitySet = import("./availabilitySet").AvailabilitySet;
+export const AvailabilitySet: typeof import("./availabilitySet").AvailabilitySet = null as any;
+
+export { GetAvailabilitySetArgs, GetAvailabilitySetResult, GetAvailabilitySetOutputArgs } from "./getAvailabilitySet";
+export const getAvailabilitySet: typeof import("./getAvailabilitySet").getAvailabilitySet = null as any;
+export const getAvailabilitySetOutput: typeof import("./getAvailabilitySet").getAvailabilitySetOutput = null as any;
+
+export { GetVirtualMachineArgs, GetVirtualMachineResult, GetVirtualMachineOutputArgs } from "./getVirtualMachine";
+export const getVirtualMachine: typeof import("./getVirtualMachine").getVirtualMachine = null as any;
+export const getVirtualMachineOutput: typeof import("./getVirtualMachine").getVirtualMachineOutput = null as any;
+
+export { GetVirtualMachineExtensionArgs, GetVirtualMachineExtensionResult, GetVirtualMachineExtensionOutputArgs } from "./getVirtualMachineExtension";
+export const getVirtualMachineExtension: typeof import("./getVirtualMachineExtension").getVirtualMachineExtension = null as any;
+export const getVirtualMachineExtensionOutput: typeof import("./getVirtualMachineExtension").getVirtualMachineExtensionOutput = null as any;
+
+export { GetVirtualMachineScaleSetArgs, GetVirtualMachineScaleSetResult, GetVirtualMachineScaleSetOutputArgs } from "./getVirtualMachineScaleSet";
+export const getVirtualMachineScaleSet: typeof import("./getVirtualMachineScaleSet").getVirtualMachineScaleSet = null as any;
+export const getVirtualMachineScaleSetOutput: typeof import("./getVirtualMachineScaleSet").getVirtualMachineScaleSetOutput = null as any;
+
+export { VirtualMachineArgs } from "./virtualMachine";
+export type VirtualMachine = import("./virtualMachine").VirtualMachine;
+export const VirtualMachine: typeof import("./virtualMachine").VirtualMachine = null as any;
+
+export { VirtualMachineExtensionArgs } from "./virtualMachineExtension";
+export type VirtualMachineExtension = import("./virtualMachineExtension").VirtualMachineExtension;
+export const VirtualMachineExtension: typeof import("./virtualMachineExtension").VirtualMachineExtension = null as any;
+
+export { VirtualMachineScaleSetArgs } from "./virtualMachineScaleSet";
+export type VirtualMachineScaleSet = import("./virtualMachineScaleSet").VirtualMachineScaleSet;
+export const VirtualMachineScaleSet: typeof import("./virtualMachineScaleSet").VirtualMachineScaleSet = null as any;
+
+utilities.lazyLoad(exports, ["AvailabilitySet"], () => require("./availabilitySet"));
+utilities.lazyLoad(exports, ["getAvailabilitySet","getAvailabilitySetOutput"], () => require("./getAvailabilitySet"));
+utilities.lazyLoad(exports, ["getVirtualMachine","getVirtualMachineOutput"], () => require("./getVirtualMachine"));
+utilities.lazyLoad(exports, ["getVirtualMachineExtension","getVirtualMachineExtensionOutput"], () => require("./getVirtualMachineExtension"));
+utilities.lazyLoad(exports, ["getVirtualMachineScaleSet","getVirtualMachineScaleSetOutput"], () => require("./getVirtualMachineScaleSet"));
+utilities.lazyLoad(exports, ["VirtualMachine"], () => require("./virtualMachine"));
+utilities.lazyLoad(exports, ["VirtualMachineExtension"], () => require("./virtualMachineExtension"));
+utilities.lazyLoad(exports, ["VirtualMachineScaleSet"], () => require("./virtualMachineScaleSet"));
 
 // Export enums:
 export * from "../../types/enums/compute/v20150615";
-
-// Import resources to register:
-import { AvailabilitySet } from "./availabilitySet";
-import { VirtualMachine } from "./virtualMachine";
-import { VirtualMachineExtension } from "./virtualMachineExtension";
-import { VirtualMachineScaleSet } from "./virtualMachineScaleSet";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,23 +5,91 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./defaultRollout";
-export * from "./getDefaultRollout";
-export * from "./getNotificationRegistration";
-export * from "./getProviderRegistration";
-export * from "./getResourceTypeRegistration";
-export * from "./getSkus";
-export * from "./getSkusNestedResourceTypeFirst";
-export * from "./getSkusNestedResourceTypeSecond";
-export * from "./getSkusNestedResourceTypeThird";
-export * from "./notificationRegistration";
-export * from "./operationByProviderRegistration";
-export * from "./providerRegistration";
-export * from "./resourceTypeRegistration";
-export * from "./skus";
-export * from "./skusNestedResourceTypeFirst";
-export * from "./skusNestedResourceTypeSecond";
-export * from "./skusNestedResourceTypeThird";
+export { DefaultRolloutArgs } from "./defaultRollout";
+export type DefaultRollout = import("./defaultRollout").DefaultRollout;
+export const DefaultRollout: typeof import("./defaultRollout").DefaultRollout = null as any;
+
+export { GetDefaultRolloutArgs, GetDefaultRolloutResult, GetDefaultRolloutOutputArgs } from "./getDefaultRollout";
+export const getDefaultRollout: typeof import("./getDefaultRollout").getDefaultRollout = null as any;
+export const getDefaultRolloutOutput: typeof import("./getDefaultRollout").getDefaultRolloutOutput = null as any;
+
+export { GetNotificationRegistrationArgs, GetNotificationRegistrationResult, GetNotificationRegistrationOutputArgs } from "./getNotificationRegistration";
+export const getNotificationRegistration: typeof import("./getNotificationRegistration").getNotificationRegistration = null as any;
+export const getNotificationRegistrationOutput: typeof import("./getNotificationRegistration").getNotificationRegistrationOutput = null as any;
+
+export { GetProviderRegistrationArgs, GetProviderRegistrationResult, GetProviderRegistrationOutputArgs } from "./getProviderRegistration";
+export const getProviderRegistration: typeof import("./getProviderRegistration").getProviderRegistration = null as any;
+export const getProviderRegistrationOutput: typeof import("./getProviderRegistration").getProviderRegistrationOutput = null as any;
+
+export { GetResourceTypeRegistrationArgs, GetResourceTypeRegistrationResult, GetResourceTypeRegistrationOutputArgs } from "./getResourceTypeRegistration";
+export const getResourceTypeRegistration: typeof import("./getResourceTypeRegistration").getResourceTypeRegistration = null as any;
+export const getResourceTypeRegistrationOutput: typeof import("./getResourceTypeRegistration").getResourceTypeRegistrationOutput = null as any;
+
+export { GetSkusArgs, GetSkusResult, GetSkusOutputArgs } from "./getSkus";
+export const getSkus: typeof import("./getSkus").getSkus = null as any;
+export const getSkusOutput: typeof import("./getSkus").getSkusOutput = null as any;
+
+export { GetSkusNestedResourceTypeFirstArgs, GetSkusNestedResourceTypeFirstResult, GetSkusNestedResourceTypeFirstOutputArgs } from "./getSkusNestedResourceTypeFirst";
+export const getSkusNestedResourceTypeFirst: typeof import("./getSkusNestedResourceTypeFirst").getSkusNestedResourceTypeFirst = null as any;
+export const getSkusNestedResourceTypeFirstOutput: typeof import("./getSkusNestedResourceTypeFirst").getSkusNestedResourceTypeFirstOutput = null as any;
+
+export { GetSkusNestedResourceTypeSecondArgs, GetSkusNestedResourceTypeSecondResult, GetSkusNestedResourceTypeSecondOutputArgs } from "./getSkusNestedResourceTypeSecond";
+export const getSkusNestedResourceTypeSecond: typeof import("./getSkusNestedResourceTypeSecond").getSkusNestedResourceTypeSecond = null as any;
+export const getSkusNestedResourceTypeSecondOutput: typeof import("./getSkusNestedResourceTypeSecond").getSkusNestedResourceTypeSecondOutput = null as any;
+
+export { GetSkusNestedResourceTypeThirdArgs, GetSkusNestedResourceTypeThirdResult, GetSkusNestedResourceTypeThirdOutputArgs } from "./getSkusNestedResourceTypeThird";
+export const getSkusNestedResourceTypeThird: typeof import("./getSkusNestedResourceTypeThird").getSkusNestedResourceTypeThird = null as any;
+export const getSkusNestedResourceTypeThirdOutput: typeof import("./getSkusNestedResourceTypeThird").getSkusNestedResourceTypeThirdOutput = null as any;
+
+export { NotificationRegistrationArgs } from "./notificationRegistration";
+export type NotificationRegistration = import("./notificationRegistration").NotificationRegistration;
+export const NotificationRegistration: typeof import("./notificationRegistration").NotificationRegistration = null as any;
+
+export { OperationByProviderRegistrationArgs } from "./operationByProviderRegistration";
+export type OperationByProviderRegistration = import("./operationByProviderRegistration").OperationByProviderRegistration;
+export const OperationByProviderRegistration: typeof import("./operationByProviderRegistration").OperationByProviderRegistration = null as any;
+
+export { ProviderRegistrationArgs } from "./providerRegistration";
+export type ProviderRegistration = import("./providerRegistration").ProviderRegistration;
+export const ProviderRegistration: typeof import("./providerRegistration").ProviderRegistration = null as any;
+
+export { ResourceTypeRegistrationArgs } from "./resourceTypeRegistration";
+export type ResourceTypeRegistration = import("./resourceTypeRegistration").ResourceTypeRegistration;
+export const ResourceTypeRegistration: typeof import("./resourceTypeRegistration").ResourceTypeRegistration = null as any;
+
+export { SkusArgs } from "./skus";
+export type Skus = import("./skus").Skus;
+export const Skus: typeof import("./skus").Skus = null as any;
+
+export { SkusNestedResourceTypeFirstArgs } from "./skusNestedResourceTypeFirst";
+export type SkusNestedResourceTypeFirst = import("./skusNestedResourceTypeFirst").SkusNestedResourceTypeFirst;
+export const SkusNestedResourceTypeFirst: typeof import("./skusNestedResourceTypeFirst").SkusNestedResourceTypeFirst = null as any;
+
+export { SkusNestedResourceTypeSecondArgs } from "./skusNestedResourceTypeSecond";
+export type SkusNestedResourceTypeSecond = import("./skusNestedResourceTypeSecond").SkusNestedResourceTypeSecond;
+export const SkusNestedResourceTypeSecond: typeof import("./skusNestedResourceTypeSecond").SkusNestedResourceTypeSecond = null as any;
+
+export { SkusNestedResourceTypeThirdArgs } from "./skusNestedResourceTypeThird";
+export type SkusNestedResourceTypeThird = import("./skusNestedResourceTypeThird").SkusNestedResourceTypeThird;
+export const SkusNestedResourceTypeThird: typeof import("./skusNestedResourceTypeThird").SkusNestedResourceTypeThird = null as any;
+
+utilities.lazyLoad(exports, ["DefaultRollout"], () => require("./defaultRollout"));
+utilities.lazyLoad(exports, ["getDefaultRollout","getDefaultRolloutOutput"], () => require("./getDefaultRollout"));
+utilities.lazyLoad(exports, ["getNotificationRegistration","getNotificationRegistrationOutput"], () => require("./getNotificationRegistration"));
+utilities.lazyLoad(exports, ["getProviderRegistration","getProviderRegistrationOutput"], () => require("./getProviderRegistration"));
+utilities.lazyLoad(exports, ["getResourceTypeRegistration","getResourceTypeRegistrationOutput"], () => require("./getResourceTypeRegistration"));
+utilities.lazyLoad(exports, ["getSkus","getSkusOutput"], () => require("./getSkus"));
+utilities.lazyLoad(exports, ["getSkusNestedResourceTypeFirst","getSkusNestedResourceTypeFirstOutput"], () => require("./getSkusNestedResourceTypeFirst"));
+utilities.lazyLoad(exports, ["getSkusNestedResourceTypeSecond","getSkusNestedResourceTypeSecondOutput"], () => require("./getSkusNestedResourceTypeSecond"));
+utilities.lazyLoad(exports, ["getSkusNestedResourceTypeThird","getSkusNestedResourceTypeThirdOutput"], () => require("./getSkusNestedResourceTypeThird"));
+utilities.lazyLoad(exports, ["NotificationRegistration"], () => require("./notificationRegistration"));
+utilities.lazyLoad(exports, ["OperationByProviderRegistration"], () => require("./operationByProviderRegistration"));
+utilities.lazyLoad(exports, ["ProviderRegistration"], () => require("./providerRegistration"));
+utilities.lazyLoad(exports, ["ResourceTypeRegistration"], () => require("./resourceTypeRegistration"));
+utilities.lazyLoad(exports, ["Skus"], () => require("./skus"));
+utilities.lazyLoad(exports, ["SkusNestedResourceTypeFirst"], () => require("./skusNestedResourceTypeFirst"));
+utilities.lazyLoad(exports, ["SkusNestedResourceTypeSecond"], () => require("./skusNestedResourceTypeSecond"));
+utilities.lazyLoad(exports, ["SkusNestedResourceTypeThird"], () => require("./skusNestedResourceTypeThird"));
 
 // Export enums:
 export * from "../types/enums/providerhub";
@@ -38,17 +106,6 @@ export {
     v20210601preview,
     v20210901preview,
 };
-
-// Import resources to register:
-import { DefaultRollout } from "./defaultRollout";
-import { NotificationRegistration } from "./notificationRegistration";
-import { OperationByProviderRegistration } from "./operationByProviderRegistration";
-import { ProviderRegistration } from "./providerRegistration";
-import { ResourceTypeRegistration } from "./resourceTypeRegistration";
-import { Skus } from "./skus";
-import { SkusNestedResourceTypeFirst } from "./skusNestedResourceTypeFirst";
-import { SkusNestedResourceTypeSecond } from "./skusNestedResourceTypeSecond";
-import { SkusNestedResourceTypeThird } from "./skusNestedResourceTypeThird";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,23 +5,49 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getPeerAsn";
-export * from "./getPeering";
-export * from "./getPeeringService";
-export * from "./getPeeringServicePrefix";
-export * from "./peerAsn";
-export * from "./peering";
-export * from "./peeringService";
-export * from "./peeringServicePrefix";
+export { GetPeerAsnArgs, GetPeerAsnResult, GetPeerAsnOutputArgs } from "./getPeerAsn";
+export const getPeerAsn: typeof import("./getPeerAsn").getPeerAsn = null as any;
+export const getPeerAsnOutput: typeof import("./getPeerAsn").getPeerAsnOutput = null as any;
+
+export { GetPeeringArgs, GetPeeringResult, GetPeeringOutputArgs } from "./getPeering";
+export const getPeering: typeof import("./getPeering").getPeering = null as any;
+export const getPeeringOutput: typeof import("./getPeering").getPeeringOutput = null as any;
+
+export { GetPeeringServiceArgs, GetPeeringServiceResult, GetPeeringServiceOutputArgs } from "./getPeeringService";
+export const getPeeringService: typeof import("./getPeeringService").getPeeringService = null as any;
+export const getPeeringServiceOutput: typeof import("./getPeeringService").getPeeringServiceOutput = null as any;
+
+export { GetPeeringServicePrefixArgs, GetPeeringServicePrefixResult, GetPeeringServicePrefixOutputArgs } from "./getPeeringServicePrefix";
+export const getPeeringServicePrefix: typeof import("./getPeeringServicePrefix").getPeeringServicePrefix = null as any;
+export const getPeeringServicePrefixOutput: typeof import("./getPeeringServicePrefix").getPeeringServicePrefixOutput = null as any;
+
+export { PeerAsnArgs } from "./peerAsn";
+export type PeerAsn = import("./peerAsn").PeerAsn;
+export const PeerAsn: typeof import("./peerAsn").PeerAsn = null as any;
+
+export { PeeringArgs } from "./peering";
+export type Peering = import("./peering").Peering;
+export const Peering: typeof import("./peering").Peering = null as any;
+
+export { PeeringServiceArgs } from "./peeringService";
+export type PeeringService = import("./peeringService").PeeringService;
+export const PeeringService: typeof import("./peeringService").PeeringService = null as any;
+
+export { PeeringServicePrefixArgs } from "./peeringServicePrefix";
+export type PeeringServicePrefix = import("./peeringServicePrefix").PeeringServicePrefix;
+export const PeeringServicePrefix: typeof import("./peeringServicePrefix").PeeringServicePrefix = null as any;
+
+utilities.lazyLoad(exports, ["getPeerAsn","getPeerAsnOutput"], () => require("./getPeerAsn"));
+utilities.lazyLoad(exports, ["getPeering","getPeeringOutput"], () => require("./getPeering"));
+utilities.lazyLoad(exports, ["getPeeringService","getPeeringServiceOutput"], () => require("./getPeeringService"));
+utilities.lazyLoad(exports, ["getPeeringServicePrefix","getPeeringServicePrefixOutput"], () => require("./getPeeringServicePrefix"));
+utilities.lazyLoad(exports, ["PeerAsn"], () => require("./peerAsn"));
+utilities.lazyLoad(exports, ["Peering"], () => require("./peering"));
+utilities.lazyLoad(exports, ["PeeringService"], () => require("./peeringService"));
+utilities.lazyLoad(exports, ["PeeringServicePrefix"], () => require("./peeringServicePrefix"));
 
 // Export enums:
 export * from "../../types/enums/peering/v20190801preview";
-
-// Import resources to register:
-import { PeerAsn } from "./peerAsn";
-import { Peering } from "./peering";
-import { PeeringService } from "./peeringService";
-import { PeeringServicePrefix } from "./peeringServicePrefix";
 
 const _module = {
     version: utilities.getVersion(),

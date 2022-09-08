@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./account";
-export * from "./dataPool";
-export * from "./getAccount";
-export * from "./getDataPool";
+export { AccountArgs } from "./account";
+export type Account = import("./account").Account;
+export const Account: typeof import("./account").Account = null as any;
+
+export { DataPoolArgs } from "./dataPool";
+export type DataPool = import("./dataPool").DataPool;
+export const DataPool: typeof import("./dataPool").DataPool = null as any;
+
+export { GetAccountArgs, GetAccountResult, GetAccountOutputArgs } from "./getAccount";
+export const getAccount: typeof import("./getAccount").getAccount = null as any;
+export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
+
+export { GetDataPoolArgs, GetDataPoolResult, GetDataPoolOutputArgs } from "./getDataPool";
+export const getDataPool: typeof import("./getDataPool").getDataPool = null as any;
+export const getDataPoolOutput: typeof import("./getDataPool").getDataPoolOutput = null as any;
+
+utilities.lazyLoad(exports, ["Account"], () => require("./account"));
+utilities.lazyLoad(exports, ["DataPool"], () => require("./dataPool"));
+utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
+utilities.lazyLoad(exports, ["getDataPool","getDataPoolOutput"], () => require("./getDataPool"));
 
 // Export enums:
 export * from "../../types/enums/autonomousdevelopmentplatform/v20211101preview";
-
-// Import resources to register:
-import { Account } from "./account";
-import { DataPool } from "./dataPool";
 
 const _module = {
     version: utilities.getVersion(),

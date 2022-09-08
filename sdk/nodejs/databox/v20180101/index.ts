@@ -5,15 +5,24 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getJob";
-export * from "./job";
-export * from "./listJobCredentials";
+export { GetJobArgs, GetJobResult, GetJobOutputArgs } from "./getJob";
+export const getJob: typeof import("./getJob").getJob = null as any;
+export const getJobOutput: typeof import("./getJob").getJobOutput = null as any;
+
+export { JobArgs } from "./job";
+export type Job = import("./job").Job;
+export const Job: typeof import("./job").Job = null as any;
+
+export { ListJobCredentialsArgs, ListJobCredentialsResult, ListJobCredentialsOutputArgs } from "./listJobCredentials";
+export const listJobCredentials: typeof import("./listJobCredentials").listJobCredentials = null as any;
+export const listJobCredentialsOutput: typeof import("./listJobCredentials").listJobCredentialsOutput = null as any;
+
+utilities.lazyLoad(exports, ["getJob","getJobOutput"], () => require("./getJob"));
+utilities.lazyLoad(exports, ["Job"], () => require("./job"));
+utilities.lazyLoad(exports, ["listJobCredentials","listJobCredentialsOutput"], () => require("./listJobCredentials"));
 
 // Export enums:
 export * from "../../types/enums/databox/v20180101";
-
-// Import resources to register:
-import { Job } from "./job";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,25 +5,59 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./accessPolicy";
-export * from "./edgeModule";
-export * from "./getAccessPolicy";
-export * from "./getEdgeModule";
-export * from "./getVideo";
-export * from "./getVideoAnalyzer";
-export * from "./listEdgeModuleProvisioningToken";
-export * from "./listVideoStreamingToken";
-export * from "./video";
-export * from "./videoAnalyzer";
+export { AccessPolicyArgs } from "./accessPolicy";
+export type AccessPolicy = import("./accessPolicy").AccessPolicy;
+export const AccessPolicy: typeof import("./accessPolicy").AccessPolicy = null as any;
+
+export { EdgeModuleArgs } from "./edgeModule";
+export type EdgeModule = import("./edgeModule").EdgeModule;
+export const EdgeModule: typeof import("./edgeModule").EdgeModule = null as any;
+
+export { GetAccessPolicyArgs, GetAccessPolicyResult, GetAccessPolicyOutputArgs } from "./getAccessPolicy";
+export const getAccessPolicy: typeof import("./getAccessPolicy").getAccessPolicy = null as any;
+export const getAccessPolicyOutput: typeof import("./getAccessPolicy").getAccessPolicyOutput = null as any;
+
+export { GetEdgeModuleArgs, GetEdgeModuleResult, GetEdgeModuleOutputArgs } from "./getEdgeModule";
+export const getEdgeModule: typeof import("./getEdgeModule").getEdgeModule = null as any;
+export const getEdgeModuleOutput: typeof import("./getEdgeModule").getEdgeModuleOutput = null as any;
+
+export { GetVideoArgs, GetVideoResult, GetVideoOutputArgs } from "./getVideo";
+export const getVideo: typeof import("./getVideo").getVideo = null as any;
+export const getVideoOutput: typeof import("./getVideo").getVideoOutput = null as any;
+
+export { GetVideoAnalyzerArgs, GetVideoAnalyzerResult, GetVideoAnalyzerOutputArgs } from "./getVideoAnalyzer";
+export const getVideoAnalyzer: typeof import("./getVideoAnalyzer").getVideoAnalyzer = null as any;
+export const getVideoAnalyzerOutput: typeof import("./getVideoAnalyzer").getVideoAnalyzerOutput = null as any;
+
+export { ListEdgeModuleProvisioningTokenArgs, ListEdgeModuleProvisioningTokenResult, ListEdgeModuleProvisioningTokenOutputArgs } from "./listEdgeModuleProvisioningToken";
+export const listEdgeModuleProvisioningToken: typeof import("./listEdgeModuleProvisioningToken").listEdgeModuleProvisioningToken = null as any;
+export const listEdgeModuleProvisioningTokenOutput: typeof import("./listEdgeModuleProvisioningToken").listEdgeModuleProvisioningTokenOutput = null as any;
+
+export { ListVideoStreamingTokenArgs, ListVideoStreamingTokenResult, ListVideoStreamingTokenOutputArgs } from "./listVideoStreamingToken";
+export const listVideoStreamingToken: typeof import("./listVideoStreamingToken").listVideoStreamingToken = null as any;
+export const listVideoStreamingTokenOutput: typeof import("./listVideoStreamingToken").listVideoStreamingTokenOutput = null as any;
+
+export { VideoArgs } from "./video";
+export type Video = import("./video").Video;
+export const Video: typeof import("./video").Video = null as any;
+
+export { VideoAnalyzerArgs } from "./videoAnalyzer";
+export type VideoAnalyzer = import("./videoAnalyzer").VideoAnalyzer;
+export const VideoAnalyzer: typeof import("./videoAnalyzer").VideoAnalyzer = null as any;
+
+utilities.lazyLoad(exports, ["AccessPolicy"], () => require("./accessPolicy"));
+utilities.lazyLoad(exports, ["EdgeModule"], () => require("./edgeModule"));
+utilities.lazyLoad(exports, ["getAccessPolicy","getAccessPolicyOutput"], () => require("./getAccessPolicy"));
+utilities.lazyLoad(exports, ["getEdgeModule","getEdgeModuleOutput"], () => require("./getEdgeModule"));
+utilities.lazyLoad(exports, ["getVideo","getVideoOutput"], () => require("./getVideo"));
+utilities.lazyLoad(exports, ["getVideoAnalyzer","getVideoAnalyzerOutput"], () => require("./getVideoAnalyzer"));
+utilities.lazyLoad(exports, ["listEdgeModuleProvisioningToken","listEdgeModuleProvisioningTokenOutput"], () => require("./listEdgeModuleProvisioningToken"));
+utilities.lazyLoad(exports, ["listVideoStreamingToken","listVideoStreamingTokenOutput"], () => require("./listVideoStreamingToken"));
+utilities.lazyLoad(exports, ["Video"], () => require("./video"));
+utilities.lazyLoad(exports, ["VideoAnalyzer"], () => require("./videoAnalyzer"));
 
 // Export enums:
 export * from "../../types/enums/videoanalyzer/v20210501preview";
-
-// Import resources to register:
-import { AccessPolicy } from "./accessPolicy";
-import { EdgeModule } from "./edgeModule";
-import { Video } from "./video";
-import { VideoAnalyzer } from "./videoAnalyzer";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,11 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getHanaInstance";
-export * from "./hanaInstance";
+export { GetHanaInstanceArgs, GetHanaInstanceResult, GetHanaInstanceOutputArgs } from "./getHanaInstance";
+export const getHanaInstance: typeof import("./getHanaInstance").getHanaInstance = null as any;
+export const getHanaInstanceOutput: typeof import("./getHanaInstance").getHanaInstanceOutput = null as any;
 
-// Import resources to register:
-import { HanaInstance } from "./hanaInstance";
+export { HanaInstanceArgs } from "./hanaInstance";
+export type HanaInstance = import("./hanaInstance").HanaInstance;
+export const HanaInstance: typeof import("./hanaInstance").HanaInstance = null as any;
+
+utilities.lazyLoad(exports, ["getHanaInstance","getHanaInstanceOutput"], () => require("./getHanaInstance"));
+utilities.lazyLoad(exports, ["HanaInstance"], () => require("./hanaInstance"));
 
 const _module = {
     version: utilities.getVersion(),

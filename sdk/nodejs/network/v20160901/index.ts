@@ -5,71 +5,214 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./applicationGateway";
-export * from "./expressRouteCircuit";
-export * from "./expressRouteCircuitAuthorization";
-export * from "./expressRouteCircuitPeering";
-export * from "./getApplicationGateway";
-export * from "./getExpressRouteCircuit";
-export * from "./getExpressRouteCircuitAuthorization";
-export * from "./getExpressRouteCircuitPeering";
-export * from "./getLoadBalancer";
-export * from "./getLocalNetworkGateway";
-export * from "./getNetworkInterface";
-export * from "./getNetworkSecurityGroup";
-export * from "./getNetworkWatcher";
-export * from "./getPacketCapture";
-export * from "./getPublicIPAddress";
-export * from "./getRoute";
-export * from "./getRouteTable";
-export * from "./getSecurityRule";
-export * from "./getSubnet";
-export * from "./getVirtualNetwork";
-export * from "./getVirtualNetworkGateway";
-export * from "./getVirtualNetworkGatewayAdvertisedRoutes";
-export * from "./getVirtualNetworkGatewayBgpPeerStatus";
-export * from "./getVirtualNetworkGatewayConnection";
-export * from "./getVirtualNetworkGatewayLearnedRoutes";
-export * from "./getVirtualNetworkPeering";
-export * from "./loadBalancer";
-export * from "./localNetworkGateway";
-export * from "./networkInterface";
-export * from "./networkSecurityGroup";
-export * from "./networkWatcher";
-export * from "./packetCapture";
-export * from "./publicIPAddress";
-export * from "./route";
-export * from "./routeTable";
-export * from "./securityRule";
-export * from "./subnet";
-export * from "./virtualNetwork";
-export * from "./virtualNetworkGateway";
-export * from "./virtualNetworkGatewayConnection";
-export * from "./virtualNetworkPeering";
+export { ApplicationGatewayArgs } from "./applicationGateway";
+export type ApplicationGateway = import("./applicationGateway").ApplicationGateway;
+export const ApplicationGateway: typeof import("./applicationGateway").ApplicationGateway = null as any;
+
+export { ExpressRouteCircuitArgs } from "./expressRouteCircuit";
+export type ExpressRouteCircuit = import("./expressRouteCircuit").ExpressRouteCircuit;
+export const ExpressRouteCircuit: typeof import("./expressRouteCircuit").ExpressRouteCircuit = null as any;
+
+export { ExpressRouteCircuitAuthorizationArgs } from "./expressRouteCircuitAuthorization";
+export type ExpressRouteCircuitAuthorization = import("./expressRouteCircuitAuthorization").ExpressRouteCircuitAuthorization;
+export const ExpressRouteCircuitAuthorization: typeof import("./expressRouteCircuitAuthorization").ExpressRouteCircuitAuthorization = null as any;
+
+export { ExpressRouteCircuitPeeringArgs } from "./expressRouteCircuitPeering";
+export type ExpressRouteCircuitPeering = import("./expressRouteCircuitPeering").ExpressRouteCircuitPeering;
+export const ExpressRouteCircuitPeering: typeof import("./expressRouteCircuitPeering").ExpressRouteCircuitPeering = null as any;
+
+export { GetApplicationGatewayArgs, GetApplicationGatewayResult, GetApplicationGatewayOutputArgs } from "./getApplicationGateway";
+export const getApplicationGateway: typeof import("./getApplicationGateway").getApplicationGateway = null as any;
+export const getApplicationGatewayOutput: typeof import("./getApplicationGateway").getApplicationGatewayOutput = null as any;
+
+export { GetExpressRouteCircuitArgs, GetExpressRouteCircuitResult, GetExpressRouteCircuitOutputArgs } from "./getExpressRouteCircuit";
+export const getExpressRouteCircuit: typeof import("./getExpressRouteCircuit").getExpressRouteCircuit = null as any;
+export const getExpressRouteCircuitOutput: typeof import("./getExpressRouteCircuit").getExpressRouteCircuitOutput = null as any;
+
+export { GetExpressRouteCircuitAuthorizationArgs, GetExpressRouteCircuitAuthorizationResult, GetExpressRouteCircuitAuthorizationOutputArgs } from "./getExpressRouteCircuitAuthorization";
+export const getExpressRouteCircuitAuthorization: typeof import("./getExpressRouteCircuitAuthorization").getExpressRouteCircuitAuthorization = null as any;
+export const getExpressRouteCircuitAuthorizationOutput: typeof import("./getExpressRouteCircuitAuthorization").getExpressRouteCircuitAuthorizationOutput = null as any;
+
+export { GetExpressRouteCircuitPeeringArgs, GetExpressRouteCircuitPeeringResult, GetExpressRouteCircuitPeeringOutputArgs } from "./getExpressRouteCircuitPeering";
+export const getExpressRouteCircuitPeering: typeof import("./getExpressRouteCircuitPeering").getExpressRouteCircuitPeering = null as any;
+export const getExpressRouteCircuitPeeringOutput: typeof import("./getExpressRouteCircuitPeering").getExpressRouteCircuitPeeringOutput = null as any;
+
+export { GetLoadBalancerArgs, GetLoadBalancerResult, GetLoadBalancerOutputArgs } from "./getLoadBalancer";
+export const getLoadBalancer: typeof import("./getLoadBalancer").getLoadBalancer = null as any;
+export const getLoadBalancerOutput: typeof import("./getLoadBalancer").getLoadBalancerOutput = null as any;
+
+export { GetLocalNetworkGatewayArgs, GetLocalNetworkGatewayResult, GetLocalNetworkGatewayOutputArgs } from "./getLocalNetworkGateway";
+export const getLocalNetworkGateway: typeof import("./getLocalNetworkGateway").getLocalNetworkGateway = null as any;
+export const getLocalNetworkGatewayOutput: typeof import("./getLocalNetworkGateway").getLocalNetworkGatewayOutput = null as any;
+
+export { GetNetworkInterfaceArgs, GetNetworkInterfaceResult, GetNetworkInterfaceOutputArgs } from "./getNetworkInterface";
+export const getNetworkInterface: typeof import("./getNetworkInterface").getNetworkInterface = null as any;
+export const getNetworkInterfaceOutput: typeof import("./getNetworkInterface").getNetworkInterfaceOutput = null as any;
+
+export { GetNetworkSecurityGroupArgs, GetNetworkSecurityGroupResult, GetNetworkSecurityGroupOutputArgs } from "./getNetworkSecurityGroup";
+export const getNetworkSecurityGroup: typeof import("./getNetworkSecurityGroup").getNetworkSecurityGroup = null as any;
+export const getNetworkSecurityGroupOutput: typeof import("./getNetworkSecurityGroup").getNetworkSecurityGroupOutput = null as any;
+
+export { GetNetworkWatcherArgs, GetNetworkWatcherResult, GetNetworkWatcherOutputArgs } from "./getNetworkWatcher";
+export const getNetworkWatcher: typeof import("./getNetworkWatcher").getNetworkWatcher = null as any;
+export const getNetworkWatcherOutput: typeof import("./getNetworkWatcher").getNetworkWatcherOutput = null as any;
+
+export { GetPacketCaptureArgs, GetPacketCaptureResult, GetPacketCaptureOutputArgs } from "./getPacketCapture";
+export const getPacketCapture: typeof import("./getPacketCapture").getPacketCapture = null as any;
+export const getPacketCaptureOutput: typeof import("./getPacketCapture").getPacketCaptureOutput = null as any;
+
+export { GetPublicIPAddressArgs, GetPublicIPAddressResult, GetPublicIPAddressOutputArgs } from "./getPublicIPAddress";
+export const getPublicIPAddress: typeof import("./getPublicIPAddress").getPublicIPAddress = null as any;
+export const getPublicIPAddressOutput: typeof import("./getPublicIPAddress").getPublicIPAddressOutput = null as any;
+
+export { GetRouteArgs, GetRouteResult, GetRouteOutputArgs } from "./getRoute";
+export const getRoute: typeof import("./getRoute").getRoute = null as any;
+export const getRouteOutput: typeof import("./getRoute").getRouteOutput = null as any;
+
+export { GetRouteTableArgs, GetRouteTableResult, GetRouteTableOutputArgs } from "./getRouteTable";
+export const getRouteTable: typeof import("./getRouteTable").getRouteTable = null as any;
+export const getRouteTableOutput: typeof import("./getRouteTable").getRouteTableOutput = null as any;
+
+export { GetSecurityRuleArgs, GetSecurityRuleResult, GetSecurityRuleOutputArgs } from "./getSecurityRule";
+export const getSecurityRule: typeof import("./getSecurityRule").getSecurityRule = null as any;
+export const getSecurityRuleOutput: typeof import("./getSecurityRule").getSecurityRuleOutput = null as any;
+
+export { GetSubnetArgs, GetSubnetResult, GetSubnetOutputArgs } from "./getSubnet";
+export const getSubnet: typeof import("./getSubnet").getSubnet = null as any;
+export const getSubnetOutput: typeof import("./getSubnet").getSubnetOutput = null as any;
+
+export { GetVirtualNetworkArgs, GetVirtualNetworkResult, GetVirtualNetworkOutputArgs } from "./getVirtualNetwork";
+export const getVirtualNetwork: typeof import("./getVirtualNetwork").getVirtualNetwork = null as any;
+export const getVirtualNetworkOutput: typeof import("./getVirtualNetwork").getVirtualNetworkOutput = null as any;
+
+export { GetVirtualNetworkGatewayArgs, GetVirtualNetworkGatewayResult, GetVirtualNetworkGatewayOutputArgs } from "./getVirtualNetworkGateway";
+export const getVirtualNetworkGateway: typeof import("./getVirtualNetworkGateway").getVirtualNetworkGateway = null as any;
+export const getVirtualNetworkGatewayOutput: typeof import("./getVirtualNetworkGateway").getVirtualNetworkGatewayOutput = null as any;
+
+export { GetVirtualNetworkGatewayAdvertisedRoutesArgs, GetVirtualNetworkGatewayAdvertisedRoutesResult, GetVirtualNetworkGatewayAdvertisedRoutesOutputArgs } from "./getVirtualNetworkGatewayAdvertisedRoutes";
+export const getVirtualNetworkGatewayAdvertisedRoutes: typeof import("./getVirtualNetworkGatewayAdvertisedRoutes").getVirtualNetworkGatewayAdvertisedRoutes = null as any;
+export const getVirtualNetworkGatewayAdvertisedRoutesOutput: typeof import("./getVirtualNetworkGatewayAdvertisedRoutes").getVirtualNetworkGatewayAdvertisedRoutesOutput = null as any;
+
+export { GetVirtualNetworkGatewayBgpPeerStatusArgs, GetVirtualNetworkGatewayBgpPeerStatusResult, GetVirtualNetworkGatewayBgpPeerStatusOutputArgs } from "./getVirtualNetworkGatewayBgpPeerStatus";
+export const getVirtualNetworkGatewayBgpPeerStatus: typeof import("./getVirtualNetworkGatewayBgpPeerStatus").getVirtualNetworkGatewayBgpPeerStatus = null as any;
+export const getVirtualNetworkGatewayBgpPeerStatusOutput: typeof import("./getVirtualNetworkGatewayBgpPeerStatus").getVirtualNetworkGatewayBgpPeerStatusOutput = null as any;
+
+export { GetVirtualNetworkGatewayConnectionArgs, GetVirtualNetworkGatewayConnectionResult, GetVirtualNetworkGatewayConnectionOutputArgs } from "./getVirtualNetworkGatewayConnection";
+export const getVirtualNetworkGatewayConnection: typeof import("./getVirtualNetworkGatewayConnection").getVirtualNetworkGatewayConnection = null as any;
+export const getVirtualNetworkGatewayConnectionOutput: typeof import("./getVirtualNetworkGatewayConnection").getVirtualNetworkGatewayConnectionOutput = null as any;
+
+export { GetVirtualNetworkGatewayLearnedRoutesArgs, GetVirtualNetworkGatewayLearnedRoutesResult, GetVirtualNetworkGatewayLearnedRoutesOutputArgs } from "./getVirtualNetworkGatewayLearnedRoutes";
+export const getVirtualNetworkGatewayLearnedRoutes: typeof import("./getVirtualNetworkGatewayLearnedRoutes").getVirtualNetworkGatewayLearnedRoutes = null as any;
+export const getVirtualNetworkGatewayLearnedRoutesOutput: typeof import("./getVirtualNetworkGatewayLearnedRoutes").getVirtualNetworkGatewayLearnedRoutesOutput = null as any;
+
+export { GetVirtualNetworkPeeringArgs, GetVirtualNetworkPeeringResult, GetVirtualNetworkPeeringOutputArgs } from "./getVirtualNetworkPeering";
+export const getVirtualNetworkPeering: typeof import("./getVirtualNetworkPeering").getVirtualNetworkPeering = null as any;
+export const getVirtualNetworkPeeringOutput: typeof import("./getVirtualNetworkPeering").getVirtualNetworkPeeringOutput = null as any;
+
+export { LoadBalancerArgs } from "./loadBalancer";
+export type LoadBalancer = import("./loadBalancer").LoadBalancer;
+export const LoadBalancer: typeof import("./loadBalancer").LoadBalancer = null as any;
+
+export { LocalNetworkGatewayArgs } from "./localNetworkGateway";
+export type LocalNetworkGateway = import("./localNetworkGateway").LocalNetworkGateway;
+export const LocalNetworkGateway: typeof import("./localNetworkGateway").LocalNetworkGateway = null as any;
+
+export { NetworkInterfaceArgs } from "./networkInterface";
+export type NetworkInterface = import("./networkInterface").NetworkInterface;
+export const NetworkInterface: typeof import("./networkInterface").NetworkInterface = null as any;
+
+export { NetworkSecurityGroupArgs } from "./networkSecurityGroup";
+export type NetworkSecurityGroup = import("./networkSecurityGroup").NetworkSecurityGroup;
+export const NetworkSecurityGroup: typeof import("./networkSecurityGroup").NetworkSecurityGroup = null as any;
+
+export { NetworkWatcherArgs } from "./networkWatcher";
+export type NetworkWatcher = import("./networkWatcher").NetworkWatcher;
+export const NetworkWatcher: typeof import("./networkWatcher").NetworkWatcher = null as any;
+
+export { PacketCaptureArgs } from "./packetCapture";
+export type PacketCapture = import("./packetCapture").PacketCapture;
+export const PacketCapture: typeof import("./packetCapture").PacketCapture = null as any;
+
+export { PublicIPAddressArgs } from "./publicIPAddress";
+export type PublicIPAddress = import("./publicIPAddress").PublicIPAddress;
+export const PublicIPAddress: typeof import("./publicIPAddress").PublicIPAddress = null as any;
+
+export { RouteArgs } from "./route";
+export type Route = import("./route").Route;
+export const Route: typeof import("./route").Route = null as any;
+
+export { RouteTableArgs } from "./routeTable";
+export type RouteTable = import("./routeTable").RouteTable;
+export const RouteTable: typeof import("./routeTable").RouteTable = null as any;
+
+export { SecurityRuleArgs } from "./securityRule";
+export type SecurityRule = import("./securityRule").SecurityRule;
+export const SecurityRule: typeof import("./securityRule").SecurityRule = null as any;
+
+export { SubnetArgs } from "./subnet";
+export type Subnet = import("./subnet").Subnet;
+export const Subnet: typeof import("./subnet").Subnet = null as any;
+
+export { VirtualNetworkArgs } from "./virtualNetwork";
+export type VirtualNetwork = import("./virtualNetwork").VirtualNetwork;
+export const VirtualNetwork: typeof import("./virtualNetwork").VirtualNetwork = null as any;
+
+export { VirtualNetworkGatewayArgs } from "./virtualNetworkGateway";
+export type VirtualNetworkGateway = import("./virtualNetworkGateway").VirtualNetworkGateway;
+export const VirtualNetworkGateway: typeof import("./virtualNetworkGateway").VirtualNetworkGateway = null as any;
+
+export { VirtualNetworkGatewayConnectionArgs } from "./virtualNetworkGatewayConnection";
+export type VirtualNetworkGatewayConnection = import("./virtualNetworkGatewayConnection").VirtualNetworkGatewayConnection;
+export const VirtualNetworkGatewayConnection: typeof import("./virtualNetworkGatewayConnection").VirtualNetworkGatewayConnection = null as any;
+
+export { VirtualNetworkPeeringArgs } from "./virtualNetworkPeering";
+export type VirtualNetworkPeering = import("./virtualNetworkPeering").VirtualNetworkPeering;
+export const VirtualNetworkPeering: typeof import("./virtualNetworkPeering").VirtualNetworkPeering = null as any;
+
+utilities.lazyLoad(exports, ["ApplicationGateway"], () => require("./applicationGateway"));
+utilities.lazyLoad(exports, ["ExpressRouteCircuit"], () => require("./expressRouteCircuit"));
+utilities.lazyLoad(exports, ["ExpressRouteCircuitAuthorization"], () => require("./expressRouteCircuitAuthorization"));
+utilities.lazyLoad(exports, ["ExpressRouteCircuitPeering"], () => require("./expressRouteCircuitPeering"));
+utilities.lazyLoad(exports, ["getApplicationGateway","getApplicationGatewayOutput"], () => require("./getApplicationGateway"));
+utilities.lazyLoad(exports, ["getExpressRouteCircuit","getExpressRouteCircuitOutput"], () => require("./getExpressRouteCircuit"));
+utilities.lazyLoad(exports, ["getExpressRouteCircuitAuthorization","getExpressRouteCircuitAuthorizationOutput"], () => require("./getExpressRouteCircuitAuthorization"));
+utilities.lazyLoad(exports, ["getExpressRouteCircuitPeering","getExpressRouteCircuitPeeringOutput"], () => require("./getExpressRouteCircuitPeering"));
+utilities.lazyLoad(exports, ["getLoadBalancer","getLoadBalancerOutput"], () => require("./getLoadBalancer"));
+utilities.lazyLoad(exports, ["getLocalNetworkGateway","getLocalNetworkGatewayOutput"], () => require("./getLocalNetworkGateway"));
+utilities.lazyLoad(exports, ["getNetworkInterface","getNetworkInterfaceOutput"], () => require("./getNetworkInterface"));
+utilities.lazyLoad(exports, ["getNetworkSecurityGroup","getNetworkSecurityGroupOutput"], () => require("./getNetworkSecurityGroup"));
+utilities.lazyLoad(exports, ["getNetworkWatcher","getNetworkWatcherOutput"], () => require("./getNetworkWatcher"));
+utilities.lazyLoad(exports, ["getPacketCapture","getPacketCaptureOutput"], () => require("./getPacketCapture"));
+utilities.lazyLoad(exports, ["getPublicIPAddress","getPublicIPAddressOutput"], () => require("./getPublicIPAddress"));
+utilities.lazyLoad(exports, ["getRoute","getRouteOutput"], () => require("./getRoute"));
+utilities.lazyLoad(exports, ["getRouteTable","getRouteTableOutput"], () => require("./getRouteTable"));
+utilities.lazyLoad(exports, ["getSecurityRule","getSecurityRuleOutput"], () => require("./getSecurityRule"));
+utilities.lazyLoad(exports, ["getSubnet","getSubnetOutput"], () => require("./getSubnet"));
+utilities.lazyLoad(exports, ["getVirtualNetwork","getVirtualNetworkOutput"], () => require("./getVirtualNetwork"));
+utilities.lazyLoad(exports, ["getVirtualNetworkGateway","getVirtualNetworkGatewayOutput"], () => require("./getVirtualNetworkGateway"));
+utilities.lazyLoad(exports, ["getVirtualNetworkGatewayAdvertisedRoutes","getVirtualNetworkGatewayAdvertisedRoutesOutput"], () => require("./getVirtualNetworkGatewayAdvertisedRoutes"));
+utilities.lazyLoad(exports, ["getVirtualNetworkGatewayBgpPeerStatus","getVirtualNetworkGatewayBgpPeerStatusOutput"], () => require("./getVirtualNetworkGatewayBgpPeerStatus"));
+utilities.lazyLoad(exports, ["getVirtualNetworkGatewayConnection","getVirtualNetworkGatewayConnectionOutput"], () => require("./getVirtualNetworkGatewayConnection"));
+utilities.lazyLoad(exports, ["getVirtualNetworkGatewayLearnedRoutes","getVirtualNetworkGatewayLearnedRoutesOutput"], () => require("./getVirtualNetworkGatewayLearnedRoutes"));
+utilities.lazyLoad(exports, ["getVirtualNetworkPeering","getVirtualNetworkPeeringOutput"], () => require("./getVirtualNetworkPeering"));
+utilities.lazyLoad(exports, ["LoadBalancer"], () => require("./loadBalancer"));
+utilities.lazyLoad(exports, ["LocalNetworkGateway"], () => require("./localNetworkGateway"));
+utilities.lazyLoad(exports, ["NetworkInterface"], () => require("./networkInterface"));
+utilities.lazyLoad(exports, ["NetworkSecurityGroup"], () => require("./networkSecurityGroup"));
+utilities.lazyLoad(exports, ["NetworkWatcher"], () => require("./networkWatcher"));
+utilities.lazyLoad(exports, ["PacketCapture"], () => require("./packetCapture"));
+utilities.lazyLoad(exports, ["PublicIPAddress"], () => require("./publicIPAddress"));
+utilities.lazyLoad(exports, ["Route"], () => require("./route"));
+utilities.lazyLoad(exports, ["RouteTable"], () => require("./routeTable"));
+utilities.lazyLoad(exports, ["SecurityRule"], () => require("./securityRule"));
+utilities.lazyLoad(exports, ["Subnet"], () => require("./subnet"));
+utilities.lazyLoad(exports, ["VirtualNetwork"], () => require("./virtualNetwork"));
+utilities.lazyLoad(exports, ["VirtualNetworkGateway"], () => require("./virtualNetworkGateway"));
+utilities.lazyLoad(exports, ["VirtualNetworkGatewayConnection"], () => require("./virtualNetworkGatewayConnection"));
+utilities.lazyLoad(exports, ["VirtualNetworkPeering"], () => require("./virtualNetworkPeering"));
 
 // Export enums:
 export * from "../../types/enums/network/v20160901";
-
-// Import resources to register:
-import { ApplicationGateway } from "./applicationGateway";
-import { ExpressRouteCircuit } from "./expressRouteCircuit";
-import { ExpressRouteCircuitAuthorization } from "./expressRouteCircuitAuthorization";
-import { ExpressRouteCircuitPeering } from "./expressRouteCircuitPeering";
-import { LoadBalancer } from "./loadBalancer";
-import { LocalNetworkGateway } from "./localNetworkGateway";
-import { NetworkInterface } from "./networkInterface";
-import { NetworkSecurityGroup } from "./networkSecurityGroup";
-import { NetworkWatcher } from "./networkWatcher";
-import { PacketCapture } from "./packetCapture";
-import { PublicIPAddress } from "./publicIPAddress";
-import { Route } from "./route";
-import { RouteTable } from "./routeTable";
-import { SecurityRule } from "./securityRule";
-import { Subnet } from "./subnet";
-import { VirtualNetwork } from "./virtualNetwork";
-import { VirtualNetworkGateway } from "./virtualNetworkGateway";
-import { VirtualNetworkGatewayConnection } from "./virtualNetworkGatewayConnection";
-import { VirtualNetworkPeering } from "./virtualNetworkPeering";
 
 const _module = {
     version: utilities.getVersion(),

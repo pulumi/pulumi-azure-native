@@ -5,8 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./bot";
-export * from "./getBot";
+export { BotArgs } from "./bot";
+export type Bot = import("./bot").Bot;
+export const Bot: typeof import("./bot").Bot = null as any;
+
+export { GetBotArgs, GetBotResult, GetBotOutputArgs } from "./getBot";
+export const getBot: typeof import("./getBot").getBot = null as any;
+export const getBotOutput: typeof import("./getBot").getBotOutput = null as any;
+
+utilities.lazyLoad(exports, ["Bot"], () => require("./bot"));
+utilities.lazyLoad(exports, ["getBot","getBotOutput"], () => require("./getBot"));
 
 // Export enums:
 export * from "../types/enums/healthbot";
@@ -27,9 +35,6 @@ export {
     v20210610,
     v20210824,
 };
-
-// Import resources to register:
-import { Bot } from "./bot";
 
 const _module = {
     version: utilities.getVersion(),

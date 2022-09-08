@@ -5,20 +5,39 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getPrivateEndpointConnection";
-export * from "./getSecret";
-export * from "./getVault";
-export * from "./privateEndpointConnection";
-export * from "./secret";
-export * from "./vault";
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+
+export { GetSecretArgs, GetSecretResult, GetSecretOutputArgs } from "./getSecret";
+export const getSecret: typeof import("./getSecret").getSecret = null as any;
+export const getSecretOutput: typeof import("./getSecret").getSecretOutput = null as any;
+
+export { GetVaultArgs, GetVaultResult, GetVaultOutputArgs } from "./getVault";
+export const getVault: typeof import("./getVault").getVault = null as any;
+export const getVaultOutput: typeof import("./getVault").getVaultOutput = null as any;
+
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+
+export { SecretArgs } from "./secret";
+export type Secret = import("./secret").Secret;
+export const Secret: typeof import("./secret").Secret = null as any;
+
+export { VaultArgs } from "./vault";
+export type Vault = import("./vault").Vault;
+export const Vault: typeof import("./vault").Vault = null as any;
+
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+utilities.lazyLoad(exports, ["getSecret","getSecretOutput"], () => require("./getSecret"));
+utilities.lazyLoad(exports, ["getVault","getVaultOutput"], () => require("./getVault"));
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+utilities.lazyLoad(exports, ["Secret"], () => require("./secret"));
+utilities.lazyLoad(exports, ["Vault"], () => require("./vault"));
 
 // Export enums:
 export * from "../../types/enums/keyvault/v20180214";
-
-// Import resources to register:
-import { PrivateEndpointConnection } from "./privateEndpointConnection";
-import { Secret } from "./secret";
-import { Vault } from "./vault";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./adaptiveApplicationControl";
-export * from "./getAdaptiveApplicationControl";
-export * from "./getJitNetworkAccessPolicy";
-export * from "./jitNetworkAccessPolicy";
+export { AdaptiveApplicationControlArgs } from "./adaptiveApplicationControl";
+export type AdaptiveApplicationControl = import("./adaptiveApplicationControl").AdaptiveApplicationControl;
+export const AdaptiveApplicationControl: typeof import("./adaptiveApplicationControl").AdaptiveApplicationControl = null as any;
+
+export { GetAdaptiveApplicationControlArgs, GetAdaptiveApplicationControlResult, GetAdaptiveApplicationControlOutputArgs } from "./getAdaptiveApplicationControl";
+export const getAdaptiveApplicationControl: typeof import("./getAdaptiveApplicationControl").getAdaptiveApplicationControl = null as any;
+export const getAdaptiveApplicationControlOutput: typeof import("./getAdaptiveApplicationControl").getAdaptiveApplicationControlOutput = null as any;
+
+export { GetJitNetworkAccessPolicyArgs, GetJitNetworkAccessPolicyResult, GetJitNetworkAccessPolicyOutputArgs } from "./getJitNetworkAccessPolicy";
+export const getJitNetworkAccessPolicy: typeof import("./getJitNetworkAccessPolicy").getJitNetworkAccessPolicy = null as any;
+export const getJitNetworkAccessPolicyOutput: typeof import("./getJitNetworkAccessPolicy").getJitNetworkAccessPolicyOutput = null as any;
+
+export { JitNetworkAccessPolicyArgs } from "./jitNetworkAccessPolicy";
+export type JitNetworkAccessPolicy = import("./jitNetworkAccessPolicy").JitNetworkAccessPolicy;
+export const JitNetworkAccessPolicy: typeof import("./jitNetworkAccessPolicy").JitNetworkAccessPolicy = null as any;
+
+utilities.lazyLoad(exports, ["AdaptiveApplicationControl"], () => require("./adaptiveApplicationControl"));
+utilities.lazyLoad(exports, ["getAdaptiveApplicationControl","getAdaptiveApplicationControlOutput"], () => require("./getAdaptiveApplicationControl"));
+utilities.lazyLoad(exports, ["getJitNetworkAccessPolicy","getJitNetworkAccessPolicyOutput"], () => require("./getJitNetworkAccessPolicy"));
+utilities.lazyLoad(exports, ["JitNetworkAccessPolicy"], () => require("./jitNetworkAccessPolicy"));
 
 // Export enums:
 export * from "../../types/enums/security/v20150601preview";
-
-// Import resources to register:
-import { AdaptiveApplicationControl } from "./adaptiveApplicationControl";
-import { JitNetworkAccessPolicy } from "./jitNetworkAccessPolicy";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getbot";
-export * from "./getgetbot";
+export { GetbotArgs } from "./getbot";
+export type Getbot = import("./getbot").Getbot;
+export const Getbot: typeof import("./getbot").Getbot = null as any;
+
+export { GetgetbotArgs, GetgetbotResult, GetgetbotOutputArgs } from "./getgetbot";
+export const getgetbot: typeof import("./getgetbot").getgetbot = null as any;
+export const getgetbotOutput: typeof import("./getgetbot").getgetbotOutput = null as any;
+
+utilities.lazyLoad(exports, ["Getbot"], () => require("./getbot"));
+utilities.lazyLoad(exports, ["getgetbot","getgetbotOutput"], () => require("./getgetbot"));
 
 // Export enums:
 export * from "../../types/enums/healthbot/v20201020preview";
-
-// Import resources to register:
-import { Getbot } from "./getbot";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,45 +5,201 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./agentPool";
-export * from "./connectedRegistry";
-export * from "./exportPipeline";
-export * from "./getAgentPool";
-export * from "./getBuildLogLink";
-export * from "./getConnectedRegistry";
-export * from "./getExportPipeline";
-export * from "./getImportPipeline";
-export * from "./getPipelineRun";
-export * from "./getPrivateEndpointConnection";
-export * from "./getRegistry";
-export * from "./getRegistryBuildSourceUploadUrl";
-export * from "./getRegistryCredentials";
-export * from "./getReplication";
-export * from "./getScopeMap";
-export * from "./getTask";
-export * from "./getTaskRun";
-export * from "./getToken";
-export * from "./getWebhook";
-export * from "./getWebhookCallbackConfig";
-export * from "./importPipeline";
-export * from "./listAgentPoolQueueStatus";
-export * from "./listBuildStepBuildArguments";
-export * from "./listBuildTaskSourceRepositoryProperties";
-export * from "./listRegistryBuildSourceUploadUrl";
-export * from "./listRegistryCredentials";
-export * from "./listRunLogSasUrl";
-export * from "./listTaskDetails";
-export * from "./listTaskRunDetails";
-export * from "./listWebhookEvents";
-export * from "./pipelineRun";
-export * from "./privateEndpointConnection";
-export * from "./registry";
-export * from "./replication";
-export * from "./scopeMap";
-export * from "./task";
-export * from "./taskRun";
-export * from "./token";
-export * from "./webhook";
+export { AgentPoolArgs } from "./agentPool";
+export type AgentPool = import("./agentPool").AgentPool;
+export const AgentPool: typeof import("./agentPool").AgentPool = null as any;
+
+export { ConnectedRegistryArgs } from "./connectedRegistry";
+export type ConnectedRegistry = import("./connectedRegistry").ConnectedRegistry;
+export const ConnectedRegistry: typeof import("./connectedRegistry").ConnectedRegistry = null as any;
+
+export { ExportPipelineArgs } from "./exportPipeline";
+export type ExportPipeline = import("./exportPipeline").ExportPipeline;
+export const ExportPipeline: typeof import("./exportPipeline").ExportPipeline = null as any;
+
+export { GetAgentPoolArgs, GetAgentPoolResult, GetAgentPoolOutputArgs } from "./getAgentPool";
+export const getAgentPool: typeof import("./getAgentPool").getAgentPool = null as any;
+export const getAgentPoolOutput: typeof import("./getAgentPool").getAgentPoolOutput = null as any;
+
+export { GetBuildLogLinkArgs, GetBuildLogLinkResult, GetBuildLogLinkOutputArgs } from "./getBuildLogLink";
+export const getBuildLogLink: typeof import("./getBuildLogLink").getBuildLogLink = null as any;
+export const getBuildLogLinkOutput: typeof import("./getBuildLogLink").getBuildLogLinkOutput = null as any;
+
+export { GetConnectedRegistryArgs, GetConnectedRegistryResult, GetConnectedRegistryOutputArgs } from "./getConnectedRegistry";
+export const getConnectedRegistry: typeof import("./getConnectedRegistry").getConnectedRegistry = null as any;
+export const getConnectedRegistryOutput: typeof import("./getConnectedRegistry").getConnectedRegistryOutput = null as any;
+
+export { GetExportPipelineArgs, GetExportPipelineResult, GetExportPipelineOutputArgs } from "./getExportPipeline";
+export const getExportPipeline: typeof import("./getExportPipeline").getExportPipeline = null as any;
+export const getExportPipelineOutput: typeof import("./getExportPipeline").getExportPipelineOutput = null as any;
+
+export { GetImportPipelineArgs, GetImportPipelineResult, GetImportPipelineOutputArgs } from "./getImportPipeline";
+export const getImportPipeline: typeof import("./getImportPipeline").getImportPipeline = null as any;
+export const getImportPipelineOutput: typeof import("./getImportPipeline").getImportPipelineOutput = null as any;
+
+export { GetPipelineRunArgs, GetPipelineRunResult, GetPipelineRunOutputArgs } from "./getPipelineRun";
+export const getPipelineRun: typeof import("./getPipelineRun").getPipelineRun = null as any;
+export const getPipelineRunOutput: typeof import("./getPipelineRun").getPipelineRunOutput = null as any;
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+
+export { GetRegistryArgs, GetRegistryResult, GetRegistryOutputArgs } from "./getRegistry";
+export const getRegistry: typeof import("./getRegistry").getRegistry = null as any;
+export const getRegistryOutput: typeof import("./getRegistry").getRegistryOutput = null as any;
+
+export { GetRegistryBuildSourceUploadUrlArgs, GetRegistryBuildSourceUploadUrlResult, GetRegistryBuildSourceUploadUrlOutputArgs } from "./getRegistryBuildSourceUploadUrl";
+export const getRegistryBuildSourceUploadUrl: typeof import("./getRegistryBuildSourceUploadUrl").getRegistryBuildSourceUploadUrl = null as any;
+export const getRegistryBuildSourceUploadUrlOutput: typeof import("./getRegistryBuildSourceUploadUrl").getRegistryBuildSourceUploadUrlOutput = null as any;
+
+export { GetRegistryCredentialsArgs, GetRegistryCredentialsResult, GetRegistryCredentialsOutputArgs } from "./getRegistryCredentials";
+export const getRegistryCredentials: typeof import("./getRegistryCredentials").getRegistryCredentials = null as any;
+export const getRegistryCredentialsOutput: typeof import("./getRegistryCredentials").getRegistryCredentialsOutput = null as any;
+
+export { GetReplicationArgs, GetReplicationResult, GetReplicationOutputArgs } from "./getReplication";
+export const getReplication: typeof import("./getReplication").getReplication = null as any;
+export const getReplicationOutput: typeof import("./getReplication").getReplicationOutput = null as any;
+
+export { GetScopeMapArgs, GetScopeMapResult, GetScopeMapOutputArgs } from "./getScopeMap";
+export const getScopeMap: typeof import("./getScopeMap").getScopeMap = null as any;
+export const getScopeMapOutput: typeof import("./getScopeMap").getScopeMapOutput = null as any;
+
+export { GetTaskArgs, GetTaskResult, GetTaskOutputArgs } from "./getTask";
+export const getTask: typeof import("./getTask").getTask = null as any;
+export const getTaskOutput: typeof import("./getTask").getTaskOutput = null as any;
+
+export { GetTaskRunArgs, GetTaskRunResult, GetTaskRunOutputArgs } from "./getTaskRun";
+export const getTaskRun: typeof import("./getTaskRun").getTaskRun = null as any;
+export const getTaskRunOutput: typeof import("./getTaskRun").getTaskRunOutput = null as any;
+
+export { GetTokenArgs, GetTokenResult, GetTokenOutputArgs } from "./getToken";
+export const getToken: typeof import("./getToken").getToken = null as any;
+export const getTokenOutput: typeof import("./getToken").getTokenOutput = null as any;
+
+export { GetWebhookArgs, GetWebhookResult, GetWebhookOutputArgs } from "./getWebhook";
+export const getWebhook: typeof import("./getWebhook").getWebhook = null as any;
+export const getWebhookOutput: typeof import("./getWebhook").getWebhookOutput = null as any;
+
+export { GetWebhookCallbackConfigArgs, GetWebhookCallbackConfigResult, GetWebhookCallbackConfigOutputArgs } from "./getWebhookCallbackConfig";
+export const getWebhookCallbackConfig: typeof import("./getWebhookCallbackConfig").getWebhookCallbackConfig = null as any;
+export const getWebhookCallbackConfigOutput: typeof import("./getWebhookCallbackConfig").getWebhookCallbackConfigOutput = null as any;
+
+export { ImportPipelineArgs } from "./importPipeline";
+export type ImportPipeline = import("./importPipeline").ImportPipeline;
+export const ImportPipeline: typeof import("./importPipeline").ImportPipeline = null as any;
+
+export { ListAgentPoolQueueStatusArgs, ListAgentPoolQueueStatusResult, ListAgentPoolQueueStatusOutputArgs } from "./listAgentPoolQueueStatus";
+export const listAgentPoolQueueStatus: typeof import("./listAgentPoolQueueStatus").listAgentPoolQueueStatus = null as any;
+export const listAgentPoolQueueStatusOutput: typeof import("./listAgentPoolQueueStatus").listAgentPoolQueueStatusOutput = null as any;
+
+export { ListBuildStepBuildArgumentsArgs, ListBuildStepBuildArgumentsResult, ListBuildStepBuildArgumentsOutputArgs } from "./listBuildStepBuildArguments";
+export const listBuildStepBuildArguments: typeof import("./listBuildStepBuildArguments").listBuildStepBuildArguments = null as any;
+export const listBuildStepBuildArgumentsOutput: typeof import("./listBuildStepBuildArguments").listBuildStepBuildArgumentsOutput = null as any;
+
+export { ListBuildTaskSourceRepositoryPropertiesArgs, ListBuildTaskSourceRepositoryPropertiesResult, ListBuildTaskSourceRepositoryPropertiesOutputArgs } from "./listBuildTaskSourceRepositoryProperties";
+export const listBuildTaskSourceRepositoryProperties: typeof import("./listBuildTaskSourceRepositoryProperties").listBuildTaskSourceRepositoryProperties = null as any;
+export const listBuildTaskSourceRepositoryPropertiesOutput: typeof import("./listBuildTaskSourceRepositoryProperties").listBuildTaskSourceRepositoryPropertiesOutput = null as any;
+
+export { ListRegistryBuildSourceUploadUrlArgs, ListRegistryBuildSourceUploadUrlResult, ListRegistryBuildSourceUploadUrlOutputArgs } from "./listRegistryBuildSourceUploadUrl";
+export const listRegistryBuildSourceUploadUrl: typeof import("./listRegistryBuildSourceUploadUrl").listRegistryBuildSourceUploadUrl = null as any;
+export const listRegistryBuildSourceUploadUrlOutput: typeof import("./listRegistryBuildSourceUploadUrl").listRegistryBuildSourceUploadUrlOutput = null as any;
+
+export { ListRegistryCredentialsArgs, ListRegistryCredentialsResult, ListRegistryCredentialsOutputArgs } from "./listRegistryCredentials";
+export const listRegistryCredentials: typeof import("./listRegistryCredentials").listRegistryCredentials = null as any;
+export const listRegistryCredentialsOutput: typeof import("./listRegistryCredentials").listRegistryCredentialsOutput = null as any;
+
+export { ListRunLogSasUrlArgs, ListRunLogSasUrlResult, ListRunLogSasUrlOutputArgs } from "./listRunLogSasUrl";
+export const listRunLogSasUrl: typeof import("./listRunLogSasUrl").listRunLogSasUrl = null as any;
+export const listRunLogSasUrlOutput: typeof import("./listRunLogSasUrl").listRunLogSasUrlOutput = null as any;
+
+export { ListTaskDetailsArgs, ListTaskDetailsResult, ListTaskDetailsOutputArgs } from "./listTaskDetails";
+export const listTaskDetails: typeof import("./listTaskDetails").listTaskDetails = null as any;
+export const listTaskDetailsOutput: typeof import("./listTaskDetails").listTaskDetailsOutput = null as any;
+
+export { ListTaskRunDetailsArgs, ListTaskRunDetailsResult, ListTaskRunDetailsOutputArgs } from "./listTaskRunDetails";
+export const listTaskRunDetails: typeof import("./listTaskRunDetails").listTaskRunDetails = null as any;
+export const listTaskRunDetailsOutput: typeof import("./listTaskRunDetails").listTaskRunDetailsOutput = null as any;
+
+export { ListWebhookEventsArgs, ListWebhookEventsResult, ListWebhookEventsOutputArgs } from "./listWebhookEvents";
+export const listWebhookEvents: typeof import("./listWebhookEvents").listWebhookEvents = null as any;
+export const listWebhookEventsOutput: typeof import("./listWebhookEvents").listWebhookEventsOutput = null as any;
+
+export { PipelineRunArgs } from "./pipelineRun";
+export type PipelineRun = import("./pipelineRun").PipelineRun;
+export const PipelineRun: typeof import("./pipelineRun").PipelineRun = null as any;
+
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+
+export { RegistryArgs } from "./registry";
+export type Registry = import("./registry").Registry;
+export const Registry: typeof import("./registry").Registry = null as any;
+
+export { ReplicationArgs } from "./replication";
+export type Replication = import("./replication").Replication;
+export const Replication: typeof import("./replication").Replication = null as any;
+
+export { ScopeMapArgs } from "./scopeMap";
+export type ScopeMap = import("./scopeMap").ScopeMap;
+export const ScopeMap: typeof import("./scopeMap").ScopeMap = null as any;
+
+export { TaskArgs } from "./task";
+export type Task = import("./task").Task;
+export const Task: typeof import("./task").Task = null as any;
+
+export { TaskRunArgs } from "./taskRun";
+export type TaskRun = import("./taskRun").TaskRun;
+export const TaskRun: typeof import("./taskRun").TaskRun = null as any;
+
+export { TokenArgs } from "./token";
+export type Token = import("./token").Token;
+export const Token: typeof import("./token").Token = null as any;
+
+export { WebhookArgs } from "./webhook";
+export type Webhook = import("./webhook").Webhook;
+export const Webhook: typeof import("./webhook").Webhook = null as any;
+
+utilities.lazyLoad(exports, ["AgentPool"], () => require("./agentPool"));
+utilities.lazyLoad(exports, ["ConnectedRegistry"], () => require("./connectedRegistry"));
+utilities.lazyLoad(exports, ["ExportPipeline"], () => require("./exportPipeline"));
+utilities.lazyLoad(exports, ["getAgentPool","getAgentPoolOutput"], () => require("./getAgentPool"));
+utilities.lazyLoad(exports, ["getBuildLogLink","getBuildLogLinkOutput"], () => require("./getBuildLogLink"));
+utilities.lazyLoad(exports, ["getConnectedRegistry","getConnectedRegistryOutput"], () => require("./getConnectedRegistry"));
+utilities.lazyLoad(exports, ["getExportPipeline","getExportPipelineOutput"], () => require("./getExportPipeline"));
+utilities.lazyLoad(exports, ["getImportPipeline","getImportPipelineOutput"], () => require("./getImportPipeline"));
+utilities.lazyLoad(exports, ["getPipelineRun","getPipelineRunOutput"], () => require("./getPipelineRun"));
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+utilities.lazyLoad(exports, ["getRegistry","getRegistryOutput"], () => require("./getRegistry"));
+utilities.lazyLoad(exports, ["getRegistryBuildSourceUploadUrl","getRegistryBuildSourceUploadUrlOutput"], () => require("./getRegistryBuildSourceUploadUrl"));
+utilities.lazyLoad(exports, ["getRegistryCredentials","getRegistryCredentialsOutput"], () => require("./getRegistryCredentials"));
+utilities.lazyLoad(exports, ["getReplication","getReplicationOutput"], () => require("./getReplication"));
+utilities.lazyLoad(exports, ["getScopeMap","getScopeMapOutput"], () => require("./getScopeMap"));
+utilities.lazyLoad(exports, ["getTask","getTaskOutput"], () => require("./getTask"));
+utilities.lazyLoad(exports, ["getTaskRun","getTaskRunOutput"], () => require("./getTaskRun"));
+utilities.lazyLoad(exports, ["getToken","getTokenOutput"], () => require("./getToken"));
+utilities.lazyLoad(exports, ["getWebhook","getWebhookOutput"], () => require("./getWebhook"));
+utilities.lazyLoad(exports, ["getWebhookCallbackConfig","getWebhookCallbackConfigOutput"], () => require("./getWebhookCallbackConfig"));
+utilities.lazyLoad(exports, ["ImportPipeline"], () => require("./importPipeline"));
+utilities.lazyLoad(exports, ["listAgentPoolQueueStatus","listAgentPoolQueueStatusOutput"], () => require("./listAgentPoolQueueStatus"));
+utilities.lazyLoad(exports, ["listBuildStepBuildArguments","listBuildStepBuildArgumentsOutput"], () => require("./listBuildStepBuildArguments"));
+utilities.lazyLoad(exports, ["listBuildTaskSourceRepositoryProperties","listBuildTaskSourceRepositoryPropertiesOutput"], () => require("./listBuildTaskSourceRepositoryProperties"));
+utilities.lazyLoad(exports, ["listRegistryBuildSourceUploadUrl","listRegistryBuildSourceUploadUrlOutput"], () => require("./listRegistryBuildSourceUploadUrl"));
+utilities.lazyLoad(exports, ["listRegistryCredentials","listRegistryCredentialsOutput"], () => require("./listRegistryCredentials"));
+utilities.lazyLoad(exports, ["listRunLogSasUrl","listRunLogSasUrlOutput"], () => require("./listRunLogSasUrl"));
+utilities.lazyLoad(exports, ["listTaskDetails","listTaskDetailsOutput"], () => require("./listTaskDetails"));
+utilities.lazyLoad(exports, ["listTaskRunDetails","listTaskRunDetailsOutput"], () => require("./listTaskRunDetails"));
+utilities.lazyLoad(exports, ["listWebhookEvents","listWebhookEventsOutput"], () => require("./listWebhookEvents"));
+utilities.lazyLoad(exports, ["PipelineRun"], () => require("./pipelineRun"));
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+utilities.lazyLoad(exports, ["Registry"], () => require("./registry"));
+utilities.lazyLoad(exports, ["Replication"], () => require("./replication"));
+utilities.lazyLoad(exports, ["ScopeMap"], () => require("./scopeMap"));
+utilities.lazyLoad(exports, ["Task"], () => require("./task"));
+utilities.lazyLoad(exports, ["TaskRun"], () => require("./taskRun"));
+utilities.lazyLoad(exports, ["Token"], () => require("./token"));
+utilities.lazyLoad(exports, ["Webhook"], () => require("./webhook"));
 
 // Export enums:
 export * from "../types/enums/containerregistry";
@@ -86,21 +242,6 @@ export {
     v20211201preview,
     v20220201preview,
 };
-
-// Import resources to register:
-import { AgentPool } from "./agentPool";
-import { ConnectedRegistry } from "./connectedRegistry";
-import { ExportPipeline } from "./exportPipeline";
-import { ImportPipeline } from "./importPipeline";
-import { PipelineRun } from "./pipelineRun";
-import { PrivateEndpointConnection } from "./privateEndpointConnection";
-import { Registry } from "./registry";
-import { Replication } from "./replication";
-import { ScopeMap } from "./scopeMap";
-import { Task } from "./task";
-import { TaskRun } from "./taskRun";
-import { Token } from "./token";
-import { Webhook } from "./webhook";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getPrivateStoreOffer";
-export * from "./privateStoreOffer";
+export { GetPrivateStoreOfferArgs, GetPrivateStoreOfferResult, GetPrivateStoreOfferOutputArgs } from "./getPrivateStoreOffer";
+export const getPrivateStoreOffer: typeof import("./getPrivateStoreOffer").getPrivateStoreOffer = null as any;
+export const getPrivateStoreOfferOutput: typeof import("./getPrivateStoreOffer").getPrivateStoreOfferOutput = null as any;
+
+export { PrivateStoreOfferArgs } from "./privateStoreOffer";
+export type PrivateStoreOffer = import("./privateStoreOffer").PrivateStoreOffer;
+export const PrivateStoreOffer: typeof import("./privateStoreOffer").PrivateStoreOffer = null as any;
+
+utilities.lazyLoad(exports, ["getPrivateStoreOffer","getPrivateStoreOfferOutput"], () => require("./getPrivateStoreOffer"));
+utilities.lazyLoad(exports, ["PrivateStoreOffer"], () => require("./privateStoreOffer"));
 
 // Export enums:
 export * from "../../types/enums/marketplace/v20200101";
-
-// Import resources to register:
-import { PrivateStoreOffer } from "./privateStoreOffer";
 
 const _module = {
     version: utilities.getVersion(),

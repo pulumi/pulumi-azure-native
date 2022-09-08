@@ -5,24 +5,96 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./application";
-export * from "./applicationGroup";
-export * from "./getApplication";
-export * from "./getApplicationGroup";
-export * from "./getHostPool";
-export * from "./getMSIXPackage";
-export * from "./getPrivateEndpointConnectionByHostPool";
-export * from "./getPrivateEndpointConnectionByWorkspace";
-export * from "./getScalingPlan";
-export * from "./getScalingPlanPooledSchedule";
-export * from "./getWorkspace";
-export * from "./hostPool";
-export * from "./msixpackage";
-export * from "./privateEndpointConnectionByHostPool";
-export * from "./privateEndpointConnectionByWorkspace";
-export * from "./scalingPlan";
-export * from "./scalingPlanPooledSchedule";
-export * from "./workspace";
+export { ApplicationArgs } from "./application";
+export type Application = import("./application").Application;
+export const Application: typeof import("./application").Application = null as any;
+
+export { ApplicationGroupArgs } from "./applicationGroup";
+export type ApplicationGroup = import("./applicationGroup").ApplicationGroup;
+export const ApplicationGroup: typeof import("./applicationGroup").ApplicationGroup = null as any;
+
+export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
+export const getApplication: typeof import("./getApplication").getApplication = null as any;
+export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
+
+export { GetApplicationGroupArgs, GetApplicationGroupResult, GetApplicationGroupOutputArgs } from "./getApplicationGroup";
+export const getApplicationGroup: typeof import("./getApplicationGroup").getApplicationGroup = null as any;
+export const getApplicationGroupOutput: typeof import("./getApplicationGroup").getApplicationGroupOutput = null as any;
+
+export { GetHostPoolArgs, GetHostPoolResult, GetHostPoolOutputArgs } from "./getHostPool";
+export const getHostPool: typeof import("./getHostPool").getHostPool = null as any;
+export const getHostPoolOutput: typeof import("./getHostPool").getHostPoolOutput = null as any;
+
+export { GetMSIXPackageArgs, GetMSIXPackageResult, GetMSIXPackageOutputArgs } from "./getMSIXPackage";
+export const getMSIXPackage: typeof import("./getMSIXPackage").getMSIXPackage = null as any;
+export const getMSIXPackageOutput: typeof import("./getMSIXPackage").getMSIXPackageOutput = null as any;
+
+export { GetPrivateEndpointConnectionByHostPoolArgs, GetPrivateEndpointConnectionByHostPoolResult, GetPrivateEndpointConnectionByHostPoolOutputArgs } from "./getPrivateEndpointConnectionByHostPool";
+export const getPrivateEndpointConnectionByHostPool: typeof import("./getPrivateEndpointConnectionByHostPool").getPrivateEndpointConnectionByHostPool = null as any;
+export const getPrivateEndpointConnectionByHostPoolOutput: typeof import("./getPrivateEndpointConnectionByHostPool").getPrivateEndpointConnectionByHostPoolOutput = null as any;
+
+export { GetPrivateEndpointConnectionByWorkspaceArgs, GetPrivateEndpointConnectionByWorkspaceResult, GetPrivateEndpointConnectionByWorkspaceOutputArgs } from "./getPrivateEndpointConnectionByWorkspace";
+export const getPrivateEndpointConnectionByWorkspace: typeof import("./getPrivateEndpointConnectionByWorkspace").getPrivateEndpointConnectionByWorkspace = null as any;
+export const getPrivateEndpointConnectionByWorkspaceOutput: typeof import("./getPrivateEndpointConnectionByWorkspace").getPrivateEndpointConnectionByWorkspaceOutput = null as any;
+
+export { GetScalingPlanArgs, GetScalingPlanResult, GetScalingPlanOutputArgs } from "./getScalingPlan";
+export const getScalingPlan: typeof import("./getScalingPlan").getScalingPlan = null as any;
+export const getScalingPlanOutput: typeof import("./getScalingPlan").getScalingPlanOutput = null as any;
+
+export { GetScalingPlanPooledScheduleArgs, GetScalingPlanPooledScheduleResult, GetScalingPlanPooledScheduleOutputArgs } from "./getScalingPlanPooledSchedule";
+export const getScalingPlanPooledSchedule: typeof import("./getScalingPlanPooledSchedule").getScalingPlanPooledSchedule = null as any;
+export const getScalingPlanPooledScheduleOutput: typeof import("./getScalingPlanPooledSchedule").getScalingPlanPooledScheduleOutput = null as any;
+
+export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
+export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
+export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
+
+export { HostPoolArgs } from "./hostPool";
+export type HostPool = import("./hostPool").HostPool;
+export const HostPool: typeof import("./hostPool").HostPool = null as any;
+
+export { MSIXPackageArgs } from "./msixpackage";
+export type MSIXPackage = import("./msixpackage").MSIXPackage;
+export const MSIXPackage: typeof import("./msixpackage").MSIXPackage = null as any;
+
+export { PrivateEndpointConnectionByHostPoolArgs } from "./privateEndpointConnectionByHostPool";
+export type PrivateEndpointConnectionByHostPool = import("./privateEndpointConnectionByHostPool").PrivateEndpointConnectionByHostPool;
+export const PrivateEndpointConnectionByHostPool: typeof import("./privateEndpointConnectionByHostPool").PrivateEndpointConnectionByHostPool = null as any;
+
+export { PrivateEndpointConnectionByWorkspaceArgs } from "./privateEndpointConnectionByWorkspace";
+export type PrivateEndpointConnectionByWorkspace = import("./privateEndpointConnectionByWorkspace").PrivateEndpointConnectionByWorkspace;
+export const PrivateEndpointConnectionByWorkspace: typeof import("./privateEndpointConnectionByWorkspace").PrivateEndpointConnectionByWorkspace = null as any;
+
+export { ScalingPlanArgs } from "./scalingPlan";
+export type ScalingPlan = import("./scalingPlan").ScalingPlan;
+export const ScalingPlan: typeof import("./scalingPlan").ScalingPlan = null as any;
+
+export { ScalingPlanPooledScheduleArgs } from "./scalingPlanPooledSchedule";
+export type ScalingPlanPooledSchedule = import("./scalingPlanPooledSchedule").ScalingPlanPooledSchedule;
+export const ScalingPlanPooledSchedule: typeof import("./scalingPlanPooledSchedule").ScalingPlanPooledSchedule = null as any;
+
+export { WorkspaceArgs } from "./workspace";
+export type Workspace = import("./workspace").Workspace;
+export const Workspace: typeof import("./workspace").Workspace = null as any;
+
+utilities.lazyLoad(exports, ["Application"], () => require("./application"));
+utilities.lazyLoad(exports, ["ApplicationGroup"], () => require("./applicationGroup"));
+utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
+utilities.lazyLoad(exports, ["getApplicationGroup","getApplicationGroupOutput"], () => require("./getApplicationGroup"));
+utilities.lazyLoad(exports, ["getHostPool","getHostPoolOutput"], () => require("./getHostPool"));
+utilities.lazyLoad(exports, ["getMSIXPackage","getMSIXPackageOutput"], () => require("./getMSIXPackage"));
+utilities.lazyLoad(exports, ["getPrivateEndpointConnectionByHostPool","getPrivateEndpointConnectionByHostPoolOutput"], () => require("./getPrivateEndpointConnectionByHostPool"));
+utilities.lazyLoad(exports, ["getPrivateEndpointConnectionByWorkspace","getPrivateEndpointConnectionByWorkspaceOutput"], () => require("./getPrivateEndpointConnectionByWorkspace"));
+utilities.lazyLoad(exports, ["getScalingPlan","getScalingPlanOutput"], () => require("./getScalingPlan"));
+utilities.lazyLoad(exports, ["getScalingPlanPooledSchedule","getScalingPlanPooledScheduleOutput"], () => require("./getScalingPlanPooledSchedule"));
+utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
+utilities.lazyLoad(exports, ["HostPool"], () => require("./hostPool"));
+utilities.lazyLoad(exports, ["MSIXPackage"], () => require("./msixpackage"));
+utilities.lazyLoad(exports, ["PrivateEndpointConnectionByHostPool"], () => require("./privateEndpointConnectionByHostPool"));
+utilities.lazyLoad(exports, ["PrivateEndpointConnectionByWorkspace"], () => require("./privateEndpointConnectionByWorkspace"));
+utilities.lazyLoad(exports, ["ScalingPlan"], () => require("./scalingPlan"));
+utilities.lazyLoad(exports, ["ScalingPlanPooledSchedule"], () => require("./scalingPlanPooledSchedule"));
+utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
 
 // Export enums:
 export * from "../types/enums/desktopvirtualization";
@@ -61,17 +133,6 @@ export {
     v20220210preview,
     v20220401preview,
 };
-
-// Import resources to register:
-import { Application } from "./application";
-import { ApplicationGroup } from "./applicationGroup";
-import { HostPool } from "./hostPool";
-import { MSIXPackage } from "./msixpackage";
-import { PrivateEndpointConnectionByHostPool } from "./privateEndpointConnectionByHostPool";
-import { PrivateEndpointConnectionByWorkspace } from "./privateEndpointConnectionByWorkspace";
-import { ScalingPlan } from "./scalingPlan";
-import { ScalingPlanPooledSchedule } from "./scalingPlanPooledSchedule";
-import { Workspace } from "./workspace";
 
 const _module = {
     version: utilities.getVersion(),

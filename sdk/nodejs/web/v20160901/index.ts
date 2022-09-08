@@ -5,20 +5,39 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./appServiceEnvironment";
-export * from "./appServicePlan";
-export * from "./appServicePlanRouteForVnet";
-export * from "./getAppServiceEnvironment";
-export * from "./getAppServicePlan";
-export * from "./listAppServicePlanHybridConnectionKeys";
+export { AppServiceEnvironmentArgs } from "./appServiceEnvironment";
+export type AppServiceEnvironment = import("./appServiceEnvironment").AppServiceEnvironment;
+export const AppServiceEnvironment: typeof import("./appServiceEnvironment").AppServiceEnvironment = null as any;
+
+export { AppServicePlanArgs } from "./appServicePlan";
+export type AppServicePlan = import("./appServicePlan").AppServicePlan;
+export const AppServicePlan: typeof import("./appServicePlan").AppServicePlan = null as any;
+
+export { AppServicePlanRouteForVnetArgs } from "./appServicePlanRouteForVnet";
+export type AppServicePlanRouteForVnet = import("./appServicePlanRouteForVnet").AppServicePlanRouteForVnet;
+export const AppServicePlanRouteForVnet: typeof import("./appServicePlanRouteForVnet").AppServicePlanRouteForVnet = null as any;
+
+export { GetAppServiceEnvironmentArgs, GetAppServiceEnvironmentResult, GetAppServiceEnvironmentOutputArgs } from "./getAppServiceEnvironment";
+export const getAppServiceEnvironment: typeof import("./getAppServiceEnvironment").getAppServiceEnvironment = null as any;
+export const getAppServiceEnvironmentOutput: typeof import("./getAppServiceEnvironment").getAppServiceEnvironmentOutput = null as any;
+
+export { GetAppServicePlanArgs, GetAppServicePlanResult, GetAppServicePlanOutputArgs } from "./getAppServicePlan";
+export const getAppServicePlan: typeof import("./getAppServicePlan").getAppServicePlan = null as any;
+export const getAppServicePlanOutput: typeof import("./getAppServicePlan").getAppServicePlanOutput = null as any;
+
+export { ListAppServicePlanHybridConnectionKeysArgs, ListAppServicePlanHybridConnectionKeysResult, ListAppServicePlanHybridConnectionKeysOutputArgs } from "./listAppServicePlanHybridConnectionKeys";
+export const listAppServicePlanHybridConnectionKeys: typeof import("./listAppServicePlanHybridConnectionKeys").listAppServicePlanHybridConnectionKeys = null as any;
+export const listAppServicePlanHybridConnectionKeysOutput: typeof import("./listAppServicePlanHybridConnectionKeys").listAppServicePlanHybridConnectionKeysOutput = null as any;
+
+utilities.lazyLoad(exports, ["AppServiceEnvironment"], () => require("./appServiceEnvironment"));
+utilities.lazyLoad(exports, ["AppServicePlan"], () => require("./appServicePlan"));
+utilities.lazyLoad(exports, ["AppServicePlanRouteForVnet"], () => require("./appServicePlanRouteForVnet"));
+utilities.lazyLoad(exports, ["getAppServiceEnvironment","getAppServiceEnvironmentOutput"], () => require("./getAppServiceEnvironment"));
+utilities.lazyLoad(exports, ["getAppServicePlan","getAppServicePlanOutput"], () => require("./getAppServicePlan"));
+utilities.lazyLoad(exports, ["listAppServicePlanHybridConnectionKeys","listAppServicePlanHybridConnectionKeysOutput"], () => require("./listAppServicePlanHybridConnectionKeys"));
 
 // Export enums:
 export * from "../../types/enums/web/v20160901";
-
-// Import resources to register:
-import { AppServiceEnvironment } from "./appServiceEnvironment";
-import { AppServicePlan } from "./appServicePlan";
-import { AppServicePlanRouteForVnet } from "./appServicePlanRouteForVnet";
 
 const _module = {
     version: utilities.getVersion(),

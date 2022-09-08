@@ -5,35 +5,94 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./exportPipeline";
-export * from "./getExportPipeline";
-export * from "./getImportPipeline";
-export * from "./getPipelineRun";
-export * from "./getPrivateEndpointConnection";
-export * from "./getRegistry";
-export * from "./getReplication";
-export * from "./getWebhook";
-export * from "./getWebhookCallbackConfig";
-export * from "./importPipeline";
-export * from "./listRegistryCredentials";
-export * from "./listWebhookEvents";
-export * from "./pipelineRun";
-export * from "./privateEndpointConnection";
-export * from "./registry";
-export * from "./replication";
-export * from "./webhook";
+export { ExportPipelineArgs } from "./exportPipeline";
+export type ExportPipeline = import("./exportPipeline").ExportPipeline;
+export const ExportPipeline: typeof import("./exportPipeline").ExportPipeline = null as any;
+
+export { GetExportPipelineArgs, GetExportPipelineResult, GetExportPipelineOutputArgs } from "./getExportPipeline";
+export const getExportPipeline: typeof import("./getExportPipeline").getExportPipeline = null as any;
+export const getExportPipelineOutput: typeof import("./getExportPipeline").getExportPipelineOutput = null as any;
+
+export { GetImportPipelineArgs, GetImportPipelineResult, GetImportPipelineOutputArgs } from "./getImportPipeline";
+export const getImportPipeline: typeof import("./getImportPipeline").getImportPipeline = null as any;
+export const getImportPipelineOutput: typeof import("./getImportPipeline").getImportPipelineOutput = null as any;
+
+export { GetPipelineRunArgs, GetPipelineRunResult, GetPipelineRunOutputArgs } from "./getPipelineRun";
+export const getPipelineRun: typeof import("./getPipelineRun").getPipelineRun = null as any;
+export const getPipelineRunOutput: typeof import("./getPipelineRun").getPipelineRunOutput = null as any;
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+
+export { GetRegistryArgs, GetRegistryResult, GetRegistryOutputArgs } from "./getRegistry";
+export const getRegistry: typeof import("./getRegistry").getRegistry = null as any;
+export const getRegistryOutput: typeof import("./getRegistry").getRegistryOutput = null as any;
+
+export { GetReplicationArgs, GetReplicationResult, GetReplicationOutputArgs } from "./getReplication";
+export const getReplication: typeof import("./getReplication").getReplication = null as any;
+export const getReplicationOutput: typeof import("./getReplication").getReplicationOutput = null as any;
+
+export { GetWebhookArgs, GetWebhookResult, GetWebhookOutputArgs } from "./getWebhook";
+export const getWebhook: typeof import("./getWebhook").getWebhook = null as any;
+export const getWebhookOutput: typeof import("./getWebhook").getWebhookOutput = null as any;
+
+export { GetWebhookCallbackConfigArgs, GetWebhookCallbackConfigResult, GetWebhookCallbackConfigOutputArgs } from "./getWebhookCallbackConfig";
+export const getWebhookCallbackConfig: typeof import("./getWebhookCallbackConfig").getWebhookCallbackConfig = null as any;
+export const getWebhookCallbackConfigOutput: typeof import("./getWebhookCallbackConfig").getWebhookCallbackConfigOutput = null as any;
+
+export { ImportPipelineArgs } from "./importPipeline";
+export type ImportPipeline = import("./importPipeline").ImportPipeline;
+export const ImportPipeline: typeof import("./importPipeline").ImportPipeline = null as any;
+
+export { ListRegistryCredentialsArgs, ListRegistryCredentialsResult, ListRegistryCredentialsOutputArgs } from "./listRegistryCredentials";
+export const listRegistryCredentials: typeof import("./listRegistryCredentials").listRegistryCredentials = null as any;
+export const listRegistryCredentialsOutput: typeof import("./listRegistryCredentials").listRegistryCredentialsOutput = null as any;
+
+export { ListWebhookEventsArgs, ListWebhookEventsResult, ListWebhookEventsOutputArgs } from "./listWebhookEvents";
+export const listWebhookEvents: typeof import("./listWebhookEvents").listWebhookEvents = null as any;
+export const listWebhookEventsOutput: typeof import("./listWebhookEvents").listWebhookEventsOutput = null as any;
+
+export { PipelineRunArgs } from "./pipelineRun";
+export type PipelineRun = import("./pipelineRun").PipelineRun;
+export const PipelineRun: typeof import("./pipelineRun").PipelineRun = null as any;
+
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+
+export { RegistryArgs } from "./registry";
+export type Registry = import("./registry").Registry;
+export const Registry: typeof import("./registry").Registry = null as any;
+
+export { ReplicationArgs } from "./replication";
+export type Replication = import("./replication").Replication;
+export const Replication: typeof import("./replication").Replication = null as any;
+
+export { WebhookArgs } from "./webhook";
+export type Webhook = import("./webhook").Webhook;
+export const Webhook: typeof import("./webhook").Webhook = null as any;
+
+utilities.lazyLoad(exports, ["ExportPipeline"], () => require("./exportPipeline"));
+utilities.lazyLoad(exports, ["getExportPipeline","getExportPipelineOutput"], () => require("./getExportPipeline"));
+utilities.lazyLoad(exports, ["getImportPipeline","getImportPipelineOutput"], () => require("./getImportPipeline"));
+utilities.lazyLoad(exports, ["getPipelineRun","getPipelineRunOutput"], () => require("./getPipelineRun"));
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+utilities.lazyLoad(exports, ["getRegistry","getRegistryOutput"], () => require("./getRegistry"));
+utilities.lazyLoad(exports, ["getReplication","getReplicationOutput"], () => require("./getReplication"));
+utilities.lazyLoad(exports, ["getWebhook","getWebhookOutput"], () => require("./getWebhook"));
+utilities.lazyLoad(exports, ["getWebhookCallbackConfig","getWebhookCallbackConfigOutput"], () => require("./getWebhookCallbackConfig"));
+utilities.lazyLoad(exports, ["ImportPipeline"], () => require("./importPipeline"));
+utilities.lazyLoad(exports, ["listRegistryCredentials","listRegistryCredentialsOutput"], () => require("./listRegistryCredentials"));
+utilities.lazyLoad(exports, ["listWebhookEvents","listWebhookEventsOutput"], () => require("./listWebhookEvents"));
+utilities.lazyLoad(exports, ["PipelineRun"], () => require("./pipelineRun"));
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+utilities.lazyLoad(exports, ["Registry"], () => require("./registry"));
+utilities.lazyLoad(exports, ["Replication"], () => require("./replication"));
+utilities.lazyLoad(exports, ["Webhook"], () => require("./webhook"));
 
 // Export enums:
 export * from "../../types/enums/containerregistry/v20191201preview";
-
-// Import resources to register:
-import { ExportPipeline } from "./exportPipeline";
-import { ImportPipeline } from "./importPipeline";
-import { PipelineRun } from "./pipelineRun";
-import { PrivateEndpointConnection } from "./privateEndpointConnection";
-import { Registry } from "./registry";
-import { Replication } from "./replication";
-import { Webhook } from "./webhook";
 
 const _module = {
     version: utilities.getVersion(),

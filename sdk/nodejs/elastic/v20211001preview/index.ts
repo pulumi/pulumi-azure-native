@@ -5,21 +5,49 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getMonitor";
-export * from "./getTagRule";
-export * from "./listDeploymentInfo";
-export * from "./listMonitoredResource";
-export * from "./listUpgradableVersionDetails";
-export * from "./listVMHost";
-export * from "./monitor";
-export * from "./tagRule";
+export { GetMonitorArgs, GetMonitorResult, GetMonitorOutputArgs } from "./getMonitor";
+export const getMonitor: typeof import("./getMonitor").getMonitor = null as any;
+export const getMonitorOutput: typeof import("./getMonitor").getMonitorOutput = null as any;
+
+export { GetTagRuleArgs, GetTagRuleResult, GetTagRuleOutputArgs } from "./getTagRule";
+export const getTagRule: typeof import("./getTagRule").getTagRule = null as any;
+export const getTagRuleOutput: typeof import("./getTagRule").getTagRuleOutput = null as any;
+
+export { ListDeploymentInfoArgs, ListDeploymentInfoResult, ListDeploymentInfoOutputArgs } from "./listDeploymentInfo";
+export const listDeploymentInfo: typeof import("./listDeploymentInfo").listDeploymentInfo = null as any;
+export const listDeploymentInfoOutput: typeof import("./listDeploymentInfo").listDeploymentInfoOutput = null as any;
+
+export { ListMonitoredResourceArgs, ListMonitoredResourceResult, ListMonitoredResourceOutputArgs } from "./listMonitoredResource";
+export const listMonitoredResource: typeof import("./listMonitoredResource").listMonitoredResource = null as any;
+export const listMonitoredResourceOutput: typeof import("./listMonitoredResource").listMonitoredResourceOutput = null as any;
+
+export { ListUpgradableVersionDetailsArgs, ListUpgradableVersionDetailsResult, ListUpgradableVersionDetailsOutputArgs } from "./listUpgradableVersionDetails";
+export const listUpgradableVersionDetails: typeof import("./listUpgradableVersionDetails").listUpgradableVersionDetails = null as any;
+export const listUpgradableVersionDetailsOutput: typeof import("./listUpgradableVersionDetails").listUpgradableVersionDetailsOutput = null as any;
+
+export { ListVMHostArgs, ListVMHostResult, ListVMHostOutputArgs } from "./listVMHost";
+export const listVMHost: typeof import("./listVMHost").listVMHost = null as any;
+export const listVMHostOutput: typeof import("./listVMHost").listVMHostOutput = null as any;
+
+export { MonitorArgs } from "./monitor";
+export type Monitor = import("./monitor").Monitor;
+export const Monitor: typeof import("./monitor").Monitor = null as any;
+
+export { TagRuleArgs } from "./tagRule";
+export type TagRule = import("./tagRule").TagRule;
+export const TagRule: typeof import("./tagRule").TagRule = null as any;
+
+utilities.lazyLoad(exports, ["getMonitor","getMonitorOutput"], () => require("./getMonitor"));
+utilities.lazyLoad(exports, ["getTagRule","getTagRuleOutput"], () => require("./getTagRule"));
+utilities.lazyLoad(exports, ["listDeploymentInfo","listDeploymentInfoOutput"], () => require("./listDeploymentInfo"));
+utilities.lazyLoad(exports, ["listMonitoredResource","listMonitoredResourceOutput"], () => require("./listMonitoredResource"));
+utilities.lazyLoad(exports, ["listUpgradableVersionDetails","listUpgradableVersionDetailsOutput"], () => require("./listUpgradableVersionDetails"));
+utilities.lazyLoad(exports, ["listVMHost","listVMHostOutput"], () => require("./listVMHost"));
+utilities.lazyLoad(exports, ["Monitor"], () => require("./monitor"));
+utilities.lazyLoad(exports, ["TagRule"], () => require("./tagRule"));
 
 // Export enums:
 export * from "../../types/enums/elastic/v20211001preview";
-
-// Import resources to register:
-import { Monitor } from "./monitor";
-import { TagRule } from "./tagRule";
 
 const _module = {
     version: utilities.getVersion(),

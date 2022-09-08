@@ -5,12 +5,36 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./dedicatedCloudNode";
-export * from "./dedicatedCloudService";
-export * from "./getDedicatedCloudNode";
-export * from "./getDedicatedCloudService";
-export * from "./getVirtualMachine";
-export * from "./virtualMachine";
+export { DedicatedCloudNodeArgs } from "./dedicatedCloudNode";
+export type DedicatedCloudNode = import("./dedicatedCloudNode").DedicatedCloudNode;
+export const DedicatedCloudNode: typeof import("./dedicatedCloudNode").DedicatedCloudNode = null as any;
+
+export { DedicatedCloudServiceArgs } from "./dedicatedCloudService";
+export type DedicatedCloudService = import("./dedicatedCloudService").DedicatedCloudService;
+export const DedicatedCloudService: typeof import("./dedicatedCloudService").DedicatedCloudService = null as any;
+
+export { GetDedicatedCloudNodeArgs, GetDedicatedCloudNodeResult, GetDedicatedCloudNodeOutputArgs } from "./getDedicatedCloudNode";
+export const getDedicatedCloudNode: typeof import("./getDedicatedCloudNode").getDedicatedCloudNode = null as any;
+export const getDedicatedCloudNodeOutput: typeof import("./getDedicatedCloudNode").getDedicatedCloudNodeOutput = null as any;
+
+export { GetDedicatedCloudServiceArgs, GetDedicatedCloudServiceResult, GetDedicatedCloudServiceOutputArgs } from "./getDedicatedCloudService";
+export const getDedicatedCloudService: typeof import("./getDedicatedCloudService").getDedicatedCloudService = null as any;
+export const getDedicatedCloudServiceOutput: typeof import("./getDedicatedCloudService").getDedicatedCloudServiceOutput = null as any;
+
+export { GetVirtualMachineArgs, GetVirtualMachineResult, GetVirtualMachineOutputArgs } from "./getVirtualMachine";
+export const getVirtualMachine: typeof import("./getVirtualMachine").getVirtualMachine = null as any;
+export const getVirtualMachineOutput: typeof import("./getVirtualMachine").getVirtualMachineOutput = null as any;
+
+export { VirtualMachineArgs } from "./virtualMachine";
+export type VirtualMachine = import("./virtualMachine").VirtualMachine;
+export const VirtualMachine: typeof import("./virtualMachine").VirtualMachine = null as any;
+
+utilities.lazyLoad(exports, ["DedicatedCloudNode"], () => require("./dedicatedCloudNode"));
+utilities.lazyLoad(exports, ["DedicatedCloudService"], () => require("./dedicatedCloudService"));
+utilities.lazyLoad(exports, ["getDedicatedCloudNode","getDedicatedCloudNodeOutput"], () => require("./getDedicatedCloudNode"));
+utilities.lazyLoad(exports, ["getDedicatedCloudService","getDedicatedCloudServiceOutput"], () => require("./getDedicatedCloudService"));
+utilities.lazyLoad(exports, ["getVirtualMachine","getVirtualMachineOutput"], () => require("./getVirtualMachine"));
+utilities.lazyLoad(exports, ["VirtualMachine"], () => require("./virtualMachine"));
 
 // Export enums:
 export * from "../types/enums/vmwarecloudsimple";
@@ -21,11 +45,6 @@ import * as v20190401 from "./v20190401";
 export {
     v20190401,
 };
-
-// Import resources to register:
-import { DedicatedCloudNode } from "./dedicatedCloudNode";
-import { DedicatedCloudService } from "./dedicatedCloudService";
-import { VirtualMachine } from "./virtualMachine";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,20 +5,39 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./attestationAtResource";
-export * from "./attestationAtResourceGroup";
-export * from "./attestationAtSubscription";
-export * from "./getAttestationAtResource";
-export * from "./getAttestationAtResourceGroup";
-export * from "./getAttestationAtSubscription";
+export { AttestationAtResourceArgs } from "./attestationAtResource";
+export type AttestationAtResource = import("./attestationAtResource").AttestationAtResource;
+export const AttestationAtResource: typeof import("./attestationAtResource").AttestationAtResource = null as any;
+
+export { AttestationAtResourceGroupArgs } from "./attestationAtResourceGroup";
+export type AttestationAtResourceGroup = import("./attestationAtResourceGroup").AttestationAtResourceGroup;
+export const AttestationAtResourceGroup: typeof import("./attestationAtResourceGroup").AttestationAtResourceGroup = null as any;
+
+export { AttestationAtSubscriptionArgs } from "./attestationAtSubscription";
+export type AttestationAtSubscription = import("./attestationAtSubscription").AttestationAtSubscription;
+export const AttestationAtSubscription: typeof import("./attestationAtSubscription").AttestationAtSubscription = null as any;
+
+export { GetAttestationAtResourceArgs, GetAttestationAtResourceResult, GetAttestationAtResourceOutputArgs } from "./getAttestationAtResource";
+export const getAttestationAtResource: typeof import("./getAttestationAtResource").getAttestationAtResource = null as any;
+export const getAttestationAtResourceOutput: typeof import("./getAttestationAtResource").getAttestationAtResourceOutput = null as any;
+
+export { GetAttestationAtResourceGroupArgs, GetAttestationAtResourceGroupResult, GetAttestationAtResourceGroupOutputArgs } from "./getAttestationAtResourceGroup";
+export const getAttestationAtResourceGroup: typeof import("./getAttestationAtResourceGroup").getAttestationAtResourceGroup = null as any;
+export const getAttestationAtResourceGroupOutput: typeof import("./getAttestationAtResourceGroup").getAttestationAtResourceGroupOutput = null as any;
+
+export { GetAttestationAtSubscriptionArgs, GetAttestationAtSubscriptionResult, GetAttestationAtSubscriptionOutputArgs } from "./getAttestationAtSubscription";
+export const getAttestationAtSubscription: typeof import("./getAttestationAtSubscription").getAttestationAtSubscription = null as any;
+export const getAttestationAtSubscriptionOutput: typeof import("./getAttestationAtSubscription").getAttestationAtSubscriptionOutput = null as any;
+
+utilities.lazyLoad(exports, ["AttestationAtResource"], () => require("./attestationAtResource"));
+utilities.lazyLoad(exports, ["AttestationAtResourceGroup"], () => require("./attestationAtResourceGroup"));
+utilities.lazyLoad(exports, ["AttestationAtSubscription"], () => require("./attestationAtSubscription"));
+utilities.lazyLoad(exports, ["getAttestationAtResource","getAttestationAtResourceOutput"], () => require("./getAttestationAtResource"));
+utilities.lazyLoad(exports, ["getAttestationAtResourceGroup","getAttestationAtResourceGroupOutput"], () => require("./getAttestationAtResourceGroup"));
+utilities.lazyLoad(exports, ["getAttestationAtSubscription","getAttestationAtSubscriptionOutput"], () => require("./getAttestationAtSubscription"));
 
 // Export enums:
 export * from "../../types/enums/policyinsights/v20210101";
-
-// Import resources to register:
-import { AttestationAtResource } from "./attestationAtResource";
-import { AttestationAtResourceGroup } from "./attestationAtResourceGroup";
-import { AttestationAtSubscription } from "./attestationAtSubscription";
 
 const _module = {
     version: utilities.getVersion(),

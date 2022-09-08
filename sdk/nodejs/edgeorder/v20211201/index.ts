@@ -5,19 +5,39 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./addressByName";
-export * from "./getAddressByName";
-export * from "./getOrderItemByName";
-export * from "./listConfigurations";
-export * from "./listProductFamilies";
-export * from "./orderItemByName";
+export { AddressByNameArgs } from "./addressByName";
+export type AddressByName = import("./addressByName").AddressByName;
+export const AddressByName: typeof import("./addressByName").AddressByName = null as any;
+
+export { GetAddressByNameArgs, GetAddressByNameResult, GetAddressByNameOutputArgs } from "./getAddressByName";
+export const getAddressByName: typeof import("./getAddressByName").getAddressByName = null as any;
+export const getAddressByNameOutput: typeof import("./getAddressByName").getAddressByNameOutput = null as any;
+
+export { GetOrderItemByNameArgs, GetOrderItemByNameResult, GetOrderItemByNameOutputArgs } from "./getOrderItemByName";
+export const getOrderItemByName: typeof import("./getOrderItemByName").getOrderItemByName = null as any;
+export const getOrderItemByNameOutput: typeof import("./getOrderItemByName").getOrderItemByNameOutput = null as any;
+
+export { ListConfigurationsArgs, ListConfigurationsResult, ListConfigurationsOutputArgs } from "./listConfigurations";
+export const listConfigurations: typeof import("./listConfigurations").listConfigurations = null as any;
+export const listConfigurationsOutput: typeof import("./listConfigurations").listConfigurationsOutput = null as any;
+
+export { ListProductFamiliesArgs, ListProductFamiliesResult, ListProductFamiliesOutputArgs } from "./listProductFamilies";
+export const listProductFamilies: typeof import("./listProductFamilies").listProductFamilies = null as any;
+export const listProductFamiliesOutput: typeof import("./listProductFamilies").listProductFamiliesOutput = null as any;
+
+export { OrderItemByNameArgs } from "./orderItemByName";
+export type OrderItemByName = import("./orderItemByName").OrderItemByName;
+export const OrderItemByName: typeof import("./orderItemByName").OrderItemByName = null as any;
+
+utilities.lazyLoad(exports, ["AddressByName"], () => require("./addressByName"));
+utilities.lazyLoad(exports, ["getAddressByName","getAddressByNameOutput"], () => require("./getAddressByName"));
+utilities.lazyLoad(exports, ["getOrderItemByName","getOrderItemByNameOutput"], () => require("./getOrderItemByName"));
+utilities.lazyLoad(exports, ["listConfigurations","listConfigurationsOutput"], () => require("./listConfigurations"));
+utilities.lazyLoad(exports, ["listProductFamilies","listProductFamiliesOutput"], () => require("./listProductFamilies"));
+utilities.lazyLoad(exports, ["OrderItemByName"], () => require("./orderItemByName"));
 
 // Export enums:
 export * from "../../types/enums/edgeorder/v20211201";
-
-// Import resources to register:
-import { AddressByName } from "./addressByName";
-import { OrderItemByName } from "./orderItemByName";
 
 const _module = {
     version: utilities.getVersion(),

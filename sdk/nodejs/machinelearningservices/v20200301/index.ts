@@ -5,26 +5,64 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getLinkedWorkspace";
-export * from "./getMachineLearningCompute";
-export * from "./getPrivateEndpointConnection";
-export * from "./getWorkspace";
-export * from "./linkedWorkspace";
-export * from "./listMachineLearningComputeKeys";
-export * from "./listMachineLearningComputeNodes";
-export * from "./listWorkspaceKeys";
-export * from "./machineLearningCompute";
-export * from "./privateEndpointConnection";
-export * from "./workspace";
+export { GetLinkedWorkspaceArgs, GetLinkedWorkspaceResult, GetLinkedWorkspaceOutputArgs } from "./getLinkedWorkspace";
+export const getLinkedWorkspace: typeof import("./getLinkedWorkspace").getLinkedWorkspace = null as any;
+export const getLinkedWorkspaceOutput: typeof import("./getLinkedWorkspace").getLinkedWorkspaceOutput = null as any;
+
+export { GetMachineLearningComputeArgs, GetMachineLearningComputeResult, GetMachineLearningComputeOutputArgs } from "./getMachineLearningCompute";
+export const getMachineLearningCompute: typeof import("./getMachineLearningCompute").getMachineLearningCompute = null as any;
+export const getMachineLearningComputeOutput: typeof import("./getMachineLearningCompute").getMachineLearningComputeOutput = null as any;
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+
+export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
+export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
+export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
+
+export { LinkedWorkspaceArgs } from "./linkedWorkspace";
+export type LinkedWorkspace = import("./linkedWorkspace").LinkedWorkspace;
+export const LinkedWorkspace: typeof import("./linkedWorkspace").LinkedWorkspace = null as any;
+
+export { ListMachineLearningComputeKeysArgs, ListMachineLearningComputeKeysResult, ListMachineLearningComputeKeysOutputArgs } from "./listMachineLearningComputeKeys";
+export const listMachineLearningComputeKeys: typeof import("./listMachineLearningComputeKeys").listMachineLearningComputeKeys = null as any;
+export const listMachineLearningComputeKeysOutput: typeof import("./listMachineLearningComputeKeys").listMachineLearningComputeKeysOutput = null as any;
+
+export { ListMachineLearningComputeNodesArgs, ListMachineLearningComputeNodesResult, ListMachineLearningComputeNodesOutputArgs } from "./listMachineLearningComputeNodes";
+export const listMachineLearningComputeNodes: typeof import("./listMachineLearningComputeNodes").listMachineLearningComputeNodes = null as any;
+export const listMachineLearningComputeNodesOutput: typeof import("./listMachineLearningComputeNodes").listMachineLearningComputeNodesOutput = null as any;
+
+export { ListWorkspaceKeysArgs, ListWorkspaceKeysResult, ListWorkspaceKeysOutputArgs } from "./listWorkspaceKeys";
+export const listWorkspaceKeys: typeof import("./listWorkspaceKeys").listWorkspaceKeys = null as any;
+export const listWorkspaceKeysOutput: typeof import("./listWorkspaceKeys").listWorkspaceKeysOutput = null as any;
+
+export { MachineLearningComputeArgs } from "./machineLearningCompute";
+export type MachineLearningCompute = import("./machineLearningCompute").MachineLearningCompute;
+export const MachineLearningCompute: typeof import("./machineLearningCompute").MachineLearningCompute = null as any;
+
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+
+export { WorkspaceArgs } from "./workspace";
+export type Workspace = import("./workspace").Workspace;
+export const Workspace: typeof import("./workspace").Workspace = null as any;
+
+utilities.lazyLoad(exports, ["getLinkedWorkspace","getLinkedWorkspaceOutput"], () => require("./getLinkedWorkspace"));
+utilities.lazyLoad(exports, ["getMachineLearningCompute","getMachineLearningComputeOutput"], () => require("./getMachineLearningCompute"));
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
+utilities.lazyLoad(exports, ["LinkedWorkspace"], () => require("./linkedWorkspace"));
+utilities.lazyLoad(exports, ["listMachineLearningComputeKeys","listMachineLearningComputeKeysOutput"], () => require("./listMachineLearningComputeKeys"));
+utilities.lazyLoad(exports, ["listMachineLearningComputeNodes","listMachineLearningComputeNodesOutput"], () => require("./listMachineLearningComputeNodes"));
+utilities.lazyLoad(exports, ["listWorkspaceKeys","listWorkspaceKeysOutput"], () => require("./listWorkspaceKeys"));
+utilities.lazyLoad(exports, ["MachineLearningCompute"], () => require("./machineLearningCompute"));
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
 
 // Export enums:
 export * from "../../types/enums/machinelearningservices/v20200301";
-
-// Import resources to register:
-import { LinkedWorkspace } from "./linkedWorkspace";
-import { MachineLearningCompute } from "./machineLearningCompute";
-import { PrivateEndpointConnection } from "./privateEndpointConnection";
-import { Workspace } from "./workspace";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,26 +5,59 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getPolicyAssignment";
-export * from "./getPolicyDefinition";
-export * from "./getPolicyDefinitionAtManagementGroup";
-export * from "./getPolicySetDefinition";
-export * from "./getPolicySetDefinitionAtManagementGroup";
-export * from "./policyAssignment";
-export * from "./policyDefinition";
-export * from "./policyDefinitionAtManagementGroup";
-export * from "./policySetDefinition";
-export * from "./policySetDefinitionAtManagementGroup";
+export { GetPolicyAssignmentArgs, GetPolicyAssignmentResult, GetPolicyAssignmentOutputArgs } from "./getPolicyAssignment";
+export const getPolicyAssignment: typeof import("./getPolicyAssignment").getPolicyAssignment = null as any;
+export const getPolicyAssignmentOutput: typeof import("./getPolicyAssignment").getPolicyAssignmentOutput = null as any;
+
+export { GetPolicyDefinitionArgs, GetPolicyDefinitionResult, GetPolicyDefinitionOutputArgs } from "./getPolicyDefinition";
+export const getPolicyDefinition: typeof import("./getPolicyDefinition").getPolicyDefinition = null as any;
+export const getPolicyDefinitionOutput: typeof import("./getPolicyDefinition").getPolicyDefinitionOutput = null as any;
+
+export { GetPolicyDefinitionAtManagementGroupArgs, GetPolicyDefinitionAtManagementGroupResult, GetPolicyDefinitionAtManagementGroupOutputArgs } from "./getPolicyDefinitionAtManagementGroup";
+export const getPolicyDefinitionAtManagementGroup: typeof import("./getPolicyDefinitionAtManagementGroup").getPolicyDefinitionAtManagementGroup = null as any;
+export const getPolicyDefinitionAtManagementGroupOutput: typeof import("./getPolicyDefinitionAtManagementGroup").getPolicyDefinitionAtManagementGroupOutput = null as any;
+
+export { GetPolicySetDefinitionArgs, GetPolicySetDefinitionResult, GetPolicySetDefinitionOutputArgs } from "./getPolicySetDefinition";
+export const getPolicySetDefinition: typeof import("./getPolicySetDefinition").getPolicySetDefinition = null as any;
+export const getPolicySetDefinitionOutput: typeof import("./getPolicySetDefinition").getPolicySetDefinitionOutput = null as any;
+
+export { GetPolicySetDefinitionAtManagementGroupArgs, GetPolicySetDefinitionAtManagementGroupResult, GetPolicySetDefinitionAtManagementGroupOutputArgs } from "./getPolicySetDefinitionAtManagementGroup";
+export const getPolicySetDefinitionAtManagementGroup: typeof import("./getPolicySetDefinitionAtManagementGroup").getPolicySetDefinitionAtManagementGroup = null as any;
+export const getPolicySetDefinitionAtManagementGroupOutput: typeof import("./getPolicySetDefinitionAtManagementGroup").getPolicySetDefinitionAtManagementGroupOutput = null as any;
+
+export { PolicyAssignmentArgs } from "./policyAssignment";
+export type PolicyAssignment = import("./policyAssignment").PolicyAssignment;
+export const PolicyAssignment: typeof import("./policyAssignment").PolicyAssignment = null as any;
+
+export { PolicyDefinitionArgs } from "./policyDefinition";
+export type PolicyDefinition = import("./policyDefinition").PolicyDefinition;
+export const PolicyDefinition: typeof import("./policyDefinition").PolicyDefinition = null as any;
+
+export { PolicyDefinitionAtManagementGroupArgs } from "./policyDefinitionAtManagementGroup";
+export type PolicyDefinitionAtManagementGroup = import("./policyDefinitionAtManagementGroup").PolicyDefinitionAtManagementGroup;
+export const PolicyDefinitionAtManagementGroup: typeof import("./policyDefinitionAtManagementGroup").PolicyDefinitionAtManagementGroup = null as any;
+
+export { PolicySetDefinitionArgs } from "./policySetDefinition";
+export type PolicySetDefinition = import("./policySetDefinition").PolicySetDefinition;
+export const PolicySetDefinition: typeof import("./policySetDefinition").PolicySetDefinition = null as any;
+
+export { PolicySetDefinitionAtManagementGroupArgs } from "./policySetDefinitionAtManagementGroup";
+export type PolicySetDefinitionAtManagementGroup = import("./policySetDefinitionAtManagementGroup").PolicySetDefinitionAtManagementGroup;
+export const PolicySetDefinitionAtManagementGroup: typeof import("./policySetDefinitionAtManagementGroup").PolicySetDefinitionAtManagementGroup = null as any;
+
+utilities.lazyLoad(exports, ["getPolicyAssignment","getPolicyAssignmentOutput"], () => require("./getPolicyAssignment"));
+utilities.lazyLoad(exports, ["getPolicyDefinition","getPolicyDefinitionOutput"], () => require("./getPolicyDefinition"));
+utilities.lazyLoad(exports, ["getPolicyDefinitionAtManagementGroup","getPolicyDefinitionAtManagementGroupOutput"], () => require("./getPolicyDefinitionAtManagementGroup"));
+utilities.lazyLoad(exports, ["getPolicySetDefinition","getPolicySetDefinitionOutput"], () => require("./getPolicySetDefinition"));
+utilities.lazyLoad(exports, ["getPolicySetDefinitionAtManagementGroup","getPolicySetDefinitionAtManagementGroupOutput"], () => require("./getPolicySetDefinitionAtManagementGroup"));
+utilities.lazyLoad(exports, ["PolicyAssignment"], () => require("./policyAssignment"));
+utilities.lazyLoad(exports, ["PolicyDefinition"], () => require("./policyDefinition"));
+utilities.lazyLoad(exports, ["PolicyDefinitionAtManagementGroup"], () => require("./policyDefinitionAtManagementGroup"));
+utilities.lazyLoad(exports, ["PolicySetDefinition"], () => require("./policySetDefinition"));
+utilities.lazyLoad(exports, ["PolicySetDefinitionAtManagementGroup"], () => require("./policySetDefinitionAtManagementGroup"));
 
 // Export enums:
 export * from "../../types/enums/authorization/v20190601";
-
-// Import resources to register:
-import { PolicyAssignment } from "./policyAssignment";
-import { PolicyDefinition } from "./policyDefinition";
-import { PolicyDefinitionAtManagementGroup } from "./policyDefinitionAtManagementGroup";
-import { PolicySetDefinition } from "./policySetDefinition";
-import { PolicySetDefinitionAtManagementGroup } from "./policySetDefinitionAtManagementGroup";
 
 const _module = {
     version: utilities.getVersion(),

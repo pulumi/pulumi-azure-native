@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getMyWorkbook";
-export * from "./getWorkbook";
-export * from "./myWorkbook";
-export * from "./workbook";
+export { GetMyWorkbookArgs, GetMyWorkbookResult, GetMyWorkbookOutputArgs } from "./getMyWorkbook";
+export const getMyWorkbook: typeof import("./getMyWorkbook").getMyWorkbook = null as any;
+export const getMyWorkbookOutput: typeof import("./getMyWorkbook").getMyWorkbookOutput = null as any;
+
+export { GetWorkbookArgs, GetWorkbookResult, GetWorkbookOutputArgs } from "./getWorkbook";
+export const getWorkbook: typeof import("./getWorkbook").getWorkbook = null as any;
+export const getWorkbookOutput: typeof import("./getWorkbook").getWorkbookOutput = null as any;
+
+export { MyWorkbookArgs } from "./myWorkbook";
+export type MyWorkbook = import("./myWorkbook").MyWorkbook;
+export const MyWorkbook: typeof import("./myWorkbook").MyWorkbook = null as any;
+
+export { WorkbookArgs } from "./workbook";
+export type Workbook = import("./workbook").Workbook;
+export const Workbook: typeof import("./workbook").Workbook = null as any;
+
+utilities.lazyLoad(exports, ["getMyWorkbook","getMyWorkbookOutput"], () => require("./getMyWorkbook"));
+utilities.lazyLoad(exports, ["getWorkbook","getWorkbookOutput"], () => require("./getWorkbook"));
+utilities.lazyLoad(exports, ["MyWorkbook"], () => require("./myWorkbook"));
+utilities.lazyLoad(exports, ["Workbook"], () => require("./workbook"));
 
 // Export enums:
 export * from "../../types/enums/insights/v20201020";
-
-// Import resources to register:
-import { MyWorkbook } from "./myWorkbook";
-import { Workbook } from "./workbook";
 
 const _module = {
     version: utilities.getVersion(),

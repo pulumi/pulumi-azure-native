@@ -5,15 +5,24 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getStorageAccount";
-export * from "./listStorageAccountKeys";
-export * from "./storageAccount";
+export { GetStorageAccountArgs, GetStorageAccountResult, GetStorageAccountOutputArgs } from "./getStorageAccount";
+export const getStorageAccount: typeof import("./getStorageAccount").getStorageAccount = null as any;
+export const getStorageAccountOutput: typeof import("./getStorageAccount").getStorageAccountOutput = null as any;
+
+export { ListStorageAccountKeysArgs, ListStorageAccountKeysResult, ListStorageAccountKeysOutputArgs } from "./listStorageAccountKeys";
+export const listStorageAccountKeys: typeof import("./listStorageAccountKeys").listStorageAccountKeys = null as any;
+export const listStorageAccountKeysOutput: typeof import("./listStorageAccountKeys").listStorageAccountKeysOutput = null as any;
+
+export { StorageAccountArgs } from "./storageAccount";
+export type StorageAccount = import("./storageAccount").StorageAccount;
+export const StorageAccount: typeof import("./storageAccount").StorageAccount = null as any;
+
+utilities.lazyLoad(exports, ["getStorageAccount","getStorageAccountOutput"], () => require("./getStorageAccount"));
+utilities.lazyLoad(exports, ["listStorageAccountKeys","listStorageAccountKeysOutput"], () => require("./listStorageAccountKeys"));
+utilities.lazyLoad(exports, ["StorageAccount"], () => require("./storageAccount"));
 
 // Export enums:
 export * from "../../types/enums/storage/v20160101";
-
-// Import resources to register:
-import { StorageAccount } from "./storageAccount";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,14 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getQuery";
-export * from "./getQueryPack";
-export * from "./query";
-export * from "./queryPack";
+export { GetQueryArgs, GetQueryResult, GetQueryOutputArgs } from "./getQuery";
+export const getQuery: typeof import("./getQuery").getQuery = null as any;
+export const getQueryOutput: typeof import("./getQuery").getQueryOutput = null as any;
 
-// Import resources to register:
-import { Query } from "./query";
-import { QueryPack } from "./queryPack";
+export { GetQueryPackArgs, GetQueryPackResult, GetQueryPackOutputArgs } from "./getQueryPack";
+export const getQueryPack: typeof import("./getQueryPack").getQueryPack = null as any;
+export const getQueryPackOutput: typeof import("./getQueryPack").getQueryPackOutput = null as any;
+
+export { QueryArgs } from "./query";
+export type Query = import("./query").Query;
+export const Query: typeof import("./query").Query = null as any;
+
+export { QueryPackArgs } from "./queryPack";
+export type QueryPack = import("./queryPack").QueryPack;
+export const QueryPack: typeof import("./queryPack").QueryPack = null as any;
+
+utilities.lazyLoad(exports, ["getQuery","getQueryOutput"], () => require("./getQuery"));
+utilities.lazyLoad(exports, ["getQueryPack","getQueryPackOutput"], () => require("./getQueryPack"));
+utilities.lazyLoad(exports, ["Query"], () => require("./query"));
+utilities.lazyLoad(exports, ["QueryPack"], () => require("./queryPack"));
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,50 +5,139 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./databaseAdvisor";
-export * from "./databaseBlobAuditingPolicy";
-export * from "./encryptionProtector";
-export * from "./failoverGroup";
-export * from "./firewallRule";
-export * from "./getDatabaseAdvisor";
-export * from "./getDatabaseBlobAuditingPolicy";
-export * from "./getEncryptionProtector";
-export * from "./getFailoverGroup";
-export * from "./getFirewallRule";
-export * from "./getManagedInstance";
-export * from "./getServer";
-export * from "./getServerAdvisor";
-export * from "./getServerKey";
-export * from "./getSyncAgent";
-export * from "./getSyncGroup";
-export * from "./getSyncMember";
-export * from "./getVirtualNetworkRule";
-export * from "./managedInstance";
-export * from "./server";
-export * from "./serverAdvisor";
-export * from "./serverKey";
-export * from "./syncAgent";
-export * from "./syncGroup";
-export * from "./syncMember";
-export * from "./virtualNetworkRule";
+export { DatabaseAdvisorArgs } from "./databaseAdvisor";
+export type DatabaseAdvisor = import("./databaseAdvisor").DatabaseAdvisor;
+export const DatabaseAdvisor: typeof import("./databaseAdvisor").DatabaseAdvisor = null as any;
+
+export { DatabaseBlobAuditingPolicyArgs } from "./databaseBlobAuditingPolicy";
+export type DatabaseBlobAuditingPolicy = import("./databaseBlobAuditingPolicy").DatabaseBlobAuditingPolicy;
+export const DatabaseBlobAuditingPolicy: typeof import("./databaseBlobAuditingPolicy").DatabaseBlobAuditingPolicy = null as any;
+
+export { EncryptionProtectorArgs } from "./encryptionProtector";
+export type EncryptionProtector = import("./encryptionProtector").EncryptionProtector;
+export const EncryptionProtector: typeof import("./encryptionProtector").EncryptionProtector = null as any;
+
+export { FailoverGroupArgs } from "./failoverGroup";
+export type FailoverGroup = import("./failoverGroup").FailoverGroup;
+export const FailoverGroup: typeof import("./failoverGroup").FailoverGroup = null as any;
+
+export { FirewallRuleArgs } from "./firewallRule";
+export type FirewallRule = import("./firewallRule").FirewallRule;
+export const FirewallRule: typeof import("./firewallRule").FirewallRule = null as any;
+
+export { GetDatabaseAdvisorArgs, GetDatabaseAdvisorResult, GetDatabaseAdvisorOutputArgs } from "./getDatabaseAdvisor";
+export const getDatabaseAdvisor: typeof import("./getDatabaseAdvisor").getDatabaseAdvisor = null as any;
+export const getDatabaseAdvisorOutput: typeof import("./getDatabaseAdvisor").getDatabaseAdvisorOutput = null as any;
+
+export { GetDatabaseBlobAuditingPolicyArgs, GetDatabaseBlobAuditingPolicyResult, GetDatabaseBlobAuditingPolicyOutputArgs } from "./getDatabaseBlobAuditingPolicy";
+export const getDatabaseBlobAuditingPolicy: typeof import("./getDatabaseBlobAuditingPolicy").getDatabaseBlobAuditingPolicy = null as any;
+export const getDatabaseBlobAuditingPolicyOutput: typeof import("./getDatabaseBlobAuditingPolicy").getDatabaseBlobAuditingPolicyOutput = null as any;
+
+export { GetEncryptionProtectorArgs, GetEncryptionProtectorResult, GetEncryptionProtectorOutputArgs } from "./getEncryptionProtector";
+export const getEncryptionProtector: typeof import("./getEncryptionProtector").getEncryptionProtector = null as any;
+export const getEncryptionProtectorOutput: typeof import("./getEncryptionProtector").getEncryptionProtectorOutput = null as any;
+
+export { GetFailoverGroupArgs, GetFailoverGroupResult, GetFailoverGroupOutputArgs } from "./getFailoverGroup";
+export const getFailoverGroup: typeof import("./getFailoverGroup").getFailoverGroup = null as any;
+export const getFailoverGroupOutput: typeof import("./getFailoverGroup").getFailoverGroupOutput = null as any;
+
+export { GetFirewallRuleArgs, GetFirewallRuleResult, GetFirewallRuleOutputArgs } from "./getFirewallRule";
+export const getFirewallRule: typeof import("./getFirewallRule").getFirewallRule = null as any;
+export const getFirewallRuleOutput: typeof import("./getFirewallRule").getFirewallRuleOutput = null as any;
+
+export { GetManagedInstanceArgs, GetManagedInstanceResult, GetManagedInstanceOutputArgs } from "./getManagedInstance";
+export const getManagedInstance: typeof import("./getManagedInstance").getManagedInstance = null as any;
+export const getManagedInstanceOutput: typeof import("./getManagedInstance").getManagedInstanceOutput = null as any;
+
+export { GetServerArgs, GetServerResult, GetServerOutputArgs } from "./getServer";
+export const getServer: typeof import("./getServer").getServer = null as any;
+export const getServerOutput: typeof import("./getServer").getServerOutput = null as any;
+
+export { GetServerAdvisorArgs, GetServerAdvisorResult, GetServerAdvisorOutputArgs } from "./getServerAdvisor";
+export const getServerAdvisor: typeof import("./getServerAdvisor").getServerAdvisor = null as any;
+export const getServerAdvisorOutput: typeof import("./getServerAdvisor").getServerAdvisorOutput = null as any;
+
+export { GetServerKeyArgs, GetServerKeyResult, GetServerKeyOutputArgs } from "./getServerKey";
+export const getServerKey: typeof import("./getServerKey").getServerKey = null as any;
+export const getServerKeyOutput: typeof import("./getServerKey").getServerKeyOutput = null as any;
+
+export { GetSyncAgentArgs, GetSyncAgentResult, GetSyncAgentOutputArgs } from "./getSyncAgent";
+export const getSyncAgent: typeof import("./getSyncAgent").getSyncAgent = null as any;
+export const getSyncAgentOutput: typeof import("./getSyncAgent").getSyncAgentOutput = null as any;
+
+export { GetSyncGroupArgs, GetSyncGroupResult, GetSyncGroupOutputArgs } from "./getSyncGroup";
+export const getSyncGroup: typeof import("./getSyncGroup").getSyncGroup = null as any;
+export const getSyncGroupOutput: typeof import("./getSyncGroup").getSyncGroupOutput = null as any;
+
+export { GetSyncMemberArgs, GetSyncMemberResult, GetSyncMemberOutputArgs } from "./getSyncMember";
+export const getSyncMember: typeof import("./getSyncMember").getSyncMember = null as any;
+export const getSyncMemberOutput: typeof import("./getSyncMember").getSyncMemberOutput = null as any;
+
+export { GetVirtualNetworkRuleArgs, GetVirtualNetworkRuleResult, GetVirtualNetworkRuleOutputArgs } from "./getVirtualNetworkRule";
+export const getVirtualNetworkRule: typeof import("./getVirtualNetworkRule").getVirtualNetworkRule = null as any;
+export const getVirtualNetworkRuleOutput: typeof import("./getVirtualNetworkRule").getVirtualNetworkRuleOutput = null as any;
+
+export { ManagedInstanceArgs } from "./managedInstance";
+export type ManagedInstance = import("./managedInstance").ManagedInstance;
+export const ManagedInstance: typeof import("./managedInstance").ManagedInstance = null as any;
+
+export { ServerArgs } from "./server";
+export type Server = import("./server").Server;
+export const Server: typeof import("./server").Server = null as any;
+
+export { ServerAdvisorArgs } from "./serverAdvisor";
+export type ServerAdvisor = import("./serverAdvisor").ServerAdvisor;
+export const ServerAdvisor: typeof import("./serverAdvisor").ServerAdvisor = null as any;
+
+export { ServerKeyArgs } from "./serverKey";
+export type ServerKey = import("./serverKey").ServerKey;
+export const ServerKey: typeof import("./serverKey").ServerKey = null as any;
+
+export { SyncAgentArgs } from "./syncAgent";
+export type SyncAgent = import("./syncAgent").SyncAgent;
+export const SyncAgent: typeof import("./syncAgent").SyncAgent = null as any;
+
+export { SyncGroupArgs } from "./syncGroup";
+export type SyncGroup = import("./syncGroup").SyncGroup;
+export const SyncGroup: typeof import("./syncGroup").SyncGroup = null as any;
+
+export { SyncMemberArgs } from "./syncMember";
+export type SyncMember = import("./syncMember").SyncMember;
+export const SyncMember: typeof import("./syncMember").SyncMember = null as any;
+
+export { VirtualNetworkRuleArgs } from "./virtualNetworkRule";
+export type VirtualNetworkRule = import("./virtualNetworkRule").VirtualNetworkRule;
+export const VirtualNetworkRule: typeof import("./virtualNetworkRule").VirtualNetworkRule = null as any;
+
+utilities.lazyLoad(exports, ["DatabaseAdvisor"], () => require("./databaseAdvisor"));
+utilities.lazyLoad(exports, ["DatabaseBlobAuditingPolicy"], () => require("./databaseBlobAuditingPolicy"));
+utilities.lazyLoad(exports, ["EncryptionProtector"], () => require("./encryptionProtector"));
+utilities.lazyLoad(exports, ["FailoverGroup"], () => require("./failoverGroup"));
+utilities.lazyLoad(exports, ["FirewallRule"], () => require("./firewallRule"));
+utilities.lazyLoad(exports, ["getDatabaseAdvisor","getDatabaseAdvisorOutput"], () => require("./getDatabaseAdvisor"));
+utilities.lazyLoad(exports, ["getDatabaseBlobAuditingPolicy","getDatabaseBlobAuditingPolicyOutput"], () => require("./getDatabaseBlobAuditingPolicy"));
+utilities.lazyLoad(exports, ["getEncryptionProtector","getEncryptionProtectorOutput"], () => require("./getEncryptionProtector"));
+utilities.lazyLoad(exports, ["getFailoverGroup","getFailoverGroupOutput"], () => require("./getFailoverGroup"));
+utilities.lazyLoad(exports, ["getFirewallRule","getFirewallRuleOutput"], () => require("./getFirewallRule"));
+utilities.lazyLoad(exports, ["getManagedInstance","getManagedInstanceOutput"], () => require("./getManagedInstance"));
+utilities.lazyLoad(exports, ["getServer","getServerOutput"], () => require("./getServer"));
+utilities.lazyLoad(exports, ["getServerAdvisor","getServerAdvisorOutput"], () => require("./getServerAdvisor"));
+utilities.lazyLoad(exports, ["getServerKey","getServerKeyOutput"], () => require("./getServerKey"));
+utilities.lazyLoad(exports, ["getSyncAgent","getSyncAgentOutput"], () => require("./getSyncAgent"));
+utilities.lazyLoad(exports, ["getSyncGroup","getSyncGroupOutput"], () => require("./getSyncGroup"));
+utilities.lazyLoad(exports, ["getSyncMember","getSyncMemberOutput"], () => require("./getSyncMember"));
+utilities.lazyLoad(exports, ["getVirtualNetworkRule","getVirtualNetworkRuleOutput"], () => require("./getVirtualNetworkRule"));
+utilities.lazyLoad(exports, ["ManagedInstance"], () => require("./managedInstance"));
+utilities.lazyLoad(exports, ["Server"], () => require("./server"));
+utilities.lazyLoad(exports, ["ServerAdvisor"], () => require("./serverAdvisor"));
+utilities.lazyLoad(exports, ["ServerKey"], () => require("./serverKey"));
+utilities.lazyLoad(exports, ["SyncAgent"], () => require("./syncAgent"));
+utilities.lazyLoad(exports, ["SyncGroup"], () => require("./syncGroup"));
+utilities.lazyLoad(exports, ["SyncMember"], () => require("./syncMember"));
+utilities.lazyLoad(exports, ["VirtualNetworkRule"], () => require("./virtualNetworkRule"));
 
 // Export enums:
 export * from "../../types/enums/sql/v20150501preview";
-
-// Import resources to register:
-import { DatabaseAdvisor } from "./databaseAdvisor";
-import { DatabaseBlobAuditingPolicy } from "./databaseBlobAuditingPolicy";
-import { EncryptionProtector } from "./encryptionProtector";
-import { FailoverGroup } from "./failoverGroup";
-import { FirewallRule } from "./firewallRule";
-import { ManagedInstance } from "./managedInstance";
-import { Server } from "./server";
-import { ServerAdvisor } from "./serverAdvisor";
-import { ServerKey } from "./serverKey";
-import { SyncAgent } from "./syncAgent";
-import { SyncGroup } from "./syncGroup";
-import { SyncMember } from "./syncMember";
-import { VirtualNetworkRule } from "./virtualNetworkRule";
 
 const _module = {
     version: utilities.getVersion(),

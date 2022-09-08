@@ -5,57 +5,174 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./accountFilter";
-export * from "./asset";
-export * from "./assetFilter";
-export * from "./contentKeyPolicy";
-export * from "./getAccountFilter";
-export * from "./getAsset";
-export * from "./getAssetEncryptionKey";
-export * from "./getAssetFilter";
-export * from "./getContentKeyPolicy";
-export * from "./getContentKeyPolicyPropertiesWithSecrets";
-export * from "./getJob";
-export * from "./getLiveEvent";
-export * from "./getLiveOutput";
-export * from "./getMediaService";
-export * from "./getPrivateEndpointConnection";
-export * from "./getStreamingEndpoint";
-export * from "./getStreamingLocator";
-export * from "./getStreamingPolicy";
-export * from "./getTransform";
-export * from "./job";
-export * from "./listAssetContainerSas";
-export * from "./listAssetStreamingLocators";
-export * from "./listMediaServiceEdgePolicies";
-export * from "./listStreamingLocatorContentKeys";
-export * from "./listStreamingLocatorPaths";
-export * from "./liveEvent";
-export * from "./liveOutput";
-export * from "./mediaService";
-export * from "./privateEndpointConnection";
-export * from "./streamingEndpoint";
-export * from "./streamingLocator";
-export * from "./streamingPolicy";
-export * from "./transform";
+export { AccountFilterArgs } from "./accountFilter";
+export type AccountFilter = import("./accountFilter").AccountFilter;
+export const AccountFilter: typeof import("./accountFilter").AccountFilter = null as any;
+
+export { AssetArgs } from "./asset";
+export type Asset = import("./asset").Asset;
+export const Asset: typeof import("./asset").Asset = null as any;
+
+export { AssetFilterArgs } from "./assetFilter";
+export type AssetFilter = import("./assetFilter").AssetFilter;
+export const AssetFilter: typeof import("./assetFilter").AssetFilter = null as any;
+
+export { ContentKeyPolicyArgs } from "./contentKeyPolicy";
+export type ContentKeyPolicy = import("./contentKeyPolicy").ContentKeyPolicy;
+export const ContentKeyPolicy: typeof import("./contentKeyPolicy").ContentKeyPolicy = null as any;
+
+export { GetAccountFilterArgs, GetAccountFilterResult, GetAccountFilterOutputArgs } from "./getAccountFilter";
+export const getAccountFilter: typeof import("./getAccountFilter").getAccountFilter = null as any;
+export const getAccountFilterOutput: typeof import("./getAccountFilter").getAccountFilterOutput = null as any;
+
+export { GetAssetArgs, GetAssetResult, GetAssetOutputArgs } from "./getAsset";
+export const getAsset: typeof import("./getAsset").getAsset = null as any;
+export const getAssetOutput: typeof import("./getAsset").getAssetOutput = null as any;
+
+export { GetAssetEncryptionKeyArgs, GetAssetEncryptionKeyResult, GetAssetEncryptionKeyOutputArgs } from "./getAssetEncryptionKey";
+export const getAssetEncryptionKey: typeof import("./getAssetEncryptionKey").getAssetEncryptionKey = null as any;
+export const getAssetEncryptionKeyOutput: typeof import("./getAssetEncryptionKey").getAssetEncryptionKeyOutput = null as any;
+
+export { GetAssetFilterArgs, GetAssetFilterResult, GetAssetFilterOutputArgs } from "./getAssetFilter";
+export const getAssetFilter: typeof import("./getAssetFilter").getAssetFilter = null as any;
+export const getAssetFilterOutput: typeof import("./getAssetFilter").getAssetFilterOutput = null as any;
+
+export { GetContentKeyPolicyArgs, GetContentKeyPolicyResult, GetContentKeyPolicyOutputArgs } from "./getContentKeyPolicy";
+export const getContentKeyPolicy: typeof import("./getContentKeyPolicy").getContentKeyPolicy = null as any;
+export const getContentKeyPolicyOutput: typeof import("./getContentKeyPolicy").getContentKeyPolicyOutput = null as any;
+
+export { GetContentKeyPolicyPropertiesWithSecretsArgs, GetContentKeyPolicyPropertiesWithSecretsResult, GetContentKeyPolicyPropertiesWithSecretsOutputArgs } from "./getContentKeyPolicyPropertiesWithSecrets";
+export const getContentKeyPolicyPropertiesWithSecrets: typeof import("./getContentKeyPolicyPropertiesWithSecrets").getContentKeyPolicyPropertiesWithSecrets = null as any;
+export const getContentKeyPolicyPropertiesWithSecretsOutput: typeof import("./getContentKeyPolicyPropertiesWithSecrets").getContentKeyPolicyPropertiesWithSecretsOutput = null as any;
+
+export { GetJobArgs, GetJobResult, GetJobOutputArgs } from "./getJob";
+export const getJob: typeof import("./getJob").getJob = null as any;
+export const getJobOutput: typeof import("./getJob").getJobOutput = null as any;
+
+export { GetLiveEventArgs, GetLiveEventResult, GetLiveEventOutputArgs } from "./getLiveEvent";
+export const getLiveEvent: typeof import("./getLiveEvent").getLiveEvent = null as any;
+export const getLiveEventOutput: typeof import("./getLiveEvent").getLiveEventOutput = null as any;
+
+export { GetLiveOutputArgs, GetLiveOutputResult, GetLiveOutputOutputArgs } from "./getLiveOutput";
+export const getLiveOutput: typeof import("./getLiveOutput").getLiveOutput = null as any;
+export const getLiveOutputOutput: typeof import("./getLiveOutput").getLiveOutputOutput = null as any;
+
+export { GetMediaServiceArgs, GetMediaServiceResult, GetMediaServiceOutputArgs } from "./getMediaService";
+export const getMediaService: typeof import("./getMediaService").getMediaService = null as any;
+export const getMediaServiceOutput: typeof import("./getMediaService").getMediaServiceOutput = null as any;
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+
+export { GetStreamingEndpointArgs, GetStreamingEndpointResult, GetStreamingEndpointOutputArgs } from "./getStreamingEndpoint";
+export const getStreamingEndpoint: typeof import("./getStreamingEndpoint").getStreamingEndpoint = null as any;
+export const getStreamingEndpointOutput: typeof import("./getStreamingEndpoint").getStreamingEndpointOutput = null as any;
+
+export { GetStreamingLocatorArgs, GetStreamingLocatorResult, GetStreamingLocatorOutputArgs } from "./getStreamingLocator";
+export const getStreamingLocator: typeof import("./getStreamingLocator").getStreamingLocator = null as any;
+export const getStreamingLocatorOutput: typeof import("./getStreamingLocator").getStreamingLocatorOutput = null as any;
+
+export { GetStreamingPolicyArgs, GetStreamingPolicyResult, GetStreamingPolicyOutputArgs } from "./getStreamingPolicy";
+export const getStreamingPolicy: typeof import("./getStreamingPolicy").getStreamingPolicy = null as any;
+export const getStreamingPolicyOutput: typeof import("./getStreamingPolicy").getStreamingPolicyOutput = null as any;
+
+export { GetTransformArgs, GetTransformResult, GetTransformOutputArgs } from "./getTransform";
+export const getTransform: typeof import("./getTransform").getTransform = null as any;
+export const getTransformOutput: typeof import("./getTransform").getTransformOutput = null as any;
+
+export { JobArgs } from "./job";
+export type Job = import("./job").Job;
+export const Job: typeof import("./job").Job = null as any;
+
+export { ListAssetContainerSasArgs, ListAssetContainerSasResult, ListAssetContainerSasOutputArgs } from "./listAssetContainerSas";
+export const listAssetContainerSas: typeof import("./listAssetContainerSas").listAssetContainerSas = null as any;
+export const listAssetContainerSasOutput: typeof import("./listAssetContainerSas").listAssetContainerSasOutput = null as any;
+
+export { ListAssetStreamingLocatorsArgs, ListAssetStreamingLocatorsResult, ListAssetStreamingLocatorsOutputArgs } from "./listAssetStreamingLocators";
+export const listAssetStreamingLocators: typeof import("./listAssetStreamingLocators").listAssetStreamingLocators = null as any;
+export const listAssetStreamingLocatorsOutput: typeof import("./listAssetStreamingLocators").listAssetStreamingLocatorsOutput = null as any;
+
+export { ListMediaServiceEdgePoliciesArgs, ListMediaServiceEdgePoliciesResult, ListMediaServiceEdgePoliciesOutputArgs } from "./listMediaServiceEdgePolicies";
+export const listMediaServiceEdgePolicies: typeof import("./listMediaServiceEdgePolicies").listMediaServiceEdgePolicies = null as any;
+export const listMediaServiceEdgePoliciesOutput: typeof import("./listMediaServiceEdgePolicies").listMediaServiceEdgePoliciesOutput = null as any;
+
+export { ListStreamingLocatorContentKeysArgs, ListStreamingLocatorContentKeysResult, ListStreamingLocatorContentKeysOutputArgs } from "./listStreamingLocatorContentKeys";
+export const listStreamingLocatorContentKeys: typeof import("./listStreamingLocatorContentKeys").listStreamingLocatorContentKeys = null as any;
+export const listStreamingLocatorContentKeysOutput: typeof import("./listStreamingLocatorContentKeys").listStreamingLocatorContentKeysOutput = null as any;
+
+export { ListStreamingLocatorPathsArgs, ListStreamingLocatorPathsResult, ListStreamingLocatorPathsOutputArgs } from "./listStreamingLocatorPaths";
+export const listStreamingLocatorPaths: typeof import("./listStreamingLocatorPaths").listStreamingLocatorPaths = null as any;
+export const listStreamingLocatorPathsOutput: typeof import("./listStreamingLocatorPaths").listStreamingLocatorPathsOutput = null as any;
+
+export { LiveEventArgs } from "./liveEvent";
+export type LiveEvent = import("./liveEvent").LiveEvent;
+export const LiveEvent: typeof import("./liveEvent").LiveEvent = null as any;
+
+export { LiveOutputArgs } from "./liveOutput";
+export type LiveOutput = import("./liveOutput").LiveOutput;
+export const LiveOutput: typeof import("./liveOutput").LiveOutput = null as any;
+
+export { MediaServiceArgs } from "./mediaService";
+export type MediaService = import("./mediaService").MediaService;
+export const MediaService: typeof import("./mediaService").MediaService = null as any;
+
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+
+export { StreamingEndpointArgs } from "./streamingEndpoint";
+export type StreamingEndpoint = import("./streamingEndpoint").StreamingEndpoint;
+export const StreamingEndpoint: typeof import("./streamingEndpoint").StreamingEndpoint = null as any;
+
+export { StreamingLocatorArgs } from "./streamingLocator";
+export type StreamingLocator = import("./streamingLocator").StreamingLocator;
+export const StreamingLocator: typeof import("./streamingLocator").StreamingLocator = null as any;
+
+export { StreamingPolicyArgs } from "./streamingPolicy";
+export type StreamingPolicy = import("./streamingPolicy").StreamingPolicy;
+export const StreamingPolicy: typeof import("./streamingPolicy").StreamingPolicy = null as any;
+
+export { TransformArgs } from "./transform";
+export type Transform = import("./transform").Transform;
+export const Transform: typeof import("./transform").Transform = null as any;
+
+utilities.lazyLoad(exports, ["AccountFilter"], () => require("./accountFilter"));
+utilities.lazyLoad(exports, ["Asset"], () => require("./asset"));
+utilities.lazyLoad(exports, ["AssetFilter"], () => require("./assetFilter"));
+utilities.lazyLoad(exports, ["ContentKeyPolicy"], () => require("./contentKeyPolicy"));
+utilities.lazyLoad(exports, ["getAccountFilter","getAccountFilterOutput"], () => require("./getAccountFilter"));
+utilities.lazyLoad(exports, ["getAsset","getAssetOutput"], () => require("./getAsset"));
+utilities.lazyLoad(exports, ["getAssetEncryptionKey","getAssetEncryptionKeyOutput"], () => require("./getAssetEncryptionKey"));
+utilities.lazyLoad(exports, ["getAssetFilter","getAssetFilterOutput"], () => require("./getAssetFilter"));
+utilities.lazyLoad(exports, ["getContentKeyPolicy","getContentKeyPolicyOutput"], () => require("./getContentKeyPolicy"));
+utilities.lazyLoad(exports, ["getContentKeyPolicyPropertiesWithSecrets","getContentKeyPolicyPropertiesWithSecretsOutput"], () => require("./getContentKeyPolicyPropertiesWithSecrets"));
+utilities.lazyLoad(exports, ["getJob","getJobOutput"], () => require("./getJob"));
+utilities.lazyLoad(exports, ["getLiveEvent","getLiveEventOutput"], () => require("./getLiveEvent"));
+utilities.lazyLoad(exports, ["getLiveOutput","getLiveOutputOutput"], () => require("./getLiveOutput"));
+utilities.lazyLoad(exports, ["getMediaService","getMediaServiceOutput"], () => require("./getMediaService"));
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+utilities.lazyLoad(exports, ["getStreamingEndpoint","getStreamingEndpointOutput"], () => require("./getStreamingEndpoint"));
+utilities.lazyLoad(exports, ["getStreamingLocator","getStreamingLocatorOutput"], () => require("./getStreamingLocator"));
+utilities.lazyLoad(exports, ["getStreamingPolicy","getStreamingPolicyOutput"], () => require("./getStreamingPolicy"));
+utilities.lazyLoad(exports, ["getTransform","getTransformOutput"], () => require("./getTransform"));
+utilities.lazyLoad(exports, ["Job"], () => require("./job"));
+utilities.lazyLoad(exports, ["listAssetContainerSas","listAssetContainerSasOutput"], () => require("./listAssetContainerSas"));
+utilities.lazyLoad(exports, ["listAssetStreamingLocators","listAssetStreamingLocatorsOutput"], () => require("./listAssetStreamingLocators"));
+utilities.lazyLoad(exports, ["listMediaServiceEdgePolicies","listMediaServiceEdgePoliciesOutput"], () => require("./listMediaServiceEdgePolicies"));
+utilities.lazyLoad(exports, ["listStreamingLocatorContentKeys","listStreamingLocatorContentKeysOutput"], () => require("./listStreamingLocatorContentKeys"));
+utilities.lazyLoad(exports, ["listStreamingLocatorPaths","listStreamingLocatorPathsOutput"], () => require("./listStreamingLocatorPaths"));
+utilities.lazyLoad(exports, ["LiveEvent"], () => require("./liveEvent"));
+utilities.lazyLoad(exports, ["LiveOutput"], () => require("./liveOutput"));
+utilities.lazyLoad(exports, ["MediaService"], () => require("./mediaService"));
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+utilities.lazyLoad(exports, ["StreamingEndpoint"], () => require("./streamingEndpoint"));
+utilities.lazyLoad(exports, ["StreamingLocator"], () => require("./streamingLocator"));
+utilities.lazyLoad(exports, ["StreamingPolicy"], () => require("./streamingPolicy"));
+utilities.lazyLoad(exports, ["Transform"], () => require("./transform"));
 
 // Export enums:
 export * from "../../types/enums/media/v20200501";
-
-// Import resources to register:
-import { AccountFilter } from "./accountFilter";
-import { Asset } from "./asset";
-import { AssetFilter } from "./assetFilter";
-import { ContentKeyPolicy } from "./contentKeyPolicy";
-import { Job } from "./job";
-import { LiveEvent } from "./liveEvent";
-import { LiveOutput } from "./liveOutput";
-import { MediaService } from "./mediaService";
-import { PrivateEndpointConnection } from "./privateEndpointConnection";
-import { StreamingEndpoint } from "./streamingEndpoint";
-import { StreamingLocator } from "./streamingLocator";
-import { StreamingPolicy } from "./streamingPolicy";
-import { Transform } from "./transform";
 
 const _module = {
     version: utilities.getVersion(),

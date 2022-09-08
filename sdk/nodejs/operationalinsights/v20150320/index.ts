@@ -5,15 +5,31 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getSavedSearch";
-export * from "./getStorageInsight";
-export * from "./listWorkspaceKeys";
-export * from "./savedSearch";
-export * from "./storageInsight";
+export { GetSavedSearchArgs, GetSavedSearchResult, GetSavedSearchOutputArgs } from "./getSavedSearch";
+export const getSavedSearch: typeof import("./getSavedSearch").getSavedSearch = null as any;
+export const getSavedSearchOutput: typeof import("./getSavedSearch").getSavedSearchOutput = null as any;
 
-// Import resources to register:
-import { SavedSearch } from "./savedSearch";
-import { StorageInsight } from "./storageInsight";
+export { GetStorageInsightArgs, GetStorageInsightResult, GetStorageInsightOutputArgs } from "./getStorageInsight";
+export const getStorageInsight: typeof import("./getStorageInsight").getStorageInsight = null as any;
+export const getStorageInsightOutput: typeof import("./getStorageInsight").getStorageInsightOutput = null as any;
+
+export { ListWorkspaceKeysArgs, ListWorkspaceKeysResult, ListWorkspaceKeysOutputArgs } from "./listWorkspaceKeys";
+export const listWorkspaceKeys: typeof import("./listWorkspaceKeys").listWorkspaceKeys = null as any;
+export const listWorkspaceKeysOutput: typeof import("./listWorkspaceKeys").listWorkspaceKeysOutput = null as any;
+
+export { SavedSearchArgs } from "./savedSearch";
+export type SavedSearch = import("./savedSearch").SavedSearch;
+export const SavedSearch: typeof import("./savedSearch").SavedSearch = null as any;
+
+export { StorageInsightArgs } from "./storageInsight";
+export type StorageInsight = import("./storageInsight").StorageInsight;
+export const StorageInsight: typeof import("./storageInsight").StorageInsight = null as any;
+
+utilities.lazyLoad(exports, ["getSavedSearch","getSavedSearchOutput"], () => require("./getSavedSearch"));
+utilities.lazyLoad(exports, ["getStorageInsight","getStorageInsightOutput"], () => require("./getStorageInsight"));
+utilities.lazyLoad(exports, ["listWorkspaceKeys","listWorkspaceKeysOutput"], () => require("./listWorkspaceKeys"));
+utilities.lazyLoad(exports, ["SavedSearch"], () => require("./savedSearch"));
+utilities.lazyLoad(exports, ["StorageInsight"], () => require("./storageInsight"));
 
 const _module = {
     version: utilities.getVersion(),

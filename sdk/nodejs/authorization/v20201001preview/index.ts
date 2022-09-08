@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getRoleAssignment";
-export * from "./getRoleManagementPolicyAssignment";
-export * from "./roleAssignment";
-export * from "./roleManagementPolicyAssignment";
+export { GetRoleAssignmentArgs, GetRoleAssignmentResult, GetRoleAssignmentOutputArgs } from "./getRoleAssignment";
+export const getRoleAssignment: typeof import("./getRoleAssignment").getRoleAssignment = null as any;
+export const getRoleAssignmentOutput: typeof import("./getRoleAssignment").getRoleAssignmentOutput = null as any;
+
+export { GetRoleManagementPolicyAssignmentArgs, GetRoleManagementPolicyAssignmentResult, GetRoleManagementPolicyAssignmentOutputArgs } from "./getRoleManagementPolicyAssignment";
+export const getRoleManagementPolicyAssignment: typeof import("./getRoleManagementPolicyAssignment").getRoleManagementPolicyAssignment = null as any;
+export const getRoleManagementPolicyAssignmentOutput: typeof import("./getRoleManagementPolicyAssignment").getRoleManagementPolicyAssignmentOutput = null as any;
+
+export { RoleAssignmentArgs } from "./roleAssignment";
+export type RoleAssignment = import("./roleAssignment").RoleAssignment;
+export const RoleAssignment: typeof import("./roleAssignment").RoleAssignment = null as any;
+
+export { RoleManagementPolicyAssignmentArgs } from "./roleManagementPolicyAssignment";
+export type RoleManagementPolicyAssignment = import("./roleManagementPolicyAssignment").RoleManagementPolicyAssignment;
+export const RoleManagementPolicyAssignment: typeof import("./roleManagementPolicyAssignment").RoleManagementPolicyAssignment = null as any;
+
+utilities.lazyLoad(exports, ["getRoleAssignment","getRoleAssignmentOutput"], () => require("./getRoleAssignment"));
+utilities.lazyLoad(exports, ["getRoleManagementPolicyAssignment","getRoleManagementPolicyAssignmentOutput"], () => require("./getRoleManagementPolicyAssignment"));
+utilities.lazyLoad(exports, ["RoleAssignment"], () => require("./roleAssignment"));
+utilities.lazyLoad(exports, ["RoleManagementPolicyAssignment"], () => require("./roleManagementPolicyAssignment"));
 
 // Export enums:
 export * from "../../types/enums/authorization/v20201001preview";
-
-// Import resources to register:
-import { RoleAssignment } from "./roleAssignment";
-import { RoleManagementPolicyAssignment } from "./roleManagementPolicyAssignment";
 
 const _module = {
     version: utilities.getVersion(),

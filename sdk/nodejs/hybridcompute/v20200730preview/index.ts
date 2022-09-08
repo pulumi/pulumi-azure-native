@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getMachine";
-export * from "./getMachineExtension";
-export * from "./machine";
-export * from "./machineExtension";
+export { GetMachineArgs, GetMachineResult, GetMachineOutputArgs } from "./getMachine";
+export const getMachine: typeof import("./getMachine").getMachine = null as any;
+export const getMachineOutput: typeof import("./getMachine").getMachineOutput = null as any;
+
+export { GetMachineExtensionArgs, GetMachineExtensionResult, GetMachineExtensionOutputArgs } from "./getMachineExtension";
+export const getMachineExtension: typeof import("./getMachineExtension").getMachineExtension = null as any;
+export const getMachineExtensionOutput: typeof import("./getMachineExtension").getMachineExtensionOutput = null as any;
+
+export { MachineArgs } from "./machine";
+export type Machine = import("./machine").Machine;
+export const Machine: typeof import("./machine").Machine = null as any;
+
+export { MachineExtensionArgs } from "./machineExtension";
+export type MachineExtension = import("./machineExtension").MachineExtension;
+export const MachineExtension: typeof import("./machineExtension").MachineExtension = null as any;
+
+utilities.lazyLoad(exports, ["getMachine","getMachineOutput"], () => require("./getMachine"));
+utilities.lazyLoad(exports, ["getMachineExtension","getMachineExtensionOutput"], () => require("./getMachineExtension"));
+utilities.lazyLoad(exports, ["Machine"], () => require("./machine"));
+utilities.lazyLoad(exports, ["MachineExtension"], () => require("./machineExtension"));
 
 // Export enums:
 export * from "../../types/enums/hybridcompute/v20200730preview";
-
-// Import resources to register:
-import { Machine } from "./machine";
-import { MachineExtension } from "./machineExtension";
 
 const _module = {
     version: utilities.getVersion(),

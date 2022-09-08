@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./actionRuleByName";
-export * from "./getActionRuleByName";
+export { ActionRuleByNameArgs } from "./actionRuleByName";
+export type ActionRuleByName = import("./actionRuleByName").ActionRuleByName;
+export const ActionRuleByName: typeof import("./actionRuleByName").ActionRuleByName = null as any;
+
+export { GetActionRuleByNameArgs, GetActionRuleByNameResult, GetActionRuleByNameOutputArgs } from "./getActionRuleByName";
+export const getActionRuleByName: typeof import("./getActionRuleByName").getActionRuleByName = null as any;
+export const getActionRuleByNameOutput: typeof import("./getActionRuleByName").getActionRuleByNameOutput = null as any;
+
+utilities.lazyLoad(exports, ["ActionRuleByName"], () => require("./actionRuleByName"));
+utilities.lazyLoad(exports, ["getActionRuleByName","getActionRuleByNameOutput"], () => require("./getActionRuleByName"));
 
 // Export enums:
 export * from "../../types/enums/alertsmanagement/v20181102privatepreview";
-
-// Import resources to register:
-import { ActionRuleByName } from "./actionRuleByName";
 
 const _module = {
     version: utilities.getVersion(),

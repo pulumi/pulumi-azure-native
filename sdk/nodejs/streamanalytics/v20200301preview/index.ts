@@ -5,18 +5,34 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./cluster";
-export * from "./getCluster";
-export * from "./getPrivateEndpoint";
-export * from "./listClusterStreamingJobs";
-export * from "./privateEndpoint";
+export { ClusterArgs } from "./cluster";
+export type Cluster = import("./cluster").Cluster;
+export const Cluster: typeof import("./cluster").Cluster = null as any;
+
+export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
+export const getCluster: typeof import("./getCluster").getCluster = null as any;
+export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
+
+export { GetPrivateEndpointArgs, GetPrivateEndpointResult, GetPrivateEndpointOutputArgs } from "./getPrivateEndpoint";
+export const getPrivateEndpoint: typeof import("./getPrivateEndpoint").getPrivateEndpoint = null as any;
+export const getPrivateEndpointOutput: typeof import("./getPrivateEndpoint").getPrivateEndpointOutput = null as any;
+
+export { ListClusterStreamingJobsArgs, ListClusterStreamingJobsResult, ListClusterStreamingJobsOutputArgs } from "./listClusterStreamingJobs";
+export const listClusterStreamingJobs: typeof import("./listClusterStreamingJobs").listClusterStreamingJobs = null as any;
+export const listClusterStreamingJobsOutput: typeof import("./listClusterStreamingJobs").listClusterStreamingJobsOutput = null as any;
+
+export { PrivateEndpointArgs } from "./privateEndpoint";
+export type PrivateEndpoint = import("./privateEndpoint").PrivateEndpoint;
+export const PrivateEndpoint: typeof import("./privateEndpoint").PrivateEndpoint = null as any;
+
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
+utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
+utilities.lazyLoad(exports, ["getPrivateEndpoint","getPrivateEndpointOutput"], () => require("./getPrivateEndpoint"));
+utilities.lazyLoad(exports, ["listClusterStreamingJobs","listClusterStreamingJobsOutput"], () => require("./listClusterStreamingJobs"));
+utilities.lazyLoad(exports, ["PrivateEndpoint"], () => require("./privateEndpoint"));
 
 // Export enums:
 export * from "../../types/enums/streamanalytics/v20200301preview";
-
-// Import resources to register:
-import { Cluster } from "./cluster";
-import { PrivateEndpoint } from "./privateEndpoint";
 
 const _module = {
     version: utilities.getVersion(),

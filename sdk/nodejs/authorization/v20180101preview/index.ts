@@ -5,14 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getRoleAssignment";
-export * from "./getRoleDefinition";
-export * from "./roleAssignment";
-export * from "./roleDefinition";
+export { GetRoleAssignmentArgs, GetRoleAssignmentResult, GetRoleAssignmentOutputArgs } from "./getRoleAssignment";
+export const getRoleAssignment: typeof import("./getRoleAssignment").getRoleAssignment = null as any;
+export const getRoleAssignmentOutput: typeof import("./getRoleAssignment").getRoleAssignmentOutput = null as any;
 
-// Import resources to register:
-import { RoleAssignment } from "./roleAssignment";
-import { RoleDefinition } from "./roleDefinition";
+export { GetRoleDefinitionArgs, GetRoleDefinitionResult, GetRoleDefinitionOutputArgs } from "./getRoleDefinition";
+export const getRoleDefinition: typeof import("./getRoleDefinition").getRoleDefinition = null as any;
+export const getRoleDefinitionOutput: typeof import("./getRoleDefinition").getRoleDefinitionOutput = null as any;
+
+export { RoleAssignmentArgs } from "./roleAssignment";
+export type RoleAssignment = import("./roleAssignment").RoleAssignment;
+export const RoleAssignment: typeof import("./roleAssignment").RoleAssignment = null as any;
+
+export { RoleDefinitionArgs } from "./roleDefinition";
+export type RoleDefinition = import("./roleDefinition").RoleDefinition;
+export const RoleDefinition: typeof import("./roleDefinition").RoleDefinition = null as any;
+
+utilities.lazyLoad(exports, ["getRoleAssignment","getRoleAssignmentOutput"], () => require("./getRoleAssignment"));
+utilities.lazyLoad(exports, ["getRoleDefinition","getRoleDefinitionOutput"], () => require("./getRoleDefinition"));
+utilities.lazyLoad(exports, ["RoleAssignment"], () => require("./roleAssignment"));
+utilities.lazyLoad(exports, ["RoleDefinition"], () => require("./roleDefinition"));
 
 const _module = {
     version: utilities.getVersion(),

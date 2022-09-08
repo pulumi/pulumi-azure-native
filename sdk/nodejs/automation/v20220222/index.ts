@@ -5,11 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getHybridRunbookWorkerGroup";
-export * from "./hybridRunbookWorkerGroup";
+export { GetHybridRunbookWorkerGroupArgs, GetHybridRunbookWorkerGroupResult, GetHybridRunbookWorkerGroupOutputArgs } from "./getHybridRunbookWorkerGroup";
+export const getHybridRunbookWorkerGroup: typeof import("./getHybridRunbookWorkerGroup").getHybridRunbookWorkerGroup = null as any;
+export const getHybridRunbookWorkerGroupOutput: typeof import("./getHybridRunbookWorkerGroup").getHybridRunbookWorkerGroupOutput = null as any;
 
-// Import resources to register:
-import { HybridRunbookWorkerGroup } from "./hybridRunbookWorkerGroup";
+export { HybridRunbookWorkerGroupArgs } from "./hybridRunbookWorkerGroup";
+export type HybridRunbookWorkerGroup = import("./hybridRunbookWorkerGroup").HybridRunbookWorkerGroup;
+export const HybridRunbookWorkerGroup: typeof import("./hybridRunbookWorkerGroup").HybridRunbookWorkerGroup = null as any;
+
+utilities.lazyLoad(exports, ["getHybridRunbookWorkerGroup","getHybridRunbookWorkerGroupOutput"], () => require("./getHybridRunbookWorkerGroup"));
+utilities.lazyLoad(exports, ["HybridRunbookWorkerGroup"], () => require("./hybridRunbookWorkerGroup"));
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,23 +5,49 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getPrivateEndpointConnection";
-export * from "./getProtectedItem";
-export * from "./getProtectionContainer";
-export * from "./getProtectionPolicy";
-export * from "./privateEndpointConnection";
-export * from "./protectedItem";
-export * from "./protectionContainer";
-export * from "./protectionPolicy";
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+
+export { GetProtectedItemArgs, GetProtectedItemResult, GetProtectedItemOutputArgs } from "./getProtectedItem";
+export const getProtectedItem: typeof import("./getProtectedItem").getProtectedItem = null as any;
+export const getProtectedItemOutput: typeof import("./getProtectedItem").getProtectedItemOutput = null as any;
+
+export { GetProtectionContainerArgs, GetProtectionContainerResult, GetProtectionContainerOutputArgs } from "./getProtectionContainer";
+export const getProtectionContainer: typeof import("./getProtectionContainer").getProtectionContainer = null as any;
+export const getProtectionContainerOutput: typeof import("./getProtectionContainer").getProtectionContainerOutput = null as any;
+
+export { GetProtectionPolicyArgs, GetProtectionPolicyResult, GetProtectionPolicyOutputArgs } from "./getProtectionPolicy";
+export const getProtectionPolicy: typeof import("./getProtectionPolicy").getProtectionPolicy = null as any;
+export const getProtectionPolicyOutput: typeof import("./getProtectionPolicy").getProtectionPolicyOutput = null as any;
+
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+
+export { ProtectedItemArgs } from "./protectedItem";
+export type ProtectedItem = import("./protectedItem").ProtectedItem;
+export const ProtectedItem: typeof import("./protectedItem").ProtectedItem = null as any;
+
+export { ProtectionContainerArgs } from "./protectionContainer";
+export type ProtectionContainer = import("./protectionContainer").ProtectionContainer;
+export const ProtectionContainer: typeof import("./protectionContainer").ProtectionContainer = null as any;
+
+export { ProtectionPolicyArgs } from "./protectionPolicy";
+export type ProtectionPolicy = import("./protectionPolicy").ProtectionPolicy;
+export const ProtectionPolicy: typeof import("./protectionPolicy").ProtectionPolicy = null as any;
+
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+utilities.lazyLoad(exports, ["getProtectedItem","getProtectedItemOutput"], () => require("./getProtectedItem"));
+utilities.lazyLoad(exports, ["getProtectionContainer","getProtectionContainerOutput"], () => require("./getProtectionContainer"));
+utilities.lazyLoad(exports, ["getProtectionPolicy","getProtectionPolicyOutput"], () => require("./getProtectionPolicy"));
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+utilities.lazyLoad(exports, ["ProtectedItem"], () => require("./protectedItem"));
+utilities.lazyLoad(exports, ["ProtectionContainer"], () => require("./protectionContainer"));
+utilities.lazyLoad(exports, ["ProtectionPolicy"], () => require("./protectionPolicy"));
 
 // Export enums:
 export * from "../../types/enums/recoveryservices/v20201201";
-
-// Import resources to register:
-import { PrivateEndpointConnection } from "./privateEndpointConnection";
-import { ProtectedItem } from "./protectedItem";
-import { ProtectionContainer } from "./protectionContainer";
-import { ProtectionPolicy } from "./protectionPolicy";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./costAllocationRule";
-export * from "./getCostAllocationRule";
+export { CostAllocationRuleArgs } from "./costAllocationRule";
+export type CostAllocationRule = import("./costAllocationRule").CostAllocationRule;
+export const CostAllocationRule: typeof import("./costAllocationRule").CostAllocationRule = null as any;
+
+export { GetCostAllocationRuleArgs, GetCostAllocationRuleResult, GetCostAllocationRuleOutputArgs } from "./getCostAllocationRule";
+export const getCostAllocationRule: typeof import("./getCostAllocationRule").getCostAllocationRule = null as any;
+export const getCostAllocationRuleOutput: typeof import("./getCostAllocationRule").getCostAllocationRuleOutput = null as any;
+
+utilities.lazyLoad(exports, ["CostAllocationRule"], () => require("./costAllocationRule"));
+utilities.lazyLoad(exports, ["getCostAllocationRule","getCostAllocationRuleOutput"], () => require("./getCostAllocationRule"));
 
 // Export enums:
 export * from "../../types/enums/costmanagement/v20200301preview";
-
-// Import resources to register:
-import { CostAllocationRule } from "./costAllocationRule";
 
 const _module = {
     version: utilities.getVersion(),

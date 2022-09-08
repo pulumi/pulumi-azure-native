@@ -5,8 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./configurationProfile";
-export * from "./getConfigurationProfile";
+export { ConfigurationProfileArgs } from "./configurationProfile";
+export type ConfigurationProfile = import("./configurationProfile").ConfigurationProfile;
+export const ConfigurationProfile: typeof import("./configurationProfile").ConfigurationProfile = null as any;
+
+export { GetConfigurationProfileArgs, GetConfigurationProfileResult, GetConfigurationProfileOutputArgs } from "./getConfigurationProfile";
+export const getConfigurationProfile: typeof import("./getConfigurationProfile").getConfigurationProfile = null as any;
+export const getConfigurationProfileOutput: typeof import("./getConfigurationProfile").getConfigurationProfileOutput = null as any;
+
+utilities.lazyLoad(exports, ["ConfigurationProfile"], () => require("./configurationProfile"));
+utilities.lazyLoad(exports, ["getConfigurationProfile","getConfigurationProfileOutput"], () => require("./getConfigurationProfile"));
 
 // Export enums:
 export * from "../types/enums/changeanalysis";
@@ -17,9 +25,6 @@ import * as v20200401preview from "./v20200401preview";
 export {
     v20200401preview,
 };
-
-// Import resources to register:
-import { ConfigurationProfile } from "./configurationProfile";
 
 const _module = {
     version: utilities.getVersion(),

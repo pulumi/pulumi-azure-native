@@ -5,32 +5,136 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./azureCliScript";
-export * from "./azurePowerShellScript";
-export * from "./deployment";
-export * from "./deploymentAtManagementGroupScope";
-export * from "./deploymentAtScope";
-export * from "./deploymentAtSubscriptionScope";
-export * from "./deploymentAtTenantScope";
-export * from "./deploymentScript";
-export * from "./getAzureCliScript";
-export * from "./getAzurePowerShellScript";
-export * from "./getDeployment";
-export * from "./getDeploymentAtManagementGroupScope";
-export * from "./getDeploymentAtScope";
-export * from "./getDeploymentAtSubscriptionScope";
-export * from "./getDeploymentAtTenantScope";
-export * from "./getDeploymentScript";
-export * from "./getResource";
-export * from "./getResourceGroup";
-export * from "./getTagAtScope";
-export * from "./getTemplateSpec";
-export * from "./getTemplateSpecVersion";
-export * from "./resource";
-export * from "./resourceGroup";
-export * from "./tagAtScope";
-export * from "./templateSpec";
-export * from "./templateSpecVersion";
+export { AzureCliScriptArgs } from "./azureCliScript";
+export type AzureCliScript = import("./azureCliScript").AzureCliScript;
+export const AzureCliScript: typeof import("./azureCliScript").AzureCliScript = null as any;
+
+export { AzurePowerShellScriptArgs } from "./azurePowerShellScript";
+export type AzurePowerShellScript = import("./azurePowerShellScript").AzurePowerShellScript;
+export const AzurePowerShellScript: typeof import("./azurePowerShellScript").AzurePowerShellScript = null as any;
+
+export { DeploymentArgs } from "./deployment";
+export type Deployment = import("./deployment").Deployment;
+export const Deployment: typeof import("./deployment").Deployment = null as any;
+
+export { DeploymentAtManagementGroupScopeArgs } from "./deploymentAtManagementGroupScope";
+export type DeploymentAtManagementGroupScope = import("./deploymentAtManagementGroupScope").DeploymentAtManagementGroupScope;
+export const DeploymentAtManagementGroupScope: typeof import("./deploymentAtManagementGroupScope").DeploymentAtManagementGroupScope = null as any;
+
+export { DeploymentAtScopeArgs } from "./deploymentAtScope";
+export type DeploymentAtScope = import("./deploymentAtScope").DeploymentAtScope;
+export const DeploymentAtScope: typeof import("./deploymentAtScope").DeploymentAtScope = null as any;
+
+export { DeploymentAtSubscriptionScopeArgs } from "./deploymentAtSubscriptionScope";
+export type DeploymentAtSubscriptionScope = import("./deploymentAtSubscriptionScope").DeploymentAtSubscriptionScope;
+export const DeploymentAtSubscriptionScope: typeof import("./deploymentAtSubscriptionScope").DeploymentAtSubscriptionScope = null as any;
+
+export { DeploymentAtTenantScopeArgs } from "./deploymentAtTenantScope";
+export type DeploymentAtTenantScope = import("./deploymentAtTenantScope").DeploymentAtTenantScope;
+export const DeploymentAtTenantScope: typeof import("./deploymentAtTenantScope").DeploymentAtTenantScope = null as any;
+
+export { DeploymentScriptArgs } from "./deploymentScript";
+export type DeploymentScript = import("./deploymentScript").DeploymentScript;
+export const DeploymentScript: typeof import("./deploymentScript").DeploymentScript = null as any;
+
+export { GetAzureCliScriptArgs, GetAzureCliScriptResult, GetAzureCliScriptOutputArgs } from "./getAzureCliScript";
+export const getAzureCliScript: typeof import("./getAzureCliScript").getAzureCliScript = null as any;
+export const getAzureCliScriptOutput: typeof import("./getAzureCliScript").getAzureCliScriptOutput = null as any;
+
+export { GetAzurePowerShellScriptArgs, GetAzurePowerShellScriptResult, GetAzurePowerShellScriptOutputArgs } from "./getAzurePowerShellScript";
+export const getAzurePowerShellScript: typeof import("./getAzurePowerShellScript").getAzurePowerShellScript = null as any;
+export const getAzurePowerShellScriptOutput: typeof import("./getAzurePowerShellScript").getAzurePowerShellScriptOutput = null as any;
+
+export { GetDeploymentArgs, GetDeploymentResult, GetDeploymentOutputArgs } from "./getDeployment";
+export const getDeployment: typeof import("./getDeployment").getDeployment = null as any;
+export const getDeploymentOutput: typeof import("./getDeployment").getDeploymentOutput = null as any;
+
+export { GetDeploymentAtManagementGroupScopeArgs, GetDeploymentAtManagementGroupScopeResult, GetDeploymentAtManagementGroupScopeOutputArgs } from "./getDeploymentAtManagementGroupScope";
+export const getDeploymentAtManagementGroupScope: typeof import("./getDeploymentAtManagementGroupScope").getDeploymentAtManagementGroupScope = null as any;
+export const getDeploymentAtManagementGroupScopeOutput: typeof import("./getDeploymentAtManagementGroupScope").getDeploymentAtManagementGroupScopeOutput = null as any;
+
+export { GetDeploymentAtScopeArgs, GetDeploymentAtScopeResult, GetDeploymentAtScopeOutputArgs } from "./getDeploymentAtScope";
+export const getDeploymentAtScope: typeof import("./getDeploymentAtScope").getDeploymentAtScope = null as any;
+export const getDeploymentAtScopeOutput: typeof import("./getDeploymentAtScope").getDeploymentAtScopeOutput = null as any;
+
+export { GetDeploymentAtSubscriptionScopeArgs, GetDeploymentAtSubscriptionScopeResult, GetDeploymentAtSubscriptionScopeOutputArgs } from "./getDeploymentAtSubscriptionScope";
+export const getDeploymentAtSubscriptionScope: typeof import("./getDeploymentAtSubscriptionScope").getDeploymentAtSubscriptionScope = null as any;
+export const getDeploymentAtSubscriptionScopeOutput: typeof import("./getDeploymentAtSubscriptionScope").getDeploymentAtSubscriptionScopeOutput = null as any;
+
+export { GetDeploymentAtTenantScopeArgs, GetDeploymentAtTenantScopeResult, GetDeploymentAtTenantScopeOutputArgs } from "./getDeploymentAtTenantScope";
+export const getDeploymentAtTenantScope: typeof import("./getDeploymentAtTenantScope").getDeploymentAtTenantScope = null as any;
+export const getDeploymentAtTenantScopeOutput: typeof import("./getDeploymentAtTenantScope").getDeploymentAtTenantScopeOutput = null as any;
+
+export { GetDeploymentScriptArgs, GetDeploymentScriptResult, GetDeploymentScriptOutputArgs } from "./getDeploymentScript";
+export const getDeploymentScript: typeof import("./getDeploymentScript").getDeploymentScript = null as any;
+export const getDeploymentScriptOutput: typeof import("./getDeploymentScript").getDeploymentScriptOutput = null as any;
+
+export { GetResourceArgs, GetResourceResult, GetResourceOutputArgs } from "./getResource";
+export const getResource: typeof import("./getResource").getResource = null as any;
+export const getResourceOutput: typeof import("./getResource").getResourceOutput = null as any;
+
+export { GetResourceGroupArgs, GetResourceGroupResult, GetResourceGroupOutputArgs } from "./getResourceGroup";
+export const getResourceGroup: typeof import("./getResourceGroup").getResourceGroup = null as any;
+export const getResourceGroupOutput: typeof import("./getResourceGroup").getResourceGroupOutput = null as any;
+
+export { GetTagAtScopeArgs, GetTagAtScopeResult, GetTagAtScopeOutputArgs } from "./getTagAtScope";
+export const getTagAtScope: typeof import("./getTagAtScope").getTagAtScope = null as any;
+export const getTagAtScopeOutput: typeof import("./getTagAtScope").getTagAtScopeOutput = null as any;
+
+export { GetTemplateSpecArgs, GetTemplateSpecResult, GetTemplateSpecOutputArgs } from "./getTemplateSpec";
+export const getTemplateSpec: typeof import("./getTemplateSpec").getTemplateSpec = null as any;
+export const getTemplateSpecOutput: typeof import("./getTemplateSpec").getTemplateSpecOutput = null as any;
+
+export { GetTemplateSpecVersionArgs, GetTemplateSpecVersionResult, GetTemplateSpecVersionOutputArgs } from "./getTemplateSpecVersion";
+export const getTemplateSpecVersion: typeof import("./getTemplateSpecVersion").getTemplateSpecVersion = null as any;
+export const getTemplateSpecVersionOutput: typeof import("./getTemplateSpecVersion").getTemplateSpecVersionOutput = null as any;
+
+export { ResourceArgs } from "./resource";
+export type Resource = import("./resource").Resource;
+export const Resource: typeof import("./resource").Resource = null as any;
+
+export { ResourceGroupArgs } from "./resourceGroup";
+export type ResourceGroup = import("./resourceGroup").ResourceGroup;
+export const ResourceGroup: typeof import("./resourceGroup").ResourceGroup = null as any;
+
+export { TagAtScopeArgs } from "./tagAtScope";
+export type TagAtScope = import("./tagAtScope").TagAtScope;
+export const TagAtScope: typeof import("./tagAtScope").TagAtScope = null as any;
+
+export { TemplateSpecArgs } from "./templateSpec";
+export type TemplateSpec = import("./templateSpec").TemplateSpec;
+export const TemplateSpec: typeof import("./templateSpec").TemplateSpec = null as any;
+
+export { TemplateSpecVersionArgs } from "./templateSpecVersion";
+export type TemplateSpecVersion = import("./templateSpecVersion").TemplateSpecVersion;
+export const TemplateSpecVersion: typeof import("./templateSpecVersion").TemplateSpecVersion = null as any;
+
+utilities.lazyLoad(exports, ["AzureCliScript"], () => require("./azureCliScript"));
+utilities.lazyLoad(exports, ["AzurePowerShellScript"], () => require("./azurePowerShellScript"));
+utilities.lazyLoad(exports, ["Deployment"], () => require("./deployment"));
+utilities.lazyLoad(exports, ["DeploymentAtManagementGroupScope"], () => require("./deploymentAtManagementGroupScope"));
+utilities.lazyLoad(exports, ["DeploymentAtScope"], () => require("./deploymentAtScope"));
+utilities.lazyLoad(exports, ["DeploymentAtSubscriptionScope"], () => require("./deploymentAtSubscriptionScope"));
+utilities.lazyLoad(exports, ["DeploymentAtTenantScope"], () => require("./deploymentAtTenantScope"));
+utilities.lazyLoad(exports, ["DeploymentScript"], () => require("./deploymentScript"));
+utilities.lazyLoad(exports, ["getAzureCliScript","getAzureCliScriptOutput"], () => require("./getAzureCliScript"));
+utilities.lazyLoad(exports, ["getAzurePowerShellScript","getAzurePowerShellScriptOutput"], () => require("./getAzurePowerShellScript"));
+utilities.lazyLoad(exports, ["getDeployment","getDeploymentOutput"], () => require("./getDeployment"));
+utilities.lazyLoad(exports, ["getDeploymentAtManagementGroupScope","getDeploymentAtManagementGroupScopeOutput"], () => require("./getDeploymentAtManagementGroupScope"));
+utilities.lazyLoad(exports, ["getDeploymentAtScope","getDeploymentAtScopeOutput"], () => require("./getDeploymentAtScope"));
+utilities.lazyLoad(exports, ["getDeploymentAtSubscriptionScope","getDeploymentAtSubscriptionScopeOutput"], () => require("./getDeploymentAtSubscriptionScope"));
+utilities.lazyLoad(exports, ["getDeploymentAtTenantScope","getDeploymentAtTenantScopeOutput"], () => require("./getDeploymentAtTenantScope"));
+utilities.lazyLoad(exports, ["getDeploymentScript","getDeploymentScriptOutput"], () => require("./getDeploymentScript"));
+utilities.lazyLoad(exports, ["getResource","getResourceOutput"], () => require("./getResource"));
+utilities.lazyLoad(exports, ["getResourceGroup","getResourceGroupOutput"], () => require("./getResourceGroup"));
+utilities.lazyLoad(exports, ["getTagAtScope","getTagAtScopeOutput"], () => require("./getTagAtScope"));
+utilities.lazyLoad(exports, ["getTemplateSpec","getTemplateSpecOutput"], () => require("./getTemplateSpec"));
+utilities.lazyLoad(exports, ["getTemplateSpecVersion","getTemplateSpecVersionOutput"], () => require("./getTemplateSpecVersion"));
+utilities.lazyLoad(exports, ["Resource"], () => require("./resource"));
+utilities.lazyLoad(exports, ["ResourceGroup"], () => require("./resourceGroup"));
+utilities.lazyLoad(exports, ["TagAtScope"], () => require("./tagAtScope"));
+utilities.lazyLoad(exports, ["TemplateSpec"], () => require("./templateSpec"));
+utilities.lazyLoad(exports, ["TemplateSpecVersion"], () => require("./templateSpecVersion"));
 
 // Export enums:
 export * from "../types/enums/resources";
@@ -85,21 +189,6 @@ export {
     v20210501,
     v20220201,
 };
-
-// Import resources to register:
-import { AzureCliScript } from "./azureCliScript";
-import { AzurePowerShellScript } from "./azurePowerShellScript";
-import { Deployment } from "./deployment";
-import { DeploymentAtManagementGroupScope } from "./deploymentAtManagementGroupScope";
-import { DeploymentAtScope } from "./deploymentAtScope";
-import { DeploymentAtSubscriptionScope } from "./deploymentAtSubscriptionScope";
-import { DeploymentAtTenantScope } from "./deploymentAtTenantScope";
-import { DeploymentScript } from "./deploymentScript";
-import { Resource } from "./resource";
-import { ResourceGroup } from "./resourceGroup";
-import { TagAtScope } from "./tagAtScope";
-import { TemplateSpec } from "./templateSpec";
-import { TemplateSpecVersion } from "./templateSpecVersion";
 
 const _module = {
     version: utilities.getVersion(),

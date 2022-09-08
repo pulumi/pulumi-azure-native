@@ -5,23 +5,49 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./configuration";
-export * from "./firewallRule";
-export * from "./getConfiguration";
-export * from "./getFirewallRule";
-export * from "./getServer";
-export * from "./getServerKey";
-export * from "./server";
-export * from "./serverKey";
+export { ConfigurationArgs } from "./configuration";
+export type Configuration = import("./configuration").Configuration;
+export const Configuration: typeof import("./configuration").Configuration = null as any;
+
+export { FirewallRuleArgs } from "./firewallRule";
+export type FirewallRule = import("./firewallRule").FirewallRule;
+export const FirewallRule: typeof import("./firewallRule").FirewallRule = null as any;
+
+export { GetConfigurationArgs, GetConfigurationResult, GetConfigurationOutputArgs } from "./getConfiguration";
+export const getConfiguration: typeof import("./getConfiguration").getConfiguration = null as any;
+export const getConfigurationOutput: typeof import("./getConfiguration").getConfigurationOutput = null as any;
+
+export { GetFirewallRuleArgs, GetFirewallRuleResult, GetFirewallRuleOutputArgs } from "./getFirewallRule";
+export const getFirewallRule: typeof import("./getFirewallRule").getFirewallRule = null as any;
+export const getFirewallRuleOutput: typeof import("./getFirewallRule").getFirewallRuleOutput = null as any;
+
+export { GetServerArgs, GetServerResult, GetServerOutputArgs } from "./getServer";
+export const getServer: typeof import("./getServer").getServer = null as any;
+export const getServerOutput: typeof import("./getServer").getServerOutput = null as any;
+
+export { GetServerKeyArgs, GetServerKeyResult, GetServerKeyOutputArgs } from "./getServerKey";
+export const getServerKey: typeof import("./getServerKey").getServerKey = null as any;
+export const getServerKeyOutput: typeof import("./getServerKey").getServerKeyOutput = null as any;
+
+export { ServerArgs } from "./server";
+export type Server = import("./server").Server;
+export const Server: typeof import("./server").Server = null as any;
+
+export { ServerKeyArgs } from "./serverKey";
+export type ServerKey = import("./serverKey").ServerKey;
+export const ServerKey: typeof import("./serverKey").ServerKey = null as any;
+
+utilities.lazyLoad(exports, ["Configuration"], () => require("./configuration"));
+utilities.lazyLoad(exports, ["FirewallRule"], () => require("./firewallRule"));
+utilities.lazyLoad(exports, ["getConfiguration","getConfigurationOutput"], () => require("./getConfiguration"));
+utilities.lazyLoad(exports, ["getFirewallRule","getFirewallRuleOutput"], () => require("./getFirewallRule"));
+utilities.lazyLoad(exports, ["getServer","getServerOutput"], () => require("./getServer"));
+utilities.lazyLoad(exports, ["getServerKey","getServerKeyOutput"], () => require("./getServerKey"));
+utilities.lazyLoad(exports, ["Server"], () => require("./server"));
+utilities.lazyLoad(exports, ["ServerKey"], () => require("./serverKey"));
 
 // Export enums:
 export * from "../../types/enums/dbforpostgresql/v20200214privatepreview";
-
-// Import resources to register:
-import { Configuration } from "./configuration";
-import { FirewallRule } from "./firewallRule";
-import { Server } from "./server";
-import { ServerKey } from "./serverKey";
 
 const _module = {
     version: utilities.getVersion(),

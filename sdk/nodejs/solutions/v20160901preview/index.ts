@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./appliance";
-export * from "./applianceDefinition";
-export * from "./getAppliance";
-export * from "./getApplianceDefinition";
+export { ApplianceArgs } from "./appliance";
+export type Appliance = import("./appliance").Appliance;
+export const Appliance: typeof import("./appliance").Appliance = null as any;
+
+export { ApplianceDefinitionArgs } from "./applianceDefinition";
+export type ApplianceDefinition = import("./applianceDefinition").ApplianceDefinition;
+export const ApplianceDefinition: typeof import("./applianceDefinition").ApplianceDefinition = null as any;
+
+export { GetApplianceArgs, GetApplianceResult, GetApplianceOutputArgs } from "./getAppliance";
+export const getAppliance: typeof import("./getAppliance").getAppliance = null as any;
+export const getApplianceOutput: typeof import("./getAppliance").getApplianceOutput = null as any;
+
+export { GetApplianceDefinitionArgs, GetApplianceDefinitionResult, GetApplianceDefinitionOutputArgs } from "./getApplianceDefinition";
+export const getApplianceDefinition: typeof import("./getApplianceDefinition").getApplianceDefinition = null as any;
+export const getApplianceDefinitionOutput: typeof import("./getApplianceDefinition").getApplianceDefinitionOutput = null as any;
+
+utilities.lazyLoad(exports, ["Appliance"], () => require("./appliance"));
+utilities.lazyLoad(exports, ["ApplianceDefinition"], () => require("./applianceDefinition"));
+utilities.lazyLoad(exports, ["getAppliance","getApplianceOutput"], () => require("./getAppliance"));
+utilities.lazyLoad(exports, ["getApplianceDefinition","getApplianceDefinitionOutput"], () => require("./getApplianceDefinition"));
 
 // Export enums:
 export * from "../../types/enums/solutions/v20160901preview";
-
-// Import resources to register:
-import { Appliance } from "./appliance";
-import { ApplianceDefinition } from "./applianceDefinition";
 
 const _module = {
     version: utilities.getVersion(),

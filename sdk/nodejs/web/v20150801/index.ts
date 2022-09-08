@@ -5,110 +5,344 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./certificate";
-export * from "./certificateCsr";
-export * from "./getCertificate";
-export * from "./getCertificateCsr";
-export * from "./getHostingEnvironment";
-export * from "./getManagedHostingEnvironment";
-export * from "./getServerFarm";
-export * from "./getSite";
-export * from "./getSiteDeployment";
-export * from "./getSiteDeploymentSlot";
-export * from "./getSiteHostNameBinding";
-export * from "./getSiteHostNameBindingSlot";
-export * from "./getSiteInstanceDeployment";
-export * from "./getSiteInstanceDeploymentSlot";
-export * from "./getSiteLogsConfig";
-export * from "./getSiteRelayServiceConnection";
-export * from "./getSiteRelayServiceConnectionSlot";
-export * from "./getSiteSlot";
-export * from "./getSiteSlotConfigNames";
-export * from "./getSiteSourceControl";
-export * from "./getSiteSourceControlSlot";
-export * from "./getSiteVNETConnection";
-export * from "./getSiteVNETConnectionSlot";
-export * from "./hostingEnvironment";
-export * from "./listSiteAppSettings";
-export * from "./listSiteAppSettingsSlot";
-export * from "./listSiteAuthSettings";
-export * from "./listSiteAuthSettingsSlot";
-export * from "./listSiteBackupConfiguration";
-export * from "./listSiteBackupConfigurationSlot";
-export * from "./listSiteBackupStatusSecrets";
-export * from "./listSiteBackupStatusSecretsSlot";
-export * from "./listSiteConnectionStrings";
-export * from "./listSiteConnectionStringsSlot";
-export * from "./listSiteMetadata";
-export * from "./listSiteMetadataSlot";
-export * from "./listSitePublishingCredentials";
-export * from "./listSitePublishingCredentialsSlot";
-export * from "./managedHostingEnvironment";
-export * from "./serverFarm";
-export * from "./serverFarmRouteForVnet";
-export * from "./site";
-export * from "./siteAppSettings";
-export * from "./siteAppSettingsSlot";
-export * from "./siteAuthSettings";
-export * from "./siteAuthSettingsSlot";
-export * from "./siteBackupConfiguration";
-export * from "./siteBackupConfigurationSlot";
-export * from "./siteConnectionStrings";
-export * from "./siteConnectionStringsSlot";
-export * from "./siteDeployment";
-export * from "./siteDeploymentSlot";
-export * from "./siteHostNameBinding";
-export * from "./siteHostNameBindingSlot";
-export * from "./siteInstanceDeployment";
-export * from "./siteInstanceDeploymentSlot";
-export * from "./siteLogsConfig";
-export * from "./siteMetadata";
-export * from "./siteMetadataSlot";
-export * from "./siteRelayServiceConnection";
-export * from "./siteRelayServiceConnectionSlot";
-export * from "./siteSlot";
-export * from "./siteSlotConfigNames";
-export * from "./siteSourceControl";
-export * from "./siteSourceControlSlot";
-export * from "./siteVNETConnection";
-export * from "./siteVNETConnectionSlot";
+export { CertificateArgs } from "./certificate";
+export type Certificate = import("./certificate").Certificate;
+export const Certificate: typeof import("./certificate").Certificate = null as any;
+
+export { CertificateCsrArgs } from "./certificateCsr";
+export type CertificateCsr = import("./certificateCsr").CertificateCsr;
+export const CertificateCsr: typeof import("./certificateCsr").CertificateCsr = null as any;
+
+export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
+export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
+export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
+
+export { GetCertificateCsrArgs, GetCertificateCsrResult, GetCertificateCsrOutputArgs } from "./getCertificateCsr";
+export const getCertificateCsr: typeof import("./getCertificateCsr").getCertificateCsr = null as any;
+export const getCertificateCsrOutput: typeof import("./getCertificateCsr").getCertificateCsrOutput = null as any;
+
+export { GetHostingEnvironmentArgs, GetHostingEnvironmentResult, GetHostingEnvironmentOutputArgs } from "./getHostingEnvironment";
+export const getHostingEnvironment: typeof import("./getHostingEnvironment").getHostingEnvironment = null as any;
+export const getHostingEnvironmentOutput: typeof import("./getHostingEnvironment").getHostingEnvironmentOutput = null as any;
+
+export { GetManagedHostingEnvironmentArgs, GetManagedHostingEnvironmentResult, GetManagedHostingEnvironmentOutputArgs } from "./getManagedHostingEnvironment";
+export const getManagedHostingEnvironment: typeof import("./getManagedHostingEnvironment").getManagedHostingEnvironment = null as any;
+export const getManagedHostingEnvironmentOutput: typeof import("./getManagedHostingEnvironment").getManagedHostingEnvironmentOutput = null as any;
+
+export { GetServerFarmArgs, GetServerFarmResult, GetServerFarmOutputArgs } from "./getServerFarm";
+export const getServerFarm: typeof import("./getServerFarm").getServerFarm = null as any;
+export const getServerFarmOutput: typeof import("./getServerFarm").getServerFarmOutput = null as any;
+
+export { GetSiteArgs, GetSiteResult, GetSiteOutputArgs } from "./getSite";
+export const getSite: typeof import("./getSite").getSite = null as any;
+export const getSiteOutput: typeof import("./getSite").getSiteOutput = null as any;
+
+export { GetSiteDeploymentArgs, GetSiteDeploymentResult, GetSiteDeploymentOutputArgs } from "./getSiteDeployment";
+export const getSiteDeployment: typeof import("./getSiteDeployment").getSiteDeployment = null as any;
+export const getSiteDeploymentOutput: typeof import("./getSiteDeployment").getSiteDeploymentOutput = null as any;
+
+export { GetSiteDeploymentSlotArgs, GetSiteDeploymentSlotResult, GetSiteDeploymentSlotOutputArgs } from "./getSiteDeploymentSlot";
+export const getSiteDeploymentSlot: typeof import("./getSiteDeploymentSlot").getSiteDeploymentSlot = null as any;
+export const getSiteDeploymentSlotOutput: typeof import("./getSiteDeploymentSlot").getSiteDeploymentSlotOutput = null as any;
+
+export { GetSiteHostNameBindingArgs, GetSiteHostNameBindingResult, GetSiteHostNameBindingOutputArgs } from "./getSiteHostNameBinding";
+export const getSiteHostNameBinding: typeof import("./getSiteHostNameBinding").getSiteHostNameBinding = null as any;
+export const getSiteHostNameBindingOutput: typeof import("./getSiteHostNameBinding").getSiteHostNameBindingOutput = null as any;
+
+export { GetSiteHostNameBindingSlotArgs, GetSiteHostNameBindingSlotResult, GetSiteHostNameBindingSlotOutputArgs } from "./getSiteHostNameBindingSlot";
+export const getSiteHostNameBindingSlot: typeof import("./getSiteHostNameBindingSlot").getSiteHostNameBindingSlot = null as any;
+export const getSiteHostNameBindingSlotOutput: typeof import("./getSiteHostNameBindingSlot").getSiteHostNameBindingSlotOutput = null as any;
+
+export { GetSiteInstanceDeploymentArgs, GetSiteInstanceDeploymentResult, GetSiteInstanceDeploymentOutputArgs } from "./getSiteInstanceDeployment";
+export const getSiteInstanceDeployment: typeof import("./getSiteInstanceDeployment").getSiteInstanceDeployment = null as any;
+export const getSiteInstanceDeploymentOutput: typeof import("./getSiteInstanceDeployment").getSiteInstanceDeploymentOutput = null as any;
+
+export { GetSiteInstanceDeploymentSlotArgs, GetSiteInstanceDeploymentSlotResult, GetSiteInstanceDeploymentSlotOutputArgs } from "./getSiteInstanceDeploymentSlot";
+export const getSiteInstanceDeploymentSlot: typeof import("./getSiteInstanceDeploymentSlot").getSiteInstanceDeploymentSlot = null as any;
+export const getSiteInstanceDeploymentSlotOutput: typeof import("./getSiteInstanceDeploymentSlot").getSiteInstanceDeploymentSlotOutput = null as any;
+
+export { GetSiteLogsConfigArgs, GetSiteLogsConfigResult, GetSiteLogsConfigOutputArgs } from "./getSiteLogsConfig";
+export const getSiteLogsConfig: typeof import("./getSiteLogsConfig").getSiteLogsConfig = null as any;
+export const getSiteLogsConfigOutput: typeof import("./getSiteLogsConfig").getSiteLogsConfigOutput = null as any;
+
+export { GetSiteRelayServiceConnectionArgs, GetSiteRelayServiceConnectionResult, GetSiteRelayServiceConnectionOutputArgs } from "./getSiteRelayServiceConnection";
+export const getSiteRelayServiceConnection: typeof import("./getSiteRelayServiceConnection").getSiteRelayServiceConnection = null as any;
+export const getSiteRelayServiceConnectionOutput: typeof import("./getSiteRelayServiceConnection").getSiteRelayServiceConnectionOutput = null as any;
+
+export { GetSiteRelayServiceConnectionSlotArgs, GetSiteRelayServiceConnectionSlotResult, GetSiteRelayServiceConnectionSlotOutputArgs } from "./getSiteRelayServiceConnectionSlot";
+export const getSiteRelayServiceConnectionSlot: typeof import("./getSiteRelayServiceConnectionSlot").getSiteRelayServiceConnectionSlot = null as any;
+export const getSiteRelayServiceConnectionSlotOutput: typeof import("./getSiteRelayServiceConnectionSlot").getSiteRelayServiceConnectionSlotOutput = null as any;
+
+export { GetSiteSlotArgs, GetSiteSlotResult, GetSiteSlotOutputArgs } from "./getSiteSlot";
+export const getSiteSlot: typeof import("./getSiteSlot").getSiteSlot = null as any;
+export const getSiteSlotOutput: typeof import("./getSiteSlot").getSiteSlotOutput = null as any;
+
+export { GetSiteSlotConfigNamesArgs, GetSiteSlotConfigNamesResult, GetSiteSlotConfigNamesOutputArgs } from "./getSiteSlotConfigNames";
+export const getSiteSlotConfigNames: typeof import("./getSiteSlotConfigNames").getSiteSlotConfigNames = null as any;
+export const getSiteSlotConfigNamesOutput: typeof import("./getSiteSlotConfigNames").getSiteSlotConfigNamesOutput = null as any;
+
+export { GetSiteSourceControlArgs, GetSiteSourceControlResult, GetSiteSourceControlOutputArgs } from "./getSiteSourceControl";
+export const getSiteSourceControl: typeof import("./getSiteSourceControl").getSiteSourceControl = null as any;
+export const getSiteSourceControlOutput: typeof import("./getSiteSourceControl").getSiteSourceControlOutput = null as any;
+
+export { GetSiteSourceControlSlotArgs, GetSiteSourceControlSlotResult, GetSiteSourceControlSlotOutputArgs } from "./getSiteSourceControlSlot";
+export const getSiteSourceControlSlot: typeof import("./getSiteSourceControlSlot").getSiteSourceControlSlot = null as any;
+export const getSiteSourceControlSlotOutput: typeof import("./getSiteSourceControlSlot").getSiteSourceControlSlotOutput = null as any;
+
+export { GetSiteVNETConnectionArgs, GetSiteVNETConnectionResult, GetSiteVNETConnectionOutputArgs } from "./getSiteVNETConnection";
+export const getSiteVNETConnection: typeof import("./getSiteVNETConnection").getSiteVNETConnection = null as any;
+export const getSiteVNETConnectionOutput: typeof import("./getSiteVNETConnection").getSiteVNETConnectionOutput = null as any;
+
+export { GetSiteVNETConnectionSlotArgs, GetSiteVNETConnectionSlotResult, GetSiteVNETConnectionSlotOutputArgs } from "./getSiteVNETConnectionSlot";
+export const getSiteVNETConnectionSlot: typeof import("./getSiteVNETConnectionSlot").getSiteVNETConnectionSlot = null as any;
+export const getSiteVNETConnectionSlotOutput: typeof import("./getSiteVNETConnectionSlot").getSiteVNETConnectionSlotOutput = null as any;
+
+export { HostingEnvironmentArgs } from "./hostingEnvironment";
+export type HostingEnvironment = import("./hostingEnvironment").HostingEnvironment;
+export const HostingEnvironment: typeof import("./hostingEnvironment").HostingEnvironment = null as any;
+
+export { ListSiteAppSettingsArgs, ListSiteAppSettingsResult, ListSiteAppSettingsOutputArgs } from "./listSiteAppSettings";
+export const listSiteAppSettings: typeof import("./listSiteAppSettings").listSiteAppSettings = null as any;
+export const listSiteAppSettingsOutput: typeof import("./listSiteAppSettings").listSiteAppSettingsOutput = null as any;
+
+export { ListSiteAppSettingsSlotArgs, ListSiteAppSettingsSlotResult, ListSiteAppSettingsSlotOutputArgs } from "./listSiteAppSettingsSlot";
+export const listSiteAppSettingsSlot: typeof import("./listSiteAppSettingsSlot").listSiteAppSettingsSlot = null as any;
+export const listSiteAppSettingsSlotOutput: typeof import("./listSiteAppSettingsSlot").listSiteAppSettingsSlotOutput = null as any;
+
+export { ListSiteAuthSettingsArgs, ListSiteAuthSettingsResult, ListSiteAuthSettingsOutputArgs } from "./listSiteAuthSettings";
+export const listSiteAuthSettings: typeof import("./listSiteAuthSettings").listSiteAuthSettings = null as any;
+export const listSiteAuthSettingsOutput: typeof import("./listSiteAuthSettings").listSiteAuthSettingsOutput = null as any;
+
+export { ListSiteAuthSettingsSlotArgs, ListSiteAuthSettingsSlotResult, ListSiteAuthSettingsSlotOutputArgs } from "./listSiteAuthSettingsSlot";
+export const listSiteAuthSettingsSlot: typeof import("./listSiteAuthSettingsSlot").listSiteAuthSettingsSlot = null as any;
+export const listSiteAuthSettingsSlotOutput: typeof import("./listSiteAuthSettingsSlot").listSiteAuthSettingsSlotOutput = null as any;
+
+export { ListSiteBackupConfigurationArgs, ListSiteBackupConfigurationResult, ListSiteBackupConfigurationOutputArgs } from "./listSiteBackupConfiguration";
+export const listSiteBackupConfiguration: typeof import("./listSiteBackupConfiguration").listSiteBackupConfiguration = null as any;
+export const listSiteBackupConfigurationOutput: typeof import("./listSiteBackupConfiguration").listSiteBackupConfigurationOutput = null as any;
+
+export { ListSiteBackupConfigurationSlotArgs, ListSiteBackupConfigurationSlotResult, ListSiteBackupConfigurationSlotOutputArgs } from "./listSiteBackupConfigurationSlot";
+export const listSiteBackupConfigurationSlot: typeof import("./listSiteBackupConfigurationSlot").listSiteBackupConfigurationSlot = null as any;
+export const listSiteBackupConfigurationSlotOutput: typeof import("./listSiteBackupConfigurationSlot").listSiteBackupConfigurationSlotOutput = null as any;
+
+export { ListSiteBackupStatusSecretsArgs, ListSiteBackupStatusSecretsResult, ListSiteBackupStatusSecretsOutputArgs } from "./listSiteBackupStatusSecrets";
+export const listSiteBackupStatusSecrets: typeof import("./listSiteBackupStatusSecrets").listSiteBackupStatusSecrets = null as any;
+export const listSiteBackupStatusSecretsOutput: typeof import("./listSiteBackupStatusSecrets").listSiteBackupStatusSecretsOutput = null as any;
+
+export { ListSiteBackupStatusSecretsSlotArgs, ListSiteBackupStatusSecretsSlotResult, ListSiteBackupStatusSecretsSlotOutputArgs } from "./listSiteBackupStatusSecretsSlot";
+export const listSiteBackupStatusSecretsSlot: typeof import("./listSiteBackupStatusSecretsSlot").listSiteBackupStatusSecretsSlot = null as any;
+export const listSiteBackupStatusSecretsSlotOutput: typeof import("./listSiteBackupStatusSecretsSlot").listSiteBackupStatusSecretsSlotOutput = null as any;
+
+export { ListSiteConnectionStringsArgs, ListSiteConnectionStringsResult, ListSiteConnectionStringsOutputArgs } from "./listSiteConnectionStrings";
+export const listSiteConnectionStrings: typeof import("./listSiteConnectionStrings").listSiteConnectionStrings = null as any;
+export const listSiteConnectionStringsOutput: typeof import("./listSiteConnectionStrings").listSiteConnectionStringsOutput = null as any;
+
+export { ListSiteConnectionStringsSlotArgs, ListSiteConnectionStringsSlotResult, ListSiteConnectionStringsSlotOutputArgs } from "./listSiteConnectionStringsSlot";
+export const listSiteConnectionStringsSlot: typeof import("./listSiteConnectionStringsSlot").listSiteConnectionStringsSlot = null as any;
+export const listSiteConnectionStringsSlotOutput: typeof import("./listSiteConnectionStringsSlot").listSiteConnectionStringsSlotOutput = null as any;
+
+export { ListSiteMetadataArgs, ListSiteMetadataResult, ListSiteMetadataOutputArgs } from "./listSiteMetadata";
+export const listSiteMetadata: typeof import("./listSiteMetadata").listSiteMetadata = null as any;
+export const listSiteMetadataOutput: typeof import("./listSiteMetadata").listSiteMetadataOutput = null as any;
+
+export { ListSiteMetadataSlotArgs, ListSiteMetadataSlotResult, ListSiteMetadataSlotOutputArgs } from "./listSiteMetadataSlot";
+export const listSiteMetadataSlot: typeof import("./listSiteMetadataSlot").listSiteMetadataSlot = null as any;
+export const listSiteMetadataSlotOutput: typeof import("./listSiteMetadataSlot").listSiteMetadataSlotOutput = null as any;
+
+export { ListSitePublishingCredentialsArgs, ListSitePublishingCredentialsResult, ListSitePublishingCredentialsOutputArgs } from "./listSitePublishingCredentials";
+export const listSitePublishingCredentials: typeof import("./listSitePublishingCredentials").listSitePublishingCredentials = null as any;
+export const listSitePublishingCredentialsOutput: typeof import("./listSitePublishingCredentials").listSitePublishingCredentialsOutput = null as any;
+
+export { ListSitePublishingCredentialsSlotArgs, ListSitePublishingCredentialsSlotResult, ListSitePublishingCredentialsSlotOutputArgs } from "./listSitePublishingCredentialsSlot";
+export const listSitePublishingCredentialsSlot: typeof import("./listSitePublishingCredentialsSlot").listSitePublishingCredentialsSlot = null as any;
+export const listSitePublishingCredentialsSlotOutput: typeof import("./listSitePublishingCredentialsSlot").listSitePublishingCredentialsSlotOutput = null as any;
+
+export { ManagedHostingEnvironmentArgs } from "./managedHostingEnvironment";
+export type ManagedHostingEnvironment = import("./managedHostingEnvironment").ManagedHostingEnvironment;
+export const ManagedHostingEnvironment: typeof import("./managedHostingEnvironment").ManagedHostingEnvironment = null as any;
+
+export { ServerFarmArgs } from "./serverFarm";
+export type ServerFarm = import("./serverFarm").ServerFarm;
+export const ServerFarm: typeof import("./serverFarm").ServerFarm = null as any;
+
+export { ServerFarmRouteForVnetArgs } from "./serverFarmRouteForVnet";
+export type ServerFarmRouteForVnet = import("./serverFarmRouteForVnet").ServerFarmRouteForVnet;
+export const ServerFarmRouteForVnet: typeof import("./serverFarmRouteForVnet").ServerFarmRouteForVnet = null as any;
+
+export { SiteArgs } from "./site";
+export type Site = import("./site").Site;
+export const Site: typeof import("./site").Site = null as any;
+
+export { SiteAppSettingsArgs } from "./siteAppSettings";
+export type SiteAppSettings = import("./siteAppSettings").SiteAppSettings;
+export const SiteAppSettings: typeof import("./siteAppSettings").SiteAppSettings = null as any;
+
+export { SiteAppSettingsSlotArgs } from "./siteAppSettingsSlot";
+export type SiteAppSettingsSlot = import("./siteAppSettingsSlot").SiteAppSettingsSlot;
+export const SiteAppSettingsSlot: typeof import("./siteAppSettingsSlot").SiteAppSettingsSlot = null as any;
+
+export { SiteAuthSettingsArgs } from "./siteAuthSettings";
+export type SiteAuthSettings = import("./siteAuthSettings").SiteAuthSettings;
+export const SiteAuthSettings: typeof import("./siteAuthSettings").SiteAuthSettings = null as any;
+
+export { SiteAuthSettingsSlotArgs } from "./siteAuthSettingsSlot";
+export type SiteAuthSettingsSlot = import("./siteAuthSettingsSlot").SiteAuthSettingsSlot;
+export const SiteAuthSettingsSlot: typeof import("./siteAuthSettingsSlot").SiteAuthSettingsSlot = null as any;
+
+export { SiteBackupConfigurationArgs } from "./siteBackupConfiguration";
+export type SiteBackupConfiguration = import("./siteBackupConfiguration").SiteBackupConfiguration;
+export const SiteBackupConfiguration: typeof import("./siteBackupConfiguration").SiteBackupConfiguration = null as any;
+
+export { SiteBackupConfigurationSlotArgs } from "./siteBackupConfigurationSlot";
+export type SiteBackupConfigurationSlot = import("./siteBackupConfigurationSlot").SiteBackupConfigurationSlot;
+export const SiteBackupConfigurationSlot: typeof import("./siteBackupConfigurationSlot").SiteBackupConfigurationSlot = null as any;
+
+export { SiteConnectionStringsArgs } from "./siteConnectionStrings";
+export type SiteConnectionStrings = import("./siteConnectionStrings").SiteConnectionStrings;
+export const SiteConnectionStrings: typeof import("./siteConnectionStrings").SiteConnectionStrings = null as any;
+
+export { SiteConnectionStringsSlotArgs } from "./siteConnectionStringsSlot";
+export type SiteConnectionStringsSlot = import("./siteConnectionStringsSlot").SiteConnectionStringsSlot;
+export const SiteConnectionStringsSlot: typeof import("./siteConnectionStringsSlot").SiteConnectionStringsSlot = null as any;
+
+export { SiteDeploymentArgs } from "./siteDeployment";
+export type SiteDeployment = import("./siteDeployment").SiteDeployment;
+export const SiteDeployment: typeof import("./siteDeployment").SiteDeployment = null as any;
+
+export { SiteDeploymentSlotArgs } from "./siteDeploymentSlot";
+export type SiteDeploymentSlot = import("./siteDeploymentSlot").SiteDeploymentSlot;
+export const SiteDeploymentSlot: typeof import("./siteDeploymentSlot").SiteDeploymentSlot = null as any;
+
+export { SiteHostNameBindingArgs } from "./siteHostNameBinding";
+export type SiteHostNameBinding = import("./siteHostNameBinding").SiteHostNameBinding;
+export const SiteHostNameBinding: typeof import("./siteHostNameBinding").SiteHostNameBinding = null as any;
+
+export { SiteHostNameBindingSlotArgs } from "./siteHostNameBindingSlot";
+export type SiteHostNameBindingSlot = import("./siteHostNameBindingSlot").SiteHostNameBindingSlot;
+export const SiteHostNameBindingSlot: typeof import("./siteHostNameBindingSlot").SiteHostNameBindingSlot = null as any;
+
+export { SiteInstanceDeploymentArgs } from "./siteInstanceDeployment";
+export type SiteInstanceDeployment = import("./siteInstanceDeployment").SiteInstanceDeployment;
+export const SiteInstanceDeployment: typeof import("./siteInstanceDeployment").SiteInstanceDeployment = null as any;
+
+export { SiteInstanceDeploymentSlotArgs } from "./siteInstanceDeploymentSlot";
+export type SiteInstanceDeploymentSlot = import("./siteInstanceDeploymentSlot").SiteInstanceDeploymentSlot;
+export const SiteInstanceDeploymentSlot: typeof import("./siteInstanceDeploymentSlot").SiteInstanceDeploymentSlot = null as any;
+
+export { SiteLogsConfigArgs } from "./siteLogsConfig";
+export type SiteLogsConfig = import("./siteLogsConfig").SiteLogsConfig;
+export const SiteLogsConfig: typeof import("./siteLogsConfig").SiteLogsConfig = null as any;
+
+export { SiteMetadataArgs } from "./siteMetadata";
+export type SiteMetadata = import("./siteMetadata").SiteMetadata;
+export const SiteMetadata: typeof import("./siteMetadata").SiteMetadata = null as any;
+
+export { SiteMetadataSlotArgs } from "./siteMetadataSlot";
+export type SiteMetadataSlot = import("./siteMetadataSlot").SiteMetadataSlot;
+export const SiteMetadataSlot: typeof import("./siteMetadataSlot").SiteMetadataSlot = null as any;
+
+export { SiteRelayServiceConnectionArgs } from "./siteRelayServiceConnection";
+export type SiteRelayServiceConnection = import("./siteRelayServiceConnection").SiteRelayServiceConnection;
+export const SiteRelayServiceConnection: typeof import("./siteRelayServiceConnection").SiteRelayServiceConnection = null as any;
+
+export { SiteRelayServiceConnectionSlotArgs } from "./siteRelayServiceConnectionSlot";
+export type SiteRelayServiceConnectionSlot = import("./siteRelayServiceConnectionSlot").SiteRelayServiceConnectionSlot;
+export const SiteRelayServiceConnectionSlot: typeof import("./siteRelayServiceConnectionSlot").SiteRelayServiceConnectionSlot = null as any;
+
+export { SiteSlotArgs } from "./siteSlot";
+export type SiteSlot = import("./siteSlot").SiteSlot;
+export const SiteSlot: typeof import("./siteSlot").SiteSlot = null as any;
+
+export { SiteSlotConfigNamesArgs } from "./siteSlotConfigNames";
+export type SiteSlotConfigNames = import("./siteSlotConfigNames").SiteSlotConfigNames;
+export const SiteSlotConfigNames: typeof import("./siteSlotConfigNames").SiteSlotConfigNames = null as any;
+
+export { SiteSourceControlArgs } from "./siteSourceControl";
+export type SiteSourceControl = import("./siteSourceControl").SiteSourceControl;
+export const SiteSourceControl: typeof import("./siteSourceControl").SiteSourceControl = null as any;
+
+export { SiteSourceControlSlotArgs } from "./siteSourceControlSlot";
+export type SiteSourceControlSlot = import("./siteSourceControlSlot").SiteSourceControlSlot;
+export const SiteSourceControlSlot: typeof import("./siteSourceControlSlot").SiteSourceControlSlot = null as any;
+
+export { SiteVNETConnectionArgs } from "./siteVNETConnection";
+export type SiteVNETConnection = import("./siteVNETConnection").SiteVNETConnection;
+export const SiteVNETConnection: typeof import("./siteVNETConnection").SiteVNETConnection = null as any;
+
+export { SiteVNETConnectionSlotArgs } from "./siteVNETConnectionSlot";
+export type SiteVNETConnectionSlot = import("./siteVNETConnectionSlot").SiteVNETConnectionSlot;
+export const SiteVNETConnectionSlot: typeof import("./siteVNETConnectionSlot").SiteVNETConnectionSlot = null as any;
+
+utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
+utilities.lazyLoad(exports, ["CertificateCsr"], () => require("./certificateCsr"));
+utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
+utilities.lazyLoad(exports, ["getCertificateCsr","getCertificateCsrOutput"], () => require("./getCertificateCsr"));
+utilities.lazyLoad(exports, ["getHostingEnvironment","getHostingEnvironmentOutput"], () => require("./getHostingEnvironment"));
+utilities.lazyLoad(exports, ["getManagedHostingEnvironment","getManagedHostingEnvironmentOutput"], () => require("./getManagedHostingEnvironment"));
+utilities.lazyLoad(exports, ["getServerFarm","getServerFarmOutput"], () => require("./getServerFarm"));
+utilities.lazyLoad(exports, ["getSite","getSiteOutput"], () => require("./getSite"));
+utilities.lazyLoad(exports, ["getSiteDeployment","getSiteDeploymentOutput"], () => require("./getSiteDeployment"));
+utilities.lazyLoad(exports, ["getSiteDeploymentSlot","getSiteDeploymentSlotOutput"], () => require("./getSiteDeploymentSlot"));
+utilities.lazyLoad(exports, ["getSiteHostNameBinding","getSiteHostNameBindingOutput"], () => require("./getSiteHostNameBinding"));
+utilities.lazyLoad(exports, ["getSiteHostNameBindingSlot","getSiteHostNameBindingSlotOutput"], () => require("./getSiteHostNameBindingSlot"));
+utilities.lazyLoad(exports, ["getSiteInstanceDeployment","getSiteInstanceDeploymentOutput"], () => require("./getSiteInstanceDeployment"));
+utilities.lazyLoad(exports, ["getSiteInstanceDeploymentSlot","getSiteInstanceDeploymentSlotOutput"], () => require("./getSiteInstanceDeploymentSlot"));
+utilities.lazyLoad(exports, ["getSiteLogsConfig","getSiteLogsConfigOutput"], () => require("./getSiteLogsConfig"));
+utilities.lazyLoad(exports, ["getSiteRelayServiceConnection","getSiteRelayServiceConnectionOutput"], () => require("./getSiteRelayServiceConnection"));
+utilities.lazyLoad(exports, ["getSiteRelayServiceConnectionSlot","getSiteRelayServiceConnectionSlotOutput"], () => require("./getSiteRelayServiceConnectionSlot"));
+utilities.lazyLoad(exports, ["getSiteSlot","getSiteSlotOutput"], () => require("./getSiteSlot"));
+utilities.lazyLoad(exports, ["getSiteSlotConfigNames","getSiteSlotConfigNamesOutput"], () => require("./getSiteSlotConfigNames"));
+utilities.lazyLoad(exports, ["getSiteSourceControl","getSiteSourceControlOutput"], () => require("./getSiteSourceControl"));
+utilities.lazyLoad(exports, ["getSiteSourceControlSlot","getSiteSourceControlSlotOutput"], () => require("./getSiteSourceControlSlot"));
+utilities.lazyLoad(exports, ["getSiteVNETConnection","getSiteVNETConnectionOutput"], () => require("./getSiteVNETConnection"));
+utilities.lazyLoad(exports, ["getSiteVNETConnectionSlot","getSiteVNETConnectionSlotOutput"], () => require("./getSiteVNETConnectionSlot"));
+utilities.lazyLoad(exports, ["HostingEnvironment"], () => require("./hostingEnvironment"));
+utilities.lazyLoad(exports, ["listSiteAppSettings","listSiteAppSettingsOutput"], () => require("./listSiteAppSettings"));
+utilities.lazyLoad(exports, ["listSiteAppSettingsSlot","listSiteAppSettingsSlotOutput"], () => require("./listSiteAppSettingsSlot"));
+utilities.lazyLoad(exports, ["listSiteAuthSettings","listSiteAuthSettingsOutput"], () => require("./listSiteAuthSettings"));
+utilities.lazyLoad(exports, ["listSiteAuthSettingsSlot","listSiteAuthSettingsSlotOutput"], () => require("./listSiteAuthSettingsSlot"));
+utilities.lazyLoad(exports, ["listSiteBackupConfiguration","listSiteBackupConfigurationOutput"], () => require("./listSiteBackupConfiguration"));
+utilities.lazyLoad(exports, ["listSiteBackupConfigurationSlot","listSiteBackupConfigurationSlotOutput"], () => require("./listSiteBackupConfigurationSlot"));
+utilities.lazyLoad(exports, ["listSiteBackupStatusSecrets","listSiteBackupStatusSecretsOutput"], () => require("./listSiteBackupStatusSecrets"));
+utilities.lazyLoad(exports, ["listSiteBackupStatusSecretsSlot","listSiteBackupStatusSecretsSlotOutput"], () => require("./listSiteBackupStatusSecretsSlot"));
+utilities.lazyLoad(exports, ["listSiteConnectionStrings","listSiteConnectionStringsOutput"], () => require("./listSiteConnectionStrings"));
+utilities.lazyLoad(exports, ["listSiteConnectionStringsSlot","listSiteConnectionStringsSlotOutput"], () => require("./listSiteConnectionStringsSlot"));
+utilities.lazyLoad(exports, ["listSiteMetadata","listSiteMetadataOutput"], () => require("./listSiteMetadata"));
+utilities.lazyLoad(exports, ["listSiteMetadataSlot","listSiteMetadataSlotOutput"], () => require("./listSiteMetadataSlot"));
+utilities.lazyLoad(exports, ["listSitePublishingCredentials","listSitePublishingCredentialsOutput"], () => require("./listSitePublishingCredentials"));
+utilities.lazyLoad(exports, ["listSitePublishingCredentialsSlot","listSitePublishingCredentialsSlotOutput"], () => require("./listSitePublishingCredentialsSlot"));
+utilities.lazyLoad(exports, ["ManagedHostingEnvironment"], () => require("./managedHostingEnvironment"));
+utilities.lazyLoad(exports, ["ServerFarm"], () => require("./serverFarm"));
+utilities.lazyLoad(exports, ["ServerFarmRouteForVnet"], () => require("./serverFarmRouteForVnet"));
+utilities.lazyLoad(exports, ["Site"], () => require("./site"));
+utilities.lazyLoad(exports, ["SiteAppSettings"], () => require("./siteAppSettings"));
+utilities.lazyLoad(exports, ["SiteAppSettingsSlot"], () => require("./siteAppSettingsSlot"));
+utilities.lazyLoad(exports, ["SiteAuthSettings"], () => require("./siteAuthSettings"));
+utilities.lazyLoad(exports, ["SiteAuthSettingsSlot"], () => require("./siteAuthSettingsSlot"));
+utilities.lazyLoad(exports, ["SiteBackupConfiguration"], () => require("./siteBackupConfiguration"));
+utilities.lazyLoad(exports, ["SiteBackupConfigurationSlot"], () => require("./siteBackupConfigurationSlot"));
+utilities.lazyLoad(exports, ["SiteConnectionStrings"], () => require("./siteConnectionStrings"));
+utilities.lazyLoad(exports, ["SiteConnectionStringsSlot"], () => require("./siteConnectionStringsSlot"));
+utilities.lazyLoad(exports, ["SiteDeployment"], () => require("./siteDeployment"));
+utilities.lazyLoad(exports, ["SiteDeploymentSlot"], () => require("./siteDeploymentSlot"));
+utilities.lazyLoad(exports, ["SiteHostNameBinding"], () => require("./siteHostNameBinding"));
+utilities.lazyLoad(exports, ["SiteHostNameBindingSlot"], () => require("./siteHostNameBindingSlot"));
+utilities.lazyLoad(exports, ["SiteInstanceDeployment"], () => require("./siteInstanceDeployment"));
+utilities.lazyLoad(exports, ["SiteInstanceDeploymentSlot"], () => require("./siteInstanceDeploymentSlot"));
+utilities.lazyLoad(exports, ["SiteLogsConfig"], () => require("./siteLogsConfig"));
+utilities.lazyLoad(exports, ["SiteMetadata"], () => require("./siteMetadata"));
+utilities.lazyLoad(exports, ["SiteMetadataSlot"], () => require("./siteMetadataSlot"));
+utilities.lazyLoad(exports, ["SiteRelayServiceConnection"], () => require("./siteRelayServiceConnection"));
+utilities.lazyLoad(exports, ["SiteRelayServiceConnectionSlot"], () => require("./siteRelayServiceConnectionSlot"));
+utilities.lazyLoad(exports, ["SiteSlot"], () => require("./siteSlot"));
+utilities.lazyLoad(exports, ["SiteSlotConfigNames"], () => require("./siteSlotConfigNames"));
+utilities.lazyLoad(exports, ["SiteSourceControl"], () => require("./siteSourceControl"));
+utilities.lazyLoad(exports, ["SiteSourceControlSlot"], () => require("./siteSourceControlSlot"));
+utilities.lazyLoad(exports, ["SiteVNETConnection"], () => require("./siteVNETConnection"));
+utilities.lazyLoad(exports, ["SiteVNETConnectionSlot"], () => require("./siteVNETConnectionSlot"));
 
 // Export enums:
 export * from "../../types/enums/web/v20150801";
-
-// Import resources to register:
-import { Certificate } from "./certificate";
-import { CertificateCsr } from "./certificateCsr";
-import { HostingEnvironment } from "./hostingEnvironment";
-import { ManagedHostingEnvironment } from "./managedHostingEnvironment";
-import { ServerFarm } from "./serverFarm";
-import { ServerFarmRouteForVnet } from "./serverFarmRouteForVnet";
-import { Site } from "./site";
-import { SiteAppSettings } from "./siteAppSettings";
-import { SiteAppSettingsSlot } from "./siteAppSettingsSlot";
-import { SiteAuthSettings } from "./siteAuthSettings";
-import { SiteAuthSettingsSlot } from "./siteAuthSettingsSlot";
-import { SiteBackupConfiguration } from "./siteBackupConfiguration";
-import { SiteBackupConfigurationSlot } from "./siteBackupConfigurationSlot";
-import { SiteConnectionStrings } from "./siteConnectionStrings";
-import { SiteConnectionStringsSlot } from "./siteConnectionStringsSlot";
-import { SiteDeployment } from "./siteDeployment";
-import { SiteDeploymentSlot } from "./siteDeploymentSlot";
-import { SiteHostNameBinding } from "./siteHostNameBinding";
-import { SiteHostNameBindingSlot } from "./siteHostNameBindingSlot";
-import { SiteInstanceDeployment } from "./siteInstanceDeployment";
-import { SiteInstanceDeploymentSlot } from "./siteInstanceDeploymentSlot";
-import { SiteLogsConfig } from "./siteLogsConfig";
-import { SiteMetadata } from "./siteMetadata";
-import { SiteMetadataSlot } from "./siteMetadataSlot";
-import { SiteRelayServiceConnection } from "./siteRelayServiceConnection";
-import { SiteRelayServiceConnectionSlot } from "./siteRelayServiceConnectionSlot";
-import { SiteSlot } from "./siteSlot";
-import { SiteSlotConfigNames } from "./siteSlotConfigNames";
-import { SiteSourceControl } from "./siteSourceControl";
-import { SiteSourceControlSlot } from "./siteSourceControlSlot";
-import { SiteVNETConnection } from "./siteVNETConnection";
-import { SiteVNETConnectionSlot } from "./siteVNETConnectionSlot";
 
 const _module = {
     version: utilities.getVersion(),

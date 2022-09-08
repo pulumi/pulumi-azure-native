@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./application";
-export * from "./applicationDefinition";
-export * from "./getApplication";
-export * from "./getApplicationDefinition";
+export { ApplicationArgs } from "./application";
+export type Application = import("./application").Application;
+export const Application: typeof import("./application").Application = null as any;
+
+export { ApplicationDefinitionArgs } from "./applicationDefinition";
+export type ApplicationDefinition = import("./applicationDefinition").ApplicationDefinition;
+export const ApplicationDefinition: typeof import("./applicationDefinition").ApplicationDefinition = null as any;
+
+export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
+export const getApplication: typeof import("./getApplication").getApplication = null as any;
+export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
+
+export { GetApplicationDefinitionArgs, GetApplicationDefinitionResult, GetApplicationDefinitionOutputArgs } from "./getApplicationDefinition";
+export const getApplicationDefinition: typeof import("./getApplicationDefinition").getApplicationDefinition = null as any;
+export const getApplicationDefinitionOutput: typeof import("./getApplicationDefinition").getApplicationDefinitionOutput = null as any;
+
+utilities.lazyLoad(exports, ["Application"], () => require("./application"));
+utilities.lazyLoad(exports, ["ApplicationDefinition"], () => require("./applicationDefinition"));
+utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
+utilities.lazyLoad(exports, ["getApplicationDefinition","getApplicationDefinitionOutput"], () => require("./getApplicationDefinition"));
 
 // Export enums:
 export * from "../../types/enums/solutions/v20171201";
-
-// Import resources to register:
-import { Application } from "./application";
-import { ApplicationDefinition } from "./applicationDefinition";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./azureTrafficCollector";
-export * from "./collectorPolicy";
-export * from "./getAzureTrafficCollector";
-export * from "./getCollectorPolicy";
+export { AzureTrafficCollectorArgs } from "./azureTrafficCollector";
+export type AzureTrafficCollector = import("./azureTrafficCollector").AzureTrafficCollector;
+export const AzureTrafficCollector: typeof import("./azureTrafficCollector").AzureTrafficCollector = null as any;
+
+export { CollectorPolicyArgs } from "./collectorPolicy";
+export type CollectorPolicy = import("./collectorPolicy").CollectorPolicy;
+export const CollectorPolicy: typeof import("./collectorPolicy").CollectorPolicy = null as any;
+
+export { GetAzureTrafficCollectorArgs, GetAzureTrafficCollectorResult, GetAzureTrafficCollectorOutputArgs } from "./getAzureTrafficCollector";
+export const getAzureTrafficCollector: typeof import("./getAzureTrafficCollector").getAzureTrafficCollector = null as any;
+export const getAzureTrafficCollectorOutput: typeof import("./getAzureTrafficCollector").getAzureTrafficCollectorOutput = null as any;
+
+export { GetCollectorPolicyArgs, GetCollectorPolicyResult, GetCollectorPolicyOutputArgs } from "./getCollectorPolicy";
+export const getCollectorPolicy: typeof import("./getCollectorPolicy").getCollectorPolicy = null as any;
+export const getCollectorPolicyOutput: typeof import("./getCollectorPolicy").getCollectorPolicyOutput = null as any;
+
+utilities.lazyLoad(exports, ["AzureTrafficCollector"], () => require("./azureTrafficCollector"));
+utilities.lazyLoad(exports, ["CollectorPolicy"], () => require("./collectorPolicy"));
+utilities.lazyLoad(exports, ["getAzureTrafficCollector","getAzureTrafficCollectorOutput"], () => require("./getAzureTrafficCollector"));
+utilities.lazyLoad(exports, ["getCollectorPolicy","getCollectorPolicyOutput"], () => require("./getCollectorPolicy"));
 
 // Export enums:
 export * from "../../types/enums/networkfunction/v20220501";
-
-// Import resources to register:
-import { AzureTrafficCollector } from "./azureTrafficCollector";
-import { CollectorPolicy } from "./collectorPolicy";
 
 const _module = {
     version: utilities.getVersion(),

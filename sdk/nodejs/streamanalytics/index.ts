@@ -5,19 +5,71 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./cluster";
-export * from "./function";
-export * from "./getCluster";
-export * from "./getFunction";
-export * from "./getInput";
-export * from "./getOutput";
-export * from "./getPrivateEndpoint";
-export * from "./getStreamingJob";
-export * from "./input";
-export * from "./listClusterStreamingJobs";
-export * from "./output";
-export * from "./privateEndpoint";
-export * from "./streamingJob";
+export { ClusterArgs } from "./cluster";
+export type Cluster = import("./cluster").Cluster;
+export const Cluster: typeof import("./cluster").Cluster = null as any;
+
+export { FunctionArgs } from "./function";
+export type Function = import("./function").Function;
+export const Function: typeof import("./function").Function = null as any;
+
+export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
+export const getCluster: typeof import("./getCluster").getCluster = null as any;
+export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
+
+export { GetFunctionArgs, GetFunctionResult, GetFunctionOutputArgs } from "./getFunction";
+export const getFunction: typeof import("./getFunction").getFunction = null as any;
+export const getFunctionOutput: typeof import("./getFunction").getFunctionOutput = null as any;
+
+export { GetInputArgs, GetInputResult, GetInputOutputArgs } from "./getInput";
+export const getInput: typeof import("./getInput").getInput = null as any;
+export const getInputOutput: typeof import("./getInput").getInputOutput = null as any;
+
+export { GetOutputArgs, GetOutputResult, GetOutputOutputArgs } from "./getOutput";
+export const getOutput: typeof import("./getOutput").getOutput = null as any;
+export const getOutputOutput: typeof import("./getOutput").getOutputOutput = null as any;
+
+export { GetPrivateEndpointArgs, GetPrivateEndpointResult, GetPrivateEndpointOutputArgs } from "./getPrivateEndpoint";
+export const getPrivateEndpoint: typeof import("./getPrivateEndpoint").getPrivateEndpoint = null as any;
+export const getPrivateEndpointOutput: typeof import("./getPrivateEndpoint").getPrivateEndpointOutput = null as any;
+
+export { GetStreamingJobArgs, GetStreamingJobResult, GetStreamingJobOutputArgs } from "./getStreamingJob";
+export const getStreamingJob: typeof import("./getStreamingJob").getStreamingJob = null as any;
+export const getStreamingJobOutput: typeof import("./getStreamingJob").getStreamingJobOutput = null as any;
+
+export { InputArgs } from "./input";
+export type Input = import("./input").Input;
+export const Input: typeof import("./input").Input = null as any;
+
+export { ListClusterStreamingJobsArgs, ListClusterStreamingJobsResult, ListClusterStreamingJobsOutputArgs } from "./listClusterStreamingJobs";
+export const listClusterStreamingJobs: typeof import("./listClusterStreamingJobs").listClusterStreamingJobs = null as any;
+export const listClusterStreamingJobsOutput: typeof import("./listClusterStreamingJobs").listClusterStreamingJobsOutput = null as any;
+
+export { OutputArgs } from "./output";
+export type Output = import("./output").Output;
+export const Output: typeof import("./output").Output = null as any;
+
+export { PrivateEndpointArgs } from "./privateEndpoint";
+export type PrivateEndpoint = import("./privateEndpoint").PrivateEndpoint;
+export const PrivateEndpoint: typeof import("./privateEndpoint").PrivateEndpoint = null as any;
+
+export { StreamingJobArgs } from "./streamingJob";
+export type StreamingJob = import("./streamingJob").StreamingJob;
+export const StreamingJob: typeof import("./streamingJob").StreamingJob = null as any;
+
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
+utilities.lazyLoad(exports, ["Function"], () => require("./function"));
+utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
+utilities.lazyLoad(exports, ["getFunction","getFunctionOutput"], () => require("./getFunction"));
+utilities.lazyLoad(exports, ["getInput","getInputOutput"], () => require("./getInput"));
+utilities.lazyLoad(exports, ["getOutput","getOutputOutput"], () => require("./getOutput"));
+utilities.lazyLoad(exports, ["getPrivateEndpoint","getPrivateEndpointOutput"], () => require("./getPrivateEndpoint"));
+utilities.lazyLoad(exports, ["getStreamingJob","getStreamingJobOutput"], () => require("./getStreamingJob"));
+utilities.lazyLoad(exports, ["Input"], () => require("./input"));
+utilities.lazyLoad(exports, ["listClusterStreamingJobs","listClusterStreamingJobsOutput"], () => require("./listClusterStreamingJobs"));
+utilities.lazyLoad(exports, ["Output"], () => require("./output"));
+utilities.lazyLoad(exports, ["PrivateEndpoint"], () => require("./privateEndpoint"));
+utilities.lazyLoad(exports, ["StreamingJob"], () => require("./streamingJob"));
 
 // Export enums:
 export * from "../types/enums/streamanalytics";
@@ -36,14 +88,6 @@ export {
     v20200301preview,
     v20211001preview,
 };
-
-// Import resources to register:
-import { Cluster } from "./cluster";
-import { Function } from "./function";
-import { Input } from "./input";
-import { Output } from "./output";
-import { PrivateEndpoint } from "./privateEndpoint";
-import { StreamingJob } from "./streamingJob";
 
 const _module = {
     version: utilities.getVersion(),

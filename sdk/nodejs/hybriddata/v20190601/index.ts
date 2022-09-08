@@ -5,20 +5,39 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./dataManager";
-export * from "./dataStore";
-export * from "./getDataManager";
-export * from "./getDataStore";
-export * from "./getJobDefinition";
-export * from "./jobDefinition";
+export { DataManagerArgs } from "./dataManager";
+export type DataManager = import("./dataManager").DataManager;
+export const DataManager: typeof import("./dataManager").DataManager = null as any;
+
+export { DataStoreArgs } from "./dataStore";
+export type DataStore = import("./dataStore").DataStore;
+export const DataStore: typeof import("./dataStore").DataStore = null as any;
+
+export { GetDataManagerArgs, GetDataManagerResult, GetDataManagerOutputArgs } from "./getDataManager";
+export const getDataManager: typeof import("./getDataManager").getDataManager = null as any;
+export const getDataManagerOutput: typeof import("./getDataManager").getDataManagerOutput = null as any;
+
+export { GetDataStoreArgs, GetDataStoreResult, GetDataStoreOutputArgs } from "./getDataStore";
+export const getDataStore: typeof import("./getDataStore").getDataStore = null as any;
+export const getDataStoreOutput: typeof import("./getDataStore").getDataStoreOutput = null as any;
+
+export { GetJobDefinitionArgs, GetJobDefinitionResult, GetJobDefinitionOutputArgs } from "./getJobDefinition";
+export const getJobDefinition: typeof import("./getJobDefinition").getJobDefinition = null as any;
+export const getJobDefinitionOutput: typeof import("./getJobDefinition").getJobDefinitionOutput = null as any;
+
+export { JobDefinitionArgs } from "./jobDefinition";
+export type JobDefinition = import("./jobDefinition").JobDefinition;
+export const JobDefinition: typeof import("./jobDefinition").JobDefinition = null as any;
+
+utilities.lazyLoad(exports, ["DataManager"], () => require("./dataManager"));
+utilities.lazyLoad(exports, ["DataStore"], () => require("./dataStore"));
+utilities.lazyLoad(exports, ["getDataManager","getDataManagerOutput"], () => require("./getDataManager"));
+utilities.lazyLoad(exports, ["getDataStore","getDataStoreOutput"], () => require("./getDataStore"));
+utilities.lazyLoad(exports, ["getJobDefinition","getJobDefinitionOutput"], () => require("./getJobDefinition"));
+utilities.lazyLoad(exports, ["JobDefinition"], () => require("./jobDefinition"));
 
 // Export enums:
 export * from "../../types/enums/hybriddata/v20190601";
-
-// Import resources to register:
-import { DataManager } from "./dataManager";
-import { DataStore } from "./dataStore";
-import { JobDefinition } from "./jobDefinition";
 
 const _module = {
     version: utilities.getVersion(),

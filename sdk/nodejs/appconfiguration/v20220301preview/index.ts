@@ -5,24 +5,54 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./configurationStore";
-export * from "./getConfigurationStore";
-export * from "./getKeyValue";
-export * from "./getPrivateEndpointConnection";
-export * from "./getReplica";
-export * from "./keyValue";
-export * from "./listConfigurationStoreKeys";
-export * from "./privateEndpointConnection";
-export * from "./replica";
+export { ConfigurationStoreArgs } from "./configurationStore";
+export type ConfigurationStore = import("./configurationStore").ConfigurationStore;
+export const ConfigurationStore: typeof import("./configurationStore").ConfigurationStore = null as any;
+
+export { GetConfigurationStoreArgs, GetConfigurationStoreResult, GetConfigurationStoreOutputArgs } from "./getConfigurationStore";
+export const getConfigurationStore: typeof import("./getConfigurationStore").getConfigurationStore = null as any;
+export const getConfigurationStoreOutput: typeof import("./getConfigurationStore").getConfigurationStoreOutput = null as any;
+
+export { GetKeyValueArgs, GetKeyValueResult, GetKeyValueOutputArgs } from "./getKeyValue";
+export const getKeyValue: typeof import("./getKeyValue").getKeyValue = null as any;
+export const getKeyValueOutput: typeof import("./getKeyValue").getKeyValueOutput = null as any;
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+
+export { GetReplicaArgs, GetReplicaResult, GetReplicaOutputArgs } from "./getReplica";
+export const getReplica: typeof import("./getReplica").getReplica = null as any;
+export const getReplicaOutput: typeof import("./getReplica").getReplicaOutput = null as any;
+
+export { KeyValueArgs } from "./keyValue";
+export type KeyValue = import("./keyValue").KeyValue;
+export const KeyValue: typeof import("./keyValue").KeyValue = null as any;
+
+export { ListConfigurationStoreKeysArgs, ListConfigurationStoreKeysResult, ListConfigurationStoreKeysOutputArgs } from "./listConfigurationStoreKeys";
+export const listConfigurationStoreKeys: typeof import("./listConfigurationStoreKeys").listConfigurationStoreKeys = null as any;
+export const listConfigurationStoreKeysOutput: typeof import("./listConfigurationStoreKeys").listConfigurationStoreKeysOutput = null as any;
+
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+
+export { ReplicaArgs } from "./replica";
+export type Replica = import("./replica").Replica;
+export const Replica: typeof import("./replica").Replica = null as any;
+
+utilities.lazyLoad(exports, ["ConfigurationStore"], () => require("./configurationStore"));
+utilities.lazyLoad(exports, ["getConfigurationStore","getConfigurationStoreOutput"], () => require("./getConfigurationStore"));
+utilities.lazyLoad(exports, ["getKeyValue","getKeyValueOutput"], () => require("./getKeyValue"));
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+utilities.lazyLoad(exports, ["getReplica","getReplicaOutput"], () => require("./getReplica"));
+utilities.lazyLoad(exports, ["KeyValue"], () => require("./keyValue"));
+utilities.lazyLoad(exports, ["listConfigurationStoreKeys","listConfigurationStoreKeysOutput"], () => require("./listConfigurationStoreKeys"));
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+utilities.lazyLoad(exports, ["Replica"], () => require("./replica"));
 
 // Export enums:
 export * from "../../types/enums/appconfiguration/v20220301preview";
-
-// Import resources to register:
-import { ConfigurationStore } from "./configurationStore";
-import { KeyValue } from "./keyValue";
-import { PrivateEndpointConnection } from "./privateEndpointConnection";
-import { Replica } from "./replica";
 
 const _module = {
     version: utilities.getVersion(),

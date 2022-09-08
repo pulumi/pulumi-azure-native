@@ -5,30 +5,126 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./cluster";
-export * from "./datastore";
-export * from "./getCluster";
-export * from "./getDatastore";
-export * from "./getGuestAgent";
-export * from "./getHost";
-export * from "./getHybridIdentityMetadatum";
-export * from "./getInventoryItem";
-export * from "./getMachineExtension";
-export * from "./getResourcePool";
-export * from "./getVCenter";
-export * from "./getVirtualMachine";
-export * from "./getVirtualMachineTemplate";
-export * from "./getVirtualNetwork";
-export * from "./guestAgent";
-export * from "./host";
-export * from "./hybridIdentityMetadatum";
-export * from "./inventoryItem";
-export * from "./machineExtension";
-export * from "./resourcePool";
-export * from "./vcenter";
-export * from "./virtualMachine";
-export * from "./virtualMachineTemplate";
-export * from "./virtualNetwork";
+export { ClusterArgs } from "./cluster";
+export type Cluster = import("./cluster").Cluster;
+export const Cluster: typeof import("./cluster").Cluster = null as any;
+
+export { DatastoreArgs } from "./datastore";
+export type Datastore = import("./datastore").Datastore;
+export const Datastore: typeof import("./datastore").Datastore = null as any;
+
+export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
+export const getCluster: typeof import("./getCluster").getCluster = null as any;
+export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
+
+export { GetDatastoreArgs, GetDatastoreResult, GetDatastoreOutputArgs } from "./getDatastore";
+export const getDatastore: typeof import("./getDatastore").getDatastore = null as any;
+export const getDatastoreOutput: typeof import("./getDatastore").getDatastoreOutput = null as any;
+
+export { GetGuestAgentArgs, GetGuestAgentResult, GetGuestAgentOutputArgs } from "./getGuestAgent";
+export const getGuestAgent: typeof import("./getGuestAgent").getGuestAgent = null as any;
+export const getGuestAgentOutput: typeof import("./getGuestAgent").getGuestAgentOutput = null as any;
+
+export { GetHostArgs, GetHostResult, GetHostOutputArgs } from "./getHost";
+export const getHost: typeof import("./getHost").getHost = null as any;
+export const getHostOutput: typeof import("./getHost").getHostOutput = null as any;
+
+export { GetHybridIdentityMetadatumArgs, GetHybridIdentityMetadatumResult, GetHybridIdentityMetadatumOutputArgs } from "./getHybridIdentityMetadatum";
+export const getHybridIdentityMetadatum: typeof import("./getHybridIdentityMetadatum").getHybridIdentityMetadatum = null as any;
+export const getHybridIdentityMetadatumOutput: typeof import("./getHybridIdentityMetadatum").getHybridIdentityMetadatumOutput = null as any;
+
+export { GetInventoryItemArgs, GetInventoryItemResult, GetInventoryItemOutputArgs } from "./getInventoryItem";
+export const getInventoryItem: typeof import("./getInventoryItem").getInventoryItem = null as any;
+export const getInventoryItemOutput: typeof import("./getInventoryItem").getInventoryItemOutput = null as any;
+
+export { GetMachineExtensionArgs, GetMachineExtensionResult, GetMachineExtensionOutputArgs } from "./getMachineExtension";
+export const getMachineExtension: typeof import("./getMachineExtension").getMachineExtension = null as any;
+export const getMachineExtensionOutput: typeof import("./getMachineExtension").getMachineExtensionOutput = null as any;
+
+export { GetResourcePoolArgs, GetResourcePoolResult, GetResourcePoolOutputArgs } from "./getResourcePool";
+export const getResourcePool: typeof import("./getResourcePool").getResourcePool = null as any;
+export const getResourcePoolOutput: typeof import("./getResourcePool").getResourcePoolOutput = null as any;
+
+export { GetVCenterArgs, GetVCenterResult, GetVCenterOutputArgs } from "./getVCenter";
+export const getVCenter: typeof import("./getVCenter").getVCenter = null as any;
+export const getVCenterOutput: typeof import("./getVCenter").getVCenterOutput = null as any;
+
+export { GetVirtualMachineArgs, GetVirtualMachineResult, GetVirtualMachineOutputArgs } from "./getVirtualMachine";
+export const getVirtualMachine: typeof import("./getVirtualMachine").getVirtualMachine = null as any;
+export const getVirtualMachineOutput: typeof import("./getVirtualMachine").getVirtualMachineOutput = null as any;
+
+export { GetVirtualMachineTemplateArgs, GetVirtualMachineTemplateResult, GetVirtualMachineTemplateOutputArgs } from "./getVirtualMachineTemplate";
+export const getVirtualMachineTemplate: typeof import("./getVirtualMachineTemplate").getVirtualMachineTemplate = null as any;
+export const getVirtualMachineTemplateOutput: typeof import("./getVirtualMachineTemplate").getVirtualMachineTemplateOutput = null as any;
+
+export { GetVirtualNetworkArgs, GetVirtualNetworkResult, GetVirtualNetworkOutputArgs } from "./getVirtualNetwork";
+export const getVirtualNetwork: typeof import("./getVirtualNetwork").getVirtualNetwork = null as any;
+export const getVirtualNetworkOutput: typeof import("./getVirtualNetwork").getVirtualNetworkOutput = null as any;
+
+export { GuestAgentArgs } from "./guestAgent";
+export type GuestAgent = import("./guestAgent").GuestAgent;
+export const GuestAgent: typeof import("./guestAgent").GuestAgent = null as any;
+
+export { HostArgs } from "./host";
+export type Host = import("./host").Host;
+export const Host: typeof import("./host").Host = null as any;
+
+export { HybridIdentityMetadatumArgs } from "./hybridIdentityMetadatum";
+export type HybridIdentityMetadatum = import("./hybridIdentityMetadatum").HybridIdentityMetadatum;
+export const HybridIdentityMetadatum: typeof import("./hybridIdentityMetadatum").HybridIdentityMetadatum = null as any;
+
+export { InventoryItemArgs } from "./inventoryItem";
+export type InventoryItem = import("./inventoryItem").InventoryItem;
+export const InventoryItem: typeof import("./inventoryItem").InventoryItem = null as any;
+
+export { MachineExtensionArgs } from "./machineExtension";
+export type MachineExtension = import("./machineExtension").MachineExtension;
+export const MachineExtension: typeof import("./machineExtension").MachineExtension = null as any;
+
+export { ResourcePoolArgs } from "./resourcePool";
+export type ResourcePool = import("./resourcePool").ResourcePool;
+export const ResourcePool: typeof import("./resourcePool").ResourcePool = null as any;
+
+export { VCenterArgs } from "./vcenter";
+export type VCenter = import("./vcenter").VCenter;
+export const VCenter: typeof import("./vcenter").VCenter = null as any;
+
+export { VirtualMachineArgs } from "./virtualMachine";
+export type VirtualMachine = import("./virtualMachine").VirtualMachine;
+export const VirtualMachine: typeof import("./virtualMachine").VirtualMachine = null as any;
+
+export { VirtualMachineTemplateArgs } from "./virtualMachineTemplate";
+export type VirtualMachineTemplate = import("./virtualMachineTemplate").VirtualMachineTemplate;
+export const VirtualMachineTemplate: typeof import("./virtualMachineTemplate").VirtualMachineTemplate = null as any;
+
+export { VirtualNetworkArgs } from "./virtualNetwork";
+export type VirtualNetwork = import("./virtualNetwork").VirtualNetwork;
+export const VirtualNetwork: typeof import("./virtualNetwork").VirtualNetwork = null as any;
+
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
+utilities.lazyLoad(exports, ["Datastore"], () => require("./datastore"));
+utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
+utilities.lazyLoad(exports, ["getDatastore","getDatastoreOutput"], () => require("./getDatastore"));
+utilities.lazyLoad(exports, ["getGuestAgent","getGuestAgentOutput"], () => require("./getGuestAgent"));
+utilities.lazyLoad(exports, ["getHost","getHostOutput"], () => require("./getHost"));
+utilities.lazyLoad(exports, ["getHybridIdentityMetadatum","getHybridIdentityMetadatumOutput"], () => require("./getHybridIdentityMetadatum"));
+utilities.lazyLoad(exports, ["getInventoryItem","getInventoryItemOutput"], () => require("./getInventoryItem"));
+utilities.lazyLoad(exports, ["getMachineExtension","getMachineExtensionOutput"], () => require("./getMachineExtension"));
+utilities.lazyLoad(exports, ["getResourcePool","getResourcePoolOutput"], () => require("./getResourcePool"));
+utilities.lazyLoad(exports, ["getVCenter","getVCenterOutput"], () => require("./getVCenter"));
+utilities.lazyLoad(exports, ["getVirtualMachine","getVirtualMachineOutput"], () => require("./getVirtualMachine"));
+utilities.lazyLoad(exports, ["getVirtualMachineTemplate","getVirtualMachineTemplateOutput"], () => require("./getVirtualMachineTemplate"));
+utilities.lazyLoad(exports, ["getVirtualNetwork","getVirtualNetworkOutput"], () => require("./getVirtualNetwork"));
+utilities.lazyLoad(exports, ["GuestAgent"], () => require("./guestAgent"));
+utilities.lazyLoad(exports, ["Host"], () => require("./host"));
+utilities.lazyLoad(exports, ["HybridIdentityMetadatum"], () => require("./hybridIdentityMetadatum"));
+utilities.lazyLoad(exports, ["InventoryItem"], () => require("./inventoryItem"));
+utilities.lazyLoad(exports, ["MachineExtension"], () => require("./machineExtension"));
+utilities.lazyLoad(exports, ["ResourcePool"], () => require("./resourcePool"));
+utilities.lazyLoad(exports, ["VCenter"], () => require("./vcenter"));
+utilities.lazyLoad(exports, ["VirtualMachine"], () => require("./virtualMachine"));
+utilities.lazyLoad(exports, ["VirtualMachineTemplate"], () => require("./virtualMachineTemplate"));
+utilities.lazyLoad(exports, ["VirtualNetwork"], () => require("./virtualNetwork"));
 
 // Export enums:
 export * from "../types/enums/connectedvmwarevsphere";
@@ -41,20 +137,6 @@ export {
     v20201001preview,
     v20220110preview,
 };
-
-// Import resources to register:
-import { Cluster } from "./cluster";
-import { Datastore } from "./datastore";
-import { GuestAgent } from "./guestAgent";
-import { Host } from "./host";
-import { HybridIdentityMetadatum } from "./hybridIdentityMetadatum";
-import { InventoryItem } from "./inventoryItem";
-import { MachineExtension } from "./machineExtension";
-import { ResourcePool } from "./resourcePool";
-import { VCenter } from "./vcenter";
-import { VirtualMachine } from "./virtualMachine";
-import { VirtualMachineTemplate } from "./virtualMachineTemplate";
-import { VirtualNetwork } from "./virtualNetwork";
 
 const _module = {
     version: utilities.getVersion(),

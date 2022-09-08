@@ -5,12 +5,36 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getHyperVSite";
-export * from "./getPrivateEndpointConnection";
-export * from "./getSite";
-export * from "./hyperVSite";
-export * from "./privateEndpointConnection";
-export * from "./site";
+export { GetHyperVSiteArgs, GetHyperVSiteResult, GetHyperVSiteOutputArgs } from "./getHyperVSite";
+export const getHyperVSite: typeof import("./getHyperVSite").getHyperVSite = null as any;
+export const getHyperVSiteOutput: typeof import("./getHyperVSite").getHyperVSiteOutput = null as any;
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+
+export { GetSiteArgs, GetSiteResult, GetSiteOutputArgs } from "./getSite";
+export const getSite: typeof import("./getSite").getSite = null as any;
+export const getSiteOutput: typeof import("./getSite").getSiteOutput = null as any;
+
+export { HyperVSiteArgs } from "./hyperVSite";
+export type HyperVSite = import("./hyperVSite").HyperVSite;
+export const HyperVSite: typeof import("./hyperVSite").HyperVSite = null as any;
+
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+
+export { SiteArgs } from "./site";
+export type Site = import("./site").Site;
+export const Site: typeof import("./site").Site = null as any;
+
+utilities.lazyLoad(exports, ["getHyperVSite","getHyperVSiteOutput"], () => require("./getHyperVSite"));
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+utilities.lazyLoad(exports, ["getSite","getSiteOutput"], () => require("./getSite"));
+utilities.lazyLoad(exports, ["HyperVSite"], () => require("./hyperVSite"));
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+utilities.lazyLoad(exports, ["Site"], () => require("./site"));
 
 // Export sub-modules:
 import * as v20200101 from "./v20200101";
@@ -20,11 +44,6 @@ export {
     v20200101,
     v20200707,
 };
-
-// Import resources to register:
-import { HyperVSite } from "./hyperVSite";
-import { PrivateEndpointConnection } from "./privateEndpointConnection";
-import { Site } from "./site";
 
 const _module = {
     version: utilities.getVersion(),

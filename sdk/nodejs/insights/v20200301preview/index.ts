@@ -5,11 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./componentLinkedStorageAccount";
-export * from "./getComponentLinkedStorageAccount";
+export { ComponentLinkedStorageAccountArgs } from "./componentLinkedStorageAccount";
+export type ComponentLinkedStorageAccount = import("./componentLinkedStorageAccount").ComponentLinkedStorageAccount;
+export const ComponentLinkedStorageAccount: typeof import("./componentLinkedStorageAccount").ComponentLinkedStorageAccount = null as any;
 
-// Import resources to register:
-import { ComponentLinkedStorageAccount } from "./componentLinkedStorageAccount";
+export { GetComponentLinkedStorageAccountArgs, GetComponentLinkedStorageAccountResult, GetComponentLinkedStorageAccountOutputArgs } from "./getComponentLinkedStorageAccount";
+export const getComponentLinkedStorageAccount: typeof import("./getComponentLinkedStorageAccount").getComponentLinkedStorageAccount = null as any;
+export const getComponentLinkedStorageAccountOutput: typeof import("./getComponentLinkedStorageAccount").getComponentLinkedStorageAccountOutput = null as any;
+
+utilities.lazyLoad(exports, ["ComponentLinkedStorageAccount"], () => require("./componentLinkedStorageAccount"));
+utilities.lazyLoad(exports, ["getComponentLinkedStorageAccount","getComponentLinkedStorageAccountOutput"], () => require("./getComponentLinkedStorageAccount"));
 
 const _module = {
     version: utilities.getVersion(),

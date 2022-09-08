@@ -5,15 +5,24 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getRemoteRenderingAccount";
-export * from "./listRemoteRenderingAccountKeys";
-export * from "./remoteRenderingAccount";
+export { GetRemoteRenderingAccountArgs, GetRemoteRenderingAccountResult, GetRemoteRenderingAccountOutputArgs } from "./getRemoteRenderingAccount";
+export const getRemoteRenderingAccount: typeof import("./getRemoteRenderingAccount").getRemoteRenderingAccount = null as any;
+export const getRemoteRenderingAccountOutput: typeof import("./getRemoteRenderingAccount").getRemoteRenderingAccountOutput = null as any;
+
+export { ListRemoteRenderingAccountKeysArgs, ListRemoteRenderingAccountKeysResult, ListRemoteRenderingAccountKeysOutputArgs } from "./listRemoteRenderingAccountKeys";
+export const listRemoteRenderingAccountKeys: typeof import("./listRemoteRenderingAccountKeys").listRemoteRenderingAccountKeys = null as any;
+export const listRemoteRenderingAccountKeysOutput: typeof import("./listRemoteRenderingAccountKeys").listRemoteRenderingAccountKeysOutput = null as any;
+
+export { RemoteRenderingAccountArgs } from "./remoteRenderingAccount";
+export type RemoteRenderingAccount = import("./remoteRenderingAccount").RemoteRenderingAccount;
+export const RemoteRenderingAccount: typeof import("./remoteRenderingAccount").RemoteRenderingAccount = null as any;
+
+utilities.lazyLoad(exports, ["getRemoteRenderingAccount","getRemoteRenderingAccountOutput"], () => require("./getRemoteRenderingAccount"));
+utilities.lazyLoad(exports, ["listRemoteRenderingAccountKeys","listRemoteRenderingAccountKeysOutput"], () => require("./listRemoteRenderingAccountKeys"));
+utilities.lazyLoad(exports, ["RemoteRenderingAccount"], () => require("./remoteRenderingAccount"));
 
 // Export enums:
 export * from "../../types/enums/mixedreality/v20200406preview";
-
-// Import resources to register:
-import { RemoteRenderingAccount } from "./remoteRenderingAccount";
 
 const _module = {
     version: utilities.getVersion(),

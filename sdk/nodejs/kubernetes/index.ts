@@ -5,10 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./connectedCluster";
-export * from "./getConnectedCluster";
-export * from "./listConnectedClusterUserCredential";
-export * from "./listConnectedClusterUserCredentials";
+export { ConnectedClusterArgs } from "./connectedCluster";
+export type ConnectedCluster = import("./connectedCluster").ConnectedCluster;
+export const ConnectedCluster: typeof import("./connectedCluster").ConnectedCluster = null as any;
+
+export { GetConnectedClusterArgs, GetConnectedClusterResult, GetConnectedClusterOutputArgs } from "./getConnectedCluster";
+export const getConnectedCluster: typeof import("./getConnectedCluster").getConnectedCluster = null as any;
+export const getConnectedClusterOutput: typeof import("./getConnectedCluster").getConnectedClusterOutput = null as any;
+
+export { ListConnectedClusterUserCredentialArgs, ListConnectedClusterUserCredentialResult, ListConnectedClusterUserCredentialOutputArgs } from "./listConnectedClusterUserCredential";
+export const listConnectedClusterUserCredential: typeof import("./listConnectedClusterUserCredential").listConnectedClusterUserCredential = null as any;
+export const listConnectedClusterUserCredentialOutput: typeof import("./listConnectedClusterUserCredential").listConnectedClusterUserCredentialOutput = null as any;
+
+export { ListConnectedClusterUserCredentialsArgs, ListConnectedClusterUserCredentialsResult, ListConnectedClusterUserCredentialsOutputArgs } from "./listConnectedClusterUserCredentials";
+export const listConnectedClusterUserCredentials: typeof import("./listConnectedClusterUserCredentials").listConnectedClusterUserCredentials = null as any;
+export const listConnectedClusterUserCredentialsOutput: typeof import("./listConnectedClusterUserCredentials").listConnectedClusterUserCredentialsOutput = null as any;
+
+utilities.lazyLoad(exports, ["ConnectedCluster"], () => require("./connectedCluster"));
+utilities.lazyLoad(exports, ["getConnectedCluster","getConnectedClusterOutput"], () => require("./getConnectedCluster"));
+utilities.lazyLoad(exports, ["listConnectedClusterUserCredential","listConnectedClusterUserCredentialOutput"], () => require("./listConnectedClusterUserCredential"));
+utilities.lazyLoad(exports, ["listConnectedClusterUserCredentials","listConnectedClusterUserCredentialsOutput"], () => require("./listConnectedClusterUserCredentials"));
 
 // Export enums:
 export * from "../types/enums/kubernetes";
@@ -27,9 +43,6 @@ export {
     v20211001,
     v20220501preview,
 };
-
-// Import resources to register:
-import { ConnectedCluster } from "./connectedCluster";
 
 const _module = {
     version: utilities.getVersion(),

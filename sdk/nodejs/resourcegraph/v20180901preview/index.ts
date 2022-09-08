@@ -5,11 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getGraphQuery";
-export * from "./graphQuery";
+export { GetGraphQueryArgs, GetGraphQueryResult, GetGraphQueryOutputArgs } from "./getGraphQuery";
+export const getGraphQuery: typeof import("./getGraphQuery").getGraphQuery = null as any;
+export const getGraphQueryOutput: typeof import("./getGraphQuery").getGraphQueryOutput = null as any;
 
-// Import resources to register:
-import { GraphQuery } from "./graphQuery";
+export { GraphQueryArgs } from "./graphQuery";
+export type GraphQuery = import("./graphQuery").GraphQuery;
+export const GraphQuery: typeof import("./graphQuery").GraphQuery = null as any;
+
+utilities.lazyLoad(exports, ["getGraphQuery","getGraphQueryOutput"], () => require("./getGraphQuery"));
+utilities.lazyLoad(exports, ["GraphQuery"], () => require("./graphQuery"));
 
 const _module = {
     version: utilities.getVersion(),
