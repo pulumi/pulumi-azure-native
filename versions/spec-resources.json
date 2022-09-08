@@ -3273,13 +3273,15 @@
       "2019-04-01-preview",
       "2019-11-01",
       "2020-06-01",
-      "2021-10-01"
+      "2021-10-01",
+      "2022-08-01-preview"
     ],
     "ViewByScope": [
       "2019-04-01-preview",
       "2019-11-01",
       "2020-06-01",
-      "2021-10-01"
+      "2021-10-01",
+      "2022-08-01-preview"
     ]
   },
   "CustomProviders": {
@@ -12334,7 +12336,8 @@
       "2021-11-01-preview",
       "2022-01-01",
       "2022-02-01-preview",
-      "2022-06-01-preview"
+      "2022-06-01-preview",
+      "2022-08-01-preview"
     ],
     "ApplicationType": [
       "2017-07-01-preview",
@@ -12352,7 +12355,8 @@
       "2021-11-01-preview",
       "2022-01-01",
       "2022-02-01-preview",
-      "2022-06-01-preview"
+      "2022-06-01-preview",
+      "2022-08-01-preview"
     ],
     "ApplicationTypeVersion": [
       "2017-07-01-preview",
@@ -12370,7 +12374,8 @@
       "2021-11-01-preview",
       "2022-01-01",
       "2022-02-01-preview",
-      "2022-06-01-preview"
+      "2022-06-01-preview",
+      "2022-08-01-preview"
     ],
     "Cluster": [
       "2016-09-01",
@@ -12393,7 +12398,8 @@
       "2021-11-01-preview",
       "2022-01-01",
       "2022-02-01-preview",
-      "2022-06-01-preview"
+      "2022-06-01-preview",
+      "2022-08-01-preview"
     ],
     "NodeType": [
       "2020-01-01-preview",
@@ -12404,7 +12410,8 @@
       "2021-11-01-preview",
       "2022-01-01",
       "2022-02-01-preview",
-      "2022-06-01-preview"
+      "2022-06-01-preview",
+      "2022-08-01-preview"
     ],
     "Service": [
       "2017-07-01-preview",
@@ -12422,11 +12429,13 @@
       "2021-11-01-preview",
       "2022-01-01",
       "2022-02-01-preview",
-      "2022-06-01-preview"
+      "2022-06-01-preview",
+      "2022-08-01-preview"
     ],
     "getmanagedAzResiliencyStatus": [
       "2022-02-01-preview",
-      "2022-06-01-preview"
+      "2022-06-01-preview",
+      "2022-08-01-preview"
     ],
     "listClusterUpgradableVersions": [
       "2021-06-01"

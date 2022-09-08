@@ -236,7 +236,11 @@ class App(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["template"] = template
             __props__.__dict__["application_id"] = None
+            __props__.__dict__["geography"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["state"] = None
+            __props__.__dict__["tenant"] = None
+            __props__.__dict__["thumbnail_url"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:iotcentral:App"), pulumi.Alias(type_="azure-native:iotcentral/v20210601:App"), pulumi.Alias(type_="azure-native:iotcentral/v20211101preview:App")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -264,12 +268,16 @@ class App(pulumi.CustomResource):
 
         __props__.__dict__["application_id"] = None
         __props__.__dict__["display_name"] = None
+        __props__.__dict__["geography"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["sku"] = None
+        __props__.__dict__["state"] = None
         __props__.__dict__["subdomain"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["template"] = None
+        __props__.__dict__["tenant"] = None
+        __props__.__dict__["thumbnail_url"] = None
         __props__.__dict__["type"] = None
         return App(resource_name, opts=opts, __props__=__props__)
 
@@ -288,6 +296,14 @@ class App(pulumi.CustomResource):
         The display name of the application.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def geography(self) -> pulumi.Output[str]:
+        """
+        The geography the application is in.
+        """
+        return pulumi.get(self, "geography")
 
     @property
     @pulumi.getter
@@ -315,6 +331,14 @@ class App(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def state(self) -> pulumi.Output[str]:
+        """
+        The current state of the application.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
     def subdomain(self) -> pulumi.Output[Optional[str]]:
         """
         The subdomain of the application.
@@ -336,6 +360,22 @@ class App(pulumi.CustomResource):
         The ID of the application template, which is a blueprint that defines the characteristics and behaviors of an application. Optional; if not specified, defaults to a blank blueprint and allows the application to be defined from scratch.
         """
         return pulumi.get(self, "template")
+
+    @property
+    @pulumi.getter
+    def tenant(self) -> pulumi.Output[str]:
+        """
+        The tenant ID the application belongs to.
+        """
+        return pulumi.get(self, "tenant")
+
+    @property
+    @pulumi.getter(name="thumbnailUrl")
+    def thumbnail_url(self) -> pulumi.Output[str]:
+        """
+        The URI for the thumbnail image used in the application.
+        """
+        return pulumi.get(self, "thumbnail_url")
 
     @property
     @pulumi.getter

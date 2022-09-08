@@ -149,8 +149,12 @@ class NetworkRuleSetsResponse(dict):
         :param str default_action: The default network action to apply.
         :param Sequence['NetworkRuleSetIpRuleResponse'] ip_rules: List of IP rules.
         """
+        if apply_to_devices is None:
+            apply_to_devices = False
         if apply_to_devices is not None:
             pulumi.set(__self__, "apply_to_devices", apply_to_devices)
+        if apply_to_io_t_central is None:
+            apply_to_io_t_central = False
         if apply_to_io_t_central is not None:
             pulumi.set(__self__, "apply_to_io_t_central", apply_to_io_t_central)
         if default_action is not None:

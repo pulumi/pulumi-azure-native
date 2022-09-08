@@ -5660,6 +5660,15 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "costmanagement/v20220801preview",
+  "fqn": "pulumi_azure_native.costmanagement.v20220801preview",
+  "classes": {
+   "azure-native:costmanagement/v20220801preview:View": "View",
+   "azure-native:costmanagement/v20220801preview:ViewByScope": "ViewByScope"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "customerinsights",
   "fqn": "pulumi_azure_native.customerinsights",
   "classes": {
@@ -18957,6 +18966,19 @@ _utilities.register(
    "azure-native:servicefabric/v20220601preview:ManagedCluster": "ManagedCluster",
    "azure-native:servicefabric/v20220601preview:NodeType": "NodeType",
    "azure-native:servicefabric/v20220601preview:Service": "Service"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "servicefabric/v20220801preview",
+  "fqn": "pulumi_azure_native.servicefabric.v20220801preview",
+  "classes": {
+   "azure-native:servicefabric/v20220801preview:Application": "Application",
+   "azure-native:servicefabric/v20220801preview:ApplicationType": "ApplicationType",
+   "azure-native:servicefabric/v20220801preview:ApplicationTypeVersion": "ApplicationTypeVersion",
+   "azure-native:servicefabric/v20220801preview:ManagedCluster": "ManagedCluster",
+   "azure-native:servicefabric/v20220801preview:NodeType": "NodeType",
+   "azure-native:servicefabric/v20220801preview:Service": "Service"
   }
  },
  {

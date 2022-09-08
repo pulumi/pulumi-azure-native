@@ -29,13 +29,17 @@ type LookupAppArgs struct {
 type LookupAppResult struct {
 	ApplicationId string             `pulumi:"applicationId"`
 	DisplayName   *string            `pulumi:"displayName"`
+	Geography     string             `pulumi:"geography"`
 	Id            string             `pulumi:"id"`
 	Location      string             `pulumi:"location"`
 	Name          string             `pulumi:"name"`
 	Sku           AppSkuInfoResponse `pulumi:"sku"`
+	State         string             `pulumi:"state"`
 	Subdomain     *string            `pulumi:"subdomain"`
 	Tags          map[string]string  `pulumi:"tags"`
 	Template      *string            `pulumi:"template"`
+	Tenant        string             `pulumi:"tenant"`
+	ThumbnailUrl  string             `pulumi:"thumbnailUrl"`
 	Type          string             `pulumi:"type"`
 }
 
@@ -84,6 +88,10 @@ func (o LookupAppResultOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupAppResultOutput) Geography() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAppResult) string { return v.Geography }).(pulumi.StringOutput)
+}
+
 func (o LookupAppResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAppResult) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -100,6 +108,10 @@ func (o LookupAppResultOutput) Sku() AppSkuInfoResponseOutput {
 	return o.ApplyT(func(v LookupAppResult) AppSkuInfoResponse { return v.Sku }).(AppSkuInfoResponseOutput)
 }
 
+func (o LookupAppResultOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAppResult) string { return v.State }).(pulumi.StringOutput)
+}
+
 func (o LookupAppResultOutput) Subdomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppResult) *string { return v.Subdomain }).(pulumi.StringPtrOutput)
 }
@@ -110,6 +122,14 @@ func (o LookupAppResultOutput) Tags() pulumi.StringMapOutput {
 
 func (o LookupAppResultOutput) Template() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppResult) *string { return v.Template }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupAppResultOutput) Tenant() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAppResult) string { return v.Tenant }).(pulumi.StringOutput)
+}
+
+func (o LookupAppResultOutput) ThumbnailUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAppResult) string { return v.ThumbnailUrl }).(pulumi.StringOutput)
 }
 
 func (o LookupAppResultOutput) Type() pulumi.StringOutput {

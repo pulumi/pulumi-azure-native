@@ -46,6 +46,10 @@ export interface GetAppResult {
      */
     readonly displayName?: string;
     /**
+     * The geography the application is in.
+     */
+    readonly geography: string;
+    /**
      * The ARM resource identifier.
      */
     readonly id: string;
@@ -62,6 +66,10 @@ export interface GetAppResult {
      */
     readonly sku: outputs.iotcentral.v20180901.AppSkuInfoResponse;
     /**
+     * The current state of the application.
+     */
+    readonly state: string;
+    /**
      * The subdomain of the application.
      */
     readonly subdomain?: string;
@@ -73,6 +81,14 @@ export interface GetAppResult {
      * The ID of the application template, which is a blueprint that defines the characteristics and behaviors of an application. Optional; if not specified, defaults to a blank blueprint and allows the application to be defined from scratch.
      */
     readonly template?: string;
+    /**
+     * The tenant ID the application belongs to.
+     */
+    readonly tenant: string;
+    /**
+     * The URI for the thumbnail image used in the application.
+     */
+    readonly thumbnailUrl: string;
     /**
      * The resource type.
      */

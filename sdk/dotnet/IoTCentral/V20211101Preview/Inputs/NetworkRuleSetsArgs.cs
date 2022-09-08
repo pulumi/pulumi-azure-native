@@ -47,6 +47,8 @@ namespace Pulumi.AzureNative.IoTCentral.V20211101Preview.Inputs
 
         public NetworkRuleSetsArgs()
         {
+            ApplyToDevices = false;
+            ApplyToIoTCentral = false;
         }
         public static new NetworkRuleSetsArgs Empty => new NetworkRuleSetsArgs();
     }

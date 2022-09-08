@@ -83,6 +83,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210701Preview
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220101:ApplicationType"},
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220201preview:ApplicationType"},
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220601preview:ApplicationType"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220801preview:ApplicationType"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

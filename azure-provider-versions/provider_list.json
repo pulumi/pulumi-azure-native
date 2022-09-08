@@ -911,18 +911,20 @@
       {
         "resourceType": "Operations",
         "apiVersions": [
+          "2022-09-12-privatepreview",
           "2022-03-02-privatepreview",
           "2021-03-01-preview"
         ]
       },
       {
-        "resourceType": "apiCollectionDetails",
+        "resourceType": "apiCollections",
         "apiVersions": [
+          "2022-09-12-privatepreview",
           "2022-03-02-privatepreview"
         ]
       },
       {
-        "resourceType": "apiCollections",
+        "resourceType": "apiCollections/apiCollectionDetails",
         "apiVersions": [
           "2022-03-02-privatepreview"
         ]
@@ -2562,30 +2564,6 @@
   {
     "namespace": "Microsoft.AzureSphereV2",
     "resourceTypes": [
-      {
-        "resourceType": "catalogs",
-        "apiVersions": [
-          "2022-09-01-privatepreview"
-        ]
-      },
-      {
-        "resourceType": "catalogs/certificates",
-        "apiVersions": [
-          "2022-09-01-privatepreview"
-        ]
-      },
-      {
-        "resourceType": "catalogs/deviceRegistrations",
-        "apiVersions": [
-          "2022-09-01-privatepreview"
-        ]
-      },
-      {
-        "resourceType": "catalogs/provisioningPackages",
-        "apiVersions": [
-          "2022-09-01-privatepreview"
-        ]
-      },
       {
         "resourceType": "locations",
         "apiVersions": [
@@ -4899,6 +4877,8 @@
       {
         "resourceType": "reservationOrders/calculateRefund",
         "apiVersions": [
+          "2022-03-01-beta",
+          "2022-03-01",
           "2020-10-01-preview",
           "2020-10-01-beta",
           "2020-06-01-beta",
@@ -4982,6 +4962,8 @@
       {
         "resourceType": "reservationOrders/return",
         "apiVersions": [
+          "2022-03-01-beta",
+          "2022-03-01",
           "2020-10-01-preview",
           "2020-10-01-beta",
           "2020-06-01-beta",
@@ -19857,18 +19839,21 @@
       {
         "resourceType": "dnsForwardingRulesets",
         "apiVersions": [
+          "2022-07-01",
           "2020-04-01-preview"
         ]
       },
       {
         "resourceType": "dnsForwardingRulesets/forwardingRules",
         "apiVersions": [
+          "2022-07-01",
           "2020-04-01-preview"
         ]
       },
       {
         "resourceType": "dnsForwardingRulesets/virtualNetworkLinks",
         "apiVersions": [
+          "2022-07-01",
           "2020-04-01-preview"
         ]
       },
@@ -19897,18 +19882,21 @@
       {
         "resourceType": "dnsResolvers",
         "apiVersions": [
+          "2022-07-01",
           "2020-04-01-preview"
         ]
       },
       {
         "resourceType": "dnsResolvers/inboundEndpoints",
         "apiVersions": [
+          "2022-07-01",
           "2020-04-01-preview"
         ]
       },
       {
         "resourceType": "dnsResolvers/outboundEndpoints",
         "apiVersions": [
+          "2022-07-01",
           "2020-04-01-preview"
         ]
       },
@@ -20343,6 +20331,7 @@
       {
         "resourceType": "frontdoorOperationResults",
         "apiVersions": [
+          "2022-05-01",
           "2021-06-01",
           "2020-11-01",
           "2020-07-01",
@@ -20361,6 +20350,7 @@
       {
         "resourceType": "frontdoorWebApplicationFirewallManagedRuleSets",
         "apiVersions": [
+          "2022-05-01",
           "2020-11-01",
           "2020-04-01",
           "2019-10-01",
@@ -20370,6 +20360,7 @@
       {
         "resourceType": "frontdoorWebApplicationFirewallPolicies",
         "apiVersions": [
+          "2022-05-01",
           "2020-11-01",
           "2020-04-01",
           "2019-10-01",
@@ -21047,12 +21038,14 @@
       {
         "resourceType": "locations/dnsResolverOperationResults",
         "apiVersions": [
+          "2022-07-01",
           "2020-04-01-preview"
         ]
       },
       {
         "resourceType": "locations/dnsResolverOperationStatuses",
         "apiVersions": [
+          "2022-07-01",
           "2020-04-01-preview"
         ]
       },
@@ -22866,6 +22859,32 @@
         ]
       },
       {
+        "resourceType": "trafficmanagerprofiles/azureendpoints",
+        "apiVersions": [
+          "2018-08-01",
+          "2018-04-01",
+          "2018-03-01",
+          "2018-02-01",
+          "2017-05-01",
+          "2017-03-01",
+          "2015-11-01",
+          "2015-04-28-preview"
+        ]
+      },
+      {
+        "resourceType": "trafficmanagerprofiles/externalendpoints",
+        "apiVersions": [
+          "2018-08-01",
+          "2018-04-01",
+          "2018-03-01",
+          "2018-02-01",
+          "2017-05-01",
+          "2017-03-01",
+          "2015-11-01",
+          "2015-04-28-preview"
+        ]
+      },
+      {
         "resourceType": "trafficmanagerprofiles/heatMaps",
         "apiVersions": [
           "2018-08-01",
@@ -22873,6 +22892,19 @@
           "2018-03-01",
           "2018-02-01",
           "2017-09-01-preview"
+        ]
+      },
+      {
+        "resourceType": "trafficmanagerprofiles/nestedendpoints",
+        "apiVersions": [
+          "2018-08-01",
+          "2018-04-01",
+          "2018-03-01",
+          "2018-02-01",
+          "2017-05-01",
+          "2017-03-01",
+          "2015-11-01",
+          "2015-04-28-preview"
         ]
       },
       {
@@ -23078,12 +23110,14 @@
       {
         "resourceType": "virtualNetworks/listDnsForwardingRulesets",
         "apiVersions": [
+          "2022-07-01",
           "2020-04-01-preview"
         ]
       },
       {
         "resourceType": "virtualNetworks/listDnsResolvers",
         "apiVersions": [
+          "2022-07-01",
           "2020-04-01-preview"
         ]
       },
@@ -27850,6 +27884,7 @@
       {
         "resourceType": "locations/environments/managedClusterVersions",
         "apiVersions": [
+          "2022-08-01-preview",
           "2022-06-01-preview",
           "2022-02-01-preview",
           "2022-01-01",
@@ -27863,6 +27898,7 @@
       {
         "resourceType": "locations/managedClusterOperationResults",
         "apiVersions": [
+          "2022-08-01-preview",
           "2022-06-01-preview",
           "2022-02-01-preview",
           "2022-01-01",
@@ -27876,6 +27912,7 @@
       {
         "resourceType": "locations/managedClusterOperations",
         "apiVersions": [
+          "2022-08-01-preview",
           "2022-06-01-preview",
           "2022-02-01-preview",
           "2022-01-01",
@@ -27889,6 +27926,7 @@
       {
         "resourceType": "locations/managedClusterVersions",
         "apiVersions": [
+          "2022-08-01-preview",
           "2022-06-01-preview",
           "2022-02-01-preview",
           "2022-01-01",
@@ -27902,6 +27940,7 @@
       {
         "resourceType": "locations/managedUnsupportedVMSizes",
         "apiVersions": [
+          "2022-08-01-preview",
           "2022-06-01-preview",
           "2022-02-01-preview",
           "2022-01-01",
@@ -27990,6 +28029,7 @@
       {
         "resourceType": "managedclusters",
         "apiVersions": [
+          "2022-08-01-preview",
           "2022-06-01-preview",
           "2022-02-01-preview",
           "2022-01-01",
@@ -28003,6 +28043,7 @@
       {
         "resourceType": "managedclusters/applicationTypes",
         "apiVersions": [
+          "2022-08-01-preview",
           "2022-06-01-preview",
           "2022-02-01-preview",
           "2022-01-01",
@@ -28015,6 +28056,7 @@
       {
         "resourceType": "managedclusters/applicationTypes/versions",
         "apiVersions": [
+          "2022-08-01-preview",
           "2022-06-01-preview",
           "2022-02-01-preview",
           "2022-01-01",
@@ -28027,6 +28069,7 @@
       {
         "resourceType": "managedclusters/applications",
         "apiVersions": [
+          "2022-08-01-preview",
           "2022-06-01-preview",
           "2022-02-01-preview",
           "2022-01-01",
@@ -28039,6 +28082,7 @@
       {
         "resourceType": "managedclusters/applications/services",
         "apiVersions": [
+          "2022-08-01-preview",
           "2022-06-01-preview",
           "2022-02-01-preview",
           "2022-01-01",
@@ -28051,6 +28095,7 @@
       {
         "resourceType": "managedclusters/nodetypes",
         "apiVersions": [
+          "2022-08-01-preview",
           "2022-06-01-preview",
           "2022-02-01-preview",
           "2022-01-01",
@@ -28064,6 +28109,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2022-08-01-preview",
           "2022-06-01-preview",
           "2022-02-01-preview",
           "2022-01-01",

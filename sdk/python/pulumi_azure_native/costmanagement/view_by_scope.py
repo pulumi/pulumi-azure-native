@@ -338,7 +338,7 @@ class ViewByScope(pulumi.CustomResource):
             __props__.__dict__["include_monetary_commitment"] = None
             __props__.__dict__["modified_on"] = None
             __props__.__dict__["name"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement/v20190401preview:ViewByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20191101:ViewByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20200601:ViewByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20211001:ViewByScope")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement/v20190401preview:ViewByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20191101:ViewByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20200601:ViewByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20211001:ViewByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20220801preview:ViewByScope")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ViewByScope, __self__).__init__(
             'azure-native:costmanagement:ViewByScope',
