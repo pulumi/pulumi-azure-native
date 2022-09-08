@@ -295,7 +295,8 @@
     "2021-01-01",
     "2021-10-01",
     "2022-04-01-preview",
-    "2022-06-01-preview"
+    "2022-06-01-preview",
+    "2022-08-01-preview"
   ],
   "CustomProviders": [],
   "CustomerInsights": [],
@@ -959,7 +960,8 @@
     "2021-11-01-preview",
     "2022-01-01",
     "2022-02-01-preview",
-    "2022-06-01-preview"
+    "2022-06-01-preview",
+    "2022-08-01-preview"
   ],
   "ServiceFabricMesh": [],
   "ServiceLinker": [

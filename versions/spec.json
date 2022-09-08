@@ -3234,6 +3234,10 @@
     "2022-06-01-preview": [
       "ScheduledAction",
       "ScheduledActionByScope"
+    ],
+    "2022-08-01-preview": [
+      "View",
+      "ViewByScope"
     ]
   },
   "CustomProviders": {
@@ -11825,6 +11829,15 @@
       "getmanagedAzResiliencyStatus"
     ],
     "2022-06-01-preview": [
+      "Application",
+      "ApplicationType",
+      "ApplicationTypeVersion",
+      "ManagedCluster",
+      "NodeType",
+      "Service",
+      "getmanagedAzResiliencyStatus"
+    ],
+    "2022-08-01-preview": [
       "Application",
       "ApplicationType",
       "ApplicationTypeVersion",
