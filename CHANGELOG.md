@@ -2,6 +2,10 @@
 
 ## HEAD (Unreleased)
 
+## 1.76.0 (2022-09-09)
+- Upgrade nodejs SDK to use lazy module loading for improved startup performance.
+- Upgrade to latest version of Azure Rest API Specs.
+
 ## 1.75.0 (2022-09-07)
 - Upgrade to latest version of Azure Rest API Specs.
 - Upstream breaking changes:
