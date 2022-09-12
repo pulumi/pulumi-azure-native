@@ -1895,6 +1895,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2022-06-01-preview",
           "2022-05-04",
           "2022-03-30-preview",
           "2021-08-01-preview",
@@ -16376,6 +16377,7 @@
       {
         "resourceType": "clusters",
         "apiVersions": [
+          "2022-07-07",
           "2022-02-01",
           "2021-08-27",
           "2021-01-01",
@@ -16393,6 +16395,7 @@
       {
         "resourceType": "clusters/attacheddatabaseconfigurations",
         "apiVersions": [
+          "2022-07-07",
           "2022-02-01",
           "2021-08-27",
           "2021-01-01",
@@ -16406,6 +16409,7 @@
       {
         "resourceType": "clusters/databases",
         "apiVersions": [
+          "2022-07-07",
           "2022-02-01",
           "2021-08-27",
           "2021-01-01",
@@ -16423,6 +16427,7 @@
       {
         "resourceType": "clusters/databases/dataconnections",
         "apiVersions": [
+          "2022-07-07",
           "2022-02-01",
           "2021-08-27",
           "2021-01-01",
@@ -16455,6 +16460,7 @@
       {
         "resourceType": "clusters/databases/principalassignments",
         "apiVersions": [
+          "2022-07-07",
           "2022-02-01",
           "2021-08-27",
           "2021-01-01",
@@ -16467,6 +16473,7 @@
       {
         "resourceType": "clusters/databases/scripts",
         "apiVersions": [
+          "2022-07-07",
           "2022-02-01",
           "2021-08-27",
           "2021-01-01"
@@ -16475,6 +16482,7 @@
       {
         "resourceType": "clusters/principalassignments",
         "apiVersions": [
+          "2022-07-07",
           "2022-02-01",
           "2021-08-27",
           "2021-01-01",
@@ -16487,6 +16495,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2022-07-07",
           "2022-02-01",
           "2021-08-27",
           "2021-01-01",
@@ -16504,6 +16513,7 @@
       {
         "resourceType": "locations/checkNameAvailability",
         "apiVersions": [
+          "2022-07-07",
           "2022-02-01",
           "2021-08-27",
           "2021-01-01",
@@ -16521,6 +16531,7 @@
       {
         "resourceType": "locations/operationResults",
         "apiVersions": [
+          "2022-07-07",
           "2022-02-01",
           "2021-08-27",
           "2021-01-01",
@@ -16538,6 +16549,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2022-07-07",
           "2022-02-01",
           "2021-08-27",
           "2021-01-01",
@@ -16649,6 +16661,7 @@
       {
         "resourceType": "Locations",
         "apiVersions": [
+          "2022-08-01-preview",
           "2022-04-15-preview",
           "2022-04-01-preview",
           "2021-12-01-preview",
@@ -16660,6 +16673,7 @@
       {
         "resourceType": "Locations/OperationStatuses",
         "apiVersions": [
+          "2022-08-01-preview",
           "2022-04-15-preview",
           "2022-04-01-preview",
           "2021-12-01-preview",
@@ -16669,8 +16683,15 @@
         ]
       },
       {
+        "resourceType": "Locations/Quotas",
+        "apiVersions": [
+          "2022-08-01-preview"
+        ]
+      },
+      {
         "resourceType": "checkNameAvailability",
         "apiVersions": [
+          "2022-08-01-preview",
           "2022-04-15-preview",
           "2022-04-01-preview",
           "2021-12-01-preview",
@@ -16682,6 +16703,7 @@
       {
         "resourceType": "loadtests",
         "apiVersions": [
+          "2022-08-01-preview",
           "2022-04-15-preview",
           "2022-04-01-preview",
           "2021-12-01-preview",
@@ -16690,8 +16712,27 @@
         ]
       },
       {
+        "resourceType": "loadtests/outboundNetworkDependenciesEndpoints",
+        "apiVersions": [
+          "2022-08-01-preview"
+        ]
+      },
+      {
         "resourceType": "operations",
         "apiVersions": [
+          "2022-08-01-preview",
+          "2022-04-15-preview",
+          "2022-04-01-preview",
+          "2021-12-01-preview",
+          "2021-11-01-preview",
+          "2021-09-01-preview",
+          "2020-09-01-preview"
+        ]
+      },
+      {
+        "resourceType": "registeredSubscriptions",
+        "apiVersions": [
+          "2022-08-01-preview",
           "2022-04-15-preview",
           "2022-04-01-preview",
           "2021-12-01-preview",
@@ -18840,6 +18881,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2022-05-01",
           "2022-03-01",
           "2022-01-01",
           "2021-10-01",
@@ -18869,6 +18911,7 @@
       {
         "resourceType": "locations/CheckInventory",
         "apiVersions": [
+          "2022-05-01",
           "2022-03-01",
           "2022-01-01",
           "2021-10-01",
@@ -18878,6 +18921,7 @@
       {
         "resourceType": "locations/QuotaLimits",
         "apiVersions": [
+          "2022-05-01",
           "2022-03-01",
           "2022-01-01",
           "2021-10-01",
@@ -18888,6 +18932,7 @@
       {
         "resourceType": "locations/checkFilePathAvailability",
         "apiVersions": [
+          "2022-05-01",
           "2022-03-01",
           "2022-01-01",
           "2021-10-01",
@@ -18939,6 +18984,7 @@
       {
         "resourceType": "locations/checkQuotaAvailability",
         "apiVersions": [
+          "2022-05-01",
           "2022-03-01",
           "2022-01-01",
           "2021-10-01",
@@ -18958,6 +19004,7 @@
       {
         "resourceType": "locations/operationResults",
         "apiVersions": [
+          "2022-05-01",
           "2022-03-01",
           "2022-01-01",
           "2021-10-01",
@@ -18993,6 +19040,7 @@
       {
         "resourceType": "netAppAccounts",
         "apiVersions": [
+          "2022-05-01",
           "2022-03-01",
           "2022-01-01",
           "2021-10-01",
@@ -19022,6 +19070,7 @@
       {
         "resourceType": "netAppAccounts/capacityPools",
         "apiVersions": [
+          "2022-05-01",
           "2022-03-01",
           "2022-01-01",
           "2021-10-01",
@@ -19051,6 +19100,7 @@
       {
         "resourceType": "netAppAccounts/capacityPools/volumes",
         "apiVersions": [
+          "2022-05-01",
           "2022-03-01",
           "2022-01-01",
           "2021-10-01",
@@ -19091,6 +19141,7 @@
       {
         "resourceType": "netAppAccounts/capacityPools/volumes/snapshots",
         "apiVersions": [
+          "2022-05-01",
           "2022-03-01",
           "2022-01-01",
           "2021-10-01",
@@ -19120,6 +19171,7 @@
       {
         "resourceType": "netAppAccounts/snapshotPolicies",
         "apiVersions": [
+          "2022-05-01",
           "2022-03-01",
           "2022-01-01",
           "2021-10-01",
@@ -19140,6 +19192,7 @@
       {
         "resourceType": "netAppAccounts/volumeGroups",
         "apiVersions": [
+          "2022-05-01",
           "2022-03-01",
           "2022-01-01",
           "2021-10-01",
@@ -19152,6 +19205,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2022-05-01",
           "2022-03-01",
           "2022-01-01",
           "2021-10-01",
