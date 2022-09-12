@@ -109,3 +109,9 @@ The versioner tool has been added to break apart the process of reporting and co
 Supporting every version of every API causes the SDK size to be very large. One method we've used to reduce the required size is to only have a single set of types for each API which are re-used across all versions. However, not all the types are compatible and therefore a type with the same name might be incompatible in the next version. This incompatibility is currently detected but ignored on a case-by-case basis for now.
 
 Ideally, at the point a new incompatible version of the type is added, it should then be created with a unique, stable name. Alternatively, we could create a union of the two possible types
+
+## New Go SDK
+
+As the size of the Go SDK is close to exceeding the limit of 512Mb, we've created a new SDK which we're publishing in parallel which defined a Go module per Azure namespace rather than a single root Go module. The additional go modules are auto-generated with the required dependencies in [provider/cmd/pulumi-gen-azure-native/main.go](./provider/cmd/pulumi-gen-azure-native/main.go#L312).
+
+This new SDK is published to its own repository at [github.com/pulumi/pulumi-azure-native-sdk](https://github.com/pulumi/pulumi-azure-native-sdk). This is separate partly due to the large number of tags which are created in this new repository per release, but also to remove the need to commit the SDK code into this repository.

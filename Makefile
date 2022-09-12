@@ -201,9 +201,13 @@ build_go::
 	find sdk/pulumi-azure-native-sdk -type d -maxdepth 1 -exec sh -c "cd \"{}\" && go mod tidy && go build" \;
 
 prepublish_go:
-	@# must use `sed -i -e` to be portable - but leaves go.mod-e behind on macos
+	@# Remove go module replacements which are added for local testing
+	@# Note: must use `sed -i -e` to be portable - but leaves go.mod-e behind on macos
 	find sdk/pulumi-azure-native-sdk -maxdepth 2 -type f -name go.mod -exec sed -i -e '/replace github\.com\/pulumi\/pulumi-azure-native-sdk /d' {} \;
+	@# Remove sed backup files if using older sed versions
 	find sdk/pulumi-azure-native-sdk -maxdepth 2 -type f -name go.mod-e -delete
+	@# Delete go.sum files as these are not used at the point of publishing.
+	@# This is because we depend on the root package which will come from the same release commit, that doesn't yet exist.
 	find sdk/pulumi-azure-native-sdk -maxdepth 2 -type f -name go.sum -delete
 	cp README.md LICENSE sdk/pulumi-azure-native-sdk/
 
