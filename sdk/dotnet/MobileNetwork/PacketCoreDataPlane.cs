@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MobileNetwork
 {
     /// <summary>
     /// Packet core data plane resource.
-    /// API Version: 2022-01-01-preview.
+    /// API Version: 2022-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork:PacketCoreDataPlane")]
     public partial class PacketCoreDataPlane : global::Pulumi.CustomResource
@@ -71,6 +71,12 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
@@ -83,7 +89,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// The user plane interface on the access network. In 5G networks this is called as N3 interface whereas in 4G networks this is called the S1-U interface.
+        /// The user plane interface on the access network. For 5G networks, this is the N3 interface. For 4G networks, this is the S1-U interface.
         /// </summary>
         [Output("userPlaneAccessInterface")]
         public Output<Outputs.InterfacePropertiesResponse> UserPlaneAccessInterface { get; private set; } = null!;
@@ -212,7 +218,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         }
 
         /// <summary>
-        /// The user plane interface on the access network. In 5G networks this is called as N3 interface whereas in 4G networks this is called the S1-U interface.
+        /// The user plane interface on the access network. For 5G networks, this is the N3 interface. For 4G networks, this is the S1-U interface.
         /// </summary>
         [Input("userPlaneAccessInterface", required: true)]
         public Input<Inputs.InterfacePropertiesArgs> UserPlaneAccessInterface { get; set; } = null!;

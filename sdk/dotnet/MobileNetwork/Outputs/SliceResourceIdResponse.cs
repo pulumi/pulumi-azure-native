@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MobileNetwork.Outputs
 {
 
     /// <summary>
-    /// Reference to a Slice resource.
+    /// Reference to a slice resource.
     /// </summary>
     [OutputType]
     public sealed class SliceResourceIdResponse

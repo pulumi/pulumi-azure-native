@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MobileNetwork
 {
     /// <summary>
     /// Data network resource.
-    /// API Version: 2022-01-01-preview.
+    /// API Version: 2022-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork:DataNetwork")]
     public partial class DataNetwork : global::Pulumi.CustomResource
@@ -75,6 +75,12 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -158,7 +164,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         public InputUnion<string, Pulumi.AzureNative.MobileNetwork.CreatedByType>? CreatedByType { get; set; }
 
         /// <summary>
-        /// The name of the mobile network dataNetwork.
+        /// The name of the data network.
         /// </summary>
         [Input("dataNetworkName")]
         public Input<string>? DataNetworkName { get; set; }

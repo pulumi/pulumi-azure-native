@@ -11,24 +11,24 @@ namespace Pulumi.AzureNative.MobileNetwork.Inputs
 {
 
     /// <summary>
-    /// PCC rule configuration
+    /// Data flow policy rule configuration
     /// </summary>
     public sealed class PccRuleConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the rule. This must be unique within the parent Service. You must not use any of the following reserved strings - `default`, `requested` or `service`.
+        /// The name of the rule. This must be unique within the parent service. You must not use any of the following reserved strings - `default`, `requested` or `service`.
         /// </summary>
         [Input("ruleName", required: true)]
         public Input<string> RuleName { get; set; } = null!;
 
         /// <summary>
-        /// A precedence value that is used to decide between PCC Rules when identifying the QoS values to use for a particular Sim. A lower value means a higher priority. This value should be unique among all PCC Rules configured in the Mobile Network.
+        /// A precedence value that is used to decide between data flow policy rules when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all data flow policy rules configured in the mobile network.
         /// </summary>
         [Input("rulePrecedence", required: true)]
         public Input<int> RulePrecedence { get; set; } = null!;
 
         /// <summary>
-        /// The QoS policy to use for packets matching this rule. If this field is null then the Service will define the QoS settings.
+        /// The QoS policy to use for packets matching this rule. If this field is null then the parent service will define the QoS settings.
         /// </summary>
         [Input("ruleQosPolicy")]
         public Input<Inputs.PccRuleQosPolicyArgs>? RuleQosPolicy { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.MobileNetwork.Inputs
         private InputList<Inputs.ServiceDataFlowTemplateArgs>? _serviceDataFlowTemplates;
 
         /// <summary>
-        /// The set of service data flow templates to use for this PCC Rule.
+        /// The set of data flow templates to use for this data flow policy rule.
         /// </summary>
         public InputList<Inputs.ServiceDataFlowTemplateArgs> ServiceDataFlowTemplates
         {
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.MobileNetwork.Inputs
         }
 
         /// <summary>
-        /// Determines whether flows that match this PCC Rule are permitted.
+        /// Determines whether flows that match this data flow policy rule are permitted.
         /// </summary>
         [Input("trafficControl")]
         public InputUnion<string, Pulumi.AzureNative.MobileNetwork.TrafficControlPermission>? TrafficControl { get; set; }

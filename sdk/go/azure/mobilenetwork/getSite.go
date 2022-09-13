@@ -38,6 +38,7 @@ type LookupSiteResult struct {
 	Name               string                `pulumi:"name"`
 	NetworkFunctions   []SubResourceResponse `pulumi:"networkFunctions"`
 	ProvisioningState  string                `pulumi:"provisioningState"`
+	SystemData         SystemDataResponse    `pulumi:"systemData"`
 	Tags               map[string]string     `pulumi:"tags"`
 	Type               string                `pulumi:"type"`
 }
@@ -122,6 +123,10 @@ func (o LookupSiteResultOutput) NetworkFunctions() SubResourceResponseArrayOutpu
 
 func (o LookupSiteResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSiteResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+func (o LookupSiteResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupSiteResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 func (o LookupSiteResultOutput) Tags() pulumi.StringMapOutput {

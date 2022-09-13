@@ -16,10 +16,28 @@ namespace Pulumi.AzureNative.MobileNetwork.Inputs
     public sealed class InterfacePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge machine.
+        /// The IPv4 address.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("ipv4Address")]
+        public Input<string>? Ipv4Address { get; set; }
+
+        /// <summary>
+        /// The default IPv4 gateway (router).
+        /// </summary>
+        [Input("ipv4Gateway")]
+        public Input<string>? Ipv4Gateway { get; set; }
+
+        /// <summary>
+        /// The IPv4 subnet.
+        /// </summary>
+        [Input("ipv4Subnet")]
+        public Input<string>? Ipv4Subnet { get; set; }
+
+        /// <summary>
+        /// The logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge device.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         public InterfacePropertiesArgs()
         {

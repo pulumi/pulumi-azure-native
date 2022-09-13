@@ -14,18 +14,19 @@ import (
 type DataNetwork struct {
 	pulumi.CustomResourceState
 
-	CreatedAt          pulumi.StringPtrOutput `pulumi:"createdAt"`
-	CreatedBy          pulumi.StringPtrOutput `pulumi:"createdBy"`
-	CreatedByType      pulumi.StringPtrOutput `pulumi:"createdByType"`
-	Description        pulumi.StringPtrOutput `pulumi:"description"`
-	LastModifiedAt     pulumi.StringPtrOutput `pulumi:"lastModifiedAt"`
-	LastModifiedBy     pulumi.StringPtrOutput `pulumi:"lastModifiedBy"`
-	LastModifiedByType pulumi.StringPtrOutput `pulumi:"lastModifiedByType"`
-	Location           pulumi.StringOutput    `pulumi:"location"`
-	Name               pulumi.StringOutput    `pulumi:"name"`
-	ProvisioningState  pulumi.StringOutput    `pulumi:"provisioningState"`
-	Tags               pulumi.StringMapOutput `pulumi:"tags"`
-	Type               pulumi.StringOutput    `pulumi:"type"`
+	CreatedAt          pulumi.StringPtrOutput   `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrOutput   `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrOutput   `pulumi:"createdByType"`
+	Description        pulumi.StringPtrOutput   `pulumi:"description"`
+	LastModifiedAt     pulumi.StringPtrOutput   `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrOutput   `pulumi:"lastModifiedBy"`
+	LastModifiedByType pulumi.StringPtrOutput   `pulumi:"lastModifiedByType"`
+	Location           pulumi.StringOutput      `pulumi:"location"`
+	Name               pulumi.StringOutput      `pulumi:"name"`
+	ProvisioningState  pulumi.StringOutput      `pulumi:"provisioningState"`
+	SystemData         SystemDataResponseOutput `pulumi:"systemData"`
+	Tags               pulumi.StringMapOutput   `pulumi:"tags"`
+	Type               pulumi.StringOutput      `pulumi:"type"`
 }
 
 
@@ -190,6 +191,10 @@ func (o DataNetworkOutput) Name() pulumi.StringOutput {
 
 func (o DataNetworkOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataNetwork) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+func (o DataNetworkOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *DataNetwork) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 func (o DataNetworkOutput) Tags() pulumi.StringMapOutput {

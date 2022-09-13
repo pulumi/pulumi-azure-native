@@ -11,12 +11,12 @@ namespace Pulumi.AzureNative.MobileNetwork.Inputs
 {
 
     /// <summary>
-    /// Reference to a SIM Policy resource.
+    /// Reference to a SIM policy resource.
     /// </summary>
     public sealed class SimPolicyResourceIdArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// SIM Policy resource ID.
+        /// SIM policy resource ID.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

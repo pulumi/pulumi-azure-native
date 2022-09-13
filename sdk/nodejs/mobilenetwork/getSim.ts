@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Sim resource.
- * API Version: 2022-01-01-preview.
+ * SIM resource.
+ * API Version: 2022-04-01-preview.
  */
 export function getSim(args: GetSimArgs, opts?: pulumi.InvokeOptions): Promise<GetSimResult> {
     if (!opts) {
@@ -19,6 +19,7 @@ export function getSim(args: GetSimArgs, opts?: pulumi.InvokeOptions): Promise<G
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:mobilenetwork:getSim", {
         "resourceGroupName": args.resourceGroupName,
+        "simGroupName": args.simGroupName,
         "simName": args.simName,
     }, opts);
 }
@@ -29,19 +30,19 @@ export interface GetSimArgs {
      */
     resourceGroupName: string;
     /**
+     * The name of the SIM Group.
+     */
+    simGroupName: string;
+    /**
      * The name of the SIM.
      */
     simName: string;
 }
 
 /**
- * Sim resource.
+ * SIM resource.
  */
 export interface GetSimResult {
-    /**
-     * The configuration state of the sim resource - complete or incomplete.
-     */
-    readonly configurationState: string;
     /**
      * The timestamp of resource creation (UTC).
      */
@@ -55,7 +56,7 @@ export interface GetSimResult {
      */
     readonly createdByType?: string;
     /**
-     * An optional free-form text field that can be used to record the device type this sim is associated with, for example 'Video camera'. The Azure portal allows Sims to be grouped and filtered based on this value.
+     * An optional free-form text field that can be used to record the device type this SIM is associated with, for example 'Video camera'. The Azure portal allows SIMs to be grouped and filtered based on this value.
      */
     readonly deviceType?: string;
     /**
@@ -63,11 +64,11 @@ export interface GetSimResult {
      */
     readonly id: string;
     /**
-     * The Integrated Circuit Card ID (ICC Id) for the sim.
+     * The integrated circuit card ID (ICCID) for the SIM.
      */
     readonly integratedCircuitCardIdentifier?: string;
     /**
-     * The International Mobile Subscriber Identity (IMSI) for the sim.
+     * The international mobile subscriber identity (IMSI) for the SIM.
      */
     readonly internationalMobileSubscriberIdentity: string;
     /**
@@ -83,33 +84,29 @@ export interface GetSimResult {
      */
     readonly lastModifiedByType?: string;
     /**
-     * The geo-location where the resource lives
-     */
-    readonly location: string;
-    /**
-     * Mobile network that this sim belongs to
-     */
-    readonly mobileNetwork?: outputs.mobilenetwork.MobileNetworkResourceIdResponse;
-    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The provisioning state of the sim resource.
+     * The provisioning state of the SIM resource.
      */
     readonly provisioningState: string;
     /**
-     * The simPolicy used by this sim.
+     * The SIM policy used by this SIM.
      */
     readonly simPolicy?: outputs.mobilenetwork.SimPolicyResourceIdResponse;
     /**
-     * A list of static IP addresses assigned to this sim. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
+     * The state of the SIM resource.
+     */
+    readonly simState: string;
+    /**
+     * A list of static IP addresses assigned to this SIM. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
      */
     readonly staticIpConfiguration?: outputs.mobilenetwork.SimStaticIpPropertiesResponse[];
     /**
-     * Resource tags.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly tags?: {[key: string]: string};
+    readonly systemData: outputs.mobilenetwork.SystemDataResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -125,6 +122,10 @@ export interface GetSimOutputArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the SIM Group.
+     */
+    simGroupName: pulumi.Input<string>;
     /**
      * The name of the SIM.
      */

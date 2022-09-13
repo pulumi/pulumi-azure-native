@@ -14,19 +14,20 @@ import (
 type Slice struct {
 	pulumi.CustomResourceState
 
-	CreatedAt          pulumi.StringPtrOutput `pulumi:"createdAt"`
-	CreatedBy          pulumi.StringPtrOutput `pulumi:"createdBy"`
-	CreatedByType      pulumi.StringPtrOutput `pulumi:"createdByType"`
-	Description        pulumi.StringPtrOutput `pulumi:"description"`
-	LastModifiedAt     pulumi.StringPtrOutput `pulumi:"lastModifiedAt"`
-	LastModifiedBy     pulumi.StringPtrOutput `pulumi:"lastModifiedBy"`
-	LastModifiedByType pulumi.StringPtrOutput `pulumi:"lastModifiedByType"`
-	Location           pulumi.StringOutput    `pulumi:"location"`
-	Name               pulumi.StringOutput    `pulumi:"name"`
-	ProvisioningState  pulumi.StringOutput    `pulumi:"provisioningState"`
-	Snssai             SnssaiResponseOutput   `pulumi:"snssai"`
-	Tags               pulumi.StringMapOutput `pulumi:"tags"`
-	Type               pulumi.StringOutput    `pulumi:"type"`
+	CreatedAt          pulumi.StringPtrOutput   `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrOutput   `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrOutput   `pulumi:"createdByType"`
+	Description        pulumi.StringPtrOutput   `pulumi:"description"`
+	LastModifiedAt     pulumi.StringPtrOutput   `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrOutput   `pulumi:"lastModifiedBy"`
+	LastModifiedByType pulumi.StringPtrOutput   `pulumi:"lastModifiedByType"`
+	Location           pulumi.StringOutput      `pulumi:"location"`
+	Name               pulumi.StringOutput      `pulumi:"name"`
+	ProvisioningState  pulumi.StringOutput      `pulumi:"provisioningState"`
+	Snssai             SnssaiResponseOutput     `pulumi:"snssai"`
+	SystemData         SystemDataResponseOutput `pulumi:"systemData"`
+	Tags               pulumi.StringMapOutput   `pulumi:"tags"`
+	Type               pulumi.StringOutput      `pulumi:"type"`
 }
 
 
@@ -200,6 +201,10 @@ func (o SliceOutput) ProvisioningState() pulumi.StringOutput {
 
 func (o SliceOutput) Snssai() SnssaiResponseOutput {
 	return o.ApplyT(func(v *Slice) SnssaiResponseOutput { return v.Snssai }).(SnssaiResponseOutput)
+}
+
+func (o SliceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Slice) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 func (o SliceOutput) Tags() pulumi.StringMapOutput {

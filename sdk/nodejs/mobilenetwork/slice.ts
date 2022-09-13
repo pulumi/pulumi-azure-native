@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Network slice resource.
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-04-01-preview.
  */
 export class Slice extends pulumi.CustomResource {
     /**
@@ -79,9 +79,13 @@ export class Slice extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The S-NSSAI (single network slice selection assistance information). Unique at the scope of a MobileNetwork.
+     * Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
      */
     public readonly snssai!: pulumi.Output<outputs.mobilenetwork.SnssaiResponse>;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.mobilenetwork.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -126,6 +130,7 @@ export class Slice extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -139,6 +144,7 @@ export class Slice extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["snssai"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -194,11 +200,11 @@ export interface SliceArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the mobile network slice.
+     * The name of the network slice.
      */
     sliceName?: pulumi.Input<string>;
     /**
-     * The S-NSSAI (single network slice selection assistance information). Unique at the scope of a MobileNetwork.
+     * Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
      */
     snssai: pulumi.Input<inputs.mobilenetwork.SnssaiArgs>;
     /**

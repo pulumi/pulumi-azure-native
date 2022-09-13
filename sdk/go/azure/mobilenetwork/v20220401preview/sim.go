@@ -48,6 +48,12 @@ func NewSim(ctx *pulumi.Context,
 	if args.SimGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'SimGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:mobilenetwork:Sim"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Sim
 	err := ctx.RegisterResource("azure-native:mobilenetwork/v20220401preview:Sim", name, args, &resource, opts...)
 	if err != nil {

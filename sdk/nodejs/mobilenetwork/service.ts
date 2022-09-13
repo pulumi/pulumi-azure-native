@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Service resource.
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-04-01-preview.
  */
 export class Service extends pulumi.CustomResource {
     /**
@@ -71,7 +71,7 @@ export class Service extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The set of PCC Rules that make up this service.
+     * The set of data flow policy rules that make up this service.
      */
     public readonly pccRules!: pulumi.Output<outputs.mobilenetwork.PccRuleConfigurationResponse[]>;
     /**
@@ -79,13 +79,17 @@ export class Service extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * A precedence value that is used to decide between services when identifying the QoS values to use for a particular Sim. A lower value means a higher priority. This value should be unique among all services configured in the Mobile Network.
+     * A precedence value that is used to decide between services when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all services configured in the mobile network.
      */
     public readonly servicePrecedence!: pulumi.Output<number>;
     /**
-     * The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a PccRuleConfiguration. If this field is null then the UE's simPolicy will define the QoS settings.
+     * The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a PccRuleConfiguration. If this field is null then the UE's SIM policy will define the QoS settings.
      */
     public readonly serviceQosPolicy!: pulumi.Output<outputs.mobilenetwork.QosPolicyResponse | undefined>;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.mobilenetwork.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -134,6 +138,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -148,6 +153,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["servicePrecedence"] = undefined /*out*/;
             resourceInputs["serviceQosPolicy"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -195,7 +201,7 @@ export interface ServiceArgs {
      */
     mobileNetworkName: pulumi.Input<string>;
     /**
-     * The set of PCC Rules that make up this service.
+     * The set of data flow policy rules that make up this service.
      */
     pccRules: pulumi.Input<pulumi.Input<inputs.mobilenetwork.PccRuleConfigurationArgs>[]>;
     /**
@@ -207,11 +213,11 @@ export interface ServiceArgs {
      */
     serviceName?: pulumi.Input<string>;
     /**
-     * A precedence value that is used to decide between services when identifying the QoS values to use for a particular Sim. A lower value means a higher priority. This value should be unique among all services configured in the Mobile Network.
+     * A precedence value that is used to decide between services when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all services configured in the mobile network.
      */
     servicePrecedence: pulumi.Input<number>;
     /**
-     * The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a PccRuleConfiguration. If this field is null then the UE's simPolicy will define the QoS settings.
+     * The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a PccRuleConfiguration. If this field is null then the UE's SIM policy will define the QoS settings.
      */
     serviceQosPolicy?: pulumi.Input<inputs.mobilenetwork.QosPolicyArgs>;
     /**

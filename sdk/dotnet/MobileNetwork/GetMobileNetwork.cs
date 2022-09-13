@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MobileNetwork
     {
         /// <summary>
         /// Mobile network resource.
-        /// API Version: 2022-01-01-preview.
+        /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Task<GetMobileNetworkResult> InvokeAsync(GetMobileNetworkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMobileNetworkResult>("azure-native:mobilenetwork:getMobileNetwork", args ?? new GetMobileNetworkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Mobile network resource.
-        /// API Version: 2022-01-01-preview.
+        /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Output<GetMobileNetworkResult> Invoke(GetMobileNetworkInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetMobileNetworkResult>("azure-native:mobilenetwork:getMobileNetwork", args ?? new GetMobileNetworkInvokeArgs(), options.WithDefaults());
@@ -112,13 +112,17 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The unique public land mobile network identifier for the network. This is made up of the Mobile Country Code and Mobile Network Code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
+        /// The unique public land mobile network identifier for the network. This is made up of the mobile country code and mobile network code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
         /// </summary>
         public readonly Outputs.PlmnIdResponse PublicLandMobileNetworkIdentifier;
         /// <summary>
         /// The mobile network resource identifier
         /// </summary>
         public readonly string ServiceKey;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -154,6 +158,8 @@ namespace Pulumi.AzureNative.MobileNetwork
 
             string serviceKey,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -170,6 +176,7 @@ namespace Pulumi.AzureNative.MobileNetwork
             ProvisioningState = provisioningState;
             PublicLandMobileNetworkIdentifier = publicLandMobileNetworkIdentifier;
             ServiceKey = serviceKey;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

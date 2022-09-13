@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Service{}
 	case "azure-native:mobilenetwork:Sim":
 		r = &Sim{}
+	case "azure-native:mobilenetwork:SimGroup":
+		r = &SimGroup{}
 	case "azure-native:mobilenetwork:SimPolicy":
 		r = &SimPolicy{}
 	case "azure-native:mobilenetwork:Site":

@@ -440,7 +440,7 @@ Migrate:
 MixedReality:
     tracking: "2021-01-01"
 MobileNetwork:
-    tracking: 2022-03-01-preview
+    tracking: 2022-04-01-preview
 NetApp:
     tracking: "2022-01-01"
 Network:

@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Sim policy resource.
- * API Version: 2022-01-01-preview.
+ * SIM policy resource.
+ * API Version: 2022-04-01-preview.
  */
 export class SimPolicy extends pulumi.CustomResource {
     /**
@@ -51,7 +51,7 @@ export class SimPolicy extends pulumi.CustomResource {
      */
     public readonly createdByType!: pulumi.Output<string | undefined>;
     /**
-     * The default slice to use if the UE does not explicitly specify it.  This slice must exist in the `sliceConfigurations` map.
+     * The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map.
      */
     public readonly defaultSlice!: pulumi.Output<outputs.mobilenetwork.SliceResourceIdResponse>;
     /**
@@ -75,7 +75,7 @@ export class SimPolicy extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The provisioning state of the sim policy resource.
+     * The provisioning state of the SIM policy resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
@@ -83,13 +83,17 @@ export class SimPolicy extends pulumi.CustomResource {
      */
     public readonly registrationTimer!: pulumi.Output<number | undefined>;
     /**
-     * RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413.  This is an optional setting and by default is unspecified.
+     * RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413. This is an optional setting and by default is unspecified.
      */
     public readonly rfspIndex!: pulumi.Output<number | undefined>;
     /**
      * The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
      */
     public readonly sliceConfigurations!: pulumi.Output<outputs.mobilenetwork.SliceConfigurationResponse[]>;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.mobilenetwork.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -147,6 +151,7 @@ export class SimPolicy extends pulumi.CustomResource {
             resourceInputs["ueAmbr"] = args ? args.ueAmbr : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -162,6 +167,7 @@ export class SimPolicy extends pulumi.CustomResource {
             resourceInputs["registrationTimer"] = undefined /*out*/;
             resourceInputs["rfspIndex"] = undefined /*out*/;
             resourceInputs["sliceConfigurations"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["ueAmbr"] = undefined /*out*/;
@@ -190,7 +196,7 @@ export interface SimPolicyArgs {
      */
     createdByType?: pulumi.Input<string | enums.mobilenetwork.CreatedByType>;
     /**
-     * The default slice to use if the UE does not explicitly specify it.  This slice must exist in the `sliceConfigurations` map.
+     * The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map.
      */
     defaultSlice: pulumi.Input<inputs.mobilenetwork.SliceResourceIdArgs>;
     /**
@@ -222,7 +228,7 @@ export interface SimPolicyArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413.  This is an optional setting and by default is unspecified.
+     * RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413. This is an optional setting and by default is unspecified.
      */
     rfspIndex?: pulumi.Input<number>;
     /**

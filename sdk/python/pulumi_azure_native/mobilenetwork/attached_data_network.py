@@ -25,6 +25,7 @@ class AttachedDataNetworkArgs:
                  created_at: Optional[pulumi.Input[str]] = None,
                  created_by: Optional[pulumi.Input[str]] = None,
                  created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
+                 dns_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  last_modified_at: Optional[pulumi.Input[str]] = None,
                  last_modified_by: Optional[pulumi.Input[str]] = None,
                  last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
@@ -38,23 +39,25 @@ class AttachedDataNetworkArgs:
         :param pulumi.Input[str] packet_core_control_plane_name: The name of the packet core control plane.
         :param pulumi.Input[str] packet_core_data_plane_name: The name of the packet core data plane.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['InterfacePropertiesArgs'] user_plane_data_interface: The user plane interface on the data network. In 5G networks this is called as N6 interface whereas in 4G networks this is called as SGi interface.
+        :param pulumi.Input['InterfacePropertiesArgs'] user_plane_data_interface: The user plane interface on the data network. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface.
         :param pulumi.Input[str] attached_data_network_name: The name of the attached data network.
         :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
         :param pulumi.Input[str] created_by: The identity that created the resource.
         :param pulumi.Input[Union[str, 'CreatedByType']] created_by_type: The type of identity that created the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_addresses: The DNS servers to signal to UEs to use for this attached data network.
         :param pulumi.Input[str] last_modified_at: The timestamp of resource last modification (UTC)
         :param pulumi.Input[str] last_modified_by: The identity that last modified the resource.
         :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input['NaptConfigurationArgs'] napt_configuration: The Network Address and Port Translation configuration.
-               If not specified the attached data network uses a default NAPT configuration with NAPT enabled.
+        :param pulumi.Input['NaptConfigurationArgs'] napt_configuration: The network address and port translation (NAPT) configuration.
+               If this is not specified, the attached data network will use a default NAPT configuration with NAPT enabled.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_equipment_address_pool_prefix: The user equipment address pool prefixes for the attached data network that are dynamically assigned by the core to UEs when they set up a PDU session.
-               At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined then they must be the same size.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_equipment_static_address_pool_prefix: The user equipment address pool prefixes for the attached data network that are statically assigned by the core to UEs when they set up a PDU session.
-               The mapping of static IP to sim is configured in staticIpConfiguration on the sim resource.
-               At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined then they must be the same size.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_equipment_address_pool_prefix: The user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs.
+               The packet core instance assigns an IP address to a UE when the UE sets up a PDU session.
+                You must define at least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix. If you define both, they must be of the same size.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_equipment_static_address_pool_prefix: The user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs.
+               The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource.
+               At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined, they must be of the same size.
         """
         pulumi.set(__self__, "packet_core_control_plane_name", packet_core_control_plane_name)
         pulumi.set(__self__, "packet_core_data_plane_name", packet_core_data_plane_name)
@@ -68,6 +71,8 @@ class AttachedDataNetworkArgs:
             pulumi.set(__self__, "created_by", created_by)
         if created_by_type is not None:
             pulumi.set(__self__, "created_by_type", created_by_type)
+        if dns_addresses is not None:
+            pulumi.set(__self__, "dns_addresses", dns_addresses)
         if last_modified_at is not None:
             pulumi.set(__self__, "last_modified_at", last_modified_at)
         if last_modified_by is not None:
@@ -125,7 +130,7 @@ class AttachedDataNetworkArgs:
     @pulumi.getter(name="userPlaneDataInterface")
     def user_plane_data_interface(self) -> pulumi.Input['InterfacePropertiesArgs']:
         """
-        The user plane interface on the data network. In 5G networks this is called as N6 interface whereas in 4G networks this is called as SGi interface.
+        The user plane interface on the data network. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface.
         """
         return pulumi.get(self, "user_plane_data_interface")
 
@@ -182,6 +187,18 @@ class AttachedDataNetworkArgs:
         pulumi.set(self, "created_by_type", value)
 
     @property
+    @pulumi.getter(name="dnsAddresses")
+    def dns_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The DNS servers to signal to UEs to use for this attached data network.
+        """
+        return pulumi.get(self, "dns_addresses")
+
+    @dns_addresses.setter
+    def dns_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "dns_addresses", value)
+
+    @property
     @pulumi.getter(name="lastModifiedAt")
     def last_modified_at(self) -> Optional[pulumi.Input[str]]:
         """
@@ -233,8 +250,8 @@ class AttachedDataNetworkArgs:
     @pulumi.getter(name="naptConfiguration")
     def napt_configuration(self) -> Optional[pulumi.Input['NaptConfigurationArgs']]:
         """
-        The Network Address and Port Translation configuration.
-        If not specified the attached data network uses a default NAPT configuration with NAPT enabled.
+        The network address and port translation (NAPT) configuration.
+        If this is not specified, the attached data network will use a default NAPT configuration with NAPT enabled.
         """
         return pulumi.get(self, "napt_configuration")
 
@@ -258,8 +275,9 @@ class AttachedDataNetworkArgs:
     @pulumi.getter(name="userEquipmentAddressPoolPrefix")
     def user_equipment_address_pool_prefix(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The user equipment address pool prefixes for the attached data network that are dynamically assigned by the core to UEs when they set up a PDU session.
-        At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined then they must be the same size.
+        The user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs.
+        The packet core instance assigns an IP address to a UE when the UE sets up a PDU session.
+         You must define at least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix. If you define both, they must be of the same size.
         """
         return pulumi.get(self, "user_equipment_address_pool_prefix")
 
@@ -271,9 +289,9 @@ class AttachedDataNetworkArgs:
     @pulumi.getter(name="userEquipmentStaticAddressPoolPrefix")
     def user_equipment_static_address_pool_prefix(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The user equipment address pool prefixes for the attached data network that are statically assigned by the core to UEs when they set up a PDU session.
-        The mapping of static IP to sim is configured in staticIpConfiguration on the sim resource.
-        At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined then they must be the same size.
+        The user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs.
+        The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource.
+        At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined, they must be of the same size.
         """
         return pulumi.get(self, "user_equipment_static_address_pool_prefix")
 
@@ -291,6 +309,7 @@ class AttachedDataNetwork(pulumi.CustomResource):
                  created_at: Optional[pulumi.Input[str]] = None,
                  created_by: Optional[pulumi.Input[str]] = None,
                  created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
+                 dns_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  last_modified_at: Optional[pulumi.Input[str]] = None,
                  last_modified_by: Optional[pulumi.Input[str]] = None,
                  last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
@@ -306,7 +325,7 @@ class AttachedDataNetwork(pulumi.CustomResource):
                  __props__=None):
         """
         Attached data network resource.
-        API Version: 2022-01-01-preview.
+        API Version: 2022-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -314,22 +333,24 @@ class AttachedDataNetwork(pulumi.CustomResource):
         :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
         :param pulumi.Input[str] created_by: The identity that created the resource.
         :param pulumi.Input[Union[str, 'CreatedByType']] created_by_type: The type of identity that created the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_addresses: The DNS servers to signal to UEs to use for this attached data network.
         :param pulumi.Input[str] last_modified_at: The timestamp of resource last modification (UTC)
         :param pulumi.Input[str] last_modified_by: The identity that last modified the resource.
         :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['NaptConfigurationArgs']] napt_configuration: The Network Address and Port Translation configuration.
-               If not specified the attached data network uses a default NAPT configuration with NAPT enabled.
+        :param pulumi.Input[pulumi.InputType['NaptConfigurationArgs']] napt_configuration: The network address and port translation (NAPT) configuration.
+               If this is not specified, the attached data network will use a default NAPT configuration with NAPT enabled.
         :param pulumi.Input[str] packet_core_control_plane_name: The name of the packet core control plane.
         :param pulumi.Input[str] packet_core_data_plane_name: The name of the packet core data plane.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_equipment_address_pool_prefix: The user equipment address pool prefixes for the attached data network that are dynamically assigned by the core to UEs when they set up a PDU session.
-               At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined then they must be the same size.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_equipment_static_address_pool_prefix: The user equipment address pool prefixes for the attached data network that are statically assigned by the core to UEs when they set up a PDU session.
-               The mapping of static IP to sim is configured in staticIpConfiguration on the sim resource.
-               At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined then they must be the same size.
-        :param pulumi.Input[pulumi.InputType['InterfacePropertiesArgs']] user_plane_data_interface: The user plane interface on the data network. In 5G networks this is called as N6 interface whereas in 4G networks this is called as SGi interface.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_equipment_address_pool_prefix: The user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs.
+               The packet core instance assigns an IP address to a UE when the UE sets up a PDU session.
+                You must define at least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix. If you define both, they must be of the same size.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_equipment_static_address_pool_prefix: The user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs.
+               The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource.
+               At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined, they must be of the same size.
+        :param pulumi.Input[pulumi.InputType['InterfacePropertiesArgs']] user_plane_data_interface: The user plane interface on the data network. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface.
         """
         ...
     @overload
@@ -339,7 +360,7 @@ class AttachedDataNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Attached data network resource.
-        API Version: 2022-01-01-preview.
+        API Version: 2022-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AttachedDataNetworkArgs args: The arguments to use to populate this resource's properties.
@@ -360,6 +381,7 @@ class AttachedDataNetwork(pulumi.CustomResource):
                  created_at: Optional[pulumi.Input[str]] = None,
                  created_by: Optional[pulumi.Input[str]] = None,
                  created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
+                 dns_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  last_modified_at: Optional[pulumi.Input[str]] = None,
                  last_modified_by: Optional[pulumi.Input[str]] = None,
                  last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
@@ -385,6 +407,7 @@ class AttachedDataNetwork(pulumi.CustomResource):
             __props__.__dict__["created_at"] = created_at
             __props__.__dict__["created_by"] = created_by
             __props__.__dict__["created_by_type"] = created_by_type
+            __props__.__dict__["dns_addresses"] = dns_addresses
             __props__.__dict__["last_modified_at"] = last_modified_at
             __props__.__dict__["last_modified_by"] = last_modified_by
             __props__.__dict__["last_modified_by_type"] = last_modified_by_type
@@ -407,6 +430,7 @@ class AttachedDataNetwork(pulumi.CustomResource):
             __props__.__dict__["user_plane_data_interface"] = user_plane_data_interface
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20220101preview:AttachedDataNetwork"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220301preview:AttachedDataNetwork"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220401preview:AttachedDataNetwork")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -435,6 +459,7 @@ class AttachedDataNetwork(pulumi.CustomResource):
         __props__.__dict__["created_at"] = None
         __props__.__dict__["created_by"] = None
         __props__.__dict__["created_by_type"] = None
+        __props__.__dict__["dns_addresses"] = None
         __props__.__dict__["last_modified_at"] = None
         __props__.__dict__["last_modified_by"] = None
         __props__.__dict__["last_modified_by_type"] = None
@@ -442,6 +467,7 @@ class AttachedDataNetwork(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["napt_configuration"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["user_equipment_address_pool_prefix"] = None
@@ -472,6 +498,14 @@ class AttachedDataNetwork(pulumi.CustomResource):
         The type of identity that created the resource.
         """
         return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="dnsAddresses")
+    def dns_addresses(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The DNS servers to signal to UEs to use for this attached data network.
+        """
+        return pulumi.get(self, "dns_addresses")
 
     @property
     @pulumi.getter(name="lastModifiedAt")
@@ -517,8 +551,8 @@ class AttachedDataNetwork(pulumi.CustomResource):
     @pulumi.getter(name="naptConfiguration")
     def napt_configuration(self) -> pulumi.Output[Optional['outputs.NaptConfigurationResponse']]:
         """
-        The Network Address and Port Translation configuration.
-        If not specified the attached data network uses a default NAPT configuration with NAPT enabled.
+        The network address and port translation (NAPT) configuration.
+        If this is not specified, the attached data network will use a default NAPT configuration with NAPT enabled.
         """
         return pulumi.get(self, "napt_configuration")
 
@@ -529,6 +563,14 @@ class AttachedDataNetwork(pulumi.CustomResource):
         The provisioning state of the attached data network resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -550,8 +592,9 @@ class AttachedDataNetwork(pulumi.CustomResource):
     @pulumi.getter(name="userEquipmentAddressPoolPrefix")
     def user_equipment_address_pool_prefix(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The user equipment address pool prefixes for the attached data network that are dynamically assigned by the core to UEs when they set up a PDU session.
-        At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined then they must be the same size.
+        The user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs.
+        The packet core instance assigns an IP address to a UE when the UE sets up a PDU session.
+         You must define at least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix. If you define both, they must be of the same size.
         """
         return pulumi.get(self, "user_equipment_address_pool_prefix")
 
@@ -559,9 +602,9 @@ class AttachedDataNetwork(pulumi.CustomResource):
     @pulumi.getter(name="userEquipmentStaticAddressPoolPrefix")
     def user_equipment_static_address_pool_prefix(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The user equipment address pool prefixes for the attached data network that are statically assigned by the core to UEs when they set up a PDU session.
-        The mapping of static IP to sim is configured in staticIpConfiguration on the sim resource.
-        At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined then they must be the same size.
+        The user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs.
+        The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource.
+        At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined, they must be of the same size.
         """
         return pulumi.get(self, "user_equipment_static_address_pool_prefix")
 
@@ -569,7 +612,7 @@ class AttachedDataNetwork(pulumi.CustomResource):
     @pulumi.getter(name="userPlaneDataInterface")
     def user_plane_data_interface(self) -> pulumi.Output['outputs.InterfacePropertiesResponse']:
         """
-        The user plane interface on the data network. In 5G networks this is called as N6 interface whereas in 4G networks this is called as SGi interface.
+        The user plane interface on the data network. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface.
         """
         return pulumi.get(self, "user_plane_data_interface")
 

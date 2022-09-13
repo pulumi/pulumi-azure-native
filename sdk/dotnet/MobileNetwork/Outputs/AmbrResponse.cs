@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MobileNetwork.Outputs
 {
 
     /// <summary>
-    /// Aggregate Maximum Bit Rate.
+    /// Aggregate maximum bit rate.
     /// </summary>
     [OutputType]
     public sealed class AmbrResponse

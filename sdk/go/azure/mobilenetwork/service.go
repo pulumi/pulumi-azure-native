@@ -26,6 +26,7 @@ type Service struct {
 	ProvisioningState  pulumi.StringOutput                     `pulumi:"provisioningState"`
 	ServicePrecedence  pulumi.IntOutput                        `pulumi:"servicePrecedence"`
 	ServiceQosPolicy   QosPolicyResponsePtrOutput              `pulumi:"serviceQosPolicy"`
+	SystemData         SystemDataResponseOutput                `pulumi:"systemData"`
 	Tags               pulumi.StringMapOutput                  `pulumi:"tags"`
 	Type               pulumi.StringOutput                     `pulumi:"type"`
 }
@@ -213,6 +214,10 @@ func (o ServiceOutput) ServicePrecedence() pulumi.IntOutput {
 
 func (o ServiceOutput) ServiceQosPolicy() QosPolicyResponsePtrOutput {
 	return o.ApplyT(func(v *Service) QosPolicyResponsePtrOutput { return v.ServiceQosPolicy }).(QosPolicyResponsePtrOutput)
+}
+
+func (o ServiceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Service) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 func (o ServiceOutput) Tags() pulumi.StringMapOutput {

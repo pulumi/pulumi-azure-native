@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Packet core data plane resource.
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-04-01-preview.
  */
 export class PacketCoreDataPlane extends pulumi.CustomResource {
     /**
@@ -75,6 +75,10 @@ export class PacketCoreDataPlane extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.mobilenetwork.SystemDataResponse>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -83,7 +87,7 @@ export class PacketCoreDataPlane extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * The user plane interface on the access network. In 5G networks this is called as N3 interface whereas in 4G networks this is called the S1-U interface.
+     * The user plane interface on the access network. For 5G networks, this is the N3 interface. For 4G networks, this is the S1-U interface.
      */
     public readonly userPlaneAccessInterface!: pulumi.Output<outputs.mobilenetwork.InterfacePropertiesResponse>;
 
@@ -121,6 +125,7 @@ export class PacketCoreDataPlane extends pulumi.CustomResource {
             resourceInputs["userPlaneAccessInterface"] = args ? args.userPlaneAccessInterface : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -132,6 +137,7 @@ export class PacketCoreDataPlane extends pulumi.CustomResource {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["userPlaneAccessInterface"] = undefined /*out*/;
@@ -192,7 +198,7 @@ export interface PacketCoreDataPlaneArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The user plane interface on the access network. In 5G networks this is called as N3 interface whereas in 4G networks this is called the S1-U interface.
+     * The user plane interface on the access network. For 5G networks, this is the N3 interface. For 4G networks, this is the S1-U interface.
      */
     userPlaneAccessInterface: pulumi.Input<inputs.mobilenetwork.InterfacePropertiesArgs>;
 }

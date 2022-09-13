@@ -22,7 +22,7 @@ class GetMobileNetworkResult:
     """
     Mobile network resource.
     """
-    def __init__(__self__, created_at=None, created_by=None, created_by_type=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, location=None, name=None, provisioning_state=None, public_land_mobile_network_identifier=None, service_key=None, tags=None, type=None):
+    def __init__(__self__, created_at=None, created_by=None, created_by_type=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, location=None, name=None, provisioning_state=None, public_land_mobile_network_identifier=None, service_key=None, system_data=None, tags=None, type=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -59,6 +59,9 @@ class GetMobileNetworkResult:
         if service_key and not isinstance(service_key, str):
             raise TypeError("Expected argument 'service_key' to be a str")
         pulumi.set(__self__, "service_key", service_key)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -150,7 +153,7 @@ class GetMobileNetworkResult:
     @pulumi.getter(name="publicLandMobileNetworkIdentifier")
     def public_land_mobile_network_identifier(self) -> 'outputs.PlmnIdResponse':
         """
-        The unique public land mobile network identifier for the network. This is made up of the Mobile Country Code and Mobile Network Code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
+        The unique public land mobile network identifier for the network. This is made up of the mobile country code and mobile network code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
         """
         return pulumi.get(self, "public_land_mobile_network_identifier")
 
@@ -161,6 +164,14 @@ class GetMobileNetworkResult:
         The mobile network resource identifier
         """
         return pulumi.get(self, "service_key")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -197,6 +208,7 @@ class AwaitableGetMobileNetworkResult(GetMobileNetworkResult):
             provisioning_state=self.provisioning_state,
             public_land_mobile_network_identifier=self.public_land_mobile_network_identifier,
             service_key=self.service_key,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -206,7 +218,7 @@ def get_mobile_network(mobile_network_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMobileNetworkResult:
     """
     Mobile network resource.
-    API Version: 2022-01-01-preview.
+    API Version: 2022-04-01-preview.
 
 
     :param str mobile_network_name: The name of the mobile network.
@@ -231,6 +243,7 @@ def get_mobile_network(mobile_network_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         public_land_mobile_network_identifier=__ret__.public_land_mobile_network_identifier,
         service_key=__ret__.service_key,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
 
@@ -241,7 +254,7 @@ def get_mobile_network_output(mobile_network_name: Optional[pulumi.Input[str]] =
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMobileNetworkResult]:
     """
     Mobile network resource.
-    API Version: 2022-01-01-preview.
+    API Version: 2022-04-01-preview.
 
 
     :param str mobile_network_name: The name of the mobile network.

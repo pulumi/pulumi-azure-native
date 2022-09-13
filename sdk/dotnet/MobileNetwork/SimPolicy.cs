@@ -10,8 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MobileNetwork
 {
     /// <summary>
-    /// Sim policy resource.
-    /// API Version: 2022-01-01-preview.
+    /// SIM policy resource.
+    /// API Version: 2022-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork:SimPolicy")]
     public partial class SimPolicy : global::Pulumi.CustomResource
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Output<string?> CreatedByType { get; private set; } = null!;
 
         /// <summary>
-        /// The default slice to use if the UE does not explicitly specify it.  This slice must exist in the `sliceConfigurations` map.
+        /// The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map.
         /// </summary>
         [Output("defaultSlice")]
         public Output<Outputs.SliceResourceIdResponse> DefaultSlice { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the sim policy resource.
+        /// The provisioning state of the SIM policy resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Output<int?> RegistrationTimer { get; private set; } = null!;
 
         /// <summary>
-        /// RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413.  This is an optional setting and by default is unspecified.
+        /// RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413. This is an optional setting and by default is unspecified.
         /// </summary>
         [Output("rfspIndex")]
         public Output<int?> RfspIndex { get; private set; } = null!;
@@ -93,6 +93,12 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         [Output("sliceConfigurations")]
         public Output<ImmutableArray<Outputs.SliceConfigurationResponse>> SliceConfigurations { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -182,7 +188,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         public InputUnion<string, Pulumi.AzureNative.MobileNetwork.CreatedByType>? CreatedByType { get; set; }
 
         /// <summary>
-        /// The default slice to use if the UE does not explicitly specify it.  This slice must exist in the `sliceConfigurations` map.
+        /// The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map.
         /// </summary>
         [Input("defaultSlice", required: true)]
         public Input<Inputs.SliceResourceIdArgs> DefaultSlice { get; set; } = null!;
@@ -230,7 +236,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413.  This is an optional setting and by default is unspecified.
+        /// RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413. This is an optional setting and by default is unspecified.
         /// </summary>
         [Input("rfspIndex")]
         public Input<int>? RfspIndex { get; set; }

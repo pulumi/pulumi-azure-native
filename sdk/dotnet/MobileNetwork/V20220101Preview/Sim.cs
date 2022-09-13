@@ -148,7 +148,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork:Sim"},
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220301preview:Sim"},
                 },
             };

@@ -23,6 +23,7 @@ type PacketCoreDataPlane struct {
 	Location                 pulumi.StringOutput               `pulumi:"location"`
 	Name                     pulumi.StringOutput               `pulumi:"name"`
 	ProvisioningState        pulumi.StringOutput               `pulumi:"provisioningState"`
+	SystemData               SystemDataResponseOutput          `pulumi:"systemData"`
 	Tags                     pulumi.StringMapOutput            `pulumi:"tags"`
 	Type                     pulumi.StringOutput               `pulumi:"type"`
 	UserPlaneAccessInterface InterfacePropertiesResponseOutput `pulumi:"userPlaneAccessInterface"`
@@ -189,6 +190,10 @@ func (o PacketCoreDataPlaneOutput) Name() pulumi.StringOutput {
 
 func (o PacketCoreDataPlaneOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *PacketCoreDataPlane) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+func (o PacketCoreDataPlaneOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *PacketCoreDataPlane) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 func (o PacketCoreDataPlaneOutput) Tags() pulumi.StringMapOutput {

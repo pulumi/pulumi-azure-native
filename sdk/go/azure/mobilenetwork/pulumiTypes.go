@@ -415,6 +415,382 @@ func (o AttachedDataNetworkResourceIdResponsePtrOutput) Id() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+type AzureStackEdgeDeviceResourceId struct {
+	Id string `pulumi:"id"`
+}
+
+
+
+
+
+type AzureStackEdgeDeviceResourceIdInput interface {
+	pulumi.Input
+
+	ToAzureStackEdgeDeviceResourceIdOutput() AzureStackEdgeDeviceResourceIdOutput
+	ToAzureStackEdgeDeviceResourceIdOutputWithContext(context.Context) AzureStackEdgeDeviceResourceIdOutput
+}
+
+type AzureStackEdgeDeviceResourceIdArgs struct {
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (AzureStackEdgeDeviceResourceIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureStackEdgeDeviceResourceId)(nil)).Elem()
+}
+
+func (i AzureStackEdgeDeviceResourceIdArgs) ToAzureStackEdgeDeviceResourceIdOutput() AzureStackEdgeDeviceResourceIdOutput {
+	return i.ToAzureStackEdgeDeviceResourceIdOutputWithContext(context.Background())
+}
+
+func (i AzureStackEdgeDeviceResourceIdArgs) ToAzureStackEdgeDeviceResourceIdOutputWithContext(ctx context.Context) AzureStackEdgeDeviceResourceIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureStackEdgeDeviceResourceIdOutput)
+}
+
+func (i AzureStackEdgeDeviceResourceIdArgs) ToAzureStackEdgeDeviceResourceIdPtrOutput() AzureStackEdgeDeviceResourceIdPtrOutput {
+	return i.ToAzureStackEdgeDeviceResourceIdPtrOutputWithContext(context.Background())
+}
+
+func (i AzureStackEdgeDeviceResourceIdArgs) ToAzureStackEdgeDeviceResourceIdPtrOutputWithContext(ctx context.Context) AzureStackEdgeDeviceResourceIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureStackEdgeDeviceResourceIdOutput).ToAzureStackEdgeDeviceResourceIdPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type AzureStackEdgeDeviceResourceIdPtrInput interface {
+	pulumi.Input
+
+	ToAzureStackEdgeDeviceResourceIdPtrOutput() AzureStackEdgeDeviceResourceIdPtrOutput
+	ToAzureStackEdgeDeviceResourceIdPtrOutputWithContext(context.Context) AzureStackEdgeDeviceResourceIdPtrOutput
+}
+
+type azureStackEdgeDeviceResourceIdPtrType AzureStackEdgeDeviceResourceIdArgs
+
+func AzureStackEdgeDeviceResourceIdPtr(v *AzureStackEdgeDeviceResourceIdArgs) AzureStackEdgeDeviceResourceIdPtrInput {
+	return (*azureStackEdgeDeviceResourceIdPtrType)(v)
+}
+
+func (*azureStackEdgeDeviceResourceIdPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureStackEdgeDeviceResourceId)(nil)).Elem()
+}
+
+func (i *azureStackEdgeDeviceResourceIdPtrType) ToAzureStackEdgeDeviceResourceIdPtrOutput() AzureStackEdgeDeviceResourceIdPtrOutput {
+	return i.ToAzureStackEdgeDeviceResourceIdPtrOutputWithContext(context.Background())
+}
+
+func (i *azureStackEdgeDeviceResourceIdPtrType) ToAzureStackEdgeDeviceResourceIdPtrOutputWithContext(ctx context.Context) AzureStackEdgeDeviceResourceIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureStackEdgeDeviceResourceIdPtrOutput)
+}
+
+type AzureStackEdgeDeviceResourceIdOutput struct{ *pulumi.OutputState }
+
+func (AzureStackEdgeDeviceResourceIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureStackEdgeDeviceResourceId)(nil)).Elem()
+}
+
+func (o AzureStackEdgeDeviceResourceIdOutput) ToAzureStackEdgeDeviceResourceIdOutput() AzureStackEdgeDeviceResourceIdOutput {
+	return o
+}
+
+func (o AzureStackEdgeDeviceResourceIdOutput) ToAzureStackEdgeDeviceResourceIdOutputWithContext(ctx context.Context) AzureStackEdgeDeviceResourceIdOutput {
+	return o
+}
+
+func (o AzureStackEdgeDeviceResourceIdOutput) ToAzureStackEdgeDeviceResourceIdPtrOutput() AzureStackEdgeDeviceResourceIdPtrOutput {
+	return o.ToAzureStackEdgeDeviceResourceIdPtrOutputWithContext(context.Background())
+}
+
+func (o AzureStackEdgeDeviceResourceIdOutput) ToAzureStackEdgeDeviceResourceIdPtrOutputWithContext(ctx context.Context) AzureStackEdgeDeviceResourceIdPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureStackEdgeDeviceResourceId) *AzureStackEdgeDeviceResourceId {
+		return &v
+	}).(AzureStackEdgeDeviceResourceIdPtrOutput)
+}
+
+func (o AzureStackEdgeDeviceResourceIdOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureStackEdgeDeviceResourceId) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type AzureStackEdgeDeviceResourceIdPtrOutput struct{ *pulumi.OutputState }
+
+func (AzureStackEdgeDeviceResourceIdPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureStackEdgeDeviceResourceId)(nil)).Elem()
+}
+
+func (o AzureStackEdgeDeviceResourceIdPtrOutput) ToAzureStackEdgeDeviceResourceIdPtrOutput() AzureStackEdgeDeviceResourceIdPtrOutput {
+	return o
+}
+
+func (o AzureStackEdgeDeviceResourceIdPtrOutput) ToAzureStackEdgeDeviceResourceIdPtrOutputWithContext(ctx context.Context) AzureStackEdgeDeviceResourceIdPtrOutput {
+	return o
+}
+
+func (o AzureStackEdgeDeviceResourceIdPtrOutput) Elem() AzureStackEdgeDeviceResourceIdOutput {
+	return o.ApplyT(func(v *AzureStackEdgeDeviceResourceId) AzureStackEdgeDeviceResourceId {
+		if v != nil {
+			return *v
+		}
+		var ret AzureStackEdgeDeviceResourceId
+		return ret
+	}).(AzureStackEdgeDeviceResourceIdOutput)
+}
+
+func (o AzureStackEdgeDeviceResourceIdPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureStackEdgeDeviceResourceId) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type AzureStackEdgeDeviceResourceIdResponse struct {
+	Id string `pulumi:"id"`
+}
+
+type AzureStackEdgeDeviceResourceIdResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureStackEdgeDeviceResourceIdResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureStackEdgeDeviceResourceIdResponse)(nil)).Elem()
+}
+
+func (o AzureStackEdgeDeviceResourceIdResponseOutput) ToAzureStackEdgeDeviceResourceIdResponseOutput() AzureStackEdgeDeviceResourceIdResponseOutput {
+	return o
+}
+
+func (o AzureStackEdgeDeviceResourceIdResponseOutput) ToAzureStackEdgeDeviceResourceIdResponseOutputWithContext(ctx context.Context) AzureStackEdgeDeviceResourceIdResponseOutput {
+	return o
+}
+
+func (o AzureStackEdgeDeviceResourceIdResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureStackEdgeDeviceResourceIdResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type AzureStackEdgeDeviceResourceIdResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AzureStackEdgeDeviceResourceIdResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureStackEdgeDeviceResourceIdResponse)(nil)).Elem()
+}
+
+func (o AzureStackEdgeDeviceResourceIdResponsePtrOutput) ToAzureStackEdgeDeviceResourceIdResponsePtrOutput() AzureStackEdgeDeviceResourceIdResponsePtrOutput {
+	return o
+}
+
+func (o AzureStackEdgeDeviceResourceIdResponsePtrOutput) ToAzureStackEdgeDeviceResourceIdResponsePtrOutputWithContext(ctx context.Context) AzureStackEdgeDeviceResourceIdResponsePtrOutput {
+	return o
+}
+
+func (o AzureStackEdgeDeviceResourceIdResponsePtrOutput) Elem() AzureStackEdgeDeviceResourceIdResponseOutput {
+	return o.ApplyT(func(v *AzureStackEdgeDeviceResourceIdResponse) AzureStackEdgeDeviceResourceIdResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AzureStackEdgeDeviceResourceIdResponse
+		return ret
+	}).(AzureStackEdgeDeviceResourceIdResponseOutput)
+}
+
+func (o AzureStackEdgeDeviceResourceIdResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureStackEdgeDeviceResourceIdResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectedClusterResourceId struct {
+	Id string `pulumi:"id"`
+}
+
+
+
+
+
+type ConnectedClusterResourceIdInput interface {
+	pulumi.Input
+
+	ToConnectedClusterResourceIdOutput() ConnectedClusterResourceIdOutput
+	ToConnectedClusterResourceIdOutputWithContext(context.Context) ConnectedClusterResourceIdOutput
+}
+
+type ConnectedClusterResourceIdArgs struct {
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (ConnectedClusterResourceIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectedClusterResourceId)(nil)).Elem()
+}
+
+func (i ConnectedClusterResourceIdArgs) ToConnectedClusterResourceIdOutput() ConnectedClusterResourceIdOutput {
+	return i.ToConnectedClusterResourceIdOutputWithContext(context.Background())
+}
+
+func (i ConnectedClusterResourceIdArgs) ToConnectedClusterResourceIdOutputWithContext(ctx context.Context) ConnectedClusterResourceIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectedClusterResourceIdOutput)
+}
+
+func (i ConnectedClusterResourceIdArgs) ToConnectedClusterResourceIdPtrOutput() ConnectedClusterResourceIdPtrOutput {
+	return i.ToConnectedClusterResourceIdPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectedClusterResourceIdArgs) ToConnectedClusterResourceIdPtrOutputWithContext(ctx context.Context) ConnectedClusterResourceIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectedClusterResourceIdOutput).ToConnectedClusterResourceIdPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type ConnectedClusterResourceIdPtrInput interface {
+	pulumi.Input
+
+	ToConnectedClusterResourceIdPtrOutput() ConnectedClusterResourceIdPtrOutput
+	ToConnectedClusterResourceIdPtrOutputWithContext(context.Context) ConnectedClusterResourceIdPtrOutput
+}
+
+type connectedClusterResourceIdPtrType ConnectedClusterResourceIdArgs
+
+func ConnectedClusterResourceIdPtr(v *ConnectedClusterResourceIdArgs) ConnectedClusterResourceIdPtrInput {
+	return (*connectedClusterResourceIdPtrType)(v)
+}
+
+func (*connectedClusterResourceIdPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectedClusterResourceId)(nil)).Elem()
+}
+
+func (i *connectedClusterResourceIdPtrType) ToConnectedClusterResourceIdPtrOutput() ConnectedClusterResourceIdPtrOutput {
+	return i.ToConnectedClusterResourceIdPtrOutputWithContext(context.Background())
+}
+
+func (i *connectedClusterResourceIdPtrType) ToConnectedClusterResourceIdPtrOutputWithContext(ctx context.Context) ConnectedClusterResourceIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectedClusterResourceIdPtrOutput)
+}
+
+type ConnectedClusterResourceIdOutput struct{ *pulumi.OutputState }
+
+func (ConnectedClusterResourceIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectedClusterResourceId)(nil)).Elem()
+}
+
+func (o ConnectedClusterResourceIdOutput) ToConnectedClusterResourceIdOutput() ConnectedClusterResourceIdOutput {
+	return o
+}
+
+func (o ConnectedClusterResourceIdOutput) ToConnectedClusterResourceIdOutputWithContext(ctx context.Context) ConnectedClusterResourceIdOutput {
+	return o
+}
+
+func (o ConnectedClusterResourceIdOutput) ToConnectedClusterResourceIdPtrOutput() ConnectedClusterResourceIdPtrOutput {
+	return o.ToConnectedClusterResourceIdPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectedClusterResourceIdOutput) ToConnectedClusterResourceIdPtrOutputWithContext(ctx context.Context) ConnectedClusterResourceIdPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectedClusterResourceId) *ConnectedClusterResourceId {
+		return &v
+	}).(ConnectedClusterResourceIdPtrOutput)
+}
+
+func (o ConnectedClusterResourceIdOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectedClusterResourceId) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type ConnectedClusterResourceIdPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectedClusterResourceIdPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectedClusterResourceId)(nil)).Elem()
+}
+
+func (o ConnectedClusterResourceIdPtrOutput) ToConnectedClusterResourceIdPtrOutput() ConnectedClusterResourceIdPtrOutput {
+	return o
+}
+
+func (o ConnectedClusterResourceIdPtrOutput) ToConnectedClusterResourceIdPtrOutputWithContext(ctx context.Context) ConnectedClusterResourceIdPtrOutput {
+	return o
+}
+
+func (o ConnectedClusterResourceIdPtrOutput) Elem() ConnectedClusterResourceIdOutput {
+	return o.ApplyT(func(v *ConnectedClusterResourceId) ConnectedClusterResourceId {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectedClusterResourceId
+		return ret
+	}).(ConnectedClusterResourceIdOutput)
+}
+
+func (o ConnectedClusterResourceIdPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectedClusterResourceId) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectedClusterResourceIdResponse struct {
+	Id string `pulumi:"id"`
+}
+
+type ConnectedClusterResourceIdResponseOutput struct{ *pulumi.OutputState }
+
+func (ConnectedClusterResourceIdResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectedClusterResourceIdResponse)(nil)).Elem()
+}
+
+func (o ConnectedClusterResourceIdResponseOutput) ToConnectedClusterResourceIdResponseOutput() ConnectedClusterResourceIdResponseOutput {
+	return o
+}
+
+func (o ConnectedClusterResourceIdResponseOutput) ToConnectedClusterResourceIdResponseOutputWithContext(ctx context.Context) ConnectedClusterResourceIdResponseOutput {
+	return o
+}
+
+func (o ConnectedClusterResourceIdResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectedClusterResourceIdResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type ConnectedClusterResourceIdResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectedClusterResourceIdResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectedClusterResourceIdResponse)(nil)).Elem()
+}
+
+func (o ConnectedClusterResourceIdResponsePtrOutput) ToConnectedClusterResourceIdResponsePtrOutput() ConnectedClusterResourceIdResponsePtrOutput {
+	return o
+}
+
+func (o ConnectedClusterResourceIdResponsePtrOutput) ToConnectedClusterResourceIdResponsePtrOutputWithContext(ctx context.Context) ConnectedClusterResourceIdResponsePtrOutput {
+	return o
+}
+
+func (o ConnectedClusterResourceIdResponsePtrOutput) Elem() ConnectedClusterResourceIdResponseOutput {
+	return o.ApplyT(func(v *ConnectedClusterResourceIdResponse) ConnectedClusterResourceIdResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectedClusterResourceIdResponse
+		return ret
+	}).(ConnectedClusterResourceIdResponseOutput)
+}
+
+func (o ConnectedClusterResourceIdResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectedClusterResourceIdResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
 type CustomLocationResourceId struct {
 	Id string `pulumi:"id"`
 }
@@ -980,7 +1356,10 @@ func (o DataNetworkResourceIdResponseOutput) Id() pulumi.StringOutput {
 }
 
 type InterfaceProperties struct {
-	Name string `pulumi:"name"`
+	Ipv4Address *string `pulumi:"ipv4Address"`
+	Ipv4Gateway *string `pulumi:"ipv4Gateway"`
+	Ipv4Subnet  *string `pulumi:"ipv4Subnet"`
+	Name        *string `pulumi:"name"`
 }
 
 
@@ -995,7 +1374,10 @@ type InterfacePropertiesInput interface {
 }
 
 type InterfacePropertiesArgs struct {
-	Name pulumi.StringInput `pulumi:"name"`
+	Ipv4Address pulumi.StringPtrInput `pulumi:"ipv4Address"`
+	Ipv4Gateway pulumi.StringPtrInput `pulumi:"ipv4Gateway"`
+	Ipv4Subnet  pulumi.StringPtrInput `pulumi:"ipv4Subnet"`
+	Name        pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (InterfacePropertiesArgs) ElementType() reflect.Type {
@@ -1024,12 +1406,27 @@ func (o InterfacePropertiesOutput) ToInterfacePropertiesOutputWithContext(ctx co
 	return o
 }
 
-func (o InterfacePropertiesOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v InterfaceProperties) string { return v.Name }).(pulumi.StringOutput)
+func (o InterfacePropertiesOutput) Ipv4Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InterfaceProperties) *string { return v.Ipv4Address }).(pulumi.StringPtrOutput)
+}
+
+func (o InterfacePropertiesOutput) Ipv4Gateway() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InterfaceProperties) *string { return v.Ipv4Gateway }).(pulumi.StringPtrOutput)
+}
+
+func (o InterfacePropertiesOutput) Ipv4Subnet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InterfaceProperties) *string { return v.Ipv4Subnet }).(pulumi.StringPtrOutput)
+}
+
+func (o InterfacePropertiesOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InterfaceProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type InterfacePropertiesResponse struct {
-	Name string `pulumi:"name"`
+	Ipv4Address *string `pulumi:"ipv4Address"`
+	Ipv4Gateway *string `pulumi:"ipv4Gateway"`
+	Ipv4Subnet  *string `pulumi:"ipv4Subnet"`
+	Name        *string `pulumi:"name"`
 }
 
 type InterfacePropertiesResponseOutput struct{ *pulumi.OutputState }
@@ -1046,8 +1443,833 @@ func (o InterfacePropertiesResponseOutput) ToInterfacePropertiesResponseOutputWi
 	return o
 }
 
-func (o InterfacePropertiesResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v InterfacePropertiesResponse) string { return v.Name }).(pulumi.StringOutput)
+func (o InterfacePropertiesResponseOutput) Ipv4Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InterfacePropertiesResponse) *string { return v.Ipv4Address }).(pulumi.StringPtrOutput)
+}
+
+func (o InterfacePropertiesResponseOutput) Ipv4Gateway() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InterfacePropertiesResponse) *string { return v.Ipv4Gateway }).(pulumi.StringPtrOutput)
+}
+
+func (o InterfacePropertiesResponseOutput) Ipv4Subnet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InterfacePropertiesResponse) *string { return v.Ipv4Subnet }).(pulumi.StringPtrOutput)
+}
+
+func (o InterfacePropertiesResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InterfacePropertiesResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type KeyVaultCertificate struct {
+	CertificateUrl *string `pulumi:"certificateUrl"`
+}
+
+
+
+
+
+type KeyVaultCertificateInput interface {
+	pulumi.Input
+
+	ToKeyVaultCertificateOutput() KeyVaultCertificateOutput
+	ToKeyVaultCertificateOutputWithContext(context.Context) KeyVaultCertificateOutput
+}
+
+type KeyVaultCertificateArgs struct {
+	CertificateUrl pulumi.StringPtrInput `pulumi:"certificateUrl"`
+}
+
+func (KeyVaultCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultCertificate)(nil)).Elem()
+}
+
+func (i KeyVaultCertificateArgs) ToKeyVaultCertificateOutput() KeyVaultCertificateOutput {
+	return i.ToKeyVaultCertificateOutputWithContext(context.Background())
+}
+
+func (i KeyVaultCertificateArgs) ToKeyVaultCertificateOutputWithContext(ctx context.Context) KeyVaultCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultCertificateOutput)
+}
+
+func (i KeyVaultCertificateArgs) ToKeyVaultCertificatePtrOutput() KeyVaultCertificatePtrOutput {
+	return i.ToKeyVaultCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i KeyVaultCertificateArgs) ToKeyVaultCertificatePtrOutputWithContext(ctx context.Context) KeyVaultCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultCertificateOutput).ToKeyVaultCertificatePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type KeyVaultCertificatePtrInput interface {
+	pulumi.Input
+
+	ToKeyVaultCertificatePtrOutput() KeyVaultCertificatePtrOutput
+	ToKeyVaultCertificatePtrOutputWithContext(context.Context) KeyVaultCertificatePtrOutput
+}
+
+type keyVaultCertificatePtrType KeyVaultCertificateArgs
+
+func KeyVaultCertificatePtr(v *KeyVaultCertificateArgs) KeyVaultCertificatePtrInput {
+	return (*keyVaultCertificatePtrType)(v)
+}
+
+func (*keyVaultCertificatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultCertificate)(nil)).Elem()
+}
+
+func (i *keyVaultCertificatePtrType) ToKeyVaultCertificatePtrOutput() KeyVaultCertificatePtrOutput {
+	return i.ToKeyVaultCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i *keyVaultCertificatePtrType) ToKeyVaultCertificatePtrOutputWithContext(ctx context.Context) KeyVaultCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultCertificatePtrOutput)
+}
+
+type KeyVaultCertificateOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultCertificate)(nil)).Elem()
+}
+
+func (o KeyVaultCertificateOutput) ToKeyVaultCertificateOutput() KeyVaultCertificateOutput {
+	return o
+}
+
+func (o KeyVaultCertificateOutput) ToKeyVaultCertificateOutputWithContext(ctx context.Context) KeyVaultCertificateOutput {
+	return o
+}
+
+func (o KeyVaultCertificateOutput) ToKeyVaultCertificatePtrOutput() KeyVaultCertificatePtrOutput {
+	return o.ToKeyVaultCertificatePtrOutputWithContext(context.Background())
+}
+
+func (o KeyVaultCertificateOutput) ToKeyVaultCertificatePtrOutputWithContext(ctx context.Context) KeyVaultCertificatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultCertificate) *KeyVaultCertificate {
+		return &v
+	}).(KeyVaultCertificatePtrOutput)
+}
+
+func (o KeyVaultCertificateOutput) CertificateUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultCertificate) *string { return v.CertificateUrl }).(pulumi.StringPtrOutput)
+}
+
+type KeyVaultCertificatePtrOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultCertificatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultCertificate)(nil)).Elem()
+}
+
+func (o KeyVaultCertificatePtrOutput) ToKeyVaultCertificatePtrOutput() KeyVaultCertificatePtrOutput {
+	return o
+}
+
+func (o KeyVaultCertificatePtrOutput) ToKeyVaultCertificatePtrOutputWithContext(ctx context.Context) KeyVaultCertificatePtrOutput {
+	return o
+}
+
+func (o KeyVaultCertificatePtrOutput) Elem() KeyVaultCertificateOutput {
+	return o.ApplyT(func(v *KeyVaultCertificate) KeyVaultCertificate {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultCertificate
+		return ret
+	}).(KeyVaultCertificateOutput)
+}
+
+func (o KeyVaultCertificatePtrOutput) CertificateUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+type KeyVaultCertificateResponse struct {
+	CertificateUrl *string `pulumi:"certificateUrl"`
+}
+
+type KeyVaultCertificateResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultCertificateResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultCertificateResponse)(nil)).Elem()
+}
+
+func (o KeyVaultCertificateResponseOutput) ToKeyVaultCertificateResponseOutput() KeyVaultCertificateResponseOutput {
+	return o
+}
+
+func (o KeyVaultCertificateResponseOutput) ToKeyVaultCertificateResponseOutputWithContext(ctx context.Context) KeyVaultCertificateResponseOutput {
+	return o
+}
+
+func (o KeyVaultCertificateResponseOutput) CertificateUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultCertificateResponse) *string { return v.CertificateUrl }).(pulumi.StringPtrOutput)
+}
+
+type KeyVaultCertificateResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultCertificateResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultCertificateResponse)(nil)).Elem()
+}
+
+func (o KeyVaultCertificateResponsePtrOutput) ToKeyVaultCertificateResponsePtrOutput() KeyVaultCertificateResponsePtrOutput {
+	return o
+}
+
+func (o KeyVaultCertificateResponsePtrOutput) ToKeyVaultCertificateResponsePtrOutputWithContext(ctx context.Context) KeyVaultCertificateResponsePtrOutput {
+	return o
+}
+
+func (o KeyVaultCertificateResponsePtrOutput) Elem() KeyVaultCertificateResponseOutput {
+	return o.ApplyT(func(v *KeyVaultCertificateResponse) KeyVaultCertificateResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultCertificateResponse
+		return ret
+	}).(KeyVaultCertificateResponseOutput)
+}
+
+func (o KeyVaultCertificateResponsePtrOutput) CertificateUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultCertificateResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+type KeyVaultKey struct {
+	KeyUrl *string `pulumi:"keyUrl"`
+}
+
+
+
+
+
+type KeyVaultKeyInput interface {
+	pulumi.Input
+
+	ToKeyVaultKeyOutput() KeyVaultKeyOutput
+	ToKeyVaultKeyOutputWithContext(context.Context) KeyVaultKeyOutput
+}
+
+type KeyVaultKeyArgs struct {
+	KeyUrl pulumi.StringPtrInput `pulumi:"keyUrl"`
+}
+
+func (KeyVaultKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKey)(nil)).Elem()
+}
+
+func (i KeyVaultKeyArgs) ToKeyVaultKeyOutput() KeyVaultKeyOutput {
+	return i.ToKeyVaultKeyOutputWithContext(context.Background())
+}
+
+func (i KeyVaultKeyArgs) ToKeyVaultKeyOutputWithContext(ctx context.Context) KeyVaultKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyOutput)
+}
+
+func (i KeyVaultKeyArgs) ToKeyVaultKeyPtrOutput() KeyVaultKeyPtrOutput {
+	return i.ToKeyVaultKeyPtrOutputWithContext(context.Background())
+}
+
+func (i KeyVaultKeyArgs) ToKeyVaultKeyPtrOutputWithContext(ctx context.Context) KeyVaultKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyOutput).ToKeyVaultKeyPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type KeyVaultKeyPtrInput interface {
+	pulumi.Input
+
+	ToKeyVaultKeyPtrOutput() KeyVaultKeyPtrOutput
+	ToKeyVaultKeyPtrOutputWithContext(context.Context) KeyVaultKeyPtrOutput
+}
+
+type keyVaultKeyPtrType KeyVaultKeyArgs
+
+func KeyVaultKeyPtr(v *KeyVaultKeyArgs) KeyVaultKeyPtrInput {
+	return (*keyVaultKeyPtrType)(v)
+}
+
+func (*keyVaultKeyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultKey)(nil)).Elem()
+}
+
+func (i *keyVaultKeyPtrType) ToKeyVaultKeyPtrOutput() KeyVaultKeyPtrOutput {
+	return i.ToKeyVaultKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *keyVaultKeyPtrType) ToKeyVaultKeyPtrOutputWithContext(ctx context.Context) KeyVaultKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyPtrOutput)
+}
+
+type KeyVaultKeyOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKey)(nil)).Elem()
+}
+
+func (o KeyVaultKeyOutput) ToKeyVaultKeyOutput() KeyVaultKeyOutput {
+	return o
+}
+
+func (o KeyVaultKeyOutput) ToKeyVaultKeyOutputWithContext(ctx context.Context) KeyVaultKeyOutput {
+	return o
+}
+
+func (o KeyVaultKeyOutput) ToKeyVaultKeyPtrOutput() KeyVaultKeyPtrOutput {
+	return o.ToKeyVaultKeyPtrOutputWithContext(context.Background())
+}
+
+func (o KeyVaultKeyOutput) ToKeyVaultKeyPtrOutputWithContext(ctx context.Context) KeyVaultKeyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultKey) *KeyVaultKey {
+		return &v
+	}).(KeyVaultKeyPtrOutput)
+}
+
+func (o KeyVaultKeyOutput) KeyUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultKey) *string { return v.KeyUrl }).(pulumi.StringPtrOutput)
+}
+
+type KeyVaultKeyPtrOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultKeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultKey)(nil)).Elem()
+}
+
+func (o KeyVaultKeyPtrOutput) ToKeyVaultKeyPtrOutput() KeyVaultKeyPtrOutput {
+	return o
+}
+
+func (o KeyVaultKeyPtrOutput) ToKeyVaultKeyPtrOutputWithContext(ctx context.Context) KeyVaultKeyPtrOutput {
+	return o
+}
+
+func (o KeyVaultKeyPtrOutput) Elem() KeyVaultKeyOutput {
+	return o.ApplyT(func(v *KeyVaultKey) KeyVaultKey {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultKey
+		return ret
+	}).(KeyVaultKeyOutput)
+}
+
+func (o KeyVaultKeyPtrOutput) KeyUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultKey) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+type KeyVaultKeyResponse struct {
+	KeyUrl *string `pulumi:"keyUrl"`
+}
+
+type KeyVaultKeyResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultKeyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyResponse)(nil)).Elem()
+}
+
+func (o KeyVaultKeyResponseOutput) ToKeyVaultKeyResponseOutput() KeyVaultKeyResponseOutput {
+	return o
+}
+
+func (o KeyVaultKeyResponseOutput) ToKeyVaultKeyResponseOutputWithContext(ctx context.Context) KeyVaultKeyResponseOutput {
+	return o
+}
+
+func (o KeyVaultKeyResponseOutput) KeyUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyResponse) *string { return v.KeyUrl }).(pulumi.StringPtrOutput)
+}
+
+type KeyVaultKeyResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultKeyResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultKeyResponse)(nil)).Elem()
+}
+
+func (o KeyVaultKeyResponsePtrOutput) ToKeyVaultKeyResponsePtrOutput() KeyVaultKeyResponsePtrOutput {
+	return o
+}
+
+func (o KeyVaultKeyResponsePtrOutput) ToKeyVaultKeyResponsePtrOutputWithContext(ctx context.Context) KeyVaultKeyResponsePtrOutput {
+	return o
+}
+
+func (o KeyVaultKeyResponsePtrOutput) Elem() KeyVaultKeyResponseOutput {
+	return o.ApplyT(func(v *KeyVaultKeyResponse) KeyVaultKeyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultKeyResponse
+		return ret
+	}).(KeyVaultKeyResponseOutput)
+}
+
+func (o KeyVaultKeyResponsePtrOutput) KeyUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultKeyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+type LocalDiagnosticsAccessConfiguration struct {
+	HttpsServerCertificate *KeyVaultCertificate `pulumi:"httpsServerCertificate"`
+}
+
+
+
+
+
+type LocalDiagnosticsAccessConfigurationInput interface {
+	pulumi.Input
+
+	ToLocalDiagnosticsAccessConfigurationOutput() LocalDiagnosticsAccessConfigurationOutput
+	ToLocalDiagnosticsAccessConfigurationOutputWithContext(context.Context) LocalDiagnosticsAccessConfigurationOutput
+}
+
+type LocalDiagnosticsAccessConfigurationArgs struct {
+	HttpsServerCertificate KeyVaultCertificatePtrInput `pulumi:"httpsServerCertificate"`
+}
+
+func (LocalDiagnosticsAccessConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocalDiagnosticsAccessConfiguration)(nil)).Elem()
+}
+
+func (i LocalDiagnosticsAccessConfigurationArgs) ToLocalDiagnosticsAccessConfigurationOutput() LocalDiagnosticsAccessConfigurationOutput {
+	return i.ToLocalDiagnosticsAccessConfigurationOutputWithContext(context.Background())
+}
+
+func (i LocalDiagnosticsAccessConfigurationArgs) ToLocalDiagnosticsAccessConfigurationOutputWithContext(ctx context.Context) LocalDiagnosticsAccessConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalDiagnosticsAccessConfigurationOutput)
+}
+
+func (i LocalDiagnosticsAccessConfigurationArgs) ToLocalDiagnosticsAccessConfigurationPtrOutput() LocalDiagnosticsAccessConfigurationPtrOutput {
+	return i.ToLocalDiagnosticsAccessConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i LocalDiagnosticsAccessConfigurationArgs) ToLocalDiagnosticsAccessConfigurationPtrOutputWithContext(ctx context.Context) LocalDiagnosticsAccessConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalDiagnosticsAccessConfigurationOutput).ToLocalDiagnosticsAccessConfigurationPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type LocalDiagnosticsAccessConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToLocalDiagnosticsAccessConfigurationPtrOutput() LocalDiagnosticsAccessConfigurationPtrOutput
+	ToLocalDiagnosticsAccessConfigurationPtrOutputWithContext(context.Context) LocalDiagnosticsAccessConfigurationPtrOutput
+}
+
+type localDiagnosticsAccessConfigurationPtrType LocalDiagnosticsAccessConfigurationArgs
+
+func LocalDiagnosticsAccessConfigurationPtr(v *LocalDiagnosticsAccessConfigurationArgs) LocalDiagnosticsAccessConfigurationPtrInput {
+	return (*localDiagnosticsAccessConfigurationPtrType)(v)
+}
+
+func (*localDiagnosticsAccessConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocalDiagnosticsAccessConfiguration)(nil)).Elem()
+}
+
+func (i *localDiagnosticsAccessConfigurationPtrType) ToLocalDiagnosticsAccessConfigurationPtrOutput() LocalDiagnosticsAccessConfigurationPtrOutput {
+	return i.ToLocalDiagnosticsAccessConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *localDiagnosticsAccessConfigurationPtrType) ToLocalDiagnosticsAccessConfigurationPtrOutputWithContext(ctx context.Context) LocalDiagnosticsAccessConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalDiagnosticsAccessConfigurationPtrOutput)
+}
+
+type LocalDiagnosticsAccessConfigurationOutput struct{ *pulumi.OutputState }
+
+func (LocalDiagnosticsAccessConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocalDiagnosticsAccessConfiguration)(nil)).Elem()
+}
+
+func (o LocalDiagnosticsAccessConfigurationOutput) ToLocalDiagnosticsAccessConfigurationOutput() LocalDiagnosticsAccessConfigurationOutput {
+	return o
+}
+
+func (o LocalDiagnosticsAccessConfigurationOutput) ToLocalDiagnosticsAccessConfigurationOutputWithContext(ctx context.Context) LocalDiagnosticsAccessConfigurationOutput {
+	return o
+}
+
+func (o LocalDiagnosticsAccessConfigurationOutput) ToLocalDiagnosticsAccessConfigurationPtrOutput() LocalDiagnosticsAccessConfigurationPtrOutput {
+	return o.ToLocalDiagnosticsAccessConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o LocalDiagnosticsAccessConfigurationOutput) ToLocalDiagnosticsAccessConfigurationPtrOutputWithContext(ctx context.Context) LocalDiagnosticsAccessConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocalDiagnosticsAccessConfiguration) *LocalDiagnosticsAccessConfiguration {
+		return &v
+	}).(LocalDiagnosticsAccessConfigurationPtrOutput)
+}
+
+func (o LocalDiagnosticsAccessConfigurationOutput) HttpsServerCertificate() KeyVaultCertificatePtrOutput {
+	return o.ApplyT(func(v LocalDiagnosticsAccessConfiguration) *KeyVaultCertificate { return v.HttpsServerCertificate }).(KeyVaultCertificatePtrOutput)
+}
+
+type LocalDiagnosticsAccessConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (LocalDiagnosticsAccessConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocalDiagnosticsAccessConfiguration)(nil)).Elem()
+}
+
+func (o LocalDiagnosticsAccessConfigurationPtrOutput) ToLocalDiagnosticsAccessConfigurationPtrOutput() LocalDiagnosticsAccessConfigurationPtrOutput {
+	return o
+}
+
+func (o LocalDiagnosticsAccessConfigurationPtrOutput) ToLocalDiagnosticsAccessConfigurationPtrOutputWithContext(ctx context.Context) LocalDiagnosticsAccessConfigurationPtrOutput {
+	return o
+}
+
+func (o LocalDiagnosticsAccessConfigurationPtrOutput) Elem() LocalDiagnosticsAccessConfigurationOutput {
+	return o.ApplyT(func(v *LocalDiagnosticsAccessConfiguration) LocalDiagnosticsAccessConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret LocalDiagnosticsAccessConfiguration
+		return ret
+	}).(LocalDiagnosticsAccessConfigurationOutput)
+}
+
+func (o LocalDiagnosticsAccessConfigurationPtrOutput) HttpsServerCertificate() KeyVaultCertificatePtrOutput {
+	return o.ApplyT(func(v *LocalDiagnosticsAccessConfiguration) *KeyVaultCertificate {
+		if v == nil {
+			return nil
+		}
+		return v.HttpsServerCertificate
+	}).(KeyVaultCertificatePtrOutput)
+}
+
+type LocalDiagnosticsAccessConfigurationResponse struct {
+	HttpsServerCertificate *KeyVaultCertificateResponse `pulumi:"httpsServerCertificate"`
+}
+
+type LocalDiagnosticsAccessConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (LocalDiagnosticsAccessConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocalDiagnosticsAccessConfigurationResponse)(nil)).Elem()
+}
+
+func (o LocalDiagnosticsAccessConfigurationResponseOutput) ToLocalDiagnosticsAccessConfigurationResponseOutput() LocalDiagnosticsAccessConfigurationResponseOutput {
+	return o
+}
+
+func (o LocalDiagnosticsAccessConfigurationResponseOutput) ToLocalDiagnosticsAccessConfigurationResponseOutputWithContext(ctx context.Context) LocalDiagnosticsAccessConfigurationResponseOutput {
+	return o
+}
+
+func (o LocalDiagnosticsAccessConfigurationResponseOutput) HttpsServerCertificate() KeyVaultCertificateResponsePtrOutput {
+	return o.ApplyT(func(v LocalDiagnosticsAccessConfigurationResponse) *KeyVaultCertificateResponse {
+		return v.HttpsServerCertificate
+	}).(KeyVaultCertificateResponsePtrOutput)
+}
+
+type LocalDiagnosticsAccessConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (LocalDiagnosticsAccessConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocalDiagnosticsAccessConfigurationResponse)(nil)).Elem()
+}
+
+func (o LocalDiagnosticsAccessConfigurationResponsePtrOutput) ToLocalDiagnosticsAccessConfigurationResponsePtrOutput() LocalDiagnosticsAccessConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o LocalDiagnosticsAccessConfigurationResponsePtrOutput) ToLocalDiagnosticsAccessConfigurationResponsePtrOutputWithContext(ctx context.Context) LocalDiagnosticsAccessConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o LocalDiagnosticsAccessConfigurationResponsePtrOutput) Elem() LocalDiagnosticsAccessConfigurationResponseOutput {
+	return o.ApplyT(func(v *LocalDiagnosticsAccessConfigurationResponse) LocalDiagnosticsAccessConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LocalDiagnosticsAccessConfigurationResponse
+		return ret
+	}).(LocalDiagnosticsAccessConfigurationResponseOutput)
+}
+
+func (o LocalDiagnosticsAccessConfigurationResponsePtrOutput) HttpsServerCertificate() KeyVaultCertificateResponsePtrOutput {
+	return o.ApplyT(func(v *LocalDiagnosticsAccessConfigurationResponse) *KeyVaultCertificateResponse {
+		if v == nil {
+			return nil
+		}
+		return v.HttpsServerCertificate
+	}).(KeyVaultCertificateResponsePtrOutput)
+}
+
+type ManagedServiceIdentity struct {
+	Type                   string                 `pulumi:"type"`
+	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
+}
+
+
+
+
+
+type ManagedServiceIdentityInput interface {
+	pulumi.Input
+
+	ToManagedServiceIdentityOutput() ManagedServiceIdentityOutput
+	ToManagedServiceIdentityOutputWithContext(context.Context) ManagedServiceIdentityOutput
+}
+
+type ManagedServiceIdentityArgs struct {
+	Type                   pulumi.StringInput `pulumi:"type"`
+	UserAssignedIdentities pulumi.MapInput    `pulumi:"userAssignedIdentities"`
+}
+
+func (ManagedServiceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedServiceIdentity)(nil)).Elem()
+}
+
+func (i ManagedServiceIdentityArgs) ToManagedServiceIdentityOutput() ManagedServiceIdentityOutput {
+	return i.ToManagedServiceIdentityOutputWithContext(context.Background())
+}
+
+func (i ManagedServiceIdentityArgs) ToManagedServiceIdentityOutputWithContext(ctx context.Context) ManagedServiceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityOutput)
+}
+
+func (i ManagedServiceIdentityArgs) ToManagedServiceIdentityPtrOutput() ManagedServiceIdentityPtrOutput {
+	return i.ToManagedServiceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedServiceIdentityArgs) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityOutput).ToManagedServiceIdentityPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type ManagedServiceIdentityPtrInput interface {
+	pulumi.Input
+
+	ToManagedServiceIdentityPtrOutput() ManagedServiceIdentityPtrOutput
+	ToManagedServiceIdentityPtrOutputWithContext(context.Context) ManagedServiceIdentityPtrOutput
+}
+
+type managedServiceIdentityPtrType ManagedServiceIdentityArgs
+
+func ManagedServiceIdentityPtr(v *ManagedServiceIdentityArgs) ManagedServiceIdentityPtrInput {
+	return (*managedServiceIdentityPtrType)(v)
+}
+
+func (*managedServiceIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedServiceIdentity)(nil)).Elem()
+}
+
+func (i *managedServiceIdentityPtrType) ToManagedServiceIdentityPtrOutput() ManagedServiceIdentityPtrOutput {
+	return i.ToManagedServiceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *managedServiceIdentityPtrType) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityPtrOutput)
+}
+
+type ManagedServiceIdentityOutput struct{ *pulumi.OutputState }
+
+func (ManagedServiceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedServiceIdentity)(nil)).Elem()
+}
+
+func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityOutput() ManagedServiceIdentityOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityOutputWithContext(ctx context.Context) ManagedServiceIdentityOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutput() ManagedServiceIdentityPtrOutput {
+	return o.ToManagedServiceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedServiceIdentity) *ManagedServiceIdentity {
+		return &v
+	}).(ManagedServiceIdentityPtrOutput)
+}
+
+func (o ManagedServiceIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedServiceIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o ManagedServiceIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v ManagedServiceIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+}
+
+type ManagedServiceIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedServiceIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedServiceIdentity)(nil)).Elem()
+}
+
+func (o ManagedServiceIdentityPtrOutput) ToManagedServiceIdentityPtrOutput() ManagedServiceIdentityPtrOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityPtrOutput) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityPtrOutput) Elem() ManagedServiceIdentityOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentity) ManagedServiceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedServiceIdentity
+		return ret
+	}).(ManagedServiceIdentityOutput)
+}
+
+func (o ManagedServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedServiceIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentity) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(pulumi.MapOutput)
+}
+
+type ManagedServiceIdentityResponse struct {
+	PrincipalId            string                                  `pulumi:"principalId"`
+	TenantId               string                                  `pulumi:"tenantId"`
+	Type                   string                                  `pulumi:"type"`
+	UserAssignedIdentities map[string]UserAssignedIdentityResponse `pulumi:"userAssignedIdentities"`
+}
+
+type ManagedServiceIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedServiceIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedServiceIdentityResponse)(nil)).Elem()
+}
+
+func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponseOutput() ManagedServiceIdentityResponseOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponseOutputWithContext(ctx context.Context) ManagedServiceIdentityResponseOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+func (o ManagedServiceIdentityResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+func (o ManagedServiceIdentityResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o ManagedServiceIdentityResponseOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityResponse) map[string]UserAssignedIdentityResponse {
+		return v.UserAssignedIdentities
+	}).(UserAssignedIdentityResponseMapOutput)
+}
+
+type ManagedServiceIdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedServiceIdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedServiceIdentityResponse)(nil)).Elem()
+}
+
+func (o ManagedServiceIdentityResponsePtrOutput) ToManagedServiceIdentityResponsePtrOutput() ManagedServiceIdentityResponsePtrOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityResponsePtrOutput) ToManagedServiceIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityResponsePtrOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityResponsePtrOutput) Elem() ManagedServiceIdentityResponseOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) ManagedServiceIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedServiceIdentityResponse
+		return ret
+	}).(ManagedServiceIdentityResponseOutput)
+}
+
+func (o ManagedServiceIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedServiceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedServiceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedServiceIdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) map[string]UserAssignedIdentityResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(UserAssignedIdentityResponseMapOutput)
 }
 
 type MobileNetworkResourceId struct {
@@ -2232,15 +3454,15 @@ func (val *PinholeTimeouts) Defaults() *PinholeTimeouts {
 	}
 	tmp := *val
 	if isZero(tmp.Icmp) {
-		icmp_ := 60
+		icmp_ := 30
 		tmp.Icmp = &icmp_
 	}
 	if isZero(tmp.Tcp) {
-		tcp_ := 7440
+		tcp_ := 180
 		tmp.Tcp = &tcp_
 	}
 	if isZero(tmp.Udp) {
-		udp_ := 300
+		udp_ := 30
 		tmp.Udp = &udp_
 	}
 	return &tmp
@@ -2270,13 +3492,13 @@ func (val *PinholeTimeoutsArgs) Defaults() *PinholeTimeoutsArgs {
 	}
 	tmp := *val
 	if isZero(tmp.Icmp) {
-		tmp.Icmp = pulumi.IntPtr(60)
+		tmp.Icmp = pulumi.IntPtr(30)
 	}
 	if isZero(tmp.Tcp) {
-		tmp.Tcp = pulumi.IntPtr(7440)
+		tmp.Tcp = pulumi.IntPtr(180)
 	}
 	if isZero(tmp.Udp) {
-		tmp.Udp = pulumi.IntPtr(300)
+		tmp.Udp = pulumi.IntPtr(30)
 	}
 	return &tmp
 }
@@ -2433,15 +3655,15 @@ func (val *PinholeTimeoutsResponse) Defaults() *PinholeTimeoutsResponse {
 	}
 	tmp := *val
 	if isZero(tmp.Icmp) {
-		icmp_ := 60
+		icmp_ := 30
 		tmp.Icmp = &icmp_
 	}
 	if isZero(tmp.Tcp) {
-		tcp_ := 7440
+		tcp_ := 180
 		tmp.Tcp = &tcp_
 	}
 	if isZero(tmp.Udp) {
-		udp_ := 300
+		udp_ := 30
 		tmp.Udp = &udp_
 	}
 	return &tmp
@@ -2522,6 +3744,283 @@ func (o PinholeTimeoutsResponsePtrOutput) Udp() pulumi.IntPtrOutput {
 		}
 		return v.Udp
 	}).(pulumi.IntPtrOutput)
+}
+
+type PlatformConfiguration struct {
+	AzureStackEdgeDevice *AzureStackEdgeDeviceResourceId `pulumi:"azureStackEdgeDevice"`
+	ConnectedCluster     *ConnectedClusterResourceId     `pulumi:"connectedCluster"`
+	CustomLocation       *CustomLocationResourceId       `pulumi:"customLocation"`
+	Type                 string                          `pulumi:"type"`
+}
+
+
+
+
+
+type PlatformConfigurationInput interface {
+	pulumi.Input
+
+	ToPlatformConfigurationOutput() PlatformConfigurationOutput
+	ToPlatformConfigurationOutputWithContext(context.Context) PlatformConfigurationOutput
+}
+
+type PlatformConfigurationArgs struct {
+	AzureStackEdgeDevice AzureStackEdgeDeviceResourceIdPtrInput `pulumi:"azureStackEdgeDevice"`
+	ConnectedCluster     ConnectedClusterResourceIdPtrInput     `pulumi:"connectedCluster"`
+	CustomLocation       CustomLocationResourceIdPtrInput       `pulumi:"customLocation"`
+	Type                 pulumi.StringInput                     `pulumi:"type"`
+}
+
+func (PlatformConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlatformConfiguration)(nil)).Elem()
+}
+
+func (i PlatformConfigurationArgs) ToPlatformConfigurationOutput() PlatformConfigurationOutput {
+	return i.ToPlatformConfigurationOutputWithContext(context.Background())
+}
+
+func (i PlatformConfigurationArgs) ToPlatformConfigurationOutputWithContext(ctx context.Context) PlatformConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlatformConfigurationOutput)
+}
+
+func (i PlatformConfigurationArgs) ToPlatformConfigurationPtrOutput() PlatformConfigurationPtrOutput {
+	return i.ToPlatformConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i PlatformConfigurationArgs) ToPlatformConfigurationPtrOutputWithContext(ctx context.Context) PlatformConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlatformConfigurationOutput).ToPlatformConfigurationPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type PlatformConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToPlatformConfigurationPtrOutput() PlatformConfigurationPtrOutput
+	ToPlatformConfigurationPtrOutputWithContext(context.Context) PlatformConfigurationPtrOutput
+}
+
+type platformConfigurationPtrType PlatformConfigurationArgs
+
+func PlatformConfigurationPtr(v *PlatformConfigurationArgs) PlatformConfigurationPtrInput {
+	return (*platformConfigurationPtrType)(v)
+}
+
+func (*platformConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlatformConfiguration)(nil)).Elem()
+}
+
+func (i *platformConfigurationPtrType) ToPlatformConfigurationPtrOutput() PlatformConfigurationPtrOutput {
+	return i.ToPlatformConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *platformConfigurationPtrType) ToPlatformConfigurationPtrOutputWithContext(ctx context.Context) PlatformConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlatformConfigurationPtrOutput)
+}
+
+type PlatformConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PlatformConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlatformConfiguration)(nil)).Elem()
+}
+
+func (o PlatformConfigurationOutput) ToPlatformConfigurationOutput() PlatformConfigurationOutput {
+	return o
+}
+
+func (o PlatformConfigurationOutput) ToPlatformConfigurationOutputWithContext(ctx context.Context) PlatformConfigurationOutput {
+	return o
+}
+
+func (o PlatformConfigurationOutput) ToPlatformConfigurationPtrOutput() PlatformConfigurationPtrOutput {
+	return o.ToPlatformConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o PlatformConfigurationOutput) ToPlatformConfigurationPtrOutputWithContext(ctx context.Context) PlatformConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlatformConfiguration) *PlatformConfiguration {
+		return &v
+	}).(PlatformConfigurationPtrOutput)
+}
+
+func (o PlatformConfigurationOutput) AzureStackEdgeDevice() AzureStackEdgeDeviceResourceIdPtrOutput {
+	return o.ApplyT(func(v PlatformConfiguration) *AzureStackEdgeDeviceResourceId { return v.AzureStackEdgeDevice }).(AzureStackEdgeDeviceResourceIdPtrOutput)
+}
+
+func (o PlatformConfigurationOutput) ConnectedCluster() ConnectedClusterResourceIdPtrOutput {
+	return o.ApplyT(func(v PlatformConfiguration) *ConnectedClusterResourceId { return v.ConnectedCluster }).(ConnectedClusterResourceIdPtrOutput)
+}
+
+func (o PlatformConfigurationOutput) CustomLocation() CustomLocationResourceIdPtrOutput {
+	return o.ApplyT(func(v PlatformConfiguration) *CustomLocationResourceId { return v.CustomLocation }).(CustomLocationResourceIdPtrOutput)
+}
+
+func (o PlatformConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PlatformConfiguration) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type PlatformConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (PlatformConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlatformConfiguration)(nil)).Elem()
+}
+
+func (o PlatformConfigurationPtrOutput) ToPlatformConfigurationPtrOutput() PlatformConfigurationPtrOutput {
+	return o
+}
+
+func (o PlatformConfigurationPtrOutput) ToPlatformConfigurationPtrOutputWithContext(ctx context.Context) PlatformConfigurationPtrOutput {
+	return o
+}
+
+func (o PlatformConfigurationPtrOutput) Elem() PlatformConfigurationOutput {
+	return o.ApplyT(func(v *PlatformConfiguration) PlatformConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret PlatformConfiguration
+		return ret
+	}).(PlatformConfigurationOutput)
+}
+
+func (o PlatformConfigurationPtrOutput) AzureStackEdgeDevice() AzureStackEdgeDeviceResourceIdPtrOutput {
+	return o.ApplyT(func(v *PlatformConfiguration) *AzureStackEdgeDeviceResourceId {
+		if v == nil {
+			return nil
+		}
+		return v.AzureStackEdgeDevice
+	}).(AzureStackEdgeDeviceResourceIdPtrOutput)
+}
+
+func (o PlatformConfigurationPtrOutput) ConnectedCluster() ConnectedClusterResourceIdPtrOutput {
+	return o.ApplyT(func(v *PlatformConfiguration) *ConnectedClusterResourceId {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectedCluster
+	}).(ConnectedClusterResourceIdPtrOutput)
+}
+
+func (o PlatformConfigurationPtrOutput) CustomLocation() CustomLocationResourceIdPtrOutput {
+	return o.ApplyT(func(v *PlatformConfiguration) *CustomLocationResourceId {
+		if v == nil {
+			return nil
+		}
+		return v.CustomLocation
+	}).(CustomLocationResourceIdPtrOutput)
+}
+
+func (o PlatformConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PlatformConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type PlatformConfigurationResponse struct {
+	AzureStackEdgeDevice *AzureStackEdgeDeviceResourceIdResponse `pulumi:"azureStackEdgeDevice"`
+	ConnectedCluster     *ConnectedClusterResourceIdResponse     `pulumi:"connectedCluster"`
+	CustomLocation       *CustomLocationResourceIdResponse       `pulumi:"customLocation"`
+	Type                 string                                  `pulumi:"type"`
+}
+
+type PlatformConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (PlatformConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlatformConfigurationResponse)(nil)).Elem()
+}
+
+func (o PlatformConfigurationResponseOutput) ToPlatformConfigurationResponseOutput() PlatformConfigurationResponseOutput {
+	return o
+}
+
+func (o PlatformConfigurationResponseOutput) ToPlatformConfigurationResponseOutputWithContext(ctx context.Context) PlatformConfigurationResponseOutput {
+	return o
+}
+
+func (o PlatformConfigurationResponseOutput) AzureStackEdgeDevice() AzureStackEdgeDeviceResourceIdResponsePtrOutput {
+	return o.ApplyT(func(v PlatformConfigurationResponse) *AzureStackEdgeDeviceResourceIdResponse {
+		return v.AzureStackEdgeDevice
+	}).(AzureStackEdgeDeviceResourceIdResponsePtrOutput)
+}
+
+func (o PlatformConfigurationResponseOutput) ConnectedCluster() ConnectedClusterResourceIdResponsePtrOutput {
+	return o.ApplyT(func(v PlatformConfigurationResponse) *ConnectedClusterResourceIdResponse { return v.ConnectedCluster }).(ConnectedClusterResourceIdResponsePtrOutput)
+}
+
+func (o PlatformConfigurationResponseOutput) CustomLocation() CustomLocationResourceIdResponsePtrOutput {
+	return o.ApplyT(func(v PlatformConfigurationResponse) *CustomLocationResourceIdResponse { return v.CustomLocation }).(CustomLocationResourceIdResponsePtrOutput)
+}
+
+func (o PlatformConfigurationResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PlatformConfigurationResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type PlatformConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PlatformConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlatformConfigurationResponse)(nil)).Elem()
+}
+
+func (o PlatformConfigurationResponsePtrOutput) ToPlatformConfigurationResponsePtrOutput() PlatformConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o PlatformConfigurationResponsePtrOutput) ToPlatformConfigurationResponsePtrOutputWithContext(ctx context.Context) PlatformConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o PlatformConfigurationResponsePtrOutput) Elem() PlatformConfigurationResponseOutput {
+	return o.ApplyT(func(v *PlatformConfigurationResponse) PlatformConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PlatformConfigurationResponse
+		return ret
+	}).(PlatformConfigurationResponseOutput)
+}
+
+func (o PlatformConfigurationResponsePtrOutput) AzureStackEdgeDevice() AzureStackEdgeDeviceResourceIdResponsePtrOutput {
+	return o.ApplyT(func(v *PlatformConfigurationResponse) *AzureStackEdgeDeviceResourceIdResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AzureStackEdgeDevice
+	}).(AzureStackEdgeDeviceResourceIdResponsePtrOutput)
+}
+
+func (o PlatformConfigurationResponsePtrOutput) ConnectedCluster() ConnectedClusterResourceIdResponsePtrOutput {
+	return o.ApplyT(func(v *PlatformConfigurationResponse) *ConnectedClusterResourceIdResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectedCluster
+	}).(ConnectedClusterResourceIdResponsePtrOutput)
+}
+
+func (o PlatformConfigurationResponsePtrOutput) CustomLocation() CustomLocationResourceIdResponsePtrOutput {
+	return o.ApplyT(func(v *PlatformConfigurationResponse) *CustomLocationResourceIdResponse {
+		if v == nil {
+			return nil
+		}
+		return v.CustomLocation
+	}).(CustomLocationResourceIdResponsePtrOutput)
+}
+
+func (o PlatformConfigurationResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PlatformConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type PlmnId struct {
@@ -2618,7 +4117,7 @@ func (val *PortRange) Defaults() *PortRange {
 	}
 	tmp := *val
 	if isZero(tmp.MaxPort) {
-		maxPort_ := 65535
+		maxPort_ := 49999
 		tmp.MaxPort = &maxPort_
 	}
 	if isZero(tmp.MinPort) {
@@ -2651,7 +4150,7 @@ func (val *PortRangeArgs) Defaults() *PortRangeArgs {
 	}
 	tmp := *val
 	if isZero(tmp.MaxPort) {
-		tmp.MaxPort = pulumi.IntPtr(65535)
+		tmp.MaxPort = pulumi.IntPtr(49999)
 	}
 	if isZero(tmp.MinPort) {
 		tmp.MinPort = pulumi.IntPtr(1024)
@@ -2797,7 +4296,7 @@ func (val *PortRangeResponse) Defaults() *PortRangeResponse {
 	}
 	tmp := *val
 	if isZero(tmp.MaxPort) {
-		maxPort_ := 65535
+		maxPort_ := 49999
 		tmp.MaxPort = &maxPort_
 	}
 	if isZero(tmp.MinPort) {
@@ -4928,6 +6427,100 @@ func (o SubResourceResponseArrayOutput) Index(i pulumi.IntInput) SubResourceResp
 	}).(SubResourceResponseOutput)
 }
 
+type SystemDataResponse struct {
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+type UserAssignedIdentityResponse struct {
+	ClientId    string `pulumi:"clientId"`
+	PrincipalId string `pulumi:"principalId"`
+}
+
+type UserAssignedIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutputWithContext(ctx context.Context) UserAssignedIdentityResponseOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+func (o UserAssignedIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type UserAssignedIdentityResponseMapOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityResponseMapOutput) ToUserAssignedIdentityResponseMapOutput() UserAssignedIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseMapOutput) ToUserAssignedIdentityResponseMapOutputWithContext(ctx context.Context) UserAssignedIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) UserAssignedIdentityResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAssignedIdentityResponse {
+		return vs[0].(map[string]UserAssignedIdentityResponse)[vs[1].(string)]
+	}).(UserAssignedIdentityResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AmbrOutput{})
 	pulumi.RegisterOutputType(AmbrPtrOutput{})
@@ -4937,6 +6530,14 @@ func init() {
 	pulumi.RegisterOutputType(AttachedDataNetworkResourceIdPtrOutput{})
 	pulumi.RegisterOutputType(AttachedDataNetworkResourceIdResponseOutput{})
 	pulumi.RegisterOutputType(AttachedDataNetworkResourceIdResponsePtrOutput{})
+	pulumi.RegisterOutputType(AzureStackEdgeDeviceResourceIdOutput{})
+	pulumi.RegisterOutputType(AzureStackEdgeDeviceResourceIdPtrOutput{})
+	pulumi.RegisterOutputType(AzureStackEdgeDeviceResourceIdResponseOutput{})
+	pulumi.RegisterOutputType(AzureStackEdgeDeviceResourceIdResponsePtrOutput{})
+	pulumi.RegisterOutputType(ConnectedClusterResourceIdOutput{})
+	pulumi.RegisterOutputType(ConnectedClusterResourceIdPtrOutput{})
+	pulumi.RegisterOutputType(ConnectedClusterResourceIdResponseOutput{})
+	pulumi.RegisterOutputType(ConnectedClusterResourceIdResponsePtrOutput{})
 	pulumi.RegisterOutputType(CustomLocationResourceIdOutput{})
 	pulumi.RegisterOutputType(CustomLocationResourceIdPtrOutput{})
 	pulumi.RegisterOutputType(CustomLocationResourceIdResponseOutput{})
@@ -4949,6 +6550,22 @@ func init() {
 	pulumi.RegisterOutputType(DataNetworkResourceIdResponseOutput{})
 	pulumi.RegisterOutputType(InterfacePropertiesOutput{})
 	pulumi.RegisterOutputType(InterfacePropertiesResponseOutput{})
+	pulumi.RegisterOutputType(KeyVaultCertificateOutput{})
+	pulumi.RegisterOutputType(KeyVaultCertificatePtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultCertificateResponseOutput{})
+	pulumi.RegisterOutputType(KeyVaultCertificateResponsePtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyPtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyResponseOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyResponsePtrOutput{})
+	pulumi.RegisterOutputType(LocalDiagnosticsAccessConfigurationOutput{})
+	pulumi.RegisterOutputType(LocalDiagnosticsAccessConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(LocalDiagnosticsAccessConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(LocalDiagnosticsAccessConfigurationResponsePtrOutput{})
+	pulumi.RegisterOutputType(ManagedServiceIdentityOutput{})
+	pulumi.RegisterOutputType(ManagedServiceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ManagedServiceIdentityResponseOutput{})
+	pulumi.RegisterOutputType(ManagedServiceIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(MobileNetworkResourceIdOutput{})
 	pulumi.RegisterOutputType(MobileNetworkResourceIdPtrOutput{})
 	pulumi.RegisterOutputType(MobileNetworkResourceIdResponseOutput{})
@@ -4969,6 +6586,10 @@ func init() {
 	pulumi.RegisterOutputType(PinholeTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(PinholeTimeoutsResponseOutput{})
 	pulumi.RegisterOutputType(PinholeTimeoutsResponsePtrOutput{})
+	pulumi.RegisterOutputType(PlatformConfigurationOutput{})
+	pulumi.RegisterOutputType(PlatformConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(PlatformConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(PlatformConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(PlmnIdOutput{})
 	pulumi.RegisterOutputType(PlmnIdResponseOutput{})
 	pulumi.RegisterOutputType(PortRangeOutput{})
@@ -5017,4 +6638,7 @@ func init() {
 	pulumi.RegisterOutputType(SubResourceArrayOutput{})
 	pulumi.RegisterOutputType(SubResourceResponseOutput{})
 	pulumi.RegisterOutputType(SubResourceResponseArrayOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityResponseMapOutput{})
 }

@@ -11,17 +11,17 @@ namespace Pulumi.AzureNative.MobileNetwork.Outputs
 {
 
     /// <summary>
-    /// Single-Network Slice Selection Assistance Information (S-NSSAI).
+    /// Single-network slice selection assistance information (S-NSSAI).
     /// </summary>
     [OutputType]
     public sealed class SnssaiResponse
     {
         /// <summary>
-        /// Slice Differentiator (SD).
+        /// Slice differentiator (SD).
         /// </summary>
         public readonly string? Sd;
         /// <summary>
-        /// Slice/Service Type (SST).
+        /// Slice/service type (SST).
         /// </summary>
         public readonly int Sst;
 

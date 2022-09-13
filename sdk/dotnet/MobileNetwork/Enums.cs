@@ -8,7 +8,64 @@ using Pulumi;
 namespace Pulumi.AzureNative.MobileNetwork
 {
     /// <summary>
-    /// The core network technology generation.
+    /// The SKU defining the throughput and SIM allowances for this packet core control plane deployment.
+    /// </summary>
+    [EnumType]
+    public readonly struct BillingSku : IEquatable<BillingSku>
+    {
+        private readonly string _value;
+
+        private BillingSku(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Evaluation package plan
+        /// </summary>
+        public static BillingSku EvaluationPackage { get; } = new BillingSku("EvaluationPackage");
+        /// <summary>
+        /// Flagship starter package plan
+        /// </summary>
+        public static BillingSku FlagshipStarterPackage { get; } = new BillingSku("FlagshipStarterPackage");
+        /// <summary>
+        /// Edge site 2Gbps plan
+        /// </summary>
+        public static BillingSku EdgeSite2GBPS { get; } = new BillingSku("EdgeSite2GBPS");
+        /// <summary>
+        /// Edge site 3Gbps plan
+        /// </summary>
+        public static BillingSku EdgeSite3GBPS { get; } = new BillingSku("EdgeSite3GBPS");
+        /// <summary>
+        /// Edge site 4Gbps plan
+        /// </summary>
+        public static BillingSku EdgeSite4GBPS { get; } = new BillingSku("EdgeSite4GBPS");
+        /// <summary>
+        /// Medium package plan
+        /// </summary>
+        public static BillingSku MediumPackage { get; } = new BillingSku("MediumPackage");
+        /// <summary>
+        /// Large package plan
+        /// </summary>
+        public static BillingSku LargePackage { get; } = new BillingSku("LargePackage");
+
+        public static bool operator ==(BillingSku left, BillingSku right) => left.Equals(right);
+        public static bool operator !=(BillingSku left, BillingSku right) => !left.Equals(right);
+
+        public static explicit operator string(BillingSku value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BillingSku other && Equals(other);
+        public bool Equals(BillingSku other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The core network technology generation (5G core or EPC / 4G core).
     /// </summary>
     [EnumType]
     public readonly struct CoreNetworkType : IEquatable<CoreNetworkType>
@@ -20,7 +77,13 @@ namespace Pulumi.AzureNative.MobileNetwork
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// 5G core
+        /// </summary>
         public static CoreNetworkType CoreNetworkType_5GC { get; } = new CoreNetworkType("5GC");
+        /// <summary>
+        /// EPC / 4G core
+        /// </summary>
         public static CoreNetworkType EPC { get; } = new CoreNetworkType("EPC");
 
         public static bool operator ==(CoreNetworkType left, CoreNetworkType right) => left.Equals(right);
@@ -72,7 +135,40 @@ namespace Pulumi.AzureNative.MobileNetwork
     }
 
     /// <summary>
-    /// Whether NAPT is enabled for connections to this attachedDataNetwork.
+    /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedServiceIdentityType : IEquatable<ManagedServiceIdentityType>
+    {
+        private readonly string _value;
+
+        private ManagedServiceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedServiceIdentityType None { get; } = new ManagedServiceIdentityType("None");
+        public static ManagedServiceIdentityType SystemAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned");
+        public static ManagedServiceIdentityType UserAssigned { get; } = new ManagedServiceIdentityType("UserAssigned");
+        public static ManagedServiceIdentityType SystemAssigned_UserAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned,UserAssigned");
+
+        public static bool operator ==(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedServiceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedServiceIdentityType other && Equals(other);
+        public bool Equals(ManagedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether NAPT is enabled for connections to this attached data network.
     /// </summary>
     [EnumType]
     public readonly struct NaptEnabled : IEquatable<NaptEnabled>
@@ -84,7 +180,13 @@ namespace Pulumi.AzureNative.MobileNetwork
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// NAPT is enabled
+        /// </summary>
         public static NaptEnabled Enabled { get; } = new NaptEnabled("Enabled");
+        /// <summary>
+        /// NAPT is disabled
+        /// </summary>
         public static NaptEnabled Disabled { get; } = new NaptEnabled("Disabled");
 
         public static bool operator ==(NaptEnabled left, NaptEnabled right) => left.Equals(right);
@@ -134,7 +236,44 @@ namespace Pulumi.AzureNative.MobileNetwork
     }
 
     /// <summary>
-    /// Default QoS Flow preemption capability.  The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+    /// The platform type where packet core is deployed.
+    /// </summary>
+    [EnumType]
+    public readonly struct PlatformType : IEquatable<PlatformType>
+    {
+        private readonly string _value;
+
+        private PlatformType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// If this option is chosen, you must set one of "azureStackEdgeDevice", "connectedCluster" or "customLocation". If multiple are set then "customLocation" will take precedence over "connectedCluster" which takes precedence over "azureStackEdgeDevice".
+        /// </summary>
+        public static PlatformType AKS_HCI { get; } = new PlatformType("AKS-HCI");
+        /// <summary>
+        /// If this option is chosen, you must set one of "connectedCluster" or "customLocation". If multiple are set then "customLocation" will take precedence over "connectedCluster".
+        /// </summary>
+        public static PlatformType BaseVM { get; } = new PlatformType("BaseVM");
+
+        public static bool operator ==(PlatformType left, PlatformType right) => left.Equals(right);
+        public static bool operator !=(PlatformType left, PlatformType right) => !left.Equals(right);
+
+        public static explicit operator string(PlatformType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PlatformType other && Equals(other);
+        public bool Equals(PlatformType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Default QoS Flow preemption capability. The preemption capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
     /// </summary>
     [EnumType]
     public readonly struct PreemptionCapability : IEquatable<PreemptionCapability>
@@ -146,7 +285,13 @@ namespace Pulumi.AzureNative.MobileNetwork
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Cannot preempt
+        /// </summary>
         public static PreemptionCapability NotPreempt { get; } = new PreemptionCapability("NotPreempt");
+        /// <summary>
+        /// May preempt
+        /// </summary>
         public static PreemptionCapability MayPreempt { get; } = new PreemptionCapability("MayPreempt");
 
         public static bool operator ==(PreemptionCapability left, PreemptionCapability right) => left.Equals(right);
@@ -165,7 +310,7 @@ namespace Pulumi.AzureNative.MobileNetwork
     }
 
     /// <summary>
-    /// Default QoS Flow preemption vulnerability.  The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+    /// Default QoS Flow preemption vulnerability. The preemption vulnerability of a QoS Flow controls whether it can be preempted by a QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
     /// </summary>
     [EnumType]
     public readonly struct PreemptionVulnerability : IEquatable<PreemptionVulnerability>
@@ -177,7 +322,13 @@ namespace Pulumi.AzureNative.MobileNetwork
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Cannot be preempted
+        /// </summary>
         public static PreemptionVulnerability NotPreemptable { get; } = new PreemptionVulnerability("NotPreemptable");
+        /// <summary>
+        /// May be preempted
+        /// </summary>
         public static PreemptionVulnerability Preemptable { get; } = new PreemptionVulnerability("Preemptable");
 
         public static bool operator ==(PreemptionVulnerability left, PreemptionVulnerability right) => left.Equals(right);
@@ -208,8 +359,17 @@ namespace Pulumi.AzureNative.MobileNetwork
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Traffic flowing from the UE to the data network.
+        /// </summary>
         public static SdfDirection Uplink { get; } = new SdfDirection("Uplink");
+        /// <summary>
+        /// Traffic flowing from the data network to the UE.
+        /// </summary>
         public static SdfDirection Downlink { get; } = new SdfDirection("Downlink");
+        /// <summary>
+        /// Traffic flowing both to and from the UE.
+        /// </summary>
         public static SdfDirection Bidirectional { get; } = new SdfDirection("Bidirectional");
 
         public static bool operator ==(SdfDirection left, SdfDirection right) => left.Equals(right);
@@ -228,7 +388,7 @@ namespace Pulumi.AzureNative.MobileNetwork
     }
 
     /// <summary>
-    /// Determines whether flows that match this PCC Rule are permitted.
+    /// Determines whether flows that match this data flow policy rule are permitted.
     /// </summary>
     [EnumType]
     public readonly struct TrafficControlPermission : IEquatable<TrafficControlPermission>
@@ -240,7 +400,13 @@ namespace Pulumi.AzureNative.MobileNetwork
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Traffic matching this rule is allowed to flow.
+        /// </summary>
         public static TrafficControlPermission Enabled { get; } = new TrafficControlPermission("Enabled");
+        /// <summary>
+        /// Traffic matching this rule is not allowed to flow.
+        /// </summary>
         public static TrafficControlPermission Blocked { get; } = new TrafficControlPermission("Blocked");
 
         public static bool operator ==(TrafficControlPermission left, TrafficControlPermission right) => left.Equals(right);

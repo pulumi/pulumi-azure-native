@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.MobileNetwork.Inputs
 
     /// <summary>
     /// Range of port numbers to use as translated ports on each translated address.
-    /// If not specified and NAPT is enabled, this range defaults to 1,024 - 65,535. (Ports under 1,024 should not be used because these are special purpose ports reserved by IANA.)
+    /// If not specified and NAPT is enabled, this range defaults to 1,024 - 49,999.
+    /// (Ports under 1,024 should not be used because these are special purpose ports reserved by IANA. Ports 50,000 and above are reserved for non-NAPT use.)
     /// </summary>
     public sealed class PortRangeArgs : global::Pulumi.ResourceArgs
     {
@@ -30,7 +31,7 @@ namespace Pulumi.AzureNative.MobileNetwork.Inputs
 
         public PortRangeArgs()
         {
-            MaxPort = 65535;
+            MaxPort = 49999;
             MinPort = 1024;
         }
         public static new PortRangeArgs Empty => new PortRangeArgs();

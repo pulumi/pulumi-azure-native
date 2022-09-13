@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MobileNetwork.Outputs
 {
 
     /// <summary>
-    /// Reference to a Service resource.
+    /// Reference to a service resource.
     /// </summary>
     [OutputType]
     public sealed class ServiceResourceIdResponse

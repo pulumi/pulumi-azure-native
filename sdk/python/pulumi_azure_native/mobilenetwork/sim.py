@@ -19,6 +19,7 @@ class SimArgs:
     def __init__(__self__, *,
                  international_mobile_subscriber_identity: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 sim_group_name: pulumi.Input[str],
                  authentication_key: Optional[pulumi.Input[str]] = None,
                  created_at: Optional[pulumi.Input[str]] = None,
                  created_by: Optional[pulumi.Input[str]] = None,
@@ -28,36 +29,32 @@ class SimArgs:
                  last_modified_at: Optional[pulumi.Input[str]] = None,
                  last_modified_by: Optional[pulumi.Input[str]] = None,
                  last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
-                 location: Optional[pulumi.Input[str]] = None,
-                 mobile_network: Optional[pulumi.Input['MobileNetworkResourceIdArgs']] = None,
                  operator_key_code: Optional[pulumi.Input[str]] = None,
                  sim_name: Optional[pulumi.Input[str]] = None,
                  sim_policy: Optional[pulumi.Input['SimPolicyResourceIdArgs']] = None,
-                 static_ip_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['SimStaticIpPropertiesArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 static_ip_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['SimStaticIpPropertiesArgs']]]] = None):
         """
         The set of arguments for constructing a Sim resource.
-        :param pulumi.Input[str] international_mobile_subscriber_identity: The International Mobile Subscriber Identity (IMSI) for the sim.
+        :param pulumi.Input[str] international_mobile_subscriber_identity: The international mobile subscriber identity (IMSI) for the SIM.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] authentication_key: The ki value for the sim.
+        :param pulumi.Input[str] sim_group_name: The name of the SIM Group.
+        :param pulumi.Input[str] authentication_key: The Ki value for the SIM.
         :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
         :param pulumi.Input[str] created_by: The identity that created the resource.
         :param pulumi.Input[Union[str, 'CreatedByType']] created_by_type: The type of identity that created the resource.
-        :param pulumi.Input[str] device_type: An optional free-form text field that can be used to record the device type this sim is associated with, for example 'Video camera'. The Azure portal allows Sims to be grouped and filtered based on this value.
-        :param pulumi.Input[str] integrated_circuit_card_identifier: The Integrated Circuit Card ID (ICC Id) for the sim.
+        :param pulumi.Input[str] device_type: An optional free-form text field that can be used to record the device type this SIM is associated with, for example 'Video camera'. The Azure portal allows SIMs to be grouped and filtered based on this value.
+        :param pulumi.Input[str] integrated_circuit_card_identifier: The integrated circuit card ID (ICCID) for the SIM.
         :param pulumi.Input[str] last_modified_at: The timestamp of resource last modification (UTC)
         :param pulumi.Input[str] last_modified_by: The identity that last modified the resource.
         :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
-        :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input['MobileNetworkResourceIdArgs'] mobile_network: Mobile network that this sim belongs to
-        :param pulumi.Input[str] operator_key_code: The Opc value for the sim.
+        :param pulumi.Input[str] operator_key_code: The Opc value for the SIM.
         :param pulumi.Input[str] sim_name: The name of the SIM.
-        :param pulumi.Input['SimPolicyResourceIdArgs'] sim_policy: The simPolicy used by this sim.
-        :param pulumi.Input[Sequence[pulumi.Input['SimStaticIpPropertiesArgs']]] static_ip_configuration: A list of static IP addresses assigned to this sim. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input['SimPolicyResourceIdArgs'] sim_policy: The SIM policy used by this SIM.
+        :param pulumi.Input[Sequence[pulumi.Input['SimStaticIpPropertiesArgs']]] static_ip_configuration: A list of static IP addresses assigned to this SIM. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
         """
         pulumi.set(__self__, "international_mobile_subscriber_identity", international_mobile_subscriber_identity)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sim_group_name", sim_group_name)
         if authentication_key is not None:
             pulumi.set(__self__, "authentication_key", authentication_key)
         if created_at is not None:
@@ -76,10 +73,6 @@ class SimArgs:
             pulumi.set(__self__, "last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
             pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
-        if location is not None:
-            pulumi.set(__self__, "location", location)
-        if mobile_network is not None:
-            pulumi.set(__self__, "mobile_network", mobile_network)
         if operator_key_code is not None:
             pulumi.set(__self__, "operator_key_code", operator_key_code)
         if sim_name is not None:
@@ -88,14 +81,12 @@ class SimArgs:
             pulumi.set(__self__, "sim_policy", sim_policy)
         if static_ip_configuration is not None:
             pulumi.set(__self__, "static_ip_configuration", static_ip_configuration)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="internationalMobileSubscriberIdentity")
     def international_mobile_subscriber_identity(self) -> pulumi.Input[str]:
         """
-        The International Mobile Subscriber Identity (IMSI) for the sim.
+        The international mobile subscriber identity (IMSI) for the SIM.
         """
         return pulumi.get(self, "international_mobile_subscriber_identity")
 
@@ -116,10 +107,22 @@ class SimArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="simGroupName")
+    def sim_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the SIM Group.
+        """
+        return pulumi.get(self, "sim_group_name")
+
+    @sim_group_name.setter
+    def sim_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sim_group_name", value)
+
+    @property
     @pulumi.getter(name="authenticationKey")
     def authentication_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The ki value for the sim.
+        The Ki value for the SIM.
         """
         return pulumi.get(self, "authentication_key")
 
@@ -167,7 +170,7 @@ class SimArgs:
     @pulumi.getter(name="deviceType")
     def device_type(self) -> Optional[pulumi.Input[str]]:
         """
-        An optional free-form text field that can be used to record the device type this sim is associated with, for example 'Video camera'. The Azure portal allows Sims to be grouped and filtered based on this value.
+        An optional free-form text field that can be used to record the device type this SIM is associated with, for example 'Video camera'. The Azure portal allows SIMs to be grouped and filtered based on this value.
         """
         return pulumi.get(self, "device_type")
 
@@ -179,7 +182,7 @@ class SimArgs:
     @pulumi.getter(name="integratedCircuitCardIdentifier")
     def integrated_circuit_card_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        The Integrated Circuit Card ID (ICC Id) for the sim.
+        The integrated circuit card ID (ICCID) for the SIM.
         """
         return pulumi.get(self, "integrated_circuit_card_identifier")
 
@@ -224,34 +227,10 @@ class SimArgs:
         pulumi.set(self, "last_modified_by_type", value)
 
     @property
-    @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[str]]:
-        """
-        The geo-location where the resource lives
-        """
-        return pulumi.get(self, "location")
-
-    @location.setter
-    def location(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter(name="mobileNetwork")
-    def mobile_network(self) -> Optional[pulumi.Input['MobileNetworkResourceIdArgs']]:
-        """
-        Mobile network that this sim belongs to
-        """
-        return pulumi.get(self, "mobile_network")
-
-    @mobile_network.setter
-    def mobile_network(self, value: Optional[pulumi.Input['MobileNetworkResourceIdArgs']]):
-        pulumi.set(self, "mobile_network", value)
-
-    @property
     @pulumi.getter(name="operatorKeyCode")
     def operator_key_code(self) -> Optional[pulumi.Input[str]]:
         """
-        The Opc value for the sim.
+        The Opc value for the SIM.
         """
         return pulumi.get(self, "operator_key_code")
 
@@ -275,7 +254,7 @@ class SimArgs:
     @pulumi.getter(name="simPolicy")
     def sim_policy(self) -> Optional[pulumi.Input['SimPolicyResourceIdArgs']]:
         """
-        The simPolicy used by this sim.
+        The SIM policy used by this SIM.
         """
         return pulumi.get(self, "sim_policy")
 
@@ -287,25 +266,13 @@ class SimArgs:
     @pulumi.getter(name="staticIpConfiguration")
     def static_ip_configuration(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SimStaticIpPropertiesArgs']]]]:
         """
-        A list of static IP addresses assigned to this sim. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
+        A list of static IP addresses assigned to this SIM. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
         """
         return pulumi.get(self, "static_ip_configuration")
 
     @static_ip_configuration.setter
     def static_ip_configuration(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SimStaticIpPropertiesArgs']]]]):
         pulumi.set(self, "static_ip_configuration", value)
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Resource tags.
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags", value)
 
 
 class Sim(pulumi.CustomResource):
@@ -323,39 +290,35 @@ class Sim(pulumi.CustomResource):
                  last_modified_at: Optional[pulumi.Input[str]] = None,
                  last_modified_by: Optional[pulumi.Input[str]] = None,
                  last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
-                 location: Optional[pulumi.Input[str]] = None,
-                 mobile_network: Optional[pulumi.Input[pulumi.InputType['MobileNetworkResourceIdArgs']]] = None,
                  operator_key_code: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sim_group_name: Optional[pulumi.Input[str]] = None,
                  sim_name: Optional[pulumi.Input[str]] = None,
                  sim_policy: Optional[pulumi.Input[pulumi.InputType['SimPolicyResourceIdArgs']]] = None,
                  static_ip_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SimStaticIpPropertiesArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Sim resource.
-        API Version: 2022-01-01-preview.
+        SIM resource.
+        API Version: 2022-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] authentication_key: The ki value for the sim.
+        :param pulumi.Input[str] authentication_key: The Ki value for the SIM.
         :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
         :param pulumi.Input[str] created_by: The identity that created the resource.
         :param pulumi.Input[Union[str, 'CreatedByType']] created_by_type: The type of identity that created the resource.
-        :param pulumi.Input[str] device_type: An optional free-form text field that can be used to record the device type this sim is associated with, for example 'Video camera'. The Azure portal allows Sims to be grouped and filtered based on this value.
-        :param pulumi.Input[str] integrated_circuit_card_identifier: The Integrated Circuit Card ID (ICC Id) for the sim.
-        :param pulumi.Input[str] international_mobile_subscriber_identity: The International Mobile Subscriber Identity (IMSI) for the sim.
+        :param pulumi.Input[str] device_type: An optional free-form text field that can be used to record the device type this SIM is associated with, for example 'Video camera'. The Azure portal allows SIMs to be grouped and filtered based on this value.
+        :param pulumi.Input[str] integrated_circuit_card_identifier: The integrated circuit card ID (ICCID) for the SIM.
+        :param pulumi.Input[str] international_mobile_subscriber_identity: The international mobile subscriber identity (IMSI) for the SIM.
         :param pulumi.Input[str] last_modified_at: The timestamp of resource last modification (UTC)
         :param pulumi.Input[str] last_modified_by: The identity that last modified the resource.
         :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
-        :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['MobileNetworkResourceIdArgs']] mobile_network: Mobile network that this sim belongs to
-        :param pulumi.Input[str] operator_key_code: The Opc value for the sim.
+        :param pulumi.Input[str] operator_key_code: The Opc value for the SIM.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] sim_group_name: The name of the SIM Group.
         :param pulumi.Input[str] sim_name: The name of the SIM.
-        :param pulumi.Input[pulumi.InputType['SimPolicyResourceIdArgs']] sim_policy: The simPolicy used by this sim.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SimStaticIpPropertiesArgs']]]] static_ip_configuration: A list of static IP addresses assigned to this sim. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[pulumi.InputType['SimPolicyResourceIdArgs']] sim_policy: The SIM policy used by this SIM.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SimStaticIpPropertiesArgs']]]] static_ip_configuration: A list of static IP addresses assigned to this SIM. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
         """
         ...
     @overload
@@ -364,8 +327,8 @@ class Sim(pulumi.CustomResource):
                  args: SimArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Sim resource.
-        API Version: 2022-01-01-preview.
+        SIM resource.
+        API Version: 2022-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SimArgs args: The arguments to use to populate this resource's properties.
@@ -392,14 +355,12 @@ class Sim(pulumi.CustomResource):
                  last_modified_at: Optional[pulumi.Input[str]] = None,
                  last_modified_by: Optional[pulumi.Input[str]] = None,
                  last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
-                 location: Optional[pulumi.Input[str]] = None,
-                 mobile_network: Optional[pulumi.Input[pulumi.InputType['MobileNetworkResourceIdArgs']]] = None,
                  operator_key_code: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sim_group_name: Optional[pulumi.Input[str]] = None,
                  sim_name: Optional[pulumi.Input[str]] = None,
                  sim_policy: Optional[pulumi.Input[pulumi.InputType['SimPolicyResourceIdArgs']]] = None,
                  static_ip_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SimStaticIpPropertiesArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -421,21 +382,22 @@ class Sim(pulumi.CustomResource):
             __props__.__dict__["last_modified_at"] = last_modified_at
             __props__.__dict__["last_modified_by"] = last_modified_by
             __props__.__dict__["last_modified_by_type"] = last_modified_by_type
-            __props__.__dict__["location"] = location
-            __props__.__dict__["mobile_network"] = mobile_network
             __props__.__dict__["operator_key_code"] = operator_key_code
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sim_group_name is None and not opts.urn:
+                raise TypeError("Missing required property 'sim_group_name'")
+            __props__.__dict__["sim_group_name"] = sim_group_name
             __props__.__dict__["sim_name"] = sim_name
             __props__.__dict__["sim_policy"] = sim_policy
             __props__.__dict__["static_ip_configuration"] = static_ip_configuration
-            __props__.__dict__["tags"] = tags
-            __props__.__dict__["configuration_state"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["sim_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20220101preview:Sim"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220301preview:Sim")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20220401preview:Sim")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Sim, __self__).__init__(
             'azure-native:mobilenetwork:Sim',
@@ -459,7 +421,6 @@ class Sim(pulumi.CustomResource):
 
         __props__ = SimArgs.__new__(SimArgs)
 
-        __props__.__dict__["configuration_state"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["created_by"] = None
         __props__.__dict__["created_by_type"] = None
@@ -469,23 +430,14 @@ class Sim(pulumi.CustomResource):
         __props__.__dict__["last_modified_at"] = None
         __props__.__dict__["last_modified_by"] = None
         __props__.__dict__["last_modified_by_type"] = None
-        __props__.__dict__["location"] = None
-        __props__.__dict__["mobile_network"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["sim_policy"] = None
+        __props__.__dict__["sim_state"] = None
         __props__.__dict__["static_ip_configuration"] = None
-        __props__.__dict__["tags"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return Sim(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="configurationState")
-    def configuration_state(self) -> pulumi.Output[str]:
-        """
-        The configuration state of the sim resource - complete or incomplete.
-        """
-        return pulumi.get(self, "configuration_state")
 
     @property
     @pulumi.getter(name="createdAt")
@@ -515,7 +467,7 @@ class Sim(pulumi.CustomResource):
     @pulumi.getter(name="deviceType")
     def device_type(self) -> pulumi.Output[Optional[str]]:
         """
-        An optional free-form text field that can be used to record the device type this sim is associated with, for example 'Video camera'. The Azure portal allows Sims to be grouped and filtered based on this value.
+        An optional free-form text field that can be used to record the device type this SIM is associated with, for example 'Video camera'. The Azure portal allows SIMs to be grouped and filtered based on this value.
         """
         return pulumi.get(self, "device_type")
 
@@ -523,7 +475,7 @@ class Sim(pulumi.CustomResource):
     @pulumi.getter(name="integratedCircuitCardIdentifier")
     def integrated_circuit_card_identifier(self) -> pulumi.Output[Optional[str]]:
         """
-        The Integrated Circuit Card ID (ICC Id) for the sim.
+        The integrated circuit card ID (ICCID) for the SIM.
         """
         return pulumi.get(self, "integrated_circuit_card_identifier")
 
@@ -531,7 +483,7 @@ class Sim(pulumi.CustomResource):
     @pulumi.getter(name="internationalMobileSubscriberIdentity")
     def international_mobile_subscriber_identity(self) -> pulumi.Output[str]:
         """
-        The International Mobile Subscriber Identity (IMSI) for the sim.
+        The international mobile subscriber identity (IMSI) for the SIM.
         """
         return pulumi.get(self, "international_mobile_subscriber_identity")
 
@@ -561,22 +513,6 @@ class Sim(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[str]:
-        """
-        The geo-location where the resource lives
-        """
-        return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter(name="mobileNetwork")
-    def mobile_network(self) -> pulumi.Output[Optional['outputs.MobileNetworkResourceIdResponse']]:
-        """
-        Mobile network that this sim belongs to
-        """
-        return pulumi.get(self, "mobile_network")
-
-    @property
-    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
@@ -587,7 +523,7 @@ class Sim(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        The provisioning state of the sim resource.
+        The provisioning state of the SIM resource.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -595,25 +531,33 @@ class Sim(pulumi.CustomResource):
     @pulumi.getter(name="simPolicy")
     def sim_policy(self) -> pulumi.Output[Optional['outputs.SimPolicyResourceIdResponse']]:
         """
-        The simPolicy used by this sim.
+        The SIM policy used by this SIM.
         """
         return pulumi.get(self, "sim_policy")
+
+    @property
+    @pulumi.getter(name="simState")
+    def sim_state(self) -> pulumi.Output[str]:
+        """
+        The state of the SIM resource.
+        """
+        return pulumi.get(self, "sim_state")
 
     @property
     @pulumi.getter(name="staticIpConfiguration")
     def static_ip_configuration(self) -> pulumi.Output[Optional[Sequence['outputs.SimStaticIpPropertiesResponse']]]:
         """
-        A list of static IP addresses assigned to this sim. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
+        A list of static IP addresses assigned to this SIM. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
         """
         return pulumi.get(self, "static_ip_configuration")
 
     @property
-    @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Resource tags.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
-        return pulumi.get(self, "tags")
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

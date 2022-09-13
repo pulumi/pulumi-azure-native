@@ -37,6 +37,7 @@ type LookupPacketCoreDataPlaneResult struct {
 	Location                 string                      `pulumi:"location"`
 	Name                     string                      `pulumi:"name"`
 	ProvisioningState        string                      `pulumi:"provisioningState"`
+	SystemData               SystemDataResponse          `pulumi:"systemData"`
 	Tags                     map[string]string           `pulumi:"tags"`
 	Type                     string                      `pulumi:"type"`
 	UserPlaneAccessInterface InterfacePropertiesResponse `pulumi:"userPlaneAccessInterface"`
@@ -118,6 +119,10 @@ func (o LookupPacketCoreDataPlaneResultOutput) Name() pulumi.StringOutput {
 
 func (o LookupPacketCoreDataPlaneResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPacketCoreDataPlaneResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+func (o LookupPacketCoreDataPlaneResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupPacketCoreDataPlaneResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 func (o LookupPacketCoreDataPlaneResultOutput) Tags() pulumi.StringMapOutput {

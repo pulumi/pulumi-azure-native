@@ -20,7 +20,7 @@ __all__ = [
 @pulumi.output_type
 class ListMobileNetworkSimIdsResult:
     """
-    Response for list sim ids API service call.
+    Response for list SIM IDs API service call.
     """
     def __init__(__self__, next_link=None, value=None):
         if next_link and not isinstance(next_link, str):
@@ -42,7 +42,7 @@ class ListMobileNetworkSimIdsResult:
     @pulumi.getter
     def value(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
         """
-        A list of sim profile ids in a resource group.
+        A list of SIM IDs.
         """
         return pulumi.get(self, "value")
 
@@ -61,8 +61,8 @@ def list_mobile_network_sim_ids(mobile_network_name: Optional[str] = None,
                                 resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListMobileNetworkSimIdsResult:
     """
-    Response for list sim ids API service call.
-    API Version: 2022-01-01-preview.
+    Response for list SIM IDs API service call.
+    API Version: 2022-04-01-preview.
 
 
     :param str mobile_network_name: The name of the mobile network.
@@ -84,8 +84,8 @@ def list_mobile_network_sim_ids_output(mobile_network_name: Optional[pulumi.Inpu
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListMobileNetworkSimIdsResult]:
     """
-    Response for list sim ids API service call.
-    API Version: 2022-01-01-preview.
+    Response for list SIM IDs API service call.
+    API Version: 2022-04-01-preview.
 
 
     :param str mobile_network_name: The name of the mobile network.

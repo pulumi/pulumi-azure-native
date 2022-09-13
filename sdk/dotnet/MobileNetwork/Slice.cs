@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MobileNetwork
 {
     /// <summary>
     /// Network slice resource.
-    /// API Version: 2022-01-01-preview.
+    /// API Version: 2022-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork:Slice")]
     public partial class Slice : global::Pulumi.CustomResource
@@ -77,10 +77,16 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The S-NSSAI (single network slice selection assistance information). Unique at the scope of a MobileNetwork.
+        /// Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
         /// </summary>
         [Output("snssai")]
         public Output<Outputs.SnssaiResponse> Snssai { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -206,13 +212,13 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the mobile network slice.
+        /// The name of the network slice.
         /// </summary>
         [Input("sliceName")]
         public Input<string>? SliceName { get; set; }
 
         /// <summary>
-        /// The S-NSSAI (single network slice selection assistance information). Unique at the scope of a MobileNetwork.
+        /// Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
         /// </summary>
         [Input("snssai", required: true)]
         public Input<Inputs.SnssaiArgs> Snssai { get; set; } = null!;

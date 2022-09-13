@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Packet core data plane resource.
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-04-01-preview.
  */
 export function getPacketCoreDataPlane(args: GetPacketCoreDataPlaneArgs, opts?: pulumi.InvokeOptions): Promise<GetPacketCoreDataPlaneResult> {
     if (!opts) {
@@ -84,6 +84,10 @@ export interface GetPacketCoreDataPlaneResult {
      */
     readonly provisioningState: string;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.mobilenetwork.SystemDataResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
@@ -92,7 +96,7 @@ export interface GetPacketCoreDataPlaneResult {
      */
     readonly type: string;
     /**
-     * The user plane interface on the access network. In 5G networks this is called as N3 interface whereas in 4G networks this is called the S1-U interface.
+     * The user plane interface on the access network. For 5G networks, this is the N3 interface. For 4G networks, this is the S1-U interface.
      */
     readonly userPlaneAccessInterface: outputs.mobilenetwork.InterfacePropertiesResponse;
 }

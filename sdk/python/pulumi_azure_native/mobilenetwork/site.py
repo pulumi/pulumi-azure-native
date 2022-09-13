@@ -40,7 +40,7 @@ class SiteArgs:
         :param pulumi.Input[str] last_modified_by: The identity that last modified the resource.
         :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] network_functions: An array of ids of the network functions deployed on the site, maintained by the user.
+        :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] network_functions: An array of IDs of the network functions deployed on the site, maintained by the user.
         :param pulumi.Input[str] site_name: The name of the mobile network site.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -179,7 +179,7 @@ class SiteArgs:
     @pulumi.getter(name="networkFunctions")
     def network_functions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
         """
-        An array of ids of the network functions deployed on the site, maintained by the user.
+        An array of IDs of the network functions deployed on the site, maintained by the user.
         """
         return pulumi.get(self, "network_functions")
 
@@ -232,7 +232,7 @@ class Site(pulumi.CustomResource):
                  __props__=None):
         """
         Site resource.
-        API Version: 2022-01-01-preview.
+        API Version: 2022-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -244,7 +244,7 @@ class Site(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] mobile_network_name: The name of the mobile network.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]] network_functions: An array of ids of the network functions deployed on the site, maintained by the user.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]] network_functions: An array of IDs of the network functions deployed on the site, maintained by the user.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] site_name: The name of the mobile network site.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -257,7 +257,7 @@ class Site(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Site resource.
-        API Version: 2022-01-01-preview.
+        API Version: 2022-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SiteArgs args: The arguments to use to populate this resource's properties.
@@ -313,6 +313,7 @@ class Site(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20220101preview:Site"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220301preview:Site"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220401preview:Site")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -348,6 +349,7 @@ class Site(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["network_functions"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Site(resource_name, opts=opts, __props__=__props__)
@@ -420,7 +422,7 @@ class Site(pulumi.CustomResource):
     @pulumi.getter(name="networkFunctions")
     def network_functions(self) -> pulumi.Output[Optional[Sequence['outputs.SubResourceResponse']]]:
         """
-        An array of ids of the network functions deployed on the site, maintained by the user.
+        An array of IDs of the network functions deployed on the site, maintained by the user.
         """
         return pulumi.get(self, "network_functions")
 
@@ -428,9 +430,17 @@ class Site(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        The provisioning state of the site resource. **TODO**: Confirm if this is needed
+        The provisioning state of the site resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

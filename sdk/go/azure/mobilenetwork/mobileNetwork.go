@@ -14,19 +14,20 @@ import (
 type MobileNetwork struct {
 	pulumi.CustomResourceState
 
-	CreatedAt                         pulumi.StringPtrOutput `pulumi:"createdAt"`
-	CreatedBy                         pulumi.StringPtrOutput `pulumi:"createdBy"`
-	CreatedByType                     pulumi.StringPtrOutput `pulumi:"createdByType"`
-	LastModifiedAt                    pulumi.StringPtrOutput `pulumi:"lastModifiedAt"`
-	LastModifiedBy                    pulumi.StringPtrOutput `pulumi:"lastModifiedBy"`
-	LastModifiedByType                pulumi.StringPtrOutput `pulumi:"lastModifiedByType"`
-	Location                          pulumi.StringOutput    `pulumi:"location"`
-	Name                              pulumi.StringOutput    `pulumi:"name"`
-	ProvisioningState                 pulumi.StringOutput    `pulumi:"provisioningState"`
-	PublicLandMobileNetworkIdentifier PlmnIdResponseOutput   `pulumi:"publicLandMobileNetworkIdentifier"`
-	ServiceKey                        pulumi.StringOutput    `pulumi:"serviceKey"`
-	Tags                              pulumi.StringMapOutput `pulumi:"tags"`
-	Type                              pulumi.StringOutput    `pulumi:"type"`
+	CreatedAt                         pulumi.StringPtrOutput   `pulumi:"createdAt"`
+	CreatedBy                         pulumi.StringPtrOutput   `pulumi:"createdBy"`
+	CreatedByType                     pulumi.StringPtrOutput   `pulumi:"createdByType"`
+	LastModifiedAt                    pulumi.StringPtrOutput   `pulumi:"lastModifiedAt"`
+	LastModifiedBy                    pulumi.StringPtrOutput   `pulumi:"lastModifiedBy"`
+	LastModifiedByType                pulumi.StringPtrOutput   `pulumi:"lastModifiedByType"`
+	Location                          pulumi.StringOutput      `pulumi:"location"`
+	Name                              pulumi.StringOutput      `pulumi:"name"`
+	ProvisioningState                 pulumi.StringOutput      `pulumi:"provisioningState"`
+	PublicLandMobileNetworkIdentifier PlmnIdResponseOutput     `pulumi:"publicLandMobileNetworkIdentifier"`
+	ServiceKey                        pulumi.StringOutput      `pulumi:"serviceKey"`
+	SystemData                        SystemDataResponseOutput `pulumi:"systemData"`
+	Tags                              pulumi.StringMapOutput   `pulumi:"tags"`
+	Type                              pulumi.StringOutput      `pulumi:"type"`
 }
 
 
@@ -193,6 +194,10 @@ func (o MobileNetworkOutput) PublicLandMobileNetworkIdentifier() PlmnIdResponseO
 
 func (o MobileNetworkOutput) ServiceKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *MobileNetwork) pulumi.StringOutput { return v.ServiceKey }).(pulumi.StringOutput)
+}
+
+func (o MobileNetworkOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *MobileNetwork) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 func (o MobileNetworkOutput) Tags() pulumi.StringMapOutput {

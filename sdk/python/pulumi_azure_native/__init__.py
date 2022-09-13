@@ -12728,6 +12728,7 @@ _utilities.register(
    "azure-native:mobilenetwork:PacketCoreDataPlane": "PacketCoreDataPlane",
    "azure-native:mobilenetwork:Service": "Service",
    "azure-native:mobilenetwork:Sim": "Sim",
+   "azure-native:mobilenetwork:SimGroup": "SimGroup",
    "azure-native:mobilenetwork:SimPolicy": "SimPolicy",
    "azure-native:mobilenetwork:Site": "Site",
    "azure-native:mobilenetwork:Slice": "Slice"

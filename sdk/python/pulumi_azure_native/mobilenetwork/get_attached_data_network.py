@@ -22,7 +22,7 @@ class GetAttachedDataNetworkResult:
     """
     Attached data network resource.
     """
-    def __init__(__self__, created_at=None, created_by=None, created_by_type=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, location=None, name=None, napt_configuration=None, provisioning_state=None, tags=None, type=None, user_equipment_address_pool_prefix=None, user_equipment_static_address_pool_prefix=None, user_plane_data_interface=None):
+    def __init__(__self__, created_at=None, created_by=None, created_by_type=None, dns_addresses=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, location=None, name=None, napt_configuration=None, provisioning_state=None, system_data=None, tags=None, type=None, user_equipment_address_pool_prefix=None, user_equipment_static_address_pool_prefix=None, user_plane_data_interface=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -32,6 +32,9 @@ class GetAttachedDataNetworkResult:
         if created_by_type and not isinstance(created_by_type, str):
             raise TypeError("Expected argument 'created_by_type' to be a str")
         pulumi.set(__self__, "created_by_type", created_by_type)
+        if dns_addresses and not isinstance(dns_addresses, list):
+            raise TypeError("Expected argument 'dns_addresses' to be a list")
+        pulumi.set(__self__, "dns_addresses", dns_addresses)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -56,6 +59,9 @@ class GetAttachedDataNetworkResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -95,6 +101,14 @@ class GetAttachedDataNetworkResult:
         The type of identity that created the resource.
         """
         return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="dnsAddresses")
+    def dns_addresses(self) -> Optional[Sequence[str]]:
+        """
+        The DNS servers to signal to UEs to use for this attached data network.
+        """
+        return pulumi.get(self, "dns_addresses")
 
     @property
     @pulumi.getter
@@ -148,8 +162,8 @@ class GetAttachedDataNetworkResult:
     @pulumi.getter(name="naptConfiguration")
     def napt_configuration(self) -> Optional['outputs.NaptConfigurationResponse']:
         """
-        The Network Address and Port Translation configuration.
-        If not specified the attached data network uses a default NAPT configuration with NAPT enabled.
+        The network address and port translation (NAPT) configuration.
+        If this is not specified, the attached data network will use a default NAPT configuration with NAPT enabled.
         """
         return pulumi.get(self, "napt_configuration")
 
@@ -160,6 +174,14 @@ class GetAttachedDataNetworkResult:
         The provisioning state of the attached data network resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -181,8 +203,9 @@ class GetAttachedDataNetworkResult:
     @pulumi.getter(name="userEquipmentAddressPoolPrefix")
     def user_equipment_address_pool_prefix(self) -> Optional[Sequence[str]]:
         """
-        The user equipment address pool prefixes for the attached data network that are dynamically assigned by the core to UEs when they set up a PDU session.
-        At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined then they must be the same size.
+        The user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs.
+        The packet core instance assigns an IP address to a UE when the UE sets up a PDU session.
+         You must define at least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix. If you define both, they must be of the same size.
         """
         return pulumi.get(self, "user_equipment_address_pool_prefix")
 
@@ -190,9 +213,9 @@ class GetAttachedDataNetworkResult:
     @pulumi.getter(name="userEquipmentStaticAddressPoolPrefix")
     def user_equipment_static_address_pool_prefix(self) -> Optional[Sequence[str]]:
         """
-        The user equipment address pool prefixes for the attached data network that are statically assigned by the core to UEs when they set up a PDU session.
-        The mapping of static IP to sim is configured in staticIpConfiguration on the sim resource.
-        At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined then they must be the same size.
+        The user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs.
+        The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource.
+        At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined, they must be of the same size.
         """
         return pulumi.get(self, "user_equipment_static_address_pool_prefix")
 
@@ -200,7 +223,7 @@ class GetAttachedDataNetworkResult:
     @pulumi.getter(name="userPlaneDataInterface")
     def user_plane_data_interface(self) -> 'outputs.InterfacePropertiesResponse':
         """
-        The user plane interface on the data network. In 5G networks this is called as N6 interface whereas in 4G networks this is called as SGi interface.
+        The user plane interface on the data network. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface.
         """
         return pulumi.get(self, "user_plane_data_interface")
 
@@ -214,6 +237,7 @@ class AwaitableGetAttachedDataNetworkResult(GetAttachedDataNetworkResult):
             created_at=self.created_at,
             created_by=self.created_by,
             created_by_type=self.created_by_type,
+            dns_addresses=self.dns_addresses,
             id=self.id,
             last_modified_at=self.last_modified_at,
             last_modified_by=self.last_modified_by,
@@ -222,6 +246,7 @@ class AwaitableGetAttachedDataNetworkResult(GetAttachedDataNetworkResult):
             name=self.name,
             napt_configuration=self.napt_configuration,
             provisioning_state=self.provisioning_state,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             user_equipment_address_pool_prefix=self.user_equipment_address_pool_prefix,
@@ -236,7 +261,7 @@ def get_attached_data_network(attached_data_network_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAttachedDataNetworkResult:
     """
     Attached data network resource.
-    API Version: 2022-01-01-preview.
+    API Version: 2022-04-01-preview.
 
 
     :param str attached_data_network_name: The name of the attached data network.
@@ -256,6 +281,7 @@ def get_attached_data_network(attached_data_network_name: Optional[str] = None,
         created_at=__ret__.created_at,
         created_by=__ret__.created_by,
         created_by_type=__ret__.created_by_type,
+        dns_addresses=__ret__.dns_addresses,
         id=__ret__.id,
         last_modified_at=__ret__.last_modified_at,
         last_modified_by=__ret__.last_modified_by,
@@ -264,6 +290,7 @@ def get_attached_data_network(attached_data_network_name: Optional[str] = None,
         name=__ret__.name,
         napt_configuration=__ret__.napt_configuration,
         provisioning_state=__ret__.provisioning_state,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         user_equipment_address_pool_prefix=__ret__.user_equipment_address_pool_prefix,
@@ -279,7 +306,7 @@ def get_attached_data_network_output(attached_data_network_name: Optional[pulumi
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttachedDataNetworkResult]:
     """
     Attached data network resource.
-    API Version: 2022-01-01-preview.
+    API Version: 2022-04-01-preview.
 
 
     :param str attached_data_network_name: The name of the attached data network.

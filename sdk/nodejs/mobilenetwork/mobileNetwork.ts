@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Mobile network resource.
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-04-01-preview.
  */
 export class MobileNetwork extends pulumi.CustomResource {
     /**
@@ -75,13 +75,17 @@ export class MobileNetwork extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The unique public land mobile network identifier for the network. This is made up of the Mobile Country Code and Mobile Network Code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
+     * The unique public land mobile network identifier for the network. This is made up of the mobile country code and mobile network code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
      */
     public readonly publicLandMobileNetworkIdentifier!: pulumi.Output<outputs.mobilenetwork.PlmnIdResponse>;
     /**
      * The mobile network resource identifier
      */
     public /*out*/ readonly serviceKey!: pulumi.Output<string>;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.mobilenetwork.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -122,6 +126,7 @@ export class MobileNetwork extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["serviceKey"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -135,6 +140,7 @@ export class MobileNetwork extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publicLandMobileNetworkIdentifier"] = undefined /*out*/;
             resourceInputs["serviceKey"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -182,7 +188,7 @@ export interface MobileNetworkArgs {
      */
     mobileNetworkName?: pulumi.Input<string>;
     /**
-     * The unique public land mobile network identifier for the network. This is made up of the Mobile Country Code and Mobile Network Code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
+     * The unique public land mobile network identifier for the network. This is made up of the mobile country code and mobile network code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
      */
     publicLandMobileNetworkIdentifier: pulumi.Input<inputs.mobilenetwork.PlmnIdArgs>;
     /**

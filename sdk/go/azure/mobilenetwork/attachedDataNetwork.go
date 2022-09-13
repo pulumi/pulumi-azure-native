@@ -17,6 +17,7 @@ type AttachedDataNetwork struct {
 	CreatedAt                            pulumi.StringPtrOutput             `pulumi:"createdAt"`
 	CreatedBy                            pulumi.StringPtrOutput             `pulumi:"createdBy"`
 	CreatedByType                        pulumi.StringPtrOutput             `pulumi:"createdByType"`
+	DnsAddresses                         pulumi.StringArrayOutput           `pulumi:"dnsAddresses"`
 	LastModifiedAt                       pulumi.StringPtrOutput             `pulumi:"lastModifiedAt"`
 	LastModifiedBy                       pulumi.StringPtrOutput             `pulumi:"lastModifiedBy"`
 	LastModifiedByType                   pulumi.StringPtrOutput             `pulumi:"lastModifiedByType"`
@@ -24,6 +25,7 @@ type AttachedDataNetwork struct {
 	Name                                 pulumi.StringOutput                `pulumi:"name"`
 	NaptConfiguration                    NaptConfigurationResponsePtrOutput `pulumi:"naptConfiguration"`
 	ProvisioningState                    pulumi.StringOutput                `pulumi:"provisioningState"`
+	SystemData                           SystemDataResponseOutput           `pulumi:"systemData"`
 	Tags                                 pulumi.StringMapOutput             `pulumi:"tags"`
 	Type                                 pulumi.StringOutput                `pulumi:"type"`
 	UserEquipmentAddressPoolPrefix       pulumi.StringArrayOutput           `pulumi:"userEquipmentAddressPoolPrefix"`
@@ -101,6 +103,7 @@ type attachedDataNetworkArgs struct {
 	CreatedAt                            *string             `pulumi:"createdAt"`
 	CreatedBy                            *string             `pulumi:"createdBy"`
 	CreatedByType                        *string             `pulumi:"createdByType"`
+	DnsAddresses                         []string            `pulumi:"dnsAddresses"`
 	LastModifiedAt                       *string             `pulumi:"lastModifiedAt"`
 	LastModifiedBy                       *string             `pulumi:"lastModifiedBy"`
 	LastModifiedByType                   *string             `pulumi:"lastModifiedByType"`
@@ -121,6 +124,7 @@ type AttachedDataNetworkArgs struct {
 	CreatedAt                            pulumi.StringPtrInput
 	CreatedBy                            pulumi.StringPtrInput
 	CreatedByType                        pulumi.StringPtrInput
+	DnsAddresses                         pulumi.StringArrayInput
 	LastModifiedAt                       pulumi.StringPtrInput
 	LastModifiedBy                       pulumi.StringPtrInput
 	LastModifiedByType                   pulumi.StringPtrInput
@@ -184,6 +188,10 @@ func (o AttachedDataNetworkOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AttachedDataNetwork) pulumi.StringPtrOutput { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
+func (o AttachedDataNetworkOutput) DnsAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AttachedDataNetwork) pulumi.StringArrayOutput { return v.DnsAddresses }).(pulumi.StringArrayOutput)
+}
+
 func (o AttachedDataNetworkOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AttachedDataNetwork) pulumi.StringPtrOutput { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
@@ -210,6 +218,10 @@ func (o AttachedDataNetworkOutput) NaptConfiguration() NaptConfigurationResponse
 
 func (o AttachedDataNetworkOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *AttachedDataNetwork) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+func (o AttachedDataNetworkOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *AttachedDataNetwork) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 func (o AttachedDataNetworkOutput) Tags() pulumi.StringMapOutput {

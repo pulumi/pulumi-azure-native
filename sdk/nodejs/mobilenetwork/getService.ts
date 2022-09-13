@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Service resource.
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-04-01-preview.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
     if (!opts) {
@@ -80,7 +80,7 @@ export interface GetServiceResult {
      */
     readonly name: string;
     /**
-     * The set of PCC Rules that make up this service.
+     * The set of data flow policy rules that make up this service.
      */
     readonly pccRules: outputs.mobilenetwork.PccRuleConfigurationResponse[];
     /**
@@ -88,13 +88,17 @@ export interface GetServiceResult {
      */
     readonly provisioningState: string;
     /**
-     * A precedence value that is used to decide between services when identifying the QoS values to use for a particular Sim. A lower value means a higher priority. This value should be unique among all services configured in the Mobile Network.
+     * A precedence value that is used to decide between services when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all services configured in the mobile network.
      */
     readonly servicePrecedence: number;
     /**
-     * The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a PccRuleConfiguration. If this field is null then the UE's simPolicy will define the QoS settings.
+     * The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a PccRuleConfiguration. If this field is null then the UE's SIM policy will define the QoS settings.
      */
     readonly serviceQosPolicy?: outputs.mobilenetwork.QosPolicyResponse;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.mobilenetwork.SystemDataResponse;
     /**
      * Resource tags.
      */

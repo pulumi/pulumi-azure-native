@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.MobileNetwork
     public static class GetSim
     {
         /// <summary>
-        /// Sim resource.
-        /// API Version: 2022-01-01-preview.
+        /// SIM resource.
+        /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Task<GetSimResult> InvokeAsync(GetSimArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSimResult>("azure-native:mobilenetwork:getSim", args ?? new GetSimArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Sim resource.
-        /// API Version: 2022-01-01-preview.
+        /// SIM resource.
+        /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Output<GetSimResult> Invoke(GetSimInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSimResult>("azure-native:mobilenetwork:getSim", args ?? new GetSimInvokeArgs(), options.WithDefaults());
@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the SIM Group.
+        /// </summary>
+        [Input("simGroupName", required: true)]
+        public string SimGroupName { get; set; } = null!;
 
         /// <summary>
         /// The name of the SIM.
@@ -56,6 +62,12 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// The name of the SIM Group.
+        /// </summary>
+        [Input("simGroupName", required: true)]
+        public Input<string> SimGroupName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the SIM.
         /// </summary>
         [Input("simName", required: true)]
@@ -72,10 +84,6 @@ namespace Pulumi.AzureNative.MobileNetwork
     public sealed class GetSimResult
     {
         /// <summary>
-        /// The configuration state of the sim resource - complete or incomplete.
-        /// </summary>
-        public readonly string ConfigurationState;
-        /// <summary>
         /// The timestamp of resource creation (UTC).
         /// </summary>
         public readonly string? CreatedAt;
@@ -88,7 +96,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         public readonly string? CreatedByType;
         /// <summary>
-        /// An optional free-form text field that can be used to record the device type this sim is associated with, for example 'Video camera'. The Azure portal allows Sims to be grouped and filtered based on this value.
+        /// An optional free-form text field that can be used to record the device type this SIM is associated with, for example 'Video camera'. The Azure portal allows SIMs to be grouped and filtered based on this value.
         /// </summary>
         public readonly string? DeviceType;
         /// <summary>
@@ -96,11 +104,11 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The Integrated Circuit Card ID (ICC Id) for the sim.
+        /// The integrated circuit card ID (ICCID) for the SIM.
         /// </summary>
         public readonly string? IntegratedCircuitCardIdentifier;
         /// <summary>
-        /// The International Mobile Subscriber Identity (IMSI) for the sim.
+        /// The international mobile subscriber identity (IMSI) for the SIM.
         /// </summary>
         public readonly string InternationalMobileSubscriberIdentity;
         /// <summary>
@@ -116,33 +124,29 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         public readonly string? LastModifiedByType;
         /// <summary>
-        /// The geo-location where the resource lives
-        /// </summary>
-        public readonly string Location;
-        /// <summary>
-        /// Mobile network that this sim belongs to
-        /// </summary>
-        public readonly Outputs.MobileNetworkResourceIdResponse? MobileNetwork;
-        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning state of the sim resource.
+        /// The provisioning state of the SIM resource.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The simPolicy used by this sim.
+        /// The SIM policy used by this SIM.
         /// </summary>
         public readonly Outputs.SimPolicyResourceIdResponse? SimPolicy;
         /// <summary>
-        /// A list of static IP addresses assigned to this sim. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
+        /// The state of the SIM resource.
+        /// </summary>
+        public readonly string SimState;
+        /// <summary>
+        /// A list of static IP addresses assigned to this SIM. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
         /// </summary>
         public readonly ImmutableArray<Outputs.SimStaticIpPropertiesResponse> StaticIpConfiguration;
         /// <summary>
-        /// Resource tags.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -150,8 +154,6 @@ namespace Pulumi.AzureNative.MobileNetwork
 
         [OutputConstructor]
         private GetSimResult(
-            string configurationState,
-
             string? createdAt,
 
             string? createdBy,
@@ -172,23 +174,20 @@ namespace Pulumi.AzureNative.MobileNetwork
 
             string? lastModifiedByType,
 
-            string location,
-
-            Outputs.MobileNetworkResourceIdResponse? mobileNetwork,
-
             string name,
 
             string provisioningState,
 
             Outputs.SimPolicyResourceIdResponse? simPolicy,
 
+            string simState,
+
             ImmutableArray<Outputs.SimStaticIpPropertiesResponse> staticIpConfiguration,
 
-            ImmutableDictionary<string, string>? tags,
+            Outputs.SystemDataResponse systemData,
 
             string type)
         {
-            ConfigurationState = configurationState;
             CreatedAt = createdAt;
             CreatedBy = createdBy;
             CreatedByType = createdByType;
@@ -199,13 +198,12 @@ namespace Pulumi.AzureNative.MobileNetwork
             LastModifiedAt = lastModifiedAt;
             LastModifiedBy = lastModifiedBy;
             LastModifiedByType = lastModifiedByType;
-            Location = location;
-            MobileNetwork = mobileNetwork;
             Name = name;
             ProvisioningState = provisioningState;
             SimPolicy = simPolicy;
+            SimState = simState;
             StaticIpConfiguration = staticIpConfiguration;
-            Tags = tags;
+            SystemData = systemData;
             Type = type;
         }
     }

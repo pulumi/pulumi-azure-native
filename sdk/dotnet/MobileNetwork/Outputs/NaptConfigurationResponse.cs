@@ -11,17 +11,17 @@ namespace Pulumi.AzureNative.MobileNetwork.Outputs
 {
 
     /// <summary>
-    /// The Network Address and Port Translation settings to use for the attached data network.
+    /// The network address and port translation settings to use for the attached data network.
     /// </summary>
     [OutputType]
     public sealed class NaptConfigurationResponse
     {
         /// <summary>
-        /// Whether NAPT is enabled for connections to this attachedDataNetwork.
+        /// Whether NAPT is enabled for connections to this attached data network.
         /// </summary>
         public readonly string? Enabled;
         /// <summary>
-        /// Maximum number of UDP and TCP pinholes that can be open simultaneously on the core interface.
+        /// Maximum number of UDP and TCP pinholes that can be open simultaneously on the core interface. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface.
         /// </summary>
         public readonly int? PinholeLimits;
         /// <summary>
@@ -30,7 +30,8 @@ namespace Pulumi.AzureNative.MobileNetwork.Outputs
         public readonly Outputs.PinholeTimeoutsResponse? PinholeTimeouts;
         /// <summary>
         /// Range of port numbers to use as translated ports on each translated address.
-        /// If not specified and NAPT is enabled, this range defaults to 1,024 - 65,535. (Ports under 1,024 should not be used because these are special purpose ports reserved by IANA.)
+        /// If not specified and NAPT is enabled, this range defaults to 1,024 - 49,999.
+        /// (Ports under 1,024 should not be used because these are special purpose ports reserved by IANA. Ports 50,000 and above are reserved for non-NAPT use.)
         /// </summary>
         public readonly Outputs.PortRangeResponse? PortRange;
         /// <summary>

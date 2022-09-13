@@ -147,6 +147,8 @@ export class SimGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork:SimGroup" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SimGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

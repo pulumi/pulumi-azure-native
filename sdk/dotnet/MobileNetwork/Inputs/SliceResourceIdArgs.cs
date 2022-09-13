@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MobileNetwork.Inputs
 {
 
     /// <summary>
-    /// Reference to a Slice resource.
+    /// Reference to a slice resource.
     /// </summary>
     public sealed class SliceResourceIdArgs : global::Pulumi.ResourceArgs
     {

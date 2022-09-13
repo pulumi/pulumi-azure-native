@@ -14,22 +14,27 @@ import (
 type PacketCoreControlPlane struct {
 	pulumi.CustomResourceState
 
-	ControlPlaneAccessInterface InterfacePropertiesResponseOutput         `pulumi:"controlPlaneAccessInterface"`
-	CoreNetworkTechnology       pulumi.StringPtrOutput                    `pulumi:"coreNetworkTechnology"`
-	CreatedAt                   pulumi.StringPtrOutput                    `pulumi:"createdAt"`
-	CreatedBy                   pulumi.StringPtrOutput                    `pulumi:"createdBy"`
-	CreatedByType               pulumi.StringPtrOutput                    `pulumi:"createdByType"`
-	CustomLocation              CustomLocationResourceIdResponsePtrOutput `pulumi:"customLocation"`
-	LastModifiedAt              pulumi.StringPtrOutput                    `pulumi:"lastModifiedAt"`
-	LastModifiedBy              pulumi.StringPtrOutput                    `pulumi:"lastModifiedBy"`
-	LastModifiedByType          pulumi.StringPtrOutput                    `pulumi:"lastModifiedByType"`
-	Location                    pulumi.StringOutput                       `pulumi:"location"`
-	MobileNetwork               MobileNetworkResourceIdResponseOutput     `pulumi:"mobileNetwork"`
-	Name                        pulumi.StringOutput                       `pulumi:"name"`
-	ProvisioningState           pulumi.StringOutput                       `pulumi:"provisioningState"`
-	Tags                        pulumi.StringMapOutput                    `pulumi:"tags"`
-	Type                        pulumi.StringOutput                       `pulumi:"type"`
-	Version                     pulumi.StringPtrOutput                    `pulumi:"version"`
+	ControlPlaneAccessInterface InterfacePropertiesResponseOutput                    `pulumi:"controlPlaneAccessInterface"`
+	CoreNetworkTechnology       pulumi.StringPtrOutput                               `pulumi:"coreNetworkTechnology"`
+	CreatedAt                   pulumi.StringPtrOutput                               `pulumi:"createdAt"`
+	CreatedBy                   pulumi.StringPtrOutput                               `pulumi:"createdBy"`
+	CreatedByType               pulumi.StringPtrOutput                               `pulumi:"createdByType"`
+	Identity                    ManagedServiceIdentityResponsePtrOutput              `pulumi:"identity"`
+	InteropSettings             pulumi.AnyOutput                                     `pulumi:"interopSettings"`
+	LastModifiedAt              pulumi.StringPtrOutput                               `pulumi:"lastModifiedAt"`
+	LastModifiedBy              pulumi.StringPtrOutput                               `pulumi:"lastModifiedBy"`
+	LastModifiedByType          pulumi.StringPtrOutput                               `pulumi:"lastModifiedByType"`
+	LocalDiagnosticsAccess      LocalDiagnosticsAccessConfigurationResponsePtrOutput `pulumi:"localDiagnosticsAccess"`
+	Location                    pulumi.StringOutput                                  `pulumi:"location"`
+	MobileNetwork               MobileNetworkResourceIdResponseOutput                `pulumi:"mobileNetwork"`
+	Name                        pulumi.StringOutput                                  `pulumi:"name"`
+	Platform                    PlatformConfigurationResponsePtrOutput               `pulumi:"platform"`
+	ProvisioningState           pulumi.StringOutput                                  `pulumi:"provisioningState"`
+	Sku                         pulumi.StringOutput                                  `pulumi:"sku"`
+	SystemData                  SystemDataResponseOutput                             `pulumi:"systemData"`
+	Tags                        pulumi.StringMapOutput                               `pulumi:"tags"`
+	Type                        pulumi.StringOutput                                  `pulumi:"type"`
+	Version                     pulumi.StringPtrOutput                               `pulumi:"version"`
 }
 
 
@@ -47,6 +52,9 @@ func NewPacketCoreControlPlane(ctx *pulumi.Context,
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Sku == nil {
+		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -92,21 +100,25 @@ func (PacketCoreControlPlaneState) ElementType() reflect.Type {
 }
 
 type packetCoreControlPlaneArgs struct {
-	ControlPlaneAccessInterface InterfaceProperties       `pulumi:"controlPlaneAccessInterface"`
-	CoreNetworkTechnology       *string                   `pulumi:"coreNetworkTechnology"`
-	CreatedAt                   *string                   `pulumi:"createdAt"`
-	CreatedBy                   *string                   `pulumi:"createdBy"`
-	CreatedByType               *string                   `pulumi:"createdByType"`
-	CustomLocation              *CustomLocationResourceId `pulumi:"customLocation"`
-	LastModifiedAt              *string                   `pulumi:"lastModifiedAt"`
-	LastModifiedBy              *string                   `pulumi:"lastModifiedBy"`
-	LastModifiedByType          *string                   `pulumi:"lastModifiedByType"`
-	Location                    *string                   `pulumi:"location"`
-	MobileNetwork               MobileNetworkResourceId   `pulumi:"mobileNetwork"`
-	PacketCoreControlPlaneName  *string                   `pulumi:"packetCoreControlPlaneName"`
-	ResourceGroupName           string                    `pulumi:"resourceGroupName"`
-	Tags                        map[string]string         `pulumi:"tags"`
-	Version                     *string                   `pulumi:"version"`
+	ControlPlaneAccessInterface InterfaceProperties                  `pulumi:"controlPlaneAccessInterface"`
+	CoreNetworkTechnology       *string                              `pulumi:"coreNetworkTechnology"`
+	CreatedAt                   *string                              `pulumi:"createdAt"`
+	CreatedBy                   *string                              `pulumi:"createdBy"`
+	CreatedByType               *string                              `pulumi:"createdByType"`
+	Identity                    *ManagedServiceIdentity              `pulumi:"identity"`
+	InteropSettings             interface{}                          `pulumi:"interopSettings"`
+	LastModifiedAt              *string                              `pulumi:"lastModifiedAt"`
+	LastModifiedBy              *string                              `pulumi:"lastModifiedBy"`
+	LastModifiedByType          *string                              `pulumi:"lastModifiedByType"`
+	LocalDiagnosticsAccess      *LocalDiagnosticsAccessConfiguration `pulumi:"localDiagnosticsAccess"`
+	Location                    *string                              `pulumi:"location"`
+	MobileNetwork               MobileNetworkResourceId              `pulumi:"mobileNetwork"`
+	PacketCoreControlPlaneName  *string                              `pulumi:"packetCoreControlPlaneName"`
+	Platform                    *PlatformConfiguration               `pulumi:"platform"`
+	ResourceGroupName           string                               `pulumi:"resourceGroupName"`
+	Sku                         string                               `pulumi:"sku"`
+	Tags                        map[string]string                    `pulumi:"tags"`
+	Version                     *string                              `pulumi:"version"`
 }
 
 
@@ -116,14 +128,18 @@ type PacketCoreControlPlaneArgs struct {
 	CreatedAt                   pulumi.StringPtrInput
 	CreatedBy                   pulumi.StringPtrInput
 	CreatedByType               pulumi.StringPtrInput
-	CustomLocation              CustomLocationResourceIdPtrInput
+	Identity                    ManagedServiceIdentityPtrInput
+	InteropSettings             pulumi.Input
 	LastModifiedAt              pulumi.StringPtrInput
 	LastModifiedBy              pulumi.StringPtrInput
 	LastModifiedByType          pulumi.StringPtrInput
+	LocalDiagnosticsAccess      LocalDiagnosticsAccessConfigurationPtrInput
 	Location                    pulumi.StringPtrInput
 	MobileNetwork               MobileNetworkResourceIdInput
 	PacketCoreControlPlaneName  pulumi.StringPtrInput
+	Platform                    PlatformConfigurationPtrInput
 	ResourceGroupName           pulumi.StringInput
+	Sku                         pulumi.StringInput
 	Tags                        pulumi.StringMapInput
 	Version                     pulumi.StringPtrInput
 }
@@ -187,8 +203,12 @@ func (o PacketCoreControlPlaneOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PacketCoreControlPlane) pulumi.StringPtrOutput { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-func (o PacketCoreControlPlaneOutput) CustomLocation() CustomLocationResourceIdResponsePtrOutput {
-	return o.ApplyT(func(v *PacketCoreControlPlane) CustomLocationResourceIdResponsePtrOutput { return v.CustomLocation }).(CustomLocationResourceIdResponsePtrOutput)
+func (o PacketCoreControlPlaneOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *PacketCoreControlPlane) ManagedServiceIdentityResponsePtrOutput { return v.Identity }).(ManagedServiceIdentityResponsePtrOutput)
+}
+
+func (o PacketCoreControlPlaneOutput) InteropSettings() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PacketCoreControlPlane) pulumi.AnyOutput { return v.InteropSettings }).(pulumi.AnyOutput)
 }
 
 func (o PacketCoreControlPlaneOutput) LastModifiedAt() pulumi.StringPtrOutput {
@@ -203,6 +223,12 @@ func (o PacketCoreControlPlaneOutput) LastModifiedByType() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v *PacketCoreControlPlane) pulumi.StringPtrOutput { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
+func (o PacketCoreControlPlaneOutput) LocalDiagnosticsAccess() LocalDiagnosticsAccessConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *PacketCoreControlPlane) LocalDiagnosticsAccessConfigurationResponsePtrOutput {
+		return v.LocalDiagnosticsAccess
+	}).(LocalDiagnosticsAccessConfigurationResponsePtrOutput)
+}
+
 func (o PacketCoreControlPlaneOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *PacketCoreControlPlane) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
@@ -215,8 +241,20 @@ func (o PacketCoreControlPlaneOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PacketCoreControlPlane) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+func (o PacketCoreControlPlaneOutput) Platform() PlatformConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *PacketCoreControlPlane) PlatformConfigurationResponsePtrOutput { return v.Platform }).(PlatformConfigurationResponsePtrOutput)
+}
+
 func (o PacketCoreControlPlaneOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *PacketCoreControlPlane) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+func (o PacketCoreControlPlaneOutput) Sku() pulumi.StringOutput {
+	return o.ApplyT(func(v *PacketCoreControlPlane) pulumi.StringOutput { return v.Sku }).(pulumi.StringOutput)
+}
+
+func (o PacketCoreControlPlaneOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *PacketCoreControlPlane) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 func (o PacketCoreControlPlaneOutput) Tags() pulumi.StringMapOutput {
