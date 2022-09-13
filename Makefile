@@ -5,11 +5,12 @@ PACKDIR         := sdk
 PROJECT         := github.com/pulumi/pulumi-azure-native
 PROVIDER        := pulumi-resource-${PACK}
 CODEGEN         := pulumi-gen-${PACK}
+VERSIONER       := pulumi-versioner-${PACK}
 
 PROVIDER_PKGS   := $(shell cd ./provider && go list ./pkg/...)
 WORKING_DIR     := $(shell pwd)
 
-GO_SRC          := $(wildcard provider/go.*) $(wildcard provider/*/*/*.go)
+PROVIDER_PKG	= $(shell find provider/pkg -type f)
 
 JAVA_GEN 		 := pulumi-java-gen
 JAVA_GEN_VERSION := v0.5.4
@@ -54,7 +55,7 @@ update_submodules: init_submodules
 	rm ./azure-provider-versions/provider_list.json
 	az provider list | jq 'map({ namespace: .namespace, resourceTypes: .resourceTypes | map({ resourceType: .resourceType, apiVersions: .apiVersions }) | sort_by(.resourceType) }) | sort_by(.namespace)' > ./azure-provider-versions/provider_list.json
 
-local_generate_code: clean bin/pulumi-java-gen
+local_generate_code: clean bin/pulumi-java-gen bin/$(CODEGEN)
 	$(WORKING_DIR)/bin/$(CODEGEN) schema,nodejs,dotnet,python,go,go-split $(VERSION)
 	$(WORKING_DIR)/bin/$(JAVA_GEN) generate --schema $(WORKING_DIR)/provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
 	cd ${PACKDIR}/go/ && find . -type f -exec sed -i '' -e '/^\/\/.*/g' {} \;
@@ -66,7 +67,7 @@ local_generate_code: clean bin/pulumi-java-gen
 	rm tsconfig.json.bak
 	echo "Finished generating."
 
-local_generate: clean bin/pulumi-java-gen bin/pulumictl
+local_generate: clean bin/pulumi-java-gen bin/pulumictl bin/$(CODEGEN)
 	$(WORKING_DIR)/bin/$(CODEGEN) schema,docs,nodejs,dotnet,python,go,go-split $(VERSION)
 	$(WORKING_DIR)/bin/$(JAVA_GEN) generate --schema $(WORKING_DIR)/provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
 	cd ${PACKDIR}/go/ && find . -type f -exec sed -i '' -e '/^\/\/.*/g' {} \;
@@ -78,29 +79,36 @@ local_generate: clean bin/pulumi-java-gen bin/pulumictl
 	rm tsconfig.json.bak
 	echo "Finished generating."
 
-generate_schema: bin/pulumictl
+generate_schema: bin/$(CODEGEN)
 	echo "Generating Pulumi schema..."
 	$(WORKING_DIR)/bin/$(CODEGEN) schema $(VERSION)
 	echo "Finished generating schema."
 
-generate_docs: bin/pulumictl
+generate_docs: bin/$(CODEGEN)
 	$(WORKING_DIR)/bin/$(CODEGEN) docs $(VERSION)
 
-arm2pulumi: bin/pulumictl
-	(cd provider && go build -o $(WORKING_DIR)/bin/arm2pulumi $(VERSION_FLAGS) $(PROJECT)/provider/cmd/arm2pulumi)
+arm2pulumi: bin/arm2pulumi
 
 arm2pulumi_coverage_report:
 	(cd provider/pkg/arm2pulumi/internal/testdata && if [ ! -d azure-quickstart-templates ]; then git clone https://github.com/Azure/azure-quickstart-templates && cd azure-quickstart-templates && git checkout 3b2757465c2de537e333f5e2d1c3776c349b8483; fi)
 	(cd provider && go test -v -tags=coverage -run TestQuickstartTemplateCoverage github.com/pulumi/pulumi-azure-native/provider/pkg/arm2pulumi/internal/test)
 
-codegen: bin/pulumictl
-	(cd provider && go build -o $(WORKING_DIR)/bin/$(CODEGEN) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(CODEGEN))
+codegen: bin/$(CODEGEN)
 
-provider: bin/pulumictl
-	(cd provider && go build -o $(WORKING_DIR)/bin/$(PROVIDER) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER))
+provider: bin/$(PROVIDER)
 
-bin/pulumi-versioner-azure-native: $(GO_SRC) bin/pulumictl
-	cd provider && go build -o $(WORKING_DIR)/bin/pulumi-versioner-azure-native $(VERSION_FLAGS) $(PROJECT)/provider/cmd/pulumi-versioner-azure-native
+bin/arm2pulumi: bin/pulumictl provider/.mod_download.sentinel provider/cmd/arm2pulumi/* $(PROVIDER_PKG)
+	cd provider && go build -o $(WORKING_DIR)/bin/arm2pulumi $(VERSION_FLAGS) $(PROJECT)/provider/cmd/arm2pulumi
+
+bin/$(CODEGEN): bin/pulumictl provider/.mod_download.sentinel provider/cmd/$(CODEGEN)/* $(PROVIDER_PKG)
+	cd provider && go build -o $(WORKING_DIR)/bin/$(CODEGEN) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(CODEGEN)
+
+bin/$(PROVIDER): bin/pulumictl provider/.mod_download.sentinel provider/cmd/$(PROVIDER)/* $(PROVIDER_PKG)
+	cd provider && \
+	go build -o $(WORKING_DIR)/bin/$(PROVIDER) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER)
+
+bin/$(VERSIONER): bin/pulumictl provider/.mod_download.sentinel provider/cmd/$(VERSIONER)/* $(PROVIDER_PKG)
+	cd provider && go build -o $(WORKING_DIR)/bin/pulumi-versioner-azure-native $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(VERSIONER)
 
 versions/spec.json: bin/pulumi-versioner-azure-native .git/modules/azure-rest-api-specs/HEAD
 	bin/pulumi-versioner-azure-native spec
@@ -147,7 +155,7 @@ export FAKE_MODULE
 $(WORKING_DIR)/sdk/nodejs/go.mod:
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_nodejs_module/g' > $@
 
-generate_nodejs: $(WORKING_DIR)/sdk/nodejs/go.mod bin/pulumictl
+generate_nodejs: $(WORKING_DIR)/sdk/nodejs/go.mod bin/$(CODEGEN)
 	$(WORKING_DIR)/bin/$(CODEGEN) nodejs $(VERSION) && \
 	cd ${PACKDIR}/nodejs/ && \
 	sed -i.bak -e "s/sourceMap/inlineSourceMap/g" tsconfig.json && \
