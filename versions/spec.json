@@ -3170,6 +3170,18 @@
       "listManagedClusterAdminCredentials",
       "listManagedClusterMonitoringUserCredentials",
       "listManagedClusterUserCredentials"
+    ],
+    "2022-08-02-preview": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "ManagedClusterSnapshot",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
     ]
   },
   "CostManagement": {
@@ -7414,19 +7426,6 @@
     ]
   },
   "MobileNetwork": {
-    "2022-01-01-preview": [
-      "AttachedDataNetwork",
-      "DataNetwork",
-      "MobileNetwork",
-      "PacketCoreControlPlane",
-      "PacketCoreDataPlane",
-      "Service",
-      "Sim",
-      "SimPolicy",
-      "Site",
-      "Slice",
-      "listMobileNetworkSimIds"
-    ],
     "2022-03-01-preview": [
       "AttachedDataNetwork",
       "DataNetwork",

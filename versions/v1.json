@@ -1236,19 +1236,7 @@
     "listRemoteRenderingAccountKeys": "2021-01-01",
     "listSpatialAnchorsAccountKeys": "2021-01-01"
   },
-  "MobileNetwork": {
-    "AttachedDataNetwork": "2022-01-01-preview",
-    "DataNetwork": "2022-01-01-preview",
-    "MobileNetwork": "2022-01-01-preview",
-    "PacketCoreControlPlane": "2022-01-01-preview",
-    "PacketCoreDataPlane": "2022-01-01-preview",
-    "Service": "2022-01-01-preview",
-    "Sim": "2022-01-01-preview",
-    "SimPolicy": "2022-01-01-preview",
-    "Site": "2022-01-01-preview",
-    "Slice": "2022-01-01-preview",
-    "listMobileNetworkSimIds": "2022-01-01-preview"
-  },
+  "MobileNetwork": {},
   "NetApp": {
     "Account": "2020-12-01",
     "Backup": "2020-12-01",
