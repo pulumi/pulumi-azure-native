@@ -23739,6 +23739,7 @@
       {
         "resourceType": "Locations",
         "apiVersions": [
+          "2022-07-21-preview",
           "2022-04-04-preview",
           "2021-06-01-preview"
         ]
@@ -23746,6 +23747,7 @@
       {
         "resourceType": "Locations/OperationStatuses",
         "apiVersions": [
+          "2022-07-21-preview",
           "2022-04-04-preview",
           "2021-06-01-preview"
         ]
@@ -23753,6 +23755,7 @@
       {
         "resourceType": "Operations",
         "apiVersions": [
+          "2022-07-21-preview",
           "2022-04-04-preview",
           "2021-06-01-preview"
         ]
@@ -23760,6 +23763,7 @@
       {
         "resourceType": "checkNameAvailability",
         "apiVersions": [
+          "2022-07-21-preview",
           "2022-04-04-preview",
           "2021-06-01-preview"
         ]
@@ -27016,6 +27020,12 @@
         "apiVersions": [
           "2020-01-01",
           "2015-06-01-preview"
+        ]
+      },
+      {
+        "resourceType": "vmScanners",
+        "apiVersions": [
+          "2022-03-01-preview"
         ]
       },
       {

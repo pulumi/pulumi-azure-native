@@ -183,6 +183,9 @@ func NewAgentPool(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:containerservice/v20220701:AgentPool"),
 		},
+		{
+			Type: pulumi.String("azure-native:containerservice/v20220802preview:AgentPool"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AgentPool

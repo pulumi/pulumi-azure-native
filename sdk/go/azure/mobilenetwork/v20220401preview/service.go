@@ -55,12 +55,6 @@ func NewService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:mobilenetwork:Service"),
-		},
-		{
-			Type: pulumi.String("azure-native:mobilenetwork/v20220101preview:Service"),
-		},
-		{
 			Type: pulumi.String("azure-native:mobilenetwork/v20220301preview:Service"),
 		},
 	})

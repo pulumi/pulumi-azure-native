@@ -5505,6 +5505,20 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "containerservice/v20220802preview",
+  "fqn": "pulumi_azure_native.containerservice.v20220802preview",
+  "classes": {
+   "azure-native:containerservice/v20220802preview:AgentPool": "AgentPool",
+   "azure-native:containerservice/v20220802preview:MaintenanceConfiguration": "MaintenanceConfiguration",
+   "azure-native:containerservice/v20220802preview:ManagedCluster": "ManagedCluster",
+   "azure-native:containerservice/v20220802preview:ManagedClusterSnapshot": "ManagedClusterSnapshot",
+   "azure-native:containerservice/v20220802preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:containerservice/v20220802preview:Snapshot": "Snapshot",
+   "azure-native:containerservice/v20220802preview:TrustedAccessRoleBinding": "TrustedAccessRoleBinding"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "costmanagement",
   "fqn": "pulumi_azure_native.costmanagement",
   "classes": {
@@ -12714,40 +12728,6 @@ _utilities.register(
    "azure-native:mixedreality/v20210301preview:ObjectAnchorsAccount": "ObjectAnchorsAccount",
    "azure-native:mixedreality/v20210301preview:RemoteRenderingAccount": "RemoteRenderingAccount",
    "azure-native:mixedreality/v20210301preview:SpatialAnchorsAccount": "SpatialAnchorsAccount"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "mobilenetwork",
-  "fqn": "pulumi_azure_native.mobilenetwork",
-  "classes": {
-   "azure-native:mobilenetwork:AttachedDataNetwork": "AttachedDataNetwork",
-   "azure-native:mobilenetwork:DataNetwork": "DataNetwork",
-   "azure-native:mobilenetwork:MobileNetwork": "MobileNetwork",
-   "azure-native:mobilenetwork:PacketCoreControlPlane": "PacketCoreControlPlane",
-   "azure-native:mobilenetwork:PacketCoreDataPlane": "PacketCoreDataPlane",
-   "azure-native:mobilenetwork:Service": "Service",
-   "azure-native:mobilenetwork:Sim": "Sim",
-   "azure-native:mobilenetwork:SimPolicy": "SimPolicy",
-   "azure-native:mobilenetwork:Site": "Site",
-   "azure-native:mobilenetwork:Slice": "Slice"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "mobilenetwork/v20220101preview",
-  "fqn": "pulumi_azure_native.mobilenetwork.v20220101preview",
-  "classes": {
-   "azure-native:mobilenetwork/v20220101preview:AttachedDataNetwork": "AttachedDataNetwork",
-   "azure-native:mobilenetwork/v20220101preview:DataNetwork": "DataNetwork",
-   "azure-native:mobilenetwork/v20220101preview:MobileNetwork": "MobileNetwork",
-   "azure-native:mobilenetwork/v20220101preview:PacketCoreControlPlane": "PacketCoreControlPlane",
-   "azure-native:mobilenetwork/v20220101preview:PacketCoreDataPlane": "PacketCoreDataPlane",
-   "azure-native:mobilenetwork/v20220101preview:Service": "Service",
-   "azure-native:mobilenetwork/v20220101preview:Sim": "Sim",
-   "azure-native:mobilenetwork/v20220101preview:SimPolicy": "SimPolicy",
-   "azure-native:mobilenetwork/v20220101preview:Site": "Site",
-   "azure-native:mobilenetwork/v20220101preview:Slice": "Slice"
   }
  },
  {

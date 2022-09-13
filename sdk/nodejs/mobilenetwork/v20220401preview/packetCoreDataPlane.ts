@@ -142,7 +142,7 @@ export class PacketCoreDataPlane extends pulumi.CustomResource {
             resourceInputs["userPlaneAccessInterface"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork:PacketCoreDataPlane" }, { type: "azure-native:mobilenetwork/v20220101preview:PacketCoreDataPlane" }, { type: "azure-native:mobilenetwork/v20220301preview:PacketCoreDataPlane" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20220301preview:PacketCoreDataPlane" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PacketCoreDataPlane.__pulumiType, name, resourceInputs, opts);
     }

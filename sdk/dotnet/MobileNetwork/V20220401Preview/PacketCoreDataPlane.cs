@@ -118,8 +118,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork:PacketCoreDataPlane"},
-                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220101preview:PacketCoreDataPlane"},
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220301preview:PacketCoreDataPlane"},
                 },
             };

@@ -44,12 +44,6 @@ func NewDataNetwork(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:mobilenetwork:DataNetwork"),
-		},
-		{
-			Type: pulumi.String("azure-native:mobilenetwork/v20220101preview:DataNetwork"),
-		},
-		{
 			Type: pulumi.String("azure-native:mobilenetwork/v20220401preview:DataNetwork"),
 		},
 	})

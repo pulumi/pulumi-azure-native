@@ -19507,23 +19507,28 @@
   "openenergyplatform": {
     "": [
       "2021-06-01-preview",
-      "2022-04-04-preview"
+      "2022-04-04-preview",
+      "2022-07-21-preview"
     ],
     "checknameavailability": [
       "2021-06-01-preview",
-      "2022-04-04-preview"
+      "2022-04-04-preview",
+      "2022-07-21-preview"
     ],
     "locations": [
       "2021-06-01-preview",
-      "2022-04-04-preview"
+      "2022-04-04-preview",
+      "2022-07-21-preview"
     ],
     "locations/operationstatuses": [
       "2021-06-01-preview",
-      "2022-04-04-preview"
+      "2022-04-04-preview",
+      "2022-07-21-preview"
     ],
     "operations": [
       "2021-06-01-preview",
-      "2022-04-04-preview"
+      "2022-04-04-preview",
+      "2022-07-21-preview"
     ]
   },
   "openlogisticsplatform": {
@@ -21779,6 +21784,7 @@
       "2022-01-01",
       "2022-01-01-preview",
       "2022-03-01",
+      "2022-03-01-preview",
       "2022-04-01-alpha",
       "2022-04-01-beta",
       "2022-04-01-preview",
@@ -22070,6 +22076,9 @@
     "topologies": [
       "2015-06-01-preview",
       "2020-01-01"
+    ],
+    "vmscanners": [
+      "2022-03-01-preview"
     ],
     "workspacesettings": [
       "2017-08-01-preview",

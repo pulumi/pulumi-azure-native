@@ -48,12 +48,6 @@ func NewSlice(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:mobilenetwork:Slice"),
-		},
-		{
-			Type: pulumi.String("azure-native:mobilenetwork/v20220101preview:Slice"),
-		},
-		{
 			Type: pulumi.String("azure-native:mobilenetwork/v20220301preview:Slice"),
 		},
 	})
