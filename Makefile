@@ -41,7 +41,7 @@ ensure:: init_submodules
 
 
 local_generate_code:: clean bin/pulumi-java-gen
-	$(WORKING_DIR)/bin/$(CODEGEN) schema,nodejs,dotnet,python,go $(VERSION)
+	$(WORKING_DIR)/bin/$(CODEGEN) schema,nodejs,dotnet,python,go,go-split $(VERSION)
 	$(WORKING_DIR)/bin/$(JAVA_GEN) generate --schema $(WORKING_DIR)/provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
 	cd ${PACKDIR}/go/ && find . -type f -exec sed -i '' -e '/^\/\/.*/g' {} \;
 	cd ${PACKDIR}/dotnet/ && \
@@ -53,7 +53,7 @@ local_generate_code:: clean bin/pulumi-java-gen
 	echo "Finished generating."
 
 local_generate:: clean bin/pulumi-java-gen
-	$(WORKING_DIR)/bin/$(CODEGEN) schema,docs,nodejs,dotnet,python,go $(VERSION)
+	$(WORKING_DIR)/bin/$(CODEGEN) schema,docs,nodejs,dotnet,python,go,go-split $(VERSION)
 	$(WORKING_DIR)/bin/$(JAVA_GEN) generate --schema $(WORKING_DIR)/provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
 	cd ${PACKDIR}/go/ && find . -type f -exec sed -i '' -e '/^\/\/.*/g' {} \;
 	cd ${PACKDIR}/dotnet/ && \
@@ -190,13 +190,26 @@ bin/pulumi-java-gen::
 	$(shell pulumictl download-binary -n pulumi-language-java -v $(JAVA_GEN_VERSION) -r pulumi/pulumi-java)
 
 generate_go::
-	$(WORKING_DIR)/bin/$(CODEGEN) go $(VERSION)
+	$(WORKING_DIR)/bin/$(CODEGEN) go,go-split $(VERSION)
+
 	cd ${PACKDIR}/go/ && find . -type f -exec sed -i '' -e '/^\/\/.*/g' {} \;
 
 build_go::
 	# Only building the top level packages and building 1 package at a time to avoid OOMing
 	cd sdk/ && \
 	GOGC=50 go list github.com/pulumi/pulumi-azure-native/sdk/go/azure/... | grep -v "latest\|\/v.*"$ | xargs -L 1 go build
+	find sdk/pulumi-azure-native-sdk -type d -maxdepth 1 -exec sh -c "cd \"{}\" && go mod tidy && go build" \;
+
+prepublish_go:
+	@# Remove go module replacements which are added for local testing
+	@# Note: must use `sed -i -e` to be portable - but leaves go.mod-e behind on macos
+	find sdk/pulumi-azure-native-sdk -maxdepth 2 -type f -name go.mod -exec sed -i -e '/replace github\.com\/pulumi\/pulumi-azure-native-sdk /d' {} \;
+	@# Remove sed backup files if using older sed versions
+	find sdk/pulumi-azure-native-sdk -maxdepth 2 -type f -name go.mod-e -delete
+	@# Delete go.sum files as these are not used at the point of publishing.
+	@# This is because we depend on the root package which will come from the same release commit, that doesn't yet exist.
+	find sdk/pulumi-azure-native-sdk -maxdepth 2 -type f -name go.sum -delete
+	cp README.md LICENSE sdk/pulumi-azure-native-sdk/
 
 clean::
 	rm -rf $$(find sdk/nodejs -mindepth 1 -maxdepth 1 ! -name "go.mod")

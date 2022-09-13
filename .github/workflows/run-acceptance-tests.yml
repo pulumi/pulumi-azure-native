@@ -251,6 +251,15 @@ jobs:
       with:
         name: ${{ matrix.language  }}-sdk.tar.gz
         path: ${{ github.workspace}}/sdk/${{ matrix.language }}.tar.gz
+    - name: Tar split Go SDK folder
+      if: ${{ matrix.language == 'go' }}
+      run: tar -zcf sdk/pulumi-azure-native-sdk.tar.gz -C sdk/pulumi-azure-native-sdk .
+    - name: Upload split Go artifacts
+      uses: actions/upload-artifact@v2
+      if: ${{ matrix.language == 'go' }}
+      with:
+        name: pulumi-azure-native-sdk.tar.gz
+        path: ${{ github.workspace}}/sdk/pulumi-azure-native-sdk.tar.gz
     - if: failure() && github.event_name == 'push'
       name: Notify Slack
       uses: 8398a7/action-slack@v3
@@ -345,6 +354,17 @@ jobs:
     - name: UnTar SDK folder
       run: tar -zxf ${{ github.workspace}}/sdk/${{ matrix.language}}.tar.gz -C ${{
         github.workspace}}/sdk/${{ matrix.language}}
+    - name: Download Go split SDK
+      uses: actions/download-artifact@v2
+      if: ${{ matrix.language == 'go' }}
+      with:
+        name: pulumi-azure-native-sdk.tar.gz
+        path: ${{ github.workspace}}/sdk/
+    - name: UnTar Go split SDK folder
+      if: ${{ matrix.language == 'go' }}
+      run: |
+        mkdir -p ${{github.workspace}}/sdk/pulumi-azure-native-sdk
+        tar -zxf ${{ github.workspace}}/sdk/pulumi-azure-native-sdk.tar.gz -C ${{github.workspace}}/sdk/pulumi-azure-native-sdk
     - name: Update path
       run: echo "${{ github.workspace }}/bin" >> $GITHUB_PATH
     - name: Install Node dependencies
