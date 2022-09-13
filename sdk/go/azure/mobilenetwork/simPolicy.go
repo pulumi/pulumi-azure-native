@@ -27,6 +27,7 @@ type SimPolicy struct {
 	RegistrationTimer   pulumi.IntPtrOutput                   `pulumi:"registrationTimer"`
 	RfspIndex           pulumi.IntPtrOutput                   `pulumi:"rfspIndex"`
 	SliceConfigurations SliceConfigurationResponseArrayOutput `pulumi:"sliceConfigurations"`
+	SystemData          SystemDataResponseOutput              `pulumi:"systemData"`
 	Tags                pulumi.StringMapOutput                `pulumi:"tags"`
 	Type                pulumi.StringOutput                   `pulumi:"type"`
 	UeAmbr              AmbrResponseOutput                    `pulumi:"ueAmbr"`
@@ -226,6 +227,10 @@ func (o SimPolicyOutput) RfspIndex() pulumi.IntPtrOutput {
 
 func (o SimPolicyOutput) SliceConfigurations() SliceConfigurationResponseArrayOutput {
 	return o.ApplyT(func(v *SimPolicy) SliceConfigurationResponseArrayOutput { return v.SliceConfigurations }).(SliceConfigurationResponseArrayOutput)
+}
+
+func (o SimPolicyOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SimPolicy) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 func (o SimPolicyOutput) Tags() pulumi.StringMapOutput {

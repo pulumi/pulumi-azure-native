@@ -41,6 +41,7 @@ type LookupSimPolicyResult struct {
 	RegistrationTimer   *int                         `pulumi:"registrationTimer"`
 	RfspIndex           *int                         `pulumi:"rfspIndex"`
 	SliceConfigurations []SliceConfigurationResponse `pulumi:"sliceConfigurations"`
+	SystemData          SystemDataResponse           `pulumi:"systemData"`
 	Tags                map[string]string            `pulumi:"tags"`
 	Type                string                       `pulumi:"type"`
 	UeAmbr              AmbrResponse                 `pulumi:"ueAmbr"`
@@ -151,6 +152,10 @@ func (o LookupSimPolicyResultOutput) RfspIndex() pulumi.IntPtrOutput {
 
 func (o LookupSimPolicyResultOutput) SliceConfigurations() SliceConfigurationResponseArrayOutput {
 	return o.ApplyT(func(v LookupSimPolicyResult) []SliceConfigurationResponse { return v.SliceConfigurations }).(SliceConfigurationResponseArrayOutput)
+}
+
+func (o LookupSimPolicyResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupSimPolicyResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 func (o LookupSimPolicyResultOutput) Tags() pulumi.StringMapOutput {

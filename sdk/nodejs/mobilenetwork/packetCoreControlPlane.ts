@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Packet core control plane resource.
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-04-01-preview.
  */
 export class PacketCoreControlPlane extends pulumi.CustomResource {
     /**
@@ -39,11 +39,11 @@ export class PacketCoreControlPlane extends pulumi.CustomResource {
     }
 
     /**
-     * The control plane interface on the access network. In 5G networks this is called as N2 interface whereas in 4G networks this is called as S1-MME interface.
+     * The control plane interface on the access network. For 5G networks, this is the N2 interface. For 4G networks, this is the S1-MME interface.
      */
     public readonly controlPlaneAccessInterface!: pulumi.Output<outputs.mobilenetwork.InterfacePropertiesResponse>;
     /**
-     * The core network technology generation.
+     * The core network technology generation (5G core or EPC / 4G core).
      */
     public readonly coreNetworkTechnology!: pulumi.Output<string | undefined>;
     /**
@@ -59,9 +59,13 @@ export class PacketCoreControlPlane extends pulumi.CustomResource {
      */
     public readonly createdByType!: pulumi.Output<string | undefined>;
     /**
-     * Azure ARC custom location where the packet core is deployed.
+     * The identity used to retrieve the ingress certificate from Azure key vault.
      */
-    public readonly customLocation!: pulumi.Output<outputs.mobilenetwork.CustomLocationResourceIdResponse | undefined>;
+    public readonly identity!: pulumi.Output<outputs.mobilenetwork.ManagedServiceIdentityResponse | undefined>;
+    /**
+     * Settings to allow interoperability with third party components e.g. RANs and UEs.
+     */
+    public readonly interopSettings!: pulumi.Output<any | undefined>;
     /**
      * The timestamp of resource last modification (UTC)
      */
@@ -75,11 +79,15 @@ export class PacketCoreControlPlane extends pulumi.CustomResource {
      */
     public readonly lastModifiedByType!: pulumi.Output<string | undefined>;
     /**
+     * The kubernetes ingress configuration to control access to packet core diagnostics over local APIs.
+     */
+    public readonly localDiagnosticsAccess!: pulumi.Output<outputs.mobilenetwork.LocalDiagnosticsAccessConfigurationResponse | undefined>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Mobile network that this packet core control plane belongs to
+     * Mobile network in which this packet core control plane is deployed.
      */
     public readonly mobileNetwork!: pulumi.Output<outputs.mobilenetwork.MobileNetworkResourceIdResponse>;
     /**
@@ -87,9 +95,21 @@ export class PacketCoreControlPlane extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * The platform where the packet core is deployed.
+     */
+    public readonly platform!: pulumi.Output<outputs.mobilenetwork.PlatformConfigurationResponse | undefined>;
+    /**
      * The provisioning state of the packet core control plane resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The SKU defining the throughput and SIM allowances for this packet core control plane deployment.
+     */
+    public readonly sku!: pulumi.Output<string>;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.mobilenetwork.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -123,23 +143,31 @@ export class PacketCoreControlPlane extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if ((!args || args.sku === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'sku'");
+            }
             resourceInputs["controlPlaneAccessInterface"] = args ? args.controlPlaneAccessInterface : undefined;
             resourceInputs["coreNetworkTechnology"] = args ? args.coreNetworkTechnology : undefined;
             resourceInputs["createdAt"] = args ? args.createdAt : undefined;
             resourceInputs["createdBy"] = args ? args.createdBy : undefined;
             resourceInputs["createdByType"] = args ? args.createdByType : undefined;
-            resourceInputs["customLocation"] = args ? args.customLocation : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["interopSettings"] = args ? args.interopSettings : undefined;
             resourceInputs["lastModifiedAt"] = args ? args.lastModifiedAt : undefined;
             resourceInputs["lastModifiedBy"] = args ? args.lastModifiedBy : undefined;
             resourceInputs["lastModifiedByType"] = args ? args.lastModifiedByType : undefined;
+            resourceInputs["localDiagnosticsAccess"] = args ? args.localDiagnosticsAccess : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["mobileNetwork"] = args ? args.mobileNetwork : undefined;
             resourceInputs["packetCoreControlPlaneName"] = args ? args.packetCoreControlPlaneName : undefined;
+            resourceInputs["platform"] = args ? args.platform : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["controlPlaneAccessInterface"] = undefined /*out*/;
@@ -147,14 +175,19 @@ export class PacketCoreControlPlane extends pulumi.CustomResource {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["createdByType"] = undefined /*out*/;
-            resourceInputs["customLocation"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["interopSettings"] = undefined /*out*/;
             resourceInputs["lastModifiedAt"] = undefined /*out*/;
             resourceInputs["lastModifiedBy"] = undefined /*out*/;
             resourceInputs["lastModifiedByType"] = undefined /*out*/;
+            resourceInputs["localDiagnosticsAccess"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["mobileNetwork"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["platform"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
@@ -171,11 +204,11 @@ export class PacketCoreControlPlane extends pulumi.CustomResource {
  */
 export interface PacketCoreControlPlaneArgs {
     /**
-     * The control plane interface on the access network. In 5G networks this is called as N2 interface whereas in 4G networks this is called as S1-MME interface.
+     * The control plane interface on the access network. For 5G networks, this is the N2 interface. For 4G networks, this is the S1-MME interface.
      */
     controlPlaneAccessInterface: pulumi.Input<inputs.mobilenetwork.InterfacePropertiesArgs>;
     /**
-     * The core network technology generation.
+     * The core network technology generation (5G core or EPC / 4G core).
      */
     coreNetworkTechnology?: pulumi.Input<string | enums.mobilenetwork.CoreNetworkType>;
     /**
@@ -191,9 +224,13 @@ export interface PacketCoreControlPlaneArgs {
      */
     createdByType?: pulumi.Input<string | enums.mobilenetwork.CreatedByType>;
     /**
-     * Azure ARC custom location where the packet core is deployed.
+     * The identity used to retrieve the ingress certificate from Azure key vault.
      */
-    customLocation?: pulumi.Input<inputs.mobilenetwork.CustomLocationResourceIdArgs>;
+    identity?: pulumi.Input<inputs.mobilenetwork.ManagedServiceIdentityArgs>;
+    /**
+     * Settings to allow interoperability with third party components e.g. RANs and UEs.
+     */
+    interopSettings?: any;
     /**
      * The timestamp of resource last modification (UTC)
      */
@@ -207,11 +244,15 @@ export interface PacketCoreControlPlaneArgs {
      */
     lastModifiedByType?: pulumi.Input<string | enums.mobilenetwork.CreatedByType>;
     /**
+     * The kubernetes ingress configuration to control access to packet core diagnostics over local APIs.
+     */
+    localDiagnosticsAccess?: pulumi.Input<inputs.mobilenetwork.LocalDiagnosticsAccessConfigurationArgs>;
+    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
-     * Mobile network that this packet core control plane belongs to
+     * Mobile network in which this packet core control plane is deployed.
      */
     mobileNetwork: pulumi.Input<inputs.mobilenetwork.MobileNetworkResourceIdArgs>;
     /**
@@ -219,9 +260,17 @@ export interface PacketCoreControlPlaneArgs {
      */
     packetCoreControlPlaneName?: pulumi.Input<string>;
     /**
+     * The platform where the packet core is deployed.
+     */
+    platform?: pulumi.Input<inputs.mobilenetwork.PlatformConfigurationArgs>;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The SKU defining the throughput and SIM allowances for this packet core control plane deployment.
+     */
+    sku: pulumi.Input<string | enums.mobilenetwork.BillingSku>;
     /**
      * Resource tags.
      */

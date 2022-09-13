@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MobileNetwork
 {
     /// <summary>
     /// Attached data network resource.
-    /// API Version: 2022-01-01-preview.
+    /// API Version: 2022-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork:AttachedDataNetwork")]
     public partial class AttachedDataNetwork : global::Pulumi.CustomResource
@@ -33,6 +33,12 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         [Output("createdByType")]
         public Output<string?> CreatedByType { get; private set; } = null!;
+
+        /// <summary>
+        /// The DNS servers to signal to UEs to use for this attached data network.
+        /// </summary>
+        [Output("dnsAddresses")]
+        public Output<ImmutableArray<string>> DnsAddresses { get; private set; } = null!;
 
         /// <summary>
         /// The timestamp of resource last modification (UTC)
@@ -65,8 +71,8 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The Network Address and Port Translation configuration.
-        /// If not specified the attached data network uses a default NAPT configuration with NAPT enabled.
+        /// The network address and port translation (NAPT) configuration.
+        /// If this is not specified, the attached data network will use a default NAPT configuration with NAPT enabled.
         /// </summary>
         [Output("naptConfiguration")]
         public Output<Outputs.NaptConfigurationResponse?> NaptConfiguration { get; private set; } = null!;
@@ -76,6 +82,12 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -90,22 +102,23 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// The user equipment address pool prefixes for the attached data network that are dynamically assigned by the core to UEs when they set up a PDU session.
-        /// At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined then they must be the same size.
+        /// The user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs.
+        /// The packet core instance assigns an IP address to a UE when the UE sets up a PDU session.
+        ///  You must define at least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix. If you define both, they must be of the same size.
         /// </summary>
         [Output("userEquipmentAddressPoolPrefix")]
         public Output<ImmutableArray<string>> UserEquipmentAddressPoolPrefix { get; private set; } = null!;
 
         /// <summary>
-        /// The user equipment address pool prefixes for the attached data network that are statically assigned by the core to UEs when they set up a PDU session.
-        /// The mapping of static IP to sim is configured in staticIpConfiguration on the sim resource.
-        /// At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined then they must be the same size.
+        /// The user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs.
+        /// The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource.
+        /// At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined, they must be of the same size.
         /// </summary>
         [Output("userEquipmentStaticAddressPoolPrefix")]
         public Output<ImmutableArray<string>> UserEquipmentStaticAddressPoolPrefix { get; private set; } = null!;
 
         /// <summary>
-        /// The user plane interface on the data network. In 5G networks this is called as N6 interface whereas in 4G networks this is called as SGi interface.
+        /// The user plane interface on the data network. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface.
         /// </summary>
         [Output("userPlaneDataInterface")]
         public Output<Outputs.InterfacePropertiesResponse> UserPlaneDataInterface { get; private set; } = null!;
@@ -185,6 +198,18 @@ namespace Pulumi.AzureNative.MobileNetwork
         [Input("createdByType")]
         public InputUnion<string, Pulumi.AzureNative.MobileNetwork.CreatedByType>? CreatedByType { get; set; }
 
+        [Input("dnsAddresses")]
+        private InputList<string>? _dnsAddresses;
+
+        /// <summary>
+        /// The DNS servers to signal to UEs to use for this attached data network.
+        /// </summary>
+        public InputList<string> DnsAddresses
+        {
+            get => _dnsAddresses ?? (_dnsAddresses = new InputList<string>());
+            set => _dnsAddresses = value;
+        }
+
         /// <summary>
         /// The timestamp of resource last modification (UTC)
         /// </summary>
@@ -210,8 +235,8 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The Network Address and Port Translation configuration.
-        /// If not specified the attached data network uses a default NAPT configuration with NAPT enabled.
+        /// The network address and port translation (NAPT) configuration.
+        /// If this is not specified, the attached data network will use a default NAPT configuration with NAPT enabled.
         /// </summary>
         [Input("naptConfiguration")]
         public Input<Inputs.NaptConfigurationArgs>? NaptConfiguration { get; set; }
@@ -250,8 +275,9 @@ namespace Pulumi.AzureNative.MobileNetwork
         private InputList<string>? _userEquipmentAddressPoolPrefix;
 
         /// <summary>
-        /// The user equipment address pool prefixes for the attached data network that are dynamically assigned by the core to UEs when they set up a PDU session.
-        /// At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined then they must be the same size.
+        /// The user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs.
+        /// The packet core instance assigns an IP address to a UE when the UE sets up a PDU session.
+        ///  You must define at least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix. If you define both, they must be of the same size.
         /// </summary>
         public InputList<string> UserEquipmentAddressPoolPrefix
         {
@@ -263,9 +289,9 @@ namespace Pulumi.AzureNative.MobileNetwork
         private InputList<string>? _userEquipmentStaticAddressPoolPrefix;
 
         /// <summary>
-        /// The user equipment address pool prefixes for the attached data network that are statically assigned by the core to UEs when they set up a PDU session.
-        /// The mapping of static IP to sim is configured in staticIpConfiguration on the sim resource.
-        /// At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined then they must be the same size.
+        /// The user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs.
+        /// The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource.
+        /// At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined, they must be of the same size.
         /// </summary>
         public InputList<string> UserEquipmentStaticAddressPoolPrefix
         {
@@ -274,7 +300,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         }
 
         /// <summary>
-        /// The user plane interface on the data network. In 5G networks this is called as N6 interface whereas in 4G networks this is called as SGi interface.
+        /// The user plane interface on the data network. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface.
         /// </summary>
         [Input("userPlaneDataInterface", required: true)]
         public Input<Inputs.InterfacePropertiesArgs> UserPlaneDataInterface { get; set; } = null!;

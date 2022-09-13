@@ -11,12 +11,12 @@ namespace Pulumi.AzureNative.MobileNetwork.Inputs
 {
 
     /// <summary>
-    /// The static IP configuration for the sim to use at the defined network scope.
+    /// The static IP configuration for the SIM to use at the defined network scope.
     /// </summary>
     public sealed class SimStaticIpPropertiesStaticIpArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The IPv4 address assigned to the sim at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attachedDataNetwork.
+        /// The IPv4 address assigned to the SIM at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attached data network.
         /// </summary>
         [Input("ipv4Address")]
         public Input<string>? Ipv4Address { get; set; }

@@ -27,20 +27,21 @@ type LookupSliceArgs struct {
 
 
 type LookupSliceResult struct {
-	CreatedAt          *string           `pulumi:"createdAt"`
-	CreatedBy          *string           `pulumi:"createdBy"`
-	CreatedByType      *string           `pulumi:"createdByType"`
-	Description        *string           `pulumi:"description"`
-	Id                 string            `pulumi:"id"`
-	LastModifiedAt     *string           `pulumi:"lastModifiedAt"`
-	LastModifiedBy     *string           `pulumi:"lastModifiedBy"`
-	LastModifiedByType *string           `pulumi:"lastModifiedByType"`
-	Location           string            `pulumi:"location"`
-	Name               string            `pulumi:"name"`
-	ProvisioningState  string            `pulumi:"provisioningState"`
-	Snssai             SnssaiResponse    `pulumi:"snssai"`
-	Tags               map[string]string `pulumi:"tags"`
-	Type               string            `pulumi:"type"`
+	CreatedAt          *string            `pulumi:"createdAt"`
+	CreatedBy          *string            `pulumi:"createdBy"`
+	CreatedByType      *string            `pulumi:"createdByType"`
+	Description        *string            `pulumi:"description"`
+	Id                 string             `pulumi:"id"`
+	LastModifiedAt     *string            `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string            `pulumi:"lastModifiedBy"`
+	LastModifiedByType *string            `pulumi:"lastModifiedByType"`
+	Location           string             `pulumi:"location"`
+	Name               string             `pulumi:"name"`
+	ProvisioningState  string             `pulumi:"provisioningState"`
+	Snssai             SnssaiResponse     `pulumi:"snssai"`
+	SystemData         SystemDataResponse `pulumi:"systemData"`
+	Tags               map[string]string  `pulumi:"tags"`
+	Type               string             `pulumi:"type"`
 }
 
 func LookupSliceOutput(ctx *pulumi.Context, args LookupSliceOutputArgs, opts ...pulumi.InvokeOption) LookupSliceResultOutput {
@@ -127,6 +128,10 @@ func (o LookupSliceResultOutput) ProvisioningState() pulumi.StringOutput {
 
 func (o LookupSliceResultOutput) Snssai() SnssaiResponseOutput {
 	return o.ApplyT(func(v LookupSliceResult) SnssaiResponse { return v.Snssai }).(SnssaiResponseOutput)
+}
+
+func (o LookupSliceResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupSliceResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 func (o LookupSliceResultOutput) Tags() pulumi.StringMapOutput {

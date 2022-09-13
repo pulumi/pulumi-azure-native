@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MobileNetwork.Outputs
 {
 
     /// <summary>
-    /// Service data flow (SDF) template
+    /// Data flow template
     /// </summary>
     [OutputType]
     public sealed class ServiceDataFlowTemplateResponse
@@ -29,11 +29,11 @@ namespace Pulumi.AzureNative.MobileNetwork.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Protocol;
         /// <summary>
-        /// The remote IP address(es) to which UEs will connect for this flow. If you want to allow connections on any IP address, use the value `any`. Otherwise, you must provide each of the remote IP addresses to which Fusion Core will connect for this flow. You must provide each IP address in CIDR notation, including the netmask (for example, 192.0.2.54/24).
+        /// The remote IP address(es) to which UEs will connect for this flow. If you want to allow connections on any IP address, use the value `any`. Otherwise, you must provide each of the remote IP addresses to which the packet core instance will connect for this flow. You must provide each IP address in CIDR notation, including the netmask (for example, 192.0.2.54/24).
         /// </summary>
         public readonly ImmutableArray<string> RemoteIpList;
         /// <summary>
-        /// The name of the SDF template. This must be unique within the parent PccRuleConfiguration. You must not use any of the following reserved strings - `default`, `requested` or `service`.
+        /// The name of the data flow template. This must be unique within the parent data flow policy rule. You must not use any of the following reserved strings - `default`, `requested` or `service`.
         /// </summary>
         public readonly string TemplateName;
 

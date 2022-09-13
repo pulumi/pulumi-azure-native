@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MobileNetwork
     {
         /// <summary>
         /// Service resource.
-        /// API Version: 2022-01-01-preview.
+        /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:mobilenetwork:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Service resource.
-        /// API Version: 2022-01-01-preview.
+        /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:mobilenetwork:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The set of PCC Rules that make up this service.
+        /// The set of data flow policy rules that make up this service.
         /// </summary>
         public readonly ImmutableArray<Outputs.PccRuleConfigurationResponse> PccRules;
         /// <summary>
@@ -128,13 +128,17 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// A precedence value that is used to decide between services when identifying the QoS values to use for a particular Sim. A lower value means a higher priority. This value should be unique among all services configured in the Mobile Network.
+        /// A precedence value that is used to decide between services when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all services configured in the mobile network.
         /// </summary>
         public readonly int ServicePrecedence;
         /// <summary>
-        /// The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a PccRuleConfiguration. If this field is null then the UE's simPolicy will define the QoS settings.
+        /// The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a PccRuleConfiguration. If this field is null then the UE's SIM policy will define the QoS settings.
         /// </summary>
         public readonly Outputs.QosPolicyResponse? ServiceQosPolicy;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -172,6 +176,8 @@ namespace Pulumi.AzureNative.MobileNetwork
 
             Outputs.QosPolicyResponse? serviceQosPolicy,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -189,6 +195,7 @@ namespace Pulumi.AzureNative.MobileNetwork
             ProvisioningState = provisioningState;
             ServicePrecedence = servicePrecedence;
             ServiceQosPolicy = serviceQosPolicy;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

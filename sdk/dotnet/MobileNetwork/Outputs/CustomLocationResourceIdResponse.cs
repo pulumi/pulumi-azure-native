@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.MobileNetwork.Outputs
 {
 
     /// <summary>
-    /// Reference to an Azure ARC custom location resource.
+    /// Reference to an Azure Arc custom location resource.
     /// </summary>
     [OutputType]
     public sealed class CustomLocationResourceIdResponse
     {
         /// <summary>
-        /// Azure ARC custom location resource ID.
+        /// Azure Arc custom location resource ID.
         /// </summary>
         public readonly string Id;
 

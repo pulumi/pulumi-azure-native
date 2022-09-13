@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Response for list sim ids API service call.
- * API Version: 2022-01-01-preview.
+ * Response for list SIM IDs API service call.
+ * API Version: 2022-04-01-preview.
  */
 export function listMobileNetworkSimIds(args: ListMobileNetworkSimIdsArgs, opts?: pulumi.InvokeOptions): Promise<ListMobileNetworkSimIdsResult> {
     if (!opts) {
@@ -35,7 +35,7 @@ export interface ListMobileNetworkSimIdsArgs {
 }
 
 /**
- * Response for list sim ids API service call.
+ * Response for list SIM IDs API service call.
  */
 export interface ListMobileNetworkSimIdsResult {
     /**
@@ -43,7 +43,7 @@ export interface ListMobileNetworkSimIdsResult {
      */
     readonly nextLink: string;
     /**
-     * A list of sim profile ids in a resource group.
+     * A list of SIM IDs.
      */
     readonly value?: outputs.mobilenetwork.SubResourceResponse[];
 }

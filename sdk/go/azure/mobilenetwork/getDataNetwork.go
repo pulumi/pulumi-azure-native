@@ -27,19 +27,20 @@ type LookupDataNetworkArgs struct {
 
 
 type LookupDataNetworkResult struct {
-	CreatedAt          *string           `pulumi:"createdAt"`
-	CreatedBy          *string           `pulumi:"createdBy"`
-	CreatedByType      *string           `pulumi:"createdByType"`
-	Description        *string           `pulumi:"description"`
-	Id                 string            `pulumi:"id"`
-	LastModifiedAt     *string           `pulumi:"lastModifiedAt"`
-	LastModifiedBy     *string           `pulumi:"lastModifiedBy"`
-	LastModifiedByType *string           `pulumi:"lastModifiedByType"`
-	Location           string            `pulumi:"location"`
-	Name               string            `pulumi:"name"`
-	ProvisioningState  string            `pulumi:"provisioningState"`
-	Tags               map[string]string `pulumi:"tags"`
-	Type               string            `pulumi:"type"`
+	CreatedAt          *string            `pulumi:"createdAt"`
+	CreatedBy          *string            `pulumi:"createdBy"`
+	CreatedByType      *string            `pulumi:"createdByType"`
+	Description        *string            `pulumi:"description"`
+	Id                 string             `pulumi:"id"`
+	LastModifiedAt     *string            `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string            `pulumi:"lastModifiedBy"`
+	LastModifiedByType *string            `pulumi:"lastModifiedByType"`
+	Location           string             `pulumi:"location"`
+	Name               string             `pulumi:"name"`
+	ProvisioningState  string             `pulumi:"provisioningState"`
+	SystemData         SystemDataResponse `pulumi:"systemData"`
+	Tags               map[string]string  `pulumi:"tags"`
+	Type               string             `pulumi:"type"`
 }
 
 func LookupDataNetworkOutput(ctx *pulumi.Context, args LookupDataNetworkOutputArgs, opts ...pulumi.InvokeOption) LookupDataNetworkResultOutput {
@@ -122,6 +123,10 @@ func (o LookupDataNetworkResultOutput) Name() pulumi.StringOutput {
 
 func (o LookupDataNetworkResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDataNetworkResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+func (o LookupDataNetworkResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupDataNetworkResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 func (o LookupDataNetworkResultOutput) Tags() pulumi.StringMapOutput {

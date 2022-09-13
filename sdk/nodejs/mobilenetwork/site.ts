@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Site resource.
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-04-01-preview.
  */
 export class Site extends pulumi.CustomResource {
     /**
@@ -71,13 +71,17 @@ export class Site extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * An array of ids of the network functions deployed on the site, maintained by the user.
+     * An array of IDs of the network functions deployed on the site, maintained by the user.
      */
     public readonly networkFunctions!: pulumi.Output<outputs.mobilenetwork.SubResourceResponse[] | undefined>;
     /**
-     * The provisioning state of the site resource. **TODO**: Confirm if this is needed
+     * The provisioning state of the site resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.mobilenetwork.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -118,6 +122,7 @@ export class Site extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -130,6 +135,7 @@ export class Site extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkFunctions"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -177,7 +183,7 @@ export interface SiteArgs {
      */
     mobileNetworkName: pulumi.Input<string>;
     /**
-     * An array of ids of the network functions deployed on the site, maintained by the user.
+     * An array of IDs of the network functions deployed on the site, maintained by the user.
      */
     networkFunctions?: pulumi.Input<pulumi.Input<inputs.mobilenetwork.SubResourceArgs>[]>;
     /**

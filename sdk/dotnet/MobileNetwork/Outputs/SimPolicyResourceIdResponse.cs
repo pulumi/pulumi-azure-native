@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.MobileNetwork.Outputs
 {
 
     /// <summary>
-    /// Reference to a SIM Policy resource.
+    /// Reference to a SIM policy resource.
     /// </summary>
     [OutputType]
     public sealed class SimPolicyResourceIdResponse
     {
         /// <summary>
-        /// SIM Policy resource ID.
+        /// SIM policy resource ID.
         /// </summary>
         public readonly string Id;
 

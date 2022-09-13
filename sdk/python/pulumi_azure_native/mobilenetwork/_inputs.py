@@ -13,15 +13,22 @@ from ._enums import *
 __all__ = [
     'AmbrArgs',
     'AttachedDataNetworkResourceIdArgs',
+    'AzureStackEdgeDeviceResourceIdArgs',
+    'ConnectedClusterResourceIdArgs',
     'CustomLocationResourceIdArgs',
     'DataNetworkConfigurationArgs',
     'DataNetworkResourceIdArgs',
     'InterfacePropertiesArgs',
+    'KeyVaultCertificateArgs',
+    'KeyVaultKeyArgs',
+    'LocalDiagnosticsAccessConfigurationArgs',
+    'ManagedServiceIdentityArgs',
     'MobileNetworkResourceIdArgs',
     'NaptConfigurationArgs',
     'PccRuleConfigurationArgs',
     'PccRuleQosPolicyArgs',
     'PinholeTimeoutsArgs',
+    'PlatformConfigurationArgs',
     'PlmnIdArgs',
     'PortRangeArgs',
     'PortReuseHoldTimesArgs',
@@ -43,7 +50,7 @@ class AmbrArgs:
                  downlink: pulumi.Input[str],
                  uplink: pulumi.Input[str]):
         """
-        Aggregate Maximum Bit Rate.
+        Aggregate maximum bit rate.
         :param pulumi.Input[str] downlink: Downlink bit rate.
         :param pulumi.Input[str] uplink: Uplink bit rate.
         """
@@ -80,8 +87,8 @@ class AttachedDataNetworkResourceIdArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
-        Reference to an Attached Data Network resource.
-        :param pulumi.Input[str] id: Attached Data Network resource ID.
+        Reference to an attached data network resource.
+        :param pulumi.Input[str] id: Attached data network resource ID.
         """
         pulumi.set(__self__, "id", id)
 
@@ -89,7 +96,53 @@ class AttachedDataNetworkResourceIdArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        Attached Data Network resource ID.
+        Attached data network resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class AzureStackEdgeDeviceResourceIdArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        Reference to an Azure Arc custom location resource.
+        :param pulumi.Input[str] id: Azure Stack Edge device resource ID.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        Azure Stack Edge device resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class ConnectedClusterResourceIdArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        Reference to an Azure Arc custom location resource.
+        :param pulumi.Input[str] id: Azure Arc connected cluster resource ID.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        Azure Arc connected cluster resource ID.
         """
         return pulumi.get(self, "id")
 
@@ -103,8 +156,8 @@ class CustomLocationResourceIdArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
-        Reference to an Azure ARC custom location resource.
-        :param pulumi.Input[str] id: Azure ARC custom location resource ID.
+        Reference to an Azure Arc custom location resource.
+        :param pulumi.Input[str] id: Azure Arc custom location resource ID.
         """
         pulumi.set(__self__, "id", id)
 
@@ -112,7 +165,7 @@ class CustomLocationResourceIdArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        Azure ARC custom location resource ID.
+        Azure Arc custom location resource ID.
         """
         return pulumi.get(self, "id")
 
@@ -134,16 +187,16 @@ class DataNetworkConfigurationArgs:
                  preemption_capability: Optional[pulumi.Input[Union[str, 'PreemptionCapability']]] = None,
                  preemption_vulnerability: Optional[pulumi.Input[Union[str, 'PreemptionVulnerability']]] = None):
         """
-        Settings controlling Data Network use
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceResourceIdArgs']]] allowed_services: List of Services that can be used as part of this Sim Policy. The list must not contain duplicate items and must contain at least one item.
-        :param pulumi.Input['DataNetworkResourceIdArgs'] data_network: A reference to the Data Network that these settings apply to
+        Settings controlling data network use
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceResourceIdArgs']]] allowed_services: List of services that can be used as part of this SIM policy. The list must not contain duplicate items and must contain at least one item.
+        :param pulumi.Input['DataNetworkResourceIdArgs'] data_network: A reference to the data network that these settings apply to
         :param pulumi.Input['AmbrArgs'] session_ambr: Aggregate maximum bit rate across all non-GBR QoS flows of a given PDU session. See 3GPP TS23.501 section 5.7.2.6 for a full description of the Session-AMBR.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'PduSessionType']]]] additional_allowed_session_types: Allowed session types in addition to the default session type.  Must not duplicate the default session type.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'PduSessionType']]]] additional_allowed_session_types: Allowed session types in addition to the default session type. Must not duplicate the default session type.
         :param pulumi.Input[int] allocation_and_retention_priority_level: Default QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `5qi` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         :param pulumi.Input[Union[str, 'PduSessionType']] default_session_type: The default PDU session type, which is used if the UE does not request a specific session type.
-        :param pulumi.Input[int] five_qi: Default QoS Flow 5G QoS Indicator value.  The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. This must not be a standardized 5QI value selecting a GBR (Guaranteed Bit Rate) QoS.  The illegal GBR 5QI values are: 1, 2, 3, 4, 65, 66, 67, 71, 72, 73, 74, 75, 76, 82, 83, 84, and 85. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5Qi parameter, and table 5.7.4-1 for the definition of which are the GBR 5QI values.
-        :param pulumi.Input[Union[str, 'PreemptionCapability']] preemption_capability: Default QoS Flow preemption capability.  The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
-        :param pulumi.Input[Union[str, 'PreemptionVulnerability']] preemption_vulnerability: Default QoS Flow preemption vulnerability.  The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+        :param pulumi.Input[int] five_qi: Default QoS Flow 5G QoS Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. This must not be a standardized 5QI value corresponding to a GBR (guaranteed bit rate) QoS Flow. The illegal GBR 5QI values are: 1, 2, 3, 4, 65, 66, 67, 71, 72, 73, 74, 75, 76, 82, 83, 84, and 85. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition of which are the GBR 5QI values.
+        :param pulumi.Input[Union[str, 'PreemptionCapability']] preemption_capability: Default QoS Flow preemption capability. The preemption capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+        :param pulumi.Input[Union[str, 'PreemptionVulnerability']] preemption_vulnerability: Default QoS Flow preemption vulnerability. The preemption vulnerability of a QoS Flow controls whether it can be preempted by a QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         """
         pulumi.set(__self__, "allowed_services", allowed_services)
         pulumi.set(__self__, "data_network", data_network)
@@ -175,7 +228,7 @@ class DataNetworkConfigurationArgs:
     @pulumi.getter(name="allowedServices")
     def allowed_services(self) -> pulumi.Input[Sequence[pulumi.Input['ServiceResourceIdArgs']]]:
         """
-        List of Services that can be used as part of this Sim Policy. The list must not contain duplicate items and must contain at least one item.
+        List of services that can be used as part of this SIM policy. The list must not contain duplicate items and must contain at least one item.
         """
         return pulumi.get(self, "allowed_services")
 
@@ -187,7 +240,7 @@ class DataNetworkConfigurationArgs:
     @pulumi.getter(name="dataNetwork")
     def data_network(self) -> pulumi.Input['DataNetworkResourceIdArgs']:
         """
-        A reference to the Data Network that these settings apply to
+        A reference to the data network that these settings apply to
         """
         return pulumi.get(self, "data_network")
 
@@ -211,7 +264,7 @@ class DataNetworkConfigurationArgs:
     @pulumi.getter(name="additionalAllowedSessionTypes")
     def additional_allowed_session_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'PduSessionType']]]]]:
         """
-        Allowed session types in addition to the default session type.  Must not duplicate the default session type.
+        Allowed session types in addition to the default session type. Must not duplicate the default session type.
         """
         return pulumi.get(self, "additional_allowed_session_types")
 
@@ -247,7 +300,7 @@ class DataNetworkConfigurationArgs:
     @pulumi.getter(name="fiveQi")
     def five_qi(self) -> Optional[pulumi.Input[int]]:
         """
-        Default QoS Flow 5G QoS Indicator value.  The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. This must not be a standardized 5QI value selecting a GBR (Guaranteed Bit Rate) QoS.  The illegal GBR 5QI values are: 1, 2, 3, 4, 65, 66, 67, 71, 72, 73, 74, 75, 76, 82, 83, 84, and 85. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5Qi parameter, and table 5.7.4-1 for the definition of which are the GBR 5QI values.
+        Default QoS Flow 5G QoS Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. This must not be a standardized 5QI value corresponding to a GBR (guaranteed bit rate) QoS Flow. The illegal GBR 5QI values are: 1, 2, 3, 4, 65, 66, 67, 71, 72, 73, 74, 75, 76, 82, 83, 84, and 85. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition of which are the GBR 5QI values.
         """
         return pulumi.get(self, "five_qi")
 
@@ -259,7 +312,7 @@ class DataNetworkConfigurationArgs:
     @pulumi.getter(name="preemptionCapability")
     def preemption_capability(self) -> Optional[pulumi.Input[Union[str, 'PreemptionCapability']]]:
         """
-        Default QoS Flow preemption capability.  The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+        Default QoS Flow preemption capability. The preemption capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         """
         return pulumi.get(self, "preemption_capability")
 
@@ -271,7 +324,7 @@ class DataNetworkConfigurationArgs:
     @pulumi.getter(name="preemptionVulnerability")
     def preemption_vulnerability(self) -> Optional[pulumi.Input[Union[str, 'PreemptionVulnerability']]]:
         """
-        Default QoS Flow preemption vulnerability.  The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+        Default QoS Flow preemption vulnerability. The preemption vulnerability of a QoS Flow controls whether it can be preempted by a QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         """
         return pulumi.get(self, "preemption_vulnerability")
 
@@ -285,8 +338,8 @@ class DataNetworkResourceIdArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
-        Reference to a Data Network resource.
-        :param pulumi.Input[str] id: Data Network resource ID.
+        Reference to a data network resource.
+        :param pulumi.Input[str] id: Data network resource ID.
         """
         pulumi.set(__self__, "id", id)
 
@@ -294,7 +347,7 @@ class DataNetworkResourceIdArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        Data Network resource ID.
+        Data network resource ID.
         """
         return pulumi.get(self, "id")
 
@@ -306,24 +359,184 @@ class DataNetworkResourceIdArgs:
 @pulumi.input_type
 class InterfacePropertiesArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str]):
+                 ipv4_address: Optional[pulumi.Input[str]] = None,
+                 ipv4_gateway: Optional[pulumi.Input[str]] = None,
+                 ipv4_subnet: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
         """
         Interface properties
-        :param pulumi.Input[str] name: The logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge machine.
+        :param pulumi.Input[str] ipv4_address: The IPv4 address.
+        :param pulumi.Input[str] ipv4_gateway: The default IPv4 gateway (router).
+        :param pulumi.Input[str] ipv4_subnet: The IPv4 subnet.
+        :param pulumi.Input[str] name: The logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         """
-        pulumi.set(__self__, "name", name)
+        if ipv4_address is not None:
+            pulumi.set(__self__, "ipv4_address", ipv4_address)
+        if ipv4_gateway is not None:
+            pulumi.set(__self__, "ipv4_gateway", ipv4_gateway)
+        if ipv4_subnet is not None:
+            pulumi.set(__self__, "ipv4_subnet", ipv4_subnet)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="ipv4Address")
+    def ipv4_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPv4 address.
+        """
+        return pulumi.get(self, "ipv4_address")
+
+    @ipv4_address.setter
+    def ipv4_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv4_address", value)
+
+    @property
+    @pulumi.getter(name="ipv4Gateway")
+    def ipv4_gateway(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default IPv4 gateway (router).
+        """
+        return pulumi.get(self, "ipv4_gateway")
+
+    @ipv4_gateway.setter
+    def ipv4_gateway(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv4_gateway", value)
+
+    @property
+    @pulumi.getter(name="ipv4Subnet")
+    def ipv4_subnet(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPv4 subnet.
+        """
+        return pulumi.get(self, "ipv4_subnet")
+
+    @ipv4_subnet.setter
+    def ipv4_subnet(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv4_subnet", value)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge machine.
+        The logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class KeyVaultCertificateArgs:
+    def __init__(__self__, *,
+                 certificate_url: Optional[pulumi.Input[str]] = None):
+        """
+        An Azure key vault certificate.
+        :param pulumi.Input[str] certificate_url: The certificate URL, unversioned. For example: https://contosovault.vault.azure.net/certificates/ingress.
+        """
+        if certificate_url is not None:
+            pulumi.set(__self__, "certificate_url", certificate_url)
+
+    @property
+    @pulumi.getter(name="certificateUrl")
+    def certificate_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The certificate URL, unversioned. For example: https://contosovault.vault.azure.net/certificates/ingress.
+        """
+        return pulumi.get(self, "certificate_url")
+
+    @certificate_url.setter
+    def certificate_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_url", value)
+
+
+@pulumi.input_type
+class KeyVaultKeyArgs:
+    def __init__(__self__, *,
+                 key_url: Optional[pulumi.Input[str]] = None):
+        """
+        An Azure key vault key.
+        :param pulumi.Input[str] key_url: The key URL, unversioned. For example: https://contosovault.vault.azure.net/keys/azureKey.
+        """
+        if key_url is not None:
+            pulumi.set(__self__, "key_url", key_url)
+
+    @property
+    @pulumi.getter(name="keyUrl")
+    def key_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The key URL, unversioned. For example: https://contosovault.vault.azure.net/keys/azureKey.
+        """
+        return pulumi.get(self, "key_url")
+
+    @key_url.setter
+    def key_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_url", value)
+
+
+@pulumi.input_type
+class LocalDiagnosticsAccessConfigurationArgs:
+    def __init__(__self__, *,
+                 https_server_certificate: Optional[pulumi.Input['KeyVaultCertificateArgs']] = None):
+        """
+        The kubernetes ingress configuration to control access to packet core diagnostics over local APIs.
+        :param pulumi.Input['KeyVaultCertificateArgs'] https_server_certificate: The HTTPS server TLS certificate used to secure local access to diagnostics.
+        """
+        if https_server_certificate is not None:
+            pulumi.set(__self__, "https_server_certificate", https_server_certificate)
+
+    @property
+    @pulumi.getter(name="httpsServerCertificate")
+    def https_server_certificate(self) -> Optional[pulumi.Input['KeyVaultCertificateArgs']]:
+        """
+        The HTTPS server TLS certificate used to secure local access to diagnostics.
+        """
+        return pulumi.get(self, "https_server_certificate")
+
+    @https_server_certificate.setter
+    def https_server_certificate(self, value: Optional[pulumi.Input['KeyVaultCertificateArgs']]):
+        pulumi.set(self, "https_server_certificate", value)
+
+
+@pulumi.input_type
+class ManagedServiceIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'ManagedServiceIdentityType']]:
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "user_assigned_identities", value)
 
 
 @pulumi.input_type
@@ -331,8 +544,8 @@ class MobileNetworkResourceIdArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
-        Reference to a Mobile Network resource.
-        :param pulumi.Input[str] id: Mobile Network resource ID.
+        Reference to a mobile network resource.
+        :param pulumi.Input[str] id: Mobile network resource ID.
         """
         pulumi.set(__self__, "id", id)
 
@@ -340,7 +553,7 @@ class MobileNetworkResourceIdArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        Mobile Network resource ID.
+        Mobile network resource ID.
         """
         return pulumi.get(self, "id")
 
@@ -358,12 +571,13 @@ class NaptConfigurationArgs:
                  port_range: Optional[pulumi.Input['PortRangeArgs']] = None,
                  port_reuse_hold_time: Optional[pulumi.Input['PortReuseHoldTimesArgs']] = None):
         """
-        The Network Address and Port Translation settings to use for the attached data network.
-        :param pulumi.Input[Union[str, 'NaptEnabled']] enabled: Whether NAPT is enabled for connections to this attachedDataNetwork.
-        :param pulumi.Input[int] pinhole_limits: Maximum number of UDP and TCP pinholes that can be open simultaneously on the core interface.
+        The network address and port translation settings to use for the attached data network.
+        :param pulumi.Input[Union[str, 'NaptEnabled']] enabled: Whether NAPT is enabled for connections to this attached data network.
+        :param pulumi.Input[int] pinhole_limits: Maximum number of UDP and TCP pinholes that can be open simultaneously on the core interface. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface.
         :param pulumi.Input['PinholeTimeoutsArgs'] pinhole_timeouts: Expiry times of inactive NAPT pinholes, in seconds. All timers must be at least 1 second.
         :param pulumi.Input['PortRangeArgs'] port_range: Range of port numbers to use as translated ports on each translated address.
-               If not specified and NAPT is enabled, this range defaults to 1,024 - 65,535. (Ports under 1,024 should not be used because these are special purpose ports reserved by IANA.)
+               If not specified and NAPT is enabled, this range defaults to 1,024 - 49,999.
+               (Ports under 1,024 should not be used because these are special purpose ports reserved by IANA. Ports 50,000 and above are reserved for non-NAPT use.)
         :param pulumi.Input['PortReuseHoldTimesArgs'] port_reuse_hold_time: The minimum time (in seconds) that will pass before a port that was used by a closed pinhole can be recycled for use by another pinhole. All hold times must be minimum 1 second.
         """
         if enabled is not None:
@@ -383,7 +597,7 @@ class NaptConfigurationArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[Union[str, 'NaptEnabled']]]:
         """
-        Whether NAPT is enabled for connections to this attachedDataNetwork.
+        Whether NAPT is enabled for connections to this attached data network.
         """
         return pulumi.get(self, "enabled")
 
@@ -395,7 +609,7 @@ class NaptConfigurationArgs:
     @pulumi.getter(name="pinholeLimits")
     def pinhole_limits(self) -> Optional[pulumi.Input[int]]:
         """
-        Maximum number of UDP and TCP pinholes that can be open simultaneously on the core interface.
+        Maximum number of UDP and TCP pinholes that can be open simultaneously on the core interface. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface.
         """
         return pulumi.get(self, "pinhole_limits")
 
@@ -420,7 +634,8 @@ class NaptConfigurationArgs:
     def port_range(self) -> Optional[pulumi.Input['PortRangeArgs']]:
         """
         Range of port numbers to use as translated ports on each translated address.
-        If not specified and NAPT is enabled, this range defaults to 1,024 - 65,535. (Ports under 1,024 should not be used because these are special purpose ports reserved by IANA.)
+        If not specified and NAPT is enabled, this range defaults to 1,024 - 49,999.
+        (Ports under 1,024 should not be used because these are special purpose ports reserved by IANA. Ports 50,000 and above are reserved for non-NAPT use.)
         """
         return pulumi.get(self, "port_range")
 
@@ -450,12 +665,12 @@ class PccRuleConfigurationArgs:
                  rule_qos_policy: Optional[pulumi.Input['PccRuleQosPolicyArgs']] = None,
                  traffic_control: Optional[pulumi.Input[Union[str, 'TrafficControlPermission']]] = None):
         """
-        PCC rule configuration
-        :param pulumi.Input[str] rule_name: The name of the rule. This must be unique within the parent Service. You must not use any of the following reserved strings - `default`, `requested` or `service`.
-        :param pulumi.Input[int] rule_precedence: A precedence value that is used to decide between PCC Rules when identifying the QoS values to use for a particular Sim. A lower value means a higher priority. This value should be unique among all PCC Rules configured in the Mobile Network.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceDataFlowTemplateArgs']]] service_data_flow_templates: The set of service data flow templates to use for this PCC Rule.
-        :param pulumi.Input['PccRuleQosPolicyArgs'] rule_qos_policy: The QoS policy to use for packets matching this rule. If this field is null then the Service will define the QoS settings.
-        :param pulumi.Input[Union[str, 'TrafficControlPermission']] traffic_control: Determines whether flows that match this PCC Rule are permitted.
+        Data flow policy rule configuration
+        :param pulumi.Input[str] rule_name: The name of the rule. This must be unique within the parent service. You must not use any of the following reserved strings - `default`, `requested` or `service`.
+        :param pulumi.Input[int] rule_precedence: A precedence value that is used to decide between data flow policy rules when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all data flow policy rules configured in the mobile network.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceDataFlowTemplateArgs']]] service_data_flow_templates: The set of data flow templates to use for this data flow policy rule.
+        :param pulumi.Input['PccRuleQosPolicyArgs'] rule_qos_policy: The QoS policy to use for packets matching this rule. If this field is null then the parent service will define the QoS settings.
+        :param pulumi.Input[Union[str, 'TrafficControlPermission']] traffic_control: Determines whether flows that match this data flow policy rule are permitted.
         """
         pulumi.set(__self__, "rule_name", rule_name)
         pulumi.set(__self__, "rule_precedence", rule_precedence)
@@ -471,7 +686,7 @@ class PccRuleConfigurationArgs:
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> pulumi.Input[str]:
         """
-        The name of the rule. This must be unique within the parent Service. You must not use any of the following reserved strings - `default`, `requested` or `service`.
+        The name of the rule. This must be unique within the parent service. You must not use any of the following reserved strings - `default`, `requested` or `service`.
         """
         return pulumi.get(self, "rule_name")
 
@@ -483,7 +698,7 @@ class PccRuleConfigurationArgs:
     @pulumi.getter(name="rulePrecedence")
     def rule_precedence(self) -> pulumi.Input[int]:
         """
-        A precedence value that is used to decide between PCC Rules when identifying the QoS values to use for a particular Sim. A lower value means a higher priority. This value should be unique among all PCC Rules configured in the Mobile Network.
+        A precedence value that is used to decide between data flow policy rules when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all data flow policy rules configured in the mobile network.
         """
         return pulumi.get(self, "rule_precedence")
 
@@ -495,7 +710,7 @@ class PccRuleConfigurationArgs:
     @pulumi.getter(name="serviceDataFlowTemplates")
     def service_data_flow_templates(self) -> pulumi.Input[Sequence[pulumi.Input['ServiceDataFlowTemplateArgs']]]:
         """
-        The set of service data flow templates to use for this PCC Rule.
+        The set of data flow templates to use for this data flow policy rule.
         """
         return pulumi.get(self, "service_data_flow_templates")
 
@@ -507,7 +722,7 @@ class PccRuleConfigurationArgs:
     @pulumi.getter(name="ruleQosPolicy")
     def rule_qos_policy(self) -> Optional[pulumi.Input['PccRuleQosPolicyArgs']]:
         """
-        The QoS policy to use for packets matching this rule. If this field is null then the Service will define the QoS settings.
+        The QoS policy to use for packets matching this rule. If this field is null then the parent service will define the QoS settings.
         """
         return pulumi.get(self, "rule_qos_policy")
 
@@ -519,7 +734,7 @@ class PccRuleConfigurationArgs:
     @pulumi.getter(name="trafficControl")
     def traffic_control(self) -> Optional[pulumi.Input[Union[str, 'TrafficControlPermission']]]:
         """
-        Determines whether flows that match this PCC Rule are permitted.
+        Determines whether flows that match this data flow policy rule are permitted.
         """
         return pulumi.get(self, "traffic_control")
 
@@ -538,13 +753,13 @@ class PccRuleQosPolicyArgs:
                  preemption_capability: Optional[pulumi.Input[Union[str, 'PreemptionCapability']]] = None,
                  preemption_vulnerability: Optional[pulumi.Input[Union[str, 'PreemptionVulnerability']]] = None):
         """
-        PCC rule QoS policy
-        :param pulumi.Input['AmbrArgs'] maximum_bit_rate: The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
+        Data flow policy rule QoS policy
+        :param pulumi.Input['AmbrArgs'] maximum_bit_rate: The maximum bit rate (MBR) for all service data flows that use this data flow policy rule or service.
         :param pulumi.Input[int] allocation_and_retention_priority_level: QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `5qi` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
-        :param pulumi.Input[int] five_qi: QoS Flow 5G QoS Indicator value.  The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. This must not be a standardized 5QI value selecting a GBR (Guaranteed Bit Rate) QoS.  The illegal GBR 5QI values are: 1, 2, 3, 4, 65, 66, 67, 71, 72, 73, 74, 75, 76, 82, 83, 84, and 85. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5Qi parameter, and table 5.7.4-1 for the definition of which are the GBR 5QI values.
-        :param pulumi.Input['AmbrArgs'] guaranteed_bit_rate: The Guaranteed Bit Rate (GBR) for all service data flows that use this PCC Rule. This is an optional setting. If you do not provide a value, there will be no GBR set for the PCC Rule that uses this QoS definition.
-        :param pulumi.Input[Union[str, 'PreemptionCapability']] preemption_capability: QoS Flow preemption capability.  The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
-        :param pulumi.Input[Union[str, 'PreemptionVulnerability']] preemption_vulnerability: QoS Flow preemption vulnerability.  The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+        :param pulumi.Input[int] five_qi: QoS Flow 5G QoS Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. This must not be a standardized 5QI value corresponding to a GBR (guaranteed bit rate) QoS Flow. The illegal GBR 5QI values are: 1, 2, 3, 4, 65, 66, 67, 71, 72, 73, 74, 75, 76, 82, 83, 84, and 85. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition of which are the GBR 5QI values.
+        :param pulumi.Input['AmbrArgs'] guaranteed_bit_rate: The guaranteed bit rate (GBR) for all service data flows that use this data flow policy rule. This is an optional setting. If you do not provide a value, there will be no GBR set for the data flow policy rule that uses this QoS definition.
+        :param pulumi.Input[Union[str, 'PreemptionCapability']] preemption_capability: QoS Flow preemption capability. The preemption capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+        :param pulumi.Input[Union[str, 'PreemptionVulnerability']] preemption_vulnerability: QoS Flow preemption vulnerability. The preemption vulnerability of a QoS Flow controls whether it can be preempted by a QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         """
         pulumi.set(__self__, "maximum_bit_rate", maximum_bit_rate)
         if allocation_and_retention_priority_level is None:
@@ -570,7 +785,7 @@ class PccRuleQosPolicyArgs:
     @pulumi.getter(name="maximumBitRate")
     def maximum_bit_rate(self) -> pulumi.Input['AmbrArgs']:
         """
-        The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
+        The maximum bit rate (MBR) for all service data flows that use this data flow policy rule or service.
         """
         return pulumi.get(self, "maximum_bit_rate")
 
@@ -594,7 +809,7 @@ class PccRuleQosPolicyArgs:
     @pulumi.getter(name="fiveQi")
     def five_qi(self) -> Optional[pulumi.Input[int]]:
         """
-        QoS Flow 5G QoS Indicator value.  The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. This must not be a standardized 5QI value selecting a GBR (Guaranteed Bit Rate) QoS.  The illegal GBR 5QI values are: 1, 2, 3, 4, 65, 66, 67, 71, 72, 73, 74, 75, 76, 82, 83, 84, and 85. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5Qi parameter, and table 5.7.4-1 for the definition of which are the GBR 5QI values.
+        QoS Flow 5G QoS Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. This must not be a standardized 5QI value corresponding to a GBR (guaranteed bit rate) QoS Flow. The illegal GBR 5QI values are: 1, 2, 3, 4, 65, 66, 67, 71, 72, 73, 74, 75, 76, 82, 83, 84, and 85. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition of which are the GBR 5QI values.
         """
         return pulumi.get(self, "five_qi")
 
@@ -606,7 +821,7 @@ class PccRuleQosPolicyArgs:
     @pulumi.getter(name="guaranteedBitRate")
     def guaranteed_bit_rate(self) -> Optional[pulumi.Input['AmbrArgs']]:
         """
-        The Guaranteed Bit Rate (GBR) for all service data flows that use this PCC Rule. This is an optional setting. If you do not provide a value, there will be no GBR set for the PCC Rule that uses this QoS definition.
+        The guaranteed bit rate (GBR) for all service data flows that use this data flow policy rule. This is an optional setting. If you do not provide a value, there will be no GBR set for the data flow policy rule that uses this QoS definition.
         """
         return pulumi.get(self, "guaranteed_bit_rate")
 
@@ -618,7 +833,7 @@ class PccRuleQosPolicyArgs:
     @pulumi.getter(name="preemptionCapability")
     def preemption_capability(self) -> Optional[pulumi.Input[Union[str, 'PreemptionCapability']]]:
         """
-        QoS Flow preemption capability.  The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+        QoS Flow preemption capability. The preemption capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         """
         return pulumi.get(self, "preemption_capability")
 
@@ -630,7 +845,7 @@ class PccRuleQosPolicyArgs:
     @pulumi.getter(name="preemptionVulnerability")
     def preemption_vulnerability(self) -> Optional[pulumi.Input[Union[str, 'PreemptionVulnerability']]]:
         """
-        QoS Flow preemption vulnerability.  The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+        QoS Flow preemption vulnerability. The preemption vulnerability of a QoS Flow controls whether it can be preempted by a QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         """
         return pulumi.get(self, "preemption_vulnerability")
 
@@ -647,20 +862,20 @@ class PinholeTimeoutsArgs:
                  udp: Optional[pulumi.Input[int]] = None):
         """
         Expiry times of inactive NAPT pinholes, in seconds. All timers must be at least 1 second.
-        :param pulumi.Input[int] icmp: Pinhole timeout for ICMP pinholes in seconds. Default for ICMP Echo is 60 seconds per RFC 5508 section 3.2.
-        :param pulumi.Input[int] tcp: Pinhole timeout for TCP pinholes in seconds. Default for TCP is 2 hours 4 minutes per RFC 5382 section 5.
-        :param pulumi.Input[int] udp: Pinhole timeout for UDP pinholes in seconds. Default for UDP is 5 minutes per RFC 4787 section 4.3.
+        :param pulumi.Input[int] icmp: Pinhole timeout for ICMP pinholes in seconds. Default for ICMP Echo is 60 seconds, as per RFC 5508 section 3.2.
+        :param pulumi.Input[int] tcp: Pinhole timeout for TCP pinholes in seconds. Default for TCP is 2 hours 4 minutes, as per RFC 5382 section 5.
+        :param pulumi.Input[int] udp: Pinhole timeout for UDP pinholes in seconds. Default for UDP is 5 minutes, as per RFC 4787 section 4.3.
         """
         if icmp is None:
-            icmp = 60
+            icmp = 30
         if icmp is not None:
             pulumi.set(__self__, "icmp", icmp)
         if tcp is None:
-            tcp = 7440
+            tcp = 180
         if tcp is not None:
             pulumi.set(__self__, "tcp", tcp)
         if udp is None:
-            udp = 300
+            udp = 30
         if udp is not None:
             pulumi.set(__self__, "udp", udp)
 
@@ -668,7 +883,7 @@ class PinholeTimeoutsArgs:
     @pulumi.getter
     def icmp(self) -> Optional[pulumi.Input[int]]:
         """
-        Pinhole timeout for ICMP pinholes in seconds. Default for ICMP Echo is 60 seconds per RFC 5508 section 3.2.
+        Pinhole timeout for ICMP pinholes in seconds. Default for ICMP Echo is 60 seconds, as per RFC 5508 section 3.2.
         """
         return pulumi.get(self, "icmp")
 
@@ -680,7 +895,7 @@ class PinholeTimeoutsArgs:
     @pulumi.getter
     def tcp(self) -> Optional[pulumi.Input[int]]:
         """
-        Pinhole timeout for TCP pinholes in seconds. Default for TCP is 2 hours 4 minutes per RFC 5382 section 5.
+        Pinhole timeout for TCP pinholes in seconds. Default for TCP is 2 hours 4 minutes, as per RFC 5382 section 5.
         """
         return pulumi.get(self, "tcp")
 
@@ -692,7 +907,7 @@ class PinholeTimeoutsArgs:
     @pulumi.getter
     def udp(self) -> Optional[pulumi.Input[int]]:
         """
-        Pinhole timeout for UDP pinholes in seconds. Default for UDP is 5 minutes per RFC 4787 section 4.3.
+        Pinhole timeout for UDP pinholes in seconds. Default for UDP is 5 minutes, as per RFC 4787 section 4.3.
         """
         return pulumi.get(self, "udp")
 
@@ -702,14 +917,85 @@ class PinholeTimeoutsArgs:
 
 
 @pulumi.input_type
+class PlatformConfigurationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[Union[str, 'PlatformType']],
+                 azure_stack_edge_device: Optional[pulumi.Input['AzureStackEdgeDeviceResourceIdArgs']] = None,
+                 connected_cluster: Optional[pulumi.Input['ConnectedClusterResourceIdArgs']] = None,
+                 custom_location: Optional[pulumi.Input['CustomLocationResourceIdArgs']] = None):
+        """
+        The platform where the packet core is deployed.
+        :param pulumi.Input[Union[str, 'PlatformType']] type: The platform type where packet core is deployed.
+        :param pulumi.Input['AzureStackEdgeDeviceResourceIdArgs'] azure_stack_edge_device: The Azure Stack Edge device where where the packet core is deployed. If the device is part of a fault tolerant pair, either device in the pair can be specified.
+        :param pulumi.Input['ConnectedClusterResourceIdArgs'] connected_cluster: Azure Arc connected cluster where the packet core is deployed.
+        :param pulumi.Input['CustomLocationResourceIdArgs'] custom_location: Azure Arc custom location where the packet core is deployed.
+        """
+        pulumi.set(__self__, "type", type)
+        if azure_stack_edge_device is not None:
+            pulumi.set(__self__, "azure_stack_edge_device", azure_stack_edge_device)
+        if connected_cluster is not None:
+            pulumi.set(__self__, "connected_cluster", connected_cluster)
+        if custom_location is not None:
+            pulumi.set(__self__, "custom_location", custom_location)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'PlatformType']]:
+        """
+        The platform type where packet core is deployed.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'PlatformType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="azureStackEdgeDevice")
+    def azure_stack_edge_device(self) -> Optional[pulumi.Input['AzureStackEdgeDeviceResourceIdArgs']]:
+        """
+        The Azure Stack Edge device where where the packet core is deployed. If the device is part of a fault tolerant pair, either device in the pair can be specified.
+        """
+        return pulumi.get(self, "azure_stack_edge_device")
+
+    @azure_stack_edge_device.setter
+    def azure_stack_edge_device(self, value: Optional[pulumi.Input['AzureStackEdgeDeviceResourceIdArgs']]):
+        pulumi.set(self, "azure_stack_edge_device", value)
+
+    @property
+    @pulumi.getter(name="connectedCluster")
+    def connected_cluster(self) -> Optional[pulumi.Input['ConnectedClusterResourceIdArgs']]:
+        """
+        Azure Arc connected cluster where the packet core is deployed.
+        """
+        return pulumi.get(self, "connected_cluster")
+
+    @connected_cluster.setter
+    def connected_cluster(self, value: Optional[pulumi.Input['ConnectedClusterResourceIdArgs']]):
+        pulumi.set(self, "connected_cluster", value)
+
+    @property
+    @pulumi.getter(name="customLocation")
+    def custom_location(self) -> Optional[pulumi.Input['CustomLocationResourceIdArgs']]:
+        """
+        Azure Arc custom location where the packet core is deployed.
+        """
+        return pulumi.get(self, "custom_location")
+
+    @custom_location.setter
+    def custom_location(self, value: Optional[pulumi.Input['CustomLocationResourceIdArgs']]):
+        pulumi.set(self, "custom_location", value)
+
+
+@pulumi.input_type
 class PlmnIdArgs:
     def __init__(__self__, *,
                  mcc: pulumi.Input[str],
                  mnc: pulumi.Input[str]):
         """
-        Public Land Mobile Network (PLMN) ID.
-        :param pulumi.Input[str] mcc: Mobile Country Code (MCC).
-        :param pulumi.Input[str] mnc: Mobile Network Code (MNC).
+        Public land mobile network (PLMN) ID.
+        :param pulumi.Input[str] mcc: Mobile country code (MCC).
+        :param pulumi.Input[str] mnc: Mobile network code (MNC).
         """
         pulumi.set(__self__, "mcc", mcc)
         pulumi.set(__self__, "mnc", mnc)
@@ -718,7 +1004,7 @@ class PlmnIdArgs:
     @pulumi.getter
     def mcc(self) -> pulumi.Input[str]:
         """
-        Mobile Country Code (MCC).
+        Mobile country code (MCC).
         """
         return pulumi.get(self, "mcc")
 
@@ -730,7 +1016,7 @@ class PlmnIdArgs:
     @pulumi.getter
     def mnc(self) -> pulumi.Input[str]:
         """
-        Mobile Network Code (MNC).
+        Mobile network code (MNC).
         """
         return pulumi.get(self, "mnc")
 
@@ -746,12 +1032,13 @@ class PortRangeArgs:
                  min_port: Optional[pulumi.Input[int]] = None):
         """
         Range of port numbers to use as translated ports on each translated address.
-        If not specified and NAPT is enabled, this range defaults to 1,024 - 65,535. (Ports under 1,024 should not be used because these are special purpose ports reserved by IANA.)
+        If not specified and NAPT is enabled, this range defaults to 1,024 - 49,999.
+        (Ports under 1,024 should not be used because these are special purpose ports reserved by IANA. Ports 50,000 and above are reserved for non-NAPT use.)
         :param pulumi.Input[int] max_port: The maximum port number
         :param pulumi.Input[int] min_port: The minimum port number
         """
         if max_port is None:
-            max_port = 65535
+            max_port = 49999
         if max_port is not None:
             pulumi.set(__self__, "max_port", max_port)
         if min_port is None:
@@ -838,11 +1125,11 @@ class QosPolicyArgs:
                  preemption_vulnerability: Optional[pulumi.Input[Union[str, 'PreemptionVulnerability']]] = None):
         """
         QoS policy
-        :param pulumi.Input['AmbrArgs'] maximum_bit_rate: The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
+        :param pulumi.Input['AmbrArgs'] maximum_bit_rate: The maximum bit rate (MBR) for all service data flows that use this data flow policy rule or service.
         :param pulumi.Input[int] allocation_and_retention_priority_level: QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `5qi` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
-        :param pulumi.Input[int] five_qi: QoS Flow 5G QoS Indicator value.  The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. This must not be a standardized 5QI value selecting a GBR (Guaranteed Bit Rate) QoS.  The illegal GBR 5QI values are: 1, 2, 3, 4, 65, 66, 67, 71, 72, 73, 74, 75, 76, 82, 83, 84, and 85. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5Qi parameter, and table 5.7.4-1 for the definition of which are the GBR 5QI values.
-        :param pulumi.Input[Union[str, 'PreemptionCapability']] preemption_capability: QoS Flow preemption capability.  The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
-        :param pulumi.Input[Union[str, 'PreemptionVulnerability']] preemption_vulnerability: QoS Flow preemption vulnerability.  The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+        :param pulumi.Input[int] five_qi: QoS Flow 5G QoS Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. This must not be a standardized 5QI value corresponding to a GBR (guaranteed bit rate) QoS Flow. The illegal GBR 5QI values are: 1, 2, 3, 4, 65, 66, 67, 71, 72, 73, 74, 75, 76, 82, 83, 84, and 85. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition of which are the GBR 5QI values.
+        :param pulumi.Input[Union[str, 'PreemptionCapability']] preemption_capability: QoS Flow preemption capability. The preemption capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+        :param pulumi.Input[Union[str, 'PreemptionVulnerability']] preemption_vulnerability: QoS Flow preemption vulnerability. The preemption vulnerability of a QoS Flow controls whether it can be preempted by a QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         """
         pulumi.set(__self__, "maximum_bit_rate", maximum_bit_rate)
         if allocation_and_retention_priority_level is None:
@@ -866,7 +1153,7 @@ class QosPolicyArgs:
     @pulumi.getter(name="maximumBitRate")
     def maximum_bit_rate(self) -> pulumi.Input['AmbrArgs']:
         """
-        The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
+        The maximum bit rate (MBR) for all service data flows that use this data flow policy rule or service.
         """
         return pulumi.get(self, "maximum_bit_rate")
 
@@ -890,7 +1177,7 @@ class QosPolicyArgs:
     @pulumi.getter(name="fiveQi")
     def five_qi(self) -> Optional[pulumi.Input[int]]:
         """
-        QoS Flow 5G QoS Indicator value.  The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. This must not be a standardized 5QI value selecting a GBR (Guaranteed Bit Rate) QoS.  The illegal GBR 5QI values are: 1, 2, 3, 4, 65, 66, 67, 71, 72, 73, 74, 75, 76, 82, 83, 84, and 85. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5Qi parameter, and table 5.7.4-1 for the definition of which are the GBR 5QI values.
+        QoS Flow 5G QoS Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. This must not be a standardized 5QI value corresponding to a GBR (guaranteed bit rate) QoS Flow. The illegal GBR 5QI values are: 1, 2, 3, 4, 65, 66, 67, 71, 72, 73, 74, 75, 76, 82, 83, 84, and 85. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition of which are the GBR 5QI values.
         """
         return pulumi.get(self, "five_qi")
 
@@ -902,7 +1189,7 @@ class QosPolicyArgs:
     @pulumi.getter(name="preemptionCapability")
     def preemption_capability(self) -> Optional[pulumi.Input[Union[str, 'PreemptionCapability']]]:
         """
-        QoS Flow preemption capability.  The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+        QoS Flow preemption capability. The preemption capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         """
         return pulumi.get(self, "preemption_capability")
 
@@ -914,7 +1201,7 @@ class QosPolicyArgs:
     @pulumi.getter(name="preemptionVulnerability")
     def preemption_vulnerability(self) -> Optional[pulumi.Input[Union[str, 'PreemptionVulnerability']]]:
         """
-        QoS Flow preemption vulnerability.  The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+        QoS Flow preemption vulnerability. The preemption vulnerability of a QoS Flow controls whether it can be preempted by a QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         """
         return pulumi.get(self, "preemption_vulnerability")
 
@@ -932,11 +1219,11 @@ class ServiceDataFlowTemplateArgs:
                  template_name: pulumi.Input[str],
                  ports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        Service data flow (SDF) template
+        Data flow template
         :param pulumi.Input[Union[str, 'SdfDirection']] direction: The direction of this flow.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocol: A list of the allowed protocol(s) for this flow. If you want this flow to be able to use any protocol within the internet protocol suite, use the value `ip`. If you only want to allow a selection of protocols, you must use the corresponding IANA Assigned Internet Protocol Number for each protocol, as described in https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml. For example, for UDP, you must use 17. If you use the value `ip` then you must leave the field `port` unspecified.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] remote_ip_list: The remote IP address(es) to which UEs will connect for this flow. If you want to allow connections on any IP address, use the value `any`. Otherwise, you must provide each of the remote IP addresses to which Fusion Core will connect for this flow. You must provide each IP address in CIDR notation, including the netmask (for example, 192.0.2.54/24).
-        :param pulumi.Input[str] template_name: The name of the SDF template. This must be unique within the parent PccRuleConfiguration. You must not use any of the following reserved strings - `default`, `requested` or `service`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] remote_ip_list: The remote IP address(es) to which UEs will connect for this flow. If you want to allow connections on any IP address, use the value `any`. Otherwise, you must provide each of the remote IP addresses to which the packet core instance will connect for this flow. You must provide each IP address in CIDR notation, including the netmask (for example, 192.0.2.54/24).
+        :param pulumi.Input[str] template_name: The name of the data flow template. This must be unique within the parent data flow policy rule. You must not use any of the following reserved strings - `default`, `requested` or `service`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ports: The port(s) to which UEs will connect for this flow. You can specify zero or more ports or port ranges. If you specify one or more ports or port ranges then you must specify a value other than `ip` in the `protocol` field. This is an optional setting. If you do not specify it then connections will be allowed on all ports. Port ranges must be specified as <FirstPort>-<LastPort>. For example: [`8080`, `8082-8085`].
         """
         pulumi.set(__self__, "direction", direction)
@@ -974,7 +1261,7 @@ class ServiceDataFlowTemplateArgs:
     @pulumi.getter(name="remoteIpList")
     def remote_ip_list(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        The remote IP address(es) to which UEs will connect for this flow. If you want to allow connections on any IP address, use the value `any`. Otherwise, you must provide each of the remote IP addresses to which Fusion Core will connect for this flow. You must provide each IP address in CIDR notation, including the netmask (for example, 192.0.2.54/24).
+        The remote IP address(es) to which UEs will connect for this flow. If you want to allow connections on any IP address, use the value `any`. Otherwise, you must provide each of the remote IP addresses to which the packet core instance will connect for this flow. You must provide each IP address in CIDR notation, including the netmask (for example, 192.0.2.54/24).
         """
         return pulumi.get(self, "remote_ip_list")
 
@@ -986,7 +1273,7 @@ class ServiceDataFlowTemplateArgs:
     @pulumi.getter(name="templateName")
     def template_name(self) -> pulumi.Input[str]:
         """
-        The name of the SDF template. This must be unique within the parent PccRuleConfiguration. You must not use any of the following reserved strings - `default`, `requested` or `service`.
+        The name of the data flow template. This must be unique within the parent data flow policy rule. You must not use any of the following reserved strings - `default`, `requested` or `service`.
         """
         return pulumi.get(self, "template_name")
 
@@ -1012,7 +1299,7 @@ class ServiceResourceIdArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
-        Reference to a Service resource.
+        Reference to a service resource.
         :param pulumi.Input[str] id: Service resource ID.
         """
         pulumi.set(__self__, "id", id)
@@ -1035,8 +1322,8 @@ class SimPolicyResourceIdArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
-        Reference to a SIM Policy resource.
-        :param pulumi.Input[str] id: SIM Policy resource ID.
+        Reference to a SIM policy resource.
+        :param pulumi.Input[str] id: SIM policy resource ID.
         """
         pulumi.set(__self__, "id", id)
 
@@ -1044,7 +1331,7 @@ class SimPolicyResourceIdArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        SIM Policy resource ID.
+        SIM policy resource ID.
         """
         return pulumi.get(self, "id")
 
@@ -1058,8 +1345,8 @@ class SimStaticIpPropertiesStaticIpArgs:
     def __init__(__self__, *,
                  ipv4_address: Optional[pulumi.Input[str]] = None):
         """
-        The static IP configuration for the sim to use at the defined network scope.
-        :param pulumi.Input[str] ipv4_address: The IPv4 address assigned to the sim at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attachedDataNetwork.
+        The static IP configuration for the SIM to use at the defined network scope.
+        :param pulumi.Input[str] ipv4_address: The IPv4 address assigned to the SIM at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attached data network.
         """
         if ipv4_address is not None:
             pulumi.set(__self__, "ipv4_address", ipv4_address)
@@ -1068,7 +1355,7 @@ class SimStaticIpPropertiesStaticIpArgs:
     @pulumi.getter(name="ipv4Address")
     def ipv4_address(self) -> Optional[pulumi.Input[str]]:
         """
-        The IPv4 address assigned to the sim at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attachedDataNetwork.
+        The IPv4 address assigned to the SIM at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attached data network.
         """
         return pulumi.get(self, "ipv4_address")
 
@@ -1084,10 +1371,10 @@ class SimStaticIpPropertiesArgs:
                  slice: Optional[pulumi.Input['SliceResourceIdArgs']] = None,
                  static_ip: Optional[pulumi.Input['SimStaticIpPropertiesStaticIpArgs']] = None):
         """
-        Static IP configuration for a sim, scoped to a particular attached data network and slice.
-        :param pulumi.Input['AttachedDataNetworkResourceIdArgs'] attached_data_network: The attached data network on which the static IP address will be used. The combination of attachedDataNetwork and slice defines the network scope of the IP address.
-        :param pulumi.Input['SliceResourceIdArgs'] slice: The network slice on which the static IP address will be used. The combination of attachedDataNetwork and slice defines the network scope of the IP address.
-        :param pulumi.Input['SimStaticIpPropertiesStaticIpArgs'] static_ip: The static IP configuration for the sim to use at the defined network scope.
+        Static IP configuration for a SIM, scoped to a particular attached data network and slice.
+        :param pulumi.Input['AttachedDataNetworkResourceIdArgs'] attached_data_network: The attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
+        :param pulumi.Input['SliceResourceIdArgs'] slice: The network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
+        :param pulumi.Input['SimStaticIpPropertiesStaticIpArgs'] static_ip: The static IP configuration for the SIM to use at the defined network scope.
         """
         if attached_data_network is not None:
             pulumi.set(__self__, "attached_data_network", attached_data_network)
@@ -1100,7 +1387,7 @@ class SimStaticIpPropertiesArgs:
     @pulumi.getter(name="attachedDataNetwork")
     def attached_data_network(self) -> Optional[pulumi.Input['AttachedDataNetworkResourceIdArgs']]:
         """
-        The attached data network on which the static IP address will be used. The combination of attachedDataNetwork and slice defines the network scope of the IP address.
+        The attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
         """
         return pulumi.get(self, "attached_data_network")
 
@@ -1112,7 +1399,7 @@ class SimStaticIpPropertiesArgs:
     @pulumi.getter
     def slice(self) -> Optional[pulumi.Input['SliceResourceIdArgs']]:
         """
-        The network slice on which the static IP address will be used. The combination of attachedDataNetwork and slice defines the network scope of the IP address.
+        The network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
         """
         return pulumi.get(self, "slice")
 
@@ -1124,7 +1411,7 @@ class SimStaticIpPropertiesArgs:
     @pulumi.getter(name="staticIp")
     def static_ip(self) -> Optional[pulumi.Input['SimStaticIpPropertiesStaticIpArgs']]:
         """
-        The static IP configuration for the sim to use at the defined network scope.
+        The static IP configuration for the SIM to use at the defined network scope.
         """
         return pulumi.get(self, "static_ip")
 
@@ -1142,8 +1429,8 @@ class SliceConfigurationArgs:
         """
         Per-slice settings
         :param pulumi.Input[Sequence[pulumi.Input['DataNetworkConfigurationArgs']]] data_network_configurations: The allowed data networks and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
-        :param pulumi.Input['DataNetworkResourceIdArgs'] default_data_network: The default data network to use if the UE does not explicitly specify it.  Configuration for this object must exist in the `dataNetworkConfigurations` map.
-        :param pulumi.Input['SliceResourceIdArgs'] slice: A reference to the Slice that these settings apply to
+        :param pulumi.Input['DataNetworkResourceIdArgs'] default_data_network: The default data network to use if the UE does not explicitly specify it. Configuration for this object must exist in the `dataNetworkConfigurations` map.
+        :param pulumi.Input['SliceResourceIdArgs'] slice: A reference to the slice that these settings apply to
         """
         pulumi.set(__self__, "data_network_configurations", data_network_configurations)
         pulumi.set(__self__, "default_data_network", default_data_network)
@@ -1165,7 +1452,7 @@ class SliceConfigurationArgs:
     @pulumi.getter(name="defaultDataNetwork")
     def default_data_network(self) -> pulumi.Input['DataNetworkResourceIdArgs']:
         """
-        The default data network to use if the UE does not explicitly specify it.  Configuration for this object must exist in the `dataNetworkConfigurations` map.
+        The default data network to use if the UE does not explicitly specify it. Configuration for this object must exist in the `dataNetworkConfigurations` map.
         """
         return pulumi.get(self, "default_data_network")
 
@@ -1177,7 +1464,7 @@ class SliceConfigurationArgs:
     @pulumi.getter
     def slice(self) -> pulumi.Input['SliceResourceIdArgs']:
         """
-        A reference to the Slice that these settings apply to
+        A reference to the slice that these settings apply to
         """
         return pulumi.get(self, "slice")
 
@@ -1191,7 +1478,7 @@ class SliceResourceIdArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
-        Reference to a Slice resource.
+        Reference to a slice resource.
         :param pulumi.Input[str] id: Slice resource ID.
         """
         pulumi.set(__self__, "id", id)
@@ -1215,9 +1502,9 @@ class SnssaiArgs:
                  sst: pulumi.Input[int],
                  sd: Optional[pulumi.Input[str]] = None):
         """
-        Single-Network Slice Selection Assistance Information (S-NSSAI).
-        :param pulumi.Input[int] sst: Slice/Service Type (SST).
-        :param pulumi.Input[str] sd: Slice Differentiator (SD).
+        Single-network slice selection assistance information (S-NSSAI).
+        :param pulumi.Input[int] sst: Slice/service type (SST).
+        :param pulumi.Input[str] sd: Slice differentiator (SD).
         """
         pulumi.set(__self__, "sst", sst)
         if sd is not None:
@@ -1227,7 +1514,7 @@ class SnssaiArgs:
     @pulumi.getter
     def sst(self) -> pulumi.Input[int]:
         """
-        Slice/Service Type (SST).
+        Slice/service type (SST).
         """
         return pulumi.get(self, "sst")
 
@@ -1239,7 +1526,7 @@ class SnssaiArgs:
     @pulumi.getter
     def sd(self) -> Optional[pulumi.Input[str]]:
         """
-        Slice Differentiator (SD).
+        Slice differentiator (SD).
         """
         return pulumi.get(self, "sd")
 

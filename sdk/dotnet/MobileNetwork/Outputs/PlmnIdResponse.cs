@@ -11,17 +11,17 @@ namespace Pulumi.AzureNative.MobileNetwork.Outputs
 {
 
     /// <summary>
-    /// Public Land Mobile Network (PLMN) ID.
+    /// Public land mobile network (PLMN) ID.
     /// </summary>
     [OutputType]
     public sealed class PlmnIdResponse
     {
         /// <summary>
-        /// Mobile Country Code (MCC).
+        /// Mobile country code (MCC).
         /// </summary>
         public readonly string Mcc;
         /// <summary>
-        /// Mobile Network Code (MNC).
+        /// Mobile network code (MNC).
         /// </summary>
         public readonly string Mnc;
 

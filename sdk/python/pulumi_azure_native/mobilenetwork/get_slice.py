@@ -22,7 +22,7 @@ class GetSliceResult:
     """
     Network slice resource.
     """
-    def __init__(__self__, created_at=None, created_by=None, created_by_type=None, description=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, location=None, name=None, provisioning_state=None, snssai=None, tags=None, type=None):
+    def __init__(__self__, created_at=None, created_by=None, created_by_type=None, description=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, location=None, name=None, provisioning_state=None, snssai=None, system_data=None, tags=None, type=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -59,6 +59,9 @@ class GetSliceResult:
         if snssai and not isinstance(snssai, dict):
             raise TypeError("Expected argument 'snssai' to be a dict")
         pulumi.set(__self__, "snssai", snssai)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -158,9 +161,17 @@ class GetSliceResult:
     @pulumi.getter
     def snssai(self) -> 'outputs.SnssaiResponse':
         """
-        The S-NSSAI (single network slice selection assistance information). Unique at the scope of a MobileNetwork.
+        Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
         """
         return pulumi.get(self, "snssai")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -197,6 +208,7 @@ class AwaitableGetSliceResult(GetSliceResult):
             name=self.name,
             provisioning_state=self.provisioning_state,
             snssai=self.snssai,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -207,12 +219,12 @@ def get_slice(mobile_network_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSliceResult:
     """
     Network slice resource.
-    API Version: 2022-01-01-preview.
+    API Version: 2022-04-01-preview.
 
 
     :param str mobile_network_name: The name of the mobile network.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str slice_name: The name of the mobile network slice.
+    :param str slice_name: The name of the network slice.
     """
     __args__ = dict()
     __args__['mobileNetworkName'] = mobile_network_name
@@ -234,6 +246,7 @@ def get_slice(mobile_network_name: Optional[str] = None,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         snssai=__ret__.snssai,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
 
@@ -245,11 +258,11 @@ def get_slice_output(mobile_network_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSliceResult]:
     """
     Network slice resource.
-    API Version: 2022-01-01-preview.
+    API Version: 2022-04-01-preview.
 
 
     :param str mobile_network_name: The name of the mobile network.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str slice_name: The name of the mobile network slice.
+    :param str slice_name: The name of the network slice.
     """
     ...

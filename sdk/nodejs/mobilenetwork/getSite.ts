@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Site resource.
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-04-01-preview.
  */
 export function getSite(args: GetSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteResult> {
     if (!opts) {
@@ -80,13 +80,17 @@ export interface GetSiteResult {
      */
     readonly name: string;
     /**
-     * An array of ids of the network functions deployed on the site, maintained by the user.
+     * An array of IDs of the network functions deployed on the site, maintained by the user.
      */
     readonly networkFunctions?: outputs.mobilenetwork.SubResourceResponse[];
     /**
-     * The provisioning state of the site resource. **TODO**: Confirm if this is needed
+     * The provisioning state of the site resource.
      */
     readonly provisioningState: string;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.mobilenetwork.SystemDataResponse;
     /**
      * Resource tags.
      */

@@ -14,7 +14,6 @@ import (
 type Sim struct {
 	pulumi.CustomResourceState
 
-	ConfigurationState                    pulumi.StringOutput                      `pulumi:"configurationState"`
 	CreatedAt                             pulumi.StringPtrOutput                   `pulumi:"createdAt"`
 	CreatedBy                             pulumi.StringPtrOutput                   `pulumi:"createdBy"`
 	CreatedByType                         pulumi.StringPtrOutput                   `pulumi:"createdByType"`
@@ -24,13 +23,12 @@ type Sim struct {
 	LastModifiedAt                        pulumi.StringPtrOutput                   `pulumi:"lastModifiedAt"`
 	LastModifiedBy                        pulumi.StringPtrOutput                   `pulumi:"lastModifiedBy"`
 	LastModifiedByType                    pulumi.StringPtrOutput                   `pulumi:"lastModifiedByType"`
-	Location                              pulumi.StringOutput                      `pulumi:"location"`
-	MobileNetwork                         MobileNetworkResourceIdResponsePtrOutput `pulumi:"mobileNetwork"`
 	Name                                  pulumi.StringOutput                      `pulumi:"name"`
 	ProvisioningState                     pulumi.StringOutput                      `pulumi:"provisioningState"`
 	SimPolicy                             SimPolicyResourceIdResponsePtrOutput     `pulumi:"simPolicy"`
+	SimState                              pulumi.StringOutput                      `pulumi:"simState"`
 	StaticIpConfiguration                 SimStaticIpPropertiesResponseArrayOutput `pulumi:"staticIpConfiguration"`
-	Tags                                  pulumi.StringMapOutput                   `pulumi:"tags"`
+	SystemData                            SystemDataResponseOutput                 `pulumi:"systemData"`
 	Type                                  pulumi.StringOutput                      `pulumi:"type"`
 }
 
@@ -47,12 +45,12 @@ func NewSim(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.SimGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'SimGroupName'")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:mobilenetwork/v20220101preview:Sim"),
-		},
-		{
-			Type: pulumi.String("azure-native:mobilenetwork/v20220301preview:Sim"),
+			Type: pulumi.String("azure-native:mobilenetwork/v20220401preview:Sim"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -88,24 +86,22 @@ func (SimState) ElementType() reflect.Type {
 }
 
 type simArgs struct {
-	AuthenticationKey                     *string                  `pulumi:"authenticationKey"`
-	CreatedAt                             *string                  `pulumi:"createdAt"`
-	CreatedBy                             *string                  `pulumi:"createdBy"`
-	CreatedByType                         *string                  `pulumi:"createdByType"`
-	DeviceType                            *string                  `pulumi:"deviceType"`
-	IntegratedCircuitCardIdentifier       *string                  `pulumi:"integratedCircuitCardIdentifier"`
-	InternationalMobileSubscriberIdentity string                   `pulumi:"internationalMobileSubscriberIdentity"`
-	LastModifiedAt                        *string                  `pulumi:"lastModifiedAt"`
-	LastModifiedBy                        *string                  `pulumi:"lastModifiedBy"`
-	LastModifiedByType                    *string                  `pulumi:"lastModifiedByType"`
-	Location                              *string                  `pulumi:"location"`
-	MobileNetwork                         *MobileNetworkResourceId `pulumi:"mobileNetwork"`
-	OperatorKeyCode                       *string                  `pulumi:"operatorKeyCode"`
-	ResourceGroupName                     string                   `pulumi:"resourceGroupName"`
-	SimName                               *string                  `pulumi:"simName"`
-	SimPolicy                             *SimPolicyResourceId     `pulumi:"simPolicy"`
-	StaticIpConfiguration                 []SimStaticIpProperties  `pulumi:"staticIpConfiguration"`
-	Tags                                  map[string]string        `pulumi:"tags"`
+	AuthenticationKey                     *string                 `pulumi:"authenticationKey"`
+	CreatedAt                             *string                 `pulumi:"createdAt"`
+	CreatedBy                             *string                 `pulumi:"createdBy"`
+	CreatedByType                         *string                 `pulumi:"createdByType"`
+	DeviceType                            *string                 `pulumi:"deviceType"`
+	IntegratedCircuitCardIdentifier       *string                 `pulumi:"integratedCircuitCardIdentifier"`
+	InternationalMobileSubscriberIdentity string                  `pulumi:"internationalMobileSubscriberIdentity"`
+	LastModifiedAt                        *string                 `pulumi:"lastModifiedAt"`
+	LastModifiedBy                        *string                 `pulumi:"lastModifiedBy"`
+	LastModifiedByType                    *string                 `pulumi:"lastModifiedByType"`
+	OperatorKeyCode                       *string                 `pulumi:"operatorKeyCode"`
+	ResourceGroupName                     string                  `pulumi:"resourceGroupName"`
+	SimGroupName                          string                  `pulumi:"simGroupName"`
+	SimName                               *string                 `pulumi:"simName"`
+	SimPolicy                             *SimPolicyResourceId    `pulumi:"simPolicy"`
+	StaticIpConfiguration                 []SimStaticIpProperties `pulumi:"staticIpConfiguration"`
 }
 
 
@@ -120,14 +116,12 @@ type SimArgs struct {
 	LastModifiedAt                        pulumi.StringPtrInput
 	LastModifiedBy                        pulumi.StringPtrInput
 	LastModifiedByType                    pulumi.StringPtrInput
-	Location                              pulumi.StringPtrInput
-	MobileNetwork                         MobileNetworkResourceIdPtrInput
 	OperatorKeyCode                       pulumi.StringPtrInput
 	ResourceGroupName                     pulumi.StringInput
+	SimGroupName                          pulumi.StringInput
 	SimName                               pulumi.StringPtrInput
 	SimPolicy                             SimPolicyResourceIdPtrInput
 	StaticIpConfiguration                 SimStaticIpPropertiesArrayInput
-	Tags                                  pulumi.StringMapInput
 }
 
 func (SimArgs) ElementType() reflect.Type {
@@ -167,10 +161,6 @@ func (o SimOutput) ToSimOutputWithContext(ctx context.Context) SimOutput {
 	return o
 }
 
-func (o SimOutput) ConfigurationState() pulumi.StringOutput {
-	return o.ApplyT(func(v *Sim) pulumi.StringOutput { return v.ConfigurationState }).(pulumi.StringOutput)
-}
-
 func (o SimOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sim) pulumi.StringPtrOutput { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
@@ -207,14 +197,6 @@ func (o SimOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sim) pulumi.StringPtrOutput { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
-func (o SimOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v *Sim) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
-}
-
-func (o SimOutput) MobileNetwork() MobileNetworkResourceIdResponsePtrOutput {
-	return o.ApplyT(func(v *Sim) MobileNetworkResourceIdResponsePtrOutput { return v.MobileNetwork }).(MobileNetworkResourceIdResponsePtrOutput)
-}
-
 func (o SimOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Sim) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -227,12 +209,16 @@ func (o SimOutput) SimPolicy() SimPolicyResourceIdResponsePtrOutput {
 	return o.ApplyT(func(v *Sim) SimPolicyResourceIdResponsePtrOutput { return v.SimPolicy }).(SimPolicyResourceIdResponsePtrOutput)
 }
 
+func (o SimOutput) SimState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Sim) pulumi.StringOutput { return v.SimState }).(pulumi.StringOutput)
+}
+
 func (o SimOutput) StaticIpConfiguration() SimStaticIpPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v *Sim) SimStaticIpPropertiesResponseArrayOutput { return v.StaticIpConfiguration }).(SimStaticIpPropertiesResponseArrayOutput)
 }
 
-func (o SimOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *Sim) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+func (o SimOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Sim) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 func (o SimOutput) Type() pulumi.StringOutput {

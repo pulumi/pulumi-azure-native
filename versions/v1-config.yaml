@@ -655,7 +655,7 @@ MixedReality:
     ObjectAnchorsAccount: 2021-03-01-preview
     listObjectAnchorsAccountKeys: 2021-03-01-preview
 MobileNetwork:
-  tracking: 2022-01-01-preview
+  tracking: 2022-04-01-preview
 NetApp:
   tracking: "2020-12-01"
   additions:

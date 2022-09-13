@@ -11,12 +11,12 @@ namespace Pulumi.AzureNative.MobileNetwork.Inputs
 {
 
     /// <summary>
-    /// Reference to an Azure ARC custom location resource.
+    /// Reference to an Azure Arc custom location resource.
     /// </summary>
     public sealed class CustomLocationResourceIdArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Azure ARC custom location resource ID.
+        /// Azure Arc custom location resource ID.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

@@ -26,20 +26,21 @@ type LookupMobileNetworkArgs struct {
 
 
 type LookupMobileNetworkResult struct {
-	CreatedAt                         *string           `pulumi:"createdAt"`
-	CreatedBy                         *string           `pulumi:"createdBy"`
-	CreatedByType                     *string           `pulumi:"createdByType"`
-	Id                                string            `pulumi:"id"`
-	LastModifiedAt                    *string           `pulumi:"lastModifiedAt"`
-	LastModifiedBy                    *string           `pulumi:"lastModifiedBy"`
-	LastModifiedByType                *string           `pulumi:"lastModifiedByType"`
-	Location                          string            `pulumi:"location"`
-	Name                              string            `pulumi:"name"`
-	ProvisioningState                 string            `pulumi:"provisioningState"`
-	PublicLandMobileNetworkIdentifier PlmnIdResponse    `pulumi:"publicLandMobileNetworkIdentifier"`
-	ServiceKey                        string            `pulumi:"serviceKey"`
-	Tags                              map[string]string `pulumi:"tags"`
-	Type                              string            `pulumi:"type"`
+	CreatedAt                         *string            `pulumi:"createdAt"`
+	CreatedBy                         *string            `pulumi:"createdBy"`
+	CreatedByType                     *string            `pulumi:"createdByType"`
+	Id                                string             `pulumi:"id"`
+	LastModifiedAt                    *string            `pulumi:"lastModifiedAt"`
+	LastModifiedBy                    *string            `pulumi:"lastModifiedBy"`
+	LastModifiedByType                *string            `pulumi:"lastModifiedByType"`
+	Location                          string             `pulumi:"location"`
+	Name                              string             `pulumi:"name"`
+	ProvisioningState                 string             `pulumi:"provisioningState"`
+	PublicLandMobileNetworkIdentifier PlmnIdResponse     `pulumi:"publicLandMobileNetworkIdentifier"`
+	ServiceKey                        string             `pulumi:"serviceKey"`
+	SystemData                        SystemDataResponse `pulumi:"systemData"`
+	Tags                              map[string]string  `pulumi:"tags"`
+	Type                              string             `pulumi:"type"`
 }
 
 func LookupMobileNetworkOutput(ctx *pulumi.Context, args LookupMobileNetworkOutputArgs, opts ...pulumi.InvokeOption) LookupMobileNetworkResultOutput {
@@ -125,6 +126,10 @@ func (o LookupMobileNetworkResultOutput) PublicLandMobileNetworkIdentifier() Plm
 
 func (o LookupMobileNetworkResultOutput) ServiceKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMobileNetworkResult) string { return v.ServiceKey }).(pulumi.StringOutput)
+}
+
+func (o LookupMobileNetworkResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupMobileNetworkResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 func (o LookupMobileNetworkResultOutput) Tags() pulumi.StringMapOutput {

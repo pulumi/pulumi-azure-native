@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MobileNetwork.Inputs
 {
 
     /// <summary>
-    /// PCC rule QoS policy
+    /// Data flow policy rule QoS policy
     /// </summary>
     public sealed class PccRuleQosPolicyArgs : global::Pulumi.ResourceArgs
     {
@@ -22,31 +22,31 @@ namespace Pulumi.AzureNative.MobileNetwork.Inputs
         public Input<int>? AllocationAndRetentionPriorityLevel { get; set; }
 
         /// <summary>
-        /// QoS Flow 5G QoS Indicator value.  The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. This must not be a standardized 5QI value selecting a GBR (Guaranteed Bit Rate) QoS.  The illegal GBR 5QI values are: 1, 2, 3, 4, 65, 66, 67, 71, 72, 73, 74, 75, 76, 82, 83, 84, and 85. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5Qi parameter, and table 5.7.4-1 for the definition of which are the GBR 5QI values.
+        /// QoS Flow 5G QoS Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. This must not be a standardized 5QI value corresponding to a GBR (guaranteed bit rate) QoS Flow. The illegal GBR 5QI values are: 1, 2, 3, 4, 65, 66, 67, 71, 72, 73, 74, 75, 76, 82, 83, 84, and 85. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition of which are the GBR 5QI values.
         /// </summary>
         [Input("fiveQi")]
         public Input<int>? FiveQi { get; set; }
 
         /// <summary>
-        /// The Guaranteed Bit Rate (GBR) for all service data flows that use this PCC Rule. This is an optional setting. If you do not provide a value, there will be no GBR set for the PCC Rule that uses this QoS definition.
+        /// The guaranteed bit rate (GBR) for all service data flows that use this data flow policy rule. This is an optional setting. If you do not provide a value, there will be no GBR set for the data flow policy rule that uses this QoS definition.
         /// </summary>
         [Input("guaranteedBitRate")]
         public Input<Inputs.AmbrArgs>? GuaranteedBitRate { get; set; }
 
         /// <summary>
-        /// The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
+        /// The maximum bit rate (MBR) for all service data flows that use this data flow policy rule or service.
         /// </summary>
         [Input("maximumBitRate", required: true)]
         public Input<Inputs.AmbrArgs> MaximumBitRate { get; set; } = null!;
 
         /// <summary>
-        /// QoS Flow preemption capability.  The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+        /// QoS Flow preemption capability. The preemption capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         /// </summary>
         [Input("preemptionCapability")]
         public InputUnion<string, Pulumi.AzureNative.MobileNetwork.PreemptionCapability>? PreemptionCapability { get; set; }
 
         /// <summary>
-        /// QoS Flow preemption vulnerability.  The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+        /// QoS Flow preemption vulnerability. The preemption vulnerability of a QoS Flow controls whether it can be preempted by a QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         /// </summary>
         [Input("preemptionVulnerability")]
         public InputUnion<string, Pulumi.AzureNative.MobileNetwork.PreemptionVulnerability>? PreemptionVulnerability { get; set; }

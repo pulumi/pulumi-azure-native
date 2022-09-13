@@ -24,6 +24,7 @@ type Site struct {
 	Name               pulumi.StringOutput            `pulumi:"name"`
 	NetworkFunctions   SubResourceResponseArrayOutput `pulumi:"networkFunctions"`
 	ProvisioningState  pulumi.StringOutput            `pulumi:"provisioningState"`
+	SystemData         SystemDataResponseOutput       `pulumi:"systemData"`
 	Tags               pulumi.StringMapOutput         `pulumi:"tags"`
 	Type               pulumi.StringOutput            `pulumi:"type"`
 }
@@ -190,6 +191,10 @@ func (o SiteOutput) NetworkFunctions() SubResourceResponseArrayOutput {
 
 func (o SiteOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *Site) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+func (o SiteOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Site) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 func (o SiteOutput) Tags() pulumi.StringMapOutput {

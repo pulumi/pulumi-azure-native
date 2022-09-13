@@ -35,7 +35,7 @@ class SimPolicyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a SimPolicy resource.
-        :param pulumi.Input['SliceResourceIdArgs'] default_slice: The default slice to use if the UE does not explicitly specify it.  This slice must exist in the `sliceConfigurations` map.
+        :param pulumi.Input['SliceResourceIdArgs'] default_slice: The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map.
         :param pulumi.Input[str] mobile_network_name: The name of the mobile network.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['SliceConfigurationArgs']]] slice_configurations: The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
@@ -48,7 +48,7 @@ class SimPolicyArgs:
         :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[int] registration_timer: Interval for the UE periodic registration update procedure, in seconds.
-        :param pulumi.Input[int] rfsp_index: RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413.  This is an optional setting and by default is unspecified.
+        :param pulumi.Input[int] rfsp_index: RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413. This is an optional setting and by default is unspecified.
         :param pulumi.Input[str] sim_policy_name: The name of the SIM policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -86,7 +86,7 @@ class SimPolicyArgs:
     @pulumi.getter(name="defaultSlice")
     def default_slice(self) -> pulumi.Input['SliceResourceIdArgs']:
         """
-        The default slice to use if the UE does not explicitly specify it.  This slice must exist in the `sliceConfigurations` map.
+        The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map.
         """
         return pulumi.get(self, "default_slice")
 
@@ -242,7 +242,7 @@ class SimPolicyArgs:
     @pulumi.getter(name="rfspIndex")
     def rfsp_index(self) -> Optional[pulumi.Input[int]]:
         """
-        RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413.  This is an optional setting and by default is unspecified.
+        RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413. This is an optional setting and by default is unspecified.
         """
         return pulumi.get(self, "rfsp_index")
 
@@ -298,15 +298,15 @@ class SimPolicy(pulumi.CustomResource):
                  ue_ambr: Optional[pulumi.Input[pulumi.InputType['AmbrArgs']]] = None,
                  __props__=None):
         """
-        Sim policy resource.
-        API Version: 2022-01-01-preview.
+        SIM policy resource.
+        API Version: 2022-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
         :param pulumi.Input[str] created_by: The identity that created the resource.
         :param pulumi.Input[Union[str, 'CreatedByType']] created_by_type: The type of identity that created the resource.
-        :param pulumi.Input[pulumi.InputType['SliceResourceIdArgs']] default_slice: The default slice to use if the UE does not explicitly specify it.  This slice must exist in the `sliceConfigurations` map.
+        :param pulumi.Input[pulumi.InputType['SliceResourceIdArgs']] default_slice: The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map.
         :param pulumi.Input[str] last_modified_at: The timestamp of resource last modification (UTC)
         :param pulumi.Input[str] last_modified_by: The identity that last modified the resource.
         :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
@@ -314,7 +314,7 @@ class SimPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] mobile_network_name: The name of the mobile network.
         :param pulumi.Input[int] registration_timer: Interval for the UE periodic registration update procedure, in seconds.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[int] rfsp_index: RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413.  This is an optional setting and by default is unspecified.
+        :param pulumi.Input[int] rfsp_index: RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413. This is an optional setting and by default is unspecified.
         :param pulumi.Input[str] sim_policy_name: The name of the SIM policy.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SliceConfigurationArgs']]]] slice_configurations: The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -327,8 +327,8 @@ class SimPolicy(pulumi.CustomResource):
                  args: SimPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Sim policy resource.
-        API Version: 2022-01-01-preview.
+        SIM policy resource.
+        API Version: 2022-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SimPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -400,6 +400,7 @@ class SimPolicy(pulumi.CustomResource):
             __props__.__dict__["ue_ambr"] = ue_ambr
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20220101preview:SimPolicy"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220301preview:SimPolicy"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220401preview:SimPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -438,6 +439,7 @@ class SimPolicy(pulumi.CustomResource):
         __props__.__dict__["registration_timer"] = None
         __props__.__dict__["rfsp_index"] = None
         __props__.__dict__["slice_configurations"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["ue_ambr"] = None
@@ -471,7 +473,7 @@ class SimPolicy(pulumi.CustomResource):
     @pulumi.getter(name="defaultSlice")
     def default_slice(self) -> pulumi.Output['outputs.SliceResourceIdResponse']:
         """
-        The default slice to use if the UE does not explicitly specify it.  This slice must exist in the `sliceConfigurations` map.
+        The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map.
         """
         return pulumi.get(self, "default_slice")
 
@@ -519,7 +521,7 @@ class SimPolicy(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        The provisioning state of the sim policy resource.
+        The provisioning state of the SIM policy resource.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -535,7 +537,7 @@ class SimPolicy(pulumi.CustomResource):
     @pulumi.getter(name="rfspIndex")
     def rfsp_index(self) -> pulumi.Output[Optional[int]]:
         """
-        RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413.  This is an optional setting and by default is unspecified.
+        RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413. This is an optional setting and by default is unspecified.
         """
         return pulumi.get(self, "rfsp_index")
 
@@ -546,6 +548,14 @@ class SimPolicy(pulumi.CustomResource):
         The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
         """
         return pulumi.get(self, "slice_configurations")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

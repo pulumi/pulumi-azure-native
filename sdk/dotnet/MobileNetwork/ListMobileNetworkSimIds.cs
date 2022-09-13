@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.MobileNetwork
     public static class ListMobileNetworkSimIds
     {
         /// <summary>
-        /// Response for list sim ids API service call.
-        /// API Version: 2022-01-01-preview.
+        /// Response for list SIM IDs API service call.
+        /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Task<ListMobileNetworkSimIdsResult> InvokeAsync(ListMobileNetworkSimIdsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListMobileNetworkSimIdsResult>("azure-native:mobilenetwork:listMobileNetworkSimIds", args ?? new ListMobileNetworkSimIdsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Response for list sim ids API service call.
-        /// API Version: 2022-01-01-preview.
+        /// Response for list SIM IDs API service call.
+        /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Output<ListMobileNetworkSimIdsResult> Invoke(ListMobileNetworkSimIdsInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<ListMobileNetworkSimIdsResult>("azure-native:mobilenetwork:listMobileNetworkSimIds", args ?? new ListMobileNetworkSimIdsInvokeArgs(), options.WithDefaults());
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         public readonly string NextLink;
         /// <summary>
-        /// A list of sim profile ids in a resource group.
+        /// A list of SIM IDs.
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceResponse> Value;
 

@@ -11,18 +11,18 @@ namespace Pulumi.AzureNative.MobileNetwork.Inputs
 {
 
     /// <summary>
-    /// Single-Network Slice Selection Assistance Information (S-NSSAI).
+    /// Single-network slice selection assistance information (S-NSSAI).
     /// </summary>
     public sealed class SnssaiArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Slice Differentiator (SD).
+        /// Slice differentiator (SD).
         /// </summary>
         [Input("sd")]
         public Input<string>? Sd { get; set; }
 
         /// <summary>
-        /// Slice/Service Type (SST).
+        /// Slice/service type (SST).
         /// </summary>
         [Input("sst", required: true)]
         public Input<int> Sst { get; set; } = null!;

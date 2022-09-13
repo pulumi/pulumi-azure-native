@@ -11,19 +11,19 @@ namespace Pulumi.AzureNative.MobileNetwork
 {
     /// <summary>
     /// Packet core control plane resource.
-    /// API Version: 2022-01-01-preview.
+    /// API Version: 2022-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork:PacketCoreControlPlane")]
     public partial class PacketCoreControlPlane : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The control plane interface on the access network. In 5G networks this is called as N2 interface whereas in 4G networks this is called as S1-MME interface.
+        /// The control plane interface on the access network. For 5G networks, this is the N2 interface. For 4G networks, this is the S1-MME interface.
         /// </summary>
         [Output("controlPlaneAccessInterface")]
         public Output<Outputs.InterfacePropertiesResponse> ControlPlaneAccessInterface { get; private set; } = null!;
 
         /// <summary>
-        /// The core network technology generation.
+        /// The core network technology generation (5G core or EPC / 4G core).
         /// </summary>
         [Output("coreNetworkTechnology")]
         public Output<string?> CoreNetworkTechnology { get; private set; } = null!;
@@ -47,10 +47,16 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Output<string?> CreatedByType { get; private set; } = null!;
 
         /// <summary>
-        /// Azure ARC custom location where the packet core is deployed.
+        /// The identity used to retrieve the ingress certificate from Azure key vault.
         /// </summary>
-        [Output("customLocation")]
-        public Output<Outputs.CustomLocationResourceIdResponse?> CustomLocation { get; private set; } = null!;
+        [Output("identity")]
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// Settings to allow interoperability with third party components e.g. RANs and UEs.
+        /// </summary>
+        [Output("interopSettings")]
+        public Output<object?> InteropSettings { get; private set; } = null!;
 
         /// <summary>
         /// The timestamp of resource last modification (UTC)
@@ -71,13 +77,19 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Output<string?> LastModifiedByType { get; private set; } = null!;
 
         /// <summary>
+        /// The kubernetes ingress configuration to control access to packet core diagnostics over local APIs.
+        /// </summary>
+        [Output("localDiagnosticsAccess")]
+        public Output<Outputs.LocalDiagnosticsAccessConfigurationResponse?> LocalDiagnosticsAccess { get; private set; } = null!;
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Mobile network that this packet core control plane belongs to
+        /// Mobile network in which this packet core control plane is deployed.
         /// </summary>
         [Output("mobileNetwork")]
         public Output<Outputs.MobileNetworkResourceIdResponse> MobileNetwork { get; private set; } = null!;
@@ -89,10 +101,28 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The platform where the packet core is deployed.
+        /// </summary>
+        [Output("platform")]
+        public Output<Outputs.PlatformConfigurationResponse?> Platform { get; private set; } = null!;
+
+        /// <summary>
         /// The provisioning state of the packet core control plane resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The SKU defining the throughput and SIM allowances for this packet core control plane deployment.
+        /// </summary>
+        [Output("sku")]
+        public Output<string> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -164,13 +194,13 @@ namespace Pulumi.AzureNative.MobileNetwork
     public sealed class PacketCoreControlPlaneArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The control plane interface on the access network. In 5G networks this is called as N2 interface whereas in 4G networks this is called as S1-MME interface.
+        /// The control plane interface on the access network. For 5G networks, this is the N2 interface. For 4G networks, this is the S1-MME interface.
         /// </summary>
         [Input("controlPlaneAccessInterface", required: true)]
         public Input<Inputs.InterfacePropertiesArgs> ControlPlaneAccessInterface { get; set; } = null!;
 
         /// <summary>
-        /// The core network technology generation.
+        /// The core network technology generation (5G core or EPC / 4G core).
         /// </summary>
         [Input("coreNetworkTechnology")]
         public InputUnion<string, Pulumi.AzureNative.MobileNetwork.CoreNetworkType>? CoreNetworkTechnology { get; set; }
@@ -194,10 +224,16 @@ namespace Pulumi.AzureNative.MobileNetwork
         public InputUnion<string, Pulumi.AzureNative.MobileNetwork.CreatedByType>? CreatedByType { get; set; }
 
         /// <summary>
-        /// Azure ARC custom location where the packet core is deployed.
+        /// The identity used to retrieve the ingress certificate from Azure key vault.
         /// </summary>
-        [Input("customLocation")]
-        public Input<Inputs.CustomLocationResourceIdArgs>? CustomLocation { get; set; }
+        [Input("identity")]
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// Settings to allow interoperability with third party components e.g. RANs and UEs.
+        /// </summary>
+        [Input("interopSettings")]
+        public Input<object>? InteropSettings { get; set; }
 
         /// <summary>
         /// The timestamp of resource last modification (UTC)
@@ -218,13 +254,19 @@ namespace Pulumi.AzureNative.MobileNetwork
         public InputUnion<string, Pulumi.AzureNative.MobileNetwork.CreatedByType>? LastModifiedByType { get; set; }
 
         /// <summary>
+        /// The kubernetes ingress configuration to control access to packet core diagnostics over local APIs.
+        /// </summary>
+        [Input("localDiagnosticsAccess")]
+        public Input<Inputs.LocalDiagnosticsAccessConfigurationArgs>? LocalDiagnosticsAccess { get; set; }
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Mobile network that this packet core control plane belongs to
+        /// Mobile network in which this packet core control plane is deployed.
         /// </summary>
         [Input("mobileNetwork", required: true)]
         public Input<Inputs.MobileNetworkResourceIdArgs> MobileNetwork { get; set; } = null!;
@@ -236,10 +278,22 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Input<string>? PacketCoreControlPlaneName { get; set; }
 
         /// <summary>
+        /// The platform where the packet core is deployed.
+        /// </summary>
+        [Input("platform")]
+        public Input<Inputs.PlatformConfigurationArgs>? Platform { get; set; }
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The SKU defining the throughput and SIM allowances for this packet core control plane deployment.
+        /// </summary>
+        [Input("sku", required: true)]
+        public InputUnion<string, Pulumi.AzureNative.MobileNetwork.BillingSku> Sku { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

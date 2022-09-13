@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MobileNetwork
 {
     /// <summary>
     /// Service resource.
-    /// API Version: 2022-01-01-preview.
+    /// API Version: 2022-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork:Service")]
     public partial class Service : global::Pulumi.CustomResource
@@ -65,7 +65,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The set of PCC Rules that make up this service.
+        /// The set of data flow policy rules that make up this service.
         /// </summary>
         [Output("pccRules")]
         public Output<ImmutableArray<Outputs.PccRuleConfigurationResponse>> PccRules { get; private set; } = null!;
@@ -77,16 +77,22 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// A precedence value that is used to decide between services when identifying the QoS values to use for a particular Sim. A lower value means a higher priority. This value should be unique among all services configured in the Mobile Network.
+        /// A precedence value that is used to decide between services when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all services configured in the mobile network.
         /// </summary>
         [Output("servicePrecedence")]
         public Output<int> ServicePrecedence { get; private set; } = null!;
 
         /// <summary>
-        /// The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a PccRuleConfiguration. If this field is null then the UE's simPolicy will define the QoS settings.
+        /// The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a PccRuleConfiguration. If this field is null then the UE's SIM policy will define the QoS settings.
         /// </summary>
         [Output("serviceQosPolicy")]
         public Output<Outputs.QosPolicyResponse?> ServiceQosPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -203,7 +209,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         private InputList<Inputs.PccRuleConfigurationArgs>? _pccRules;
 
         /// <summary>
-        /// The set of PCC Rules that make up this service.
+        /// The set of data flow policy rules that make up this service.
         /// </summary>
         public InputList<Inputs.PccRuleConfigurationArgs> PccRules
         {
@@ -224,13 +230,13 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Input<string>? ServiceName { get; set; }
 
         /// <summary>
-        /// A precedence value that is used to decide between services when identifying the QoS values to use for a particular Sim. A lower value means a higher priority. This value should be unique among all services configured in the Mobile Network.
+        /// A precedence value that is used to decide between services when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all services configured in the mobile network.
         /// </summary>
         [Input("servicePrecedence", required: true)]
         public Input<int> ServicePrecedence { get; set; } = null!;
 
         /// <summary>
-        /// The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a PccRuleConfiguration. If this field is null then the UE's simPolicy will define the QoS settings.
+        /// The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a PccRuleConfiguration. If this field is null then the UE's SIM policy will define the QoS settings.
         /// </summary>
         [Input("serviceQosPolicy")]
         public Input<Inputs.QosPolicyArgs>? ServiceQosPolicy { get; set; }

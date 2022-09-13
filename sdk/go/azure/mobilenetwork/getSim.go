@@ -21,30 +21,29 @@ func LookupSim(ctx *pulumi.Context, args *LookupSimArgs, opts ...pulumi.InvokeOp
 
 type LookupSimArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	SimGroupName      string `pulumi:"simGroupName"`
 	SimName           string `pulumi:"simName"`
 }
 
 
 type LookupSimResult struct {
-	ConfigurationState                    string                           `pulumi:"configurationState"`
-	CreatedAt                             *string                          `pulumi:"createdAt"`
-	CreatedBy                             *string                          `pulumi:"createdBy"`
-	CreatedByType                         *string                          `pulumi:"createdByType"`
-	DeviceType                            *string                          `pulumi:"deviceType"`
-	Id                                    string                           `pulumi:"id"`
-	IntegratedCircuitCardIdentifier       *string                          `pulumi:"integratedCircuitCardIdentifier"`
-	InternationalMobileSubscriberIdentity string                           `pulumi:"internationalMobileSubscriberIdentity"`
-	LastModifiedAt                        *string                          `pulumi:"lastModifiedAt"`
-	LastModifiedBy                        *string                          `pulumi:"lastModifiedBy"`
-	LastModifiedByType                    *string                          `pulumi:"lastModifiedByType"`
-	Location                              string                           `pulumi:"location"`
-	MobileNetwork                         *MobileNetworkResourceIdResponse `pulumi:"mobileNetwork"`
-	Name                                  string                           `pulumi:"name"`
-	ProvisioningState                     string                           `pulumi:"provisioningState"`
-	SimPolicy                             *SimPolicyResourceIdResponse     `pulumi:"simPolicy"`
-	StaticIpConfiguration                 []SimStaticIpPropertiesResponse  `pulumi:"staticIpConfiguration"`
-	Tags                                  map[string]string                `pulumi:"tags"`
-	Type                                  string                           `pulumi:"type"`
+	CreatedAt                             *string                         `pulumi:"createdAt"`
+	CreatedBy                             *string                         `pulumi:"createdBy"`
+	CreatedByType                         *string                         `pulumi:"createdByType"`
+	DeviceType                            *string                         `pulumi:"deviceType"`
+	Id                                    string                          `pulumi:"id"`
+	IntegratedCircuitCardIdentifier       *string                         `pulumi:"integratedCircuitCardIdentifier"`
+	InternationalMobileSubscriberIdentity string                          `pulumi:"internationalMobileSubscriberIdentity"`
+	LastModifiedAt                        *string                         `pulumi:"lastModifiedAt"`
+	LastModifiedBy                        *string                         `pulumi:"lastModifiedBy"`
+	LastModifiedByType                    *string                         `pulumi:"lastModifiedByType"`
+	Name                                  string                          `pulumi:"name"`
+	ProvisioningState                     string                          `pulumi:"provisioningState"`
+	SimPolicy                             *SimPolicyResourceIdResponse    `pulumi:"simPolicy"`
+	SimState                              string                          `pulumi:"simState"`
+	StaticIpConfiguration                 []SimStaticIpPropertiesResponse `pulumi:"staticIpConfiguration"`
+	SystemData                            SystemDataResponse              `pulumi:"systemData"`
+	Type                                  string                          `pulumi:"type"`
 }
 
 func LookupSimOutput(ctx *pulumi.Context, args LookupSimOutputArgs, opts ...pulumi.InvokeOption) LookupSimResultOutput {
@@ -62,6 +61,7 @@ func LookupSimOutput(ctx *pulumi.Context, args LookupSimOutputArgs, opts ...pulu
 
 type LookupSimOutputArgs struct {
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	SimGroupName      pulumi.StringInput `pulumi:"simGroupName"`
 	SimName           pulumi.StringInput `pulumi:"simName"`
 }
 
@@ -82,10 +82,6 @@ func (o LookupSimResultOutput) ToLookupSimResultOutput() LookupSimResultOutput {
 
 func (o LookupSimResultOutput) ToLookupSimResultOutputWithContext(ctx context.Context) LookupSimResultOutput {
 	return o
-}
-
-func (o LookupSimResultOutput) ConfigurationState() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSimResult) string { return v.ConfigurationState }).(pulumi.StringOutput)
 }
 
 func (o LookupSimResultOutput) CreatedAt() pulumi.StringPtrOutput {
@@ -128,14 +124,6 @@ func (o LookupSimResultOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSimResult) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupSimResultOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSimResult) string { return v.Location }).(pulumi.StringOutput)
-}
-
-func (o LookupSimResultOutput) MobileNetwork() MobileNetworkResourceIdResponsePtrOutput {
-	return o.ApplyT(func(v LookupSimResult) *MobileNetworkResourceIdResponse { return v.MobileNetwork }).(MobileNetworkResourceIdResponsePtrOutput)
-}
-
 func (o LookupSimResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSimResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -148,12 +136,16 @@ func (o LookupSimResultOutput) SimPolicy() SimPolicyResourceIdResponsePtrOutput 
 	return o.ApplyT(func(v LookupSimResult) *SimPolicyResourceIdResponse { return v.SimPolicy }).(SimPolicyResourceIdResponsePtrOutput)
 }
 
+func (o LookupSimResultOutput) SimState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSimResult) string { return v.SimState }).(pulumi.StringOutput)
+}
+
 func (o LookupSimResultOutput) StaticIpConfiguration() SimStaticIpPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v LookupSimResult) []SimStaticIpPropertiesResponse { return v.StaticIpConfiguration }).(SimStaticIpPropertiesResponseArrayOutput)
 }
 
-func (o LookupSimResultOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LookupSimResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+func (o LookupSimResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupSimResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 func (o LookupSimResultOutput) Type() pulumi.StringOutput {

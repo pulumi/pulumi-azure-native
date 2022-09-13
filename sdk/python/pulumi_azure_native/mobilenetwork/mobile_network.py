@@ -30,7 +30,7 @@ class MobileNetworkArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a MobileNetwork resource.
-        :param pulumi.Input['PlmnIdArgs'] public_land_mobile_network_identifier: The unique public land mobile network identifier for the network. This is made up of the Mobile Country Code and Mobile Network Code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
+        :param pulumi.Input['PlmnIdArgs'] public_land_mobile_network_identifier: The unique public land mobile network identifier for the network. This is made up of the mobile country code and mobile network code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
         :param pulumi.Input[str] created_by: The identity that created the resource.
@@ -67,7 +67,7 @@ class MobileNetworkArgs:
     @pulumi.getter(name="publicLandMobileNetworkIdentifier")
     def public_land_mobile_network_identifier(self) -> pulumi.Input['PlmnIdArgs']:
         """
-        The unique public land mobile network identifier for the network. This is made up of the Mobile Country Code and Mobile Network Code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
+        The unique public land mobile network identifier for the network. This is made up of the mobile country code and mobile network code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
         """
         return pulumi.get(self, "public_land_mobile_network_identifier")
 
@@ -215,7 +215,7 @@ class MobileNetwork(pulumi.CustomResource):
                  __props__=None):
         """
         Mobile network resource.
-        API Version: 2022-01-01-preview.
+        API Version: 2022-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -227,7 +227,7 @@ class MobileNetwork(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] mobile_network_name: The name of the mobile network.
-        :param pulumi.Input[pulumi.InputType['PlmnIdArgs']] public_land_mobile_network_identifier: The unique public land mobile network identifier for the network. This is made up of the Mobile Country Code and Mobile Network Code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
+        :param pulumi.Input[pulumi.InputType['PlmnIdArgs']] public_land_mobile_network_identifier: The unique public land mobile network identifier for the network. This is made up of the mobile country code and mobile network code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -239,7 +239,7 @@ class MobileNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Mobile network resource.
-        API Version: 2022-01-01-preview.
+        API Version: 2022-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param MobileNetworkArgs args: The arguments to use to populate this resource's properties.
@@ -294,6 +294,7 @@ class MobileNetwork(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["service_key"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20220101preview:MobileNetwork"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220301preview:MobileNetwork"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220401preview:MobileNetwork")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -330,6 +331,7 @@ class MobileNetwork(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["public_land_mobile_network_identifier"] = None
         __props__.__dict__["service_key"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return MobileNetwork(resource_name, opts=opts, __props__=__props__)
@@ -410,7 +412,7 @@ class MobileNetwork(pulumi.CustomResource):
     @pulumi.getter(name="publicLandMobileNetworkIdentifier")
     def public_land_mobile_network_identifier(self) -> pulumi.Output['outputs.PlmnIdResponse']:
         """
-        The unique public land mobile network identifier for the network. This is made up of the Mobile Country Code and Mobile Network Code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
+        The unique public land mobile network identifier for the network. This is made up of the mobile country code and mobile network code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
         """
         return pulumi.get(self, "public_land_mobile_network_identifier")
 
@@ -421,6 +423,14 @@ class MobileNetwork(pulumi.CustomResource):
         The mobile network resource identifier
         """
         return pulumi.get(self, "service_key")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

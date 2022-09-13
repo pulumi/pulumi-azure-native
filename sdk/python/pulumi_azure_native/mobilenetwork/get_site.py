@@ -22,7 +22,7 @@ class GetSiteResult:
     """
     Site resource.
     """
-    def __init__(__self__, created_at=None, created_by=None, created_by_type=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, location=None, name=None, network_functions=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, created_at=None, created_by=None, created_by_type=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, location=None, name=None, network_functions=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -56,6 +56,9 @@ class GetSiteResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -139,7 +142,7 @@ class GetSiteResult:
     @pulumi.getter(name="networkFunctions")
     def network_functions(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
         """
-        An array of ids of the network functions deployed on the site, maintained by the user.
+        An array of IDs of the network functions deployed on the site, maintained by the user.
         """
         return pulumi.get(self, "network_functions")
 
@@ -147,9 +150,17 @@ class GetSiteResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        The provisioning state of the site resource. **TODO**: Confirm if this is needed
+        The provisioning state of the site resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -185,6 +196,7 @@ class AwaitableGetSiteResult(GetSiteResult):
             name=self.name,
             network_functions=self.network_functions,
             provisioning_state=self.provisioning_state,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -195,7 +207,7 @@ def get_site(mobile_network_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSiteResult:
     """
     Site resource.
-    API Version: 2022-01-01-preview.
+    API Version: 2022-04-01-preview.
 
 
     :param str mobile_network_name: The name of the mobile network.
@@ -221,6 +233,7 @@ def get_site(mobile_network_name: Optional[str] = None,
         name=__ret__.name,
         network_functions=__ret__.network_functions,
         provisioning_state=__ret__.provisioning_state,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
 
@@ -232,7 +245,7 @@ def get_site_output(mobile_network_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSiteResult]:
     """
     Site resource.
-    API Version: 2022-01-01-preview.
+    API Version: 2022-04-01-preview.
 
 
     :param str mobile_network_name: The name of the mobile network.

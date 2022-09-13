@@ -2,11 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Data network resource.
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-04-01-preview.
  */
 export function getDataNetwork(args: GetDataNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetDataNetworkResult> {
     if (!opts) {
@@ -23,7 +26,7 @@ export function getDataNetwork(args: GetDataNetworkArgs, opts?: pulumi.InvokeOpt
 
 export interface GetDataNetworkArgs {
     /**
-     * The name of the mobile network dataNetwork.
+     * The name of the data network.
      */
     dataNetworkName: string;
     /**
@@ -85,6 +88,10 @@ export interface GetDataNetworkResult {
      */
     readonly provisioningState: string;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.mobilenetwork.SystemDataResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
@@ -100,7 +107,7 @@ export function getDataNetworkOutput(args: GetDataNetworkOutputArgs, opts?: pulu
 
 export interface GetDataNetworkOutputArgs {
     /**
-     * The name of the mobile network dataNetwork.
+     * The name of the data network.
      */
     dataNetworkName: pulumi.Input<string>;
     /**

@@ -22,7 +22,7 @@ class GetPacketCoreDataPlaneResult:
     """
     Packet core data plane resource.
     """
-    def __init__(__self__, created_at=None, created_by=None, created_by_type=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, location=None, name=None, provisioning_state=None, tags=None, type=None, user_plane_access_interface=None):
+    def __init__(__self__, created_at=None, created_by=None, created_by_type=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, user_plane_access_interface=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -53,6 +53,9 @@ class GetPacketCoreDataPlaneResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -144,6 +147,14 @@ class GetPacketCoreDataPlaneResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -163,7 +174,7 @@ class GetPacketCoreDataPlaneResult:
     @pulumi.getter(name="userPlaneAccessInterface")
     def user_plane_access_interface(self) -> 'outputs.InterfacePropertiesResponse':
         """
-        The user plane interface on the access network. In 5G networks this is called as N3 interface whereas in 4G networks this is called the S1-U interface.
+        The user plane interface on the access network. For 5G networks, this is the N3 interface. For 4G networks, this is the S1-U interface.
         """
         return pulumi.get(self, "user_plane_access_interface")
 
@@ -184,6 +195,7 @@ class AwaitableGetPacketCoreDataPlaneResult(GetPacketCoreDataPlaneResult):
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             user_plane_access_interface=self.user_plane_access_interface)
@@ -195,7 +207,7 @@ def get_packet_core_data_plane(packet_core_control_plane_name: Optional[str] = N
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPacketCoreDataPlaneResult:
     """
     Packet core data plane resource.
-    API Version: 2022-01-01-preview.
+    API Version: 2022-04-01-preview.
 
 
     :param str packet_core_control_plane_name: The name of the packet core control plane.
@@ -220,6 +232,7 @@ def get_packet_core_data_plane(packet_core_control_plane_name: Optional[str] = N
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         user_plane_access_interface=__ret__.user_plane_access_interface)
@@ -232,7 +245,7 @@ def get_packet_core_data_plane_output(packet_core_control_plane_name: Optional[p
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPacketCoreDataPlaneResult]:
     """
     Packet core data plane resource.
-    API Version: 2022-01-01-preview.
+    API Version: 2022-04-01-preview.
 
 
     :param str packet_core_control_plane_name: The name of the packet core control plane.

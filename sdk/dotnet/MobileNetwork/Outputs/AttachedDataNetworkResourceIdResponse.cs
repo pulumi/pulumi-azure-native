@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.MobileNetwork.Outputs
 {
 
     /// <summary>
-    /// Reference to an Attached Data Network resource.
+    /// Reference to an attached data network resource.
     /// </summary>
     [OutputType]
     public sealed class AttachedDataNetworkResourceIdResponse
     {
         /// <summary>
-        /// Attached Data Network resource ID.
+        /// Attached data network resource ID.
         /// </summary>
         public readonly string Id;
 

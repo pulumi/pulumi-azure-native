@@ -31,6 +31,7 @@ type LookupAttachedDataNetworkResult struct {
 	CreatedAt                            *string                     `pulumi:"createdAt"`
 	CreatedBy                            *string                     `pulumi:"createdBy"`
 	CreatedByType                        *string                     `pulumi:"createdByType"`
+	DnsAddresses                         []string                    `pulumi:"dnsAddresses"`
 	Id                                   string                      `pulumi:"id"`
 	LastModifiedAt                       *string                     `pulumi:"lastModifiedAt"`
 	LastModifiedBy                       *string                     `pulumi:"lastModifiedBy"`
@@ -39,6 +40,7 @@ type LookupAttachedDataNetworkResult struct {
 	Name                                 string                      `pulumi:"name"`
 	NaptConfiguration                    *NaptConfigurationResponse  `pulumi:"naptConfiguration"`
 	ProvisioningState                    string                      `pulumi:"provisioningState"`
+	SystemData                           SystemDataResponse          `pulumi:"systemData"`
 	Tags                                 map[string]string           `pulumi:"tags"`
 	Type                                 string                      `pulumi:"type"`
 	UserEquipmentAddressPoolPrefix       []string                    `pulumi:"userEquipmentAddressPoolPrefix"`
@@ -108,6 +110,10 @@ func (o LookupAttachedDataNetworkResultOutput) CreatedByType() pulumi.StringPtrO
 	return o.ApplyT(func(v LookupAttachedDataNetworkResult) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupAttachedDataNetworkResultOutput) DnsAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupAttachedDataNetworkResult) []string { return v.DnsAddresses }).(pulumi.StringArrayOutput)
+}
+
 func (o LookupAttachedDataNetworkResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAttachedDataNetworkResult) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -138,6 +144,10 @@ func (o LookupAttachedDataNetworkResultOutput) NaptConfiguration() NaptConfigura
 
 func (o LookupAttachedDataNetworkResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAttachedDataNetworkResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+func (o LookupAttachedDataNetworkResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupAttachedDataNetworkResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 func (o LookupAttachedDataNetworkResultOutput) Tags() pulumi.StringMapOutput {

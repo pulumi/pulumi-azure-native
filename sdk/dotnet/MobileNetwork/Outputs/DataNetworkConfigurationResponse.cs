@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.MobileNetwork.Outputs
 {
 
     /// <summary>
-    /// Settings controlling Data Network use
+    /// Settings controlling data network use
     /// </summary>
     [OutputType]
     public sealed class DataNetworkConfigurationResponse
     {
         /// <summary>
-        /// Allowed session types in addition to the default session type.  Must not duplicate the default session type.
+        /// Allowed session types in addition to the default session type. Must not duplicate the default session type.
         /// </summary>
         public readonly ImmutableArray<string> AdditionalAllowedSessionTypes;
         /// <summary>
@@ -25,11 +25,11 @@ namespace Pulumi.AzureNative.MobileNetwork.Outputs
         /// </summary>
         public readonly int? AllocationAndRetentionPriorityLevel;
         /// <summary>
-        /// List of Services that can be used as part of this Sim Policy. The list must not contain duplicate items and must contain at least one item.
+        /// List of services that can be used as part of this SIM policy. The list must not contain duplicate items and must contain at least one item.
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceResourceIdResponse> AllowedServices;
         /// <summary>
-        /// A reference to the Data Network that these settings apply to
+        /// A reference to the data network that these settings apply to
         /// </summary>
         public readonly Outputs.DataNetworkResourceIdResponse DataNetwork;
         /// <summary>
@@ -37,15 +37,15 @@ namespace Pulumi.AzureNative.MobileNetwork.Outputs
         /// </summary>
         public readonly string? DefaultSessionType;
         /// <summary>
-        /// Default QoS Flow 5G QoS Indicator value.  The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. This must not be a standardized 5QI value selecting a GBR (Guaranteed Bit Rate) QoS.  The illegal GBR 5QI values are: 1, 2, 3, 4, 65, 66, 67, 71, 72, 73, 74, 75, 76, 82, 83, 84, and 85. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5Qi parameter, and table 5.7.4-1 for the definition of which are the GBR 5QI values.
+        /// Default QoS Flow 5G QoS Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. This must not be a standardized 5QI value corresponding to a GBR (guaranteed bit rate) QoS Flow. The illegal GBR 5QI values are: 1, 2, 3, 4, 65, 66, 67, 71, 72, 73, 74, 75, 76, 82, 83, 84, and 85. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition of which are the GBR 5QI values.
         /// </summary>
         public readonly int? FiveQi;
         /// <summary>
-        /// Default QoS Flow preemption capability.  The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+        /// Default QoS Flow preemption capability. The preemption capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         /// </summary>
         public readonly string? PreemptionCapability;
         /// <summary>
-        /// Default QoS Flow preemption vulnerability.  The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+        /// Default QoS Flow preemption vulnerability. The preemption vulnerability of a QoS Flow controls whether it can be preempted by a QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         /// </summary>
         public readonly string? PreemptionVulnerability;
         /// <summary>

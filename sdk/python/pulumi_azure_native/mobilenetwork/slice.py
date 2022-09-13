@@ -34,7 +34,7 @@ class SliceArgs:
         The set of arguments for constructing a Slice resource.
         :param pulumi.Input[str] mobile_network_name: The name of the mobile network.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['SnssaiArgs'] snssai: The S-NSSAI (single network slice selection assistance information). Unique at the scope of a MobileNetwork.
+        :param pulumi.Input['SnssaiArgs'] snssai: Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
         :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
         :param pulumi.Input[str] created_by: The identity that created the resource.
         :param pulumi.Input[Union[str, 'CreatedByType']] created_by_type: The type of identity that created the resource.
@@ -43,7 +43,7 @@ class SliceArgs:
         :param pulumi.Input[str] last_modified_by: The identity that last modified the resource.
         :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] slice_name: The name of the mobile network slice.
+        :param pulumi.Input[str] slice_name: The name of the network slice.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "mobile_network_name", mobile_network_name)
@@ -98,7 +98,7 @@ class SliceArgs:
     @pulumi.getter
     def snssai(self) -> pulumi.Input['SnssaiArgs']:
         """
-        The S-NSSAI (single network slice selection assistance information). Unique at the scope of a MobileNetwork.
+        Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
         """
         return pulumi.get(self, "snssai")
 
@@ -206,7 +206,7 @@ class SliceArgs:
     @pulumi.getter(name="sliceName")
     def slice_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the mobile network slice.
+        The name of the network slice.
         """
         return pulumi.get(self, "slice_name")
 
@@ -248,7 +248,7 @@ class Slice(pulumi.CustomResource):
                  __props__=None):
         """
         Network slice resource.
-        API Version: 2022-01-01-preview.
+        API Version: 2022-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -262,8 +262,8 @@ class Slice(pulumi.CustomResource):
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] mobile_network_name: The name of the mobile network.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] slice_name: The name of the mobile network slice.
-        :param pulumi.Input[pulumi.InputType['SnssaiArgs']] snssai: The S-NSSAI (single network slice selection assistance information). Unique at the scope of a MobileNetwork.
+        :param pulumi.Input[str] slice_name: The name of the network slice.
+        :param pulumi.Input[pulumi.InputType['SnssaiArgs']] snssai: Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -274,7 +274,7 @@ class Slice(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Network slice resource.
-        API Version: 2022-01-01-preview.
+        API Version: 2022-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SliceArgs args: The arguments to use to populate this resource's properties.
@@ -334,6 +334,7 @@ class Slice(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20220101preview:Slice"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220301preview:Slice"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220401preview:Slice")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -370,6 +371,7 @@ class Slice(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["snssai"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Slice(resource_name, opts=opts, __props__=__props__)
@@ -458,9 +460,17 @@ class Slice(pulumi.CustomResource):
     @pulumi.getter
     def snssai(self) -> pulumi.Output['outputs.SnssaiResponse']:
         """
-        The S-NSSAI (single network slice selection assistance information). Unique at the scope of a MobileNetwork.
+        Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
         """
         return pulumi.get(self, "snssai")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

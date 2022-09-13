@@ -11,29 +11,29 @@ namespace Pulumi.AzureNative.MobileNetwork.Outputs
 {
 
     /// <summary>
-    /// PCC rule configuration
+    /// Data flow policy rule configuration
     /// </summary>
     [OutputType]
     public sealed class PccRuleConfigurationResponse
     {
         /// <summary>
-        /// The name of the rule. This must be unique within the parent Service. You must not use any of the following reserved strings - `default`, `requested` or `service`.
+        /// The name of the rule. This must be unique within the parent service. You must not use any of the following reserved strings - `default`, `requested` or `service`.
         /// </summary>
         public readonly string RuleName;
         /// <summary>
-        /// A precedence value that is used to decide between PCC Rules when identifying the QoS values to use for a particular Sim. A lower value means a higher priority. This value should be unique among all PCC Rules configured in the Mobile Network.
+        /// A precedence value that is used to decide between data flow policy rules when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all data flow policy rules configured in the mobile network.
         /// </summary>
         public readonly int RulePrecedence;
         /// <summary>
-        /// The QoS policy to use for packets matching this rule. If this field is null then the Service will define the QoS settings.
+        /// The QoS policy to use for packets matching this rule. If this field is null then the parent service will define the QoS settings.
         /// </summary>
         public readonly Outputs.PccRuleQosPolicyResponse? RuleQosPolicy;
         /// <summary>
-        /// The set of service data flow templates to use for this PCC Rule.
+        /// The set of data flow templates to use for this data flow policy rule.
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceDataFlowTemplateResponse> ServiceDataFlowTemplates;
         /// <summary>
-        /// Determines whether flows that match this PCC Rule are permitted.
+        /// Determines whether flows that match this data flow policy rule are permitted.
         /// </summary>
         public readonly string? TrafficControl;
 

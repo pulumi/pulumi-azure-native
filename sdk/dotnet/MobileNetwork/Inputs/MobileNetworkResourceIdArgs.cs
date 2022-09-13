@@ -11,12 +11,12 @@ namespace Pulumi.AzureNative.MobileNetwork.Inputs
 {
 
     /// <summary>
-    /// Reference to a Mobile Network resource.
+    /// Reference to a mobile network resource.
     /// </summary>
     public sealed class MobileNetworkResourceIdArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Mobile Network resource ID.
+        /// Mobile network resource ID.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

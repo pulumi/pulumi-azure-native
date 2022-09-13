@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.MobileNetwork.Outputs
 {
 
     /// <summary>
-    /// Reference to a Data Network resource.
+    /// Reference to a data network resource.
     /// </summary>
     [OutputType]
     public sealed class DataNetworkResourceIdResponse
     {
         /// <summary>
-        /// Data Network resource ID.
+        /// Data network resource ID.
         /// </summary>
         public readonly string Id;
 

@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Sim policy resource.
- * API Version: 2022-01-01-preview.
+ * SIM policy resource.
+ * API Version: 2022-04-01-preview.
  */
 export function getSimPolicy(args: GetSimPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSimPolicyResult> {
     if (!opts) {
@@ -40,7 +40,7 @@ export interface GetSimPolicyArgs {
 }
 
 /**
- * Sim policy resource.
+ * SIM policy resource.
  */
 export interface GetSimPolicyResult {
     /**
@@ -56,7 +56,7 @@ export interface GetSimPolicyResult {
      */
     readonly createdByType?: string;
     /**
-     * The default slice to use if the UE does not explicitly specify it.  This slice must exist in the `sliceConfigurations` map.
+     * The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map.
      */
     readonly defaultSlice: outputs.mobilenetwork.SliceResourceIdResponse;
     /**
@@ -84,7 +84,7 @@ export interface GetSimPolicyResult {
      */
     readonly name: string;
     /**
-     * The provisioning state of the sim policy resource.
+     * The provisioning state of the SIM policy resource.
      */
     readonly provisioningState: string;
     /**
@@ -92,13 +92,17 @@ export interface GetSimPolicyResult {
      */
     readonly registrationTimer?: number;
     /**
-     * RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413.  This is an optional setting and by default is unspecified.
+     * RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413. This is an optional setting and by default is unspecified.
      */
     readonly rfspIndex?: number;
     /**
      * The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
      */
     readonly sliceConfigurations: outputs.mobilenetwork.SliceConfigurationResponse[];
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.mobilenetwork.SystemDataResponse;
     /**
      * Resource tags.
      */
