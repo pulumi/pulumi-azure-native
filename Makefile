@@ -19,6 +19,9 @@ JAVA_GEN_VERSION := v0.5.4
 VERSION         = $(shell bin/pulumictl get version)
 VERSION_FLAGS   = -ldflags "-X github.com/pulumi/pulumi-azure-native/provider/pkg/version.Version=${VERSION}"
 
+ensure: init_submodules bin/pulumictl provider/.mod_download.sentinel
+	@jq --version > /dev/null
+
 init_submodules:
 	@for submodule in $$(git submodule status | awk {'print $$2'}); do \
 		if [ ! -f "$$submodule/.git" ]; then \
@@ -26,6 +29,10 @@ init_submodules:
 			(cd $$submodule && git submodule update --init); \
 		fi; \
 	done
+
+provider/.mod_download.sentinel: provider/go.mod provider/go.sum
+	cd provider && GO111MODULE=on go mod download
+	@touch provider/.mod_download.sentinel
 
 # Download local copy of pulumictl based on the version in .pulumictl.version
 # Anywhere which uses VERSION or VERSION_FLAGS should depend on bin/pulumictl
@@ -46,10 +53,6 @@ update_submodules: init_submodules
 	done
 	rm ./azure-provider-versions/provider_list.json
 	az provider list | jq 'map({ namespace: .namespace, resourceTypes: .resourceTypes | map({ resourceType: .resourceType, apiVersions: .apiVersions }) | sort_by(.resourceType) }) | sort_by(.namespace)' > ./azure-provider-versions/provider_list.json
-
-ensure: init_submodules bin/pulumictl
-	@echo "GO111MODULE=on go mod download"; cd provider; GO111MODULE=on go mod download
-	@jq --version
 
 local_generate_code: clean bin/pulumi-java-gen
 	$(WORKING_DIR)/bin/$(CODEGEN) schema,nodejs,dotnet,python,go,go-split $(VERSION)
