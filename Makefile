@@ -16,16 +16,28 @@ JAVA_GEN_VERSION := v0.5.4
 
 # Calls to pulumictl are slow, so we just do the call once if required and cache
 # Write to a new file then compare and swap to avoid updating the timestamp, which causes all dependant targets to rebuild
-VERSION         := $(shell pulumictl get version)
+VERSION         = $(shell bin/pulumictl get version)
 VERSION_FLAGS   = -ldflags "-X github.com/pulumi/pulumi-azure-native/provider/pkg/version.Version=${VERSION}"
 
-init_submodules::
+init_submodules:
 	@for submodule in $$(git submodule status | awk {'print $$2'}); do \
 		if [ ! -f "$$submodule/.git" ]; then \
 			echo "Initializing submodule $$submodule" ; \
 			(cd $$submodule && git submodule update --init); \
 		fi; \
 	done
+
+# Download local copy of pulumictl based on the version in .pulumictl.version
+# Anywhere which uses VERSION or VERSION_FLAGS should depend on bin/pulumictl
+bin/pulumictl: PULUMICTL_VERSION := $(shell cat .pulumictl.version)
+bin/pulumictl: PLAT := $(shell go version | sed -En "s/go version go.* (.*)\/(.*)/\1-\2/p")
+bin/pulumictl: PULUMICTL_URL := "https://github.com/pulumi/pulumictl/releases/download/v$(PULUMICTL_VERSION)/pulumictl-v$(PULUMICTL_VERSION)-$(PLAT).tar.gz"
+bin/pulumictl: .pulumictl.version
+	@echo "Installing pulumictl"
+	@wget --quiet -O bin/pulumictl.tar.gz "$(PULUMICTL_URL)"
+	@tar -zxf bin/pulumictl.tar.gz -C bin pulumictl
+	@touch bin/pulumictl
+	@echo "pulumictl" $$(./bin/pulumictl version)
 
 update_submodules:: init_submodules
 	@for submodule in $$(git submodule status | awk {'print $$2'}); do \
@@ -35,10 +47,9 @@ update_submodules:: init_submodules
 	rm ./azure-provider-versions/provider_list.json
 	az provider list | jq 'map({ namespace: .namespace, resourceTypes: .resourceTypes | map({ resourceType: .resourceType, apiVersions: .apiVersions }) | sort_by(.resourceType) }) | sort_by(.namespace)' > ./azure-provider-versions/provider_list.json
 
-ensure:: init_submodules
+ensure:: init_submodules bin/pulumictl
 	@echo "GO111MODULE=on go mod download"; cd provider; GO111MODULE=on go mod download
 	@jq --version
-
 
 local_generate_code:: clean bin/pulumi-java-gen
 	$(WORKING_DIR)/bin/$(CODEGEN) schema,nodejs,dotnet,python,go,go-split $(VERSION)
@@ -52,7 +63,7 @@ local_generate_code:: clean bin/pulumi-java-gen
 	rm tsconfig.json.bak
 	echo "Finished generating."
 
-local_generate:: clean bin/pulumi-java-gen
+local_generate:: clean bin/pulumi-java-gen bin/pulumictl
 	$(WORKING_DIR)/bin/$(CODEGEN) schema,docs,nodejs,dotnet,python,go,go-split $(VERSION)
 	$(WORKING_DIR)/bin/$(JAVA_GEN) generate --schema $(WORKING_DIR)/provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
 	cd ${PACKDIR}/go/ && find . -type f -exec sed -i '' -e '/^\/\/.*/g' {} \;
@@ -64,28 +75,28 @@ local_generate:: clean bin/pulumi-java-gen
 	rm tsconfig.json.bak
 	echo "Finished generating."
 
-generate_schema::
+generate_schema:: bin/pulumictl
 	echo "Generating Pulumi schema..."
 	$(WORKING_DIR)/bin/$(CODEGEN) schema $(VERSION)
 	echo "Finished generating schema."
 
-generate_docs::
+generate_docs:: bin/pulumictl
 	$(WORKING_DIR)/bin/$(CODEGEN) docs $(VERSION)
 
-arm2pulumi::
+arm2pulumi:: bin/pulumictl
 	(cd provider && go build -o $(WORKING_DIR)/bin/arm2pulumi $(VERSION_FLAGS) $(PROJECT)/provider/cmd/arm2pulumi)
 
 arm2pulumi_coverage_report::
 	(cd provider/pkg/arm2pulumi/internal/testdata && if [ ! -d azure-quickstart-templates ]; then git clone https://github.com/Azure/azure-quickstart-templates && cd azure-quickstart-templates && git checkout 3b2757465c2de537e333f5e2d1c3776c349b8483; fi)
 	(cd provider && go test -v -tags=coverage -run TestQuickstartTemplateCoverage github.com/pulumi/pulumi-azure-native/provider/pkg/arm2pulumi/internal/test)
 
-codegen::
+codegen:: bin/pulumictl
 	(cd provider && go build -o $(WORKING_DIR)/bin/$(CODEGEN) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(CODEGEN))
 
-provider::
+provider:: bin/pulumictl
 	(cd provider && go build -o $(WORKING_DIR)/bin/$(PROVIDER) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER))
 
-bin/pulumi-versioner-azure-native: $(GO_SRC)
+bin/pulumi-versioner-azure-native: $(GO_SRC) bin/pulumictl
 	cd provider && go build -o $(WORKING_DIR)/bin/pulumi-versioner-azure-native $(VERSION_FLAGS) $(PROJECT)/provider/cmd/pulumi-versioner-azure-native
 
 versions/spec.json: bin/pulumi-versioner-azure-native .git/modules/azure-rest-api-specs/HEAD
@@ -113,7 +124,7 @@ versioner: bin/pulumi-versioner-azure-native
 
 versions: versions/spec.json versions/v1.json versions/v2.json versions/deprecated.json versions/pending.json versions/active.json
 
-install_provider::
+install_provider:: bin/pulumictl
 	(cd provider && go install $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER))
 
 test_provider::
@@ -133,7 +144,7 @@ export FAKE_MODULE
 $(WORKING_DIR)/sdk/nodejs/go.mod:
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_nodejs_module/g' > $@
 
-generate_nodejs:: $(WORKING_DIR)/sdk/nodejs/go.mod
+generate_nodejs:: $(WORKING_DIR)/sdk/nodejs/go.mod bin/pulumictl
 	$(WORKING_DIR)/bin/$(CODEGEN) nodejs $(VERSION) && \
 	cd ${PACKDIR}/nodejs/ && \
 	sed -i.bak -e "s/sourceMap/inlineSourceMap/g" tsconfig.json && \
@@ -149,10 +160,10 @@ build_nodejs::
 $(WORKING_DIR)/sdk/python/go.mod:
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_python_module/g' > $@
 
-generate_python:: $(WORKING_DIR)/sdk/python/go.mod
+generate_python:: $(WORKING_DIR)/sdk/python/go.mod bin/pulumictl
 	$(WORKING_DIR)/bin/$(CODEGEN) python $(VERSION)
 
-build_python::
+build_python:: bin/pulumictl
 	cd sdk/python/ && \
 	cp ../../README.md . && \
 	python3 setup.py clean --all 2>/dev/null && \
@@ -165,7 +176,7 @@ build_python::
 $(WORKING_DIR)/sdk/dotnet/go.mod:
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_dotnet_module/g' > $@
 
-generate_dotnet:: $(WORKING_DIR)/sdk/dotnet/go.mod
+generate_dotnet:: $(WORKING_DIR)/sdk/dotnet/go.mod bin/pulumictl
 	$(WORKING_DIR)/bin/$(CODEGEN) dotnet $(VERSION) && \
 	cd ${PACKDIR}/dotnet/ && \
 	sed -i.bak -e "s/<\/Nullable>/<\/Nullable>\n    <UseSharedCompilation>false<\/UseSharedCompilation>/g" Pulumi.AzureNative.csproj && \
@@ -182,14 +193,14 @@ $(WORKING_DIR)/sdk/java/go.mod:
 generate_java:: bin/pulumi-java-gen generate_schema
 	$(WORKING_DIR)/bin/$(JAVA_GEN) generate --schema $(WORKING_DIR)/provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
 
-build_java:: $(WORKING_DIR)/sdk/java/go.mod
+build_java:: $(WORKING_DIR)/sdk/java/go.mod bin/pulumictl
 	cd ${PACKDIR}/java/ && \
 		gradle --console=plain -Pversion=$(VERSION) build
 
 bin/pulumi-java-gen::
 	$(shell pulumictl download-binary -n pulumi-language-java -v $(JAVA_GEN_VERSION) -r pulumi/pulumi-java)
 
-generate_go::
+generate_go:: bin/pulumictl
 	$(WORKING_DIR)/bin/$(CODEGEN) go,go-split $(VERSION)
 
 	cd ${PACKDIR}/go/ && find . -type f -exec sed -i '' -e '/^\/\/.*/g' {} \;
