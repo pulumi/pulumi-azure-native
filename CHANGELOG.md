@@ -2,6 +2,8 @@
 
 ## HEAD (Unreleased)
 
+- [Upgrade ModileNetwork default version due to old version being removed upstream](https://github.com/pulumi/pulumi-azure-native/pull/1967)
+
 ## 1.77.0 (2022-09-13)
 - Upgrade to latest version of Azure Rest API Specs.
 - Release new [modularised Go SDK](https://pkg.go.dev/github.com/pulumi/pulumi-azure-native-sdk)
