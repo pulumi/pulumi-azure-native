@@ -208,12 +208,11 @@ build_java: sdk/java/go.mod bin/pulumictl
 	cd ${PACKDIR}/java/ && \
 		gradle --console=plain -Pversion=$(VERSION) build
 
-bin/pulumi-java-gen:
-	$(shell pulumictl download-binary -n pulumi-language-java -v $(JAVA_GEN_VERSION) -r pulumi/pulumi-java)
+bin/pulumi-java-gen: .pulumi-java-gen.version
+	pulumictl download-binary -n pulumi-language-java -v $(shell cat .pulumi-java-gen.version) -r pulumi/pulumi-java
 
 generate_go: bin/pulumictl
 	bin/$(CODEGEN) go,go-split $(VERSION)
-
 	cd ${PACKDIR}/go/ && find . -type f -exec sed -i '' -e '/^\/\/.*/g' {} \;
 
 build_go:
