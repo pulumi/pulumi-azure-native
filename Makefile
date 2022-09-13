@@ -11,6 +11,7 @@ PROVIDER_PKGS   := $(shell cd ./provider && go list ./pkg/...)
 WORKING_DIR     := $(shell pwd)
 
 PROVIDER_PKG	= $(shell find provider/pkg -type f)
+SPECS           = $(shell find azure-rest-api-specs/specification/*/resource-manager -type f -name "*.json" ! -path "**/examples/**")
 
 JAVA_GEN 		 := pulumi-java-gen
 JAVA_GEN_VERSION := v0.5.4
@@ -31,6 +32,8 @@ codegen: bin/$(CODEGEN)
 provider: bin/$(PROVIDER)
 versioner: bin/pulumi-versioner-azure-native
 versions: versions/spec.json versions/v1.json versions/v2.json versions/deprecated.json versions/pending.json versions/active.json
+generate_schema: provider/cmd/$(PROVIDER)/schema-full.json
+generate_docs: provider/cmd/$(PROVIDER)/schema.json
 
 # Required for the codegen action that runs in pulumi/pulumi
 only_build: build
@@ -76,14 +79,6 @@ local_generate: clean bin/pulumi-java-gen bin/pulumictl bin/$(CODEGEN)
 	sed -i.bak -e "s/sourceMap/inlineSourceMap/g" tsconfig.json && \
 	rm tsconfig.json.bak
 	echo "Finished generating."
-
-generate_schema: bin/$(CODEGEN)
-	echo "Generating Pulumi schema..."
-	bin/$(CODEGEN) schema $(VERSION)
-	echo "Finished generating schema."
-
-generate_docs: bin/$(CODEGEN)
-	bin/$(CODEGEN) docs $(VERSION)
 
 arm2pulumi_coverage_report:
 	(cd provider/pkg/arm2pulumi/internal/testdata && if [ ! -d azure-quickstart-templates ]; then git clone https://github.com/Azure/azure-quickstart-templates && cd azure-quickstart-templates && git checkout 3b2757465c2de537e333f5e2d1c3776c349b8483; fi)
@@ -189,6 +184,12 @@ test:
 	cd examples && go test -v -tags=all -timeout 2h
 
 # --------- File-based targets --------- #
+
+provider/cmd/$(PROVIDER)/schema.json: bin/$(CODEGEN) $(SPECS)
+	bin/$(CODEGEN) docs $(VERSION)
+
+provider/cmd/$(PROVIDER)/schema-full.json: bin/$(CODEGEN) $(SPECS)
+	bin/$(CODEGEN) schema $(VERSION)
 
 bin/arm2pulumi: bin/pulumictl provider/.mod_download.sentinel provider/cmd/arm2pulumi/* $(PROVIDER_PKG)
 	cd provider && go build -o $(WORKING_DIR)/bin/arm2pulumi $(VERSION_FLAGS) $(PROJECT)/provider/cmd/arm2pulumi
