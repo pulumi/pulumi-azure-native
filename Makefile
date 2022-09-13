@@ -56,8 +56,8 @@ update_submodules: init_submodules
 	az provider list | jq 'map({ namespace: .namespace, resourceTypes: .resourceTypes | map({ resourceType: .resourceType, apiVersions: .apiVersions }) | sort_by(.resourceType) }) | sort_by(.namespace)' > ./azure-provider-versions/provider_list.json
 
 local_generate_code: clean bin/pulumi-java-gen bin/$(CODEGEN)
-	$(WORKING_DIR)/bin/$(CODEGEN) schema,nodejs,dotnet,python,go,go-split $(VERSION)
-	$(WORKING_DIR)/bin/$(JAVA_GEN) generate --schema $(WORKING_DIR)/provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
+	bin/$(CODEGEN) schema,nodejs,dotnet,python,go,go-split $(VERSION)
+	bin/$(JAVA_GEN) generate --schema provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
 	cd ${PACKDIR}/go/ && find . -type f -exec sed -i '' -e '/^\/\/.*/g' {} \;
 	cd ${PACKDIR}/dotnet/ && \
 	sed -i.bak -e "s/<\/Nullable>/<\/Nullable>\n    <UseSharedCompilation>false<\/UseSharedCompilation>/g" Pulumi.AzureNative.csproj && \
@@ -68,8 +68,8 @@ local_generate_code: clean bin/pulumi-java-gen bin/$(CODEGEN)
 	echo "Finished generating."
 
 local_generate: clean bin/pulumi-java-gen bin/pulumictl bin/$(CODEGEN)
-	$(WORKING_DIR)/bin/$(CODEGEN) schema,docs,nodejs,dotnet,python,go,go-split $(VERSION)
-	$(WORKING_DIR)/bin/$(JAVA_GEN) generate --schema $(WORKING_DIR)/provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
+	bin/$(CODEGEN) schema,docs,nodejs,dotnet,python,go,go-split $(VERSION)
+	bin/$(JAVA_GEN) generate --schema provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
 	cd ${PACKDIR}/go/ && find . -type f -exec sed -i '' -e '/^\/\/.*/g' {} \;
 	cd ${PACKDIR}/dotnet/ && \
 	sed -i.bak -e "s/<\/Nullable>/<\/Nullable>\n    <UseSharedCompilation>false<\/UseSharedCompilation>/g" Pulumi.AzureNative.csproj && \
@@ -81,11 +81,11 @@ local_generate: clean bin/pulumi-java-gen bin/pulumictl bin/$(CODEGEN)
 
 generate_schema: bin/$(CODEGEN)
 	echo "Generating Pulumi schema..."
-	$(WORKING_DIR)/bin/$(CODEGEN) schema $(VERSION)
+	bin/$(CODEGEN) schema $(VERSION)
 	echo "Finished generating schema."
 
 generate_docs: bin/$(CODEGEN)
-	$(WORKING_DIR)/bin/$(CODEGEN) docs $(VERSION)
+	bin/$(CODEGEN) docs $(VERSION)
 
 arm2pulumi: bin/arm2pulumi
 
@@ -152,11 +152,11 @@ endef
 
 export FAKE_MODULE
 
-$(WORKING_DIR)/sdk/nodejs/go.mod:
+sdk/nodejs/go.mod:
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_nodejs_module/g' > $@
 
-generate_nodejs: $(WORKING_DIR)/sdk/nodejs/go.mod bin/$(CODEGEN)
-	$(WORKING_DIR)/bin/$(CODEGEN) nodejs $(VERSION) && \
+generate_nodejs: sdk/nodejs/go.mod bin/pulumictl bin/$(CODEGEN)
+	bin/$(CODEGEN) nodejs $(VERSION) && \
 	cd ${PACKDIR}/nodejs/ && \
 	sed -i.bak -e "s/sourceMap/inlineSourceMap/g" tsconfig.json && \
 	rm tsconfig.json.bak
@@ -168,11 +168,11 @@ build_nodejs:
 	cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
 	sed -i.bak -e "s/\$${VERSION}/$(shell pulumictl get version --language javascript)/g" ./bin/package.json
 
-$(WORKING_DIR)/sdk/python/go.mod:
+sdk/python/go.mod:
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_python_module/g' > $@
 
-generate_python: $(WORKING_DIR)/sdk/python/go.mod bin/pulumictl
-	$(WORKING_DIR)/bin/$(CODEGEN) python $(VERSION)
+generate_python: sdk/python/go.mod bin/pulumictl bin/$(CODEGEN)
+	bin/$(CODEGEN) python $(VERSION)
 
 build_python: bin/pulumictl
 	cd sdk/python/ && \
@@ -184,11 +184,11 @@ build_python: bin/pulumictl
 	rm ./bin/go.mod && \
 	cd ./bin && python3 setup.py build sdist
 
-$(WORKING_DIR)/sdk/dotnet/go.mod:
+sdk/dotnet/go.mod:
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_dotnet_module/g' > $@
 
-generate_dotnet: $(WORKING_DIR)/sdk/dotnet/go.mod bin/pulumictl
-	$(WORKING_DIR)/bin/$(CODEGEN) dotnet $(VERSION) && \
+generate_dotnet: sdk/dotnet/go.mod bin/pulumictl bin/$(CODEGEN)
+	bin/$(CODEGEN) dotnet $(VERSION) && \
 	cd ${PACKDIR}/dotnet/ && \
 	sed -i.bak -e "s/<\/Nullable>/<\/Nullable>\n    <UseSharedCompilation>false<\/UseSharedCompilation>/g" Pulumi.AzureNative.csproj && \
 	rm Pulumi.AzureNative.csproj.bak
@@ -198,13 +198,13 @@ build_dotnet:
 	echo "azure-native\n$(shell pulumictl get version --language dotnet)" >version.txt && \
 	dotnet build /p:Version=$(shell pulumictl get version --language dotnet)
 
-$(WORKING_DIR)/sdk/java/go.mod:
+sdk/java/go.mod:
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_java_module/g' > $@
 
 generate_java: bin/pulumi-java-gen generate_schema
-	$(WORKING_DIR)/bin/$(JAVA_GEN) generate --schema $(WORKING_DIR)/provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
+	bin/$(JAVA_GEN) generate --schema provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
 
-build_java: $(WORKING_DIR)/sdk/java/go.mod bin/pulumictl
+build_java: sdk/java/go.mod bin/pulumictl
 	cd ${PACKDIR}/java/ && \
 		gradle --console=plain -Pversion=$(VERSION) build
 
@@ -212,7 +212,7 @@ bin/pulumi-java-gen:
 	$(shell pulumictl download-binary -n pulumi-language-java -v $(JAVA_GEN_VERSION) -r pulumi/pulumi-java)
 
 generate_go: bin/pulumictl
-	$(WORKING_DIR)/bin/$(CODEGEN) go,go-split $(VERSION)
+	bin/$(CODEGEN) go,go-split $(VERSION)
 
 	cd ${PACKDIR}/go/ && find . -type f -exec sed -i '' -e '/^\/\/.*/g' {} \;
 
@@ -242,7 +242,7 @@ clean:
 	rm -rf sdk/schema
 
 install_dotnet_sdk:
-	mkdir -p $(WORKING_DIR)/nuget
+	mkdir -p nuget
 	find . -name '*.nupkg' -print -exec cp -p {} ${WORKING_DIR}/nuget \;
 
 install_python_sdk:
@@ -252,7 +252,7 @@ install_go_sdk:
 install_java_sdk:
 
 install_nodejs_sdk:
-	yarn link --cwd $(WORKING_DIR)/sdk/nodejs/bin
+	yarn link --cwd sdk/nodejs/bin
 
 test: export PULUMI_LOCAL_NUGET=${WORKING_DIR}/nuget
 test:
