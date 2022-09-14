@@ -170,11 +170,24 @@ test:
 
 # --------- File-based targets --------- #
 
-provider/cmd/$(PROVIDER)/schema.json: bin/$(CODEGEN) $(SPECS)
-	bin/$(CODEGEN) docs $(VERSION)
+# Download local copy of pulumictl based on the version in .pulumictl.version
+# Anywhere which uses VERSION or VERSION_FLAGS should depend on bin/pulumictl
+bin/pulumictl: PULUMICTL_VERSION := $(shell cat .pulumictl.version)
+bin/pulumictl: PLAT := $(shell go version | sed -En "s/go version go.* (.*)\/(.*)/\1-\2/p")
+bin/pulumictl: PULUMICTL_URL := "https://github.com/pulumi/pulumictl/releases/download/v$(PULUMICTL_VERSION)/pulumictl-v$(PULUMICTL_VERSION)-$(PLAT).tar.gz"
+bin/pulumictl: .pulumictl.version
+	@echo "Installing pulumictl"
+	@wget --quiet -O bin/pulumictl.tar.gz "$(PULUMICTL_URL)"
+	@tar -zxf bin/pulumictl.tar.gz -C bin pulumictl
+	@touch bin/pulumictl
+	@echo "pulumictl" $$(./bin/pulumictl version)
 
-provider/cmd/$(PROVIDER)/schema-full.json: bin/$(CODEGEN) $(SPECS)
-	bin/$(CODEGEN) schema $(VERSION)
+bin/pulumi-java-gen: .pulumi-java-gen.version
+	pulumictl download-binary -n pulumi-language-java -v $(shell cat .pulumi-java-gen.version) -r pulumi/pulumi-java
+
+provider/.mod_download.sentinel: provider/go.mod provider/go.sum
+	cd provider && GO111MODULE=on go mod download
+	@touch provider/.mod_download.sentinel
 
 bin/arm2pulumi: bin/pulumictl provider/.mod_download.sentinel provider/cmd/arm2pulumi/* $(PROVIDER_PKG)
 	cd provider && go build -o $(WORKING_DIR)/bin/arm2pulumi $(VERSION_FLAGS) $(PROJECT)/provider/cmd/arm2pulumi
@@ -188,6 +201,12 @@ bin/$(PROVIDER): bin/pulumictl provider/.mod_download.sentinel provider/cmd/$(PR
 
 bin/$(VERSIONER): bin/pulumictl provider/.mod_download.sentinel provider/cmd/$(VERSIONER)/* $(PROVIDER_PKG)
 	cd provider && go build -o $(WORKING_DIR)/bin/pulumi-versioner-azure-native $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(VERSIONER)
+
+provider/cmd/$(PROVIDER)/schema.json: bin/$(CODEGEN) $(SPECS)
+	bin/$(CODEGEN) docs $(VERSION)
+
+provider/cmd/$(PROVIDER)/schema-full.json: bin/$(CODEGEN) $(SPECS)
+	bin/$(CODEGEN) schema $(VERSION)
 
 versions/spec.json: bin/pulumi-versioner-azure-native .git/modules/azure-rest-api-specs/HEAD
 	bin/pulumi-versioner-azure-native spec
@@ -209,25 +228,6 @@ versions/pending.json: bin/pulumi-versioner-azure-native versions/spec.json vers
 
 versions/v2.json: bin/pulumi-versioner-azure-native versions/spec.json versions/deprecated.json versions/v2-config.yaml
 	bin/pulumi-versioner-azure-native v2
-
-provider/.mod_download.sentinel: provider/go.mod provider/go.sum
-	cd provider && GO111MODULE=on go mod download
-	@touch provider/.mod_download.sentinel
-
-# Download local copy of pulumictl based on the version in .pulumictl.version
-# Anywhere which uses VERSION or VERSION_FLAGS should depend on bin/pulumictl
-bin/pulumictl: PULUMICTL_VERSION := $(shell cat .pulumictl.version)
-bin/pulumictl: PLAT := $(shell go version | sed -En "s/go version go.* (.*)\/(.*)/\1-\2/p")
-bin/pulumictl: PULUMICTL_URL := "https://github.com/pulumi/pulumictl/releases/download/v$(PULUMICTL_VERSION)/pulumictl-v$(PULUMICTL_VERSION)-$(PLAT).tar.gz"
-bin/pulumictl: .pulumictl.version
-	@echo "Installing pulumictl"
-	@wget --quiet -O bin/pulumictl.tar.gz "$(PULUMICTL_URL)"
-	@tar -zxf bin/pulumictl.tar.gz -C bin pulumictl
-	@touch bin/pulumictl
-	@echo "pulumictl" $$(./bin/pulumictl version)
-
-bin/pulumi-java-gen: .pulumi-java-gen.version
-	pulumictl download-binary -n pulumi-language-java -v $(shell cat .pulumi-java-gen.version) -r pulumi/pulumi-java
 
 define FAKE_MODULE
 module fake_module // Exclude this directory from Go tools
@@ -255,7 +255,6 @@ sdk/java: bin/pulumi-java-gen provider/cmd/$(PROVIDER)/schema.json sdk/java/go.m
 
 sdk/nodejs: sdk/nodejs/go.mod bin/pulumictl bin/$(CODEGEN)
 	bin/$(CODEGEN) nodejs $(VERSION)
-	cd sdk/nodejs
 	sed -i.bak -e "s/sourceMap/inlineSourceMap/g" sdk/nodejs/tsconfig.json
 	rm sdk/nodejs/tsconfig.json.bak
 	@touch sdk/nodejs
@@ -265,13 +264,12 @@ sdk/python: sdk/python/go.mod bin/pulumictl bin/$(CODEGEN)
 	@touch sdk/python
 
 sdk/dotnet: sdk/dotnet/go.mod bin/pulumictl bin/$(CODEGEN)
-	bin/$(CODEGEN) dotnet $(VERSION) && \
-	cd sdk/dotnet/ && \
-	sed -i.bak -e "s/<\/Nullable>/<\/Nullable>\n    <UseSharedCompilation>false<\/UseSharedCompilation>/g" Pulumi.AzureNative.csproj && \
-	rm Pulumi.AzureNative.csproj.bak
+	bin/$(CODEGEN) dotnet $(VERSION)
+	sed -i.bak -e "s/<\/Nullable>/<\/Nullable>\n    <UseSharedCompilation>false<\/UseSharedCompilation>/g" sdk/dotnet/Pulumi.AzureNative.csproj
+	rm sdk/dotnet/Pulumi.AzureNative.csproj.bak
 	@touch sdk/dotnet
 
 sdk/go: bin/pulumictl
 	bin/$(CODEGEN) go,go-split $(VERSION)
-	cd sdk/go/ && find . -type f -exec sed -i '' -e '/^\/\/.*/g' {} \;
+	find sdk/dotnet -type f -exec sed -i '' -e '/^\/\/.*/g' {} \;
 	@touch sdk/go
