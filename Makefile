@@ -55,7 +55,13 @@ build_nodejs: sdk/nodejs/build.sentinel
 build_python: sdk/python/build.sentinel
 build_dotnet: sdk/dotnet/build.sentinel
 build_java: sdk/java/build.sentinel
-build_go: sdk/go/build.sentinel
+build_go: sdk/go/build.sentinel sdk/pulumi-azure-native-sdk/local.sentinel
+
+install_dotnet_sdk: sdk/dotnet/install.sentinel
+install_python_sdk: build_python
+install_go_sdk: build_go
+install_java_sdk:
+install_nodejs_sdk: sdk/nodejs/install.sentinel
 
 prepublish_go: sdk/pulumi-azure-native-sdk/publish.sentinel
 
@@ -106,19 +112,6 @@ clean:
 
 install_provider: bin/pulumictl provider/.mod_download.sentinel provider/cmd/$(PROVIDER)/* $(PROVIDER_PKG)
 	(cd provider && go install $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER))
-
-install_dotnet_sdk:
-	mkdir -p nuget
-	find . -name '*.nupkg' -print -exec cp -p {} ${WORKING_DIR}/nuget \;
-
-install_python_sdk:
-
-install_go_sdk:
-
-install_java_sdk:
-
-install_nodejs_sdk:
-	yarn link --cwd sdk/nodejs/bin
 
 test: export PULUMI_LOCAL_NUGET=${WORKING_DIR}/nuget
 test:
@@ -260,10 +253,6 @@ sdk/pulumi-azure-native-sdk/publish.sentinel:
 
 # Used by build* targets
 
-sdk/nodejs/install.sentinel: sdk/nodejs sdk/nodejs/package.json
-	yarn install --cwd sdk/nodejs
-	@touch sdk/nodejs/install.sentinel
-
 sdk/nodejs/build.sentinel: bin/pulumictl sdk/nodejs/install.sentinel
 	cd sdk/nodejs/ && \
 	NODE_OPTIONS=--max-old-space-size=8192 yarn run tsc --diagnostics --incremental && \
@@ -297,3 +286,17 @@ sdk/go/build.sentinel: sdk/go
 	cd sdk/ && \
 	GOGC=50 go list github.com/pulumi/pulumi-azure-native/sdk/go/azure/... | grep -v "latest\|\/v.*"$ | xargs -L 1 go build
 	@touch sdk/go/build.sentinel
+
+# Used by install* targets
+
+sdk/nodejs/install.sentinel: sdk/nodejs/build.sentinel
+	yarn link --cwd sdk/nodejs/bin
+	@touch sdk/nodejs/install.sentinel
+
+sdk/dotnet/install.sentinel: sdk/dotnet/build.sentinel
+	mkdir -p nuget
+	find sdk/dotnet/bin -name '*.nupkg' -print -exec cp -p {} ${WORKING_DIR}/nuget \;
+	@if ! dotnet nuget list source | grep ${WORKING_DIR}; then \
+		dotnet nuget add source ${WORKING_DIR}/nuget --name ${WORKING_DIR} \
+	; fi
+	@touch sdk/dotnet/install.sentinel
