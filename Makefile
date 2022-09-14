@@ -23,6 +23,7 @@ VERSION_DOTNET  = $(shell bin/pulumictl get version --language dotnet)
 VERSION_PYTHON  = $(shell bin/pulumictl get version --language python)
 VERSION_FLAGS   = -ldflags "-X github.com/pulumi/pulumi-azure-native/provider/pkg/version.Version=${VERSION}"
 
+default: init_submodules provider arm2pulumi local_generate
 build: init_submodules codegen local_generate provider build_sdks
 build_sdks: build_nodejs build_dotnet build_python build_go build_java
 install_sdks: install_dotnet_sdk install_python_sdk install_nodejs_sdk
@@ -192,46 +193,43 @@ endef
 
 export FAKE_MODULE
 
-sdk/nodejs/go.mod:
-	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_nodejs_module/g' > $@
-
-sdk/java/go.mod:
-	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_java_module/g' > $@
-
-sdk/dotnet/go.mod:
-	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_dotnet_module/g' > $@
-
-sdk/python/go.mod:
-	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_python_module/g' > $@
-
-sdk/java: bin/pulumi-java-gen provider/cmd/$(PROVIDER)/schema.json sdk/java/go.mod
-	rm -rf $$(find sdk/java -mindepth 1 -maxdepth 1 ! -name "go.mod")
+sdk/java: bin/pulumi-java-gen provider/cmd/$(PROVIDER)/schema.json
+	@mkdir -p sdk/java
+	rm -rf $$(find sdk/java -mindepth 1 -maxdepth 1)
 	bin/$(JAVA_GEN) generate --schema provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
+	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_java_module/g' > sdk/java/go.mod
 	@touch sdk/java
 
-sdk/nodejs: sdk/nodejs/go.mod bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
+sdk/nodejs: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
+	mkdir -p sdk/nodejs
 	rm -rf $$(find sdk/nodejs -mindepth 1 -maxdepth 1 ! -name "go.mod")
 	bin/$(CODEGEN) nodejs $(VERSION)
+	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_nodejs_module/g' > sdk/nodejs/go.mod
 	sed -i.bak -e "s/sourceMap/inlineSourceMap/g" sdk/nodejs/tsconfig.json
 	rm sdk/nodejs/tsconfig.json.bak
 	@touch sdk/nodejs
 
-sdk/python: sdk/python/go.mod bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
+sdk/python: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
+	mkdir -p sdk/python
 	rm -rf $$(find sdk/python -mindepth 1 -maxdepth 1 ! -name "go.mod")
 	bin/$(CODEGEN) python $(VERSION)
+	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_python_module/g' > sdk/python/go.mod
 	cp README.md sdk/python
 	@touch sdk/python
 
-sdk/dotnet: sdk/dotnet/go.mod bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
+sdk/dotnet: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
+	mkdir -p sdk/dotnet
 	rm -rf $$(find sdk/dotnet -mindepth 1 -maxdepth 1 ! -name "go.mod")
 	bin/$(CODEGEN) dotnet $(VERSION)
+	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_dotnet_module/g' > sdk/dotnet/go.mod
 	sed -i.bak -e "s/<\/Nullable>/<\/Nullable>\n    <UseSharedCompilation>false<\/UseSharedCompilation>/g" sdk/dotnet/Pulumi.AzureNative.csproj
 	rm sdk/dotnet/Pulumi.AzureNative.csproj.bak
 	@touch sdk/dotnet
 
 sdk/go: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
+	mkdir -p sdk/go
 	rm -rf sdk/go/azure
-	bin/$(CODEGEN) go,go-split $(VERSION)
+	bin/$(CODEGEN) go $(VERSION)
 	@# HACK: Strip all comments to make SDK smaller
 	find sdk/go -type f -exec sed -i '' -e '/^\/\/.*/g' {} \;
 	@touch sdk/go
