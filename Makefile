@@ -153,7 +153,7 @@ bin/arm2pulumi: bin/pulumictl provider/.mod_download.sentinel provider/cmd/arm2p
 bin/$(CODEGEN): bin/pulumictl provider/.mod_download.sentinel provider/cmd/$(CODEGEN)/* $(PROVIDER_PKG)
 	cd provider && go build -o $(WORKING_DIR)/bin/$(CODEGEN) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(CODEGEN)
 
-bin/$(PROVIDER): bin/pulumictl provider/.mod_download.sentinel provider/cmd/$(PROVIDER)/* $(PROVIDER_PKG)
+bin/$(PROVIDER): bin/pulumictl provider/.mod_download.sentinel provider/cmd/$(PROVIDER)/*.go provider/cmd/$(PROVIDER)/schema-full.json $(PROVIDER_PKG)
 	cd provider && \
 	go build -o $(WORKING_DIR)/bin/$(PROVIDER) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER)
 
