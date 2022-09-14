@@ -93,14 +93,14 @@ update_submodules: init_submodules
 	rm ./azure-provider-versions/provider_list.json
 	az provider list | jq 'map({ namespace: .namespace, resourceTypes: .resourceTypes | map({ resourceType: .resourceType, apiVersions: .apiVersions }) | sort_by(.resourceType) }) | sort_by(.namespace)' > ./azure-provider-versions/provider_list.json
 
-arm2pulumi_coverage_report:
+arm2pulumi_coverage_report: provider/.mod_download.sentinel provider/cmd/$(PROVIDER)/*.go $(PROVIDER_PKG)
 	(cd provider/pkg/arm2pulumi/internal/testdata && if [ ! -d azure-quickstart-templates ]; then git clone https://github.com/Azure/azure-quickstart-templates && cd azure-quickstart-templates && git checkout 3b2757465c2de537e333f5e2d1c3776c349b8483; fi)
 	(cd provider && go test -v -tags=coverage -run TestQuickstartTemplateCoverage github.com/pulumi/pulumi-azure-native/provider/pkg/arm2pulumi/internal/test)
 
-test_provider:
-	(cd provider && go test -v $(PROVIDER_PKGS))
+test_provider: provider/.mod_download.sentinel provider/cmd/$(PROVIDER)/*.go $(PROVIDER_PKG)
+	cd provider && go test -v $(PROVIDER_PKGS)
 
-lint_provider: provider # lint the provider code
+lint_provider: provider/.mod_download.sentinel provider/cmd/$(PROVIDER)/*.go $(PROVIDER_PKG)
 	cd provider && GOGC=20 golangci-lint run -c ../.golangci.yml
 
 clean:
@@ -119,7 +119,7 @@ clean:
 	; fi
 
 test: export PULUMI_LOCAL_NUGET=$(WORKING_DIR)/nuget
-test:
+test: build install_sdks
 	cd examples && go test -v -tags=all -timeout 2h
 
 # --------- File-based targets --------- #
