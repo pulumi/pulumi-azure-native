@@ -134,11 +134,13 @@ bin/pulumictl: PLAT := $(shell go version | sed -En "s/go version go.* (.*)\/(.*
 bin/pulumictl: PULUMICTL_URL := "https://github.com/pulumi/pulumictl/releases/download/v$(PULUMICTL_VERSION)/pulumictl-v$(PULUMICTL_VERSION)-$(PLAT).tar.gz"
 bin/pulumictl: .pulumictl.version
 	@echo "Installing pulumictl"
+	@mkdir -p bin
 	wget -q -O - "$(PULUMICTL_URL)" | tar -xzf - -C $(WORKING_DIR)/bin pulumictl
 	@touch bin/pulumictl
 	@echo "pulumictl" $$(./bin/pulumictl version)
 
 bin/pulumi-java-gen: .pulumi-java-gen.version
+	@mkdir -p bin
 	pulumictl download-binary -n pulumi-language-java -v $(shell cat .pulumi-java-gen.version) -r pulumi/pulumi-java
 
 provider/.mod_download.sentinel: provider/go.mod provider/go.sum
