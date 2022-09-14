@@ -24,12 +24,11 @@ VERSION_PYTHON  = $(shell bin/pulumictl get version --language python)
 VERSION_FLAGS   = -ldflags "-X github.com/pulumi/pulumi-azure-native/provider/pkg/version.Version=${VERSION}"
 
 default: init_submodules provider arm2pulumi local_generate
-build: init_submodules codegen local_generate provider build_sdks
-build_sdks: build_nodejs build_dotnet build_python build_go build_java
-install_sdks: install_dotnet_sdk install_python_sdk install_nodejs_sdk
+
 arm2pulumi: bin/arm2pulumi
 codegen: bin/$(CODEGEN)
 provider: bin/$(PROVIDER)
+install_provider: install_provider.sentinel
 versioner: bin/pulumi-versioner-azure-native
 versions: versions/spec.json versions/v1.json versions/v2.json versions/deprecated.json versions/pending.json versions/active.json
 
@@ -47,11 +46,12 @@ local_generate_code: generate_nodejs
 local_generate_code: generate_python
 local_generate_code: generate_dotnet
 local_generate_code: generate_go
+local_generate: local_generate_code generate_docs generate_schema
 
-local_generate: generate_docs
-local_generate: generate_schema
-local_generate: local_generate_code
-
+build: init_submodules codegen local_generate provider build_sdks
+# Required for the codegen action that runs in pulumi/pulumi
+only_build: build
+build_sdks: build_nodejs build_dotnet build_python build_go build_java
 build_nodejs: sdk/nodejs/build.sentinel
 build_python: sdk/python/build.sentinel
 build_dotnet: sdk/dotnet/build.sentinel
@@ -64,18 +64,15 @@ install_python_sdk:
 install_go_sdk:
 install_java_sdk:
 install_nodejs_sdk: sdk/nodejs/install.sentinel
-
-install_provider: install_provider.sentinel
+install_sdks: install_dotnet_sdk install_nodejs_sdk
 
 prepublish_go: sdk/pulumi-azure-native-sdk/prepublish.sentinel
 
-# Required for the codegen action that runs in pulumi/pulumi
-only_build: build
-
-.PHONY: ensure build build_sdks install_sdks arm2pulumi codegen provider versioner versions
-.PHONY: generate_schema generate_docs generate_java
-.PHONY: init_submodules update_submodules local_generate_code local_generate arm2pulumi_coverage_report
-.PHONY: test_provider lint_provider generate_nodejs build_nodejs generate_python build_python generate_dotnet
+.PHONY: default arm2pulumi codegen provider install_provider versioner versions
+.PHONY: generate_schema generate_docs generate_java generate_nodejs generate_python generate_dotnet generate_go local_generate_code local_generate
+.PHONY: build only_build build_sdks build_nodejs build_python build_dotnet build_java build_go 
+.PHONY: install_dotnet_sdk install_python_sdk install_go_sdk install_java_sdk install_nodejs_sdk install_sdks
+.PHONY: ensure init_submodules update_submodules arm2pulumi_coverage_report test_provider lint_provider clean test
 
 ensure: init_submodules bin/pulumictl provider/.mod_download.sentinel
 	@jq --version > /dev/null
