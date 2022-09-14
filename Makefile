@@ -15,15 +15,15 @@ SPECS           = $(shell find azure-rest-api-specs/specification/*/resource-man
 JAVA_GEN 		 := pulumi-java-gen
 JAVA_GEN_VERSION := v0.5.4
 
-# Calls to pulumictl are slow, so we just do the call once if required and cache
-# Write to a new file then compare and swap to avoid updating the timestamp, which causes all dependant targets to rebuild
+# These are lazy variables which are only computed when requested
+# When using any version variable, depend on bin/pulumictl
 VERSION         = $(shell bin/pulumictl get version)
+VERSION_JS      = $(shell bin/pulumictl get version --language javascript)
+VERSION_DOTNET  = $(shell bin/pulumictl get version --language dotnet)
+VERSION_PYTHON  = $(shell bin/pulumictl get version --language python)
 VERSION_FLAGS   = -ldflags "-X github.com/pulumi/pulumi-azure-native/provider/pkg/version.Version=${VERSION}"
 
-ensure: init_submodules bin/pulumictl provider/.mod_download.sentinel
-	@jq --version > /dev/null
-
-build: init_submodules clean codegen local_generate provider build_sdks install_sdks
+build: init_submodules codegen local_generate provider build_sdks
 build_sdks: build_nodejs build_dotnet build_python build_go build_java
 install_sdks: install_dotnet_sdk install_python_sdk install_nodejs_sdk
 arm2pulumi: bin/arm2pulumi
@@ -50,6 +50,12 @@ local_generate: provider/cmd/$(PROVIDER)/schema.json
 local_generate: provider/cmd/$(PROVIDER)/schema-full.json
 local_generate: local_generate_code
 
+build_nodejs: sdk/nodejs/build.sentinel
+build_python: sdk/python/build.sentinel
+build_dotnet: sdk/dotnet/build.sentinel
+build_java: sdk/java/build.sentinel
+build_go: sdk/go/build.sentinel
+
 prepublish_go: sdk/pulumi-azure-native-sdk/publish.sentinel
 
 # Required for the codegen action that runs in pulumi/pulumi
@@ -59,6 +65,9 @@ only_build: build
 .PHONY: generate_schema generate_docs generate_java
 .PHONY: init_submodules update_submodules local_generate_code local_generate arm2pulumi_coverage_report
 .PHONY: test_provider lint_provider generate_nodejs build_nodejs generate_python build_python generate_dotnet
+
+ensure: init_submodules bin/pulumictl provider/.mod_download.sentinel
+	@jq --version > /dev/null
 
 init_submodules:
 	@for submodule in $$(git submodule status | awk {'print $$2'}); do \
@@ -85,37 +94,6 @@ test_provider:
 
 lint_provider: provider # lint the provider code
 	cd provider && GOGC=20 golangci-lint run -c ../.golangci.yml
-
-build_nodejs:
-	cd sdk/nodejs/ && \
-	yarn install && \
-	NODE_OPTIONS=--max-old-space-size=8192 yarn run tsc --diagnostics && \
-	cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
-	sed -i.bak -e "s/\$${VERSION}/$(shell pulumictl get version --language javascript)/g" ./bin/package.json
-
-build_python: bin/pulumictl
-	cd sdk/python/ && \
-	cp ../../README.md . && \
-	python3 setup.py clean --all 2>/dev/null && \
-	rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
-	sed -i.bak -e 's/^VERSION = .*/VERSION = "$(shell pulumictl get version --language python)"/g' -e 's/^PLUGIN_VERSION = .*/PLUGIN_VERSION = "$(VERSION)"/g' ./bin/setup.py && \
-	rm ./bin/setup.py.bak && \
-	rm ./bin/go.mod && \
-	cd ./bin && python3 setup.py build sdist
-
-build_dotnet:
-	cd sdk/dotnet/ && \
-	echo "azure-native\n$(shell pulumictl get version --language dotnet)" >version.txt && \
-	dotnet build /p:Version=$(shell pulumictl get version --language dotnet)
-
-build_java: bin/pulumictl
-	cd sdk/java/ && \
-		gradle --console=plain -Pversion=$(VERSION) build
-
-build_go:
-	# Only building the top level packages and building 1 package at a time to avoid OOMing
-	cd sdk/ && \
-	GOGC=50 go list github.com/pulumi/pulumi-azure-native/sdk/go/azure/... | grep -v "latest\|\/v.*"$ | xargs -L 1 go build
 
 clean:
 	rm -rf $$(find sdk/nodejs -mindepth 1 -maxdepth 1 ! -name "go.mod")
@@ -281,3 +259,43 @@ sdk/pulumi-azure-native-sdk/publish.sentinel:
 	find sdk/pulumi-azure-native-sdk -maxdepth 2 -type f -name go.sum -delete
 	cp README.md LICENSE sdk/pulumi-azure-native-sdk/
 	touch sdk/pulumi-azure-native-sdk/publish.sentinel
+
+# Used by build* targets
+
+sdk/nodejs/install.sentinel: sdk/nodejs sdk/nodejs/package.json
+	yarn install --cwd sdk/nodejs
+	@touch sdk/nodejs/install.sentinel
+
+sdk/nodejs/build.sentinel: bin/pulumictl sdk/nodejs/install.sentinel
+	cd sdk/nodejs/ && \
+	NODE_OPTIONS=--max-old-space-size=8192 yarn run tsc --diagnostics --incremental && \
+	cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
+	sed -i.bak -e "s/\$${VERSION}/$(VERSION_JS)/g" ./bin/package.json
+	@touch sdk/nodejs/build.sentinel
+
+sdk/python/build.sentinel: bin/pulumictl sdk/python
+	cd sdk/python/ && \
+	python3 setup.py clean --all 2>/dev/null && \
+	rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
+	sed -i.bak -e 's/^VERSION = .*/VERSION = "$(VERSION_PYTHON)"/g' -e 's/^PLUGIN_VERSION = .*/PLUGIN_VERSION = "$(VERSION)"/g' ./bin/setup.py && \
+	rm ./bin/setup.py.bak && \
+	rm ./bin/go.mod && \
+	cd ./bin && python3 setup.py build sdist
+	@touch sdk/python/build.sentinel
+
+sdk/dotnet/build.sentinel: bin/pulumictl sdk/dotnet
+	cd sdk/dotnet/ && \
+	echo "azure-native\n$(VERSION_DOTNET)" >version.txt && \
+	dotnet build /p:Version=$(VERSION_DOTNET)
+	@touch sdk/dotnet/build.sentinel
+
+sdk/java/build.sentinel: bin/pulumictl sdk/java
+	cd sdk/java/ && \
+		gradle --console=plain -Pversion=$(VERSION) build
+	@touch sdk/java/build.sentinel
+
+sdk/go/build.sentinel: sdk/go
+	# Only building the top level packages and building 1 package at a time to avoid OOMing
+	cd sdk/ && \
+	GOGC=50 go list github.com/pulumi/pulumi-azure-native/sdk/go/azure/... | grep -v "latest\|\/v.*"$ | xargs -L 1 go build
+	@touch sdk/go/build.sentinel
