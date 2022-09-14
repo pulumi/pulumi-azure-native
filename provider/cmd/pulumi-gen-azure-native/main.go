@@ -5,6 +5,7 @@ package main
 import (
 	"bytes"
 	"fmt"
+	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"os"
 	"path"
 	"path/filepath"
@@ -48,73 +49,120 @@ func main() {
 		namespaces = "*"
 	}
 
-	azureProviders := openapi.ReadVersions(namespaces)
+	var azureProviders *openapi.AzureProviders
+	var pkgSpec *schema.PackageSpec
+	var meta *resources.AzureAPIMetadata
+	var err error
 
-	pkgSpec, meta, _, err := gen.PulumiSchema(azureProviders)
-	if err != nil {
-		panic(err)
+	languageSet := codegen.NewStringSet(strings.Split(languages, ",")...)
+	basicLanguages := []string{"dotnet", "nodejs", "python"}
+	supportedOutputs := codegen.NewStringSet("schema", "docs", "go", "go-split")
+	for _, language := range basicLanguages {
+		supportedOutputs.Add(language)
 	}
 
-	for _, language := range strings.Split(languages, ",") {
-		switch language {
-		case "schema":
-			outdir := path.Join(".", "provider", "cmd", "pulumi-resource-azure-native")
-			if err = emitSchema(*pkgSpec, version, outdir, "main", true); err != nil {
-				break
-			}
-			if languages == "schema" {
-				// We can't generate schema.json every time because it's slow and isn't reproducible.
-				// So we warn in case someone's expecting to see changes to schema.json after running this.
-				fmt.Println("Emitted `schema-full.json`. `schema.json` is generated as part of the docs.")
-			}
-			// Also, emit the resource metadata for the provider.
-			if err = emitMetadata(meta, outdir, "main"); err != nil {
-				break
-			}
+	if unsupported := supportedOutputs.Subtract(languageSet); len(unsupported) > 0 {
+		err = fmt.Errorf("unsupported outputs: %v", unsupported.SortedValues())
+	}
 
-			// Now emit schema and metadata as byte encoded files for arm2pulumi
-			arm2pulumiDir := path.Join(".", "provider", "cmd", "arm2pulumi")
-			if err = emitSchema(*pkgSpec, version, arm2pulumiDir, "main", false); err != nil {
-				break
-			}
-			// Also, emit the resource metadata for the provider.
-			err = emitMetadata(meta, arm2pulumiDir, "main")
+	if languageSet.Has("schema") {
+		versions := openapi.ReadVersions(namespaces)
+		azureProviders = &versions
+		pkgSpec, meta, _, err = gen.PulumiSchema(*azureProviders)
+		if err != nil {
+			panic(err)
+		}
+		outdir := path.Join(".", "provider", "cmd", "pulumi-resource-azure-native")
+		if err = emitSchema(*pkgSpec, version, outdir, "main", true); err != nil {
+			panic(err)
+		}
+		if languages == "schema" {
+			// We can't generate schema.json every time because it's slow and isn't reproducible.
+			// So we warn in case someone's expecting to see changes to schema.json after running this.
+			fmt.Println("Emitted `schema-full.json`. `schema.json` is generated as part of the docs.")
+		}
+		// Also, emit the resource metadata for the provider.
+		if err = emitMetadata(meta, outdir, "main"); err != nil {
+			panic(err)
+		}
 
-		case "docs":
-			outdir := path.Join(".", "provider", "cmd", "pulumi-resource-azure-native")
-			docsProviders := openapi.SingleVersion(azureProviders)
-			var docsPkgSpec *schema.PackageSpec
-			var resExamples map[string][]resources.AzureAPIExample
-			var docsMeta *resources.AzureAPIMetadata
-			docsPkgSpec, docsMeta, resExamples, err = gen.PulumiSchema(docsProviders)
-			if err != nil {
-				break
-			}
-			// Ensure the spec is stamped with a version - Go gen needs it.
-			docsPkgSpec.Version = version
-			err = gen.Examples(docsPkgSpec, docsMeta, resExamples, []string{"nodejs", "dotnet", "python", "go", "java", "yaml"})
-			if err != nil {
-				break
-			}
-			// Remove the version again.
-			docsPkgSpec.Version = ""
-			err = emitDocsSchema(docsPkgSpec, outdir)
-		case "go":
-			outdir := path.Join(".", "sdk", language)
-			pkgSpec.Version = version
-			// Work around the SDK size exceeding 512 MB by removing comments from versioned modules.
-			// Roll this back when we have a better fix for the SDK size.
-			specNoComments := removeAllComments(*pkgSpec)
-			err = emitPackage(specNoComments, language, outdir)
-		case "go-split":
-			outdir := path.Join(".", "sdk")
-			pkgSpec.Version = version
-			err = emitSplitPackage(pkgSpec, "go", outdir)
-		default:
+		// Now emit schema and metadata as byte encoded files for arm2pulumi
+		arm2pulumiDir := path.Join(".", "provider", "cmd", "arm2pulumi")
+		if err = emitSchema(*pkgSpec, version, arm2pulumiDir, "main", false); err != nil {
+			panic(err)
+		}
+		// Also, emit the resource metadata for the provider.
+		err = emitMetadata(meta, arm2pulumiDir, "main")
+	} else {
+		// Just read existing schema if we're not re-generating
+		schemaPath := path.Join("provider", "cmd", "pulumi-resource-azure-native", "schema-full.json")
+		schemaBytes, err := os.ReadFile(schemaPath)
+		if err != nil {
+			panic(err)
+		}
+		var schema schema.PackageSpec
+		err = json.Unmarshal([]byte(schemaBytes), &schema)
+		if err != nil {
+			panic(err)
+		}
+		pkgSpec = &schema
+	}
+
+	if languageSet.Has("docs") {
+		if azureProviders == nil {
+			versions := openapi.ReadVersions(namespaces)
+			azureProviders = &versions
+		}
+		outdir := path.Join(".", "provider", "cmd", "pulumi-resource-azure-native")
+		docsProviders := openapi.SingleVersion(*azureProviders)
+		var docsPkgSpec *schema.PackageSpec
+		var resExamples map[string][]resources.AzureAPIExample
+		var docsMeta *resources.AzureAPIMetadata
+		docsPkgSpec, docsMeta, resExamples, err = gen.PulumiSchema(docsProviders)
+		if err != nil {
+			panic(err)
+		}
+		// Ensure the spec is stamped with a version - Go gen needs it.
+		docsPkgSpec.Version = version
+		err = gen.Examples(docsPkgSpec, docsMeta, resExamples, []string{"nodejs", "dotnet", "python", "go", "java", "yaml"})
+		if err != nil {
+			panic(err)
+		}
+		// Remove the version again.
+		docsPkgSpec.Version = ""
+		err = emitDocsSchema(docsPkgSpec, outdir)
+		if err != nil {
+			panic(err)
+		}
+	}
+
+	for _, language := range basicLanguages {
+		if languageSet.Has(language) {
 			outdir := path.Join(".", "sdk", language)
 			pkgSpec.Version = version
 			err = emitPackage(pkgSpec, language, outdir)
+			if err != nil {
+				panic(err)
+			}
 		}
+	}
+
+	if languageSet.Has("go") {
+		outdir := path.Join(".", "sdk", "go")
+		pkgSpec.Version = version
+		// Work around the SDK size exceeding 512 MB by removing comments from versioned modules.
+		// Roll this back when we have a better fix for the SDK size.
+		specNoComments := removeAllComments(*pkgSpec)
+		err = emitPackage(specNoComments, "go", outdir)
+		if err != nil {
+			panic(err)
+		}
+	}
+
+	if languageSet.Has("go-split") {
+		outdir := path.Join(".", "sdk")
+		pkgSpec.Version = version
+		err = emitSplitPackage(pkgSpec, "go", outdir)
 		if err != nil {
 			panic(err)
 		}
