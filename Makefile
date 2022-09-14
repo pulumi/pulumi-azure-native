@@ -65,6 +65,8 @@ install_go_sdk:
 install_java_sdk:
 install_nodejs_sdk: sdk/nodejs/install.sentinel
 
+install_provider: install_provider.sentinel
+
 prepublish_go: sdk/pulumi-azure-native-sdk/prepublish.sentinel
 
 # Required for the codegen action that runs in pulumi/pulumi
@@ -118,9 +120,6 @@ clean:
 	if dotnet nuget list source | grep "$(WORKING_DIR)"; then \
 		dotnet nuget remove source "$(WORKING_DIR)" \
 	; fi
-
-install_provider: bin/pulumictl provider/.mod_download.sentinel provider/cmd/$(PROVIDER)/* $(PROVIDER_PKG)
-	(cd provider && go install $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER))
 
 test: export PULUMI_LOCAL_NUGET=$(WORKING_DIR)/nuget
 test:
@@ -317,3 +316,7 @@ sdk/dotnet/install.sentinel: sdk/dotnet/build.sentinel
 		dotnet nuget add source ${WORKING_DIR}/nuget --name ${WORKING_DIR} \
 	; fi
 	@touch sdk/dotnet/install.sentinel
+
+install_provider.sentinel: bin/pulumictl provider/.mod_download.sentinel provider/cmd/$(PROVIDER)/* $(PROVIDER_PKG)
+	cd provider && go install $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER)
+	@touch install_provider.sentinel
