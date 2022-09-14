@@ -1703,8 +1703,7 @@ func (k *azureNativeProvider) getAuthConfig() (*authentication.Config, error) {
 	// version (#1565). The check needs to happen before builder.Build(), or we return the less
 	// fitting error message from go-azure-helpers.
 	if !useMsi && clientSecret == "" && clientCertPath == "" {
-		err := assertAzVersion()
-		if err != nil {
+		if err := assertAzVersion(); err != nil {
 			return nil, err
 		}
 	}
@@ -1738,20 +1737,20 @@ func assertAzVersion() error {
 
 	_, err := exec.LookPath("az")
 	if err != nil {
-		return fmt.Errorf("could not find `az`. %s", versionHint)
+		return fmt.Errorf("could not find `az`: %w. %s", err, versionHint)
 	}
 
 	var azVersion struct {
 		Cli string `json:"azure-cli"`
 	}
-	err = jsonUnmarshalAzCmd(&azVersion, "version")
+	err = runAzCmd(&azVersion, "version")
 	if err != nil {
-		return errors.Wrap(err, fmt.Sprintf("could not determine az version. %s", versionHint))
+		return fmt.Errorf("could not determine az version: %w. %s", err, versionHint)
 	}
 
 	actual, err := goversion.NewVersion(azVersion.Cli)
 	if err != nil {
-		return fmt.Errorf("could not parse az version %q: %+v. %s", azVersion.Cli, err, versionHint)
+		return fmt.Errorf("could not parse az version \"%q\": %w. %s", azVersion.Cli, err, versionHint)
 	}
 
 	if actual.LessThan(minAzVersion) || actual.GreaterThanOrEqual(nextMajorAzVersion) {
@@ -1761,7 +1760,8 @@ func assertAzVersion() error {
 	return nil
 }
 
-func jsonUnmarshalAzCmd(i interface{}, arg ...string) error {
+// Run `az` with the given args and unmarshal the output (must be JSON) into the given target struct
+func runAzCmd(target interface{}, arg ...string) error {
 	var stderr bytes.Buffer
 	var stdout bytes.Buffer
 
@@ -1771,15 +1771,15 @@ func jsonUnmarshalAzCmd(i interface{}, arg ...string) error {
 	cmd.Stdout = &stdout
 
 	if err := cmd.Run(); err != nil {
-		err := fmt.Errorf("running az: %+v", err)
+		err := fmt.Errorf("running az: %w", err)
 		if stdErrStr := stderr.String(); stdErrStr != "" {
 			err = fmt.Errorf("%s: %s", err, strings.TrimSpace(stdErrStr))
 		}
 		return err
 	}
 
-	if err := json.Unmarshal(stdout.Bytes(), i); err != nil {
-		return fmt.Errorf("unmarshaling the result of Azure CLI: %v", err)
+	if err := json.Unmarshal(stdout.Bytes(), target); err != nil {
+		return fmt.Errorf("unmarshaling the result of Azure CLI: %w", err)
 	}
 
 	return nil
