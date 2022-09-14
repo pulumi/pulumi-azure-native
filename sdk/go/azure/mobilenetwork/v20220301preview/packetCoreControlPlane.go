@@ -54,9 +54,6 @@ func NewPacketCoreControlPlane(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:mobilenetwork:PacketCoreControlPlane"),
 		},
 		{
-			Type: pulumi.String("azure-native:mobilenetwork/v20220101preview:PacketCoreControlPlane"),
-		},
-		{
 			Type: pulumi.String("azure-native:mobilenetwork/v20220401preview:PacketCoreControlPlane"),
 		},
 	})

@@ -48,9 +48,6 @@ func NewMobileNetwork(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:mobilenetwork:MobileNetwork"),
 		},
 		{
-			Type: pulumi.String("azure-native:mobilenetwork/v20220101preview:MobileNetwork"),
-		},
-		{
 			Type: pulumi.String("azure-native:mobilenetwork/v20220401preview:MobileNetwork"),
 		},
 	})

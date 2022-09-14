@@ -52,10 +52,6 @@ export interface GetVolumeResult {
      */
     readonly avsDataStore?: string;
     /**
-     * UUID v4 or resource identifier used to identify the Backup.
-     */
-    readonly backupId?: string;
-    /**
      * Unique Baremetal Tenant Identifier.
      */
     readonly baremetalTenantId: string;
@@ -196,10 +192,6 @@ export interface GetVolumeResult {
      */
     readonly snapshotDirectoryVisible?: boolean;
     /**
-     * UUID v4 or resource identifier used to identify the Snapshot.
-     */
-    readonly snapshotId?: string;
-    /**
      * Provides storage to network proximity information for the volume.
      */
     readonly storageToNetworkProximity: string;
@@ -229,7 +221,7 @@ export interface GetVolumeResult {
      */
     readonly unixPermissions?: string;
     /**
-     * Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+     * Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 500 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.
      */
     readonly usageThreshold: number;
     /**

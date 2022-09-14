@@ -3170,6 +3170,18 @@
       "listManagedClusterAdminCredentials",
       "listManagedClusterMonitoringUserCredentials",
       "listManagedClusterUserCredentials"
+    ],
+    "2022-08-02-preview": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "ManagedClusterSnapshot",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
     ]
   },
   "CostManagement": {
@@ -6452,6 +6464,20 @@
       "listClusterFollowerDatabases",
       "listClusterLanguageExtensions",
       "listDatabasePrincipals"
+    ],
+    "2022-07-07": [
+      "AttachedDatabaseConfiguration",
+      "Cluster",
+      "ClusterPrincipalAssignment",
+      "DataConnection",
+      "Database",
+      "DatabasePrincipalAssignment",
+      "ManagedPrivateEndpoint",
+      "PrivateEndpointConnection",
+      "Script",
+      "listClusterFollowerDatabases",
+      "listClusterLanguageExtensions",
+      "listDatabasePrincipals"
     ]
   },
   "LabServices": {
@@ -7414,19 +7440,6 @@
     ]
   },
   "MobileNetwork": {
-    "2022-01-01-preview": [
-      "AttachedDataNetwork",
-      "DataNetwork",
-      "MobileNetwork",
-      "PacketCoreControlPlane",
-      "PacketCoreDataPlane",
-      "Service",
-      "Sim",
-      "SimPolicy",
-      "Site",
-      "Slice",
-      "listMobileNetworkSimIds"
-    ],
     "2022-03-01-preview": [
       "AttachedDataNetwork",
       "DataNetwork",
@@ -7646,6 +7659,20 @@
       "listVolumeReplications"
     ],
     "2022-03-01": [
+      "Account",
+      "Backup",
+      "BackupPolicy",
+      "Pool",
+      "Snapshot",
+      "SnapshotPolicy",
+      "Subvolume",
+      "Volume",
+      "VolumeGroup",
+      "VolumeQuotaRule",
+      "getSubvolumeMetadata",
+      "listVolumeReplications"
+    ],
+    "2022-05-01": [
       "Account",
       "Backup",
       "BackupPolicy",

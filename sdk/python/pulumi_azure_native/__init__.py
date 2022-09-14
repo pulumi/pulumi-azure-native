@@ -5505,6 +5505,20 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "containerservice/v20220802preview",
+  "fqn": "pulumi_azure_native.containerservice.v20220802preview",
+  "classes": {
+   "azure-native:containerservice/v20220802preview:AgentPool": "AgentPool",
+   "azure-native:containerservice/v20220802preview:MaintenanceConfiguration": "MaintenanceConfiguration",
+   "azure-native:containerservice/v20220802preview:ManagedCluster": "ManagedCluster",
+   "azure-native:containerservice/v20220802preview:ManagedClusterSnapshot": "ManagedClusterSnapshot",
+   "azure-native:containerservice/v20220802preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:containerservice/v20220802preview:Snapshot": "Snapshot",
+   "azure-native:containerservice/v20220802preview:TrustedAccessRoleBinding": "TrustedAccessRoleBinding"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "costmanagement",
   "fqn": "pulumi_azure_native.costmanagement",
   "classes": {
@@ -11249,6 +11263,27 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "kusto/v20220707",
+  "fqn": "pulumi_azure_native.kusto.v20220707",
+  "classes": {
+   "azure-native:kusto/v20220707:AttachedDatabaseConfiguration": "AttachedDatabaseConfiguration",
+   "azure-native:kusto/v20220707:Cluster": "Cluster",
+   "azure-native:kusto/v20220707:ClusterPrincipalAssignment": "ClusterPrincipalAssignment",
+   "azure-native:kusto/v20220707:DataConnection": "DataConnection",
+   "azure-native:kusto/v20220707:Database": "Database",
+   "azure-native:kusto/v20220707:DatabasePrincipalAssignment": "DatabasePrincipalAssignment",
+   "azure-native:kusto/v20220707:EventGridDataConnection": "EventGridDataConnection",
+   "azure-native:kusto/v20220707:EventHubDataConnection": "EventHubDataConnection",
+   "azure-native:kusto/v20220707:IotHubDataConnection": "IotHubDataConnection",
+   "azure-native:kusto/v20220707:ManagedPrivateEndpoint": "ManagedPrivateEndpoint",
+   "azure-native:kusto/v20220707:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:kusto/v20220707:ReadOnlyFollowingDatabase": "ReadOnlyFollowingDatabase",
+   "azure-native:kusto/v20220707:ReadWriteDatabase": "ReadWriteDatabase",
+   "azure-native:kusto/v20220707:Script": "Script"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "labservices",
   "fqn": "pulumi_azure_native.labservices",
   "classes": {
@@ -12736,23 +12771,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "mobilenetwork/v20220101preview",
-  "fqn": "pulumi_azure_native.mobilenetwork.v20220101preview",
-  "classes": {
-   "azure-native:mobilenetwork/v20220101preview:AttachedDataNetwork": "AttachedDataNetwork",
-   "azure-native:mobilenetwork/v20220101preview:DataNetwork": "DataNetwork",
-   "azure-native:mobilenetwork/v20220101preview:MobileNetwork": "MobileNetwork",
-   "azure-native:mobilenetwork/v20220101preview:PacketCoreControlPlane": "PacketCoreControlPlane",
-   "azure-native:mobilenetwork/v20220101preview:PacketCoreDataPlane": "PacketCoreDataPlane",
-   "azure-native:mobilenetwork/v20220101preview:Service": "Service",
-   "azure-native:mobilenetwork/v20220101preview:Sim": "Sim",
-   "azure-native:mobilenetwork/v20220101preview:SimPolicy": "SimPolicy",
-   "azure-native:mobilenetwork/v20220101preview:Site": "Site",
-   "azure-native:mobilenetwork/v20220101preview:Slice": "Slice"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "mobilenetwork/v20220301preview",
   "fqn": "pulumi_azure_native.mobilenetwork.v20220301preview",
   "classes": {
@@ -13119,6 +13137,23 @@ _utilities.register(
    "azure-native:netapp/v20220301:Volume": "Volume",
    "azure-native:netapp/v20220301:VolumeGroup": "VolumeGroup",
    "azure-native:netapp/v20220301:VolumeQuotaRule": "VolumeQuotaRule"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "netapp/v20220501",
+  "fqn": "pulumi_azure_native.netapp.v20220501",
+  "classes": {
+   "azure-native:netapp/v20220501:Account": "Account",
+   "azure-native:netapp/v20220501:Backup": "Backup",
+   "azure-native:netapp/v20220501:BackupPolicy": "BackupPolicy",
+   "azure-native:netapp/v20220501:Pool": "Pool",
+   "azure-native:netapp/v20220501:Snapshot": "Snapshot",
+   "azure-native:netapp/v20220501:SnapshotPolicy": "SnapshotPolicy",
+   "azure-native:netapp/v20220501:Subvolume": "Subvolume",
+   "azure-native:netapp/v20220501:Volume": "Volume",
+   "azure-native:netapp/v20220501:VolumeGroup": "VolumeGroup",
+   "azure-native:netapp/v20220501:VolumeQuotaRule": "VolumeQuotaRule"
   }
  },
  {

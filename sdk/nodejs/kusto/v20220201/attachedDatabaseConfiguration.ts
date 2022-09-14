@@ -124,7 +124,7 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:kusto:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20190907:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20191109:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20200215:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20200614:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20200918:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20210101:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20210827:AttachedDatabaseConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kusto:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20190907:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20191109:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20200215:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20200614:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20200918:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20210101:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20210827:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20220707:AttachedDatabaseConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AttachedDatabaseConfiguration.__pulumiType, name, resourceInputs, opts);
     }

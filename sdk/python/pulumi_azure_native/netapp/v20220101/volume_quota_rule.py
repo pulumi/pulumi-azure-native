@@ -274,7 +274,7 @@ class VolumeQuotaRule(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp:VolumeQuotaRule"), pulumi.Alias(type_="azure-native:netapp/v20220301:VolumeQuotaRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp:VolumeQuotaRule"), pulumi.Alias(type_="azure-native:netapp/v20220301:VolumeQuotaRule"), pulumi.Alias(type_="azure-native:netapp/v20220501:VolumeQuotaRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VolumeQuotaRule, __self__).__init__(
             'azure-native:netapp/v20220101:VolumeQuotaRule',

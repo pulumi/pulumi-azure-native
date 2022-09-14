@@ -1812,47 +1812,58 @@
   "azuresphere": {
     "": [
       "2021-02-01-preview",
-      "2022-02-01-privatepreview"
+      "2022-02-01-privatepreview",
+      "2022-09-01-preview"
     ],
     "catalogs": [
       "2021-02-01-preview",
-      "2022-02-01-privatepreview"
+      "2022-02-01-privatepreview",
+      "2022-09-01-preview"
     ],
     "catalogs/certificates": [
       "2021-02-01-preview",
-      "2022-02-01-privatepreview"
+      "2022-02-01-privatepreview",
+      "2022-09-01-preview"
     ],
     "catalogs/deployments": [
       "2021-02-01-preview",
-      "2022-02-01-privatepreview"
+      "2022-02-01-privatepreview",
+      "2022-09-01-preview"
     ],
     "catalogs/devices": [
       "2021-02-01-preview",
-      "2022-02-01-privatepreview"
+      "2022-02-01-privatepreview",
+      "2022-09-01-preview"
     ],
     "catalogs/images": [
       "2021-02-01-preview",
-      "2022-02-01-privatepreview"
+      "2022-02-01-privatepreview",
+      "2022-09-01-preview"
     ],
     "catalogs/products": [
       "2021-02-01-preview",
-      "2022-02-01-privatepreview"
+      "2022-02-01-privatepreview",
+      "2022-09-01-preview"
     ],
     "catalogs/products/devicegroups": [
       "2021-02-01-preview",
-      "2022-02-01-privatepreview"
+      "2022-02-01-privatepreview",
+      "2022-09-01-preview"
     ],
     "locations": [
       "2021-02-01-preview",
-      "2022-02-01-privatepreview"
+      "2022-02-01-privatepreview",
+      "2022-09-01-preview"
     ],
     "locations/operationstatuses": [
       "2021-02-01-preview",
-      "2022-02-01-privatepreview"
+      "2022-02-01-privatepreview",
+      "2022-09-01-preview"
     ],
     "operations": [
       "2021-02-01-preview",
-      "2022-02-01-privatepreview"
+      "2022-02-01-privatepreview",
+      "2022-09-01-preview"
     ]
   },
   "azurespheregen2": {
@@ -2638,6 +2649,9 @@
       "2018-11-01-preview",
       "2019-10-01-preview",
       "2020-05-01",
+      "2020-11-01-privatepreview"
+    ],
+    "billingaccounts/invoices/summary": [
       "2020-11-01-privatepreview"
     ],
     "billingaccounts/invoices/transactions": [
@@ -14790,7 +14804,8 @@
       "2018-07-01",
       "2020-05-01",
       "2021-06-01",
-      "2021-11-01"
+      "2021-11-01",
+      "2022-08-01"
     ],
     "mediaservices/assets": [
       "2018-03-30-preview",
@@ -14805,7 +14820,12 @@
       "2018-07-01",
       "2020-05-01",
       "2021-06-01",
-      "2021-11-01"
+      "2021-11-01",
+      "2022-08-01"
+    ],
+    "mediaservices/assets/tracks": [
+      "2021-11-01",
+      "2022-08-01"
     ],
     "mediaservices/contentkeypolicies": [
       "2018-03-30-preview",
@@ -19507,23 +19527,28 @@
   "openenergyplatform": {
     "": [
       "2021-06-01-preview",
-      "2022-04-04-preview"
+      "2022-04-04-preview",
+      "2022-07-21-preview"
     ],
     "checknameavailability": [
       "2021-06-01-preview",
-      "2022-04-04-preview"
+      "2022-04-04-preview",
+      "2022-07-21-preview"
     ],
     "locations": [
       "2021-06-01-preview",
-      "2022-04-04-preview"
+      "2022-04-04-preview",
+      "2022-07-21-preview"
     ],
     "locations/operationstatuses": [
       "2021-06-01-preview",
-      "2022-04-04-preview"
+      "2022-04-04-preview",
+      "2022-07-21-preview"
     ],
     "operations": [
       "2021-06-01-preview",
-      "2022-04-04-preview"
+      "2022-04-04-preview",
+      "2022-07-21-preview"
     ]
   },
   "openlogisticsplatform": {
@@ -21779,6 +21804,7 @@
       "2022-01-01",
       "2022-01-01-preview",
       "2022-03-01",
+      "2022-03-01-preview",
       "2022-04-01-alpha",
       "2022-04-01-beta",
       "2022-04-01-preview",
@@ -22070,6 +22096,9 @@
     "topologies": [
       "2015-06-01-preview",
       "2020-01-01"
+    ],
+    "vmscanners": [
+      "2022-03-01-preview"
     ],
     "workspacesettings": [
       "2017-08-01-preview",
@@ -26735,7 +26764,31 @@
     "": [
       "2022-07-01-preview"
     ],
+    "locations": [
+      "2022-07-01-preview"
+    ],
+    "locations/operationstatuses": [
+      "2022-07-01-preview"
+    ],
     "operations": [
+      "2022-07-01-preview"
+    ],
+    "storagemovers": [
+      "2022-07-01-preview"
+    ],
+    "storagemovers/agents": [
+      "2022-07-01-preview"
+    ],
+    "storagemovers/endpoints": [
+      "2022-07-01-preview"
+    ],
+    "storagemovers/projects": [
+      "2022-07-01-preview"
+    ],
+    "storagemovers/projects/jobdefinitions": [
+      "2022-07-01-preview"
+    ],
+    "storagemovers/projects/jobdefinitions/jobruns": [
       "2022-07-01-preview"
     ]
   },
@@ -26791,7 +26844,8 @@
       "2019-06-01",
       "2019-10-01",
       "2020-03-01",
-      "2020-09-01"
+      "2020-09-01",
+      "2022-06-01"
     ],
     "locations": [
       "2018-04-02",
@@ -26802,7 +26856,8 @@
       "2019-06-01",
       "2019-10-01",
       "2020-03-01",
-      "2020-09-01"
+      "2020-09-01",
+      "2022-06-01"
     ],
     "locations/checknameavailability": [
       "2018-04-02",
@@ -26813,15 +26868,18 @@
       "2019-06-01",
       "2019-10-01",
       "2020-03-01",
-      "2020-09-01"
+      "2020-09-01",
+      "2022-06-01"
     ],
     "locations/operationresults": [
       "2020-03-01",
-      "2020-09-01"
+      "2020-09-01",
+      "2022-06-01"
     ],
     "locations/operations": [
       "2020-03-01",
-      "2020-09-01"
+      "2020-09-01",
+      "2022-06-01"
     ],
     "locations/workflows": [
       "2018-04-02",
@@ -26832,7 +26890,8 @@
       "2019-06-01",
       "2019-10-01",
       "2020-03-01",
-      "2020-09-01"
+      "2020-09-01",
+      "2022-06-01"
     ],
     "operations": [
       "2017-06-05-preview",
@@ -26845,7 +26904,8 @@
       "2019-06-01",
       "2019-10-01",
       "2020-03-01",
-      "2020-09-01"
+      "2020-09-01",
+      "2022-06-01"
     ],
     "storagesyncservices": [
       "2017-06-05-preview",
@@ -26858,7 +26918,8 @@
       "2019-06-01",
       "2019-10-01",
       "2020-03-01",
-      "2020-09-01"
+      "2020-09-01",
+      "2022-06-01"
     ],
     "storagesyncservices/registeredservers": [
       "2017-06-05-preview",
@@ -26871,7 +26932,8 @@
       "2019-06-01",
       "2019-10-01",
       "2020-03-01",
-      "2020-09-01"
+      "2020-09-01",
+      "2022-06-01"
     ],
     "storagesyncservices/syncgroups": [
       "2017-06-05-preview",
@@ -26884,7 +26946,8 @@
       "2019-06-01",
       "2019-10-01",
       "2020-03-01",
-      "2020-09-01"
+      "2020-09-01",
+      "2022-06-01"
     ],
     "storagesyncservices/syncgroups/cloudendpoints": [
       "2017-06-05-preview",
@@ -26897,7 +26960,8 @@
       "2019-06-01",
       "2019-10-01",
       "2020-03-01",
-      "2020-09-01"
+      "2020-09-01",
+      "2022-06-01"
     ],
     "storagesyncservices/syncgroups/serverendpoints": [
       "2017-06-05-preview",
@@ -26910,7 +26974,8 @@
       "2019-06-01",
       "2019-10-01",
       "2020-03-01",
-      "2020-09-01"
+      "2020-09-01",
+      "2022-06-01"
     ],
     "storagesyncservices/workflows": [
       "2017-06-05-preview",
@@ -26923,7 +26988,8 @@
       "2019-06-01",
       "2019-10-01",
       "2020-03-01",
-      "2020-09-01"
+      "2020-09-01",
+      "2022-06-01"
     ]
   },
   "storsimple": {

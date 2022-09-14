@@ -148,7 +148,6 @@ namespace Pulumi.AzureNative.MobileNetwork
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220101preview:AttachedDataNetwork"},
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220301preview:AttachedDataNetwork"},
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220401preview:AttachedDataNetwork"},
                 },

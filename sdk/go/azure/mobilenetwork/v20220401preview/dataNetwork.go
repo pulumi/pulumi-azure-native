@@ -47,9 +47,6 @@ func NewDataNetwork(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:mobilenetwork:DataNetwork"),
 		},
 		{
-			Type: pulumi.String("azure-native:mobilenetwork/v20220101preview:DataNetwork"),
-		},
-		{
 			Type: pulumi.String("azure-native:mobilenetwork/v20220301preview:DataNetwork"),
 		},
 	})

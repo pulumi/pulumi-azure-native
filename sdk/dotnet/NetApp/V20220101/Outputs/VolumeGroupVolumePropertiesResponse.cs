@@ -21,10 +21,6 @@ namespace Pulumi.AzureNative.NetApp.V20220101.Outputs
         /// </summary>
         public readonly string? AvsDataStore;
         /// <summary>
-        /// UUID v4 or resource identifier used to identify the Backup.
-        /// </summary>
-        public readonly string? BackupId;
-        /// <summary>
         /// Unique Baremetal Tenant Identifier.
         /// </summary>
         public readonly string BaremetalTenantId;
@@ -157,10 +153,6 @@ namespace Pulumi.AzureNative.NetApp.V20220101.Outputs
         /// </summary>
         public readonly bool? SnapshotDirectoryVisible;
         /// <summary>
-        /// UUID v4 or resource identifier used to identify the Snapshot.
-        /// </summary>
-        public readonly string? SnapshotId;
-        /// <summary>
         /// Provides storage to network proximity information for the volume.
         /// </summary>
         public readonly string StorageToNetworkProximity;
@@ -186,7 +178,7 @@ namespace Pulumi.AzureNative.NetApp.V20220101.Outputs
         /// </summary>
         public readonly string? UnixPermissions;
         /// <summary>
-        /// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+        /// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 500 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.
         /// </summary>
         public readonly double UsageThreshold;
         /// <summary>
@@ -205,8 +197,6 @@ namespace Pulumi.AzureNative.NetApp.V20220101.Outputs
         [OutputConstructor]
         private VolumeGroupVolumePropertiesResponse(
             string? avsDataStore,
-
-            string? backupId,
 
             string baremetalTenantId,
 
@@ -274,8 +264,6 @@ namespace Pulumi.AzureNative.NetApp.V20220101.Outputs
 
             bool? snapshotDirectoryVisible,
 
-            string? snapshotId,
-
             string storageToNetworkProximity,
 
             string subnetId,
@@ -299,7 +287,6 @@ namespace Pulumi.AzureNative.NetApp.V20220101.Outputs
             string? volumeType)
         {
             AvsDataStore = avsDataStore;
-            BackupId = backupId;
             BaremetalTenantId = baremetalTenantId;
             CapacityPoolResourceId = capacityPoolResourceId;
             CloneProgress = cloneProgress;
@@ -333,7 +320,6 @@ namespace Pulumi.AzureNative.NetApp.V20220101.Outputs
             SmbContinuouslyAvailable = smbContinuouslyAvailable;
             SmbEncryption = smbEncryption;
             SnapshotDirectoryVisible = snapshotDirectoryVisible;
-            SnapshotId = snapshotId;
             StorageToNetworkProximity = storageToNetworkProximity;
             SubnetId = subnetId;
             T2Network = t2Network;

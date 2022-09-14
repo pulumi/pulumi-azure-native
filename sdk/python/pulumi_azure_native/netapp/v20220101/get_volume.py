@@ -22,13 +22,10 @@ class GetVolumeResult:
     """
     Volume resource
     """
-    def __init__(__self__, avs_data_store=None, backup_id=None, baremetal_tenant_id=None, capacity_pool_resource_id=None, clone_progress=None, cool_access=None, coolness_period=None, creation_token=None, data_protection=None, default_group_quota_in_ki_bs=None, default_user_quota_in_ki_bs=None, enable_subvolumes=None, encrypted=None, encryption_key_source=None, etag=None, export_policy=None, file_system_id=None, id=None, is_default_quota_enabled=None, is_restoring=None, kerberos_enabled=None, ldap_enabled=None, location=None, maximum_number_of_files=None, mount_targets=None, name=None, network_features=None, network_sibling_set_id=None, placement_rules=None, protocol_types=None, provisioning_state=None, proximity_placement_group=None, security_style=None, service_level=None, smb_continuously_available=None, smb_encryption=None, snapshot_directory_visible=None, snapshot_id=None, storage_to_network_proximity=None, subnet_id=None, system_data=None, t2_network=None, tags=None, throughput_mibps=None, type=None, unix_permissions=None, usage_threshold=None, volume_group_name=None, volume_spec_name=None, volume_type=None, zones=None):
+    def __init__(__self__, avs_data_store=None, baremetal_tenant_id=None, capacity_pool_resource_id=None, clone_progress=None, cool_access=None, coolness_period=None, creation_token=None, data_protection=None, default_group_quota_in_ki_bs=None, default_user_quota_in_ki_bs=None, enable_subvolumes=None, encrypted=None, encryption_key_source=None, etag=None, export_policy=None, file_system_id=None, id=None, is_default_quota_enabled=None, is_restoring=None, kerberos_enabled=None, ldap_enabled=None, location=None, maximum_number_of_files=None, mount_targets=None, name=None, network_features=None, network_sibling_set_id=None, placement_rules=None, protocol_types=None, provisioning_state=None, proximity_placement_group=None, security_style=None, service_level=None, smb_continuously_available=None, smb_encryption=None, snapshot_directory_visible=None, storage_to_network_proximity=None, subnet_id=None, system_data=None, t2_network=None, tags=None, throughput_mibps=None, type=None, unix_permissions=None, usage_threshold=None, volume_group_name=None, volume_spec_name=None, volume_type=None, zones=None):
         if avs_data_store and not isinstance(avs_data_store, str):
             raise TypeError("Expected argument 'avs_data_store' to be a str")
         pulumi.set(__self__, "avs_data_store", avs_data_store)
-        if backup_id and not isinstance(backup_id, str):
-            raise TypeError("Expected argument 'backup_id' to be a str")
-        pulumi.set(__self__, "backup_id", backup_id)
         if baremetal_tenant_id and not isinstance(baremetal_tenant_id, str):
             raise TypeError("Expected argument 'baremetal_tenant_id' to be a str")
         pulumi.set(__self__, "baremetal_tenant_id", baremetal_tenant_id)
@@ -134,9 +131,6 @@ class GetVolumeResult:
         if snapshot_directory_visible and not isinstance(snapshot_directory_visible, bool):
             raise TypeError("Expected argument 'snapshot_directory_visible' to be a bool")
         pulumi.set(__self__, "snapshot_directory_visible", snapshot_directory_visible)
-        if snapshot_id and not isinstance(snapshot_id, str):
-            raise TypeError("Expected argument 'snapshot_id' to be a str")
-        pulumi.set(__self__, "snapshot_id", snapshot_id)
         if storage_to_network_proximity and not isinstance(storage_to_network_proximity, str):
             raise TypeError("Expected argument 'storage_to_network_proximity' to be a str")
         pulumi.set(__self__, "storage_to_network_proximity", storage_to_network_proximity)
@@ -184,14 +178,6 @@ class GetVolumeResult:
         Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
         """
         return pulumi.get(self, "avs_data_store")
-
-    @property
-    @pulumi.getter(name="backupId")
-    def backup_id(self) -> Optional[str]:
-        """
-        UUID v4 or resource identifier used to identify the Backup.
-        """
-        return pulumi.get(self, "backup_id")
 
     @property
     @pulumi.getter(name="baremetalTenantId")
@@ -474,14 +460,6 @@ class GetVolumeResult:
         return pulumi.get(self, "snapshot_directory_visible")
 
     @property
-    @pulumi.getter(name="snapshotId")
-    def snapshot_id(self) -> Optional[str]:
-        """
-        UUID v4 or resource identifier used to identify the Snapshot.
-        """
-        return pulumi.get(self, "snapshot_id")
-
-    @property
     @pulumi.getter(name="storageToNetworkProximity")
     def storage_to_network_proximity(self) -> str:
         """
@@ -546,7 +524,7 @@ class GetVolumeResult:
     @pulumi.getter(name="usageThreshold")
     def usage_threshold(self) -> float:
         """
-        Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+        Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 500 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.
         """
         return pulumi.get(self, "usage_threshold")
 
@@ -590,7 +568,6 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             yield self
         return GetVolumeResult(
             avs_data_store=self.avs_data_store,
-            backup_id=self.backup_id,
             baremetal_tenant_id=self.baremetal_tenant_id,
             capacity_pool_resource_id=self.capacity_pool_resource_id,
             clone_progress=self.clone_progress,
@@ -626,7 +603,6 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             smb_continuously_available=self.smb_continuously_available,
             smb_encryption=self.smb_encryption,
             snapshot_directory_visible=self.snapshot_directory_visible,
-            snapshot_id=self.snapshot_id,
             storage_to_network_proximity=self.storage_to_network_proximity,
             subnet_id=self.subnet_id,
             system_data=self.system_data,
@@ -666,7 +642,6 @@ def get_volume(account_name: Optional[str] = None,
 
     return AwaitableGetVolumeResult(
         avs_data_store=__ret__.avs_data_store,
-        backup_id=__ret__.backup_id,
         baremetal_tenant_id=__ret__.baremetal_tenant_id,
         capacity_pool_resource_id=__ret__.capacity_pool_resource_id,
         clone_progress=__ret__.clone_progress,
@@ -702,7 +677,6 @@ def get_volume(account_name: Optional[str] = None,
         smb_continuously_available=__ret__.smb_continuously_available,
         smb_encryption=__ret__.smb_encryption,
         snapshot_directory_visible=__ret__.snapshot_directory_visible,
-        snapshot_id=__ret__.snapshot_id,
         storage_to_network_proximity=__ret__.storage_to_network_proximity,
         subnet_id=__ret__.subnet_id,
         system_data=__ret__.system_data,

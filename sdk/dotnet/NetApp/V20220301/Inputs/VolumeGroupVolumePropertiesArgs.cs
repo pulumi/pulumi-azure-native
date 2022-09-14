@@ -223,7 +223,7 @@ namespace Pulumi.AzureNative.NetApp.V20220301.Inputs
         public Input<string>? UnixPermissions { get; set; }
 
         /// <summary>
-        /// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+        /// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 500 GiB, 500 GiB for large volumes. Upper limit is 100TiB. Specified in bytes.
         /// </summary>
         [Input("usageThreshold", required: true)]
         public Input<double> UsageThreshold { get; set; } = null!;

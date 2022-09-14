@@ -127,6 +127,7 @@ namespace Pulumi.AzureNative.Kusto
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20210101:ReadOnlyFollowingDatabase"},
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20210827:ReadOnlyFollowingDatabase"},
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20220201:ReadOnlyFollowingDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20220707:ReadOnlyFollowingDatabase"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

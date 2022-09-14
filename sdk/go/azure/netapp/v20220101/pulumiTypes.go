@@ -3744,7 +3744,6 @@ func (o VolumeGroupVolumePropertiesArrayOutput) Index(i pulumi.IntInput) VolumeG
 
 type VolumeGroupVolumePropertiesResponse struct {
 	AvsDataStore              *string                                 `pulumi:"avsDataStore"`
-	BackupId                  *string                                 `pulumi:"backupId"`
 	BaremetalTenantId         string                                  `pulumi:"baremetalTenantId"`
 	CapacityPoolResourceId    *string                                 `pulumi:"capacityPoolResourceId"`
 	CloneProgress             int                                     `pulumi:"cloneProgress"`
@@ -3778,7 +3777,6 @@ type VolumeGroupVolumePropertiesResponse struct {
 	SmbContinuouslyAvailable  *bool                                   `pulumi:"smbContinuouslyAvailable"`
 	SmbEncryption             *bool                                   `pulumi:"smbEncryption"`
 	SnapshotDirectoryVisible  *bool                                   `pulumi:"snapshotDirectoryVisible"`
-	SnapshotId                *string                                 `pulumi:"snapshotId"`
 	StorageToNetworkProximity string                                  `pulumi:"storageToNetworkProximity"`
 	SubnetId                  string                                  `pulumi:"subnetId"`
 	T2Network                 string                                  `pulumi:"t2Network"`
@@ -3880,10 +3878,6 @@ func (o VolumeGroupVolumePropertiesResponseOutput) ToVolumeGroupVolumeProperties
 
 func (o VolumeGroupVolumePropertiesResponseOutput) AvsDataStore() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) *string { return v.AvsDataStore }).(pulumi.StringPtrOutput)
-}
-
-func (o VolumeGroupVolumePropertiesResponseOutput) BackupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) *string { return v.BackupId }).(pulumi.StringPtrOutput)
 }
 
 func (o VolumeGroupVolumePropertiesResponseOutput) BaremetalTenantId() pulumi.StringOutput {
@@ -4020,10 +4014,6 @@ func (o VolumeGroupVolumePropertiesResponseOutput) SmbEncryption() pulumi.BoolPt
 
 func (o VolumeGroupVolumePropertiesResponseOutput) SnapshotDirectoryVisible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) *bool { return v.SnapshotDirectoryVisible }).(pulumi.BoolPtrOutput)
-}
-
-func (o VolumeGroupVolumePropertiesResponseOutput) SnapshotId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
 func (o VolumeGroupVolumePropertiesResponseOutput) StorageToNetworkProximity() pulumi.StringOutput {

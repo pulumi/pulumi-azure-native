@@ -88,6 +88,9 @@ func NewIotHubDataConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:kusto/v20220201:IotHubDataConnection"),
 		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20220707:IotHubDataConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource IotHubDataConnection

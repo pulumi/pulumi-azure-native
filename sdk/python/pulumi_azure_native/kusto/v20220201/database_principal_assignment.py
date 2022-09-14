@@ -237,7 +237,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["tenant_name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kusto:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20191109:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20200215:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20200614:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20200918:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20210101:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20210827:DatabasePrincipalAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kusto:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20191109:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20200215:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20200614:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20200918:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20210101:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20210827:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20220707:DatabasePrincipalAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DatabasePrincipalAssignment, __self__).__init__(
             'azure-native:kusto/v20220201:DatabasePrincipalAssignment',

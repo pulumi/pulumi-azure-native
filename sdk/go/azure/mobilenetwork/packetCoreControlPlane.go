@@ -58,9 +58,6 @@ func NewPacketCoreControlPlane(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:mobilenetwork/v20220101preview:PacketCoreControlPlane"),
-		},
-		{
 			Type: pulumi.String("azure-native:mobilenetwork/v20220301preview:PacketCoreControlPlane"),
 		},
 		{
