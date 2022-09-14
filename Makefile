@@ -32,23 +32,24 @@ codegen: bin/$(CODEGEN)
 provider: bin/$(PROVIDER)
 versioner: bin/pulumi-versioner-azure-native
 versions: versions/spec.json versions/v1.json versions/v2.json versions/deprecated.json versions/pending.json versions/active.json
+
 generate_schema: provider/cmd/$(PROVIDER)/schema-full.json
 generate_docs: provider/cmd/$(PROVIDER)/schema.json
-generate_java: sdk/java
-generate_nodejs: sdk/nodejs
-generate_python: sdk/python
-generate_dotnet: sdk/dotnet
-generate_go: sdk/go
 
-local_generate_code: sdk/java
-local_generate_code: sdk/nodejs
-local_generate_code: sdk/python
-local_generate_code: sdk/dotnet
-local_generate_code: sdk/go
-local_generate_code: sdk/pulumi-azure-native-sdk/local.sentinel
+generate_java: sdk/java/gen.sentinel
+generate_nodejs: sdk/nodejs/gen.sentinel
+generate_python: sdk/python/gen.sentinel
+generate_dotnet: sdk/dotnet/gen.sentinel
+generate_go: sdk/go/gen.sentinel sdk/pulumi-azure-native-sdk/local.sentinel
 
-local_generate: provider/cmd/$(PROVIDER)/schema.json
-local_generate: provider/cmd/$(PROVIDER)/schema-full.json
+local_generate_code: generate_java
+local_generate_code: generate_nodejs
+local_generate_code: generate_python
+local_generate_code: generate_dotnet
+local_generate_code: generate_go
+
+local_generate: generate_docs
+local_generate: generate_schema
 local_generate: local_generate_code
 
 build_nodejs: sdk/nodejs/build.sentinel
@@ -57,13 +58,14 @@ build_dotnet: sdk/dotnet/build.sentinel
 build_java: sdk/java/build.sentinel
 build_go: sdk/go/build.sentinel sdk/pulumi-azure-native-sdk/local.sentinel
 
+# Required by CI steps - some can be skipped
 install_dotnet_sdk: sdk/dotnet/install.sentinel
-install_python_sdk: build_python
-install_go_sdk: build_go
+install_python_sdk:
+install_go_sdk:
 install_java_sdk:
 install_nodejs_sdk: sdk/nodejs/install.sentinel
 
-prepublish_go: sdk/pulumi-azure-native-sdk/publish.sentinel
+prepublish_go: sdk/pulumi-azure-native-sdk/prepublish.sentinel
 
 # Required for the codegen action that runs in pulumi/pulumi
 only_build: build
@@ -103,17 +105,24 @@ lint_provider: provider # lint the provider code
 	cd provider && GOGC=20 golangci-lint run -c ../.golangci.yml
 
 clean:
-	rm -rf $$(find sdk/nodejs -mindepth 1 -maxdepth 1 ! -name "go.mod")
-	rm -rf $$(find sdk/python -mindepth 1 -maxdepth 1 ! -name "go.mod" ! -name "README.md")
-	rm -rf $$(find sdk/dotnet -mindepth 1 -maxdepth 1 ! -name "go.mod")
-	rm -rf $$(find sdk/java -mindepth 1 -maxdepth 1 ! -name "go.mod")
-	rm -rf sdk/go/azure
-	rm -rf sdk/schema
+	find bin -maxdepth 1 -type f -delete
+	rm -rf nuget
+	find . -maxdepth 2 -name "*.sentinel" -delete
+	cd provider/cmd/arm2pulumi && rm -f metadata-compact.json schema-full.json
+	cd provider/cmd/pulumi-resource-azure-native && rm -f metadata-compact.json schema-full.json
+	rm -rf sdk/dotnet/bin
+	rm -rf sdk/dotnet/build sdk/dotnet/src sdk/dotnet/.gradle
+	rm -rf sdk/nodejs/bin
+	rm -rf sdk/pulumi-azure-native-sdk
+	rm -rf sdk/python/bin
+	if dotnet nuget list source | grep "$(WORKING_DIR)"; then \
+		dotnet nuget remove source "$(WORKING_DIR)" \
+	; fi
 
 install_provider: bin/pulumictl provider/.mod_download.sentinel provider/cmd/$(PROVIDER)/* $(PROVIDER_PKG)
 	(cd provider && go install $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER))
 
-test: export PULUMI_LOCAL_NUGET=${WORKING_DIR}/nuget
+test: export PULUMI_LOCAL_NUGET=$(WORKING_DIR)/nuget
 test:
 	cd examples && go test -v -tags=all -timeout 2h
 
@@ -186,46 +195,46 @@ endef
 
 export FAKE_MODULE
 
-sdk/java: bin/pulumi-java-gen provider/cmd/$(PROVIDER)/schema.json
+sdk/java/gen.sentinel: bin/pulumi-java-gen provider/cmd/$(PROVIDER)/schema.json
 	@mkdir -p sdk/java
 	rm -rf $$(find sdk/java -mindepth 1 -maxdepth 1)
 	bin/$(JAVA_GEN) generate --schema provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_java_module/g' > sdk/java/go.mod
-	@touch sdk/java
+	@touch sdk/java/gen.sentinel
 
-sdk/nodejs: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
+sdk/nodejs/gen.sentinel: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
 	mkdir -p sdk/nodejs
 	rm -rf $$(find sdk/nodejs -mindepth 1 -maxdepth 1 ! -name "go.mod")
 	bin/$(CODEGEN) nodejs $(VERSION)
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_nodejs_module/g' > sdk/nodejs/go.mod
 	sed -i.bak -e "s/sourceMap/inlineSourceMap/g" sdk/nodejs/tsconfig.json
 	rm sdk/nodejs/tsconfig.json.bak
-	@touch sdk/nodejs
+	@touch sdk/nodejs/gen.sentinel
 
-sdk/python: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
+sdk/python/gen.sentinel: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
 	mkdir -p sdk/python
 	rm -rf $$(find sdk/python -mindepth 1 -maxdepth 1 ! -name "go.mod")
 	bin/$(CODEGEN) python $(VERSION)
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_python_module/g' > sdk/python/go.mod
 	cp README.md sdk/python
-	@touch sdk/python
+	@touch sdk/python/gen.sentinel
 
-sdk/dotnet: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
+sdk/dotnet/gen.sentinel: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
 	mkdir -p sdk/dotnet
 	rm -rf $$(find sdk/dotnet -mindepth 1 -maxdepth 1 ! -name "go.mod")
 	bin/$(CODEGEN) dotnet $(VERSION)
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_dotnet_module/g' > sdk/dotnet/go.mod
 	sed -i.bak -e "s/<\/Nullable>/<\/Nullable>\n    <UseSharedCompilation>false<\/UseSharedCompilation>/g" sdk/dotnet/Pulumi.AzureNative.csproj
 	rm sdk/dotnet/Pulumi.AzureNative.csproj.bak
-	@touch sdk/dotnet
+	@touch sdk/dotnet/gen.sentinel
 
-sdk/go: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
+sdk/go/gen.sentinel: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
 	mkdir -p sdk/go
 	rm -rf sdk/go/azure
 	bin/$(CODEGEN) go $(VERSION)
 	@# HACK: Strip all comments to make SDK smaller
 	find sdk/go -type f -exec sed -i '' -e '/^\/\/.*/g' {} \;
-	@touch sdk/go
+	@touch sdk/go/gen.sentinel
 
 sdk/pulumi-azure-native-sdk/local.sentinel: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
 	@mkdir -p sdk/pulumi-azure-native-sdk
@@ -253,39 +262,47 @@ sdk/pulumi-azure-native-sdk/publish.sentinel:
 
 # Used by build* targets
 
-sdk/nodejs/build.sentinel: bin/pulumictl sdk/nodejs/install.sentinel
+sdk/nodejs/node_modules.sentinel: sdk/nodejs/gen.sentinel sdk/nodejs/package.json
+	yarn install --cwd sdk/nodejs
+	@touch sdk/nodejs/node_modules.sentinel
+
+sdk/nodejs/build.sentinel: bin/pulumictl sdk/nodejs/node_modules.sentinel
 	cd sdk/nodejs/ && \
 	NODE_OPTIONS=--max-old-space-size=8192 yarn run tsc --diagnostics --incremental && \
 	cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
 	sed -i.bak -e "s/\$${VERSION}/$(VERSION_JS)/g" ./bin/package.json
 	@touch sdk/nodejs/build.sentinel
 
-sdk/python/build.sentinel: bin/pulumictl sdk/python
-	cd sdk/python/ && \
-	python3 setup.py clean --all 2>/dev/null && \
-	rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
-	sed -i.bak -e 's/^VERSION = .*/VERSION = "$(VERSION_PYTHON)"/g' -e 's/^PLUGIN_VERSION = .*/PLUGIN_VERSION = "$(VERSION)"/g' ./bin/setup.py && \
-	rm ./bin/setup.py.bak && \
-	rm ./bin/go.mod && \
-	cd ./bin && python3 setup.py build sdist
+sdk/python/build.sentinel: bin/pulumictl sdk/python/gen.sentinel
+	cd sdk/python && \
+		python3 setup.py clean --all 2>/dev/null && \
+		rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
+		sed -i.bak -e 's/^VERSION = .*/VERSION = "$(VERSION_PYTHON)"/g' -e 's/^PLUGIN_VERSION = .*/PLUGIN_VERSION = "$(VERSION)"/g' ./bin/setup.py && \
+		rm ./bin/setup.py.bak && \
+		rm ./bin/go.mod && \
+		cd ./bin && python3 setup.py build sdist
 	@touch sdk/python/build.sentinel
 
-sdk/dotnet/build.sentinel: bin/pulumictl sdk/dotnet
-	cd sdk/dotnet/ && \
-	echo "azure-native\n$(VERSION_DOTNET)" >version.txt && \
-	dotnet build /p:Version=$(VERSION_DOTNET)
+sdk/dotnet/build.sentinel: bin/pulumictl sdk/dotnet/gen.sentinel
+	cd sdk/dotnet && \
+		echo "azure-native\n$(VERSION_DOTNET)" >version.txt && \
+		dotnet build /p:Version=$(VERSION_DOTNET)
 	@touch sdk/dotnet/build.sentinel
 
-sdk/java/build.sentinel: bin/pulumictl sdk/java
+sdk/java/build.sentinel: bin/pulumictl sdk/java/gen.sentinel
 	cd sdk/java/ && \
 		gradle --console=plain -Pversion=$(VERSION) build
 	@touch sdk/java/build.sentinel
 
-sdk/go/build.sentinel: sdk/go
+sdk/go/build.sentinel: sdk/go/gen.sentinel
 	# Only building the top level packages and building 1 package at a time to avoid OOMing
-	cd sdk/ && \
-	GOGC=50 go list github.com/pulumi/pulumi-azure-native/sdk/go/azure/... | grep -v "latest\|\/v.*"$ | xargs -L 1 go build
+	cd sdk && \
+		GOGC=50 go list github.com/pulumi/pulumi-azure-native/sdk/go/azure/... | grep -v "latest\|\/v.*"$ | xargs -L 1 go build
 	@touch sdk/go/build.sentinel
+
+sdk/pulumi-azure-native-sdk/build.sentinel: sdk/pulumi-azure-native-sdk/local.sentinel
+	find sdk/pulumi-azure-native-sdk -type d -maxdepth 1 -exec sh -c "cd \"{}\" && go build" \;
+	@touch sdk/pulumi-azure-native-sdk/build.sentinel
 
 # Used by install* targets
 
