@@ -44,11 +44,13 @@ local_generate_code: sdk/nodejs
 local_generate_code: sdk/python
 local_generate_code: sdk/dotnet
 local_generate_code: sdk/go
-local_generate_code: sdk/pulumi-azure-native-sdk
+local_generate_code: sdk/pulumi-azure-native-sdk/local.sentinel
 
 local_generate: provider/cmd/$(PROVIDER)/schema.json
 local_generate: provider/cmd/$(PROVIDER)/schema-full.json
 local_generate: local_generate_code
+
+prepublish_go: sdk/pulumi-azure-native-sdk/publish.sentinel
 
 # Required for the codegen action that runs in pulumi/pulumi
 only_build: build
@@ -114,18 +116,6 @@ build_go:
 	# Only building the top level packages and building 1 package at a time to avoid OOMing
 	cd sdk/ && \
 	GOGC=50 go list github.com/pulumi/pulumi-azure-native/sdk/go/azure/... | grep -v "latest\|\/v.*"$ | xargs -L 1 go build
-	find sdk/pulumi-azure-native-sdk -type d -maxdepth 1 -exec sh -c "cd \"{}\" && go mod tidy && go build" \;
-
-prepublish_go:
-	@# Remove go module replacements which are added for local testing
-	@# Note: must use `sed -i -e` to be portable - but leaves go.mod-e behind on macos
-	find sdk/pulumi-azure-native-sdk -maxdepth 2 -type f -name go.mod -exec sed -i -e '/replace github\.com\/pulumi\/pulumi-azure-native-sdk /d' {} \;
-	@# Remove sed backup files if using older sed versions
-	find sdk/pulumi-azure-native-sdk -maxdepth 2 -type f -name go.mod-e -delete
-	@# Delete go.sum files as these are not used at the point of publishing.
-	@# This is because we depend on the root package which will come from the same release commit, that doesn't yet exist.
-	find sdk/pulumi-azure-native-sdk -maxdepth 2 -type f -name go.sum -delete
-	cp README.md LICENSE sdk/pulumi-azure-native-sdk/
 
 clean:
 	rm -rf $$(find sdk/nodejs -mindepth 1 -maxdepth 1 ! -name "go.mod")
@@ -268,7 +258,26 @@ sdk/go: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
 	find sdk/go -type f -exec sed -i '' -e '/^\/\/.*/g' {} \;
 	@touch sdk/go
 
-sdk/pulumi-azure-native-sdk: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
+sdk/pulumi-azure-native-sdk/local.sentinel: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
+	@mkdir -p sdk/pulumi-azure-native-sdk
+	@# Unmark this is as an up-to-date local build
+	rm -f sdk/pulumi-azure-native-sdk/publish.sentinel
 	rm -rf $$(find sdk/pulumi-azure-native-sdk -mindepth 1 -maxdepth 1 ! -name ".git")
 	bin/$(CODEGEN) go-split $(VERSION)
-	@touch sdk/pulumi-azure-native-sdk
+	@# Tidy up all go.mod files
+	find sdk/pulumi-azure-native-sdk -type d -maxdepth 1 -exec sh -c "cd \"{}\" && go mod tidy" \;
+	@touch sdk/pulumi-azure-native-sdk/local.sentinel
+
+sdk/pulumi-azure-native-sdk/publish.sentinel:
+	@# Unmark this is as an up-to-date local build - fail if not build locally first
+	rm sdk/pulumi-azure-native-sdk/local.sentinel
+	@# Remove go module replacements which are added for local testing
+	@# Note: must use `sed -i -e` to be portable - but leaves go.mod-e behind on macos
+	find sdk/pulumi-azure-native-sdk -maxdepth 2 -type f -name go.mod -exec sed -i -e '/replace github\.com\/pulumi\/pulumi-azure-native-sdk /d' {} \;
+	@# Remove sed backup files if using older sed versions
+	find sdk/pulumi-azure-native-sdk -maxdepth 2 -type f -name go.mod-e -delete
+	@# Delete go.sum files as these are not used at the point of publishing.
+	@# This is because we depend on the root package which will come from the same release commit, that doesn't yet exist.
+	find sdk/pulumi-azure-native-sdk -maxdepth 2 -type f -name go.sum -delete
+	cp README.md LICENSE sdk/pulumi-azure-native-sdk/
+	touch sdk/pulumi-azure-native-sdk/publish.sentinel
