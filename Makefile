@@ -39,6 +39,17 @@ generate_python: sdk/python
 generate_dotnet: sdk/dotnet
 generate_go: sdk/go
 
+local_generate_code: sdk/java
+local_generate_code: sdk/nodejs
+local_generate_code: sdk/python
+local_generate_code: sdk/dotnet
+local_generate_code: sdk/go
+local_generate_code: sdk/pulumi-azure-native-sdk
+
+local_generate: provider/cmd/$(PROVIDER)/schema.json
+local_generate: provider/cmd/$(PROVIDER)/schema-full.json
+local_generate: local_generate_code
+
 # Required for the codegen action that runs in pulumi/pulumi
 only_build: build
 
@@ -62,30 +73,6 @@ update_submodules: init_submodules
 	done
 	rm ./azure-provider-versions/provider_list.json
 	az provider list | jq 'map({ namespace: .namespace, resourceTypes: .resourceTypes | map({ resourceType: .resourceType, apiVersions: .apiVersions }) | sort_by(.resourceType) }) | sort_by(.namespace)' > ./azure-provider-versions/provider_list.json
-
-local_generate_code: clean bin/pulumi-java-gen bin/$(CODEGEN)
-	bin/$(CODEGEN) schema,nodejs,dotnet,python,go,go-split $(VERSION)
-	bin/$(JAVA_GEN) generate --schema provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
-	cd sdk/go/ && find . -type f -exec sed -i '' -e '/^\/\/.*/g' {} \;
-	cd sdk/dotnet/ && \
-	sed -i.bak -e "s/<\/Nullable>/<\/Nullable>\n    <UseSharedCompilation>false<\/UseSharedCompilation>/g" Pulumi.AzureNative.csproj && \
-	rm Pulumi.AzureNative.csproj.bak && \
-	cd ../nodejs/ && \
-	sed -i.bak -e "s/sourceMap/inlineSourceMap/g" tsconfig.json && \
-	rm tsconfig.json.bak
-	echo "Finished generating."
-
-local_generate: clean bin/pulumi-java-gen bin/pulumictl bin/$(CODEGEN)
-	bin/$(CODEGEN) schema,docs,nodejs,dotnet,python,go,go-split $(VERSION)
-	bin/$(JAVA_GEN) generate --schema provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
-	cd sdk/go/ && find . -type f -exec sed -i '' -e '/^\/\/.*/g' {} \;
-	cd sdk/dotnet/ && \
-	sed -i.bak -e "s/<\/Nullable>/<\/Nullable>\n    <UseSharedCompilation>false<\/UseSharedCompilation>/g" Pulumi.AzureNative.csproj && \
-	rm Pulumi.AzureNative.csproj.bak && \
-	cd ../nodejs/ && \
-	sed -i.bak -e "s/sourceMap/inlineSourceMap/g" tsconfig.json && \
-	rm tsconfig.json.bak
-	echo "Finished generating."
 
 arm2pulumi_coverage_report:
 	(cd provider/pkg/arm2pulumi/internal/testdata && if [ ! -d azure-quickstart-templates ]; then git clone https://github.com/Azure/azure-quickstart-templates && cd azure-quickstart-templates && git checkout 3b2757465c2de537e333f5e2d1c3776c349b8483; fi)
@@ -254,29 +241,34 @@ sdk/java: bin/pulumi-java-gen provider/cmd/$(PROVIDER)/schema.json sdk/java/go.m
 	bin/$(JAVA_GEN) generate --schema provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
 	@touch sdk/java
 
-sdk/nodejs: sdk/nodejs/go.mod bin/pulumictl bin/$(CODEGEN)
+sdk/nodejs: sdk/nodejs/go.mod bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
 	rm -rf $$(find sdk/nodejs -mindepth 1 -maxdepth 1 ! -name "go.mod")
 	bin/$(CODEGEN) nodejs $(VERSION)
 	sed -i.bak -e "s/sourceMap/inlineSourceMap/g" sdk/nodejs/tsconfig.json
 	rm sdk/nodejs/tsconfig.json.bak
 	@touch sdk/nodejs
 
-sdk/python: sdk/python/go.mod bin/pulumictl bin/$(CODEGEN)
+sdk/python: sdk/python/go.mod bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
 	rm -rf $$(find sdk/python -mindepth 1 -maxdepth 1 ! -name "go.mod")
 	bin/$(CODEGEN) python $(VERSION)
 	cp README.md sdk/python
 	@touch sdk/python
 
-sdk/dotnet: sdk/dotnet/go.mod bin/pulumictl bin/$(CODEGEN)
+sdk/dotnet: sdk/dotnet/go.mod bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
 	rm -rf $$(find sdk/dotnet -mindepth 1 -maxdepth 1 ! -name "go.mod")
 	bin/$(CODEGEN) dotnet $(VERSION)
 	sed -i.bak -e "s/<\/Nullable>/<\/Nullable>\n    <UseSharedCompilation>false<\/UseSharedCompilation>/g" sdk/dotnet/Pulumi.AzureNative.csproj
 	rm sdk/dotnet/Pulumi.AzureNative.csproj.bak
 	@touch sdk/dotnet
 
-sdk/go: bin/pulumictl
+sdk/go: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
 	rm -rf sdk/go/azure
 	bin/$(CODEGEN) go,go-split $(VERSION)
 	@# HACK: Strip all comments to make SDK smaller
 	find sdk/go -type f -exec sed -i '' -e '/^\/\/.*/g' {} \;
 	@touch sdk/go
+
+sdk/pulumi-azure-native-sdk: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
+	rm -rf $$(find sdk/pulumi-azure-native-sdk -mindepth 1 -maxdepth 1 ! -name ".git")
+	bin/$(CODEGEN) go-split $(VERSION)
+	@touch sdk/pulumi-azure-native-sdk
