@@ -1733,7 +1733,10 @@ func (k *azureNativeProvider) getAuthConfig() (*authentication.Config, error) {
 }
 
 func assertAzVersion() error {
-	const versionHint = "Please make sure the Azure CLI 2.37 or greater, but less than 3.x, is installed or configure another authentication method."
+	const versionHint = `Please make sure the Azure CLI 2.37 or greater, but less than 3.x, is
+installed or configure another authentication method. See
+https://www.pulumi.com/registry/packages/azure-native/installation-configuration/#credentials
+for more information.`
 
 	_, err := exec.LookPath("az")
 	if err != nil {
