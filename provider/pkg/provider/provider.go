@@ -62,10 +62,6 @@ const (
 	createBeforeDeleteFlag = "__createBeforeDelete"
 )
 
-// We need this version because it doesn't print the error of #1565
-var minAzVersion = goversion.Must(goversion.NewVersion("2.37.0"))
-var nextMajorAzVersion = goversion.Must(goversion.NewVersion("3.0.0"))
-
 type azureNativeProvider struct {
 	host            *provider.HostClient
 	name            string
@@ -1703,7 +1699,11 @@ func (k *azureNativeProvider) getAuthConfig() (*authentication.Config, error) {
 	// version (#1565). The check needs to happen before builder.Build(), or we return the less
 	// fitting error message from go-azure-helpers.
 	if !useMsi && clientSecret == "" && clientCertPath == "" {
-		if err := assertAzVersion(); err != nil {
+		v, err := getAzVersion()
+		if err != nil {
+			return nil, err
+		}
+		if err = assertAzVersion(v); err != nil {
 			return nil, err
 		}
 	}
@@ -1732,15 +1732,10 @@ func (k *azureNativeProvider) getAuthConfig() (*authentication.Config, error) {
 	return builder.Build()
 }
 
-func assertAzVersion() error {
-	const versionHint = `Please make sure the Azure CLI 2.37 or greater, but less than 3.x, is
-installed or configure another authentication method. See
-https://www.pulumi.com/registry/packages/azure-native/installation-configuration/#credentials
-for more information.`
-
+func getAzVersion() (*goversion.Version, error) {
 	_, err := exec.LookPath("az")
 	if err != nil {
-		return fmt.Errorf("could not find `az`: %w. %s", err, versionHint)
+		return nil, fmt.Errorf("could not find `az`: %w", err)
 	}
 
 	var azVersion struct {
@@ -1748,16 +1743,29 @@ for more information.`
 	}
 	err = runAzCmd(&azVersion, "version")
 	if err != nil {
-		return fmt.Errorf("could not determine az version: %w. %s", err, versionHint)
+		return nil, fmt.Errorf("could not determine az version: %w", err)
 	}
 
 	actual, err := goversion.NewVersion(azVersion.Cli)
 	if err != nil {
-		return fmt.Errorf("could not parse az version \"%q\": %w. %s", azVersion.Cli, err, versionHint)
+		return nil, fmt.Errorf("could not parse az version \"%q\": %w", azVersion.Cli, err)
 	}
 
-	if actual.LessThan(minAzVersion) || actual.GreaterThanOrEqual(nextMajorAzVersion) {
-		return fmt.Errorf("found incompatible az version %s. %s", actual, versionHint)
+	return actual, nil
+}
+
+func assertAzVersion(version *goversion.Version) error {
+	const versionHint = `Please make sure that the Azure CLI is installed in a version either
+between 2.0.81 and 2.33, or at least 2.37 but less than 3.x; or configure another authentication
+method. See https://www.pulumi.com/registry/packages/azure-native/installation-configuration/#credentials
+for more information.`
+
+	// We need this version because it doesn't print the error of #1565
+	lowerOkRange := goversion.MustConstraints(goversion.NewConstraint(">=2.0.81, <2.34"))
+	upperOkRange := goversion.MustConstraints(goversion.NewConstraint(">=2.37.0, <3"))
+
+	if !lowerOkRange.Check(version) && !upperOkRange.Check(version) {
+		return fmt.Errorf("found incompatible az version %s. %s", version, versionHint)
 	}
 
 	return nil
