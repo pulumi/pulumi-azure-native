@@ -93,7 +93,7 @@ func main() {
 		}
 		// Also, emit the resource metadata for the provider.
 		err = emitMetadata(meta, arm2pulumiDir, "main")
-	} else {
+	} else if languageSet.Subtract(codegen.NewStringSet("docs")).Any() {
 		// Just read existing schema if we're not re-generating
 		schemaPath := path.Join("provider", "cmd", "pulumi-resource-azure-native", "schema-full.json")
 		schemaBytes, err := os.ReadFile(schemaPath)
