@@ -137,9 +137,9 @@ bin/pulumictl: .pulumictl.version
 	@touch bin/pulumictl
 	@echo "pulumictl" $$(./bin/pulumictl version)
 
-bin/pulumi-java-gen: .pulumi-java-gen.version
+bin/pulumi-java-gen: .pulumi-java-gen.version bin/pulumictl
 	@mkdir -p bin
-	pulumictl download-binary -n pulumi-language-java -v $(shell cat .pulumi-java-gen.version) -r pulumi/pulumi-java
+	bin/pulumictl download-binary -n pulumi-language-java -v $(shell cat .pulumi-java-gen.version) -r pulumi/pulumi-java
 
 provider/.mod_download.sentinel: provider/go.mod provider/go.sum
 	cd provider && GO111MODULE=on go mod download
