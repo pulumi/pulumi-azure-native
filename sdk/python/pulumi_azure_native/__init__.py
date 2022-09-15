@@ -4389,6 +4389,18 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "compute/v20220702",
+  "fqn": "pulumi_azure_native.compute.v20220702",
+  "classes": {
+   "azure-native:compute/v20220702:Disk": "Disk",
+   "azure-native:compute/v20220702:DiskAccess": "DiskAccess",
+   "azure-native:compute/v20220702:DiskAccessAPrivateEndpointConnection": "DiskAccessAPrivateEndpointConnection",
+   "azure-native:compute/v20220702:DiskEncryptionSet": "DiskEncryptionSet",
+   "azure-native:compute/v20220702:Snapshot": "Snapshot"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "confidentialledger",
   "fqn": "pulumi_azure_native.confidentialledger",
   "classes": {
@@ -5679,6 +5691,17 @@ _utilities.register(
   "classes": {
    "azure-native:costmanagement/v20220801preview:View": "View",
    "azure-native:costmanagement/v20220801preview:ViewByScope": "ViewByScope"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "costmanagement/v20221001preview",
+  "fqn": "pulumi_azure_native.costmanagement.v20221001preview",
+  "classes": {
+   "azure-native:costmanagement/v20221001preview:SettingByScope": "SettingByScope",
+   "azure-native:costmanagement/v20221001preview:TagInheritanceSetting": "TagInheritanceSetting",
+   "azure-native:costmanagement/v20221001preview:View": "View",
+   "azure-native:costmanagement/v20221001preview:ViewByScope": "ViewByScope"
   }
  },
  {
