@@ -25,6 +25,8 @@ VERSION_FLAGS   = -ldflags "-X github.com/pulumi/pulumi-azure-native/provider/pk
 
 default: init_submodules provider arm2pulumi local_generate
 
+ensure: .init_submodules.sentinel bin/pulumictl provider/.mod_download.sentinel
+init_submodules: .init_submodules.sentinel
 arm2pulumi: bin/arm2pulumi
 codegen: bin/$(CODEGEN)
 provider: bin/$(PROVIDER)
@@ -68,22 +70,11 @@ install_sdks: install_dotnet_sdk install_nodejs_sdk
 
 prepublish_go: sdk/pulumi-azure-native-sdk/prepublish.sentinel
 
-.PHONY: default arm2pulumi codegen provider install_provider versioner versions
+.PHONY: default ensure init_submodules arm2pulumi codegen provider install_provider versioner versions
 .PHONY: generate_schema generate_docs generate_java generate_nodejs generate_python generate_dotnet generate_go local_generate_code local_generate
 .PHONY: build only_build build_sdks build_nodejs build_python build_dotnet build_java build_go 
 .PHONY: install_dotnet_sdk install_python_sdk install_go_sdk install_java_sdk install_nodejs_sdk install_sdks
-.PHONY: ensure init_submodules update_submodules arm2pulumi_coverage_report test_provider lint_provider clean test
-
-ensure: init_submodules bin/pulumictl provider/.mod_download.sentinel
-	@jq --version > /dev/null
-
-init_submodules:
-	@for submodule in $$(git submodule status | awk {'print $$2'}); do \
-		if [ ! -f "$$submodule/.git" ]; then \
-			echo "Initializing submodule $$submodule" ; \
-			(cd $$submodule && git submodule update --init); \
-		fi; \
-	done
+.PHONY: update_submodules arm2pulumi_coverage_report test_provider lint_provider clean test
 
 update_submodules: init_submodules
 	@for submodule in $$(git submodule status | awk {'print $$2'}); do \
@@ -124,6 +115,15 @@ test: build install_sdks
 
 # --------- File-based targets --------- #
 
+.init_submodules.sentinel:
+	@for submodule in $$(git submodule status | awk {'print $$2'}); do \
+		if [ ! -f "$$submodule/.git" ]; then \
+			echo "Initializing submodule $$submodule" ; \
+			(cd $$submodule && git submodule update --init); \
+		fi; \
+	done
+	@touch .init_submodules.sentinel
+
 # Download local copy of pulumictl based on the version in .pulumictl.version
 # Anywhere which uses VERSION or VERSION_FLAGS should depend on bin/pulumictl
 bin/pulumictl: PULUMICTL_VERSION := $(shell cat .pulumictl.version)
@@ -157,10 +157,10 @@ bin/$(PROVIDER): bin/pulumictl provider/.mod_download.sentinel provider/cmd/$(PR
 bin/$(VERSIONER): bin/pulumictl provider/.mod_download.sentinel provider/cmd/$(VERSIONER)/* $(PROVIDER_PKG)
 	cd provider && go build -o $(WORKING_DIR)/bin/pulumi-versioner-azure-native $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(VERSIONER)
 
-provider/cmd/$(PROVIDER)/schema.json: bin/$(CODEGEN) $(SPECS)
+provider/cmd/$(PROVIDER)/schema.json: .init_submodules.sentinel bin/$(CODEGEN) $(SPECS)
 	bin/$(CODEGEN) docs $(VERSION)
 
-provider/cmd/$(PROVIDER)/schema-full.json: bin/$(CODEGEN) $(SPECS)
+provider/cmd/$(PROVIDER)/schema-full.json: .init_submodules.sentinel bin/$(CODEGEN) $(SPECS)
 	bin/$(CODEGEN) schema $(VERSION)
 
 versions/spec.json: bin/pulumi-versioner-azure-native .git/modules/azure-rest-api-specs/HEAD
