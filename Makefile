@@ -193,7 +193,8 @@ endef
 
 export FAKE_MODULE
 
-sdk/java/gen.sentinel: bin/pulumi-java-gen provider/cmd/$(PROVIDER)/schema.json
+# We use the docs schema for java but don't depend on it because it changes on every generation
+sdk/java/gen.sentinel: bin/pulumi-java-gen
 	@mkdir -p sdk/java
 	rm -rf $$(find sdk/java -mindepth 1 -maxdepth 1)
 	bin/$(JAVA_GEN) generate --schema provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
