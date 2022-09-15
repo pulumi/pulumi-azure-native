@@ -13,8 +13,7 @@ WORKING_DIR     := $(shell pwd)
 PROVIDER_PKG	= $(shell find provider/pkg -type f -not -path "*/azure-quickstart-templates/*")
 SPECS           = $(shell find azure-rest-api-specs/specification/*/resource-manager -type f -name "*.json" ! -path "**/examples/**")
 
-JAVA_GEN 		 := pulumi-java-gen
-JAVA_GEN_VERSION := v0.5.4
+JAVA_GEN        := pulumi-java-gen
 
 # These are lazy variables which are only computed when requested
 # When using any version variable, depend on bin/pulumictl
@@ -312,7 +311,7 @@ sdk/nodejs/install.sentinel: sdk/nodejs/build.sentinel
 sdk/dotnet/install.sentinel: sdk/dotnet/build.sentinel
 	mkdir -p nuget
 	find sdk/dotnet/bin -name '*.nupkg' -print -exec cp -p {} ${WORKING_DIR}/nuget \;
-	@if ! dotnet nuget list source | grep ${WORKING_DIR}; then \
+	if ! dotnet nuget list source | grep ${WORKING_DIR}; then \
 		dotnet nuget add source ${WORKING_DIR}/nuget --name ${WORKING_DIR} \
 	; fi
 	@touch sdk/dotnet/install.sentinel
