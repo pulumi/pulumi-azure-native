@@ -372,7 +372,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "checkfeedbackrequired": [
       "2014-02-14",
@@ -390,7 +391,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "checknameavailability": [
       "2014-02-14",
@@ -408,7 +410,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "checkservicenameavailability": [
       "2014-02-14",
@@ -420,14 +423,16 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "getdomainownershipidentifier": [
       "2020-12-01",
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "locations": [
       "2020-06-01-preview",
@@ -435,7 +440,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "locations/deletedservices": [
       "2020-06-01-preview",
@@ -443,7 +449,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "operations": [
       "2014-02-14",
@@ -461,7 +468,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "reportfeedback": [
       "2014-02-14",
@@ -479,7 +487,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "service": [
       "2014-02-14",
@@ -497,13 +506,15 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "service/eventgridfilters": [
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "validateservicename": [
       "2014-02-14",
@@ -4756,14 +4767,16 @@
       "2017-04-18",
       "2021-04-30",
       "2021-10-01",
-      "2022-03-01"
+      "2022-03-01",
+      "2022-10-01"
     ],
     "accounts": [
       "2016-02-01-preview",
       "2017-04-18",
       "2021-04-30",
       "2021-10-01",
-      "2022-03-01"
+      "2022-03-01",
+      "2022-10-01"
     ],
     "accounts/networksecurityperimeterassociationproxies": [
       "2021-10-01"
@@ -4772,56 +4785,65 @@
       "2017-04-18",
       "2021-04-30",
       "2021-10-01",
-      "2022-03-01"
+      "2022-03-01",
+      "2022-10-01"
     ],
     "accounts/privateendpointconnections": [
       "2017-04-18",
       "2021-04-30",
       "2021-10-01",
-      "2022-03-01"
+      "2022-03-01",
+      "2022-10-01"
     ],
     "accounts/privatelinkresources": [
       "2017-04-18",
       "2021-04-30",
       "2021-10-01",
-      "2022-03-01"
+      "2022-03-01",
+      "2022-10-01"
     ],
     "checkdomainavailability": [
       "2016-02-01-preview",
       "2017-04-18",
       "2021-04-30",
       "2021-10-01",
-      "2022-03-01"
+      "2022-03-01",
+      "2022-10-01"
     ],
     "deletedaccounts": [
       "2021-04-30",
       "2021-10-01",
-      "2022-03-01"
+      "2022-03-01",
+      "2022-10-01"
     ],
     "locations": [
       "2016-02-01-preview",
       "2017-04-18",
       "2021-04-30",
       "2021-10-01",
-      "2022-03-01"
+      "2022-03-01",
+      "2022-10-01"
     ],
     "locations/checkskuavailability": [
       "2016-02-01-preview",
       "2017-04-18",
       "2021-04-30",
       "2021-10-01",
-      "2022-03-01"
+      "2022-03-01",
+      "2022-10-01"
     ],
     "locations/commitmenttiers": [
       "2021-10-01",
-      "2022-03-01"
+      "2022-03-01",
+      "2022-10-01"
     ],
     "locations/deletevirtualnetworkorsubnets": [
       "2016-02-01-preview",
       "2017-04-18",
       "2021-04-30",
       "2021-10-01",
-      "2022-03-01"
+      "2022-03-01",
+      "2022-10-01"
     ],
     "locations/networksecurityperimeterproxies": [
       "2021-10-01"
@@ -4840,24 +4862,28 @@
       "2017-04-18",
       "2021-04-30",
       "2021-10-01",
-      "2022-03-01"
+      "2022-03-01",
+      "2022-10-01"
     ],
     "locations/resourcegroups": [
       "2021-04-30",
       "2021-10-01",
-      "2022-03-01"
+      "2022-03-01",
+      "2022-10-01"
     ],
     "locations/resourcegroups/deletedaccounts": [
       "2021-04-30",
       "2021-10-01",
-      "2022-03-01"
+      "2022-03-01",
+      "2022-10-01"
     ],
     "operations": [
       "2016-02-01-preview",
       "2017-04-18",
       "2021-04-30",
       "2021-10-01",
-      "2022-03-01"
+      "2022-03-01",
+      "2022-10-01"
     ]
   },
   "commerce": {
@@ -23429,7 +23455,8 @@
       "2021-08-01-preview",
       "2021-11-01",
       "2021-11-01-preview",
-      "2022-02-01-preview"
+      "2022-02-01-preview",
+      "2022-05-01-preview"
     ],
     "checknameavailability": [
       "2014-01-01",
@@ -25054,6 +25081,12 @@
       "2021-11-01-preview",
       "2022-02-01-preview"
     ],
+    "locations/updatemanagedinstancednsserversazureasyncoperation": [
+      "2022-05-01-preview"
+    ],
+    "locations/updatemanagedinstancednsserversoperationresults": [
+      "2022-05-01-preview"
+    ],
     "locations/usages": [
       "2014-04-01-preview",
       "2015-05-01",
@@ -25086,7 +25119,8 @@
       "2021-08-01-preview",
       "2021-11-01",
       "2021-11-01-preview",
-      "2022-02-01-preview"
+      "2022-02-01-preview",
+      "2022-05-01-preview"
     ],
     "locations/virtualclusteroperationresults": [
       "2015-05-01-preview",
@@ -25102,7 +25136,8 @@
       "2021-08-01-preview",
       "2021-11-01",
       "2021-11-01-preview",
-      "2022-02-01-preview"
+      "2022-02-01-preview",
+      "2022-05-01-preview"
     ],
     "locations/virtualnetworkrulesazureasyncoperation": [
       "2015-05-01",
@@ -25213,7 +25248,8 @@
       "2021-08-01-preview",
       "2021-11-01",
       "2021-11-01-preview",
-      "2022-02-01-preview"
+      "2022-02-01-preview",
+      "2022-05-01-preview"
     ],
     "managedinstances/databases/advancedthreatprotectionsettings": [
       "2022-02-01-preview"
@@ -26174,7 +26210,8 @@
       "2021-08-01-preview",
       "2021-11-01",
       "2021-11-01-preview",
-      "2022-02-01-preview"
+      "2022-02-01-preview",
+      "2022-05-01-preview"
     ]
   },
   "sqlvirtualmachine": {

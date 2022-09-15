@@ -2470,6 +2470,13 @@
     ],
     "2022-04-04": [
       "CloudService"
+    ],
+    "2022-07-02": [
+      "Disk",
+      "DiskAccess",
+      "DiskAccessAPrivateEndpointConnection",
+      "DiskEncryptionSet",
+      "Snapshot"
     ]
   },
   "ConfidentialLedger": {
@@ -3248,6 +3255,11 @@
       "ScheduledActionByScope"
     ],
     "2022-08-01-preview": [
+      "View",
+      "ViewByScope"
+    ],
+    "2022-10-01-preview": [
+      "SettingByScope",
       "View",
       "ViewByScope"
     ]
