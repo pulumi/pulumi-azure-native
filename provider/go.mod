@@ -16,21 +16,21 @@ require (
 	github.com/google/uuid v1.3.0
 	github.com/hashicorp/go-azure-helpers v0.12.0
 	github.com/hashicorp/go-multierror v1.1.1
-	github.com/hashicorp/hcl/v2 v2.12.0
+	github.com/hashicorp/hcl/v2 v2.14.0
 	github.com/olekukonko/tablewriter v0.0.5
 	github.com/pkg/errors v0.9.1
-	github.com/pulumi/pulumi-java/pkg v0.5.4
+	github.com/pulumi/pulumi-java/pkg v0.6.0
 	github.com/pulumi/pulumi-yaml v0.5.5
-	github.com/pulumi/pulumi/pkg/v3 v3.39.3
-	github.com/pulumi/pulumi/sdk/v3 v3.39.3
+	github.com/pulumi/pulumi/pkg/v3 v3.40.0
+	github.com/pulumi/pulumi/sdk/v3 v3.40.0
 	github.com/schollz/progressbar/v3 v3.5.0
 	github.com/segmentio/encoding v0.3.5
 	github.com/sourcegraph/jsonx v0.0.0-20200629203448-1a936bd500cf
-	github.com/stretchr/testify v1.7.1
+	github.com/stretchr/testify v1.8.0
 	github.com/tombuildsstuff/giovanni v0.15.1
 	github.com/zclconf/go-cty v1.10.0
-	google.golang.org/grpc v1.47.0
-	google.golang.org/protobuf v1.28.0
+	google.golang.org/grpc v1.49.0
+	google.golang.org/protobuf v1.28.1
 	gopkg.in/yaml.v3 v3.0.1
 	modernc.org/sqlite v1.10.0
 )
@@ -145,7 +145,7 @@ require (
 	github.com/segmentio/asm v1.1.3 // indirect
 	github.com/sergi/go-diff v1.2.0 // indirect
 	github.com/spf13/cast v1.4.1 // indirect
-	github.com/spf13/cobra v1.4.0 // indirect
+	github.com/spf13/cobra v1.5.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/texttheater/golang-levenshtein v1.0.1 // indirect
 	github.com/tweekmonster/luser v0.0.0-20161003172636-3fa38070dbd7 // indirect
