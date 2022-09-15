@@ -224,11 +224,11 @@ jobs:
       if: ${{ matrix.language != 'dotnet' }}
       run: find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print
         -exec chmod +x {} \;
-    - name: Build Codegen
-      if: ${{ matrix.language == 'dotnet' }}
-      run: make codegen
     - name: Initialize submodules
       run: make init_submodules
+    - name: Build Codegen & Provider
+      if: ${{ matrix.language == 'dotnet' }}
+      run: make codegen provider
     - name: Generate SDK
       run: make generate_${{ matrix.language }}
     - name: Build SDK
@@ -240,7 +240,6 @@ jobs:
       run: echo "${{ github.workspace }}/bin" >> $GITHUB_PATH
     - name: Install Node dependencies
       run: yarn global add typescript
-    - run: dotnet nuget add source ${{ github.workspace }}/nuget
     - name: Install Python deps
       run: |-
         pip3 install virtualenv==20.0.23
