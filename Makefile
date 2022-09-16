@@ -68,7 +68,7 @@ install_java_sdk:
 install_nodejs_sdk: sdk/nodejs/install.sentinel
 install_sdks: install_dotnet_sdk install_nodejs_sdk
 
-prepublish_go: sdk/pulumi-azure-native-sdk/prepublish.sentinel
+prepublish_go: sdk/pulumi-azure-native-sdk/publish.sentinel
 
 .PHONY: default ensure init_submodules arm2pulumi codegen provider install_provider versioner versions
 .PHONY: generate_schema generate_docs generate_java generate_nodejs generate_python generate_dotnet generate_go local_generate_code local_generate
