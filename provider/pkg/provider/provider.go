@@ -18,6 +18,7 @@ import (
 	"strings"
 	"time"
 
+	hamiltonAuth "github.com/manicminer/hamilton-autorest/auth"
 	"github.com/manicminer/hamilton/environments"
 	"github.com/segmentio/encoding/json"
 
@@ -1831,14 +1832,26 @@ func (k *azureNativeProvider) getOAuthToken(ctx context.Context, auth *authentic
 	if err != nil {
 		return "", fmt.Errorf("getting authorization token: %w", err)
 	}
+
+	// go-azure-helpers returns different kinds of Authorizer from different auth methods so we
+	// need to check to choose the right method to get a token.
+	var token string
 	ba, ok := authorizer.(*autorest.BearerAuthorizer)
-	if !ok {
-		return "", fmt.Errorf("converting %T to a BearerAuthorizer", authorizer)
+	if ok {
+		tokenProvider := ba.TokenProvider()
+		token = tokenProvider.OAuthToken()
+	} else {
+		if outer, ok := authorizer.(*hamiltonAuth.Authorizer); ok {
+			t, err := outer.Token()
+			if err != nil {
+				return "", err
+			}
+			token = t.AccessToken
+		}
 	}
-	tokenProvider := ba.TokenProvider()
-	token := tokenProvider.OAuthToken()
+
 	if token == "" {
-		return "", fmt.Errorf("empty token from %T", tokenProvider)
+		return "", fmt.Errorf("empty token from %T", authorizer)
 	}
 	return token, nil
 }
