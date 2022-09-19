@@ -34,7 +34,7 @@ jobs:
     name: generate-sdk
     steps:
     - name: Checkout Repo
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2
       with:
         lfs: true
     - name: Install Go
@@ -68,7 +68,7 @@ jobs:
     - name: Build codegen binaries
       run: make codegen
     - name: Build Schema + SDKs
-      run: make local_generate
+      run: make versions local_generate
     - name: Git submodule commit hash
       id: vars
       run: echo ::set-output name=commit-hash::$(git rev-parse HEAD)
