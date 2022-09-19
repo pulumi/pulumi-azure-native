@@ -8,6 +8,7 @@
 - NodeJS 10.X.X or later
 - Python 3.6 or later
 - .NET Core 3.1
+- Gradle 7.0.2 or later
 
 Please refer to [Contributing to Pulumi](https://github.com/pulumi/pulumi/blob/master/CONTRIBUTING.md) for installation
 guidance.
