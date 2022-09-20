@@ -62,7 +62,8 @@ jobs:
     - name: Commit Empty SDK
       run: |-
         git add . 
-        git commit -m "Preparing the SDK folder for regeneration"
+        # ok if nothing to commit, exit code should be zero anyways
+        if [ -z "$(git status --porcelain)" ]; then git commit -m "Preparing the SDK folder for regeneration"; fi
     - name: Update Submodules
       run: make update_submodules
     - name: Build codegen binaries
