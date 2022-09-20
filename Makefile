@@ -101,10 +101,11 @@ clean:
 	cd provider/cmd/arm2pulumi && rm -f metadata-compact.json schema-full.json
 	cd provider/cmd/pulumi-resource-azure-native && rm -f metadata-compact.json schema-full.json
 	rm -rf sdk/dotnet/bin
-	rm -rf sdk/dotnet/build sdk/dotnet/src sdk/dotnet/.gradle
+	rm -rf sdk/dotnet/build sdk/dotnet/src
 	rm -rf sdk/nodejs/bin
 	rm -rf sdk/pulumi-azure-native-sdk
 	rm -rf sdk/python/bin
+	rm -rf sdk/java/.gradle
 	if dotnet nuget list source | grep "$(WORKING_DIR)"; then \
 		dotnet nuget remove source "$(WORKING_DIR)" \
 	; fi
