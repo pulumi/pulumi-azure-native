@@ -51,7 +51,7 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_RBAC_SERVICE_PRINCIPAL }}
     - name: Cleanup SDK Folder
-      run: make clean
+      run: rm -rf sdk/*
     - name: Preparing Git Branch
       run: >
         git config --local user.email "bot@pulumi.com"
