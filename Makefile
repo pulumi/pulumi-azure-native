@@ -95,7 +95,7 @@ lint_provider: provider/.mod_download.sentinel provider/cmd/$(PROVIDER)/*.go $(P
 	cd provider && GOGC=20 golangci-lint run -c ../.golangci.yml
 
 clean:
-	find bin -maxdepth 1 -type f -delete
+	if [ -d bin ]; then find bin -maxdepth 1 -type f -delete; fi
 	rm -rf nuget
 	find . -maxdepth 2 -name "*.sentinel" -delete
 	cd provider/cmd/arm2pulumi && rm -f metadata-compact.json schema-full.json
