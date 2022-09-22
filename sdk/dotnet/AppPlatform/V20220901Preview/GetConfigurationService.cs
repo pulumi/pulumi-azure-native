@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.AppPlatform.V20220901Preview
         /// Application Configuration Service resource
         /// </summary>
         public static Task<GetConfigurationServiceResult> InvokeAsync(GetConfigurationServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationServiceResult>("azure-native:appplatform/v20220901preview:getConfigurationService", args ?? new GetConfigurationServiceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationServiceResult>("azure-native:appplatform/v20220901preview:getConfigurationService", args ?? new GetConfigurationServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Application Configuration Service resource
         /// </summary>
         public static Output<GetConfigurationServiceResult> Invoke(GetConfigurationServiceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConfigurationServiceResult>("azure-native:appplatform/v20220901preview:getConfigurationService", args ?? new GetConfigurationServiceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationServiceResult>("azure-native:appplatform/v20220901preview:getConfigurationService", args ?? new GetConfigurationServiceInvokeArgs(), options.WithDefaults());
     }
 
 

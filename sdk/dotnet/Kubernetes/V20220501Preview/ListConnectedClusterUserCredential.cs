@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Kubernetes.V20220501Preview
         /// The list of credential result response.
         /// </summary>
         public static Task<ListConnectedClusterUserCredentialResult> InvokeAsync(ListConnectedClusterUserCredentialArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListConnectedClusterUserCredentialResult>("azure-native:kubernetes/v20220501preview:listConnectedClusterUserCredential", args ?? new ListConnectedClusterUserCredentialArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListConnectedClusterUserCredentialResult>("azure-native:kubernetes/v20220501preview:listConnectedClusterUserCredential", args ?? new ListConnectedClusterUserCredentialArgs(), options.WithDefaults());
 
         /// <summary>
         /// The list of credential result response.
         /// </summary>
         public static Output<ListConnectedClusterUserCredentialResult> Invoke(ListConnectedClusterUserCredentialInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListConnectedClusterUserCredentialResult>("azure-native:kubernetes/v20220501preview:listConnectedClusterUserCredential", args ?? new ListConnectedClusterUserCredentialInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListConnectedClusterUserCredentialResult>("azure-native:kubernetes/v20220501preview:listConnectedClusterUserCredential", args ?? new ListConnectedClusterUserCredentialInvokeArgs(), options.WithDefaults());
     }
 
 

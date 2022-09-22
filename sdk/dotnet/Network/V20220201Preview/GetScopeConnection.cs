@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20220201Preview
         /// The Scope Connections resource
         /// </summary>
         public static Task<GetScopeConnectionResult> InvokeAsync(GetScopeConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScopeConnectionResult>("azure-native:network/v20220201preview:getScopeConnection", args ?? new GetScopeConnectionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetScopeConnectionResult>("azure-native:network/v20220201preview:getScopeConnection", args ?? new GetScopeConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Scope Connections resource
         /// </summary>
         public static Output<GetScopeConnectionResult> Invoke(GetScopeConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetScopeConnectionResult>("azure-native:network/v20220201preview:getScopeConnection", args ?? new GetScopeConnectionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetScopeConnectionResult>("azure-native:network/v20220201preview:getScopeConnection", args ?? new GetScopeConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

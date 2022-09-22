@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ServiceFabric.V20220801Preview
         /// An application type version resource for the specified application type name resource.
         /// </summary>
         public static Task<GetApplicationTypeVersionResult> InvokeAsync(GetApplicationTypeVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationTypeVersionResult>("azure-native:servicefabric/v20220801preview:getApplicationTypeVersion", args ?? new GetApplicationTypeVersionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationTypeVersionResult>("azure-native:servicefabric/v20220801preview:getApplicationTypeVersion", args ?? new GetApplicationTypeVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// An application type version resource for the specified application type name resource.
         /// </summary>
         public static Output<GetApplicationTypeVersionResult> Invoke(GetApplicationTypeVersionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApplicationTypeVersionResult>("azure-native:servicefabric/v20220801preview:getApplicationTypeVersion", args ?? new GetApplicationTypeVersionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationTypeVersionResult>("azure-native:servicefabric/v20220801preview:getApplicationTypeVersion", args ?? new GetApplicationTypeVersionInvokeArgs(), options.WithDefaults());
     }
 
 

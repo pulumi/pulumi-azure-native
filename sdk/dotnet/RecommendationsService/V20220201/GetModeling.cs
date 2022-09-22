@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.RecommendationsService.V20220201
         /// Modeling resource details.
         /// </summary>
         public static Task<GetModelingResult> InvokeAsync(GetModelingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetModelingResult>("azure-native:recommendationsservice/v20220201:getModeling", args ?? new GetModelingArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetModelingResult>("azure-native:recommendationsservice/v20220201:getModeling", args ?? new GetModelingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Modeling resource details.
         /// </summary>
         public static Output<GetModelingResult> Invoke(GetModelingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetModelingResult>("azure-native:recommendationsservice/v20220201:getModeling", args ?? new GetModelingInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetModelingResult>("azure-native:recommendationsservice/v20220201:getModeling", args ?? new GetModelingInvokeArgs(), options.WithDefaults());
     }
 
 

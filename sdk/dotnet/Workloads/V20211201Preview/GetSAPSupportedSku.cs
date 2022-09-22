@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
         /// The list of supported SKUs for different resources which are part of SAP deployment.
         /// </summary>
         public static Task<GetSAPSupportedSkuResult> InvokeAsync(GetSAPSupportedSkuArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSAPSupportedSkuResult>("azure-native:workloads/v20211201preview:getSAPSupportedSku", args ?? new GetSAPSupportedSkuArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSAPSupportedSkuResult>("azure-native:workloads/v20211201preview:getSAPSupportedSku", args ?? new GetSAPSupportedSkuArgs(), options.WithDefaults());
 
         /// <summary>
         /// The list of supported SKUs for different resources which are part of SAP deployment.
         /// </summary>
         public static Output<GetSAPSupportedSkuResult> Invoke(GetSAPSupportedSkuInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSAPSupportedSkuResult>("azure-native:workloads/v20211201preview:getSAPSupportedSku", args ?? new GetSAPSupportedSkuInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSAPSupportedSkuResult>("azure-native:workloads/v20211201preview:getSAPSupportedSku", args ?? new GetSAPSupportedSkuInvokeArgs(), options.WithDefaults());
     }
 
 

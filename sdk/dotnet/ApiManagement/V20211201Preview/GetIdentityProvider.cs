@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
         /// Identity Provider details.
         /// </summary>
         public static Task<GetIdentityProviderResult> InvokeAsync(GetIdentityProviderArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIdentityProviderResult>("azure-native:apimanagement/v20211201preview:getIdentityProvider", args ?? new GetIdentityProviderArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIdentityProviderResult>("azure-native:apimanagement/v20211201preview:getIdentityProvider", args ?? new GetIdentityProviderArgs(), options.WithDefaults());
 
         /// <summary>
         /// Identity Provider details.
         /// </summary>
         public static Output<GetIdentityProviderResult> Invoke(GetIdentityProviderInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIdentityProviderResult>("azure-native:apimanagement/v20211201preview:getIdentityProvider", args ?? new GetIdentityProviderInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIdentityProviderResult>("azure-native:apimanagement/v20211201preview:getIdentityProvider", args ?? new GetIdentityProviderInvokeArgs(), options.WithDefaults());
     }
 
 

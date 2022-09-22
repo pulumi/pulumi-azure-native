@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
         /// Schema Contract details.
         /// </summary>
         public static Task<GetApiSchemaResult> InvokeAsync(GetApiSchemaArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApiSchemaResult>("azure-native:apimanagement/v20210101preview:getApiSchema", args ?? new GetApiSchemaArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiSchemaResult>("azure-native:apimanagement/v20210101preview:getApiSchema", args ?? new GetApiSchemaArgs(), options.WithDefaults());
 
         /// <summary>
         /// Schema Contract details.
         /// </summary>
         public static Output<GetApiSchemaResult> Invoke(GetApiSchemaInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApiSchemaResult>("azure-native:apimanagement/v20210101preview:getApiSchema", args ?? new GetApiSchemaInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetApiSchemaResult>("azure-native:apimanagement/v20210101preview:getApiSchema", args ?? new GetApiSchemaInvokeArgs(), options.WithDefaults());
     }
 
 

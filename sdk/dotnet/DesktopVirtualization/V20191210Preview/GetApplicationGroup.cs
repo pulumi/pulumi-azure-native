@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20191210Preview
         /// Represents a ApplicationGroup definition.
         /// </summary>
         public static Task<GetApplicationGroupResult> InvokeAsync(GetApplicationGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGroupResult>("azure-native:desktopvirtualization/v20191210preview:getApplicationGroup", args ?? new GetApplicationGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGroupResult>("azure-native:desktopvirtualization/v20191210preview:getApplicationGroup", args ?? new GetApplicationGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a ApplicationGroup definition.
         /// </summary>
         public static Output<GetApplicationGroupResult> Invoke(GetApplicationGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApplicationGroupResult>("azure-native:desktopvirtualization/v20191210preview:getApplicationGroup", args ?? new GetApplicationGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationGroupResult>("azure-native:desktopvirtualization/v20191210preview:getApplicationGroup", args ?? new GetApplicationGroupInvokeArgs(), options.WithDefaults());
     }
 
 

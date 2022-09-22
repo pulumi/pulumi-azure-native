@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DataShare.V20191101
         /// An Azure storage blob data set.
         /// </summary>
         public static Task<GetBlobDataSetResult> InvokeAsync(GetBlobDataSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBlobDataSetResult>("azure-native:datashare/v20191101:getBlobDataSet", args ?? new GetBlobDataSetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBlobDataSetResult>("azure-native:datashare/v20191101:getBlobDataSet", args ?? new GetBlobDataSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure storage blob data set.
         /// </summary>
         public static Output<GetBlobDataSetResult> Invoke(GetBlobDataSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBlobDataSetResult>("azure-native:datashare/v20191101:getBlobDataSet", args ?? new GetBlobDataSetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBlobDataSetResult>("azure-native:datashare/v20191101:getBlobDataSet", args ?? new GetBlobDataSetInvokeArgs(), options.WithDefaults());
     }
 
 

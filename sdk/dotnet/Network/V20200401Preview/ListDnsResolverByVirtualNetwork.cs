@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20200401Preview
         /// The response to an enumeration operation on sub-resources.
         /// </summary>
         public static Task<ListDnsResolverByVirtualNetworkResult> InvokeAsync(ListDnsResolverByVirtualNetworkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListDnsResolverByVirtualNetworkResult>("azure-native:network/v20200401preview:listDnsResolverByVirtualNetwork", args ?? new ListDnsResolverByVirtualNetworkArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListDnsResolverByVirtualNetworkResult>("azure-native:network/v20200401preview:listDnsResolverByVirtualNetwork", args ?? new ListDnsResolverByVirtualNetworkArgs(), options.WithDefaults());
 
         /// <summary>
         /// The response to an enumeration operation on sub-resources.
         /// </summary>
         public static Output<ListDnsResolverByVirtualNetworkResult> Invoke(ListDnsResolverByVirtualNetworkInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListDnsResolverByVirtualNetworkResult>("azure-native:network/v20200401preview:listDnsResolverByVirtualNetwork", args ?? new ListDnsResolverByVirtualNetworkInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListDnsResolverByVirtualNetworkResult>("azure-native:network/v20200401preview:listDnsResolverByVirtualNetwork", args ?? new ListDnsResolverByVirtualNetworkInvokeArgs(), options.WithDefaults());
     }
 
 

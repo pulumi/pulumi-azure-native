@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Relay
         /// API Version: 2017-04-01.
         /// </summary>
         public static Task<GetHybridConnectionResult> InvokeAsync(GetHybridConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHybridConnectionResult>("azure-native:relay:getHybridConnection", args ?? new GetHybridConnectionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetHybridConnectionResult>("azure-native:relay:getHybridConnection", args ?? new GetHybridConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description of hybrid connection resource.
         /// API Version: 2017-04-01.
         /// </summary>
         public static Output<GetHybridConnectionResult> Invoke(GetHybridConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetHybridConnectionResult>("azure-native:relay:getHybridConnection", args ?? new GetHybridConnectionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetHybridConnectionResult>("azure-native:relay:getHybridConnection", args ?? new GetHybridConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.AppPlatform.V20201101Preview
         /// Custom domain resource payload.
         /// </summary>
         public static Task<GetCustomDomainResult> InvokeAsync(GetCustomDomainArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomDomainResult>("azure-native:appplatform/v20201101preview:getCustomDomain", args ?? new GetCustomDomainArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomDomainResult>("azure-native:appplatform/v20201101preview:getCustomDomain", args ?? new GetCustomDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// Custom domain resource payload.
         /// </summary>
         public static Output<GetCustomDomainResult> Invoke(GetCustomDomainInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCustomDomainResult>("azure-native:appplatform/v20201101preview:getCustomDomain", args ?? new GetCustomDomainInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomDomainResult>("azure-native:appplatform/v20201101preview:getCustomDomain", args ?? new GetCustomDomainInvokeArgs(), options.WithDefaults());
     }
 
 

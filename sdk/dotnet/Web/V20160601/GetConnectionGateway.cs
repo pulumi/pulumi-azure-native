@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20160601
         /// The gateway definition
         /// </summary>
         public static Task<GetConnectionGatewayResult> InvokeAsync(GetConnectionGatewayArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionGatewayResult>("azure-native:web/v20160601:getConnectionGateway", args ?? new GetConnectionGatewayArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectionGatewayResult>("azure-native:web/v20160601:getConnectionGateway", args ?? new GetConnectionGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// The gateway definition
         /// </summary>
         public static Output<GetConnectionGatewayResult> Invoke(GetConnectionGatewayInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConnectionGatewayResult>("azure-native:web/v20160601:getConnectionGateway", args ?? new GetConnectionGatewayInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectionGatewayResult>("azure-native:web/v20160601:getConnectionGateway", args ?? new GetConnectionGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

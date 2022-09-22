@@ -12,10 +12,10 @@ namespace Pulumi.AzureNative.Migrate.V20191001
     public static class GetImportCollector
     {
         public static Task<GetImportCollectorResult> InvokeAsync(GetImportCollectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetImportCollectorResult>("azure-native:migrate/v20191001:getImportCollector", args ?? new GetImportCollectorArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetImportCollectorResult>("azure-native:migrate/v20191001:getImportCollector", args ?? new GetImportCollectorArgs(), options.WithDefaults());
 
         public static Output<GetImportCollectorResult> Invoke(GetImportCollectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetImportCollectorResult>("azure-native:migrate/v20191001:getImportCollector", args ?? new GetImportCollectorInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetImportCollectorResult>("azure-native:migrate/v20191001:getImportCollector", args ?? new GetImportCollectorInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.LabServices
         /// API Version: 2018-10-15.
         /// </summary>
         public static Task<GetGlobalUserOperationStatusResult> InvokeAsync(GetGlobalUserOperationStatusArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalUserOperationStatusResult>("azure-native:labservices:getGlobalUserOperationStatus", args ?? new GetGlobalUserOperationStatusArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGlobalUserOperationStatusResult>("azure-native:labservices:getGlobalUserOperationStatus", args ?? new GetGlobalUserOperationStatusArgs(), options.WithDefaults());
 
         /// <summary>
         /// Status Details of the long running operation for an environment
         /// API Version: 2018-10-15.
         /// </summary>
         public static Output<GetGlobalUserOperationStatusResult> Invoke(GetGlobalUserOperationStatusInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGlobalUserOperationStatusResult>("azure-native:labservices:getGlobalUserOperationStatus", args ?? new GetGlobalUserOperationStatusInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGlobalUserOperationStatusResult>("azure-native:labservices:getGlobalUserOperationStatus", args ?? new GetGlobalUserOperationStatusInvokeArgs(), options.WithDefaults());
     }
 
 

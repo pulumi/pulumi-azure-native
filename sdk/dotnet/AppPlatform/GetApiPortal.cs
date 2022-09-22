@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.AppPlatform
         /// API Version: 2022-01-01-preview.
         /// </summary>
         public static Task<GetApiPortalResult> InvokeAsync(GetApiPortalArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApiPortalResult>("azure-native:appplatform:getApiPortal", args ?? new GetApiPortalArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiPortalResult>("azure-native:appplatform:getApiPortal", args ?? new GetApiPortalArgs(), options.WithDefaults());
 
         /// <summary>
         /// API portal resource
         /// API Version: 2022-01-01-preview.
         /// </summary>
         public static Output<GetApiPortalResult> Invoke(GetApiPortalInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApiPortalResult>("azure-native:appplatform:getApiPortal", args ?? new GetApiPortalInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetApiPortalResult>("azure-native:appplatform:getApiPortal", args ?? new GetApiPortalInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.AzureData.V20190724Preview
         /// A SQL server.
         /// </summary>
         public static Task<GetSqlServerResult> InvokeAsync(GetSqlServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlServerResult>("azure-native:azuredata/v20190724preview:getSqlServer", args ?? new GetSqlServerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlServerResult>("azure-native:azuredata/v20190724preview:getSqlServer", args ?? new GetSqlServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// A SQL server.
         /// </summary>
         public static Output<GetSqlServerResult> Invoke(GetSqlServerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSqlServerResult>("azure-native:azuredata/v20190724preview:getSqlServer", args ?? new GetSqlServerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerResult>("azure-native:azuredata/v20190724preview:getSqlServer", args ?? new GetSqlServerInvokeArgs(), options.WithDefaults());
     }
 
 

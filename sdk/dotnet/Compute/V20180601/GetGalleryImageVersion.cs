@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Compute.V20180601
         /// Specifies information about the gallery Image Version that you want to create or update.
         /// </summary>
         public static Task<GetGalleryImageVersionResult> InvokeAsync(GetGalleryImageVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGalleryImageVersionResult>("azure-native:compute/v20180601:getGalleryImageVersion", args ?? new GetGalleryImageVersionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGalleryImageVersionResult>("azure-native:compute/v20180601:getGalleryImageVersion", args ?? new GetGalleryImageVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Specifies information about the gallery Image Version that you want to create or update.
         /// </summary>
         public static Output<GetGalleryImageVersionResult> Invoke(GetGalleryImageVersionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGalleryImageVersionResult>("azure-native:compute/v20180601:getGalleryImageVersion", args ?? new GetGalleryImageVersionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGalleryImageVersionResult>("azure-native:compute/v20180601:getGalleryImageVersion", args ?? new GetGalleryImageVersionInvokeArgs(), options.WithDefaults());
     }
 
 

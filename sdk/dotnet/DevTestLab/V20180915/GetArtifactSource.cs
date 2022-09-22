@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// Properties of an artifact source.
         /// </summary>
         public static Task<GetArtifactSourceResult> InvokeAsync(GetArtifactSourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetArtifactSourceResult>("azure-native:devtestlab/v20180915:getArtifactSource", args ?? new GetArtifactSourceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetArtifactSourceResult>("azure-native:devtestlab/v20180915:getArtifactSource", args ?? new GetArtifactSourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Properties of an artifact source.
         /// </summary>
         public static Output<GetArtifactSourceResult> Invoke(GetArtifactSourceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetArtifactSourceResult>("azure-native:devtestlab/v20180915:getArtifactSource", args ?? new GetArtifactSourceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetArtifactSourceResult>("azure-native:devtestlab/v20180915:getArtifactSource", args ?? new GetArtifactSourceInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210601Preview
         /// An object that represents a token for a container registry.
         /// </summary>
         public static Task<GetTokenResult> InvokeAsync(GetTokenArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTokenResult>("azure-native:containerregistry/v20210601preview:getToken", args ?? new GetTokenArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTokenResult>("azure-native:containerregistry/v20210601preview:getToken", args ?? new GetTokenArgs(), options.WithDefaults());
 
         /// <summary>
         /// An object that represents a token for a container registry.
         /// </summary>
         public static Output<GetTokenResult> Invoke(GetTokenInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTokenResult>("azure-native:containerregistry/v20210601preview:getToken", args ?? new GetTokenInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTokenResult>("azure-native:containerregistry/v20210601preview:getToken", args ?? new GetTokenInvokeArgs(), options.WithDefaults());
     }
 
 

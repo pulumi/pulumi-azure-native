@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         /// Represents a bookmark in Azure Security Insights.
         /// </summary>
         public static Task<GetBookmarkResult> InvokeAsync(GetBookmarkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBookmarkResult>("azure-native:securityinsights/v20190101preview:getBookmark", args ?? new GetBookmarkArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBookmarkResult>("azure-native:securityinsights/v20190101preview:getBookmark", args ?? new GetBookmarkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a bookmark in Azure Security Insights.
         /// </summary>
         public static Output<GetBookmarkResult> Invoke(GetBookmarkInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBookmarkResult>("azure-native:securityinsights/v20190101preview:getBookmark", args ?? new GetBookmarkInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBookmarkResult>("azure-native:securityinsights/v20190101preview:getBookmark", args ?? new GetBookmarkInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         /// Keys for endpoint authentication.
         /// </summary>
         public static Task<ListBatchEndpointKeysResult> InvokeAsync(ListBatchEndpointKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListBatchEndpointKeysResult>("azure-native:machinelearningservices/v20210301preview:listBatchEndpointKeys", args ?? new ListBatchEndpointKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListBatchEndpointKeysResult>("azure-native:machinelearningservices/v20210301preview:listBatchEndpointKeys", args ?? new ListBatchEndpointKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Keys for endpoint authentication.
         /// </summary>
         public static Output<ListBatchEndpointKeysResult> Invoke(ListBatchEndpointKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListBatchEndpointKeysResult>("azure-native:machinelearningservices/v20210301preview:listBatchEndpointKeys", args ?? new ListBatchEndpointKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListBatchEndpointKeysResult>("azure-native:machinelearningservices/v20210301preview:listBatchEndpointKeys", args ?? new ListBatchEndpointKeysInvokeArgs(), options.WithDefaults());
     }
 
 

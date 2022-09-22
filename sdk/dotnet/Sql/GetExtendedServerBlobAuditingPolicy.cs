@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Sql
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetExtendedServerBlobAuditingPolicyResult> InvokeAsync(GetExtendedServerBlobAuditingPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExtendedServerBlobAuditingPolicyResult>("azure-native:sql:getExtendedServerBlobAuditingPolicy", args ?? new GetExtendedServerBlobAuditingPolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetExtendedServerBlobAuditingPolicyResult>("azure-native:sql:getExtendedServerBlobAuditingPolicy", args ?? new GetExtendedServerBlobAuditingPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// An extended server blob auditing policy.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Output<GetExtendedServerBlobAuditingPolicyResult> Invoke(GetExtendedServerBlobAuditingPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetExtendedServerBlobAuditingPolicyResult>("azure-native:sql:getExtendedServerBlobAuditingPolicy", args ?? new GetExtendedServerBlobAuditingPolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetExtendedServerBlobAuditingPolicyResult>("azure-native:sql:getExtendedServerBlobAuditingPolicy", args ?? new GetExtendedServerBlobAuditingPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.LabServices
         /// API Version: 2018-10-15.
         /// </summary>
         public static Task<GetGlobalUserEnvironmentResult> InvokeAsync(GetGlobalUserEnvironmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalUserEnvironmentResult>("azure-native:labservices:getGlobalUserEnvironment", args ?? new GetGlobalUserEnvironmentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGlobalUserEnvironmentResult>("azure-native:labservices:getGlobalUserEnvironment", args ?? new GetGlobalUserEnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents the environments details
         /// API Version: 2018-10-15.
         /// </summary>
         public static Output<GetGlobalUserEnvironmentResult> Invoke(GetGlobalUserEnvironmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGlobalUserEnvironmentResult>("azure-native:labservices:getGlobalUserEnvironment", args ?? new GetGlobalUserEnvironmentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGlobalUserEnvironmentResult>("azure-native:labservices:getGlobalUserEnvironment", args ?? new GetGlobalUserEnvironmentInvokeArgs(), options.WithDefaults());
     }
 
 

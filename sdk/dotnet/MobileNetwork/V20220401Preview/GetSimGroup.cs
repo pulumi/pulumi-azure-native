@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
         /// SIM group resource.
         /// </summary>
         public static Task<GetSimGroupResult> InvokeAsync(GetSimGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSimGroupResult>("azure-native:mobilenetwork/v20220401preview:getSimGroup", args ?? new GetSimGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSimGroupResult>("azure-native:mobilenetwork/v20220401preview:getSimGroup", args ?? new GetSimGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// SIM group resource.
         /// </summary>
         public static Output<GetSimGroupResult> Invoke(GetSimGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSimGroupResult>("azure-native:mobilenetwork/v20220401preview:getSimGroup", args ?? new GetSimGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSimGroupResult>("azure-native:mobilenetwork/v20220401preview:getSimGroup", args ?? new GetSimGroupInvokeArgs(), options.WithDefaults());
     }
 
 

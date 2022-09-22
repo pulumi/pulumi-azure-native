@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101
         /// Diagnostic details.
         /// </summary>
         public static Task<GetApiDiagnosticResult> InvokeAsync(GetApiDiagnosticArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApiDiagnosticResult>("azure-native:apimanagement/v20190101:getApiDiagnostic", args ?? new GetApiDiagnosticArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiDiagnosticResult>("azure-native:apimanagement/v20190101:getApiDiagnostic", args ?? new GetApiDiagnosticArgs(), options.WithDefaults());
 
         /// <summary>
         /// Diagnostic details.
         /// </summary>
         public static Output<GetApiDiagnosticResult> Invoke(GetApiDiagnosticInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApiDiagnosticResult>("azure-native:apimanagement/v20190101:getApiDiagnostic", args ?? new GetApiDiagnosticInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetApiDiagnosticResult>("azure-native:apimanagement/v20190101:getApiDiagnostic", args ?? new GetApiDiagnosticInvokeArgs(), options.WithDefaults());
     }
 
 

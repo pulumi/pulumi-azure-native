@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101
         /// The relationship resource format.
         /// </summary>
         public static Task<GetRelationshipResult> InvokeAsync(GetRelationshipArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRelationshipResult>("azure-native:customerinsights/v20170101:getRelationship", args ?? new GetRelationshipArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRelationshipResult>("azure-native:customerinsights/v20170101:getRelationship", args ?? new GetRelationshipArgs(), options.WithDefaults());
 
         /// <summary>
         /// The relationship resource format.
         /// </summary>
         public static Output<GetRelationshipResult> Invoke(GetRelationshipInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRelationshipResult>("azure-native:customerinsights/v20170101:getRelationship", args ?? new GetRelationshipInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRelationshipResult>("azure-native:customerinsights/v20170101:getRelationship", args ?? new GetRelationshipInvokeArgs(), options.WithDefaults());
     }
 
 

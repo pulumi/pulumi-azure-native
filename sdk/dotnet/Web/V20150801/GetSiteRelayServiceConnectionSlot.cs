@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// Class that represents a BizTalk Hybrid Connection
         /// </summary>
         public static Task<GetSiteRelayServiceConnectionSlotResult> InvokeAsync(GetSiteRelayServiceConnectionSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteRelayServiceConnectionSlotResult>("azure-native:web/v20150801:getSiteRelayServiceConnectionSlot", args ?? new GetSiteRelayServiceConnectionSlotArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSiteRelayServiceConnectionSlotResult>("azure-native:web/v20150801:getSiteRelayServiceConnectionSlot", args ?? new GetSiteRelayServiceConnectionSlotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Class that represents a BizTalk Hybrid Connection
         /// </summary>
         public static Output<GetSiteRelayServiceConnectionSlotResult> Invoke(GetSiteRelayServiceConnectionSlotInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSiteRelayServiceConnectionSlotResult>("azure-native:web/v20150801:getSiteRelayServiceConnectionSlot", args ?? new GetSiteRelayServiceConnectionSlotInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSiteRelayServiceConnectionSlotResult>("azure-native:web/v20150801:getSiteRelayServiceConnectionSlot", args ?? new GetSiteRelayServiceConnectionSlotInvokeArgs(), options.WithDefaults());
     }
 
 

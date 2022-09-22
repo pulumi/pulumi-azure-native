@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.AzureArcData.V20211101
         /// Data controller resource
         /// </summary>
         public static Task<GetDataControllerResult> InvokeAsync(GetDataControllerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataControllerResult>("azure-native:azurearcdata/v20211101:getDataController", args ?? new GetDataControllerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataControllerResult>("azure-native:azurearcdata/v20211101:getDataController", args ?? new GetDataControllerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data controller resource
         /// </summary>
         public static Output<GetDataControllerResult> Invoke(GetDataControllerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDataControllerResult>("azure-native:azurearcdata/v20211101:getDataController", args ?? new GetDataControllerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataControllerResult>("azure-native:azurearcdata/v20211101:getDataController", args ?? new GetDataControllerInvokeArgs(), options.WithDefaults());
     }
 
 

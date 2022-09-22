@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
         /// Security GovernanceRule over a given scope
         /// </summary>
         public static Task<GetGovernanceRuleResult> InvokeAsync(GetGovernanceRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGovernanceRuleResult>("azure-native:security/v20220101preview:getGovernanceRule", args ?? new GetGovernanceRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGovernanceRuleResult>("azure-native:security/v20220101preview:getGovernanceRule", args ?? new GetGovernanceRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Security GovernanceRule over a given scope
         /// </summary>
         public static Output<GetGovernanceRuleResult> Invoke(GetGovernanceRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGovernanceRuleResult>("azure-native:security/v20220101preview:getGovernanceRule", args ?? new GetGovernanceRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGovernanceRuleResult>("azure-native:security/v20220101preview:getGovernanceRule", args ?? new GetGovernanceRuleInvokeArgs(), options.WithDefaults());
     }
 
 

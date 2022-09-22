@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ServiceBus.V20210601Preview
         /// Namespace/ServiceBus Connection String
         /// </summary>
         public static Task<ListQueueKeysResult> InvokeAsync(ListQueueKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListQueueKeysResult>("azure-native:servicebus/v20210601preview:listQueueKeys", args ?? new ListQueueKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListQueueKeysResult>("azure-native:servicebus/v20210601preview:listQueueKeys", args ?? new ListQueueKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Namespace/ServiceBus Connection String
         /// </summary>
         public static Output<ListQueueKeysResult> Invoke(ListQueueKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListQueueKeysResult>("azure-native:servicebus/v20210601preview:listQueueKeys", args ?? new ListQueueKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListQueueKeysResult>("azure-native:servicebus/v20210601preview:listQueueKeys", args ?? new ListQueueKeysInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Sql.V20220201Preview
         /// A managed server DNS alias.
         /// </summary>
         public static Task<GetManagedServerDnsAliasResult> InvokeAsync(GetManagedServerDnsAliasArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedServerDnsAliasResult>("azure-native:sql/v20220201preview:getManagedServerDnsAlias", args ?? new GetManagedServerDnsAliasArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedServerDnsAliasResult>("azure-native:sql/v20220201preview:getManagedServerDnsAlias", args ?? new GetManagedServerDnsAliasArgs(), options.WithDefaults());
 
         /// <summary>
         /// A managed server DNS alias.
         /// </summary>
         public static Output<GetManagedServerDnsAliasResult> Invoke(GetManagedServerDnsAliasInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagedServerDnsAliasResult>("azure-native:sql/v20220201preview:getManagedServerDnsAlias", args ?? new GetManagedServerDnsAliasInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedServerDnsAliasResult>("azure-native:sql/v20220201preview:getManagedServerDnsAlias", args ?? new GetManagedServerDnsAliasInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.TestBase.V20220401Preview
         /// The response of getting a download URL.
         /// </summary>
         public static Task<GetPackageDownloadURLResult> InvokeAsync(GetPackageDownloadURLArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPackageDownloadURLResult>("azure-native:testbase/v20220401preview:getPackageDownloadURL", args ?? new GetPackageDownloadURLArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPackageDownloadURLResult>("azure-native:testbase/v20220401preview:getPackageDownloadURL", args ?? new GetPackageDownloadURLArgs(), options.WithDefaults());
 
         /// <summary>
         /// The response of getting a download URL.
         /// </summary>
         public static Output<GetPackageDownloadURLResult> Invoke(GetPackageDownloadURLInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPackageDownloadURLResult>("azure-native:testbase/v20220401preview:getPackageDownloadURL", args ?? new GetPackageDownloadURLInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPackageDownloadURLResult>("azure-native:testbase/v20220401preview:getPackageDownloadURL", args ?? new GetPackageDownloadURLInvokeArgs(), options.WithDefaults());
     }
 
 

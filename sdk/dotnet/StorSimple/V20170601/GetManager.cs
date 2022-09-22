@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         /// The StorSimple Manager.
         /// </summary>
         public static Task<GetManagerResult> InvokeAsync(GetManagerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagerResult>("azure-native:storsimple/v20170601:getManager", args ?? new GetManagerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagerResult>("azure-native:storsimple/v20170601:getManager", args ?? new GetManagerArgs(), options.WithDefaults());
 
         /// <summary>
         /// The StorSimple Manager.
         /// </summary>
         public static Output<GetManagerResult> Invoke(GetManagerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagerResult>("azure-native:storsimple/v20170601:getManager", args ?? new GetManagerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagerResult>("azure-native:storsimple/v20170601:getManager", args ?? new GetManagerInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20180201
         /// Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
         /// </summary>
         public static Task<GetWebAppSwiftVirtualNetworkConnectionSlotResult> InvokeAsync(GetWebAppSwiftVirtualNetworkConnectionSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSwiftVirtualNetworkConnectionSlotResult>("azure-native:web/v20180201:getWebAppSwiftVirtualNetworkConnectionSlot", args ?? new GetWebAppSwiftVirtualNetworkConnectionSlotArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSwiftVirtualNetworkConnectionSlotResult>("azure-native:web/v20180201:getWebAppSwiftVirtualNetworkConnectionSlot", args ?? new GetWebAppSwiftVirtualNetworkConnectionSlotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
         /// </summary>
         public static Output<GetWebAppSwiftVirtualNetworkConnectionSlotResult> Invoke(GetWebAppSwiftVirtualNetworkConnectionSlotInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWebAppSwiftVirtualNetworkConnectionSlotResult>("azure-native:web/v20180201:getWebAppSwiftVirtualNetworkConnectionSlot", args ?? new GetWebAppSwiftVirtualNetworkConnectionSlotInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSwiftVirtualNetworkConnectionSlotResult>("azure-native:web/v20180201:getWebAppSwiftVirtualNetworkConnectionSlot", args ?? new GetWebAppSwiftVirtualNetworkConnectionSlotInvokeArgs(), options.WithDefaults());
     }
 
 

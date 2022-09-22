@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview
         /// Represents Office Microsoft Project data connector.
         /// </summary>
         public static Task<GetOffice365ProjectDataConnectorResult> InvokeAsync(GetOffice365ProjectDataConnectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOffice365ProjectDataConnectorResult>("azure-native:securityinsights/v20220801preview:getOffice365ProjectDataConnector", args ?? new GetOffice365ProjectDataConnectorArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetOffice365ProjectDataConnectorResult>("azure-native:securityinsights/v20220801preview:getOffice365ProjectDataConnector", args ?? new GetOffice365ProjectDataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents Office Microsoft Project data connector.
         /// </summary>
         public static Output<GetOffice365ProjectDataConnectorResult> Invoke(GetOffice365ProjectDataConnectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOffice365ProjectDataConnectorResult>("azure-native:securityinsights/v20220801preview:getOffice365ProjectDataConnector", args ?? new GetOffice365ProjectDataConnectorInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetOffice365ProjectDataConnectorResult>("azure-native:securityinsights/v20220801preview:getOffice365ProjectDataConnector", args ?? new GetOffice365ProjectDataConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

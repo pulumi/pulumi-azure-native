@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.HybridNetwork.V20220101Preview
         /// Network function resource response.
         /// </summary>
         public static Task<GetNetworkFunctionResult> InvokeAsync(GetNetworkFunctionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkFunctionResult>("azure-native:hybridnetwork/v20220101preview:getNetworkFunction", args ?? new GetNetworkFunctionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkFunctionResult>("azure-native:hybridnetwork/v20220101preview:getNetworkFunction", args ?? new GetNetworkFunctionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Network function resource response.
         /// </summary>
         public static Output<GetNetworkFunctionResult> Invoke(GetNetworkFunctionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNetworkFunctionResult>("azure-native:hybridnetwork/v20220101preview:getNetworkFunction", args ?? new GetNetworkFunctionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkFunctionResult>("azure-native:hybridnetwork/v20220101preview:getNetworkFunction", args ?? new GetNetworkFunctionInvokeArgs(), options.WithDefaults());
     }
 
 

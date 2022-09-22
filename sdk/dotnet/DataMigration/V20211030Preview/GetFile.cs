@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview
         /// A file resource
         /// </summary>
         public static Task<GetFileResult> InvokeAsync(GetFileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFileResult>("azure-native:datamigration/v20211030preview:getFile", args ?? new GetFileArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFileResult>("azure-native:datamigration/v20211030preview:getFile", args ?? new GetFileArgs(), options.WithDefaults());
 
         /// <summary>
         /// A file resource
         /// </summary>
         public static Output<GetFileResult> Invoke(GetFileInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFileResult>("azure-native:datamigration/v20211030preview:getFile", args ?? new GetFileInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFileResult>("azure-native:datamigration/v20211030preview:getFile", args ?? new GetFileInvokeArgs(), options.WithDefaults());
     }
 
 

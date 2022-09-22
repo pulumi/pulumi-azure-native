@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetNatRuleResult> InvokeAsync(GetNatRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNatRuleResult>("azure-native:network:getNatRule", args ?? new GetNatRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNatRuleResult>("azure-native:network:getNatRule", args ?? new GetNatRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// VpnGatewayNatRule Resource.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetNatRuleResult> Invoke(GetNatRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNatRuleResult>("azure-native:network:getNatRule", args ?? new GetNatRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNatRuleResult>("azure-native:network:getNatRule", args ?? new GetNatRuleInvokeArgs(), options.WithDefaults());
     }
 
 

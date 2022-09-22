@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetVirtualApplianceSiteResult> InvokeAsync(GetVirtualApplianceSiteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualApplianceSiteResult>("azure-native:network:getVirtualApplianceSite", args ?? new GetVirtualApplianceSiteArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualApplianceSiteResult>("azure-native:network:getVirtualApplianceSite", args ?? new GetVirtualApplianceSiteArgs(), options.WithDefaults());
 
         /// <summary>
         /// Virtual Appliance Site resource.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetVirtualApplianceSiteResult> Invoke(GetVirtualApplianceSiteInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualApplianceSiteResult>("azure-native:network:getVirtualApplianceSite", args ?? new GetVirtualApplianceSiteInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualApplianceSiteResult>("azure-native:network:getVirtualApplianceSite", args ?? new GetVirtualApplianceSiteInvokeArgs(), options.WithDefaults());
     }
 
 

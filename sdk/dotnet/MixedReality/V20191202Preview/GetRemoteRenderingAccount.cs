@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.MixedReality.V20191202Preview
         /// RemoteRenderingAccount Response.
         /// </summary>
         public static Task<GetRemoteRenderingAccountResult> InvokeAsync(GetRemoteRenderingAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRemoteRenderingAccountResult>("azure-native:mixedreality/v20191202preview:getRemoteRenderingAccount", args ?? new GetRemoteRenderingAccountArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemoteRenderingAccountResult>("azure-native:mixedreality/v20191202preview:getRemoteRenderingAccount", args ?? new GetRemoteRenderingAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// RemoteRenderingAccount Response.
         /// </summary>
         public static Output<GetRemoteRenderingAccountResult> Invoke(GetRemoteRenderingAccountInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRemoteRenderingAccountResult>("azure-native:mixedreality/v20191202preview:getRemoteRenderingAccount", args ?? new GetRemoteRenderingAccountInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRemoteRenderingAccountResult>("azure-native:mixedreality/v20191202preview:getRemoteRenderingAccount", args ?? new GetRemoteRenderingAccountInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.KeyVault.V20220701
         /// The key resource.
         /// </summary>
         public static Task<GetKeyResult> InvokeAsync(GetKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("azure-native:keyvault/v20220701:getKey", args ?? new GetKeyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("azure-native:keyvault/v20220701:getKey", args ?? new GetKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// The key resource.
         /// </summary>
         public static Output<GetKeyResult> Invoke(GetKeyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetKeyResult>("azure-native:keyvault/v20220701:getKey", args ?? new GetKeyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetKeyResult>("azure-native:keyvault/v20220701:getKey", args ?? new GetKeyInvokeArgs(), options.WithDefaults());
     }
 
 

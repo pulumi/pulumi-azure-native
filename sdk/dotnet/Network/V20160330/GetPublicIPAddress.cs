@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Network.V20160330
         /// PublicIPAddress resource
         /// </summary>
         public static Task<GetPublicIPAddressResult> InvokeAsync(GetPublicIPAddressArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIPAddressResult>("azure-native:network/v20160330:getPublicIPAddress", args ?? new GetPublicIPAddressArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublicIPAddressResult>("azure-native:network/v20160330:getPublicIPAddress", args ?? new GetPublicIPAddressArgs(), options.WithDefaults());
 
         /// <summary>
         /// PublicIPAddress resource
         /// </summary>
         public static Output<GetPublicIPAddressResult> Invoke(GetPublicIPAddressInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPublicIPAddressResult>("azure-native:network/v20160330:getPublicIPAddress", args ?? new GetPublicIPAddressInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPublicIPAddressResult>("azure-native:network/v20160330:getPublicIPAddress", args ?? new GetPublicIPAddressInvokeArgs(), options.WithDefaults());
     }
 
 

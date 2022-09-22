@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20171001
         /// An object that represents a webhook for a container registry.
         /// </summary>
         public static Task<GetWebhookResult> InvokeAsync(GetWebhookArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebhookResult>("azure-native:containerregistry/v20171001:getWebhook", args ?? new GetWebhookArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebhookResult>("azure-native:containerregistry/v20171001:getWebhook", args ?? new GetWebhookArgs(), options.WithDefaults());
 
         /// <summary>
         /// An object that represents a webhook for a container registry.
         /// </summary>
         public static Output<GetWebhookResult> Invoke(GetWebhookInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWebhookResult>("azure-native:containerregistry/v20171001:getWebhook", args ?? new GetWebhookInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebhookResult>("azure-native:containerregistry/v20171001:getWebhook", args ?? new GetWebhookInvokeArgs(), options.WithDefaults());
     }
 
 

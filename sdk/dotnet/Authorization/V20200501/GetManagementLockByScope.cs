@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Authorization.V20200501
         /// The lock information.
         /// </summary>
         public static Task<GetManagementLockByScopeResult> InvokeAsync(GetManagementLockByScopeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementLockByScopeResult>("azure-native:authorization/v20200501:getManagementLockByScope", args ?? new GetManagementLockByScopeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagementLockByScopeResult>("azure-native:authorization/v20200501:getManagementLockByScope", args ?? new GetManagementLockByScopeArgs(), options.WithDefaults());
 
         /// <summary>
         /// The lock information.
         /// </summary>
         public static Output<GetManagementLockByScopeResult> Invoke(GetManagementLockByScopeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagementLockByScopeResult>("azure-native:authorization/v20200501:getManagementLockByScope", args ?? new GetManagementLockByScopeInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagementLockByScopeResult>("azure-native:authorization/v20200501:getManagementLockByScope", args ?? new GetManagementLockByScopeInvokeArgs(), options.WithDefaults());
     }
 
 

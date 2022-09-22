@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.CostManagement
         /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Task<GetScheduledActionResult> InvokeAsync(GetScheduledActionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduledActionResult>("azure-native:costmanagement:getScheduledAction", args ?? new GetScheduledActionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduledActionResult>("azure-native:costmanagement:getScheduledAction", args ?? new GetScheduledActionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Scheduled action definition.
         /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Output<GetScheduledActionResult> Invoke(GetScheduledActionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetScheduledActionResult>("azure-native:costmanagement:getScheduledAction", args ?? new GetScheduledActionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetScheduledActionResult>("azure-native:costmanagement:getScheduledAction", args ?? new GetScheduledActionInvokeArgs(), options.WithDefaults());
     }
 
 

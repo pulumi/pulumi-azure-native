@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20180201
         /// Hybrid Connection contract. This is used to configure a Hybrid Connection.
         /// </summary>
         public static Task<GetWebAppHybridConnectionResult> InvokeAsync(GetWebAppHybridConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppHybridConnectionResult>("azure-native:web/v20180201:getWebAppHybridConnection", args ?? new GetWebAppHybridConnectionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppHybridConnectionResult>("azure-native:web/v20180201:getWebAppHybridConnection", args ?? new GetWebAppHybridConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Hybrid Connection contract. This is used to configure a Hybrid Connection.
         /// </summary>
         public static Output<GetWebAppHybridConnectionResult> Invoke(GetWebAppHybridConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWebAppHybridConnectionResult>("azure-native:web/v20180201:getWebAppHybridConnection", args ?? new GetWebAppHybridConnectionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebAppHybridConnectionResult>("azure-native:web/v20180201:getWebAppHybridConnection", args ?? new GetWebAppHybridConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

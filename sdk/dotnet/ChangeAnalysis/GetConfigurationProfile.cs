@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.ChangeAnalysis
         /// API Version: 2020-04-01-preview.
         /// </summary>
         public static Task<GetConfigurationProfileResult> InvokeAsync(GetConfigurationProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfileResult>("azure-native:changeanalysis:getConfigurationProfile", args ?? new GetConfigurationProfileArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfileResult>("azure-native:changeanalysis:getConfigurationProfile", args ?? new GetConfigurationProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// A profile object that contains change analysis configuration, such as notification settings, for this subscription
         /// API Version: 2020-04-01-preview.
         /// </summary>
         public static Output<GetConfigurationProfileResult> Invoke(GetConfigurationProfileInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConfigurationProfileResult>("azure-native:changeanalysis:getConfigurationProfile", args ?? new GetConfigurationProfileInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationProfileResult>("azure-native:changeanalysis:getConfigurationProfile", args ?? new GetConfigurationProfileInvokeArgs(), options.WithDefaults());
     }
 
 

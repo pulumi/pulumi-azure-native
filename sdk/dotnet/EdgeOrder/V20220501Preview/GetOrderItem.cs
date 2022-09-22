@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.EdgeOrder.V20220501Preview
         /// Represents order item resource.
         /// </summary>
         public static Task<GetOrderItemResult> InvokeAsync(GetOrderItemArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOrderItemResult>("azure-native:edgeorder/v20220501preview:getOrderItem", args ?? new GetOrderItemArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrderItemResult>("azure-native:edgeorder/v20220501preview:getOrderItem", args ?? new GetOrderItemArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents order item resource.
         /// </summary>
         public static Output<GetOrderItemResult> Invoke(GetOrderItemInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOrderItemResult>("azure-native:edgeorder/v20220501preview:getOrderItem", args ?? new GetOrderItemInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetOrderItemResult>("azure-native:edgeorder/v20220501preview:getOrderItem", args ?? new GetOrderItemInvokeArgs(), options.WithDefaults());
     }
 
 

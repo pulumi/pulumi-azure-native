@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.AzureStack.V20200601Preview
         /// Product information.
         /// </summary>
         public static Task<GetProductResult> InvokeAsync(GetProductArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("azure-native:azurestack/v20200601preview:getProduct", args ?? new GetProductArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("azure-native:azurestack/v20200601preview:getProduct", args ?? new GetProductArgs(), options.WithDefaults());
 
         /// <summary>
         /// Product information.
         /// </summary>
         public static Output<GetProductResult> Invoke(GetProductInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProductResult>("azure-native:azurestack/v20200601preview:getProduct", args ?? new GetProductInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetProductResult>("azure-native:azurestack/v20200601preview:getProduct", args ?? new GetProductInvokeArgs(), options.WithDefaults());
     }
 
 

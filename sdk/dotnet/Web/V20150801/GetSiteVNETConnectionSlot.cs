@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// VNETInfo contract. This contract is public and is a stripped down version of VNETInfoInternal
         /// </summary>
         public static Task<GetSiteVNETConnectionSlotResult> InvokeAsync(GetSiteVNETConnectionSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteVNETConnectionSlotResult>("azure-native:web/v20150801:getSiteVNETConnectionSlot", args ?? new GetSiteVNETConnectionSlotArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSiteVNETConnectionSlotResult>("azure-native:web/v20150801:getSiteVNETConnectionSlot", args ?? new GetSiteVNETConnectionSlotArgs(), options.WithDefaults());
 
         /// <summary>
         /// VNETInfo contract. This contract is public and is a stripped down version of VNETInfoInternal
         /// </summary>
         public static Output<GetSiteVNETConnectionSlotResult> Invoke(GetSiteVNETConnectionSlotInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSiteVNETConnectionSlotResult>("azure-native:web/v20150801:getSiteVNETConnectionSlot", args ?? new GetSiteVNETConnectionSlotInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSiteVNETConnectionSlotResult>("azure-native:web/v20150801:getSiteVNETConnectionSlot", args ?? new GetSiteVNETConnectionSlotInvokeArgs(), options.WithDefaults());
     }
 
 

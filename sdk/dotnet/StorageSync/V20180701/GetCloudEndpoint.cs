@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.StorageSync.V20180701
         /// Cloud Endpoint object.
         /// </summary>
         public static Task<GetCloudEndpointResult> InvokeAsync(GetCloudEndpointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCloudEndpointResult>("azure-native:storagesync/v20180701:getCloudEndpoint", args ?? new GetCloudEndpointArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudEndpointResult>("azure-native:storagesync/v20180701:getCloudEndpoint", args ?? new GetCloudEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Cloud Endpoint object.
         /// </summary>
         public static Output<GetCloudEndpointResult> Invoke(GetCloudEndpointInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCloudEndpointResult>("azure-native:storagesync/v20180701:getCloudEndpoint", args ?? new GetCloudEndpointInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCloudEndpointResult>("azure-native:storagesync/v20180701:getCloudEndpoint", args ?? new GetCloudEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

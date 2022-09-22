@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
         /// The server encryption protector.
         /// </summary>
         public static Task<GetEncryptionProtectorResult> InvokeAsync(GetEncryptionProtectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEncryptionProtectorResult>("azure-native:sql/v20200202preview:getEncryptionProtector", args ?? new GetEncryptionProtectorArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEncryptionProtectorResult>("azure-native:sql/v20200202preview:getEncryptionProtector", args ?? new GetEncryptionProtectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// The server encryption protector.
         /// </summary>
         public static Output<GetEncryptionProtectorResult> Invoke(GetEncryptionProtectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEncryptionProtectorResult>("azure-native:sql/v20200202preview:getEncryptionProtector", args ?? new GetEncryptionProtectorInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEncryptionProtectorResult>("azure-native:sql/v20200202preview:getEncryptionProtector", args ?? new GetEncryptionProtectorInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// Represents user credentials used for publishing activity
         /// </summary>
         public static Task<GetSiteInstanceDeploymentResult> InvokeAsync(GetSiteInstanceDeploymentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteInstanceDeploymentResult>("azure-native:web/v20150801:getSiteInstanceDeployment", args ?? new GetSiteInstanceDeploymentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSiteInstanceDeploymentResult>("azure-native:web/v20150801:getSiteInstanceDeployment", args ?? new GetSiteInstanceDeploymentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents user credentials used for publishing activity
         /// </summary>
         public static Output<GetSiteInstanceDeploymentResult> Invoke(GetSiteInstanceDeploymentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSiteInstanceDeploymentResult>("azure-native:web/v20150801:getSiteInstanceDeployment", args ?? new GetSiteInstanceDeploymentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSiteInstanceDeploymentResult>("azure-native:web/v20150801:getSiteInstanceDeployment", args ?? new GetSiteInstanceDeploymentInvokeArgs(), options.WithDefaults());
     }
 
 

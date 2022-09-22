@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.OperationalInsights.V20190801Preview
         /// The top level data export resource container.
         /// </summary>
         public static Task<GetDataExportResult> InvokeAsync(GetDataExportArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataExportResult>("azure-native:operationalinsights/v20190801preview:getDataExport", args ?? new GetDataExportArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataExportResult>("azure-native:operationalinsights/v20190801preview:getDataExport", args ?? new GetDataExportArgs(), options.WithDefaults());
 
         /// <summary>
         /// The top level data export resource container.
         /// </summary>
         public static Output<GetDataExportResult> Invoke(GetDataExportInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDataExportResult>("azure-native:operationalinsights/v20190801preview:getDataExport", args ?? new GetDataExportInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataExportResult>("azure-native:operationalinsights/v20190801preview:getDataExport", args ?? new GetDataExportInvokeArgs(), options.WithDefaults());
     }
 
 

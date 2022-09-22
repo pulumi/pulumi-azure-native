@@ -12,10 +12,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
     public static class GetOnlineDeploymentLogs
     {
         public static Task<GetOnlineDeploymentLogsResult> InvokeAsync(GetOnlineDeploymentLogsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOnlineDeploymentLogsResult>("azure-native:machinelearningservices/v20220501:getOnlineDeploymentLogs", args ?? new GetOnlineDeploymentLogsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetOnlineDeploymentLogsResult>("azure-native:machinelearningservices/v20220501:getOnlineDeploymentLogs", args ?? new GetOnlineDeploymentLogsArgs(), options.WithDefaults());
 
         public static Output<GetOnlineDeploymentLogsResult> Invoke(GetOnlineDeploymentLogsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOnlineDeploymentLogsResult>("azure-native:machinelearningservices/v20220501:getOnlineDeploymentLogs", args ?? new GetOnlineDeploymentLogsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetOnlineDeploymentLogsResult>("azure-native:machinelearningservices/v20220501:getOnlineDeploymentLogs", args ?? new GetOnlineDeploymentLogsInvokeArgs(), options.WithDefaults());
     }
 
 

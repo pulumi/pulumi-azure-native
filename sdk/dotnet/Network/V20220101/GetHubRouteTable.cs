@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20220101
         /// RouteTable resource in a virtual hub.
         /// </summary>
         public static Task<GetHubRouteTableResult> InvokeAsync(GetHubRouteTableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHubRouteTableResult>("azure-native:network/v20220101:getHubRouteTable", args ?? new GetHubRouteTableArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetHubRouteTableResult>("azure-native:network/v20220101:getHubRouteTable", args ?? new GetHubRouteTableArgs(), options.WithDefaults());
 
         /// <summary>
         /// RouteTable resource in a virtual hub.
         /// </summary>
         public static Output<GetHubRouteTableResult> Invoke(GetHubRouteTableInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetHubRouteTableResult>("azure-native:network/v20220101:getHubRouteTable", args ?? new GetHubRouteTableInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetHubRouteTableResult>("azure-native:network/v20220101:getHubRouteTable", args ?? new GetHubRouteTableInvokeArgs(), options.WithDefaults());
     }
 
 

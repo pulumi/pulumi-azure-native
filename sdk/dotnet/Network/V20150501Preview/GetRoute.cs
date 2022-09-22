@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
         /// Route resource
         /// </summary>
         public static Task<GetRouteResult> InvokeAsync(GetRouteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("azure-native:network/v20150501preview:getRoute", args ?? new GetRouteArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("azure-native:network/v20150501preview:getRoute", args ?? new GetRouteArgs(), options.WithDefaults());
 
         /// <summary>
         /// Route resource
         /// </summary>
         public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRouteResult>("azure-native:network/v20150501preview:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRouteResult>("azure-native:network/v20150501preview:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());
     }
 
 

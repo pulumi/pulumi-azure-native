@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
         /// Email Template details.
         /// </summary>
         public static Task<GetEmailTemplateResult> InvokeAsync(GetEmailTemplateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEmailTemplateResult>("azure-native:apimanagement/v20210101preview:getEmailTemplate", args ?? new GetEmailTemplateArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEmailTemplateResult>("azure-native:apimanagement/v20210101preview:getEmailTemplate", args ?? new GetEmailTemplateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Email Template details.
         /// </summary>
         public static Output<GetEmailTemplateResult> Invoke(GetEmailTemplateInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEmailTemplateResult>("azure-native:apimanagement/v20210101preview:getEmailTemplate", args ?? new GetEmailTemplateInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEmailTemplateResult>("azure-native:apimanagement/v20210101preview:getEmailTemplate", args ?? new GetEmailTemplateInvokeArgs(), options.WithDefaults());
     }
 
 

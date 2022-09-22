@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Media
         /// API Version: 2020-05-01.
         /// </summary>
         public static Task<GetTransformResult> InvokeAsync(GetTransformArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTransformResult>("azure-native:media:getTransform", args ?? new GetTransformArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTransformResult>("azure-native:media:getTransform", args ?? new GetTransformArgs(), options.WithDefaults());
 
         /// <summary>
         /// A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
         /// API Version: 2020-05-01.
         /// </summary>
         public static Output<GetTransformResult> Invoke(GetTransformInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTransformResult>("azure-native:media:getTransform", args ?? new GetTransformInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTransformResult>("azure-native:media:getTransform", args ?? new GetTransformInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
         /// Cache details.
         /// </summary>
         public static Task<GetCacheResult> InvokeAsync(GetCacheArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCacheResult>("azure-native:apimanagement/v20200601preview:getCache", args ?? new GetCacheArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCacheResult>("azure-native:apimanagement/v20200601preview:getCache", args ?? new GetCacheArgs(), options.WithDefaults());
 
         /// <summary>
         /// Cache details.
         /// </summary>
         public static Output<GetCacheResult> Invoke(GetCacheInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCacheResult>("azure-native:apimanagement/v20200601preview:getCache", args ?? new GetCacheInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCacheResult>("azure-native:apimanagement/v20200601preview:getCache", args ?? new GetCacheInvokeArgs(), options.WithDefaults());
     }
 
 

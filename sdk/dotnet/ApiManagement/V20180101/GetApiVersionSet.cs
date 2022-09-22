@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
         /// Api Version Set Contract details.
         /// </summary>
         public static Task<GetApiVersionSetResult> InvokeAsync(GetApiVersionSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApiVersionSetResult>("azure-native:apimanagement/v20180101:getApiVersionSet", args ?? new GetApiVersionSetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiVersionSetResult>("azure-native:apimanagement/v20180101:getApiVersionSet", args ?? new GetApiVersionSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Api Version Set Contract details.
         /// </summary>
         public static Output<GetApiVersionSetResult> Invoke(GetApiVersionSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApiVersionSetResult>("azure-native:apimanagement/v20180101:getApiVersionSet", args ?? new GetApiVersionSetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetApiVersionSetResult>("azure-native:apimanagement/v20180101:getApiVersionSet", args ?? new GetApiVersionSetInvokeArgs(), options.WithDefaults());
     }
 
 

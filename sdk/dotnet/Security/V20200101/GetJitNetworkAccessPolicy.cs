@@ -12,10 +12,10 @@ namespace Pulumi.AzureNative.Security.V20200101
     public static class GetJitNetworkAccessPolicy
     {
         public static Task<GetJitNetworkAccessPolicyResult> InvokeAsync(GetJitNetworkAccessPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJitNetworkAccessPolicyResult>("azure-native:security/v20200101:getJitNetworkAccessPolicy", args ?? new GetJitNetworkAccessPolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetJitNetworkAccessPolicyResult>("azure-native:security/v20200101:getJitNetworkAccessPolicy", args ?? new GetJitNetworkAccessPolicyArgs(), options.WithDefaults());
 
         public static Output<GetJitNetworkAccessPolicyResult> Invoke(GetJitNetworkAccessPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetJitNetworkAccessPolicyResult>("azure-native:security/v20200101:getJitNetworkAccessPolicy", args ?? new GetJitNetworkAccessPolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetJitNetworkAccessPolicyResult>("azure-native:security/v20200101:getJitNetworkAccessPolicy", args ?? new GetJitNetworkAccessPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

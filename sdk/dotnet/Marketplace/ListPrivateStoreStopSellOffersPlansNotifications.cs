@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Marketplace
         /// API Version: 2021-12-01.
         /// </summary>
         public static Task<ListPrivateStoreStopSellOffersPlansNotificationsResult> InvokeAsync(ListPrivateStoreStopSellOffersPlansNotificationsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListPrivateStoreStopSellOffersPlansNotificationsResult>("azure-native:marketplace:listPrivateStoreStopSellOffersPlansNotifications", args ?? new ListPrivateStoreStopSellOffersPlansNotificationsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListPrivateStoreStopSellOffersPlansNotificationsResult>("azure-native:marketplace:listPrivateStoreStopSellOffersPlansNotifications", args ?? new ListPrivateStoreStopSellOffersPlansNotificationsArgs(), options.WithDefaults());
 
         /// <summary>
         /// List of stop sell offers and plans notifications.
         /// API Version: 2021-12-01.
         /// </summary>
         public static Output<ListPrivateStoreStopSellOffersPlansNotificationsResult> Invoke(ListPrivateStoreStopSellOffersPlansNotificationsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListPrivateStoreStopSellOffersPlansNotificationsResult>("azure-native:marketplace:listPrivateStoreStopSellOffersPlansNotifications", args ?? new ListPrivateStoreStopSellOffersPlansNotificationsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListPrivateStoreStopSellOffersPlansNotificationsResult>("azure-native:marketplace:listPrivateStoreStopSellOffersPlansNotifications", args ?? new ListPrivateStoreStopSellOffersPlansNotificationsInvokeArgs(), options.WithDefaults());
     }
 
 

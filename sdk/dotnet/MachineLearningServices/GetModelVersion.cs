@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Task<GetModelVersionResult> InvokeAsync(GetModelVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetModelVersionResult>("azure-native:machinelearningservices:getModelVersion", args ?? new GetModelVersionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetModelVersionResult>("azure-native:machinelearningservices:getModelVersion", args ?? new GetModelVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Output<GetModelVersionResult> Invoke(GetModelVersionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetModelVersionResult>("azure-native:machinelearningservices:getModelVersion", args ?? new GetModelVersionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetModelVersionResult>("azure-native:machinelearningservices:getModelVersion", args ?? new GetModelVersionInvokeArgs(), options.WithDefaults());
     }
 
 

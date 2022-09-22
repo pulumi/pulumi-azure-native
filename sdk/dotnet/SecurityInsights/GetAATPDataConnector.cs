@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// API Version: 2020-01-01.
         /// </summary>
         public static Task<GetAATPDataConnectorResult> InvokeAsync(GetAATPDataConnectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAATPDataConnectorResult>("azure-native:securityinsights:getAATPDataConnector", args ?? new GetAATPDataConnectorArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAATPDataConnectorResult>("azure-native:securityinsights:getAATPDataConnector", args ?? new GetAATPDataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents AATP (Azure Advanced Threat Protection) data connector.
         /// API Version: 2020-01-01.
         /// </summary>
         public static Output<GetAATPDataConnectorResult> Invoke(GetAATPDataConnectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAATPDataConnectorResult>("azure-native:securityinsights:getAATPDataConnector", args ?? new GetAATPDataConnectorInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAATPDataConnectorResult>("azure-native:securityinsights:getAATPDataConnector", args ?? new GetAATPDataConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Compute.V20220302
         /// disk access resource.
         /// </summary>
         public static Task<GetDiskAccessResult> InvokeAsync(GetDiskAccessArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDiskAccessResult>("azure-native:compute/v20220302:getDiskAccess", args ?? new GetDiskAccessArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDiskAccessResult>("azure-native:compute/v20220302:getDiskAccess", args ?? new GetDiskAccessArgs(), options.WithDefaults());
 
         /// <summary>
         /// disk access resource.
         /// </summary>
         public static Output<GetDiskAccessResult> Invoke(GetDiskAccessInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDiskAccessResult>("azure-native:compute/v20220302:getDiskAccess", args ?? new GetDiskAccessInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDiskAccessResult>("azure-native:compute/v20220302:getDiskAccess", args ?? new GetDiskAccessInvokeArgs(), options.WithDefaults());
     }
 
 

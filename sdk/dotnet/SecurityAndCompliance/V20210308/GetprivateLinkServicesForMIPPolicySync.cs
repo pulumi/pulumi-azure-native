@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
         /// The description of the service.
         /// </summary>
         public static Task<GetprivateLinkServicesForMIPPolicySyncResult> InvokeAsync(GetprivateLinkServicesForMIPPolicySyncArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetprivateLinkServicesForMIPPolicySyncResult>("azure-native:securityandcompliance/v20210308:getprivateLinkServicesForMIPPolicySync", args ?? new GetprivateLinkServicesForMIPPolicySyncArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetprivateLinkServicesForMIPPolicySyncResult>("azure-native:securityandcompliance/v20210308:getprivateLinkServicesForMIPPolicySync", args ?? new GetprivateLinkServicesForMIPPolicySyncArgs(), options.WithDefaults());
 
         /// <summary>
         /// The description of the service.
         /// </summary>
         public static Output<GetprivateLinkServicesForMIPPolicySyncResult> Invoke(GetprivateLinkServicesForMIPPolicySyncInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetprivateLinkServicesForMIPPolicySyncResult>("azure-native:securityandcompliance/v20210308:getprivateLinkServicesForMIPPolicySync", args ?? new GetprivateLinkServicesForMIPPolicySyncInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetprivateLinkServicesForMIPPolicySyncResult>("azure-native:securityandcompliance/v20210308:getprivateLinkServicesForMIPPolicySync", args ?? new GetprivateLinkServicesForMIPPolicySyncInvokeArgs(), options.WithDefaults());
     }
 
 

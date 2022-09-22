@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.PowerBI
         /// API Version: 2016-01-29.
         /// </summary>
         public static Task<GetWorkspaceCollectionResult> InvokeAsync(GetWorkspaceCollectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceCollectionResult>("azure-native:powerbi:getWorkspaceCollection", args ?? new GetWorkspaceCollectionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceCollectionResult>("azure-native:powerbi:getWorkspaceCollection", args ?? new GetWorkspaceCollectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
         /// API Version: 2016-01-29.
         /// </summary>
         public static Output<GetWorkspaceCollectionResult> Invoke(GetWorkspaceCollectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWorkspaceCollectionResult>("azure-native:powerbi:getWorkspaceCollection", args ?? new GetWorkspaceCollectionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceCollectionResult>("azure-native:powerbi:getWorkspaceCollection", args ?? new GetWorkspaceCollectionInvokeArgs(), options.WithDefaults());
     }
 
 

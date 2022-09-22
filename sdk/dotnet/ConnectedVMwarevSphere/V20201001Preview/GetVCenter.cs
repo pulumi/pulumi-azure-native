@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         /// Defines the vCenter.
         /// </summary>
         public static Task<GetVCenterResult> InvokeAsync(GetVCenterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVCenterResult>("azure-native:connectedvmwarevsphere/v20201001preview:getVCenter", args ?? new GetVCenterArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVCenterResult>("azure-native:connectedvmwarevsphere/v20201001preview:getVCenter", args ?? new GetVCenterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Defines the vCenter.
         /// </summary>
         public static Output<GetVCenterResult> Invoke(GetVCenterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVCenterResult>("azure-native:connectedvmwarevsphere/v20201001preview:getVCenter", args ?? new GetVCenterInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVCenterResult>("azure-native:connectedvmwarevsphere/v20201001preview:getVCenter", args ?? new GetVCenterInvokeArgs(), options.WithDefaults());
     }
 
 

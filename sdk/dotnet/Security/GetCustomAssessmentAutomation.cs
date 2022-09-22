@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Security
         /// API Version: 2021-07-01-preview.
         /// </summary>
         public static Task<GetCustomAssessmentAutomationResult> InvokeAsync(GetCustomAssessmentAutomationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomAssessmentAutomationResult>("azure-native:security:getCustomAssessmentAutomation", args ?? new GetCustomAssessmentAutomationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomAssessmentAutomationResult>("azure-native:security:getCustomAssessmentAutomation", args ?? new GetCustomAssessmentAutomationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Custom Assessment Automation
         /// API Version: 2021-07-01-preview.
         /// </summary>
         public static Output<GetCustomAssessmentAutomationResult> Invoke(GetCustomAssessmentAutomationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCustomAssessmentAutomationResult>("azure-native:security:getCustomAssessmentAutomation", args ?? new GetCustomAssessmentAutomationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomAssessmentAutomationResult>("azure-native:security:getCustomAssessmentAutomation", args ?? new GetCustomAssessmentAutomationInvokeArgs(), options.WithDefaults());
     }
 
 

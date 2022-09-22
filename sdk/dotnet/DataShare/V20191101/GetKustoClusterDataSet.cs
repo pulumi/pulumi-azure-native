@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DataShare.V20191101
         /// A kusto cluster data set.
         /// </summary>
         public static Task<GetKustoClusterDataSetResult> InvokeAsync(GetKustoClusterDataSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKustoClusterDataSetResult>("azure-native:datashare/v20191101:getKustoClusterDataSet", args ?? new GetKustoClusterDataSetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetKustoClusterDataSetResult>("azure-native:datashare/v20191101:getKustoClusterDataSet", args ?? new GetKustoClusterDataSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// A kusto cluster data set.
         /// </summary>
         public static Output<GetKustoClusterDataSetResult> Invoke(GetKustoClusterDataSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetKustoClusterDataSetResult>("azure-native:datashare/v20191101:getKustoClusterDataSet", args ?? new GetKustoClusterDataSetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetKustoClusterDataSetResult>("azure-native:datashare/v20191101:getKustoClusterDataSet", args ?? new GetKustoClusterDataSetInvokeArgs(), options.WithDefaults());
     }
 
 

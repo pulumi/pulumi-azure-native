@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Compute.V20210701
         /// Specifies information about the gallery image definition that you want to create or update.
         /// </summary>
         public static Task<GetGalleryImageResult> InvokeAsync(GetGalleryImageArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGalleryImageResult>("azure-native:compute/v20210701:getGalleryImage", args ?? new GetGalleryImageArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGalleryImageResult>("azure-native:compute/v20210701:getGalleryImage", args ?? new GetGalleryImageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Specifies information about the gallery image definition that you want to create or update.
         /// </summary>
         public static Output<GetGalleryImageResult> Invoke(GetGalleryImageInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGalleryImageResult>("azure-native:compute/v20210701:getGalleryImage", args ?? new GetGalleryImageInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGalleryImageResult>("azure-native:compute/v20210701:getGalleryImage", args ?? new GetGalleryImageInvokeArgs(), options.WithDefaults());
     }
 
 

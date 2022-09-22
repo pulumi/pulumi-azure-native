@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.EventHub.V20220101Preview
         /// Single Event Hubs Cluster resource in List or Get operations.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:eventhub/v20220101preview:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:eventhub/v20220101preview:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Single Event Hubs Cluster resource in List or Get operations.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:eventhub/v20220101preview:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:eventhub/v20220101preview:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
     }
 
 

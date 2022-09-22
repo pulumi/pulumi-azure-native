@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.LabServices.V20181015
         /// Represents an image from the Azure Marketplace
         /// </summary>
         public static Task<GetGalleryImageResult> InvokeAsync(GetGalleryImageArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGalleryImageResult>("azure-native:labservices/v20181015:getGalleryImage", args ?? new GetGalleryImageArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGalleryImageResult>("azure-native:labservices/v20181015:getGalleryImage", args ?? new GetGalleryImageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents an image from the Azure Marketplace
         /// </summary>
         public static Output<GetGalleryImageResult> Invoke(GetGalleryImageInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGalleryImageResult>("azure-native:labservices/v20181015:getGalleryImage", args ?? new GetGalleryImageInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGalleryImageResult>("azure-native:labservices/v20181015:getGalleryImage", args ?? new GetGalleryImageInvokeArgs(), options.WithDefaults());
     }
 
 

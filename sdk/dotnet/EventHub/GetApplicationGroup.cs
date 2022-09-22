@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.EventHub
         /// API Version: 2022-01-01-preview.
         /// </summary>
         public static Task<GetApplicationGroupResult> InvokeAsync(GetApplicationGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGroupResult>("azure-native:eventhub:getApplicationGroup", args ?? new GetApplicationGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGroupResult>("azure-native:eventhub:getApplicationGroup", args ?? new GetApplicationGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Application Group object
         /// API Version: 2022-01-01-preview.
         /// </summary>
         public static Output<GetApplicationGroupResult> Invoke(GetApplicationGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApplicationGroupResult>("azure-native:eventhub:getApplicationGroup", args ?? new GetApplicationGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationGroupResult>("azure-native:eventhub:getApplicationGroup", args ?? new GetApplicationGroupInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20220201Preview
         /// An object that represents a container registry.
         /// </summary>
         public static Task<GetRegistryResult> InvokeAsync(GetRegistryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistryResult>("azure-native:containerregistry/v20220201preview:getRegistry", args ?? new GetRegistryArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistryResult>("azure-native:containerregistry/v20220201preview:getRegistry", args ?? new GetRegistryArgs(), options.WithDefaults());
 
         /// <summary>
         /// An object that represents a container registry.
         /// </summary>
         public static Output<GetRegistryResult> Invoke(GetRegistryInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRegistryResult>("azure-native:containerregistry/v20220201preview:getRegistry", args ?? new GetRegistryInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRegistryResult>("azure-native:containerregistry/v20220201preview:getRegistry", args ?? new GetRegistryInvokeArgs(), options.WithDefaults());
     }
 
 

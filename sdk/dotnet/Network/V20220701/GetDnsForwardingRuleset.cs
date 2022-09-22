@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20220701
         /// Describes a DNS forwarding ruleset.
         /// </summary>
         public static Task<GetDnsForwardingRulesetResult> InvokeAsync(GetDnsForwardingRulesetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDnsForwardingRulesetResult>("azure-native:network/v20220701:getDnsForwardingRuleset", args ?? new GetDnsForwardingRulesetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDnsForwardingRulesetResult>("azure-native:network/v20220701:getDnsForwardingRuleset", args ?? new GetDnsForwardingRulesetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes a DNS forwarding ruleset.
         /// </summary>
         public static Output<GetDnsForwardingRulesetResult> Invoke(GetDnsForwardingRulesetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDnsForwardingRulesetResult>("azure-native:network/v20220701:getDnsForwardingRuleset", args ?? new GetDnsForwardingRulesetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDnsForwardingRulesetResult>("azure-native:network/v20220701:getDnsForwardingRuleset", args ?? new GetDnsForwardingRulesetInvokeArgs(), options.WithDefaults());
     }
 
 

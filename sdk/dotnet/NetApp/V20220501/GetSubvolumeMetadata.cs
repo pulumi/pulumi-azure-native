@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.NetApp.V20220501
         /// Result of the post subvolume and action is to get metadata of the subvolume.
         /// </summary>
         public static Task<GetSubvolumeMetadataResult> InvokeAsync(GetSubvolumeMetadataArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubvolumeMetadataResult>("azure-native:netapp/v20220501:getSubvolumeMetadata", args ?? new GetSubvolumeMetadataArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubvolumeMetadataResult>("azure-native:netapp/v20220501:getSubvolumeMetadata", args ?? new GetSubvolumeMetadataArgs(), options.WithDefaults());
 
         /// <summary>
         /// Result of the post subvolume and action is to get metadata of the subvolume.
         /// </summary>
         public static Output<GetSubvolumeMetadataResult> Invoke(GetSubvolumeMetadataInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSubvolumeMetadataResult>("azure-native:netapp/v20220501:getSubvolumeMetadata", args ?? new GetSubvolumeMetadataInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSubvolumeMetadataResult>("azure-native:netapp/v20220501:getSubvolumeMetadata", args ?? new GetSubvolumeMetadataInvokeArgs(), options.WithDefaults());
     }
 
 

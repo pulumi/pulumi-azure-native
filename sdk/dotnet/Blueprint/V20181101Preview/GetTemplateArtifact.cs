@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
         /// Blueprint artifact that deploys a Resource Manager template.
         /// </summary>
         public static Task<GetTemplateArtifactResult> InvokeAsync(GetTemplateArtifactArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTemplateArtifactResult>("azure-native:blueprint/v20181101preview:getTemplateArtifact", args ?? new GetTemplateArtifactArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTemplateArtifactResult>("azure-native:blueprint/v20181101preview:getTemplateArtifact", args ?? new GetTemplateArtifactArgs(), options.WithDefaults());
 
         /// <summary>
         /// Blueprint artifact that deploys a Resource Manager template.
         /// </summary>
         public static Output<GetTemplateArtifactResult> Invoke(GetTemplateArtifactInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTemplateArtifactResult>("azure-native:blueprint/v20181101preview:getTemplateArtifact", args ?? new GetTemplateArtifactInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTemplateArtifactResult>("azure-native:blueprint/v20181101preview:getTemplateArtifact", args ?? new GetTemplateArtifactInvokeArgs(), options.WithDefaults());
     }
 
 

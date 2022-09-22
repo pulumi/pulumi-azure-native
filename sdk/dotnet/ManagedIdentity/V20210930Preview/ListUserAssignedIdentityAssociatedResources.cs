@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ManagedIdentity.V20210930Preview
         /// Azure resources returned by the resource action to get a list of assigned resources.
         /// </summary>
         public static Task<ListUserAssignedIdentityAssociatedResourcesResult> InvokeAsync(ListUserAssignedIdentityAssociatedResourcesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListUserAssignedIdentityAssociatedResourcesResult>("azure-native:managedidentity/v20210930preview:listUserAssignedIdentityAssociatedResources", args ?? new ListUserAssignedIdentityAssociatedResourcesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListUserAssignedIdentityAssociatedResourcesResult>("azure-native:managedidentity/v20210930preview:listUserAssignedIdentityAssociatedResources", args ?? new ListUserAssignedIdentityAssociatedResourcesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure resources returned by the resource action to get a list of assigned resources.
         /// </summary>
         public static Output<ListUserAssignedIdentityAssociatedResourcesResult> Invoke(ListUserAssignedIdentityAssociatedResourcesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListUserAssignedIdentityAssociatedResourcesResult>("azure-native:managedidentity/v20210930preview:listUserAssignedIdentityAssociatedResources", args ?? new ListUserAssignedIdentityAssociatedResourcesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListUserAssignedIdentityAssociatedResourcesResult>("azure-native:managedidentity/v20210930preview:listUserAssignedIdentityAssociatedResources", args ?? new ListUserAssignedIdentityAssociatedResourcesInvokeArgs(), options.WithDefaults());
     }
 
 

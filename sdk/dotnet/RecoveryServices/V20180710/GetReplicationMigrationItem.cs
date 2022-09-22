@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.RecoveryServices.V20180710
         /// Migration item.
         /// </summary>
         public static Task<GetReplicationMigrationItemResult> InvokeAsync(GetReplicationMigrationItemArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationMigrationItemResult>("azure-native:recoveryservices/v20180710:getReplicationMigrationItem", args ?? new GetReplicationMigrationItemArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationMigrationItemResult>("azure-native:recoveryservices/v20180710:getReplicationMigrationItem", args ?? new GetReplicationMigrationItemArgs(), options.WithDefaults());
 
         /// <summary>
         /// Migration item.
         /// </summary>
         public static Output<GetReplicationMigrationItemResult> Invoke(GetReplicationMigrationItemInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetReplicationMigrationItemResult>("azure-native:recoveryservices/v20180710:getReplicationMigrationItem", args ?? new GetReplicationMigrationItemInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetReplicationMigrationItemResult>("azure-native:recoveryservices/v20180710:getReplicationMigrationItem", args ?? new GetReplicationMigrationItemInvokeArgs(), options.WithDefaults());
     }
 
 

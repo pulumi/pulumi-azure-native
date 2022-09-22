@@ -12,10 +12,10 @@ namespace Pulumi.AzureNative.Web.V20150801Preview
     public static class ListConnectionKeys
     {
         public static Task<ListConnectionKeysResult> InvokeAsync(ListConnectionKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListConnectionKeysResult>("azure-native:web/v20150801preview:listConnectionKeys", args ?? new ListConnectionKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListConnectionKeysResult>("azure-native:web/v20150801preview:listConnectionKeys", args ?? new ListConnectionKeysArgs(), options.WithDefaults());
 
         public static Output<ListConnectionKeysResult> Invoke(ListConnectionKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListConnectionKeysResult>("azure-native:web/v20150801preview:listConnectionKeys", args ?? new ListConnectionKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListConnectionKeysResult>("azure-native:web/v20150801preview:listConnectionKeys", args ?? new ListConnectionKeysInvokeArgs(), options.WithDefaults());
     }
 
 

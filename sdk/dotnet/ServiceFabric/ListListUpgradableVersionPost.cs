@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// API Version: 2020-12-01-preview.
         /// </summary>
         public static Task<ListListUpgradableVersionPostResult> InvokeAsync(ListListUpgradableVersionPostArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListListUpgradableVersionPostResult>("azure-native:servicefabric:listListUpgradableVersionPost", args ?? new ListListUpgradableVersionPostArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListListUpgradableVersionPostResult>("azure-native:servicefabric:listListUpgradableVersionPost", args ?? new ListListUpgradableVersionPostArgs(), options.WithDefaults());
 
         /// <summary>
         /// The list of intermediate cluster code versions for an upgrade or downgrade. Or minimum and maximum upgradable version if no target was given
         /// API Version: 2020-12-01-preview.
         /// </summary>
         public static Output<ListListUpgradableVersionPostResult> Invoke(ListListUpgradableVersionPostInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListListUpgradableVersionPostResult>("azure-native:servicefabric:listListUpgradableVersionPost", args ?? new ListListUpgradableVersionPostInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListListUpgradableVersionPostResult>("azure-native:servicefabric:listListUpgradableVersionPost", args ?? new ListListUpgradableVersionPostInvokeArgs(), options.WithDefaults());
     }
 
 

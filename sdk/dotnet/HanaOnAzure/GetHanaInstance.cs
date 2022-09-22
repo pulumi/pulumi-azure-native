@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.HanaOnAzure
         /// API Version: 2017-11-03-preview.
         /// </summary>
         public static Task<GetHanaInstanceResult> InvokeAsync(GetHanaInstanceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHanaInstanceResult>("azure-native:hanaonazure:getHanaInstance", args ?? new GetHanaInstanceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetHanaInstanceResult>("azure-native:hanaonazure:getHanaInstance", args ?? new GetHanaInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// HANA instance info on Azure (ARM properties and HANA properties)
         /// API Version: 2017-11-03-preview.
         /// </summary>
         public static Output<GetHanaInstanceResult> Invoke(GetHanaInstanceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetHanaInstanceResult>("azure-native:hanaonazure:getHanaInstance", args ?? new GetHanaInstanceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetHanaInstanceResult>("azure-native:hanaonazure:getHanaInstance", args ?? new GetHanaInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

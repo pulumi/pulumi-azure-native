@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210801Preview
         /// An object that represents an export pipeline for a container registry.
         /// </summary>
         public static Task<GetExportPipelineResult> InvokeAsync(GetExportPipelineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExportPipelineResult>("azure-native:containerregistry/v20210801preview:getExportPipeline", args ?? new GetExportPipelineArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetExportPipelineResult>("azure-native:containerregistry/v20210801preview:getExportPipeline", args ?? new GetExportPipelineArgs(), options.WithDefaults());
 
         /// <summary>
         /// An object that represents an export pipeline for a container registry.
         /// </summary>
         public static Output<GetExportPipelineResult> Invoke(GetExportPipelineInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetExportPipelineResult>("azure-native:containerregistry/v20210801preview:getExportPipeline", args ?? new GetExportPipelineInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetExportPipelineResult>("azure-native:containerregistry/v20210801preview:getExportPipeline", args ?? new GetExportPipelineInvokeArgs(), options.WithDefaults());
     }
 
 

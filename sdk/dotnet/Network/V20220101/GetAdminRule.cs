@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Network.V20220101
         /// Network base admin rule.
         /// </summary>
         public static Task<GetAdminRuleResult> InvokeAsync(GetAdminRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAdminRuleResult>("azure-native:network/v20220101:getAdminRule", args ?? new GetAdminRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAdminRuleResult>("azure-native:network/v20220101:getAdminRule", args ?? new GetAdminRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Network base admin rule.
         /// </summary>
         public static Output<GetAdminRuleResult> Invoke(GetAdminRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAdminRuleResult>("azure-native:network/v20220101:getAdminRule", args ?? new GetAdminRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAdminRuleResult>("azure-native:network/v20220101:getAdminRule", args ?? new GetAdminRuleInvokeArgs(), options.WithDefaults());
     }
 
 

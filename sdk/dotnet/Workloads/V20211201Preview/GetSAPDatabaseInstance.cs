@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
         /// Define the Database resource.
         /// </summary>
         public static Task<GetSAPDatabaseInstanceResult> InvokeAsync(GetSAPDatabaseInstanceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSAPDatabaseInstanceResult>("azure-native:workloads/v20211201preview:getSAPDatabaseInstance", args ?? new GetSAPDatabaseInstanceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSAPDatabaseInstanceResult>("azure-native:workloads/v20211201preview:getSAPDatabaseInstance", args ?? new GetSAPDatabaseInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Define the Database resource.
         /// </summary>
         public static Output<GetSAPDatabaseInstanceResult> Invoke(GetSAPDatabaseInstanceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSAPDatabaseInstanceResult>("azure-native:workloads/v20211201preview:getSAPDatabaseInstance", args ?? new GetSAPDatabaseInstanceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSAPDatabaseInstanceResult>("azure-native:workloads/v20211201preview:getSAPDatabaseInstance", args ?? new GetSAPDatabaseInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

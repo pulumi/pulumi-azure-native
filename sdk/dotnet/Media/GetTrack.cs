@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Media
         /// API Version: 2021-11-01.
         /// </summary>
         public static Task<GetTrackResult> InvokeAsync(GetTrackArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTrackResult>("azure-native:media:getTrack", args ?? new GetTrackArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrackResult>("azure-native:media:getTrack", args ?? new GetTrackArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Asset Track resource.
         /// API Version: 2021-11-01.
         /// </summary>
         public static Output<GetTrackResult> Invoke(GetTrackInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTrackResult>("azure-native:media:getTrack", args ?? new GetTrackInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTrackResult>("azure-native:media:getTrack", args ?? new GetTrackInvokeArgs(), options.WithDefaults());
     }
 
 

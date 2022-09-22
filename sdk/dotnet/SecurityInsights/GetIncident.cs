@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// API Version: 2020-01-01.
         /// </summary>
         public static Task<GetIncidentResult> InvokeAsync(GetIncidentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIncidentResult>("azure-native:securityinsights:getIncident", args ?? new GetIncidentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIncidentResult>("azure-native:securityinsights:getIncident", args ?? new GetIncidentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents an incident in Azure Security Insights.
         /// API Version: 2020-01-01.
         /// </summary>
         public static Output<GetIncidentResult> Invoke(GetIncidentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIncidentResult>("azure-native:securityinsights:getIncident", args ?? new GetIncidentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIncidentResult>("azure-native:securityinsights:getIncident", args ?? new GetIncidentInvokeArgs(), options.WithDefaults());
     }
 
 

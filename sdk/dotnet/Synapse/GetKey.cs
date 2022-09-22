@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Synapse
         /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetKeyResult> InvokeAsync(GetKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("azure-native:synapse:getKey", args ?? new GetKeyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("azure-native:synapse:getKey", args ?? new GetKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// A workspace key
         /// API Version: 2021-03-01.
         /// </summary>
         public static Output<GetKeyResult> Invoke(GetKeyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetKeyResult>("azure-native:synapse:getKey", args ?? new GetKeyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetKeyResult>("azure-native:synapse:getKey", args ?? new GetKeyInvokeArgs(), options.WithDefaults());
     }
 
 

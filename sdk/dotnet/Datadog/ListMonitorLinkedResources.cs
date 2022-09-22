@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Datadog
         /// API Version: 2021-03-01.
         /// </summary>
         public static Task<ListMonitorLinkedResourcesResult> InvokeAsync(ListMonitorLinkedResourcesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListMonitorLinkedResourcesResult>("azure-native:datadog:listMonitorLinkedResources", args ?? new ListMonitorLinkedResourcesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListMonitorLinkedResourcesResult>("azure-native:datadog:listMonitorLinkedResources", args ?? new ListMonitorLinkedResourcesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response of a list operation.
         /// API Version: 2021-03-01.
         /// </summary>
         public static Output<ListMonitorLinkedResourcesResult> Invoke(ListMonitorLinkedResourcesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListMonitorLinkedResourcesResult>("azure-native:datadog:listMonitorLinkedResources", args ?? new ListMonitorLinkedResourcesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListMonitorLinkedResourcesResult>("azure-native:datadog:listMonitorLinkedResources", args ?? new ListMonitorLinkedResourcesInvokeArgs(), options.WithDefaults());
     }
 
 

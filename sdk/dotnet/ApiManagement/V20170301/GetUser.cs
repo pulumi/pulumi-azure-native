@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
         /// User details.
         /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure-native:apimanagement/v20170301:getUser", args ?? new GetUserArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure-native:apimanagement/v20170301:getUser", args ?? new GetUserArgs(), options.WithDefaults());
 
         /// <summary>
         /// User details.
         /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetUserResult>("azure-native:apimanagement/v20170301:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("azure-native:apimanagement/v20170301:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
         /// Definition of the module type.
         /// </summary>
         public static Task<GetModuleResult> InvokeAsync(GetModuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetModuleResult>("azure-native:automation/v20200113preview:getModule", args ?? new GetModuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetModuleResult>("azure-native:automation/v20200113preview:getModule", args ?? new GetModuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of the module type.
         /// </summary>
         public static Output<GetModuleResult> Invoke(GetModuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetModuleResult>("azure-native:automation/v20200113preview:getModule", args ?? new GetModuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetModuleResult>("azure-native:automation/v20200113preview:getModule", args ?? new GetModuleInvokeArgs(), options.WithDefaults());
     }
 
 

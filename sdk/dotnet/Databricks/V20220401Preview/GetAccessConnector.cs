@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Databricks.V20220401Preview
         /// Information about azure databricks accessConnector.
         /// </summary>
         public static Task<GetAccessConnectorResult> InvokeAsync(GetAccessConnectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccessConnectorResult>("azure-native:databricks/v20220401preview:getAccessConnector", args ?? new GetAccessConnectorArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccessConnectorResult>("azure-native:databricks/v20220401preview:getAccessConnector", args ?? new GetAccessConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Information about azure databricks accessConnector.
         /// </summary>
         public static Output<GetAccessConnectorResult> Invoke(GetAccessConnectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAccessConnectorResult>("azure-native:databricks/v20220401preview:getAccessConnector", args ?? new GetAccessConnectorInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccessConnectorResult>("azure-native:databricks/v20220401preview:getAccessConnector", args ?? new GetAccessConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20210301
         /// Public certificate object
         /// </summary>
         public static Task<GetWebAppPublicCertificateResult> InvokeAsync(GetWebAppPublicCertificateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppPublicCertificateResult>("azure-native:web/v20210301:getWebAppPublicCertificate", args ?? new GetWebAppPublicCertificateArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppPublicCertificateResult>("azure-native:web/v20210301:getWebAppPublicCertificate", args ?? new GetWebAppPublicCertificateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Public certificate object
         /// </summary>
         public static Output<GetWebAppPublicCertificateResult> Invoke(GetWebAppPublicCertificateInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWebAppPublicCertificateResult>("azure-native:web/v20210301:getWebAppPublicCertificate", args ?? new GetWebAppPublicCertificateInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebAppPublicCertificateResult>("azure-native:web/v20210301:getWebAppPublicCertificate", args ?? new GetWebAppPublicCertificateInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Media.V20180330Preview
         /// A Media Services account.
         /// </summary>
         public static Task<GetMediaServiceResult> InvokeAsync(GetMediaServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMediaServiceResult>("azure-native:media/v20180330preview:getMediaService", args ?? new GetMediaServiceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMediaServiceResult>("azure-native:media/v20180330preview:getMediaService", args ?? new GetMediaServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// A Media Services account.
         /// </summary>
         public static Output<GetMediaServiceResult> Invoke(GetMediaServiceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMediaServiceResult>("azure-native:media/v20180330preview:getMediaService", args ?? new GetMediaServiceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMediaServiceResult>("azure-native:media/v20180330preview:getMediaService", args ?? new GetMediaServiceInvokeArgs(), options.WithDefaults());
     }
 
 

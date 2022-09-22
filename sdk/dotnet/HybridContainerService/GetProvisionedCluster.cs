@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.HybridContainerService
         /// API Version: 2022-05-01-preview.
         /// </summary>
         public static Task<GetProvisionedClusterResult> InvokeAsync(GetProvisionedClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProvisionedClusterResult>("azure-native:hybridcontainerservice:getProvisionedCluster", args ?? new GetProvisionedClusterArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetProvisionedClusterResult>("azure-native:hybridcontainerservice:getProvisionedCluster", args ?? new GetProvisionedClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// The provisionedClusters resource definition.
         /// API Version: 2022-05-01-preview.
         /// </summary>
         public static Output<GetProvisionedClusterResult> Invoke(GetProvisionedClusterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProvisionedClusterResult>("azure-native:hybridcontainerservice:getProvisionedCluster", args ?? new GetProvisionedClusterInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetProvisionedClusterResult>("azure-native:hybridcontainerservice:getProvisionedCluster", args ?? new GetProvisionedClusterInvokeArgs(), options.WithDefaults());
     }
 
 

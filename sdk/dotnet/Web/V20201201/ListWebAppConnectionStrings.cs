@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20201201
         /// String dictionary resource.
         /// </summary>
         public static Task<ListWebAppConnectionStringsResult> InvokeAsync(ListWebAppConnectionStringsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppConnectionStringsResult>("azure-native:web/v20201201:listWebAppConnectionStrings", args ?? new ListWebAppConnectionStringsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppConnectionStringsResult>("azure-native:web/v20201201:listWebAppConnectionStrings", args ?? new ListWebAppConnectionStringsArgs(), options.WithDefaults());
 
         /// <summary>
         /// String dictionary resource.
         /// </summary>
         public static Output<ListWebAppConnectionStringsResult> Invoke(ListWebAppConnectionStringsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListWebAppConnectionStringsResult>("azure-native:web/v20201201:listWebAppConnectionStrings", args ?? new ListWebAppConnectionStringsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListWebAppConnectionStringsResult>("azure-native:web/v20201201:listWebAppConnectionStrings", args ?? new ListWebAppConnectionStringsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.DevCenter
         /// API Version: 2022-09-01-preview.
         /// </summary>
         public static Task<GetAttachedNetworkByDevCenterResult> InvokeAsync(GetAttachedNetworkByDevCenterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAttachedNetworkByDevCenterResult>("azure-native:devcenter:getAttachedNetworkByDevCenter", args ?? new GetAttachedNetworkByDevCenterArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAttachedNetworkByDevCenterResult>("azure-native:devcenter:getAttachedNetworkByDevCenter", args ?? new GetAttachedNetworkByDevCenterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents an attached NetworkConnection.
         /// API Version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetAttachedNetworkByDevCenterResult> Invoke(GetAttachedNetworkByDevCenterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAttachedNetworkByDevCenterResult>("azure-native:devcenter:getAttachedNetworkByDevCenter", args ?? new GetAttachedNetworkByDevCenterInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAttachedNetworkByDevCenterResult>("azure-native:devcenter:getAttachedNetworkByDevCenter", args ?? new GetAttachedNetworkByDevCenterInvokeArgs(), options.WithDefaults());
     }
 
 

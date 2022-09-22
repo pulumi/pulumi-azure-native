@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Resources.V20160201
         /// Resource information.
         /// </summary>
         public static Task<GetResourceResult> InvokeAsync(GetResourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceResult>("azure-native:resources/v20160201:getResource", args ?? new GetResourceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceResult>("azure-native:resources/v20160201:getResource", args ?? new GetResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource information.
         /// </summary>
         public static Output<GetResourceResult> Invoke(GetResourceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetResourceResult>("azure-native:resources/v20160201:getResource", args ?? new GetResourceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourceResult>("azure-native:resources/v20160201:getResource", args ?? new GetResourceInvokeArgs(), options.WithDefaults());
     }
 
 

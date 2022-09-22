@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
         /// The SAS response that contains the storage account, container and associated SAS token for connection use.
         /// </summary>
         public static Task<ListStorageAccountSasTokensResult> InvokeAsync(ListStorageAccountSasTokensArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountSasTokensResult>("azure-native:datalakeanalytics/v20161101:listStorageAccountSasTokens", args ?? new ListStorageAccountSasTokensArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountSasTokensResult>("azure-native:datalakeanalytics/v20161101:listStorageAccountSasTokens", args ?? new ListStorageAccountSasTokensArgs(), options.WithDefaults());
 
         /// <summary>
         /// The SAS response that contains the storage account, container and associated SAS token for connection use.
         /// </summary>
         public static Output<ListStorageAccountSasTokensResult> Invoke(ListStorageAccountSasTokensInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListStorageAccountSasTokensResult>("azure-native:datalakeanalytics/v20161101:listStorageAccountSasTokens", args ?? new ListStorageAccountSasTokensInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListStorageAccountSasTokensResult>("azure-native:datalakeanalytics/v20161101:listStorageAccountSasTokens", args ?? new ListStorageAccountSasTokensInvokeArgs(), options.WithDefaults());
     }
 
 

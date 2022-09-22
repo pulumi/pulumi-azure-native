@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetMachineLearningComputeResult> InvokeAsync(GetMachineLearningComputeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMachineLearningComputeResult>("azure-native:machinelearningservices:getMachineLearningCompute", args ?? new GetMachineLearningComputeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMachineLearningComputeResult>("azure-native:machinelearningservices:getMachineLearningCompute", args ?? new GetMachineLearningComputeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Machine Learning compute object wrapped into ARM resource envelope.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<GetMachineLearningComputeResult> Invoke(GetMachineLearningComputeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMachineLearningComputeResult>("azure-native:machinelearningservices:getMachineLearningCompute", args ?? new GetMachineLearningComputeInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMachineLearningComputeResult>("azure-native:machinelearningservices:getMachineLearningCompute", args ?? new GetMachineLearningComputeInvokeArgs(), options.WithDefaults());
     }
 
 

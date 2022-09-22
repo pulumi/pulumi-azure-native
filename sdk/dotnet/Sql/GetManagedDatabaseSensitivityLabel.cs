@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Sql
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetManagedDatabaseSensitivityLabelResult> InvokeAsync(GetManagedDatabaseSensitivityLabelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedDatabaseSensitivityLabelResult>("azure-native:sql:getManagedDatabaseSensitivityLabel", args ?? new GetManagedDatabaseSensitivityLabelArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedDatabaseSensitivityLabelResult>("azure-native:sql:getManagedDatabaseSensitivityLabel", args ?? new GetManagedDatabaseSensitivityLabelArgs(), options.WithDefaults());
 
         /// <summary>
         /// A sensitivity label.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Output<GetManagedDatabaseSensitivityLabelResult> Invoke(GetManagedDatabaseSensitivityLabelInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagedDatabaseSensitivityLabelResult>("azure-native:sql:getManagedDatabaseSensitivityLabel", args ?? new GetManagedDatabaseSensitivityLabelInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedDatabaseSensitivityLabelResult>("azure-native:sql:getManagedDatabaseSensitivityLabel", args ?? new GetManagedDatabaseSensitivityLabelInvokeArgs(), options.WithDefaults());
     }
 
 

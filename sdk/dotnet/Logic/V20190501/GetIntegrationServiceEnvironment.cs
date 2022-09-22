@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Logic.V20190501
         /// The integration service environment.
         /// </summary>
         public static Task<GetIntegrationServiceEnvironmentResult> InvokeAsync(GetIntegrationServiceEnvironmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationServiceEnvironmentResult>("azure-native:logic/v20190501:getIntegrationServiceEnvironment", args ?? new GetIntegrationServiceEnvironmentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationServiceEnvironmentResult>("azure-native:logic/v20190501:getIntegrationServiceEnvironment", args ?? new GetIntegrationServiceEnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// The integration service environment.
         /// </summary>
         public static Output<GetIntegrationServiceEnvironmentResult> Invoke(GetIntegrationServiceEnvironmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIntegrationServiceEnvironmentResult>("azure-native:logic/v20190501:getIntegrationServiceEnvironment", args ?? new GetIntegrationServiceEnvironmentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationServiceEnvironmentResult>("azure-native:logic/v20190501:getIntegrationServiceEnvironment", args ?? new GetIntegrationServiceEnvironmentInvokeArgs(), options.WithDefaults());
     }
 
 

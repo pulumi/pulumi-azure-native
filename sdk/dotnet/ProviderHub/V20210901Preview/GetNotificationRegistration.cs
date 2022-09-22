@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ProviderHub.V20210901Preview
         /// The notification registration definition.
         /// </summary>
         public static Task<GetNotificationRegistrationResult> InvokeAsync(GetNotificationRegistrationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNotificationRegistrationResult>("azure-native:providerhub/v20210901preview:getNotificationRegistration", args ?? new GetNotificationRegistrationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNotificationRegistrationResult>("azure-native:providerhub/v20210901preview:getNotificationRegistration", args ?? new GetNotificationRegistrationArgs(), options.WithDefaults());
 
         /// <summary>
         /// The notification registration definition.
         /// </summary>
         public static Output<GetNotificationRegistrationResult> Invoke(GetNotificationRegistrationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNotificationRegistrationResult>("azure-native:providerhub/v20210901preview:getNotificationRegistration", args ?? new GetNotificationRegistrationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNotificationRegistrationResult>("azure-native:providerhub/v20210901preview:getNotificationRegistration", args ?? new GetNotificationRegistrationInvokeArgs(), options.WithDefaults());
     }
 
 

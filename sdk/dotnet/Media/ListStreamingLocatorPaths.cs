@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Media
         /// API Version: 2020-05-01.
         /// </summary>
         public static Task<ListStreamingLocatorPathsResult> InvokeAsync(ListStreamingLocatorPathsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListStreamingLocatorPathsResult>("azure-native:media:listStreamingLocatorPaths", args ?? new ListStreamingLocatorPathsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListStreamingLocatorPathsResult>("azure-native:media:listStreamingLocatorPaths", args ?? new ListStreamingLocatorPathsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Class of response for listPaths action
         /// API Version: 2020-05-01.
         /// </summary>
         public static Output<ListStreamingLocatorPathsResult> Invoke(ListStreamingLocatorPathsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListStreamingLocatorPathsResult>("azure-native:media:listStreamingLocatorPaths", args ?? new ListStreamingLocatorPathsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListStreamingLocatorPathsResult>("azure-native:media:listStreamingLocatorPaths", args ?? new ListStreamingLocatorPathsInvokeArgs(), options.WithDefaults());
     }
 
 

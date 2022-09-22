@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Devices.V20170701
         /// The description of the IoT hub.
         /// </summary>
         public static Task<GetIotHubResourceResult> InvokeAsync(GetIotHubResourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIotHubResourceResult>("azure-native:devices/v20170701:getIotHubResource", args ?? new GetIotHubResourceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIotHubResourceResult>("azure-native:devices/v20170701:getIotHubResource", args ?? new GetIotHubResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// The description of the IoT hub.
         /// </summary>
         public static Output<GetIotHubResourceResult> Invoke(GetIotHubResourceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIotHubResourceResult>("azure-native:devices/v20170701:getIotHubResource", args ?? new GetIotHubResourceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIotHubResourceResult>("azure-native:devices/v20170701:getIotHubResource", args ?? new GetIotHubResourceInvokeArgs(), options.WithDefaults());
     }
 
 

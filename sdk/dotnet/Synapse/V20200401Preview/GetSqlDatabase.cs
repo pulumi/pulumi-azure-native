@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
         /// A sql database resource.
         /// </summary>
         public static Task<GetSqlDatabaseResult> InvokeAsync(GetSqlDatabaseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlDatabaseResult>("azure-native:synapse/v20200401preview:getSqlDatabase", args ?? new GetSqlDatabaseArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlDatabaseResult>("azure-native:synapse/v20200401preview:getSqlDatabase", args ?? new GetSqlDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// A sql database resource.
         /// </summary>
         public static Output<GetSqlDatabaseResult> Invoke(GetSqlDatabaseInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSqlDatabaseResult>("azure-native:synapse/v20200401preview:getSqlDatabase", args ?? new GetSqlDatabaseInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlDatabaseResult>("azure-native:synapse/v20200401preview:getSqlDatabase", args ?? new GetSqlDatabaseInvokeArgs(), options.WithDefaults());
     }
 
 

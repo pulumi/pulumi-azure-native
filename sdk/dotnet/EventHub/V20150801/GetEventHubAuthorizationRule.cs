@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.EventHub.V20150801
         /// Single item in a List or Get AuthorizationRule operation
         /// </summary>
         public static Task<GetEventHubAuthorizationRuleResult> InvokeAsync(GetEventHubAuthorizationRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventHubAuthorizationRuleResult>("azure-native:eventhub/v20150801:getEventHubAuthorizationRule", args ?? new GetEventHubAuthorizationRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventHubAuthorizationRuleResult>("azure-native:eventhub/v20150801:getEventHubAuthorizationRule", args ?? new GetEventHubAuthorizationRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Single item in a List or Get AuthorizationRule operation
         /// </summary>
         public static Output<GetEventHubAuthorizationRuleResult> Invoke(GetEventHubAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEventHubAuthorizationRuleResult>("azure-native:eventhub/v20150801:getEventHubAuthorizationRule", args ?? new GetEventHubAuthorizationRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEventHubAuthorizationRuleResult>("azure-native:eventhub/v20150801:getEventHubAuthorizationRule", args ?? new GetEventHubAuthorizationRuleInvokeArgs(), options.WithDefaults());
     }
 
 

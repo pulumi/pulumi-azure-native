@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.EdgeOrder.V20211201
         /// Address Resource.
         /// </summary>
         public static Task<GetAddressByNameResult> InvokeAsync(GetAddressByNameArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAddressByNameResult>("azure-native:edgeorder/v20211201:getAddressByName", args ?? new GetAddressByNameArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAddressByNameResult>("azure-native:edgeorder/v20211201:getAddressByName", args ?? new GetAddressByNameArgs(), options.WithDefaults());
 
         /// <summary>
         /// Address Resource.
         /// </summary>
         public static Output<GetAddressByNameResult> Invoke(GetAddressByNameInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAddressByNameResult>("azure-native:edgeorder/v20211201:getAddressByName", args ?? new GetAddressByNameInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAddressByNameResult>("azure-native:edgeorder/v20211201:getAddressByName", args ?? new GetAddressByNameInvokeArgs(), options.WithDefaults());
     }
 
 

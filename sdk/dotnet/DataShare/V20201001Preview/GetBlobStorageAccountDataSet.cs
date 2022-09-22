@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         /// An Azure blob storage account data set.
         /// </summary>
         public static Task<GetBlobStorageAccountDataSetResult> InvokeAsync(GetBlobStorageAccountDataSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBlobStorageAccountDataSetResult>("azure-native:datashare/v20201001preview:getBlobStorageAccountDataSet", args ?? new GetBlobStorageAccountDataSetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBlobStorageAccountDataSetResult>("azure-native:datashare/v20201001preview:getBlobStorageAccountDataSet", args ?? new GetBlobStorageAccountDataSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure blob storage account data set.
         /// </summary>
         public static Output<GetBlobStorageAccountDataSetResult> Invoke(GetBlobStorageAccountDataSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBlobStorageAccountDataSetResult>("azure-native:datashare/v20201001preview:getBlobStorageAccountDataSet", args ?? new GetBlobStorageAccountDataSetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBlobStorageAccountDataSetResult>("azure-native:datashare/v20201001preview:getBlobStorageAccountDataSet", args ?? new GetBlobStorageAccountDataSetInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Network.V20161201
         /// Subnet in a virtual network resource.
         /// </summary>
         public static Task<GetSubnetResult> InvokeAsync(GetSubnetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetResult>("azure-native:network/v20161201:getSubnet", args ?? new GetSubnetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubnetResult>("azure-native:network/v20161201:getSubnet", args ?? new GetSubnetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Subnet in a virtual network resource.
         /// </summary>
         public static Output<GetSubnetResult> Invoke(GetSubnetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSubnetResult>("azure-native:network/v20161201:getSubnet", args ?? new GetSubnetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSubnetResult>("azure-native:network/v20161201:getSubnet", args ?? new GetSubnetInvokeArgs(), options.WithDefaults());
     }
 
 

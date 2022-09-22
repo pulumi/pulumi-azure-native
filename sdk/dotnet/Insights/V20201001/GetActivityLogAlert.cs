@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Insights.V20201001
         /// An Activity Log Alert rule resource.
         /// </summary>
         public static Task<GetActivityLogAlertResult> InvokeAsync(GetActivityLogAlertArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetActivityLogAlertResult>("azure-native:insights/v20201001:getActivityLogAlert", args ?? new GetActivityLogAlertArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetActivityLogAlertResult>("azure-native:insights/v20201001:getActivityLogAlert", args ?? new GetActivityLogAlertArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Activity Log Alert rule resource.
         /// </summary>
         public static Output<GetActivityLogAlertResult> Invoke(GetActivityLogAlertInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetActivityLogAlertResult>("azure-native:insights/v20201001:getActivityLogAlert", args ?? new GetActivityLogAlertInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetActivityLogAlertResult>("azure-native:insights/v20201001:getActivityLogAlert", args ?? new GetActivityLogAlertInvokeArgs(), options.WithDefaults());
     }
 
 

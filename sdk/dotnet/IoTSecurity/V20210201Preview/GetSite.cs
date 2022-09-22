@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.IoTSecurity.V20210201Preview
         /// IoT site model
         /// </summary>
         public static Task<GetSiteResult> InvokeAsync(GetSiteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteResult>("azure-native:iotsecurity/v20210201preview:getSite", args ?? new GetSiteArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSiteResult>("azure-native:iotsecurity/v20210201preview:getSite", args ?? new GetSiteArgs(), options.WithDefaults());
 
         /// <summary>
         /// IoT site model
         /// </summary>
         public static Output<GetSiteResult> Invoke(GetSiteInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSiteResult>("azure-native:iotsecurity/v20210201preview:getSite", args ?? new GetSiteInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSiteResult>("azure-native:iotsecurity/v20210201preview:getSite", args ?? new GetSiteInvokeArgs(), options.WithDefaults());
     }
 
 

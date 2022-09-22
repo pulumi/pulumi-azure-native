@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.CostManagement.V20201201Preview
         /// An export resource.
         /// </summary>
         public static Task<GetExportResult> InvokeAsync(GetExportArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExportResult>("azure-native:costmanagement/v20201201preview:getExport", args ?? new GetExportArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetExportResult>("azure-native:costmanagement/v20201201preview:getExport", args ?? new GetExportArgs(), options.WithDefaults());
 
         /// <summary>
         /// An export resource.
         /// </summary>
         public static Output<GetExportResult> Invoke(GetExportInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetExportResult>("azure-native:costmanagement/v20201201preview:getExport", args ?? new GetExportInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetExportResult>("azure-native:costmanagement/v20201201preview:getExport", args ?? new GetExportInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -12,10 +12,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220101Preview
     public static class ListWorkspaceStorageAccountKeys
     {
         public static Task<ListWorkspaceStorageAccountKeysResult> InvokeAsync(ListWorkspaceStorageAccountKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceStorageAccountKeysResult>("azure-native:machinelearningservices/v20220101preview:listWorkspaceStorageAccountKeys", args ?? new ListWorkspaceStorageAccountKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceStorageAccountKeysResult>("azure-native:machinelearningservices/v20220101preview:listWorkspaceStorageAccountKeys", args ?? new ListWorkspaceStorageAccountKeysArgs(), options.WithDefaults());
 
         public static Output<ListWorkspaceStorageAccountKeysResult> Invoke(ListWorkspaceStorageAccountKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListWorkspaceStorageAccountKeysResult>("azure-native:machinelearningservices/v20220101preview:listWorkspaceStorageAccountKeys", args ?? new ListWorkspaceStorageAccountKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListWorkspaceStorageAccountKeysResult>("azure-native:machinelearningservices/v20220101preview:listWorkspaceStorageAccountKeys", args ?? new ListWorkspaceStorageAccountKeysInvokeArgs(), options.WithDefaults());
     }
 
 

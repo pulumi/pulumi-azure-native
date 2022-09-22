@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Task<GetPacketCoreDataPlaneResult> InvokeAsync(GetPacketCoreDataPlaneArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPacketCoreDataPlaneResult>("azure-native:mobilenetwork:getPacketCoreDataPlane", args ?? new GetPacketCoreDataPlaneArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPacketCoreDataPlaneResult>("azure-native:mobilenetwork:getPacketCoreDataPlane", args ?? new GetPacketCoreDataPlaneArgs(), options.WithDefaults());
 
         /// <summary>
         /// Packet core data plane resource.
         /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Output<GetPacketCoreDataPlaneResult> Invoke(GetPacketCoreDataPlaneInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPacketCoreDataPlaneResult>("azure-native:mobilenetwork:getPacketCoreDataPlane", args ?? new GetPacketCoreDataPlaneInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPacketCoreDataPlaneResult>("azure-native:mobilenetwork:getPacketCoreDataPlane", args ?? new GetPacketCoreDataPlaneInvokeArgs(), options.WithDefaults());
     }
 
 

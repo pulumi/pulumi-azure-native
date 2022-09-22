@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.AVS.V20211201
         /// ExpressRoute Circuit Authorization
         /// </summary>
         public static Task<GetAuthorizationResult> InvokeAsync(GetAuthorizationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationResult>("azure-native:avs/v20211201:getAuthorization", args ?? new GetAuthorizationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationResult>("azure-native:avs/v20211201:getAuthorization", args ?? new GetAuthorizationArgs(), options.WithDefaults());
 
         /// <summary>
         /// ExpressRoute Circuit Authorization
         /// </summary>
         public static Output<GetAuthorizationResult> Invoke(GetAuthorizationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAuthorizationResult>("azure-native:avs/v20211201:getAuthorization", args ?? new GetAuthorizationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizationResult>("azure-native:avs/v20211201:getAuthorization", args ?? new GetAuthorizationInvokeArgs(), options.WithDefaults());
     }
 
 

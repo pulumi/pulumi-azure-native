@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
         /// Contract details.
         /// </summary>
         public static Task<GetTagDescriptionResult> InvokeAsync(GetTagDescriptionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTagDescriptionResult>("azure-native:apimanagement/v20180101:getTagDescription", args ?? new GetTagDescriptionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTagDescriptionResult>("azure-native:apimanagement/v20180101:getTagDescription", args ?? new GetTagDescriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Contract details.
         /// </summary>
         public static Output<GetTagDescriptionResult> Invoke(GetTagDescriptionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTagDescriptionResult>("azure-native:apimanagement/v20180101:getTagDescription", args ?? new GetTagDescriptionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTagDescriptionResult>("azure-native:apimanagement/v20180101:getTagDescription", args ?? new GetTagDescriptionInvokeArgs(), options.WithDefaults());
     }
 
 

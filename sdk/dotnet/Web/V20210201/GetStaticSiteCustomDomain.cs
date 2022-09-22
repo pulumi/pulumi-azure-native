@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20210201
         /// Static Site Custom Domain Overview ARM resource.
         /// </summary>
         public static Task<GetStaticSiteCustomDomainResult> InvokeAsync(GetStaticSiteCustomDomainArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStaticSiteCustomDomainResult>("azure-native:web/v20210201:getStaticSiteCustomDomain", args ?? new GetStaticSiteCustomDomainArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStaticSiteCustomDomainResult>("azure-native:web/v20210201:getStaticSiteCustomDomain", args ?? new GetStaticSiteCustomDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// Static Site Custom Domain Overview ARM resource.
         /// </summary>
         public static Output<GetStaticSiteCustomDomainResult> Invoke(GetStaticSiteCustomDomainInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStaticSiteCustomDomainResult>("azure-native:web/v20210201:getStaticSiteCustomDomain", args ?? new GetStaticSiteCustomDomainInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetStaticSiteCustomDomainResult>("azure-native:web/v20210201:getStaticSiteCustomDomain", args ?? new GetStaticSiteCustomDomainInvokeArgs(), options.WithDefaults());
     }
 
 

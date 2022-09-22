@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.LabServices.V20211001Preview
         /// User of a lab that can register for and use virtual machines within the lab.
         /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure-native:labservices/v20211001preview:getUser", args ?? new GetUserArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure-native:labservices/v20211001preview:getUser", args ?? new GetUserArgs(), options.WithDefaults());
 
         /// <summary>
         /// User of a lab that can register for and use virtual machines within the lab.
         /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetUserResult>("azure-native:labservices/v20211001preview:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("azure-native:labservices/v20211001preview:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
     }
 
 

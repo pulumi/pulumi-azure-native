@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Security
         /// API Version: 2020-01-01-preview.
         /// </summary>
         public static Task<GetSecurityContactResult> InvokeAsync(GetSecurityContactArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityContactResult>("azure-native:security:getSecurityContact", args ?? new GetSecurityContactArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityContactResult>("azure-native:security:getSecurityContact", args ?? new GetSecurityContactArgs(), options.WithDefaults());
 
         /// <summary>
         /// Contact details and configurations for notifications coming from Microsoft Defender for Cloud.
         /// API Version: 2020-01-01-preview.
         /// </summary>
         public static Output<GetSecurityContactResult> Invoke(GetSecurityContactInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSecurityContactResult>("azure-native:security:getSecurityContact", args ?? new GetSecurityContactInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecurityContactResult>("azure-native:security:getSecurityContact", args ?? new GetSecurityContactInvokeArgs(), options.WithDefaults());
     }
 
 

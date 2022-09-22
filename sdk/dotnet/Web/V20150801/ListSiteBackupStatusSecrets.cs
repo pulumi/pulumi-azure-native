@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// Backup description
         /// </summary>
         public static Task<ListSiteBackupStatusSecretsResult> InvokeAsync(ListSiteBackupStatusSecretsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSiteBackupStatusSecretsResult>("azure-native:web/v20150801:listSiteBackupStatusSecrets", args ?? new ListSiteBackupStatusSecretsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListSiteBackupStatusSecretsResult>("azure-native:web/v20150801:listSiteBackupStatusSecrets", args ?? new ListSiteBackupStatusSecretsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Backup description
         /// </summary>
         public static Output<ListSiteBackupStatusSecretsResult> Invoke(ListSiteBackupStatusSecretsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListSiteBackupStatusSecretsResult>("azure-native:web/v20150801:listSiteBackupStatusSecrets", args ?? new ListSiteBackupStatusSecretsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListSiteBackupStatusSecretsResult>("azure-native:web/v20150801:listSiteBackupStatusSecrets", args ?? new ListSiteBackupStatusSecretsInvokeArgs(), options.WithDefaults());
     }
 
 

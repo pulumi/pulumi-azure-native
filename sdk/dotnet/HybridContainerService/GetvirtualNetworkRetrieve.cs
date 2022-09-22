@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.HybridContainerService
         /// API Version: 2022-05-01-preview.
         /// </summary>
         public static Task<GetvirtualNetworkRetrieveResult> InvokeAsync(GetvirtualNetworkRetrieveArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetvirtualNetworkRetrieveResult>("azure-native:hybridcontainerservice:getvirtualNetworkRetrieve", args ?? new GetvirtualNetworkRetrieveArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetvirtualNetworkRetrieveResult>("azure-native:hybridcontainerservice:getvirtualNetworkRetrieve", args ?? new GetvirtualNetworkRetrieveArgs(), options.WithDefaults());
 
         /// <summary>
         /// The virtualNetworks resource definition.
         /// API Version: 2022-05-01-preview.
         /// </summary>
         public static Output<GetvirtualNetworkRetrieveResult> Invoke(GetvirtualNetworkRetrieveInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetvirtualNetworkRetrieveResult>("azure-native:hybridcontainerservice:getvirtualNetworkRetrieve", args ?? new GetvirtualNetworkRetrieveInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetvirtualNetworkRetrieveResult>("azure-native:hybridcontainerservice:getvirtualNetworkRetrieve", args ?? new GetvirtualNetworkRetrieveInvokeArgs(), options.WithDefaults());
     }
 
 

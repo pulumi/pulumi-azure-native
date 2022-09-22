@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Cache.V20150801
         /// The response of Redis list keys operation.
         /// </summary>
         public static Task<ListRedisKeysResult> InvokeAsync(ListRedisKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListRedisKeysResult>("azure-native:cache/v20150801:listRedisKeys", args ?? new ListRedisKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListRedisKeysResult>("azure-native:cache/v20150801:listRedisKeys", args ?? new ListRedisKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// The response of Redis list keys operation.
         /// </summary>
         public static Output<ListRedisKeysResult> Invoke(ListRedisKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListRedisKeysResult>("azure-native:cache/v20150801:listRedisKeys", args ?? new ListRedisKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListRedisKeysResult>("azure-native:cache/v20150801:listRedisKeys", args ?? new ListRedisKeysInvokeArgs(), options.WithDefaults());
     }
 
 

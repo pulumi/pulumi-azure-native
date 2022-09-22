@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         /// The exposure control response.
         /// </summary>
         public static Task<GetExposureControlFeatureValueByFactoryResult> InvokeAsync(GetExposureControlFeatureValueByFactoryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExposureControlFeatureValueByFactoryResult>("azure-native:datafactory/v20180601:getExposureControlFeatureValueByFactory", args ?? new GetExposureControlFeatureValueByFactoryArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetExposureControlFeatureValueByFactoryResult>("azure-native:datafactory/v20180601:getExposureControlFeatureValueByFactory", args ?? new GetExposureControlFeatureValueByFactoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// The exposure control response.
         /// </summary>
         public static Output<GetExposureControlFeatureValueByFactoryResult> Invoke(GetExposureControlFeatureValueByFactoryInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetExposureControlFeatureValueByFactoryResult>("azure-native:datafactory/v20180601:getExposureControlFeatureValueByFactory", args ?? new GetExposureControlFeatureValueByFactoryInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetExposureControlFeatureValueByFactoryResult>("azure-native:datafactory/v20180601:getExposureControlFeatureValueByFactory", args ?? new GetExposureControlFeatureValueByFactoryInvokeArgs(), options.WithDefaults());
     }
 
 

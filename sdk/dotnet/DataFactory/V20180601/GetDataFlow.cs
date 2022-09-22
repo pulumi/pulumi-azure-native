@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         /// Data flow resource type.
         /// </summary>
         public static Task<GetDataFlowResult> InvokeAsync(GetDataFlowArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataFlowResult>("azure-native:datafactory/v20180601:getDataFlow", args ?? new GetDataFlowArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataFlowResult>("azure-native:datafactory/v20180601:getDataFlow", args ?? new GetDataFlowArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data flow resource type.
         /// </summary>
         public static Output<GetDataFlowResult> Invoke(GetDataFlowInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDataFlowResult>("azure-native:datafactory/v20180601:getDataFlow", args ?? new GetDataFlowInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataFlowResult>("azure-native:datafactory/v20180601:getDataFlow", args ?? new GetDataFlowInvokeArgs(), options.WithDefaults());
     }
 
 

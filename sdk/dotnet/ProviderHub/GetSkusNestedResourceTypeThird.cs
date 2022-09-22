@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.ProviderHub
         /// API Version: 2020-11-20.
         /// </summary>
         public static Task<GetSkusNestedResourceTypeThirdResult> InvokeAsync(GetSkusNestedResourceTypeThirdArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSkusNestedResourceTypeThirdResult>("azure-native:providerhub:getSkusNestedResourceTypeThird", args ?? new GetSkusNestedResourceTypeThirdArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSkusNestedResourceTypeThirdResult>("azure-native:providerhub:getSkusNestedResourceTypeThird", args ?? new GetSkusNestedResourceTypeThirdArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
         /// API Version: 2020-11-20.
         /// </summary>
         public static Output<GetSkusNestedResourceTypeThirdResult> Invoke(GetSkusNestedResourceTypeThirdInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSkusNestedResourceTypeThirdResult>("azure-native:providerhub:getSkusNestedResourceTypeThird", args ?? new GetSkusNestedResourceTypeThirdInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSkusNestedResourceTypeThirdResult>("azure-native:providerhub:getSkusNestedResourceTypeThird", args ?? new GetSkusNestedResourceTypeThirdInvokeArgs(), options.WithDefaults());
     }
 
 

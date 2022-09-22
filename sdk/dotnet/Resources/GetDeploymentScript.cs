@@ -17,14 +17,14 @@ namespace Pulumi.AzureNative.Resources
         /// API Version: 2020-10-01.
         /// </summary>
         public static Task<GetDeploymentScriptResult> InvokeAsync(GetDeploymentScriptArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentScriptResult>("azure-native:resources:getDeploymentScript", args ?? new GetDeploymentScriptArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentScriptResult>("azure-native:resources:getDeploymentScript", args ?? new GetDeploymentScriptArgs(), options.WithDefaults());
 
         /// <summary>
         /// Deployment script object.
         /// API Version: 2020-10-01.
         /// </summary>
         public static Output<GetDeploymentScriptResult> Invoke(GetDeploymentScriptInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDeploymentScriptResult>("azure-native:resources:getDeploymentScript", args ?? new GetDeploymentScriptInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentScriptResult>("azure-native:resources:getDeploymentScript", args ?? new GetDeploymentScriptInvokeArgs(), options.WithDefaults());
     }
 
 

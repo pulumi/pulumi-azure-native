@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview
         /// Event Grid Partner Topic.
         /// </summary>
         public static Task<GetPartnerTopicResult> InvokeAsync(GetPartnerTopicArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerTopicResult>("azure-native:eventgrid/v20211015preview:getPartnerTopic", args ?? new GetPartnerTopicArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPartnerTopicResult>("azure-native:eventgrid/v20211015preview:getPartnerTopic", args ?? new GetPartnerTopicArgs(), options.WithDefaults());
 
         /// <summary>
         /// Event Grid Partner Topic.
         /// </summary>
         public static Output<GetPartnerTopicResult> Invoke(GetPartnerTopicInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPartnerTopicResult>("azure-native:eventgrid/v20211015preview:getPartnerTopic", args ?? new GetPartnerTopicInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPartnerTopicResult>("azure-native:eventgrid/v20211015preview:getPartnerTopic", args ?? new GetPartnerTopicInvokeArgs(), options.WithDefaults());
     }
 
 

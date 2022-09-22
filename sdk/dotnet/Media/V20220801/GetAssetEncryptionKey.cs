@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Media.V20220801
         /// Data needed to decrypt asset files encrypted with legacy storage encryption.
         /// </summary>
         public static Task<GetAssetEncryptionKeyResult> InvokeAsync(GetAssetEncryptionKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAssetEncryptionKeyResult>("azure-native:media/v20220801:getAssetEncryptionKey", args ?? new GetAssetEncryptionKeyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssetEncryptionKeyResult>("azure-native:media/v20220801:getAssetEncryptionKey", args ?? new GetAssetEncryptionKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data needed to decrypt asset files encrypted with legacy storage encryption.
         /// </summary>
         public static Output<GetAssetEncryptionKeyResult> Invoke(GetAssetEncryptionKeyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAssetEncryptionKeyResult>("azure-native:media/v20220801:getAssetEncryptionKey", args ?? new GetAssetEncryptionKeyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAssetEncryptionKeyResult>("azure-native:media/v20220801:getAssetEncryptionKey", args ?? new GetAssetEncryptionKeyInvokeArgs(), options.WithDefaults());
     }
 
 

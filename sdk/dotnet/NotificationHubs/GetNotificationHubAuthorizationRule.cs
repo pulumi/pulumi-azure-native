@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.NotificationHubs
         /// API Version: 2017-04-01.
         /// </summary>
         public static Task<GetNotificationHubAuthorizationRuleResult> InvokeAsync(GetNotificationHubAuthorizationRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNotificationHubAuthorizationRuleResult>("azure-native:notificationhubs:getNotificationHubAuthorizationRule", args ?? new GetNotificationHubAuthorizationRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNotificationHubAuthorizationRuleResult>("azure-native:notificationhubs:getNotificationHubAuthorizationRule", args ?? new GetNotificationHubAuthorizationRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description of a Namespace AuthorizationRules.
         /// API Version: 2017-04-01.
         /// </summary>
         public static Output<GetNotificationHubAuthorizationRuleResult> Invoke(GetNotificationHubAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNotificationHubAuthorizationRuleResult>("azure-native:notificationhubs:getNotificationHubAuthorizationRule", args ?? new GetNotificationHubAuthorizationRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNotificationHubAuthorizationRuleResult>("azure-native:notificationhubs:getNotificationHubAuthorizationRule", args ?? new GetNotificationHubAuthorizationRuleInvokeArgs(), options.WithDefaults());
     }
 
 

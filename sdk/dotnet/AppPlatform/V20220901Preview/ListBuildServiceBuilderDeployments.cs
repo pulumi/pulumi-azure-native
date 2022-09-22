@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.AppPlatform.V20220901Preview
         /// A list of deployments resource ids.
         /// </summary>
         public static Task<ListBuildServiceBuilderDeploymentsResult> InvokeAsync(ListBuildServiceBuilderDeploymentsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListBuildServiceBuilderDeploymentsResult>("azure-native:appplatform/v20220901preview:listBuildServiceBuilderDeployments", args ?? new ListBuildServiceBuilderDeploymentsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListBuildServiceBuilderDeploymentsResult>("azure-native:appplatform/v20220901preview:listBuildServiceBuilderDeployments", args ?? new ListBuildServiceBuilderDeploymentsArgs(), options.WithDefaults());
 
         /// <summary>
         /// A list of deployments resource ids.
         /// </summary>
         public static Output<ListBuildServiceBuilderDeploymentsResult> Invoke(ListBuildServiceBuilderDeploymentsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListBuildServiceBuilderDeploymentsResult>("azure-native:appplatform/v20220901preview:listBuildServiceBuilderDeployments", args ?? new ListBuildServiceBuilderDeploymentsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListBuildServiceBuilderDeploymentsResult>("azure-native:appplatform/v20220901preview:listBuildServiceBuilderDeployments", args ?? new ListBuildServiceBuilderDeploymentsInvokeArgs(), options.WithDefaults());
     }
 
 

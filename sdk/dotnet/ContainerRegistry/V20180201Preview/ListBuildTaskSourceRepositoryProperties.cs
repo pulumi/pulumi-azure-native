@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview
         /// The properties of the source code repository.
         /// </summary>
         public static Task<ListBuildTaskSourceRepositoryPropertiesResult> InvokeAsync(ListBuildTaskSourceRepositoryPropertiesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListBuildTaskSourceRepositoryPropertiesResult>("azure-native:containerregistry/v20180201preview:listBuildTaskSourceRepositoryProperties", args ?? new ListBuildTaskSourceRepositoryPropertiesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListBuildTaskSourceRepositoryPropertiesResult>("azure-native:containerregistry/v20180201preview:listBuildTaskSourceRepositoryProperties", args ?? new ListBuildTaskSourceRepositoryPropertiesArgs(), options.WithDefaults());
 
         /// <summary>
         /// The properties of the source code repository.
         /// </summary>
         public static Output<ListBuildTaskSourceRepositoryPropertiesResult> Invoke(ListBuildTaskSourceRepositoryPropertiesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListBuildTaskSourceRepositoryPropertiesResult>("azure-native:containerregistry/v20180201preview:listBuildTaskSourceRepositoryProperties", args ?? new ListBuildTaskSourceRepositoryPropertiesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListBuildTaskSourceRepositoryPropertiesResult>("azure-native:containerregistry/v20180201preview:listBuildTaskSourceRepositoryProperties", args ?? new ListBuildTaskSourceRepositoryPropertiesInvokeArgs(), options.WithDefaults());
     }
 
 

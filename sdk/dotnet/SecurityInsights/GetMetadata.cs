@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Task<GetMetadataResult> InvokeAsync(GetMetadataArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMetadataResult>("azure-native:securityinsights:getMetadata", args ?? new GetMetadataArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMetadataResult>("azure-native:securityinsights:getMetadata", args ?? new GetMetadataArgs(), options.WithDefaults());
 
         /// <summary>
         /// Metadata resource definition.
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Output<GetMetadataResult> Invoke(GetMetadataInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMetadataResult>("azure-native:securityinsights:getMetadata", args ?? new GetMetadataInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMetadataResult>("azure-native:securityinsights:getMetadata", args ?? new GetMetadataInvokeArgs(), options.WithDefaults());
     }
 
 

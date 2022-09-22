@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ServiceBus.V20210601Preview
         /// Namespace/ServiceBus Connection String
         /// </summary>
         public static Task<ListTopicKeysResult> InvokeAsync(ListTopicKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListTopicKeysResult>("azure-native:servicebus/v20210601preview:listTopicKeys", args ?? new ListTopicKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListTopicKeysResult>("azure-native:servicebus/v20210601preview:listTopicKeys", args ?? new ListTopicKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Namespace/ServiceBus Connection String
         /// </summary>
         public static Output<ListTopicKeysResult> Invoke(ListTopicKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListTopicKeysResult>("azure-native:servicebus/v20210601preview:listTopicKeys", args ?? new ListTopicKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListTopicKeysResult>("azure-native:servicebus/v20210601preview:listTopicKeys", args ?? new ListTopicKeysInvokeArgs(), options.WithDefaults());
     }
 
 

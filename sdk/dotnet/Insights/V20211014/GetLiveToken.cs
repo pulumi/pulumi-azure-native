@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Insights.V20211014
         /// The response to a live token query.
         /// </summary>
         public static Task<GetLiveTokenResult> InvokeAsync(GetLiveTokenArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLiveTokenResult>("azure-native:insights/v20211014:getLiveToken", args ?? new GetLiveTokenArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLiveTokenResult>("azure-native:insights/v20211014:getLiveToken", args ?? new GetLiveTokenArgs(), options.WithDefaults());
 
         /// <summary>
         /// The response to a live token query.
         /// </summary>
         public static Output<GetLiveTokenResult> Invoke(GetLiveTokenInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLiveTokenResult>("azure-native:insights/v20211014:getLiveToken", args ?? new GetLiveTokenInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLiveTokenResult>("azure-native:insights/v20211014:getLiveToken", args ?? new GetLiveTokenInvokeArgs(), options.WithDefaults());
     }
 
 

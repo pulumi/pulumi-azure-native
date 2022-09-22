@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
         /// An ADLS Gen 1 folder data set.
         /// </summary>
         public static Task<GetADLSGen1FolderDataSetResult> InvokeAsync(GetADLSGen1FolderDataSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetADLSGen1FolderDataSetResult>("azure-native:datashare/v20181101preview:getADLSGen1FolderDataSet", args ?? new GetADLSGen1FolderDataSetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetADLSGen1FolderDataSetResult>("azure-native:datashare/v20181101preview:getADLSGen1FolderDataSet", args ?? new GetADLSGen1FolderDataSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// An ADLS Gen 1 folder data set.
         /// </summary>
         public static Output<GetADLSGen1FolderDataSetResult> Invoke(GetADLSGen1FolderDataSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetADLSGen1FolderDataSetResult>("azure-native:datashare/v20181101preview:getADLSGen1FolderDataSet", args ?? new GetADLSGen1FolderDataSetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetADLSGen1FolderDataSetResult>("azure-native:datashare/v20181101preview:getADLSGen1FolderDataSet", args ?? new GetADLSGen1FolderDataSetInvokeArgs(), options.WithDefaults());
     }
 
 

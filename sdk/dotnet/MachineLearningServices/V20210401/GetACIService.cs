@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210401
         /// Machine Learning service object wrapped into ARM resource envelope.
         /// </summary>
         public static Task<GetACIServiceResult> InvokeAsync(GetACIServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetACIServiceResult>("azure-native:machinelearningservices/v20210401:getACIService", args ?? new GetACIServiceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetACIServiceResult>("azure-native:machinelearningservices/v20210401:getACIService", args ?? new GetACIServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Machine Learning service object wrapped into ARM resource envelope.
         /// </summary>
         public static Output<GetACIServiceResult> Invoke(GetACIServiceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetACIServiceResult>("azure-native:machinelearningservices/v20210401:getACIService", args ?? new GetACIServiceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetACIServiceResult>("azure-native:machinelearningservices/v20210401:getACIService", args ?? new GetACIServiceInvokeArgs(), options.WithDefaults());
     }
 
 

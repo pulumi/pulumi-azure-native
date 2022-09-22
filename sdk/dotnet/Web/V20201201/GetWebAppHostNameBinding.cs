@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20201201
         /// A hostname binding object.
         /// </summary>
         public static Task<GetWebAppHostNameBindingResult> InvokeAsync(GetWebAppHostNameBindingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppHostNameBindingResult>("azure-native:web/v20201201:getWebAppHostNameBinding", args ?? new GetWebAppHostNameBindingArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppHostNameBindingResult>("azure-native:web/v20201201:getWebAppHostNameBinding", args ?? new GetWebAppHostNameBindingArgs(), options.WithDefaults());
 
         /// <summary>
         /// A hostname binding object.
         /// </summary>
         public static Output<GetWebAppHostNameBindingResult> Invoke(GetWebAppHostNameBindingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWebAppHostNameBindingResult>("azure-native:web/v20201201:getWebAppHostNameBinding", args ?? new GetWebAppHostNameBindingInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebAppHostNameBindingResult>("azure-native:web/v20201201:getWebAppHostNameBinding", args ?? new GetWebAppHostNameBindingInvokeArgs(), options.WithDefaults());
     }
 
 

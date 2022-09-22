@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
         /// The shared keys for a workspace.
         /// </summary>
         public static Task<GetSharedKeysResult> InvokeAsync(GetSharedKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSharedKeysResult>("azure-native:operationalinsights/v20200801:getSharedKeys", args ?? new GetSharedKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSharedKeysResult>("azure-native:operationalinsights/v20200801:getSharedKeys", args ?? new GetSharedKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// The shared keys for a workspace.
         /// </summary>
         public static Output<GetSharedKeysResult> Invoke(GetSharedKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSharedKeysResult>("azure-native:operationalinsights/v20200801:getSharedKeys", args ?? new GetSharedKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSharedKeysResult>("azure-native:operationalinsights/v20200801:getSharedKeys", args ?? new GetSharedKeysInvokeArgs(), options.WithDefaults());
     }
 
 

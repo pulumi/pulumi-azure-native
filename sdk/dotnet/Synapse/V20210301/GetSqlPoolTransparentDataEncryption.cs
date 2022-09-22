@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Synapse.V20210301
         /// Represents a Sql pool transparent data encryption configuration.
         /// </summary>
         public static Task<GetSqlPoolTransparentDataEncryptionResult> InvokeAsync(GetSqlPoolTransparentDataEncryptionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolTransparentDataEncryptionResult>("azure-native:synapse/v20210301:getSqlPoolTransparentDataEncryption", args ?? new GetSqlPoolTransparentDataEncryptionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolTransparentDataEncryptionResult>("azure-native:synapse/v20210301:getSqlPoolTransparentDataEncryption", args ?? new GetSqlPoolTransparentDataEncryptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a Sql pool transparent data encryption configuration.
         /// </summary>
         public static Output<GetSqlPoolTransparentDataEncryptionResult> Invoke(GetSqlPoolTransparentDataEncryptionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSqlPoolTransparentDataEncryptionResult>("azure-native:synapse/v20210301:getSqlPoolTransparentDataEncryption", args ?? new GetSqlPoolTransparentDataEncryptionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlPoolTransparentDataEncryptionResult>("azure-native:synapse/v20210301:getSqlPoolTransparentDataEncryption", args ?? new GetSqlPoolTransparentDataEncryptionInvokeArgs(), options.WithDefaults());
     }
 
 

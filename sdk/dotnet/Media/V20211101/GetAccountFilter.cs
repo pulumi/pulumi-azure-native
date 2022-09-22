@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Media.V20211101
         /// An Account Filter.
         /// </summary>
         public static Task<GetAccountFilterResult> InvokeAsync(GetAccountFilterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountFilterResult>("azure-native:media/v20211101:getAccountFilter", args ?? new GetAccountFilterArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountFilterResult>("azure-native:media/v20211101:getAccountFilter", args ?? new GetAccountFilterArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Account Filter.
         /// </summary>
         public static Output<GetAccountFilterResult> Invoke(GetAccountFilterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAccountFilterResult>("azure-native:media/v20211101:getAccountFilter", args ?? new GetAccountFilterInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccountFilterResult>("azure-native:media/v20211101:getAccountFilter", args ?? new GetAccountFilterInvokeArgs(), options.WithDefaults());
     }
 
 

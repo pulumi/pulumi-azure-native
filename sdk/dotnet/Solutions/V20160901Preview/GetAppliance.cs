@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Solutions.V20160901Preview
         /// Information about appliance.
         /// </summary>
         public static Task<GetApplianceResult> InvokeAsync(GetApplianceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplianceResult>("azure-native:solutions/v20160901preview:getAppliance", args ?? new GetApplianceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplianceResult>("azure-native:solutions/v20160901preview:getAppliance", args ?? new GetApplianceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Information about appliance.
         /// </summary>
         public static Output<GetApplianceResult> Invoke(GetApplianceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApplianceResult>("azure-native:solutions/v20160901preview:getAppliance", args ?? new GetApplianceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplianceResult>("azure-native:solutions/v20160901preview:getAppliance", args ?? new GetApplianceInvokeArgs(), options.WithDefaults());
     }
 
 

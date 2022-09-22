@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.SoftwarePlan.V20190601Preview
         /// Response on GET of a hybrid use benefit
         /// </summary>
         public static Task<GetHybridUseBenefitResult> InvokeAsync(GetHybridUseBenefitArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHybridUseBenefitResult>("azure-native:softwareplan/v20190601preview:getHybridUseBenefit", args ?? new GetHybridUseBenefitArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetHybridUseBenefitResult>("azure-native:softwareplan/v20190601preview:getHybridUseBenefit", args ?? new GetHybridUseBenefitArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response on GET of a hybrid use benefit
         /// </summary>
         public static Output<GetHybridUseBenefitResult> Invoke(GetHybridUseBenefitInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetHybridUseBenefitResult>("azure-native:softwareplan/v20190601preview:getHybridUseBenefit", args ?? new GetHybridUseBenefitInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetHybridUseBenefitResult>("azure-native:softwareplan/v20190601preview:getHybridUseBenefit", args ?? new GetHybridUseBenefitInvokeArgs(), options.WithDefaults());
     }
 
 

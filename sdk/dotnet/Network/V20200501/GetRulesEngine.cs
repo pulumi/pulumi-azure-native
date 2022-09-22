@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20200501
         /// A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
         /// </summary>
         public static Task<GetRulesEngineResult> InvokeAsync(GetRulesEngineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRulesEngineResult>("azure-native:network/v20200501:getRulesEngine", args ?? new GetRulesEngineArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRulesEngineResult>("azure-native:network/v20200501:getRulesEngine", args ?? new GetRulesEngineArgs(), options.WithDefaults());
 
         /// <summary>
         /// A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
         /// </summary>
         public static Output<GetRulesEngineResult> Invoke(GetRulesEngineInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRulesEngineResult>("azure-native:network/v20200501:getRulesEngine", args ?? new GetRulesEngineInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRulesEngineResult>("azure-native:network/v20200501:getRulesEngine", args ?? new GetRulesEngineInvokeArgs(), options.WithDefaults());
     }
 
 

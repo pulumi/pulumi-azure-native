@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         /// The file server.
         /// </summary>
         public static Task<GetFileServerResult> InvokeAsync(GetFileServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFileServerResult>("azure-native:storsimple/v20161001:getFileServer", args ?? new GetFileServerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFileServerResult>("azure-native:storsimple/v20161001:getFileServer", args ?? new GetFileServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// The file server.
         /// </summary>
         public static Output<GetFileServerResult> Invoke(GetFileServerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFileServerResult>("azure-native:storsimple/v20161001:getFileServer", args ?? new GetFileServerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFileServerResult>("azure-native:storsimple/v20161001:getFileServer", args ?? new GetFileServerInvokeArgs(), options.WithDefaults());
     }
 
 

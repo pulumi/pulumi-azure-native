@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.HDInsight.V20210601
         /// Gateway settings.
         /// </summary>
         public static Task<GetClusterGatewaySettingsResult> InvokeAsync(GetClusterGatewaySettingsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterGatewaySettingsResult>("azure-native:hdinsight/v20210601:getClusterGatewaySettings", args ?? new GetClusterGatewaySettingsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterGatewaySettingsResult>("azure-native:hdinsight/v20210601:getClusterGatewaySettings", args ?? new GetClusterGatewaySettingsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gateway settings.
         /// </summary>
         public static Output<GetClusterGatewaySettingsResult> Invoke(GetClusterGatewaySettingsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetClusterGatewaySettingsResult>("azure-native:hdinsight/v20210601:getClusterGatewaySettings", args ?? new GetClusterGatewaySettingsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetClusterGatewaySettingsResult>("azure-native:hdinsight/v20210601:getClusterGatewaySettings", args ?? new GetClusterGatewaySettingsInvokeArgs(), options.WithDefaults());
     }
 
 

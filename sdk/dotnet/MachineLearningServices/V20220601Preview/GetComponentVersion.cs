@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
         /// Azure Resource Manager resource envelope.
         /// </summary>
         public static Task<GetComponentVersionResult> InvokeAsync(GetComponentVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetComponentVersionResult>("azure-native:machinelearningservices/v20220601preview:getComponentVersion", args ?? new GetComponentVersionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetComponentVersionResult>("azure-native:machinelearningservices/v20220601preview:getComponentVersion", args ?? new GetComponentVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
         /// </summary>
         public static Output<GetComponentVersionResult> Invoke(GetComponentVersionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetComponentVersionResult>("azure-native:machinelearningservices/v20220601preview:getComponentVersion", args ?? new GetComponentVersionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetComponentVersionResult>("azure-native:machinelearningservices/v20220601preview:getComponentVersion", args ?? new GetComponentVersionInvokeArgs(), options.WithDefaults());
     }
 
 

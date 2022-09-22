@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview
         /// An Azure SQL Database server.
         /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-native:sql/v20210501preview:getServer", args ?? new GetServerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-native:sql/v20210501preview:getServer", args ?? new GetServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure SQL Database server.
         /// </summary>
         public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServerResult>("azure-native:sql/v20210501preview:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerResult>("azure-native:sql/v20210501preview:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());
     }
 
 

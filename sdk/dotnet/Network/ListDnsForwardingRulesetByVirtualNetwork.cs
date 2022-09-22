@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2020-04-01-preview.
         /// </summary>
         public static Task<ListDnsForwardingRulesetByVirtualNetworkResult> InvokeAsync(ListDnsForwardingRulesetByVirtualNetworkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListDnsForwardingRulesetByVirtualNetworkResult>("azure-native:network:listDnsForwardingRulesetByVirtualNetwork", args ?? new ListDnsForwardingRulesetByVirtualNetworkArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListDnsForwardingRulesetByVirtualNetworkResult>("azure-native:network:listDnsForwardingRulesetByVirtualNetwork", args ?? new ListDnsForwardingRulesetByVirtualNetworkArgs(), options.WithDefaults());
 
         /// <summary>
         /// The response to an enumeration operation on Virtual Network DNS Forwarding Ruleset.
         /// API Version: 2020-04-01-preview.
         /// </summary>
         public static Output<ListDnsForwardingRulesetByVirtualNetworkResult> Invoke(ListDnsForwardingRulesetByVirtualNetworkInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListDnsForwardingRulesetByVirtualNetworkResult>("azure-native:network:listDnsForwardingRulesetByVirtualNetwork", args ?? new ListDnsForwardingRulesetByVirtualNetworkInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListDnsForwardingRulesetByVirtualNetworkResult>("azure-native:network:listDnsForwardingRulesetByVirtualNetwork", args ?? new ListDnsForwardingRulesetByVirtualNetworkInvokeArgs(), options.WithDefaults());
     }
 
 

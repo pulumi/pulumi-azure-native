@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
         /// Keys for endpoint authentication.
         /// </summary>
         public static Task<ListOnlineEndpointKeysResult> InvokeAsync(ListOnlineEndpointKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListOnlineEndpointKeysResult>("azure-native:machinelearningservices/v20220501:listOnlineEndpointKeys", args ?? new ListOnlineEndpointKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListOnlineEndpointKeysResult>("azure-native:machinelearningservices/v20220501:listOnlineEndpointKeys", args ?? new ListOnlineEndpointKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Keys for endpoint authentication.
         /// </summary>
         public static Output<ListOnlineEndpointKeysResult> Invoke(ListOnlineEndpointKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListOnlineEndpointKeysResult>("azure-native:machinelearningservices/v20220501:listOnlineEndpointKeys", args ?? new ListOnlineEndpointKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListOnlineEndpointKeysResult>("azure-native:machinelearningservices/v20220501:listOnlineEndpointKeys", args ?? new ListOnlineEndpointKeysInvokeArgs(), options.WithDefaults());
     }
 
 

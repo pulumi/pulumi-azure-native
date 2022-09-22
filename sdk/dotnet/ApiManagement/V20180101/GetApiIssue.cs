@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
         /// Issue Contract details.
         /// </summary>
         public static Task<GetApiIssueResult> InvokeAsync(GetApiIssueArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApiIssueResult>("azure-native:apimanagement/v20180101:getApiIssue", args ?? new GetApiIssueArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiIssueResult>("azure-native:apimanagement/v20180101:getApiIssue", args ?? new GetApiIssueArgs(), options.WithDefaults());
 
         /// <summary>
         /// Issue Contract details.
         /// </summary>
         public static Output<GetApiIssueResult> Invoke(GetApiIssueInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApiIssueResult>("azure-native:apimanagement/v20180101:getApiIssue", args ?? new GetApiIssueInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetApiIssueResult>("azure-native:apimanagement/v20180101:getApiIssue", args ?? new GetApiIssueInvokeArgs(), options.WithDefaults());
     }
 
 

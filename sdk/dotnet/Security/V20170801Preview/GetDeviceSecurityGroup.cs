@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
         /// The device security group resource
         /// </summary>
         public static Task<GetDeviceSecurityGroupResult> InvokeAsync(GetDeviceSecurityGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceSecurityGroupResult>("azure-native:security/v20170801preview:getDeviceSecurityGroup", args ?? new GetDeviceSecurityGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeviceSecurityGroupResult>("azure-native:security/v20170801preview:getDeviceSecurityGroup", args ?? new GetDeviceSecurityGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// The device security group resource
         /// </summary>
         public static Output<GetDeviceSecurityGroupResult> Invoke(GetDeviceSecurityGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDeviceSecurityGroupResult>("azure-native:security/v20170801preview:getDeviceSecurityGroup", args ?? new GetDeviceSecurityGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeviceSecurityGroupResult>("azure-native:security/v20170801preview:getDeviceSecurityGroup", args ?? new GetDeviceSecurityGroupInvokeArgs(), options.WithDefaults());
     }
 
 

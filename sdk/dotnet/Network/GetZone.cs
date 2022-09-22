@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2018-05-01.
         /// </summary>
         public static Task<GetZoneResult> InvokeAsync(GetZoneArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetZoneResult>("azure-native:network:getZone", args ?? new GetZoneArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetZoneResult>("azure-native:network:getZone", args ?? new GetZoneArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes a DNS zone.
         /// API Version: 2018-05-01.
         /// </summary>
         public static Output<GetZoneResult> Invoke(GetZoneInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetZoneResult>("azure-native:network:getZone", args ?? new GetZoneInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetZoneResult>("azure-native:network:getZone", args ?? new GetZoneInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         /// A Synapse Workspace Sql Pool Table data set.
         /// </summary>
         public static Task<GetSynapseWorkspaceSqlPoolTableDataSetResult> InvokeAsync(GetSynapseWorkspaceSqlPoolTableDataSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSynapseWorkspaceSqlPoolTableDataSetResult>("azure-native:datashare/v20201001preview:getSynapseWorkspaceSqlPoolTableDataSet", args ?? new GetSynapseWorkspaceSqlPoolTableDataSetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSynapseWorkspaceSqlPoolTableDataSetResult>("azure-native:datashare/v20201001preview:getSynapseWorkspaceSqlPoolTableDataSet", args ?? new GetSynapseWorkspaceSqlPoolTableDataSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// A Synapse Workspace Sql Pool Table data set.
         /// </summary>
         public static Output<GetSynapseWorkspaceSqlPoolTableDataSetResult> Invoke(GetSynapseWorkspaceSqlPoolTableDataSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSynapseWorkspaceSqlPoolTableDataSetResult>("azure-native:datashare/v20201001preview:getSynapseWorkspaceSqlPoolTableDataSet", args ?? new GetSynapseWorkspaceSqlPoolTableDataSetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSynapseWorkspaceSqlPoolTableDataSetResult>("azure-native:datashare/v20201001preview:getSynapseWorkspaceSqlPoolTableDataSet", args ?? new GetSynapseWorkspaceSqlPoolTableDataSetInvokeArgs(), options.WithDefaults());
     }
 
 

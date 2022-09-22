@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20220101
         /// VpnServerConfiguration Resource.
         /// </summary>
         public static Task<GetVpnServerConfigurationResult> InvokeAsync(GetVpnServerConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVpnServerConfigurationResult>("azure-native:network/v20220101:getVpnServerConfiguration", args ?? new GetVpnServerConfigurationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpnServerConfigurationResult>("azure-native:network/v20220101:getVpnServerConfiguration", args ?? new GetVpnServerConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// VpnServerConfiguration Resource.
         /// </summary>
         public static Output<GetVpnServerConfigurationResult> Invoke(GetVpnServerConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVpnServerConfigurationResult>("azure-native:network/v20220101:getVpnServerConfiguration", args ?? new GetVpnServerConfigurationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVpnServerConfigurationResult>("azure-native:network/v20220101:getVpnServerConfiguration", args ?? new GetVpnServerConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

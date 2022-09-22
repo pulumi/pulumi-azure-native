@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         /// A custom image.
         /// </summary>
         public static Task<GetCustomImageResourceResult> InvokeAsync(GetCustomImageResourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomImageResourceResult>("azure-native:devtestlab/v20150521preview:getCustomImageResource", args ?? new GetCustomImageResourceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomImageResourceResult>("azure-native:devtestlab/v20150521preview:getCustomImageResource", args ?? new GetCustomImageResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// A custom image.
         /// </summary>
         public static Output<GetCustomImageResourceResult> Invoke(GetCustomImageResourceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCustomImageResourceResult>("azure-native:devtestlab/v20150521preview:getCustomImageResource", args ?? new GetCustomImageResourceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomImageResourceResult>("azure-native:devtestlab/v20150521preview:getCustomImageResource", args ?? new GetCustomImageResourceInvokeArgs(), options.WithDefaults());
     }
 
 

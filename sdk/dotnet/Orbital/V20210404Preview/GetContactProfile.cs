@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Orbital.V20210404Preview
         /// Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
         /// </summary>
         public static Task<GetContactProfileResult> InvokeAsync(GetContactProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetContactProfileResult>("azure-native:orbital/v20210404preview:getContactProfile", args ?? new GetContactProfileArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetContactProfileResult>("azure-native:orbital/v20210404preview:getContactProfile", args ?? new GetContactProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
         /// </summary>
         public static Output<GetContactProfileResult> Invoke(GetContactProfileInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetContactProfileResult>("azure-native:orbital/v20210404preview:getContactProfile", args ?? new GetContactProfileInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetContactProfileResult>("azure-native:orbital/v20210404preview:getContactProfile", args ?? new GetContactProfileInvokeArgs(), options.WithDefaults());
     }
 
 

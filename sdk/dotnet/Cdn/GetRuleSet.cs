@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Cdn
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetRuleSetResult> InvokeAsync(GetRuleSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRuleSetResult>("azure-native:cdn:getRuleSet", args ?? new GetRuleSetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRuleSetResult>("azure-native:cdn:getRuleSet", args ?? new GetRuleSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Friendly RuleSet name mapping to the any RuleSet or secret related information.
         /// API Version: 2020-09-01.
         /// </summary>
         public static Output<GetRuleSetResult> Invoke(GetRuleSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRuleSetResult>("azure-native:cdn:getRuleSet", args ?? new GetRuleSetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRuleSetResult>("azure-native:cdn:getRuleSet", args ?? new GetRuleSetInvokeArgs(), options.WithDefaults());
     }
 
 

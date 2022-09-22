@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
         /// The Private Endpoint Connection resource.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionsForMIPPolicySyncResult> InvokeAsync(GetPrivateEndpointConnectionsForMIPPolicySyncArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionsForMIPPolicySyncResult>("azure-native:m365securityandcompliance/v20210325preview:getPrivateEndpointConnectionsForMIPPolicySync", args ?? new GetPrivateEndpointConnectionsForMIPPolicySyncArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionsForMIPPolicySyncResult>("azure-native:m365securityandcompliance/v20210325preview:getPrivateEndpointConnectionsForMIPPolicySync", args ?? new GetPrivateEndpointConnectionsForMIPPolicySyncArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Private Endpoint Connection resource.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionsForMIPPolicySyncResult> Invoke(GetPrivateEndpointConnectionsForMIPPolicySyncInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionsForMIPPolicySyncResult>("azure-native:m365securityandcompliance/v20210325preview:getPrivateEndpointConnectionsForMIPPolicySync", args ?? new GetPrivateEndpointConnectionsForMIPPolicySyncInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionsForMIPPolicySyncResult>("azure-native:m365securityandcompliance/v20210325preview:getPrivateEndpointConnectionsForMIPPolicySync", args ?? new GetPrivateEndpointConnectionsForMIPPolicySyncInvokeArgs(), options.WithDefaults());
     }
 
 

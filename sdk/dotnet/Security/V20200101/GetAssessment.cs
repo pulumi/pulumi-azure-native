@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Security.V20200101
         /// Security assessment on a resource
         /// </summary>
         public static Task<GetAssessmentResult> InvokeAsync(GetAssessmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentResult>("azure-native:security/v20200101:getAssessment", args ?? new GetAssessmentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentResult>("azure-native:security/v20200101:getAssessment", args ?? new GetAssessmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Security assessment on a resource
         /// </summary>
         public static Output<GetAssessmentResult> Invoke(GetAssessmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAssessmentResult>("azure-native:security/v20200101:getAssessment", args ?? new GetAssessmentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentResult>("azure-native:security/v20200101:getAssessment", args ?? new GetAssessmentInvokeArgs(), options.WithDefaults());
     }
 
 

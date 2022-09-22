@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DocumentDB.V20210301Preview
         /// An Azure Cosmos DB Table.
         /// </summary>
         public static Task<GetTableResourceTableResult> InvokeAsync(GetTableResourceTableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTableResourceTableResult>("azure-native:documentdb/v20210301preview:getTableResourceTable", args ?? new GetTableResourceTableArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTableResourceTableResult>("azure-native:documentdb/v20210301preview:getTableResourceTable", args ?? new GetTableResourceTableArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure Cosmos DB Table.
         /// </summary>
         public static Output<GetTableResourceTableResult> Invoke(GetTableResourceTableInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTableResourceTableResult>("azure-native:documentdb/v20210301preview:getTableResourceTable", args ?? new GetTableResourceTableInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTableResourceTableResult>("azure-native:documentdb/v20210301preview:getTableResourceTable", args ?? new GetTableResourceTableInvokeArgs(), options.WithDefaults());
     }
 
 

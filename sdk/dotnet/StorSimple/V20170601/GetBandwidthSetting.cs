@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         /// The bandwidth setting.
         /// </summary>
         public static Task<GetBandwidthSettingResult> InvokeAsync(GetBandwidthSettingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBandwidthSettingResult>("azure-native:storsimple/v20170601:getBandwidthSetting", args ?? new GetBandwidthSettingArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBandwidthSettingResult>("azure-native:storsimple/v20170601:getBandwidthSetting", args ?? new GetBandwidthSettingArgs(), options.WithDefaults());
 
         /// <summary>
         /// The bandwidth setting.
         /// </summary>
         public static Output<GetBandwidthSettingResult> Invoke(GetBandwidthSettingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBandwidthSettingResult>("azure-native:storsimple/v20170601:getBandwidthSetting", args ?? new GetBandwidthSettingInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBandwidthSettingResult>("azure-native:storsimple/v20170601:getBandwidthSetting", args ?? new GetBandwidthSettingInvokeArgs(), options.WithDefaults());
     }
 
 

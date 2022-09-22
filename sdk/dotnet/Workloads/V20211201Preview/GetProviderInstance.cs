@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
         /// A provider instance associated with SAP monitor.
         /// </summary>
         public static Task<GetProviderInstanceResult> InvokeAsync(GetProviderInstanceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProviderInstanceResult>("azure-native:workloads/v20211201preview:getProviderInstance", args ?? new GetProviderInstanceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetProviderInstanceResult>("azure-native:workloads/v20211201preview:getProviderInstance", args ?? new GetProviderInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// A provider instance associated with SAP monitor.
         /// </summary>
         public static Output<GetProviderInstanceResult> Invoke(GetProviderInstanceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProviderInstanceResult>("azure-native:workloads/v20211201preview:getProviderInstance", args ?? new GetProviderInstanceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetProviderInstanceResult>("azure-native:workloads/v20211201preview:getProviderInstance", args ?? new GetProviderInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

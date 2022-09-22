@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601Preview
         /// Trigger details.
         /// </summary>
         public static Task<GetTriggerResult> InvokeAsync(GetTriggerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTriggerResult>("azure-native:databoxedge/v20210601preview:getTrigger", args ?? new GetTriggerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTriggerResult>("azure-native:databoxedge/v20210601preview:getTrigger", args ?? new GetTriggerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Trigger details.
         /// </summary>
         public static Output<GetTriggerResult> Invoke(GetTriggerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTriggerResult>("azure-native:databoxedge/v20210601preview:getTrigger", args ?? new GetTriggerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTriggerResult>("azure-native:databoxedge/v20210601preview:getTrigger", args ?? new GetTriggerInvokeArgs(), options.WithDefaults());
     }
 
 

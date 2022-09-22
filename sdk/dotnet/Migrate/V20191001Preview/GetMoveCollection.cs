@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Migrate.V20191001Preview
         /// Define the move collection.
         /// </summary>
         public static Task<GetMoveCollectionResult> InvokeAsync(GetMoveCollectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMoveCollectionResult>("azure-native:migrate/v20191001preview:getMoveCollection", args ?? new GetMoveCollectionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMoveCollectionResult>("azure-native:migrate/v20191001preview:getMoveCollection", args ?? new GetMoveCollectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Define the move collection.
         /// </summary>
         public static Output<GetMoveCollectionResult> Invoke(GetMoveCollectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMoveCollectionResult>("azure-native:migrate/v20191001preview:getMoveCollection", args ?? new GetMoveCollectionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMoveCollectionResult>("azure-native:migrate/v20191001preview:getMoveCollection", args ?? new GetMoveCollectionInvokeArgs(), options.WithDefaults());
     }
 
 

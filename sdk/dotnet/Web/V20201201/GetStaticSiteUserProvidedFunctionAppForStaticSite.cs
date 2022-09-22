@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20201201
         /// Static Site User Provided Function App ARM resource.
         /// </summary>
         public static Task<GetStaticSiteUserProvidedFunctionAppForStaticSiteResult> InvokeAsync(GetStaticSiteUserProvidedFunctionAppForStaticSiteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStaticSiteUserProvidedFunctionAppForStaticSiteResult>("azure-native:web/v20201201:getStaticSiteUserProvidedFunctionAppForStaticSite", args ?? new GetStaticSiteUserProvidedFunctionAppForStaticSiteArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStaticSiteUserProvidedFunctionAppForStaticSiteResult>("azure-native:web/v20201201:getStaticSiteUserProvidedFunctionAppForStaticSite", args ?? new GetStaticSiteUserProvidedFunctionAppForStaticSiteArgs(), options.WithDefaults());
 
         /// <summary>
         /// Static Site User Provided Function App ARM resource.
         /// </summary>
         public static Output<GetStaticSiteUserProvidedFunctionAppForStaticSiteResult> Invoke(GetStaticSiteUserProvidedFunctionAppForStaticSiteInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStaticSiteUserProvidedFunctionAppForStaticSiteResult>("azure-native:web/v20201201:getStaticSiteUserProvidedFunctionAppForStaticSite", args ?? new GetStaticSiteUserProvidedFunctionAppForStaticSiteInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetStaticSiteUserProvidedFunctionAppForStaticSiteResult>("azure-native:web/v20201201:getStaticSiteUserProvidedFunctionAppForStaticSite", args ?? new GetStaticSiteUserProvidedFunctionAppForStaticSiteInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.AppPlatform.V20201101Preview
         /// Service resource
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:appplatform/v20201101preview:getService", args ?? new GetServiceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:appplatform/v20201101preview:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Service resource
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:appplatform/v20201101preview:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:appplatform/v20201101preview:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
     }
 
 

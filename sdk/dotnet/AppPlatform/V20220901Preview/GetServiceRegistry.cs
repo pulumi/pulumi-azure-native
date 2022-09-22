@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.AppPlatform.V20220901Preview
         /// Service Registry resource
         /// </summary>
         public static Task<GetServiceRegistryResult> InvokeAsync(GetServiceRegistryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceRegistryResult>("azure-native:appplatform/v20220901preview:getServiceRegistry", args ?? new GetServiceRegistryArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceRegistryResult>("azure-native:appplatform/v20220901preview:getServiceRegistry", args ?? new GetServiceRegistryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Service Registry resource
         /// </summary>
         public static Output<GetServiceRegistryResult> Invoke(GetServiceRegistryInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServiceRegistryResult>("azure-native:appplatform/v20220901preview:getServiceRegistry", args ?? new GetServiceRegistryInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceRegistryResult>("azure-native:appplatform/v20220901preview:getServiceRegistry", args ?? new GetServiceRegistryInvokeArgs(), options.WithDefaults());
     }
 
 

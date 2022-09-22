@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// API Version: 2022-01-01-preview.
         /// </summary>
         public static Task<ListVendorSkusCredentialResult> InvokeAsync(ListVendorSkusCredentialArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListVendorSkusCredentialResult>("azure-native:hybridnetwork:listVendorSkusCredential", args ?? new ListVendorSkusCredentialArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListVendorSkusCredentialResult>("azure-native:hybridnetwork:listVendorSkusCredential", args ?? new ListVendorSkusCredentialArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Sku credential definition.
         /// API Version: 2022-01-01-preview.
         /// </summary>
         public static Output<ListVendorSkusCredentialResult> Invoke(ListVendorSkusCredentialInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListVendorSkusCredentialResult>("azure-native:hybridnetwork:listVendorSkusCredential", args ?? new ListVendorSkusCredentialInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListVendorSkusCredentialResult>("azure-native:hybridnetwork:listVendorSkusCredential", args ?? new ListVendorSkusCredentialInvokeArgs(), options.WithDefaults());
     }
 
 

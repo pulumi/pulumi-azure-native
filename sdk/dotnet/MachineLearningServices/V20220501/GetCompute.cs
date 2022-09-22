@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
         /// Machine Learning compute object wrapped into ARM resource envelope.
         /// </summary>
         public static Task<GetComputeResult> InvokeAsync(GetComputeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetComputeResult>("azure-native:machinelearningservices/v20220501:getCompute", args ?? new GetComputeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetComputeResult>("azure-native:machinelearningservices/v20220501:getCompute", args ?? new GetComputeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Machine Learning compute object wrapped into ARM resource envelope.
         /// </summary>
         public static Output<GetComputeResult> Invoke(GetComputeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetComputeResult>("azure-native:machinelearningservices/v20220501:getCompute", args ?? new GetComputeInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetComputeResult>("azure-native:machinelearningservices/v20220501:getCompute", args ?? new GetComputeInvokeArgs(), options.WithDefaults());
     }
 
 

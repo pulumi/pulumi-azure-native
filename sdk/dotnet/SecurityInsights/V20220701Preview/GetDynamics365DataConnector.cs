@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview
         /// Represents Dynamics365 data connector.
         /// </summary>
         public static Task<GetDynamics365DataConnectorResult> InvokeAsync(GetDynamics365DataConnectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDynamics365DataConnectorResult>("azure-native:securityinsights/v20220701preview:getDynamics365DataConnector", args ?? new GetDynamics365DataConnectorArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDynamics365DataConnectorResult>("azure-native:securityinsights/v20220701preview:getDynamics365DataConnector", args ?? new GetDynamics365DataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents Dynamics365 data connector.
         /// </summary>
         public static Output<GetDynamics365DataConnectorResult> Invoke(GetDynamics365DataConnectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDynamics365DataConnectorResult>("azure-native:securityinsights/v20220701preview:getDynamics365DataConnector", args ?? new GetDynamics365DataConnectorInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDynamics365DataConnectorResult>("azure-native:securityinsights/v20220701preview:getDynamics365DataConnector", args ?? new GetDynamics365DataConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

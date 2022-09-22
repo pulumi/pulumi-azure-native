@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// Represents a .rdp file
         /// </summary>
         public static Task<GetVirtualMachineRdpFileContentsResult> InvokeAsync(GetVirtualMachineRdpFileContentsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineRdpFileContentsResult>("azure-native:devtestlab/v20180915:getVirtualMachineRdpFileContents", args ?? new GetVirtualMachineRdpFileContentsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineRdpFileContentsResult>("azure-native:devtestlab/v20180915:getVirtualMachineRdpFileContents", args ?? new GetVirtualMachineRdpFileContentsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a .rdp file
         /// </summary>
         public static Output<GetVirtualMachineRdpFileContentsResult> Invoke(GetVirtualMachineRdpFileContentsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineRdpFileContentsResult>("azure-native:devtestlab/v20180915:getVirtualMachineRdpFileContents", args ?? new GetVirtualMachineRdpFileContentsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineRdpFileContentsResult>("azure-native:devtestlab/v20180915:getVirtualMachineRdpFileContents", args ?? new GetVirtualMachineRdpFileContentsInvokeArgs(), options.WithDefaults());
     }
 
 

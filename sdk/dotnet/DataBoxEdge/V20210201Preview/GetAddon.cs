@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201Preview
         /// Role Addon
         /// </summary>
         public static Task<GetAddonResult> InvokeAsync(GetAddonArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAddonResult>("azure-native:databoxedge/v20210201preview:getAddon", args ?? new GetAddonArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAddonResult>("azure-native:databoxedge/v20210201preview:getAddon", args ?? new GetAddonArgs(), options.WithDefaults());
 
         /// <summary>
         /// Role Addon
         /// </summary>
         public static Output<GetAddonResult> Invoke(GetAddonInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAddonResult>("azure-native:databoxedge/v20210201preview:getAddon", args ?? new GetAddonInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAddonResult>("azure-native:databoxedge/v20210201preview:getAddon", args ?? new GetAddonInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.HybridNetwork.V20200101Preview
         /// The device registration key.
         /// </summary>
         public static Task<ListDeviceRegistrationKeyResult> InvokeAsync(ListDeviceRegistrationKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListDeviceRegistrationKeyResult>("azure-native:hybridnetwork/v20200101preview:listDeviceRegistrationKey", args ?? new ListDeviceRegistrationKeyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListDeviceRegistrationKeyResult>("azure-native:hybridnetwork/v20200101preview:listDeviceRegistrationKey", args ?? new ListDeviceRegistrationKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// The device registration key.
         /// </summary>
         public static Output<ListDeviceRegistrationKeyResult> Invoke(ListDeviceRegistrationKeyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListDeviceRegistrationKeyResult>("azure-native:hybridnetwork/v20200101preview:listDeviceRegistrationKey", args ?? new ListDeviceRegistrationKeyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListDeviceRegistrationKeyResult>("azure-native:hybridnetwork/v20200101preview:listDeviceRegistrationKey", args ?? new ListDeviceRegistrationKeyInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210701
         /// Base class for backup ProtectionIntent.
         /// </summary>
         public static Task<GetProtectionIntentResult> InvokeAsync(GetProtectionIntentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProtectionIntentResult>("azure-native:recoveryservices/v20210701:getProtectionIntent", args ?? new GetProtectionIntentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetProtectionIntentResult>("azure-native:recoveryservices/v20210701:getProtectionIntent", args ?? new GetProtectionIntentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Base class for backup ProtectionIntent.
         /// </summary>
         public static Output<GetProtectionIntentResult> Invoke(GetProtectionIntentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProtectionIntentResult>("azure-native:recoveryservices/v20210701:getProtectionIntent", args ?? new GetProtectionIntentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetProtectionIntentResult>("azure-native:recoveryservices/v20210701:getProtectionIntent", args ?? new GetProtectionIntentInvokeArgs(), options.WithDefaults());
     }
 
 

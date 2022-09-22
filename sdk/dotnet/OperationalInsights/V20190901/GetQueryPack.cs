@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.OperationalInsights.V20190901
         /// An Log Analytics QueryPack definition.
         /// </summary>
         public static Task<GetQueryPackResult> InvokeAsync(GetQueryPackArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetQueryPackResult>("azure-native:operationalinsights/v20190901:getQueryPack", args ?? new GetQueryPackArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetQueryPackResult>("azure-native:operationalinsights/v20190901:getQueryPack", args ?? new GetQueryPackArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Log Analytics QueryPack definition.
         /// </summary>
         public static Output<GetQueryPackResult> Invoke(GetQueryPackInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetQueryPackResult>("azure-native:operationalinsights/v20190901:getQueryPack", args ?? new GetQueryPackInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetQueryPackResult>("azure-native:operationalinsights/v20190901:getQueryPack", args ?? new GetQueryPackInvokeArgs(), options.WithDefaults());
     }
 
 

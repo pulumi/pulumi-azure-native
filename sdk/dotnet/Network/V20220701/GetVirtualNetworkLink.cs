@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20220701
         /// Describes a virtual network link.
         /// </summary>
         public static Task<GetVirtualNetworkLinkResult> InvokeAsync(GetVirtualNetworkLinkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkLinkResult>("azure-native:network/v20220701:getVirtualNetworkLink", args ?? new GetVirtualNetworkLinkArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkLinkResult>("azure-native:network/v20220701:getVirtualNetworkLink", args ?? new GetVirtualNetworkLinkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes a virtual network link.
         /// </summary>
         public static Output<GetVirtualNetworkLinkResult> Invoke(GetVirtualNetworkLinkInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkLinkResult>("azure-native:network/v20220701:getVirtualNetworkLink", args ?? new GetVirtualNetworkLinkInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkLinkResult>("azure-native:network/v20220701:getVirtualNetworkLink", args ?? new GetVirtualNetworkLinkInvokeArgs(), options.WithDefaults());
     }
 
 

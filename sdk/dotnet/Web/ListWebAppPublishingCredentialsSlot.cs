@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Web
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<ListWebAppPublishingCredentialsSlotResult> InvokeAsync(ListWebAppPublishingCredentialsSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppPublishingCredentialsSlotResult>("azure-native:web:listWebAppPublishingCredentialsSlot", args ?? new ListWebAppPublishingCredentialsSlotArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppPublishingCredentialsSlotResult>("azure-native:web:listWebAppPublishingCredentialsSlot", args ?? new ListWebAppPublishingCredentialsSlotArgs(), options.WithDefaults());
 
         /// <summary>
         /// User credentials used for publishing activity.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<ListWebAppPublishingCredentialsSlotResult> Invoke(ListWebAppPublishingCredentialsSlotInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListWebAppPublishingCredentialsSlotResult>("azure-native:web:listWebAppPublishingCredentialsSlot", args ?? new ListWebAppPublishingCredentialsSlotInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListWebAppPublishingCredentialsSlotResult>("azure-native:web:listWebAppPublishingCredentialsSlot", args ?? new ListWebAppPublishingCredentialsSlotInvokeArgs(), options.WithDefaults());
     }
 
 

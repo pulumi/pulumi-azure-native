@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview
         /// Event Subscription
         /// </summary>
         public static Task<GetDomainTopicEventSubscriptionResult> InvokeAsync(GetDomainTopicEventSubscriptionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDomainTopicEventSubscriptionResult>("azure-native:eventgrid/v20211015preview:getDomainTopicEventSubscription", args ?? new GetDomainTopicEventSubscriptionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainTopicEventSubscriptionResult>("azure-native:eventgrid/v20211015preview:getDomainTopicEventSubscription", args ?? new GetDomainTopicEventSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Event Subscription
         /// </summary>
         public static Output<GetDomainTopicEventSubscriptionResult> Invoke(GetDomainTopicEventSubscriptionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDomainTopicEventSubscriptionResult>("azure-native:eventgrid/v20211015preview:getDomainTopicEventSubscription", args ?? new GetDomainTopicEventSubscriptionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDomainTopicEventSubscriptionResult>("azure-native:eventgrid/v20211015preview:getDomainTopicEventSubscription", args ?? new GetDomainTopicEventSubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 

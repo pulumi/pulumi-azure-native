@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Cdn.V20220501Preview
         /// AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
         /// </summary>
         public static Task<GetAFDOriginGroupResult> InvokeAsync(GetAFDOriginGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAFDOriginGroupResult>("azure-native:cdn/v20220501preview:getAFDOriginGroup", args ?? new GetAFDOriginGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAFDOriginGroupResult>("azure-native:cdn/v20220501preview:getAFDOriginGroup", args ?? new GetAFDOriginGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
         /// </summary>
         public static Output<GetAFDOriginGroupResult> Invoke(GetAFDOriginGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAFDOriginGroupResult>("azure-native:cdn/v20220501preview:getAFDOriginGroup", args ?? new GetAFDOriginGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAFDOriginGroupResult>("azure-native:cdn/v20220501preview:getAFDOriginGroup", args ?? new GetAFDOriginGroupInvokeArgs(), options.WithDefaults());
     }
 
 

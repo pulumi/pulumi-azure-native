@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Logic.V20160601
         /// The workflow trigger callback URL.
         /// </summary>
         public static Task<ListMapContentCallbackUrlResult> InvokeAsync(ListMapContentCallbackUrlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListMapContentCallbackUrlResult>("azure-native:logic/v20160601:listMapContentCallbackUrl", args ?? new ListMapContentCallbackUrlArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListMapContentCallbackUrlResult>("azure-native:logic/v20160601:listMapContentCallbackUrl", args ?? new ListMapContentCallbackUrlArgs(), options.WithDefaults());
 
         /// <summary>
         /// The workflow trigger callback URL.
         /// </summary>
         public static Output<ListMapContentCallbackUrlResult> Invoke(ListMapContentCallbackUrlInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListMapContentCallbackUrlResult>("azure-native:logic/v20160601:listMapContentCallbackUrl", args ?? new ListMapContentCallbackUrlInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListMapContentCallbackUrlResult>("azure-native:logic/v20160601:listMapContentCallbackUrl", args ?? new ListMapContentCallbackUrlInvokeArgs(), options.WithDefaults());
     }
 
 

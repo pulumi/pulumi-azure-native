@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20181101
         /// Site Extension Information.
         /// </summary>
         public static Task<GetWebAppSiteExtensionResult> InvokeAsync(GetWebAppSiteExtensionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSiteExtensionResult>("azure-native:web/v20181101:getWebAppSiteExtension", args ?? new GetWebAppSiteExtensionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSiteExtensionResult>("azure-native:web/v20181101:getWebAppSiteExtension", args ?? new GetWebAppSiteExtensionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Site Extension Information.
         /// </summary>
         public static Output<GetWebAppSiteExtensionResult> Invoke(GetWebAppSiteExtensionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWebAppSiteExtensionResult>("azure-native:web/v20181101:getWebAppSiteExtension", args ?? new GetWebAppSiteExtensionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSiteExtensionResult>("azure-native:web/v20181101:getWebAppSiteExtension", args ?? new GetWebAppSiteExtensionInvokeArgs(), options.WithDefaults());
     }
 
 

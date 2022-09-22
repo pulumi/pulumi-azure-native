@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
         /// Php workload resource
         /// </summary>
         public static Task<GetPhpWorkloadResult> InvokeAsync(GetPhpWorkloadArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPhpWorkloadResult>("azure-native:workloads/v20211201preview:getPhpWorkload", args ?? new GetPhpWorkloadArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPhpWorkloadResult>("azure-native:workloads/v20211201preview:getPhpWorkload", args ?? new GetPhpWorkloadArgs(), options.WithDefaults());
 
         /// <summary>
         /// Php workload resource
         /// </summary>
         public static Output<GetPhpWorkloadResult> Invoke(GetPhpWorkloadInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPhpWorkloadResult>("azure-native:workloads/v20211201preview:getPhpWorkload", args ?? new GetPhpWorkloadInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPhpWorkloadResult>("azure-native:workloads/v20211201preview:getPhpWorkload", args ?? new GetPhpWorkloadInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.StorageSync.V20170605Preview
         /// Server Endpoint object.
         /// </summary>
         public static Task<GetServerEndpointResult> InvokeAsync(GetServerEndpointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerEndpointResult>("azure-native:storagesync/v20170605preview:getServerEndpoint", args ?? new GetServerEndpointArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerEndpointResult>("azure-native:storagesync/v20170605preview:getServerEndpoint", args ?? new GetServerEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Server Endpoint object.
         /// </summary>
         public static Output<GetServerEndpointResult> Invoke(GetServerEndpointInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServerEndpointResult>("azure-native:storagesync/v20170605preview:getServerEndpoint", args ?? new GetServerEndpointInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerEndpointResult>("azure-native:storagesync/v20170605preview:getServerEndpoint", args ?? new GetServerEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

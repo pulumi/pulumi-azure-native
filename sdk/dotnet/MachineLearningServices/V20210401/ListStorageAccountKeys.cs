@@ -12,10 +12,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210401
     public static class ListStorageAccountKeys
     {
         public static Task<ListStorageAccountKeysResult> InvokeAsync(ListStorageAccountKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountKeysResult>("azure-native:machinelearningservices/v20210401:listStorageAccountKeys", args ?? new ListStorageAccountKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountKeysResult>("azure-native:machinelearningservices/v20210401:listStorageAccountKeys", args ?? new ListStorageAccountKeysArgs(), options.WithDefaults());
 
         public static Output<ListStorageAccountKeysResult> Invoke(ListStorageAccountKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListStorageAccountKeysResult>("azure-native:machinelearningservices/v20210401:listStorageAccountKeys", args ?? new ListStorageAccountKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListStorageAccountKeysResult>("azure-native:machinelearningservices/v20210401:listStorageAccountKeys", args ?? new ListStorageAccountKeysInvokeArgs(), options.WithDefaults());
     }
 
 

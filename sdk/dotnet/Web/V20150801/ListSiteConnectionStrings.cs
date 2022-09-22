@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// String dictionary resource
         /// </summary>
         public static Task<ListSiteConnectionStringsResult> InvokeAsync(ListSiteConnectionStringsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSiteConnectionStringsResult>("azure-native:web/v20150801:listSiteConnectionStrings", args ?? new ListSiteConnectionStringsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListSiteConnectionStringsResult>("azure-native:web/v20150801:listSiteConnectionStrings", args ?? new ListSiteConnectionStringsArgs(), options.WithDefaults());
 
         /// <summary>
         /// String dictionary resource
         /// </summary>
         public static Output<ListSiteConnectionStringsResult> Invoke(ListSiteConnectionStringsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListSiteConnectionStringsResult>("azure-native:web/v20150801:listSiteConnectionStrings", args ?? new ListSiteConnectionStringsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListSiteConnectionStringsResult>("azure-native:web/v20150801:listSiteConnectionStrings", args ?? new ListSiteConnectionStringsInvokeArgs(), options.WithDefaults());
     }
 
 

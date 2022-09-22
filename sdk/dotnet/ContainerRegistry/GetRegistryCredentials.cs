@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// API Version: 2016-06-27-preview.
         /// </summary>
         public static Task<GetRegistryCredentialsResult> InvokeAsync(GetRegistryCredentialsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistryCredentialsResult>("azure-native:containerregistry:getRegistryCredentials", args ?? new GetRegistryCredentialsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistryCredentialsResult>("azure-native:containerregistry:getRegistryCredentials", args ?? new GetRegistryCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
         /// The result of a request to get the administrator login credentials for a container registry.
         /// API Version: 2016-06-27-preview.
         /// </summary>
         public static Output<GetRegistryCredentialsResult> Invoke(GetRegistryCredentialsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRegistryCredentialsResult>("azure-native:containerregistry:getRegistryCredentials", args ?? new GetRegistryCredentialsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRegistryCredentialsResult>("azure-native:containerregistry:getRegistryCredentials", args ?? new GetRegistryCredentialsInvokeArgs(), options.WithDefaults());
     }
 
 

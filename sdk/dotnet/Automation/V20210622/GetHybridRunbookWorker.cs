@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Automation.V20210622
         /// Definition of hybrid runbook worker.
         /// </summary>
         public static Task<GetHybridRunbookWorkerResult> InvokeAsync(GetHybridRunbookWorkerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHybridRunbookWorkerResult>("azure-native:automation/v20210622:getHybridRunbookWorker", args ?? new GetHybridRunbookWorkerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetHybridRunbookWorkerResult>("azure-native:automation/v20210622:getHybridRunbookWorker", args ?? new GetHybridRunbookWorkerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of hybrid runbook worker.
         /// </summary>
         public static Output<GetHybridRunbookWorkerResult> Invoke(GetHybridRunbookWorkerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetHybridRunbookWorkerResult>("azure-native:automation/v20210622:getHybridRunbookWorker", args ?? new GetHybridRunbookWorkerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetHybridRunbookWorkerResult>("azure-native:automation/v20210622:getHybridRunbookWorker", args ?? new GetHybridRunbookWorkerInvokeArgs(), options.WithDefaults());
     }
 
 

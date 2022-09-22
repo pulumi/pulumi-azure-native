@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Communication.V20211001Preview
         /// A class representing an EmailService resource.
         /// </summary>
         public static Task<GetEmailServiceResult> InvokeAsync(GetEmailServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEmailServiceResult>("azure-native:communication/v20211001preview:getEmailService", args ?? new GetEmailServiceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEmailServiceResult>("azure-native:communication/v20211001preview:getEmailService", args ?? new GetEmailServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// A class representing an EmailService resource.
         /// </summary>
         public static Output<GetEmailServiceResult> Invoke(GetEmailServiceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEmailServiceResult>("azure-native:communication/v20211001preview:getEmailService", args ?? new GetEmailServiceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEmailServiceResult>("azure-native:communication/v20211001preview:getEmailService", args ?? new GetEmailServiceInvokeArgs(), options.WithDefaults());
     }
 
 

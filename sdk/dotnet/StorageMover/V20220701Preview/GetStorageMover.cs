@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.StorageMover.V20220701Preview
         /// The Storage Mover resource, which is a container for a group of Agents, Projects, and Endpoints.
         /// </summary>
         public static Task<GetStorageMoverResult> InvokeAsync(GetStorageMoverArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageMoverResult>("azure-native:storagemover/v20220701preview:getStorageMover", args ?? new GetStorageMoverArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageMoverResult>("azure-native:storagemover/v20220701preview:getStorageMover", args ?? new GetStorageMoverArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Storage Mover resource, which is a container for a group of Agents, Projects, and Endpoints.
         /// </summary>
         public static Output<GetStorageMoverResult> Invoke(GetStorageMoverInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStorageMoverResult>("azure-native:storagemover/v20220701preview:getStorageMover", args ?? new GetStorageMoverInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetStorageMoverResult>("azure-native:storagemover/v20220701preview:getStorageMover", args ?? new GetStorageMoverInvokeArgs(), options.WithDefaults());
     }
 
 

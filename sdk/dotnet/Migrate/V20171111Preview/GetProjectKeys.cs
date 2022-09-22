@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Migrate.V20171111Preview
         /// ID and Key for Migration Project.
         /// </summary>
         public static Task<GetProjectKeysResult> InvokeAsync(GetProjectKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProjectKeysResult>("azure-native:migrate/v20171111preview:getProjectKeys", args ?? new GetProjectKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetProjectKeysResult>("azure-native:migrate/v20171111preview:getProjectKeys", args ?? new GetProjectKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// ID and Key for Migration Project.
         /// </summary>
         public static Output<GetProjectKeysResult> Invoke(GetProjectKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProjectKeysResult>("azure-native:migrate/v20171111preview:getProjectKeys", args ?? new GetProjectKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetProjectKeysResult>("azure-native:migrate/v20171111preview:getProjectKeys", args ?? new GetProjectKeysInvokeArgs(), options.WithDefaults());
     }
 
 

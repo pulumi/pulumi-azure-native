@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.AVS
         /// API Version: 2020-07-17-preview.
         /// </summary>
         public static Task<GetWorkloadNetworkDnsZoneResult> InvokeAsync(GetWorkloadNetworkDnsZoneArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkDnsZoneResult>("azure-native:avs:getWorkloadNetworkDnsZone", args ?? new GetWorkloadNetworkDnsZoneArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkDnsZoneResult>("azure-native:avs:getWorkloadNetworkDnsZone", args ?? new GetWorkloadNetworkDnsZoneArgs(), options.WithDefaults());
 
         /// <summary>
         /// NSX DNS Zone
         /// API Version: 2020-07-17-preview.
         /// </summary>
         public static Output<GetWorkloadNetworkDnsZoneResult> Invoke(GetWorkloadNetworkDnsZoneInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkDnsZoneResult>("azure-native:avs:getWorkloadNetworkDnsZone", args ?? new GetWorkloadNetworkDnsZoneInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkDnsZoneResult>("azure-native:avs:getWorkloadNetworkDnsZone", args ?? new GetWorkloadNetworkDnsZoneInvokeArgs(), options.WithDefaults());
     }
 
 

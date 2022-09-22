@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Insights
         /// API Version: 2015-05-01.
         /// </summary>
         public static Task<GetComponentCurrentBillingFeatureResult> InvokeAsync(GetComponentCurrentBillingFeatureArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetComponentCurrentBillingFeatureResult>("azure-native:insights:getComponentCurrentBillingFeature", args ?? new GetComponentCurrentBillingFeatureArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetComponentCurrentBillingFeatureResult>("azure-native:insights:getComponentCurrentBillingFeature", args ?? new GetComponentCurrentBillingFeatureArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Application Insights component billing features
         /// API Version: 2015-05-01.
         /// </summary>
         public static Output<GetComponentCurrentBillingFeatureResult> Invoke(GetComponentCurrentBillingFeatureInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetComponentCurrentBillingFeatureResult>("azure-native:insights:getComponentCurrentBillingFeature", args ?? new GetComponentCurrentBillingFeatureInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetComponentCurrentBillingFeatureResult>("azure-native:insights:getComponentCurrentBillingFeature", args ?? new GetComponentCurrentBillingFeatureInvokeArgs(), options.WithDefaults());
     }
 
 

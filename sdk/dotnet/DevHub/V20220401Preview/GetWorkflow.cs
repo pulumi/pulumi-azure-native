@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DevHub.V20220401Preview
         /// Resource representation of a workflow
         /// </summary>
         public static Task<GetWorkflowResult> InvokeAsync(GetWorkflowArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkflowResult>("azure-native:devhub/v20220401preview:getWorkflow", args ?? new GetWorkflowArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkflowResult>("azure-native:devhub/v20220401preview:getWorkflow", args ?? new GetWorkflowArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource representation of a workflow
         /// </summary>
         public static Output<GetWorkflowResult> Invoke(GetWorkflowInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWorkflowResult>("azure-native:devhub/v20220401preview:getWorkflow", args ?? new GetWorkflowInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkflowResult>("azure-native:devhub/v20220401preview:getWorkflow", args ?? new GetWorkflowInvokeArgs(), options.WithDefaults());
     }
 
 

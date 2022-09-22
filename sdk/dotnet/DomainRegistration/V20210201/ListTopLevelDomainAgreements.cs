@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DomainRegistration.V20210201
         /// Collection of top-level domain legal agreements.
         /// </summary>
         public static Task<ListTopLevelDomainAgreementsResult> InvokeAsync(ListTopLevelDomainAgreementsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListTopLevelDomainAgreementsResult>("azure-native:domainregistration/v20210201:listTopLevelDomainAgreements", args ?? new ListTopLevelDomainAgreementsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListTopLevelDomainAgreementsResult>("azure-native:domainregistration/v20210201:listTopLevelDomainAgreements", args ?? new ListTopLevelDomainAgreementsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Collection of top-level domain legal agreements.
         /// </summary>
         public static Output<ListTopLevelDomainAgreementsResult> Invoke(ListTopLevelDomainAgreementsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListTopLevelDomainAgreementsResult>("azure-native:domainregistration/v20210201:listTopLevelDomainAgreements", args ?? new ListTopLevelDomainAgreementsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListTopLevelDomainAgreementsResult>("azure-native:domainregistration/v20210201:listTopLevelDomainAgreements", args ?? new ListTopLevelDomainAgreementsInvokeArgs(), options.WithDefaults());
     }
 
 

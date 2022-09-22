@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
         /// Attached data network resource.
         /// </summary>
         public static Task<GetAttachedDataNetworkResult> InvokeAsync(GetAttachedDataNetworkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAttachedDataNetworkResult>("azure-native:mobilenetwork/v20220401preview:getAttachedDataNetwork", args ?? new GetAttachedDataNetworkArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAttachedDataNetworkResult>("azure-native:mobilenetwork/v20220401preview:getAttachedDataNetwork", args ?? new GetAttachedDataNetworkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Attached data network resource.
         /// </summary>
         public static Output<GetAttachedDataNetworkResult> Invoke(GetAttachedDataNetworkInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAttachedDataNetworkResult>("azure-native:mobilenetwork/v20220401preview:getAttachedDataNetwork", args ?? new GetAttachedDataNetworkInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAttachedDataNetworkResult>("azure-native:mobilenetwork/v20220401preview:getAttachedDataNetwork", args ?? new GetAttachedDataNetworkInvokeArgs(), options.WithDefaults());
     }
 
 

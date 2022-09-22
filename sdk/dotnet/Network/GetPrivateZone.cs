@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2020-06-01.
         /// </summary>
         public static Task<GetPrivateZoneResult> InvokeAsync(GetPrivateZoneArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateZoneResult>("azure-native:network:getPrivateZone", args ?? new GetPrivateZoneArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateZoneResult>("azure-native:network:getPrivateZone", args ?? new GetPrivateZoneArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes a Private DNS zone.
         /// API Version: 2020-06-01.
         /// </summary>
         public static Output<GetPrivateZoneResult> Invoke(GetPrivateZoneInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPrivateZoneResult>("azure-native:network:getPrivateZone", args ?? new GetPrivateZoneInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateZoneResult>("azure-native:network:getPrivateZone", args ?? new GetPrivateZoneInvokeArgs(), options.WithDefaults());
     }
 
 

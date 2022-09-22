@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// Class representing a Kusto database.
         /// </summary>
         public static Task<GetKustoPoolDatabaseResult> InvokeAsync(GetKustoPoolDatabaseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKustoPoolDatabaseResult>("azure-native:synapse/v20210601preview:getKustoPoolDatabase", args ?? new GetKustoPoolDatabaseArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetKustoPoolDatabaseResult>("azure-native:synapse/v20210601preview:getKustoPoolDatabase", args ?? new GetKustoPoolDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Class representing a Kusto database.
         /// </summary>
         public static Output<GetKustoPoolDatabaseResult> Invoke(GetKustoPoolDatabaseInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetKustoPoolDatabaseResult>("azure-native:synapse/v20210601preview:getKustoPoolDatabase", args ?? new GetKustoPoolDatabaseInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetKustoPoolDatabaseResult>("azure-native:synapse/v20210601preview:getKustoPoolDatabase", args ?? new GetKustoPoolDatabaseInvokeArgs(), options.WithDefaults());
     }
 
 

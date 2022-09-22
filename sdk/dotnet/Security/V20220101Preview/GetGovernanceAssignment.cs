@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
         /// Security GovernanceAssignment over a given scope
         /// </summary>
         public static Task<GetGovernanceAssignmentResult> InvokeAsync(GetGovernanceAssignmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGovernanceAssignmentResult>("azure-native:security/v20220101preview:getGovernanceAssignment", args ?? new GetGovernanceAssignmentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGovernanceAssignmentResult>("azure-native:security/v20220101preview:getGovernanceAssignment", args ?? new GetGovernanceAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Security GovernanceAssignment over a given scope
         /// </summary>
         public static Output<GetGovernanceAssignmentResult> Invoke(GetGovernanceAssignmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGovernanceAssignmentResult>("azure-native:security/v20220101preview:getGovernanceAssignment", args ?? new GetGovernanceAssignmentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGovernanceAssignmentResult>("azure-native:security/v20220101preview:getGovernanceAssignment", args ?? new GetGovernanceAssignmentInvokeArgs(), options.WithDefaults());
     }
 
 

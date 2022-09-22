@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515
         /// The connection strings for the given database account.
         /// </summary>
         public static Task<ListDatabaseAccountConnectionStringsResult> InvokeAsync(ListDatabaseAccountConnectionStringsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListDatabaseAccountConnectionStringsResult>("azure-native:documentdb/v20220515:listDatabaseAccountConnectionStrings", args ?? new ListDatabaseAccountConnectionStringsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListDatabaseAccountConnectionStringsResult>("azure-native:documentdb/v20220515:listDatabaseAccountConnectionStrings", args ?? new ListDatabaseAccountConnectionStringsArgs(), options.WithDefaults());
 
         /// <summary>
         /// The connection strings for the given database account.
         /// </summary>
         public static Output<ListDatabaseAccountConnectionStringsResult> Invoke(ListDatabaseAccountConnectionStringsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListDatabaseAccountConnectionStringsResult>("azure-native:documentdb/v20220515:listDatabaseAccountConnectionStrings", args ?? new ListDatabaseAccountConnectionStringsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListDatabaseAccountConnectionStringsResult>("azure-native:documentdb/v20220515:listDatabaseAccountConnectionStrings", args ?? new ListDatabaseAccountConnectionStringsInvokeArgs(), options.WithDefaults());
     }
 
 

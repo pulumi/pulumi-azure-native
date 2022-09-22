@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// Represents user credentials used for publishing activity
         /// </summary>
         public static Task<ListSitePublishingCredentialsResult> InvokeAsync(ListSitePublishingCredentialsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSitePublishingCredentialsResult>("azure-native:web/v20150801:listSitePublishingCredentials", args ?? new ListSitePublishingCredentialsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListSitePublishingCredentialsResult>("azure-native:web/v20150801:listSitePublishingCredentials", args ?? new ListSitePublishingCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents user credentials used for publishing activity
         /// </summary>
         public static Output<ListSitePublishingCredentialsResult> Invoke(ListSitePublishingCredentialsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListSitePublishingCredentialsResult>("azure-native:web/v20150801:listSitePublishingCredentials", args ?? new ListSitePublishingCredentialsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListSitePublishingCredentialsResult>("azure-native:web/v20150801:listSitePublishingCredentials", args ?? new ListSitePublishingCredentialsInvokeArgs(), options.WithDefaults());
     }
 
 

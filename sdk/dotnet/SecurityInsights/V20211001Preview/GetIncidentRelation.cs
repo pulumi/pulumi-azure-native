@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview
         /// Represents a relation between two resources
         /// </summary>
         public static Task<GetIncidentRelationResult> InvokeAsync(GetIncidentRelationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIncidentRelationResult>("azure-native:securityinsights/v20211001preview:getIncidentRelation", args ?? new GetIncidentRelationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIncidentRelationResult>("azure-native:securityinsights/v20211001preview:getIncidentRelation", args ?? new GetIncidentRelationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a relation between two resources
         /// </summary>
         public static Output<GetIncidentRelationResult> Invoke(GetIncidentRelationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIncidentRelationResult>("azure-native:securityinsights/v20211001preview:getIncidentRelation", args ?? new GetIncidentRelationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIncidentRelationResult>("azure-native:securityinsights/v20211001preview:getIncidentRelation", args ?? new GetIncidentRelationInvokeArgs(), options.WithDefaults());
     }
 
 

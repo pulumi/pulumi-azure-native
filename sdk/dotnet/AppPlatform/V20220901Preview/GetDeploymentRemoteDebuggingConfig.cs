@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.AppPlatform.V20220901Preview
         /// Remote debugging config.
         /// </summary>
         public static Task<GetDeploymentRemoteDebuggingConfigResult> InvokeAsync(GetDeploymentRemoteDebuggingConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentRemoteDebuggingConfigResult>("azure-native:appplatform/v20220901preview:getDeploymentRemoteDebuggingConfig", args ?? new GetDeploymentRemoteDebuggingConfigArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentRemoteDebuggingConfigResult>("azure-native:appplatform/v20220901preview:getDeploymentRemoteDebuggingConfig", args ?? new GetDeploymentRemoteDebuggingConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Remote debugging config.
         /// </summary>
         public static Output<GetDeploymentRemoteDebuggingConfigResult> Invoke(GetDeploymentRemoteDebuggingConfigInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDeploymentRemoteDebuggingConfigResult>("azure-native:appplatform/v20220901preview:getDeploymentRemoteDebuggingConfig", args ?? new GetDeploymentRemoteDebuggingConfigInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentRemoteDebuggingConfigResult>("azure-native:appplatform/v20220901preview:getDeploymentRemoteDebuggingConfig", args ?? new GetDeploymentRemoteDebuggingConfigInvokeArgs(), options.WithDefaults());
     }
 
 

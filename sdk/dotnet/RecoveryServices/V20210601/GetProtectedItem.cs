@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210601
         /// Base class for backup items.
         /// </summary>
         public static Task<GetProtectedItemResult> InvokeAsync(GetProtectedItemArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProtectedItemResult>("azure-native:recoveryservices/v20210601:getProtectedItem", args ?? new GetProtectedItemArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetProtectedItemResult>("azure-native:recoveryservices/v20210601:getProtectedItem", args ?? new GetProtectedItemArgs(), options.WithDefaults());
 
         /// <summary>
         /// Base class for backup items.
         /// </summary>
         public static Output<GetProtectedItemResult> Invoke(GetProtectedItemInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProtectedItemResult>("azure-native:recoveryservices/v20210601:getProtectedItem", args ?? new GetProtectedItemInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetProtectedItemResult>("azure-native:recoveryservices/v20210601:getProtectedItem", args ?? new GetProtectedItemInvokeArgs(), options.WithDefaults());
     }
 
 

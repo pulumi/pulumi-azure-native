@@ -12,10 +12,10 @@ namespace Pulumi.AzureNative.DevSpaces.V20190401
     public static class ListControllerConnectionDetails
     {
         public static Task<ListControllerConnectionDetailsResult> InvokeAsync(ListControllerConnectionDetailsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListControllerConnectionDetailsResult>("azure-native:devspaces/v20190401:listControllerConnectionDetails", args ?? new ListControllerConnectionDetailsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListControllerConnectionDetailsResult>("azure-native:devspaces/v20190401:listControllerConnectionDetails", args ?? new ListControllerConnectionDetailsArgs(), options.WithDefaults());
 
         public static Output<ListControllerConnectionDetailsResult> Invoke(ListControllerConnectionDetailsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListControllerConnectionDetailsResult>("azure-native:devspaces/v20190401:listControllerConnectionDetails", args ?? new ListControllerConnectionDetailsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListControllerConnectionDetailsResult>("azure-native:devspaces/v20190401:listControllerConnectionDetails", args ?? new ListControllerConnectionDetailsInvokeArgs(), options.WithDefaults());
     }
 
 

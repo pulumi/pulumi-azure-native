@@ -12,10 +12,10 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
     public static class ListKeyByAutomationAccount
     {
         public static Task<ListKeyByAutomationAccountResult> InvokeAsync(ListKeyByAutomationAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListKeyByAutomationAccountResult>("azure-native:automation/v20200113preview:listKeyByAutomationAccount", args ?? new ListKeyByAutomationAccountArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListKeyByAutomationAccountResult>("azure-native:automation/v20200113preview:listKeyByAutomationAccount", args ?? new ListKeyByAutomationAccountArgs(), options.WithDefaults());
 
         public static Output<ListKeyByAutomationAccountResult> Invoke(ListKeyByAutomationAccountInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListKeyByAutomationAccountResult>("azure-native:automation/v20200113preview:listKeyByAutomationAccount", args ?? new ListKeyByAutomationAccountInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListKeyByAutomationAccountResult>("azure-native:automation/v20200113preview:listKeyByAutomationAccount", args ?? new ListKeyByAutomationAccountInvokeArgs(), options.WithDefaults());
     }
 
 

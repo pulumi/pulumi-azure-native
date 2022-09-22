@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20211201Preview
         /// An object that represents a replication for a container registry.
         /// </summary>
         public static Task<GetReplicationResult> InvokeAsync(GetReplicationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationResult>("azure-native:containerregistry/v20211201preview:getReplication", args ?? new GetReplicationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationResult>("azure-native:containerregistry/v20211201preview:getReplication", args ?? new GetReplicationArgs(), options.WithDefaults());
 
         /// <summary>
         /// An object that represents a replication for a container registry.
         /// </summary>
         public static Output<GetReplicationResult> Invoke(GetReplicationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetReplicationResult>("azure-native:containerregistry/v20211201preview:getReplication", args ?? new GetReplicationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetReplicationResult>("azure-native:containerregistry/v20211201preview:getReplication", args ?? new GetReplicationInvokeArgs(), options.WithDefaults());
     }
 
 

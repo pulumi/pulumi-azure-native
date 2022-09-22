@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         /// An ADLSGen2 storage account data set.
         /// </summary>
         public static Task<GetADLSGen2StorageAccountDataSetResult> InvokeAsync(GetADLSGen2StorageAccountDataSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetADLSGen2StorageAccountDataSetResult>("azure-native:datashare/v20201001preview:getADLSGen2StorageAccountDataSet", args ?? new GetADLSGen2StorageAccountDataSetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetADLSGen2StorageAccountDataSetResult>("azure-native:datashare/v20201001preview:getADLSGen2StorageAccountDataSet", args ?? new GetADLSGen2StorageAccountDataSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// An ADLSGen2 storage account data set.
         /// </summary>
         public static Output<GetADLSGen2StorageAccountDataSetResult> Invoke(GetADLSGen2StorageAccountDataSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetADLSGen2StorageAccountDataSetResult>("azure-native:datashare/v20201001preview:getADLSGen2StorageAccountDataSet", args ?? new GetADLSGen2StorageAccountDataSetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetADLSGen2StorageAccountDataSetResult>("azure-native:datashare/v20201001preview:getADLSGen2StorageAccountDataSet", args ?? new GetADLSGen2StorageAccountDataSetInvokeArgs(), options.WithDefaults());
     }
 
 

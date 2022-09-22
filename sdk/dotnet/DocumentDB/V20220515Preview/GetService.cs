@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515Preview
         /// Properties for the database account.
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:documentdb/v20220515preview:getService", args ?? new GetServiceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:documentdb/v20220515preview:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Properties for the database account.
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:documentdb/v20220515preview:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:documentdb/v20220515preview:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
     }
 
 

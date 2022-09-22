@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Media.V20220801
         /// An Asset Track resource.
         /// </summary>
         public static Task<GetTrackResult> InvokeAsync(GetTrackArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTrackResult>("azure-native:media/v20220801:getTrack", args ?? new GetTrackArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrackResult>("azure-native:media/v20220801:getTrack", args ?? new GetTrackArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Asset Track resource.
         /// </summary>
         public static Output<GetTrackResult> Invoke(GetTrackInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTrackResult>("azure-native:media/v20220801:getTrack", args ?? new GetTrackInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTrackResult>("azure-native:media/v20220801:getTrack", args ?? new GetTrackInvokeArgs(), options.WithDefaults());
     }
 
 

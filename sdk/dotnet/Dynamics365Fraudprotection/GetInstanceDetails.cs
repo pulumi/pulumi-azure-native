@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Dynamics365Fraudprotection
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Task<GetInstanceDetailsResult> InvokeAsync(GetInstanceDetailsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceDetailsResult>("azure-native:dynamics365fraudprotection:getInstanceDetails", args ?? new GetInstanceDetailsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstanceDetailsResult>("azure-native:dynamics365fraudprotection:getInstanceDetails", args ?? new GetInstanceDetailsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents an instance of a DFP instance resource.
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Output<GetInstanceDetailsResult> Invoke(GetInstanceDetailsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetInstanceDetailsResult>("azure-native:dynamics365fraudprotection:getInstanceDetails", args ?? new GetInstanceDetailsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetInstanceDetailsResult>("azure-native:dynamics365fraudprotection:getInstanceDetails", args ?? new GetInstanceDetailsInvokeArgs(), options.WithDefaults());
     }
 
 

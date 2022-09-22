@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101
         /// Api details.
         /// </summary>
         public static Task<GetApiResult> InvokeAsync(GetApiArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApiResult>("azure-native:apimanagement/v20190101:getApi", args ?? new GetApiArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiResult>("azure-native:apimanagement/v20190101:getApi", args ?? new GetApiArgs(), options.WithDefaults());
 
         /// <summary>
         /// Api details.
         /// </summary>
         public static Output<GetApiResult> Invoke(GetApiInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApiResult>("azure-native:apimanagement/v20190101:getApi", args ?? new GetApiInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetApiResult>("azure-native:apimanagement/v20190101:getApi", args ?? new GetApiInvokeArgs(), options.WithDefaults());
     }
 
 

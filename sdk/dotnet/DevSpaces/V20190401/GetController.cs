@@ -12,10 +12,10 @@ namespace Pulumi.AzureNative.DevSpaces.V20190401
     public static class GetController
     {
         public static Task<GetControllerResult> InvokeAsync(GetControllerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetControllerResult>("azure-native:devspaces/v20190401:getController", args ?? new GetControllerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetControllerResult>("azure-native:devspaces/v20190401:getController", args ?? new GetControllerArgs(), options.WithDefaults());
 
         public static Output<GetControllerResult> Invoke(GetControllerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetControllerResult>("azure-native:devspaces/v20190401:getController", args ?? new GetControllerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetControllerResult>("azure-native:devspaces/v20190401:getController", args ?? new GetControllerInvokeArgs(), options.WithDefaults());
     }
 
 

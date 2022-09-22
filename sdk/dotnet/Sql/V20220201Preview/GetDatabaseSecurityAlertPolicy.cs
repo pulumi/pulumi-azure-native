@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Sql.V20220201Preview
         /// A database security alert policy.
         /// </summary>
         public static Task<GetDatabaseSecurityAlertPolicyResult> InvokeAsync(GetDatabaseSecurityAlertPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseSecurityAlertPolicyResult>("azure-native:sql/v20220201preview:getDatabaseSecurityAlertPolicy", args ?? new GetDatabaseSecurityAlertPolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseSecurityAlertPolicyResult>("azure-native:sql/v20220201preview:getDatabaseSecurityAlertPolicy", args ?? new GetDatabaseSecurityAlertPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// A database security alert policy.
         /// </summary>
         public static Output<GetDatabaseSecurityAlertPolicyResult> Invoke(GetDatabaseSecurityAlertPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDatabaseSecurityAlertPolicyResult>("azure-native:sql/v20220201preview:getDatabaseSecurityAlertPolicy", args ?? new GetDatabaseSecurityAlertPolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseSecurityAlertPolicyResult>("azure-native:sql/v20220201preview:getDatabaseSecurityAlertPolicy", args ?? new GetDatabaseSecurityAlertPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

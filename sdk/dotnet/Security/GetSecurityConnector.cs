@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Security
         /// API Version: 2021-07-01-preview.
         /// </summary>
         public static Task<GetSecurityConnectorResult> InvokeAsync(GetSecurityConnectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityConnectorResult>("azure-native:security:getSecurityConnector", args ?? new GetSecurityConnectorArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityConnectorResult>("azure-native:security:getSecurityConnector", args ?? new GetSecurityConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// The security connector resource.
         /// API Version: 2021-07-01-preview.
         /// </summary>
         public static Output<GetSecurityConnectorResult> Invoke(GetSecurityConnectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSecurityConnectorResult>("azure-native:security:getSecurityConnector", args ?? new GetSecurityConnectorInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecurityConnectorResult>("azure-native:security:getSecurityConnector", args ?? new GetSecurityConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

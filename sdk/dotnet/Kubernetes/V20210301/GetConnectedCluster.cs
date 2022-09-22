@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Kubernetes.V20210301
         /// Represents a connected cluster.
         /// </summary>
         public static Task<GetConnectedClusterResult> InvokeAsync(GetConnectedClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectedClusterResult>("azure-native:kubernetes/v20210301:getConnectedCluster", args ?? new GetConnectedClusterArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectedClusterResult>("azure-native:kubernetes/v20210301:getConnectedCluster", args ?? new GetConnectedClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a connected cluster.
         /// </summary>
         public static Output<GetConnectedClusterResult> Invoke(GetConnectedClusterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConnectedClusterResult>("azure-native:kubernetes/v20210301:getConnectedCluster", args ?? new GetConnectedClusterInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectedClusterResult>("azure-native:kubernetes/v20210301:getConnectedCluster", args ?? new GetConnectedClusterInvokeArgs(), options.WithDefaults());
     }
 
 

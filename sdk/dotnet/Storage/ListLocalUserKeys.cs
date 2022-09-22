@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Storage
         /// API Version: 2021-08-01.
         /// </summary>
         public static Task<ListLocalUserKeysResult> InvokeAsync(ListLocalUserKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListLocalUserKeysResult>("azure-native:storage:listLocalUserKeys", args ?? new ListLocalUserKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListLocalUserKeysResult>("azure-native:storage:listLocalUserKeys", args ?? new ListLocalUserKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Storage Account Local User keys.
         /// API Version: 2021-08-01.
         /// </summary>
         public static Output<ListLocalUserKeysResult> Invoke(ListLocalUserKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListLocalUserKeysResult>("azure-native:storage:listLocalUserKeys", args ?? new ListLocalUserKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListLocalUserKeysResult>("azure-native:storage:listLocalUserKeys", args ?? new ListLocalUserKeysInvokeArgs(), options.WithDefaults());
     }
 
 

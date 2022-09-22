@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210901
         /// The result of a request to list events for a webhook.
         /// </summary>
         public static Task<ListWebhookEventsResult> InvokeAsync(ListWebhookEventsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebhookEventsResult>("azure-native:containerregistry/v20210901:listWebhookEvents", args ?? new ListWebhookEventsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebhookEventsResult>("azure-native:containerregistry/v20210901:listWebhookEvents", args ?? new ListWebhookEventsArgs(), options.WithDefaults());
 
         /// <summary>
         /// The result of a request to list events for a webhook.
         /// </summary>
         public static Output<ListWebhookEventsResult> Invoke(ListWebhookEventsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListWebhookEventsResult>("azure-native:containerregistry/v20210901:listWebhookEvents", args ?? new ListWebhookEventsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListWebhookEventsResult>("azure-native:containerregistry/v20210901:listWebhookEvents", args ?? new ListWebhookEventsInvokeArgs(), options.WithDefaults());
     }
 
 

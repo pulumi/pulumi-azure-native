@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview
         /// Data connector
         /// </summary>
         public static Task<GetDataConnectorResult> InvokeAsync(GetDataConnectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataConnectorResult>("azure-native:securityinsights/v20220501preview:getDataConnector", args ?? new GetDataConnectorArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataConnectorResult>("azure-native:securityinsights/v20220501preview:getDataConnector", args ?? new GetDataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data connector
         /// </summary>
         public static Output<GetDataConnectorResult> Invoke(GetDataConnectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDataConnectorResult>("azure-native:securityinsights/v20220501preview:getDataConnector", args ?? new GetDataConnectorInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataConnectorResult>("azure-native:securityinsights/v20220501preview:getDataConnector", args ?? new GetDataConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

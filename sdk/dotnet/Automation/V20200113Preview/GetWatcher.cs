@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
         /// Definition of the watcher type.
         /// </summary>
         public static Task<GetWatcherResult> InvokeAsync(GetWatcherArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWatcherResult>("azure-native:automation/v20200113preview:getWatcher", args ?? new GetWatcherArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWatcherResult>("azure-native:automation/v20200113preview:getWatcher", args ?? new GetWatcherArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of the watcher type.
         /// </summary>
         public static Output<GetWatcherResult> Invoke(GetWatcherInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWatcherResult>("azure-native:automation/v20200113preview:getWatcher", args ?? new GetWatcherInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWatcherResult>("azure-native:automation/v20200113preview:getWatcher", args ?? new GetWatcherInvokeArgs(), options.WithDefaults());
     }
 
 

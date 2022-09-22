@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515Preview
         /// An Azure Cosmos DB Graph resource.
         /// </summary>
         public static Task<GetGraphResourceGraphResult> InvokeAsync(GetGraphResourceGraphArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGraphResourceGraphResult>("azure-native:documentdb/v20220515preview:getGraphResourceGraph", args ?? new GetGraphResourceGraphArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGraphResourceGraphResult>("azure-native:documentdb/v20220515preview:getGraphResourceGraph", args ?? new GetGraphResourceGraphArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure Cosmos DB Graph resource.
         /// </summary>
         public static Output<GetGraphResourceGraphResult> Invoke(GetGraphResourceGraphInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGraphResourceGraphResult>("azure-native:documentdb/v20220515preview:getGraphResourceGraph", args ?? new GetGraphResourceGraphInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGraphResourceGraphResult>("azure-native:documentdb/v20220515preview:getGraphResourceGraph", args ?? new GetGraphResourceGraphInvokeArgs(), options.WithDefaults());
     }
 
 

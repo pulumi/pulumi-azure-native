@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200501Preview
         /// Represents a Storage Account on the  Data Box Edge/Gateway device.
         /// </summary>
         public static Task<GetStorageAccountResult> InvokeAsync(GetStorageAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountResult>("azure-native:databoxedge/v20200501preview:getStorageAccount", args ?? new GetStorageAccountArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountResult>("azure-native:databoxedge/v20200501preview:getStorageAccount", args ?? new GetStorageAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a Storage Account on the  Data Box Edge/Gateway device.
         /// </summary>
         public static Output<GetStorageAccountResult> Invoke(GetStorageAccountInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStorageAccountResult>("azure-native:databoxedge/v20200501preview:getStorageAccount", args ?? new GetStorageAccountInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetStorageAccountResult>("azure-native:databoxedge/v20200501preview:getStorageAccount", args ?? new GetStorageAccountInvokeArgs(), options.WithDefaults());
     }
 
 

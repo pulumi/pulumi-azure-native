@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetDdosCustomPolicyResult> InvokeAsync(GetDdosCustomPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDdosCustomPolicyResult>("azure-native:network:getDdosCustomPolicy", args ?? new GetDdosCustomPolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDdosCustomPolicyResult>("azure-native:network:getDdosCustomPolicy", args ?? new GetDdosCustomPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// A DDoS custom policy in a resource group.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetDdosCustomPolicyResult> Invoke(GetDdosCustomPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDdosCustomPolicyResult>("azure-native:network:getDdosCustomPolicy", args ?? new GetDdosCustomPolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDdosCustomPolicyResult>("azure-native:network:getDdosCustomPolicy", args ?? new GetDdosCustomPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

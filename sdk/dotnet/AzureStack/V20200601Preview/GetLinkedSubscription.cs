@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.AzureStack.V20200601Preview
         /// Linked Subscription information.
         /// </summary>
         public static Task<GetLinkedSubscriptionResult> InvokeAsync(GetLinkedSubscriptionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedSubscriptionResult>("azure-native:azurestack/v20200601preview:getLinkedSubscription", args ?? new GetLinkedSubscriptionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLinkedSubscriptionResult>("azure-native:azurestack/v20200601preview:getLinkedSubscription", args ?? new GetLinkedSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Linked Subscription information.
         /// </summary>
         public static Output<GetLinkedSubscriptionResult> Invoke(GetLinkedSubscriptionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLinkedSubscriptionResult>("azure-native:azurestack/v20200601preview:getLinkedSubscription", args ?? new GetLinkedSubscriptionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLinkedSubscriptionResult>("azure-native:azurestack/v20200601preview:getLinkedSubscription", args ?? new GetLinkedSubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 

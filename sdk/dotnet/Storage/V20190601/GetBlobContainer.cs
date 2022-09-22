@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Storage.V20190601
         /// Properties of the blob container, including Id, resource name, resource type, Etag.
         /// </summary>
         public static Task<GetBlobContainerResult> InvokeAsync(GetBlobContainerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBlobContainerResult>("azure-native:storage/v20190601:getBlobContainer", args ?? new GetBlobContainerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBlobContainerResult>("azure-native:storage/v20190601:getBlobContainer", args ?? new GetBlobContainerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Properties of the blob container, including Id, resource name, resource type, Etag.
         /// </summary>
         public static Output<GetBlobContainerResult> Invoke(GetBlobContainerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBlobContainerResult>("azure-native:storage/v20190601:getBlobContainer", args ?? new GetBlobContainerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBlobContainerResult>("azure-native:storage/v20190601:getBlobContainer", args ?? new GetBlobContainerInvokeArgs(), options.WithDefaults());
     }
 
 

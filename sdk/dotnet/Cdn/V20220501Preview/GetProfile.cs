@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Cdn.V20220501Preview
         /// A profile is a logical grouping of endpoints that share the same settings.
         /// </summary>
         public static Task<GetProfileResult> InvokeAsync(GetProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure-native:cdn/v20220501preview:getProfile", args ?? new GetProfileArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure-native:cdn/v20220501preview:getProfile", args ?? new GetProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// A profile is a logical grouping of endpoints that share the same settings.
         /// </summary>
         public static Output<GetProfileResult> Invoke(GetProfileInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProfileResult>("azure-native:cdn/v20220501preview:getProfile", args ?? new GetProfileInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetProfileResult>("azure-native:cdn/v20220501preview:getProfile", args ?? new GetProfileInvokeArgs(), options.WithDefaults());
     }
 
 

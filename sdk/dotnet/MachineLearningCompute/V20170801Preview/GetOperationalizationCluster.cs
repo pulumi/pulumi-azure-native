@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.MachineLearningCompute.V20170801Preview
         /// Instance of an Azure ML Operationalization Cluster resource.
         /// </summary>
         public static Task<GetOperationalizationClusterResult> InvokeAsync(GetOperationalizationClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOperationalizationClusterResult>("azure-native:machinelearningcompute/v20170801preview:getOperationalizationCluster", args ?? new GetOperationalizationClusterArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetOperationalizationClusterResult>("azure-native:machinelearningcompute/v20170801preview:getOperationalizationCluster", args ?? new GetOperationalizationClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Instance of an Azure ML Operationalization Cluster resource.
         /// </summary>
         public static Output<GetOperationalizationClusterResult> Invoke(GetOperationalizationClusterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOperationalizationClusterResult>("azure-native:machinelearningcompute/v20170801preview:getOperationalizationCluster", args ?? new GetOperationalizationClusterInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetOperationalizationClusterResult>("azure-native:machinelearningcompute/v20170801preview:getOperationalizationCluster", args ?? new GetOperationalizationClusterInvokeArgs(), options.WithDefaults());
     }
 
 

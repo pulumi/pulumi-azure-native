@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101
         /// Property details.
         /// </summary>
         public static Task<GetPropertyResult> InvokeAsync(GetPropertyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPropertyResult>("azure-native:apimanagement/v20190101:getProperty", args ?? new GetPropertyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPropertyResult>("azure-native:apimanagement/v20190101:getProperty", args ?? new GetPropertyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Property details.
         /// </summary>
         public static Output<GetPropertyResult> Invoke(GetPropertyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPropertyResult>("azure-native:apimanagement/v20190101:getProperty", args ?? new GetPropertyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPropertyResult>("azure-native:apimanagement/v20190101:getProperty", args ?? new GetPropertyInvokeArgs(), options.WithDefaults());
     }
 
 

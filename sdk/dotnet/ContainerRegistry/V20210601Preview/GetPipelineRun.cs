@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210601Preview
         /// An object that represents a pipeline run for a container registry.
         /// </summary>
         public static Task<GetPipelineRunResult> InvokeAsync(GetPipelineRunArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPipelineRunResult>("azure-native:containerregistry/v20210601preview:getPipelineRun", args ?? new GetPipelineRunArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPipelineRunResult>("azure-native:containerregistry/v20210601preview:getPipelineRun", args ?? new GetPipelineRunArgs(), options.WithDefaults());
 
         /// <summary>
         /// An object that represents a pipeline run for a container registry.
         /// </summary>
         public static Output<GetPipelineRunResult> Invoke(GetPipelineRunInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPipelineRunResult>("azure-native:containerregistry/v20210601preview:getPipelineRun", args ?? new GetPipelineRunInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPipelineRunResult>("azure-native:containerregistry/v20210601preview:getPipelineRun", args ?? new GetPipelineRunInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Sql
         /// API Version: 2021-11-01-preview.
         /// </summary>
         public static Task<GetManagedServerDnsAliasResult> InvokeAsync(GetManagedServerDnsAliasArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedServerDnsAliasResult>("azure-native:sql:getManagedServerDnsAlias", args ?? new GetManagedServerDnsAliasArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedServerDnsAliasResult>("azure-native:sql:getManagedServerDnsAlias", args ?? new GetManagedServerDnsAliasArgs(), options.WithDefaults());
 
         /// <summary>
         /// A managed server DNS alias.
         /// API Version: 2021-11-01-preview.
         /// </summary>
         public static Output<GetManagedServerDnsAliasResult> Invoke(GetManagedServerDnsAliasInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagedServerDnsAliasResult>("azure-native:sql:getManagedServerDnsAlias", args ?? new GetManagedServerDnsAliasInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedServerDnsAliasResult>("azure-native:sql:getManagedServerDnsAlias", args ?? new GetManagedServerDnsAliasInvokeArgs(), options.WithDefaults());
     }
 
 

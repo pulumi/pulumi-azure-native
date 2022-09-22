@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DataShare.V20200901
         /// A Blob data set mapping.
         /// </summary>
         public static Task<GetBlobDataSetMappingResult> InvokeAsync(GetBlobDataSetMappingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBlobDataSetMappingResult>("azure-native:datashare/v20200901:getBlobDataSetMapping", args ?? new GetBlobDataSetMappingArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBlobDataSetMappingResult>("azure-native:datashare/v20200901:getBlobDataSetMapping", args ?? new GetBlobDataSetMappingArgs(), options.WithDefaults());
 
         /// <summary>
         /// A Blob data set mapping.
         /// </summary>
         public static Output<GetBlobDataSetMappingResult> Invoke(GetBlobDataSetMappingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBlobDataSetMappingResult>("azure-native:datashare/v20200901:getBlobDataSetMapping", args ?? new GetBlobDataSetMappingInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBlobDataSetMappingResult>("azure-native:datashare/v20200901:getBlobDataSetMapping", args ?? new GetBlobDataSetMappingInvokeArgs(), options.WithDefaults());
     }
 
 

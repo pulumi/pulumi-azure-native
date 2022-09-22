@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DataShare.V20200901
         /// A SQL DB table data set.
         /// </summary>
         public static Task<GetSqlDBTableDataSetResult> InvokeAsync(GetSqlDBTableDataSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlDBTableDataSetResult>("azure-native:datashare/v20200901:getSqlDBTableDataSet", args ?? new GetSqlDBTableDataSetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlDBTableDataSetResult>("azure-native:datashare/v20200901:getSqlDBTableDataSet", args ?? new GetSqlDBTableDataSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// A SQL DB table data set.
         /// </summary>
         public static Output<GetSqlDBTableDataSetResult> Invoke(GetSqlDBTableDataSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSqlDBTableDataSetResult>("azure-native:datashare/v20200901:getSqlDBTableDataSet", args ?? new GetSqlDBTableDataSetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlDBTableDataSetResult>("azure-native:datashare/v20200901:getSqlDBTableDataSet", args ?? new GetSqlDBTableDataSetInvokeArgs(), options.WithDefaults());
     }
 
 

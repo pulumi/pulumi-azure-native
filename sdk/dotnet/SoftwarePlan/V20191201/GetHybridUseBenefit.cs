@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.SoftwarePlan.V20191201
         /// Response on GET of a hybrid use benefit
         /// </summary>
         public static Task<GetHybridUseBenefitResult> InvokeAsync(GetHybridUseBenefitArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHybridUseBenefitResult>("azure-native:softwareplan/v20191201:getHybridUseBenefit", args ?? new GetHybridUseBenefitArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetHybridUseBenefitResult>("azure-native:softwareplan/v20191201:getHybridUseBenefit", args ?? new GetHybridUseBenefitArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response on GET of a hybrid use benefit
         /// </summary>
         public static Output<GetHybridUseBenefitResult> Invoke(GetHybridUseBenefitInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetHybridUseBenefitResult>("azure-native:softwareplan/v20191201:getHybridUseBenefit", args ?? new GetHybridUseBenefitInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetHybridUseBenefitResult>("azure-native:softwareplan/v20191201:getHybridUseBenefit", args ?? new GetHybridUseBenefitInvokeArgs(), options.WithDefaults());
     }
 
 

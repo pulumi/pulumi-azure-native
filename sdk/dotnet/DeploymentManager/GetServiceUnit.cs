@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.DeploymentManager
         /// API Version: 2019-11-01-preview.
         /// </summary>
         public static Task<GetServiceUnitResult> InvokeAsync(GetServiceUnitArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceUnitResult>("azure-native:deploymentmanager:getServiceUnit", args ?? new GetServiceUnitArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceUnitResult>("azure-native:deploymentmanager:getServiceUnit", args ?? new GetServiceUnitArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents the response of a service unit resource.
         /// API Version: 2019-11-01-preview.
         /// </summary>
         public static Output<GetServiceUnitResult> Invoke(GetServiceUnitInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServiceUnitResult>("azure-native:deploymentmanager:getServiceUnit", args ?? new GetServiceUnitInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceUnitResult>("azure-native:deploymentmanager:getServiceUnit", args ?? new GetServiceUnitInvokeArgs(), options.WithDefaults());
     }
 
 

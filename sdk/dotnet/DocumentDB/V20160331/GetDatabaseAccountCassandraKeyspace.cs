@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.DocumentDB.V20160331
         /// An Azure Cosmos DB Cassandra keyspace.
         /// </summary>
         public static Task<GetDatabaseAccountCassandraKeyspaceResult> InvokeAsync(GetDatabaseAccountCassandraKeyspaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountCassandraKeyspaceResult>("azure-native:documentdb/v20160331:getDatabaseAccountCassandraKeyspace", args ?? new GetDatabaseAccountCassandraKeyspaceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountCassandraKeyspaceResult>("azure-native:documentdb/v20160331:getDatabaseAccountCassandraKeyspace", args ?? new GetDatabaseAccountCassandraKeyspaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure Cosmos DB Cassandra keyspace.
         /// </summary>
         public static Output<GetDatabaseAccountCassandraKeyspaceResult> Invoke(GetDatabaseAccountCassandraKeyspaceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDatabaseAccountCassandraKeyspaceResult>("azure-native:documentdb/v20160331:getDatabaseAccountCassandraKeyspace", args ?? new GetDatabaseAccountCassandraKeyspaceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseAccountCassandraKeyspaceResult>("azure-native:documentdb/v20160331:getDatabaseAccountCassandraKeyspace", args ?? new GetDatabaseAccountCassandraKeyspaceInvokeArgs(), options.WithDefaults());
     }
 
 

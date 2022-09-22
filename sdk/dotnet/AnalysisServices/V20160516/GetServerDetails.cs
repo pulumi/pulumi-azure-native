@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.AnalysisServices.V20160516
         /// Represents an instance of an Analysis Services resource.
         /// </summary>
         public static Task<GetServerDetailsResult> InvokeAsync(GetServerDetailsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerDetailsResult>("azure-native:analysisservices/v20160516:getServerDetails", args ?? new GetServerDetailsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerDetailsResult>("azure-native:analysisservices/v20160516:getServerDetails", args ?? new GetServerDetailsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents an instance of an Analysis Services resource.
         /// </summary>
         public static Output<GetServerDetailsResult> Invoke(GetServerDetailsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServerDetailsResult>("azure-native:analysisservices/v20160516:getServerDetails", args ?? new GetServerDetailsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerDetailsResult>("azure-native:analysisservices/v20160516:getServerDetails", args ?? new GetServerDetailsInvokeArgs(), options.WithDefaults());
     }
 
 

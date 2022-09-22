@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Web
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<ListWebAppFunctionSecretsResult> InvokeAsync(ListWebAppFunctionSecretsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppFunctionSecretsResult>("azure-native:web:listWebAppFunctionSecrets", args ?? new ListWebAppFunctionSecretsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppFunctionSecretsResult>("azure-native:web:listWebAppFunctionSecrets", args ?? new ListWebAppFunctionSecretsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Function secrets.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<ListWebAppFunctionSecretsResult> Invoke(ListWebAppFunctionSecretsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListWebAppFunctionSecretsResult>("azure-native:web:listWebAppFunctionSecrets", args ?? new ListWebAppFunctionSecretsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListWebAppFunctionSecretsResult>("azure-native:web:listWebAppFunctionSecrets", args ?? new ListWebAppFunctionSecretsInvokeArgs(), options.WithDefaults());
     }
 
 

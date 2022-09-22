@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview
         /// Class representing a data connection.
         /// </summary>
         public static Task<GetDataConnectionResult> InvokeAsync(GetDataConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataConnectionResult>("azure-native:synapse/v20210401preview:getDataConnection", args ?? new GetDataConnectionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataConnectionResult>("azure-native:synapse/v20210401preview:getDataConnection", args ?? new GetDataConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Class representing a data connection.
         /// </summary>
         public static Output<GetDataConnectionResult> Invoke(GetDataConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDataConnectionResult>("azure-native:synapse/v20210401preview:getDataConnection", args ?? new GetDataConnectionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataConnectionResult>("azure-native:synapse/v20210401preview:getDataConnection", args ?? new GetDataConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

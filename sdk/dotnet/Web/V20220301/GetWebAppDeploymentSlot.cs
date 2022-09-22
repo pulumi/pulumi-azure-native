@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20220301
         /// User credentials used for publishing activity.
         /// </summary>
         public static Task<GetWebAppDeploymentSlotResult> InvokeAsync(GetWebAppDeploymentSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppDeploymentSlotResult>("azure-native:web/v20220301:getWebAppDeploymentSlot", args ?? new GetWebAppDeploymentSlotArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppDeploymentSlotResult>("azure-native:web/v20220301:getWebAppDeploymentSlot", args ?? new GetWebAppDeploymentSlotArgs(), options.WithDefaults());
 
         /// <summary>
         /// User credentials used for publishing activity.
         /// </summary>
         public static Output<GetWebAppDeploymentSlotResult> Invoke(GetWebAppDeploymentSlotInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWebAppDeploymentSlotResult>("azure-native:web/v20220301:getWebAppDeploymentSlot", args ?? new GetWebAppDeploymentSlotInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebAppDeploymentSlotResult>("azure-native:web/v20220301:getWebAppDeploymentSlot", args ?? new GetWebAppDeploymentSlotInvokeArgs(), options.WithDefaults());
     }
 
 

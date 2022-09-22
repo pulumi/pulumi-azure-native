@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
         /// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. LongTerm environments do not have set data retention limits.
         /// </summary>
         public static Task<GetLongTermEnvironmentResult> InvokeAsync(GetLongTermEnvironmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLongTermEnvironmentResult>("azure-native:timeseriesinsights/v20180815preview:getLongTermEnvironment", args ?? new GetLongTermEnvironmentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLongTermEnvironmentResult>("azure-native:timeseriesinsights/v20180815preview:getLongTermEnvironment", args ?? new GetLongTermEnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. LongTerm environments do not have set data retention limits.
         /// </summary>
         public static Output<GetLongTermEnvironmentResult> Invoke(GetLongTermEnvironmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLongTermEnvironmentResult>("azure-native:timeseriesinsights/v20180815preview:getLongTermEnvironment", args ?? new GetLongTermEnvironmentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLongTermEnvironmentResult>("azure-native:timeseriesinsights/v20180815preview:getLongTermEnvironment", args ?? new GetLongTermEnvironmentInvokeArgs(), options.WithDefaults());
     }
 
 

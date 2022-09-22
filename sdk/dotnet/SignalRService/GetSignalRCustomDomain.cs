@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.SignalRService
         /// API Version: 2022-02-01.
         /// </summary>
         public static Task<GetSignalRCustomDomainResult> InvokeAsync(GetSignalRCustomDomainArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSignalRCustomDomainResult>("azure-native:signalrservice:getSignalRCustomDomain", args ?? new GetSignalRCustomDomainArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSignalRCustomDomainResult>("azure-native:signalrservice:getSignalRCustomDomain", args ?? new GetSignalRCustomDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// A custom domain
         /// API Version: 2022-02-01.
         /// </summary>
         public static Output<GetSignalRCustomDomainResult> Invoke(GetSignalRCustomDomainInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSignalRCustomDomainResult>("azure-native:signalrservice:getSignalRCustomDomain", args ?? new GetSignalRCustomDomainInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSignalRCustomDomainResult>("azure-native:signalrservice:getSignalRCustomDomain", args ?? new GetSignalRCustomDomainInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.EventGrid.V20180915Preview
         /// Full endpoint url of an event subscription
         /// </summary>
         public static Task<GetEventSubscriptionFullUrlResult> InvokeAsync(GetEventSubscriptionFullUrlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventSubscriptionFullUrlResult>("azure-native:eventgrid/v20180915preview:getEventSubscriptionFullUrl", args ?? new GetEventSubscriptionFullUrlArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventSubscriptionFullUrlResult>("azure-native:eventgrid/v20180915preview:getEventSubscriptionFullUrl", args ?? new GetEventSubscriptionFullUrlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Full endpoint url of an event subscription
         /// </summary>
         public static Output<GetEventSubscriptionFullUrlResult> Invoke(GetEventSubscriptionFullUrlInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEventSubscriptionFullUrlResult>("azure-native:eventgrid/v20180915preview:getEventSubscriptionFullUrl", args ?? new GetEventSubscriptionFullUrlInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEventSubscriptionFullUrlResult>("azure-native:eventgrid/v20180915preview:getEventSubscriptionFullUrl", args ?? new GetEventSubscriptionFullUrlInvokeArgs(), options.WithDefaults());
     }
 
 

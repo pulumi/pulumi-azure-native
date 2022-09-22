@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2020-06-01.
         /// </summary>
         public static Task<GetVirtualNetworkLinkResult> InvokeAsync(GetVirtualNetworkLinkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkLinkResult>("azure-native:network:getVirtualNetworkLink", args ?? new GetVirtualNetworkLinkArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkLinkResult>("azure-native:network:getVirtualNetworkLink", args ?? new GetVirtualNetworkLinkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes a link to virtual network for a Private DNS zone.
         /// API Version: 2020-06-01.
         /// </summary>
         public static Output<GetVirtualNetworkLinkResult> Invoke(GetVirtualNetworkLinkInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkLinkResult>("azure-native:network:getVirtualNetworkLink", args ?? new GetVirtualNetworkLinkInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkLinkResult>("azure-native:network:getVirtualNetworkLink", args ?? new GetVirtualNetworkLinkInvokeArgs(), options.WithDefaults());
     }
 
 

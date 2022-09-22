@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.LabServices
         /// API Version: 2018-10-15.
         /// </summary>
         public static Task<GetLabAccountRegionalAvailabilityResult> InvokeAsync(GetLabAccountRegionalAvailabilityArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLabAccountRegionalAvailabilityResult>("azure-native:labservices:getLabAccountRegionalAvailability", args ?? new GetLabAccountRegionalAvailabilityArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLabAccountRegionalAvailabilityResult>("azure-native:labservices:getLabAccountRegionalAvailability", args ?? new GetLabAccountRegionalAvailabilityArgs(), options.WithDefaults());
 
         /// <summary>
         /// The response model from the GetRegionalAvailability action
         /// API Version: 2018-10-15.
         /// </summary>
         public static Output<GetLabAccountRegionalAvailabilityResult> Invoke(GetLabAccountRegionalAvailabilityInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLabAccountRegionalAvailabilityResult>("azure-native:labservices:getLabAccountRegionalAvailability", args ?? new GetLabAccountRegionalAvailabilityInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLabAccountRegionalAvailabilityResult>("azure-native:labservices:getLabAccountRegionalAvailability", args ?? new GetLabAccountRegionalAvailabilityInvokeArgs(), options.WithDefaults());
     }
 
 

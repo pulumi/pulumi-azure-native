@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview
         /// Shared access keys of the Domain.
         /// </summary>
         public static Task<ListDomainSharedAccessKeysResult> InvokeAsync(ListDomainSharedAccessKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListDomainSharedAccessKeysResult>("azure-native:eventgrid/v20211015preview:listDomainSharedAccessKeys", args ?? new ListDomainSharedAccessKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListDomainSharedAccessKeysResult>("azure-native:eventgrid/v20211015preview:listDomainSharedAccessKeys", args ?? new ListDomainSharedAccessKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Shared access keys of the Domain.
         /// </summary>
         public static Output<ListDomainSharedAccessKeysResult> Invoke(ListDomainSharedAccessKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListDomainSharedAccessKeysResult>("azure-native:eventgrid/v20211015preview:listDomainSharedAccessKeys", args ?? new ListDomainSharedAccessKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListDomainSharedAccessKeysResult>("azure-native:eventgrid/v20211015preview:listDomainSharedAccessKeys", args ?? new ListDomainSharedAccessKeysInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -13,10 +13,10 @@ namespace Pulumi.AzureNative.Datadog.V20200201Preview
     public static class GetMonitor
     {
         public static Task<GetMonitorResult> InvokeAsync(GetMonitorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMonitorResult>("azure-native:datadog/v20200201preview:getMonitor", args ?? new GetMonitorArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitorResult>("azure-native:datadog/v20200201preview:getMonitor", args ?? new GetMonitorArgs(), options.WithDefaults());
 
         public static Output<GetMonitorResult> Invoke(GetMonitorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMonitorResult>("azure-native:datadog/v20200201preview:getMonitor", args ?? new GetMonitorInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMonitorResult>("azure-native:datadog/v20200201preview:getMonitor", args ?? new GetMonitorInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetOrderResult> InvokeAsync(GetOrderArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOrderResult>("azure-native:databoxedge:getOrder", args ?? new GetOrderArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrderResult>("azure-native:databoxedge:getOrder", args ?? new GetOrderArgs(), options.WithDefaults());
 
         /// <summary>
         /// The order details.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetOrderResult> Invoke(GetOrderInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOrderResult>("azure-native:databoxedge:getOrder", args ?? new GetOrderInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetOrderResult>("azure-native:databoxedge:getOrder", args ?? new GetOrderInvokeArgs(), options.WithDefaults());
     }
 
 

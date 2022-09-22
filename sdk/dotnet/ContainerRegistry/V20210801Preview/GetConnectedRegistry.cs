@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210801Preview
         /// An object that represents a connected registry for a container registry.
         /// </summary>
         public static Task<GetConnectedRegistryResult> InvokeAsync(GetConnectedRegistryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectedRegistryResult>("azure-native:containerregistry/v20210801preview:getConnectedRegistry", args ?? new GetConnectedRegistryArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectedRegistryResult>("azure-native:containerregistry/v20210801preview:getConnectedRegistry", args ?? new GetConnectedRegistryArgs(), options.WithDefaults());
 
         /// <summary>
         /// An object that represents a connected registry for a container registry.
         /// </summary>
         public static Output<GetConnectedRegistryResult> Invoke(GetConnectedRegistryInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConnectedRegistryResult>("azure-native:containerregistry/v20210801preview:getConnectedRegistry", args ?? new GetConnectedRegistryInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectedRegistryResult>("azure-native:containerregistry/v20210801preview:getConnectedRegistry", args ?? new GetConnectedRegistryInvokeArgs(), options.WithDefaults());
     }
 
 

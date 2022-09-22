@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Maps
         /// API Version: 2021-12-01-preview.
         /// </summary>
         public static Task<ListAccountSasResult> InvokeAsync(ListAccountSasArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListAccountSasResult>("azure-native:maps:listAccountSas", args ?? new ListAccountSasArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListAccountSasResult>("azure-native:maps:listAccountSas", args ?? new ListAccountSasArgs(), options.WithDefaults());
 
         /// <summary>
         /// A new Sas token which can be used to access the Maps REST APIs and is controlled by the specified Managed identity permissions on Azure (IAM) Role Based Access Control.
         /// API Version: 2021-12-01-preview.
         /// </summary>
         public static Output<ListAccountSasResult> Invoke(ListAccountSasInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListAccountSasResult>("azure-native:maps:listAccountSas", args ?? new ListAccountSasInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListAccountSasResult>("azure-native:maps:listAccountSas", args ?? new ListAccountSasInvokeArgs(), options.WithDefaults());
     }
 
 

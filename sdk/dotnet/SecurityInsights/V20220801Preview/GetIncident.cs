@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview
         /// Represents an incident in Azure Security Insights.
         /// </summary>
         public static Task<GetIncidentResult> InvokeAsync(GetIncidentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIncidentResult>("azure-native:securityinsights/v20220801preview:getIncident", args ?? new GetIncidentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIncidentResult>("azure-native:securityinsights/v20220801preview:getIncident", args ?? new GetIncidentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents an incident in Azure Security Insights.
         /// </summary>
         public static Output<GetIncidentResult> Invoke(GetIncidentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIncidentResult>("azure-native:securityinsights/v20220801preview:getIncident", args ?? new GetIncidentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIncidentResult>("azure-native:securityinsights/v20220801preview:getIncident", args ?? new GetIncidentInvokeArgs(), options.WithDefaults());
     }
 
 

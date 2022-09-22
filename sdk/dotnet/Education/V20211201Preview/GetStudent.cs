@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Education.V20211201Preview
         /// Student details.
         /// </summary>
         public static Task<GetStudentResult> InvokeAsync(GetStudentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStudentResult>("azure-native:education/v20211201preview:getStudent", args ?? new GetStudentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStudentResult>("azure-native:education/v20211201preview:getStudent", args ?? new GetStudentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Student details.
         /// </summary>
         public static Output<GetStudentResult> Invoke(GetStudentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStudentResult>("azure-native:education/v20211201preview:getStudent", args ?? new GetStudentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetStudentResult>("azure-native:education/v20211201preview:getStudent", args ?? new GetStudentInvokeArgs(), options.WithDefaults());
     }
 
 

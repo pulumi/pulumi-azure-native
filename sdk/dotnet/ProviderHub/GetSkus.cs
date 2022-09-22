@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.ProviderHub
         /// API Version: 2020-11-20.
         /// </summary>
         public static Task<GetSkusResult> InvokeAsync(GetSkusArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSkusResult>("azure-native:providerhub:getSkus", args ?? new GetSkusArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSkusResult>("azure-native:providerhub:getSkus", args ?? new GetSkusArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
         /// API Version: 2020-11-20.
         /// </summary>
         public static Output<GetSkusResult> Invoke(GetSkusInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSkusResult>("azure-native:providerhub:getSkus", args ?? new GetSkusInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSkusResult>("azure-native:providerhub:getSkus", args ?? new GetSkusInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Compute.V20200930
         /// Specifies information about the gallery Application Version that you want to create or update.
         /// </summary>
         public static Task<GetGalleryApplicationVersionResult> InvokeAsync(GetGalleryApplicationVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGalleryApplicationVersionResult>("azure-native:compute/v20200930:getGalleryApplicationVersion", args ?? new GetGalleryApplicationVersionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGalleryApplicationVersionResult>("azure-native:compute/v20200930:getGalleryApplicationVersion", args ?? new GetGalleryApplicationVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Specifies information about the gallery Application Version that you want to create or update.
         /// </summary>
         public static Output<GetGalleryApplicationVersionResult> Invoke(GetGalleryApplicationVersionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGalleryApplicationVersionResult>("azure-native:compute/v20200930:getGalleryApplicationVersion", args ?? new GetGalleryApplicationVersionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGalleryApplicationVersionResult>("azure-native:compute/v20200930:getGalleryApplicationVersion", args ?? new GetGalleryApplicationVersionInvokeArgs(), options.WithDefaults());
     }
 
 

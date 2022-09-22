@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.CostManagement.V20221001Preview
         /// Tag Inheritance Setting definition.
         /// </summary>
         public static Task<GetTagInheritanceSettingResult> InvokeAsync(GetTagInheritanceSettingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTagInheritanceSettingResult>("azure-native:costmanagement/v20221001preview:getTagInheritanceSetting", args ?? new GetTagInheritanceSettingArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTagInheritanceSettingResult>("azure-native:costmanagement/v20221001preview:getTagInheritanceSetting", args ?? new GetTagInheritanceSettingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Tag Inheritance Setting definition.
         /// </summary>
         public static Output<GetTagInheritanceSettingResult> Invoke(GetTagInheritanceSettingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTagInheritanceSettingResult>("azure-native:costmanagement/v20221001preview:getTagInheritanceSetting", args ?? new GetTagInheritanceSettingInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTagInheritanceSettingResult>("azure-native:costmanagement/v20221001preview:getTagInheritanceSetting", args ?? new GetTagInheritanceSettingInvokeArgs(), options.WithDefaults());
     }
 
 

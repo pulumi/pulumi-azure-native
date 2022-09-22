@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview
         /// An Azure SQL Database sync agent.
         /// </summary>
         public static Task<GetSyncAgentResult> InvokeAsync(GetSyncAgentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSyncAgentResult>("azure-native:sql/v20210501preview:getSyncAgent", args ?? new GetSyncAgentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSyncAgentResult>("azure-native:sql/v20210501preview:getSyncAgent", args ?? new GetSyncAgentArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure SQL Database sync agent.
         /// </summary>
         public static Output<GetSyncAgentResult> Invoke(GetSyncAgentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSyncAgentResult>("azure-native:sql/v20210501preview:getSyncAgent", args ?? new GetSyncAgentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSyncAgentResult>("azure-native:sql/v20210501preview:getSyncAgent", args ?? new GetSyncAgentInvokeArgs(), options.WithDefaults());
     }
 
 

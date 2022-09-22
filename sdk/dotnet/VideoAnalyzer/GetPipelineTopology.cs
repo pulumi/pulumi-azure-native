@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         /// API Version: 2021-11-01-preview.
         /// </summary>
         public static Task<GetPipelineTopologyResult> InvokeAsync(GetPipelineTopologyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPipelineTopologyResult>("azure-native:videoanalyzer:getPipelineTopology", args ?? new GetPipelineTopologyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPipelineTopologyResult>("azure-native:videoanalyzer:getPipelineTopology", args ?? new GetPipelineTopologyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Pipeline topology describes the processing steps to be applied when processing content for a particular outcome. The topology should be defined according to the scenario to be achieved and can be reused across many pipeline instances which share the same processing characteristics. For instance, a pipeline topology which captures content from a RTSP camera and archives the content can be reused across many different cameras, as long as the same processing is to be applied across all the cameras. Individual instance properties can be defined through the use of user-defined parameters, which allow for a topology to be parameterized. This allows  individual pipelines refer to different values, such as individual cameras' RTSP endpoints and credentials. Overall a topology is composed of the following:
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         /// API Version: 2021-11-01-preview.
         /// </summary>
         public static Output<GetPipelineTopologyResult> Invoke(GetPipelineTopologyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPipelineTopologyResult>("azure-native:videoanalyzer:getPipelineTopology", args ?? new GetPipelineTopologyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPipelineTopologyResult>("azure-native:videoanalyzer:getPipelineTopology", args ?? new GetPipelineTopologyInvokeArgs(), options.WithDefaults());
     }
 
 

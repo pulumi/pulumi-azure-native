@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.DevCenter
         /// API Version: 2022-09-01-preview.
         /// </summary>
         public static Task<GetDevCenterResult> InvokeAsync(GetDevCenterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDevCenterResult>("azure-native:devcenter:getDevCenter", args ?? new GetDevCenterArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDevCenterResult>("azure-native:devcenter:getDevCenter", args ?? new GetDevCenterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a devcenter resource.
         /// API Version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetDevCenterResult> Invoke(GetDevCenterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDevCenterResult>("azure-native:devcenter:getDevCenter", args ?? new GetDevCenterInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDevCenterResult>("azure-native:devcenter:getDevCenter", args ?? new GetDevCenterInvokeArgs(), options.WithDefaults());
     }
 
 

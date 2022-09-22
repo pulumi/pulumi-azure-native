@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Logic.V20190501
         /// Collection of key vault keys.
         /// </summary>
         public static Task<ListIntegrationAccountKeyVaultKeysResult> InvokeAsync(ListIntegrationAccountKeyVaultKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationAccountKeyVaultKeysResult>("azure-native:logic/v20190501:listIntegrationAccountKeyVaultKeys", args ?? new ListIntegrationAccountKeyVaultKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationAccountKeyVaultKeysResult>("azure-native:logic/v20190501:listIntegrationAccountKeyVaultKeys", args ?? new ListIntegrationAccountKeyVaultKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Collection of key vault keys.
         /// </summary>
         public static Output<ListIntegrationAccountKeyVaultKeysResult> Invoke(ListIntegrationAccountKeyVaultKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListIntegrationAccountKeyVaultKeysResult>("azure-native:logic/v20190501:listIntegrationAccountKeyVaultKeys", args ?? new ListIntegrationAccountKeyVaultKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListIntegrationAccountKeyVaultKeysResult>("azure-native:logic/v20190501:listIntegrationAccountKeyVaultKeys", args ?? new ListIntegrationAccountKeyVaultKeysInvokeArgs(), options.WithDefaults());
     }
 
 

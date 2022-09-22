@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Cdn.V20220501Preview
         /// Friendly Secret name mapping to the any Secret or secret related information.
         /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure-native:cdn/v20220501preview:getSecret", args ?? new GetSecretArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure-native:cdn/v20220501preview:getSecret", args ?? new GetSecretArgs(), options.WithDefaults());
 
         /// <summary>
         /// Friendly Secret name mapping to the any Secret or secret related information.
         /// </summary>
         public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSecretResult>("azure-native:cdn/v20220501preview:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecretResult>("azure-native:cdn/v20220501preview:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Task<GetAnomaliesResult> InvokeAsync(GetAnomaliesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAnomaliesResult>("azure-native:securityinsights:getAnomalies", args ?? new GetAnomaliesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAnomaliesResult>("azure-native:securityinsights:getAnomalies", args ?? new GetAnomaliesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Settings with single toggle.
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Output<GetAnomaliesResult> Invoke(GetAnomaliesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAnomaliesResult>("azure-native:securityinsights:getAnomalies", args ?? new GetAnomaliesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAnomaliesResult>("azure-native:securityinsights:getAnomalies", args ?? new GetAnomaliesInvokeArgs(), options.WithDefaults());
     }
 
 

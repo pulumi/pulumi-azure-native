@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview
         /// The resource that defines the source location where the artifacts are located.
         /// </summary>
         public static Task<GetArtifactSourceResult> InvokeAsync(GetArtifactSourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetArtifactSourceResult>("azure-native:deploymentmanager/v20191101preview:getArtifactSource", args ?? new GetArtifactSourceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetArtifactSourceResult>("azure-native:deploymentmanager/v20191101preview:getArtifactSource", args ?? new GetArtifactSourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// The resource that defines the source location where the artifacts are located.
         /// </summary>
         public static Output<GetArtifactSourceResult> Invoke(GetArtifactSourceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetArtifactSourceResult>("azure-native:deploymentmanager/v20191101preview:getArtifactSource", args ?? new GetArtifactSourceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetArtifactSourceResult>("azure-native:deploymentmanager/v20191101preview:getArtifactSource", args ?? new GetArtifactSourceInvokeArgs(), options.WithDefaults());
     }
 
 

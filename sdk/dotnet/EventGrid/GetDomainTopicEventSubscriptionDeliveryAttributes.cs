@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.EventGrid
         /// API Version: 2021-10-15-preview.
         /// </summary>
         public static Task<GetDomainTopicEventSubscriptionDeliveryAttributesResult> InvokeAsync(GetDomainTopicEventSubscriptionDeliveryAttributesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDomainTopicEventSubscriptionDeliveryAttributesResult>("azure-native:eventgrid:getDomainTopicEventSubscriptionDeliveryAttributes", args ?? new GetDomainTopicEventSubscriptionDeliveryAttributesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainTopicEventSubscriptionDeliveryAttributesResult>("azure-native:eventgrid:getDomainTopicEventSubscriptionDeliveryAttributes", args ?? new GetDomainTopicEventSubscriptionDeliveryAttributesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Result of the Get delivery attributes operation.
         /// API Version: 2021-10-15-preview.
         /// </summary>
         public static Output<GetDomainTopicEventSubscriptionDeliveryAttributesResult> Invoke(GetDomainTopicEventSubscriptionDeliveryAttributesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDomainTopicEventSubscriptionDeliveryAttributesResult>("azure-native:eventgrid:getDomainTopicEventSubscriptionDeliveryAttributes", args ?? new GetDomainTopicEventSubscriptionDeliveryAttributesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDomainTopicEventSubscriptionDeliveryAttributesResult>("azure-native:eventgrid:getDomainTopicEventSubscriptionDeliveryAttributes", args ?? new GetDomainTopicEventSubscriptionDeliveryAttributesInvokeArgs(), options.WithDefaults());
     }
 
 

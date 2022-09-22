@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.CognitiveServices.V20160201Preview
         /// The access keys for the cognitive services account.
         /// </summary>
         public static Task<ListCognitiveServicesAccountKeysResult> InvokeAsync(ListCognitiveServicesAccountKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListCognitiveServicesAccountKeysResult>("azure-native:cognitiveservices/v20160201preview:listCognitiveServicesAccountKeys", args ?? new ListCognitiveServicesAccountKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListCognitiveServicesAccountKeysResult>("azure-native:cognitiveservices/v20160201preview:listCognitiveServicesAccountKeys", args ?? new ListCognitiveServicesAccountKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// The access keys for the cognitive services account.
         /// </summary>
         public static Output<ListCognitiveServicesAccountKeysResult> Invoke(ListCognitiveServicesAccountKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListCognitiveServicesAccountKeysResult>("azure-native:cognitiveservices/v20160201preview:listCognitiveServicesAccountKeys", args ?? new ListCognitiveServicesAccountKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListCognitiveServicesAccountKeysResult>("azure-native:cognitiveservices/v20160201preview:listCognitiveServicesAccountKeys", args ?? new ListCognitiveServicesAccountKeysInvokeArgs(), options.WithDefaults());
     }
 
 

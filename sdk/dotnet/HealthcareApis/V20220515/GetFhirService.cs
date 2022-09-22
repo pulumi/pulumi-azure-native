@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220515
         /// The description of Fhir Service
         /// </summary>
         public static Task<GetFhirServiceResult> InvokeAsync(GetFhirServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFhirServiceResult>("azure-native:healthcareapis/v20220515:getFhirService", args ?? new GetFhirServiceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFhirServiceResult>("azure-native:healthcareapis/v20220515:getFhirService", args ?? new GetFhirServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// The description of Fhir Service
         /// </summary>
         public static Output<GetFhirServiceResult> Invoke(GetFhirServiceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFhirServiceResult>("azure-native:healthcareapis/v20220515:getFhirService", args ?? new GetFhirServiceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFhirServiceResult>("azure-native:healthcareapis/v20220515:getFhirService", args ?? new GetFhirServiceInvokeArgs(), options.WithDefaults());
     }
 
 

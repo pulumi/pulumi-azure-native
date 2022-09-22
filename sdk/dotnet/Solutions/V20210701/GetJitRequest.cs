@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Solutions.V20210701
         /// Information about JIT request definition.
         /// </summary>
         public static Task<GetJitRequestResult> InvokeAsync(GetJitRequestArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJitRequestResult>("azure-native:solutions/v20210701:getJitRequest", args ?? new GetJitRequestArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetJitRequestResult>("azure-native:solutions/v20210701:getJitRequest", args ?? new GetJitRequestArgs(), options.WithDefaults());
 
         /// <summary>
         /// Information about JIT request definition.
         /// </summary>
         public static Output<GetJitRequestResult> Invoke(GetJitRequestInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetJitRequestResult>("azure-native:solutions/v20210701:getJitRequest", args ?? new GetJitRequestInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetJitRequestResult>("azure-native:solutions/v20210701:getJitRequest", args ?? new GetJitRequestInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.ApiManagement
         /// API Version: 2019-01-01.
         /// </summary>
         public static Task<GetPropertyResult> InvokeAsync(GetPropertyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPropertyResult>("azure-native:apimanagement:getProperty", args ?? new GetPropertyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPropertyResult>("azure-native:apimanagement:getProperty", args ?? new GetPropertyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Property details.
         /// API Version: 2019-01-01.
         /// </summary>
         public static Output<GetPropertyResult> Invoke(GetPropertyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPropertyResult>("azure-native:apimanagement:getProperty", args ?? new GetPropertyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPropertyResult>("azure-native:apimanagement:getProperty", args ?? new GetPropertyInvokeArgs(), options.WithDefaults());
     }
 
 

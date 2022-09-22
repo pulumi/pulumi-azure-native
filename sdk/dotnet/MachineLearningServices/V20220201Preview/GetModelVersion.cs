@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview
         /// Azure Resource Manager resource envelope.
         /// </summary>
         public static Task<GetModelVersionResult> InvokeAsync(GetModelVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetModelVersionResult>("azure-native:machinelearningservices/v20220201preview:getModelVersion", args ?? new GetModelVersionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetModelVersionResult>("azure-native:machinelearningservices/v20220201preview:getModelVersion", args ?? new GetModelVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
         /// </summary>
         public static Output<GetModelVersionResult> Invoke(GetModelVersionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetModelVersionResult>("azure-native:machinelearningservices/v20220201preview:getModelVersion", args ?? new GetModelVersionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetModelVersionResult>("azure-native:machinelearningservices/v20220201preview:getModelVersion", args ?? new GetModelVersionInvokeArgs(), options.WithDefaults());
     }
 
 

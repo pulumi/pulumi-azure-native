@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         /// Represents a gallery.
         /// </summary>
         public static Task<GetGalleryResult> InvokeAsync(GetGalleryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGalleryResult>("azure-native:devcenter/v20220801preview:getGallery", args ?? new GetGalleryArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGalleryResult>("azure-native:devcenter/v20220801preview:getGallery", args ?? new GetGalleryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a gallery.
         /// </summary>
         public static Output<GetGalleryResult> Invoke(GetGalleryInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGalleryResult>("azure-native:devcenter/v20220801preview:getGallery", args ?? new GetGalleryInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGalleryResult>("azure-native:devcenter/v20220801preview:getGallery", args ?? new GetGalleryInvokeArgs(), options.WithDefaults());
     }
 
 

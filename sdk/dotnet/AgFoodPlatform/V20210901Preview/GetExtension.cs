@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20210901Preview
         /// Extension resource.
         /// </summary>
         public static Task<GetExtensionResult> InvokeAsync(GetExtensionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExtensionResult>("azure-native:agfoodplatform/v20210901preview:getExtension", args ?? new GetExtensionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetExtensionResult>("azure-native:agfoodplatform/v20210901preview:getExtension", args ?? new GetExtensionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Extension resource.
         /// </summary>
         public static Output<GetExtensionResult> Invoke(GetExtensionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetExtensionResult>("azure-native:agfoodplatform/v20210901preview:getExtension", args ?? new GetExtensionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetExtensionResult>("azure-native:agfoodplatform/v20210901preview:getExtension", args ?? new GetExtensionInvokeArgs(), options.WithDefaults());
     }
 
 

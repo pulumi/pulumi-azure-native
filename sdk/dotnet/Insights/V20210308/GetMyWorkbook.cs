@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Insights.V20210308
         /// An Application Insights private workbook definition.
         /// </summary>
         public static Task<GetMyWorkbookResult> InvokeAsync(GetMyWorkbookArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMyWorkbookResult>("azure-native:insights/v20210308:getMyWorkbook", args ?? new GetMyWorkbookArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMyWorkbookResult>("azure-native:insights/v20210308:getMyWorkbook", args ?? new GetMyWorkbookArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Application Insights private workbook definition.
         /// </summary>
         public static Output<GetMyWorkbookResult> Invoke(GetMyWorkbookInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMyWorkbookResult>("azure-native:insights/v20210308:getMyWorkbook", args ?? new GetMyWorkbookInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMyWorkbookResult>("azure-native:insights/v20210308:getMyWorkbook", args ?? new GetMyWorkbookInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Web
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<ListWebAppAzureStorageAccountsResult> InvokeAsync(ListWebAppAzureStorageAccountsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppAzureStorageAccountsResult>("azure-native:web:listWebAppAzureStorageAccounts", args ?? new ListWebAppAzureStorageAccountsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppAzureStorageAccountsResult>("azure-native:web:listWebAppAzureStorageAccounts", args ?? new ListWebAppAzureStorageAccountsArgs(), options.WithDefaults());
 
         /// <summary>
         /// AzureStorageInfo dictionary resource.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<ListWebAppAzureStorageAccountsResult> Invoke(ListWebAppAzureStorageAccountsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListWebAppAzureStorageAccountsResult>("azure-native:web:listWebAppAzureStorageAccounts", args ?? new ListWebAppAzureStorageAccountsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListWebAppAzureStorageAccountsResult>("azure-native:web:listWebAppAzureStorageAccounts", args ?? new ListWebAppAzureStorageAccountsInvokeArgs(), options.WithDefaults());
     }
 
 

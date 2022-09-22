@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Task<GetDataContainerResult> InvokeAsync(GetDataContainerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataContainerResult>("azure-native:machinelearningservices:getDataContainer", args ?? new GetDataContainerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataContainerResult>("azure-native:machinelearningservices:getDataContainer", args ?? new GetDataContainerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Output<GetDataContainerResult> Invoke(GetDataContainerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDataContainerResult>("azure-native:machinelearningservices:getDataContainer", args ?? new GetDataContainerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataContainerResult>("azure-native:machinelearningservices:getDataContainer", args ?? new GetDataContainerInvokeArgs(), options.WithDefaults());
     }
 
 

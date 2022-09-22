@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// Backup description
         /// </summary>
         public static Task<ListSiteBackupStatusSecretsSlotResult> InvokeAsync(ListSiteBackupStatusSecretsSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSiteBackupStatusSecretsSlotResult>("azure-native:web/v20150801:listSiteBackupStatusSecretsSlot", args ?? new ListSiteBackupStatusSecretsSlotArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListSiteBackupStatusSecretsSlotResult>("azure-native:web/v20150801:listSiteBackupStatusSecretsSlot", args ?? new ListSiteBackupStatusSecretsSlotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Backup description
         /// </summary>
         public static Output<ListSiteBackupStatusSecretsSlotResult> Invoke(ListSiteBackupStatusSecretsSlotInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListSiteBackupStatusSecretsSlotResult>("azure-native:web/v20150801:listSiteBackupStatusSecretsSlot", args ?? new ListSiteBackupStatusSecretsSlotInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListSiteBackupStatusSecretsSlotResult>("azure-native:web/v20150801:listSiteBackupStatusSecretsSlot", args ?? new ListSiteBackupStatusSecretsSlotInvokeArgs(), options.WithDefaults());
     }
 
 

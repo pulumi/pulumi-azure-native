@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview
         /// The representation of a single video in a Video Analyzer account.
         /// </summary>
         public static Task<GetVideoResult> InvokeAsync(GetVideoArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVideoResult>("azure-native:videoanalyzer/v20210501preview:getVideo", args ?? new GetVideoArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVideoResult>("azure-native:videoanalyzer/v20210501preview:getVideo", args ?? new GetVideoArgs(), options.WithDefaults());
 
         /// <summary>
         /// The representation of a single video in a Video Analyzer account.
         /// </summary>
         public static Output<GetVideoResult> Invoke(GetVideoInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVideoResult>("azure-native:videoanalyzer/v20210501preview:getVideo", args ?? new GetVideoInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVideoResult>("azure-native:videoanalyzer/v20210501preview:getVideo", args ?? new GetVideoInvokeArgs(), options.WithDefaults());
     }
 
 

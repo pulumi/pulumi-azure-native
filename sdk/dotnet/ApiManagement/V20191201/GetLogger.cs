@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
         /// Logger details.
         /// </summary>
         public static Task<GetLoggerResult> InvokeAsync(GetLoggerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLoggerResult>("azure-native:apimanagement/v20191201:getLogger", args ?? new GetLoggerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLoggerResult>("azure-native:apimanagement/v20191201:getLogger", args ?? new GetLoggerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Logger details.
         /// </summary>
         public static Output<GetLoggerResult> Invoke(GetLoggerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLoggerResult>("azure-native:apimanagement/v20191201:getLogger", args ?? new GetLoggerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLoggerResult>("azure-native:apimanagement/v20191201:getLogger", args ?? new GetLoggerInvokeArgs(), options.WithDefaults());
     }
 
 

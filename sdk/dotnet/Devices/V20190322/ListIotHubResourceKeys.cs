@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Devices.V20190322
         /// The list of shared access policies with a next link.
         /// </summary>
         public static Task<ListIotHubResourceKeysResult> InvokeAsync(ListIotHubResourceKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListIotHubResourceKeysResult>("azure-native:devices/v20190322:listIotHubResourceKeys", args ?? new ListIotHubResourceKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListIotHubResourceKeysResult>("azure-native:devices/v20190322:listIotHubResourceKeys", args ?? new ListIotHubResourceKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// The list of shared access policies with a next link.
         /// </summary>
         public static Output<ListIotHubResourceKeysResult> Invoke(ListIotHubResourceKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListIotHubResourceKeysResult>("azure-native:devices/v20190322:listIotHubResourceKeys", args ?? new ListIotHubResourceKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListIotHubResourceKeysResult>("azure-native:devices/v20190322:listIotHubResourceKeys", args ?? new ListIotHubResourceKeysInvokeArgs(), options.WithDefaults());
     }
 
 

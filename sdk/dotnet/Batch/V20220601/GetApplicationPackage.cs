@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Batch.V20220601
         /// An application package which represents a particular version of an application.
         /// </summary>
         public static Task<GetApplicationPackageResult> InvokeAsync(GetApplicationPackageArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationPackageResult>("azure-native:batch/v20220601:getApplicationPackage", args ?? new GetApplicationPackageArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationPackageResult>("azure-native:batch/v20220601:getApplicationPackage", args ?? new GetApplicationPackageArgs(), options.WithDefaults());
 
         /// <summary>
         /// An application package which represents a particular version of an application.
         /// </summary>
         public static Output<GetApplicationPackageResult> Invoke(GetApplicationPackageInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApplicationPackageResult>("azure-native:batch/v20220601:getApplicationPackage", args ?? new GetApplicationPackageInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationPackageResult>("azure-native:batch/v20220601:getApplicationPackage", args ?? new GetApplicationPackageInvokeArgs(), options.WithDefaults());
     }
 
 

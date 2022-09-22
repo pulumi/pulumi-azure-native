@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Maps.V20211201Preview
         /// The set of keys which can be used to access the Maps REST APIs. Two keys are provided for key rotation without interruption.
         /// </summary>
         public static Task<ListAccountKeysResult> InvokeAsync(ListAccountKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListAccountKeysResult>("azure-native:maps/v20211201preview:listAccountKeys", args ?? new ListAccountKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListAccountKeysResult>("azure-native:maps/v20211201preview:listAccountKeys", args ?? new ListAccountKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// The set of keys which can be used to access the Maps REST APIs. Two keys are provided for key rotation without interruption.
         /// </summary>
         public static Output<ListAccountKeysResult> Invoke(ListAccountKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListAccountKeysResult>("azure-native:maps/v20211201preview:listAccountKeys", args ?? new ListAccountKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListAccountKeysResult>("azure-native:maps/v20211201preview:listAccountKeys", args ?? new ListAccountKeysInvokeArgs(), options.WithDefaults());
     }
 
 

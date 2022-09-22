@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// API Version: 2017-04-26.
         /// </summary>
         public static Task<GetPredictionTrainingResultsResult> InvokeAsync(GetPredictionTrainingResultsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPredictionTrainingResultsResult>("azure-native:customerinsights:getPredictionTrainingResults", args ?? new GetPredictionTrainingResultsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPredictionTrainingResultsResult>("azure-native:customerinsights:getPredictionTrainingResults", args ?? new GetPredictionTrainingResultsArgs(), options.WithDefaults());
 
         /// <summary>
         /// The training results of the prediction.
         /// API Version: 2017-04-26.
         /// </summary>
         public static Output<GetPredictionTrainingResultsResult> Invoke(GetPredictionTrainingResultsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPredictionTrainingResultsResult>("azure-native:customerinsights:getPredictionTrainingResults", args ?? new GetPredictionTrainingResultsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPredictionTrainingResultsResult>("azure-native:customerinsights:getPredictionTrainingResults", args ?? new GetPredictionTrainingResultsInvokeArgs(), options.WithDefaults());
     }
 
 

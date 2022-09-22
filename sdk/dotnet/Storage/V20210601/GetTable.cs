@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Storage.V20210601
         /// Properties of the table, including Id, resource name, resource type.
         /// </summary>
         public static Task<GetTableResult> InvokeAsync(GetTableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("azure-native:storage/v20210601:getTable", args ?? new GetTableArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("azure-native:storage/v20210601:getTable", args ?? new GetTableArgs(), options.WithDefaults());
 
         /// <summary>
         /// Properties of the table, including Id, resource name, resource type.
         /// </summary>
         public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTableResult>("azure-native:storage/v20210601:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTableResult>("azure-native:storage/v20210601:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Sql.V20210201Preview
         /// An Azure SQL managed instance administrator.
         /// </summary>
         public static Task<GetManagedInstanceAdministratorResult> InvokeAsync(GetManagedInstanceAdministratorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstanceAdministratorResult>("azure-native:sql/v20210201preview:getManagedInstanceAdministrator", args ?? new GetManagedInstanceAdministratorArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstanceAdministratorResult>("azure-native:sql/v20210201preview:getManagedInstanceAdministrator", args ?? new GetManagedInstanceAdministratorArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure SQL managed instance administrator.
         /// </summary>
         public static Output<GetManagedInstanceAdministratorResult> Invoke(GetManagedInstanceAdministratorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagedInstanceAdministratorResult>("azure-native:sql/v20210201preview:getManagedInstanceAdministrator", args ?? new GetManagedInstanceAdministratorInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedInstanceAdministratorResult>("azure-native:sql/v20210201preview:getManagedInstanceAdministrator", args ?? new GetManagedInstanceAdministratorInvokeArgs(), options.WithDefaults());
     }
 
 

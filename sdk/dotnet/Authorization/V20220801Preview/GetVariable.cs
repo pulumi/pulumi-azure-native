@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Authorization.V20220801Preview
         /// The variable.
         /// </summary>
         public static Task<GetVariableResult> InvokeAsync(GetVariableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVariableResult>("azure-native:authorization/v20220801preview:getVariable", args ?? new GetVariableArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVariableResult>("azure-native:authorization/v20220801preview:getVariable", args ?? new GetVariableArgs(), options.WithDefaults());
 
         /// <summary>
         /// The variable.
         /// </summary>
         public static Output<GetVariableResult> Invoke(GetVariableInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVariableResult>("azure-native:authorization/v20220801preview:getVariable", args ?? new GetVariableInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVariableResult>("azure-native:authorization/v20220801preview:getVariable", args ?? new GetVariableInvokeArgs(), options.WithDefaults());
     }
 
 

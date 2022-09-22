@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20220308PrivatePreview
         /// Represents a resource name of a cached server
         /// </summary>
         public static Task<GetGetCachedServerNameExecuteResult> InvokeAsync(GetGetCachedServerNameExecuteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGetCachedServerNameExecuteResult>("azure-native:dbforpostgresql/v20220308privatepreview:getGetCachedServerNameExecute", args ?? new GetGetCachedServerNameExecuteArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGetCachedServerNameExecuteResult>("azure-native:dbforpostgresql/v20220308privatepreview:getGetCachedServerNameExecute", args ?? new GetGetCachedServerNameExecuteArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a resource name of a cached server
         /// </summary>
         public static Output<GetGetCachedServerNameExecuteResult> Invoke(GetGetCachedServerNameExecuteInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGetCachedServerNameExecuteResult>("azure-native:dbforpostgresql/v20220308privatepreview:getGetCachedServerNameExecute", args ?? new GetGetCachedServerNameExecuteInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGetCachedServerNameExecuteResult>("azure-native:dbforpostgresql/v20220308privatepreview:getGetCachedServerNameExecute", args ?? new GetGetCachedServerNameExecuteInvokeArgs(), options.WithDefaults());
     }
 
 

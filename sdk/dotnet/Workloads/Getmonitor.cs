@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Workloads
         /// API Version: 2021-12-01-preview.
         /// </summary>
         public static Task<GetmonitorResult> InvokeAsync(GetmonitorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetmonitorResult>("azure-native:workloads:getmonitor", args ?? new GetmonitorArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetmonitorResult>("azure-native:workloads:getmonitor", args ?? new GetmonitorArgs(), options.WithDefaults());
 
         /// <summary>
         /// SAP monitor info on Azure (ARM properties and SAP monitor properties)
         /// API Version: 2021-12-01-preview.
         /// </summary>
         public static Output<GetmonitorResult> Invoke(GetmonitorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetmonitorResult>("azure-native:workloads:getmonitor", args ?? new GetmonitorInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetmonitorResult>("azure-native:workloads:getmonitor", args ?? new GetmonitorInvokeArgs(), options.WithDefaults());
     }
 
 

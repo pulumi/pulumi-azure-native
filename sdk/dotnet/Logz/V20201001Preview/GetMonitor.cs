@@ -12,10 +12,10 @@ namespace Pulumi.AzureNative.Logz.V20201001Preview
     public static class GetMonitor
     {
         public static Task<GetMonitorResult> InvokeAsync(GetMonitorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMonitorResult>("azure-native:logz/v20201001preview:getMonitor", args ?? new GetMonitorArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitorResult>("azure-native:logz/v20201001preview:getMonitor", args ?? new GetMonitorArgs(), options.WithDefaults());
 
         public static Output<GetMonitorResult> Invoke(GetMonitorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMonitorResult>("azure-native:logz/v20201001preview:getMonitor", args ?? new GetMonitorInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMonitorResult>("azure-native:logz/v20201001preview:getMonitor", args ?? new GetMonitorInvokeArgs(), options.WithDefaults());
     }
 
 

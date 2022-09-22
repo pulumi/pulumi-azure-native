@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Storage.V20190601
         /// The storage account.
         /// </summary>
         public static Task<GetStorageAccountResult> InvokeAsync(GetStorageAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountResult>("azure-native:storage/v20190601:getStorageAccount", args ?? new GetStorageAccountArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountResult>("azure-native:storage/v20190601:getStorageAccount", args ?? new GetStorageAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// The storage account.
         /// </summary>
         public static Output<GetStorageAccountResult> Invoke(GetStorageAccountInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStorageAccountResult>("azure-native:storage/v20190601:getStorageAccount", args ?? new GetStorageAccountInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetStorageAccountResult>("azure-native:storage/v20190601:getStorageAccount", args ?? new GetStorageAccountInvokeArgs(), options.WithDefaults());
     }
 
 

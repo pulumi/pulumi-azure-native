@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.CustomProviders.V20180901Preview
         /// A manifest file that defines the custom resource provider resources.
         /// </summary>
         public static Task<GetCustomResourceProviderResult> InvokeAsync(GetCustomResourceProviderArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomResourceProviderResult>("azure-native:customproviders/v20180901preview:getCustomResourceProvider", args ?? new GetCustomResourceProviderArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomResourceProviderResult>("azure-native:customproviders/v20180901preview:getCustomResourceProvider", args ?? new GetCustomResourceProviderArgs(), options.WithDefaults());
 
         /// <summary>
         /// A manifest file that defines the custom resource provider resources.
         /// </summary>
         public static Output<GetCustomResourceProviderResult> Invoke(GetCustomResourceProviderInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCustomResourceProviderResult>("azure-native:customproviders/v20180901preview:getCustomResourceProvider", args ?? new GetCustomResourceProviderInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomResourceProviderResult>("azure-native:customproviders/v20180901preview:getCustomResourceProvider", args ?? new GetCustomResourceProviderInvokeArgs(), options.WithDefaults());
     }
 
 

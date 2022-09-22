@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Compute.V20210701
         /// Specifies information about the capacity reservation group that the capacity reservations should be assigned to. &lt;br&gt;&lt;br&gt; Currently, a capacity reservation can only be added to a capacity reservation group at creation time. An existing capacity reservation cannot be added or moved to another capacity reservation group.
         /// </summary>
         public static Task<GetCapacityReservationGroupResult> InvokeAsync(GetCapacityReservationGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCapacityReservationGroupResult>("azure-native:compute/v20210701:getCapacityReservationGroup", args ?? new GetCapacityReservationGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCapacityReservationGroupResult>("azure-native:compute/v20210701:getCapacityReservationGroup", args ?? new GetCapacityReservationGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Specifies information about the capacity reservation group that the capacity reservations should be assigned to. &lt;br&gt;&lt;br&gt; Currently, a capacity reservation can only be added to a capacity reservation group at creation time. An existing capacity reservation cannot be added or moved to another capacity reservation group.
         /// </summary>
         public static Output<GetCapacityReservationGroupResult> Invoke(GetCapacityReservationGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCapacityReservationGroupResult>("azure-native:compute/v20210701:getCapacityReservationGroup", args ?? new GetCapacityReservationGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCapacityReservationGroupResult>("azure-native:compute/v20210701:getCapacityReservationGroup", args ?? new GetCapacityReservationGroupInvokeArgs(), options.WithDefaults());
     }
 
 

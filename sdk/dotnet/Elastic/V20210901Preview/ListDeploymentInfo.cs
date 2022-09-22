@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Elastic.V20210901Preview
         /// The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
         /// </summary>
         public static Task<ListDeploymentInfoResult> InvokeAsync(ListDeploymentInfoArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListDeploymentInfoResult>("azure-native:elastic/v20210901preview:listDeploymentInfo", args ?? new ListDeploymentInfoArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListDeploymentInfoResult>("azure-native:elastic/v20210901preview:listDeploymentInfo", args ?? new ListDeploymentInfoArgs(), options.WithDefaults());
 
         /// <summary>
         /// The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
         /// </summary>
         public static Output<ListDeploymentInfoResult> Invoke(ListDeploymentInfoInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListDeploymentInfoResult>("azure-native:elastic/v20210901preview:listDeploymentInfo", args ?? new ListDeploymentInfoInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListDeploymentInfoResult>("azure-native:elastic/v20210901preview:listDeploymentInfo", args ?? new ListDeploymentInfoInvokeArgs(), options.WithDefaults());
     }
 
 

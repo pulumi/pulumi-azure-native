@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ContainerService.V20220502Preview
         /// A managed cluster snapshot resource.
         /// </summary>
         public static Task<GetManagedClusterSnapshotResult> InvokeAsync(GetManagedClusterSnapshotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedClusterSnapshotResult>("azure-native:containerservice/v20220502preview:getManagedClusterSnapshot", args ?? new GetManagedClusterSnapshotArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedClusterSnapshotResult>("azure-native:containerservice/v20220502preview:getManagedClusterSnapshot", args ?? new GetManagedClusterSnapshotArgs(), options.WithDefaults());
 
         /// <summary>
         /// A managed cluster snapshot resource.
         /// </summary>
         public static Output<GetManagedClusterSnapshotResult> Invoke(GetManagedClusterSnapshotInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagedClusterSnapshotResult>("azure-native:containerservice/v20220502preview:getManagedClusterSnapshot", args ?? new GetManagedClusterSnapshotInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedClusterSnapshotResult>("azure-native:containerservice/v20220502preview:getManagedClusterSnapshot", args ?? new GetManagedClusterSnapshotInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Logz.V20201001Preview
         /// Response of a list VM Host Update Operation.
         /// </summary>
         public static Task<ListMonitorVMHostsResult> InvokeAsync(ListMonitorVMHostsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListMonitorVMHostsResult>("azure-native:logz/v20201001preview:listMonitorVMHosts", args ?? new ListMonitorVMHostsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListMonitorVMHostsResult>("azure-native:logz/v20201001preview:listMonitorVMHosts", args ?? new ListMonitorVMHostsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response of a list VM Host Update Operation.
         /// </summary>
         public static Output<ListMonitorVMHostsResult> Invoke(ListMonitorVMHostsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListMonitorVMHostsResult>("azure-native:logz/v20201001preview:listMonitorVMHosts", args ?? new ListMonitorVMHostsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListMonitorVMHostsResult>("azure-native:logz/v20201001preview:listMonitorVMHosts", args ?? new ListMonitorVMHostsInvokeArgs(), options.WithDefaults());
     }
 
 

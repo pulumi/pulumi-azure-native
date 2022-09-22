@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Migrate.V20200501
         /// Migrate project.
         /// </summary>
         public static Task<GetMigrateProjectsControllerMigrateProjectResult> InvokeAsync(GetMigrateProjectsControllerMigrateProjectArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMigrateProjectsControllerMigrateProjectResult>("azure-native:migrate/v20200501:getMigrateProjectsControllerMigrateProject", args ?? new GetMigrateProjectsControllerMigrateProjectArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMigrateProjectsControllerMigrateProjectResult>("azure-native:migrate/v20200501:getMigrateProjectsControllerMigrateProject", args ?? new GetMigrateProjectsControllerMigrateProjectArgs(), options.WithDefaults());
 
         /// <summary>
         /// Migrate project.
         /// </summary>
         public static Output<GetMigrateProjectsControllerMigrateProjectResult> Invoke(GetMigrateProjectsControllerMigrateProjectInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMigrateProjectsControllerMigrateProjectResult>("azure-native:migrate/v20200501:getMigrateProjectsControllerMigrateProject", args ?? new GetMigrateProjectsControllerMigrateProjectInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMigrateProjectsControllerMigrateProjectResult>("azure-native:migrate/v20200501:getMigrateProjectsControllerMigrateProject", args ?? new GetMigrateProjectsControllerMigrateProjectInvokeArgs(), options.WithDefaults());
     }
 
 

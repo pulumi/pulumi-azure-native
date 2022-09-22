@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.PolicyInsights.V20210101
         /// An attestation resource.
         /// </summary>
         public static Task<GetAttestationAtResourceGroupResult> InvokeAsync(GetAttestationAtResourceGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAttestationAtResourceGroupResult>("azure-native:policyinsights/v20210101:getAttestationAtResourceGroup", args ?? new GetAttestationAtResourceGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAttestationAtResourceGroupResult>("azure-native:policyinsights/v20210101:getAttestationAtResourceGroup", args ?? new GetAttestationAtResourceGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// An attestation resource.
         /// </summary>
         public static Output<GetAttestationAtResourceGroupResult> Invoke(GetAttestationAtResourceGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAttestationAtResourceGroupResult>("azure-native:policyinsights/v20210101:getAttestationAtResourceGroup", args ?? new GetAttestationAtResourceGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAttestationAtResourceGroupResult>("azure-native:policyinsights/v20210101:getAttestationAtResourceGroup", args ?? new GetAttestationAtResourceGroupInvokeArgs(), options.WithDefaults());
     }
 
 

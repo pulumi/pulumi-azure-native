@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.TestBase
         /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Task<GetTestResultConsoleLogDownloadURLResult> InvokeAsync(GetTestResultConsoleLogDownloadURLArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTestResultConsoleLogDownloadURLResult>("azure-native:testbase:getTestResultConsoleLogDownloadURL", args ?? new GetTestResultConsoleLogDownloadURLArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTestResultConsoleLogDownloadURLResult>("azure-native:testbase:getTestResultConsoleLogDownloadURL", args ?? new GetTestResultConsoleLogDownloadURLArgs(), options.WithDefaults());
 
         /// <summary>
         /// The response of getting a download URL.
         /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Output<GetTestResultConsoleLogDownloadURLResult> Invoke(GetTestResultConsoleLogDownloadURLInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTestResultConsoleLogDownloadURLResult>("azure-native:testbase:getTestResultConsoleLogDownloadURL", args ?? new GetTestResultConsoleLogDownloadURLInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTestResultConsoleLogDownloadURLResult>("azure-native:testbase:getTestResultConsoleLogDownloadURL", args ?? new GetTestResultConsoleLogDownloadURLInvokeArgs(), options.WithDefaults());
     }
 
 
