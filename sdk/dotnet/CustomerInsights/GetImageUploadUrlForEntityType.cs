@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// API Version: 2017-04-26.
         /// </summary>
         public static Task<GetImageUploadUrlForEntityTypeResult> InvokeAsync(GetImageUploadUrlForEntityTypeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetImageUploadUrlForEntityTypeResult>("azure-native:customerinsights:getImageUploadUrlForEntityType", args ?? new GetImageUploadUrlForEntityTypeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetImageUploadUrlForEntityTypeResult>("azure-native:customerinsights:getImageUploadUrlForEntityType", args ?? new GetImageUploadUrlForEntityTypeArgs(), options.WithDefaults());
 
         /// <summary>
         /// The image definition.
         /// API Version: 2017-04-26.
         /// </summary>
         public static Output<GetImageUploadUrlForEntityTypeResult> Invoke(GetImageUploadUrlForEntityTypeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetImageUploadUrlForEntityTypeResult>("azure-native:customerinsights:getImageUploadUrlForEntityType", args ?? new GetImageUploadUrlForEntityTypeInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetImageUploadUrlForEntityTypeResult>("azure-native:customerinsights:getImageUploadUrlForEntityType", args ?? new GetImageUploadUrlForEntityTypeInvokeArgs(), options.WithDefaults());
     }
 
 

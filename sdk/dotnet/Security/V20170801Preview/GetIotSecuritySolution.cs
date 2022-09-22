@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
         /// Security Solution
         /// </summary>
         public static Task<GetIotSecuritySolutionResult> InvokeAsync(GetIotSecuritySolutionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIotSecuritySolutionResult>("azure-native:security/v20170801preview:getIotSecuritySolution", args ?? new GetIotSecuritySolutionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIotSecuritySolutionResult>("azure-native:security/v20170801preview:getIotSecuritySolution", args ?? new GetIotSecuritySolutionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Security Solution
         /// </summary>
         public static Output<GetIotSecuritySolutionResult> Invoke(GetIotSecuritySolutionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIotSecuritySolutionResult>("azure-native:security/v20170801preview:getIotSecuritySolution", args ?? new GetIotSecuritySolutionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIotSecuritySolutionResult>("azure-native:security/v20170801preview:getIotSecuritySolution", args ?? new GetIotSecuritySolutionInvokeArgs(), options.WithDefaults());
     }
 
 

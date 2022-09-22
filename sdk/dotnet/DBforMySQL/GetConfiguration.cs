@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// API Version: 2017-12-01.
         /// </summary>
         public static Task<GetConfigurationResult> InvokeAsync(GetConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationResult>("azure-native:dbformysql:getConfiguration", args ?? new GetConfigurationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationResult>("azure-native:dbformysql:getConfiguration", args ?? new GetConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a Configuration.
         /// API Version: 2017-12-01.
         /// </summary>
         public static Output<GetConfigurationResult> Invoke(GetConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConfigurationResult>("azure-native:dbformysql:getConfiguration", args ?? new GetConfigurationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationResult>("azure-native:dbformysql:getConfiguration", args ?? new GetConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

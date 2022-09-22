@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Devices
         /// API Version: 2020-03-01.
         /// </summary>
         public static Task<GetIotDpsResourceResult> InvokeAsync(GetIotDpsResourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIotDpsResourceResult>("azure-native:devices:getIotDpsResource", args ?? new GetIotDpsResourceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIotDpsResourceResult>("azure-native:devices:getIotDpsResource", args ?? new GetIotDpsResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// The description of the provisioning service.
         /// API Version: 2020-03-01.
         /// </summary>
         public static Output<GetIotDpsResourceResult> Invoke(GetIotDpsResourceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIotDpsResourceResult>("azure-native:devices:getIotDpsResource", args ?? new GetIotDpsResourceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIotDpsResourceResult>("azure-native:devices:getIotDpsResource", args ?? new GetIotDpsResourceInvokeArgs(), options.WithDefaults());
     }
 
 

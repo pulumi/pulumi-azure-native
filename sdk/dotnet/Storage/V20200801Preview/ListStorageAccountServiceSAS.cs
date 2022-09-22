@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Storage.V20200801Preview
         /// The List service SAS credentials operation response.
         /// </summary>
         public static Task<ListStorageAccountServiceSASResult> InvokeAsync(ListStorageAccountServiceSASArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountServiceSASResult>("azure-native:storage/v20200801preview:listStorageAccountServiceSAS", args ?? new ListStorageAccountServiceSASArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountServiceSASResult>("azure-native:storage/v20200801preview:listStorageAccountServiceSAS", args ?? new ListStorageAccountServiceSASArgs(), options.WithDefaults());
 
         /// <summary>
         /// The List service SAS credentials operation response.
         /// </summary>
         public static Output<ListStorageAccountServiceSASResult> Invoke(ListStorageAccountServiceSASInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListStorageAccountServiceSASResult>("azure-native:storage/v20200801preview:listStorageAccountServiceSAS", args ?? new ListStorageAccountServiceSASInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListStorageAccountServiceSASResult>("azure-native:storage/v20200801preview:listStorageAccountServiceSAS", args ?? new ListStorageAccountServiceSASInvokeArgs(), options.WithDefaults());
     }
 
 

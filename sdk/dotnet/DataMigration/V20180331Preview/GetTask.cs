@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.DataMigration.V20180331Preview
         /// A task resource
         /// </summary>
         public static Task<GetTaskResult> InvokeAsync(GetTaskArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTaskResult>("azure-native:datamigration/v20180331preview:getTask", args ?? new GetTaskArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTaskResult>("azure-native:datamigration/v20180331preview:getTask", args ?? new GetTaskArgs(), options.WithDefaults());
 
         /// <summary>
         /// A task resource
         /// </summary>
         public static Output<GetTaskResult> Invoke(GetTaskInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTaskResult>("azure-native:datamigration/v20180331preview:getTask", args ?? new GetTaskInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTaskResult>("azure-native:datamigration/v20180331preview:getTask", args ?? new GetTaskInvokeArgs(), options.WithDefaults());
     }
 
 

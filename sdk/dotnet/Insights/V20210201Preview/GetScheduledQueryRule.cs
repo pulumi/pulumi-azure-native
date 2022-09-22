@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Insights.V20210201Preview
         /// The scheduled query rule resource.
         /// </summary>
         public static Task<GetScheduledQueryRuleResult> InvokeAsync(GetScheduledQueryRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduledQueryRuleResult>("azure-native:insights/v20210201preview:getScheduledQueryRule", args ?? new GetScheduledQueryRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduledQueryRuleResult>("azure-native:insights/v20210201preview:getScheduledQueryRule", args ?? new GetScheduledQueryRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// The scheduled query rule resource.
         /// </summary>
         public static Output<GetScheduledQueryRuleResult> Invoke(GetScheduledQueryRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetScheduledQueryRuleResult>("azure-native:insights/v20210201preview:getScheduledQueryRule", args ?? new GetScheduledQueryRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetScheduledQueryRuleResult>("azure-native:insights/v20210201preview:getScheduledQueryRule", args ?? new GetScheduledQueryRuleInvokeArgs(), options.WithDefaults());
     }
 
 

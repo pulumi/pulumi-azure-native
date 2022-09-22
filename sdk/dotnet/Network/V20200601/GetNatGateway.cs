@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20200601
         /// Nat Gateway resource.
         /// </summary>
         public static Task<GetNatGatewayResult> InvokeAsync(GetNatGatewayArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNatGatewayResult>("azure-native:network/v20200601:getNatGateway", args ?? new GetNatGatewayArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNatGatewayResult>("azure-native:network/v20200601:getNatGateway", args ?? new GetNatGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Nat Gateway resource.
         /// </summary>
         public static Output<GetNatGatewayResult> Invoke(GetNatGatewayInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNatGatewayResult>("azure-native:network/v20200601:getNatGateway", args ?? new GetNatGatewayInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNatGatewayResult>("azure-native:network/v20200601:getNatGateway", args ?? new GetNatGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

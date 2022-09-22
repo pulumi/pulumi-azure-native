@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.AppConfiguration
         /// API Version: 2020-06-01.
         /// </summary>
         public static Task<GetConfigurationStoreResult> InvokeAsync(GetConfigurationStoreArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationStoreResult>("azure-native:appconfiguration:getConfigurationStore", args ?? new GetConfigurationStoreArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationStoreResult>("azure-native:appconfiguration:getConfigurationStore", args ?? new GetConfigurationStoreArgs(), options.WithDefaults());
 
         /// <summary>
         /// The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
         /// API Version: 2020-06-01.
         /// </summary>
         public static Output<GetConfigurationStoreResult> Invoke(GetConfigurationStoreInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConfigurationStoreResult>("azure-native:appconfiguration:getConfigurationStore", args ?? new GetConfigurationStoreInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationStoreResult>("azure-native:appconfiguration:getConfigurationStore", args ?? new GetConfigurationStoreInvokeArgs(), options.WithDefaults());
     }
 
 

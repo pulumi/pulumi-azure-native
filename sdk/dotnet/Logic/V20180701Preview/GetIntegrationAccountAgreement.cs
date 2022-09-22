@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview
         /// The integration account agreement.
         /// </summary>
         public static Task<GetIntegrationAccountAgreementResult> InvokeAsync(GetIntegrationAccountAgreementArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountAgreementResult>("azure-native:logic/v20180701preview:getIntegrationAccountAgreement", args ?? new GetIntegrationAccountAgreementArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountAgreementResult>("azure-native:logic/v20180701preview:getIntegrationAccountAgreement", args ?? new GetIntegrationAccountAgreementArgs(), options.WithDefaults());
 
         /// <summary>
         /// The integration account agreement.
         /// </summary>
         public static Output<GetIntegrationAccountAgreementResult> Invoke(GetIntegrationAccountAgreementInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountAgreementResult>("azure-native:logic/v20180701preview:getIntegrationAccountAgreement", args ?? new GetIntegrationAccountAgreementInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountAgreementResult>("azure-native:logic/v20180701preview:getIntegrationAccountAgreement", args ?? new GetIntegrationAccountAgreementInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Migrate.V20180202
         /// Azure Migrate Project.
         /// </summary>
         public static Task<GetProjectResult> InvokeAsync(GetProjectArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure-native:migrate/v20180202:getProject", args ?? new GetProjectArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure-native:migrate/v20180202:getProject", args ?? new GetProjectArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Migrate Project.
         /// </summary>
         public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProjectResult>("azure-native:migrate/v20180202:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetProjectResult>("azure-native:migrate/v20180202:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
     }
 
 

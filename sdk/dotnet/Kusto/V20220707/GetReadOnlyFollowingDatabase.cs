@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Kusto.V20220707
         /// Class representing a read only following database.
         /// </summary>
         public static Task<GetReadOnlyFollowingDatabaseResult> InvokeAsync(GetReadOnlyFollowingDatabaseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReadOnlyFollowingDatabaseResult>("azure-native:kusto/v20220707:getReadOnlyFollowingDatabase", args ?? new GetReadOnlyFollowingDatabaseArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetReadOnlyFollowingDatabaseResult>("azure-native:kusto/v20220707:getReadOnlyFollowingDatabase", args ?? new GetReadOnlyFollowingDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Class representing a read only following database.
         /// </summary>
         public static Output<GetReadOnlyFollowingDatabaseResult> Invoke(GetReadOnlyFollowingDatabaseInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetReadOnlyFollowingDatabaseResult>("azure-native:kusto/v20220707:getReadOnlyFollowingDatabase", args ?? new GetReadOnlyFollowingDatabaseInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetReadOnlyFollowingDatabaseResult>("azure-native:kusto/v20220707:getReadOnlyFollowingDatabase", args ?? new GetReadOnlyFollowingDatabaseInvokeArgs(), options.WithDefaults());
     }
 
 

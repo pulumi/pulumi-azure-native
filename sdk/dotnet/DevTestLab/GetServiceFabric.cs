@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.DevTestLab
         /// API Version: 2018-09-15.
         /// </summary>
         public static Task<GetServiceFabricResult> InvokeAsync(GetServiceFabricArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceFabricResult>("azure-native:devtestlab:getServiceFabric", args ?? new GetServiceFabricArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceFabricResult>("azure-native:devtestlab:getServiceFabric", args ?? new GetServiceFabricArgs(), options.WithDefaults());
 
         /// <summary>
         /// A Service Fabric.
         /// API Version: 2018-09-15.
         /// </summary>
         public static Output<GetServiceFabricResult> Invoke(GetServiceFabricInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServiceFabricResult>("azure-native:devtestlab:getServiceFabric", args ?? new GetServiceFabricInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceFabricResult>("azure-native:devtestlab:getServiceFabric", args ?? new GetServiceFabricInvokeArgs(), options.WithDefaults());
     }
 
 

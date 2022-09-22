@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Synapse
         /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Task<GetKustoPoolPrincipalAssignmentResult> InvokeAsync(GetKustoPoolPrincipalAssignmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKustoPoolPrincipalAssignmentResult>("azure-native:synapse:getKustoPoolPrincipalAssignment", args ?? new GetKustoPoolPrincipalAssignmentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetKustoPoolPrincipalAssignmentResult>("azure-native:synapse:getKustoPoolPrincipalAssignment", args ?? new GetKustoPoolPrincipalAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Class representing a cluster principal assignment.
         /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Output<GetKustoPoolPrincipalAssignmentResult> Invoke(GetKustoPoolPrincipalAssignmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetKustoPoolPrincipalAssignmentResult>("azure-native:synapse:getKustoPoolPrincipalAssignment", args ?? new GetKustoPoolPrincipalAssignmentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetKustoPoolPrincipalAssignmentResult>("azure-native:synapse:getKustoPoolPrincipalAssignment", args ?? new GetKustoPoolPrincipalAssignmentInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview
         /// The result of get log link operation.
         /// </summary>
         public static Task<GetBuildLogLinkResult> InvokeAsync(GetBuildLogLinkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBuildLogLinkResult>("azure-native:containerregistry/v20180201preview:getBuildLogLink", args ?? new GetBuildLogLinkArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBuildLogLinkResult>("azure-native:containerregistry/v20180201preview:getBuildLogLink", args ?? new GetBuildLogLinkArgs(), options.WithDefaults());
 
         /// <summary>
         /// The result of get log link operation.
         /// </summary>
         public static Output<GetBuildLogLinkResult> Invoke(GetBuildLogLinkInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBuildLogLinkResult>("azure-native:containerregistry/v20180201preview:getBuildLogLink", args ?? new GetBuildLogLinkInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBuildLogLinkResult>("azure-native:containerregistry/v20180201preview:getBuildLogLink", args ?? new GetBuildLogLinkInvokeArgs(), options.WithDefaults());
     }
 
 

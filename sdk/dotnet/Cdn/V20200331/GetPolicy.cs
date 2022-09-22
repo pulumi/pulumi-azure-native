@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Cdn.V20200331
         /// Defines web application firewall policy for Azure CDN.
         /// </summary>
         public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("azure-native:cdn/v20200331:getPolicy", args ?? new GetPolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("azure-native:cdn/v20200331:getPolicy", args ?? new GetPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Defines web application firewall policy for Azure CDN.
         /// </summary>
         public static Output<GetPolicyResult> Invoke(GetPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("azure-native:cdn/v20200331:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("azure-native:cdn/v20200331:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Elastic.V20200701Preview
         /// Response of a list operation.
         /// </summary>
         public static Task<ListMonitoredResourceResult> InvokeAsync(ListMonitoredResourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListMonitoredResourceResult>("azure-native:elastic/v20200701preview:listMonitoredResource", args ?? new ListMonitoredResourceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListMonitoredResourceResult>("azure-native:elastic/v20200701preview:listMonitoredResource", args ?? new ListMonitoredResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response of a list operation.
         /// </summary>
         public static Output<ListMonitoredResourceResult> Invoke(ListMonitoredResourceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListMonitoredResourceResult>("azure-native:elastic/v20200701preview:listMonitoredResource", args ?? new ListMonitoredResourceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListMonitoredResourceResult>("azure-native:elastic/v20200701preview:listMonitoredResource", args ?? new ListMonitoredResourceInvokeArgs(), options.WithDefaults());
     }
 
 

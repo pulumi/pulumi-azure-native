@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetVirtualHubIpConfigurationResult> InvokeAsync(GetVirtualHubIpConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubIpConfigurationResult>("azure-native:network:getVirtualHubIpConfiguration", args ?? new GetVirtualHubIpConfigurationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubIpConfigurationResult>("azure-native:network:getVirtualHubIpConfiguration", args ?? new GetVirtualHubIpConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// IpConfigurations.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetVirtualHubIpConfigurationResult> Invoke(GetVirtualHubIpConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualHubIpConfigurationResult>("azure-native:network:getVirtualHubIpConfiguration", args ?? new GetVirtualHubIpConfigurationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualHubIpConfigurationResult>("azure-native:network:getVirtualHubIpConfiguration", args ?? new GetVirtualHubIpConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

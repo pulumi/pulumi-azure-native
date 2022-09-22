@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220901Preview
         /// Represents NRT alert rule.
         /// </summary>
         public static Task<GetNrtAlertRuleResult> InvokeAsync(GetNrtAlertRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNrtAlertRuleResult>("azure-native:securityinsights/v20220901preview:getNrtAlertRule", args ?? new GetNrtAlertRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNrtAlertRuleResult>("azure-native:securityinsights/v20220901preview:getNrtAlertRule", args ?? new GetNrtAlertRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents NRT alert rule.
         /// </summary>
         public static Output<GetNrtAlertRuleResult> Invoke(GetNrtAlertRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNrtAlertRuleResult>("azure-native:securityinsights/v20220901preview:getNrtAlertRule", args ?? new GetNrtAlertRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNrtAlertRuleResult>("azure-native:securityinsights/v20220901preview:getNrtAlertRule", args ?? new GetNrtAlertRuleInvokeArgs(), options.WithDefaults());
     }
 
 

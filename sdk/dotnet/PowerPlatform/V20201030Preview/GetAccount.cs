@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview
         /// Definition of the account.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:powerplatform/v20201030preview:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:powerplatform/v20201030preview:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of the account.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:powerplatform/v20201030preview:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:powerplatform/v20201030preview:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
     }
 
 

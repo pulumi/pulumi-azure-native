@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Insights
         /// API Version: 2015-05-01.
         /// </summary>
         public static Task<GetAnalyticsItemResult> InvokeAsync(GetAnalyticsItemArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAnalyticsItemResult>("azure-native:insights:getAnalyticsItem", args ?? new GetAnalyticsItemArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAnalyticsItemResult>("azure-native:insights:getAnalyticsItem", args ?? new GetAnalyticsItemArgs(), options.WithDefaults());
 
         /// <summary>
         /// Properties that define an Analytics item that is associated to an Application Insights component.
         /// API Version: 2015-05-01.
         /// </summary>
         public static Output<GetAnalyticsItemResult> Invoke(GetAnalyticsItemInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAnalyticsItemResult>("azure-native:insights:getAnalyticsItem", args ?? new GetAnalyticsItemInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAnalyticsItemResult>("azure-native:insights:getAnalyticsItem", args ?? new GetAnalyticsItemInvokeArgs(), options.WithDefaults());
     }
 
 

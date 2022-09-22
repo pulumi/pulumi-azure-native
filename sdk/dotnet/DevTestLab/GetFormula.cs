@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.DevTestLab
         /// API Version: 2018-09-15.
         /// </summary>
         public static Task<GetFormulaResult> InvokeAsync(GetFormulaArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFormulaResult>("azure-native:devtestlab:getFormula", args ?? new GetFormulaArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFormulaResult>("azure-native:devtestlab:getFormula", args ?? new GetFormulaArgs(), options.WithDefaults());
 
         /// <summary>
         /// A formula for creating a VM, specifying an image base and other parameters
         /// API Version: 2018-09-15.
         /// </summary>
         public static Output<GetFormulaResult> Invoke(GetFormulaInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFormulaResult>("azure-native:devtestlab:getFormula", args ?? new GetFormulaInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFormulaResult>("azure-native:devtestlab:getFormula", args ?? new GetFormulaInvokeArgs(), options.WithDefaults());
     }
 
 

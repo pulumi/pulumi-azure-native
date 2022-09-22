@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Automation.V20190601
         /// Definition of the source control.
         /// </summary>
         public static Task<GetSourceControlResult> InvokeAsync(GetSourceControlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSourceControlResult>("azure-native:automation/v20190601:getSourceControl", args ?? new GetSourceControlArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSourceControlResult>("azure-native:automation/v20190601:getSourceControl", args ?? new GetSourceControlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of the source control.
         /// </summary>
         public static Output<GetSourceControlResult> Invoke(GetSourceControlInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSourceControlResult>("azure-native:automation/v20190601:getSourceControl", args ?? new GetSourceControlInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSourceControlResult>("azure-native:automation/v20190601:getSourceControl", args ?? new GetSourceControlInvokeArgs(), options.WithDefaults());
     }
 
 

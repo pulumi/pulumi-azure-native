@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.LabServices
         /// API Version: 2018-10-15.
         /// </summary>
         public static Task<GetEnvironmentResult> InvokeAsync(GetEnvironmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentResult>("azure-native:labservices:getEnvironment", args ?? new GetEnvironmentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentResult>("azure-native:labservices:getEnvironment", args ?? new GetEnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents an environment instance
         /// API Version: 2018-10-15.
         /// </summary>
         public static Output<GetEnvironmentResult> Invoke(GetEnvironmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEnvironmentResult>("azure-native:labservices:getEnvironment", args ?? new GetEnvironmentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentResult>("azure-native:labservices:getEnvironment", args ?? new GetEnvironmentInvokeArgs(), options.WithDefaults());
     }
 
 

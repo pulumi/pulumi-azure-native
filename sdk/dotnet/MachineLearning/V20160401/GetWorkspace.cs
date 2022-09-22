@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.MachineLearning.V20160401
         /// An object that represents a machine learning workspace.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:machinelearning/v20160401:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:machinelearning/v20160401:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// An object that represents a machine learning workspace.
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:machinelearning/v20160401:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:machinelearning/v20160401:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
     }
 
 

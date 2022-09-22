@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210901PrivatePreview
         /// The service resource.
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:servicefabric/v20210901privatepreview:getService", args ?? new GetServiceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:servicefabric/v20210901privatepreview:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// The service resource.
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:servicefabric/v20210901privatepreview:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:servicefabric/v20210901privatepreview:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
     }
 
 

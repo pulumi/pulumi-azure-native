@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201
         /// By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/ for additional details.
         /// </summary>
         public static Task<GetCloudEdgeManagementRoleResult> InvokeAsync(GetCloudEdgeManagementRoleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCloudEdgeManagementRoleResult>("azure-native:databoxedge/v20210201:getCloudEdgeManagementRole", args ?? new GetCloudEdgeManagementRoleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudEdgeManagementRoleResult>("azure-native:databoxedge/v20210201:getCloudEdgeManagementRole", args ?? new GetCloudEdgeManagementRoleArgs(), options.WithDefaults());
 
         /// <summary>
         /// The preview of Virtual Machine Cloud Management from the Azure supports deploying and managing VMs on your Azure Stack Edge device from Azure Portal. 
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201
         /// By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/ for additional details.
         /// </summary>
         public static Output<GetCloudEdgeManagementRoleResult> Invoke(GetCloudEdgeManagementRoleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCloudEdgeManagementRoleResult>("azure-native:databoxedge/v20210201:getCloudEdgeManagementRole", args ?? new GetCloudEdgeManagementRoleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCloudEdgeManagementRoleResult>("azure-native:databoxedge/v20210201:getCloudEdgeManagementRole", args ?? new GetCloudEdgeManagementRoleInvokeArgs(), options.WithDefaults());
     }
 
 

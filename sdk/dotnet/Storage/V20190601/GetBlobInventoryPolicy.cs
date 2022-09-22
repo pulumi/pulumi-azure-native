@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Storage.V20190601
         /// The storage account blob inventory policy.
         /// </summary>
         public static Task<GetBlobInventoryPolicyResult> InvokeAsync(GetBlobInventoryPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBlobInventoryPolicyResult>("azure-native:storage/v20190601:getBlobInventoryPolicy", args ?? new GetBlobInventoryPolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBlobInventoryPolicyResult>("azure-native:storage/v20190601:getBlobInventoryPolicy", args ?? new GetBlobInventoryPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// The storage account blob inventory policy.
         /// </summary>
         public static Output<GetBlobInventoryPolicyResult> Invoke(GetBlobInventoryPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBlobInventoryPolicyResult>("azure-native:storage/v20190601:getBlobInventoryPolicy", args ?? new GetBlobInventoryPolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBlobInventoryPolicyResult>("azure-native:storage/v20190601:getBlobInventoryPolicy", args ?? new GetBlobInventoryPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

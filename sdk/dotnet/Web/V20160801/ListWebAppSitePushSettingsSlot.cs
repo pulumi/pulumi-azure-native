@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20160801
         /// Push settings for the App.
         /// </summary>
         public static Task<ListWebAppSitePushSettingsSlotResult> InvokeAsync(ListWebAppSitePushSettingsSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppSitePushSettingsSlotResult>("azure-native:web/v20160801:listWebAppSitePushSettingsSlot", args ?? new ListWebAppSitePushSettingsSlotArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppSitePushSettingsSlotResult>("azure-native:web/v20160801:listWebAppSitePushSettingsSlot", args ?? new ListWebAppSitePushSettingsSlotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Push settings for the App.
         /// </summary>
         public static Output<ListWebAppSitePushSettingsSlotResult> Invoke(ListWebAppSitePushSettingsSlotInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListWebAppSitePushSettingsSlotResult>("azure-native:web/v20160801:listWebAppSitePushSettingsSlot", args ?? new ListWebAppSitePushSettingsSlotInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListWebAppSitePushSettingsSlotResult>("azure-native:web/v20160801:listWebAppSitePushSettingsSlot", args ?? new ListWebAppSitePushSettingsSlotInvokeArgs(), options.WithDefaults());
     }
 
 

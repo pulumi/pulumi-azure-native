@@ -12,10 +12,10 @@ namespace Pulumi.AzureNative.Logic.V20150201Preview
     public static class ListWorkflowAccessKeySecretKeys
     {
         public static Task<ListWorkflowAccessKeySecretKeysResult> InvokeAsync(ListWorkflowAccessKeySecretKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWorkflowAccessKeySecretKeysResult>("azure-native:logic/v20150201preview:listWorkflowAccessKeySecretKeys", args ?? new ListWorkflowAccessKeySecretKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListWorkflowAccessKeySecretKeysResult>("azure-native:logic/v20150201preview:listWorkflowAccessKeySecretKeys", args ?? new ListWorkflowAccessKeySecretKeysArgs(), options.WithDefaults());
 
         public static Output<ListWorkflowAccessKeySecretKeysResult> Invoke(ListWorkflowAccessKeySecretKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListWorkflowAccessKeySecretKeysResult>("azure-native:logic/v20150201preview:listWorkflowAccessKeySecretKeys", args ?? new ListWorkflowAccessKeySecretKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListWorkflowAccessKeySecretKeysResult>("azure-native:logic/v20150201preview:listWorkflowAccessKeySecretKeys", args ?? new ListWorkflowAccessKeySecretKeysInvokeArgs(), options.WithDefaults());
     }
 
 

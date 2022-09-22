@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.EventHub.V20220101Preview
         /// Description of topic resource.
         /// </summary>
         public static Task<GetNamespaceNetworkRuleSetResult> InvokeAsync(GetNamespaceNetworkRuleSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceNetworkRuleSetResult>("azure-native:eventhub/v20220101preview:getNamespaceNetworkRuleSet", args ?? new GetNamespaceNetworkRuleSetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceNetworkRuleSetResult>("azure-native:eventhub/v20220101preview:getNamespaceNetworkRuleSet", args ?? new GetNamespaceNetworkRuleSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description of topic resource.
         /// </summary>
         public static Output<GetNamespaceNetworkRuleSetResult> Invoke(GetNamespaceNetworkRuleSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNamespaceNetworkRuleSetResult>("azure-native:eventhub/v20220101preview:getNamespaceNetworkRuleSet", args ?? new GetNamespaceNetworkRuleSetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceNetworkRuleSetResult>("azure-native:eventhub/v20220101preview:getNamespaceNetworkRuleSet", args ?? new GetNamespaceNetworkRuleSetInvokeArgs(), options.WithDefaults());
     }
 
 

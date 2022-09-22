@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.AVS.V20211201
         /// An instance of a script executed by a user - custom or AVS
         /// </summary>
         public static Task<GetScriptExecutionResult> InvokeAsync(GetScriptExecutionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScriptExecutionResult>("azure-native:avs/v20211201:getScriptExecution", args ?? new GetScriptExecutionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetScriptExecutionResult>("azure-native:avs/v20211201:getScriptExecution", args ?? new GetScriptExecutionArgs(), options.WithDefaults());
 
         /// <summary>
         /// An instance of a script executed by a user - custom or AVS
         /// </summary>
         public static Output<GetScriptExecutionResult> Invoke(GetScriptExecutionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetScriptExecutionResult>("azure-native:avs/v20211201:getScriptExecution", args ?? new GetScriptExecutionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetScriptExecutionResult>("azure-native:avs/v20211201:getScriptExecution", args ?? new GetScriptExecutionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.AVS
         /// API Version: 2020-07-17-preview.
         /// </summary>
         public static Task<GetGlobalReachConnectionResult> InvokeAsync(GetGlobalReachConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalReachConnectionResult>("azure-native:avs:getGlobalReachConnection", args ?? new GetGlobalReachConnectionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGlobalReachConnectionResult>("azure-native:avs:getGlobalReachConnection", args ?? new GetGlobalReachConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// A global reach connection resource
         /// API Version: 2020-07-17-preview.
         /// </summary>
         public static Output<GetGlobalReachConnectionResult> Invoke(GetGlobalReachConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGlobalReachConnectionResult>("azure-native:avs:getGlobalReachConnection", args ?? new GetGlobalReachConnectionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGlobalReachConnectionResult>("azure-native:avs:getGlobalReachConnection", args ?? new GetGlobalReachConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

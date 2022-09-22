@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
         /// Schema for MSIX Package properties.
         /// </summary>
         public static Task<GetMSIXPackageResult> InvokeAsync(GetMSIXPackageArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMSIXPackageResult>("azure-native:desktopvirtualization/v20210201preview:getMSIXPackage", args ?? new GetMSIXPackageArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMSIXPackageResult>("azure-native:desktopvirtualization/v20210201preview:getMSIXPackage", args ?? new GetMSIXPackageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Schema for MSIX Package properties.
         /// </summary>
         public static Output<GetMSIXPackageResult> Invoke(GetMSIXPackageInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMSIXPackageResult>("azure-native:desktopvirtualization/v20210201preview:getMSIXPackage", args ?? new GetMSIXPackageInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMSIXPackageResult>("azure-native:desktopvirtualization/v20210201preview:getMSIXPackage", args ?? new GetMSIXPackageInvokeArgs(), options.WithDefaults());
     }
 
 

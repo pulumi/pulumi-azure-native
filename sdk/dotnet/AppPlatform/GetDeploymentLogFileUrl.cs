@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.AppPlatform
         /// API Version: 2020-07-01.
         /// </summary>
         public static Task<GetDeploymentLogFileUrlResult> InvokeAsync(GetDeploymentLogFileUrlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentLogFileUrlResult>("azure-native:appplatform:getDeploymentLogFileUrl", args ?? new GetDeploymentLogFileUrlArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentLogFileUrlResult>("azure-native:appplatform:getDeploymentLogFileUrl", args ?? new GetDeploymentLogFileUrlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Log file URL payload
         /// API Version: 2020-07-01.
         /// </summary>
         public static Output<GetDeploymentLogFileUrlResult> Invoke(GetDeploymentLogFileUrlInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDeploymentLogFileUrlResult>("azure-native:appplatform:getDeploymentLogFileUrl", args ?? new GetDeploymentLogFileUrlInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentLogFileUrlResult>("azure-native:appplatform:getDeploymentLogFileUrl", args ?? new GetDeploymentLogFileUrlInvokeArgs(), options.WithDefaults());
     }
 
 

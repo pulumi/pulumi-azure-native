@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.DevSpaces
         /// API Version: 2019-04-01.
         /// </summary>
         public static Task<GetControllerResult> InvokeAsync(GetControllerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetControllerResult>("azure-native:devspaces:getController", args ?? new GetControllerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetControllerResult>("azure-native:devspaces:getController", args ?? new GetControllerArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
         /// API Version: 2019-04-01.
         /// </summary>
         public static Output<GetControllerResult> Invoke(GetControllerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetControllerResult>("azure-native:devspaces:getController", args ?? new GetControllerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetControllerResult>("azure-native:devspaces:getController", args ?? new GetControllerInvokeArgs(), options.WithDefaults());
     }
 
 

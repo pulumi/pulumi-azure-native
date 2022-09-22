@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Scheduler
         /// API Version: 2016-03-01.
         /// </summary>
         public static Task<GetJobCollectionResult> InvokeAsync(GetJobCollectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJobCollectionResult>("azure-native:scheduler:getJobCollection", args ?? new GetJobCollectionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobCollectionResult>("azure-native:scheduler:getJobCollection", args ?? new GetJobCollectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
         /// API Version: 2016-03-01.
         /// </summary>
         public static Output<GetJobCollectionResult> Invoke(GetJobCollectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetJobCollectionResult>("azure-native:scheduler:getJobCollection", args ?? new GetJobCollectionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetJobCollectionResult>("azure-native:scheduler:getJobCollection", args ?? new GetJobCollectionInvokeArgs(), options.WithDefaults());
     }
 
 

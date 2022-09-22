@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.DevSpaces
         /// API Version: 2019-04-01.
         /// </summary>
         public static Task<ListControllerConnectionDetailsResult> InvokeAsync(ListControllerConnectionDetailsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListControllerConnectionDetailsResult>("azure-native:devspaces:listControllerConnectionDetails", args ?? new ListControllerConnectionDetailsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListControllerConnectionDetailsResult>("azure-native:devspaces:listControllerConnectionDetails", args ?? new ListControllerConnectionDetailsArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
         /// API Version: 2019-04-01.
         /// </summary>
         public static Output<ListControllerConnectionDetailsResult> Invoke(ListControllerConnectionDetailsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListControllerConnectionDetailsResult>("azure-native:devspaces:listControllerConnectionDetails", args ?? new ListControllerConnectionDetailsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListControllerConnectionDetailsResult>("azure-native:devspaces:listControllerConnectionDetails", args ?? new ListControllerConnectionDetailsInvokeArgs(), options.WithDefaults());
     }
 
 

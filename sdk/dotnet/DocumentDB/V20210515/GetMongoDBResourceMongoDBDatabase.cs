@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DocumentDB.V20210515
         /// An Azure Cosmos DB MongoDB database.
         /// </summary>
         public static Task<GetMongoDBResourceMongoDBDatabaseResult> InvokeAsync(GetMongoDBResourceMongoDBDatabaseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMongoDBResourceMongoDBDatabaseResult>("azure-native:documentdb/v20210515:getMongoDBResourceMongoDBDatabase", args ?? new GetMongoDBResourceMongoDBDatabaseArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMongoDBResourceMongoDBDatabaseResult>("azure-native:documentdb/v20210515:getMongoDBResourceMongoDBDatabase", args ?? new GetMongoDBResourceMongoDBDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure Cosmos DB MongoDB database.
         /// </summary>
         public static Output<GetMongoDBResourceMongoDBDatabaseResult> Invoke(GetMongoDBResourceMongoDBDatabaseInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMongoDBResourceMongoDBDatabaseResult>("azure-native:documentdb/v20210515:getMongoDBResourceMongoDBDatabase", args ?? new GetMongoDBResourceMongoDBDatabaseInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMongoDBResourceMongoDBDatabaseResult>("azure-native:documentdb/v20210515:getMongoDBResourceMongoDBDatabase", args ?? new GetMongoDBResourceMongoDBDatabaseInvokeArgs(), options.WithDefaults());
     }
 
 

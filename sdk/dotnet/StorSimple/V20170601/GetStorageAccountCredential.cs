@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         /// The storage account credential.
         /// </summary>
         public static Task<GetStorageAccountCredentialResult> InvokeAsync(GetStorageAccountCredentialArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountCredentialResult>("azure-native:storsimple/v20170601:getStorageAccountCredential", args ?? new GetStorageAccountCredentialArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountCredentialResult>("azure-native:storsimple/v20170601:getStorageAccountCredential", args ?? new GetStorageAccountCredentialArgs(), options.WithDefaults());
 
         /// <summary>
         /// The storage account credential.
         /// </summary>
         public static Output<GetStorageAccountCredentialResult> Invoke(GetStorageAccountCredentialInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStorageAccountCredentialResult>("azure-native:storsimple/v20170601:getStorageAccountCredential", args ?? new GetStorageAccountCredentialInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetStorageAccountCredentialResult>("azure-native:storsimple/v20170601:getStorageAccountCredential", args ?? new GetStorageAccountCredentialInvokeArgs(), options.WithDefaults());
     }
 
 

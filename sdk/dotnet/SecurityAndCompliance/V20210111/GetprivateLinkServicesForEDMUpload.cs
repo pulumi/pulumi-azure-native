@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
         /// The description of the service.
         /// </summary>
         public static Task<GetprivateLinkServicesForEDMUploadResult> InvokeAsync(GetprivateLinkServicesForEDMUploadArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetprivateLinkServicesForEDMUploadResult>("azure-native:securityandcompliance/v20210111:getprivateLinkServicesForEDMUpload", args ?? new GetprivateLinkServicesForEDMUploadArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetprivateLinkServicesForEDMUploadResult>("azure-native:securityandcompliance/v20210111:getprivateLinkServicesForEDMUpload", args ?? new GetprivateLinkServicesForEDMUploadArgs(), options.WithDefaults());
 
         /// <summary>
         /// The description of the service.
         /// </summary>
         public static Output<GetprivateLinkServicesForEDMUploadResult> Invoke(GetprivateLinkServicesForEDMUploadInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetprivateLinkServicesForEDMUploadResult>("azure-native:securityandcompliance/v20210111:getprivateLinkServicesForEDMUpload", args ?? new GetprivateLinkServicesForEDMUploadInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetprivateLinkServicesForEDMUploadResult>("azure-native:securityandcompliance/v20210111:getprivateLinkServicesForEDMUpload", args ?? new GetprivateLinkServicesForEDMUploadInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.EdgeOrder.V20220501Preview
         /// The list of product families.
         /// </summary>
         public static Task<ListProductsAndConfigurationProductFamiliesResult> InvokeAsync(ListProductsAndConfigurationProductFamiliesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListProductsAndConfigurationProductFamiliesResult>("azure-native:edgeorder/v20220501preview:listProductsAndConfigurationProductFamilies", args ?? new ListProductsAndConfigurationProductFamiliesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListProductsAndConfigurationProductFamiliesResult>("azure-native:edgeorder/v20220501preview:listProductsAndConfigurationProductFamilies", args ?? new ListProductsAndConfigurationProductFamiliesArgs(), options.WithDefaults());
 
         /// <summary>
         /// The list of product families.
         /// </summary>
         public static Output<ListProductsAndConfigurationProductFamiliesResult> Invoke(ListProductsAndConfigurationProductFamiliesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListProductsAndConfigurationProductFamiliesResult>("azure-native:edgeorder/v20220501preview:listProductsAndConfigurationProductFamilies", args ?? new ListProductsAndConfigurationProductFamiliesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListProductsAndConfigurationProductFamiliesResult>("azure-native:edgeorder/v20220501preview:listProductsAndConfigurationProductFamilies", args ?? new ListProductsAndConfigurationProductFamiliesInvokeArgs(), options.WithDefaults());
     }
 
 

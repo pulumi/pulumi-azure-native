@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.ContainerService.V20190401
         /// Agent Pool.
         /// </summary>
         public static Task<GetAgentPoolResult> InvokeAsync(GetAgentPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAgentPoolResult>("azure-native:containerservice/v20190401:getAgentPool", args ?? new GetAgentPoolArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAgentPoolResult>("azure-native:containerservice/v20190401:getAgentPool", args ?? new GetAgentPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Agent Pool.
         /// </summary>
         public static Output<GetAgentPoolResult> Invoke(GetAgentPoolInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAgentPoolResult>("azure-native:containerservice/v20190401:getAgentPool", args ?? new GetAgentPoolInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAgentPoolResult>("azure-native:containerservice/v20190401:getAgentPool", args ?? new GetAgentPoolInvokeArgs(), options.WithDefaults());
     }
 
 

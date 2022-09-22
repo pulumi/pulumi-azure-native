@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// API Version: 2018-02-01-preview.
         /// </summary>
         public static Task<GetRegistryBuildSourceUploadUrlResult> InvokeAsync(GetRegistryBuildSourceUploadUrlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistryBuildSourceUploadUrlResult>("azure-native:containerregistry:getRegistryBuildSourceUploadUrl", args ?? new GetRegistryBuildSourceUploadUrlArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistryBuildSourceUploadUrlResult>("azure-native:containerregistry:getRegistryBuildSourceUploadUrl", args ?? new GetRegistryBuildSourceUploadUrlArgs(), options.WithDefaults());
 
         /// <summary>
         /// The properties of a response to source upload request.
         /// API Version: 2018-02-01-preview.
         /// </summary>
         public static Output<GetRegistryBuildSourceUploadUrlResult> Invoke(GetRegistryBuildSourceUploadUrlInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRegistryBuildSourceUploadUrlResult>("azure-native:containerregistry:getRegistryBuildSourceUploadUrl", args ?? new GetRegistryBuildSourceUploadUrlInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRegistryBuildSourceUploadUrlResult>("azure-native:containerregistry:getRegistryBuildSourceUploadUrl", args ?? new GetRegistryBuildSourceUploadUrlInvokeArgs(), options.WithDefaults());
     }
 
 

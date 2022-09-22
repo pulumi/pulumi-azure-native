@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Insights.V20170401
         /// An action group resource.
         /// </summary>
         public static Task<GetActionGroupResult> InvokeAsync(GetActionGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetActionGroupResult>("azure-native:insights/v20170401:getActionGroup", args ?? new GetActionGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetActionGroupResult>("azure-native:insights/v20170401:getActionGroup", args ?? new GetActionGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// An action group resource.
         /// </summary>
         public static Output<GetActionGroupResult> Invoke(GetActionGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetActionGroupResult>("azure-native:insights/v20170401:getActionGroup", args ?? new GetActionGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetActionGroupResult>("azure-native:insights/v20170401:getActionGroup", args ?? new GetActionGroupInvokeArgs(), options.WithDefaults());
     }
 
 

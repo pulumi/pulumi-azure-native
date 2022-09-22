@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.ApiManagement
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-native:apimanagement:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-native:apimanagement:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Certificate details.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("azure-native:apimanagement:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("azure-native:apimanagement:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
     }
 
 

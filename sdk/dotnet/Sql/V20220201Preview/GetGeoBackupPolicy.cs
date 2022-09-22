@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Sql.V20220201Preview
         /// A Geo backup policy.
         /// </summary>
         public static Task<GetGeoBackupPolicyResult> InvokeAsync(GetGeoBackupPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGeoBackupPolicyResult>("azure-native:sql/v20220201preview:getGeoBackupPolicy", args ?? new GetGeoBackupPolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGeoBackupPolicyResult>("azure-native:sql/v20220201preview:getGeoBackupPolicy", args ?? new GetGeoBackupPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// A Geo backup policy.
         /// </summary>
         public static Output<GetGeoBackupPolicyResult> Invoke(GetGeoBackupPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGeoBackupPolicyResult>("azure-native:sql/v20220201preview:getGeoBackupPolicy", args ?? new GetGeoBackupPolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGeoBackupPolicyResult>("azure-native:sql/v20220201preview:getGeoBackupPolicy", args ?? new GetGeoBackupPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

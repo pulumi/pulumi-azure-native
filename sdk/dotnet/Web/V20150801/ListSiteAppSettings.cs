@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// String dictionary resource
         /// </summary>
         public static Task<ListSiteAppSettingsResult> InvokeAsync(ListSiteAppSettingsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSiteAppSettingsResult>("azure-native:web/v20150801:listSiteAppSettings", args ?? new ListSiteAppSettingsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListSiteAppSettingsResult>("azure-native:web/v20150801:listSiteAppSettings", args ?? new ListSiteAppSettingsArgs(), options.WithDefaults());
 
         /// <summary>
         /// String dictionary resource
         /// </summary>
         public static Output<ListSiteAppSettingsResult> Invoke(ListSiteAppSettingsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListSiteAppSettingsResult>("azure-native:web/v20150801:listSiteAppSettings", args ?? new ListSiteAppSettingsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListSiteAppSettingsResult>("azure-native:web/v20150801:listSiteAppSettings", args ?? new ListSiteAppSettingsInvokeArgs(), options.WithDefaults());
     }
 
 

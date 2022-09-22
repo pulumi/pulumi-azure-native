@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Sql.V20150501Preview
         /// A server firewall rule.
         /// </summary>
         public static Task<GetFirewallRuleResult> InvokeAsync(GetFirewallRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-native:sql/v20150501preview:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-native:sql/v20150501preview:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// A server firewall rule.
         /// </summary>
         public static Output<GetFirewallRuleResult> Invoke(GetFirewallRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFirewallRuleResult>("azure-native:sql/v20150501preview:getFirewallRule", args ?? new GetFirewallRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFirewallRuleResult>("azure-native:sql/v20150501preview:getFirewallRule", args ?? new GetFirewallRuleInvokeArgs(), options.WithDefaults());
     }
 
 

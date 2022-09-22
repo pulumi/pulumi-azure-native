@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetBastionShareableLinkResult> InvokeAsync(GetBastionShareableLinkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBastionShareableLinkResult>("azure-native:network:getBastionShareableLink", args ?? new GetBastionShareableLinkArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBastionShareableLinkResult>("azure-native:network:getBastionShareableLink", args ?? new GetBastionShareableLinkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response for all the Bastion Shareable Link endpoints.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetBastionShareableLinkResult> Invoke(GetBastionShareableLinkInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBastionShareableLinkResult>("azure-native:network:getBastionShareableLink", args ?? new GetBastionShareableLinkInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBastionShareableLinkResult>("azure-native:network:getBastionShareableLink", args ?? new GetBastionShareableLinkInvokeArgs(), options.WithDefaults());
     }
 
 

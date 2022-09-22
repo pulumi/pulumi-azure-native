@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         /// A virtual machine.
         /// </summary>
         public static Task<GetVirtualMachineResult> InvokeAsync(GetVirtualMachineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure-native:devtestlab/v20160515:getVirtualMachine", args ?? new GetVirtualMachineArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure-native:devtestlab/v20160515:getVirtualMachine", args ?? new GetVirtualMachineArgs(), options.WithDefaults());
 
         /// <summary>
         /// A virtual machine.
         /// </summary>
         public static Output<GetVirtualMachineResult> Invoke(GetVirtualMachineInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineResult>("azure-native:devtestlab/v20160515:getVirtualMachine", args ?? new GetVirtualMachineInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineResult>("azure-native:devtestlab/v20160515:getVirtualMachine", args ?? new GetVirtualMachineInvokeArgs(), options.WithDefaults());
     }
 
 

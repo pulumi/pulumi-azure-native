@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.AppPlatform
         /// API Version: 2020-07-01.
         /// </summary>
         public static Task<GetDeploymentResult> InvokeAsync(GetDeploymentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentResult>("azure-native:appplatform:getDeployment", args ?? new GetDeploymentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentResult>("azure-native:appplatform:getDeployment", args ?? new GetDeploymentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Deployment resource payload
         /// API Version: 2020-07-01.
         /// </summary>
         public static Output<GetDeploymentResult> Invoke(GetDeploymentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDeploymentResult>("azure-native:appplatform:getDeployment", args ?? new GetDeploymentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentResult>("azure-native:appplatform:getDeployment", args ?? new GetDeploymentInvokeArgs(), options.WithDefaults());
     }
 
 

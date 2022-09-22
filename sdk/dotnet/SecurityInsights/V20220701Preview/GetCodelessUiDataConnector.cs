@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview
         /// Represents Codeless UI data connector.
         /// </summary>
         public static Task<GetCodelessUiDataConnectorResult> InvokeAsync(GetCodelessUiDataConnectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCodelessUiDataConnectorResult>("azure-native:securityinsights/v20220701preview:getCodelessUiDataConnector", args ?? new GetCodelessUiDataConnectorArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCodelessUiDataConnectorResult>("azure-native:securityinsights/v20220701preview:getCodelessUiDataConnector", args ?? new GetCodelessUiDataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents Codeless UI data connector.
         /// </summary>
         public static Output<GetCodelessUiDataConnectorResult> Invoke(GetCodelessUiDataConnectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCodelessUiDataConnectorResult>("azure-native:securityinsights/v20220701preview:getCodelessUiDataConnector", args ?? new GetCodelessUiDataConnectorInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCodelessUiDataConnectorResult>("azure-native:securityinsights/v20220701preview:getCodelessUiDataConnector", args ?? new GetCodelessUiDataConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

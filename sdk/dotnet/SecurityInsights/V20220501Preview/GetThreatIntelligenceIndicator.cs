@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview
         /// Threat intelligence information object.
         /// </summary>
         public static Task<GetThreatIntelligenceIndicatorResult> InvokeAsync(GetThreatIntelligenceIndicatorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetThreatIntelligenceIndicatorResult>("azure-native:securityinsights/v20220501preview:getThreatIntelligenceIndicator", args ?? new GetThreatIntelligenceIndicatorArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetThreatIntelligenceIndicatorResult>("azure-native:securityinsights/v20220501preview:getThreatIntelligenceIndicator", args ?? new GetThreatIntelligenceIndicatorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Threat intelligence information object.
         /// </summary>
         public static Output<GetThreatIntelligenceIndicatorResult> Invoke(GetThreatIntelligenceIndicatorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetThreatIntelligenceIndicatorResult>("azure-native:securityinsights/v20220501preview:getThreatIntelligenceIndicator", args ?? new GetThreatIntelligenceIndicatorInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetThreatIntelligenceIndicatorResult>("azure-native:securityinsights/v20220501preview:getThreatIntelligenceIndicator", args ?? new GetThreatIntelligenceIndicatorInvokeArgs(), options.WithDefaults());
     }
 
 

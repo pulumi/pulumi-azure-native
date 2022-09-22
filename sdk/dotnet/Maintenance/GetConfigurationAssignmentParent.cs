@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Maintenance
         /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Task<GetConfigurationAssignmentParentResult> InvokeAsync(GetConfigurationAssignmentParentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationAssignmentParentResult>("azure-native:maintenance:getConfigurationAssignmentParent", args ?? new GetConfigurationAssignmentParentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationAssignmentParentResult>("azure-native:maintenance:getConfigurationAssignmentParent", args ?? new GetConfigurationAssignmentParentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Configuration Assignment
         /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Output<GetConfigurationAssignmentParentResult> Invoke(GetConfigurationAssignmentParentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConfigurationAssignmentParentResult>("azure-native:maintenance:getConfigurationAssignmentParent", args ?? new GetConfigurationAssignmentParentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationAssignmentParentResult>("azure-native:maintenance:getConfigurationAssignmentParent", args ?? new GetConfigurationAssignmentParentInvokeArgs(), options.WithDefaults());
     }
 
 

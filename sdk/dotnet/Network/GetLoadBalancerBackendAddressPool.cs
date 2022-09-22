@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetLoadBalancerBackendAddressPoolResult> InvokeAsync(GetLoadBalancerBackendAddressPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerBackendAddressPoolResult>("azure-native:network:getLoadBalancerBackendAddressPool", args ?? new GetLoadBalancerBackendAddressPoolArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerBackendAddressPoolResult>("azure-native:network:getLoadBalancerBackendAddressPool", args ?? new GetLoadBalancerBackendAddressPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Pool of backend IP addresses.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetLoadBalancerBackendAddressPoolResult> Invoke(GetLoadBalancerBackendAddressPoolInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLoadBalancerBackendAddressPoolResult>("azure-native:network:getLoadBalancerBackendAddressPool", args ?? new GetLoadBalancerBackendAddressPoolInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLoadBalancerBackendAddressPoolResult>("azure-native:network:getLoadBalancerBackendAddressPool", args ?? new GetLoadBalancerBackendAddressPoolInvokeArgs(), options.WithDefaults());
     }
 
 

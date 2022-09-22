@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20220301
         /// Hybrid Connection contract. This is used to configure a Hybrid Connection.
         /// </summary>
         public static Task<GetWebAppHybridConnectionSlotResult> InvokeAsync(GetWebAppHybridConnectionSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppHybridConnectionSlotResult>("azure-native:web/v20220301:getWebAppHybridConnectionSlot", args ?? new GetWebAppHybridConnectionSlotArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppHybridConnectionSlotResult>("azure-native:web/v20220301:getWebAppHybridConnectionSlot", args ?? new GetWebAppHybridConnectionSlotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Hybrid Connection contract. This is used to configure a Hybrid Connection.
         /// </summary>
         public static Output<GetWebAppHybridConnectionSlotResult> Invoke(GetWebAppHybridConnectionSlotInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWebAppHybridConnectionSlotResult>("azure-native:web/v20220301:getWebAppHybridConnectionSlot", args ?? new GetWebAppHybridConnectionSlotInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebAppHybridConnectionSlotResult>("azure-native:web/v20220301:getWebAppHybridConnectionSlot", args ?? new GetWebAppHybridConnectionSlotInvokeArgs(), options.WithDefaults());
     }
 
 

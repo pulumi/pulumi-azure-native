@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
         /// A SQL DW Table data set mapping.
         /// </summary>
         public static Task<GetSqlDWTableDataSetMappingResult> InvokeAsync(GetSqlDWTableDataSetMappingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlDWTableDataSetMappingResult>("azure-native:datashare/v20181101preview:getSqlDWTableDataSetMapping", args ?? new GetSqlDWTableDataSetMappingArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlDWTableDataSetMappingResult>("azure-native:datashare/v20181101preview:getSqlDWTableDataSetMapping", args ?? new GetSqlDWTableDataSetMappingArgs(), options.WithDefaults());
 
         /// <summary>
         /// A SQL DW Table data set mapping.
         /// </summary>
         public static Output<GetSqlDWTableDataSetMappingResult> Invoke(GetSqlDWTableDataSetMappingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSqlDWTableDataSetMappingResult>("azure-native:datashare/v20181101preview:getSqlDWTableDataSetMapping", args ?? new GetSqlDWTableDataSetMappingInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlDWTableDataSetMappingResult>("azure-native:datashare/v20181101preview:getSqlDWTableDataSetMapping", args ?? new GetSqlDWTableDataSetMappingInvokeArgs(), options.WithDefaults());
     }
 
 

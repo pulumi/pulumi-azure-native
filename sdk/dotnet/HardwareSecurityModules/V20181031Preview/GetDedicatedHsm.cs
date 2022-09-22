@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.HardwareSecurityModules.V20181031Preview
         /// Resource information with extended details.
         /// </summary>
         public static Task<GetDedicatedHsmResult> InvokeAsync(GetDedicatedHsmArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHsmResult>("azure-native:hardwaresecuritymodules/v20181031preview:getDedicatedHsm", args ?? new GetDedicatedHsmArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHsmResult>("azure-native:hardwaresecuritymodules/v20181031preview:getDedicatedHsm", args ?? new GetDedicatedHsmArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource information with extended details.
         /// </summary>
         public static Output<GetDedicatedHsmResult> Invoke(GetDedicatedHsmInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDedicatedHsmResult>("azure-native:hardwaresecuritymodules/v20181031preview:getDedicatedHsm", args ?? new GetDedicatedHsmInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDedicatedHsmResult>("azure-native:hardwaresecuritymodules/v20181031preview:getDedicatedHsm", args ?? new GetDedicatedHsmInvokeArgs(), options.WithDefaults());
     }
 
 

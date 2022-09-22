@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.PowerPlatform
         /// API Version: 2020-10-30-preview.
         /// </summary>
         public static Task<GetEnterprisePolicyResult> InvokeAsync(GetEnterprisePolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEnterprisePolicyResult>("azure-native:powerplatform:getEnterprisePolicy", args ?? new GetEnterprisePolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnterprisePolicyResult>("azure-native:powerplatform:getEnterprisePolicy", args ?? new GetEnterprisePolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of the EnterprisePolicy.
         /// API Version: 2020-10-30-preview.
         /// </summary>
         public static Output<GetEnterprisePolicyResult> Invoke(GetEnterprisePolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEnterprisePolicyResult>("azure-native:powerplatform:getEnterprisePolicy", args ?? new GetEnterprisePolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnterprisePolicyResult>("azure-native:powerplatform:getEnterprisePolicy", args ?? new GetEnterprisePolicyInvokeArgs(), options.WithDefaults());
     }
 
 

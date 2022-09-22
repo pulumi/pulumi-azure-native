@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.TestBase
         /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Task<GetBillingHubServiceFreeHourBalanceResult> InvokeAsync(GetBillingHubServiceFreeHourBalanceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBillingHubServiceFreeHourBalanceResult>("azure-native:testbase:getBillingHubServiceFreeHourBalance", args ?? new GetBillingHubServiceFreeHourBalanceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBillingHubServiceFreeHourBalanceResult>("azure-native:testbase:getBillingHubServiceFreeHourBalance", args ?? new GetBillingHubServiceFreeHourBalanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
         /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Output<GetBillingHubServiceFreeHourBalanceResult> Invoke(GetBillingHubServiceFreeHourBalanceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBillingHubServiceFreeHourBalanceResult>("azure-native:testbase:getBillingHubServiceFreeHourBalance", args ?? new GetBillingHubServiceFreeHourBalanceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBillingHubServiceFreeHourBalanceResult>("azure-native:testbase:getBillingHubServiceFreeHourBalance", args ?? new GetBillingHubServiceFreeHourBalanceInvokeArgs(), options.WithDefaults());
     }
 
 

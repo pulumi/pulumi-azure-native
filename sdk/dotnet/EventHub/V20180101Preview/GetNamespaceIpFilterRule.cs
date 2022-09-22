@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.EventHub.V20180101Preview
         /// Single item in a List or Get IpFilterRules operation
         /// </summary>
         public static Task<GetNamespaceIpFilterRuleResult> InvokeAsync(GetNamespaceIpFilterRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceIpFilterRuleResult>("azure-native:eventhub/v20180101preview:getNamespaceIpFilterRule", args ?? new GetNamespaceIpFilterRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceIpFilterRuleResult>("azure-native:eventhub/v20180101preview:getNamespaceIpFilterRule", args ?? new GetNamespaceIpFilterRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Single item in a List or Get IpFilterRules operation
         /// </summary>
         public static Output<GetNamespaceIpFilterRuleResult> Invoke(GetNamespaceIpFilterRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNamespaceIpFilterRuleResult>("azure-native:eventhub/v20180101preview:getNamespaceIpFilterRule", args ?? new GetNamespaceIpFilterRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceIpFilterRuleResult>("azure-native:eventhub/v20180101preview:getNamespaceIpFilterRule", args ?? new GetNamespaceIpFilterRuleInvokeArgs(), options.WithDefaults());
     }
 
 

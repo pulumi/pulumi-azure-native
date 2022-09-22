@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Authorization.V20200701Preview
         /// The policy exemption.
         /// </summary>
         public static Task<GetPolicyExemptionResult> InvokeAsync(GetPolicyExemptionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyExemptionResult>("azure-native:authorization/v20200701preview:getPolicyExemption", args ?? new GetPolicyExemptionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyExemptionResult>("azure-native:authorization/v20200701preview:getPolicyExemption", args ?? new GetPolicyExemptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The policy exemption.
         /// </summary>
         public static Output<GetPolicyExemptionResult> Invoke(GetPolicyExemptionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPolicyExemptionResult>("azure-native:authorization/v20200701preview:getPolicyExemption", args ?? new GetPolicyExemptionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPolicyExemptionResult>("azure-native:authorization/v20200701preview:getPolicyExemption", args ?? new GetPolicyExemptionInvokeArgs(), options.WithDefaults());
     }
 
 

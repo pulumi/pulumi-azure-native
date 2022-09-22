@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// API Version: 2020-01-01.
         /// </summary>
         public static Task<GetServerKeyResult> InvokeAsync(GetServerKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerKeyResult>("azure-native:dbforpostgresql:getServerKey", args ?? new GetServerKeyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerKeyResult>("azure-native:dbforpostgresql:getServerKey", args ?? new GetServerKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// A PostgreSQL Server key.
         /// API Version: 2020-01-01.
         /// </summary>
         public static Output<GetServerKeyResult> Invoke(GetServerKeyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServerKeyResult>("azure-native:dbforpostgresql:getServerKey", args ?? new GetServerKeyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerKeyResult>("azure-native:dbforpostgresql:getServerKey", args ?? new GetServerKeyInvokeArgs(), options.WithDefaults());
     }
 
 

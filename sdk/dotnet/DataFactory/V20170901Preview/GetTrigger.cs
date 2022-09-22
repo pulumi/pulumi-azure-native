@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
         /// Trigger resource type.
         /// </summary>
         public static Task<GetTriggerResult> InvokeAsync(GetTriggerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTriggerResult>("azure-native:datafactory/v20170901preview:getTrigger", args ?? new GetTriggerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTriggerResult>("azure-native:datafactory/v20170901preview:getTrigger", args ?? new GetTriggerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Trigger resource type.
         /// </summary>
         public static Output<GetTriggerResult> Invoke(GetTriggerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTriggerResult>("azure-native:datafactory/v20170901preview:getTrigger", args ?? new GetTriggerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTriggerResult>("azure-native:datafactory/v20170901preview:getTrigger", args ?? new GetTriggerInvokeArgs(), options.WithDefaults());
     }
 
 

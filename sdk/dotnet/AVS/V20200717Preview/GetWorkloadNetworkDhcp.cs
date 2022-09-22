@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.AVS.V20200717Preview
         /// NSX DHCP
         /// </summary>
         public static Task<GetWorkloadNetworkDhcpResult> InvokeAsync(GetWorkloadNetworkDhcpArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkDhcpResult>("azure-native:avs/v20200717preview:getWorkloadNetworkDhcp", args ?? new GetWorkloadNetworkDhcpArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkDhcpResult>("azure-native:avs/v20200717preview:getWorkloadNetworkDhcp", args ?? new GetWorkloadNetworkDhcpArgs(), options.WithDefaults());
 
         /// <summary>
         /// NSX DHCP
         /// </summary>
         public static Output<GetWorkloadNetworkDhcpResult> Invoke(GetWorkloadNetworkDhcpInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkDhcpResult>("azure-native:avs/v20200717preview:getWorkloadNetworkDhcp", args ?? new GetWorkloadNetworkDhcpInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkDhcpResult>("azure-native:avs/v20200717preview:getWorkloadNetworkDhcp", args ?? new GetWorkloadNetworkDhcpInvokeArgs(), options.WithDefaults());
     }
 
 

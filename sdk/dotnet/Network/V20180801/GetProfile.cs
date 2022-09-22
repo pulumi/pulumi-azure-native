@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20180801
         /// Class representing a Traffic Manager profile.
         /// </summary>
         public static Task<GetProfileResult> InvokeAsync(GetProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure-native:network/v20180801:getProfile", args ?? new GetProfileArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure-native:network/v20180801:getProfile", args ?? new GetProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Class representing a Traffic Manager profile.
         /// </summary>
         public static Output<GetProfileResult> Invoke(GetProfileInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProfileResult>("azure-native:network/v20180801:getProfile", args ?? new GetProfileInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetProfileResult>("azure-native:network/v20180801:getProfile", args ?? new GetProfileInvokeArgs(), options.WithDefaults());
     }
 
 

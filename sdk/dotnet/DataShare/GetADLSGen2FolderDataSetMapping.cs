@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.DataShare
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetADLSGen2FolderDataSetMappingResult> InvokeAsync(GetADLSGen2FolderDataSetMappingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetADLSGen2FolderDataSetMappingResult>("azure-native:datashare:getADLSGen2FolderDataSetMapping", args ?? new GetADLSGen2FolderDataSetMappingArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetADLSGen2FolderDataSetMappingResult>("azure-native:datashare:getADLSGen2FolderDataSetMapping", args ?? new GetADLSGen2FolderDataSetMappingArgs(), options.WithDefaults());
 
         /// <summary>
         /// An ADLS Gen2 folder data set mapping.
         /// API Version: 2020-09-01.
         /// </summary>
         public static Output<GetADLSGen2FolderDataSetMappingResult> Invoke(GetADLSGen2FolderDataSetMappingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetADLSGen2FolderDataSetMappingResult>("azure-native:datashare:getADLSGen2FolderDataSetMapping", args ?? new GetADLSGen2FolderDataSetMappingInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetADLSGen2FolderDataSetMappingResult>("azure-native:datashare:getADLSGen2FolderDataSetMapping", args ?? new GetADLSGen2FolderDataSetMappingInvokeArgs(), options.WithDefaults());
     }
 
 

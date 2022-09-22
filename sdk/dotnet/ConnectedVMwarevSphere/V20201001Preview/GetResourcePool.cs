@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         /// Define the resourcePool.
         /// </summary>
         public static Task<GetResourcePoolResult> InvokeAsync(GetResourcePoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResourcePoolResult>("azure-native:connectedvmwarevsphere/v20201001preview:getResourcePool", args ?? new GetResourcePoolArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourcePoolResult>("azure-native:connectedvmwarevsphere/v20201001preview:getResourcePool", args ?? new GetResourcePoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Define the resourcePool.
         /// </summary>
         public static Output<GetResourcePoolResult> Invoke(GetResourcePoolInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetResourcePoolResult>("azure-native:connectedvmwarevsphere/v20201001preview:getResourcePool", args ?? new GetResourcePoolInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourcePoolResult>("azure-native:connectedvmwarevsphere/v20201001preview:getResourcePool", args ?? new GetResourcePoolInvokeArgs(), options.WithDefaults());
     }
 
 

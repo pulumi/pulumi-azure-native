@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515Preview
         /// An Azure Cosmos DB trigger.
         /// </summary>
         public static Task<GetSqlResourceSqlTriggerResult> InvokeAsync(GetSqlResourceSqlTriggerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlResourceSqlTriggerResult>("azure-native:documentdb/v20220515preview:getSqlResourceSqlTrigger", args ?? new GetSqlResourceSqlTriggerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlResourceSqlTriggerResult>("azure-native:documentdb/v20220515preview:getSqlResourceSqlTrigger", args ?? new GetSqlResourceSqlTriggerArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure Cosmos DB trigger.
         /// </summary>
         public static Output<GetSqlResourceSqlTriggerResult> Invoke(GetSqlResourceSqlTriggerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSqlResourceSqlTriggerResult>("azure-native:documentdb/v20220515preview:getSqlResourceSqlTrigger", args ?? new GetSqlResourceSqlTriggerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlResourceSqlTriggerResult>("azure-native:documentdb/v20220515preview:getSqlResourceSqlTrigger", args ?? new GetSqlResourceSqlTriggerInvokeArgs(), options.WithDefaults());
     }
 
 

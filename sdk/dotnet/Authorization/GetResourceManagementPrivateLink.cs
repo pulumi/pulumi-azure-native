@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Authorization
         /// API Version: 2020-05-01.
         /// </summary>
         public static Task<GetResourceManagementPrivateLinkResult> InvokeAsync(GetResourceManagementPrivateLinkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceManagementPrivateLinkResult>("azure-native:authorization:getResourceManagementPrivateLink", args ?? new GetResourceManagementPrivateLinkArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceManagementPrivateLinkResult>("azure-native:authorization:getResourceManagementPrivateLink", args ?? new GetResourceManagementPrivateLinkArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
         /// API Version: 2020-05-01.
         /// </summary>
         public static Output<GetResourceManagementPrivateLinkResult> Invoke(GetResourceManagementPrivateLinkInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetResourceManagementPrivateLinkResult>("azure-native:authorization:getResourceManagementPrivateLink", args ?? new GetResourceManagementPrivateLinkInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourceManagementPrivateLinkResult>("azure-native:authorization:getResourceManagementPrivateLink", args ?? new GetResourceManagementPrivateLinkInvokeArgs(), options.WithDefaults());
     }
 
 

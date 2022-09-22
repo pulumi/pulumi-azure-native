@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DocumentDB.V20220815
         /// An Azure Cosmos DB Mongo Role Definition.
         /// </summary>
         public static Task<GetMongoDBResourceMongoRoleDefinitionResult> InvokeAsync(GetMongoDBResourceMongoRoleDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMongoDBResourceMongoRoleDefinitionResult>("azure-native:documentdb/v20220815:getMongoDBResourceMongoRoleDefinition", args ?? new GetMongoDBResourceMongoRoleDefinitionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMongoDBResourceMongoRoleDefinitionResult>("azure-native:documentdb/v20220815:getMongoDBResourceMongoRoleDefinition", args ?? new GetMongoDBResourceMongoRoleDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure Cosmos DB Mongo Role Definition.
         /// </summary>
         public static Output<GetMongoDBResourceMongoRoleDefinitionResult> Invoke(GetMongoDBResourceMongoRoleDefinitionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMongoDBResourceMongoRoleDefinitionResult>("azure-native:documentdb/v20220815:getMongoDBResourceMongoRoleDefinition", args ?? new GetMongoDBResourceMongoRoleDefinitionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMongoDBResourceMongoRoleDefinitionResult>("azure-native:documentdb/v20220815:getMongoDBResourceMongoRoleDefinition", args ?? new GetMongoDBResourceMongoRoleDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

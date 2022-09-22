@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Batch.V20170501
         /// Contains information about an application in a Batch account.
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-native:batch/v20170501:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-native:batch/v20170501:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Contains information about an application in a Batch account.
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:batch/v20170501:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:batch/v20170501:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Task<GetNspProfileResult> InvokeAsync(GetNspProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNspProfileResult>("azure-native:network:getNspProfile", args ?? new GetNspProfileArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNspProfileResult>("azure-native:network:getNspProfile", args ?? new GetNspProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// The network security perimeter profile resource
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Output<GetNspProfileResult> Invoke(GetNspProfileInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNspProfileResult>("azure-native:network:getNspProfile", args ?? new GetNspProfileInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNspProfileResult>("azure-native:network:getNspProfile", args ?? new GetNspProfileInvokeArgs(), options.WithDefaults());
     }
 
 

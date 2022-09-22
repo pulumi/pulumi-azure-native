@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20200430
         /// OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
         /// </summary>
         public static Task<GetOpenShiftClusterResult> InvokeAsync(GetOpenShiftClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOpenShiftClusterResult>("azure-native:redhatopenshift/v20200430:getOpenShiftCluster", args ?? new GetOpenShiftClusterArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetOpenShiftClusterResult>("azure-native:redhatopenshift/v20200430:getOpenShiftCluster", args ?? new GetOpenShiftClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
         /// </summary>
         public static Output<GetOpenShiftClusterResult> Invoke(GetOpenShiftClusterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOpenShiftClusterResult>("azure-native:redhatopenshift/v20200430:getOpenShiftCluster", args ?? new GetOpenShiftClusterInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetOpenShiftClusterResult>("azure-native:redhatopenshift/v20200430:getOpenShiftCluster", args ?? new GetOpenShiftClusterInvokeArgs(), options.WithDefaults());
     }
 
 

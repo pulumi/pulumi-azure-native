@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Logz.V20201001Preview
         /// Response of a list operation.
         /// </summary>
         public static Task<ListSubAccountMonitoredResourcesResult> InvokeAsync(ListSubAccountMonitoredResourcesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSubAccountMonitoredResourcesResult>("azure-native:logz/v20201001preview:listSubAccountMonitoredResources", args ?? new ListSubAccountMonitoredResourcesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListSubAccountMonitoredResourcesResult>("azure-native:logz/v20201001preview:listSubAccountMonitoredResources", args ?? new ListSubAccountMonitoredResourcesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response of a list operation.
         /// </summary>
         public static Output<ListSubAccountMonitoredResourcesResult> Invoke(ListSubAccountMonitoredResourcesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListSubAccountMonitoredResourcesResult>("azure-native:logz/v20201001preview:listSubAccountMonitoredResources", args ?? new ListSubAccountMonitoredResourcesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListSubAccountMonitoredResourcesResult>("azure-native:logz/v20201001preview:listSubAccountMonitoredResources", args ?? new ListSubAccountMonitoredResourcesInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Network.V20170801
         /// Network security rule.
         /// </summary>
         public static Task<GetSecurityRuleResult> InvokeAsync(GetSecurityRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityRuleResult>("azure-native:network/v20170801:getSecurityRule", args ?? new GetSecurityRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityRuleResult>("azure-native:network/v20170801:getSecurityRule", args ?? new GetSecurityRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Network security rule.
         /// </summary>
         public static Output<GetSecurityRuleResult> Invoke(GetSecurityRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSecurityRuleResult>("azure-native:network/v20170801:getSecurityRule", args ?? new GetSecurityRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecurityRuleResult>("azure-native:network/v20170801:getSecurityRule", args ?? new GetSecurityRuleInvokeArgs(), options.WithDefaults());
     }
 
 

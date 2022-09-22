@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// API Version: 2020-03-01.
         /// </summary>
         public static Task<GetLinkedWorkspaceResult> InvokeAsync(GetLinkedWorkspaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedWorkspaceResult>("azure-native:machinelearningservices:getLinkedWorkspace", args ?? new GetLinkedWorkspaceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLinkedWorkspaceResult>("azure-native:machinelearningservices:getLinkedWorkspace", args ?? new GetLinkedWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Linked workspace.
         /// API Version: 2020-03-01.
         /// </summary>
         public static Output<GetLinkedWorkspaceResult> Invoke(GetLinkedWorkspaceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLinkedWorkspaceResult>("azure-native:machinelearningservices:getLinkedWorkspace", args ?? new GetLinkedWorkspaceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLinkedWorkspaceResult>("azure-native:machinelearningservices:getLinkedWorkspace", args ?? new GetLinkedWorkspaceInvokeArgs(), options.WithDefaults());
     }
 
 

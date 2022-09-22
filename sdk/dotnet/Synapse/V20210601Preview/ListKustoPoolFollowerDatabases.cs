@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// The list Kusto database principals operation response.
         /// </summary>
         public static Task<ListKustoPoolFollowerDatabasesResult> InvokeAsync(ListKustoPoolFollowerDatabasesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListKustoPoolFollowerDatabasesResult>("azure-native:synapse/v20210601preview:listKustoPoolFollowerDatabases", args ?? new ListKustoPoolFollowerDatabasesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListKustoPoolFollowerDatabasesResult>("azure-native:synapse/v20210601preview:listKustoPoolFollowerDatabases", args ?? new ListKustoPoolFollowerDatabasesArgs(), options.WithDefaults());
 
         /// <summary>
         /// The list Kusto database principals operation response.
         /// </summary>
         public static Output<ListKustoPoolFollowerDatabasesResult> Invoke(ListKustoPoolFollowerDatabasesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListKustoPoolFollowerDatabasesResult>("azure-native:synapse/v20210601preview:listKustoPoolFollowerDatabases", args ?? new ListKustoPoolFollowerDatabasesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListKustoPoolFollowerDatabasesResult>("azure-native:synapse/v20210601preview:listKustoPoolFollowerDatabases", args ?? new ListKustoPoolFollowerDatabasesInvokeArgs(), options.WithDefaults());
     }
 
 

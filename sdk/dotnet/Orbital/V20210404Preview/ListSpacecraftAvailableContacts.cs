@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Orbital.V20210404Preview
         /// Response for the ListAvailableContacts API service call.
         /// </summary>
         public static Task<ListSpacecraftAvailableContactsResult> InvokeAsync(ListSpacecraftAvailableContactsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSpacecraftAvailableContactsResult>("azure-native:orbital/v20210404preview:listSpacecraftAvailableContacts", args ?? new ListSpacecraftAvailableContactsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListSpacecraftAvailableContactsResult>("azure-native:orbital/v20210404preview:listSpacecraftAvailableContacts", args ?? new ListSpacecraftAvailableContactsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response for the ListAvailableContacts API service call.
         /// </summary>
         public static Output<ListSpacecraftAvailableContactsResult> Invoke(ListSpacecraftAvailableContactsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListSpacecraftAvailableContactsResult>("azure-native:orbital/v20210404preview:listSpacecraftAvailableContacts", args ?? new ListSpacecraftAvailableContactsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListSpacecraftAvailableContactsResult>("azure-native:orbital/v20210404preview:listSpacecraftAvailableContacts", args ?? new ListSpacecraftAvailableContactsInvokeArgs(), options.WithDefaults());
     }
 
 

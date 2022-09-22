@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// API Version: 2020-01-01-preview.
         /// </summary>
         public static Task<GetNodeTypeResult> InvokeAsync(GetNodeTypeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNodeTypeResult>("azure-native:servicefabric:getNodeType", args ?? new GetNodeTypeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNodeTypeResult>("azure-native:servicefabric:getNodeType", args ?? new GetNodeTypeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
         /// API Version: 2020-01-01-preview.
         /// </summary>
         public static Output<GetNodeTypeResult> Invoke(GetNodeTypeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNodeTypeResult>("azure-native:servicefabric:getNodeType", args ?? new GetNodeTypeInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNodeTypeResult>("azure-native:servicefabric:getNodeType", args ?? new GetNodeTypeInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         /// Represents a definition for a Developer Machine.
         /// </summary>
         public static Task<GetDevBoxDefinitionResult> InvokeAsync(GetDevBoxDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDevBoxDefinitionResult>("azure-native:devcenter/v20220801preview:getDevBoxDefinition", args ?? new GetDevBoxDefinitionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDevBoxDefinitionResult>("azure-native:devcenter/v20220801preview:getDevBoxDefinition", args ?? new GetDevBoxDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a definition for a Developer Machine.
         /// </summary>
         public static Output<GetDevBoxDefinitionResult> Invoke(GetDevBoxDefinitionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDevBoxDefinitionResult>("azure-native:devcenter/v20220801preview:getDevBoxDefinition", args ?? new GetDevBoxDefinitionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDevBoxDefinitionResult>("azure-native:devcenter/v20220801preview:getDevBoxDefinition", args ?? new GetDevBoxDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

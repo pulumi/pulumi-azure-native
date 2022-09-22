@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.MachineLearningCompute.V20170801Preview
         /// Credentials to resources in the cluster.
         /// </summary>
         public static Task<ListOperationalizationClusterKeysResult> InvokeAsync(ListOperationalizationClusterKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListOperationalizationClusterKeysResult>("azure-native:machinelearningcompute/v20170801preview:listOperationalizationClusterKeys", args ?? new ListOperationalizationClusterKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListOperationalizationClusterKeysResult>("azure-native:machinelearningcompute/v20170801preview:listOperationalizationClusterKeys", args ?? new ListOperationalizationClusterKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Credentials to resources in the cluster.
         /// </summary>
         public static Output<ListOperationalizationClusterKeysResult> Invoke(ListOperationalizationClusterKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListOperationalizationClusterKeysResult>("azure-native:machinelearningcompute/v20170801preview:listOperationalizationClusterKeys", args ?? new ListOperationalizationClusterKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListOperationalizationClusterKeysResult>("azure-native:machinelearningcompute/v20170801preview:listOperationalizationClusterKeys", args ?? new ListOperationalizationClusterKeysInvokeArgs(), options.WithDefaults());
     }
 
 

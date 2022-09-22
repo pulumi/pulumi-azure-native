@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.DocumentDB.V20150408
         /// An Azure Cosmos DB Gremlin graph.
         /// </summary>
         public static Task<GetDatabaseAccountGremlinGraphResult> InvokeAsync(GetDatabaseAccountGremlinGraphArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountGremlinGraphResult>("azure-native:documentdb/v20150408:getDatabaseAccountGremlinGraph", args ?? new GetDatabaseAccountGremlinGraphArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountGremlinGraphResult>("azure-native:documentdb/v20150408:getDatabaseAccountGremlinGraph", args ?? new GetDatabaseAccountGremlinGraphArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure Cosmos DB Gremlin graph.
         /// </summary>
         public static Output<GetDatabaseAccountGremlinGraphResult> Invoke(GetDatabaseAccountGremlinGraphInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDatabaseAccountGremlinGraphResult>("azure-native:documentdb/v20150408:getDatabaseAccountGremlinGraph", args ?? new GetDatabaseAccountGremlinGraphInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseAccountGremlinGraphResult>("azure-native:documentdb/v20150408:getDatabaseAccountGremlinGraph", args ?? new GetDatabaseAccountGremlinGraphInvokeArgs(), options.WithDefaults());
     }
 
 

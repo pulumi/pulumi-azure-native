@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Kusto.V20170907PrivatePreview
         /// The list Kusto database principals operation response.
         /// </summary>
         public static Task<ListDatabasePrincipalsResult> InvokeAsync(ListDatabasePrincipalsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListDatabasePrincipalsResult>("azure-native:kusto/v20170907privatepreview:listDatabasePrincipals", args ?? new ListDatabasePrincipalsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListDatabasePrincipalsResult>("azure-native:kusto/v20170907privatepreview:listDatabasePrincipals", args ?? new ListDatabasePrincipalsArgs(), options.WithDefaults());
 
         /// <summary>
         /// The list Kusto database principals operation response.
         /// </summary>
         public static Output<ListDatabasePrincipalsResult> Invoke(ListDatabasePrincipalsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListDatabasePrincipalsResult>("azure-native:kusto/v20170907privatepreview:listDatabasePrincipals", args ?? new ListDatabasePrincipalsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListDatabasePrincipalsResult>("azure-native:kusto/v20170907privatepreview:listDatabasePrincipals", args ?? new ListDatabasePrincipalsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20210101
         /// Function secrets.
         /// </summary>
         public static Task<ListWebAppSyncFunctionTriggersSlotResult> InvokeAsync(ListWebAppSyncFunctionTriggersSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppSyncFunctionTriggersSlotResult>("azure-native:web/v20210101:listWebAppSyncFunctionTriggersSlot", args ?? new ListWebAppSyncFunctionTriggersSlotArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppSyncFunctionTriggersSlotResult>("azure-native:web/v20210101:listWebAppSyncFunctionTriggersSlot", args ?? new ListWebAppSyncFunctionTriggersSlotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Function secrets.
         /// </summary>
         public static Output<ListWebAppSyncFunctionTriggersSlotResult> Invoke(ListWebAppSyncFunctionTriggersSlotInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListWebAppSyncFunctionTriggersSlotResult>("azure-native:web/v20210101:listWebAppSyncFunctionTriggersSlot", args ?? new ListWebAppSyncFunctionTriggersSlotInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListWebAppSyncFunctionTriggersSlotResult>("azure-native:web/v20210101:listWebAppSyncFunctionTriggersSlot", args ?? new ListWebAppSyncFunctionTriggersSlotInvokeArgs(), options.WithDefaults());
     }
 
 

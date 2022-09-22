@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.DevTestLab
         /// API Version: 2018-09-15.
         /// </summary>
         public static Task<GetGlobalScheduleResult> InvokeAsync(GetGlobalScheduleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalScheduleResult>("azure-native:devtestlab:getGlobalSchedule", args ?? new GetGlobalScheduleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGlobalScheduleResult>("azure-native:devtestlab:getGlobalSchedule", args ?? new GetGlobalScheduleArgs(), options.WithDefaults());
 
         /// <summary>
         /// A schedule.
         /// API Version: 2018-09-15.
         /// </summary>
         public static Output<GetGlobalScheduleResult> Invoke(GetGlobalScheduleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGlobalScheduleResult>("azure-native:devtestlab:getGlobalSchedule", args ?? new GetGlobalScheduleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGlobalScheduleResult>("azure-native:devtestlab:getGlobalSchedule", args ?? new GetGlobalScheduleInvokeArgs(), options.WithDefaults());
     }
 
 

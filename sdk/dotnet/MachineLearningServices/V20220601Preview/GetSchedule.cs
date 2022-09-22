@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
         /// Azure Resource Manager resource envelope.
         /// </summary>
         public static Task<GetScheduleResult> InvokeAsync(GetScheduleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduleResult>("azure-native:machinelearningservices/v20220601preview:getSchedule", args ?? new GetScheduleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduleResult>("azure-native:machinelearningservices/v20220601preview:getSchedule", args ?? new GetScheduleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
         /// </summary>
         public static Output<GetScheduleResult> Invoke(GetScheduleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetScheduleResult>("azure-native:machinelearningservices/v20220601preview:getSchedule", args ?? new GetScheduleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetScheduleResult>("azure-native:machinelearningservices/v20220601preview:getSchedule", args ?? new GetScheduleInvokeArgs(), options.WithDefaults());
     }
 
 

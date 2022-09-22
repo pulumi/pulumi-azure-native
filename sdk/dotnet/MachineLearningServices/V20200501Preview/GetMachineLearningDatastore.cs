@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview
         /// Machine Learning datastore object wrapped into ARM resource envelope.
         /// </summary>
         public static Task<GetMachineLearningDatastoreResult> InvokeAsync(GetMachineLearningDatastoreArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMachineLearningDatastoreResult>("azure-native:machinelearningservices/v20200501preview:getMachineLearningDatastore", args ?? new GetMachineLearningDatastoreArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMachineLearningDatastoreResult>("azure-native:machinelearningservices/v20200501preview:getMachineLearningDatastore", args ?? new GetMachineLearningDatastoreArgs(), options.WithDefaults());
 
         /// <summary>
         /// Machine Learning datastore object wrapped into ARM resource envelope.
         /// </summary>
         public static Output<GetMachineLearningDatastoreResult> Invoke(GetMachineLearningDatastoreInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMachineLearningDatastoreResult>("azure-native:machinelearningservices/v20200501preview:getMachineLearningDatastore", args ?? new GetMachineLearningDatastoreInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMachineLearningDatastoreResult>("azure-native:machinelearningservices/v20200501preview:getMachineLearningDatastore", args ?? new GetMachineLearningDatastoreInvokeArgs(), options.WithDefaults());
     }
 
 

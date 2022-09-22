@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// API Version: 2020-01-01.
         /// </summary>
         public static Task<GetMCASDataConnectorResult> InvokeAsync(GetMCASDataConnectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMCASDataConnectorResult>("azure-native:securityinsights:getMCASDataConnector", args ?? new GetMCASDataConnectorArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMCASDataConnectorResult>("azure-native:securityinsights:getMCASDataConnector", args ?? new GetMCASDataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents MCAS (Microsoft Cloud App Security) data connector.
         /// API Version: 2020-01-01.
         /// </summary>
         public static Output<GetMCASDataConnectorResult> Invoke(GetMCASDataConnectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMCASDataConnectorResult>("azure-native:securityinsights:getMCASDataConnector", args ?? new GetMCASDataConnectorInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMCASDataConnectorResult>("azure-native:securityinsights:getMCASDataConnector", args ?? new GetMCASDataConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

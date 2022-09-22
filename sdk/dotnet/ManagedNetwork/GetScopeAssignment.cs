@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.ManagedNetwork
         /// API Version: 2019-06-01-preview.
         /// </summary>
         public static Task<GetScopeAssignmentResult> InvokeAsync(GetScopeAssignmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScopeAssignmentResult>("azure-native:managednetwork:getScopeAssignment", args ?? new GetScopeAssignmentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetScopeAssignmentResult>("azure-native:managednetwork:getScopeAssignment", args ?? new GetScopeAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Managed Network resource
         /// API Version: 2019-06-01-preview.
         /// </summary>
         public static Output<GetScopeAssignmentResult> Invoke(GetScopeAssignmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetScopeAssignmentResult>("azure-native:managednetwork:getScopeAssignment", args ?? new GetScopeAssignmentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetScopeAssignmentResult>("azure-native:managednetwork:getScopeAssignment", args ?? new GetScopeAssignmentInvokeArgs(), options.WithDefaults());
     }
 
 

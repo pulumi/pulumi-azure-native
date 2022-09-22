@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.AppPlatform
         /// API Version: 2022-01-01-preview.
         /// </summary>
         public static Task<GetGatewayResult> InvokeAsync(GetGatewayArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayResult>("azure-native:appplatform:getGateway", args ?? new GetGatewayArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGatewayResult>("azure-native:appplatform:getGateway", args ?? new GetGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Spring Cloud Gateway resource
         /// API Version: 2022-01-01-preview.
         /// </summary>
         public static Output<GetGatewayResult> Invoke(GetGatewayInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGatewayResult>("azure-native:appplatform:getGateway", args ?? new GetGatewayInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGatewayResult>("azure-native:appplatform:getGateway", args ?? new GetGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

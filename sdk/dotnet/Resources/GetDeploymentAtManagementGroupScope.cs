@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Resources
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetDeploymentAtManagementGroupScopeResult> InvokeAsync(GetDeploymentAtManagementGroupScopeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentAtManagementGroupScopeResult>("azure-native:resources:getDeploymentAtManagementGroupScope", args ?? new GetDeploymentAtManagementGroupScopeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentAtManagementGroupScopeResult>("azure-native:resources:getDeploymentAtManagementGroupScope", args ?? new GetDeploymentAtManagementGroupScopeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Deployment information.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<GetDeploymentAtManagementGroupScopeResult> Invoke(GetDeploymentAtManagementGroupScopeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDeploymentAtManagementGroupScopeResult>("azure-native:resources:getDeploymentAtManagementGroupScope", args ?? new GetDeploymentAtManagementGroupScopeInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentAtManagementGroupScopeResult>("azure-native:resources:getDeploymentAtManagementGroupScope", args ?? new GetDeploymentAtManagementGroupScopeInvokeArgs(), options.WithDefaults());
     }
 
 

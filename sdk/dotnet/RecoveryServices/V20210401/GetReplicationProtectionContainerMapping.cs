@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210401
         /// Protection container mapping object.
         /// </summary>
         public static Task<GetReplicationProtectionContainerMappingResult> InvokeAsync(GetReplicationProtectionContainerMappingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationProtectionContainerMappingResult>("azure-native:recoveryservices/v20210401:getReplicationProtectionContainerMapping", args ?? new GetReplicationProtectionContainerMappingArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationProtectionContainerMappingResult>("azure-native:recoveryservices/v20210401:getReplicationProtectionContainerMapping", args ?? new GetReplicationProtectionContainerMappingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Protection container mapping object.
         /// </summary>
         public static Output<GetReplicationProtectionContainerMappingResult> Invoke(GetReplicationProtectionContainerMappingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetReplicationProtectionContainerMappingResult>("azure-native:recoveryservices/v20210401:getReplicationProtectionContainerMapping", args ?? new GetReplicationProtectionContainerMappingInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetReplicationProtectionContainerMappingResult>("azure-native:recoveryservices/v20210401:getReplicationProtectionContainerMapping", args ?? new GetReplicationProtectionContainerMappingInvokeArgs(), options.WithDefaults());
     }
 
 

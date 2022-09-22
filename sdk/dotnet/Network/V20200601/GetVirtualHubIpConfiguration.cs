@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20200601
         /// IpConfigurations.
         /// </summary>
         public static Task<GetVirtualHubIpConfigurationResult> InvokeAsync(GetVirtualHubIpConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubIpConfigurationResult>("azure-native:network/v20200601:getVirtualHubIpConfiguration", args ?? new GetVirtualHubIpConfigurationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubIpConfigurationResult>("azure-native:network/v20200601:getVirtualHubIpConfiguration", args ?? new GetVirtualHubIpConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// IpConfigurations.
         /// </summary>
         public static Output<GetVirtualHubIpConfigurationResult> Invoke(GetVirtualHubIpConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualHubIpConfigurationResult>("azure-native:network/v20200601:getVirtualHubIpConfiguration", args ?? new GetVirtualHubIpConfigurationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualHubIpConfigurationResult>("azure-native:network/v20200601:getVirtualHubIpConfiguration", args ?? new GetVirtualHubIpConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

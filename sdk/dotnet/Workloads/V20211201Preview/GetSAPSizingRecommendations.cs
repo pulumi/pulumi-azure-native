@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
         /// The SAP sizing recommendation result.
         /// </summary>
         public static Task<GetSAPSizingRecommendationsResult> InvokeAsync(GetSAPSizingRecommendationsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSAPSizingRecommendationsResult>("azure-native:workloads/v20211201preview:getSAPSizingRecommendations", args ?? new GetSAPSizingRecommendationsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSAPSizingRecommendationsResult>("azure-native:workloads/v20211201preview:getSAPSizingRecommendations", args ?? new GetSAPSizingRecommendationsArgs(), options.WithDefaults());
 
         /// <summary>
         /// The SAP sizing recommendation result.
         /// </summary>
         public static Output<GetSAPSizingRecommendationsResult> Invoke(GetSAPSizingRecommendationsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSAPSizingRecommendationsResult>("azure-native:workloads/v20211201preview:getSAPSizingRecommendations", args ?? new GetSAPSizingRecommendationsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSAPSizingRecommendationsResult>("azure-native:workloads/v20211201preview:getSAPSizingRecommendations", args ?? new GetSAPSizingRecommendationsInvokeArgs(), options.WithDefaults());
     }
 
 

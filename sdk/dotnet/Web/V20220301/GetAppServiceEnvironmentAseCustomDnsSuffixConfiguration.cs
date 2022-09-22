@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20220301
         /// Full view of the custom domain suffix configuration for ASEv3.
         /// </summary>
         public static Task<GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult> InvokeAsync(GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult>("azure-native:web/v20220301:getAppServiceEnvironmentAseCustomDnsSuffixConfiguration", args ?? new GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult>("azure-native:web/v20220301:getAppServiceEnvironmentAseCustomDnsSuffixConfiguration", args ?? new GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Full view of the custom domain suffix configuration for ASEv3.
         /// </summary>
         public static Output<GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult> Invoke(GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult>("azure-native:web/v20220301:getAppServiceEnvironmentAseCustomDnsSuffixConfiguration", args ?? new GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult>("azure-native:web/v20220301:getAppServiceEnvironmentAseCustomDnsSuffixConfiguration", args ?? new GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

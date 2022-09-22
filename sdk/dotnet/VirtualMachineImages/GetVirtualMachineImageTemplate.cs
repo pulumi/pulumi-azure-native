@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.VirtualMachineImages
         /// API Version: 2020-02-14.
         /// </summary>
         public static Task<GetVirtualMachineImageTemplateResult> InvokeAsync(GetVirtualMachineImageTemplateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineImageTemplateResult>("azure-native:virtualmachineimages:getVirtualMachineImageTemplate", args ?? new GetVirtualMachineImageTemplateArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineImageTemplateResult>("azure-native:virtualmachineimages:getVirtualMachineImageTemplate", args ?? new GetVirtualMachineImageTemplateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
         /// API Version: 2020-02-14.
         /// </summary>
         public static Output<GetVirtualMachineImageTemplateResult> Invoke(GetVirtualMachineImageTemplateInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineImageTemplateResult>("azure-native:virtualmachineimages:getVirtualMachineImageTemplate", args ?? new GetVirtualMachineImageTemplateInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineImageTemplateResult>("azure-native:virtualmachineimages:getVirtualMachineImageTemplate", args ?? new GetVirtualMachineImageTemplateInvokeArgs(), options.WithDefaults());
     }
 
 

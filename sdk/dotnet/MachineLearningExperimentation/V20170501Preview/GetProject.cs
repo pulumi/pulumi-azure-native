@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.MachineLearningExperimentation.V20170501Preview
         /// An object that represents a machine learning project.
         /// </summary>
         public static Task<GetProjectResult> InvokeAsync(GetProjectArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure-native:machinelearningexperimentation/v20170501preview:getProject", args ?? new GetProjectArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure-native:machinelearningexperimentation/v20170501preview:getProject", args ?? new GetProjectArgs(), options.WithDefaults());
 
         /// <summary>
         /// An object that represents a machine learning project.
         /// </summary>
         public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProjectResult>("azure-native:machinelearningexperimentation/v20170501preview:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetProjectResult>("azure-native:machinelearningexperimentation/v20170501preview:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
     }
 
 

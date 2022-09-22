@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ManagedNetwork.V20190601Preview
         /// The Managed Network Peering Policy resource
         /// </summary>
         public static Task<GetManagedNetworkPeeringPolicyResult> InvokeAsync(GetManagedNetworkPeeringPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedNetworkPeeringPolicyResult>("azure-native:managednetwork/v20190601preview:getManagedNetworkPeeringPolicy", args ?? new GetManagedNetworkPeeringPolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedNetworkPeeringPolicyResult>("azure-native:managednetwork/v20190601preview:getManagedNetworkPeeringPolicy", args ?? new GetManagedNetworkPeeringPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Managed Network Peering Policy resource
         /// </summary>
         public static Output<GetManagedNetworkPeeringPolicyResult> Invoke(GetManagedNetworkPeeringPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagedNetworkPeeringPolicyResult>("azure-native:managednetwork/v20190601preview:getManagedNetworkPeeringPolicy", args ?? new GetManagedNetworkPeeringPolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedNetworkPeeringPolicyResult>("azure-native:managednetwork/v20190601preview:getManagedNetworkPeeringPolicy", args ?? new GetManagedNetworkPeeringPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

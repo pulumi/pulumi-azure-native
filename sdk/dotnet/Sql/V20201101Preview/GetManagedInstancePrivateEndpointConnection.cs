@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         /// A private endpoint connection
         /// </summary>
         public static Task<GetManagedInstancePrivateEndpointConnectionResult> InvokeAsync(GetManagedInstancePrivateEndpointConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstancePrivateEndpointConnectionResult>("azure-native:sql/v20201101preview:getManagedInstancePrivateEndpointConnection", args ?? new GetManagedInstancePrivateEndpointConnectionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstancePrivateEndpointConnectionResult>("azure-native:sql/v20201101preview:getManagedInstancePrivateEndpointConnection", args ?? new GetManagedInstancePrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// A private endpoint connection
         /// </summary>
         public static Output<GetManagedInstancePrivateEndpointConnectionResult> Invoke(GetManagedInstancePrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagedInstancePrivateEndpointConnectionResult>("azure-native:sql/v20201101preview:getManagedInstancePrivateEndpointConnection", args ?? new GetManagedInstancePrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedInstancePrivateEndpointConnectionResult>("azure-native:sql/v20201101preview:getManagedInstancePrivateEndpointConnection", args ?? new GetManagedInstancePrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

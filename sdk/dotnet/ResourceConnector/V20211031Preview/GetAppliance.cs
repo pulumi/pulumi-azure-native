@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ResourceConnector.V20211031Preview
         /// Appliances definition.
         /// </summary>
         public static Task<GetApplianceResult> InvokeAsync(GetApplianceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplianceResult>("azure-native:resourceconnector/v20211031preview:getAppliance", args ?? new GetApplianceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplianceResult>("azure-native:resourceconnector/v20211031preview:getAppliance", args ?? new GetApplianceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Appliances definition.
         /// </summary>
         public static Output<GetApplianceResult> Invoke(GetApplianceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApplianceResult>("azure-native:resourceconnector/v20211031preview:getAppliance", args ?? new GetApplianceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplianceResult>("azure-native:resourceconnector/v20211031preview:getAppliance", args ?? new GetApplianceInvokeArgs(), options.WithDefaults());
     }
 
 

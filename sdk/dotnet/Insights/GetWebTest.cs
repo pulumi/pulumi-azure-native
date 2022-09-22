@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Insights
         /// API Version: 2015-05-01.
         /// </summary>
         public static Task<GetWebTestResult> InvokeAsync(GetWebTestArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebTestResult>("azure-native:insights:getWebTest", args ?? new GetWebTestArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebTestResult>("azure-native:insights:getWebTest", args ?? new GetWebTestArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Application Insights web test definition.
         /// API Version: 2015-05-01.
         /// </summary>
         public static Output<GetWebTestResult> Invoke(GetWebTestInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWebTestResult>("azure-native:insights:getWebTest", args ?? new GetWebTestInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebTestResult>("azure-native:insights:getWebTest", args ?? new GetWebTestInvokeArgs(), options.WithDefaults());
     }
 
 

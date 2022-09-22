@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.DocumentDB.V20191212
         /// An Azure Cosmos DB userDefinedFunction.
         /// </summary>
         public static Task<GetSqlResourceSqlUserDefinedFunctionResult> InvokeAsync(GetSqlResourceSqlUserDefinedFunctionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlResourceSqlUserDefinedFunctionResult>("azure-native:documentdb/v20191212:getSqlResourceSqlUserDefinedFunction", args ?? new GetSqlResourceSqlUserDefinedFunctionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlResourceSqlUserDefinedFunctionResult>("azure-native:documentdb/v20191212:getSqlResourceSqlUserDefinedFunction", args ?? new GetSqlResourceSqlUserDefinedFunctionArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure Cosmos DB userDefinedFunction.
         /// </summary>
         public static Output<GetSqlResourceSqlUserDefinedFunctionResult> Invoke(GetSqlResourceSqlUserDefinedFunctionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSqlResourceSqlUserDefinedFunctionResult>("azure-native:documentdb/v20191212:getSqlResourceSqlUserDefinedFunction", args ?? new GetSqlResourceSqlUserDefinedFunctionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlResourceSqlUserDefinedFunctionResult>("azure-native:documentdb/v20191212:getSqlResourceSqlUserDefinedFunction", args ?? new GetSqlResourceSqlUserDefinedFunctionInvokeArgs(), options.WithDefaults());
     }
 
 

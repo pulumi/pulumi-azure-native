@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// API Version: 2020-01-01-preview.
         /// </summary>
         public static Task<GetVendorResult> InvokeAsync(GetVendorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVendorResult>("azure-native:hybridnetwork:getVendor", args ?? new GetVendorArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVendorResult>("azure-native:hybridnetwork:getVendor", args ?? new GetVendorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Vendor resource.
         /// API Version: 2020-01-01-preview.
         /// </summary>
         public static Output<GetVendorResult> Invoke(GetVendorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVendorResult>("azure-native:hybridnetwork:getVendor", args ?? new GetVendorInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVendorResult>("azure-native:hybridnetwork:getVendor", args ?? new GetVendorInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Compute.V20160330
         /// Describes a Virtual Machine Scale Set.
         /// </summary>
         public static Task<GetVirtualMachineScaleSetResult> InvokeAsync(GetVirtualMachineScaleSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetResult>("azure-native:compute/v20160330:getVirtualMachineScaleSet", args ?? new GetVirtualMachineScaleSetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetResult>("azure-native:compute/v20160330:getVirtualMachineScaleSet", args ?? new GetVirtualMachineScaleSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes a Virtual Machine Scale Set.
         /// </summary>
         public static Output<GetVirtualMachineScaleSetResult> Invoke(GetVirtualMachineScaleSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineScaleSetResult>("azure-native:compute/v20160330:getVirtualMachineScaleSet", args ?? new GetVirtualMachineScaleSetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineScaleSetResult>("azure-native:compute/v20160330:getVirtualMachineScaleSet", args ?? new GetVirtualMachineScaleSetInvokeArgs(), options.WithDefaults());
     }
 
 

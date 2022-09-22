@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview
         /// The VirtualMachines resource definition.
         /// </summary>
         public static Task<GetVirtualMachineResult> InvokeAsync(GetVirtualMachineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure-native:scvmm/v20200605preview:getVirtualMachine", args ?? new GetVirtualMachineArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure-native:scvmm/v20200605preview:getVirtualMachine", args ?? new GetVirtualMachineArgs(), options.WithDefaults());
 
         /// <summary>
         /// The VirtualMachines resource definition.
         /// </summary>
         public static Output<GetVirtualMachineResult> Invoke(GetVirtualMachineInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineResult>("azure-native:scvmm/v20200605preview:getVirtualMachine", args ?? new GetVirtualMachineInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineResult>("azure-native:scvmm/v20200605preview:getVirtualMachine", args ?? new GetVirtualMachineInvokeArgs(), options.WithDefaults());
     }
 
 

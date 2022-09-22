@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Resources
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetDeploymentAtSubscriptionScopeResult> InvokeAsync(GetDeploymentAtSubscriptionScopeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentAtSubscriptionScopeResult>("azure-native:resources:getDeploymentAtSubscriptionScope", args ?? new GetDeploymentAtSubscriptionScopeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentAtSubscriptionScopeResult>("azure-native:resources:getDeploymentAtSubscriptionScope", args ?? new GetDeploymentAtSubscriptionScopeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Deployment information.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<GetDeploymentAtSubscriptionScopeResult> Invoke(GetDeploymentAtSubscriptionScopeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDeploymentAtSubscriptionScopeResult>("azure-native:resources:getDeploymentAtSubscriptionScope", args ?? new GetDeploymentAtSubscriptionScopeInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentAtSubscriptionScopeResult>("azure-native:resources:getDeploymentAtSubscriptionScope", args ?? new GetDeploymentAtSubscriptionScopeInvokeArgs(), options.WithDefaults());
     }
 
 

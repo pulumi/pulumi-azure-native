@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Cache.V20160401
         /// A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
         /// </summary>
         public static Task<GetRedisFirewallRuleResult> InvokeAsync(GetRedisFirewallRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRedisFirewallRuleResult>("azure-native:cache/v20160401:getRedisFirewallRule", args ?? new GetRedisFirewallRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRedisFirewallRuleResult>("azure-native:cache/v20160401:getRedisFirewallRule", args ?? new GetRedisFirewallRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
         /// </summary>
         public static Output<GetRedisFirewallRuleResult> Invoke(GetRedisFirewallRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRedisFirewallRuleResult>("azure-native:cache/v20160401:getRedisFirewallRule", args ?? new GetRedisFirewallRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRedisFirewallRuleResult>("azure-native:cache/v20160401:getRedisFirewallRule", args ?? new GetRedisFirewallRuleInvokeArgs(), options.WithDefaults());
     }
 
 

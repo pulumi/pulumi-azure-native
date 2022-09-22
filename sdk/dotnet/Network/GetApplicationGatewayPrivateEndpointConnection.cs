@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetApplicationGatewayPrivateEndpointConnectionResult> InvokeAsync(GetApplicationGatewayPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGatewayPrivateEndpointConnectionResult>("azure-native:network:getApplicationGatewayPrivateEndpointConnection", args ?? new GetApplicationGatewayPrivateEndpointConnectionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGatewayPrivateEndpointConnectionResult>("azure-native:network:getApplicationGatewayPrivateEndpointConnection", args ?? new GetApplicationGatewayPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Private Endpoint connection on an application gateway.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetApplicationGatewayPrivateEndpointConnectionResult> Invoke(GetApplicationGatewayPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApplicationGatewayPrivateEndpointConnectionResult>("azure-native:network:getApplicationGatewayPrivateEndpointConnection", args ?? new GetApplicationGatewayPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationGatewayPrivateEndpointConnectionResult>("azure-native:network:getApplicationGatewayPrivateEndpointConnection", args ?? new GetApplicationGatewayPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

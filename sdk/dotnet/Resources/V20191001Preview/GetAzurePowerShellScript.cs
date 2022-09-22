@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Resources.V20191001Preview
         /// Object model for the Azure PowerShell script.
         /// </summary>
         public static Task<GetAzurePowerShellScriptResult> InvokeAsync(GetAzurePowerShellScriptArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAzurePowerShellScriptResult>("azure-native:resources/v20191001preview:getAzurePowerShellScript", args ?? new GetAzurePowerShellScriptArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAzurePowerShellScriptResult>("azure-native:resources/v20191001preview:getAzurePowerShellScript", args ?? new GetAzurePowerShellScriptArgs(), options.WithDefaults());
 
         /// <summary>
         /// Object model for the Azure PowerShell script.
         /// </summary>
         public static Output<GetAzurePowerShellScriptResult> Invoke(GetAzurePowerShellScriptInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAzurePowerShellScriptResult>("azure-native:resources/v20191001preview:getAzurePowerShellScript", args ?? new GetAzurePowerShellScriptInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAzurePowerShellScriptResult>("azure-native:resources/v20191001preview:getAzurePowerShellScript", args ?? new GetAzurePowerShellScriptInvokeArgs(), options.WithDefaults());
     }
 
 

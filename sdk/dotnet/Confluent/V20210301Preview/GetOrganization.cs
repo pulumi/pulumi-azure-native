@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Confluent.V20210301Preview
         /// Organization resource.
         /// </summary>
         public static Task<GetOrganizationResult> InvokeAsync(GetOrganizationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationResult>("azure-native:confluent/v20210301preview:getOrganization", args ?? new GetOrganizationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationResult>("azure-native:confluent/v20210301preview:getOrganization", args ?? new GetOrganizationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Organization resource.
         /// </summary>
         public static Output<GetOrganizationResult> Invoke(GetOrganizationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOrganizationResult>("azure-native:confluent/v20210301preview:getOrganization", args ?? new GetOrganizationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationResult>("azure-native:confluent/v20210301preview:getOrganization", args ?? new GetOrganizationInvokeArgs(), options.WithDefaults());
     }
 
 

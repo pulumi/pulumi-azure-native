@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20200808Preview
         /// Represents an instance of a orchestrator.
         /// </summary>
         public static Task<GetOrchestratorInstanceServiceDetailsResult> InvokeAsync(GetOrchestratorInstanceServiceDetailsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOrchestratorInstanceServiceDetailsResult>("azure-native:delegatednetwork/v20200808preview:getOrchestratorInstanceServiceDetails", args ?? new GetOrchestratorInstanceServiceDetailsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrchestratorInstanceServiceDetailsResult>("azure-native:delegatednetwork/v20200808preview:getOrchestratorInstanceServiceDetails", args ?? new GetOrchestratorInstanceServiceDetailsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents an instance of a orchestrator.
         /// </summary>
         public static Output<GetOrchestratorInstanceServiceDetailsResult> Invoke(GetOrchestratorInstanceServiceDetailsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOrchestratorInstanceServiceDetailsResult>("azure-native:delegatednetwork/v20200808preview:getOrchestratorInstanceServiceDetails", args ?? new GetOrchestratorInstanceServiceDetailsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetOrchestratorInstanceServiceDetailsResult>("azure-native:delegatednetwork/v20200808preview:getOrchestratorInstanceServiceDetails", args ?? new GetOrchestratorInstanceServiceDetailsInvokeArgs(), options.WithDefaults());
     }
 
 

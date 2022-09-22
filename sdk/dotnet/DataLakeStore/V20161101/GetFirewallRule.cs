@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DataLakeStore.V20161101
         /// Data Lake Store firewall rule information.
         /// </summary>
         public static Task<GetFirewallRuleResult> InvokeAsync(GetFirewallRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-native:datalakestore/v20161101:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-native:datalakestore/v20161101:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data Lake Store firewall rule information.
         /// </summary>
         public static Output<GetFirewallRuleResult> Invoke(GetFirewallRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFirewallRuleResult>("azure-native:datalakestore/v20161101:getFirewallRule", args ?? new GetFirewallRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFirewallRuleResult>("azure-native:datalakestore/v20161101:getFirewallRule", args ?? new GetFirewallRuleInvokeArgs(), options.WithDefaults());
     }
 
 

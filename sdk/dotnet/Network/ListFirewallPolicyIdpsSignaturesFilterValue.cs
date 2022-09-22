@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2022-01-01.
         /// </summary>
         public static Task<ListFirewallPolicyIdpsSignaturesFilterValueResult> InvokeAsync(ListFirewallPolicyIdpsSignaturesFilterValueArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListFirewallPolicyIdpsSignaturesFilterValueResult>("azure-native:network:listFirewallPolicyIdpsSignaturesFilterValue", args ?? new ListFirewallPolicyIdpsSignaturesFilterValueArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListFirewallPolicyIdpsSignaturesFilterValueResult>("azure-native:network:listFirewallPolicyIdpsSignaturesFilterValue", args ?? new ListFirewallPolicyIdpsSignaturesFilterValueArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes the list of all possible values for a specific filter value
         /// API Version: 2022-01-01.
         /// </summary>
         public static Output<ListFirewallPolicyIdpsSignaturesFilterValueResult> Invoke(ListFirewallPolicyIdpsSignaturesFilterValueInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListFirewallPolicyIdpsSignaturesFilterValueResult>("azure-native:network:listFirewallPolicyIdpsSignaturesFilterValue", args ?? new ListFirewallPolicyIdpsSignaturesFilterValueInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListFirewallPolicyIdpsSignaturesFilterValueResult>("azure-native:network:listFirewallPolicyIdpsSignaturesFilterValue", args ?? new ListFirewallPolicyIdpsSignaturesFilterValueInvokeArgs(), options.WithDefaults());
     }
 
 

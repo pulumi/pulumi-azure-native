@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         /// Managed private endpoint resource type.
         /// </summary>
         public static Task<GetManagedPrivateEndpointResult> InvokeAsync(GetManagedPrivateEndpointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedPrivateEndpointResult>("azure-native:datafactory/v20180601:getManagedPrivateEndpoint", args ?? new GetManagedPrivateEndpointArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedPrivateEndpointResult>("azure-native:datafactory/v20180601:getManagedPrivateEndpoint", args ?? new GetManagedPrivateEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Managed private endpoint resource type.
         /// </summary>
         public static Output<GetManagedPrivateEndpointResult> Invoke(GetManagedPrivateEndpointInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagedPrivateEndpointResult>("azure-native:datafactory/v20180601:getManagedPrivateEndpoint", args ?? new GetManagedPrivateEndpointInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedPrivateEndpointResult>("azure-native:datafactory/v20180601:getManagedPrivateEndpoint", args ?? new GetManagedPrivateEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

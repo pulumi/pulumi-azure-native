@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
         /// Security GovernanceRule over a given scope
         /// </summary>
         public static Task<GetSecurityConnectorGovernanceRuleResult> InvokeAsync(GetSecurityConnectorGovernanceRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityConnectorGovernanceRuleResult>("azure-native:security/v20220101preview:getSecurityConnectorGovernanceRule", args ?? new GetSecurityConnectorGovernanceRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityConnectorGovernanceRuleResult>("azure-native:security/v20220101preview:getSecurityConnectorGovernanceRule", args ?? new GetSecurityConnectorGovernanceRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Security GovernanceRule over a given scope
         /// </summary>
         public static Output<GetSecurityConnectorGovernanceRuleResult> Invoke(GetSecurityConnectorGovernanceRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSecurityConnectorGovernanceRuleResult>("azure-native:security/v20220101preview:getSecurityConnectorGovernanceRule", args ?? new GetSecurityConnectorGovernanceRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecurityConnectorGovernanceRuleResult>("azure-native:security/v20220101preview:getSecurityConnectorGovernanceRule", args ?? new GetSecurityConnectorGovernanceRuleInvokeArgs(), options.WithDefaults());
     }
 
 

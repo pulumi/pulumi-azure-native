@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.OperationalInsights.V20150320
         /// Value object for saved search results.
         /// </summary>
         public static Task<GetSavedSearchResult> InvokeAsync(GetSavedSearchArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSavedSearchResult>("azure-native:operationalinsights/v20150320:getSavedSearch", args ?? new GetSavedSearchArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSavedSearchResult>("azure-native:operationalinsights/v20150320:getSavedSearch", args ?? new GetSavedSearchArgs(), options.WithDefaults());
 
         /// <summary>
         /// Value object for saved search results.
         /// </summary>
         public static Output<GetSavedSearchResult> Invoke(GetSavedSearchInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSavedSearchResult>("azure-native:operationalinsights/v20150320:getSavedSearch", args ?? new GetSavedSearchInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSavedSearchResult>("azure-native:operationalinsights/v20150320:getSavedSearch", args ?? new GetSavedSearchInvokeArgs(), options.WithDefaults());
     }
 
 

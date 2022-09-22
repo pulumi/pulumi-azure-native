@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20210101
         /// User credentials used for publishing activity.
         /// </summary>
         public static Task<ListWebAppPublishingCredentialsResult> InvokeAsync(ListWebAppPublishingCredentialsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppPublishingCredentialsResult>("azure-native:web/v20210101:listWebAppPublishingCredentials", args ?? new ListWebAppPublishingCredentialsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppPublishingCredentialsResult>("azure-native:web/v20210101:listWebAppPublishingCredentials", args ?? new ListWebAppPublishingCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
         /// User credentials used for publishing activity.
         /// </summary>
         public static Output<ListWebAppPublishingCredentialsResult> Invoke(ListWebAppPublishingCredentialsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListWebAppPublishingCredentialsResult>("azure-native:web/v20210101:listWebAppPublishingCredentials", args ?? new ListWebAppPublishingCredentialsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListWebAppPublishingCredentialsResult>("azure-native:web/v20210101:listWebAppPublishingCredentials", args ?? new ListWebAppPublishingCredentialsInvokeArgs(), options.WithDefaults());
     }
 
 

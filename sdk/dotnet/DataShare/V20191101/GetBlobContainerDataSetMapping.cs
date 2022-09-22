@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DataShare.V20191101
         /// A Blob container data set mapping.
         /// </summary>
         public static Task<GetBlobContainerDataSetMappingResult> InvokeAsync(GetBlobContainerDataSetMappingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBlobContainerDataSetMappingResult>("azure-native:datashare/v20191101:getBlobContainerDataSetMapping", args ?? new GetBlobContainerDataSetMappingArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBlobContainerDataSetMappingResult>("azure-native:datashare/v20191101:getBlobContainerDataSetMapping", args ?? new GetBlobContainerDataSetMappingArgs(), options.WithDefaults());
 
         /// <summary>
         /// A Blob container data set mapping.
         /// </summary>
         public static Output<GetBlobContainerDataSetMappingResult> Invoke(GetBlobContainerDataSetMappingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBlobContainerDataSetMappingResult>("azure-native:datashare/v20191101:getBlobContainerDataSetMapping", args ?? new GetBlobContainerDataSetMappingInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBlobContainerDataSetMappingResult>("azure-native:datashare/v20191101:getBlobContainerDataSetMapping", args ?? new GetBlobContainerDataSetMappingInvokeArgs(), options.WithDefaults());
     }
 
 

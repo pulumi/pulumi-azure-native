@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
         /// The top level storage insight resource container.
         /// </summary>
         public static Task<GetStorageInsightConfigResult> InvokeAsync(GetStorageInsightConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageInsightConfigResult>("azure-native:operationalinsights/v20200301preview:getStorageInsightConfig", args ?? new GetStorageInsightConfigArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageInsightConfigResult>("azure-native:operationalinsights/v20200301preview:getStorageInsightConfig", args ?? new GetStorageInsightConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// The top level storage insight resource container.
         /// </summary>
         public static Output<GetStorageInsightConfigResult> Invoke(GetStorageInsightConfigInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStorageInsightConfigResult>("azure-native:operationalinsights/v20200301preview:getStorageInsightConfig", args ?? new GetStorageInsightConfigInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetStorageInsightConfigResult>("azure-native:operationalinsights/v20200301preview:getStorageInsightConfig", args ?? new GetStorageInsightConfigInvokeArgs(), options.WithDefaults());
     }
 
 

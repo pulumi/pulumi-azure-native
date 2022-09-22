@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetNetworkVirtualApplianceResult> InvokeAsync(GetNetworkVirtualApplianceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkVirtualApplianceResult>("azure-native:network:getNetworkVirtualAppliance", args ?? new GetNetworkVirtualApplianceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkVirtualApplianceResult>("azure-native:network:getNetworkVirtualAppliance", args ?? new GetNetworkVirtualApplianceArgs(), options.WithDefaults());
 
         /// <summary>
         /// NetworkVirtualAppliance Resource.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetNetworkVirtualApplianceResult> Invoke(GetNetworkVirtualApplianceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNetworkVirtualApplianceResult>("azure-native:network:getNetworkVirtualAppliance", args ?? new GetNetworkVirtualApplianceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkVirtualApplianceResult>("azure-native:network:getNetworkVirtualAppliance", args ?? new GetNetworkVirtualApplianceInvokeArgs(), options.WithDefaults());
     }
 
 

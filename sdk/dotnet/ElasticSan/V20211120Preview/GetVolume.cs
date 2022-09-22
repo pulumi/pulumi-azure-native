@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         /// Response for Volume request.
         /// </summary>
         public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("azure-native:elasticsan/v20211120preview:getVolume", args ?? new GetVolumeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("azure-native:elasticsan/v20211120preview:getVolume", args ?? new GetVolumeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response for Volume request.
         /// </summary>
         public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("azure-native:elasticsan/v20211120preview:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("azure-native:elasticsan/v20211120preview:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
     }
 
 

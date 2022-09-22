@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Solutions.V20160901Preview
         /// Information about appliance definition.
         /// </summary>
         public static Task<GetApplianceDefinitionResult> InvokeAsync(GetApplianceDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplianceDefinitionResult>("azure-native:solutions/v20160901preview:getApplianceDefinition", args ?? new GetApplianceDefinitionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplianceDefinitionResult>("azure-native:solutions/v20160901preview:getApplianceDefinition", args ?? new GetApplianceDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Information about appliance definition.
         /// </summary>
         public static Output<GetApplianceDefinitionResult> Invoke(GetApplianceDefinitionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApplianceDefinitionResult>("azure-native:solutions/v20160901preview:getApplianceDefinition", args ?? new GetApplianceDefinitionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplianceDefinitionResult>("azure-native:solutions/v20160901preview:getApplianceDefinition", args ?? new GetApplianceDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

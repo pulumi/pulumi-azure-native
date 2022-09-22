@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// API Version: 2017-12-01.
         /// </summary>
         public static Task<GetServerAdministratorResult> InvokeAsync(GetServerAdministratorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerAdministratorResult>("azure-native:dbformysql:getServerAdministrator", args ?? new GetServerAdministratorArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerAdministratorResult>("azure-native:dbformysql:getServerAdministrator", args ?? new GetServerAdministratorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a and external administrator to be created.
         /// API Version: 2017-12-01.
         /// </summary>
         public static Output<GetServerAdministratorResult> Invoke(GetServerAdministratorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServerAdministratorResult>("azure-native:dbformysql:getServerAdministrator", args ?? new GetServerAdministratorInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerAdministratorResult>("azure-native:dbformysql:getServerAdministrator", args ?? new GetServerAdministratorInvokeArgs(), options.WithDefaults());
     }
 
 

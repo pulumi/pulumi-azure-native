@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Education
         /// API Version: 2021-12-01-preview.
         /// </summary>
         public static Task<GetStudentResult> InvokeAsync(GetStudentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStudentResult>("azure-native:education:getStudent", args ?? new GetStudentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStudentResult>("azure-native:education:getStudent", args ?? new GetStudentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Student details.
         /// API Version: 2021-12-01-preview.
         /// </summary>
         public static Output<GetStudentResult> Invoke(GetStudentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStudentResult>("azure-native:education:getStudent", args ?? new GetStudentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetStudentResult>("azure-native:education:getStudent", args ?? new GetStudentInvokeArgs(), options.WithDefaults());
     }
 
 

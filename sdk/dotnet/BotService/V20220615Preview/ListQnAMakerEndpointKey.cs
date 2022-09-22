@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview
         /// Schema for EndpointKeys generate/refresh operations.
         /// </summary>
         public static Task<ListQnAMakerEndpointKeyResult> InvokeAsync(ListQnAMakerEndpointKeyArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListQnAMakerEndpointKeyResult>("azure-native:botservice/v20220615preview:listQnAMakerEndpointKey", args ?? new ListQnAMakerEndpointKeyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListQnAMakerEndpointKeyResult>("azure-native:botservice/v20220615preview:listQnAMakerEndpointKey", args ?? new ListQnAMakerEndpointKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Schema for EndpointKeys generate/refresh operations.
         /// </summary>
         public static Output<ListQnAMakerEndpointKeyResult> Invoke(ListQnAMakerEndpointKeyInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListQnAMakerEndpointKeyResult>("azure-native:botservice/v20220615preview:listQnAMakerEndpointKey", args ?? new ListQnAMakerEndpointKeyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListQnAMakerEndpointKeyResult>("azure-native:botservice/v20220615preview:listQnAMakerEndpointKey", args ?? new ListQnAMakerEndpointKeyInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.NetApp.V20220101
         /// Backup policy information
         /// </summary>
         public static Task<GetBackupPolicyResult> InvokeAsync(GetBackupPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBackupPolicyResult>("azure-native:netapp/v20220101:getBackupPolicy", args ?? new GetBackupPolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBackupPolicyResult>("azure-native:netapp/v20220101:getBackupPolicy", args ?? new GetBackupPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Backup policy information
         /// </summary>
         public static Output<GetBackupPolicyResult> Invoke(GetBackupPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBackupPolicyResult>("azure-native:netapp/v20220101:getBackupPolicy", args ?? new GetBackupPolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBackupPolicyResult>("azure-native:netapp/v20220101:getBackupPolicy", args ?? new GetBackupPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

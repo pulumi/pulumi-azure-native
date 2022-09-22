@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview
         /// The Setting.
         /// </summary>
         public static Task<GetProductSettingResult> InvokeAsync(GetProductSettingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProductSettingResult>("azure-native:securityinsights/v20220101preview:getProductSetting", args ?? new GetProductSettingArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetProductSettingResult>("azure-native:securityinsights/v20220101preview:getProductSetting", args ?? new GetProductSettingArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Setting.
         /// </summary>
         public static Output<GetProductSettingResult> Invoke(GetProductSettingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProductSettingResult>("azure-native:securityinsights/v20220101preview:getProductSetting", args ?? new GetProductSettingInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetProductSettingResult>("azure-native:securityinsights/v20220101preview:getProductSetting", args ?? new GetProductSettingInvokeArgs(), options.WithDefaults());
     }
 
 

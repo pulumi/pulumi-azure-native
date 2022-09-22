@@ -12,10 +12,10 @@ namespace Pulumi.AzureNative.OpenEnergyPlatform.V20220404Preview
     public static class GetEnergyService
     {
         public static Task<GetEnergyServiceResult> InvokeAsync(GetEnergyServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEnergyServiceResult>("azure-native:openenergyplatform/v20220404preview:getEnergyService", args ?? new GetEnergyServiceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnergyServiceResult>("azure-native:openenergyplatform/v20220404preview:getEnergyService", args ?? new GetEnergyServiceArgs(), options.WithDefaults());
 
         public static Output<GetEnergyServiceResult> Invoke(GetEnergyServiceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEnergyServiceResult>("azure-native:openenergyplatform/v20220404preview:getEnergyService", args ?? new GetEnergyServiceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnergyServiceResult>("azure-native:openenergyplatform/v20220404preview:getEnergyService", args ?? new GetEnergyServiceInvokeArgs(), options.WithDefaults());
     }
 
 

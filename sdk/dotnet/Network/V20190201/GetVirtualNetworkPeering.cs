@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20190201
         /// Peerings in a virtual network resource.
         /// </summary>
         public static Task<GetVirtualNetworkPeeringResult> InvokeAsync(GetVirtualNetworkPeeringArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkPeeringResult>("azure-native:network/v20190201:getVirtualNetworkPeering", args ?? new GetVirtualNetworkPeeringArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkPeeringResult>("azure-native:network/v20190201:getVirtualNetworkPeering", args ?? new GetVirtualNetworkPeeringArgs(), options.WithDefaults());
 
         /// <summary>
         /// Peerings in a virtual network resource.
         /// </summary>
         public static Output<GetVirtualNetworkPeeringResult> Invoke(GetVirtualNetworkPeeringInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkPeeringResult>("azure-native:network/v20190201:getVirtualNetworkPeering", args ?? new GetVirtualNetworkPeeringInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkPeeringResult>("azure-native:network/v20190201:getVirtualNetworkPeering", args ?? new GetVirtualNetworkPeeringInvokeArgs(), options.WithDefaults());
     }
 
 

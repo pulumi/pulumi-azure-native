@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210210
         /// Fabric definition.
         /// </summary>
         public static Task<GetReplicationFabricResult> InvokeAsync(GetReplicationFabricArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationFabricResult>("azure-native:recoveryservices/v20210210:getReplicationFabric", args ?? new GetReplicationFabricArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationFabricResult>("azure-native:recoveryservices/v20210210:getReplicationFabric", args ?? new GetReplicationFabricArgs(), options.WithDefaults());
 
         /// <summary>
         /// Fabric definition.
         /// </summary>
         public static Output<GetReplicationFabricResult> Invoke(GetReplicationFabricInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetReplicationFabricResult>("azure-native:recoveryservices/v20210210:getReplicationFabric", args ?? new GetReplicationFabricInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetReplicationFabricResult>("azure-native:recoveryservices/v20210210:getReplicationFabric", args ?? new GetReplicationFabricInvokeArgs(), options.WithDefaults());
     }
 
 

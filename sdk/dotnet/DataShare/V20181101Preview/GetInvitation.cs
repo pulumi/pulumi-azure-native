@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
         /// A Invitation data transfer object.
         /// </summary>
         public static Task<GetInvitationResult> InvokeAsync(GetInvitationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInvitationResult>("azure-native:datashare/v20181101preview:getInvitation", args ?? new GetInvitationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetInvitationResult>("azure-native:datashare/v20181101preview:getInvitation", args ?? new GetInvitationArgs(), options.WithDefaults());
 
         /// <summary>
         /// A Invitation data transfer object.
         /// </summary>
         public static Output<GetInvitationResult> Invoke(GetInvitationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetInvitationResult>("azure-native:datashare/v20181101preview:getInvitation", args ?? new GetInvitationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetInvitationResult>("azure-native:datashare/v20181101preview:getInvitation", args ?? new GetInvitationInvokeArgs(), options.WithDefaults());
     }
 
 

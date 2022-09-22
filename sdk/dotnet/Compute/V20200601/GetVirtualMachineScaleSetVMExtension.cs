@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Compute.V20200601
         /// Describes a VMSS VM Extension.
         /// </summary>
         public static Task<GetVirtualMachineScaleSetVMExtensionResult> InvokeAsync(GetVirtualMachineScaleSetVMExtensionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetVMExtensionResult>("azure-native:compute/v20200601:getVirtualMachineScaleSetVMExtension", args ?? new GetVirtualMachineScaleSetVMExtensionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetVMExtensionResult>("azure-native:compute/v20200601:getVirtualMachineScaleSetVMExtension", args ?? new GetVirtualMachineScaleSetVMExtensionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes a VMSS VM Extension.
         /// </summary>
         public static Output<GetVirtualMachineScaleSetVMExtensionResult> Invoke(GetVirtualMachineScaleSetVMExtensionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineScaleSetVMExtensionResult>("azure-native:compute/v20200601:getVirtualMachineScaleSetVMExtension", args ?? new GetVirtualMachineScaleSetVMExtensionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineScaleSetVMExtensionResult>("azure-native:compute/v20200601:getVirtualMachineScaleSetVMExtension", args ?? new GetVirtualMachineScaleSetVMExtensionInvokeArgs(), options.WithDefaults());
     }
 
 

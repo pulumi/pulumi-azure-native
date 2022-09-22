@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DevCenter.V20220901Preview
         /// Represents an environment type.
         /// </summary>
         public static Task<GetEnvironmentTypeResult> InvokeAsync(GetEnvironmentTypeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentTypeResult>("azure-native:devcenter/v20220901preview:getEnvironmentType", args ?? new GetEnvironmentTypeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentTypeResult>("azure-native:devcenter/v20220901preview:getEnvironmentType", args ?? new GetEnvironmentTypeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents an environment type.
         /// </summary>
         public static Output<GetEnvironmentTypeResult> Invoke(GetEnvironmentTypeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEnvironmentTypeResult>("azure-native:devcenter/v20220901preview:getEnvironmentType", args ?? new GetEnvironmentTypeInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentTypeResult>("azure-native:devcenter/v20220901preview:getEnvironmentType", args ?? new GetEnvironmentTypeInvokeArgs(), options.WithDefaults());
     }
 
 

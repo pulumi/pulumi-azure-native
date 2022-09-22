@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ServiceFabric.V20220201Preview
         /// The manged cluster resource
         /// </summary>
         public static Task<GetManagedClusterResult> InvokeAsync(GetManagedClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedClusterResult>("azure-native:servicefabric/v20220201preview:getManagedCluster", args ?? new GetManagedClusterArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedClusterResult>("azure-native:servicefabric/v20220201preview:getManagedCluster", args ?? new GetManagedClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// The manged cluster resource
         /// </summary>
         public static Output<GetManagedClusterResult> Invoke(GetManagedClusterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagedClusterResult>("azure-native:servicefabric/v20220201preview:getManagedCluster", args ?? new GetManagedClusterInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedClusterResult>("azure-native:servicefabric/v20220201preview:getManagedCluster", args ?? new GetManagedClusterInvokeArgs(), options.WithDefaults());
     }
 
 

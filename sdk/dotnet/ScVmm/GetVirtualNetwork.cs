@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.ScVmm
         /// API Version: 2020-06-05-preview.
         /// </summary>
         public static Task<GetVirtualNetworkResult> InvokeAsync(GetVirtualNetworkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResult>("azure-native:scvmm:getVirtualNetwork", args ?? new GetVirtualNetworkArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResult>("azure-native:scvmm:getVirtualNetwork", args ?? new GetVirtualNetworkArgs(), options.WithDefaults());
 
         /// <summary>
         /// The VirtualNetworks resource definition.
         /// API Version: 2020-06-05-preview.
         /// </summary>
         public static Output<GetVirtualNetworkResult> Invoke(GetVirtualNetworkInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkResult>("azure-native:scvmm:getVirtualNetwork", args ?? new GetVirtualNetworkInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkResult>("azure-native:scvmm:getVirtualNetwork", args ?? new GetVirtualNetworkInvokeArgs(), options.WithDefaults());
     }
 
 

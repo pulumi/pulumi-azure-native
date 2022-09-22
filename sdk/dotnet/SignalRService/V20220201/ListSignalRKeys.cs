@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.SignalRService.V20220201
         /// A class represents the access keys of the resource.
         /// </summary>
         public static Task<ListSignalRKeysResult> InvokeAsync(ListSignalRKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSignalRKeysResult>("azure-native:signalrservice/v20220201:listSignalRKeys", args ?? new ListSignalRKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListSignalRKeysResult>("azure-native:signalrservice/v20220201:listSignalRKeys", args ?? new ListSignalRKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// A class represents the access keys of the resource.
         /// </summary>
         public static Output<ListSignalRKeysResult> Invoke(ListSignalRKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListSignalRKeysResult>("azure-native:signalrservice/v20220201:listSignalRKeys", args ?? new ListSignalRKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListSignalRKeysResult>("azure-native:signalrservice/v20220201:listSignalRKeys", args ?? new ListSignalRKeysInvokeArgs(), options.WithDefaults());
     }
 
 

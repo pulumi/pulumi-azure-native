@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201Preview
         /// A virtual network rule.
         /// </summary>
         public static Task<GetVirtualNetworkRuleResult> InvokeAsync(GetVirtualNetworkRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkRuleResult>("azure-native:dbforpostgresql/v20171201preview:getVirtualNetworkRule", args ?? new GetVirtualNetworkRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkRuleResult>("azure-native:dbforpostgresql/v20171201preview:getVirtualNetworkRule", args ?? new GetVirtualNetworkRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// A virtual network rule.
         /// </summary>
         public static Output<GetVirtualNetworkRuleResult> Invoke(GetVirtualNetworkRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkRuleResult>("azure-native:dbforpostgresql/v20171201preview:getVirtualNetworkRule", args ?? new GetVirtualNetworkRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkRuleResult>("azure-native:dbforpostgresql/v20171201preview:getVirtualNetworkRule", args ?? new GetVirtualNetworkRuleInvokeArgs(), options.WithDefaults());
     }
 
 

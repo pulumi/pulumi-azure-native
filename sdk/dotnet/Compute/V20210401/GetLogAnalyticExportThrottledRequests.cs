@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Compute.V20210401
         /// LogAnalytics operation status response
         /// </summary>
         public static Task<GetLogAnalyticExportThrottledRequestsResult> InvokeAsync(GetLogAnalyticExportThrottledRequestsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLogAnalyticExportThrottledRequestsResult>("azure-native:compute/v20210401:getLogAnalyticExportThrottledRequests", args ?? new GetLogAnalyticExportThrottledRequestsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogAnalyticExportThrottledRequestsResult>("azure-native:compute/v20210401:getLogAnalyticExportThrottledRequests", args ?? new GetLogAnalyticExportThrottledRequestsArgs(), options.WithDefaults());
 
         /// <summary>
         /// LogAnalytics operation status response
         /// </summary>
         public static Output<GetLogAnalyticExportThrottledRequestsResult> Invoke(GetLogAnalyticExportThrottledRequestsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLogAnalyticExportThrottledRequestsResult>("azure-native:compute/v20210401:getLogAnalyticExportThrottledRequests", args ?? new GetLogAnalyticExportThrottledRequestsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLogAnalyticExportThrottledRequestsResult>("azure-native:compute/v20210401:getLogAnalyticExportThrottledRequests", args ?? new GetLogAnalyticExportThrottledRequestsInvokeArgs(), options.WithDefaults());
     }
 
 

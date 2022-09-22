@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// API Version: 2020-01-01-preview.
         /// </summary>
         public static Task<GetManagedClusterResult> InvokeAsync(GetManagedClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedClusterResult>("azure-native:servicefabric:getManagedCluster", args ?? new GetManagedClusterArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedClusterResult>("azure-native:servicefabric:getManagedCluster", args ?? new GetManagedClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// The manged cluster resource
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// API Version: 2020-01-01-preview.
         /// </summary>
         public static Output<GetManagedClusterResult> Invoke(GetManagedClusterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagedClusterResult>("azure-native:servicefabric:getManagedCluster", args ?? new GetManagedClusterInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedClusterResult>("azure-native:servicefabric:getManagedCluster", args ?? new GetManagedClusterInvokeArgs(), options.WithDefaults());
     }
 
 

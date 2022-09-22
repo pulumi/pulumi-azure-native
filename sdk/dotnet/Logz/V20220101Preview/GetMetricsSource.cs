@@ -12,10 +12,10 @@ namespace Pulumi.AzureNative.Logz.V20220101Preview
     public static class GetMetricsSource
     {
         public static Task<GetMetricsSourceResult> InvokeAsync(GetMetricsSourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMetricsSourceResult>("azure-native:logz/v20220101preview:getMetricsSource", args ?? new GetMetricsSourceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMetricsSourceResult>("azure-native:logz/v20220101preview:getMetricsSource", args ?? new GetMetricsSourceArgs(), options.WithDefaults());
 
         public static Output<GetMetricsSourceResult> Invoke(GetMetricsSourceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMetricsSourceResult>("azure-native:logz/v20220101preview:getMetricsSource", args ?? new GetMetricsSourceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMetricsSourceResult>("azure-native:logz/v20220101preview:getMetricsSource", args ?? new GetMetricsSourceInvokeArgs(), options.WithDefaults());
     }
 
 

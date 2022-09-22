@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.EngagementFabric.V20180901Preview
         /// List of the EngagementFabric channel descriptions
         /// </summary>
         public static Task<ListAccountChannelTypesResult> InvokeAsync(ListAccountChannelTypesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListAccountChannelTypesResult>("azure-native:engagementfabric/v20180901preview:listAccountChannelTypes", args ?? new ListAccountChannelTypesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListAccountChannelTypesResult>("azure-native:engagementfabric/v20180901preview:listAccountChannelTypes", args ?? new ListAccountChannelTypesArgs(), options.WithDefaults());
 
         /// <summary>
         /// List of the EngagementFabric channel descriptions
         /// </summary>
         public static Output<ListAccountChannelTypesResult> Invoke(ListAccountChannelTypesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListAccountChannelTypesResult>("azure-native:engagementfabric/v20180901preview:listAccountChannelTypes", args ?? new ListAccountChannelTypesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListAccountChannelTypesResult>("azure-native:engagementfabric/v20180901preview:listAccountChannelTypes", args ?? new ListAccountChannelTypesInvokeArgs(), options.WithDefaults());
     }
 
 

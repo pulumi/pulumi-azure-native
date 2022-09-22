@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.EventGrid
         /// API Version: 2021-06-01-preview.
         /// </summary>
         public static Task<GetEventChannelResult> InvokeAsync(GetEventChannelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventChannelResult>("azure-native:eventgrid:getEventChannel", args ?? new GetEventChannelArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventChannelResult>("azure-native:eventgrid:getEventChannel", args ?? new GetEventChannelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Event Channel.
         /// API Version: 2021-06-01-preview.
         /// </summary>
         public static Output<GetEventChannelResult> Invoke(GetEventChannelInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEventChannelResult>("azure-native:eventgrid:getEventChannel", args ?? new GetEventChannelInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEventChannelResult>("azure-native:eventgrid:getEventChannel", args ?? new GetEventChannelInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview
         /// The Customer Notification Event resource.
         /// </summary>
         public static Task<GetCustomerEventResult> InvokeAsync(GetCustomerEventArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomerEventResult>("azure-native:testbase/v20201216preview:getCustomerEvent", args ?? new GetCustomerEventArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomerEventResult>("azure-native:testbase/v20201216preview:getCustomerEvent", args ?? new GetCustomerEventArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Customer Notification Event resource.
         /// </summary>
         public static Output<GetCustomerEventResult> Invoke(GetCustomerEventInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCustomerEventResult>("azure-native:testbase/v20201216preview:getCustomerEvent", args ?? new GetCustomerEventInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomerEventResult>("azure-native:testbase/v20201216preview:getCustomerEvent", args ?? new GetCustomerEventInvokeArgs(), options.WithDefaults());
     }
 
 

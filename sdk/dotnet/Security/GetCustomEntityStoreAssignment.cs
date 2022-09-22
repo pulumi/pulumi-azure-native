@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Security
         /// API Version: 2021-07-01-preview.
         /// </summary>
         public static Task<GetCustomEntityStoreAssignmentResult> InvokeAsync(GetCustomEntityStoreAssignmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomEntityStoreAssignmentResult>("azure-native:security:getCustomEntityStoreAssignment", args ?? new GetCustomEntityStoreAssignmentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomEntityStoreAssignmentResult>("azure-native:security:getCustomEntityStoreAssignment", args ?? new GetCustomEntityStoreAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Custom entity store assignment
         /// API Version: 2021-07-01-preview.
         /// </summary>
         public static Output<GetCustomEntityStoreAssignmentResult> Invoke(GetCustomEntityStoreAssignmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCustomEntityStoreAssignmentResult>("azure-native:security:getCustomEntityStoreAssignment", args ?? new GetCustomEntityStoreAssignmentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomEntityStoreAssignmentResult>("azure-native:security:getCustomEntityStoreAssignment", args ?? new GetCustomEntityStoreAssignmentInvokeArgs(), options.WithDefaults());
     }
 
 

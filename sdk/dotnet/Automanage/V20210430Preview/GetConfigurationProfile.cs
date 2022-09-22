@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Automanage.V20210430Preview
         /// Definition of the configuration profile.
         /// </summary>
         public static Task<GetConfigurationProfileResult> InvokeAsync(GetConfigurationProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfileResult>("azure-native:automanage/v20210430preview:getConfigurationProfile", args ?? new GetConfigurationProfileArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfileResult>("azure-native:automanage/v20210430preview:getConfigurationProfile", args ?? new GetConfigurationProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of the configuration profile.
         /// </summary>
         public static Output<GetConfigurationProfileResult> Invoke(GetConfigurationProfileInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConfigurationProfileResult>("azure-native:automanage/v20210430preview:getConfigurationProfile", args ?? new GetConfigurationProfileInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationProfileResult>("azure-native:automanage/v20210430preview:getConfigurationProfile", args ?? new GetConfigurationProfileInvokeArgs(), options.WithDefaults());
     }
 
 

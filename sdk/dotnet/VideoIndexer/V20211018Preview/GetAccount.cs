@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.VideoIndexer.V20211018Preview
         /// An Azure Video Analyzer for Media account.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:videoindexer/v20211018preview:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:videoindexer/v20211018preview:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure Video Analyzer for Media account.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:videoindexer/v20211018preview:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:videoindexer/v20211018preview:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
     }
 
 

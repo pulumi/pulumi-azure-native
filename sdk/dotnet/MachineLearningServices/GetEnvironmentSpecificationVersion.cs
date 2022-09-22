@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Task<GetEnvironmentSpecificationVersionResult> InvokeAsync(GetEnvironmentSpecificationVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentSpecificationVersionResult>("azure-native:machinelearningservices:getEnvironmentSpecificationVersion", args ?? new GetEnvironmentSpecificationVersionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentSpecificationVersionResult>("azure-native:machinelearningservices:getEnvironmentSpecificationVersion", args ?? new GetEnvironmentSpecificationVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Output<GetEnvironmentSpecificationVersionResult> Invoke(GetEnvironmentSpecificationVersionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEnvironmentSpecificationVersionResult>("azure-native:machinelearningservices:getEnvironmentSpecificationVersion", args ?? new GetEnvironmentSpecificationVersionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentSpecificationVersionResult>("azure-native:machinelearningservices:getEnvironmentSpecificationVersion", args ?? new GetEnvironmentSpecificationVersionInvokeArgs(), options.WithDefaults());
     }
 
 

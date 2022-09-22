@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Marketplace
         /// API Version: 2020-01-01.
         /// </summary>
         public static Task<GetPrivateStoreOfferResult> InvokeAsync(GetPrivateStoreOfferArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateStoreOfferResult>("azure-native:marketplace:getPrivateStoreOffer", args ?? new GetPrivateStoreOfferArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateStoreOfferResult>("azure-native:marketplace:getPrivateStoreOffer", args ?? new GetPrivateStoreOfferArgs(), options.WithDefaults());
 
         /// <summary>
         /// The privateStore offer data structure.
         /// API Version: 2020-01-01.
         /// </summary>
         public static Output<GetPrivateStoreOfferResult> Invoke(GetPrivateStoreOfferInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPrivateStoreOfferResult>("azure-native:marketplace:getPrivateStoreOffer", args ?? new GetPrivateStoreOfferInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateStoreOfferResult>("azure-native:marketplace:getPrivateStoreOffer", args ?? new GetPrivateStoreOfferInvokeArgs(), options.WithDefaults());
     }
 
 

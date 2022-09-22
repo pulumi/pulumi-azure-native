@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.NetApp.V20210401
         /// Capacity pool resource
         /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure-native:netapp/v20210401:getPool", args ?? new GetPoolArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure-native:netapp/v20210401:getPool", args ?? new GetPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Capacity pool resource
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:netapp/v20210401:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:netapp/v20210401:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
     }
 
 

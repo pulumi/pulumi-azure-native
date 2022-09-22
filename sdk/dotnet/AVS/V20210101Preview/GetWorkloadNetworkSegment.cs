@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.AVS.V20210101Preview
         /// NSX Segment
         /// </summary>
         public static Task<GetWorkloadNetworkSegmentResult> InvokeAsync(GetWorkloadNetworkSegmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkSegmentResult>("azure-native:avs/v20210101preview:getWorkloadNetworkSegment", args ?? new GetWorkloadNetworkSegmentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkSegmentResult>("azure-native:avs/v20210101preview:getWorkloadNetworkSegment", args ?? new GetWorkloadNetworkSegmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// NSX Segment
         /// </summary>
         public static Output<GetWorkloadNetworkSegmentResult> Invoke(GetWorkloadNetworkSegmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkSegmentResult>("azure-native:avs/v20210101preview:getWorkloadNetworkSegment", args ?? new GetWorkloadNetworkSegmentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkSegmentResult>("azure-native:avs/v20210101preview:getWorkloadNetworkSegment", args ?? new GetWorkloadNetworkSegmentInvokeArgs(), options.WithDefaults());
     }
 
 

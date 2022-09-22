@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
         /// A user-defined logical grouping of machines.
         /// </summary>
         public static Task<GetMachineGroupResult> InvokeAsync(GetMachineGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMachineGroupResult>("azure-native:operationalinsights/v20151101preview:getMachineGroup", args ?? new GetMachineGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMachineGroupResult>("azure-native:operationalinsights/v20151101preview:getMachineGroup", args ?? new GetMachineGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// A user-defined logical grouping of machines.
         /// </summary>
         public static Output<GetMachineGroupResult> Invoke(GetMachineGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMachineGroupResult>("azure-native:operationalinsights/v20151101preview:getMachineGroup", args ?? new GetMachineGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMachineGroupResult>("azure-native:operationalinsights/v20151101preview:getMachineGroup", args ?? new GetMachineGroupInvokeArgs(), options.WithDefaults());
     }
 
 

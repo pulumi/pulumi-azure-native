@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.FluidRelay.V20220526
         /// The set of available keys for this server.
         /// </summary>
         public static Task<ListFluidRelayServerKeysResult> InvokeAsync(ListFluidRelayServerKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListFluidRelayServerKeysResult>("azure-native:fluidrelay/v20220526:listFluidRelayServerKeys", args ?? new ListFluidRelayServerKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListFluidRelayServerKeysResult>("azure-native:fluidrelay/v20220526:listFluidRelayServerKeys", args ?? new ListFluidRelayServerKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// The set of available keys for this server.
         /// </summary>
         public static Output<ListFluidRelayServerKeysResult> Invoke(ListFluidRelayServerKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListFluidRelayServerKeysResult>("azure-native:fluidrelay/v20220526:listFluidRelayServerKeys", args ?? new ListFluidRelayServerKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListFluidRelayServerKeysResult>("azure-native:fluidrelay/v20220526:listFluidRelayServerKeys", args ?? new ListFluidRelayServerKeysInvokeArgs(), options.WithDefaults());
     }
 
 

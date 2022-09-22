@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20210801
         /// ExpressRoutePort Authorization resource definition.
         /// </summary>
         public static Task<GetExpressRoutePortAuthorizationResult> InvokeAsync(GetExpressRoutePortAuthorizationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRoutePortAuthorizationResult>("azure-native:network/v20210801:getExpressRoutePortAuthorization", args ?? new GetExpressRoutePortAuthorizationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetExpressRoutePortAuthorizationResult>("azure-native:network/v20210801:getExpressRoutePortAuthorization", args ?? new GetExpressRoutePortAuthorizationArgs(), options.WithDefaults());
 
         /// <summary>
         /// ExpressRoutePort Authorization resource definition.
         /// </summary>
         public static Output<GetExpressRoutePortAuthorizationResult> Invoke(GetExpressRoutePortAuthorizationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetExpressRoutePortAuthorizationResult>("azure-native:network/v20210801:getExpressRoutePortAuthorization", args ?? new GetExpressRoutePortAuthorizationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetExpressRoutePortAuthorizationResult>("azure-native:network/v20210801:getExpressRoutePortAuthorization", args ?? new GetExpressRoutePortAuthorizationInvokeArgs(), options.WithDefaults());
     }
 
 

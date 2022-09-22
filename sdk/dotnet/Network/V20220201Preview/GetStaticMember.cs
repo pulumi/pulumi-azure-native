@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20220201Preview
         /// StaticMember Item.
         /// </summary>
         public static Task<GetStaticMemberResult> InvokeAsync(GetStaticMemberArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStaticMemberResult>("azure-native:network/v20220201preview:getStaticMember", args ?? new GetStaticMemberArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStaticMemberResult>("azure-native:network/v20220201preview:getStaticMember", args ?? new GetStaticMemberArgs(), options.WithDefaults());
 
         /// <summary>
         /// StaticMember Item.
         /// </summary>
         public static Output<GetStaticMemberResult> Invoke(GetStaticMemberInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStaticMemberResult>("azure-native:network/v20220201preview:getStaticMember", args ?? new GetStaticMemberInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetStaticMemberResult>("azure-native:network/v20220201preview:getStaticMember", args ?? new GetStaticMemberInvokeArgs(), options.WithDefaults());
     }
 
 

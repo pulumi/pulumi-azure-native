@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Management.V20180301Preview
         /// Describes the result of the request to view entities.
         /// </summary>
         public static Task<GetEntityResult> InvokeAsync(GetEntityArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEntityResult>("azure-native:management/v20180301preview:getEntity", args ?? new GetEntityArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEntityResult>("azure-native:management/v20180301preview:getEntity", args ?? new GetEntityArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes the result of the request to view entities.
         /// </summary>
         public static Output<GetEntityResult> Invoke(GetEntityInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEntityResult>("azure-native:management/v20180301preview:getEntity", args ?? new GetEntityInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEntityResult>("azure-native:management/v20180301preview:getEntity", args ?? new GetEntityInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
         /// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
         /// </summary>
         public static Task<ListAuthorizationServerSecretsResult> InvokeAsync(ListAuthorizationServerSecretsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListAuthorizationServerSecretsResult>("azure-native:apimanagement/v20191201:listAuthorizationServerSecrets", args ?? new ListAuthorizationServerSecretsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListAuthorizationServerSecretsResult>("azure-native:apimanagement/v20191201:listAuthorizationServerSecrets", args ?? new ListAuthorizationServerSecretsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
         /// </summary>
         public static Output<ListAuthorizationServerSecretsResult> Invoke(ListAuthorizationServerSecretsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListAuthorizationServerSecretsResult>("azure-native:apimanagement/v20191201:listAuthorizationServerSecrets", args ?? new ListAuthorizationServerSecretsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListAuthorizationServerSecretsResult>("azure-native:apimanagement/v20191201:listAuthorizationServerSecrets", args ?? new ListAuthorizationServerSecretsInvokeArgs(), options.WithDefaults());
     }
 
 

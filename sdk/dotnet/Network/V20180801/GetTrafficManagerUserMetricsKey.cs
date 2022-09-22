@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Network.V20180801
         /// Class representing Traffic Manager User Metrics.
         /// </summary>
         public static Task<GetTrafficManagerUserMetricsKeyResult> InvokeAsync(GetTrafficManagerUserMetricsKeyArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTrafficManagerUserMetricsKeyResult>("azure-native:network/v20180801:getTrafficManagerUserMetricsKey", args ?? new GetTrafficManagerUserMetricsKeyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrafficManagerUserMetricsKeyResult>("azure-native:network/v20180801:getTrafficManagerUserMetricsKey", args ?? new GetTrafficManagerUserMetricsKeyArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200515Preview
         /// Machine Learning service object wrapped into ARM resource envelope.
         /// </summary>
         public static Task<GetEndpointVariantResult> InvokeAsync(GetEndpointVariantArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointVariantResult>("azure-native:machinelearningservices/v20200515preview:getEndpointVariant", args ?? new GetEndpointVariantArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEndpointVariantResult>("azure-native:machinelearningservices/v20200515preview:getEndpointVariant", args ?? new GetEndpointVariantArgs(), options.WithDefaults());
 
         /// <summary>
         /// Machine Learning service object wrapped into ARM resource envelope.
         /// </summary>
         public static Output<GetEndpointVariantResult> Invoke(GetEndpointVariantInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEndpointVariantResult>("azure-native:machinelearningservices/v20200515preview:getEndpointVariant", args ?? new GetEndpointVariantInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEndpointVariantResult>("azure-native:machinelearningservices/v20200515preview:getEndpointVariant", args ?? new GetEndpointVariantInvokeArgs(), options.WithDefaults());
     }
 
 

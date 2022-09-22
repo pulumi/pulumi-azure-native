@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20210115
         /// Remote Private Endpoint Connection ARM resource.
         /// </summary>
         public static Task<GetWebAppPrivateEndpointConnectionResult> InvokeAsync(GetWebAppPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppPrivateEndpointConnectionResult>("azure-native:web/v20210115:getWebAppPrivateEndpointConnection", args ?? new GetWebAppPrivateEndpointConnectionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppPrivateEndpointConnectionResult>("azure-native:web/v20210115:getWebAppPrivateEndpointConnection", args ?? new GetWebAppPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Remote Private Endpoint Connection ARM resource.
         /// </summary>
         public static Output<GetWebAppPrivateEndpointConnectionResult> Invoke(GetWebAppPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWebAppPrivateEndpointConnectionResult>("azure-native:web/v20210115:getWebAppPrivateEndpointConnection", args ?? new GetWebAppPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebAppPrivateEndpointConnectionResult>("azure-native:web/v20210115:getWebAppPrivateEndpointConnection", args ?? new GetWebAppPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

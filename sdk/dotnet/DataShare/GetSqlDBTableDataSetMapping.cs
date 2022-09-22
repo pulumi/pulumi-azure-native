@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.DataShare
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetSqlDBTableDataSetMappingResult> InvokeAsync(GetSqlDBTableDataSetMappingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlDBTableDataSetMappingResult>("azure-native:datashare:getSqlDBTableDataSetMapping", args ?? new GetSqlDBTableDataSetMappingArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlDBTableDataSetMappingResult>("azure-native:datashare:getSqlDBTableDataSetMapping", args ?? new GetSqlDBTableDataSetMappingArgs(), options.WithDefaults());
 
         /// <summary>
         /// A SQL DB Table data set mapping.
         /// API Version: 2020-09-01.
         /// </summary>
         public static Output<GetSqlDBTableDataSetMappingResult> Invoke(GetSqlDBTableDataSetMappingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSqlDBTableDataSetMappingResult>("azure-native:datashare:getSqlDBTableDataSetMapping", args ?? new GetSqlDBTableDataSetMappingInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlDBTableDataSetMappingResult>("azure-native:datashare:getSqlDBTableDataSetMapping", args ?? new GetSqlDBTableDataSetMappingInvokeArgs(), options.WithDefaults());
     }
 
 

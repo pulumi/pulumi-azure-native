@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.AzureStack.V20200601Preview
         /// Registration information.
         /// </summary>
         public static Task<GetRegistrationResult> InvokeAsync(GetRegistrationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationResult>("azure-native:azurestack/v20200601preview:getRegistration", args ?? new GetRegistrationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationResult>("azure-native:azurestack/v20200601preview:getRegistration", args ?? new GetRegistrationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Registration information.
         /// </summary>
         public static Output<GetRegistrationResult> Invoke(GetRegistrationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRegistrationResult>("azure-native:azurestack/v20200601preview:getRegistration", args ?? new GetRegistrationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRegistrationResult>("azure-native:azurestack/v20200601preview:getRegistration", args ?? new GetRegistrationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Relay.V20170401
         /// Description of the WCF relay resource.
         /// </summary>
         public static Task<GetWCFRelayResult> InvokeAsync(GetWCFRelayArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWCFRelayResult>("azure-native:relay/v20170401:getWCFRelay", args ?? new GetWCFRelayArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWCFRelayResult>("azure-native:relay/v20170401:getWCFRelay", args ?? new GetWCFRelayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description of the WCF relay resource.
         /// </summary>
         public static Output<GetWCFRelayResult> Invoke(GetWCFRelayInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWCFRelayResult>("azure-native:relay/v20170401:getWCFRelay", args ?? new GetWCFRelayInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWCFRelayResult>("azure-native:relay/v20170401:getWCFRelay", args ?? new GetWCFRelayInvokeArgs(), options.WithDefaults());
     }
 
 

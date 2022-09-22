@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
         /// Get User Token response details.
         /// </summary>
         public static Task<GetUserSharedAccessTokenResult> InvokeAsync(GetUserSharedAccessTokenArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserSharedAccessTokenResult>("azure-native:apimanagement/v20201201:getUserSharedAccessToken", args ?? new GetUserSharedAccessTokenArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserSharedAccessTokenResult>("azure-native:apimanagement/v20201201:getUserSharedAccessToken", args ?? new GetUserSharedAccessTokenArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get User Token response details.
         /// </summary>
         public static Output<GetUserSharedAccessTokenResult> Invoke(GetUserSharedAccessTokenInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetUserSharedAccessTokenResult>("azure-native:apimanagement/v20201201:getUserSharedAccessToken", args ?? new GetUserSharedAccessTokenInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserSharedAccessTokenResult>("azure-native:apimanagement/v20201201:getUserSharedAccessToken", args ?? new GetUserSharedAccessTokenInvokeArgs(), options.WithDefaults());
     }
 
 

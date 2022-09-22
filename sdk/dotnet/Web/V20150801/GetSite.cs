@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// Represents a web app
         /// </summary>
         public static Task<GetSiteResult> InvokeAsync(GetSiteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteResult>("azure-native:web/v20150801:getSite", args ?? new GetSiteArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSiteResult>("azure-native:web/v20150801:getSite", args ?? new GetSiteArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a web app
         /// </summary>
         public static Output<GetSiteResult> Invoke(GetSiteInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSiteResult>("azure-native:web/v20150801:getSite", args ?? new GetSiteInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSiteResult>("azure-native:web/v20150801:getSite", args ?? new GetSiteInvokeArgs(), options.WithDefaults());
     }
 
 

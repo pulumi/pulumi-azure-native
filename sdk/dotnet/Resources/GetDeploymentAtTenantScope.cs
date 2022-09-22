@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Resources
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetDeploymentAtTenantScopeResult> InvokeAsync(GetDeploymentAtTenantScopeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentAtTenantScopeResult>("azure-native:resources:getDeploymentAtTenantScope", args ?? new GetDeploymentAtTenantScopeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentAtTenantScopeResult>("azure-native:resources:getDeploymentAtTenantScope", args ?? new GetDeploymentAtTenantScopeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Deployment information.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<GetDeploymentAtTenantScopeResult> Invoke(GetDeploymentAtTenantScopeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDeploymentAtTenantScopeResult>("azure-native:resources:getDeploymentAtTenantScope", args ?? new GetDeploymentAtTenantScopeInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentAtTenantScopeResult>("azure-native:resources:getDeploymentAtTenantScope", args ?? new GetDeploymentAtTenantScopeInvokeArgs(), options.WithDefaults());
     }
 
 

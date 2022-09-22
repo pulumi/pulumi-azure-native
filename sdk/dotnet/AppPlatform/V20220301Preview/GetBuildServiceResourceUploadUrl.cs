@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview
         /// Resource upload definition payload
         /// </summary>
         public static Task<GetBuildServiceResourceUploadUrlResult> InvokeAsync(GetBuildServiceResourceUploadUrlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBuildServiceResourceUploadUrlResult>("azure-native:appplatform/v20220301preview:getBuildServiceResourceUploadUrl", args ?? new GetBuildServiceResourceUploadUrlArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBuildServiceResourceUploadUrlResult>("azure-native:appplatform/v20220301preview:getBuildServiceResourceUploadUrl", args ?? new GetBuildServiceResourceUploadUrlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource upload definition payload
         /// </summary>
         public static Output<GetBuildServiceResourceUploadUrlResult> Invoke(GetBuildServiceResourceUploadUrlInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBuildServiceResourceUploadUrlResult>("azure-native:appplatform/v20220301preview:getBuildServiceResourceUploadUrl", args ?? new GetBuildServiceResourceUploadUrlInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBuildServiceResourceUploadUrlResult>("azure-native:appplatform/v20220301preview:getBuildServiceResourceUploadUrl", args ?? new GetBuildServiceResourceUploadUrlInvokeArgs(), options.WithDefaults());
     }
 
 

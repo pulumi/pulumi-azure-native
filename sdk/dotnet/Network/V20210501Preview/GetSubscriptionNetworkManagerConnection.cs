@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20210501Preview
         /// The Network Manager Connection resource
         /// </summary>
         public static Task<GetSubscriptionNetworkManagerConnectionResult> InvokeAsync(GetSubscriptionNetworkManagerConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionNetworkManagerConnectionResult>("azure-native:network/v20210501preview:getSubscriptionNetworkManagerConnection", args ?? new GetSubscriptionNetworkManagerConnectionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionNetworkManagerConnectionResult>("azure-native:network/v20210501preview:getSubscriptionNetworkManagerConnection", args ?? new GetSubscriptionNetworkManagerConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Network Manager Connection resource
         /// </summary>
         public static Output<GetSubscriptionNetworkManagerConnectionResult> Invoke(GetSubscriptionNetworkManagerConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSubscriptionNetworkManagerConnectionResult>("azure-native:network/v20210501preview:getSubscriptionNetworkManagerConnection", args ?? new GetSubscriptionNetworkManagerConnectionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionNetworkManagerConnectionResult>("azure-native:network/v20210501preview:getSubscriptionNetworkManagerConnection", args ?? new GetSubscriptionNetworkManagerConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

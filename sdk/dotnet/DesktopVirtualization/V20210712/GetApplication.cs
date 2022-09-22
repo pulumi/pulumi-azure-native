@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210712
         /// Schema for Application properties.
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-native:desktopvirtualization/v20210712:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-native:desktopvirtualization/v20210712:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Schema for Application properties.
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:desktopvirtualization/v20210712:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:desktopvirtualization/v20210712:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
     }
 
 

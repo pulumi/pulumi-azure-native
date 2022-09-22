@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20210801
         /// Query result
         /// </summary>
         public static Task<ListFirewallPolicyIdpsSignatureResult> InvokeAsync(ListFirewallPolicyIdpsSignatureArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListFirewallPolicyIdpsSignatureResult>("azure-native:network/v20210801:listFirewallPolicyIdpsSignature", args ?? new ListFirewallPolicyIdpsSignatureArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListFirewallPolicyIdpsSignatureResult>("azure-native:network/v20210801:listFirewallPolicyIdpsSignature", args ?? new ListFirewallPolicyIdpsSignatureArgs(), options.WithDefaults());
 
         /// <summary>
         /// Query result
         /// </summary>
         public static Output<ListFirewallPolicyIdpsSignatureResult> Invoke(ListFirewallPolicyIdpsSignatureInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListFirewallPolicyIdpsSignatureResult>("azure-native:network/v20210801:listFirewallPolicyIdpsSignature", args ?? new ListFirewallPolicyIdpsSignatureInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListFirewallPolicyIdpsSignatureResult>("azure-native:network/v20210801:listFirewallPolicyIdpsSignature", args ?? new ListFirewallPolicyIdpsSignatureInvokeArgs(), options.WithDefaults());
     }
 
 

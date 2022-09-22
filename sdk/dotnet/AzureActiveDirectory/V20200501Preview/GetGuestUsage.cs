@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.AzureActiveDirectory.V20200501Preview
         /// Guest Usages Resource
         /// </summary>
         public static Task<GetGuestUsageResult> InvokeAsync(GetGuestUsageArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGuestUsageResult>("azure-native:azureactivedirectory/v20200501preview:getGuestUsage", args ?? new GetGuestUsageArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGuestUsageResult>("azure-native:azureactivedirectory/v20200501preview:getGuestUsage", args ?? new GetGuestUsageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Guest Usages Resource
         /// </summary>
         public static Output<GetGuestUsageResult> Invoke(GetGuestUsageInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGuestUsageResult>("azure-native:azureactivedirectory/v20200501preview:getGuestUsage", args ?? new GetGuestUsageInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGuestUsageResult>("azure-native:azureactivedirectory/v20200501preview:getGuestUsage", args ?? new GetGuestUsageInvokeArgs(), options.WithDefaults());
     }
 
 

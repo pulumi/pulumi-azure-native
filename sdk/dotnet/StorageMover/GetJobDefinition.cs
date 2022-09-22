@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.StorageMover
         /// API Version: 2022-07-01-preview.
         /// </summary>
         public static Task<GetJobDefinitionResult> InvokeAsync(GetJobDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJobDefinitionResult>("azure-native:storagemover:getJobDefinition", args ?? new GetJobDefinitionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobDefinitionResult>("azure-native:storagemover:getJobDefinition", args ?? new GetJobDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Job Definition resource.
         /// API Version: 2022-07-01-preview.
         /// </summary>
         public static Output<GetJobDefinitionResult> Invoke(GetJobDefinitionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetJobDefinitionResult>("azure-native:storagemover:getJobDefinition", args ?? new GetJobDefinitionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetJobDefinitionResult>("azure-native:storagemover:getJobDefinition", args ?? new GetJobDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

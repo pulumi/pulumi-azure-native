@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         /// Represents MLBehaviorAnalytics alert rule.
         /// </summary>
         public static Task<GetMLBehaviorAnalyticsAlertRuleResult> InvokeAsync(GetMLBehaviorAnalyticsAlertRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMLBehaviorAnalyticsAlertRuleResult>("azure-native:securityinsights/v20190101preview:getMLBehaviorAnalyticsAlertRule", args ?? new GetMLBehaviorAnalyticsAlertRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMLBehaviorAnalyticsAlertRuleResult>("azure-native:securityinsights/v20190101preview:getMLBehaviorAnalyticsAlertRule", args ?? new GetMLBehaviorAnalyticsAlertRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents MLBehaviorAnalytics alert rule.
         /// </summary>
         public static Output<GetMLBehaviorAnalyticsAlertRuleResult> Invoke(GetMLBehaviorAnalyticsAlertRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMLBehaviorAnalyticsAlertRuleResult>("azure-native:securityinsights/v20190101preview:getMLBehaviorAnalyticsAlertRule", args ?? new GetMLBehaviorAnalyticsAlertRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMLBehaviorAnalyticsAlertRuleResult>("azure-native:securityinsights/v20190101preview:getMLBehaviorAnalyticsAlertRule", args ?? new GetMLBehaviorAnalyticsAlertRuleInvokeArgs(), options.WithDefaults());
     }
 
 

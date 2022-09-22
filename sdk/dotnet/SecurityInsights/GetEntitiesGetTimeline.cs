@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// API Version: 2019-01-01-preview.
         /// </summary>
         public static Task<GetEntitiesGetTimelineResult> InvokeAsync(GetEntitiesGetTimelineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEntitiesGetTimelineResult>("azure-native:securityinsights:getEntitiesGetTimeline", args ?? new GetEntitiesGetTimelineArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEntitiesGetTimelineResult>("azure-native:securityinsights:getEntitiesGetTimeline", args ?? new GetEntitiesGetTimelineArgs(), options.WithDefaults());
 
         /// <summary>
         /// The entity timeline result operation response.
         /// API Version: 2019-01-01-preview.
         /// </summary>
         public static Output<GetEntitiesGetTimelineResult> Invoke(GetEntitiesGetTimelineInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEntitiesGetTimelineResult>("azure-native:securityinsights:getEntitiesGetTimeline", args ?? new GetEntitiesGetTimelineInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEntitiesGetTimelineResult>("azure-native:securityinsights:getEntitiesGetTimeline", args ?? new GetEntitiesGetTimelineInvokeArgs(), options.WithDefaults());
     }
 
 

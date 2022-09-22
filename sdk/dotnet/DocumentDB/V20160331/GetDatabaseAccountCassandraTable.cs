@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.DocumentDB.V20160331
         /// An Azure Cosmos DB Cassandra table.
         /// </summary>
         public static Task<GetDatabaseAccountCassandraTableResult> InvokeAsync(GetDatabaseAccountCassandraTableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountCassandraTableResult>("azure-native:documentdb/v20160331:getDatabaseAccountCassandraTable", args ?? new GetDatabaseAccountCassandraTableArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountCassandraTableResult>("azure-native:documentdb/v20160331:getDatabaseAccountCassandraTable", args ?? new GetDatabaseAccountCassandraTableArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure Cosmos DB Cassandra table.
         /// </summary>
         public static Output<GetDatabaseAccountCassandraTableResult> Invoke(GetDatabaseAccountCassandraTableInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDatabaseAccountCassandraTableResult>("azure-native:documentdb/v20160331:getDatabaseAccountCassandraTable", args ?? new GetDatabaseAccountCassandraTableInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseAccountCassandraTableResult>("azure-native:documentdb/v20160331:getDatabaseAccountCassandraTable", args ?? new GetDatabaseAccountCassandraTableInvokeArgs(), options.WithDefaults());
     }
 
 

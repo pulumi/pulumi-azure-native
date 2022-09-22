@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
         /// IoT Connector FHIR destination definition.
         /// </summary>
         public static Task<GetIotConnectorFhirDestinationResult> InvokeAsync(GetIotConnectorFhirDestinationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIotConnectorFhirDestinationResult>("azure-native:healthcareapis/v20210601preview:getIotConnectorFhirDestination", args ?? new GetIotConnectorFhirDestinationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIotConnectorFhirDestinationResult>("azure-native:healthcareapis/v20210601preview:getIotConnectorFhirDestination", args ?? new GetIotConnectorFhirDestinationArgs(), options.WithDefaults());
 
         /// <summary>
         /// IoT Connector FHIR destination definition.
         /// </summary>
         public static Output<GetIotConnectorFhirDestinationResult> Invoke(GetIotConnectorFhirDestinationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIotConnectorFhirDestinationResult>("azure-native:healthcareapis/v20210601preview:getIotConnectorFhirDestination", args ?? new GetIotConnectorFhirDestinationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIotConnectorFhirDestinationResult>("azure-native:healthcareapis/v20210601preview:getIotConnectorFhirDestination", args ?? new GetIotConnectorFhirDestinationInvokeArgs(), options.WithDefaults());
     }
 
 

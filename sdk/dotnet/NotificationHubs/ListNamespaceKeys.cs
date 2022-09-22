@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.NotificationHubs
         /// API Version: 2017-04-01.
         /// </summary>
         public static Task<ListNamespaceKeysResult> InvokeAsync(ListNamespaceKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListNamespaceKeysResult>("azure-native:notificationhubs:listNamespaceKeys", args ?? new ListNamespaceKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListNamespaceKeysResult>("azure-native:notificationhubs:listNamespaceKeys", args ?? new ListNamespaceKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Namespace/NotificationHub Connection String
         /// API Version: 2017-04-01.
         /// </summary>
         public static Output<ListNamespaceKeysResult> Invoke(ListNamespaceKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListNamespaceKeysResult>("azure-native:notificationhubs:listNamespaceKeys", args ?? new ListNamespaceKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListNamespaceKeysResult>("azure-native:notificationhubs:listNamespaceKeys", args ?? new ListNamespaceKeysInvokeArgs(), options.WithDefaults());
     }
 
 

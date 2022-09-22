@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Datadog.V20210301
         /// Response of a list operation.
         /// </summary>
         public static Task<ListMonitorHostsResult> InvokeAsync(ListMonitorHostsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListMonitorHostsResult>("azure-native:datadog/v20210301:listMonitorHosts", args ?? new ListMonitorHostsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListMonitorHostsResult>("azure-native:datadog/v20210301:listMonitorHosts", args ?? new ListMonitorHostsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response of a list operation.
         /// </summary>
         public static Output<ListMonitorHostsResult> Invoke(ListMonitorHostsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListMonitorHostsResult>("azure-native:datadog/v20210301:listMonitorHosts", args ?? new ListMonitorHostsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListMonitorHostsResult>("azure-native:datadog/v20210301:listMonitorHosts", args ?? new ListMonitorHostsInvokeArgs(), options.WithDefaults());
     }
 
 

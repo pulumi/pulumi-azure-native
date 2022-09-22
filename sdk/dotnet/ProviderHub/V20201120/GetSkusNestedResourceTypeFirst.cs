@@ -12,10 +12,10 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120
     public static class GetSkusNestedResourceTypeFirst
     {
         public static Task<GetSkusNestedResourceTypeFirstResult> InvokeAsync(GetSkusNestedResourceTypeFirstArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSkusNestedResourceTypeFirstResult>("azure-native:providerhub/v20201120:getSkusNestedResourceTypeFirst", args ?? new GetSkusNestedResourceTypeFirstArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSkusNestedResourceTypeFirstResult>("azure-native:providerhub/v20201120:getSkusNestedResourceTypeFirst", args ?? new GetSkusNestedResourceTypeFirstArgs(), options.WithDefaults());
 
         public static Output<GetSkusNestedResourceTypeFirstResult> Invoke(GetSkusNestedResourceTypeFirstInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSkusNestedResourceTypeFirstResult>("azure-native:providerhub/v20201120:getSkusNestedResourceTypeFirst", args ?? new GetSkusNestedResourceTypeFirstInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSkusNestedResourceTypeFirstResult>("azure-native:providerhub/v20201120:getSkusNestedResourceTypeFirst", args ?? new GetSkusNestedResourceTypeFirstInvokeArgs(), options.WithDefaults());
     }
 
 

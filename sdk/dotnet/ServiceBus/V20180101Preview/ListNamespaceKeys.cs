@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
         /// Namespace/ServiceBus Connection String
         /// </summary>
         public static Task<ListNamespaceKeysResult> InvokeAsync(ListNamespaceKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListNamespaceKeysResult>("azure-native:servicebus/v20180101preview:listNamespaceKeys", args ?? new ListNamespaceKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListNamespaceKeysResult>("azure-native:servicebus/v20180101preview:listNamespaceKeys", args ?? new ListNamespaceKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Namespace/ServiceBus Connection String
         /// </summary>
         public static Output<ListNamespaceKeysResult> Invoke(ListNamespaceKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListNamespaceKeysResult>("azure-native:servicebus/v20180101preview:listNamespaceKeys", args ?? new ListNamespaceKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListNamespaceKeysResult>("azure-native:servicebus/v20180101preview:listNamespaceKeys", args ?? new ListNamespaceKeysInvokeArgs(), options.WithDefaults());
     }
 
 

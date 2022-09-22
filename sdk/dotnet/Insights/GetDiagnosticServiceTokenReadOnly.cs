@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Insights
         /// API Version: 2021-03-03-preview.
         /// </summary>
         public static Task<GetDiagnosticServiceTokenReadOnlyResult> InvokeAsync(GetDiagnosticServiceTokenReadOnlyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDiagnosticServiceTokenReadOnlyResult>("azure-native:insights:getDiagnosticServiceTokenReadOnly", args ?? new GetDiagnosticServiceTokenReadOnlyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDiagnosticServiceTokenReadOnlyResult>("azure-native:insights:getDiagnosticServiceTokenReadOnly", args ?? new GetDiagnosticServiceTokenReadOnlyArgs(), options.WithDefaults());
 
         /// <summary>
         /// The response to a diagnostic services token query.
         /// API Version: 2021-03-03-preview.
         /// </summary>
         public static Output<GetDiagnosticServiceTokenReadOnlyResult> Invoke(GetDiagnosticServiceTokenReadOnlyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDiagnosticServiceTokenReadOnlyResult>("azure-native:insights:getDiagnosticServiceTokenReadOnly", args ?? new GetDiagnosticServiceTokenReadOnlyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDiagnosticServiceTokenReadOnlyResult>("azure-native:insights:getDiagnosticServiceTokenReadOnly", args ?? new GetDiagnosticServiceTokenReadOnlyInvokeArgs(), options.WithDefaults());
     }
 
 

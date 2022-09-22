@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
         /// A long term retention policy.
         /// </summary>
         public static Task<GetLongTermRetentionPolicyResult> InvokeAsync(GetLongTermRetentionPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLongTermRetentionPolicyResult>("azure-native:sql/v20210801preview:getLongTermRetentionPolicy", args ?? new GetLongTermRetentionPolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLongTermRetentionPolicyResult>("azure-native:sql/v20210801preview:getLongTermRetentionPolicy", args ?? new GetLongTermRetentionPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// A long term retention policy.
         /// </summary>
         public static Output<GetLongTermRetentionPolicyResult> Invoke(GetLongTermRetentionPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLongTermRetentionPolicyResult>("azure-native:sql/v20210801preview:getLongTermRetentionPolicy", args ?? new GetLongTermRetentionPolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLongTermRetentionPolicyResult>("azure-native:sql/v20210801preview:getLongTermRetentionPolicy", args ?? new GetLongTermRetentionPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

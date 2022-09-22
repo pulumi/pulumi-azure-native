@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.AVS
         /// API Version: 2020-03-20.
         /// </summary>
         public static Task<GetPrivateCloudResult> InvokeAsync(GetPrivateCloudArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateCloudResult>("azure-native:avs:getPrivateCloud", args ?? new GetPrivateCloudArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateCloudResult>("azure-native:avs:getPrivateCloud", args ?? new GetPrivateCloudArgs(), options.WithDefaults());
 
         /// <summary>
         /// A private cloud resource
         /// API Version: 2020-03-20.
         /// </summary>
         public static Output<GetPrivateCloudResult> Invoke(GetPrivateCloudInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPrivateCloudResult>("azure-native:avs:getPrivateCloud", args ?? new GetPrivateCloudInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateCloudResult>("azure-native:avs:getPrivateCloud", args ?? new GetPrivateCloudInvokeArgs(), options.WithDefaults());
     }
 
 

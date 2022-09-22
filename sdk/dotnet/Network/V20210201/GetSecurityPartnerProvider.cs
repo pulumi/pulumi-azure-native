@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20210201
         /// Security Partner Provider resource.
         /// </summary>
         public static Task<GetSecurityPartnerProviderResult> InvokeAsync(GetSecurityPartnerProviderArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityPartnerProviderResult>("azure-native:network/v20210201:getSecurityPartnerProvider", args ?? new GetSecurityPartnerProviderArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityPartnerProviderResult>("azure-native:network/v20210201:getSecurityPartnerProvider", args ?? new GetSecurityPartnerProviderArgs(), options.WithDefaults());
 
         /// <summary>
         /// Security Partner Provider resource.
         /// </summary>
         public static Output<GetSecurityPartnerProviderResult> Invoke(GetSecurityPartnerProviderInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSecurityPartnerProviderResult>("azure-native:network/v20210201:getSecurityPartnerProvider", args ?? new GetSecurityPartnerProviderInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecurityPartnerProviderResult>("azure-native:network/v20210201:getSecurityPartnerProvider", args ?? new GetSecurityPartnerProviderInvokeArgs(), options.WithDefaults());
     }
 
 

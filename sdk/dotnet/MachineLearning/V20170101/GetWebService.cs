@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.MachineLearning.V20170101
         /// Instance of an Azure ML web service resource.
         /// </summary>
         public static Task<GetWebServiceResult> InvokeAsync(GetWebServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebServiceResult>("azure-native:machinelearning/v20170101:getWebService", args ?? new GetWebServiceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebServiceResult>("azure-native:machinelearning/v20170101:getWebService", args ?? new GetWebServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Instance of an Azure ML web service resource.
         /// </summary>
         public static Output<GetWebServiceResult> Invoke(GetWebServiceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWebServiceResult>("azure-native:machinelearning/v20170101:getWebService", args ?? new GetWebServiceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebServiceResult>("azure-native:machinelearning/v20170101:getWebService", args ?? new GetWebServiceInvokeArgs(), options.WithDefaults());
     }
 
 

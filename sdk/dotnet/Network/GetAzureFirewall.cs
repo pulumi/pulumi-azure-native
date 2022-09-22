@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetAzureFirewallResult> InvokeAsync(GetAzureFirewallArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAzureFirewallResult>("azure-native:network:getAzureFirewall", args ?? new GetAzureFirewallArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAzureFirewallResult>("azure-native:network:getAzureFirewall", args ?? new GetAzureFirewallArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Firewall resource.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetAzureFirewallResult> Invoke(GetAzureFirewallInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAzureFirewallResult>("azure-native:network:getAzureFirewall", args ?? new GetAzureFirewallInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAzureFirewallResult>("azure-native:network:getAzureFirewall", args ?? new GetAzureFirewallInvokeArgs(), options.WithDefaults());
     }
 
 

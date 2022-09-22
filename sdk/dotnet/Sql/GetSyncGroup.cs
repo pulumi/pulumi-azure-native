@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Sql
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetSyncGroupResult> InvokeAsync(GetSyncGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSyncGroupResult>("azure-native:sql:getSyncGroup", args ?? new GetSyncGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSyncGroupResult>("azure-native:sql:getSyncGroup", args ?? new GetSyncGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure SQL Database sync group.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Output<GetSyncGroupResult> Invoke(GetSyncGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSyncGroupResult>("azure-native:sql:getSyncGroup", args ?? new GetSyncGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSyncGroupResult>("azure-native:sql:getSyncGroup", args ?? new GetSyncGroupInvokeArgs(), options.WithDefaults());
     }
 
 

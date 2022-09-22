@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.NetApp
         /// API Version: 2022-01-01.
         /// </summary>
         public static Task<ListVolumeReplicationsResult> InvokeAsync(ListVolumeReplicationsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListVolumeReplicationsResult>("azure-native:netapp:listVolumeReplications", args ?? new ListVolumeReplicationsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListVolumeReplicationsResult>("azure-native:netapp:listVolumeReplications", args ?? new ListVolumeReplicationsArgs(), options.WithDefaults());
 
         /// <summary>
         /// List Replications
         /// API Version: 2022-01-01.
         /// </summary>
         public static Output<ListVolumeReplicationsResult> Invoke(ListVolumeReplicationsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListVolumeReplicationsResult>("azure-native:netapp:listVolumeReplications", args ?? new ListVolumeReplicationsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListVolumeReplicationsResult>("azure-native:netapp:listVolumeReplications", args ?? new ListVolumeReplicationsInvokeArgs(), options.WithDefaults());
     }
 
 

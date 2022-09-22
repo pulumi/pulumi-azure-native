@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview
         /// The workflow type.
         /// </summary>
         public static Task<GetWorkflowResult> InvokeAsync(GetWorkflowArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkflowResult>("azure-native:logic/v20180701preview:getWorkflow", args ?? new GetWorkflowArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkflowResult>("azure-native:logic/v20180701preview:getWorkflow", args ?? new GetWorkflowArgs(), options.WithDefaults());
 
         /// <summary>
         /// The workflow type.
         /// </summary>
         public static Output<GetWorkflowResult> Invoke(GetWorkflowInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWorkflowResult>("azure-native:logic/v20180701preview:getWorkflow", args ?? new GetWorkflowInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkflowResult>("azure-native:logic/v20180701preview:getWorkflow", args ?? new GetWorkflowInvokeArgs(), options.WithDefaults());
     }
 
 

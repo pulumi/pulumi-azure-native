@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20210301
         /// String list resource.
         /// </summary>
         public static Task<ListStaticSiteConfiguredRolesResult> InvokeAsync(ListStaticSiteConfiguredRolesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListStaticSiteConfiguredRolesResult>("azure-native:web/v20210301:listStaticSiteConfiguredRoles", args ?? new ListStaticSiteConfiguredRolesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListStaticSiteConfiguredRolesResult>("azure-native:web/v20210301:listStaticSiteConfiguredRoles", args ?? new ListStaticSiteConfiguredRolesArgs(), options.WithDefaults());
 
         /// <summary>
         /// String list resource.
         /// </summary>
         public static Output<ListStaticSiteConfiguredRolesResult> Invoke(ListStaticSiteConfiguredRolesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListStaticSiteConfiguredRolesResult>("azure-native:web/v20210301:listStaticSiteConfiguredRoles", args ?? new ListStaticSiteConfiguredRolesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListStaticSiteConfiguredRolesResult>("azure-native:web/v20210301:listStaticSiteConfiguredRoles", args ?? new ListStaticSiteConfiguredRolesInvokeArgs(), options.WithDefaults());
     }
 
 

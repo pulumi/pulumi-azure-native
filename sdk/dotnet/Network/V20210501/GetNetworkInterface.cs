@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20210501
         /// A network interface in a resource group.
         /// </summary>
         public static Task<GetNetworkInterfaceResult> InvokeAsync(GetNetworkInterfaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceResult>("azure-native:network/v20210501:getNetworkInterface", args ?? new GetNetworkInterfaceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceResult>("azure-native:network/v20210501:getNetworkInterface", args ?? new GetNetworkInterfaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// A network interface in a resource group.
         /// </summary>
         public static Output<GetNetworkInterfaceResult> Invoke(GetNetworkInterfaceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceResult>("azure-native:network/v20210501:getNetworkInterface", args ?? new GetNetworkInterfaceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceResult>("azure-native:network/v20210501:getNetworkInterface", args ?? new GetNetworkInterfaceInvokeArgs(), options.WithDefaults());
     }
 
 

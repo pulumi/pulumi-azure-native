@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
         /// A share data transfer object.
         /// </summary>
         public static Task<GetShareResult> InvokeAsync(GetShareArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetShareResult>("azure-native:datashare/v20181101preview:getShare", args ?? new GetShareArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetShareResult>("azure-native:datashare/v20181101preview:getShare", args ?? new GetShareArgs(), options.WithDefaults());
 
         /// <summary>
         /// A share data transfer object.
         /// </summary>
         public static Output<GetShareResult> Invoke(GetShareInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetShareResult>("azure-native:datashare/v20181101preview:getShare", args ?? new GetShareInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetShareResult>("azure-native:datashare/v20181101preview:getShare", args ?? new GetShareInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// API Version: 2019-06-01-preview.
         /// </summary>
         public static Task<ListTaskDetailsResult> InvokeAsync(ListTaskDetailsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListTaskDetailsResult>("azure-native:containerregistry:listTaskDetails", args ?? new ListTaskDetailsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListTaskDetailsResult>("azure-native:containerregistry:listTaskDetails", args ?? new ListTaskDetailsArgs(), options.WithDefaults());
 
         /// <summary>
         /// The task that has the ARM resource and task properties. 
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// API Version: 2019-06-01-preview.
         /// </summary>
         public static Output<ListTaskDetailsResult> Invoke(ListTaskDetailsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListTaskDetailsResult>("azure-native:containerregistry:listTaskDetails", args ?? new ListTaskDetailsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListTaskDetailsResult>("azure-native:containerregistry:listTaskDetails", args ?? new ListTaskDetailsInvokeArgs(), options.WithDefaults());
     }
 
 

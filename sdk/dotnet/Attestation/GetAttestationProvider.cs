@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Attestation
         /// API Version: 2020-10-01.
         /// </summary>
         public static Task<GetAttestationProviderResult> InvokeAsync(GetAttestationProviderArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAttestationProviderResult>("azure-native:attestation:getAttestationProvider", args ?? new GetAttestationProviderArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAttestationProviderResult>("azure-native:attestation:getAttestationProvider", args ?? new GetAttestationProviderArgs(), options.WithDefaults());
 
         /// <summary>
         /// Attestation service response message.
         /// API Version: 2020-10-01.
         /// </summary>
         public static Output<GetAttestationProviderResult> Invoke(GetAttestationProviderInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAttestationProviderResult>("azure-native:attestation:getAttestationProvider", args ?? new GetAttestationProviderInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAttestationProviderResult>("azure-native:attestation:getAttestationProvider", args ?? new GetAttestationProviderInvokeArgs(), options.WithDefaults());
     }
 
 

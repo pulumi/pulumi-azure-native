@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20210115
         /// Virtual Network information contract.
         /// </summary>
         public static Task<GetWebAppVnetConnectionResult> InvokeAsync(GetWebAppVnetConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppVnetConnectionResult>("azure-native:web/v20210115:getWebAppVnetConnection", args ?? new GetWebAppVnetConnectionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppVnetConnectionResult>("azure-native:web/v20210115:getWebAppVnetConnection", args ?? new GetWebAppVnetConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Virtual Network information contract.
         /// </summary>
         public static Output<GetWebAppVnetConnectionResult> Invoke(GetWebAppVnetConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWebAppVnetConnectionResult>("azure-native:web/v20210115:getWebAppVnetConnection", args ?? new GetWebAppVnetConnectionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebAppVnetConnectionResult>("azure-native:web/v20210115:getWebAppVnetConnection", args ?? new GetWebAppVnetConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

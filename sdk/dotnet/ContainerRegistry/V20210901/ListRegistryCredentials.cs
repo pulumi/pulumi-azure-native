@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210901
         /// The response from the ListCredentials operation.
         /// </summary>
         public static Task<ListRegistryCredentialsResult> InvokeAsync(ListRegistryCredentialsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListRegistryCredentialsResult>("azure-native:containerregistry/v20210901:listRegistryCredentials", args ?? new ListRegistryCredentialsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListRegistryCredentialsResult>("azure-native:containerregistry/v20210901:listRegistryCredentials", args ?? new ListRegistryCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
         /// The response from the ListCredentials operation.
         /// </summary>
         public static Output<ListRegistryCredentialsResult> Invoke(ListRegistryCredentialsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListRegistryCredentialsResult>("azure-native:containerregistry/v20210901:listRegistryCredentials", args ?? new ListRegistryCredentialsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListRegistryCredentialsResult>("azure-native:containerregistry/v20210901:listRegistryCredentials", args ?? new ListRegistryCredentialsInvokeArgs(), options.WithDefaults());
     }
 
 

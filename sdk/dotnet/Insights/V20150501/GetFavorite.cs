@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Insights.V20150501
         /// Properties that define a favorite that is associated to an Application Insights component.
         /// </summary>
         public static Task<GetFavoriteResult> InvokeAsync(GetFavoriteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFavoriteResult>("azure-native:insights/v20150501:getFavorite", args ?? new GetFavoriteArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFavoriteResult>("azure-native:insights/v20150501:getFavorite", args ?? new GetFavoriteArgs(), options.WithDefaults());
 
         /// <summary>
         /// Properties that define a favorite that is associated to an Application Insights component.
         /// </summary>
         public static Output<GetFavoriteResult> Invoke(GetFavoriteInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFavoriteResult>("azure-native:insights/v20150501:getFavorite", args ?? new GetFavoriteInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFavoriteResult>("azure-native:insights/v20150501:getFavorite", args ?? new GetFavoriteInvokeArgs(), options.WithDefaults());
     }
 
 

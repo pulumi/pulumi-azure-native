@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
         /// The profile resource format.
         /// </summary>
         public static Task<GetProfileResult> InvokeAsync(GetProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure-native:customerinsights/v20170426:getProfile", args ?? new GetProfileArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure-native:customerinsights/v20170426:getProfile", args ?? new GetProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// The profile resource format.
         /// </summary>
         public static Output<GetProfileResult> Invoke(GetProfileInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProfileResult>("azure-native:customerinsights/v20170426:getProfile", args ?? new GetProfileInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetProfileResult>("azure-native:customerinsights/v20170426:getProfile", args ?? new GetProfileInvokeArgs(), options.WithDefaults());
     }
 
 

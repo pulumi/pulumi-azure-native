@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20181101
         /// Slot Config names azure resource.
         /// </summary>
         public static Task<GetWebAppSlotConfigurationNamesResult> InvokeAsync(GetWebAppSlotConfigurationNamesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSlotConfigurationNamesResult>("azure-native:web/v20181101:getWebAppSlotConfigurationNames", args ?? new GetWebAppSlotConfigurationNamesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSlotConfigurationNamesResult>("azure-native:web/v20181101:getWebAppSlotConfigurationNames", args ?? new GetWebAppSlotConfigurationNamesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Slot Config names azure resource.
         /// </summary>
         public static Output<GetWebAppSlotConfigurationNamesResult> Invoke(GetWebAppSlotConfigurationNamesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWebAppSlotConfigurationNamesResult>("azure-native:web/v20181101:getWebAppSlotConfigurationNames", args ?? new GetWebAppSlotConfigurationNamesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSlotConfigurationNamesResult>("azure-native:web/v20181101:getWebAppSlotConfigurationNames", args ?? new GetWebAppSlotConfigurationNamesInvokeArgs(), options.WithDefaults());
     }
 
 

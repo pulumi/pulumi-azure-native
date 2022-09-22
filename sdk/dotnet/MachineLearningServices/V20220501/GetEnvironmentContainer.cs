@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
         /// Azure Resource Manager resource envelope.
         /// </summary>
         public static Task<GetEnvironmentContainerResult> InvokeAsync(GetEnvironmentContainerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentContainerResult>("azure-native:machinelearningservices/v20220501:getEnvironmentContainer", args ?? new GetEnvironmentContainerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentContainerResult>("azure-native:machinelearningservices/v20220501:getEnvironmentContainer", args ?? new GetEnvironmentContainerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
         /// </summary>
         public static Output<GetEnvironmentContainerResult> Invoke(GetEnvironmentContainerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEnvironmentContainerResult>("azure-native:machinelearningservices/v20220501:getEnvironmentContainer", args ?? new GetEnvironmentContainerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentContainerResult>("azure-native:machinelearningservices/v20220501:getEnvironmentContainer", args ?? new GetEnvironmentContainerInvokeArgs(), options.WithDefaults());
     }
 
 

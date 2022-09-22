@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20210115
         /// A hostname binding object.
         /// </summary>
         public static Task<GetWebAppHostNameBindingSlotResult> InvokeAsync(GetWebAppHostNameBindingSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppHostNameBindingSlotResult>("azure-native:web/v20210115:getWebAppHostNameBindingSlot", args ?? new GetWebAppHostNameBindingSlotArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppHostNameBindingSlotResult>("azure-native:web/v20210115:getWebAppHostNameBindingSlot", args ?? new GetWebAppHostNameBindingSlotArgs(), options.WithDefaults());
 
         /// <summary>
         /// A hostname binding object.
         /// </summary>
         public static Output<GetWebAppHostNameBindingSlotResult> Invoke(GetWebAppHostNameBindingSlotInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWebAppHostNameBindingSlotResult>("azure-native:web/v20210115:getWebAppHostNameBindingSlot", args ?? new GetWebAppHostNameBindingSlotInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebAppHostNameBindingSlotResult>("azure-native:web/v20210115:getWebAppHostNameBindingSlot", args ?? new GetWebAppHostNameBindingSlotInvokeArgs(), options.WithDefaults());
     }
 
 

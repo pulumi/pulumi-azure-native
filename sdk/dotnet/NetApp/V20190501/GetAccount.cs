@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.NetApp.V20190501
         /// NetApp account resource
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:netapp/v20190501:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:netapp/v20190501:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// NetApp account resource
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:netapp/v20190501:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:netapp/v20190501:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
     }
 
 

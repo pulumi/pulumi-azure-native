@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.BotService.V20210301
         /// The ARM channel of list channel with keys operation response.
         /// </summary>
         public static Task<ListChannelWithKeysResult> InvokeAsync(ListChannelWithKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListChannelWithKeysResult>("azure-native:botservice/v20210301:listChannelWithKeys", args ?? new ListChannelWithKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListChannelWithKeysResult>("azure-native:botservice/v20210301:listChannelWithKeys", args ?? new ListChannelWithKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// The ARM channel of list channel with keys operation response.
         /// </summary>
         public static Output<ListChannelWithKeysResult> Invoke(ListChannelWithKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListChannelWithKeysResult>("azure-native:botservice/v20210301:listChannelWithKeys", args ?? new ListChannelWithKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListChannelWithKeysResult>("azure-native:botservice/v20210301:listChannelWithKeys", args ?? new ListChannelWithKeysInvokeArgs(), options.WithDefaults());
     }
 
 

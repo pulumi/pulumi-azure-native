@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// API Version: 2020-09-01-preview.
         /// </summary>
         public static Task<GetLabelingJobResult> InvokeAsync(GetLabelingJobArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLabelingJobResult>("azure-native:machinelearningservices:getLabelingJob", args ?? new GetLabelingJobArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLabelingJobResult>("azure-native:machinelearningservices:getLabelingJob", args ?? new GetLabelingJobArgs(), options.WithDefaults());
 
         /// <summary>
         /// Machine Learning labeling job object wrapped into ARM resource envelope.
         /// API Version: 2020-09-01-preview.
         /// </summary>
         public static Output<GetLabelingJobResult> Invoke(GetLabelingJobInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLabelingJobResult>("azure-native:machinelearningservices:getLabelingJob", args ?? new GetLabelingJobInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLabelingJobResult>("azure-native:machinelearningservices:getLabelingJob", args ?? new GetLabelingJobInvokeArgs(), options.WithDefaults());
     }
 
 

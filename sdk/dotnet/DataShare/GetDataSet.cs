@@ -17,14 +17,14 @@ namespace Pulumi.AzureNative.DataShare
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetDataSetResult> InvokeAsync(GetDataSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataSetResult>("azure-native:datashare:getDataSet", args ?? new GetDataSetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataSetResult>("azure-native:datashare:getDataSet", args ?? new GetDataSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// A DataSet data transfer object.
         /// API Version: 2020-09-01.
         /// </summary>
         public static Output<GetDataSetResult> Invoke(GetDataSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDataSetResult>("azure-native:datashare:getDataSet", args ?? new GetDataSetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataSetResult>("azure-native:datashare:getDataSet", args ?? new GetDataSetInvokeArgs(), options.WithDefaults());
     }
 
 

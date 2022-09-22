@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview
         /// Result of the Get delivery attributes operation.
         /// </summary>
         public static Task<GetEventSubscriptionDeliveryAttributesResult> InvokeAsync(GetEventSubscriptionDeliveryAttributesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventSubscriptionDeliveryAttributesResult>("azure-native:eventgrid/v20211015preview:getEventSubscriptionDeliveryAttributes", args ?? new GetEventSubscriptionDeliveryAttributesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventSubscriptionDeliveryAttributesResult>("azure-native:eventgrid/v20211015preview:getEventSubscriptionDeliveryAttributes", args ?? new GetEventSubscriptionDeliveryAttributesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Result of the Get delivery attributes operation.
         /// </summary>
         public static Output<GetEventSubscriptionDeliveryAttributesResult> Invoke(GetEventSubscriptionDeliveryAttributesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEventSubscriptionDeliveryAttributesResult>("azure-native:eventgrid/v20211015preview:getEventSubscriptionDeliveryAttributes", args ?? new GetEventSubscriptionDeliveryAttributesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEventSubscriptionDeliveryAttributesResult>("azure-native:eventgrid/v20211015preview:getEventSubscriptionDeliveryAttributes", args ?? new GetEventSubscriptionDeliveryAttributesInvokeArgs(), options.WithDefaults());
     }
 
 

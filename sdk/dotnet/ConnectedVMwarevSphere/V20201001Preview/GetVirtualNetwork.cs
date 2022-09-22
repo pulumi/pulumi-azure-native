@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         /// Define the virtualNetwork.
         /// </summary>
         public static Task<GetVirtualNetworkResult> InvokeAsync(GetVirtualNetworkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResult>("azure-native:connectedvmwarevsphere/v20201001preview:getVirtualNetwork", args ?? new GetVirtualNetworkArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResult>("azure-native:connectedvmwarevsphere/v20201001preview:getVirtualNetwork", args ?? new GetVirtualNetworkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Define the virtualNetwork.
         /// </summary>
         public static Output<GetVirtualNetworkResult> Invoke(GetVirtualNetworkInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkResult>("azure-native:connectedvmwarevsphere/v20201001preview:getVirtualNetwork", args ?? new GetVirtualNetworkInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkResult>("azure-native:connectedvmwarevsphere/v20201001preview:getVirtualNetwork", args ?? new GetVirtualNetworkInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Solutions.V20210201Preview
         /// The array of managed identity tokens.
         /// </summary>
         public static Task<ListApplicationTokensResult> InvokeAsync(ListApplicationTokensArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListApplicationTokensResult>("azure-native:solutions/v20210201preview:listApplicationTokens", args ?? new ListApplicationTokensArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListApplicationTokensResult>("azure-native:solutions/v20210201preview:listApplicationTokens", args ?? new ListApplicationTokensArgs(), options.WithDefaults());
 
         /// <summary>
         /// The array of managed identity tokens.
         /// </summary>
         public static Output<ListApplicationTokensResult> Invoke(ListApplicationTokensInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListApplicationTokensResult>("azure-native:solutions/v20210201preview:listApplicationTokens", args ?? new ListApplicationTokensInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListApplicationTokensResult>("azure-native:solutions/v20210201preview:listApplicationTokens", args ?? new ListApplicationTokensInvokeArgs(), options.WithDefaults());
     }
 
 

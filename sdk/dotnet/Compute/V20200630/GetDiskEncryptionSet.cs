@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Compute.V20200630
         /// disk encryption set resource.
         /// </summary>
         public static Task<GetDiskEncryptionSetResult> InvokeAsync(GetDiskEncryptionSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDiskEncryptionSetResult>("azure-native:compute/v20200630:getDiskEncryptionSet", args ?? new GetDiskEncryptionSetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDiskEncryptionSetResult>("azure-native:compute/v20200630:getDiskEncryptionSet", args ?? new GetDiskEncryptionSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// disk encryption set resource.
         /// </summary>
         public static Output<GetDiskEncryptionSetResult> Invoke(GetDiskEncryptionSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDiskEncryptionSetResult>("azure-native:compute/v20200630:getDiskEncryptionSet", args ?? new GetDiskEncryptionSetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDiskEncryptionSetResult>("azure-native:compute/v20200630:getDiskEncryptionSet", args ?? new GetDiskEncryptionSetInvokeArgs(), options.WithDefaults());
     }
 
 

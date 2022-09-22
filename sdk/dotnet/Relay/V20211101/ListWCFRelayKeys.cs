@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Relay.V20211101
         /// Namespace/Relay Connection String
         /// </summary>
         public static Task<ListWCFRelayKeysResult> InvokeAsync(ListWCFRelayKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWCFRelayKeysResult>("azure-native:relay/v20211101:listWCFRelayKeys", args ?? new ListWCFRelayKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListWCFRelayKeysResult>("azure-native:relay/v20211101:listWCFRelayKeys", args ?? new ListWCFRelayKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Namespace/Relay Connection String
         /// </summary>
         public static Output<ListWCFRelayKeysResult> Invoke(ListWCFRelayKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListWCFRelayKeysResult>("azure-native:relay/v20211101:listWCFRelayKeys", args ?? new ListWCFRelayKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListWCFRelayKeysResult>("azure-native:relay/v20211101:listWCFRelayKeys", args ?? new ListWCFRelayKeysInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.StorageSync
         /// API Version: 2020-03-01.
         /// </summary>
         public static Task<GetRegisteredServerResult> InvokeAsync(GetRegisteredServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRegisteredServerResult>("azure-native:storagesync:getRegisteredServer", args ?? new GetRegisteredServerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegisteredServerResult>("azure-native:storagesync:getRegisteredServer", args ?? new GetRegisteredServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Registered Server resource.
         /// API Version: 2020-03-01.
         /// </summary>
         public static Output<GetRegisteredServerResult> Invoke(GetRegisteredServerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRegisteredServerResult>("azure-native:storagesync:getRegisteredServer", args ?? new GetRegisteredServerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRegisteredServerResult>("azure-native:storagesync:getRegisteredServer", args ?? new GetRegisteredServerInvokeArgs(), options.WithDefaults());
     }
 
 

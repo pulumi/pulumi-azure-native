@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Workloads
         /// API Version: 2021-12-01-preview.
         /// </summary>
         public static Task<GetProviderInstanceResult> InvokeAsync(GetProviderInstanceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProviderInstanceResult>("azure-native:workloads:getProviderInstance", args ?? new GetProviderInstanceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetProviderInstanceResult>("azure-native:workloads:getProviderInstance", args ?? new GetProviderInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// A provider instance associated with SAP monitor.
         /// API Version: 2021-12-01-preview.
         /// </summary>
         public static Output<GetProviderInstanceResult> Invoke(GetProviderInstanceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProviderInstanceResult>("azure-native:workloads:getProviderInstance", args ?? new GetProviderInstanceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetProviderInstanceResult>("azure-native:workloads:getProviderInstance", args ?? new GetProviderInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

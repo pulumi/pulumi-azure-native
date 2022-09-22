@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetSourceControlConfigurationResult> InvokeAsync(GetSourceControlConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSourceControlConfigurationResult>("azure-native:kubernetesconfiguration:getSourceControlConfiguration", args ?? new GetSourceControlConfigurationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSourceControlConfigurationResult>("azure-native:kubernetesconfiguration:getSourceControlConfiguration", args ?? new GetSourceControlConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// The SourceControl Configuration object returned in Get &amp; Put response.
         /// API Version: 2021-03-01.
         /// </summary>
         public static Output<GetSourceControlConfigurationResult> Invoke(GetSourceControlConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSourceControlConfigurationResult>("azure-native:kubernetesconfiguration:getSourceControlConfiguration", args ?? new GetSourceControlConfigurationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSourceControlConfigurationResult>("azure-native:kubernetesconfiguration:getSourceControlConfiguration", args ?? new GetSourceControlConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

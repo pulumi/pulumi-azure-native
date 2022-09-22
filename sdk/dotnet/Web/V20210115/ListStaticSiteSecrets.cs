@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20210115
         /// String dictionary resource.
         /// </summary>
         public static Task<ListStaticSiteSecretsResult> InvokeAsync(ListStaticSiteSecretsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListStaticSiteSecretsResult>("azure-native:web/v20210115:listStaticSiteSecrets", args ?? new ListStaticSiteSecretsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListStaticSiteSecretsResult>("azure-native:web/v20210115:listStaticSiteSecrets", args ?? new ListStaticSiteSecretsArgs(), options.WithDefaults());
 
         /// <summary>
         /// String dictionary resource.
         /// </summary>
         public static Output<ListStaticSiteSecretsResult> Invoke(ListStaticSiteSecretsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListStaticSiteSecretsResult>("azure-native:web/v20210115:listStaticSiteSecrets", args ?? new ListStaticSiteSecretsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListStaticSiteSecretsResult>("azure-native:web/v20210115:listStaticSiteSecrets", args ?? new ListStaticSiteSecretsInvokeArgs(), options.WithDefaults());
     }
 
 

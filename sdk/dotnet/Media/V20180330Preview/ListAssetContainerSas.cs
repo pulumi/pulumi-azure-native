@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Media.V20180330Preview
         /// The Asset Storage container SAS URLs.
         /// </summary>
         public static Task<ListAssetContainerSasResult> InvokeAsync(ListAssetContainerSasArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListAssetContainerSasResult>("azure-native:media/v20180330preview:listAssetContainerSas", args ?? new ListAssetContainerSasArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListAssetContainerSasResult>("azure-native:media/v20180330preview:listAssetContainerSas", args ?? new ListAssetContainerSasArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Asset Storage container SAS URLs.
         /// </summary>
         public static Output<ListAssetContainerSasResult> Invoke(ListAssetContainerSasInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListAssetContainerSasResult>("azure-native:media/v20180330preview:listAssetContainerSas", args ?? new ListAssetContainerSasInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListAssetContainerSasResult>("azure-native:media/v20180330preview:listAssetContainerSas", args ?? new ListAssetContainerSasInvokeArgs(), options.WithDefaults());
     }
 
 

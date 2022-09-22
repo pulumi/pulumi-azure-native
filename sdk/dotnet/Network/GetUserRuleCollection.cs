@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Task<GetUserRuleCollectionResult> InvokeAsync(GetUserRuleCollectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserRuleCollectionResult>("azure-native:network:getUserRuleCollection", args ?? new GetUserRuleCollectionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserRuleCollectionResult>("azure-native:network:getUserRuleCollection", args ?? new GetUserRuleCollectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Defines the rule collection.
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Output<GetUserRuleCollectionResult> Invoke(GetUserRuleCollectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetUserRuleCollectionResult>("azure-native:network:getUserRuleCollection", args ?? new GetUserRuleCollectionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserRuleCollectionResult>("azure-native:network:getUserRuleCollection", args ?? new GetUserRuleCollectionInvokeArgs(), options.WithDefaults());
     }
 
 

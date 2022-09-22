@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.OffAzure.V20200101
         /// Site REST Resource.
         /// </summary>
         public static Task<GetSiteResult> InvokeAsync(GetSiteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteResult>("azure-native:offazure/v20200101:getSite", args ?? new GetSiteArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSiteResult>("azure-native:offazure/v20200101:getSite", args ?? new GetSiteArgs(), options.WithDefaults());
 
         /// <summary>
         /// Site REST Resource.
         /// </summary>
         public static Output<GetSiteResult> Invoke(GetSiteInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSiteResult>("azure-native:offazure/v20200101:getSite", args ?? new GetSiteInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSiteResult>("azure-native:offazure/v20200101:getSite", args ?? new GetSiteInvokeArgs(), options.WithDefaults());
     }
 
 

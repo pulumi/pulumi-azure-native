@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20201101
         /// Defines web application firewall policy.
         /// </summary>
         public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("azure-native:network/v20201101:getPolicy", args ?? new GetPolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("azure-native:network/v20201101:getPolicy", args ?? new GetPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Defines web application firewall policy.
         /// </summary>
         public static Output<GetPolicyResult> Invoke(GetPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("azure-native:network/v20201101:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("azure-native:network/v20201101:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

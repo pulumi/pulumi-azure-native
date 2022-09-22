@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ServiceBus.V20211101
         /// Description of a namespace authorization rule.
         /// </summary>
         public static Task<GetQueueAuthorizationRuleResult> InvokeAsync(GetQueueAuthorizationRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetQueueAuthorizationRuleResult>("azure-native:servicebus/v20211101:getQueueAuthorizationRule", args ?? new GetQueueAuthorizationRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetQueueAuthorizationRuleResult>("azure-native:servicebus/v20211101:getQueueAuthorizationRule", args ?? new GetQueueAuthorizationRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description of a namespace authorization rule.
         /// </summary>
         public static Output<GetQueueAuthorizationRuleResult> Invoke(GetQueueAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetQueueAuthorizationRuleResult>("azure-native:servicebus/v20211101:getQueueAuthorizationRule", args ?? new GetQueueAuthorizationRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetQueueAuthorizationRuleResult>("azure-native:servicebus/v20211101:getQueueAuthorizationRule", args ?? new GetQueueAuthorizationRuleInvokeArgs(), options.WithDefaults());
     }
 
 

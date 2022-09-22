@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
         /// Azure Resource Manager resource envelope.
         /// </summary>
         public static Task<GetCodeContainerResult> InvokeAsync(GetCodeContainerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCodeContainerResult>("azure-native:machinelearningservices/v20220601preview:getCodeContainer", args ?? new GetCodeContainerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCodeContainerResult>("azure-native:machinelearningservices/v20220601preview:getCodeContainer", args ?? new GetCodeContainerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
         /// </summary>
         public static Output<GetCodeContainerResult> Invoke(GetCodeContainerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCodeContainerResult>("azure-native:machinelearningservices/v20220601preview:getCodeContainer", args ?? new GetCodeContainerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCodeContainerResult>("azure-native:machinelearningservices/v20220601preview:getCodeContainer", args ?? new GetCodeContainerInvokeArgs(), options.WithDefaults());
     }
 
 

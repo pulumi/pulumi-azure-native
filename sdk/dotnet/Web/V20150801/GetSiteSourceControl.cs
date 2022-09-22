@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// Describes the source control configuration for web app
         /// </summary>
         public static Task<GetSiteSourceControlResult> InvokeAsync(GetSiteSourceControlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteSourceControlResult>("azure-native:web/v20150801:getSiteSourceControl", args ?? new GetSiteSourceControlArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSiteSourceControlResult>("azure-native:web/v20150801:getSiteSourceControl", args ?? new GetSiteSourceControlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes the source control configuration for web app
         /// </summary>
         public static Output<GetSiteSourceControlResult> Invoke(GetSiteSourceControlInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSiteSourceControlResult>("azure-native:web/v20150801:getSiteSourceControl", args ?? new GetSiteSourceControlInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSiteSourceControlResult>("azure-native:web/v20150801:getSiteSourceControl", args ?? new GetSiteSourceControlInvokeArgs(), options.WithDefaults());
     }
 
 

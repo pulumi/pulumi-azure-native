@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Insights.V20200202
         /// An Application Insights component definition.
         /// </summary>
         public static Task<GetComponentResult> InvokeAsync(GetComponentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetComponentResult>("azure-native:insights/v20200202:getComponent", args ?? new GetComponentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetComponentResult>("azure-native:insights/v20200202:getComponent", args ?? new GetComponentArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Application Insights component definition.
         /// </summary>
         public static Output<GetComponentResult> Invoke(GetComponentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetComponentResult>("azure-native:insights/v20200202:getComponent", args ?? new GetComponentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetComponentResult>("azure-native:insights/v20200202:getComponent", args ?? new GetComponentInvokeArgs(), options.WithDefaults());
     }
 
 

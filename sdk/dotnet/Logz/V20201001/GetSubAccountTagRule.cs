@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Logz.V20201001
         /// Capture logs and metrics of Azure resources based on ARM tags.
         /// </summary>
         public static Task<GetSubAccountTagRuleResult> InvokeAsync(GetSubAccountTagRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubAccountTagRuleResult>("azure-native:logz/v20201001:getSubAccountTagRule", args ?? new GetSubAccountTagRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubAccountTagRuleResult>("azure-native:logz/v20201001:getSubAccountTagRule", args ?? new GetSubAccountTagRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Capture logs and metrics of Azure resources based on ARM tags.
         /// </summary>
         public static Output<GetSubAccountTagRuleResult> Invoke(GetSubAccountTagRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSubAccountTagRuleResult>("azure-native:logz/v20201001:getSubAccountTagRule", args ?? new GetSubAccountTagRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSubAccountTagRuleResult>("azure-native:logz/v20201001:getSubAccountTagRule", args ?? new GetSubAccountTagRuleInvokeArgs(), options.WithDefaults());
     }
 
 

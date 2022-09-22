@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.ManagedServices
         /// API Version: 2019-09-01.
         /// </summary>
         public static Task<GetRegistrationAssignmentResult> InvokeAsync(GetRegistrationAssignmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationAssignmentResult>("azure-native:managedservices:getRegistrationAssignment", args ?? new GetRegistrationAssignmentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationAssignmentResult>("azure-native:managedservices:getRegistrationAssignment", args ?? new GetRegistrationAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Registration assignment.
         /// API Version: 2019-09-01.
         /// </summary>
         public static Output<GetRegistrationAssignmentResult> Invoke(GetRegistrationAssignmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRegistrationAssignmentResult>("azure-native:managedservices:getRegistrationAssignment", args ?? new GetRegistrationAssignmentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRegistrationAssignmentResult>("azure-native:managedservices:getRegistrationAssignment", args ?? new GetRegistrationAssignmentInvokeArgs(), options.WithDefaults());
     }
 
 

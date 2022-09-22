@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201Preview
         /// Represents a container on the  Data Box Edge/Gateway device.
         /// </summary>
         public static Task<GetContainerResult> InvokeAsync(GetContainerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetContainerResult>("azure-native:databoxedge/v20210201preview:getContainer", args ?? new GetContainerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetContainerResult>("azure-native:databoxedge/v20210201preview:getContainer", args ?? new GetContainerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a container on the  Data Box Edge/Gateway device.
         /// </summary>
         public static Output<GetContainerResult> Invoke(GetContainerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetContainerResult>("azure-native:databoxedge/v20210201preview:getContainer", args ?? new GetContainerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetContainerResult>("azure-native:databoxedge/v20210201preview:getContainer", args ?? new GetContainerInvokeArgs(), options.WithDefaults());
     }
 
 

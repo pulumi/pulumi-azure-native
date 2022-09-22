@@ -12,10 +12,10 @@ namespace Pulumi.AzureNative.Logz.V20220101Preview
     public static class GetSubAccount
     {
         public static Task<GetSubAccountResult> InvokeAsync(GetSubAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubAccountResult>("azure-native:logz/v20220101preview:getSubAccount", args ?? new GetSubAccountArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubAccountResult>("azure-native:logz/v20220101preview:getSubAccount", args ?? new GetSubAccountArgs(), options.WithDefaults());
 
         public static Output<GetSubAccountResult> Invoke(GetSubAccountInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSubAccountResult>("azure-native:logz/v20220101preview:getSubAccount", args ?? new GetSubAccountInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSubAccountResult>("azure-native:logz/v20220101preview:getSubAccount", args ?? new GetSubAccountInvokeArgs(), options.WithDefaults());
     }
 
 

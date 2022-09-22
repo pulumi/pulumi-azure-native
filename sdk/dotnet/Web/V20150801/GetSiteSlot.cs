@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// Represents a web app
         /// </summary>
         public static Task<GetSiteSlotResult> InvokeAsync(GetSiteSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteSlotResult>("azure-native:web/v20150801:getSiteSlot", args ?? new GetSiteSlotArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSiteSlotResult>("azure-native:web/v20150801:getSiteSlot", args ?? new GetSiteSlotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a web app
         /// </summary>
         public static Output<GetSiteSlotResult> Invoke(GetSiteSlotInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSiteSlotResult>("azure-native:web/v20150801:getSiteSlot", args ?? new GetSiteSlotInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSiteSlotResult>("azure-native:web/v20150801:getSiteSlot", args ?? new GetSiteSlotInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.IoTCentral
         /// API Version: 2021-06-01.
         /// </summary>
         public static Task<GetAppResult> InvokeAsync(GetAppArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("azure-native:iotcentral:getApp", args ?? new GetAppArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("azure-native:iotcentral:getApp", args ?? new GetAppArgs(), options.WithDefaults());
 
         /// <summary>
         /// The IoT Central application.
         /// API Version: 2021-06-01.
         /// </summary>
         public static Output<GetAppResult> Invoke(GetAppInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAppResult>("azure-native:iotcentral:getApp", args ?? new GetAppInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAppResult>("azure-native:iotcentral:getApp", args ?? new GetAppInvokeArgs(), options.WithDefaults());
     }
 
 

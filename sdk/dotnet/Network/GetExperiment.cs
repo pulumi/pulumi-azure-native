@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2019-11-01.
         /// </summary>
         public static Task<GetExperimentResult> InvokeAsync(GetExperimentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExperimentResult>("azure-native:network:getExperiment", args ?? new GetExperimentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetExperimentResult>("azure-native:network:getExperiment", args ?? new GetExperimentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Defines the properties of an Experiment
         /// API Version: 2019-11-01.
         /// </summary>
         public static Output<GetExperimentResult> Invoke(GetExperimentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetExperimentResult>("azure-native:network:getExperiment", args ?? new GetExperimentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetExperimentResult>("azure-native:network:getExperiment", args ?? new GetExperimentInvokeArgs(), options.WithDefaults());
     }
 
 

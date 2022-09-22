@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20191101
         /// P2S Vpn connection detailed health written to sas url.
         /// </summary>
         public static Task<GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult> InvokeAsync(GetP2sVpnGatewayP2sVpnConnectionHealthDetailedArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult>("azure-native:network/v20191101:getP2sVpnGatewayP2sVpnConnectionHealthDetailed", args ?? new GetP2sVpnGatewayP2sVpnConnectionHealthDetailedArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult>("azure-native:network/v20191101:getP2sVpnGatewayP2sVpnConnectionHealthDetailed", args ?? new GetP2sVpnGatewayP2sVpnConnectionHealthDetailedArgs(), options.WithDefaults());
 
         /// <summary>
         /// P2S Vpn connection detailed health written to sas url.
         /// </summary>
         public static Output<GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult> Invoke(GetP2sVpnGatewayP2sVpnConnectionHealthDetailedInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult>("azure-native:network/v20191101:getP2sVpnGatewayP2sVpnConnectionHealthDetailed", args ?? new GetP2sVpnGatewayP2sVpnConnectionHealthDetailedInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult>("azure-native:network/v20191101:getP2sVpnGatewayP2sVpnConnectionHealthDetailed", args ?? new GetP2sVpnGatewayP2sVpnConnectionHealthDetailedInvokeArgs(), options.WithDefaults());
     }
 
 

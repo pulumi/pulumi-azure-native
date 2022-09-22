@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview
         /// Class representing a database principal assignment.
         /// </summary>
         public static Task<GetDatabasePrincipalAssignmentResult> InvokeAsync(GetDatabasePrincipalAssignmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabasePrincipalAssignmentResult>("azure-native:synapse/v20210401preview:getDatabasePrincipalAssignment", args ?? new GetDatabasePrincipalAssignmentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabasePrincipalAssignmentResult>("azure-native:synapse/v20210401preview:getDatabasePrincipalAssignment", args ?? new GetDatabasePrincipalAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Class representing a database principal assignment.
         /// </summary>
         public static Output<GetDatabasePrincipalAssignmentResult> Invoke(GetDatabasePrincipalAssignmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDatabasePrincipalAssignmentResult>("azure-native:synapse/v20210401preview:getDatabasePrincipalAssignment", args ?? new GetDatabasePrincipalAssignmentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDatabasePrincipalAssignmentResult>("azure-native:synapse/v20210401preview:getDatabasePrincipalAssignment", args ?? new GetDatabasePrincipalAssignmentInvokeArgs(), options.WithDefaults());
     }
 
 

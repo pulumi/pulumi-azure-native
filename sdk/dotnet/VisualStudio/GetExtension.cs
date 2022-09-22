@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.VisualStudio
         /// API Version: 2014-04-01-preview.
         /// </summary>
         public static Task<GetExtensionResult> InvokeAsync(GetExtensionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExtensionResult>("azure-native:visualstudio:getExtension", args ?? new GetExtensionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetExtensionResult>("azure-native:visualstudio:getExtension", args ?? new GetExtensionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The response to an extension resource GET request.
         /// API Version: 2014-04-01-preview.
         /// </summary>
         public static Output<GetExtensionResult> Invoke(GetExtensionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetExtensionResult>("azure-native:visualstudio:getExtension", args ?? new GetExtensionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetExtensionResult>("azure-native:visualstudio:getExtension", args ?? new GetExtensionInvokeArgs(), options.WithDefaults());
     }
 
 

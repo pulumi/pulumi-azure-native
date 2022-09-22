@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         /// Settings with single toggle.
         /// </summary>
         public static Task<GetIPSyncerResult> InvokeAsync(GetIPSyncerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIPSyncerResult>("azure-native:securityinsights/v20190101preview:getIPSyncer", args ?? new GetIPSyncerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIPSyncerResult>("azure-native:securityinsights/v20190101preview:getIPSyncer", args ?? new GetIPSyncerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Settings with single toggle.
         /// </summary>
         public static Output<GetIPSyncerResult> Invoke(GetIPSyncerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIPSyncerResult>("azure-native:securityinsights/v20190101preview:getIPSyncer", args ?? new GetIPSyncerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIPSyncerResult>("azure-native:securityinsights/v20190101preview:getIPSyncer", args ?? new GetIPSyncerInvokeArgs(), options.WithDefaults());
     }
 
 

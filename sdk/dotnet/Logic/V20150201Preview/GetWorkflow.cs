@@ -12,10 +12,10 @@ namespace Pulumi.AzureNative.Logic.V20150201Preview
     public static class GetWorkflow
     {
         public static Task<GetWorkflowResult> InvokeAsync(GetWorkflowArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkflowResult>("azure-native:logic/v20150201preview:getWorkflow", args ?? new GetWorkflowArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkflowResult>("azure-native:logic/v20150201preview:getWorkflow", args ?? new GetWorkflowArgs(), options.WithDefaults());
 
         public static Output<GetWorkflowResult> Invoke(GetWorkflowInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWorkflowResult>("azure-native:logic/v20150201preview:getWorkflow", args ?? new GetWorkflowInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkflowResult>("azure-native:logic/v20150201preview:getWorkflow", args ?? new GetWorkflowInvokeArgs(), options.WithDefaults());
     }
 
 

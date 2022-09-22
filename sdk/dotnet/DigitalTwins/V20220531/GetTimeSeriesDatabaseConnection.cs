@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DigitalTwins.V20220531
         /// Describes a time series database connection resource.
         /// </summary>
         public static Task<GetTimeSeriesDatabaseConnectionResult> InvokeAsync(GetTimeSeriesDatabaseConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTimeSeriesDatabaseConnectionResult>("azure-native:digitaltwins/v20220531:getTimeSeriesDatabaseConnection", args ?? new GetTimeSeriesDatabaseConnectionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTimeSeriesDatabaseConnectionResult>("azure-native:digitaltwins/v20220531:getTimeSeriesDatabaseConnection", args ?? new GetTimeSeriesDatabaseConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes a time series database connection resource.
         /// </summary>
         public static Output<GetTimeSeriesDatabaseConnectionResult> Invoke(GetTimeSeriesDatabaseConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTimeSeriesDatabaseConnectionResult>("azure-native:digitaltwins/v20220531:getTimeSeriesDatabaseConnection", args ?? new GetTimeSeriesDatabaseConnectionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTimeSeriesDatabaseConnectionResult>("azure-native:digitaltwins/v20220531:getTimeSeriesDatabaseConnection", args ?? new GetTimeSeriesDatabaseConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

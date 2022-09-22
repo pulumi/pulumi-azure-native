@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Media.V20200501
         /// An Asset.
         /// </summary>
         public static Task<GetAssetResult> InvokeAsync(GetAssetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAssetResult>("azure-native:media/v20200501:getAsset", args ?? new GetAssetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssetResult>("azure-native:media/v20200501:getAsset", args ?? new GetAssetArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Asset.
         /// </summary>
         public static Output<GetAssetResult> Invoke(GetAssetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAssetResult>("azure-native:media/v20200501:getAsset", args ?? new GetAssetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAssetResult>("azure-native:media/v20200501:getAsset", args ?? new GetAssetInvokeArgs(), options.WithDefaults());
     }
 
 

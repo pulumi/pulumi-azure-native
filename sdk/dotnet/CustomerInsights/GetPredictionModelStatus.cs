@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// API Version: 2017-04-26.
         /// </summary>
         public static Task<GetPredictionModelStatusResult> InvokeAsync(GetPredictionModelStatusArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPredictionModelStatusResult>("azure-native:customerinsights:getPredictionModelStatus", args ?? new GetPredictionModelStatusArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPredictionModelStatusResult>("azure-native:customerinsights:getPredictionModelStatus", args ?? new GetPredictionModelStatusArgs(), options.WithDefaults());
 
         /// <summary>
         /// The prediction model status.
         /// API Version: 2017-04-26.
         /// </summary>
         public static Output<GetPredictionModelStatusResult> Invoke(GetPredictionModelStatusInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPredictionModelStatusResult>("azure-native:customerinsights:getPredictionModelStatus", args ?? new GetPredictionModelStatusInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPredictionModelStatusResult>("azure-native:customerinsights:getPredictionModelStatus", args ?? new GetPredictionModelStatusInvokeArgs(), options.WithDefaults());
     }
 
 

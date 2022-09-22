@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.TestBase
         /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Task<GetTestResultVideoDownloadURLResult> InvokeAsync(GetTestResultVideoDownloadURLArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTestResultVideoDownloadURLResult>("azure-native:testbase:getTestResultVideoDownloadURL", args ?? new GetTestResultVideoDownloadURLArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTestResultVideoDownloadURLResult>("azure-native:testbase:getTestResultVideoDownloadURL", args ?? new GetTestResultVideoDownloadURLArgs(), options.WithDefaults());
 
         /// <summary>
         /// The response of getting a download URL.
         /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Output<GetTestResultVideoDownloadURLResult> Invoke(GetTestResultVideoDownloadURLInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTestResultVideoDownloadURLResult>("azure-native:testbase:getTestResultVideoDownloadURL", args ?? new GetTestResultVideoDownloadURLInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTestResultVideoDownloadURLResult>("azure-native:testbase:getTestResultVideoDownloadURL", args ?? new GetTestResultVideoDownloadURLInvokeArgs(), options.WithDefaults());
     }
 
 

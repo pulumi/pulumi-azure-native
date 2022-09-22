@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview
         /// Video streaming token grants access to the video streaming URLs which can be used by an compatible HLS or DASH player.
         /// </summary>
         public static Task<ListVideoStreamingTokenResult> InvokeAsync(ListVideoStreamingTokenArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListVideoStreamingTokenResult>("azure-native:videoanalyzer/v20210501preview:listVideoStreamingToken", args ?? new ListVideoStreamingTokenArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListVideoStreamingTokenResult>("azure-native:videoanalyzer/v20210501preview:listVideoStreamingToken", args ?? new ListVideoStreamingTokenArgs(), options.WithDefaults());
 
         /// <summary>
         /// Video streaming token grants access to the video streaming URLs which can be used by an compatible HLS or DASH player.
         /// </summary>
         public static Output<ListVideoStreamingTokenResult> Invoke(ListVideoStreamingTokenInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListVideoStreamingTokenResult>("azure-native:videoanalyzer/v20210501preview:listVideoStreamingToken", args ?? new ListVideoStreamingTokenInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListVideoStreamingTokenResult>("azure-native:videoanalyzer/v20210501preview:listVideoStreamingToken", args ?? new ListVideoStreamingTokenInvokeArgs(), options.WithDefaults());
     }
 
 

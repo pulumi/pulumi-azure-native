@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         /// Get Data Plane read only token response definition.
         /// </summary>
         public static Task<GetFactoryDataPlaneAccessResult> InvokeAsync(GetFactoryDataPlaneAccessArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFactoryDataPlaneAccessResult>("azure-native:datafactory/v20180601:getFactoryDataPlaneAccess", args ?? new GetFactoryDataPlaneAccessArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFactoryDataPlaneAccessResult>("azure-native:datafactory/v20180601:getFactoryDataPlaneAccess", args ?? new GetFactoryDataPlaneAccessArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get Data Plane read only token response definition.
         /// </summary>
         public static Output<GetFactoryDataPlaneAccessResult> Invoke(GetFactoryDataPlaneAccessInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFactoryDataPlaneAccessResult>("azure-native:datafactory/v20180601:getFactoryDataPlaneAccess", args ?? new GetFactoryDataPlaneAccessInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFactoryDataPlaneAccessResult>("azure-native:datafactory/v20180601:getFactoryDataPlaneAccess", args ?? new GetFactoryDataPlaneAccessInvokeArgs(), options.WithDefaults());
     }
 
 

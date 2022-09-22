@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20210301
         /// Function secrets.
         /// </summary>
         public static Task<ListWebAppSyncFunctionTriggersResult> InvokeAsync(ListWebAppSyncFunctionTriggersArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppSyncFunctionTriggersResult>("azure-native:web/v20210301:listWebAppSyncFunctionTriggers", args ?? new ListWebAppSyncFunctionTriggersArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppSyncFunctionTriggersResult>("azure-native:web/v20210301:listWebAppSyncFunctionTriggers", args ?? new ListWebAppSyncFunctionTriggersArgs(), options.WithDefaults());
 
         /// <summary>
         /// Function secrets.
         /// </summary>
         public static Output<ListWebAppSyncFunctionTriggersResult> Invoke(ListWebAppSyncFunctionTriggersInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListWebAppSyncFunctionTriggersResult>("azure-native:web/v20210301:listWebAppSyncFunctionTriggers", args ?? new ListWebAppSyncFunctionTriggersInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListWebAppSyncFunctionTriggersResult>("azure-native:web/v20210301:listWebAppSyncFunctionTriggers", args ?? new ListWebAppSyncFunctionTriggersInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210210
         /// Protection profile details.
         /// </summary>
         public static Task<GetReplicationPolicyResult> InvokeAsync(GetReplicationPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationPolicyResult>("azure-native:recoveryservices/v20210210:getReplicationPolicy", args ?? new GetReplicationPolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationPolicyResult>("azure-native:recoveryservices/v20210210:getReplicationPolicy", args ?? new GetReplicationPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Protection profile details.
         /// </summary>
         public static Output<GetReplicationPolicyResult> Invoke(GetReplicationPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetReplicationPolicyResult>("azure-native:recoveryservices/v20210210:getReplicationPolicy", args ?? new GetReplicationPolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetReplicationPolicyResult>("azure-native:recoveryservices/v20210210:getReplicationPolicy", args ?? new GetReplicationPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

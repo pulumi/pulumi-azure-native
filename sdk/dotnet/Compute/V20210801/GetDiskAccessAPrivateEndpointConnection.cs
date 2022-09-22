@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Compute.V20210801
         /// The Private Endpoint Connection resource.
         /// </summary>
         public static Task<GetDiskAccessAPrivateEndpointConnectionResult> InvokeAsync(GetDiskAccessAPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDiskAccessAPrivateEndpointConnectionResult>("azure-native:compute/v20210801:getDiskAccessAPrivateEndpointConnection", args ?? new GetDiskAccessAPrivateEndpointConnectionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDiskAccessAPrivateEndpointConnectionResult>("azure-native:compute/v20210801:getDiskAccessAPrivateEndpointConnection", args ?? new GetDiskAccessAPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Private Endpoint Connection resource.
         /// </summary>
         public static Output<GetDiskAccessAPrivateEndpointConnectionResult> Invoke(GetDiskAccessAPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDiskAccessAPrivateEndpointConnectionResult>("azure-native:compute/v20210801:getDiskAccessAPrivateEndpointConnection", args ?? new GetDiskAccessAPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDiskAccessAPrivateEndpointConnectionResult>("azure-native:compute/v20210801:getDiskAccessAPrivateEndpointConnection", args ?? new GetDiskAccessAPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

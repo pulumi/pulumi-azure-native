@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Batch.V20210101
         /// Contains information about a pool.
         /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure-native:batch/v20210101:getPool", args ?? new GetPoolArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure-native:batch/v20210101:getPool", args ?? new GetPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Contains information about a pool.
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:batch/v20210101:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:batch/v20210101:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
     }
 
 

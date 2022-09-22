@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Kusto.V20220707
         /// The list Kusto database principals operation response.
         /// </summary>
         public static Task<ListClusterFollowerDatabasesResult> InvokeAsync(ListClusterFollowerDatabasesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListClusterFollowerDatabasesResult>("azure-native:kusto/v20220707:listClusterFollowerDatabases", args ?? new ListClusterFollowerDatabasesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListClusterFollowerDatabasesResult>("azure-native:kusto/v20220707:listClusterFollowerDatabases", args ?? new ListClusterFollowerDatabasesArgs(), options.WithDefaults());
 
         /// <summary>
         /// The list Kusto database principals operation response.
         /// </summary>
         public static Output<ListClusterFollowerDatabasesResult> Invoke(ListClusterFollowerDatabasesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListClusterFollowerDatabasesResult>("azure-native:kusto/v20220707:listClusterFollowerDatabases", args ?? new ListClusterFollowerDatabasesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListClusterFollowerDatabasesResult>("azure-native:kusto/v20220707:listClusterFollowerDatabases", args ?? new ListClusterFollowerDatabasesInvokeArgs(), options.WithDefaults());
     }
 
 

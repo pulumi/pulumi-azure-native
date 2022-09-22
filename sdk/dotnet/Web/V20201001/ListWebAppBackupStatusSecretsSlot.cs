@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20201001
         /// Backup description.
         /// </summary>
         public static Task<ListWebAppBackupStatusSecretsSlotResult> InvokeAsync(ListWebAppBackupStatusSecretsSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppBackupStatusSecretsSlotResult>("azure-native:web/v20201001:listWebAppBackupStatusSecretsSlot", args ?? new ListWebAppBackupStatusSecretsSlotArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppBackupStatusSecretsSlotResult>("azure-native:web/v20201001:listWebAppBackupStatusSecretsSlot", args ?? new ListWebAppBackupStatusSecretsSlotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Backup description.
         /// </summary>
         public static Output<ListWebAppBackupStatusSecretsSlotResult> Invoke(ListWebAppBackupStatusSecretsSlotInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListWebAppBackupStatusSecretsSlotResult>("azure-native:web/v20201001:listWebAppBackupStatusSecretsSlot", args ?? new ListWebAppBackupStatusSecretsSlotInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListWebAppBackupStatusSecretsSlotResult>("azure-native:web/v20201001:listWebAppBackupStatusSecretsSlot", args ?? new ListWebAppBackupStatusSecretsSlotInvokeArgs(), options.WithDefaults());
     }
 
 

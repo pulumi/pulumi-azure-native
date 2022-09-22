@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DocumentDB.V20210515
         /// An Azure Cosmos DB SQL database.
         /// </summary>
         public static Task<GetSqlResourceSqlDatabaseResult> InvokeAsync(GetSqlResourceSqlDatabaseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlResourceSqlDatabaseResult>("azure-native:documentdb/v20210515:getSqlResourceSqlDatabase", args ?? new GetSqlResourceSqlDatabaseArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlResourceSqlDatabaseResult>("azure-native:documentdb/v20210515:getSqlResourceSqlDatabase", args ?? new GetSqlResourceSqlDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure Cosmos DB SQL database.
         /// </summary>
         public static Output<GetSqlResourceSqlDatabaseResult> Invoke(GetSqlResourceSqlDatabaseInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSqlResourceSqlDatabaseResult>("azure-native:documentdb/v20210515:getSqlResourceSqlDatabase", args ?? new GetSqlResourceSqlDatabaseInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlResourceSqlDatabaseResult>("azure-native:documentdb/v20210515:getSqlResourceSqlDatabase", args ?? new GetSqlResourceSqlDatabaseInvokeArgs(), options.WithDefaults());
     }
 
 

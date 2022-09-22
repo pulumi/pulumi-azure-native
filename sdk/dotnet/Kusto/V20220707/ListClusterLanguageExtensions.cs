@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Kusto.V20220707
         /// The list of language extension objects.
         /// </summary>
         public static Task<ListClusterLanguageExtensionsResult> InvokeAsync(ListClusterLanguageExtensionsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListClusterLanguageExtensionsResult>("azure-native:kusto/v20220707:listClusterLanguageExtensions", args ?? new ListClusterLanguageExtensionsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListClusterLanguageExtensionsResult>("azure-native:kusto/v20220707:listClusterLanguageExtensions", args ?? new ListClusterLanguageExtensionsArgs(), options.WithDefaults());
 
         /// <summary>
         /// The list of language extension objects.
         /// </summary>
         public static Output<ListClusterLanguageExtensionsResult> Invoke(ListClusterLanguageExtensionsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListClusterLanguageExtensionsResult>("azure-native:kusto/v20220707:listClusterLanguageExtensions", args ?? new ListClusterLanguageExtensionsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListClusterLanguageExtensionsResult>("azure-native:kusto/v20220707:listClusterLanguageExtensions", args ?? new ListClusterLanguageExtensionsInvokeArgs(), options.WithDefaults());
     }
 
 

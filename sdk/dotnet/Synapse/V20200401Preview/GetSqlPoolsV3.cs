@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
         /// A sql pool resource.
         /// </summary>
         public static Task<GetSqlPoolsV3Result> InvokeAsync(GetSqlPoolsV3Args args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolsV3Result>("azure-native:synapse/v20200401preview:getSqlPoolsV3", args ?? new GetSqlPoolsV3Args(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolsV3Result>("azure-native:synapse/v20200401preview:getSqlPoolsV3", args ?? new GetSqlPoolsV3Args(), options.WithDefaults());
 
         /// <summary>
         /// A sql pool resource.
         /// </summary>
         public static Output<GetSqlPoolsV3Result> Invoke(GetSqlPoolsV3InvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSqlPoolsV3Result>("azure-native:synapse/v20200401preview:getSqlPoolsV3", args ?? new GetSqlPoolsV3InvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlPoolsV3Result>("azure-native:synapse/v20200401preview:getSqlPoolsV3", args ?? new GetSqlPoolsV3InvokeArgs(), options.WithDefaults());
     }
 
 

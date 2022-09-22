@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Task<GetSourceControlResult> InvokeAsync(GetSourceControlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSourceControlResult>("azure-native:securityinsights:getSourceControl", args ?? new GetSourceControlArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSourceControlResult>("azure-native:securityinsights:getSourceControl", args ?? new GetSourceControlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a SourceControl in Azure Security Insights.
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Output<GetSourceControlResult> Invoke(GetSourceControlInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSourceControlResult>("azure-native:securityinsights:getSourceControl", args ?? new GetSourceControlInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSourceControlResult>("azure-native:securityinsights:getSourceControl", args ?? new GetSourceControlInvokeArgs(), options.WithDefaults());
     }
 
 

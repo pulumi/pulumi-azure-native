@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210331Preview
         /// An event source that receives its data from an Azure EventHub.
         /// </summary>
         public static Task<GetEventHubEventSourceResult> InvokeAsync(GetEventHubEventSourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventHubEventSourceResult>("azure-native:timeseriesinsights/v20210331preview:getEventHubEventSource", args ?? new GetEventHubEventSourceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventHubEventSourceResult>("azure-native:timeseriesinsights/v20210331preview:getEventHubEventSource", args ?? new GetEventHubEventSourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// An event source that receives its data from an Azure EventHub.
         /// </summary>
         public static Output<GetEventHubEventSourceResult> Invoke(GetEventHubEventSourceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEventHubEventSourceResult>("azure-native:timeseriesinsights/v20210331preview:getEventHubEventSource", args ?? new GetEventHubEventSourceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEventHubEventSourceResult>("azure-native:timeseriesinsights/v20210331preview:getEventHubEventSource", args ?? new GetEventHubEventSourceInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.App.V20220101Preview
         /// Dapr Component.
         /// </summary>
         public static Task<GetDaprComponentResult> InvokeAsync(GetDaprComponentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDaprComponentResult>("azure-native:app/v20220101preview:getDaprComponent", args ?? new GetDaprComponentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDaprComponentResult>("azure-native:app/v20220101preview:getDaprComponent", args ?? new GetDaprComponentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Dapr Component.
         /// </summary>
         public static Output<GetDaprComponentResult> Invoke(GetDaprComponentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDaprComponentResult>("azure-native:app/v20220101preview:getDaprComponent", args ?? new GetDaprComponentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDaprComponentResult>("azure-native:app/v20220101preview:getDaprComponent", args ?? new GetDaprComponentInvokeArgs(), options.WithDefaults());
     }
 
 

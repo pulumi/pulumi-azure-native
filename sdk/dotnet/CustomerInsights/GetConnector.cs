@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// API Version: 2017-04-26.
         /// </summary>
         public static Task<GetConnectorResult> InvokeAsync(GetConnectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectorResult>("azure-native:customerinsights:getConnector", args ?? new GetConnectorArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectorResult>("azure-native:customerinsights:getConnector", args ?? new GetConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// The connector resource format.
         /// API Version: 2017-04-26.
         /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("azure-native:customerinsights:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("azure-native:customerinsights:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

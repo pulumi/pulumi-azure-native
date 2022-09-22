@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.WebPubSub
         /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Task<GetWebPubSubSharedPrivateLinkResourceResult> InvokeAsync(GetWebPubSubSharedPrivateLinkResourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebPubSubSharedPrivateLinkResourceResult>("azure-native:webpubsub:getWebPubSubSharedPrivateLinkResource", args ?? new GetWebPubSubSharedPrivateLinkResourceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebPubSubSharedPrivateLinkResourceResult>("azure-native:webpubsub:getWebPubSubSharedPrivateLinkResource", args ?? new GetWebPubSubSharedPrivateLinkResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes a Shared Private Link Resource
         /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Output<GetWebPubSubSharedPrivateLinkResourceResult> Invoke(GetWebPubSubSharedPrivateLinkResourceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWebPubSubSharedPrivateLinkResourceResult>("azure-native:webpubsub:getWebPubSubSharedPrivateLinkResource", args ?? new GetWebPubSubSharedPrivateLinkResourceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebPubSubSharedPrivateLinkResourceResult>("azure-native:webpubsub:getWebPubSubSharedPrivateLinkResource", args ?? new GetWebPubSubSharedPrivateLinkResourceInvokeArgs(), options.WithDefaults());
     }
 
 

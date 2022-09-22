@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20200401
         /// Tap configuration in a Network Interface.
         /// </summary>
         public static Task<GetNetworkInterfaceTapConfigurationResult> InvokeAsync(GetNetworkInterfaceTapConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceTapConfigurationResult>("azure-native:network/v20200401:getNetworkInterfaceTapConfiguration", args ?? new GetNetworkInterfaceTapConfigurationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceTapConfigurationResult>("azure-native:network/v20200401:getNetworkInterfaceTapConfiguration", args ?? new GetNetworkInterfaceTapConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Tap configuration in a Network Interface.
         /// </summary>
         public static Output<GetNetworkInterfaceTapConfigurationResult> Invoke(GetNetworkInterfaceTapConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceTapConfigurationResult>("azure-native:network/v20200401:getNetworkInterfaceTapConfiguration", args ?? new GetNetworkInterfaceTapConfigurationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceTapConfigurationResult>("azure-native:network/v20200401:getNetworkInterfaceTapConfiguration", args ?? new GetNetworkInterfaceTapConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

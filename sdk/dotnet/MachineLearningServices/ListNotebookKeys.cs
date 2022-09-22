@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<ListNotebookKeysResult> InvokeAsync(ListNotebookKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListNotebookKeysResult>("azure-native:machinelearningservices:listNotebookKeys", args ?? new ListNotebookKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListNotebookKeysResult>("azure-native:machinelearningservices:listNotebookKeys", args ?? new ListNotebookKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<ListNotebookKeysResult> Invoke(ListNotebookKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListNotebookKeysResult>("azure-native:machinelearningservices:listNotebookKeys", args ?? new ListNotebookKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListNotebookKeysResult>("azure-native:machinelearningservices:listNotebookKeys", args ?? new ListNotebookKeysInvokeArgs(), options.WithDefaults());
     }
 
 

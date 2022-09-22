@@ -12,10 +12,10 @@ namespace Pulumi.AzureNative.AzureActiveDirectory.V20190101Preview
     public static class GetB2CTenant
     {
         public static Task<GetB2CTenantResult> InvokeAsync(GetB2CTenantArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetB2CTenantResult>("azure-native:azureactivedirectory/v20190101preview:getB2CTenant", args ?? new GetB2CTenantArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetB2CTenantResult>("azure-native:azureactivedirectory/v20190101preview:getB2CTenant", args ?? new GetB2CTenantArgs(), options.WithDefaults());
 
         public static Output<GetB2CTenantResult> Invoke(GetB2CTenantInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetB2CTenantResult>("azure-native:azureactivedirectory/v20190101preview:getB2CTenant", args ?? new GetB2CTenantInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetB2CTenantResult>("azure-native:azureactivedirectory/v20190101preview:getB2CTenant", args ?? new GetB2CTenantInvokeArgs(), options.WithDefaults());
     }
 
 

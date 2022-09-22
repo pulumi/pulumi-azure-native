@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.EventGrid
         /// API Version: 2021-10-15-preview.
         /// </summary>
         public static Task<GetPartnerConfigurationResult> InvokeAsync(GetPartnerConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerConfigurationResult>("azure-native:eventgrid:getPartnerConfiguration", args ?? new GetPartnerConfigurationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPartnerConfigurationResult>("azure-native:eventgrid:getPartnerConfiguration", args ?? new GetPartnerConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Partner configuration information
         /// API Version: 2021-10-15-preview.
         /// </summary>
         public static Output<GetPartnerConfigurationResult> Invoke(GetPartnerConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPartnerConfigurationResult>("azure-native:eventgrid:getPartnerConfiguration", args ?? new GetPartnerConfigurationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPartnerConfigurationResult>("azure-native:eventgrid:getPartnerConfiguration", args ?? new GetPartnerConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// Integration runtime status response.
         /// </summary>
         public static Task<GetIntegrationRuntimeStatusResult> InvokeAsync(GetIntegrationRuntimeStatusArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationRuntimeStatusResult>("azure-native:synapse/v20210601preview:getIntegrationRuntimeStatus", args ?? new GetIntegrationRuntimeStatusArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationRuntimeStatusResult>("azure-native:synapse/v20210601preview:getIntegrationRuntimeStatus", args ?? new GetIntegrationRuntimeStatusArgs(), options.WithDefaults());
 
         /// <summary>
         /// Integration runtime status response.
         /// </summary>
         public static Output<GetIntegrationRuntimeStatusResult> Invoke(GetIntegrationRuntimeStatusInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIntegrationRuntimeStatusResult>("azure-native:synapse/v20210601preview:getIntegrationRuntimeStatus", args ?? new GetIntegrationRuntimeStatusInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationRuntimeStatusResult>("azure-native:synapse/v20210601preview:getIntegrationRuntimeStatus", args ?? new GetIntegrationRuntimeStatusInvokeArgs(), options.WithDefaults());
     }
 
 

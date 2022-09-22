@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         /// Pipeline resource type.
         /// </summary>
         public static Task<GetPipelineResult> InvokeAsync(GetPipelineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPipelineResult>("azure-native:datafactory/v20180601:getPipeline", args ?? new GetPipelineArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPipelineResult>("azure-native:datafactory/v20180601:getPipeline", args ?? new GetPipelineArgs(), options.WithDefaults());
 
         /// <summary>
         /// Pipeline resource type.
         /// </summary>
         public static Output<GetPipelineResult> Invoke(GetPipelineInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPipelineResult>("azure-native:datafactory/v20180601:getPipeline", args ?? new GetPipelineInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPipelineResult>("azure-native:datafactory/v20180601:getPipeline", args ?? new GetPipelineInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Datadog.V20210301
         /// Response of a list operation.
         /// </summary>
         public static Task<ListMonitorApiKeysResult> InvokeAsync(ListMonitorApiKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListMonitorApiKeysResult>("azure-native:datadog/v20210301:listMonitorApiKeys", args ?? new ListMonitorApiKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListMonitorApiKeysResult>("azure-native:datadog/v20210301:listMonitorApiKeys", args ?? new ListMonitorApiKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response of a list operation.
         /// </summary>
         public static Output<ListMonitorApiKeysResult> Invoke(ListMonitorApiKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListMonitorApiKeysResult>("azure-native:datadog/v20210301:listMonitorApiKeys", args ?? new ListMonitorApiKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListMonitorApiKeysResult>("azure-native:datadog/v20210301:listMonitorApiKeys", args ?? new ListMonitorApiKeysInvokeArgs(), options.WithDefaults());
     }
 
 

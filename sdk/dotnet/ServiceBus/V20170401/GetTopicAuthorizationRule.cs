@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ServiceBus.V20170401
         /// Description of a namespace authorization rule.
         /// </summary>
         public static Task<GetTopicAuthorizationRuleResult> InvokeAsync(GetTopicAuthorizationRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTopicAuthorizationRuleResult>("azure-native:servicebus/v20170401:getTopicAuthorizationRule", args ?? new GetTopicAuthorizationRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTopicAuthorizationRuleResult>("azure-native:servicebus/v20170401:getTopicAuthorizationRule", args ?? new GetTopicAuthorizationRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description of a namespace authorization rule.
         /// </summary>
         public static Output<GetTopicAuthorizationRuleResult> Invoke(GetTopicAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTopicAuthorizationRuleResult>("azure-native:servicebus/v20170401:getTopicAuthorizationRule", args ?? new GetTopicAuthorizationRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTopicAuthorizationRuleResult>("azure-native:servicebus/v20170401:getTopicAuthorizationRule", args ?? new GetTopicAuthorizationRuleInvokeArgs(), options.WithDefaults());
     }
 
 

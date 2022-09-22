@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Automation.V20190601
         /// Definition of the certificate.
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-native:automation/v20190601:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-native:automation/v20190601:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of the certificate.
         /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("azure-native:automation/v20190601:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("azure-native:automation/v20190601:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
     }
 
 

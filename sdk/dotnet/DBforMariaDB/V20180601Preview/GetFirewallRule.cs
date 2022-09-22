@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601Preview
         /// Represents a server firewall rule.
         /// </summary>
         public static Task<GetFirewallRuleResult> InvokeAsync(GetFirewallRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-native:dbformariadb/v20180601preview:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-native:dbformariadb/v20180601preview:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a server firewall rule.
         /// </summary>
         public static Output<GetFirewallRuleResult> Invoke(GetFirewallRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFirewallRuleResult>("azure-native:dbformariadb/v20180601preview:getFirewallRule", args ?? new GetFirewallRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFirewallRuleResult>("azure-native:dbformariadb/v20180601preview:getFirewallRule", args ?? new GetFirewallRuleInvokeArgs(), options.WithDefaults());
     }
 
 

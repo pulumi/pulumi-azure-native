@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// API Version: 2019-07-01.
         /// </summary>
         public static Task<GetRemediationAtResourceGroupResult> InvokeAsync(GetRemediationAtResourceGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRemediationAtResourceGroupResult>("azure-native:policyinsights:getRemediationAtResourceGroup", args ?? new GetRemediationAtResourceGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemediationAtResourceGroupResult>("azure-native:policyinsights:getRemediationAtResourceGroup", args ?? new GetRemediationAtResourceGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// The remediation definition.
         /// API Version: 2019-07-01.
         /// </summary>
         public static Output<GetRemediationAtResourceGroupResult> Invoke(GetRemediationAtResourceGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRemediationAtResourceGroupResult>("azure-native:policyinsights:getRemediationAtResourceGroup", args ?? new GetRemediationAtResourceGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRemediationAtResourceGroupResult>("azure-native:policyinsights:getRemediationAtResourceGroup", args ?? new GetRemediationAtResourceGroupInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         /// Data connector to pull threat intelligence data from TIP products.
         /// </summary>
         public static Task<GetTIDataConnectorResult> InvokeAsync(GetTIDataConnectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTIDataConnectorResult>("azure-native:securityinsights/v20190101preview:getTIDataConnector", args ?? new GetTIDataConnectorArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTIDataConnectorResult>("azure-native:securityinsights/v20190101preview:getTIDataConnector", args ?? new GetTIDataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data connector to pull threat intelligence data from TIP products.
         /// </summary>
         public static Output<GetTIDataConnectorResult> Invoke(GetTIDataConnectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTIDataConnectorResult>("azure-native:securityinsights/v20190101preview:getTIDataConnector", args ?? new GetTIDataConnectorInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTIDataConnectorResult>("azure-native:securityinsights/v20190101preview:getTIDataConnector", args ?? new GetTIDataConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.EventHub
         /// API Version: 2017-04-01.
         /// </summary>
         public static Task<ListNamespaceKeysResult> InvokeAsync(ListNamespaceKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListNamespaceKeysResult>("azure-native:eventhub:listNamespaceKeys", args ?? new ListNamespaceKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListNamespaceKeysResult>("azure-native:eventhub:listNamespaceKeys", args ?? new ListNamespaceKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Namespace/EventHub Connection String
         /// API Version: 2017-04-01.
         /// </summary>
         public static Output<ListNamespaceKeysResult> Invoke(ListNamespaceKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListNamespaceKeysResult>("azure-native:eventhub:listNamespaceKeys", args ?? new ListNamespaceKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListNamespaceKeysResult>("azure-native:eventhub:listNamespaceKeys", args ?? new ListNamespaceKeysInvokeArgs(), options.WithDefaults());
     }
 
 

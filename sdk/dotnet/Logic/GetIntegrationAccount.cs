@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Logic
         /// API Version: 2019-05-01.
         /// </summary>
         public static Task<GetIntegrationAccountResult> InvokeAsync(GetIntegrationAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountResult>("azure-native:logic:getIntegrationAccount", args ?? new GetIntegrationAccountArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountResult>("azure-native:logic:getIntegrationAccount", args ?? new GetIntegrationAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// The integration account.
         /// API Version: 2019-05-01.
         /// </summary>
         public static Output<GetIntegrationAccountResult> Invoke(GetIntegrationAccountInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountResult>("azure-native:logic:getIntegrationAccount", args ?? new GetIntegrationAccountInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountResult>("azure-native:logic:getIntegrationAccount", args ?? new GetIntegrationAccountInvokeArgs(), options.WithDefaults());
     }
 
 

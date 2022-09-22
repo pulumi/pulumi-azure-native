@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// API Version: 2021-10-01.
         /// </summary>
         public static Task<GetDeploymentResult> InvokeAsync(GetDeploymentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentResult>("azure-native:cognitiveservices:getDeployment", args ?? new GetDeploymentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentResult>("azure-native:cognitiveservices:getDeployment", args ?? new GetDeploymentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Cognitive Services account deployment.
         /// API Version: 2021-10-01.
         /// </summary>
         public static Output<GetDeploymentResult> Invoke(GetDeploymentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDeploymentResult>("azure-native:cognitiveservices:getDeployment", args ?? new GetDeploymentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentResult>("azure-native:cognitiveservices:getDeployment", args ?? new GetDeploymentInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
         /// Defines the PUT rollout request body.
         /// </summary>
         public static Task<GetRolloutResult> InvokeAsync(GetRolloutArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRolloutResult>("azure-native:deploymentmanager/v20180901preview:getRollout", args ?? new GetRolloutArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRolloutResult>("azure-native:deploymentmanager/v20180901preview:getRollout", args ?? new GetRolloutArgs(), options.WithDefaults());
 
         /// <summary>
         /// Defines the PUT rollout request body.
         /// </summary>
         public static Output<GetRolloutResult> Invoke(GetRolloutInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRolloutResult>("azure-native:deploymentmanager/v20180901preview:getRollout", args ?? new GetRolloutInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRolloutResult>("azure-native:deploymentmanager/v20180901preview:getRollout", args ?? new GetRolloutInvokeArgs(), options.WithDefaults());
     }
 
 

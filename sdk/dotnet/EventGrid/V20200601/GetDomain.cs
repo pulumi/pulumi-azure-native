@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.EventGrid.V20200601
         /// EventGrid Domain.
         /// </summary>
         public static Task<GetDomainResult> InvokeAsync(GetDomainArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("azure-native:eventgrid/v20200601:getDomain", args ?? new GetDomainArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("azure-native:eventgrid/v20200601:getDomain", args ?? new GetDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// EventGrid Domain.
         /// </summary>
         public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDomainResult>("azure-native:eventgrid/v20200601:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("azure-native:eventgrid/v20200601:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2018-05-01.
         /// </summary>
         public static Task<GetRecordSetResult> InvokeAsync(GetRecordSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRecordSetResult>("azure-native:network:getRecordSet", args ?? new GetRecordSetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRecordSetResult>("azure-native:network:getRecordSet", args ?? new GetRecordSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes a DNS record set (a collection of DNS records with the same name and type).
         /// API Version: 2018-05-01.
         /// </summary>
         public static Output<GetRecordSetResult> Invoke(GetRecordSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRecordSetResult>("azure-native:network:getRecordSet", args ?? new GetRecordSetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRecordSetResult>("azure-native:network:getRecordSet", args ?? new GetRecordSetInvokeArgs(), options.WithDefaults());
     }
 
 

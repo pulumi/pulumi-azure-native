@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Kusto
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetEventHubDataConnectionResult> InvokeAsync(GetEventHubDataConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventHubDataConnectionResult>("azure-native:kusto:getEventHubDataConnection", args ?? new GetEventHubDataConnectionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventHubDataConnectionResult>("azure-native:kusto:getEventHubDataConnection", args ?? new GetEventHubDataConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Class representing an event hub data connection.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<GetEventHubDataConnectionResult> Invoke(GetEventHubDataConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEventHubDataConnectionResult>("azure-native:kusto:getEventHubDataConnection", args ?? new GetEventHubDataConnectionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEventHubDataConnectionResult>("azure-native:kusto:getEventHubDataConnection", args ?? new GetEventHubDataConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

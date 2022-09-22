@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DocumentDB.V20160319
         /// The access keys for the given database account.
         /// </summary>
         public static Task<ListDatabaseAccountKeysResult> InvokeAsync(ListDatabaseAccountKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListDatabaseAccountKeysResult>("azure-native:documentdb/v20160319:listDatabaseAccountKeys", args ?? new ListDatabaseAccountKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListDatabaseAccountKeysResult>("azure-native:documentdb/v20160319:listDatabaseAccountKeys", args ?? new ListDatabaseAccountKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// The access keys for the given database account.
         /// </summary>
         public static Output<ListDatabaseAccountKeysResult> Invoke(ListDatabaseAccountKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListDatabaseAccountKeysResult>("azure-native:documentdb/v20160319:listDatabaseAccountKeys", args ?? new ListDatabaseAccountKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListDatabaseAccountKeysResult>("azure-native:documentdb/v20160319:listDatabaseAccountKeys", args ?? new ListDatabaseAccountKeysInvokeArgs(), options.WithDefaults());
     }
 
 

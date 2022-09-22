@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Aad.V20210301
         /// Domain service.
         /// </summary>
         public static Task<GetDomainServiceResult> InvokeAsync(GetDomainServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDomainServiceResult>("azure-native:aad/v20210301:getDomainService", args ?? new GetDomainServiceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainServiceResult>("azure-native:aad/v20210301:getDomainService", args ?? new GetDomainServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Domain service.
         /// </summary>
         public static Output<GetDomainServiceResult> Invoke(GetDomainServiceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDomainServiceResult>("azure-native:aad/v20210301:getDomainService", args ?? new GetDomainServiceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDomainServiceResult>("azure-native:aad/v20210301:getDomainService", args ?? new GetDomainServiceInvokeArgs(), options.WithDefaults());
     }
 
 

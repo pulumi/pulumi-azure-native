@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.ScVmm
         /// API Version: 2020-06-05-preview.
         /// </summary>
         public static Task<GetVmmServerResult> InvokeAsync(GetVmmServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVmmServerResult>("azure-native:scvmm:getVmmServer", args ?? new GetVmmServerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVmmServerResult>("azure-native:scvmm:getVmmServer", args ?? new GetVmmServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// The VmmServers resource definition.
         /// API Version: 2020-06-05-preview.
         /// </summary>
         public static Output<GetVmmServerResult> Invoke(GetVmmServerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVmmServerResult>("azure-native:scvmm:getVmmServer", args ?? new GetVmmServerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVmmServerResult>("azure-native:scvmm:getVmmServer", args ?? new GetVmmServerInvokeArgs(), options.WithDefaults());
     }
 
 

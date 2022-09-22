@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Insights
         /// API Version: 2016-03-01.
         /// </summary>
         public static Task<GetLogProfileResult> InvokeAsync(GetLogProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLogProfileResult>("azure-native:insights:getLogProfile", args ?? new GetLogProfileArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogProfileResult>("azure-native:insights:getLogProfile", args ?? new GetLogProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// The log profile resource.
         /// API Version: 2016-03-01.
         /// </summary>
         public static Output<GetLogProfileResult> Invoke(GetLogProfileInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLogProfileResult>("azure-native:insights:getLogProfile", args ?? new GetLogProfileInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLogProfileResult>("azure-native:insights:getLogProfile", args ?? new GetLogProfileInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
         /// A single API Management service resource in List or Get response.
         /// </summary>
         public static Task<GetApiManagementServiceResult> InvokeAsync(GetApiManagementServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApiManagementServiceResult>("azure-native:apimanagement/v20210401preview:getApiManagementService", args ?? new GetApiManagementServiceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiManagementServiceResult>("azure-native:apimanagement/v20210401preview:getApiManagementService", args ?? new GetApiManagementServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// A single API Management service resource in List or Get response.
         /// </summary>
         public static Output<GetApiManagementServiceResult> Invoke(GetApiManagementServiceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApiManagementServiceResult>("azure-native:apimanagement/v20210401preview:getApiManagementService", args ?? new GetApiManagementServiceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetApiManagementServiceResult>("azure-native:apimanagement/v20210401preview:getApiManagementService", args ?? new GetApiManagementServiceInvokeArgs(), options.WithDefaults());
     }
 
 

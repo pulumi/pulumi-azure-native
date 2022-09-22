@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
         /// Hub resource.
         /// </summary>
         public static Task<GetHubResult> InvokeAsync(GetHubArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHubResult>("azure-native:customerinsights/v20170426:getHub", args ?? new GetHubArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetHubResult>("azure-native:customerinsights/v20170426:getHub", args ?? new GetHubArgs(), options.WithDefaults());
 
         /// <summary>
         /// Hub resource.
         /// </summary>
         public static Output<GetHubResult> Invoke(GetHubInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetHubResult>("azure-native:customerinsights/v20170426:getHub", args ?? new GetHubInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetHubResult>("azure-native:customerinsights/v20170426:getHub", args ?? new GetHubInvokeArgs(), options.WithDefaults());
     }
 
 

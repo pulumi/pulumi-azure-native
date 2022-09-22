@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         /// API Version: 2021-11-01-preview.
         /// </summary>
         public static Task<ListVideoContentTokenResult> InvokeAsync(ListVideoContentTokenArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListVideoContentTokenResult>("azure-native:videoanalyzer:listVideoContentToken", args ?? new ListVideoContentTokenArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListVideoContentTokenResult>("azure-native:videoanalyzer:listVideoContentToken", args ?? new ListVideoContentTokenArgs(), options.WithDefaults());
 
         /// <summary>
         /// "Video content token grants access to the video content URLs."
         /// API Version: 2021-11-01-preview.
         /// </summary>
         public static Output<ListVideoContentTokenResult> Invoke(ListVideoContentTokenInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListVideoContentTokenResult>("azure-native:videoanalyzer:listVideoContentToken", args ?? new ListVideoContentTokenInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListVideoContentTokenResult>("azure-native:videoanalyzer:listVideoContentToken", args ?? new ListVideoContentTokenInvokeArgs(), options.WithDefaults());
     }
 
 

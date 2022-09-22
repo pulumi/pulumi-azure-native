@@ -12,10 +12,10 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120
     public static class GetProviderRegistration
     {
         public static Task<GetProviderRegistrationResult> InvokeAsync(GetProviderRegistrationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProviderRegistrationResult>("azure-native:providerhub/v20201120:getProviderRegistration", args ?? new GetProviderRegistrationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetProviderRegistrationResult>("azure-native:providerhub/v20201120:getProviderRegistration", args ?? new GetProviderRegistrationArgs(), options.WithDefaults());
 
         public static Output<GetProviderRegistrationResult> Invoke(GetProviderRegistrationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProviderRegistrationResult>("azure-native:providerhub/v20201120:getProviderRegistration", args ?? new GetProviderRegistrationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetProviderRegistrationResult>("azure-native:providerhub/v20201120:getProviderRegistration", args ?? new GetProviderRegistrationInvokeArgs(), options.WithDefaults());
     }
 
 

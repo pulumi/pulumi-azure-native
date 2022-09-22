@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         /// A Policy.
         /// </summary>
         public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("azure-native:devtestlab/v20160515:getPolicy", args ?? new GetPolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("azure-native:devtestlab/v20160515:getPolicy", args ?? new GetPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// A Policy.
         /// </summary>
         public static Output<GetPolicyResult> Invoke(GetPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("azure-native:devtestlab/v20160515:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("azure-native:devtestlab/v20160515:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

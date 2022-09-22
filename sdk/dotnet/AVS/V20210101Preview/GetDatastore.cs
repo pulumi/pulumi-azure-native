@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.AVS.V20210101Preview
         /// A datastore resource
         /// </summary>
         public static Task<GetDatastoreResult> InvokeAsync(GetDatastoreArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatastoreResult>("azure-native:avs/v20210101preview:getDatastore", args ?? new GetDatastoreArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatastoreResult>("azure-native:avs/v20210101preview:getDatastore", args ?? new GetDatastoreArgs(), options.WithDefaults());
 
         /// <summary>
         /// A datastore resource
         /// </summary>
         public static Output<GetDatastoreResult> Invoke(GetDatastoreInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDatastoreResult>("azure-native:avs/v20210101preview:getDatastore", args ?? new GetDatastoreInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDatastoreResult>("azure-native:avs/v20210101preview:getDatastore", args ?? new GetDatastoreInvokeArgs(), options.WithDefaults());
     }
 
 

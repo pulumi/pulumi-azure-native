@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
         /// Policy fragment contract details.
         /// </summary>
         public static Task<GetPolicyFragmentResult> InvokeAsync(GetPolicyFragmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyFragmentResult>("azure-native:apimanagement/v20211201preview:getPolicyFragment", args ?? new GetPolicyFragmentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyFragmentResult>("azure-native:apimanagement/v20211201preview:getPolicyFragment", args ?? new GetPolicyFragmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Policy fragment contract details.
         /// </summary>
         public static Output<GetPolicyFragmentResult> Invoke(GetPolicyFragmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPolicyFragmentResult>("azure-native:apimanagement/v20211201preview:getPolicyFragment", args ?? new GetPolicyFragmentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPolicyFragmentResult>("azure-native:apimanagement/v20211201preview:getPolicyFragment", args ?? new GetPolicyFragmentInvokeArgs(), options.WithDefaults());
     }
 
 

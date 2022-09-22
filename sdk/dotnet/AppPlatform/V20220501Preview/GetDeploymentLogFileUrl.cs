@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview
         /// Log file URL payload
         /// </summary>
         public static Task<GetDeploymentLogFileUrlResult> InvokeAsync(GetDeploymentLogFileUrlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentLogFileUrlResult>("azure-native:appplatform/v20220501preview:getDeploymentLogFileUrl", args ?? new GetDeploymentLogFileUrlArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentLogFileUrlResult>("azure-native:appplatform/v20220501preview:getDeploymentLogFileUrl", args ?? new GetDeploymentLogFileUrlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Log file URL payload
         /// </summary>
         public static Output<GetDeploymentLogFileUrlResult> Invoke(GetDeploymentLogFileUrlInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDeploymentLogFileUrlResult>("azure-native:appplatform/v20220501preview:getDeploymentLogFileUrl", args ?? new GetDeploymentLogFileUrlInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentLogFileUrlResult>("azure-native:appplatform/v20220501preview:getDeploymentLogFileUrl", args ?? new GetDeploymentLogFileUrlInvokeArgs(), options.WithDefaults());
     }
 
 

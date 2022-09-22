@@ -12,10 +12,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
     public static class GetBatchEndpoint
     {
         public static Task<GetBatchEndpointResult> InvokeAsync(GetBatchEndpointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBatchEndpointResult>("azure-native:machinelearningservices/v20220601preview:getBatchEndpoint", args ?? new GetBatchEndpointArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBatchEndpointResult>("azure-native:machinelearningservices/v20220601preview:getBatchEndpoint", args ?? new GetBatchEndpointArgs(), options.WithDefaults());
 
         public static Output<GetBatchEndpointResult> Invoke(GetBatchEndpointInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBatchEndpointResult>("azure-native:machinelearningservices/v20220601preview:getBatchEndpoint", args ?? new GetBatchEndpointInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBatchEndpointResult>("azure-native:machinelearningservices/v20220601preview:getBatchEndpoint", args ?? new GetBatchEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

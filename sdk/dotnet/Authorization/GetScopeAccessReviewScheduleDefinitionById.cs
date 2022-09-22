@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Authorization
         /// API Version: 2021-12-01-preview.
         /// </summary>
         public static Task<GetScopeAccessReviewScheduleDefinitionByIdResult> InvokeAsync(GetScopeAccessReviewScheduleDefinitionByIdArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScopeAccessReviewScheduleDefinitionByIdResult>("azure-native:authorization:getScopeAccessReviewScheduleDefinitionById", args ?? new GetScopeAccessReviewScheduleDefinitionByIdArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetScopeAccessReviewScheduleDefinitionByIdResult>("azure-native:authorization:getScopeAccessReviewScheduleDefinitionById", args ?? new GetScopeAccessReviewScheduleDefinitionByIdArgs(), options.WithDefaults());
 
         /// <summary>
         /// Access Review Schedule Definition.
         /// API Version: 2021-12-01-preview.
         /// </summary>
         public static Output<GetScopeAccessReviewScheduleDefinitionByIdResult> Invoke(GetScopeAccessReviewScheduleDefinitionByIdInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetScopeAccessReviewScheduleDefinitionByIdResult>("azure-native:authorization:getScopeAccessReviewScheduleDefinitionById", args ?? new GetScopeAccessReviewScheduleDefinitionByIdInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetScopeAccessReviewScheduleDefinitionByIdResult>("azure-native:authorization:getScopeAccessReviewScheduleDefinitionById", args ?? new GetScopeAccessReviewScheduleDefinitionByIdInvokeArgs(), options.WithDefaults());
     }
 
 

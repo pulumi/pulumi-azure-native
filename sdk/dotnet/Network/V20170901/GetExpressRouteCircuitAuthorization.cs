@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Network.V20170901
         /// Authorization in an ExpressRouteCircuit resource.
         /// </summary>
         public static Task<GetExpressRouteCircuitAuthorizationResult> InvokeAsync(GetExpressRouteCircuitAuthorizationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitAuthorizationResult>("azure-native:network/v20170901:getExpressRouteCircuitAuthorization", args ?? new GetExpressRouteCircuitAuthorizationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitAuthorizationResult>("azure-native:network/v20170901:getExpressRouteCircuitAuthorization", args ?? new GetExpressRouteCircuitAuthorizationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Authorization in an ExpressRouteCircuit resource.
         /// </summary>
         public static Output<GetExpressRouteCircuitAuthorizationResult> Invoke(GetExpressRouteCircuitAuthorizationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetExpressRouteCircuitAuthorizationResult>("azure-native:network/v20170901:getExpressRouteCircuitAuthorization", args ?? new GetExpressRouteCircuitAuthorizationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetExpressRouteCircuitAuthorizationResult>("azure-native:network/v20170901:getExpressRouteCircuitAuthorization", args ?? new GetExpressRouteCircuitAuthorizationInvokeArgs(), options.WithDefaults());
     }
 
 

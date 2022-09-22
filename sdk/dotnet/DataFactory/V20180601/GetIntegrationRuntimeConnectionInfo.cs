@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         /// Connection information for encrypting the on-premises data source credentials.
         /// </summary>
         public static Task<GetIntegrationRuntimeConnectionInfoResult> InvokeAsync(GetIntegrationRuntimeConnectionInfoArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationRuntimeConnectionInfoResult>("azure-native:datafactory/v20180601:getIntegrationRuntimeConnectionInfo", args ?? new GetIntegrationRuntimeConnectionInfoArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationRuntimeConnectionInfoResult>("azure-native:datafactory/v20180601:getIntegrationRuntimeConnectionInfo", args ?? new GetIntegrationRuntimeConnectionInfoArgs(), options.WithDefaults());
 
         /// <summary>
         /// Connection information for encrypting the on-premises data source credentials.
         /// </summary>
         public static Output<GetIntegrationRuntimeConnectionInfoResult> Invoke(GetIntegrationRuntimeConnectionInfoInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIntegrationRuntimeConnectionInfoResult>("azure-native:datafactory/v20180601:getIntegrationRuntimeConnectionInfo", args ?? new GetIntegrationRuntimeConnectionInfoInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationRuntimeConnectionInfoResult>("azure-native:datafactory/v20180601:getIntegrationRuntimeConnectionInfo", args ?? new GetIntegrationRuntimeConnectionInfoInvokeArgs(), options.WithDefaults());
     }
 
 

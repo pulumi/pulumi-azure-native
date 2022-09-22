@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         /// The Backup Schedule Group
         /// </summary>
         public static Task<GetBackupScheduleGroupResult> InvokeAsync(GetBackupScheduleGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBackupScheduleGroupResult>("azure-native:storsimple/v20161001:getBackupScheduleGroup", args ?? new GetBackupScheduleGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBackupScheduleGroupResult>("azure-native:storsimple/v20161001:getBackupScheduleGroup", args ?? new GetBackupScheduleGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Backup Schedule Group
         /// </summary>
         public static Output<GetBackupScheduleGroupResult> Invoke(GetBackupScheduleGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBackupScheduleGroupResult>("azure-native:storsimple/v20161001:getBackupScheduleGroup", args ?? new GetBackupScheduleGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBackupScheduleGroupResult>("azure-native:storsimple/v20161001:getBackupScheduleGroup", args ?? new GetBackupScheduleGroupInvokeArgs(), options.WithDefaults());
     }
 
 

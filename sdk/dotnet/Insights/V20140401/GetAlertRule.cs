@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Insights.V20140401
         /// The alert rule resource.
         /// </summary>
         public static Task<GetAlertRuleResult> InvokeAsync(GetAlertRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAlertRuleResult>("azure-native:insights/v20140401:getAlertRule", args ?? new GetAlertRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAlertRuleResult>("azure-native:insights/v20140401:getAlertRule", args ?? new GetAlertRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// The alert rule resource.
         /// </summary>
         public static Output<GetAlertRuleResult> Invoke(GetAlertRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAlertRuleResult>("azure-native:insights/v20140401:getAlertRule", args ?? new GetAlertRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAlertRuleResult>("azure-native:insights/v20140401:getAlertRule", args ?? new GetAlertRuleInvokeArgs(), options.WithDefaults());
     }
 
 

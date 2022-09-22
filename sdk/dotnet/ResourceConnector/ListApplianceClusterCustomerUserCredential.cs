@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.ResourceConnector
         /// API Version: 2022-04-15-preview.
         /// </summary>
         public static Task<ListApplianceClusterCustomerUserCredentialResult> InvokeAsync(ListApplianceClusterCustomerUserCredentialArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListApplianceClusterCustomerUserCredentialResult>("azure-native:resourceconnector:listApplianceClusterCustomerUserCredential", args ?? new ListApplianceClusterCustomerUserCredentialArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListApplianceClusterCustomerUserCredentialResult>("azure-native:resourceconnector:listApplianceClusterCustomerUserCredential", args ?? new ListApplianceClusterCustomerUserCredentialArgs(), options.WithDefaults());
 
         /// <summary>
         /// The List Cluster Customer User Credential Results appliance.
         /// API Version: 2022-04-15-preview.
         /// </summary>
         public static Output<ListApplianceClusterCustomerUserCredentialResult> Invoke(ListApplianceClusterCustomerUserCredentialInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListApplianceClusterCustomerUserCredentialResult>("azure-native:resourceconnector:listApplianceClusterCustomerUserCredential", args ?? new ListApplianceClusterCustomerUserCredentialInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListApplianceClusterCustomerUserCredentialResult>("azure-native:resourceconnector:listApplianceClusterCustomerUserCredential", args ?? new ListApplianceClusterCustomerUserCredentialInvokeArgs(), options.WithDefaults());
     }
 
 

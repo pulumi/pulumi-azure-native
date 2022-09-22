@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190301
         /// The extended Info of the Data Box Edge/Gateway device.
         /// </summary>
         public static Task<GetDeviceExtendedInformationResult> InvokeAsync(GetDeviceExtendedInformationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceExtendedInformationResult>("azure-native:databoxedge/v20190301:getDeviceExtendedInformation", args ?? new GetDeviceExtendedInformationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeviceExtendedInformationResult>("azure-native:databoxedge/v20190301:getDeviceExtendedInformation", args ?? new GetDeviceExtendedInformationArgs(), options.WithDefaults());
 
         /// <summary>
         /// The extended Info of the Data Box Edge/Gateway device.
         /// </summary>
         public static Output<GetDeviceExtendedInformationResult> Invoke(GetDeviceExtendedInformationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDeviceExtendedInformationResult>("azure-native:databoxedge/v20190301:getDeviceExtendedInformation", args ?? new GetDeviceExtendedInformationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeviceExtendedInformationResult>("azure-native:databoxedge/v20190301:getDeviceExtendedInformation", args ?? new GetDeviceExtendedInformationInvokeArgs(), options.WithDefaults());
     }
 
 

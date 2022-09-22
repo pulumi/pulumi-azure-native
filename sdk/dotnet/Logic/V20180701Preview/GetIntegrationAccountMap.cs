@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview
         /// The integration account map.
         /// </summary>
         public static Task<GetIntegrationAccountMapResult> InvokeAsync(GetIntegrationAccountMapArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountMapResult>("azure-native:logic/v20180701preview:getIntegrationAccountMap", args ?? new GetIntegrationAccountMapArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountMapResult>("azure-native:logic/v20180701preview:getIntegrationAccountMap", args ?? new GetIntegrationAccountMapArgs(), options.WithDefaults());
 
         /// <summary>
         /// The integration account map.
         /// </summary>
         public static Output<GetIntegrationAccountMapResult> Invoke(GetIntegrationAccountMapInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountMapResult>("azure-native:logic/v20180701preview:getIntegrationAccountMap", args ?? new GetIntegrationAccountMapInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountMapResult>("azure-native:logic/v20180701preview:getIntegrationAccountMap", args ?? new GetIntegrationAccountMapInvokeArgs(), options.WithDefaults());
     }
 
 

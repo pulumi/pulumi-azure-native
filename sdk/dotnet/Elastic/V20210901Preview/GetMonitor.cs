@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Elastic.V20210901Preview
         /// Monitor resource.
         /// </summary>
         public static Task<GetMonitorResult> InvokeAsync(GetMonitorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMonitorResult>("azure-native:elastic/v20210901preview:getMonitor", args ?? new GetMonitorArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitorResult>("azure-native:elastic/v20210901preview:getMonitor", args ?? new GetMonitorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Monitor resource.
         /// </summary>
         public static Output<GetMonitorResult> Invoke(GetMonitorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMonitorResult>("azure-native:elastic/v20210901preview:getMonitor", args ?? new GetMonitorInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMonitorResult>("azure-native:elastic/v20210901preview:getMonitor", args ?? new GetMonitorInvokeArgs(), options.WithDefaults());
     }
 
 

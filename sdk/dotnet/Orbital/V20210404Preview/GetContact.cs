@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Orbital.V20210404Preview
         /// Customer creates a contact resource for a spacecraft resource.
         /// </summary>
         public static Task<GetContactResult> InvokeAsync(GetContactArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetContactResult>("azure-native:orbital/v20210404preview:getContact", args ?? new GetContactArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetContactResult>("azure-native:orbital/v20210404preview:getContact", args ?? new GetContactArgs(), options.WithDefaults());
 
         /// <summary>
         /// Customer creates a contact resource for a spacecraft resource.
         /// </summary>
         public static Output<GetContactResult> Invoke(GetContactInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetContactResult>("azure-native:orbital/v20210404preview:getContact", args ?? new GetContactInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetContactResult>("azure-native:orbital/v20210404preview:getContact", args ?? new GetContactInvokeArgs(), options.WithDefaults());
     }
 
 

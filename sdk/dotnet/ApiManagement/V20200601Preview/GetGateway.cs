@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
         /// Gateway details.
         /// </summary>
         public static Task<GetGatewayResult> InvokeAsync(GetGatewayArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayResult>("azure-native:apimanagement/v20200601preview:getGateway", args ?? new GetGatewayArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGatewayResult>("azure-native:apimanagement/v20200601preview:getGateway", args ?? new GetGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gateway details.
         /// </summary>
         public static Output<GetGatewayResult> Invoke(GetGatewayInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGatewayResult>("azure-native:apimanagement/v20200601preview:getGateway", args ?? new GetGatewayInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGatewayResult>("azure-native:apimanagement/v20200601preview:getGateway", args ?? new GetGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

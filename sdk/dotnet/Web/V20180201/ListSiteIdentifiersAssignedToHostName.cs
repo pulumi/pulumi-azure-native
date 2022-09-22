@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20180201
         /// Collection of identifiers.
         /// </summary>
         public static Task<ListSiteIdentifiersAssignedToHostNameResult> InvokeAsync(ListSiteIdentifiersAssignedToHostNameArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSiteIdentifiersAssignedToHostNameResult>("azure-native:web/v20180201:listSiteIdentifiersAssignedToHostName", args ?? new ListSiteIdentifiersAssignedToHostNameArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListSiteIdentifiersAssignedToHostNameResult>("azure-native:web/v20180201:listSiteIdentifiersAssignedToHostName", args ?? new ListSiteIdentifiersAssignedToHostNameArgs(), options.WithDefaults());
 
         /// <summary>
         /// Collection of identifiers.
         /// </summary>
         public static Output<ListSiteIdentifiersAssignedToHostNameResult> Invoke(ListSiteIdentifiersAssignedToHostNameInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListSiteIdentifiersAssignedToHostNameResult>("azure-native:web/v20180201:listSiteIdentifiersAssignedToHostName", args ?? new ListSiteIdentifiersAssignedToHostNameInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListSiteIdentifiersAssignedToHostNameResult>("azure-native:web/v20180201:listSiteIdentifiersAssignedToHostName", args ?? new ListSiteIdentifiersAssignedToHostNameInvokeArgs(), options.WithDefaults());
     }
 
 

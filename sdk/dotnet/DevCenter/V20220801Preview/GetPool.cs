@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         /// A pool of Virtual Machines.
         /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure-native:devcenter/v20220801preview:getPool", args ?? new GetPoolArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure-native:devcenter/v20220801preview:getPool", args ?? new GetPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// A pool of Virtual Machines.
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:devcenter/v20220801preview:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:devcenter/v20220801preview:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Media.V20200501
         /// The Live Output.
         /// </summary>
         public static Task<GetLiveOutputResult> InvokeAsync(GetLiveOutputArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLiveOutputResult>("azure-native:media/v20200501:getLiveOutput", args ?? new GetLiveOutputArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLiveOutputResult>("azure-native:media/v20200501:getLiveOutput", args ?? new GetLiveOutputArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Live Output.
         /// </summary>
         public static Output<GetLiveOutputResult> Invoke(GetLiveOutputInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLiveOutputResult>("azure-native:media/v20200501:getLiveOutput", args ?? new GetLiveOutputInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLiveOutputResult>("azure-native:media/v20200501:getLiveOutput", args ?? new GetLiveOutputInvokeArgs(), options.WithDefaults());
     }
 
 

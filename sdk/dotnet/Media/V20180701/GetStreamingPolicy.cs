@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Media.V20180701
         /// A Streaming Policy resource
         /// </summary>
         public static Task<GetStreamingPolicyResult> InvokeAsync(GetStreamingPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingPolicyResult>("azure-native:media/v20180701:getStreamingPolicy", args ?? new GetStreamingPolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStreamingPolicyResult>("azure-native:media/v20180701:getStreamingPolicy", args ?? new GetStreamingPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// A Streaming Policy resource
         /// </summary>
         public static Output<GetStreamingPolicyResult> Invoke(GetStreamingPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStreamingPolicyResult>("azure-native:media/v20180701:getStreamingPolicy", args ?? new GetStreamingPolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetStreamingPolicyResult>("azure-native:media/v20180701:getStreamingPolicy", args ?? new GetStreamingPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

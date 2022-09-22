@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20220301
         /// Static Site Linked Backend ARM resource.
         /// </summary>
         public static Task<GetStaticSiteLinkedBackendForBuildResult> InvokeAsync(GetStaticSiteLinkedBackendForBuildArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStaticSiteLinkedBackendForBuildResult>("azure-native:web/v20220301:getStaticSiteLinkedBackendForBuild", args ?? new GetStaticSiteLinkedBackendForBuildArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStaticSiteLinkedBackendForBuildResult>("azure-native:web/v20220301:getStaticSiteLinkedBackendForBuild", args ?? new GetStaticSiteLinkedBackendForBuildArgs(), options.WithDefaults());
 
         /// <summary>
         /// Static Site Linked Backend ARM resource.
         /// </summary>
         public static Output<GetStaticSiteLinkedBackendForBuildResult> Invoke(GetStaticSiteLinkedBackendForBuildInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStaticSiteLinkedBackendForBuildResult>("azure-native:web/v20220301:getStaticSiteLinkedBackendForBuild", args ?? new GetStaticSiteLinkedBackendForBuildInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetStaticSiteLinkedBackendForBuildResult>("azure-native:web/v20220301:getStaticSiteLinkedBackendForBuild", args ?? new GetStaticSiteLinkedBackendForBuildInvokeArgs(), options.WithDefaults());
     }
 
 

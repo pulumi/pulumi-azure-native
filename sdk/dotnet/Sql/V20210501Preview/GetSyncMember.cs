@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview
         /// An Azure SQL Database sync member.
         /// </summary>
         public static Task<GetSyncMemberResult> InvokeAsync(GetSyncMemberArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSyncMemberResult>("azure-native:sql/v20210501preview:getSyncMember", args ?? new GetSyncMemberArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSyncMemberResult>("azure-native:sql/v20210501preview:getSyncMember", args ?? new GetSyncMemberArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure SQL Database sync member.
         /// </summary>
         public static Output<GetSyncMemberResult> Invoke(GetSyncMemberInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSyncMemberResult>("azure-native:sql/v20210501preview:getSyncMember", args ?? new GetSyncMemberInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSyncMemberResult>("azure-native:sql/v20210501preview:getSyncMember", args ?? new GetSyncMemberInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -12,10 +12,10 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001
     public static class GetAutomationRule
     {
         public static Task<GetAutomationRuleResult> InvokeAsync(GetAutomationRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAutomationRuleResult>("azure-native:securityinsights/v20211001:getAutomationRule", args ?? new GetAutomationRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAutomationRuleResult>("azure-native:securityinsights/v20211001:getAutomationRule", args ?? new GetAutomationRuleArgs(), options.WithDefaults());
 
         public static Output<GetAutomationRuleResult> Invoke(GetAutomationRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAutomationRuleResult>("azure-native:securityinsights/v20211001:getAutomationRule", args ?? new GetAutomationRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAutomationRuleResult>("azure-native:securityinsights/v20211001:getAutomationRule", args ?? new GetAutomationRuleInvokeArgs(), options.WithDefaults());
     }
 
 

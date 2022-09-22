@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
         /// </summary>
         public static Task<ListServiceFabricApplicableSchedulesResult> InvokeAsync(ListServiceFabricApplicableSchedulesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListServiceFabricApplicableSchedulesResult>("azure-native:devtestlab/v20180915:listServiceFabricApplicableSchedules", args ?? new ListServiceFabricApplicableSchedulesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListServiceFabricApplicableSchedulesResult>("azure-native:devtestlab/v20180915:listServiceFabricApplicableSchedules", args ?? new ListServiceFabricApplicableSchedulesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
         /// </summary>
         public static Output<ListServiceFabricApplicableSchedulesResult> Invoke(ListServiceFabricApplicableSchedulesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListServiceFabricApplicableSchedulesResult>("azure-native:devtestlab/v20180915:listServiceFabricApplicableSchedules", args ?? new ListServiceFabricApplicableSchedulesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListServiceFabricApplicableSchedulesResult>("azure-native:devtestlab/v20180915:listServiceFabricApplicableSchedules", args ?? new ListServiceFabricApplicableSchedulesInvokeArgs(), options.WithDefaults());
     }
 
 

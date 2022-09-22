@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         /// The NSP access rule resource
         /// </summary>
         public static Task<GetNspAccessRuleResult> InvokeAsync(GetNspAccessRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNspAccessRuleResult>("azure-native:network/v20210201preview:getNspAccessRule", args ?? new GetNspAccessRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNspAccessRuleResult>("azure-native:network/v20210201preview:getNspAccessRule", args ?? new GetNspAccessRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// The NSP access rule resource
         /// </summary>
         public static Output<GetNspAccessRuleResult> Invoke(GetNspAccessRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNspAccessRuleResult>("azure-native:network/v20210201preview:getNspAccessRule", args ?? new GetNspAccessRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNspAccessRuleResult>("azure-native:network/v20210201preview:getNspAccessRule", args ?? new GetNspAccessRuleInvokeArgs(), options.WithDefaults());
     }
 
 

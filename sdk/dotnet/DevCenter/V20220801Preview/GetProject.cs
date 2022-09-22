@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         /// Represents a project resource.
         /// </summary>
         public static Task<GetProjectResult> InvokeAsync(GetProjectArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure-native:devcenter/v20220801preview:getProject", args ?? new GetProjectArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure-native:devcenter/v20220801preview:getProject", args ?? new GetProjectArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a project resource.
         /// </summary>
         public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProjectResult>("azure-native:devcenter/v20220801preview:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetProjectResult>("azure-native:devcenter/v20220801preview:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
     }
 
 

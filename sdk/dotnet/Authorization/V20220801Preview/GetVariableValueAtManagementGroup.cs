@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Authorization.V20220801Preview
         /// The variable value.
         /// </summary>
         public static Task<GetVariableValueAtManagementGroupResult> InvokeAsync(GetVariableValueAtManagementGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVariableValueAtManagementGroupResult>("azure-native:authorization/v20220801preview:getVariableValueAtManagementGroup", args ?? new GetVariableValueAtManagementGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVariableValueAtManagementGroupResult>("azure-native:authorization/v20220801preview:getVariableValueAtManagementGroup", args ?? new GetVariableValueAtManagementGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// The variable value.
         /// </summary>
         public static Output<GetVariableValueAtManagementGroupResult> Invoke(GetVariableValueAtManagementGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVariableValueAtManagementGroupResult>("azure-native:authorization/v20220801preview:getVariableValueAtManagementGroup", args ?? new GetVariableValueAtManagementGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVariableValueAtManagementGroupResult>("azure-native:authorization/v20220801preview:getVariableValueAtManagementGroup", args ?? new GetVariableValueAtManagementGroupInvokeArgs(), options.WithDefaults());
     }
 
 

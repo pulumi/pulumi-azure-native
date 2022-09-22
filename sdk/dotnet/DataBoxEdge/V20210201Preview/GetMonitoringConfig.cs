@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201Preview
         /// The metric setting details for the role
         /// </summary>
         public static Task<GetMonitoringConfigResult> InvokeAsync(GetMonitoringConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMonitoringConfigResult>("azure-native:databoxedge/v20210201preview:getMonitoringConfig", args ?? new GetMonitoringConfigArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitoringConfigResult>("azure-native:databoxedge/v20210201preview:getMonitoringConfig", args ?? new GetMonitoringConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// The metric setting details for the role
         /// </summary>
         public static Output<GetMonitoringConfigResult> Invoke(GetMonitoringConfigInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMonitoringConfigResult>("azure-native:databoxedge/v20210201preview:getMonitoringConfig", args ?? new GetMonitoringConfigInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMonitoringConfigResult>("azure-native:databoxedge/v20210201preview:getMonitoringConfig", args ?? new GetMonitoringConfigInvokeArgs(), options.WithDefaults());
     }
 
 

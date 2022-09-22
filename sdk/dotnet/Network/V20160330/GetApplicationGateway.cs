@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Network.V20160330
         /// ApplicationGateways resource
         /// </summary>
         public static Task<GetApplicationGatewayResult> InvokeAsync(GetApplicationGatewayArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGatewayResult>("azure-native:network/v20160330:getApplicationGateway", args ?? new GetApplicationGatewayArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGatewayResult>("azure-native:network/v20160330:getApplicationGateway", args ?? new GetApplicationGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// ApplicationGateways resource
         /// </summary>
         public static Output<GetApplicationGatewayResult> Invoke(GetApplicationGatewayInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApplicationGatewayResult>("azure-native:network/v20160330:getApplicationGateway", args ?? new GetApplicationGatewayInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationGatewayResult>("azure-native:network/v20160330:getApplicationGateway", args ?? new GetApplicationGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

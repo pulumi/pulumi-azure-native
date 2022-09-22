@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Relay.V20160701
         /// Description of a Namespace AuthorizationRules.
         /// </summary>
         public static Task<GetHybridConnectionAuthorizationRuleResult> InvokeAsync(GetHybridConnectionAuthorizationRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHybridConnectionAuthorizationRuleResult>("azure-native:relay/v20160701:getHybridConnectionAuthorizationRule", args ?? new GetHybridConnectionAuthorizationRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetHybridConnectionAuthorizationRuleResult>("azure-native:relay/v20160701:getHybridConnectionAuthorizationRule", args ?? new GetHybridConnectionAuthorizationRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description of a Namespace AuthorizationRules.
         /// </summary>
         public static Output<GetHybridConnectionAuthorizationRuleResult> Invoke(GetHybridConnectionAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetHybridConnectionAuthorizationRuleResult>("azure-native:relay/v20160701:getHybridConnectionAuthorizationRule", args ?? new GetHybridConnectionAuthorizationRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetHybridConnectionAuthorizationRuleResult>("azure-native:relay/v20160701:getHybridConnectionAuthorizationRule", args ?? new GetHybridConnectionAuthorizationRuleInvokeArgs(), options.WithDefaults());
     }
 
 

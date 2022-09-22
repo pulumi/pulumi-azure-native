@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20181101
         /// Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
         /// </summary>
         public static Task<ListWebAppHybridConnectionKeysSlotResult> InvokeAsync(ListWebAppHybridConnectionKeysSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppHybridConnectionKeysSlotResult>("azure-native:web/v20181101:listWebAppHybridConnectionKeysSlot", args ?? new ListWebAppHybridConnectionKeysSlotArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppHybridConnectionKeysSlotResult>("azure-native:web/v20181101:listWebAppHybridConnectionKeysSlot", args ?? new ListWebAppHybridConnectionKeysSlotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
         /// </summary>
         public static Output<ListWebAppHybridConnectionKeysSlotResult> Invoke(ListWebAppHybridConnectionKeysSlotInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListWebAppHybridConnectionKeysSlotResult>("azure-native:web/v20181101:listWebAppHybridConnectionKeysSlot", args ?? new ListWebAppHybridConnectionKeysSlotInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListWebAppHybridConnectionKeysSlotResult>("azure-native:web/v20181101:listWebAppHybridConnectionKeysSlot", args ?? new ListWebAppHybridConnectionKeysSlotInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Insights.V20200301Preview
         /// An Application Insights component linked storage accounts
         /// </summary>
         public static Task<GetComponentLinkedStorageAccountResult> InvokeAsync(GetComponentLinkedStorageAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetComponentLinkedStorageAccountResult>("azure-native:insights/v20200301preview:getComponentLinkedStorageAccount", args ?? new GetComponentLinkedStorageAccountArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetComponentLinkedStorageAccountResult>("azure-native:insights/v20200301preview:getComponentLinkedStorageAccount", args ?? new GetComponentLinkedStorageAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Application Insights component linked storage accounts
         /// </summary>
         public static Output<GetComponentLinkedStorageAccountResult> Invoke(GetComponentLinkedStorageAccountInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetComponentLinkedStorageAccountResult>("azure-native:insights/v20200301preview:getComponentLinkedStorageAccount", args ?? new GetComponentLinkedStorageAccountInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetComponentLinkedStorageAccountResult>("azure-native:insights/v20200301preview:getComponentLinkedStorageAccount", args ?? new GetComponentLinkedStorageAccountInvokeArgs(), options.WithDefaults());
     }
 
 

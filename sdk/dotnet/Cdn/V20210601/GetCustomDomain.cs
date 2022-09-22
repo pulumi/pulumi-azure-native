@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         /// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
         /// </summary>
         public static Task<GetCustomDomainResult> InvokeAsync(GetCustomDomainArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomDomainResult>("azure-native:cdn/v20210601:getCustomDomain", args ?? new GetCustomDomainArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomDomainResult>("azure-native:cdn/v20210601:getCustomDomain", args ?? new GetCustomDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
         /// </summary>
         public static Output<GetCustomDomainResult> Invoke(GetCustomDomainInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCustomDomainResult>("azure-native:cdn/v20210601:getCustomDomain", args ?? new GetCustomDomainInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomDomainResult>("azure-native:cdn/v20210601:getCustomDomain", args ?? new GetCustomDomainInvokeArgs(), options.WithDefaults());
     }
 
 

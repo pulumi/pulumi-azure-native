@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// API Version: 2022-05-15.
         /// </summary>
         public static Task<GetWorkspacePrivateEndpointConnectionResult> InvokeAsync(GetWorkspacePrivateEndpointConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspacePrivateEndpointConnectionResult>("azure-native:healthcareapis:getWorkspacePrivateEndpointConnection", args ?? new GetWorkspacePrivateEndpointConnectionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspacePrivateEndpointConnectionResult>("azure-native:healthcareapis:getWorkspacePrivateEndpointConnection", args ?? new GetWorkspacePrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Private Endpoint Connection resource.
         /// API Version: 2022-05-15.
         /// </summary>
         public static Output<GetWorkspacePrivateEndpointConnectionResult> Invoke(GetWorkspacePrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWorkspacePrivateEndpointConnectionResult>("azure-native:healthcareapis:getWorkspacePrivateEndpointConnection", args ?? new GetWorkspacePrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkspacePrivateEndpointConnectionResult>("azure-native:healthcareapis:getWorkspacePrivateEndpointConnection", args ?? new GetWorkspacePrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

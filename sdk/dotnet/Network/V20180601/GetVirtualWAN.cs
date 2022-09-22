@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20180601
         /// VirtualWAN Resource.
         /// </summary>
         public static Task<GetVirtualWANResult> InvokeAsync(GetVirtualWANArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualWANResult>("azure-native:network/v20180601:getVirtualWAN", args ?? new GetVirtualWANArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualWANResult>("azure-native:network/v20180601:getVirtualWAN", args ?? new GetVirtualWANArgs(), options.WithDefaults());
 
         /// <summary>
         /// VirtualWAN Resource.
         /// </summary>
         public static Output<GetVirtualWANResult> Invoke(GetVirtualWANInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualWANResult>("azure-native:network/v20180601:getVirtualWAN", args ?? new GetVirtualWANInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualWANResult>("azure-native:network/v20180601:getVirtualWAN", args ?? new GetVirtualWANInvokeArgs(), options.WithDefaults());
     }
 
 

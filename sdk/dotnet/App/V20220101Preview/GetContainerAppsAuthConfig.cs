@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.App.V20220101Preview
         /// Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
         /// </summary>
         public static Task<GetContainerAppsAuthConfigResult> InvokeAsync(GetContainerAppsAuthConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetContainerAppsAuthConfigResult>("azure-native:app/v20220101preview:getContainerAppsAuthConfig", args ?? new GetContainerAppsAuthConfigArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetContainerAppsAuthConfigResult>("azure-native:app/v20220101preview:getContainerAppsAuthConfig", args ?? new GetContainerAppsAuthConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
         /// </summary>
         public static Output<GetContainerAppsAuthConfigResult> Invoke(GetContainerAppsAuthConfigInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetContainerAppsAuthConfigResult>("azure-native:app/v20220101preview:getContainerAppsAuthConfig", args ?? new GetContainerAppsAuthConfigInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetContainerAppsAuthConfigResult>("azure-native:app/v20220101preview:getContainerAppsAuthConfig", args ?? new GetContainerAppsAuthConfigInvokeArgs(), options.WithDefaults());
     }
 
 

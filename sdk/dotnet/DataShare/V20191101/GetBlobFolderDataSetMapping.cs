@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DataShare.V20191101
         /// A Blob folder data set mapping.
         /// </summary>
         public static Task<GetBlobFolderDataSetMappingResult> InvokeAsync(GetBlobFolderDataSetMappingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBlobFolderDataSetMappingResult>("azure-native:datashare/v20191101:getBlobFolderDataSetMapping", args ?? new GetBlobFolderDataSetMappingArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBlobFolderDataSetMappingResult>("azure-native:datashare/v20191101:getBlobFolderDataSetMapping", args ?? new GetBlobFolderDataSetMappingArgs(), options.WithDefaults());
 
         /// <summary>
         /// A Blob folder data set mapping.
         /// </summary>
         public static Output<GetBlobFolderDataSetMappingResult> Invoke(GetBlobFolderDataSetMappingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBlobFolderDataSetMappingResult>("azure-native:datashare/v20191101:getBlobFolderDataSetMapping", args ?? new GetBlobFolderDataSetMappingInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBlobFolderDataSetMappingResult>("azure-native:datashare/v20191101:getBlobFolderDataSetMapping", args ?? new GetBlobFolderDataSetMappingInvokeArgs(), options.WithDefaults());
     }
 
 

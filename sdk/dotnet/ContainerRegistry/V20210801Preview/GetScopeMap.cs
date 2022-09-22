@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210801Preview
         /// An object that represents a scope map for a container registry.
         /// </summary>
         public static Task<GetScopeMapResult> InvokeAsync(GetScopeMapArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScopeMapResult>("azure-native:containerregistry/v20210801preview:getScopeMap", args ?? new GetScopeMapArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetScopeMapResult>("azure-native:containerregistry/v20210801preview:getScopeMap", args ?? new GetScopeMapArgs(), options.WithDefaults());
 
         /// <summary>
         /// An object that represents a scope map for a container registry.
         /// </summary>
         public static Output<GetScopeMapResult> Invoke(GetScopeMapInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetScopeMapResult>("azure-native:containerregistry/v20210801preview:getScopeMap", args ?? new GetScopeMapInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetScopeMapResult>("azure-native:containerregistry/v20210801preview:getScopeMap", args ?? new GetScopeMapInvokeArgs(), options.WithDefaults());
     }
 
 

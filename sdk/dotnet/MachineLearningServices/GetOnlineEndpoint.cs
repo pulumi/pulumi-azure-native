@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Task<GetOnlineEndpointResult> InvokeAsync(GetOnlineEndpointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOnlineEndpointResult>("azure-native:machinelearningservices:getOnlineEndpoint", args ?? new GetOnlineEndpointArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetOnlineEndpointResult>("azure-native:machinelearningservices:getOnlineEndpoint", args ?? new GetOnlineEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Output<GetOnlineEndpointResult> Invoke(GetOnlineEndpointInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOnlineEndpointResult>("azure-native:machinelearningservices:getOnlineEndpoint", args ?? new GetOnlineEndpointInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetOnlineEndpointResult>("azure-native:machinelearningservices:getOnlineEndpoint", args ?? new GetOnlineEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// API Version: 2019-06-01.
         /// </summary>
         public static Task<GetSmartDetectorAlertRuleResult> InvokeAsync(GetSmartDetectorAlertRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSmartDetectorAlertRuleResult>("azure-native:alertsmanagement:getSmartDetectorAlertRule", args ?? new GetSmartDetectorAlertRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSmartDetectorAlertRuleResult>("azure-native:alertsmanagement:getSmartDetectorAlertRule", args ?? new GetSmartDetectorAlertRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// The alert rule information
         /// API Version: 2019-06-01.
         /// </summary>
         public static Output<GetSmartDetectorAlertRuleResult> Invoke(GetSmartDetectorAlertRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSmartDetectorAlertRuleResult>("azure-native:alertsmanagement:getSmartDetectorAlertRule", args ?? new GetSmartDetectorAlertRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSmartDetectorAlertRuleResult>("azure-native:alertsmanagement:getSmartDetectorAlertRule", args ?? new GetSmartDetectorAlertRuleInvokeArgs(), options.WithDefaults());
     }
 
 

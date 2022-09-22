@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Relay.V20170401
         /// Description of a namespace authorization rule.
         /// </summary>
         public static Task<GetWCFRelayAuthorizationRuleResult> InvokeAsync(GetWCFRelayAuthorizationRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWCFRelayAuthorizationRuleResult>("azure-native:relay/v20170401:getWCFRelayAuthorizationRule", args ?? new GetWCFRelayAuthorizationRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWCFRelayAuthorizationRuleResult>("azure-native:relay/v20170401:getWCFRelayAuthorizationRule", args ?? new GetWCFRelayAuthorizationRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description of a namespace authorization rule.
         /// </summary>
         public static Output<GetWCFRelayAuthorizationRuleResult> Invoke(GetWCFRelayAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWCFRelayAuthorizationRuleResult>("azure-native:relay/v20170401:getWCFRelayAuthorizationRule", args ?? new GetWCFRelayAuthorizationRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWCFRelayAuthorizationRuleResult>("azure-native:relay/v20170401:getWCFRelayAuthorizationRule", args ?? new GetWCFRelayAuthorizationRuleInvokeArgs(), options.WithDefaults());
     }
 
 

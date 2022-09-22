@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Portal
         /// API Version: 2018-10-01.
         /// </summary>
         public static Task<GetUserSettingsResult> InvokeAsync(GetUserSettingsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserSettingsResult>("azure-native:portal:getUserSettings", args ?? new GetUserSettingsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserSettingsResult>("azure-native:portal:getUserSettings", args ?? new GetUserSettingsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response to get user settings
         /// API Version: 2018-10-01.
         /// </summary>
         public static Output<GetUserSettingsResult> Invoke(GetUserSettingsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetUserSettingsResult>("azure-native:portal:getUserSettings", args ?? new GetUserSettingsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserSettingsResult>("azure-native:portal:getUserSettings", args ?? new GetUserSettingsInvokeArgs(), options.WithDefaults());
     }
 
 

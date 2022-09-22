@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Logic
         /// API Version: 2019-05-01.
         /// </summary>
         public static Task<ListWorkflowRunActionExpressionTracesResult> InvokeAsync(ListWorkflowRunActionExpressionTracesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWorkflowRunActionExpressionTracesResult>("azure-native:logic:listWorkflowRunActionExpressionTraces", args ?? new ListWorkflowRunActionExpressionTracesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListWorkflowRunActionExpressionTracesResult>("azure-native:logic:listWorkflowRunActionExpressionTraces", args ?? new ListWorkflowRunActionExpressionTracesArgs(), options.WithDefaults());
 
         /// <summary>
         /// The expression traces.
         /// API Version: 2019-05-01.
         /// </summary>
         public static Output<ListWorkflowRunActionExpressionTracesResult> Invoke(ListWorkflowRunActionExpressionTracesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListWorkflowRunActionExpressionTracesResult>("azure-native:logic:listWorkflowRunActionExpressionTraces", args ?? new ListWorkflowRunActionExpressionTracesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListWorkflowRunActionExpressionTracesResult>("azure-native:logic:listWorkflowRunActionExpressionTraces", args ?? new ListWorkflowRunActionExpressionTracesInvokeArgs(), options.WithDefaults());
     }
 
 

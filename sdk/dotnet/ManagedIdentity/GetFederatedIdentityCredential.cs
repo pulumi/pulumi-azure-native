@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.ManagedIdentity
         /// API Version: 2022-01-31-preview.
         /// </summary>
         public static Task<GetFederatedIdentityCredentialResult> InvokeAsync(GetFederatedIdentityCredentialArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFederatedIdentityCredentialResult>("azure-native:managedidentity:getFederatedIdentityCredential", args ?? new GetFederatedIdentityCredentialArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedIdentityCredentialResult>("azure-native:managedidentity:getFederatedIdentityCredential", args ?? new GetFederatedIdentityCredentialArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes a federated identity credential.
         /// API Version: 2022-01-31-preview.
         /// </summary>
         public static Output<GetFederatedIdentityCredentialResult> Invoke(GetFederatedIdentityCredentialInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFederatedIdentityCredentialResult>("azure-native:managedidentity:getFederatedIdentityCredential", args ?? new GetFederatedIdentityCredentialInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFederatedIdentityCredentialResult>("azure-native:managedidentity:getFederatedIdentityCredential", args ?? new GetFederatedIdentityCredentialInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// Configuration of Azure web site
         /// </summary>
         public static Task<GetSiteLogsConfigResult> InvokeAsync(GetSiteLogsConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteLogsConfigResult>("azure-native:web/v20150801:getSiteLogsConfig", args ?? new GetSiteLogsConfigArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSiteLogsConfigResult>("azure-native:web/v20150801:getSiteLogsConfig", args ?? new GetSiteLogsConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Configuration of Azure web site
         /// </summary>
         public static Output<GetSiteLogsConfigResult> Invoke(GetSiteLogsConfigInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSiteLogsConfigResult>("azure-native:web/v20150801:getSiteLogsConfig", args ?? new GetSiteLogsConfigInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSiteLogsConfigResult>("azure-native:web/v20150801:getSiteLogsConfig", args ?? new GetSiteLogsConfigInvokeArgs(), options.WithDefaults());
     }
 
 

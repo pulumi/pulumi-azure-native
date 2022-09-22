@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Education.V20211201Preview
         /// Lab details.
         /// </summary>
         public static Task<GetLabResult> InvokeAsync(GetLabArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLabResult>("azure-native:education/v20211201preview:getLab", args ?? new GetLabArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLabResult>("azure-native:education/v20211201preview:getLab", args ?? new GetLabArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lab details.
         /// </summary>
         public static Output<GetLabResult> Invoke(GetLabInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLabResult>("azure-native:education/v20211201preview:getLab", args ?? new GetLabInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLabResult>("azure-native:education/v20211201preview:getLab", args ?? new GetLabInvokeArgs(), options.WithDefaults());
     }
 
 

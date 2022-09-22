@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.HybridNetwork.V20200101Preview
         /// Device resource.
         /// </summary>
         public static Task<GetDeviceResult> InvokeAsync(GetDeviceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceResult>("azure-native:hybridnetwork/v20200101preview:getDevice", args ?? new GetDeviceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeviceResult>("azure-native:hybridnetwork/v20200101preview:getDevice", args ?? new GetDeviceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Device resource.
         /// </summary>
         public static Output<GetDeviceResult> Invoke(GetDeviceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDeviceResult>("azure-native:hybridnetwork/v20200101preview:getDevice", args ?? new GetDeviceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeviceResult>("azure-native:hybridnetwork/v20200101preview:getDevice", args ?? new GetDeviceInvokeArgs(), options.WithDefaults());
     }
 
 

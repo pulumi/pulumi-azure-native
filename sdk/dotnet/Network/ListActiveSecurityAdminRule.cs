@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Task<ListActiveSecurityAdminRuleResult> InvokeAsync(ListActiveSecurityAdminRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListActiveSecurityAdminRuleResult>("azure-native:network:listActiveSecurityAdminRule", args ?? new ListActiveSecurityAdminRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListActiveSecurityAdminRuleResult>("azure-native:network:listActiveSecurityAdminRule", args ?? new ListActiveSecurityAdminRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Result of the request to list active security admin rules. It contains a list of active security admin rules and a skiptoken to get the next set of results.
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Output<ListActiveSecurityAdminRuleResult> Invoke(ListActiveSecurityAdminRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListActiveSecurityAdminRuleResult>("azure-native:network:listActiveSecurityAdminRule", args ?? new ListActiveSecurityAdminRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListActiveSecurityAdminRuleResult>("azure-native:network:listActiveSecurityAdminRule", args ?? new ListActiveSecurityAdminRuleInvokeArgs(), options.WithDefaults());
     }
 
 

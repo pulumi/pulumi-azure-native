@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.ApiManagement
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("azure-native:apimanagement:getGroup", args ?? new GetGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("azure-native:apimanagement:getGroup", args ?? new GetGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Contract details.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGroupResult>("azure-native:apimanagement:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGroupResult>("azure-native:apimanagement:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());
     }
 
 

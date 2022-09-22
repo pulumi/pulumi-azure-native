@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Synapse
         /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetIntegrationRuntimeConnectionInfoResult> InvokeAsync(GetIntegrationRuntimeConnectionInfoArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationRuntimeConnectionInfoResult>("azure-native:synapse:getIntegrationRuntimeConnectionInfo", args ?? new GetIntegrationRuntimeConnectionInfoArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationRuntimeConnectionInfoResult>("azure-native:synapse:getIntegrationRuntimeConnectionInfo", args ?? new GetIntegrationRuntimeConnectionInfoArgs(), options.WithDefaults());
 
         /// <summary>
         /// Connection information for encrypting the on-premises data source credentials.
         /// API Version: 2021-03-01.
         /// </summary>
         public static Output<GetIntegrationRuntimeConnectionInfoResult> Invoke(GetIntegrationRuntimeConnectionInfoInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIntegrationRuntimeConnectionInfoResult>("azure-native:synapse:getIntegrationRuntimeConnectionInfo", args ?? new GetIntegrationRuntimeConnectionInfoInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationRuntimeConnectionInfoResult>("azure-native:synapse:getIntegrationRuntimeConnectionInfo", args ?? new GetIntegrationRuntimeConnectionInfoInvokeArgs(), options.WithDefaults());
     }
 
 

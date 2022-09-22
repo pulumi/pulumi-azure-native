@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Billing.V20191001Preview
         /// The role assignment
         /// </summary>
         public static Task<GetBillingRoleAssignmentByBillingAccountResult> InvokeAsync(GetBillingRoleAssignmentByBillingAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBillingRoleAssignmentByBillingAccountResult>("azure-native:billing/v20191001preview:getBillingRoleAssignmentByBillingAccount", args ?? new GetBillingRoleAssignmentByBillingAccountArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBillingRoleAssignmentByBillingAccountResult>("azure-native:billing/v20191001preview:getBillingRoleAssignmentByBillingAccount", args ?? new GetBillingRoleAssignmentByBillingAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// The role assignment
         /// </summary>
         public static Output<GetBillingRoleAssignmentByBillingAccountResult> Invoke(GetBillingRoleAssignmentByBillingAccountInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBillingRoleAssignmentByBillingAccountResult>("azure-native:billing/v20191001preview:getBillingRoleAssignmentByBillingAccount", args ?? new GetBillingRoleAssignmentByBillingAccountInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBillingRoleAssignmentByBillingAccountResult>("azure-native:billing/v20191001preview:getBillingRoleAssignmentByBillingAccount", args ?? new GetBillingRoleAssignmentByBillingAccountInvokeArgs(), options.WithDefaults());
     }
 
 

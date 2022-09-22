@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301
         /// Complete information about the private endpoint.
         /// </summary>
         public static Task<GetPrivateEndpointResult> InvokeAsync(GetPrivateEndpointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointResult>("azure-native:streamanalytics/v20200301:getPrivateEndpoint", args ?? new GetPrivateEndpointArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointResult>("azure-native:streamanalytics/v20200301:getPrivateEndpoint", args ?? new GetPrivateEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Complete information about the private endpoint.
         /// </summary>
         public static Output<GetPrivateEndpointResult> Invoke(GetPrivateEndpointInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointResult>("azure-native:streamanalytics/v20200301:getPrivateEndpoint", args ?? new GetPrivateEndpointInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointResult>("azure-native:streamanalytics/v20200301:getPrivateEndpoint", args ?? new GetPrivateEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

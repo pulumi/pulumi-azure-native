@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// API Version: 2017-03-01-preview.
         /// </summary>
         public static Task<GetSqlVirtualMachineResult> InvokeAsync(GetSqlVirtualMachineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlVirtualMachineResult>("azure-native:sqlvirtualmachine:getSqlVirtualMachine", args ?? new GetSqlVirtualMachineArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlVirtualMachineResult>("azure-native:sqlvirtualmachine:getSqlVirtualMachine", args ?? new GetSqlVirtualMachineArgs(), options.WithDefaults());
 
         /// <summary>
         /// A SQL virtual machine.
         /// API Version: 2017-03-01-preview.
         /// </summary>
         public static Output<GetSqlVirtualMachineResult> Invoke(GetSqlVirtualMachineInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSqlVirtualMachineResult>("azure-native:sqlvirtualmachine:getSqlVirtualMachine", args ?? new GetSqlVirtualMachineInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlVirtualMachineResult>("azure-native:sqlvirtualmachine:getSqlVirtualMachine", args ?? new GetSqlVirtualMachineInvokeArgs(), options.WithDefaults());
     }
 
 

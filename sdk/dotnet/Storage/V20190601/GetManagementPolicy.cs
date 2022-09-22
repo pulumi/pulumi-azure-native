@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Storage.V20190601
         /// The Get Storage Account ManagementPolicies operation response.
         /// </summary>
         public static Task<GetManagementPolicyResult> InvokeAsync(GetManagementPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementPolicyResult>("azure-native:storage/v20190601:getManagementPolicy", args ?? new GetManagementPolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagementPolicyResult>("azure-native:storage/v20190601:getManagementPolicy", args ?? new GetManagementPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Get Storage Account ManagementPolicies operation response.
         /// </summary>
         public static Output<GetManagementPolicyResult> Invoke(GetManagementPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagementPolicyResult>("azure-native:storage/v20190601:getManagementPolicy", args ?? new GetManagementPolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagementPolicyResult>("azure-native:storage/v20190601:getManagementPolicy", args ?? new GetManagementPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

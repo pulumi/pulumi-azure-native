@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Storage
         /// API Version: 2021-02-01.
         /// </summary>
         public static Task<GetQueueResult> InvokeAsync(GetQueueArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("azure-native:storage:getQueue", args ?? new GetQueueArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("azure-native:storage:getQueue", args ?? new GetQueueArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
         /// API Version: 2021-02-01.
         /// </summary>
         public static Output<GetQueueResult> Invoke(GetQueueInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetQueueResult>("azure-native:storage:getQueue", args ?? new GetQueueInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetQueueResult>("azure-native:storage:getQueue", args ?? new GetQueueInvokeArgs(), options.WithDefaults());
     }
 
 

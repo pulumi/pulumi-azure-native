@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
         /// Represents an instance of a orchestrator.
         /// </summary>
         public static Task<GetDelegatedSubnetServiceDetailsResult> InvokeAsync(GetDelegatedSubnetServiceDetailsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDelegatedSubnetServiceDetailsResult>("azure-native:delegatednetwork/v20210315:getDelegatedSubnetServiceDetails", args ?? new GetDelegatedSubnetServiceDetailsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDelegatedSubnetServiceDetailsResult>("azure-native:delegatednetwork/v20210315:getDelegatedSubnetServiceDetails", args ?? new GetDelegatedSubnetServiceDetailsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents an instance of a orchestrator.
         /// </summary>
         public static Output<GetDelegatedSubnetServiceDetailsResult> Invoke(GetDelegatedSubnetServiceDetailsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDelegatedSubnetServiceDetailsResult>("azure-native:delegatednetwork/v20210315:getDelegatedSubnetServiceDetails", args ?? new GetDelegatedSubnetServiceDetailsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDelegatedSubnetServiceDetailsResult>("azure-native:delegatednetwork/v20210315:getDelegatedSubnetServiceDetails", args ?? new GetDelegatedSubnetServiceDetailsInvokeArgs(), options.WithDefaults());
     }
 
 

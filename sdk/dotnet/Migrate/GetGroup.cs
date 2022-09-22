@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Migrate
         /// API Version: 2019-10-01.
         /// </summary>
         public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("azure-native:migrate:getGroup", args ?? new GetGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("azure-native:migrate:getGroup", args ?? new GetGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// A group created in a Migration project.
         /// API Version: 2019-10-01.
         /// </summary>
         public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGroupResult>("azure-native:migrate:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGroupResult>("azure-native:migrate:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());
     }
 
 

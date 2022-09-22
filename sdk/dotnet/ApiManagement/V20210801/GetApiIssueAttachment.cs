@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801
         /// Issue Attachment Contract details.
         /// </summary>
         public static Task<GetApiIssueAttachmentResult> InvokeAsync(GetApiIssueAttachmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApiIssueAttachmentResult>("azure-native:apimanagement/v20210801:getApiIssueAttachment", args ?? new GetApiIssueAttachmentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiIssueAttachmentResult>("azure-native:apimanagement/v20210801:getApiIssueAttachment", args ?? new GetApiIssueAttachmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Issue Attachment Contract details.
         /// </summary>
         public static Output<GetApiIssueAttachmentResult> Invoke(GetApiIssueAttachmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApiIssueAttachmentResult>("azure-native:apimanagement/v20210801:getApiIssueAttachment", args ?? new GetApiIssueAttachmentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetApiIssueAttachmentResult>("azure-native:apimanagement/v20210801:getApiIssueAttachment", args ?? new GetApiIssueAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 

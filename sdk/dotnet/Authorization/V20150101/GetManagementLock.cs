@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Authorization.V20150101
         /// Management lock information.
         /// </summary>
         public static Task<GetManagementLockResult> InvokeAsync(GetManagementLockArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementLockResult>("azure-native:authorization/v20150101:getManagementLock", args ?? new GetManagementLockArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagementLockResult>("azure-native:authorization/v20150101:getManagementLock", args ?? new GetManagementLockArgs(), options.WithDefaults());
 
         /// <summary>
         /// Management lock information.
         /// </summary>
         public static Output<GetManagementLockResult> Invoke(GetManagementLockInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagementLockResult>("azure-native:authorization/v20150101:getManagementLock", args ?? new GetManagementLockInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagementLockResult>("azure-native:authorization/v20150101:getManagementLock", args ?? new GetManagementLockInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.EngagementFabric.V20180901Preview
         /// The list of the EngagementFabric account keys
         /// </summary>
         public static Task<ListAccountKeysResult> InvokeAsync(ListAccountKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListAccountKeysResult>("azure-native:engagementfabric/v20180901preview:listAccountKeys", args ?? new ListAccountKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListAccountKeysResult>("azure-native:engagementfabric/v20180901preview:listAccountKeys", args ?? new ListAccountKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// The list of the EngagementFabric account keys
         /// </summary>
         public static Output<ListAccountKeysResult> Invoke(ListAccountKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListAccountKeysResult>("azure-native:engagementfabric/v20180901preview:listAccountKeys", args ?? new ListAccountKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListAccountKeysResult>("azure-native:engagementfabric/v20180901preview:listAccountKeys", args ?? new ListAccountKeysInvokeArgs(), options.WithDefaults());
     }
 
 

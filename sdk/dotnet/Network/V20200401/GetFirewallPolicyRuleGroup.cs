@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20200401
         /// Rule Group resource.
         /// </summary>
         public static Task<GetFirewallPolicyRuleGroupResult> InvokeAsync(GetFirewallPolicyRuleGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallPolicyRuleGroupResult>("azure-native:network/v20200401:getFirewallPolicyRuleGroup", args ?? new GetFirewallPolicyRuleGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallPolicyRuleGroupResult>("azure-native:network/v20200401:getFirewallPolicyRuleGroup", args ?? new GetFirewallPolicyRuleGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Rule Group resource.
         /// </summary>
         public static Output<GetFirewallPolicyRuleGroupResult> Invoke(GetFirewallPolicyRuleGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFirewallPolicyRuleGroupResult>("azure-native:network/v20200401:getFirewallPolicyRuleGroup", args ?? new GetFirewallPolicyRuleGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFirewallPolicyRuleGroupResult>("azure-native:network/v20200401:getFirewallPolicyRuleGroup", args ?? new GetFirewallPolicyRuleGroupInvokeArgs(), options.WithDefaults());
     }
 
 

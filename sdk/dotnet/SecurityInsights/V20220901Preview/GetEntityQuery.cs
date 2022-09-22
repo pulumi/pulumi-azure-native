@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220901Preview
         /// Specific entity query.
         /// </summary>
         public static Task<GetEntityQueryResult> InvokeAsync(GetEntityQueryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEntityQueryResult>("azure-native:securityinsights/v20220901preview:getEntityQuery", args ?? new GetEntityQueryArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEntityQueryResult>("azure-native:securityinsights/v20220901preview:getEntityQuery", args ?? new GetEntityQueryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Specific entity query.
         /// </summary>
         public static Output<GetEntityQueryResult> Invoke(GetEntityQueryInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEntityQueryResult>("azure-native:securityinsights/v20220901preview:getEntityQuery", args ?? new GetEntityQueryInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEntityQueryResult>("azure-native:securityinsights/v20220901preview:getEntityQuery", args ?? new GetEntityQueryInvokeArgs(), options.WithDefaults());
     }
 
 

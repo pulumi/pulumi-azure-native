@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Authorization.V20200501
         /// The lock information.
         /// </summary>
         public static Task<GetManagementLockAtResourceGroupLevelResult> InvokeAsync(GetManagementLockAtResourceGroupLevelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementLockAtResourceGroupLevelResult>("azure-native:authorization/v20200501:getManagementLockAtResourceGroupLevel", args ?? new GetManagementLockAtResourceGroupLevelArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagementLockAtResourceGroupLevelResult>("azure-native:authorization/v20200501:getManagementLockAtResourceGroupLevel", args ?? new GetManagementLockAtResourceGroupLevelArgs(), options.WithDefaults());
 
         /// <summary>
         /// The lock information.
         /// </summary>
         public static Output<GetManagementLockAtResourceGroupLevelResult> Invoke(GetManagementLockAtResourceGroupLevelInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagementLockAtResourceGroupLevelResult>("azure-native:authorization/v20200501:getManagementLockAtResourceGroupLevel", args ?? new GetManagementLockAtResourceGroupLevelInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagementLockAtResourceGroupLevelResult>("azure-native:authorization/v20200501:getManagementLockAtResourceGroupLevel", args ?? new GetManagementLockAtResourceGroupLevelInvokeArgs(), options.WithDefaults());
     }
 
 

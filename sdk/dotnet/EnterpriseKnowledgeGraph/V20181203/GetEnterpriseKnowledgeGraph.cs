@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph.V20181203
         /// EnterpriseKnowledgeGraph resource definition
         /// </summary>
         public static Task<GetEnterpriseKnowledgeGraphResult> InvokeAsync(GetEnterpriseKnowledgeGraphArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEnterpriseKnowledgeGraphResult>("azure-native:enterpriseknowledgegraph/v20181203:getEnterpriseKnowledgeGraph", args ?? new GetEnterpriseKnowledgeGraphArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnterpriseKnowledgeGraphResult>("azure-native:enterpriseknowledgegraph/v20181203:getEnterpriseKnowledgeGraph", args ?? new GetEnterpriseKnowledgeGraphArgs(), options.WithDefaults());
 
         /// <summary>
         /// EnterpriseKnowledgeGraph resource definition
         /// </summary>
         public static Output<GetEnterpriseKnowledgeGraphResult> Invoke(GetEnterpriseKnowledgeGraphInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEnterpriseKnowledgeGraphResult>("azure-native:enterpriseknowledgegraph/v20181203:getEnterpriseKnowledgeGraph", args ?? new GetEnterpriseKnowledgeGraphInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnterpriseKnowledgeGraphResult>("azure-native:enterpriseknowledgegraph/v20181203:getEnterpriseKnowledgeGraph", args ?? new GetEnterpriseKnowledgeGraphInvokeArgs(), options.WithDefaults());
     }
 
 

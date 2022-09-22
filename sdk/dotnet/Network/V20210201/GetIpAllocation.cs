@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20210201
         /// IpAllocation resource.
         /// </summary>
         public static Task<GetIpAllocationResult> InvokeAsync(GetIpAllocationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIpAllocationResult>("azure-native:network/v20210201:getIpAllocation", args ?? new GetIpAllocationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIpAllocationResult>("azure-native:network/v20210201:getIpAllocation", args ?? new GetIpAllocationArgs(), options.WithDefaults());
 
         /// <summary>
         /// IpAllocation resource.
         /// </summary>
         public static Output<GetIpAllocationResult> Invoke(GetIpAllocationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIpAllocationResult>("azure-native:network/v20210201:getIpAllocation", args ?? new GetIpAllocationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIpAllocationResult>("azure-native:network/v20210201:getIpAllocation", args ?? new GetIpAllocationInvokeArgs(), options.WithDefaults());
     }
 
 

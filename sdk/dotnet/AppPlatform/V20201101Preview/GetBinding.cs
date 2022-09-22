@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.AppPlatform.V20201101Preview
         /// Binding resource payload
         /// </summary>
         public static Task<GetBindingResult> InvokeAsync(GetBindingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBindingResult>("azure-native:appplatform/v20201101preview:getBinding", args ?? new GetBindingArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBindingResult>("azure-native:appplatform/v20201101preview:getBinding", args ?? new GetBindingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Binding resource payload
         /// </summary>
         public static Output<GetBindingResult> Invoke(GetBindingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBindingResult>("azure-native:appplatform/v20201101preview:getBinding", args ?? new GetBindingInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBindingResult>("azure-native:appplatform/v20201101preview:getBinding", args ?? new GetBindingInvokeArgs(), options.WithDefaults());
     }
 
 

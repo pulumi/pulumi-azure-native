@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Logic.V20190501
         /// The callback url.
         /// </summary>
         public static Task<ListIntegrationAccountCallbackUrlResult> InvokeAsync(ListIntegrationAccountCallbackUrlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationAccountCallbackUrlResult>("azure-native:logic/v20190501:listIntegrationAccountCallbackUrl", args ?? new ListIntegrationAccountCallbackUrlArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationAccountCallbackUrlResult>("azure-native:logic/v20190501:listIntegrationAccountCallbackUrl", args ?? new ListIntegrationAccountCallbackUrlArgs(), options.WithDefaults());
 
         /// <summary>
         /// The callback url.
         /// </summary>
         public static Output<ListIntegrationAccountCallbackUrlResult> Invoke(ListIntegrationAccountCallbackUrlInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListIntegrationAccountCallbackUrlResult>("azure-native:logic/v20190501:listIntegrationAccountCallbackUrl", args ?? new ListIntegrationAccountCallbackUrlInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListIntegrationAccountCallbackUrlResult>("azure-native:logic/v20190501:listIntegrationAccountCallbackUrl", args ?? new ListIntegrationAccountCallbackUrlInvokeArgs(), options.WithDefaults());
     }
 
 

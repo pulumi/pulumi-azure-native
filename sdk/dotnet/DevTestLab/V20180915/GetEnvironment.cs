@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// An environment, which is essentially an ARM template deployment.
         /// </summary>
         public static Task<GetEnvironmentResult> InvokeAsync(GetEnvironmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentResult>("azure-native:devtestlab/v20180915:getEnvironment", args ?? new GetEnvironmentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentResult>("azure-native:devtestlab/v20180915:getEnvironment", args ?? new GetEnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// An environment, which is essentially an ARM template deployment.
         /// </summary>
         public static Output<GetEnvironmentResult> Invoke(GetEnvironmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEnvironmentResult>("azure-native:devtestlab/v20180915:getEnvironment", args ?? new GetEnvironmentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentResult>("azure-native:devtestlab/v20180915:getEnvironment", args ?? new GetEnvironmentInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20190401
         /// Route table resource.
         /// </summary>
         public static Task<GetRouteTableResult> InvokeAsync(GetRouteTableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteTableResult>("azure-native:network/v20190401:getRouteTable", args ?? new GetRouteTableArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteTableResult>("azure-native:network/v20190401:getRouteTable", args ?? new GetRouteTableArgs(), options.WithDefaults());
 
         /// <summary>
         /// Route table resource.
         /// </summary>
         public static Output<GetRouteTableResult> Invoke(GetRouteTableInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRouteTableResult>("azure-native:network/v20190401:getRouteTable", args ?? new GetRouteTableInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRouteTableResult>("azure-native:network/v20190401:getRouteTable", args ?? new GetRouteTableInvokeArgs(), options.WithDefaults());
     }
 
 

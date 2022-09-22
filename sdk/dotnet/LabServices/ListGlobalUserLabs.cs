@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.LabServices
         /// API Version: 2018-10-15.
         /// </summary>
         public static Task<ListGlobalUserLabsResult> InvokeAsync(ListGlobalUserLabsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListGlobalUserLabsResult>("azure-native:labservices:listGlobalUserLabs", args ?? new ListGlobalUserLabsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListGlobalUserLabsResult>("azure-native:labservices:listGlobalUserLabs", args ?? new ListGlobalUserLabsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists the labs owned by a user
         /// API Version: 2018-10-15.
         /// </summary>
         public static Output<ListGlobalUserLabsResult> Invoke(ListGlobalUserLabsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListGlobalUserLabsResult>("azure-native:labservices:listGlobalUserLabs", args ?? new ListGlobalUserLabsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListGlobalUserLabsResult>("azure-native:labservices:listGlobalUserLabs", args ?? new ListGlobalUserLabsInvokeArgs(), options.WithDefaults());
     }
 
 

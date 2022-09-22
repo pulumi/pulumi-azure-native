@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Automanage
         /// API Version: 2020-06-30-preview.
         /// </summary>
         public static Task<GetConfigurationProfilePreferenceResult> InvokeAsync(GetConfigurationProfilePreferenceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfilePreferenceResult>("azure-native:automanage:getConfigurationProfilePreference", args ?? new GetConfigurationProfilePreferenceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfilePreferenceResult>("azure-native:automanage:getConfigurationProfilePreference", args ?? new GetConfigurationProfilePreferenceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of the configuration profile preference.
         /// API Version: 2020-06-30-preview.
         /// </summary>
         public static Output<GetConfigurationProfilePreferenceResult> Invoke(GetConfigurationProfilePreferenceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConfigurationProfilePreferenceResult>("azure-native:automanage:getConfigurationProfilePreference", args ?? new GetConfigurationProfilePreferenceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationProfilePreferenceResult>("azure-native:automanage:getConfigurationProfilePreference", args ?? new GetConfigurationProfilePreferenceInvokeArgs(), options.WithDefaults());
     }
 
 

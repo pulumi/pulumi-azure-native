@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Cdn.V20191231
         /// The result of the GetSupportedOptimizationTypes API
         /// </summary>
         public static Task<GetProfileSupportedOptimizationTypesResult> InvokeAsync(GetProfileSupportedOptimizationTypesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProfileSupportedOptimizationTypesResult>("azure-native:cdn/v20191231:getProfileSupportedOptimizationTypes", args ?? new GetProfileSupportedOptimizationTypesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetProfileSupportedOptimizationTypesResult>("azure-native:cdn/v20191231:getProfileSupportedOptimizationTypes", args ?? new GetProfileSupportedOptimizationTypesArgs(), options.WithDefaults());
 
         /// <summary>
         /// The result of the GetSupportedOptimizationTypes API
         /// </summary>
         public static Output<GetProfileSupportedOptimizationTypesResult> Invoke(GetProfileSupportedOptimizationTypesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProfileSupportedOptimizationTypesResult>("azure-native:cdn/v20191231:getProfileSupportedOptimizationTypes", args ?? new GetProfileSupportedOptimizationTypesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetProfileSupportedOptimizationTypesResult>("azure-native:cdn/v20191231:getProfileSupportedOptimizationTypes", args ?? new GetProfileSupportedOptimizationTypesInvokeArgs(), options.WithDefaults());
     }
 
 

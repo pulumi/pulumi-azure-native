@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801
         /// Product details.
         /// </summary>
         public static Task<GetProductResult> InvokeAsync(GetProductArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("azure-native:apimanagement/v20210801:getProduct", args ?? new GetProductArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("azure-native:apimanagement/v20210801:getProduct", args ?? new GetProductArgs(), options.WithDefaults());
 
         /// <summary>
         /// Product details.
         /// </summary>
         public static Output<GetProductResult> Invoke(GetProductInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProductResult>("azure-native:apimanagement/v20210801:getProduct", args ?? new GetProductInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetProductResult>("azure-native:apimanagement/v20210801:getProduct", args ?? new GetProductInvokeArgs(), options.WithDefaults());
     }
 
 

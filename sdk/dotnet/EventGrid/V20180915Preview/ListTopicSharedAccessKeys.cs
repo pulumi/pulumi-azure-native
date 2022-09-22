@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.EventGrid.V20180915Preview
         /// Shared access keys of the Topic
         /// </summary>
         public static Task<ListTopicSharedAccessKeysResult> InvokeAsync(ListTopicSharedAccessKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListTopicSharedAccessKeysResult>("azure-native:eventgrid/v20180915preview:listTopicSharedAccessKeys", args ?? new ListTopicSharedAccessKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListTopicSharedAccessKeysResult>("azure-native:eventgrid/v20180915preview:listTopicSharedAccessKeys", args ?? new ListTopicSharedAccessKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Shared access keys of the Topic
         /// </summary>
         public static Output<ListTopicSharedAccessKeysResult> Invoke(ListTopicSharedAccessKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListTopicSharedAccessKeysResult>("azure-native:eventgrid/v20180915preview:listTopicSharedAccessKeys", args ?? new ListTopicSharedAccessKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListTopicSharedAccessKeysResult>("azure-native:eventgrid/v20180915preview:listTopicSharedAccessKeys", args ?? new ListTopicSharedAccessKeysInvokeArgs(), options.WithDefaults());
     }
 
 

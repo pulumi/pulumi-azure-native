@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.SignalRService.V20180301Preview
         /// A class represent a SignalR service resource.
         /// </summary>
         public static Task<GetSignalRResult> InvokeAsync(GetSignalRArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSignalRResult>("azure-native:signalrservice/v20180301preview:getSignalR", args ?? new GetSignalRArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSignalRResult>("azure-native:signalrservice/v20180301preview:getSignalR", args ?? new GetSignalRArgs(), options.WithDefaults());
 
         /// <summary>
         /// A class represent a SignalR service resource.
         /// </summary>
         public static Output<GetSignalRResult> Invoke(GetSignalRInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSignalRResult>("azure-native:signalrservice/v20180301preview:getSignalR", args ?? new GetSignalRInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSignalRResult>("azure-native:signalrservice/v20180301preview:getSignalR", args ?? new GetSignalRInvokeArgs(), options.WithDefaults());
     }
 
 

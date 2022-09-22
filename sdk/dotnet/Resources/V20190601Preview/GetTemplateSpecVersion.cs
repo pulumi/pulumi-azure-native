@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Resources.V20190601Preview
         /// Template Spec Version object.
         /// </summary>
         public static Task<GetTemplateSpecVersionResult> InvokeAsync(GetTemplateSpecVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTemplateSpecVersionResult>("azure-native:resources/v20190601preview:getTemplateSpecVersion", args ?? new GetTemplateSpecVersionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTemplateSpecVersionResult>("azure-native:resources/v20190601preview:getTemplateSpecVersion", args ?? new GetTemplateSpecVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Template Spec Version object.
         /// </summary>
         public static Output<GetTemplateSpecVersionResult> Invoke(GetTemplateSpecVersionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTemplateSpecVersionResult>("azure-native:resources/v20190601preview:getTemplateSpecVersion", args ?? new GetTemplateSpecVersionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTemplateSpecVersionResult>("azure-native:resources/v20190601preview:getTemplateSpecVersion", args ?? new GetTemplateSpecVersionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// Slot Config names azure resource
         /// </summary>
         public static Task<GetSiteSlotConfigNamesResult> InvokeAsync(GetSiteSlotConfigNamesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteSlotConfigNamesResult>("azure-native:web/v20150801:getSiteSlotConfigNames", args ?? new GetSiteSlotConfigNamesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSiteSlotConfigNamesResult>("azure-native:web/v20150801:getSiteSlotConfigNames", args ?? new GetSiteSlotConfigNamesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Slot Config names azure resource
         /// </summary>
         public static Output<GetSiteSlotConfigNamesResult> Invoke(GetSiteSlotConfigNamesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSiteSlotConfigNamesResult>("azure-native:web/v20150801:getSiteSlotConfigNames", args ?? new GetSiteSlotConfigNamesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSiteSlotConfigNamesResult>("azure-native:web/v20150801:getSiteSlotConfigNames", args ?? new GetSiteSlotConfigNamesInvokeArgs(), options.WithDefaults());
     }
 
 

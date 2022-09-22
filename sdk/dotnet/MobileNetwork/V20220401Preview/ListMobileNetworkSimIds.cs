@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
         /// Response for list SIM IDs API service call.
         /// </summary>
         public static Task<ListMobileNetworkSimIdsResult> InvokeAsync(ListMobileNetworkSimIdsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListMobileNetworkSimIdsResult>("azure-native:mobilenetwork/v20220401preview:listMobileNetworkSimIds", args ?? new ListMobileNetworkSimIdsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListMobileNetworkSimIdsResult>("azure-native:mobilenetwork/v20220401preview:listMobileNetworkSimIds", args ?? new ListMobileNetworkSimIdsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response for list SIM IDs API service call.
         /// </summary>
         public static Output<ListMobileNetworkSimIdsResult> Invoke(ListMobileNetworkSimIdsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListMobileNetworkSimIdsResult>("azure-native:mobilenetwork/v20220401preview:listMobileNetworkSimIds", args ?? new ListMobileNetworkSimIdsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListMobileNetworkSimIdsResult>("azure-native:mobilenetwork/v20220401preview:listMobileNetworkSimIds", args ?? new ListMobileNetworkSimIdsInvokeArgs(), options.WithDefaults());
     }
 
 

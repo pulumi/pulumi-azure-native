@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20201101
         /// LoadBalancer resource.
         /// </summary>
         public static Task<GetLoadBalancerResult> InvokeAsync(GetLoadBalancerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("azure-native:network/v20201101:getLoadBalancer", args ?? new GetLoadBalancerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("azure-native:network/v20201101:getLoadBalancer", args ?? new GetLoadBalancerArgs(), options.WithDefaults());
 
         /// <summary>
         /// LoadBalancer resource.
         /// </summary>
         public static Output<GetLoadBalancerResult> Invoke(GetLoadBalancerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLoadBalancerResult>("azure-native:network/v20201101:getLoadBalancer", args ?? new GetLoadBalancerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLoadBalancerResult>("azure-native:network/v20201101:getLoadBalancer", args ?? new GetLoadBalancerInvokeArgs(), options.WithDefaults());
     }
 
 

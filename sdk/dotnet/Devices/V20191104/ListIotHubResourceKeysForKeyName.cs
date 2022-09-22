@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Devices.V20191104
         /// The properties of an IoT hub shared access policy.
         /// </summary>
         public static Task<ListIotHubResourceKeysForKeyNameResult> InvokeAsync(ListIotHubResourceKeysForKeyNameArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListIotHubResourceKeysForKeyNameResult>("azure-native:devices/v20191104:listIotHubResourceKeysForKeyName", args ?? new ListIotHubResourceKeysForKeyNameArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListIotHubResourceKeysForKeyNameResult>("azure-native:devices/v20191104:listIotHubResourceKeysForKeyName", args ?? new ListIotHubResourceKeysForKeyNameArgs(), options.WithDefaults());
 
         /// <summary>
         /// The properties of an IoT hub shared access policy.
         /// </summary>
         public static Output<ListIotHubResourceKeysForKeyNameResult> Invoke(ListIotHubResourceKeysForKeyNameInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListIotHubResourceKeysForKeyNameResult>("azure-native:devices/v20191104:listIotHubResourceKeysForKeyName", args ?? new ListIotHubResourceKeysForKeyNameInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListIotHubResourceKeysForKeyNameResult>("azure-native:devices/v20191104:listIotHubResourceKeysForKeyName", args ?? new ListIotHubResourceKeysForKeyNameInvokeArgs(), options.WithDefaults());
     }
 
 

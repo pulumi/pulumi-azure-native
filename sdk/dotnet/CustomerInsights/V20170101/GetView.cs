@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101
         /// The view resource format.
         /// </summary>
         public static Task<GetViewResult> InvokeAsync(GetViewArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetViewResult>("azure-native:customerinsights/v20170101:getView", args ?? new GetViewArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetViewResult>("azure-native:customerinsights/v20170101:getView", args ?? new GetViewArgs(), options.WithDefaults());
 
         /// <summary>
         /// The view resource format.
         /// </summary>
         public static Output<GetViewResult> Invoke(GetViewInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetViewResult>("azure-native:customerinsights/v20170101:getView", args ?? new GetViewInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetViewResult>("azure-native:customerinsights/v20170101:getView", args ?? new GetViewInvokeArgs(), options.WithDefaults());
     }
 
 

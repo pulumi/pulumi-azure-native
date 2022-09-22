@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160810
         /// Replication protected item.
         /// </summary>
         public static Task<GetReplicationProtectedItemResult> InvokeAsync(GetReplicationProtectedItemArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationProtectedItemResult>("azure-native:recoveryservices/v20160810:getReplicationProtectedItem", args ?? new GetReplicationProtectedItemArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationProtectedItemResult>("azure-native:recoveryservices/v20160810:getReplicationProtectedItem", args ?? new GetReplicationProtectedItemArgs(), options.WithDefaults());
 
         /// <summary>
         /// Replication protected item.
         /// </summary>
         public static Output<GetReplicationProtectedItemResult> Invoke(GetReplicationProtectedItemInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetReplicationProtectedItemResult>("azure-native:recoveryservices/v20160810:getReplicationProtectedItem", args ?? new GetReplicationProtectedItemInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetReplicationProtectedItemResult>("azure-native:recoveryservices/v20160810:getReplicationProtectedItem", args ?? new GetReplicationProtectedItemInvokeArgs(), options.WithDefaults());
     }
 
 

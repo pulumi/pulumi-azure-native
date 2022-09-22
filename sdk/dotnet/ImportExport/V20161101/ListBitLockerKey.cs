@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ImportExport.V20161101
         /// GetBitLockerKeys response
         /// </summary>
         public static Task<ListBitLockerKeyResult> InvokeAsync(ListBitLockerKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListBitLockerKeyResult>("azure-native:importexport/v20161101:listBitLockerKey", args ?? new ListBitLockerKeyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListBitLockerKeyResult>("azure-native:importexport/v20161101:listBitLockerKey", args ?? new ListBitLockerKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// GetBitLockerKeys response
         /// </summary>
         public static Output<ListBitLockerKeyResult> Invoke(ListBitLockerKeyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListBitLockerKeyResult>("azure-native:importexport/v20161101:listBitLockerKey", args ?? new ListBitLockerKeyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListBitLockerKeyResult>("azure-native:importexport/v20161101:listBitLockerKey", args ?? new ListBitLockerKeyInvokeArgs(), options.WithDefaults());
     }
 
 

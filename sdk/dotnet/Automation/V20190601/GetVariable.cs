@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Automation.V20190601
         /// Definition of the variable.
         /// </summary>
         public static Task<GetVariableResult> InvokeAsync(GetVariableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVariableResult>("azure-native:automation/v20190601:getVariable", args ?? new GetVariableArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVariableResult>("azure-native:automation/v20190601:getVariable", args ?? new GetVariableArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of the variable.
         /// </summary>
         public static Output<GetVariableResult> Invoke(GetVariableInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVariableResult>("azure-native:automation/v20190601:getVariable", args ?? new GetVariableInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVariableResult>("azure-native:automation/v20190601:getVariable", args ?? new GetVariableInvokeArgs(), options.WithDefaults());
     }
 
 

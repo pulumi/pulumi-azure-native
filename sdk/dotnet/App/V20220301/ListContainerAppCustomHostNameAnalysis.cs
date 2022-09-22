@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.App.V20220301
         /// Custom domain analysis.
         /// </summary>
         public static Task<ListContainerAppCustomHostNameAnalysisResult> InvokeAsync(ListContainerAppCustomHostNameAnalysisArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListContainerAppCustomHostNameAnalysisResult>("azure-native:app/v20220301:listContainerAppCustomHostNameAnalysis", args ?? new ListContainerAppCustomHostNameAnalysisArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListContainerAppCustomHostNameAnalysisResult>("azure-native:app/v20220301:listContainerAppCustomHostNameAnalysis", args ?? new ListContainerAppCustomHostNameAnalysisArgs(), options.WithDefaults());
 
         /// <summary>
         /// Custom domain analysis.
         /// </summary>
         public static Output<ListContainerAppCustomHostNameAnalysisResult> Invoke(ListContainerAppCustomHostNameAnalysisInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListContainerAppCustomHostNameAnalysisResult>("azure-native:app/v20220301:listContainerAppCustomHostNameAnalysis", args ?? new ListContainerAppCustomHostNameAnalysisInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListContainerAppCustomHostNameAnalysisResult>("azure-native:app/v20220301:listContainerAppCustomHostNameAnalysis", args ?? new ListContainerAppCustomHostNameAnalysisInvokeArgs(), options.WithDefaults());
     }
 
 

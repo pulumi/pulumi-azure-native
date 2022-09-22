@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Web
         /// API Version: 2016-06-01.
         /// </summary>
         public static Task<GetCustomApiResult> InvokeAsync(GetCustomApiArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomApiResult>("azure-native:web:getCustomApi", args ?? new GetCustomApiArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomApiResult>("azure-native:web:getCustomApi", args ?? new GetCustomApiArgs(), options.WithDefaults());
 
         /// <summary>
         /// A custom API
         /// API Version: 2016-06-01.
         /// </summary>
         public static Output<GetCustomApiResult> Invoke(GetCustomApiInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCustomApiResult>("azure-native:web:getCustomApi", args ?? new GetCustomApiInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomApiResult>("azure-native:web:getCustomApi", args ?? new GetCustomApiInvokeArgs(), options.WithDefaults());
     }
 
 

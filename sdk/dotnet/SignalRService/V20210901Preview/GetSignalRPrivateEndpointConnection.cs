@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.SignalRService.V20210901Preview
         /// A private endpoint connection to an azure resource
         /// </summary>
         public static Task<GetSignalRPrivateEndpointConnectionResult> InvokeAsync(GetSignalRPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSignalRPrivateEndpointConnectionResult>("azure-native:signalrservice/v20210901preview:getSignalRPrivateEndpointConnection", args ?? new GetSignalRPrivateEndpointConnectionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSignalRPrivateEndpointConnectionResult>("azure-native:signalrservice/v20210901preview:getSignalRPrivateEndpointConnection", args ?? new GetSignalRPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// A private endpoint connection to an azure resource
         /// </summary>
         public static Output<GetSignalRPrivateEndpointConnectionResult> Invoke(GetSignalRPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSignalRPrivateEndpointConnectionResult>("azure-native:signalrservice/v20210901preview:getSignalRPrivateEndpointConnection", args ?? new GetSignalRPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSignalRPrivateEndpointConnectionResult>("azure-native:signalrservice/v20210901preview:getSignalRPrivateEndpointConnection", args ?? new GetSignalRPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Devices.V20210201Preview
         /// The properties of the EventHubConsumerGroupInfo object.
         /// </summary>
         public static Task<GetIotHubResourceEventHubConsumerGroupResult> InvokeAsync(GetIotHubResourceEventHubConsumerGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIotHubResourceEventHubConsumerGroupResult>("azure-native:devices/v20210201preview:getIotHubResourceEventHubConsumerGroup", args ?? new GetIotHubResourceEventHubConsumerGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIotHubResourceEventHubConsumerGroupResult>("azure-native:devices/v20210201preview:getIotHubResourceEventHubConsumerGroup", args ?? new GetIotHubResourceEventHubConsumerGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// The properties of the EventHubConsumerGroupInfo object.
         /// </summary>
         public static Output<GetIotHubResourceEventHubConsumerGroupResult> Invoke(GetIotHubResourceEventHubConsumerGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIotHubResourceEventHubConsumerGroupResult>("azure-native:devices/v20210201preview:getIotHubResourceEventHubConsumerGroup", args ?? new GetIotHubResourceEventHubConsumerGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIotHubResourceEventHubConsumerGroupResult>("azure-native:devices/v20210201preview:getIotHubResourceEventHubConsumerGroup", args ?? new GetIotHubResourceEventHubConsumerGroupInvokeArgs(), options.WithDefaults());
     }
 
 

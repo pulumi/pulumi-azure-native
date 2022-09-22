@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Media.V20180601Preview
         /// A Content Key Policy resource.
         /// </summary>
         public static Task<GetContentKeyPolicyResult> InvokeAsync(GetContentKeyPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetContentKeyPolicyResult>("azure-native:media/v20180601preview:getContentKeyPolicy", args ?? new GetContentKeyPolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetContentKeyPolicyResult>("azure-native:media/v20180601preview:getContentKeyPolicy", args ?? new GetContentKeyPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// A Content Key Policy resource.
         /// </summary>
         public static Output<GetContentKeyPolicyResult> Invoke(GetContentKeyPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetContentKeyPolicyResult>("azure-native:media/v20180601preview:getContentKeyPolicy", args ?? new GetContentKeyPolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetContentKeyPolicyResult>("azure-native:media/v20180601preview:getContentKeyPolicy", args ?? new GetContentKeyPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

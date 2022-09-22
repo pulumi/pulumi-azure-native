@@ -12,10 +12,10 @@ namespace Pulumi.AzureNative.Scheduler.V20160301
     public static class GetJob
     {
         public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-native:scheduler/v20160301:getJob", args ?? new GetJobArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-native:scheduler/v20160301:getJob", args ?? new GetJobArgs(), options.WithDefaults());
 
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:scheduler/v20160301:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:scheduler/v20160301:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
     }
 
 

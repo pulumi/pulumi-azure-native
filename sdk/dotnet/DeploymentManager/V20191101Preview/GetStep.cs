@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview
         /// The resource representation of a rollout step.
         /// </summary>
         public static Task<GetStepResult> InvokeAsync(GetStepArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStepResult>("azure-native:deploymentmanager/v20191101preview:getStep", args ?? new GetStepArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStepResult>("azure-native:deploymentmanager/v20191101preview:getStep", args ?? new GetStepArgs(), options.WithDefaults());
 
         /// <summary>
         /// The resource representation of a rollout step.
         /// </summary>
         public static Output<GetStepResult> Invoke(GetStepInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStepResult>("azure-native:deploymentmanager/v20191101preview:getStep", args ?? new GetStepInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetStepResult>("azure-native:deploymentmanager/v20191101preview:getStep", args ?? new GetStepInvokeArgs(), options.WithDefaults());
     }
 
 

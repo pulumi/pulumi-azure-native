@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210111
         /// The description of the service.
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:healthcareapis/v20210111:getService", args ?? new GetServiceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:healthcareapis/v20210111:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// The description of the service.
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:healthcareapis/v20210111:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:healthcareapis/v20210111:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
     }
 
 

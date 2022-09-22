@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ServiceBus.V20220101Preview
         /// Description of topic resource.
         /// </summary>
         public static Task<GetTopicResult> InvokeAsync(GetTopicArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("azure-native:servicebus/v20220101preview:getTopic", args ?? new GetTopicArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("azure-native:servicebus/v20220101preview:getTopic", args ?? new GetTopicArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description of topic resource.
         /// </summary>
         public static Output<GetTopicResult> Invoke(GetTopicInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTopicResult>("azure-native:servicebus/v20220101preview:getTopic", args ?? new GetTopicInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTopicResult>("azure-native:servicebus/v20220101preview:getTopic", args ?? new GetTopicInvokeArgs(), options.WithDefaults());
     }
 
 

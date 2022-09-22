@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.ServiceBus.V20140901
         /// Description of subscription resource.
         /// </summary>
         public static Task<GetSubscriptionResult> InvokeAsync(GetSubscriptionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionResult>("azure-native:servicebus/v20140901:getSubscription", args ?? new GetSubscriptionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionResult>("azure-native:servicebus/v20140901:getSubscription", args ?? new GetSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description of subscription resource.
         /// </summary>
         public static Output<GetSubscriptionResult> Invoke(GetSubscriptionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSubscriptionResult>("azure-native:servicebus/v20140901:getSubscription", args ?? new GetSubscriptionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionResult>("azure-native:servicebus/v20140901:getSubscription", args ?? new GetSubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 

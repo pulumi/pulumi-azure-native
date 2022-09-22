@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.ContainerInstance.V20170801Preview
         /// A container group.
         /// </summary>
         public static Task<GetContainerGroupResult> InvokeAsync(GetContainerGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetContainerGroupResult>("azure-native:containerinstance/v20170801preview:getContainerGroup", args ?? new GetContainerGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetContainerGroupResult>("azure-native:containerinstance/v20170801preview:getContainerGroup", args ?? new GetContainerGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// A container group.
         /// </summary>
         public static Output<GetContainerGroupResult> Invoke(GetContainerGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetContainerGroupResult>("azure-native:containerinstance/v20170801preview:getContainerGroup", args ?? new GetContainerGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetContainerGroupResult>("azure-native:containerinstance/v20170801preview:getContainerGroup", args ?? new GetContainerGroupInvokeArgs(), options.WithDefaults());
     }
 
 

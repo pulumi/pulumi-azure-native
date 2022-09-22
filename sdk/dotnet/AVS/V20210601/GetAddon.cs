@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.AVS.V20210601
         /// An addon resource
         /// </summary>
         public static Task<GetAddonResult> InvokeAsync(GetAddonArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAddonResult>("azure-native:avs/v20210601:getAddon", args ?? new GetAddonArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAddonResult>("azure-native:avs/v20210601:getAddon", args ?? new GetAddonArgs(), options.WithDefaults());
 
         /// <summary>
         /// An addon resource
         /// </summary>
         public static Output<GetAddonResult> Invoke(GetAddonInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAddonResult>("azure-native:avs/v20210601:getAddon", args ?? new GetAddonInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAddonResult>("azure-native:avs/v20210601:getAddon", args ?? new GetAddonInvokeArgs(), options.WithDefaults());
     }
 
 

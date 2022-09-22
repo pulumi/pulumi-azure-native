@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetPeriodicTimerEventTriggerResult> InvokeAsync(GetPeriodicTimerEventTriggerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPeriodicTimerEventTriggerResult>("azure-native:databoxedge:getPeriodicTimerEventTrigger", args ?? new GetPeriodicTimerEventTriggerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPeriodicTimerEventTriggerResult>("azure-native:databoxedge:getPeriodicTimerEventTrigger", args ?? new GetPeriodicTimerEventTriggerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Trigger details.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetPeriodicTimerEventTriggerResult> Invoke(GetPeriodicTimerEventTriggerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPeriodicTimerEventTriggerResult>("azure-native:databoxedge:getPeriodicTimerEventTrigger", args ?? new GetPeriodicTimerEventTriggerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPeriodicTimerEventTriggerResult>("azure-native:databoxedge:getPeriodicTimerEventTrigger", args ?? new GetPeriodicTimerEventTriggerInvokeArgs(), options.WithDefaults());
     }
 
 

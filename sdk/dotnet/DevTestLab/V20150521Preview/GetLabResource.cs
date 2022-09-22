@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         /// A lab.
         /// </summary>
         public static Task<GetLabResourceResult> InvokeAsync(GetLabResourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLabResourceResult>("azure-native:devtestlab/v20150521preview:getLabResource", args ?? new GetLabResourceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLabResourceResult>("azure-native:devtestlab/v20150521preview:getLabResource", args ?? new GetLabResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// A lab.
         /// </summary>
         public static Output<GetLabResourceResult> Invoke(GetLabResourceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLabResourceResult>("azure-native:devtestlab/v20150521preview:getLabResource", args ?? new GetLabResourceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLabResourceResult>("azure-native:devtestlab/v20150521preview:getLabResource", args ?? new GetLabResourceInvokeArgs(), options.WithDefaults());
     }
 
 

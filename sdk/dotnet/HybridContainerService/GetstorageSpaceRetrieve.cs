@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.HybridContainerService
         /// API Version: 2022-05-01-preview.
         /// </summary>
         public static Task<GetstorageSpaceRetrieveResult> InvokeAsync(GetstorageSpaceRetrieveArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetstorageSpaceRetrieveResult>("azure-native:hybridcontainerservice:getstorageSpaceRetrieve", args ?? new GetstorageSpaceRetrieveArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetstorageSpaceRetrieveResult>("azure-native:hybridcontainerservice:getstorageSpaceRetrieve", args ?? new GetstorageSpaceRetrieveArgs(), options.WithDefaults());
 
         /// <summary>
         /// The storageSpaces resource definition.
         /// API Version: 2022-05-01-preview.
         /// </summary>
         public static Output<GetstorageSpaceRetrieveResult> Invoke(GetstorageSpaceRetrieveInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetstorageSpaceRetrieveResult>("azure-native:hybridcontainerservice:getstorageSpaceRetrieve", args ?? new GetstorageSpaceRetrieveInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetstorageSpaceRetrieveResult>("azure-native:hybridcontainerservice:getstorageSpaceRetrieve", args ?? new GetstorageSpaceRetrieveInvokeArgs(), options.WithDefaults());
     }
 
 

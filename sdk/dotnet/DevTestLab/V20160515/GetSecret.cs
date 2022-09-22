@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         /// A secret.
         /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure-native:devtestlab/v20160515:getSecret", args ?? new GetSecretArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure-native:devtestlab/v20160515:getSecret", args ?? new GetSecretArgs(), options.WithDefaults());
 
         /// <summary>
         /// A secret.
         /// </summary>
         public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSecretResult>("azure-native:devtestlab/v20160515:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecretResult>("azure-native:devtestlab/v20160515:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());
     }
 
 

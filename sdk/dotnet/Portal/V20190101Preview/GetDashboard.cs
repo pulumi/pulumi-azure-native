@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Portal.V20190101Preview
         /// The shared dashboard resource definition.
         /// </summary>
         public static Task<GetDashboardResult> InvokeAsync(GetDashboardArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDashboardResult>("azure-native:portal/v20190101preview:getDashboard", args ?? new GetDashboardArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDashboardResult>("azure-native:portal/v20190101preview:getDashboard", args ?? new GetDashboardArgs(), options.WithDefaults());
 
         /// <summary>
         /// The shared dashboard resource definition.
         /// </summary>
         public static Output<GetDashboardResult> Invoke(GetDashboardInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDashboardResult>("azure-native:portal/v20190101preview:getDashboard", args ?? new GetDashboardInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDashboardResult>("azure-native:portal/v20190101preview:getDashboard", args ?? new GetDashboardInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Intune.V20150114Preview
         /// Android Policy entity for Intune MAM.
         /// </summary>
         public static Task<GetAndroidMAMPolicyByNameResult> InvokeAsync(GetAndroidMAMPolicyByNameArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAndroidMAMPolicyByNameResult>("azure-native:intune/v20150114preview:getAndroidMAMPolicyByName", args ?? new GetAndroidMAMPolicyByNameArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAndroidMAMPolicyByNameResult>("azure-native:intune/v20150114preview:getAndroidMAMPolicyByName", args ?? new GetAndroidMAMPolicyByNameArgs(), options.WithDefaults());
 
         /// <summary>
         /// Android Policy entity for Intune MAM.
         /// </summary>
         public static Output<GetAndroidMAMPolicyByNameResult> Invoke(GetAndroidMAMPolicyByNameInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAndroidMAMPolicyByNameResult>("azure-native:intune/v20150114preview:getAndroidMAMPolicyByName", args ?? new GetAndroidMAMPolicyByNameInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAndroidMAMPolicyByNameResult>("azure-native:intune/v20150114preview:getAndroidMAMPolicyByName", args ?? new GetAndroidMAMPolicyByNameInvokeArgs(), options.WithDefaults());
     }
 
 

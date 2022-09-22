@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DomainRegistration.V20200601
         /// Collection of domain name identifiers.
         /// </summary>
         public static Task<ListDomainRecommendationsResult> InvokeAsync(ListDomainRecommendationsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListDomainRecommendationsResult>("azure-native:domainregistration/v20200601:listDomainRecommendations", args ?? new ListDomainRecommendationsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListDomainRecommendationsResult>("azure-native:domainregistration/v20200601:listDomainRecommendations", args ?? new ListDomainRecommendationsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Collection of domain name identifiers.
         /// </summary>
         public static Output<ListDomainRecommendationsResult> Invoke(ListDomainRecommendationsInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListDomainRecommendationsResult>("azure-native:domainregistration/v20200601:listDomainRecommendations", args ?? new ListDomainRecommendationsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListDomainRecommendationsResult>("azure-native:domainregistration/v20200601:listDomainRecommendations", args ?? new ListDomainRecommendationsInvokeArgs(), options.WithDefaults());
     }
 
 

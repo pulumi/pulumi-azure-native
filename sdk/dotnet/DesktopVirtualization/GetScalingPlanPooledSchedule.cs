@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Task<GetScalingPlanPooledScheduleResult> InvokeAsync(GetScalingPlanPooledScheduleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScalingPlanPooledScheduleResult>("azure-native:desktopvirtualization:getScalingPlanPooledSchedule", args ?? new GetScalingPlanPooledScheduleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetScalingPlanPooledScheduleResult>("azure-native:desktopvirtualization:getScalingPlanPooledSchedule", args ?? new GetScalingPlanPooledScheduleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a ScalingPlanPooledSchedule definition.
         /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Output<GetScalingPlanPooledScheduleResult> Invoke(GetScalingPlanPooledScheduleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetScalingPlanPooledScheduleResult>("azure-native:desktopvirtualization:getScalingPlanPooledSchedule", args ?? new GetScalingPlanPooledScheduleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetScalingPlanPooledScheduleResult>("azure-native:desktopvirtualization:getScalingPlanPooledSchedule", args ?? new GetScalingPlanPooledScheduleInvokeArgs(), options.WithDefaults());
     }
 
 

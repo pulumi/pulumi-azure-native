@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Peering.V20201001
         /// The essential information related to the peer's ASN.
         /// </summary>
         public static Task<GetPeerAsnResult> InvokeAsync(GetPeerAsnArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPeerAsnResult>("azure-native:peering/v20201001:getPeerAsn", args ?? new GetPeerAsnArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPeerAsnResult>("azure-native:peering/v20201001:getPeerAsn", args ?? new GetPeerAsnArgs(), options.WithDefaults());
 
         /// <summary>
         /// The essential information related to the peer's ASN.
         /// </summary>
         public static Output<GetPeerAsnResult> Invoke(GetPeerAsnInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPeerAsnResult>("azure-native:peering/v20201001:getPeerAsn", args ?? new GetPeerAsnInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPeerAsnResult>("azure-native:peering/v20201001:getPeerAsn", args ?? new GetPeerAsnInvokeArgs(), options.WithDefaults());
     }
 
 

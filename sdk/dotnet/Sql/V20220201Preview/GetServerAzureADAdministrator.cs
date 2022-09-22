@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Sql.V20220201Preview
         /// Azure Active Directory administrator.
         /// </summary>
         public static Task<GetServerAzureADAdministratorResult> InvokeAsync(GetServerAzureADAdministratorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerAzureADAdministratorResult>("azure-native:sql/v20220201preview:getServerAzureADAdministrator", args ?? new GetServerAzureADAdministratorArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerAzureADAdministratorResult>("azure-native:sql/v20220201preview:getServerAzureADAdministrator", args ?? new GetServerAzureADAdministratorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Active Directory administrator.
         /// </summary>
         public static Output<GetServerAzureADAdministratorResult> Invoke(GetServerAzureADAdministratorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServerAzureADAdministratorResult>("azure-native:sql/v20220201preview:getServerAzureADAdministrator", args ?? new GetServerAzureADAdministratorInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerAzureADAdministratorResult>("azure-native:sql/v20220201preview:getServerAzureADAdministrator", args ?? new GetServerAzureADAdministratorInvokeArgs(), options.WithDefaults());
     }
 
 

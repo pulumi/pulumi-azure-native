@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.ImportExport
         /// API Version: 2020-08-01.
         /// </summary>
         public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-native:importexport:getJob", args ?? new GetJobArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-native:importexport:getJob", args ?? new GetJobArgs(), options.WithDefaults());
 
         /// <summary>
         /// Contains the job information.
         /// API Version: 2020-08-01.
         /// </summary>
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:importexport:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:importexport:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
     }
 
 

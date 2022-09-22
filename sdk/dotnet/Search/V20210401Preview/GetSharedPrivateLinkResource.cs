@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Search.V20210401Preview
         /// Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
         /// </summary>
         public static Task<GetSharedPrivateLinkResourceResult> InvokeAsync(GetSharedPrivateLinkResourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSharedPrivateLinkResourceResult>("azure-native:search/v20210401preview:getSharedPrivateLinkResource", args ?? new GetSharedPrivateLinkResourceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSharedPrivateLinkResourceResult>("azure-native:search/v20210401preview:getSharedPrivateLinkResource", args ?? new GetSharedPrivateLinkResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
         /// </summary>
         public static Output<GetSharedPrivateLinkResourceResult> Invoke(GetSharedPrivateLinkResourceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSharedPrivateLinkResourceResult>("azure-native:search/v20210401preview:getSharedPrivateLinkResource", args ?? new GetSharedPrivateLinkResourceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSharedPrivateLinkResourceResult>("azure-native:search/v20210401preview:getSharedPrivateLinkResource", args ?? new GetSharedPrivateLinkResourceInvokeArgs(), options.WithDefaults());
     }
 
 

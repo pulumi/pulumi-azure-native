@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.PolicyInsights.V20211001
         /// List of deployments for a remediation.
         /// </summary>
         public static Task<ListRemediationDeploymentsAtSubscriptionResult> InvokeAsync(ListRemediationDeploymentsAtSubscriptionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListRemediationDeploymentsAtSubscriptionResult>("azure-native:policyinsights/v20211001:listRemediationDeploymentsAtSubscription", args ?? new ListRemediationDeploymentsAtSubscriptionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListRemediationDeploymentsAtSubscriptionResult>("azure-native:policyinsights/v20211001:listRemediationDeploymentsAtSubscription", args ?? new ListRemediationDeploymentsAtSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// List of deployments for a remediation.
         /// </summary>
         public static Output<ListRemediationDeploymentsAtSubscriptionResult> Invoke(ListRemediationDeploymentsAtSubscriptionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListRemediationDeploymentsAtSubscriptionResult>("azure-native:policyinsights/v20211001:listRemediationDeploymentsAtSubscription", args ?? new ListRemediationDeploymentsAtSubscriptionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListRemediationDeploymentsAtSubscriptionResult>("azure-native:policyinsights/v20211001:listRemediationDeploymentsAtSubscription", args ?? new ListRemediationDeploymentsAtSubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 

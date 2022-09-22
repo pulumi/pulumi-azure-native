@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Insights
         /// API Version: 2017-05-01-preview.
         /// </summary>
         public static Task<GetDiagnosticSettingResult> InvokeAsync(GetDiagnosticSettingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDiagnosticSettingResult>("azure-native:insights:getDiagnosticSetting", args ?? new GetDiagnosticSettingArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDiagnosticSettingResult>("azure-native:insights:getDiagnosticSetting", args ?? new GetDiagnosticSettingArgs(), options.WithDefaults());
 
         /// <summary>
         /// The diagnostic setting resource.
         /// API Version: 2017-05-01-preview.
         /// </summary>
         public static Output<GetDiagnosticSettingResult> Invoke(GetDiagnosticSettingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDiagnosticSettingResult>("azure-native:insights:getDiagnosticSetting", args ?? new GetDiagnosticSettingInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDiagnosticSettingResult>("azure-native:insights:getDiagnosticSetting", args ?? new GetDiagnosticSettingInvokeArgs(), options.WithDefaults());
     }
 
 

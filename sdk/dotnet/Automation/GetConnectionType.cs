@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Automation
         /// API Version: 2019-06-01.
         /// </summary>
         public static Task<GetConnectionTypeResult> InvokeAsync(GetConnectionTypeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionTypeResult>("azure-native:automation:getConnectionType", args ?? new GetConnectionTypeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectionTypeResult>("azure-native:automation:getConnectionType", args ?? new GetConnectionTypeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of the connection type.
         /// API Version: 2019-06-01.
         /// </summary>
         public static Output<GetConnectionTypeResult> Invoke(GetConnectionTypeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConnectionTypeResult>("azure-native:automation:getConnectionType", args ?? new GetConnectionTypeInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectionTypeResult>("azure-native:automation:getConnectionType", args ?? new GetConnectionTypeInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DataShare.V20210801
         /// A Kusto database data set mapping
         /// </summary>
         public static Task<GetKustoTableDataSetMappingResult> InvokeAsync(GetKustoTableDataSetMappingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKustoTableDataSetMappingResult>("azure-native:datashare/v20210801:getKustoTableDataSetMapping", args ?? new GetKustoTableDataSetMappingArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetKustoTableDataSetMappingResult>("azure-native:datashare/v20210801:getKustoTableDataSetMapping", args ?? new GetKustoTableDataSetMappingArgs(), options.WithDefaults());
 
         /// <summary>
         /// A Kusto database data set mapping
         /// </summary>
         public static Output<GetKustoTableDataSetMappingResult> Invoke(GetKustoTableDataSetMappingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetKustoTableDataSetMappingResult>("azure-native:datashare/v20210801:getKustoTableDataSetMapping", args ?? new GetKustoTableDataSetMappingInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetKustoTableDataSetMappingResult>("azure-native:datashare/v20210801:getKustoTableDataSetMapping", args ?? new GetKustoTableDataSetMappingInvokeArgs(), options.WithDefaults());
     }
 
 

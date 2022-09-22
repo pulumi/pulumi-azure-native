@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.EventHub
         /// API Version: 2017-04-01.
         /// </summary>
         public static Task<GetConsumerGroupResult> InvokeAsync(GetConsumerGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConsumerGroupResult>("azure-native:eventhub:getConsumerGroup", args ?? new GetConsumerGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetConsumerGroupResult>("azure-native:eventhub:getConsumerGroup", args ?? new GetConsumerGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Single item in List or Get Consumer group operation
         /// API Version: 2017-04-01.
         /// </summary>
         public static Output<GetConsumerGroupResult> Invoke(GetConsumerGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConsumerGroupResult>("azure-native:eventhub:getConsumerGroup", args ?? new GetConsumerGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetConsumerGroupResult>("azure-native:eventhub:getConsumerGroup", args ?? new GetConsumerGroupInvokeArgs(), options.WithDefaults());
     }
 
 

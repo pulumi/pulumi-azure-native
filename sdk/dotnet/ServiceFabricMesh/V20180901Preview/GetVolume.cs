@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
         /// This type describes a volume resource.
         /// </summary>
         public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("azure-native:servicefabricmesh/v20180901preview:getVolume", args ?? new GetVolumeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("azure-native:servicefabricmesh/v20180901preview:getVolume", args ?? new GetVolumeArgs(), options.WithDefaults());
 
         /// <summary>
         /// This type describes a volume resource.
         /// </summary>
         public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("azure-native:servicefabricmesh/v20180901preview:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("azure-native:servicefabricmesh/v20180901preview:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Media.V20190901Preview
         /// The Media Graph.
         /// </summary>
         public static Task<GetMediaGraphResult> InvokeAsync(GetMediaGraphArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMediaGraphResult>("azure-native:media/v20190901preview:getMediaGraph", args ?? new GetMediaGraphArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMediaGraphResult>("azure-native:media/v20190901preview:getMediaGraph", args ?? new GetMediaGraphArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Media Graph.
         /// </summary>
         public static Output<GetMediaGraphResult> Invoke(GetMediaGraphInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMediaGraphResult>("azure-native:media/v20190901preview:getMediaGraph", args ?? new GetMediaGraphInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMediaGraphResult>("azure-native:media/v20190901preview:getMediaGraph", args ?? new GetMediaGraphInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Migrate
         /// API Version: 2018-09-01-preview.
         /// </summary>
         public static Task<GetSolutionConfigResult> InvokeAsync(GetSolutionConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSolutionConfigResult>("azure-native:migrate:getSolutionConfig", args ?? new GetSolutionConfigArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSolutionConfigResult>("azure-native:migrate:getSolutionConfig", args ?? new GetSolutionConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Class representing the config for the solution in the migrate project.
         /// API Version: 2018-09-01-preview.
         /// </summary>
         public static Output<GetSolutionConfigResult> Invoke(GetSolutionConfigInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSolutionConfigResult>("azure-native:migrate:getSolutionConfig", args ?? new GetSolutionConfigInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSolutionConfigResult>("azure-native:migrate:getSolutionConfig", args ?? new GetSolutionConfigInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.MixedReality
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<ListSpatialAnchorsAccountKeysResult> InvokeAsync(ListSpatialAnchorsAccountKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSpatialAnchorsAccountKeysResult>("azure-native:mixedreality:listSpatialAnchorsAccountKeys", args ?? new ListSpatialAnchorsAccountKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListSpatialAnchorsAccountKeysResult>("azure-native:mixedreality:listSpatialAnchorsAccountKeys", args ?? new ListSpatialAnchorsAccountKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Developer Keys of account
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<ListSpatialAnchorsAccountKeysResult> Invoke(ListSpatialAnchorsAccountKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListSpatialAnchorsAccountKeysResult>("azure-native:mixedreality:listSpatialAnchorsAccountKeys", args ?? new ListSpatialAnchorsAccountKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListSpatialAnchorsAccountKeysResult>("azure-native:mixedreality:listSpatialAnchorsAccountKeys", args ?? new ListSpatialAnchorsAccountKeysInvokeArgs(), options.WithDefaults());
     }
 
 

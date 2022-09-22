@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Storage
         /// API Version: 2021-02-01.
         /// </summary>
         public static Task<GetBlobServicePropertiesResult> InvokeAsync(GetBlobServicePropertiesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBlobServicePropertiesResult>("azure-native:storage:getBlobServiceProperties", args ?? new GetBlobServicePropertiesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBlobServicePropertiesResult>("azure-native:storage:getBlobServiceProperties", args ?? new GetBlobServicePropertiesArgs(), options.WithDefaults());
 
         /// <summary>
         /// The properties of a storage account’s Blob service.
         /// API Version: 2021-02-01.
         /// </summary>
         public static Output<GetBlobServicePropertiesResult> Invoke(GetBlobServicePropertiesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBlobServicePropertiesResult>("azure-native:storage:getBlobServiceProperties", args ?? new GetBlobServicePropertiesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBlobServicePropertiesResult>("azure-native:storage:getBlobServiceProperties", args ?? new GetBlobServicePropertiesInvokeArgs(), options.WithDefaults());
     }
 
 

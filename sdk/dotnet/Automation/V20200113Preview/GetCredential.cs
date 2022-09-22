@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
         /// Definition of the credential.
         /// </summary>
         public static Task<GetCredentialResult> InvokeAsync(GetCredentialArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCredentialResult>("azure-native:automation/v20200113preview:getCredential", args ?? new GetCredentialArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCredentialResult>("azure-native:automation/v20200113preview:getCredential", args ?? new GetCredentialArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of the credential.
         /// </summary>
         public static Output<GetCredentialResult> Invoke(GetCredentialInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCredentialResult>("azure-native:automation/v20200113preview:getCredential", args ?? new GetCredentialInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCredentialResult>("azure-native:automation/v20200113preview:getCredential", args ?? new GetCredentialInvokeArgs(), options.WithDefaults());
     }
 
 

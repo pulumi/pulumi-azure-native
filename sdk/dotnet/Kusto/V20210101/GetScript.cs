@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Kusto.V20210101
         /// Class representing a database script.
         /// </summary>
         public static Task<GetScriptResult> InvokeAsync(GetScriptArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScriptResult>("azure-native:kusto/v20210101:getScript", args ?? new GetScriptArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetScriptResult>("azure-native:kusto/v20210101:getScript", args ?? new GetScriptArgs(), options.WithDefaults());
 
         /// <summary>
         /// Class representing a database script.
         /// </summary>
         public static Output<GetScriptResult> Invoke(GetScriptInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetScriptResult>("azure-native:kusto/v20210101:getScript", args ?? new GetScriptInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetScriptResult>("azure-native:kusto/v20210101:getScript", args ?? new GetScriptInvokeArgs(), options.WithDefaults());
     }
 
 

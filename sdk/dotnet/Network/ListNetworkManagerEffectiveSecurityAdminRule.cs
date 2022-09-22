@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Task<ListNetworkManagerEffectiveSecurityAdminRuleResult> InvokeAsync(ListNetworkManagerEffectiveSecurityAdminRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListNetworkManagerEffectiveSecurityAdminRuleResult>("azure-native:network:listNetworkManagerEffectiveSecurityAdminRule", args ?? new ListNetworkManagerEffectiveSecurityAdminRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListNetworkManagerEffectiveSecurityAdminRuleResult>("azure-native:network:listNetworkManagerEffectiveSecurityAdminRule", args ?? new ListNetworkManagerEffectiveSecurityAdminRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Result of the request to list networkManagerEffectiveSecurityAdminRules. It contains a list of groups and a skiptoken to get the next set of results.
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Output<ListNetworkManagerEffectiveSecurityAdminRuleResult> Invoke(ListNetworkManagerEffectiveSecurityAdminRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListNetworkManagerEffectiveSecurityAdminRuleResult>("azure-native:network:listNetworkManagerEffectiveSecurityAdminRule", args ?? new ListNetworkManagerEffectiveSecurityAdminRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListNetworkManagerEffectiveSecurityAdminRuleResult>("azure-native:network:listNetworkManagerEffectiveSecurityAdminRule", args ?? new ListNetworkManagerEffectiveSecurityAdminRuleInvokeArgs(), options.WithDefaults());
     }
 
 

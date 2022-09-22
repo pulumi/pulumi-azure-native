@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
         /// Result of the Get delivery attributes operation.
         /// </summary>
         public static Task<GetTopicEventSubscriptionDeliveryAttributesResult> InvokeAsync(GetTopicEventSubscriptionDeliveryAttributesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTopicEventSubscriptionDeliveryAttributesResult>("azure-native:eventgrid/v20220615:getTopicEventSubscriptionDeliveryAttributes", args ?? new GetTopicEventSubscriptionDeliveryAttributesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTopicEventSubscriptionDeliveryAttributesResult>("azure-native:eventgrid/v20220615:getTopicEventSubscriptionDeliveryAttributes", args ?? new GetTopicEventSubscriptionDeliveryAttributesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Result of the Get delivery attributes operation.
         /// </summary>
         public static Output<GetTopicEventSubscriptionDeliveryAttributesResult> Invoke(GetTopicEventSubscriptionDeliveryAttributesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTopicEventSubscriptionDeliveryAttributesResult>("azure-native:eventgrid/v20220615:getTopicEventSubscriptionDeliveryAttributes", args ?? new GetTopicEventSubscriptionDeliveryAttributesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTopicEventSubscriptionDeliveryAttributesResult>("azure-native:eventgrid/v20220615:getTopicEventSubscriptionDeliveryAttributes", args ?? new GetTopicEventSubscriptionDeliveryAttributesInvokeArgs(), options.WithDefaults());
     }
 
 

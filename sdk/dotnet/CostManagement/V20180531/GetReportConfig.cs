@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.CostManagement.V20180531
         /// A report config resource.
         /// </summary>
         public static Task<GetReportConfigResult> InvokeAsync(GetReportConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReportConfigResult>("azure-native:costmanagement/v20180531:getReportConfig", args ?? new GetReportConfigArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetReportConfigResult>("azure-native:costmanagement/v20180531:getReportConfig", args ?? new GetReportConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// A report config resource.
         /// </summary>
         public static Output<GetReportConfigResult> Invoke(GetReportConfigInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetReportConfigResult>("azure-native:costmanagement/v20180531:getReportConfig", args ?? new GetReportConfigInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetReportConfigResult>("azure-native:costmanagement/v20180531:getReportConfig", args ?? new GetReportConfigInvokeArgs(), options.WithDefaults());
     }
 
 

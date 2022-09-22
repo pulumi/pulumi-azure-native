@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Compute.V20210701
         /// Specifies information about the SSH public key.
         /// </summary>
         public static Task<GetSshPublicKeyResult> InvokeAsync(GetSshPublicKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSshPublicKeyResult>("azure-native:compute/v20210701:getSshPublicKey", args ?? new GetSshPublicKeyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSshPublicKeyResult>("azure-native:compute/v20210701:getSshPublicKey", args ?? new GetSshPublicKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Specifies information about the SSH public key.
         /// </summary>
         public static Output<GetSshPublicKeyResult> Invoke(GetSshPublicKeyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSshPublicKeyResult>("azure-native:compute/v20210701:getSshPublicKey", args ?? new GetSshPublicKeyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSshPublicKeyResult>("azure-native:compute/v20210701:getSshPublicKey", args ?? new GetSshPublicKeyInvokeArgs(), options.WithDefaults());
     }
 
 

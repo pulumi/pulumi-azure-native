@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201Preview
         /// IoT Addon.
         /// </summary>
         public static Task<GetIoTAddonResult> InvokeAsync(GetIoTAddonArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIoTAddonResult>("azure-native:databoxedge/v20210201preview:getIoTAddon", args ?? new GetIoTAddonArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIoTAddonResult>("azure-native:databoxedge/v20210201preview:getIoTAddon", args ?? new GetIoTAddonArgs(), options.WithDefaults());
 
         /// <summary>
         /// IoT Addon.
         /// </summary>
         public static Output<GetIoTAddonResult> Invoke(GetIoTAddonInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIoTAddonResult>("azure-native:databoxedge/v20210201preview:getIoTAddon", args ?? new GetIoTAddonInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIoTAddonResult>("azure-native:databoxedge/v20210201preview:getIoTAddon", args ?? new GetIoTAddonInvokeArgs(), options.WithDefaults());
     }
 
 

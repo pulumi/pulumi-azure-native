@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Automanage.V20220504
         /// Configuration profile assignment is an association between a VM and automanage profile configuration.
         /// </summary>
         public static Task<GetConfigurationProfileHCIAssignmentResult> InvokeAsync(GetConfigurationProfileHCIAssignmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfileHCIAssignmentResult>("azure-native:automanage/v20220504:getConfigurationProfileHCIAssignment", args ?? new GetConfigurationProfileHCIAssignmentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfileHCIAssignmentResult>("azure-native:automanage/v20220504:getConfigurationProfileHCIAssignment", args ?? new GetConfigurationProfileHCIAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Configuration profile assignment is an association between a VM and automanage profile configuration.
         /// </summary>
         public static Output<GetConfigurationProfileHCIAssignmentResult> Invoke(GetConfigurationProfileHCIAssignmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConfigurationProfileHCIAssignmentResult>("azure-native:automanage/v20220504:getConfigurationProfileHCIAssignment", args ?? new GetConfigurationProfileHCIAssignmentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationProfileHCIAssignmentResult>("azure-native:automanage/v20220504:getConfigurationProfileHCIAssignment", args ?? new GetConfigurationProfileHCIAssignmentInvokeArgs(), options.WithDefaults());
     }
 
 

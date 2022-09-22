@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Web
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetStaticSiteResult> InvokeAsync(GetStaticSiteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStaticSiteResult>("azure-native:web:getStaticSite", args ?? new GetStaticSiteArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStaticSiteResult>("azure-native:web:getStaticSite", args ?? new GetStaticSiteArgs(), options.WithDefaults());
 
         /// <summary>
         /// Static Site ARM resource.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetStaticSiteResult> Invoke(GetStaticSiteInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStaticSiteResult>("azure-native:web:getStaticSite", args ?? new GetStaticSiteInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetStaticSiteResult>("azure-native:web:getStaticSite", args ?? new GetStaticSiteInvokeArgs(), options.WithDefaults());
     }
 
 

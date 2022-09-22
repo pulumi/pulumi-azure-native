@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview
         /// Bot channel resource definition
         /// </summary>
         public static Task<GetBotConnectionResult> InvokeAsync(GetBotConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBotConnectionResult>("azure-native:botservice/v20220615preview:getBotConnection", args ?? new GetBotConnectionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBotConnectionResult>("azure-native:botservice/v20220615preview:getBotConnection", args ?? new GetBotConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Bot channel resource definition
         /// </summary>
         public static Output<GetBotConnectionResult> Invoke(GetBotConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBotConnectionResult>("azure-native:botservice/v20220615preview:getBotConnection", args ?? new GetBotConnectionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBotConnectionResult>("azure-native:botservice/v20220615preview:getBotConnection", args ?? new GetBotConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

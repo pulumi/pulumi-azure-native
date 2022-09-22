@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Consumption.V20210501
         /// A budget resource.
         /// </summary>
         public static Task<GetBudgetResult> InvokeAsync(GetBudgetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBudgetResult>("azure-native:consumption/v20210501:getBudget", args ?? new GetBudgetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBudgetResult>("azure-native:consumption/v20210501:getBudget", args ?? new GetBudgetArgs(), options.WithDefaults());
 
         /// <summary>
         /// A budget resource.
         /// </summary>
         public static Output<GetBudgetResult> Invoke(GetBudgetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBudgetResult>("azure-native:consumption/v20210501:getBudget", args ?? new GetBudgetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBudgetResult>("azure-native:consumption/v20210501:getBudget", args ?? new GetBudgetInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DevCenter.V20220901Preview
         /// Network related settings
         /// </summary>
         public static Task<GetNetworkConnectionResult> InvokeAsync(GetNetworkConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkConnectionResult>("azure-native:devcenter/v20220901preview:getNetworkConnection", args ?? new GetNetworkConnectionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkConnectionResult>("azure-native:devcenter/v20220901preview:getNetworkConnection", args ?? new GetNetworkConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Network related settings
         /// </summary>
         public static Output<GetNetworkConnectionResult> Invoke(GetNetworkConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNetworkConnectionResult>("azure-native:devcenter/v20220901preview:getNetworkConnection", args ?? new GetNetworkConnectionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkConnectionResult>("azure-native:devcenter/v20220901preview:getNetworkConnection", args ?? new GetNetworkConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

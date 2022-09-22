@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Devices.V20220205
         /// List of shared access keys.
         /// </summary>
         public static Task<ListIotDpsResourceKeysResult> InvokeAsync(ListIotDpsResourceKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListIotDpsResourceKeysResult>("azure-native:devices/v20220205:listIotDpsResourceKeys", args ?? new ListIotDpsResourceKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListIotDpsResourceKeysResult>("azure-native:devices/v20220205:listIotDpsResourceKeys", args ?? new ListIotDpsResourceKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// List of shared access keys.
         /// </summary>
         public static Output<ListIotDpsResourceKeysResult> Invoke(ListIotDpsResourceKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListIotDpsResourceKeysResult>("azure-native:devices/v20220205:listIotDpsResourceKeys", args ?? new ListIotDpsResourceKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListIotDpsResourceKeysResult>("azure-native:devices/v20220205:listIotDpsResourceKeys", args ?? new ListIotDpsResourceKeysInvokeArgs(), options.WithDefaults());
     }
 
 

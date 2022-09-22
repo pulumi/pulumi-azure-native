@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
         /// Represents a blueprint assignment.
         /// </summary>
         public static Task<GetAssignmentResult> InvokeAsync(GetAssignmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAssignmentResult>("azure-native:blueprint/v20181101preview:getAssignment", args ?? new GetAssignmentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssignmentResult>("azure-native:blueprint/v20181101preview:getAssignment", args ?? new GetAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a blueprint assignment.
         /// </summary>
         public static Output<GetAssignmentResult> Invoke(GetAssignmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAssignmentResult>("azure-native:blueprint/v20181101preview:getAssignment", args ?? new GetAssignmentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAssignmentResult>("azure-native:blueprint/v20181101preview:getAssignment", args ?? new GetAssignmentInvokeArgs(), options.WithDefaults());
     }
 
 

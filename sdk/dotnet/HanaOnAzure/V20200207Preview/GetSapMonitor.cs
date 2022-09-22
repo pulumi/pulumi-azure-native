@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20200207Preview
         /// SAP monitor info on Azure (ARM properties and SAP monitor properties)
         /// </summary>
         public static Task<GetSapMonitorResult> InvokeAsync(GetSapMonitorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSapMonitorResult>("azure-native:hanaonazure/v20200207preview:getSapMonitor", args ?? new GetSapMonitorArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSapMonitorResult>("azure-native:hanaonazure/v20200207preview:getSapMonitor", args ?? new GetSapMonitorArgs(), options.WithDefaults());
 
         /// <summary>
         /// SAP monitor info on Azure (ARM properties and SAP monitor properties)
         /// </summary>
         public static Output<GetSapMonitorResult> Invoke(GetSapMonitorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSapMonitorResult>("azure-native:hanaonazure/v20200207preview:getSapMonitor", args ?? new GetSapMonitorInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSapMonitorResult>("azure-native:hanaonazure/v20200207preview:getSapMonitor", args ?? new GetSapMonitorInvokeArgs(), options.WithDefaults());
     }
 
 

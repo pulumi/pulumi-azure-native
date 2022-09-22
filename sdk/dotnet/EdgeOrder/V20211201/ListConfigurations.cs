@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.EdgeOrder.V20211201
         /// The list of configurations.
         /// </summary>
         public static Task<ListConfigurationsResult> InvokeAsync(ListConfigurationsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListConfigurationsResult>("azure-native:edgeorder/v20211201:listConfigurations", args ?? new ListConfigurationsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListConfigurationsResult>("azure-native:edgeorder/v20211201:listConfigurations", args ?? new ListConfigurationsArgs(), options.WithDefaults());
 
         /// <summary>
         /// The list of configurations.
         /// </summary>
         public static Output<ListConfigurationsResult> Invoke(ListConfigurationsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListConfigurationsResult>("azure-native:edgeorder/v20211201:listConfigurations", args ?? new ListConfigurationsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListConfigurationsResult>("azure-native:edgeorder/v20211201:listConfigurations", args ?? new ListConfigurationsInvokeArgs(), options.WithDefaults());
     }
 
 

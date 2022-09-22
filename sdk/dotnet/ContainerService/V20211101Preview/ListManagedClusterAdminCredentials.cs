@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ContainerService.V20211101Preview
         /// The list credential result response.
         /// </summary>
         public static Task<ListManagedClusterAdminCredentialsResult> InvokeAsync(ListManagedClusterAdminCredentialsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListManagedClusterAdminCredentialsResult>("azure-native:containerservice/v20211101preview:listManagedClusterAdminCredentials", args ?? new ListManagedClusterAdminCredentialsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListManagedClusterAdminCredentialsResult>("azure-native:containerservice/v20211101preview:listManagedClusterAdminCredentials", args ?? new ListManagedClusterAdminCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
         /// The list credential result response.
         /// </summary>
         public static Output<ListManagedClusterAdminCredentialsResult> Invoke(ListManagedClusterAdminCredentialsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListManagedClusterAdminCredentialsResult>("azure-native:containerservice/v20211101preview:listManagedClusterAdminCredentials", args ?? new ListManagedClusterAdminCredentialsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListManagedClusterAdminCredentialsResult>("azure-native:containerservice/v20211101preview:listManagedClusterAdminCredentials", args ?? new ListManagedClusterAdminCredentialsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Automation.V20151031
         /// Definition of the configuration type.
         /// </summary>
         public static Task<GetDscConfigurationResult> InvokeAsync(GetDscConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDscConfigurationResult>("azure-native:automation/v20151031:getDscConfiguration", args ?? new GetDscConfigurationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDscConfigurationResult>("azure-native:automation/v20151031:getDscConfiguration", args ?? new GetDscConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of the configuration type.
         /// </summary>
         public static Output<GetDscConfigurationResult> Invoke(GetDscConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDscConfigurationResult>("azure-native:automation/v20151031:getDscConfiguration", args ?? new GetDscConfigurationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDscConfigurationResult>("azure-native:automation/v20151031:getDscConfiguration", args ?? new GetDscConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

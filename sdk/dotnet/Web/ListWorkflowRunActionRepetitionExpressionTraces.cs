@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Web
         /// API Version: 2022-03-01.
         /// </summary>
         public static Task<ListWorkflowRunActionRepetitionExpressionTracesResult> InvokeAsync(ListWorkflowRunActionRepetitionExpressionTracesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWorkflowRunActionRepetitionExpressionTracesResult>("azure-native:web:listWorkflowRunActionRepetitionExpressionTraces", args ?? new ListWorkflowRunActionRepetitionExpressionTracesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListWorkflowRunActionRepetitionExpressionTracesResult>("azure-native:web:listWorkflowRunActionRepetitionExpressionTraces", args ?? new ListWorkflowRunActionRepetitionExpressionTracesArgs(), options.WithDefaults());
 
         /// <summary>
         /// The expression traces.
         /// API Version: 2022-03-01.
         /// </summary>
         public static Output<ListWorkflowRunActionRepetitionExpressionTracesResult> Invoke(ListWorkflowRunActionRepetitionExpressionTracesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListWorkflowRunActionRepetitionExpressionTracesResult>("azure-native:web:listWorkflowRunActionRepetitionExpressionTraces", args ?? new ListWorkflowRunActionRepetitionExpressionTracesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListWorkflowRunActionRepetitionExpressionTracesResult>("azure-native:web:listWorkflowRunActionRepetitionExpressionTraces", args ?? new ListWorkflowRunActionRepetitionExpressionTracesInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetImportPipelineResult> InvokeAsync(GetImportPipelineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetImportPipelineResult>("azure-native:containerregistry:getImportPipeline", args ?? new GetImportPipelineArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetImportPipelineResult>("azure-native:containerregistry:getImportPipeline", args ?? new GetImportPipelineArgs(), options.WithDefaults());
 
         /// <summary>
         /// An object that represents an import pipeline for a container registry.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Output<GetImportPipelineResult> Invoke(GetImportPipelineInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetImportPipelineResult>("azure-native:containerregistry:getImportPipeline", args ?? new GetImportPipelineInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetImportPipelineResult>("azure-native:containerregistry:getImportPipeline", args ?? new GetImportPipelineInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetExpressRouteCircuitResult> InvokeAsync(GetExpressRouteCircuitArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitResult>("azure-native:network:getExpressRouteCircuit", args ?? new GetExpressRouteCircuitArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitResult>("azure-native:network:getExpressRouteCircuit", args ?? new GetExpressRouteCircuitArgs(), options.WithDefaults());
 
         /// <summary>
         /// ExpressRouteCircuit resource.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetExpressRouteCircuitResult> Invoke(GetExpressRouteCircuitInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetExpressRouteCircuitResult>("azure-native:network:getExpressRouteCircuit", args ?? new GetExpressRouteCircuitInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetExpressRouteCircuitResult>("azure-native:network:getExpressRouteCircuit", args ?? new GetExpressRouteCircuitInvokeArgs(), options.WithDefaults());
     }
 
 

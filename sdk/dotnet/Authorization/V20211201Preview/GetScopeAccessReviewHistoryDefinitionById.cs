@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Authorization.V20211201Preview
         /// Access Review History Definition.
         /// </summary>
         public static Task<GetScopeAccessReviewHistoryDefinitionByIdResult> InvokeAsync(GetScopeAccessReviewHistoryDefinitionByIdArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScopeAccessReviewHistoryDefinitionByIdResult>("azure-native:authorization/v20211201preview:getScopeAccessReviewHistoryDefinitionById", args ?? new GetScopeAccessReviewHistoryDefinitionByIdArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetScopeAccessReviewHistoryDefinitionByIdResult>("azure-native:authorization/v20211201preview:getScopeAccessReviewHistoryDefinitionById", args ?? new GetScopeAccessReviewHistoryDefinitionByIdArgs(), options.WithDefaults());
 
         /// <summary>
         /// Access Review History Definition.
         /// </summary>
         public static Output<GetScopeAccessReviewHistoryDefinitionByIdResult> Invoke(GetScopeAccessReviewHistoryDefinitionByIdInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetScopeAccessReviewHistoryDefinitionByIdResult>("azure-native:authorization/v20211201preview:getScopeAccessReviewHistoryDefinitionById", args ?? new GetScopeAccessReviewHistoryDefinitionByIdInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetScopeAccessReviewHistoryDefinitionByIdResult>("azure-native:authorization/v20211201preview:getScopeAccessReviewHistoryDefinitionById", args ?? new GetScopeAccessReviewHistoryDefinitionByIdInvokeArgs(), options.WithDefaults());
     }
 
 

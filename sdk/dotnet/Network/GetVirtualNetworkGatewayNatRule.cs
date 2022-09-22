@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetVirtualNetworkGatewayNatRuleResult> InvokeAsync(GetVirtualNetworkGatewayNatRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayNatRuleResult>("azure-native:network:getVirtualNetworkGatewayNatRule", args ?? new GetVirtualNetworkGatewayNatRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayNatRuleResult>("azure-native:network:getVirtualNetworkGatewayNatRule", args ?? new GetVirtualNetworkGatewayNatRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// VirtualNetworkGatewayNatRule Resource.
         /// API Version: 2021-03-01.
         /// </summary>
         public static Output<GetVirtualNetworkGatewayNatRuleResult> Invoke(GetVirtualNetworkGatewayNatRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkGatewayNatRuleResult>("azure-native:network:getVirtualNetworkGatewayNatRule", args ?? new GetVirtualNetworkGatewayNatRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkGatewayNatRuleResult>("azure-native:network:getVirtualNetworkGatewayNatRule", args ?? new GetVirtualNetworkGatewayNatRuleInvokeArgs(), options.WithDefaults());
     }
 
 

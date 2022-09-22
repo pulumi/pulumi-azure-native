@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Communication
         /// API Version: 2021-10-01-preview.
         /// </summary>
         public static Task<GetDomainResult> InvokeAsync(GetDomainArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("azure-native:communication:getDomain", args ?? new GetDomainArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("azure-native:communication:getDomain", args ?? new GetDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// A class representing a Domains resource.
         /// API Version: 2021-10-01-preview.
         /// </summary>
         public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDomainResult>("azure-native:communication:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("azure-native:communication:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
     }
 
 

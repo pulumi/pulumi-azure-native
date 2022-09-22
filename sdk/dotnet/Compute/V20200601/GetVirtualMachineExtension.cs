@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Compute.V20200601
         /// Describes a Virtual Machine Extension.
         /// </summary>
         public static Task<GetVirtualMachineExtensionResult> InvokeAsync(GetVirtualMachineExtensionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineExtensionResult>("azure-native:compute/v20200601:getVirtualMachineExtension", args ?? new GetVirtualMachineExtensionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineExtensionResult>("azure-native:compute/v20200601:getVirtualMachineExtension", args ?? new GetVirtualMachineExtensionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes a Virtual Machine Extension.
         /// </summary>
         public static Output<GetVirtualMachineExtensionResult> Invoke(GetVirtualMachineExtensionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineExtensionResult>("azure-native:compute/v20200601:getVirtualMachineExtension", args ?? new GetVirtualMachineExtensionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineExtensionResult>("azure-native:compute/v20200601:getVirtualMachineExtension", args ?? new GetVirtualMachineExtensionInvokeArgs(), options.WithDefaults());
     }
 
 

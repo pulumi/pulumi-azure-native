@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview
         /// App resource payload
         /// </summary>
         public static Task<GetAppResult> InvokeAsync(GetAppArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("azure-native:appplatform/v20220501preview:getApp", args ?? new GetAppArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("azure-native:appplatform/v20220501preview:getApp", args ?? new GetAppArgs(), options.WithDefaults());
 
         /// <summary>
         /// App resource payload
         /// </summary>
         public static Output<GetAppResult> Invoke(GetAppInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAppResult>("azure-native:appplatform/v20220501preview:getApp", args ?? new GetAppInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAppResult>("azure-native:appplatform/v20220501preview:getApp", args ?? new GetAppInvokeArgs(), options.WithDefaults());
     }
 
 

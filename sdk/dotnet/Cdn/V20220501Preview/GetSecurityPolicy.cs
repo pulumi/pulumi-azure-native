@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Cdn.V20220501Preview
         /// SecurityPolicy association for AzureFrontDoor profile
         /// </summary>
         public static Task<GetSecurityPolicyResult> InvokeAsync(GetSecurityPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityPolicyResult>("azure-native:cdn/v20220501preview:getSecurityPolicy", args ?? new GetSecurityPolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityPolicyResult>("azure-native:cdn/v20220501preview:getSecurityPolicy", args ?? new GetSecurityPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// SecurityPolicy association for AzureFrontDoor profile
         /// </summary>
         public static Output<GetSecurityPolicyResult> Invoke(GetSecurityPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSecurityPolicyResult>("azure-native:cdn/v20220501preview:getSecurityPolicy", args ?? new GetSecurityPolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecurityPolicyResult>("azure-native:cdn/v20220501preview:getSecurityPolicy", args ?? new GetSecurityPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

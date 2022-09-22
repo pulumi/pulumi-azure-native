@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Task<ListActiveSecurityUserRuleResult> InvokeAsync(ListActiveSecurityUserRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListActiveSecurityUserRuleResult>("azure-native:network:listActiveSecurityUserRule", args ?? new ListActiveSecurityUserRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListActiveSecurityUserRuleResult>("azure-native:network:listActiveSecurityUserRule", args ?? new ListActiveSecurityUserRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Result of the request to list active security user rules. It contains a list of active security user rules and a skiptoken to get the next set of results.
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Output<ListActiveSecurityUserRuleResult> Invoke(ListActiveSecurityUserRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListActiveSecurityUserRuleResult>("azure-native:network:listActiveSecurityUserRule", args ?? new ListActiveSecurityUserRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListActiveSecurityUserRuleResult>("azure-native:network:listActiveSecurityUserRule", args ?? new ListActiveSecurityUserRuleInvokeArgs(), options.WithDefaults());
     }
 
 

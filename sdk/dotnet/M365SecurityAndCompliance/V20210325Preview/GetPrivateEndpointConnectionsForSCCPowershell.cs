@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
         /// The Private Endpoint Connection resource.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionsForSCCPowershellResult> InvokeAsync(GetPrivateEndpointConnectionsForSCCPowershellArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionsForSCCPowershellResult>("azure-native:m365securityandcompliance/v20210325preview:getPrivateEndpointConnectionsForSCCPowershell", args ?? new GetPrivateEndpointConnectionsForSCCPowershellArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionsForSCCPowershellResult>("azure-native:m365securityandcompliance/v20210325preview:getPrivateEndpointConnectionsForSCCPowershell", args ?? new GetPrivateEndpointConnectionsForSCCPowershellArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Private Endpoint Connection resource.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionsForSCCPowershellResult> Invoke(GetPrivateEndpointConnectionsForSCCPowershellInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionsForSCCPowershellResult>("azure-native:m365securityandcompliance/v20210325preview:getPrivateEndpointConnectionsForSCCPowershell", args ?? new GetPrivateEndpointConnectionsForSCCPowershellInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionsForSCCPowershellResult>("azure-native:m365securityandcompliance/v20210325preview:getPrivateEndpointConnectionsForSCCPowershell", args ?? new GetPrivateEndpointConnectionsForSCCPowershellInvokeArgs(), options.WithDefaults());
     }
 
 

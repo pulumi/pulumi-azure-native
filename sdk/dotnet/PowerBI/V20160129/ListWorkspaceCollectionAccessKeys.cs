@@ -12,10 +12,10 @@ namespace Pulumi.AzureNative.PowerBI.V20160129
     public static class ListWorkspaceCollectionAccessKeys
     {
         public static Task<ListWorkspaceCollectionAccessKeysResult> InvokeAsync(ListWorkspaceCollectionAccessKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceCollectionAccessKeysResult>("azure-native:powerbi/v20160129:listWorkspaceCollectionAccessKeys", args ?? new ListWorkspaceCollectionAccessKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceCollectionAccessKeysResult>("azure-native:powerbi/v20160129:listWorkspaceCollectionAccessKeys", args ?? new ListWorkspaceCollectionAccessKeysArgs(), options.WithDefaults());
 
         public static Output<ListWorkspaceCollectionAccessKeysResult> Invoke(ListWorkspaceCollectionAccessKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListWorkspaceCollectionAccessKeysResult>("azure-native:powerbi/v20160129:listWorkspaceCollectionAccessKeys", args ?? new ListWorkspaceCollectionAccessKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListWorkspaceCollectionAccessKeysResult>("azure-native:powerbi/v20160129:listWorkspaceCollectionAccessKeys", args ?? new ListWorkspaceCollectionAccessKeysInvokeArgs(), options.WithDefaults());
     }
 
 

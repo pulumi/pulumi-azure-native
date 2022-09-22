@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20220101
         /// Public IP prefix resource.
         /// </summary>
         public static Task<GetPublicIPPrefixResult> InvokeAsync(GetPublicIPPrefixArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIPPrefixResult>("azure-native:network/v20220101:getPublicIPPrefix", args ?? new GetPublicIPPrefixArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublicIPPrefixResult>("azure-native:network/v20220101:getPublicIPPrefix", args ?? new GetPublicIPPrefixArgs(), options.WithDefaults());
 
         /// <summary>
         /// Public IP prefix resource.
         /// </summary>
         public static Output<GetPublicIPPrefixResult> Invoke(GetPublicIPPrefixInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPublicIPPrefixResult>("azure-native:network/v20220101:getPublicIPPrefix", args ?? new GetPublicIPPrefixInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPublicIPPrefixResult>("azure-native:network/v20220101:getPublicIPPrefix", args ?? new GetPublicIPPrefixInvokeArgs(), options.WithDefaults());
     }
 
 

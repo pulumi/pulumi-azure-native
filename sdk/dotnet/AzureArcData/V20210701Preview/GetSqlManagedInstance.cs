@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.AzureArcData.V20210701Preview
         /// A SqlManagedInstance.
         /// </summary>
         public static Task<GetSqlManagedInstanceResult> InvokeAsync(GetSqlManagedInstanceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlManagedInstanceResult>("azure-native:azurearcdata/v20210701preview:getSqlManagedInstance", args ?? new GetSqlManagedInstanceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlManagedInstanceResult>("azure-native:azurearcdata/v20210701preview:getSqlManagedInstance", args ?? new GetSqlManagedInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// A SqlManagedInstance.
         /// </summary>
         public static Output<GetSqlManagedInstanceResult> Invoke(GetSqlManagedInstanceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSqlManagedInstanceResult>("azure-native:azurearcdata/v20210701preview:getSqlManagedInstance", args ?? new GetSqlManagedInstanceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlManagedInstanceResult>("azure-native:azurearcdata/v20210701preview:getSqlManagedInstance", args ?? new GetSqlManagedInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

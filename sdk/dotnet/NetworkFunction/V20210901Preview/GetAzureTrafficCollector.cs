@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.NetworkFunction.V20210901Preview
         /// Azure Traffic Collector resource.
         /// </summary>
         public static Task<GetAzureTrafficCollectorResult> InvokeAsync(GetAzureTrafficCollectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAzureTrafficCollectorResult>("azure-native:networkfunction/v20210901preview:getAzureTrafficCollector", args ?? new GetAzureTrafficCollectorArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAzureTrafficCollectorResult>("azure-native:networkfunction/v20210901preview:getAzureTrafficCollector", args ?? new GetAzureTrafficCollectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Traffic Collector resource.
         /// </summary>
         public static Output<GetAzureTrafficCollectorResult> Invoke(GetAzureTrafficCollectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAzureTrafficCollectorResult>("azure-native:networkfunction/v20210901preview:getAzureTrafficCollector", args ?? new GetAzureTrafficCollectorInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAzureTrafficCollectorResult>("azure-native:networkfunction/v20210901preview:getAzureTrafficCollector", args ?? new GetAzureTrafficCollectorInvokeArgs(), options.WithDefaults());
     }
 
 

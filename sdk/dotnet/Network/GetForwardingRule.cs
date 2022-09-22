@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2020-04-01-preview.
         /// </summary>
         public static Task<GetForwardingRuleResult> InvokeAsync(GetForwardingRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetForwardingRuleResult>("azure-native:network:getForwardingRule", args ?? new GetForwardingRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetForwardingRuleResult>("azure-native:network:getForwardingRule", args ?? new GetForwardingRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes a forwarding rule within a DNS forwarding ruleset.
         /// API Version: 2020-04-01-preview.
         /// </summary>
         public static Output<GetForwardingRuleResult> Invoke(GetForwardingRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetForwardingRuleResult>("azure-native:network:getForwardingRule", args ?? new GetForwardingRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetForwardingRuleResult>("azure-native:network:getForwardingRule", args ?? new GetForwardingRuleInvokeArgs(), options.WithDefaults());
     }
 
 

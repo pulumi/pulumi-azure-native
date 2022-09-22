@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20200401
         /// PrivateEndpointConnection resource.
         /// </summary>
         public static Task<GetPrivateLinkServicePrivateEndpointConnectionResult> InvokeAsync(GetPrivateLinkServicePrivateEndpointConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkServicePrivateEndpointConnectionResult>("azure-native:network/v20200401:getPrivateLinkServicePrivateEndpointConnection", args ?? new GetPrivateLinkServicePrivateEndpointConnectionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkServicePrivateEndpointConnectionResult>("azure-native:network/v20200401:getPrivateLinkServicePrivateEndpointConnection", args ?? new GetPrivateLinkServicePrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// PrivateEndpointConnection resource.
         /// </summary>
         public static Output<GetPrivateLinkServicePrivateEndpointConnectionResult> Invoke(GetPrivateLinkServicePrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPrivateLinkServicePrivateEndpointConnectionResult>("azure-native:network/v20200401:getPrivateLinkServicePrivateEndpointConnection", args ?? new GetPrivateLinkServicePrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkServicePrivateEndpointConnectionResult>("azure-native:network/v20200401:getPrivateLinkServicePrivateEndpointConnection", args ?? new GetPrivateLinkServicePrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

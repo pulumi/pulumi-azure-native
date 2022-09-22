@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.NotificationHubs
         /// API Version: 2017-04-01.
         /// </summary>
         public static Task<GetNotificationHubResult> InvokeAsync(GetNotificationHubArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNotificationHubResult>("azure-native:notificationhubs:getNotificationHub", args ?? new GetNotificationHubArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNotificationHubResult>("azure-native:notificationhubs:getNotificationHub", args ?? new GetNotificationHubArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description of a NotificationHub Resource.
         /// API Version: 2017-04-01.
         /// </summary>
         public static Output<GetNotificationHubResult> Invoke(GetNotificationHubInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNotificationHubResult>("azure-native:notificationhubs:getNotificationHub", args ?? new GetNotificationHubInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNotificationHubResult>("azure-native:notificationhubs:getNotificationHub", args ?? new GetNotificationHubInvokeArgs(), options.WithDefaults());
     }
 
 

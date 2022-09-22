@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.TestBase
         /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Task<GetTestBaseAccountResult> InvokeAsync(GetTestBaseAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTestBaseAccountResult>("azure-native:testbase:getTestBaseAccount", args ?? new GetTestBaseAccountArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTestBaseAccountResult>("azure-native:testbase:getTestBaseAccount", args ?? new GetTestBaseAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Test Base Account resource.
         /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Output<GetTestBaseAccountResult> Invoke(GetTestBaseAccountInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTestBaseAccountResult>("azure-native:testbase:getTestBaseAccount", args ?? new GetTestBaseAccountInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTestBaseAccountResult>("azure-native:testbase:getTestBaseAccount", args ?? new GetTestBaseAccountInvokeArgs(), options.WithDefaults());
     }
 
 

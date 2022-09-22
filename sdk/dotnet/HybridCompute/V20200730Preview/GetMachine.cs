@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.HybridCompute.V20200730Preview
         /// Describes a hybrid machine.
         /// </summary>
         public static Task<GetMachineResult> InvokeAsync(GetMachineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMachineResult>("azure-native:hybridcompute/v20200730preview:getMachine", args ?? new GetMachineArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMachineResult>("azure-native:hybridcompute/v20200730preview:getMachine", args ?? new GetMachineArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes a hybrid machine.
         /// </summary>
         public static Output<GetMachineResult> Invoke(GetMachineInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMachineResult>("azure-native:hybridcompute/v20200730preview:getMachine", args ?? new GetMachineInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMachineResult>("azure-native:hybridcompute/v20200730preview:getMachine", args ?? new GetMachineInvokeArgs(), options.WithDefaults());
     }
 
 

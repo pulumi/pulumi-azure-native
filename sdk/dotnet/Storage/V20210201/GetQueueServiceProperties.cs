@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Storage.V20210201
         /// The properties of a storage account’s Queue service.
         /// </summary>
         public static Task<GetQueueServicePropertiesResult> InvokeAsync(GetQueueServicePropertiesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetQueueServicePropertiesResult>("azure-native:storage/v20210201:getQueueServiceProperties", args ?? new GetQueueServicePropertiesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetQueueServicePropertiesResult>("azure-native:storage/v20210201:getQueueServiceProperties", args ?? new GetQueueServicePropertiesArgs(), options.WithDefaults());
 
         /// <summary>
         /// The properties of a storage account’s Queue service.
         /// </summary>
         public static Output<GetQueueServicePropertiesResult> Invoke(GetQueueServicePropertiesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetQueueServicePropertiesResult>("azure-native:storage/v20210201:getQueueServiceProperties", args ?? new GetQueueServicePropertiesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetQueueServicePropertiesResult>("azure-native:storage/v20210201:getQueueServiceProperties", args ?? new GetQueueServicePropertiesInvokeArgs(), options.WithDefaults());
     }
 
 

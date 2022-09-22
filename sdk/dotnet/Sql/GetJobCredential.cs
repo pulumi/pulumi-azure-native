@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Sql
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetJobCredentialResult> InvokeAsync(GetJobCredentialArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJobCredentialResult>("azure-native:sql:getJobCredential", args ?? new GetJobCredentialArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobCredentialResult>("azure-native:sql:getJobCredential", args ?? new GetJobCredentialArgs(), options.WithDefaults());
 
         /// <summary>
         /// A stored credential that can be used by a job to connect to target databases.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Output<GetJobCredentialResult> Invoke(GetJobCredentialInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetJobCredentialResult>("azure-native:sql:getJobCredential", args ?? new GetJobCredentialInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetJobCredentialResult>("azure-native:sql:getJobCredential", args ?? new GetJobCredentialInvokeArgs(), options.WithDefaults());
     }
 
 

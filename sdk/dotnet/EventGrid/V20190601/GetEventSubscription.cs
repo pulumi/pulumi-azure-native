@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.EventGrid.V20190601
         /// Event Subscription
         /// </summary>
         public static Task<GetEventSubscriptionResult> InvokeAsync(GetEventSubscriptionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventSubscriptionResult>("azure-native:eventgrid/v20190601:getEventSubscription", args ?? new GetEventSubscriptionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventSubscriptionResult>("azure-native:eventgrid/v20190601:getEventSubscription", args ?? new GetEventSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Event Subscription
         /// </summary>
         public static Output<GetEventSubscriptionResult> Invoke(GetEventSubscriptionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEventSubscriptionResult>("azure-native:eventgrid/v20190601:getEventSubscription", args ?? new GetEventSubscriptionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEventSubscriptionResult>("azure-native:eventgrid/v20190601:getEventSubscription", args ?? new GetEventSubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Cdn
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetProfileResult> InvokeAsync(GetProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure-native:cdn:getProfile", args ?? new GetProfileArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure-native:cdn:getProfile", args ?? new GetProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
         /// API Version: 2020-09-01.
         /// </summary>
         public static Output<GetProfileResult> Invoke(GetProfileInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProfileResult>("azure-native:cdn:getProfile", args ?? new GetProfileInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetProfileResult>("azure-native:cdn:getProfile", args ?? new GetProfileInvokeArgs(), options.WithDefaults());
     }
 
 

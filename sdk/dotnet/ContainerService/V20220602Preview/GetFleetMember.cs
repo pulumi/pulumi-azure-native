@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ContainerService.V20220602Preview
         /// A member of the Fleet. It contains a reference to an existing Kubernetes cluster on Azure.
         /// </summary>
         public static Task<GetFleetMemberResult> InvokeAsync(GetFleetMemberArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFleetMemberResult>("azure-native:containerservice/v20220602preview:getFleetMember", args ?? new GetFleetMemberArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFleetMemberResult>("azure-native:containerservice/v20220602preview:getFleetMember", args ?? new GetFleetMemberArgs(), options.WithDefaults());
 
         /// <summary>
         /// A member of the Fleet. It contains a reference to an existing Kubernetes cluster on Azure.
         /// </summary>
         public static Output<GetFleetMemberResult> Invoke(GetFleetMemberInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFleetMemberResult>("azure-native:containerservice/v20220602preview:getFleetMember", args ?? new GetFleetMemberInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFleetMemberResult>("azure-native:containerservice/v20220602preview:getFleetMember", args ?? new GetFleetMemberInvokeArgs(), options.WithDefaults());
     }
 
 

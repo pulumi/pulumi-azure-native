@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// Configuration settings for the Azure App Service Authentication / Authorization feature.
         /// </summary>
         public static Task<ListSiteAuthSettingsResult> InvokeAsync(ListSiteAuthSettingsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSiteAuthSettingsResult>("azure-native:web/v20150801:listSiteAuthSettings", args ?? new ListSiteAuthSettingsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListSiteAuthSettingsResult>("azure-native:web/v20150801:listSiteAuthSettings", args ?? new ListSiteAuthSettingsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Configuration settings for the Azure App Service Authentication / Authorization feature.
         /// </summary>
         public static Output<ListSiteAuthSettingsResult> Invoke(ListSiteAuthSettingsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListSiteAuthSettingsResult>("azure-native:web/v20150801:listSiteAuthSettings", args ?? new ListSiteAuthSettingsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListSiteAuthSettingsResult>("azure-native:web/v20150801:listSiteAuthSettings", args ?? new ListSiteAuthSettingsInvokeArgs(), options.WithDefaults());
     }
 
 

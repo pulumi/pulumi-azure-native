@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210712
         /// Represents a scaling plan definition.
         /// </summary>
         public static Task<GetScalingPlanResult> InvokeAsync(GetScalingPlanArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScalingPlanResult>("azure-native:desktopvirtualization/v20210712:getScalingPlan", args ?? new GetScalingPlanArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetScalingPlanResult>("azure-native:desktopvirtualization/v20210712:getScalingPlan", args ?? new GetScalingPlanArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a scaling plan definition.
         /// </summary>
         public static Output<GetScalingPlanResult> Invoke(GetScalingPlanInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetScalingPlanResult>("azure-native:desktopvirtualization/v20210712:getScalingPlan", args ?? new GetScalingPlanInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetScalingPlanResult>("azure-native:desktopvirtualization/v20210712:getScalingPlan", args ?? new GetScalingPlanInvokeArgs(), options.WithDefaults());
     }
 
 

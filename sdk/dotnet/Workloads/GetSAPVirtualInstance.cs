@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Workloads
         /// API Version: 2021-12-01-preview.
         /// </summary>
         public static Task<GetSAPVirtualInstanceResult> InvokeAsync(GetSAPVirtualInstanceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSAPVirtualInstanceResult>("azure-native:workloads:getSAPVirtualInstance", args ?? new GetSAPVirtualInstanceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSAPVirtualInstanceResult>("azure-native:workloads:getSAPVirtualInstance", args ?? new GetSAPVirtualInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Define the Virtual Instance for SAP solutions resource.
         /// API Version: 2021-12-01-preview.
         /// </summary>
         public static Output<GetSAPVirtualInstanceResult> Invoke(GetSAPVirtualInstanceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSAPVirtualInstanceResult>("azure-native:workloads:getSAPVirtualInstance", args ?? new GetSAPVirtualInstanceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSAPVirtualInstanceResult>("azure-native:workloads:getSAPVirtualInstance", args ?? new GetSAPVirtualInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

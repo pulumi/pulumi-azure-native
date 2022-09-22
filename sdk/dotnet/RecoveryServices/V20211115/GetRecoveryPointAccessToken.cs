@@ -12,10 +12,10 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211115
     public static class GetRecoveryPointAccessToken
     {
         public static Task<GetRecoveryPointAccessTokenResult> InvokeAsync(GetRecoveryPointAccessTokenArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRecoveryPointAccessTokenResult>("azure-native:recoveryservices/v20211115:getRecoveryPointAccessToken", args ?? new GetRecoveryPointAccessTokenArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRecoveryPointAccessTokenResult>("azure-native:recoveryservices/v20211115:getRecoveryPointAccessToken", args ?? new GetRecoveryPointAccessTokenArgs(), options.WithDefaults());
 
         public static Output<GetRecoveryPointAccessTokenResult> Invoke(GetRecoveryPointAccessTokenInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRecoveryPointAccessTokenResult>("azure-native:recoveryservices/v20211115:getRecoveryPointAccessToken", args ?? new GetRecoveryPointAccessTokenInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRecoveryPointAccessTokenResult>("azure-native:recoveryservices/v20211115:getRecoveryPointAccessToken", args ?? new GetRecoveryPointAccessTokenInvokeArgs(), options.WithDefaults());
     }
 
 

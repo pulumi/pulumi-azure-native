@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Elastic.V20211001Preview
         /// Stack Versions that this version can upgrade to
         /// </summary>
         public static Task<ListUpgradableVersionDetailsResult> InvokeAsync(ListUpgradableVersionDetailsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListUpgradableVersionDetailsResult>("azure-native:elastic/v20211001preview:listUpgradableVersionDetails", args ?? new ListUpgradableVersionDetailsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListUpgradableVersionDetailsResult>("azure-native:elastic/v20211001preview:listUpgradableVersionDetails", args ?? new ListUpgradableVersionDetailsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Stack Versions that this version can upgrade to
         /// </summary>
         public static Output<ListUpgradableVersionDetailsResult> Invoke(ListUpgradableVersionDetailsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListUpgradableVersionDetailsResult>("azure-native:elastic/v20211001preview:listUpgradableVersionDetails", args ?? new ListUpgradableVersionDetailsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListUpgradableVersionDetailsResult>("azure-native:elastic/v20211001preview:listUpgradableVersionDetails", args ?? new ListUpgradableVersionDetailsInvokeArgs(), options.WithDefaults());
     }
 
 

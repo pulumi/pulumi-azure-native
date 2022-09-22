@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
         /// details of synchronization
         /// </summary>
         public static Task<ListShareSubscriptionSynchronizationDetailsResult> InvokeAsync(ListShareSubscriptionSynchronizationDetailsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListShareSubscriptionSynchronizationDetailsResult>("azure-native:datashare/v20181101preview:listShareSubscriptionSynchronizationDetails", args ?? new ListShareSubscriptionSynchronizationDetailsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListShareSubscriptionSynchronizationDetailsResult>("azure-native:datashare/v20181101preview:listShareSubscriptionSynchronizationDetails", args ?? new ListShareSubscriptionSynchronizationDetailsArgs(), options.WithDefaults());
 
         /// <summary>
         /// details of synchronization
         /// </summary>
         public static Output<ListShareSubscriptionSynchronizationDetailsResult> Invoke(ListShareSubscriptionSynchronizationDetailsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListShareSubscriptionSynchronizationDetailsResult>("azure-native:datashare/v20181101preview:listShareSubscriptionSynchronizationDetails", args ?? new ListShareSubscriptionSynchronizationDetailsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListShareSubscriptionSynchronizationDetailsResult>("azure-native:datashare/v20181101preview:listShareSubscriptionSynchronizationDetails", args ?? new ListShareSubscriptionSynchronizationDetailsInvokeArgs(), options.WithDefaults());
     }
 
 

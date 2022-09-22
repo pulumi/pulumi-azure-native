@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Migrate
         /// API Version: 2019-10-01.
         /// </summary>
         public static Task<GetAssessmentResult> InvokeAsync(GetAssessmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentResult>("azure-native:migrate:getAssessment", args ?? new GetAssessmentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentResult>("azure-native:migrate:getAssessment", args ?? new GetAssessmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// An assessment created for a group in the Migration project.
         /// API Version: 2019-10-01.
         /// </summary>
         public static Output<GetAssessmentResult> Invoke(GetAssessmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAssessmentResult>("azure-native:migrate:getAssessment", args ?? new GetAssessmentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentResult>("azure-native:migrate:getAssessment", args ?? new GetAssessmentInvokeArgs(), options.WithDefaults());
     }
 
 

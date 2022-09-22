@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20181001
         /// Interface endpoint resource.
         /// </summary>
         public static Task<GetInterfaceEndpointResult> InvokeAsync(GetInterfaceEndpointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInterfaceEndpointResult>("azure-native:network/v20181001:getInterfaceEndpoint", args ?? new GetInterfaceEndpointArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetInterfaceEndpointResult>("azure-native:network/v20181001:getInterfaceEndpoint", args ?? new GetInterfaceEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Interface endpoint resource.
         /// </summary>
         public static Output<GetInterfaceEndpointResult> Invoke(GetInterfaceEndpointInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetInterfaceEndpointResult>("azure-native:network/v20181001:getInterfaceEndpoint", args ?? new GetInterfaceEndpointInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetInterfaceEndpointResult>("azure-native:network/v20181001:getInterfaceEndpoint", args ?? new GetInterfaceEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

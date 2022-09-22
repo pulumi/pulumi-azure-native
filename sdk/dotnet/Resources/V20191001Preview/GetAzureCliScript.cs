@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Resources.V20191001Preview
         /// Object model for the Azure CLI script.
         /// </summary>
         public static Task<GetAzureCliScriptResult> InvokeAsync(GetAzureCliScriptArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAzureCliScriptResult>("azure-native:resources/v20191001preview:getAzureCliScript", args ?? new GetAzureCliScriptArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAzureCliScriptResult>("azure-native:resources/v20191001preview:getAzureCliScript", args ?? new GetAzureCliScriptArgs(), options.WithDefaults());
 
         /// <summary>
         /// Object model for the Azure CLI script.
         /// </summary>
         public static Output<GetAzureCliScriptResult> Invoke(GetAzureCliScriptInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAzureCliScriptResult>("azure-native:resources/v20191001preview:getAzureCliScript", args ?? new GetAzureCliScriptInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAzureCliScriptResult>("azure-native:resources/v20191001preview:getAzureCliScript", args ?? new GetAzureCliScriptInvokeArgs(), options.WithDefaults());
     }
 
 

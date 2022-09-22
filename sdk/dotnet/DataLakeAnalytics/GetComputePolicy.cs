@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
         /// API Version: 2016-11-01.
         /// </summary>
         public static Task<GetComputePolicyResult> InvokeAsync(GetComputePolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetComputePolicyResult>("azure-native:datalakeanalytics:getComputePolicy", args ?? new GetComputePolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetComputePolicyResult>("azure-native:datalakeanalytics:getComputePolicy", args ?? new GetComputePolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data Lake Analytics compute policy information.
         /// API Version: 2016-11-01.
         /// </summary>
         public static Output<GetComputePolicyResult> Invoke(GetComputePolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetComputePolicyResult>("azure-native:datalakeanalytics:getComputePolicy", args ?? new GetComputePolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetComputePolicyResult>("azure-native:datalakeanalytics:getComputePolicy", args ?? new GetComputePolicyInvokeArgs(), options.WithDefaults());
     }
 
 

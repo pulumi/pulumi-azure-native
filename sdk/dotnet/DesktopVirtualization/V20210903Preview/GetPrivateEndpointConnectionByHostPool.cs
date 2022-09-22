@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210903Preview
         /// The Private Endpoint Connection resource.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionByHostPoolResult> InvokeAsync(GetPrivateEndpointConnectionByHostPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionByHostPoolResult>("azure-native:desktopvirtualization/v20210903preview:getPrivateEndpointConnectionByHostPool", args ?? new GetPrivateEndpointConnectionByHostPoolArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionByHostPoolResult>("azure-native:desktopvirtualization/v20210903preview:getPrivateEndpointConnectionByHostPool", args ?? new GetPrivateEndpointConnectionByHostPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Private Endpoint Connection resource.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionByHostPoolResult> Invoke(GetPrivateEndpointConnectionByHostPoolInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionByHostPoolResult>("azure-native:desktopvirtualization/v20210903preview:getPrivateEndpointConnectionByHostPool", args ?? new GetPrivateEndpointConnectionByHostPoolInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionByHostPoolResult>("azure-native:desktopvirtualization/v20210903preview:getPrivateEndpointConnectionByHostPool", args ?? new GetPrivateEndpointConnectionByHostPoolInvokeArgs(), options.WithDefaults());
     }
 
 

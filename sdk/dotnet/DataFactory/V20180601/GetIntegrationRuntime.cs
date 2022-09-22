@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         /// Integration runtime resource type.
         /// </summary>
         public static Task<GetIntegrationRuntimeResult> InvokeAsync(GetIntegrationRuntimeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationRuntimeResult>("azure-native:datafactory/v20180601:getIntegrationRuntime", args ?? new GetIntegrationRuntimeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationRuntimeResult>("azure-native:datafactory/v20180601:getIntegrationRuntime", args ?? new GetIntegrationRuntimeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Integration runtime resource type.
         /// </summary>
         public static Output<GetIntegrationRuntimeResult> Invoke(GetIntegrationRuntimeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIntegrationRuntimeResult>("azure-native:datafactory/v20180601:getIntegrationRuntime", args ?? new GetIntegrationRuntimeInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationRuntimeResult>("azure-native:datafactory/v20180601:getIntegrationRuntime", args ?? new GetIntegrationRuntimeInvokeArgs(), options.WithDefaults());
     }
 
 

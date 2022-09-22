@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20180201
         /// Configuration of App Service site logs.
         /// </summary>
         public static Task<GetWebAppDiagnosticLogsConfigurationResult> InvokeAsync(GetWebAppDiagnosticLogsConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppDiagnosticLogsConfigurationResult>("azure-native:web/v20180201:getWebAppDiagnosticLogsConfiguration", args ?? new GetWebAppDiagnosticLogsConfigurationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppDiagnosticLogsConfigurationResult>("azure-native:web/v20180201:getWebAppDiagnosticLogsConfiguration", args ?? new GetWebAppDiagnosticLogsConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Configuration of App Service site logs.
         /// </summary>
         public static Output<GetWebAppDiagnosticLogsConfigurationResult> Invoke(GetWebAppDiagnosticLogsConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWebAppDiagnosticLogsConfigurationResult>("azure-native:web/v20180201:getWebAppDiagnosticLogsConfiguration", args ?? new GetWebAppDiagnosticLogsConfigurationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebAppDiagnosticLogsConfigurationResult>("azure-native:web/v20180201:getWebAppDiagnosticLogsConfiguration", args ?? new GetWebAppDiagnosticLogsConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
         /// Response of the GetDomainOwnershipIdentifier operation.
         /// </summary>
         public static Task<GetApiManagementServiceDomainOwnershipIdentifierResult> InvokeAsync(GetApiManagementServiceDomainOwnershipIdentifierArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApiManagementServiceDomainOwnershipIdentifierResult>("azure-native:apimanagement/v20211201preview:getApiManagementServiceDomainOwnershipIdentifier", args ?? new GetApiManagementServiceDomainOwnershipIdentifierArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiManagementServiceDomainOwnershipIdentifierResult>("azure-native:apimanagement/v20211201preview:getApiManagementServiceDomainOwnershipIdentifier", args ?? new GetApiManagementServiceDomainOwnershipIdentifierArgs(), options.WithDefaults());
     }
 
 

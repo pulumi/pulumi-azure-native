@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ServiceBus.V20211101
         /// Description of NetworkRuleSet resource.
         /// </summary>
         public static Task<GetNamespaceNetworkRuleSetResult> InvokeAsync(GetNamespaceNetworkRuleSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceNetworkRuleSetResult>("azure-native:servicebus/v20211101:getNamespaceNetworkRuleSet", args ?? new GetNamespaceNetworkRuleSetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceNetworkRuleSetResult>("azure-native:servicebus/v20211101:getNamespaceNetworkRuleSet", args ?? new GetNamespaceNetworkRuleSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description of NetworkRuleSet resource.
         /// </summary>
         public static Output<GetNamespaceNetworkRuleSetResult> Invoke(GetNamespaceNetworkRuleSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNamespaceNetworkRuleSetResult>("azure-native:servicebus/v20211101:getNamespaceNetworkRuleSet", args ?? new GetNamespaceNetworkRuleSetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceNetworkRuleSetResult>("azure-native:servicebus/v20211101:getNamespaceNetworkRuleSet", args ?? new GetNamespaceNetworkRuleSetInvokeArgs(), options.WithDefaults());
     }
 
 

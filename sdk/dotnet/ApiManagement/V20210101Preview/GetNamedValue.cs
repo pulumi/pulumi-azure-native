@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
         /// NamedValue details.
         /// </summary>
         public static Task<GetNamedValueResult> InvokeAsync(GetNamedValueArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNamedValueResult>("azure-native:apimanagement/v20210101preview:getNamedValue", args ?? new GetNamedValueArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamedValueResult>("azure-native:apimanagement/v20210101preview:getNamedValue", args ?? new GetNamedValueArgs(), options.WithDefaults());
 
         /// <summary>
         /// NamedValue details.
         /// </summary>
         public static Output<GetNamedValueResult> Invoke(GetNamedValueInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNamedValueResult>("azure-native:apimanagement/v20210101preview:getNamedValue", args ?? new GetNamedValueInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNamedValueResult>("azure-native:apimanagement/v20210101preview:getNamedValue", args ?? new GetNamedValueInvokeArgs(), options.WithDefaults());
     }
 
 

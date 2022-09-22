@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ContainerService.V20220602Preview
         /// The Fleet resource which contains multiple Kubernetes clusters as its members.
         /// </summary>
         public static Task<GetFleetResult> InvokeAsync(GetFleetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFleetResult>("azure-native:containerservice/v20220602preview:getFleet", args ?? new GetFleetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFleetResult>("azure-native:containerservice/v20220602preview:getFleet", args ?? new GetFleetArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Fleet resource which contains multiple Kubernetes clusters as its members.
         /// </summary>
         public static Output<GetFleetResult> Invoke(GetFleetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFleetResult>("azure-native:containerservice/v20220602preview:getFleet", args ?? new GetFleetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFleetResult>("azure-native:containerservice/v20220602preview:getFleet", args ?? new GetFleetInvokeArgs(), options.WithDefaults());
     }
 
 

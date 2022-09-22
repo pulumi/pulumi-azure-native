@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         /// Workload group operations for a data warehouse
         /// </summary>
         public static Task<GetWorkloadGroupResult> InvokeAsync(GetWorkloadGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadGroupResult>("azure-native:sql/v20201101preview:getWorkloadGroup", args ?? new GetWorkloadGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadGroupResult>("azure-native:sql/v20201101preview:getWorkloadGroup", args ?? new GetWorkloadGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Workload group operations for a data warehouse
         /// </summary>
         public static Output<GetWorkloadGroupResult> Invoke(GetWorkloadGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWorkloadGroupResult>("azure-native:sql/v20201101preview:getWorkloadGroup", args ?? new GetWorkloadGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadGroupResult>("azure-native:sql/v20201101preview:getWorkloadGroup", args ?? new GetWorkloadGroupInvokeArgs(), options.WithDefaults());
     }
 
 

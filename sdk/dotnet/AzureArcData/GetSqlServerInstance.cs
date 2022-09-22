@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.AzureArcData
         /// API Version: 2021-06-01-preview.
         /// </summary>
         public static Task<GetSqlServerInstanceResult> InvokeAsync(GetSqlServerInstanceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlServerInstanceResult>("azure-native:azurearcdata:getSqlServerInstance", args ?? new GetSqlServerInstanceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlServerInstanceResult>("azure-native:azurearcdata:getSqlServerInstance", args ?? new GetSqlServerInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// A SqlServerInstance.
         /// API Version: 2021-06-01-preview.
         /// </summary>
         public static Output<GetSqlServerInstanceResult> Invoke(GetSqlServerInstanceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSqlServerInstanceResult>("azure-native:azurearcdata:getSqlServerInstance", args ?? new GetSqlServerInstanceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerInstanceResult>("azure-native:azurearcdata:getSqlServerInstance", args ?? new GetSqlServerInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
         /// Secrets related to a Machine Learning compute. Might differ for every type of compute.
         /// </summary>
         public static Task<ListComputeKeysResult> InvokeAsync(ListComputeKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListComputeKeysResult>("azure-native:machinelearningservices/v20220601preview:listComputeKeys", args ?? new ListComputeKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListComputeKeysResult>("azure-native:machinelearningservices/v20220601preview:listComputeKeys", args ?? new ListComputeKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Secrets related to a Machine Learning compute. Might differ for every type of compute.
         /// </summary>
         public static Output<ListComputeKeysResult> Invoke(ListComputeKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListComputeKeysResult>("azure-native:machinelearningservices/v20220601preview:listComputeKeys", args ?? new ListComputeKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListComputeKeysResult>("azure-native:machinelearningservices/v20220601preview:listComputeKeys", args ?? new ListComputeKeysInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Portal
         /// API Version: 2018-10-01.
         /// </summary>
         public static Task<GetUserSettingsWithLocationResult> InvokeAsync(GetUserSettingsWithLocationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserSettingsWithLocationResult>("azure-native:portal:getUserSettingsWithLocation", args ?? new GetUserSettingsWithLocationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserSettingsWithLocationResult>("azure-native:portal:getUserSettingsWithLocation", args ?? new GetUserSettingsWithLocationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response to get user settings
         /// API Version: 2018-10-01.
         /// </summary>
         public static Output<GetUserSettingsWithLocationResult> Invoke(GetUserSettingsWithLocationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetUserSettingsWithLocationResult>("azure-native:portal:getUserSettingsWithLocation", args ?? new GetUserSettingsWithLocationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserSettingsWithLocationResult>("azure-native:portal:getUserSettingsWithLocation", args ?? new GetUserSettingsWithLocationInvokeArgs(), options.WithDefaults());
     }
 
 

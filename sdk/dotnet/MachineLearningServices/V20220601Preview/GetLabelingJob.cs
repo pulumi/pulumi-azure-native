@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
         /// Azure Resource Manager resource envelope.
         /// </summary>
         public static Task<GetLabelingJobResult> InvokeAsync(GetLabelingJobArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLabelingJobResult>("azure-native:machinelearningservices/v20220601preview:getLabelingJob", args ?? new GetLabelingJobArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLabelingJobResult>("azure-native:machinelearningservices/v20220601preview:getLabelingJob", args ?? new GetLabelingJobArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
         /// </summary>
         public static Output<GetLabelingJobResult> Invoke(GetLabelingJobInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLabelingJobResult>("azure-native:machinelearningservices/v20220601preview:getLabelingJob", args ?? new GetLabelingJobInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLabelingJobResult>("azure-native:machinelearningservices/v20220601preview:getLabelingJob", args ?? new GetLabelingJobInvokeArgs(), options.WithDefaults());
     }
 
 

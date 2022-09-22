@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.ApiManagement
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetAuthorizationServerResult> InvokeAsync(GetAuthorizationServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationServerResult>("azure-native:apimanagement:getAuthorizationServer", args ?? new GetAuthorizationServerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationServerResult>("azure-native:apimanagement:getAuthorizationServer", args ?? new GetAuthorizationServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// External OAuth authorization server settings.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetAuthorizationServerResult> Invoke(GetAuthorizationServerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAuthorizationServerResult>("azure-native:apimanagement:getAuthorizationServer", args ?? new GetAuthorizationServerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizationServerResult>("azure-native:apimanagement:getAuthorizationServer", args ?? new GetAuthorizationServerInvokeArgs(), options.WithDefaults());
     }
 
 

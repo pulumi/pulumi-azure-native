@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// API Version: 2019-06-01-preview.
         /// </summary>
         public static Task<ListAgentPoolQueueStatusResult> InvokeAsync(ListAgentPoolQueueStatusArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListAgentPoolQueueStatusResult>("azure-native:containerregistry:listAgentPoolQueueStatus", args ?? new ListAgentPoolQueueStatusArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListAgentPoolQueueStatusResult>("azure-native:containerregistry:listAgentPoolQueueStatus", args ?? new ListAgentPoolQueueStatusArgs(), options.WithDefaults());
 
         /// <summary>
         /// The QueueStatus of Agent Pool
         /// API Version: 2019-06-01-preview.
         /// </summary>
         public static Output<ListAgentPoolQueueStatusResult> Invoke(ListAgentPoolQueueStatusInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListAgentPoolQueueStatusResult>("azure-native:containerregistry:listAgentPoolQueueStatus", args ?? new ListAgentPoolQueueStatusInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListAgentPoolQueueStatusResult>("azure-native:containerregistry:listAgentPoolQueueStatus", args ?? new ListAgentPoolQueueStatusInvokeArgs(), options.WithDefaults());
     }
 
 

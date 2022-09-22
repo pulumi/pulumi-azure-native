@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
         /// Represents a Blueprint artifact.
         /// </summary>
         public static Task<GetArtifactResult> InvokeAsync(GetArtifactArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetArtifactResult>("azure-native:blueprint/v20171111preview:getArtifact", args ?? new GetArtifactArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetArtifactResult>("azure-native:blueprint/v20171111preview:getArtifact", args ?? new GetArtifactArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a Blueprint artifact.
         /// </summary>
         public static Output<GetArtifactResult> Invoke(GetArtifactInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetArtifactResult>("azure-native:blueprint/v20171111preview:getArtifact", args ?? new GetArtifactInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetArtifactResult>("azure-native:blueprint/v20171111preview:getArtifact", args ?? new GetArtifactInvokeArgs(), options.WithDefaults());
     }
 
 

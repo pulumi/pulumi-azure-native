@@ -12,10 +12,10 @@ namespace Pulumi.AzureNative.Datadog.V20210301
     public static class GetMonitorDefaultKey
     {
         public static Task<GetMonitorDefaultKeyResult> InvokeAsync(GetMonitorDefaultKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMonitorDefaultKeyResult>("azure-native:datadog/v20210301:getMonitorDefaultKey", args ?? new GetMonitorDefaultKeyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitorDefaultKeyResult>("azure-native:datadog/v20210301:getMonitorDefaultKey", args ?? new GetMonitorDefaultKeyArgs(), options.WithDefaults());
 
         public static Output<GetMonitorDefaultKeyResult> Invoke(GetMonitorDefaultKeyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMonitorDefaultKeyResult>("azure-native:datadog/v20210301:getMonitorDefaultKey", args ?? new GetMonitorDefaultKeyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMonitorDefaultKeyResult>("azure-native:datadog/v20210301:getMonitorDefaultKey", args ?? new GetMonitorDefaultKeyInvokeArgs(), options.WithDefaults());
     }
 
 

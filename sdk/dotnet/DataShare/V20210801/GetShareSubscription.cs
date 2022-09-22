@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DataShare.V20210801
         /// A share subscription data transfer object.
         /// </summary>
         public static Task<GetShareSubscriptionResult> InvokeAsync(GetShareSubscriptionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetShareSubscriptionResult>("azure-native:datashare/v20210801:getShareSubscription", args ?? new GetShareSubscriptionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetShareSubscriptionResult>("azure-native:datashare/v20210801:getShareSubscription", args ?? new GetShareSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// A share subscription data transfer object.
         /// </summary>
         public static Output<GetShareSubscriptionResult> Invoke(GetShareSubscriptionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetShareSubscriptionResult>("azure-native:datashare/v20210801:getShareSubscription", args ?? new GetShareSubscriptionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetShareSubscriptionResult>("azure-native:datashare/v20210801:getShareSubscription", args ?? new GetShareSubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 

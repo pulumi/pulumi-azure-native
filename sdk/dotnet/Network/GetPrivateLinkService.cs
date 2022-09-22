@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetPrivateLinkServiceResult> InvokeAsync(GetPrivateLinkServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkServiceResult>("azure-native:network:getPrivateLinkService", args ?? new GetPrivateLinkServiceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkServiceResult>("azure-native:network:getPrivateLinkService", args ?? new GetPrivateLinkServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Private link service resource.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetPrivateLinkServiceResult> Invoke(GetPrivateLinkServiceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPrivateLinkServiceResult>("azure-native:network:getPrivateLinkService", args ?? new GetPrivateLinkServiceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkServiceResult>("azure-native:network:getPrivateLinkService", args ?? new GetPrivateLinkServiceInvokeArgs(), options.WithDefaults());
     }
 
 

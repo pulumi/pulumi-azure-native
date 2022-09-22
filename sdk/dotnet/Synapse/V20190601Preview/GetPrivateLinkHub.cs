@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview
         /// A privateLinkHub
         /// </summary>
         public static Task<GetPrivateLinkHubResult> InvokeAsync(GetPrivateLinkHubArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkHubResult>("azure-native:synapse/v20190601preview:getPrivateLinkHub", args ?? new GetPrivateLinkHubArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkHubResult>("azure-native:synapse/v20190601preview:getPrivateLinkHub", args ?? new GetPrivateLinkHubArgs(), options.WithDefaults());
 
         /// <summary>
         /// A privateLinkHub
         /// </summary>
         public static Output<GetPrivateLinkHubResult> Invoke(GetPrivateLinkHubInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPrivateLinkHubResult>("azure-native:synapse/v20190601preview:getPrivateLinkHub", args ?? new GetPrivateLinkHubInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkHubResult>("azure-native:synapse/v20190601preview:getPrivateLinkHub", args ?? new GetPrivateLinkHubInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.StorageCache.V20190801Preview
         /// A storage system being cached by a Cache.
         /// </summary>
         public static Task<GetStorageTargetResult> InvokeAsync(GetStorageTargetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageTargetResult>("azure-native:storagecache/v20190801preview:getStorageTarget", args ?? new GetStorageTargetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageTargetResult>("azure-native:storagecache/v20190801preview:getStorageTarget", args ?? new GetStorageTargetArgs(), options.WithDefaults());
 
         /// <summary>
         /// A storage system being cached by a Cache.
         /// </summary>
         public static Output<GetStorageTargetResult> Invoke(GetStorageTargetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStorageTargetResult>("azure-native:storagecache/v20190801preview:getStorageTarget", args ?? new GetStorageTargetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetStorageTargetResult>("azure-native:storagecache/v20190801preview:getStorageTarget", args ?? new GetStorageTargetInvokeArgs(), options.WithDefaults());
     }
 
 

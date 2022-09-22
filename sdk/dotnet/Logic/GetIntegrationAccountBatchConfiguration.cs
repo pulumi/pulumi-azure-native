@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Logic
         /// API Version: 2019-05-01.
         /// </summary>
         public static Task<GetIntegrationAccountBatchConfigurationResult> InvokeAsync(GetIntegrationAccountBatchConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountBatchConfigurationResult>("azure-native:logic:getIntegrationAccountBatchConfiguration", args ?? new GetIntegrationAccountBatchConfigurationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountBatchConfigurationResult>("azure-native:logic:getIntegrationAccountBatchConfiguration", args ?? new GetIntegrationAccountBatchConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// The batch configuration resource definition.
         /// API Version: 2019-05-01.
         /// </summary>
         public static Output<GetIntegrationAccountBatchConfigurationResult> Invoke(GetIntegrationAccountBatchConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountBatchConfigurationResult>("azure-native:logic:getIntegrationAccountBatchConfiguration", args ?? new GetIntegrationAccountBatchConfigurationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountBatchConfigurationResult>("azure-native:logic:getIntegrationAccountBatchConfiguration", args ?? new GetIntegrationAccountBatchConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

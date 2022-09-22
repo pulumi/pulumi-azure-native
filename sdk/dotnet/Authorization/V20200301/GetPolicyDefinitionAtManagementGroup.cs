@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Authorization.V20200301
         /// The policy definition.
         /// </summary>
         public static Task<GetPolicyDefinitionAtManagementGroupResult> InvokeAsync(GetPolicyDefinitionAtManagementGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyDefinitionAtManagementGroupResult>("azure-native:authorization/v20200301:getPolicyDefinitionAtManagementGroup", args ?? new GetPolicyDefinitionAtManagementGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyDefinitionAtManagementGroupResult>("azure-native:authorization/v20200301:getPolicyDefinitionAtManagementGroup", args ?? new GetPolicyDefinitionAtManagementGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// The policy definition.
         /// </summary>
         public static Output<GetPolicyDefinitionAtManagementGroupResult> Invoke(GetPolicyDefinitionAtManagementGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPolicyDefinitionAtManagementGroupResult>("azure-native:authorization/v20200301:getPolicyDefinitionAtManagementGroup", args ?? new GetPolicyDefinitionAtManagementGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPolicyDefinitionAtManagementGroupResult>("azure-native:authorization/v20200301:getPolicyDefinitionAtManagementGroup", args ?? new GetPolicyDefinitionAtManagementGroupInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.DocumentDB.V20160331
         /// An Azure Cosmos DB MongoDB collection.
         /// </summary>
         public static Task<GetDatabaseAccountMongoDBCollectionResult> InvokeAsync(GetDatabaseAccountMongoDBCollectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountMongoDBCollectionResult>("azure-native:documentdb/v20160331:getDatabaseAccountMongoDBCollection", args ?? new GetDatabaseAccountMongoDBCollectionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountMongoDBCollectionResult>("azure-native:documentdb/v20160331:getDatabaseAccountMongoDBCollection", args ?? new GetDatabaseAccountMongoDBCollectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure Cosmos DB MongoDB collection.
         /// </summary>
         public static Output<GetDatabaseAccountMongoDBCollectionResult> Invoke(GetDatabaseAccountMongoDBCollectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDatabaseAccountMongoDBCollectionResult>("azure-native:documentdb/v20160331:getDatabaseAccountMongoDBCollection", args ?? new GetDatabaseAccountMongoDBCollectionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseAccountMongoDBCollectionResult>("azure-native:documentdb/v20160331:getDatabaseAccountMongoDBCollection", args ?? new GetDatabaseAccountMongoDBCollectionInvokeArgs(), options.WithDefaults());
     }
 
 

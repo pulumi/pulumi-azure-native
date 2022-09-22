@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Intune
         /// API Version: 2015-01-14-preview.
         /// </summary>
         public static Task<GetIoMAMPolicyByNameResult> InvokeAsync(GetIoMAMPolicyByNameArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIoMAMPolicyByNameResult>("azure-native:intune:getIoMAMPolicyByName", args ?? new GetIoMAMPolicyByNameArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIoMAMPolicyByNameResult>("azure-native:intune:getIoMAMPolicyByName", args ?? new GetIoMAMPolicyByNameArgs(), options.WithDefaults());
 
         /// <summary>
         /// iOS Policy entity for Intune MAM.
         /// API Version: 2015-01-14-preview.
         /// </summary>
         public static Output<GetIoMAMPolicyByNameResult> Invoke(GetIoMAMPolicyByNameInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIoMAMPolicyByNameResult>("azure-native:intune:getIoMAMPolicyByName", args ?? new GetIoMAMPolicyByNameInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIoMAMPolicyByNameResult>("azure-native:intune:getIoMAMPolicyByName", args ?? new GetIoMAMPolicyByNameInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview
         /// An Azure SQL job agent.
         /// </summary>
         public static Task<GetJobAgentResult> InvokeAsync(GetJobAgentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJobAgentResult>("azure-native:sql/v20211101preview:getJobAgent", args ?? new GetJobAgentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobAgentResult>("azure-native:sql/v20211101preview:getJobAgent", args ?? new GetJobAgentArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure SQL job agent.
         /// </summary>
         public static Output<GetJobAgentResult> Invoke(GetJobAgentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetJobAgentResult>("azure-native:sql/v20211101preview:getJobAgent", args ?? new GetJobAgentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetJobAgentResult>("azure-native:sql/v20211101preview:getJobAgent", args ?? new GetJobAgentInvokeArgs(), options.WithDefaults());
     }
 
 

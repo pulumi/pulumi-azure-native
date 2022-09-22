@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20181201
         /// Defines web application firewall policy.
         /// </summary>
         public static Task<GetWebApplicationFirewallPolicyResult> InvokeAsync(GetWebApplicationFirewallPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebApplicationFirewallPolicyResult>("azure-native:network/v20181201:getWebApplicationFirewallPolicy", args ?? new GetWebApplicationFirewallPolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebApplicationFirewallPolicyResult>("azure-native:network/v20181201:getWebApplicationFirewallPolicy", args ?? new GetWebApplicationFirewallPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Defines web application firewall policy.
         /// </summary>
         public static Output<GetWebApplicationFirewallPolicyResult> Invoke(GetWebApplicationFirewallPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWebApplicationFirewallPolicyResult>("azure-native:network/v20181201:getWebApplicationFirewallPolicy", args ?? new GetWebApplicationFirewallPolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebApplicationFirewallPolicyResult>("azure-native:network/v20181201:getWebApplicationFirewallPolicy", args ?? new GetWebApplicationFirewallPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

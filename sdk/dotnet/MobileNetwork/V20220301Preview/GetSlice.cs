@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
         /// Network slice resource.
         /// </summary>
         public static Task<GetSliceResult> InvokeAsync(GetSliceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSliceResult>("azure-native:mobilenetwork/v20220301preview:getSlice", args ?? new GetSliceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSliceResult>("azure-native:mobilenetwork/v20220301preview:getSlice", args ?? new GetSliceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Network slice resource.
         /// </summary>
         public static Output<GetSliceResult> Invoke(GetSliceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSliceResult>("azure-native:mobilenetwork/v20220301preview:getSlice", args ?? new GetSliceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSliceResult>("azure-native:mobilenetwork/v20220301preview:getSlice", args ?? new GetSliceInvokeArgs(), options.WithDefaults());
     }
 
 

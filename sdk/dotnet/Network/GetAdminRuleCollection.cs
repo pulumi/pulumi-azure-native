@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Task<GetAdminRuleCollectionResult> InvokeAsync(GetAdminRuleCollectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAdminRuleCollectionResult>("azure-native:network:getAdminRuleCollection", args ?? new GetAdminRuleCollectionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAdminRuleCollectionResult>("azure-native:network:getAdminRuleCollection", args ?? new GetAdminRuleCollectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Defines the rule collection.
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Output<GetAdminRuleCollectionResult> Invoke(GetAdminRuleCollectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAdminRuleCollectionResult>("azure-native:network:getAdminRuleCollection", args ?? new GetAdminRuleCollectionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAdminRuleCollectionResult>("azure-native:network:getAdminRuleCollection", args ?? new GetAdminRuleCollectionInvokeArgs(), options.WithDefaults());
     }
 
 

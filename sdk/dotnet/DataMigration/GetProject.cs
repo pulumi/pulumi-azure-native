@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.DataMigration
         /// API Version: 2018-04-19.
         /// </summary>
         public static Task<GetProjectResult> InvokeAsync(GetProjectArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure-native:datamigration:getProject", args ?? new GetProjectArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure-native:datamigration:getProject", args ?? new GetProjectArgs(), options.WithDefaults());
 
         /// <summary>
         /// A project resource
         /// API Version: 2018-04-19.
         /// </summary>
         public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProjectResult>("azure-native:datamigration:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetProjectResult>("azure-native:datamigration:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
     }
 
 

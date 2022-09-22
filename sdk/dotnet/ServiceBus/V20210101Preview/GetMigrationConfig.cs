@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ServiceBus.V20210101Preview
         /// Single item in List or Get Migration Config operation
         /// </summary>
         public static Task<GetMigrationConfigResult> InvokeAsync(GetMigrationConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMigrationConfigResult>("azure-native:servicebus/v20210101preview:getMigrationConfig", args ?? new GetMigrationConfigArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMigrationConfigResult>("azure-native:servicebus/v20210101preview:getMigrationConfig", args ?? new GetMigrationConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Single item in List or Get Migration Config operation
         /// </summary>
         public static Output<GetMigrationConfigResult> Invoke(GetMigrationConfigInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMigrationConfigResult>("azure-native:servicebus/v20210101preview:getMigrationConfig", args ?? new GetMigrationConfigInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMigrationConfigResult>("azure-native:servicebus/v20210101preview:getMigrationConfig", args ?? new GetMigrationConfigInvokeArgs(), options.WithDefaults());
     }
 
 

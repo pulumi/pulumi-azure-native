@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601
         /// MEC role.
         /// </summary>
         public static Task<GetMECRoleResult> InvokeAsync(GetMECRoleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMECRoleResult>("azure-native:databoxedge/v20210601:getMECRole", args ?? new GetMECRoleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMECRoleResult>("azure-native:databoxedge/v20210601:getMECRole", args ?? new GetMECRoleArgs(), options.WithDefaults());
 
         /// <summary>
         /// MEC role.
         /// </summary>
         public static Output<GetMECRoleResult> Invoke(GetMECRoleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMECRoleResult>("azure-native:databoxedge/v20210601:getMECRole", args ?? new GetMECRoleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMECRoleResult>("azure-native:databoxedge/v20210601:getMECRole", args ?? new GetMECRoleInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
         /// API Version: 2019-01-01-preview.
         /// </summary>
         public static Task<GetB2CTenantResult> InvokeAsync(GetB2CTenantArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetB2CTenantResult>("azure-native:azureactivedirectory:getB2CTenant", args ?? new GetB2CTenantArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetB2CTenantResult>("azure-native:azureactivedirectory:getB2CTenant", args ?? new GetB2CTenantArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
         /// API Version: 2019-01-01-preview.
         /// </summary>
         public static Output<GetB2CTenantResult> Invoke(GetB2CTenantInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetB2CTenantResult>("azure-native:azureactivedirectory:getB2CTenant", args ?? new GetB2CTenantInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetB2CTenantResult>("azure-native:azureactivedirectory:getB2CTenant", args ?? new GetB2CTenantInvokeArgs(), options.WithDefaults());
     }
 
 

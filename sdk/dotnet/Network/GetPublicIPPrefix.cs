@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetPublicIPPrefixResult> InvokeAsync(GetPublicIPPrefixArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIPPrefixResult>("azure-native:network:getPublicIPPrefix", args ?? new GetPublicIPPrefixArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublicIPPrefixResult>("azure-native:network:getPublicIPPrefix", args ?? new GetPublicIPPrefixArgs(), options.WithDefaults());
 
         /// <summary>
         /// Public IP prefix resource.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetPublicIPPrefixResult> Invoke(GetPublicIPPrefixInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPublicIPPrefixResult>("azure-native:network:getPublicIPPrefix", args ?? new GetPublicIPPrefixInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPublicIPPrefixResult>("azure-native:network:getPublicIPPrefix", args ?? new GetPublicIPPrefixInvokeArgs(), options.WithDefaults());
     }
 
 

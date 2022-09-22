@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Sql.V20140401
         /// Contains information about a database Threat Detection policy.
         /// </summary>
         public static Task<GetDatabaseThreatDetectionPolicyResult> InvokeAsync(GetDatabaseThreatDetectionPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseThreatDetectionPolicyResult>("azure-native:sql/v20140401:getDatabaseThreatDetectionPolicy", args ?? new GetDatabaseThreatDetectionPolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseThreatDetectionPolicyResult>("azure-native:sql/v20140401:getDatabaseThreatDetectionPolicy", args ?? new GetDatabaseThreatDetectionPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Contains information about a database Threat Detection policy.
         /// </summary>
         public static Output<GetDatabaseThreatDetectionPolicyResult> Invoke(GetDatabaseThreatDetectionPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDatabaseThreatDetectionPolicyResult>("azure-native:sql/v20140401:getDatabaseThreatDetectionPolicy", args ?? new GetDatabaseThreatDetectionPolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseThreatDetectionPolicyResult>("azure-native:sql/v20140401:getDatabaseThreatDetectionPolicy", args ?? new GetDatabaseThreatDetectionPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

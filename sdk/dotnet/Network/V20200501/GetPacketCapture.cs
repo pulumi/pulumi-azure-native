@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20200501
         /// Information about packet capture session.
         /// </summary>
         public static Task<GetPacketCaptureResult> InvokeAsync(GetPacketCaptureArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPacketCaptureResult>("azure-native:network/v20200501:getPacketCapture", args ?? new GetPacketCaptureArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPacketCaptureResult>("azure-native:network/v20200501:getPacketCapture", args ?? new GetPacketCaptureArgs(), options.WithDefaults());
 
         /// <summary>
         /// Information about packet capture session.
         /// </summary>
         public static Output<GetPacketCaptureResult> Invoke(GetPacketCaptureInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPacketCaptureResult>("azure-native:network/v20200501:getPacketCapture", args ?? new GetPacketCaptureInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPacketCaptureResult>("azure-native:network/v20200501:getPacketCapture", args ?? new GetPacketCaptureInvokeArgs(), options.WithDefaults());
     }
 
 

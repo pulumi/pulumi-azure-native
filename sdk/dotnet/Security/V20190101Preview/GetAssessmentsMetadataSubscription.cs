@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Security.V20190101Preview
         /// Security assessment metadata
         /// </summary>
         public static Task<GetAssessmentsMetadataSubscriptionResult> InvokeAsync(GetAssessmentsMetadataSubscriptionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentsMetadataSubscriptionResult>("azure-native:security/v20190101preview:getAssessmentsMetadataSubscription", args ?? new GetAssessmentsMetadataSubscriptionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentsMetadataSubscriptionResult>("azure-native:security/v20190101preview:getAssessmentsMetadataSubscription", args ?? new GetAssessmentsMetadataSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Security assessment metadata
         /// </summary>
         public static Output<GetAssessmentsMetadataSubscriptionResult> Invoke(GetAssessmentsMetadataSubscriptionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAssessmentsMetadataSubscriptionResult>("azure-native:security/v20190101preview:getAssessmentsMetadataSubscription", args ?? new GetAssessmentsMetadataSubscriptionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentsMetadataSubscriptionResult>("azure-native:security/v20190101preview:getAssessmentsMetadataSubscription", args ?? new GetAssessmentsMetadataSubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.NotificationHubs.V20160301
         /// Description of a NotificationHub PNS Credentials.
         /// </summary>
         public static Task<GetNotificationHubPnsCredentialsResult> InvokeAsync(GetNotificationHubPnsCredentialsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNotificationHubPnsCredentialsResult>("azure-native:notificationhubs/v20160301:getNotificationHubPnsCredentials", args ?? new GetNotificationHubPnsCredentialsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNotificationHubPnsCredentialsResult>("azure-native:notificationhubs/v20160301:getNotificationHubPnsCredentials", args ?? new GetNotificationHubPnsCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description of a NotificationHub PNS Credentials.
         /// </summary>
         public static Output<GetNotificationHubPnsCredentialsResult> Invoke(GetNotificationHubPnsCredentialsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNotificationHubPnsCredentialsResult>("azure-native:notificationhubs/v20160301:getNotificationHubPnsCredentials", args ?? new GetNotificationHubPnsCredentialsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNotificationHubPnsCredentialsResult>("azure-native:notificationhubs/v20160301:getNotificationHubPnsCredentials", args ?? new GetNotificationHubPnsCredentialsInvokeArgs(), options.WithDefaults());
     }
 
 

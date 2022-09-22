@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20180601Preview
         /// Subscription details.
         /// </summary>
         public static Task<GetSubscriptionResult> InvokeAsync(GetSubscriptionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionResult>("azure-native:apimanagement/v20180601preview:getSubscription", args ?? new GetSubscriptionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionResult>("azure-native:apimanagement/v20180601preview:getSubscription", args ?? new GetSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Subscription details.
         /// </summary>
         public static Output<GetSubscriptionResult> Invoke(GetSubscriptionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSubscriptionResult>("azure-native:apimanagement/v20180601preview:getSubscription", args ?? new GetSubscriptionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionResult>("azure-native:apimanagement/v20180601preview:getSubscription", args ?? new GetSubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 

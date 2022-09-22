@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview
         /// A managed database resource.
         /// </summary>
         public static Task<GetManagedDatabaseResult> InvokeAsync(GetManagedDatabaseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedDatabaseResult>("azure-native:sql/v20210501preview:getManagedDatabase", args ?? new GetManagedDatabaseArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedDatabaseResult>("azure-native:sql/v20210501preview:getManagedDatabase", args ?? new GetManagedDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// A managed database resource.
         /// </summary>
         public static Output<GetManagedDatabaseResult> Invoke(GetManagedDatabaseInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagedDatabaseResult>("azure-native:sql/v20210501preview:getManagedDatabase", args ?? new GetManagedDatabaseInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedDatabaseResult>("azure-native:sql/v20210501preview:getManagedDatabase", args ?? new GetManagedDatabaseInvokeArgs(), options.WithDefaults());
     }
 
 

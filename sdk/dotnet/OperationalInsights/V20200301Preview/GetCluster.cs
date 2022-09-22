@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
         /// The top level Log Analytics cluster resource container.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:operationalinsights/v20200301preview:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:operationalinsights/v20200301preview:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// The top level Log Analytics cluster resource container.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:operationalinsights/v20200301preview:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:operationalinsights/v20200301preview:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
     }
 
 

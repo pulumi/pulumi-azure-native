@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Cdn.V20150601
         /// CDN CustomDomain represents a mapping between a user specified domain name and a CDN endpoint. This is to use custom domain names to represent the URLs for branding purposes.
         /// </summary>
         public static Task<GetCustomDomainResult> InvokeAsync(GetCustomDomainArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomDomainResult>("azure-native:cdn/v20150601:getCustomDomain", args ?? new GetCustomDomainArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomDomainResult>("azure-native:cdn/v20150601:getCustomDomain", args ?? new GetCustomDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// CDN CustomDomain represents a mapping between a user specified domain name and a CDN endpoint. This is to use custom domain names to represent the URLs for branding purposes.
         /// </summary>
         public static Output<GetCustomDomainResult> Invoke(GetCustomDomainInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCustomDomainResult>("azure-native:cdn/v20150601:getCustomDomain", args ?? new GetCustomDomainInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomDomainResult>("azure-native:cdn/v20150601:getCustomDomain", args ?? new GetCustomDomainInvokeArgs(), options.WithDefaults());
     }
 
 

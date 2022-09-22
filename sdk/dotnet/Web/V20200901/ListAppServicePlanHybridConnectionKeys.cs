@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20200901
         /// Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
         /// </summary>
         public static Task<ListAppServicePlanHybridConnectionKeysResult> InvokeAsync(ListAppServicePlanHybridConnectionKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListAppServicePlanHybridConnectionKeysResult>("azure-native:web/v20200901:listAppServicePlanHybridConnectionKeys", args ?? new ListAppServicePlanHybridConnectionKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListAppServicePlanHybridConnectionKeysResult>("azure-native:web/v20200901:listAppServicePlanHybridConnectionKeys", args ?? new ListAppServicePlanHybridConnectionKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
         /// </summary>
         public static Output<ListAppServicePlanHybridConnectionKeysResult> Invoke(ListAppServicePlanHybridConnectionKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListAppServicePlanHybridConnectionKeysResult>("azure-native:web/v20200901:listAppServicePlanHybridConnectionKeys", args ?? new ListAppServicePlanHybridConnectionKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListAppServicePlanHybridConnectionKeysResult>("azure-native:web/v20200901:listAppServicePlanHybridConnectionKeys", args ?? new ListAppServicePlanHybridConnectionKeysInvokeArgs(), options.WithDefaults());
     }
 
 

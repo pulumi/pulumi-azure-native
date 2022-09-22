@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ServiceBus.V20210601Preview
         /// Description of a namespace authorization rule.
         /// </summary>
         public static Task<GetNamespaceAuthorizationRuleResult> InvokeAsync(GetNamespaceAuthorizationRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceAuthorizationRuleResult>("azure-native:servicebus/v20210601preview:getNamespaceAuthorizationRule", args ?? new GetNamespaceAuthorizationRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceAuthorizationRuleResult>("azure-native:servicebus/v20210601preview:getNamespaceAuthorizationRule", args ?? new GetNamespaceAuthorizationRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description of a namespace authorization rule.
         /// </summary>
         public static Output<GetNamespaceAuthorizationRuleResult> Invoke(GetNamespaceAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNamespaceAuthorizationRuleResult>("azure-native:servicebus/v20210601preview:getNamespaceAuthorizationRule", args ?? new GetNamespaceAuthorizationRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceAuthorizationRuleResult>("azure-native:servicebus/v20210601preview:getNamespaceAuthorizationRule", args ?? new GetNamespaceAuthorizationRuleInvokeArgs(), options.WithDefaults());
     }
 
 

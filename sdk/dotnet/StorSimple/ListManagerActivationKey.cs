@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.StorSimple
         /// API Version: 2017-06-01.
         /// </summary>
         public static Task<ListManagerActivationKeyResult> InvokeAsync(ListManagerActivationKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListManagerActivationKeyResult>("azure-native:storsimple:listManagerActivationKey", args ?? new ListManagerActivationKeyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListManagerActivationKeyResult>("azure-native:storsimple:listManagerActivationKey", args ?? new ListManagerActivationKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// The key.
         /// API Version: 2017-06-01.
         /// </summary>
         public static Output<ListManagerActivationKeyResult> Invoke(ListManagerActivationKeyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListManagerActivationKeyResult>("azure-native:storsimple:listManagerActivationKey", args ?? new ListManagerActivationKeyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListManagerActivationKeyResult>("azure-native:storsimple:listManagerActivationKey", args ?? new ListManagerActivationKeyInvokeArgs(), options.WithDefaults());
     }
 
 

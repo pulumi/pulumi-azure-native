@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
         /// EventGrid Topic
         /// </summary>
         public static Task<GetTopicResult> InvokeAsync(GetTopicArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("azure-native:eventgrid/v20200401preview:getTopic", args ?? new GetTopicArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("azure-native:eventgrid/v20200401preview:getTopic", args ?? new GetTopicArgs(), options.WithDefaults());
 
         /// <summary>
         /// EventGrid Topic
         /// </summary>
         public static Output<GetTopicResult> Invoke(GetTopicInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTopicResult>("azure-native:eventgrid/v20200401preview:getTopic", args ?? new GetTopicInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTopicResult>("azure-native:eventgrid/v20200401preview:getTopic", args ?? new GetTopicInvokeArgs(), options.WithDefaults());
     }
 
 

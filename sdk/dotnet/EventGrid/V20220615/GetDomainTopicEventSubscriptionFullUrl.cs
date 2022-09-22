@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
         /// Full endpoint url of an event subscription
         /// </summary>
         public static Task<GetDomainTopicEventSubscriptionFullUrlResult> InvokeAsync(GetDomainTopicEventSubscriptionFullUrlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDomainTopicEventSubscriptionFullUrlResult>("azure-native:eventgrid/v20220615:getDomainTopicEventSubscriptionFullUrl", args ?? new GetDomainTopicEventSubscriptionFullUrlArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainTopicEventSubscriptionFullUrlResult>("azure-native:eventgrid/v20220615:getDomainTopicEventSubscriptionFullUrl", args ?? new GetDomainTopicEventSubscriptionFullUrlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Full endpoint url of an event subscription
         /// </summary>
         public static Output<GetDomainTopicEventSubscriptionFullUrlResult> Invoke(GetDomainTopicEventSubscriptionFullUrlInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDomainTopicEventSubscriptionFullUrlResult>("azure-native:eventgrid/v20220615:getDomainTopicEventSubscriptionFullUrl", args ?? new GetDomainTopicEventSubscriptionFullUrlInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDomainTopicEventSubscriptionFullUrlResult>("azure-native:eventgrid/v20220615:getDomainTopicEventSubscriptionFullUrl", args ?? new GetDomainTopicEventSubscriptionFullUrlInvokeArgs(), options.WithDefaults());
     }
 
 

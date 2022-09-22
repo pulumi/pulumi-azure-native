@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// API Version: 2019-07-01.
         /// </summary>
         public static Task<ListRemediationDeploymentsAtResourceResult> InvokeAsync(ListRemediationDeploymentsAtResourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListRemediationDeploymentsAtResourceResult>("azure-native:policyinsights:listRemediationDeploymentsAtResource", args ?? new ListRemediationDeploymentsAtResourceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListRemediationDeploymentsAtResourceResult>("azure-native:policyinsights:listRemediationDeploymentsAtResource", args ?? new ListRemediationDeploymentsAtResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// List of deployments for a remediation.
         /// API Version: 2019-07-01.
         /// </summary>
         public static Output<ListRemediationDeploymentsAtResourceResult> Invoke(ListRemediationDeploymentsAtResourceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListRemediationDeploymentsAtResourceResult>("azure-native:policyinsights:listRemediationDeploymentsAtResource", args ?? new ListRemediationDeploymentsAtResourceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListRemediationDeploymentsAtResourceResult>("azure-native:policyinsights:listRemediationDeploymentsAtResource", args ?? new ListRemediationDeploymentsAtResourceInvokeArgs(), options.WithDefaults());
     }
 
 

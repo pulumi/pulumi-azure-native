@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
         /// The representation of an edge module.
         /// </summary>
         public static Task<GetEdgeModuleResult> InvokeAsync(GetEdgeModuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEdgeModuleResult>("azure-native:videoanalyzer/v20211101preview:getEdgeModule", args ?? new GetEdgeModuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEdgeModuleResult>("azure-native:videoanalyzer/v20211101preview:getEdgeModule", args ?? new GetEdgeModuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// The representation of an edge module.
         /// </summary>
         public static Output<GetEdgeModuleResult> Invoke(GetEdgeModuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEdgeModuleResult>("azure-native:videoanalyzer/v20211101preview:getEdgeModule", args ?? new GetEdgeModuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEdgeModuleResult>("azure-native:videoanalyzer/v20211101preview:getEdgeModule", args ?? new GetEdgeModuleInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview
         /// Workload group operations for a sql pool
         /// </summary>
         public static Task<GetSqlPoolWorkloadGroupResult> InvokeAsync(GetSqlPoolWorkloadGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolWorkloadGroupResult>("azure-native:synapse/v20210401preview:getSqlPoolWorkloadGroup", args ?? new GetSqlPoolWorkloadGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolWorkloadGroupResult>("azure-native:synapse/v20210401preview:getSqlPoolWorkloadGroup", args ?? new GetSqlPoolWorkloadGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Workload group operations for a sql pool
         /// </summary>
         public static Output<GetSqlPoolWorkloadGroupResult> Invoke(GetSqlPoolWorkloadGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSqlPoolWorkloadGroupResult>("azure-native:synapse/v20210401preview:getSqlPoolWorkloadGroup", args ?? new GetSqlPoolWorkloadGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlPoolWorkloadGroupResult>("azure-native:synapse/v20210401preview:getSqlPoolWorkloadGroup", args ?? new GetSqlPoolWorkloadGroupInvokeArgs(), options.WithDefaults());
     }
 
 

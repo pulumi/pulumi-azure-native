@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Logz
         /// API Version: 2020-10-01.
         /// </summary>
         public static Task<GetTagRuleResult> InvokeAsync(GetTagRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTagRuleResult>("azure-native:logz:getTagRule", args ?? new GetTagRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTagRuleResult>("azure-native:logz:getTagRule", args ?? new GetTagRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Capture logs and metrics of Azure resources based on ARM tags.
         /// API Version: 2020-10-01.
         /// </summary>
         public static Output<GetTagRuleResult> Invoke(GetTagRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTagRuleResult>("azure-native:logz:getTagRule", args ?? new GetTagRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTagRuleResult>("azure-native:logz:getTagRule", args ?? new GetTagRuleInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Marketplace.V20211201
         /// The Collection data structure.
         /// </summary>
         public static Task<GetPrivateStoreCollectionResult> InvokeAsync(GetPrivateStoreCollectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateStoreCollectionResult>("azure-native:marketplace/v20211201:getPrivateStoreCollection", args ?? new GetPrivateStoreCollectionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateStoreCollectionResult>("azure-native:marketplace/v20211201:getPrivateStoreCollection", args ?? new GetPrivateStoreCollectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Collection data structure.
         /// </summary>
         public static Output<GetPrivateStoreCollectionResult> Invoke(GetPrivateStoreCollectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPrivateStoreCollectionResult>("azure-native:marketplace/v20211201:getPrivateStoreCollection", args ?? new GetPrivateStoreCollectionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateStoreCollectionResult>("azure-native:marketplace/v20211201:getPrivateStoreCollection", args ?? new GetPrivateStoreCollectionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.StorSimple
         /// API Version: 2017-06-01.
         /// </summary>
         public static Task<ListDeviceFailoverSetsResult> InvokeAsync(ListDeviceFailoverSetsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListDeviceFailoverSetsResult>("azure-native:storsimple:listDeviceFailoverSets", args ?? new ListDeviceFailoverSetsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListDeviceFailoverSetsResult>("azure-native:storsimple:listDeviceFailoverSets", args ?? new ListDeviceFailoverSetsArgs(), options.WithDefaults());
 
         /// <summary>
         /// The list of failover sets.
         /// API Version: 2017-06-01.
         /// </summary>
         public static Output<ListDeviceFailoverSetsResult> Invoke(ListDeviceFailoverSetsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListDeviceFailoverSetsResult>("azure-native:storsimple:listDeviceFailoverSets", args ?? new ListDeviceFailoverSetsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListDeviceFailoverSetsResult>("azure-native:storsimple:listDeviceFailoverSets", args ?? new ListDeviceFailoverSetsInvokeArgs(), options.WithDefaults());
     }
 
 

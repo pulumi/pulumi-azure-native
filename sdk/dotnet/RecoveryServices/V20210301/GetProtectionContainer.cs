@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210301
         /// Base class for container with backup items. Containers with specific workloads are derived from this class.
         /// </summary>
         public static Task<GetProtectionContainerResult> InvokeAsync(GetProtectionContainerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProtectionContainerResult>("azure-native:recoveryservices/v20210301:getProtectionContainer", args ?? new GetProtectionContainerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetProtectionContainerResult>("azure-native:recoveryservices/v20210301:getProtectionContainer", args ?? new GetProtectionContainerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Base class for container with backup items. Containers with specific workloads are derived from this class.
         /// </summary>
         public static Output<GetProtectionContainerResult> Invoke(GetProtectionContainerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProtectionContainerResult>("azure-native:recoveryservices/v20210301:getProtectionContainer", args ?? new GetProtectionContainerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetProtectionContainerResult>("azure-native:recoveryservices/v20210301:getProtectionContainer", args ?? new GetProtectionContainerInvokeArgs(), options.WithDefaults());
     }
 
 

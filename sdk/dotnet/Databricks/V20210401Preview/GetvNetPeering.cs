@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Databricks.V20210401Preview
         /// Peerings in a VirtualNetwork resource
         /// </summary>
         public static Task<GetvNetPeeringResult> InvokeAsync(GetvNetPeeringArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetvNetPeeringResult>("azure-native:databricks/v20210401preview:getvNetPeering", args ?? new GetvNetPeeringArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetvNetPeeringResult>("azure-native:databricks/v20210401preview:getvNetPeering", args ?? new GetvNetPeeringArgs(), options.WithDefaults());
 
         /// <summary>
         /// Peerings in a VirtualNetwork resource
         /// </summary>
         public static Output<GetvNetPeeringResult> Invoke(GetvNetPeeringInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetvNetPeeringResult>("azure-native:databricks/v20210401preview:getvNetPeering", args ?? new GetvNetPeeringInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetvNetPeeringResult>("azure-native:databricks/v20210401preview:getvNetPeering", args ?? new GetvNetPeeringInvokeArgs(), options.WithDefaults());
     }
 
 

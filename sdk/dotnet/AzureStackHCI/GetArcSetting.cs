@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// API Version: 2021-01-01-preview.
         /// </summary>
         public static Task<GetArcSettingResult> InvokeAsync(GetArcSettingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetArcSettingResult>("azure-native:azurestackhci:getArcSetting", args ?? new GetArcSettingArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetArcSettingResult>("azure-native:azurestackhci:getArcSetting", args ?? new GetArcSettingArgs(), options.WithDefaults());
 
         /// <summary>
         /// ArcSetting details.
         /// API Version: 2021-01-01-preview.
         /// </summary>
         public static Output<GetArcSettingResult> Invoke(GetArcSettingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetArcSettingResult>("azure-native:azurestackhci:getArcSetting", args ?? new GetArcSettingInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetArcSettingResult>("azure-native:azurestackhci:getArcSetting", args ?? new GetArcSettingInvokeArgs(), options.WithDefaults());
     }
 
 

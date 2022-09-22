@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20220201Preview
         /// The Network Manager Connection resource
         /// </summary>
         public static Task<GetManagementGroupNetworkManagerConnectionResult> InvokeAsync(GetManagementGroupNetworkManagerConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupNetworkManagerConnectionResult>("azure-native:network/v20220201preview:getManagementGroupNetworkManagerConnection", args ?? new GetManagementGroupNetworkManagerConnectionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupNetworkManagerConnectionResult>("azure-native:network/v20220201preview:getManagementGroupNetworkManagerConnection", args ?? new GetManagementGroupNetworkManagerConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Network Manager Connection resource
         /// </summary>
         public static Output<GetManagementGroupNetworkManagerConnectionResult> Invoke(GetManagementGroupNetworkManagerConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagementGroupNetworkManagerConnectionResult>("azure-native:network/v20220201preview:getManagementGroupNetworkManagerConnection", args ?? new GetManagementGroupNetworkManagerConnectionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagementGroupNetworkManagerConnectionResult>("azure-native:network/v20220201preview:getManagementGroupNetworkManagerConnection", args ?? new GetManagementGroupNetworkManagerConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

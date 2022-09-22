@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.CostManagement
         /// API Version: 2019-11-01.
         /// </summary>
         public static Task<GetViewByScopeResult> InvokeAsync(GetViewByScopeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetViewByScopeResult>("azure-native:costmanagement:getViewByScope", args ?? new GetViewByScopeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetViewByScopeResult>("azure-native:costmanagement:getViewByScope", args ?? new GetViewByScopeArgs(), options.WithDefaults());
 
         /// <summary>
         /// States and configurations of Cost Analysis.
         /// API Version: 2019-11-01.
         /// </summary>
         public static Output<GetViewByScopeResult> Invoke(GetViewByScopeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetViewByScopeResult>("azure-native:costmanagement:getViewByScope", args ?? new GetViewByScopeInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetViewByScopeResult>("azure-native:costmanagement:getViewByScope", args ?? new GetViewByScopeInvokeArgs(), options.WithDefaults());
     }
 
 

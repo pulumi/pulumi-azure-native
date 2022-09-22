@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
         /// API Version: 2021-03-25-preview.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionsSecResult> InvokeAsync(GetPrivateEndpointConnectionsSecArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionsSecResult>("azure-native:m365securityandcompliance:getPrivateEndpointConnectionsSec", args ?? new GetPrivateEndpointConnectionsSecArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionsSecResult>("azure-native:m365securityandcompliance:getPrivateEndpointConnectionsSec", args ?? new GetPrivateEndpointConnectionsSecArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Private Endpoint Connection resource.
         /// API Version: 2021-03-25-preview.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionsSecResult> Invoke(GetPrivateEndpointConnectionsSecInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionsSecResult>("azure-native:m365securityandcompliance:getPrivateEndpointConnectionsSec", args ?? new GetPrivateEndpointConnectionsSecInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionsSecResult>("azure-native:m365securityandcompliance:getPrivateEndpointConnectionsSec", args ?? new GetPrivateEndpointConnectionsSecInvokeArgs(), options.WithDefaults());
     }
 
 

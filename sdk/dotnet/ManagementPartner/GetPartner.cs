@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.ManagementPartner
         /// API Version: 2018-02-01.
         /// </summary>
         public static Task<GetPartnerResult> InvokeAsync(GetPartnerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerResult>("azure-native:managementpartner:getPartner", args ?? new GetPartnerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPartnerResult>("azure-native:managementpartner:getPartner", args ?? new GetPartnerArgs(), options.WithDefaults());
 
         /// <summary>
         /// this is the management partner operations response
         /// API Version: 2018-02-01.
         /// </summary>
         public static Output<GetPartnerResult> Invoke(GetPartnerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPartnerResult>("azure-native:managementpartner:getPartner", args ?? new GetPartnerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPartnerResult>("azure-native:managementpartner:getPartner", args ?? new GetPartnerInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Storage.V20210401
         /// The properties of File services in storage account.
         /// </summary>
         public static Task<GetFileServicePropertiesResult> InvokeAsync(GetFileServicePropertiesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFileServicePropertiesResult>("azure-native:storage/v20210401:getFileServiceProperties", args ?? new GetFileServicePropertiesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFileServicePropertiesResult>("azure-native:storage/v20210401:getFileServiceProperties", args ?? new GetFileServicePropertiesArgs(), options.WithDefaults());
 
         /// <summary>
         /// The properties of File services in storage account.
         /// </summary>
         public static Output<GetFileServicePropertiesResult> Invoke(GetFileServicePropertiesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFileServicePropertiesResult>("azure-native:storage/v20210401:getFileServiceProperties", args ?? new GetFileServicePropertiesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFileServicePropertiesResult>("azure-native:storage/v20210401:getFileServiceProperties", args ?? new GetFileServicePropertiesInvokeArgs(), options.WithDefaults());
     }
 
 

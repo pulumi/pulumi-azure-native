@@ -12,10 +12,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220101Preview
     public static class ListWorkspaceNotebookKeys
     {
         public static Task<ListWorkspaceNotebookKeysResult> InvokeAsync(ListWorkspaceNotebookKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceNotebookKeysResult>("azure-native:machinelearningservices/v20220101preview:listWorkspaceNotebookKeys", args ?? new ListWorkspaceNotebookKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceNotebookKeysResult>("azure-native:machinelearningservices/v20220101preview:listWorkspaceNotebookKeys", args ?? new ListWorkspaceNotebookKeysArgs(), options.WithDefaults());
 
         public static Output<ListWorkspaceNotebookKeysResult> Invoke(ListWorkspaceNotebookKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListWorkspaceNotebookKeysResult>("azure-native:machinelearningservices/v20220101preview:listWorkspaceNotebookKeys", args ?? new ListWorkspaceNotebookKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListWorkspaceNotebookKeysResult>("azure-native:machinelearningservices/v20220101preview:listWorkspaceNotebookKeys", args ?? new ListWorkspaceNotebookKeysInvokeArgs(), options.WithDefaults());
     }
 
 

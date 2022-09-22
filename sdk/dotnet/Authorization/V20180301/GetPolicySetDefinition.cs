@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Authorization.V20180301
         /// The policy set definition.
         /// </summary>
         public static Task<GetPolicySetDefinitionResult> InvokeAsync(GetPolicySetDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicySetDefinitionResult>("azure-native:authorization/v20180301:getPolicySetDefinition", args ?? new GetPolicySetDefinitionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicySetDefinitionResult>("azure-native:authorization/v20180301:getPolicySetDefinition", args ?? new GetPolicySetDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The policy set definition.
         /// </summary>
         public static Output<GetPolicySetDefinitionResult> Invoke(GetPolicySetDefinitionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPolicySetDefinitionResult>("azure-native:authorization/v20180301:getPolicySetDefinition", args ?? new GetPolicySetDefinitionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPolicySetDefinitionResult>("azure-native:authorization/v20180301:getPolicySetDefinition", args ?? new GetPolicySetDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

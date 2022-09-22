@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.VisualStudio.V20140401Preview
         /// The response to an account resource GET request.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:visualstudio/v20140401preview:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:visualstudio/v20140401preview:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// The response to an account resource GET request.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:visualstudio/v20140401preview:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:visualstudio/v20140401preview:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
     }
 
 

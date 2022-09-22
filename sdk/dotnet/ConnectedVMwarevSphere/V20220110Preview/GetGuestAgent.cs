@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
         /// Defines the GuestAgent.
         /// </summary>
         public static Task<GetGuestAgentResult> InvokeAsync(GetGuestAgentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGuestAgentResult>("azure-native:connectedvmwarevsphere/v20220110preview:getGuestAgent", args ?? new GetGuestAgentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGuestAgentResult>("azure-native:connectedvmwarevsphere/v20220110preview:getGuestAgent", args ?? new GetGuestAgentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Defines the GuestAgent.
         /// </summary>
         public static Output<GetGuestAgentResult> Invoke(GetGuestAgentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGuestAgentResult>("azure-native:connectedvmwarevsphere/v20220110preview:getGuestAgent", args ?? new GetGuestAgentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGuestAgentResult>("azure-native:connectedvmwarevsphere/v20220110preview:getGuestAgent", args ?? new GetGuestAgentInvokeArgs(), options.WithDefaults());
     }
 
 

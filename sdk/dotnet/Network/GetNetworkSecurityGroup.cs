@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetNetworkSecurityGroupResult> InvokeAsync(GetNetworkSecurityGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkSecurityGroupResult>("azure-native:network:getNetworkSecurityGroup", args ?? new GetNetworkSecurityGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkSecurityGroupResult>("azure-native:network:getNetworkSecurityGroup", args ?? new GetNetworkSecurityGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// NetworkSecurityGroup resource.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetNetworkSecurityGroupResult> Invoke(GetNetworkSecurityGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNetworkSecurityGroupResult>("azure-native:network:getNetworkSecurityGroup", args ?? new GetNetworkSecurityGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSecurityGroupResult>("azure-native:network:getNetworkSecurityGroup", args ?? new GetNetworkSecurityGroupInvokeArgs(), options.WithDefaults());
     }
 
 

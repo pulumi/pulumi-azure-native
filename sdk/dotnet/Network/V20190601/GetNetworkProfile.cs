@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20190601
         /// Network profile resource.
         /// </summary>
         public static Task<GetNetworkProfileResult> InvokeAsync(GetNetworkProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkProfileResult>("azure-native:network/v20190601:getNetworkProfile", args ?? new GetNetworkProfileArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkProfileResult>("azure-native:network/v20190601:getNetworkProfile", args ?? new GetNetworkProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Network profile resource.
         /// </summary>
         public static Output<GetNetworkProfileResult> Invoke(GetNetworkProfileInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNetworkProfileResult>("azure-native:network/v20190601:getNetworkProfile", args ?? new GetNetworkProfileInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkProfileResult>("azure-native:network/v20190601:getNetworkProfile", args ?? new GetNetworkProfileInvokeArgs(), options.WithDefaults());
     }
 
 

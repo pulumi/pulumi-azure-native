@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.OperationsManagement.V20151101Preview
         /// The container for solution.
         /// </summary>
         public static Task<GetManagementAssociationResult> InvokeAsync(GetManagementAssociationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementAssociationResult>("azure-native:operationsmanagement/v20151101preview:getManagementAssociation", args ?? new GetManagementAssociationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagementAssociationResult>("azure-native:operationsmanagement/v20151101preview:getManagementAssociation", args ?? new GetManagementAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// The container for solution.
         /// </summary>
         public static Output<GetManagementAssociationResult> Invoke(GetManagementAssociationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagementAssociationResult>("azure-native:operationsmanagement/v20151101preview:getManagementAssociation", args ?? new GetManagementAssociationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagementAssociationResult>("azure-native:operationsmanagement/v20151101preview:getManagementAssociation", args ?? new GetManagementAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

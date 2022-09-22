@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220101
         /// Storage mapping object.
         /// </summary>
         public static Task<GetReplicationStorageClassificationMappingResult> InvokeAsync(GetReplicationStorageClassificationMappingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationStorageClassificationMappingResult>("azure-native:recoveryservices/v20220101:getReplicationStorageClassificationMapping", args ?? new GetReplicationStorageClassificationMappingArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationStorageClassificationMappingResult>("azure-native:recoveryservices/v20220101:getReplicationStorageClassificationMapping", args ?? new GetReplicationStorageClassificationMappingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Storage mapping object.
         /// </summary>
         public static Output<GetReplicationStorageClassificationMappingResult> Invoke(GetReplicationStorageClassificationMappingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetReplicationStorageClassificationMappingResult>("azure-native:recoveryservices/v20220101:getReplicationStorageClassificationMapping", args ?? new GetReplicationStorageClassificationMappingInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetReplicationStorageClassificationMappingResult>("azure-native:recoveryservices/v20220101:getReplicationStorageClassificationMapping", args ?? new GetReplicationStorageClassificationMappingInvokeArgs(), options.WithDefaults());
     }
 
 

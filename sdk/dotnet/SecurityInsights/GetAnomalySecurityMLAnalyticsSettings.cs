@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// API Version: 2022-05-01-preview.
         /// </summary>
         public static Task<GetAnomalySecurityMLAnalyticsSettingsResult> InvokeAsync(GetAnomalySecurityMLAnalyticsSettingsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAnomalySecurityMLAnalyticsSettingsResult>("azure-native:securityinsights:getAnomalySecurityMLAnalyticsSettings", args ?? new GetAnomalySecurityMLAnalyticsSettingsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAnomalySecurityMLAnalyticsSettingsResult>("azure-native:securityinsights:getAnomalySecurityMLAnalyticsSettings", args ?? new GetAnomalySecurityMLAnalyticsSettingsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents Anomaly Security ML Analytics Settings
         /// API Version: 2022-05-01-preview.
         /// </summary>
         public static Output<GetAnomalySecurityMLAnalyticsSettingsResult> Invoke(GetAnomalySecurityMLAnalyticsSettingsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAnomalySecurityMLAnalyticsSettingsResult>("azure-native:securityinsights:getAnomalySecurityMLAnalyticsSettings", args ?? new GetAnomalySecurityMLAnalyticsSettingsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAnomalySecurityMLAnalyticsSettingsResult>("azure-native:securityinsights:getAnomalySecurityMLAnalyticsSettings", args ?? new GetAnomalySecurityMLAnalyticsSettingsInvokeArgs(), options.WithDefaults());
     }
 
 

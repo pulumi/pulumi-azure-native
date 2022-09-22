@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// Certificate signing request object
         /// </summary>
         public static Task<GetCertificateCsrResult> InvokeAsync(GetCertificateCsrArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateCsrResult>("azure-native:web/v20150801:getCertificateCsr", args ?? new GetCertificateCsrArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateCsrResult>("azure-native:web/v20150801:getCertificateCsr", args ?? new GetCertificateCsrArgs(), options.WithDefaults());
 
         /// <summary>
         /// Certificate signing request object
         /// </summary>
         public static Output<GetCertificateCsrResult> Invoke(GetCertificateCsrInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCertificateCsrResult>("azure-native:web/v20150801:getCertificateCsr", args ?? new GetCertificateCsrInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCertificateCsrResult>("azure-native:web/v20150801:getCertificateCsr", args ?? new GetCertificateCsrInvokeArgs(), options.WithDefaults());
     }
 
 

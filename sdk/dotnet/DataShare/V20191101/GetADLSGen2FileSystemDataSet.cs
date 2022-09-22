@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.DataShare.V20191101
         /// An ADLS Gen 2 file system data set.
         /// </summary>
         public static Task<GetADLSGen2FileSystemDataSetResult> InvokeAsync(GetADLSGen2FileSystemDataSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetADLSGen2FileSystemDataSetResult>("azure-native:datashare/v20191101:getADLSGen2FileSystemDataSet", args ?? new GetADLSGen2FileSystemDataSetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetADLSGen2FileSystemDataSetResult>("azure-native:datashare/v20191101:getADLSGen2FileSystemDataSet", args ?? new GetADLSGen2FileSystemDataSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// An ADLS Gen 2 file system data set.
         /// </summary>
         public static Output<GetADLSGen2FileSystemDataSetResult> Invoke(GetADLSGen2FileSystemDataSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetADLSGen2FileSystemDataSetResult>("azure-native:datashare/v20191101:getADLSGen2FileSystemDataSet", args ?? new GetADLSGen2FileSystemDataSetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetADLSGen2FileSystemDataSetResult>("azure-native:datashare/v20191101:getADLSGen2FileSystemDataSet", args ?? new GetADLSGen2FileSystemDataSetInvokeArgs(), options.WithDefaults());
     }
 
 

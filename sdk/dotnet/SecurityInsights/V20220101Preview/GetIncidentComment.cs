@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview
         /// Represents an incident comment
         /// </summary>
         public static Task<GetIncidentCommentResult> InvokeAsync(GetIncidentCommentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIncidentCommentResult>("azure-native:securityinsights/v20220101preview:getIncidentComment", args ?? new GetIncidentCommentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIncidentCommentResult>("azure-native:securityinsights/v20220101preview:getIncidentComment", args ?? new GetIncidentCommentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents an incident comment
         /// </summary>
         public static Output<GetIncidentCommentResult> Invoke(GetIncidentCommentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIncidentCommentResult>("azure-native:securityinsights/v20220101preview:getIncidentComment", args ?? new GetIncidentCommentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIncidentCommentResult>("azure-native:securityinsights/v20220101preview:getIncidentComment", args ?? new GetIncidentCommentInvokeArgs(), options.WithDefaults());
     }
 
 

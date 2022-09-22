@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.OffAzure.V20200101
         /// Site REST Resource.
         /// </summary>
         public static Task<GetHyperVSiteResult> InvokeAsync(GetHyperVSiteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHyperVSiteResult>("azure-native:offazure/v20200101:getHyperVSite", args ?? new GetHyperVSiteArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetHyperVSiteResult>("azure-native:offazure/v20200101:getHyperVSite", args ?? new GetHyperVSiteArgs(), options.WithDefaults());
 
         /// <summary>
         /// Site REST Resource.
         /// </summary>
         public static Output<GetHyperVSiteResult> Invoke(GetHyperVSiteInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetHyperVSiteResult>("azure-native:offazure/v20200101:getHyperVSite", args ?? new GetHyperVSiteInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetHyperVSiteResult>("azure-native:offazure/v20200101:getHyperVSite", args ?? new GetHyperVSiteInvokeArgs(), options.WithDefaults());
     }
 
 

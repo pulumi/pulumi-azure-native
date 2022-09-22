@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// Description of an hostingEnvironment (App Service Environment)
         /// </summary>
         public static Task<GetHostingEnvironmentResult> InvokeAsync(GetHostingEnvironmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHostingEnvironmentResult>("azure-native:web/v20150801:getHostingEnvironment", args ?? new GetHostingEnvironmentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetHostingEnvironmentResult>("azure-native:web/v20150801:getHostingEnvironment", args ?? new GetHostingEnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description of an hostingEnvironment (App Service Environment)
         /// </summary>
         public static Output<GetHostingEnvironmentResult> Invoke(GetHostingEnvironmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetHostingEnvironmentResult>("azure-native:web/v20150801:getHostingEnvironment", args ?? new GetHostingEnvironmentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetHostingEnvironmentResult>("azure-native:web/v20150801:getHostingEnvironment", args ?? new GetHostingEnvironmentInvokeArgs(), options.WithDefaults());
     }
 
 

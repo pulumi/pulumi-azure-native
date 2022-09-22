@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Resources.V20190501
         /// Resource group information.
         /// </summary>
         public static Task<GetResourceGroupResult> InvokeAsync(GetResourceGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceGroupResult>("azure-native:resources/v20190501:getResourceGroup", args ?? new GetResourceGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceGroupResult>("azure-native:resources/v20190501:getResourceGroup", args ?? new GetResourceGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource group information.
         /// </summary>
         public static Output<GetResourceGroupResult> Invoke(GetResourceGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetResourceGroupResult>("azure-native:resources/v20190501:getResourceGroup", args ?? new GetResourceGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourceGroupResult>("azure-native:resources/v20190501:getResourceGroup", args ?? new GetResourceGroupInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20190801
         /// Configuration settings for the Azure App Service Authentication / Authorization feature.
         /// </summary>
         public static Task<ListWebAppAuthSettingsSlotResult> InvokeAsync(ListWebAppAuthSettingsSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppAuthSettingsSlotResult>("azure-native:web/v20190801:listWebAppAuthSettingsSlot", args ?? new ListWebAppAuthSettingsSlotArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppAuthSettingsSlotResult>("azure-native:web/v20190801:listWebAppAuthSettingsSlot", args ?? new ListWebAppAuthSettingsSlotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Configuration settings for the Azure App Service Authentication / Authorization feature.
         /// </summary>
         public static Output<ListWebAppAuthSettingsSlotResult> Invoke(ListWebAppAuthSettingsSlotInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListWebAppAuthSettingsSlotResult>("azure-native:web/v20190801:listWebAppAuthSettingsSlot", args ?? new ListWebAppAuthSettingsSlotInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ListWebAppAuthSettingsSlotResult>("azure-native:web/v20190801:listWebAppAuthSettingsSlot", args ?? new ListWebAppAuthSettingsSlotInvokeArgs(), options.WithDefaults());
     }
 
 
