@@ -79,6 +79,9 @@ func NewDatabaseAdvisor(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:sql/v20220201preview:DatabaseAdvisor"),
 		},
+		{
+			Type: pulumi.String("azure-native:sql/v20220501preview:DatabaseAdvisor"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DatabaseAdvisor

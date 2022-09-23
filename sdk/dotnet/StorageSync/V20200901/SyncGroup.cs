@@ -80,6 +80,7 @@ namespace Pulumi.AzureNative.StorageSync.V20200901
                     new global::Pulumi.Alias { Type = "azure-native:storagesync/v20190601:SyncGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:storagesync/v20191001:SyncGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:storagesync/v20200301:SyncGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20220601:SyncGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

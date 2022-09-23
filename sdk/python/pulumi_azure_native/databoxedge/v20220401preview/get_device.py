@@ -137,7 +137,7 @@ class GetDeviceResult:
 
     @property
     @pulumi.getter(name="dataBoxEdgeDeviceStatus")
-    def data_box_edge_device_status(self) -> Optional[str]:
+    def data_box_edge_device_status(self) -> str:
         """
         The status of the Data Box Edge/Gateway device.
         """
@@ -209,7 +209,7 @@ class GetDeviceResult:
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> str:
         """
         The etag for the devices.
         """
@@ -233,7 +233,7 @@ class GetDeviceResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ResourceIdentityResponse']:
+    def identity(self) -> 'outputs.ResourceIdentityResponse':
         """
         Msi identity of the resource
         """
@@ -241,7 +241,7 @@ class GetDeviceResult:
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> str:
         """
         The kind of the device.
         """

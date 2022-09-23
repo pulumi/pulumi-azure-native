@@ -135,6 +135,7 @@ namespace Pulumi.AzureNative.Network.V20181101
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210501:RouteTable"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210801:RouteTable"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220101:RouteTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220501:RouteTable"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

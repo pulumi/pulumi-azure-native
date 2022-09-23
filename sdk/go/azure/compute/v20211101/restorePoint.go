@@ -54,6 +54,9 @@ func NewRestorePoint(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:compute/v20220301:RestorePoint"),
 		},
+		{
+			Type: pulumi.String("azure-native:compute/v20220801:RestorePoint"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource RestorePoint

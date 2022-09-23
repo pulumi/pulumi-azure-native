@@ -9,14 +9,11 @@ __all__ = [
     'AddonType',
     'AzureContainerDataFormat',
     'ClientPermissionType',
-    'DataBoxEdgeDeviceKind',
-    'DataBoxEdgeDeviceStatus',
     'DataPolicy',
     'DataResidencyType',
     'DayOfWeek',
     'EncryptionAlgorithm',
     'MonitoringStatus',
-    'MsiIdentityType',
     'PlatformType',
     'RoleStatus',
     'RoleTypes',
@@ -67,29 +64,6 @@ class ClientPermissionType(str, Enum):
     READ_WRITE = "ReadWrite"
 
 
-class DataBoxEdgeDeviceKind(str, Enum):
-    """
-    The kind of the device.
-    """
-    AZURE_DATA_BOX_GATEWAY = "AzureDataBoxGateway"
-    AZURE_STACK_EDGE = "AzureStackEdge"
-    AZURE_STACK_HUB = "AzureStackHub"
-    AZURE_MODULAR_DATA_CENTRE = "AzureModularDataCentre"
-
-
-class DataBoxEdgeDeviceStatus(str, Enum):
-    """
-    The status of the Data Box Edge/Gateway device.
-    """
-    READY_TO_SETUP = "ReadyToSetup"
-    ONLINE = "Online"
-    OFFLINE = "Offline"
-    NEEDS_ATTENTION = "NeedsAttention"
-    DISCONNECTED = "Disconnected"
-    PARTIALLY_DISCONNECTED = "PartiallyDisconnected"
-    MAINTENANCE = "Maintenance"
-
-
 class DataPolicy(str, Enum):
     """
     Data policy of the storage Account.
@@ -131,15 +105,6 @@ class MonitoringStatus(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
-
-
-class MsiIdentityType(str, Enum):
-    """
-    Identity type
-    """
-    NONE = "None"
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    USER_ASSIGNED = "UserAssigned"
 
 
 class PlatformType(str, Enum):

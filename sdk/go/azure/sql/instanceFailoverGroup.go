@@ -77,6 +77,9 @@ func NewInstanceFailoverGroup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:sql/v20220201preview:InstanceFailoverGroup"),
 		},
+		{
+			Type: pulumi.String("azure-native:sql/v20220501preview:InstanceFailoverGroup"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource InstanceFailoverGroup

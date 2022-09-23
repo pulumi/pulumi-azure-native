@@ -52,7 +52,7 @@ export interface GetDeviceResult {
     /**
      * The status of the Data Box Edge/Gateway device.
      */
-    readonly dataBoxEdgeDeviceStatus?: string;
+    readonly dataBoxEdgeDeviceStatus: string;
     /**
      * The details of data-residency related properties for this resource
      */
@@ -88,7 +88,7 @@ export interface GetDeviceResult {
     /**
      * The etag for the devices.
      */
-    readonly etag?: string;
+    readonly etag: string;
     /**
      * The Data Box Edge/Gateway device name.
      */
@@ -100,11 +100,11 @@ export interface GetDeviceResult {
     /**
      * Msi identity of the resource
      */
-    readonly identity?: outputs.databoxedge.v20220401preview.ResourceIdentityResponse;
+    readonly identity: outputs.databoxedge.v20220401preview.ResourceIdentityResponse;
     /**
      * The kind of the device.
      */
-    readonly kind?: string;
+    readonly kind: string;
     /**
      * Type of Kubernetes Platform
      */

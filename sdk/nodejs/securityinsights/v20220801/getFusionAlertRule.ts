@@ -94,7 +94,7 @@ export interface GetFusionAlertRuleResult {
     /**
      * The techniques of the alert rule
      */
-    readonly techniques?: string[];
+    readonly techniques: string[];
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

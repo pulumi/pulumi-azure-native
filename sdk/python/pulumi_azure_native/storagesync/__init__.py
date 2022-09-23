@@ -43,6 +43,8 @@ if typing.TYPE_CHECKING:
     v20200301 = __v20200301
     import pulumi_azure_native.storagesync.v20200901 as __v20200901
     v20200901 = __v20200901
+    import pulumi_azure_native.storagesync.v20220601 as __v20220601
+    v20220601 = __v20220601
 else:
     v20170605preview = _utilities.lazy_import('pulumi_azure_native.storagesync.v20170605preview')
     v20180402 = _utilities.lazy_import('pulumi_azure_native.storagesync.v20180402')
@@ -54,4 +56,5 @@ else:
     v20191001 = _utilities.lazy_import('pulumi_azure_native.storagesync.v20191001')
     v20200301 = _utilities.lazy_import('pulumi_azure_native.storagesync.v20200301')
     v20200901 = _utilities.lazy_import('pulumi_azure_native.storagesync.v20200901')
+    v20220601 = _utilities.lazy_import('pulumi_azure_native.storagesync.v20220601')
 

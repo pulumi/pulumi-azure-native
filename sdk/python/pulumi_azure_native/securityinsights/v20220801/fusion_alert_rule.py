@@ -20,8 +20,7 @@ class FusionAlertRuleArgs:
                  kind: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
-                 rule_id: Optional[pulumi.Input[str]] = None,
-                 techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 rule_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FusionAlertRule resource.
         :param pulumi.Input[str] alert_rule_template_name: The Name of the alert rule template used to create this rule.
@@ -31,7 +30,6 @@ class FusionAlertRuleArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] rule_id: Alert rule ID
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] techniques: The techniques of the alert rule
         """
         pulumi.set(__self__, "alert_rule_template_name", alert_rule_template_name)
         pulumi.set(__self__, "enabled", enabled)
@@ -40,8 +38,6 @@ class FusionAlertRuleArgs:
         pulumi.set(__self__, "workspace_name", workspace_name)
         if rule_id is not None:
             pulumi.set(__self__, "rule_id", rule_id)
-        if techniques is not None:
-            pulumi.set(__self__, "techniques", techniques)
 
     @property
     @pulumi.getter(name="alertRuleTemplateName")
@@ -116,18 +112,6 @@ class FusionAlertRuleArgs:
     def rule_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "rule_id", value)
 
-    @property
-    @pulumi.getter
-    def techniques(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The techniques of the alert rule
-        """
-        return pulumi.get(self, "techniques")
-
-    @techniques.setter
-    def techniques(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "techniques", value)
-
 
 class FusionAlertRule(pulumi.CustomResource):
     @overload
@@ -139,7 +123,6 @@ class FusionAlertRule(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_id: Optional[pulumi.Input[str]] = None,
-                 techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -153,7 +136,6 @@ class FusionAlertRule(pulumi.CustomResource):
                Expected value is 'Fusion'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] rule_id: Alert rule ID
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] techniques: The techniques of the alert rule
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         ...
@@ -185,7 +167,6 @@ class FusionAlertRule(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_id: Optional[pulumi.Input[str]] = None,
-                 techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -209,7 +190,6 @@ class FusionAlertRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["rule_id"] = rule_id
-            __props__.__dict__["techniques"] = techniques
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
@@ -221,6 +201,7 @@ class FusionAlertRule(pulumi.CustomResource):
             __props__.__dict__["severity"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["tactics"] = None
+            __props__.__dict__["techniques"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:FusionAlertRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -352,7 +333,7 @@ class FusionAlertRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def techniques(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def techniques(self) -> pulumi.Output[Sequence[str]]:
         """
         The techniques of the alert rule
         """

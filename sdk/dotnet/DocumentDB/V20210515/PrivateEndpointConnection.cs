@@ -92,6 +92,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210515
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

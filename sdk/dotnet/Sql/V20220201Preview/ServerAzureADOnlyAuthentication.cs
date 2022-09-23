@@ -67,6 +67,7 @@ namespace Pulumi.AzureNative.Sql.V20220201Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ServerAzureADOnlyAuthentication"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:ServerAzureADOnlyAuthentication"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ServerAzureADOnlyAuthentication"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:ServerAzureADOnlyAuthentication"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

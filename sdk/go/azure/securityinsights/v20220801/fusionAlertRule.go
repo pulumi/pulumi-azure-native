@@ -129,13 +129,12 @@ func (FusionAlertRuleState) ElementType() reflect.Type {
 }
 
 type fusionAlertRuleArgs struct {
-	AlertRuleTemplateName string   `pulumi:"alertRuleTemplateName"`
-	Enabled               bool     `pulumi:"enabled"`
-	Kind                  string   `pulumi:"kind"`
-	ResourceGroupName     string   `pulumi:"resourceGroupName"`
-	RuleId                *string  `pulumi:"ruleId"`
-	Techniques            []string `pulumi:"techniques"`
-	WorkspaceName         string   `pulumi:"workspaceName"`
+	AlertRuleTemplateName string  `pulumi:"alertRuleTemplateName"`
+	Enabled               bool    `pulumi:"enabled"`
+	Kind                  string  `pulumi:"kind"`
+	ResourceGroupName     string  `pulumi:"resourceGroupName"`
+	RuleId                *string `pulumi:"ruleId"`
+	WorkspaceName         string  `pulumi:"workspaceName"`
 }
 
 
@@ -145,7 +144,6 @@ type FusionAlertRuleArgs struct {
 	Kind                  pulumi.StringInput
 	ResourceGroupName     pulumi.StringInput
 	RuleId                pulumi.StringPtrInput
-	Techniques            pulumi.StringArrayInput
 	WorkspaceName         pulumi.StringInput
 }
 

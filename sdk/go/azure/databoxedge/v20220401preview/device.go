@@ -17,7 +17,7 @@ type Device struct {
 	ComputeVersionInformation ComputeVersionInformationResponseOutput `pulumi:"computeVersionInformation"`
 	ConfiguredRoleTypes       pulumi.StringArrayOutput                `pulumi:"configuredRoleTypes"`
 	Culture                   pulumi.StringOutput                     `pulumi:"culture"`
-	DataBoxEdgeDeviceStatus   pulumi.StringPtrOutput                  `pulumi:"dataBoxEdgeDeviceStatus"`
+	DataBoxEdgeDeviceStatus   pulumi.StringOutput                     `pulumi:"dataBoxEdgeDeviceStatus"`
 	DataResidency             DataResidencyResponsePtrOutput          `pulumi:"dataResidency"`
 	Description               pulumi.StringOutput                     `pulumi:"description"`
 	DeviceHcsVersion          pulumi.StringOutput                     `pulumi:"deviceHcsVersion"`
@@ -26,10 +26,10 @@ type Device struct {
 	DeviceSoftwareVersion     pulumi.StringOutput                     `pulumi:"deviceSoftwareVersion"`
 	DeviceType                pulumi.StringOutput                     `pulumi:"deviceType"`
 	EdgeProfile               EdgeProfileResponseOutput               `pulumi:"edgeProfile"`
-	Etag                      pulumi.StringPtrOutput                  `pulumi:"etag"`
+	Etag                      pulumi.StringOutput                     `pulumi:"etag"`
 	FriendlyName              pulumi.StringOutput                     `pulumi:"friendlyName"`
-	Identity                  ResourceIdentityResponsePtrOutput       `pulumi:"identity"`
-	Kind                      pulumi.StringPtrOutput                  `pulumi:"kind"`
+	Identity                  ResourceIdentityResponseOutput          `pulumi:"identity"`
+	Kind                      pulumi.StringOutput                     `pulumi:"kind"`
 	KubernetesPlatform        pulumi.StringOutput                     `pulumi:"kubernetesPlatform"`
 	Location                  pulumi.StringOutput                     `pulumi:"location"`
 	ModelDescription          pulumi.StringOutput                     `pulumi:"modelDescription"`
@@ -128,28 +128,22 @@ func (DeviceState) ElementType() reflect.Type {
 }
 
 type deviceArgs struct {
-	DataBoxEdgeDeviceStatus *string           `pulumi:"dataBoxEdgeDeviceStatus"`
-	DataResidency           *DataResidency    `pulumi:"dataResidency"`
-	DeviceName              *string           `pulumi:"deviceName"`
-	Identity                *ResourceIdentity `pulumi:"identity"`
-	Kind                    *string           `pulumi:"kind"`
-	Location                *string           `pulumi:"location"`
-	ResourceGroupName       string            `pulumi:"resourceGroupName"`
-	Sku                     *Sku              `pulumi:"sku"`
-	Tags                    map[string]string `pulumi:"tags"`
+	DataResidency     *DataResidency    `pulumi:"dataResidency"`
+	DeviceName        *string           `pulumi:"deviceName"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Sku               *Sku              `pulumi:"sku"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 
 type DeviceArgs struct {
-	DataBoxEdgeDeviceStatus pulumi.StringPtrInput
-	DataResidency           DataResidencyPtrInput
-	DeviceName              pulumi.StringPtrInput
-	Identity                ResourceIdentityPtrInput
-	Kind                    pulumi.StringPtrInput
-	Location                pulumi.StringPtrInput
-	ResourceGroupName       pulumi.StringInput
-	Sku                     SkuPtrInput
-	Tags                    pulumi.StringMapInput
+	DataResidency     DataResidencyPtrInput
+	DeviceName        pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	ResourceGroupName pulumi.StringInput
+	Sku               SkuPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (DeviceArgs) ElementType() reflect.Type {
@@ -201,8 +195,8 @@ func (o DeviceOutput) Culture() pulumi.StringOutput {
 	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.Culture }).(pulumi.StringOutput)
 }
 
-func (o DeviceOutput) DataBoxEdgeDeviceStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Device) pulumi.StringPtrOutput { return v.DataBoxEdgeDeviceStatus }).(pulumi.StringPtrOutput)
+func (o DeviceOutput) DataBoxEdgeDeviceStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.DataBoxEdgeDeviceStatus }).(pulumi.StringOutput)
 }
 
 func (o DeviceOutput) DataResidency() DataResidencyResponsePtrOutput {
@@ -237,20 +231,20 @@ func (o DeviceOutput) EdgeProfile() EdgeProfileResponseOutput {
 	return o.ApplyT(func(v *Device) EdgeProfileResponseOutput { return v.EdgeProfile }).(EdgeProfileResponseOutput)
 }
 
-func (o DeviceOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Device) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+func (o DeviceOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
 func (o DeviceOutput) FriendlyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.FriendlyName }).(pulumi.StringOutput)
 }
 
-func (o DeviceOutput) Identity() ResourceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v *Device) ResourceIdentityResponsePtrOutput { return v.Identity }).(ResourceIdentityResponsePtrOutput)
+func (o DeviceOutput) Identity() ResourceIdentityResponseOutput {
+	return o.ApplyT(func(v *Device) ResourceIdentityResponseOutput { return v.Identity }).(ResourceIdentityResponseOutput)
 }
 
-func (o DeviceOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Device) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+func (o DeviceOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
 }
 
 func (o DeviceOutput) KubernetesPlatform() pulumi.StringOutput {

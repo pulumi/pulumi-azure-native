@@ -131,6 +131,7 @@ namespace Pulumi.AzureNative.Compute.V20160430Preview
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:VirtualMachineScaleSet"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20211101:VirtualMachineScaleSet"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20220301:VirtualMachineScaleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220801:VirtualMachineScaleSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

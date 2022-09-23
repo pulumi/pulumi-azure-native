@@ -34,6 +34,12 @@ func NewSettingByScope(ctx *pulumi.Context,
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:costmanagement/v20221005preview:SettingByScope"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SettingByScope
 	err := ctx.RegisterResource("azure-native:costmanagement/v20221001preview:SettingByScope", name, args, &resource, opts...)
 	if err != nil {

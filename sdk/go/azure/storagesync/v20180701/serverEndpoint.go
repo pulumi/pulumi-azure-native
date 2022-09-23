@@ -76,6 +76,9 @@ func NewServerEndpoint(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:storagesync/v20200901:ServerEndpoint"),
 		},
+		{
+			Type: pulumi.String("azure-native:storagesync/v20220601:ServerEndpoint"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ServerEndpoint

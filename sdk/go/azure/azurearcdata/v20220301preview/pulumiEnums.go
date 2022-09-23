@@ -28,6 +28,7 @@ const (
 type ArcSqlServerLicenseType string
 
 const (
+	ArcSqlServerLicenseTypePayg      = ArcSqlServerLicenseType("Payg")
 	ArcSqlServerLicenseTypePaid      = ArcSqlServerLicenseType("Paid")
 	ArcSqlServerLicenseTypeFree      = ArcSqlServerLicenseType("Free")
 	ArcSqlServerLicenseTypeHADR      = ArcSqlServerLicenseType("HADR")

@@ -194,18 +194,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801
         [Input("ruleId")]
         public Input<string>? RuleId { get; set; }
 
-        [Input("techniques")]
-        private InputList<string>? _techniques;
-
-        /// <summary>
-        /// The techniques of the alert rule
-        /// </summary>
-        public InputList<string> Techniques
-        {
-            get => _techniques ?? (_techniques = new InputList<string>());
-            set => _techniques = value;
-        }
-
         /// <summary>
         /// The name of the workspace.
         /// </summary>

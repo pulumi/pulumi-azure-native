@@ -119,7 +119,7 @@ export class WorkloadGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:WorkloadGroup" }, { type: "azure-native:sql/v20190601preview:WorkloadGroup" }, { type: "azure-native:sql/v20200202preview:WorkloadGroup" }, { type: "azure-native:sql/v20200801preview:WorkloadGroup" }, { type: "azure-native:sql/v20201101preview:WorkloadGroup" }, { type: "azure-native:sql/v20210201preview:WorkloadGroup" }, { type: "azure-native:sql/v20210501preview:WorkloadGroup" }, { type: "azure-native:sql/v20210801preview:WorkloadGroup" }, { type: "azure-native:sql/v20211101:WorkloadGroup" }, { type: "azure-native:sql/v20211101preview:WorkloadGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:WorkloadGroup" }, { type: "azure-native:sql/v20190601preview:WorkloadGroup" }, { type: "azure-native:sql/v20200202preview:WorkloadGroup" }, { type: "azure-native:sql/v20200801preview:WorkloadGroup" }, { type: "azure-native:sql/v20201101preview:WorkloadGroup" }, { type: "azure-native:sql/v20210201preview:WorkloadGroup" }, { type: "azure-native:sql/v20210501preview:WorkloadGroup" }, { type: "azure-native:sql/v20210801preview:WorkloadGroup" }, { type: "azure-native:sql/v20211101:WorkloadGroup" }, { type: "azure-native:sql/v20211101preview:WorkloadGroup" }, { type: "azure-native:sql/v20220501preview:WorkloadGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkloadGroup.__pulumiType, name, resourceInputs, opts);
     }

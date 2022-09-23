@@ -47,10 +47,12 @@ export * from "../types/enums/datadog";
 // Export sub-modules:
 import * as v20200201preview from "./v20200201preview";
 import * as v20210301 from "./v20210301";
+import * as v20220601 from "./v20220601";
 
 export {
     v20200201preview,
     v20210301,
+    v20220601,
 };
 
 const _module = {

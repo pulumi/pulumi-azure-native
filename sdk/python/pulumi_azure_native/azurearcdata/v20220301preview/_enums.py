@@ -42,6 +42,7 @@ class ArcSqlServerLicenseType(str, Enum):
     """
     SQL Server license type.
     """
+    PAYG = "Payg"
     PAID = "Paid"
     FREE = "Free"
     HADR = "HADR"

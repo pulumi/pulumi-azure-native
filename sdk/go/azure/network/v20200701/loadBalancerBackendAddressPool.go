@@ -72,6 +72,9 @@ func NewLoadBalancerBackendAddressPool(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:network/v20220101:LoadBalancerBackendAddressPool"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20220501:LoadBalancerBackendAddressPool"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource LoadBalancerBackendAddressPool

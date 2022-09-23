@@ -10,6 +10,13 @@ const (
 	AgentAutoUpdateStatusEnabled  = AgentAutoUpdateStatus("Enabled")
 )
 
+type AlertsState string
+
+const (
+	AlertsStateEnabled  = AlertsState("Enabled")
+	AlertsStateDisabled = AlertsState("Disabled")
+)
+
 type AutomationAccountAuthenticationType string
 
 const (
@@ -37,6 +44,21 @@ const (
 	FailoverDeploymentModelNotApplicable   = FailoverDeploymentModel("NotApplicable")
 	FailoverDeploymentModelClassic         = FailoverDeploymentModel("Classic")
 	FailoverDeploymentModelResourceManager = FailoverDeploymentModel("ResourceManager")
+)
+
+type ImmutabilityState string
+
+const (
+	ImmutabilityStateDisabled = ImmutabilityState("Disabled")
+	ImmutabilityStateUnlocked = ImmutabilityState("Unlocked")
+	ImmutabilityStateLocked   = ImmutabilityState("Locked")
+)
+
+type InfrastructureEncryptionState string
+
+const (
+	InfrastructureEncryptionStateEnabled  = InfrastructureEncryptionState("Enabled")
+	InfrastructureEncryptionStateDisabled = InfrastructureEncryptionState("Disabled")
 )
 
 type LicenseType string
@@ -88,11 +110,27 @@ const (
 	ReplicationProtectedItemOperationCompleteMigration   = ReplicationProtectedItemOperation("CompleteMigration")
 )
 
+type ResourceIdentityType string
+
+const (
+	ResourceIdentityTypeSystemAssigned               = ResourceIdentityType("SystemAssigned")
+	ResourceIdentityTypeNone                         = ResourceIdentityType("None")
+	ResourceIdentityTypeUserAssigned                 = ResourceIdentityType("UserAssigned")
+	ResourceIdentityType_SystemAssigned_UserAssigned = ResourceIdentityType("SystemAssigned, UserAssigned")
+)
+
 type SetMultiVmSyncStatus string
 
 const (
 	SetMultiVmSyncStatusEnable  = SetMultiVmSyncStatus("Enable")
 	SetMultiVmSyncStatusDisable = SetMultiVmSyncStatus("Disable")
+)
+
+type SkuName string
+
+const (
+	SkuNameStandard = SkuName("Standard")
+	SkuNameRS0      = SkuName("RS0")
 )
 
 type SqlServerLicenseType string

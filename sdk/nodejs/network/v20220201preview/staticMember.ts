@@ -95,7 +95,7 @@ export class StaticMember extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network:StaticMember" }, { type: "azure-native:network/v20210501preview:StaticMember" }, { type: "azure-native:network/v20220101:StaticMember" }, { type: "azure-native:network/v20220401preview:StaticMember" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:StaticMember" }, { type: "azure-native:network/v20210501preview:StaticMember" }, { type: "azure-native:network/v20220101:StaticMember" }, { type: "azure-native:network/v20220401preview:StaticMember" }, { type: "azure-native:network/v20220501:StaticMember" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StaticMember.__pulumiType, name, resourceInputs, opts);
     }

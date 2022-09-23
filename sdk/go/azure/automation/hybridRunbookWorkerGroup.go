@@ -42,6 +42,9 @@ func NewHybridRunbookWorkerGroup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:automation/v20220222:HybridRunbookWorkerGroup"),
 		},
+		{
+			Type: pulumi.String("azure-native:automation/v20220808:HybridRunbookWorkerGroup"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource HybridRunbookWorkerGroup

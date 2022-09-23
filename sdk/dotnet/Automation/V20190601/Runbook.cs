@@ -163,6 +163,7 @@ namespace Pulumi.AzureNative.Automation.V20190601
                     new global::Pulumi.Alias { Type = "azure-native:automation:Runbook"},
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20151031:Runbook"},
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20180630:Runbook"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20220808:Runbook"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

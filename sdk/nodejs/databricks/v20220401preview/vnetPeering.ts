@@ -136,7 +136,7 @@ export class VNetPeering extends pulumi.CustomResource {
             resourceInputs["useRemoteGateways"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:databricks:vNetPeering" }, { type: "azure-native:databricks/v20180401:vNetPeering" }, { type: "azure-native:databricks/v20210401preview:vNetPeering" }, { type: "azure-native:databricks/v20221001preview:vNetPeering" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databricks:vNetPeering" }, { type: "azure-native:databricks/v20180401:vNetPeering" }, { type: "azure-native:databricks/v20210401preview:vNetPeering" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VNetPeering.__pulumiType, name, resourceInputs, opts);
     }

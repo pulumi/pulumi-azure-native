@@ -84,6 +84,9 @@ func NewServerAzureADAdministrator(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:sql/v20220201preview:ServerAzureADAdministrator"),
 		},
+		{
+			Type: pulumi.String("azure-native:sql/v20220501preview:ServerAzureADAdministrator"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ServerAzureADAdministrator

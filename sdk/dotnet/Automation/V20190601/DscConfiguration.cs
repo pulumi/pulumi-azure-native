@@ -132,6 +132,7 @@ namespace Pulumi.AzureNative.Automation.V20190601
                 {
                     new global::Pulumi.Alias { Type = "azure-native:automation:DscConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20151031:DscConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20220808:DscConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -102,7 +102,7 @@ export class ManagedInstanceKey extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:ManagedInstanceKey" }, { type: "azure-native:sql/v20171001preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20200202preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20200801preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20201101preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20210201preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20210801preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20211101:ManagedInstanceKey" }, { type: "azure-native:sql/v20211101preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20220201preview:ManagedInstanceKey" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:ManagedInstanceKey" }, { type: "azure-native:sql/v20171001preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20200202preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20200801preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20201101preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20210201preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20210801preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20211101:ManagedInstanceKey" }, { type: "azure-native:sql/v20211101preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20220201preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20220501preview:ManagedInstanceKey" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedInstanceKey.__pulumiType, name, resourceInputs, opts);
     }

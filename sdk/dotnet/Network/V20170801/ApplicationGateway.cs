@@ -220,6 +220,7 @@ namespace Pulumi.AzureNative.Network.V20170801
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210501:ApplicationGateway"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210801:ApplicationGateway"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220101:ApplicationGateway"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220501:ApplicationGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

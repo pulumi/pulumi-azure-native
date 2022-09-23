@@ -83,6 +83,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static ArcSqlServerLicenseType Payg { get; } = new ArcSqlServerLicenseType("Payg");
         public static ArcSqlServerLicenseType Paid { get; } = new ArcSqlServerLicenseType("Paid");
         public static ArcSqlServerLicenseType Free { get; } = new ArcSqlServerLicenseType("Free");
         public static ArcSqlServerLicenseType HADR { get; } = new ArcSqlServerLicenseType("HADR");

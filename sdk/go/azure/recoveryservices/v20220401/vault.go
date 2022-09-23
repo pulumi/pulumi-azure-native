@@ -87,6 +87,9 @@ func NewVault(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20220301:Vault"),
 		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20220801:Vault"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Vault

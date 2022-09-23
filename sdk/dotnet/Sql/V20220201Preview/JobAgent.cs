@@ -92,6 +92,7 @@ namespace Pulumi.AzureNative.Sql.V20220201Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:JobAgent"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:JobAgent"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:JobAgent"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:JobAgent"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

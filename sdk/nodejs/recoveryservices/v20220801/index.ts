@@ -45,6 +45,10 @@ export { GetReplicationvCenterArgs, GetReplicationvCenterResult, GetReplicationv
 export const getReplicationvCenter: typeof import("./getReplicationvCenter").getReplicationvCenter = null as any;
 export const getReplicationvCenterOutput: typeof import("./getReplicationvCenter").getReplicationvCenterOutput = null as any;
 
+export { GetVaultArgs, GetVaultResult, GetVaultOutputArgs } from "./getVault";
+export const getVault: typeof import("./getVault").getVault = null as any;
+export const getVaultOutput: typeof import("./getVault").getVaultOutput = null as any;
+
 export { ReplicationFabricArgs } from "./replicationFabric";
 export type ReplicationFabric = import("./replicationFabric").ReplicationFabric;
 export const ReplicationFabric: typeof import("./replicationFabric").ReplicationFabric = null as any;
@@ -85,6 +89,10 @@ export { ReplicationvCenterArgs } from "./replicationvCenter";
 export type ReplicationvCenter = import("./replicationvCenter").ReplicationvCenter;
 export const ReplicationvCenter: typeof import("./replicationvCenter").ReplicationvCenter = null as any;
 
+export { VaultArgs } from "./vault";
+export type Vault = import("./vault").Vault;
+export const Vault: typeof import("./vault").Vault = null as any;
+
 utilities.lazyLoad(exports, ["getReplicationFabric","getReplicationFabricOutput"], () => require("./getReplicationFabric"));
 utilities.lazyLoad(exports, ["getReplicationMigrationItem","getReplicationMigrationItemOutput"], () => require("./getReplicationMigrationItem"));
 utilities.lazyLoad(exports, ["getReplicationNetworkMapping","getReplicationNetworkMappingOutput"], () => require("./getReplicationNetworkMapping"));
@@ -95,6 +103,7 @@ utilities.lazyLoad(exports, ["getReplicationRecoveryPlan","getReplicationRecover
 utilities.lazyLoad(exports, ["getReplicationRecoveryServicesProvider","getReplicationRecoveryServicesProviderOutput"], () => require("./getReplicationRecoveryServicesProvider"));
 utilities.lazyLoad(exports, ["getReplicationStorageClassificationMapping","getReplicationStorageClassificationMappingOutput"], () => require("./getReplicationStorageClassificationMapping"));
 utilities.lazyLoad(exports, ["getReplicationvCenter","getReplicationvCenterOutput"], () => require("./getReplicationvCenter"));
+utilities.lazyLoad(exports, ["getVault","getVaultOutput"], () => require("./getVault"));
 utilities.lazyLoad(exports, ["ReplicationFabric"], () => require("./replicationFabric"));
 utilities.lazyLoad(exports, ["ReplicationMigrationItem"], () => require("./replicationMigrationItem"));
 utilities.lazyLoad(exports, ["ReplicationNetworkMapping"], () => require("./replicationNetworkMapping"));
@@ -105,6 +114,7 @@ utilities.lazyLoad(exports, ["ReplicationRecoveryPlan"], () => require("./replic
 utilities.lazyLoad(exports, ["ReplicationRecoveryServicesProvider"], () => require("./replicationRecoveryServicesProvider"));
 utilities.lazyLoad(exports, ["ReplicationStorageClassificationMapping"], () => require("./replicationStorageClassificationMapping"));
 utilities.lazyLoad(exports, ["ReplicationvCenter"], () => require("./replicationvCenter"));
+utilities.lazyLoad(exports, ["Vault"], () => require("./vault"));
 
 // Export enums:
 export * from "../../types/enums/recoveryservices/v20220801";
@@ -133,6 +143,8 @@ const _module = {
                 return new ReplicationStorageClassificationMapping(name, <any>undefined, { urn })
             case "azure-native:recoveryservices/v20220801:ReplicationvCenter":
                 return new ReplicationvCenter(name, <any>undefined, { urn })
+            case "azure-native:recoveryservices/v20220801:Vault":
+                return new Vault(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

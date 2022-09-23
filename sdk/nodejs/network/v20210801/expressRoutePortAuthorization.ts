@@ -101,7 +101,7 @@ export class ExpressRoutePortAuthorization extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20220101:ExpressRoutePortAuthorization" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20220101:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20220501:ExpressRoutePortAuthorization" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ExpressRoutePortAuthorization.__pulumiType, name, resourceInputs, opts);
     }

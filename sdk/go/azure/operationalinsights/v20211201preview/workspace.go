@@ -64,6 +64,9 @@ func NewWorkspace(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:operationalinsights/v20210601:Workspace"),
 		},
+		{
+			Type: pulumi.String("azure-native:operationalinsights/v20221001:Workspace"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Workspace

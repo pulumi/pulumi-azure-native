@@ -33,6 +33,7 @@ import * as v20220301 from "./v20220301";
 import * as v20220302 from "./v20220302";
 import * as v20220404 from "./v20220404";
 import * as v20220702 from "./v20220702";
+import * as v20220801 from "./v20220801";
 
 export {
     v20150615,
@@ -66,6 +67,7 @@ export {
     v20220302,
     v20220404,
     v20220702,
+    v20220801,
 };
 
 export const CachingTypes = {

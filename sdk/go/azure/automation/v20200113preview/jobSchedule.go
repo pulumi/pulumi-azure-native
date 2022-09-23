@@ -52,6 +52,9 @@ func NewJobSchedule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:automation/v20190601:JobSchedule"),
 		},
+		{
+			Type: pulumi.String("azure-native:automation/v20220808:JobSchedule"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource JobSchedule

@@ -196,7 +196,7 @@ class ConnectionType(pulumi.CustomResource):
             __props__.__dict__["description"] = None
             __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation/v20151031:ConnectionType"), pulumi.Alias(type_="azure-native:automation/v20190601:ConnectionType"), pulumi.Alias(type_="azure-native:automation/v20200113preview:ConnectionType")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation/v20151031:ConnectionType"), pulumi.Alias(type_="azure-native:automation/v20190601:ConnectionType"), pulumi.Alias(type_="azure-native:automation/v20200113preview:ConnectionType"), pulumi.Alias(type_="azure-native:automation/v20220808:ConnectionType")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConnectionType, __self__).__init__(
             'azure-native:automation:ConnectionType',

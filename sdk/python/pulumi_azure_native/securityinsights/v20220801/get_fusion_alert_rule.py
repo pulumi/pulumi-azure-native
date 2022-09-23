@@ -165,7 +165,7 @@ class GetFusionAlertRuleResult:
 
     @property
     @pulumi.getter
-    def techniques(self) -> Optional[Sequence[str]]:
+    def techniques(self) -> Sequence[str]:
         """
         The techniques of the alert rule
         """

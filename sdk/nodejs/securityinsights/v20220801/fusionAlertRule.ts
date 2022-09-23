@@ -85,7 +85,7 @@ export class FusionAlertRule extends pulumi.CustomResource {
     /**
      * The techniques of the alert rule
      */
-    public readonly techniques!: pulumi.Output<string[] | undefined>;
+    public /*out*/ readonly techniques!: pulumi.Output<string[]>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -122,7 +122,6 @@ export class FusionAlertRule extends pulumi.CustomResource {
             resourceInputs["kind"] = "Fusion";
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["ruleId"] = args ? args.ruleId : undefined;
-            resourceInputs["techniques"] = args ? args.techniques : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
@@ -132,6 +131,7 @@ export class FusionAlertRule extends pulumi.CustomResource {
             resourceInputs["severity"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tactics"] = undefined /*out*/;
+            resourceInputs["techniques"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["alertRuleTemplateName"] = undefined /*out*/;
@@ -180,10 +180,6 @@ export interface FusionAlertRuleArgs {
      * Alert rule ID
      */
     ruleId?: pulumi.Input<string>;
-    /**
-     * The techniques of the alert rule
-     */
-    techniques?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the workspace.
      */

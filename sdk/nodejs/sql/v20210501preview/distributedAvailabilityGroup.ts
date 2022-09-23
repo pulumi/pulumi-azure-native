@@ -133,7 +133,7 @@ export class DistributedAvailabilityGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:DistributedAvailabilityGroup" }, { type: "azure-native:sql/v20210801preview:DistributedAvailabilityGroup" }, { type: "azure-native:sql/v20211101:DistributedAvailabilityGroup" }, { type: "azure-native:sql/v20211101preview:DistributedAvailabilityGroup" }, { type: "azure-native:sql/v20220201preview:DistributedAvailabilityGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:DistributedAvailabilityGroup" }, { type: "azure-native:sql/v20210801preview:DistributedAvailabilityGroup" }, { type: "azure-native:sql/v20211101:DistributedAvailabilityGroup" }, { type: "azure-native:sql/v20211101preview:DistributedAvailabilityGroup" }, { type: "azure-native:sql/v20220201preview:DistributedAvailabilityGroup" }, { type: "azure-native:sql/v20220501preview:DistributedAvailabilityGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DistributedAvailabilityGroup.__pulumiType, name, resourceInputs, opts);
     }

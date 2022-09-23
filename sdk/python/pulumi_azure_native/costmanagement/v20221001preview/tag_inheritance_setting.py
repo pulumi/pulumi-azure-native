@@ -172,6 +172,8 @@ class TagInheritanceSetting(pulumi.CustomResource):
             __props__.__dict__["scope"] = scope
             __props__.__dict__["type"] = type
             __props__.__dict__["name"] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement/v20221005preview:TagInheritanceSetting")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TagInheritanceSetting, __self__).__init__(
             'azure-native:costmanagement/v20221001preview:TagInheritanceSetting',
             resource_name,

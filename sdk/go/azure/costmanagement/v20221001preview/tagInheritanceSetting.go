@@ -35,6 +35,12 @@ func NewTagInheritanceSetting(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
 	args.Kind = pulumi.String("taginheritance")
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:costmanagement/v20221005preview:TagInheritanceSetting"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource TagInheritanceSetting
 	err := ctx.RegisterResource("azure-native:costmanagement/v20221001preview:TagInheritanceSetting", name, args, &resource, opts...)
 	if err != nil {

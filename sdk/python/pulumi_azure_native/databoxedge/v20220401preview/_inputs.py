@@ -34,7 +34,6 @@ __all__ = [
     'MountPointMapArgs',
     'PeriodicTimerSourceInfoArgs',
     'RefreshDetailsArgs',
-    'ResourceIdentityArgs',
     'RoleSinkInfoArgs',
     'SkuArgs',
     'SymmetricKeyArgs',
@@ -1118,30 +1117,6 @@ class RefreshDetailsArgs:
     @last_job.setter
     def last_job(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "last_job", value)
-
-
-@pulumi.input_type
-class ResourceIdentityArgs:
-    def __init__(__self__, *,
-                 type: Optional[pulumi.Input[Union[str, 'MsiIdentityType']]] = None):
-        """
-        Msi identity details of the resource
-        :param pulumi.Input[Union[str, 'MsiIdentityType']] type: Identity type
-        """
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[str, 'MsiIdentityType']]]:
-        """
-        Identity type
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[str, 'MsiIdentityType']]]):
-        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

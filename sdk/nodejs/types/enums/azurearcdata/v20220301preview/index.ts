@@ -24,6 +24,7 @@ export const ArcSqlManagedInstanceLicenseType = {
 export type ArcSqlManagedInstanceLicenseType = (typeof ArcSqlManagedInstanceLicenseType)[keyof typeof ArcSqlManagedInstanceLicenseType];
 
 export const ArcSqlServerLicenseType = {
+    Payg: "Payg",
     Paid: "Paid",
     Free: "Free",
     HADR: "HADR",
