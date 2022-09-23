@@ -893,6 +893,25 @@
       "listContainerAppCustomHostNameAnalysis",
       "listContainerAppSecrets",
       "listDaprComponentSecrets"
+    ],
+    "2022-06-01-preview": [
+      "Certificate",
+      "ConnectedEnvironment",
+      "ConnectedEnvironmentsCertificate",
+      "ConnectedEnvironmentsDaprComponent",
+      "ConnectedEnvironmentsStorage",
+      "ContainerApp",
+      "ContainerAppsAuthConfig",
+      "ContainerAppsSourceControl",
+      "DaprComponent",
+      "ManagedEnvironment",
+      "ManagedEnvironmentsStorage",
+      "getContainerAppAuthToken",
+      "getManagedEnvironmentAuthToken",
+      "listConnectedEnvironmentsDaprComponentSecrets",
+      "listContainerAppCustomHostNameAnalysis",
+      "listContainerAppSecrets",
+      "listDaprComponentSecrets"
     ]
   },
   "AppConfiguration": {
@@ -1379,6 +1398,26 @@
     ],
     "2022-02-22": [
       "HybridRunbookWorkerGroup"
+    ],
+    "2022-08-08": [
+      "AutomationAccount",
+      "Certificate",
+      "Connection",
+      "ConnectionType",
+      "Credential",
+      "DscConfiguration",
+      "DscNodeConfiguration",
+      "HybridRunbookWorker",
+      "HybridRunbookWorkerGroup",
+      "JobSchedule",
+      "Module",
+      "Python2Package",
+      "Python3Package",
+      "Runbook",
+      "Schedule",
+      "SourceControl",
+      "Variable",
+      "listKeyByAutomationAccount"
     ]
   },
   "AutonomousDevelopmentPlatform": {
@@ -2477,6 +2516,28 @@
       "DiskAccessAPrivateEndpointConnection",
       "DiskEncryptionSet",
       "Snapshot"
+    ],
+    "2022-08-01": [
+      "AvailabilitySet",
+      "CapacityReservation",
+      "CapacityReservationGroup",
+      "DedicatedHost",
+      "DedicatedHostGroup",
+      "Image",
+      "ProximityPlacementGroup",
+      "RestorePoint",
+      "RestorePointCollection",
+      "SshPublicKey",
+      "VirtualMachine",
+      "VirtualMachineExtension",
+      "VirtualMachineRunCommandByVirtualMachine",
+      "VirtualMachineScaleSet",
+      "VirtualMachineScaleSetExtension",
+      "VirtualMachineScaleSetVM",
+      "VirtualMachineScaleSetVMExtension",
+      "VirtualMachineScaleSetVMRunCommand",
+      "getLogAnalyticExportRequestRateByInterval",
+      "getLogAnalyticExportThrottledRequests"
     ]
   },
   "ConfidentialLedger": {
@@ -3262,6 +3323,12 @@
       "SettingByScope",
       "View",
       "ViewByScope"
+    ],
+    "2022-10-05-preview": [
+      "MarkupRule",
+      "SettingByScope",
+      "View",
+      "ViewByScope"
     ]
   },
   "CustomProviders": {
@@ -4029,12 +4096,6 @@
       "PrivateEndpointConnection",
       "Workspace",
       "vNetPeering"
-    ],
-    "2022-10-01-preview": [
-      "AccessConnector",
-      "PrivateEndpointConnection",
-      "Workspace",
-      "vNetPeering"
     ]
   },
   "Datadog": {
@@ -4047,6 +4108,14 @@
       "listMonitorMonitoredResources"
     ],
     "2021-03-01": [
+      "Monitor",
+      "getMonitorDefaultKey",
+      "listMonitorApiKeys",
+      "listMonitorHosts",
+      "listMonitorLinkedResources",
+      "listMonitorMonitoredResources"
+    ],
+    "2022-06-01": [
       "Monitor",
       "getMonitorDefaultKey",
       "listMonitorApiKeys",
@@ -5162,6 +5231,35 @@
       "listDatabaseAccountConnectionStrings",
       "listDatabaseAccountKeys",
       "listNotebookWorkspaceConnectionInfo"
+    ],
+    "2022-08-15-preview": [
+      "CassandraCluster",
+      "CassandraDataCenter",
+      "CassandraResourceCassandraKeyspace",
+      "CassandraResourceCassandraTable",
+      "CassandraResourceCassandraView",
+      "DatabaseAccount",
+      "GraphResourceGraph",
+      "GremlinResourceGremlinDatabase",
+      "GremlinResourceGremlinGraph",
+      "MongoDBResourceMongoDBCollection",
+      "MongoDBResourceMongoDBDatabase",
+      "MongoDBResourceMongoRoleDefinition",
+      "MongoDBResourceMongoUserDefinition",
+      "NotebookWorkspace",
+      "PrivateEndpointConnection",
+      "Service",
+      "SqlResourceSqlContainer",
+      "SqlResourceSqlDatabase",
+      "SqlResourceSqlRoleAssignment",
+      "SqlResourceSqlRoleDefinition",
+      "SqlResourceSqlStoredProcedure",
+      "SqlResourceSqlTrigger",
+      "SqlResourceSqlUserDefinedFunction",
+      "TableResourceTable",
+      "listDatabaseAccountConnectionStrings",
+      "listDatabaseAccountKeys",
+      "listNotebookWorkspaceConnectionInfo"
     ]
   },
   "DomainRegistration": {
@@ -5801,6 +5899,10 @@
     ],
     "2021-08-24": [
       "Bot"
+    ],
+    "2022-08-08": [
+      "Bot",
+      "listBotSecrets"
     ]
   },
   "HealthcareApis": {
@@ -10141,7 +10243,114 @@
       "listNetworkManagerEffectiveSecurityAdminRules"
     ],
     "2022-05-01": [
-      "Policy"
+      "AdminRule",
+      "AdminRuleCollection",
+      "ApplicationGateway",
+      "ApplicationGatewayPrivateEndpointConnection",
+      "ApplicationSecurityGroup",
+      "AzureFirewall",
+      "BastionHost",
+      "ConfigurationPolicyGroup",
+      "ConnectionMonitor",
+      "ConnectivityConfiguration",
+      "CustomIPPrefix",
+      "DdosCustomPolicy",
+      "DdosProtectionPlan",
+      "DscpConfiguration",
+      "ExpressRouteCircuit",
+      "ExpressRouteCircuitAuthorization",
+      "ExpressRouteCircuitConnection",
+      "ExpressRouteCircuitPeering",
+      "ExpressRouteConnection",
+      "ExpressRouteCrossConnectionPeering",
+      "ExpressRouteGateway",
+      "ExpressRoutePort",
+      "ExpressRoutePortAuthorization",
+      "FirewallPolicy",
+      "FirewallPolicyRuleCollectionGroup",
+      "FlowLog",
+      "HubRouteTable",
+      "HubVirtualNetworkConnection",
+      "InboundNatRule",
+      "IpAllocation",
+      "IpGroup",
+      "LoadBalancer",
+      "LoadBalancerBackendAddressPool",
+      "LocalNetworkGateway",
+      "ManagementGroupNetworkManagerConnection",
+      "NatGateway",
+      "NatRule",
+      "NetworkGroup",
+      "NetworkInterface",
+      "NetworkInterfaceTapConfiguration",
+      "NetworkManager",
+      "NetworkProfile",
+      "NetworkSecurityGroup",
+      "NetworkVirtualAppliance",
+      "NetworkWatcher",
+      "P2sVpnGateway",
+      "PacketCapture",
+      "Policy",
+      "PrivateDnsZoneGroup",
+      "PrivateEndpoint",
+      "PrivateLinkService",
+      "PrivateLinkServicePrivateEndpointConnection",
+      "PublicIPAddress",
+      "PublicIPPrefix",
+      "Route",
+      "RouteFilter",
+      "RouteFilterRule",
+      "RouteMap",
+      "RouteTable",
+      "RoutingIntent",
+      "ScopeConnection",
+      "SecurityAdminConfiguration",
+      "SecurityPartnerProvider",
+      "SecurityRule",
+      "ServiceEndpointPolicy",
+      "ServiceEndpointPolicyDefinition",
+      "StaticMember",
+      "Subnet",
+      "SubscriptionNetworkManagerConnection",
+      "VirtualApplianceSite",
+      "VirtualHub",
+      "VirtualHubBgpConnection",
+      "VirtualHubIpConfiguration",
+      "VirtualHubRouteTableV2",
+      "VirtualNetwork",
+      "VirtualNetworkGateway",
+      "VirtualNetworkGatewayConnection",
+      "VirtualNetworkGatewayNatRule",
+      "VirtualNetworkPeering",
+      "VirtualNetworkTap",
+      "VirtualRouter",
+      "VirtualRouterPeering",
+      "VirtualWan",
+      "VpnConnection",
+      "VpnGateway",
+      "VpnServerConfiguration",
+      "VpnSite",
+      "WebApplicationFirewallPolicy",
+      "getActiveSessions",
+      "getApplicationGatewayBackendHealthOnDemand",
+      "getBastionShareableLink",
+      "getP2sVpnGatewayP2sVpnConnectionHealth",
+      "getP2sVpnGatewayP2sVpnConnectionHealthDetailed",
+      "getVirtualNetworkGatewayAdvertisedRoutes",
+      "getVirtualNetworkGatewayBgpPeerStatus",
+      "getVirtualNetworkGatewayConnectionIkeSas",
+      "getVirtualNetworkGatewayLearnedRoutes",
+      "getVirtualNetworkGatewayVpnProfilePackageUrl",
+      "getVirtualNetworkGatewayVpnclientConnectionHealth",
+      "getVirtualNetworkGatewayVpnclientIpsecParameters",
+      "getVpnLinkConnectionIkeSas",
+      "listActiveConnectivityConfigurations",
+      "listActiveSecurityAdminRules",
+      "listFirewallPolicyIdpsSignature",
+      "listFirewallPolicyIdpsSignaturesFilterValue",
+      "listNetworkManagerDeploymentStatus",
+      "listNetworkManagerEffectiveConnectivityConfigurations",
+      "listNetworkManagerEffectiveSecurityAdminRules"
     ],
     "2022-07-01": [
       "DnsForwardingRuleset",
@@ -10276,6 +10485,10 @@
       "Workspace"
     ],
     "2021-12-01-preview": [
+      "Table",
+      "Workspace"
+    ],
+    "2022-10-01": [
       "Table",
       "Workspace"
     ]
@@ -10905,7 +11118,8 @@
       "ReplicationRecoveryPlan",
       "ReplicationRecoveryServicesProvider",
       "ReplicationStorageClassificationMapping",
-      "ReplicationvCenter"
+      "ReplicationvCenter",
+      "Vault"
     ]
   },
   "RedHatOpenShift": {
@@ -11291,6 +11505,9 @@
     "2022-07-01-preview": [
       "Application",
       "SecurityConnectorApplication"
+    ],
+    "2022-08-01-preview": [
+      "SecurityConnector"
     ]
   },
   "SecurityAndCompliance": {
@@ -12619,6 +12836,69 @@
       "VirtualNetworkRule",
       "WorkloadClassifier",
       "WorkloadGroup"
+    ],
+    "2022-05-01-preview": [
+      "BackupShortTermRetentionPolicy",
+      "DataMaskingPolicy",
+      "Database",
+      "DatabaseAdvisor",
+      "DatabaseBlobAuditingPolicy",
+      "DatabaseSecurityAlertPolicy",
+      "DatabaseSqlVulnerabilityAssessmentRuleBaseline",
+      "DatabaseVulnerabilityAssessment",
+      "DatabaseVulnerabilityAssessmentRuleBaseline",
+      "DistributedAvailabilityGroup",
+      "ElasticPool",
+      "EncryptionProtector",
+      "ExtendedDatabaseBlobAuditingPolicy",
+      "ExtendedServerBlobAuditingPolicy",
+      "FailoverGroup",
+      "FirewallRule",
+      "GeoBackupPolicy",
+      "IPv6FirewallRule",
+      "InstanceFailoverGroup",
+      "InstancePool",
+      "Job",
+      "JobAgent",
+      "JobCredential",
+      "JobStep",
+      "JobTargetGroup",
+      "LongTermRetentionPolicy",
+      "ManagedDatabase",
+      "ManagedDatabaseSensitivityLabel",
+      "ManagedDatabaseVulnerabilityAssessment",
+      "ManagedDatabaseVulnerabilityAssessmentRuleBaseline",
+      "ManagedInstance",
+      "ManagedInstanceAdministrator",
+      "ManagedInstanceAzureADOnlyAuthentication",
+      "ManagedInstanceKey",
+      "ManagedInstanceLongTermRetentionPolicy",
+      "ManagedInstancePrivateEndpointConnection",
+      "ManagedInstanceVulnerabilityAssessment",
+      "ManagedServerDnsAlias",
+      "OutboundFirewallRule",
+      "PrivateEndpointConnection",
+      "SensitivityLabel",
+      "Server",
+      "ServerAdvisor",
+      "ServerAzureADAdministrator",
+      "ServerAzureADOnlyAuthentication",
+      "ServerBlobAuditingPolicy",
+      "ServerDnsAlias",
+      "ServerKey",
+      "ServerSecurityAlertPolicy",
+      "ServerTrustCertificate",
+      "ServerTrustGroup",
+      "ServerVulnerabilityAssessment",
+      "SqlVulnerabilityAssessmentRuleBaseline",
+      "SqlVulnerabilityAssessmentsSetting",
+      "SyncAgent",
+      "SyncGroup",
+      "SyncMember",
+      "TransparentDataEncryption",
+      "VirtualNetworkRule",
+      "WorkloadClassifier",
+      "WorkloadGroup"
     ]
   },
   "SqlVirtualMachine": {
@@ -13080,6 +13360,14 @@
       "SyncGroup"
     ],
     "2020-09-01": [
+      "CloudEndpoint",
+      "PrivateEndpointConnection",
+      "RegisteredServer",
+      "ServerEndpoint",
+      "StorageSyncService",
+      "SyncGroup"
+    ],
+    "2022-06-01": [
       "CloudEndpoint",
       "PrivateEndpointConnection",
       "RegisteredServer",
