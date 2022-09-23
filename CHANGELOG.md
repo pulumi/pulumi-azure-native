@@ -2,6 +2,10 @@
 
 ## HEAD (Unreleased)
 
+## 1.79.0 (2022-09-23)
+
+- Upgrade to latest version of Azure Rest API Specs.
+
 ## 1.78.0 (2022-09-14)
 
 - [Upgrade ModileNetwork default version due to old version being removed upstream](https://github.com/pulumi/pulumi-azure-native/pull/1967)
