@@ -32,7 +32,7 @@ codegen: bin/$(CODEGEN)
 provider: bin/$(PROVIDER)
 install_provider: install_provider.sentinel
 versioner: bin/pulumi-versioner-azure-native
-versions: versions/spec.json versions/v1.json versions/v2.json versions/deprecated.json versions/pending.json versions/active.json
+versions: versions/spec.json versions/v1.json versions/deprecated.json versions/pending.json versions/active.json
 
 generate_schema: provider/cmd/$(PROVIDER)/schema-full.json
 generate_docs: provider/cmd/$(PROVIDER)/schema.json
