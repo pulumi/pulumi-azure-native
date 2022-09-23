@@ -443,7 +443,7 @@ jobs:
         git tag "$VERSION"
         # Find go.mod's, get parent dir name, concat with version, set as a tag
         find */go.mod -type f -exec sh -c "dirname {} | xargs basename | xargs printf "%s/$VERSION" | xargs git tag" \;
-        git push --tags
+        git push master --tags
     - if: failure() && github.event_name == 'push'
       name: Notify Slack
       uses: 8398a7/action-slack@v3
