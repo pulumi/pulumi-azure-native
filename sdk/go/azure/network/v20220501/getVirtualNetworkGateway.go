@@ -27,6 +27,8 @@ type LookupVirtualNetworkGatewayArgs struct {
 
 type LookupVirtualNetworkGatewayResult struct {
 	ActiveActive                      *bool                                          `pulumi:"activeActive"`
+	AllowRemoteVnetTraffic            *bool                                          `pulumi:"allowRemoteVnetTraffic"`
+	AllowVirtualWanTraffic            *bool                                          `pulumi:"allowVirtualWanTraffic"`
 	BgpSettings                       *BgpSettingsResponse                           `pulumi:"bgpSettings"`
 	CustomRoutes                      *AddressSpaceResponse                          `pulumi:"customRoutes"`
 	DisableIPSecReplayProtection      *bool                                          `pulumi:"disableIPSecReplayProtection"`
@@ -95,6 +97,14 @@ func (o LookupVirtualNetworkGatewayResultOutput) ToLookupVirtualNetworkGatewayRe
 
 func (o LookupVirtualNetworkGatewayResultOutput) ActiveActive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupVirtualNetworkGatewayResult) *bool { return v.ActiveActive }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupVirtualNetworkGatewayResultOutput) AllowRemoteVnetTraffic() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayResult) *bool { return v.AllowRemoteVnetTraffic }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupVirtualNetworkGatewayResultOutput) AllowVirtualWanTraffic() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayResult) *bool { return v.AllowVirtualWanTraffic }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupVirtualNetworkGatewayResultOutput) BgpSettings() BgpSettingsResponsePtrOutput {

@@ -22,6 +22,18 @@ namespace Pulumi.AzureNative.Network.V20220501
         public Output<bool?> ActiveActive { get; private set; } = null!;
 
         /// <summary>
+        /// Configure this gateway to accept traffic from other Azure Virtual Networks. This configuration does not support connectivity to Azure Virtual WAN.
+        /// </summary>
+        [Output("allowRemoteVnetTraffic")]
+        public Output<bool?> AllowRemoteVnetTraffic { get; private set; } = null!;
+
+        /// <summary>
+        /// Configures this gateway to accept traffic from remote Virtual WAN networks.
+        /// </summary>
+        [Output("allowVirtualWanTraffic")]
+        public Output<bool?> AllowVirtualWanTraffic { get; private set; } = null!;
+
+        /// <summary>
         /// Virtual network gateway's BGP speaker settings.
         /// </summary>
         [Output("bgpSettings")]
@@ -271,6 +283,18 @@ namespace Pulumi.AzureNative.Network.V20220501
         /// </summary>
         [Input("activeActive")]
         public Input<bool>? ActiveActive { get; set; }
+
+        /// <summary>
+        /// Configure this gateway to accept traffic from other Azure Virtual Networks. This configuration does not support connectivity to Azure Virtual WAN.
+        /// </summary>
+        [Input("allowRemoteVnetTraffic")]
+        public Input<bool>? AllowRemoteVnetTraffic { get; set; }
+
+        /// <summary>
+        /// Configures this gateway to accept traffic from remote Virtual WAN networks.
+        /// </summary>
+        [Input("allowVirtualWanTraffic")]
+        public Input<bool>? AllowVirtualWanTraffic { get; set; }
 
         /// <summary>
         /// Virtual network gateway's BGP speaker settings.

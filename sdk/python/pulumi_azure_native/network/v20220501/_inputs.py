@@ -17750,6 +17750,8 @@ class VirtualNetworkGatewaySkuArgs:
 class VirtualNetworkGatewayArgs:
     def __init__(__self__, *,
                  active_active: Optional[pulumi.Input[bool]] = None,
+                 allow_remote_vnet_traffic: Optional[pulumi.Input[bool]] = None,
+                 allow_virtual_wan_traffic: Optional[pulumi.Input[bool]] = None,
                  bgp_settings: Optional[pulumi.Input['BgpSettingsArgs']] = None,
                  custom_routes: Optional[pulumi.Input['AddressSpaceArgs']] = None,
                  disable_ip_sec_replay_protection: Optional[pulumi.Input[bool]] = None,
@@ -17774,6 +17776,8 @@ class VirtualNetworkGatewayArgs:
         """
         A common class for general resource information.
         :param pulumi.Input[bool] active_active: ActiveActive flag.
+        :param pulumi.Input[bool] allow_remote_vnet_traffic: Configure this gateway to accept traffic from other Azure Virtual Networks. This configuration does not support connectivity to Azure Virtual WAN.
+        :param pulumi.Input[bool] allow_virtual_wan_traffic: Configures this gateway to accept traffic from remote Virtual WAN networks.
         :param pulumi.Input['BgpSettingsArgs'] bgp_settings: Virtual network gateway's BGP speaker settings.
         :param pulumi.Input['AddressSpaceArgs'] custom_routes: The reference to the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
         :param pulumi.Input[bool] disable_ip_sec_replay_protection: disableIPSecReplayProtection flag.
@@ -17798,6 +17802,10 @@ class VirtualNetworkGatewayArgs:
         """
         if active_active is not None:
             pulumi.set(__self__, "active_active", active_active)
+        if allow_remote_vnet_traffic is not None:
+            pulumi.set(__self__, "allow_remote_vnet_traffic", allow_remote_vnet_traffic)
+        if allow_virtual_wan_traffic is not None:
+            pulumi.set(__self__, "allow_virtual_wan_traffic", allow_virtual_wan_traffic)
         if bgp_settings is not None:
             pulumi.set(__self__, "bgp_settings", bgp_settings)
         if custom_routes is not None:
@@ -17852,6 +17860,30 @@ class VirtualNetworkGatewayArgs:
     @active_active.setter
     def active_active(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "active_active", value)
+
+    @property
+    @pulumi.getter(name="allowRemoteVnetTraffic")
+    def allow_remote_vnet_traffic(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Configure this gateway to accept traffic from other Azure Virtual Networks. This configuration does not support connectivity to Azure Virtual WAN.
+        """
+        return pulumi.get(self, "allow_remote_vnet_traffic")
+
+    @allow_remote_vnet_traffic.setter
+    def allow_remote_vnet_traffic(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_remote_vnet_traffic", value)
+
+    @property
+    @pulumi.getter(name="allowVirtualWanTraffic")
+    def allow_virtual_wan_traffic(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Configures this gateway to accept traffic from remote Virtual WAN networks.
+        """
+        return pulumi.get(self, "allow_virtual_wan_traffic")
+
+    @allow_virtual_wan_traffic.setter
+    def allow_virtual_wan_traffic(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_virtual_wan_traffic", value)
 
     @property
     @pulumi.getter(name="bgpSettings")

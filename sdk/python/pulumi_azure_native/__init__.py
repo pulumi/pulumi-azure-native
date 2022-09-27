@@ -3843,6 +3843,17 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "cognitiveservices/v20221001",
+  "fqn": "pulumi_azure_native.cognitiveservices.v20221001",
+  "classes": {
+   "azure-native:cognitiveservices/v20221001:Account": "Account",
+   "azure-native:cognitiveservices/v20221001:CommitmentPlan": "CommitmentPlan",
+   "azure-native:cognitiveservices/v20221001:Deployment": "Deployment",
+   "azure-native:cognitiveservices/v20221001:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "communication",
   "fqn": "pulumi_azure_native.communication",
   "classes": {

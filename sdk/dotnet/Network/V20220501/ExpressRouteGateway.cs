@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Network.V20220501
     public partial class ExpressRouteGateway : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Configures this gateway to accept traffic from non Virtual WAN networks.
+        /// </summary>
+        [Output("allowNonVirtualWanTraffic")]
+        public Output<bool?> AllowNonVirtualWanTraffic { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration for auto scaling.
         /// </summary>
         [Output("autoScaleConfiguration")]
@@ -142,6 +148,12 @@ namespace Pulumi.AzureNative.Network.V20220501
 
     public sealed class ExpressRouteGatewayArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configures this gateway to accept traffic from non Virtual WAN networks.
+        /// </summary>
+        [Input("allowNonVirtualWanTraffic")]
+        public Input<bool>? AllowNonVirtualWanTraffic { get; set; }
+
         /// <summary>
         /// Configuration for auto scaling.
         /// </summary>

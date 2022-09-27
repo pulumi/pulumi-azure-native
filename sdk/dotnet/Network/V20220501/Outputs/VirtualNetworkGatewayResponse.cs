@@ -21,6 +21,14 @@ namespace Pulumi.AzureNative.Network.V20220501.Outputs
         /// </summary>
         public readonly bool? ActiveActive;
         /// <summary>
+        /// Configure this gateway to accept traffic from other Azure Virtual Networks. This configuration does not support connectivity to Azure Virtual WAN.
+        /// </summary>
+        public readonly bool? AllowRemoteVnetTraffic;
+        /// <summary>
+        /// Configures this gateway to accept traffic from remote Virtual WAN networks.
+        /// </summary>
+        public readonly bool? AllowVirtualWanTraffic;
+        /// <summary>
         /// Virtual network gateway's BGP speaker settings.
         /// </summary>
         public readonly Outputs.BgpSettingsResponse? BgpSettings;
@@ -133,6 +141,10 @@ namespace Pulumi.AzureNative.Network.V20220501.Outputs
         private VirtualNetworkGatewayResponse(
             bool? activeActive,
 
+            bool? allowRemoteVnetTraffic,
+
+            bool? allowVirtualWanTraffic,
+
             Outputs.BgpSettingsResponse? bgpSettings,
 
             Outputs.AddressSpaceResponse? customRoutes,
@@ -188,6 +200,8 @@ namespace Pulumi.AzureNative.Network.V20220501.Outputs
             string? vpnType)
         {
             ActiveActive = activeActive;
+            AllowRemoteVnetTraffic = allowRemoteVnetTraffic;
+            AllowVirtualWanTraffic = allowVirtualWanTraffic;
             BgpSettings = bgpSettings;
             CustomRoutes = customRoutes;
             DisableIPSecReplayProtection = disableIPSecReplayProtection;

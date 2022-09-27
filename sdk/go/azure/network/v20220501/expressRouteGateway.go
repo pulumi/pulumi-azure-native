@@ -14,15 +14,16 @@ import (
 type ExpressRouteGateway struct {
 	pulumi.CustomResourceState
 
-	AutoScaleConfiguration  ExpressRouteGatewayPropertiesResponseAutoScaleConfigurationPtrOutput `pulumi:"autoScaleConfiguration"`
-	Etag                    pulumi.StringOutput                                                  `pulumi:"etag"`
-	ExpressRouteConnections ExpressRouteConnectionResponseArrayOutput                            `pulumi:"expressRouteConnections"`
-	Location                pulumi.StringPtrOutput                                               `pulumi:"location"`
-	Name                    pulumi.StringOutput                                                  `pulumi:"name"`
-	ProvisioningState       pulumi.StringOutput                                                  `pulumi:"provisioningState"`
-	Tags                    pulumi.StringMapOutput                                               `pulumi:"tags"`
-	Type                    pulumi.StringOutput                                                  `pulumi:"type"`
-	VirtualHub              VirtualHubIdResponseOutput                                           `pulumi:"virtualHub"`
+	AllowNonVirtualWanTraffic pulumi.BoolPtrOutput                                                 `pulumi:"allowNonVirtualWanTraffic"`
+	AutoScaleConfiguration    ExpressRouteGatewayPropertiesResponseAutoScaleConfigurationPtrOutput `pulumi:"autoScaleConfiguration"`
+	Etag                      pulumi.StringOutput                                                  `pulumi:"etag"`
+	ExpressRouteConnections   ExpressRouteConnectionResponseArrayOutput                            `pulumi:"expressRouteConnections"`
+	Location                  pulumi.StringPtrOutput                                               `pulumi:"location"`
+	Name                      pulumi.StringOutput                                                  `pulumi:"name"`
+	ProvisioningState         pulumi.StringOutput                                                  `pulumi:"provisioningState"`
+	Tags                      pulumi.StringMapOutput                                               `pulumi:"tags"`
+	Type                      pulumi.StringOutput                                                  `pulumi:"type"`
+	VirtualHub                VirtualHubIdResponseOutput                                           `pulumi:"virtualHub"`
 }
 
 
@@ -148,26 +149,28 @@ func (ExpressRouteGatewayState) ElementType() reflect.Type {
 }
 
 type expressRouteGatewayArgs struct {
-	AutoScaleConfiguration  *ExpressRouteGatewayPropertiesAutoScaleConfiguration `pulumi:"autoScaleConfiguration"`
-	ExpressRouteConnections []ExpressRouteConnectionType                         `pulumi:"expressRouteConnections"`
-	ExpressRouteGatewayName *string                                              `pulumi:"expressRouteGatewayName"`
-	Id                      *string                                              `pulumi:"id"`
-	Location                *string                                              `pulumi:"location"`
-	ResourceGroupName       string                                               `pulumi:"resourceGroupName"`
-	Tags                    map[string]string                                    `pulumi:"tags"`
-	VirtualHub              VirtualHubId                                         `pulumi:"virtualHub"`
+	AllowNonVirtualWanTraffic *bool                                                `pulumi:"allowNonVirtualWanTraffic"`
+	AutoScaleConfiguration    *ExpressRouteGatewayPropertiesAutoScaleConfiguration `pulumi:"autoScaleConfiguration"`
+	ExpressRouteConnections   []ExpressRouteConnectionType                         `pulumi:"expressRouteConnections"`
+	ExpressRouteGatewayName   *string                                              `pulumi:"expressRouteGatewayName"`
+	Id                        *string                                              `pulumi:"id"`
+	Location                  *string                                              `pulumi:"location"`
+	ResourceGroupName         string                                               `pulumi:"resourceGroupName"`
+	Tags                      map[string]string                                    `pulumi:"tags"`
+	VirtualHub                VirtualHubId                                         `pulumi:"virtualHub"`
 }
 
 
 type ExpressRouteGatewayArgs struct {
-	AutoScaleConfiguration  ExpressRouteGatewayPropertiesAutoScaleConfigurationPtrInput
-	ExpressRouteConnections ExpressRouteConnectionTypeArrayInput
-	ExpressRouteGatewayName pulumi.StringPtrInput
-	Id                      pulumi.StringPtrInput
-	Location                pulumi.StringPtrInput
-	ResourceGroupName       pulumi.StringInput
-	Tags                    pulumi.StringMapInput
-	VirtualHub              VirtualHubIdInput
+	AllowNonVirtualWanTraffic pulumi.BoolPtrInput
+	AutoScaleConfiguration    ExpressRouteGatewayPropertiesAutoScaleConfigurationPtrInput
+	ExpressRouteConnections   ExpressRouteConnectionTypeArrayInput
+	ExpressRouteGatewayName   pulumi.StringPtrInput
+	Id                        pulumi.StringPtrInput
+	Location                  pulumi.StringPtrInput
+	ResourceGroupName         pulumi.StringInput
+	Tags                      pulumi.StringMapInput
+	VirtualHub                VirtualHubIdInput
 }
 
 func (ExpressRouteGatewayArgs) ElementType() reflect.Type {
@@ -205,6 +208,10 @@ func (o ExpressRouteGatewayOutput) ToExpressRouteGatewayOutput() ExpressRouteGat
 
 func (o ExpressRouteGatewayOutput) ToExpressRouteGatewayOutputWithContext(ctx context.Context) ExpressRouteGatewayOutput {
 	return o
+}
+
+func (o ExpressRouteGatewayOutput) AllowNonVirtualWanTraffic() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteGateway) pulumi.BoolPtrOutput { return v.AllowNonVirtualWanTraffic }).(pulumi.BoolPtrOutput)
 }
 
 func (o ExpressRouteGatewayOutput) AutoScaleConfiguration() ExpressRouteGatewayPropertiesResponseAutoScaleConfigurationPtrOutput {

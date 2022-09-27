@@ -58,6 +58,9 @@ func NewCognitiveServicesAccount(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:cognitiveservices/v20220301:CognitiveServicesAccount"),
 		},
+		{
+			Type: pulumi.String("azure-native:cognitiveservices/v20221001:CognitiveServicesAccount"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource CognitiveServicesAccount

@@ -26803,6 +26803,10 @@ class VirtualNetworkGatewayResponse(dict):
             suggest = "resource_guid"
         elif key == "activeActive":
             suggest = "active_active"
+        elif key == "allowRemoteVnetTraffic":
+            suggest = "allow_remote_vnet_traffic"
+        elif key == "allowVirtualWanTraffic":
+            suggest = "allow_virtual_wan_traffic"
         elif key == "bgpSettings":
             suggest = "bgp_settings"
         elif key == "customRoutes":
@@ -26857,6 +26861,8 @@ class VirtualNetworkGatewayResponse(dict):
                  resource_guid: str,
                  type: str,
                  active_active: Optional[bool] = None,
+                 allow_remote_vnet_traffic: Optional[bool] = None,
+                 allow_virtual_wan_traffic: Optional[bool] = None,
                  bgp_settings: Optional['outputs.BgpSettingsResponse'] = None,
                  custom_routes: Optional['outputs.AddressSpaceResponse'] = None,
                  disable_ip_sec_replay_protection: Optional[bool] = None,
@@ -26887,6 +26893,8 @@ class VirtualNetworkGatewayResponse(dict):
         :param str resource_guid: The resource GUID property of the virtual network gateway resource.
         :param str type: Resource type.
         :param bool active_active: ActiveActive flag.
+        :param bool allow_remote_vnet_traffic: Configure this gateway to accept traffic from other Azure Virtual Networks. This configuration does not support connectivity to Azure Virtual WAN.
+        :param bool allow_virtual_wan_traffic: Configures this gateway to accept traffic from remote Virtual WAN networks.
         :param 'BgpSettingsResponse' bgp_settings: Virtual network gateway's BGP speaker settings.
         :param 'AddressSpaceResponse' custom_routes: The reference to the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
         :param bool disable_ip_sec_replay_protection: disableIPSecReplayProtection flag.
@@ -26917,6 +26925,10 @@ class VirtualNetworkGatewayResponse(dict):
         pulumi.set(__self__, "type", type)
         if active_active is not None:
             pulumi.set(__self__, "active_active", active_active)
+        if allow_remote_vnet_traffic is not None:
+            pulumi.set(__self__, "allow_remote_vnet_traffic", allow_remote_vnet_traffic)
+        if allow_virtual_wan_traffic is not None:
+            pulumi.set(__self__, "allow_virtual_wan_traffic", allow_virtual_wan_traffic)
         if bgp_settings is not None:
             pulumi.set(__self__, "bgp_settings", bgp_settings)
         if custom_routes is not None:
@@ -27015,6 +27027,22 @@ class VirtualNetworkGatewayResponse(dict):
         ActiveActive flag.
         """
         return pulumi.get(self, "active_active")
+
+    @property
+    @pulumi.getter(name="allowRemoteVnetTraffic")
+    def allow_remote_vnet_traffic(self) -> Optional[bool]:
+        """
+        Configure this gateway to accept traffic from other Azure Virtual Networks. This configuration does not support connectivity to Azure Virtual WAN.
+        """
+        return pulumi.get(self, "allow_remote_vnet_traffic")
+
+    @property
+    @pulumi.getter(name="allowVirtualWanTraffic")
+    def allow_virtual_wan_traffic(self) -> Optional[bool]:
+        """
+        Configures this gateway to accept traffic from remote Virtual WAN networks.
+        """
+        return pulumi.get(self, "allow_virtual_wan_traffic")
 
     @property
     @pulumi.getter(name="bgpSettings")

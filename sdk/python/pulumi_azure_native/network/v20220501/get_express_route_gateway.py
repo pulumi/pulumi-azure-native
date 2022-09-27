@@ -22,7 +22,10 @@ class GetExpressRouteGatewayResult:
     """
     ExpressRoute gateway resource.
     """
-    def __init__(__self__, auto_scale_configuration=None, etag=None, express_route_connections=None, id=None, location=None, name=None, provisioning_state=None, tags=None, type=None, virtual_hub=None):
+    def __init__(__self__, allow_non_virtual_wan_traffic=None, auto_scale_configuration=None, etag=None, express_route_connections=None, id=None, location=None, name=None, provisioning_state=None, tags=None, type=None, virtual_hub=None):
+        if allow_non_virtual_wan_traffic and not isinstance(allow_non_virtual_wan_traffic, bool):
+            raise TypeError("Expected argument 'allow_non_virtual_wan_traffic' to be a bool")
+        pulumi.set(__self__, "allow_non_virtual_wan_traffic", allow_non_virtual_wan_traffic)
         if auto_scale_configuration and not isinstance(auto_scale_configuration, dict):
             raise TypeError("Expected argument 'auto_scale_configuration' to be a dict")
         pulumi.set(__self__, "auto_scale_configuration", auto_scale_configuration)
@@ -53,6 +56,14 @@ class GetExpressRouteGatewayResult:
         if virtual_hub and not isinstance(virtual_hub, dict):
             raise TypeError("Expected argument 'virtual_hub' to be a dict")
         pulumi.set(__self__, "virtual_hub", virtual_hub)
+
+    @property
+    @pulumi.getter(name="allowNonVirtualWanTraffic")
+    def allow_non_virtual_wan_traffic(self) -> Optional[bool]:
+        """
+        Configures this gateway to accept traffic from non Virtual WAN networks.
+        """
+        return pulumi.get(self, "allow_non_virtual_wan_traffic")
 
     @property
     @pulumi.getter(name="autoScaleConfiguration")
@@ -141,6 +152,7 @@ class AwaitableGetExpressRouteGatewayResult(GetExpressRouteGatewayResult):
         if False:
             yield self
         return GetExpressRouteGatewayResult(
+            allow_non_virtual_wan_traffic=self.allow_non_virtual_wan_traffic,
             auto_scale_configuration=self.auto_scale_configuration,
             etag=self.etag,
             express_route_connections=self.express_route_connections,
@@ -170,6 +182,7 @@ def get_express_route_gateway(express_route_gateway_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20220501:getExpressRouteGateway', __args__, opts=opts, typ=GetExpressRouteGatewayResult).value
 
     return AwaitableGetExpressRouteGatewayResult(
+        allow_non_virtual_wan_traffic=__ret__.allow_non_virtual_wan_traffic,
         auto_scale_configuration=__ret__.auto_scale_configuration,
         etag=__ret__.etag,
         express_route_connections=__ret__.express_route_connections,

@@ -38,6 +38,10 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
     }
 
     /**
+     * Configures this gateway to accept traffic from non Virtual WAN networks.
+     */
+    public readonly allowNonVirtualWanTraffic!: pulumi.Output<boolean | undefined>;
+    /**
      * Configuration for auto scaling.
      */
     public readonly autoScaleConfiguration!: pulumi.Output<outputs.network.v20220501.ExpressRouteGatewayPropertiesResponseAutoScaleConfiguration | undefined>;
@@ -91,6 +95,7 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
             if ((!args || args.virtualHub === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualHub'");
             }
+            resourceInputs["allowNonVirtualWanTraffic"] = args ? args.allowNonVirtualWanTraffic : undefined;
             resourceInputs["autoScaleConfiguration"] = args ? args.autoScaleConfiguration : undefined;
             resourceInputs["expressRouteConnections"] = args ? args.expressRouteConnections : undefined;
             resourceInputs["expressRouteGatewayName"] = args ? args.expressRouteGatewayName : undefined;
@@ -104,6 +109,7 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["allowNonVirtualWanTraffic"] = undefined /*out*/;
             resourceInputs["autoScaleConfiguration"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["expressRouteConnections"] = undefined /*out*/;
@@ -125,6 +131,10 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
  * The set of arguments for constructing a ExpressRouteGateway resource.
  */
 export interface ExpressRouteGatewayArgs {
+    /**
+     * Configures this gateway to accept traffic from non Virtual WAN networks.
+     */
+    allowNonVirtualWanTraffic?: pulumi.Input<boolean>;
     /**
      * Configuration for auto scaling.
      */

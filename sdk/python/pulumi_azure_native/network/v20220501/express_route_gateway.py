@@ -19,6 +19,7 @@ class ExpressRouteGatewayArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  virtual_hub: pulumi.Input['VirtualHubIdArgs'],
+                 allow_non_virtual_wan_traffic: Optional[pulumi.Input[bool]] = None,
                  auto_scale_configuration: Optional[pulumi.Input['ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs']] = None,
                  express_route_connections: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteConnectionArgs']]]] = None,
                  express_route_gateway_name: Optional[pulumi.Input[str]] = None,
@@ -29,6 +30,7 @@ class ExpressRouteGatewayArgs:
         The set of arguments for constructing a ExpressRouteGateway resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input['VirtualHubIdArgs'] virtual_hub: The Virtual Hub where the ExpressRoute gateway is or will be deployed.
+        :param pulumi.Input[bool] allow_non_virtual_wan_traffic: Configures this gateway to accept traffic from non Virtual WAN networks.
         :param pulumi.Input['ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs'] auto_scale_configuration: Configuration for auto scaling.
         :param pulumi.Input[Sequence[pulumi.Input['ExpressRouteConnectionArgs']]] express_route_connections: List of ExpressRoute connections to the ExpressRoute gateway.
         :param pulumi.Input[str] express_route_gateway_name: The name of the ExpressRoute gateway.
@@ -38,6 +40,8 @@ class ExpressRouteGatewayArgs:
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "virtual_hub", virtual_hub)
+        if allow_non_virtual_wan_traffic is not None:
+            pulumi.set(__self__, "allow_non_virtual_wan_traffic", allow_non_virtual_wan_traffic)
         if auto_scale_configuration is not None:
             pulumi.set(__self__, "auto_scale_configuration", auto_scale_configuration)
         if express_route_connections is not None:
@@ -74,6 +78,18 @@ class ExpressRouteGatewayArgs:
     @virtual_hub.setter
     def virtual_hub(self, value: pulumi.Input['VirtualHubIdArgs']):
         pulumi.set(self, "virtual_hub", value)
+
+    @property
+    @pulumi.getter(name="allowNonVirtualWanTraffic")
+    def allow_non_virtual_wan_traffic(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Configures this gateway to accept traffic from non Virtual WAN networks.
+        """
+        return pulumi.get(self, "allow_non_virtual_wan_traffic")
+
+    @allow_non_virtual_wan_traffic.setter
+    def allow_non_virtual_wan_traffic(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_non_virtual_wan_traffic", value)
 
     @property
     @pulumi.getter(name="autoScaleConfiguration")
@@ -153,6 +169,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_non_virtual_wan_traffic: Optional[pulumi.Input[bool]] = None,
                  auto_scale_configuration: Optional[pulumi.Input[pulumi.InputType['ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs']]] = None,
                  express_route_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteConnectionArgs']]]]] = None,
                  express_route_gateway_name: Optional[pulumi.Input[str]] = None,
@@ -167,6 +184,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] allow_non_virtual_wan_traffic: Configures this gateway to accept traffic from non Virtual WAN networks.
         :param pulumi.Input[pulumi.InputType['ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs']] auto_scale_configuration: Configuration for auto scaling.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteConnectionArgs']]]] express_route_connections: List of ExpressRoute connections to the ExpressRoute gateway.
         :param pulumi.Input[str] express_route_gateway_name: The name of the ExpressRoute gateway.
@@ -200,6 +218,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_non_virtual_wan_traffic: Optional[pulumi.Input[bool]] = None,
                  auto_scale_configuration: Optional[pulumi.Input[pulumi.InputType['ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs']]] = None,
                  express_route_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteConnectionArgs']]]]] = None,
                  express_route_gateway_name: Optional[pulumi.Input[str]] = None,
@@ -217,6 +236,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ExpressRouteGatewayArgs.__new__(ExpressRouteGatewayArgs)
 
+            __props__.__dict__["allow_non_virtual_wan_traffic"] = allow_non_virtual_wan_traffic
             __props__.__dict__["auto_scale_configuration"] = auto_scale_configuration
             __props__.__dict__["express_route_connections"] = express_route_connections
             __props__.__dict__["express_route_gateway_name"] = express_route_gateway_name
@@ -257,6 +277,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
 
         __props__ = ExpressRouteGatewayArgs.__new__(ExpressRouteGatewayArgs)
 
+        __props__.__dict__["allow_non_virtual_wan_traffic"] = None
         __props__.__dict__["auto_scale_configuration"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["express_route_connections"] = None
@@ -267,6 +288,14 @@ class ExpressRouteGateway(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["virtual_hub"] = None
         return ExpressRouteGateway(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="allowNonVirtualWanTraffic")
+    def allow_non_virtual_wan_traffic(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Configures this gateway to accept traffic from non Virtual WAN networks.
+        """
+        return pulumi.get(self, "allow_non_virtual_wan_traffic")
 
     @property
     @pulumi.getter(name="autoScaleConfiguration")

@@ -70,6 +70,10 @@ namespace Pulumi.AzureNative.Network.V20220501
     public sealed class GetExpressRouteGatewayResult
     {
         /// <summary>
+        /// Configures this gateway to accept traffic from non Virtual WAN networks.
+        /// </summary>
+        public readonly bool? AllowNonVirtualWanTraffic;
+        /// <summary>
         /// Configuration for auto scaling.
         /// </summary>
         public readonly Outputs.ExpressRouteGatewayPropertiesResponseAutoScaleConfiguration? AutoScaleConfiguration;
@@ -112,6 +116,8 @@ namespace Pulumi.AzureNative.Network.V20220501
 
         [OutputConstructor]
         private GetExpressRouteGatewayResult(
+            bool? allowNonVirtualWanTraffic,
+
             Outputs.ExpressRouteGatewayPropertiesResponseAutoScaleConfiguration? autoScaleConfiguration,
 
             string etag,
@@ -132,6 +138,7 @@ namespace Pulumi.AzureNative.Network.V20220501
 
             Outputs.VirtualHubIdResponse virtualHub)
         {
+            AllowNonVirtualWanTraffic = allowNonVirtualWanTraffic;
             AutoScaleConfiguration = autoScaleConfiguration;
             Etag = etag;
             ExpressRouteConnections = expressRouteConnections;

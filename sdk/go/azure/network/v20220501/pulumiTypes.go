@@ -52331,6 +52331,8 @@ func (o VirtualNetworkEncryptionResponsePtrOutput) Enforcement() pulumi.StringPt
 
 type VirtualNetworkGatewayType struct {
 	ActiveActive                      *bool                                  `pulumi:"activeActive"`
+	AllowRemoteVnetTraffic            *bool                                  `pulumi:"allowRemoteVnetTraffic"`
+	AllowVirtualWanTraffic            *bool                                  `pulumi:"allowVirtualWanTraffic"`
 	BgpSettings                       *BgpSettings                           `pulumi:"bgpSettings"`
 	CustomRoutes                      *AddressSpace                          `pulumi:"customRoutes"`
 	DisableIPSecReplayProtection      *bool                                  `pulumi:"disableIPSecReplayProtection"`
@@ -52367,6 +52369,8 @@ type VirtualNetworkGatewayTypeInput interface {
 
 type VirtualNetworkGatewayTypeArgs struct {
 	ActiveActive                      pulumi.BoolPtrInput                            `pulumi:"activeActive"`
+	AllowRemoteVnetTraffic            pulumi.BoolPtrInput                            `pulumi:"allowRemoteVnetTraffic"`
+	AllowVirtualWanTraffic            pulumi.BoolPtrInput                            `pulumi:"allowVirtualWanTraffic"`
 	BgpSettings                       BgpSettingsPtrInput                            `pulumi:"bgpSettings"`
 	CustomRoutes                      AddressSpacePtrInput                           `pulumi:"customRoutes"`
 	DisableIPSecReplayProtection      pulumi.BoolPtrInput                            `pulumi:"disableIPSecReplayProtection"`
@@ -52469,6 +52473,14 @@ func (o VirtualNetworkGatewayTypeOutput) ToVirtualNetworkGatewayTypePtrOutputWit
 
 func (o VirtualNetworkGatewayTypeOutput) ActiveActive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayType) *bool { return v.ActiveActive }).(pulumi.BoolPtrOutput)
+}
+
+func (o VirtualNetworkGatewayTypeOutput) AllowRemoteVnetTraffic() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayType) *bool { return v.AllowRemoteVnetTraffic }).(pulumi.BoolPtrOutput)
+}
+
+func (o VirtualNetworkGatewayTypeOutput) AllowVirtualWanTraffic() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayType) *bool { return v.AllowVirtualWanTraffic }).(pulumi.BoolPtrOutput)
 }
 
 func (o VirtualNetworkGatewayTypeOutput) BgpSettings() BgpSettingsPtrOutput {
@@ -52587,6 +52599,24 @@ func (o VirtualNetworkGatewayTypePtrOutput) ActiveActive() pulumi.BoolPtrOutput 
 			return nil
 		}
 		return v.ActiveActive
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o VirtualNetworkGatewayTypePtrOutput) AllowRemoteVnetTraffic() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayType) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowRemoteVnetTraffic
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o VirtualNetworkGatewayTypePtrOutput) AllowVirtualWanTraffic() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayType) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowVirtualWanTraffic
 	}).(pulumi.BoolPtrOutput)
 }
 

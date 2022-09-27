@@ -42,6 +42,14 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      */
     public readonly activeActive!: pulumi.Output<boolean | undefined>;
     /**
+     * Configure this gateway to accept traffic from other Azure Virtual Networks. This configuration does not support connectivity to Azure Virtual WAN.
+     */
+    public readonly allowRemoteVnetTraffic!: pulumi.Output<boolean | undefined>;
+    /**
+     * Configures this gateway to accept traffic from remote Virtual WAN networks.
+     */
+    public readonly allowVirtualWanTraffic!: pulumi.Output<boolean | undefined>;
+    /**
      * Virtual network gateway's BGP speaker settings.
      */
     public readonly bgpSettings!: pulumi.Output<outputs.network.v20220501.BgpSettingsResponse | undefined>;
@@ -161,6 +169,8 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["activeActive"] = args ? args.activeActive : undefined;
+            resourceInputs["allowRemoteVnetTraffic"] = args ? args.allowRemoteVnetTraffic : undefined;
+            resourceInputs["allowVirtualWanTraffic"] = args ? args.allowVirtualWanTraffic : undefined;
             resourceInputs["bgpSettings"] = args ? args.bgpSettings : undefined;
             resourceInputs["customRoutes"] = args ? args.customRoutes : undefined;
             resourceInputs["disableIPSecReplayProtection"] = args ? args.disableIPSecReplayProtection : undefined;
@@ -192,6 +202,8 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["activeActive"] = undefined /*out*/;
+            resourceInputs["allowRemoteVnetTraffic"] = undefined /*out*/;
+            resourceInputs["allowVirtualWanTraffic"] = undefined /*out*/;
             resourceInputs["bgpSettings"] = undefined /*out*/;
             resourceInputs["customRoutes"] = undefined /*out*/;
             resourceInputs["disableIPSecReplayProtection"] = undefined /*out*/;
@@ -234,6 +246,14 @@ export interface VirtualNetworkGatewayArgs {
      * ActiveActive flag.
      */
     activeActive?: pulumi.Input<boolean>;
+    /**
+     * Configure this gateway to accept traffic from other Azure Virtual Networks. This configuration does not support connectivity to Azure Virtual WAN.
+     */
+    allowRemoteVnetTraffic?: pulumi.Input<boolean>;
+    /**
+     * Configures this gateway to accept traffic from remote Virtual WAN networks.
+     */
+    allowVirtualWanTraffic?: pulumi.Input<boolean>;
     /**
      * Virtual network gateway's BGP speaker settings.
      */

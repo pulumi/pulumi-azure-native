@@ -42,6 +42,14 @@ export interface GetVirtualNetworkGatewayResult {
      */
     readonly activeActive?: boolean;
     /**
+     * Configure this gateway to accept traffic from other Azure Virtual Networks. This configuration does not support connectivity to Azure Virtual WAN.
+     */
+    readonly allowRemoteVnetTraffic?: boolean;
+    /**
+     * Configures this gateway to accept traffic from remote Virtual WAN networks.
+     */
+    readonly allowVirtualWanTraffic?: boolean;
+    /**
      * Virtual network gateway's BGP speaker settings.
      */
     readonly bgpSettings?: outputs.network.v20220501.BgpSettingsResponse;

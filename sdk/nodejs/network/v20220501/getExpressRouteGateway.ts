@@ -38,6 +38,10 @@ export interface GetExpressRouteGatewayArgs {
  */
 export interface GetExpressRouteGatewayResult {
     /**
+     * Configures this gateway to accept traffic from non Virtual WAN networks.
+     */
+    readonly allowNonVirtualWanTraffic?: boolean;
+    /**
      * Configuration for auto scaling.
      */
     readonly autoScaleConfiguration?: outputs.network.v20220501.ExpressRouteGatewayPropertiesResponseAutoScaleConfiguration;
