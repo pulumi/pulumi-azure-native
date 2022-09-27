@@ -2095,6 +2095,13 @@
       "Deployment",
       "PrivateEndpointConnection",
       "listAccountKeys"
+    ],
+    "2022-10-01": [
+      "Account",
+      "CommitmentPlan",
+      "Deployment",
+      "PrivateEndpointConnection",
+      "listAccountKeys"
     ]
   },
   "Commerce": {
