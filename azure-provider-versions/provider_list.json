@@ -12836,6 +12836,13 @@
           "2022-09-01-preview",
           "2022-08-01-preview"
         ]
+      },
+      {
+        "resourceType": "projects/pools/schedules",
+        "apiVersions": [
+          "2022-09-01-preview",
+          "2022-08-01-preview"
+        ]
       }
     ]
   },

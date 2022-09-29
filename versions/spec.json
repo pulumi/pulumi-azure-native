@@ -2514,6 +2514,13 @@
       "DiskEncryptionSet",
       "Snapshot"
     ],
+    "2022-03-03": [
+      "Gallery",
+      "GalleryApplication",
+      "GalleryApplicationVersion",
+      "GalleryImage",
+      "GalleryImageVersion"
+    ],
     "2022-04-04": [
       "CloudService"
     ],
@@ -3247,6 +3254,18 @@
       "listManagedClusterUserCredentials"
     ],
     "2022-08-02-preview": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "ManagedClusterSnapshot",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
+    ],
+    "2022-08-03-preview": [
       "AgentPool",
       "MaintenanceConfiguration",
       "ManagedCluster",
@@ -6418,6 +6437,10 @@
       "listConnectedClusterUserCredential"
     ],
     "2022-05-01-preview": [
+      "ConnectedCluster",
+      "listConnectedClusterUserCredential"
+    ],
+    "2022-10-01-preview": [
       "ConnectedCluster",
       "listConnectedClusterUserCredential"
     ]
@@ -11804,6 +11827,30 @@
       "listSourceControlRepositories"
     ],
     "2022-09-01-preview": [
+      "Action",
+      "AlertRule",
+      "AutomationRule",
+      "Bookmark",
+      "BookmarkRelation",
+      "DataConnector",
+      "EntityQuery",
+      "FileImport",
+      "Incident",
+      "IncidentComment",
+      "IncidentRelation",
+      "Metadata",
+      "ProductSetting",
+      "SecurityMLAnalyticsSetting",
+      "SentinelOnboardingState",
+      "SourceControl",
+      "ThreatIntelligenceIndicator",
+      "Watchlist",
+      "WatchlistItem",
+      "getEntitiesGetTimeline",
+      "getEntityInsights",
+      "listSourceControlRepositories"
+    ],
+    "2022-10-01-preview": [
       "Action",
       "AlertRule",
       "AutomationRule",

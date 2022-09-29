@@ -9764,6 +9764,10 @@
     "projects/pools": [
       "2022-08-01-preview",
       "2022-09-01-preview"
+    ],
+    "projects/pools/schedules": [
+      "2022-08-01-preview",
+      "2022-09-01-preview"
     ]
   },
   "devhub": {
