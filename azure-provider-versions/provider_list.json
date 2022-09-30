@@ -8143,27 +8143,6 @@
     "namespace": "Microsoft.ConnectedVMwarevSphere",
     "resourceTypes": [
       {
-        "resourceType": "Clusters",
-        "apiVersions": [
-          "2022-01-10-preview",
-          "2020-10-01-preview"
-        ]
-      },
-      {
-        "resourceType": "Datastores",
-        "apiVersions": [
-          "2022-01-10-preview",
-          "2020-10-01-preview"
-        ]
-      },
-      {
-        "resourceType": "Hosts",
-        "apiVersions": [
-          "2022-01-10-preview",
-          "2020-10-01-preview"
-        ]
-      },
-      {
         "resourceType": "Locations",
         "apiVersions": [
           "2022-07-15-preview",
@@ -8186,22 +8165,9 @@
         ]
       },
       {
-        "resourceType": "Locations/upgradeExtensionsOperationResults",
-        "apiVersions": [
-          "2022-07-15-preview"
-        ]
-      },
-      {
         "resourceType": "Operations",
         "apiVersions": [
           "2022-07-15-preview",
-          "2022-01-10-preview",
-          "2020-10-01-preview"
-        ]
-      },
-      {
-        "resourceType": "ResourcePools",
-        "apiVersions": [
           "2022-01-10-preview",
           "2020-10-01-preview"
         ]
@@ -8214,51 +8180,9 @@
         ]
       },
       {
-        "resourceType": "VCenters/InventoryItems",
-        "apiVersions": [
-          "2022-01-10-preview",
-          "2020-10-01-preview"
-        ]
-      },
-      {
-        "resourceType": "VirtualMachineTemplates",
-        "apiVersions": [
-          "2022-01-10-preview",
-          "2020-10-01-preview"
-        ]
-      },
-      {
-        "resourceType": "VirtualMachines",
-        "apiVersions": [
-          "2022-01-10-preview",
-          "2020-10-01-preview"
-        ]
-      },
-      {
         "resourceType": "VirtualMachines/AssessPatches",
         "apiVersions": [
           "2022-01-10-preview"
-        ]
-      },
-      {
-        "resourceType": "VirtualMachines/Extensions",
-        "apiVersions": [
-          "2022-01-10-preview",
-          "2020-10-01-preview"
-        ]
-      },
-      {
-        "resourceType": "VirtualMachines/GuestAgents",
-        "apiVersions": [
-          "2022-01-10-preview",
-          "2020-10-01-preview"
-        ]
-      },
-      {
-        "resourceType": "VirtualMachines/HybridIdentityMetadata",
-        "apiVersions": [
-          "2022-01-10-preview",
-          "2020-10-01-preview"
         ]
       },
       {
@@ -8274,7 +8198,83 @@
         ]
       },
       {
-        "resourceType": "VirtualNetworks",
+        "resourceType": "clusters",
+        "apiVersions": [
+          "2022-01-10-preview",
+          "2020-10-01-preview"
+        ]
+      },
+      {
+        "resourceType": "datastores",
+        "apiVersions": [
+          "2022-01-10-preview",
+          "2020-10-01-preview"
+        ]
+      },
+      {
+        "resourceType": "hosts",
+        "apiVersions": [
+          "2022-01-10-preview",
+          "2020-10-01-preview"
+        ]
+      },
+      {
+        "resourceType": "locations/upgradeExtensionsOperationResults",
+        "apiVersions": [
+          "2022-07-15-preview"
+        ]
+      },
+      {
+        "resourceType": "resourcepools",
+        "apiVersions": [
+          "2022-01-10-preview",
+          "2020-10-01-preview"
+        ]
+      },
+      {
+        "resourceType": "vcenters/inventoryitems",
+        "apiVersions": [
+          "2022-01-10-preview",
+          "2020-10-01-preview"
+        ]
+      },
+      {
+        "resourceType": "virtualmachines",
+        "apiVersions": [
+          "2022-01-10-preview",
+          "2020-10-01-preview"
+        ]
+      },
+      {
+        "resourceType": "virtualmachines/extensions",
+        "apiVersions": [
+          "2022-01-10-preview",
+          "2020-10-01-preview"
+        ]
+      },
+      {
+        "resourceType": "virtualmachines/guestagents",
+        "apiVersions": [
+          "2022-01-10-preview",
+          "2020-10-01-preview"
+        ]
+      },
+      {
+        "resourceType": "virtualmachines/hybrididentitymetadata",
+        "apiVersions": [
+          "2022-01-10-preview",
+          "2020-10-01-preview"
+        ]
+      },
+      {
+        "resourceType": "virtualmachinetemplates",
+        "apiVersions": [
+          "2022-01-10-preview",
+          "2020-10-01-preview"
+        ]
+      },
+      {
+        "resourceType": "virtualnetworks",
         "apiVersions": [
           "2022-01-10-preview",
           "2020-10-01-preview"
@@ -12832,6 +12832,13 @@
       },
       {
         "resourceType": "projects/pools",
+        "apiVersions": [
+          "2022-09-01-preview",
+          "2022-08-01-preview"
+        ]
+      },
+      {
+        "resourceType": "projects/pools/schedules",
         "apiVersions": [
           "2022-09-01-preview",
           "2022-08-01-preview"
