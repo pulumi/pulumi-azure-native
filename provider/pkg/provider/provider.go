@@ -176,10 +176,7 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	}
 	k.environment = env
 
-	// The ctx Context given by gRPC is request-scoped and will be canceled after this request. We
-	// need the authorizers to function across requests.
-	authCtx := context.Background()
-	tokenAuth, bearerAuth, err := k.getAuthorizers(authCtx, authConfig)
+	tokenAuth, bearerAuth, err := k.getAuthorizers(authConfig)
 	if err != nil {
 		return nil, errors.Wrap(err, "building authorizer")
 	}
@@ -1713,7 +1710,7 @@ func (k *azureNativeProvider) getAuthConfig() (*authentication.Config, error) {
 	return builder.Build()
 }
 
-func (k *azureNativeProvider) getAuthorizers(ctx context.Context, authConfig *authentication.Config) (tokenAuth autorest.Authorizer,
+func (k *azureNativeProvider) getAuthorizers(authConfig *authentication.Config) (tokenAuth autorest.Authorizer,
 	bearerAuth autorest.Authorizer, err error) {
 	buildSender := sender.BuildSender("AzureNative")
 
@@ -1724,12 +1721,16 @@ func (k *azureNativeProvider) getAuthorizers(ctx context.Context, authConfig *au
 
 	endpoint := k.environment.TokenAudience
 
-	tokenAuth, err = authConfig.GetADALToken(ctx, buildSender, oauthConfig, endpoint)
+	// The ctx Context given by gRPC is request-scoped and will be canceled after this request. We
+	// need the authorizers to function across requests.
+	authCtx := context.Background()
+
+	tokenAuth, err = authConfig.GetADALToken(authCtx, buildSender, oauthConfig, endpoint)
 	if err != nil {
 		return nil, nil, err
 	}
 
-	bearerAuth = authConfig.ADALBearerAuthorizerCallback(ctx, buildSender, oauthConfig)
+	bearerAuth = authConfig.ADALBearerAuthorizerCallback(authCtx, buildSender, oauthConfig)
 	return tokenAuth, bearerAuth, nil
 }
 
