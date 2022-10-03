@@ -1560,6 +1560,11 @@
       "ArcSetting",
       "Cluster",
       "Extension"
+    ],
+    "2022-10-01": [
+      "ArcSetting",
+      "Cluster",
+      "Extension"
     ]
   },
   "BareMetalInfrastructure": {
@@ -1862,6 +1867,14 @@
       "PrivateEndpointConnection",
       "Redis",
       "listRedisKeys"
+    ],
+    "2022-06-01": [
+      "FirewallRule",
+      "LinkedServer",
+      "PatchSchedule",
+      "PrivateEndpointConnection",
+      "Redis",
+      "listRedisKeys"
     ]
   },
   "Capacity": {
@@ -2062,6 +2075,11 @@
       "Target"
     ],
     "2022-07-01-preview": [
+      "Capability",
+      "Experiment",
+      "Target"
+    ],
+    "2022-10-01-preview": [
       "Capability",
       "Experiment",
       "Target"
@@ -2513,6 +2531,13 @@
       "DiskAccessAPrivateEndpointConnection",
       "DiskEncryptionSet",
       "Snapshot"
+    ],
+    "2022-03-03": [
+      "Gallery",
+      "GalleryApplication",
+      "GalleryApplicationVersion",
+      "GalleryImage",
+      "GalleryImageVersion"
     ],
     "2022-04-04": [
       "CloudService"
@@ -3247,6 +3272,18 @@
       "listManagedClusterUserCredentials"
     ],
     "2022-08-02-preview": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "ManagedClusterSnapshot",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
+    ],
+    "2022-08-03-preview": [
       "AgentPool",
       "MaintenanceConfiguration",
       "ManagedCluster",
@@ -4008,6 +4045,13 @@
       "BackupInstance",
       "BackupPolicy",
       "BackupVault",
+      "ResourceGuard"
+    ],
+    "2022-09-01-preview": [
+      "BackupInstance",
+      "BackupPolicy",
+      "BackupVault",
+      "DppResourceGuardProxy",
       "ResourceGuard"
     ]
   },
@@ -6420,6 +6464,10 @@
     "2022-05-01-preview": [
       "ConnectedCluster",
       "listConnectedClusterUserCredential"
+    ],
+    "2022-10-01-preview": [
+      "ConnectedCluster",
+      "listConnectedClusterUserCredential"
     ]
   },
   "KubernetesConfiguration": {
@@ -6641,6 +6689,9 @@
       "LoadTest"
     ],
     "2022-04-15-preview": [
+      "LoadTest"
+    ],
+    "2022-12-01": [
       "LoadTest"
     ]
   },
@@ -7109,6 +7160,40 @@
       "EnvironmentVersion",
       "Job",
       "LabelingJob",
+      "ModelContainer",
+      "ModelVersion",
+      "OnlineDeployment",
+      "OnlineEndpoint",
+      "PrivateEndpointConnection",
+      "Schedule",
+      "Workspace",
+      "WorkspaceConnection",
+      "getOnlineDeploymentLogs",
+      "getOnlineEndpointToken",
+      "listBatchEndpointKeys",
+      "listComputeKeys",
+      "listComputeNodes",
+      "listDatastoreSecrets",
+      "listOnlineEndpointKeys",
+      "listWorkspaceKeys",
+      "listWorkspaceNotebookAccessToken",
+      "listWorkspaceNotebookKeys",
+      "listWorkspaceStorageAccountKeys"
+    ],
+    "2022-10-01": [
+      "BatchDeployment",
+      "BatchEndpoint",
+      "CodeContainer",
+      "CodeVersion",
+      "ComponentContainer",
+      "ComponentVersion",
+      "Compute",
+      "DataContainer",
+      "DataVersion",
+      "Datastore",
+      "EnvironmentContainer",
+      "EnvironmentVersion",
+      "Job",
       "ModelContainer",
       "ModelVersion",
       "OnlineDeployment",
@@ -10630,6 +10715,11 @@
       "listRemediationDeploymentsAtResource",
       "listRemediationDeploymentsAtResourceGroup",
       "listRemediationDeploymentsAtSubscription"
+    ],
+    "2022-09-01": [
+      "AttestationAtResource",
+      "AttestationAtResourceGroup",
+      "AttestationAtSubscription"
     ]
   },
   "Portal": {
@@ -11105,7 +11195,8 @@
       "ReplicationRecoveryPlan",
       "ReplicationRecoveryServicesProvider",
       "ReplicationStorageClassificationMapping",
-      "ReplicationvCenter"
+      "ReplicationvCenter",
+      "Vault"
     ],
     "2022-06-01-preview": [
       "PrivateEndpointConnection",
@@ -11804,6 +11895,30 @@
       "listSourceControlRepositories"
     ],
     "2022-09-01-preview": [
+      "Action",
+      "AlertRule",
+      "AutomationRule",
+      "Bookmark",
+      "BookmarkRelation",
+      "DataConnector",
+      "EntityQuery",
+      "FileImport",
+      "Incident",
+      "IncidentComment",
+      "IncidentRelation",
+      "Metadata",
+      "ProductSetting",
+      "SecurityMLAnalyticsSetting",
+      "SentinelOnboardingState",
+      "SourceControl",
+      "ThreatIntelligenceIndicator",
+      "Watchlist",
+      "WatchlistItem",
+      "getEntitiesGetTimeline",
+      "getEntityInsights",
+      "listSourceControlRepositories"
+    ],
+    "2022-10-01-preview": [
       "Action",
       "AlertRule",
       "AutomationRule",
