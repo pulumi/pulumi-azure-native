@@ -217,6 +217,9 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 			if err != nil {
 				return nil, fmt.Errorf("getting authenticated object ID: %w", err)
 			}
+			if objectIdPtr == nil {
+				return nil, fmt.Errorf("getting authenticated object ID")
+			}
 			objectId = *objectIdPtr
 		}
 		outputs = map[string]interface{}{
