@@ -2,6 +2,12 @@
 
 ## HEAD (Unreleased)
 
+## 1.80.0 (2022-10-04)
+
+- Upgrade to latest version of Azure Rest API Specs.
+  - datafactory storedProcedureParameters shape change
+  - app listDaprComponentSecrets type change
+
 ## 1.79.0 (2022-09-23)
 
 - Upgrade to latest version of Azure Rest API Specs.
