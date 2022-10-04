@@ -29,10 +29,9 @@ require (
 	modernc.org/sqlite v1.10.0
 )
 
-require github.com/Azure/go-autorest/autorest/adal v0.9.18 // indirect
+require github.com/Azure/go-autorest/autorest/adal v0.9.21
 
 require (
-	github.com/Azure/go-autorest/autorest/adal v0.9.21
 	github.com/golang/protobuf v1.5.2
 	github.com/google/uuid v1.3.0
 	github.com/hashicorp/go-azure-helpers v0.40.0
