@@ -213,10 +213,14 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 		}
 		objectId := ""
 		if auth.GetAuthenticatedObjectID != nil {
-			objectId, err = auth.GetAuthenticatedObjectID(ctx)
+			objectIdPtr, err := auth.GetAuthenticatedObjectID(ctx)
 			if err != nil {
 				return nil, fmt.Errorf("getting authenticated object ID: %w", err)
 			}
+			if objectIdPtr == nil {
+				return nil, fmt.Errorf("getting authenticated object ID")
+			}
+			objectId = *objectIdPtr
 		}
 		outputs = map[string]interface{}{
 			"clientId":       auth.ClientID,
@@ -1712,28 +1716,35 @@ func (k *azureNativeProvider) getAuthConfig() (*authentication.Config, error) {
 func (k *azureNativeProvider) getAuthorizers(authConfig *authentication.Config) (tokenAuth autorest.Authorizer,
 	bearerAuth autorest.Authorizer, err error) {
 	buildSender := sender.BuildSender("AzureNative")
-	oauthConfig, err := authConfig.BuildOAuthConfig(k.environment.ActiveDirectoryEndpoint)
+
+	oauthConfig, err := k.buildOAuthConfig(authConfig)
 	if err != nil {
 		return nil, nil, err
 	}
 
-	if oauthConfig == nil {
-		return nil, nil, fmt.Errorf("unable to configure OAuthConfig for tenant %s", authConfig.TenantID)
-	}
+	endpoint := k.environment.TokenAudience
 
-	tokenAuth, err = authConfig.GetAuthorizationToken(buildSender, oauthConfig, k.environment.TokenAudience)
+	// The ctx Context given by gRPC is request-scoped and will be canceled after this request. We
+	// need the authorizers to function across requests.
+	authCtx := context.Background()
+
+	tokenAuth, err = authConfig.GetADALToken(authCtx, buildSender, oauthConfig, endpoint)
 	if err != nil {
 		return nil, nil, err
 	}
 
-	bearerAuth = authConfig.BearerAuthorizerCallback(buildSender, oauthConfig)
+	bearerAuth = authConfig.ADALBearerAuthorizerCallback(authCtx, buildSender, oauthConfig)
 	return tokenAuth, bearerAuth, nil
 }
 
 func (k *azureNativeProvider) getOAuthToken(ctx context.Context, auth *authentication.Config, endpoint string) (string, error) {
 	buildSender := sender.BuildSender("AzureNative")
-	oauthConfig, err := auth.BuildOAuthConfig(k.environment.ActiveDirectoryEndpoint)
-	authorizer, err := auth.GetAuthorizationToken(buildSender, oauthConfig, endpoint)
+	oauthConfig, err := k.buildOAuthConfig(auth)
+	if err != nil {
+		return "", err
+	}
+
+	authorizer, err := auth.GetADALToken(ctx, buildSender, oauthConfig, endpoint)
 	if err != nil {
 		return "", fmt.Errorf("getting authorization token: %w", err)
 	}
@@ -1756,6 +1767,17 @@ func (k *azureNativeProvider) getOAuthToken(ctx context.Context, auth *authentic
 		return "", fmt.Errorf("empty token from %T", tokenProvider)
 	}
 	return token, nil
+}
+
+func (k *azureNativeProvider) buildOAuthConfig(authConfig *authentication.Config) (*authentication.OAuthConfig, error) {
+	oauthConfig, err := authConfig.BuildOAuthConfig(k.environment.ActiveDirectoryEndpoint)
+	if err != nil {
+		return nil, err
+	}
+	if oauthConfig == nil {
+		return nil, fmt.Errorf("unable to configure OAuthConfig for tenant %s", authConfig.TenantID)
+	}
+	return oauthConfig, nil
 }
 
 // getUserAgent returns a User Agent string for the current provider configuration.
