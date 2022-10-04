@@ -73,6 +73,9 @@ func NewEyesOn(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:securityinsights/v20220901preview:EyesOn"),
 		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20221001preview:EyesOn"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource EyesOn

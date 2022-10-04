@@ -71,6 +71,10 @@ namespace Pulumi.AzureNative.DataBox.V20220201.Outputs
         /// <summary>
         /// Copy progress per disk.
         /// </summary>
+        public readonly ImmutableArray<Outputs.DataBoxDiskGranularCopyLogDetailsResponse> GranularCopyLogDetails;
+        /// <summary>
+        /// Copy progress per disk.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DataBoxDiskGranularCopyProgressResponse> GranularCopyProgress;
         /// <summary>
         /// Indicates the type of job details.
@@ -142,6 +146,8 @@ namespace Pulumi.AzureNative.DataBox.V20220201.Outputs
 
             int? expectedDataSizeInTeraBytes,
 
+            ImmutableArray<Outputs.DataBoxDiskGranularCopyLogDetailsResponse> granularCopyLogDetails,
+
             ImmutableArray<Outputs.DataBoxDiskGranularCopyProgressResponse> granularCopyProgress,
 
             string jobDetailsType,
@@ -177,6 +183,7 @@ namespace Pulumi.AzureNative.DataBox.V20220201.Outputs
             DeviceErasureDetails = deviceErasureDetails;
             DisksAndSizeDetails = disksAndSizeDetails;
             ExpectedDataSizeInTeraBytes = expectedDataSizeInTeraBytes;
+            GranularCopyLogDetails = granularCopyLogDetails;
             GranularCopyProgress = granularCopyProgress;
             JobDetailsType = jobDetailsType;
             JobStages = jobStages;

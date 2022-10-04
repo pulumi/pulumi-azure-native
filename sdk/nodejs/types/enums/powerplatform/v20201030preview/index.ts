@@ -7,6 +7,7 @@ export const EnterprisePolicyKind = {
     PrivateEndpoint: "PrivateEndpoint",
     Encryption: "Encryption",
     NetworkInjection: "NetworkInjection",
+    Identity: "Identity",
 } as const;
 
 /**

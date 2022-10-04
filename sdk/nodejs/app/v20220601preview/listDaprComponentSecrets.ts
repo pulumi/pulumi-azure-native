@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Dapr component Secrets Collection ARM resource.
+ * Dapr component Secrets Collection for ListSecrets Action.
  */
 export function listDaprComponentSecrets(args: ListDaprComponentSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListDaprComponentSecretsResult> {
     if (!opts) {
@@ -39,7 +39,7 @@ export interface ListDaprComponentSecretsArgs {
 }
 
 /**
- * Dapr component Secrets Collection ARM resource.
+ * Dapr component Secrets Collection for ListSecrets Action.
  */
 export interface ListDaprComponentSecretsResult {
     /**

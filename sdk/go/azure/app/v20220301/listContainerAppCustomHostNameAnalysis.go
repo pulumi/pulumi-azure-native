@@ -31,6 +31,7 @@ type ListContainerAppCustomHostNameAnalysisResult struct {
 	AlternateCNameRecords               []string                                                                `pulumi:"alternateCNameRecords"`
 	AlternateTxtRecords                 []string                                                                `pulumi:"alternateTxtRecords"`
 	CNameRecords                        []string                                                                `pulumi:"cNameRecords"`
+	ConflictWithEnvironmentCustomDomain bool                                                                    `pulumi:"conflictWithEnvironmentCustomDomain"`
 	ConflictingContainerAppResourceId   string                                                                  `pulumi:"conflictingContainerAppResourceId"`
 	CustomDomainVerificationFailureInfo CustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfo `pulumi:"customDomainVerificationFailureInfo"`
 	CustomDomainVerificationTest        string                                                                  `pulumi:"customDomainVerificationTest"`
@@ -92,6 +93,12 @@ func (o ListContainerAppCustomHostNameAnalysisResultOutput) AlternateTxtRecords(
 
 func (o ListContainerAppCustomHostNameAnalysisResultOutput) CNameRecords() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ListContainerAppCustomHostNameAnalysisResult) []string { return v.CNameRecords }).(pulumi.StringArrayOutput)
+}
+
+func (o ListContainerAppCustomHostNameAnalysisResultOutput) ConflictWithEnvironmentCustomDomain() pulumi.BoolOutput {
+	return o.ApplyT(func(v ListContainerAppCustomHostNameAnalysisResult) bool {
+		return v.ConflictWithEnvironmentCustomDomain
+	}).(pulumi.BoolOutput)
 }
 
 func (o ListContainerAppCustomHostNameAnalysisResultOutput) ConflictingContainerAppResourceId() pulumi.StringOutput {

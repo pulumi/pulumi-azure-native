@@ -42,11 +42,13 @@ class ArcSqlServerLicenseType(str, Enum):
     """
     SQL Server license type.
     """
-    PAYG = "Payg"
-    PAID = "Paid"
+    UNDEFINED = "Undefined"
     FREE = "Free"
     HADR = "HADR"
-    UNDEFINED = "Undefined"
+    SERVER_CAL = "ServerCAL"
+    LICENSE_ONLY = "LicenseOnly"
+    PAYG = "PAYG"
+    PAID = "Paid"
 
 
 class ConnectionStatus(str, Enum):

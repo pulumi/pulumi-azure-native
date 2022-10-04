@@ -87,7 +87,7 @@ export class ModelContainer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:ModelContainer" }, { type: "azure-native:machinelearningservices/v20210301preview:ModelContainer" }, { type: "azure-native:machinelearningservices/v20220501:ModelContainer" }, { type: "azure-native:machinelearningservices/v20220601preview:ModelContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:ModelContainer" }, { type: "azure-native:machinelearningservices/v20210301preview:ModelContainer" }, { type: "azure-native:machinelearningservices/v20220501:ModelContainer" }, { type: "azure-native:machinelearningservices/v20220601preview:ModelContainer" }, { type: "azure-native:machinelearningservices/v20221001:ModelContainer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ModelContainer.__pulumiType, name, resourceInputs, opts);
     }

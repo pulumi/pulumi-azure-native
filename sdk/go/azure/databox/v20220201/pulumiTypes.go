@@ -327,6 +327,14 @@ type DataBoxDiskCopyProgressResponse struct {
 	Status          string  `pulumi:"status"`
 }
 
+type DataBoxDiskGranularCopyLogDetailsResponse struct {
+	AccountName        string `pulumi:"accountName"`
+	CopyLogDetailsType string `pulumi:"copyLogDetailsType"`
+	ErrorLogLink       string `pulumi:"errorLogLink"`
+	SerialNumber       string `pulumi:"serialNumber"`
+	VerboseLogLink     string `pulumi:"verboseLogLink"`
+}
+
 type DataBoxDiskGranularCopyProgressResponse struct {
 	AccountId                   string  `pulumi:"accountId"`
 	BytesProcessed              float64 `pulumi:"bytesProcessed"`
@@ -376,30 +384,31 @@ func (val *DataBoxDiskJobDetails) Defaults() *DataBoxDiskJobDetails {
 }
 
 type DataBoxDiskJobDetailsResponse struct {
-	Actions                     []string                                  `pulumi:"actions"`
-	ChainOfCustodySasKey        string                                    `pulumi:"chainOfCustodySasKey"`
-	ContactDetails              ContactDetailsResponse                    `pulumi:"contactDetails"`
-	CopyLogDetails              []interface{}                             `pulumi:"copyLogDetails"`
-	CopyProgress                []DataBoxDiskCopyProgressResponse         `pulumi:"copyProgress"`
-	DataCenterCode              string                                    `pulumi:"dataCenterCode"`
-	DataExportDetails           []DataExportDetailsResponse               `pulumi:"dataExportDetails"`
-	DataImportDetails           []DataImportDetailsResponse               `pulumi:"dataImportDetails"`
-	DatacenterAddress           interface{}                               `pulumi:"datacenterAddress"`
-	DeliveryPackage             PackageShippingDetailsResponse            `pulumi:"deliveryPackage"`
-	DeviceErasureDetails        DeviceErasureDetailsResponse              `pulumi:"deviceErasureDetails"`
-	DisksAndSizeDetails         map[string]int                            `pulumi:"disksAndSizeDetails"`
-	ExpectedDataSizeInTeraBytes *int                                      `pulumi:"expectedDataSizeInTeraBytes"`
-	GranularCopyProgress        []DataBoxDiskGranularCopyProgressResponse `pulumi:"granularCopyProgress"`
-	JobDetailsType              string                                    `pulumi:"jobDetailsType"`
-	JobStages                   []JobStagesResponse                       `pulumi:"jobStages"`
-	KeyEncryptionKey            *KeyEncryptionKeyResponse                 `pulumi:"keyEncryptionKey"`
-	LastMitigationActionOnJob   LastMitigationActionOnJobResponse         `pulumi:"lastMitigationActionOnJob"`
-	Passkey                     *string                                   `pulumi:"passkey"`
-	Preferences                 *PreferencesResponse                      `pulumi:"preferences"`
-	PreferredDisks              map[string]int                            `pulumi:"preferredDisks"`
-	ReturnPackage               PackageShippingDetailsResponse            `pulumi:"returnPackage"`
-	ReverseShipmentLabelSasKey  string                                    `pulumi:"reverseShipmentLabelSasKey"`
-	ShippingAddress             *ShippingAddressResponse                  `pulumi:"shippingAddress"`
+	Actions                     []string                                    `pulumi:"actions"`
+	ChainOfCustodySasKey        string                                      `pulumi:"chainOfCustodySasKey"`
+	ContactDetails              ContactDetailsResponse                      `pulumi:"contactDetails"`
+	CopyLogDetails              []interface{}                               `pulumi:"copyLogDetails"`
+	CopyProgress                []DataBoxDiskCopyProgressResponse           `pulumi:"copyProgress"`
+	DataCenterCode              string                                      `pulumi:"dataCenterCode"`
+	DataExportDetails           []DataExportDetailsResponse                 `pulumi:"dataExportDetails"`
+	DataImportDetails           []DataImportDetailsResponse                 `pulumi:"dataImportDetails"`
+	DatacenterAddress           interface{}                                 `pulumi:"datacenterAddress"`
+	DeliveryPackage             PackageShippingDetailsResponse              `pulumi:"deliveryPackage"`
+	DeviceErasureDetails        DeviceErasureDetailsResponse                `pulumi:"deviceErasureDetails"`
+	DisksAndSizeDetails         map[string]int                              `pulumi:"disksAndSizeDetails"`
+	ExpectedDataSizeInTeraBytes *int                                        `pulumi:"expectedDataSizeInTeraBytes"`
+	GranularCopyLogDetails      []DataBoxDiskGranularCopyLogDetailsResponse `pulumi:"granularCopyLogDetails"`
+	GranularCopyProgress        []DataBoxDiskGranularCopyProgressResponse   `pulumi:"granularCopyProgress"`
+	JobDetailsType              string                                      `pulumi:"jobDetailsType"`
+	JobStages                   []JobStagesResponse                         `pulumi:"jobStages"`
+	KeyEncryptionKey            *KeyEncryptionKeyResponse                   `pulumi:"keyEncryptionKey"`
+	LastMitigationActionOnJob   LastMitigationActionOnJobResponse           `pulumi:"lastMitigationActionOnJob"`
+	Passkey                     *string                                     `pulumi:"passkey"`
+	Preferences                 *PreferencesResponse                        `pulumi:"preferences"`
+	PreferredDisks              map[string]int                              `pulumi:"preferredDisks"`
+	ReturnPackage               PackageShippingDetailsResponse              `pulumi:"returnPackage"`
+	ReverseShipmentLabelSasKey  string                                      `pulumi:"reverseShipmentLabelSasKey"`
+	ShippingAddress             *ShippingAddressResponse                    `pulumi:"shippingAddress"`
 }
 
 

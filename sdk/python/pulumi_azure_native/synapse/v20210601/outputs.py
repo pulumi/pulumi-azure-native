@@ -518,41 +518,14 @@ class DynamicExecutorAllocationResponse(dict):
     """
     Dynamic Executor Allocation Properties
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "maxExecutors":
-            suggest = "max_executors"
-        elif key == "minExecutors":
-            suggest = "min_executors"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DynamicExecutorAllocationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DynamicExecutorAllocationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DynamicExecutorAllocationResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
-                 enabled: Optional[bool] = None,
-                 max_executors: Optional[int] = None,
-                 min_executors: Optional[int] = None):
+                 enabled: Optional[bool] = None):
         """
         Dynamic Executor Allocation Properties
         :param bool enabled: Indicates whether Dynamic Executor Allocation is enabled or not.
-        :param int max_executors: The maximum number of executors alloted
-        :param int min_executors: The minimum number of executors alloted
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
-        if max_executors is not None:
-            pulumi.set(__self__, "max_executors", max_executors)
-        if min_executors is not None:
-            pulumi.set(__self__, "min_executors", min_executors)
 
     @property
     @pulumi.getter
@@ -561,22 +534,6 @@ class DynamicExecutorAllocationResponse(dict):
         Indicates whether Dynamic Executor Allocation is enabled or not.
         """
         return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter(name="maxExecutors")
-    def max_executors(self) -> Optional[int]:
-        """
-        The maximum number of executors alloted
-        """
-        return pulumi.get(self, "max_executors")
-
-    @property
-    @pulumi.getter(name="minExecutors")
-    def min_executors(self) -> Optional[int]:
-        """
-        The minimum number of executors alloted
-        """
-        return pulumi.get(self, "min_executors")
 
 
 @pulumi.output_type

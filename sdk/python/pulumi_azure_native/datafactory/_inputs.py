@@ -522,7 +522,6 @@ __all__ = [
     'SquareObjectDatasetArgs',
     'SquareSourceArgs',
     'StagingSettingsArgs',
-    'StoredProcedureParameterArgs',
     'SwitchActivityArgs',
     'SwitchCaseArgs',
     'SybaseLinkedServiceArgs',
@@ -1951,7 +1950,7 @@ class AmazonRdsForSqlServerSourceArgs:
                  source_retry_wait: Optional[Any] = None,
                  sql_reader_query: Optional[Any] = None,
                  sql_reader_stored_procedure_name: Optional[Any] = None,
-                 stored_procedure_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]] = None):
+                 stored_procedure_parameters: Optional[Any] = None):
         """
         A copy activity Amazon RDS for SQL Server source.
         :param pulumi.Input[str] type: Copy source type.
@@ -1967,7 +1966,7 @@ class AmazonRdsForSqlServerSourceArgs:
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any sql_reader_query: SQL reader query. Type: string (or Expression with resultType string).
         :param Any sql_reader_stored_procedure_name: Name of the stored procedure for a SQL Database source. This cannot be used at the same time as SqlReaderQuery. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]] stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
+        :param Any stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
         """
         pulumi.set(__self__, "type", 'AmazonRdsForSqlServerSource')
         if additional_columns is not None:
@@ -2142,14 +2141,14 @@ class AmazonRdsForSqlServerSourceArgs:
 
     @property
     @pulumi.getter(name="storedProcedureParameters")
-    def stored_procedure_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]]:
+    def stored_procedure_parameters(self) -> Optional[Any]:
         """
         Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
         """
         return pulumi.get(self, "stored_procedure_parameters")
 
     @stored_procedure_parameters.setter
-    def stored_procedure_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]]):
+    def stored_procedure_parameters(self, value: Optional[Any]):
         pulumi.set(self, "stored_procedure_parameters", value)
 
 
@@ -15837,7 +15836,7 @@ class AzureSqlSinkArgs:
                  sql_writer_stored_procedure_name: Optional[Any] = None,
                  sql_writer_table_type: Optional[Any] = None,
                  sql_writer_use_table_lock: Optional[Any] = None,
-                 stored_procedure_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]] = None,
+                 stored_procedure_parameters: Optional[Any] = None,
                  stored_procedure_table_type_parameter_name: Optional[Any] = None,
                  table_option: Optional[Any] = None,
                  upsert_settings: Optional[pulumi.Input['SqlUpsertSettingsArgs']] = None,
@@ -15856,7 +15855,7 @@ class AzureSqlSinkArgs:
         :param Any sql_writer_stored_procedure_name: SQL writer stored procedure name. Type: string (or Expression with resultType string).
         :param Any sql_writer_table_type: SQL writer table type. Type: string (or Expression with resultType string).
         :param Any sql_writer_use_table_lock: Whether to use table lock during bulk copy. Type: boolean (or Expression with resultType boolean).
-        :param pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]] stored_procedure_parameters: SQL stored procedure parameters.
+        :param Any stored_procedure_parameters: SQL stored procedure parameters.
         :param Any stored_procedure_table_type_parameter_name: The stored procedure parameter name of the table type. Type: string (or Expression with resultType string).
         :param Any table_option: The option to handle sink table, such as autoCreate. For now only 'autoCreate' value is supported. Type: string (or Expression with resultType string).
         :param pulumi.Input['SqlUpsertSettingsArgs'] upsert_settings: SQL upsert settings.
@@ -16007,14 +16006,14 @@ class AzureSqlSinkArgs:
 
     @property
     @pulumi.getter(name="storedProcedureParameters")
-    def stored_procedure_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]]:
+    def stored_procedure_parameters(self) -> Optional[Any]:
         """
         SQL stored procedure parameters.
         """
         return pulumi.get(self, "stored_procedure_parameters")
 
     @stored_procedure_parameters.setter
-    def stored_procedure_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]]):
+    def stored_procedure_parameters(self, value: Optional[Any]):
         pulumi.set(self, "stored_procedure_parameters", value)
 
     @property
@@ -16105,7 +16104,7 @@ class AzureSqlSourceArgs:
                  source_retry_wait: Optional[Any] = None,
                  sql_reader_query: Optional[Any] = None,
                  sql_reader_stored_procedure_name: Optional[Any] = None,
-                 stored_procedure_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]] = None):
+                 stored_procedure_parameters: Optional[Any] = None):
         """
         A copy activity Azure SQL source.
         :param pulumi.Input[str] type: Copy source type.
@@ -16121,7 +16120,7 @@ class AzureSqlSourceArgs:
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any sql_reader_query: SQL reader query. Type: string (or Expression with resultType string).
         :param Any sql_reader_stored_procedure_name: Name of the stored procedure for a SQL Database source. This cannot be used at the same time as SqlReaderQuery. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]] stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
+        :param Any stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
         """
         pulumi.set(__self__, "type", 'AzureSqlSource')
         if additional_columns is not None:
@@ -16296,14 +16295,14 @@ class AzureSqlSourceArgs:
 
     @property
     @pulumi.getter(name="storedProcedureParameters")
-    def stored_procedure_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]]:
+    def stored_procedure_parameters(self) -> Optional[Any]:
         """
         Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
         """
         return pulumi.get(self, "stored_procedure_parameters")
 
     @stored_procedure_parameters.setter
-    def stored_procedure_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]]):
+    def stored_procedure_parameters(self, value: Optional[Any]):
         pulumi.set(self, "stored_procedure_parameters", value)
 
 
@@ -71908,7 +71907,7 @@ class SqlMISinkArgs:
                  sql_writer_stored_procedure_name: Optional[Any] = None,
                  sql_writer_table_type: Optional[Any] = None,
                  sql_writer_use_table_lock: Optional[Any] = None,
-                 stored_procedure_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]] = None,
+                 stored_procedure_parameters: Optional[Any] = None,
                  stored_procedure_table_type_parameter_name: Optional[Any] = None,
                  table_option: Optional[Any] = None,
                  upsert_settings: Optional[pulumi.Input['SqlUpsertSettingsArgs']] = None,
@@ -71927,7 +71926,7 @@ class SqlMISinkArgs:
         :param Any sql_writer_stored_procedure_name: SQL writer stored procedure name. Type: string (or Expression with resultType string).
         :param Any sql_writer_table_type: SQL writer table type. Type: string (or Expression with resultType string).
         :param Any sql_writer_use_table_lock: Whether to use table lock during bulk copy. Type: boolean (or Expression with resultType boolean).
-        :param pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]] stored_procedure_parameters: SQL stored procedure parameters.
+        :param Any stored_procedure_parameters: SQL stored procedure parameters.
         :param Any stored_procedure_table_type_parameter_name: The stored procedure parameter name of the table type. Type: string (or Expression with resultType string).
         :param Any table_option: The option to handle sink table, such as autoCreate. For now only 'autoCreate' value is supported. Type: string (or Expression with resultType string).
         :param pulumi.Input['SqlUpsertSettingsArgs'] upsert_settings: SQL upsert settings.
@@ -72078,14 +72077,14 @@ class SqlMISinkArgs:
 
     @property
     @pulumi.getter(name="storedProcedureParameters")
-    def stored_procedure_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]]:
+    def stored_procedure_parameters(self) -> Optional[Any]:
         """
         SQL stored procedure parameters.
         """
         return pulumi.get(self, "stored_procedure_parameters")
 
     @stored_procedure_parameters.setter
-    def stored_procedure_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]]):
+    def stored_procedure_parameters(self, value: Optional[Any]):
         pulumi.set(self, "stored_procedure_parameters", value)
 
     @property
@@ -72176,7 +72175,7 @@ class SqlMISourceArgs:
                  source_retry_wait: Optional[Any] = None,
                  sql_reader_query: Optional[Any] = None,
                  sql_reader_stored_procedure_name: Optional[Any] = None,
-                 stored_procedure_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]] = None):
+                 stored_procedure_parameters: Optional[Any] = None):
         """
         A copy activity Azure SQL Managed Instance source.
         :param pulumi.Input[str] type: Copy source type.
@@ -72192,7 +72191,7 @@ class SqlMISourceArgs:
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any sql_reader_query: SQL reader query. Type: string (or Expression with resultType string).
         :param Any sql_reader_stored_procedure_name: Name of the stored procedure for a Azure SQL Managed Instance source. This cannot be used at the same time as SqlReaderQuery. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]] stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
+        :param Any stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
         """
         pulumi.set(__self__, "type", 'SqlMISource')
         if additional_columns is not None:
@@ -72367,14 +72366,14 @@ class SqlMISourceArgs:
 
     @property
     @pulumi.getter(name="storedProcedureParameters")
-    def stored_procedure_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]]:
+    def stored_procedure_parameters(self) -> Optional[Any]:
         """
         Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
         """
         return pulumi.get(self, "stored_procedure_parameters")
 
     @stored_procedure_parameters.setter
-    def stored_procedure_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]]):
+    def stored_procedure_parameters(self, value: Optional[Any]):
         pulumi.set(self, "stored_procedure_parameters", value)
 
 
@@ -72614,7 +72613,7 @@ class SqlServerSinkArgs:
                  sql_writer_stored_procedure_name: Optional[Any] = None,
                  sql_writer_table_type: Optional[Any] = None,
                  sql_writer_use_table_lock: Optional[Any] = None,
-                 stored_procedure_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]] = None,
+                 stored_procedure_parameters: Optional[Any] = None,
                  stored_procedure_table_type_parameter_name: Optional[Any] = None,
                  table_option: Optional[Any] = None,
                  upsert_settings: Optional[pulumi.Input['SqlUpsertSettingsArgs']] = None,
@@ -72633,7 +72632,7 @@ class SqlServerSinkArgs:
         :param Any sql_writer_stored_procedure_name: SQL writer stored procedure name. Type: string (or Expression with resultType string).
         :param Any sql_writer_table_type: SQL writer table type. Type: string (or Expression with resultType string).
         :param Any sql_writer_use_table_lock: Whether to use table lock during bulk copy. Type: boolean (or Expression with resultType boolean).
-        :param pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]] stored_procedure_parameters: SQL stored procedure parameters.
+        :param Any stored_procedure_parameters: SQL stored procedure parameters.
         :param Any stored_procedure_table_type_parameter_name: The stored procedure parameter name of the table type. Type: string (or Expression with resultType string).
         :param Any table_option: The option to handle sink table, such as autoCreate. For now only 'autoCreate' value is supported. Type: string (or Expression with resultType string).
         :param pulumi.Input['SqlUpsertSettingsArgs'] upsert_settings: SQL upsert settings.
@@ -72784,14 +72783,14 @@ class SqlServerSinkArgs:
 
     @property
     @pulumi.getter(name="storedProcedureParameters")
-    def stored_procedure_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]]:
+    def stored_procedure_parameters(self) -> Optional[Any]:
         """
         SQL stored procedure parameters.
         """
         return pulumi.get(self, "stored_procedure_parameters")
 
     @stored_procedure_parameters.setter
-    def stored_procedure_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]]):
+    def stored_procedure_parameters(self, value: Optional[Any]):
         pulumi.set(self, "stored_procedure_parameters", value)
 
     @property
@@ -72882,7 +72881,7 @@ class SqlServerSourceArgs:
                  source_retry_wait: Optional[Any] = None,
                  sql_reader_query: Optional[Any] = None,
                  sql_reader_stored_procedure_name: Optional[Any] = None,
-                 stored_procedure_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]] = None):
+                 stored_procedure_parameters: Optional[Any] = None):
         """
         A copy activity SQL server source.
         :param pulumi.Input[str] type: Copy source type.
@@ -72898,7 +72897,7 @@ class SqlServerSourceArgs:
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any sql_reader_query: SQL reader query. Type: string (or Expression with resultType string).
         :param Any sql_reader_stored_procedure_name: Name of the stored procedure for a SQL Database source. This cannot be used at the same time as SqlReaderQuery. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]] stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
+        :param Any stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
         """
         pulumi.set(__self__, "type", 'SqlServerSource')
         if additional_columns is not None:
@@ -73073,14 +73072,14 @@ class SqlServerSourceArgs:
 
     @property
     @pulumi.getter(name="storedProcedureParameters")
-    def stored_procedure_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]]:
+    def stored_procedure_parameters(self) -> Optional[Any]:
         """
         Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
         """
         return pulumi.get(self, "stored_procedure_parameters")
 
     @stored_procedure_parameters.setter
-    def stored_procedure_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]]):
+    def stored_procedure_parameters(self, value: Optional[Any]):
         pulumi.set(self, "stored_procedure_parameters", value)
 
 
@@ -73414,7 +73413,7 @@ class SqlSinkArgs:
                  sql_writer_stored_procedure_name: Optional[Any] = None,
                  sql_writer_table_type: Optional[Any] = None,
                  sql_writer_use_table_lock: Optional[Any] = None,
-                 stored_procedure_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]] = None,
+                 stored_procedure_parameters: Optional[Any] = None,
                  stored_procedure_table_type_parameter_name: Optional[Any] = None,
                  table_option: Optional[Any] = None,
                  upsert_settings: Optional[pulumi.Input['SqlUpsertSettingsArgs']] = None,
@@ -73433,7 +73432,7 @@ class SqlSinkArgs:
         :param Any sql_writer_stored_procedure_name: SQL writer stored procedure name. Type: string (or Expression with resultType string).
         :param Any sql_writer_table_type: SQL writer table type. Type: string (or Expression with resultType string).
         :param Any sql_writer_use_table_lock: Whether to use table lock during bulk copy. Type: boolean (or Expression with resultType boolean).
-        :param pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]] stored_procedure_parameters: SQL stored procedure parameters.
+        :param Any stored_procedure_parameters: SQL stored procedure parameters.
         :param Any stored_procedure_table_type_parameter_name: The stored procedure parameter name of the table type. Type: string (or Expression with resultType string).
         :param Any table_option: The option to handle sink table, such as autoCreate. For now only 'autoCreate' value is supported. Type: string (or Expression with resultType string).
         :param pulumi.Input['SqlUpsertSettingsArgs'] upsert_settings: SQL upsert settings.
@@ -73584,14 +73583,14 @@ class SqlSinkArgs:
 
     @property
     @pulumi.getter(name="storedProcedureParameters")
-    def stored_procedure_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]]:
+    def stored_procedure_parameters(self) -> Optional[Any]:
         """
         SQL stored procedure parameters.
         """
         return pulumi.get(self, "stored_procedure_parameters")
 
     @stored_procedure_parameters.setter
-    def stored_procedure_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]]):
+    def stored_procedure_parameters(self, value: Optional[Any]):
         pulumi.set(self, "stored_procedure_parameters", value)
 
     @property
@@ -73682,7 +73681,7 @@ class SqlSourceArgs:
                  source_retry_wait: Optional[Any] = None,
                  sql_reader_query: Optional[Any] = None,
                  sql_reader_stored_procedure_name: Optional[Any] = None,
-                 stored_procedure_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]] = None):
+                 stored_procedure_parameters: Optional[Any] = None):
         """
         A copy activity SQL source.
         :param pulumi.Input[str] type: Copy source type.
@@ -73698,7 +73697,7 @@ class SqlSourceArgs:
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any sql_reader_query: SQL reader query. Type: string (or Expression with resultType string).
         :param Any sql_reader_stored_procedure_name: Name of the stored procedure for a SQL Database source. This cannot be used at the same time as SqlReaderQuery. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]] stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
+        :param Any stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
         """
         pulumi.set(__self__, "type", 'SqlSource')
         if additional_columns is not None:
@@ -73873,14 +73872,14 @@ class SqlSourceArgs:
 
     @property
     @pulumi.getter(name="storedProcedureParameters")
-    def stored_procedure_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]]:
+    def stored_procedure_parameters(self) -> Optional[Any]:
         """
         Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
         """
         return pulumi.get(self, "stored_procedure_parameters")
 
     @stored_procedure_parameters.setter
-    def stored_procedure_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]]):
+    def stored_procedure_parameters(self, value: Optional[Any]):
         pulumi.set(self, "stored_procedure_parameters", value)
 
 
@@ -74515,46 +74514,6 @@ class StagingSettingsArgs:
     @path.setter
     def path(self, value: Optional[Any]):
         pulumi.set(self, "path", value)
-
-
-@pulumi.input_type
-class StoredProcedureParameterArgs:
-    def __init__(__self__, *,
-                 type: Optional[pulumi.Input[Union[str, 'StoredProcedureParameterType']]] = None,
-                 value: Optional[Any] = None):
-        """
-        SQL stored procedure parameter.
-        :param pulumi.Input[Union[str, 'StoredProcedureParameterType']] type: Stored procedure parameter type.
-        :param Any value: Stored procedure parameter value. Type: string (or Expression with resultType string).
-        """
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[str, 'StoredProcedureParameterType']]]:
-        """
-        Stored procedure parameter type.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[str, 'StoredProcedureParameterType']]]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[Any]:
-        """
-        Stored procedure parameter value. Type: string (or Expression with resultType string).
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[Any]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

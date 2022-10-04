@@ -86,7 +86,7 @@ class AzureDataExplorerConnectionPropertiesResponse(dict):
         :param str event_hub_entity_path: The EventHub name in the EventHub namespace for identity-based authentication.
         :param str event_hub_namespace_resource_id: The resource ID of the EventHub namespace.
         :param str provisioning_state: The provisioning state.
-        :param str adx_table_name: The name of the Azure Data Explorer table.
+        :param str adx_table_name: The name of the Azure Data Explorer table. Defaults to AdtPropertyEvents.
         :param str event_hub_consumer_group: The EventHub consumer group to use when ADX reads from EventHub. Defaults to $Default.
         """
         pulumi.set(__self__, "adx_database_name", adx_database_name)
@@ -97,8 +97,12 @@ class AzureDataExplorerConnectionPropertiesResponse(dict):
         pulumi.set(__self__, "event_hub_entity_path", event_hub_entity_path)
         pulumi.set(__self__, "event_hub_namespace_resource_id", event_hub_namespace_resource_id)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if adx_table_name is None:
+            adx_table_name = 'AdtPropertyEvents'
         if adx_table_name is not None:
             pulumi.set(__self__, "adx_table_name", adx_table_name)
+        if event_hub_consumer_group is None:
+            event_hub_consumer_group = '$Default'
         if event_hub_consumer_group is not None:
             pulumi.set(__self__, "event_hub_consumer_group", event_hub_consumer_group)
 
@@ -171,7 +175,7 @@ class AzureDataExplorerConnectionPropertiesResponse(dict):
     @pulumi.getter(name="adxTableName")
     def adx_table_name(self) -> Optional[str]:
         """
-        The name of the Azure Data Explorer table.
+        The name of the Azure Data Explorer table. Defaults to AdtPropertyEvents.
         """
         return pulumi.get(self, "adx_table_name")
 

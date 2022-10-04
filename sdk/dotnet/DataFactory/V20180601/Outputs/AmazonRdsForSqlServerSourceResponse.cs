@@ -63,7 +63,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// <summary>
         /// Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.StoredProcedureParameterResponse>? StoredProcedureParameters;
+        public readonly object? StoredProcedureParameters;
         /// <summary>
         /// Copy source type.
         /// Expected value is 'AmazonRdsForSqlServerSource'.
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? sqlReaderStoredProcedureName,
 
-            ImmutableDictionary<string, Outputs.StoredProcedureParameterResponse>? storedProcedureParameters,
+            object? storedProcedureParameters,
 
             string type)
         {

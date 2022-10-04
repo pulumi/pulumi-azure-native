@@ -4,10 +4,12 @@
 // Export sub-modules:
 import * as v20210915preview from "./v20210915preview";
 import * as v20220701preview from "./v20220701preview";
+import * as v20221001preview from "./v20221001preview";
 
 export {
     v20210915preview,
     v20220701preview,
+    v20221001preview,
 };
 
 export const ResourceIdentityType = {

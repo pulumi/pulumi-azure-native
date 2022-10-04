@@ -353,7 +353,7 @@ class ArcSetting(pulumi.CustomResource):
             __props__.__dict__["per_node_details"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20210101preview:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20210901:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20220101:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20220501:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20220901:ArcSetting")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20210101preview:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20210901:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20220101:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20220501:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20220901:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20221001:ArcSetting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ArcSetting, __self__).__init__(
             'azure-native:azurestackhci/v20220301:ArcSetting',

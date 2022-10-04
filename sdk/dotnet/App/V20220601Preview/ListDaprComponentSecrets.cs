@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.App.V20220601Preview
     public static class ListDaprComponentSecrets
     {
         /// <summary>
-        /// Dapr component Secrets Collection ARM resource.
+        /// Dapr component Secrets Collection for ListSecrets Action.
         /// </summary>
         public static Task<ListDaprComponentSecretsResult> InvokeAsync(ListDaprComponentSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListDaprComponentSecretsResult>("azure-native:app/v20220601preview:listDaprComponentSecrets", args ?? new ListDaprComponentSecretsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Dapr component Secrets Collection ARM resource.
+        /// Dapr component Secrets Collection for ListSecrets Action.
         /// </summary>
         public static Output<ListDaprComponentSecretsResult> Invoke(ListDaprComponentSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDaprComponentSecretsResult>("azure-native:app/v20220601preview:listDaprComponentSecrets", args ?? new ListDaprComponentSecretsInvokeArgs(), options.WithDefaults());

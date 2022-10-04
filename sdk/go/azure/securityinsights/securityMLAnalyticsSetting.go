@@ -54,6 +54,9 @@ func NewSecurityMLAnalyticsSetting(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:securityinsights/v20220901preview:SecurityMLAnalyticsSetting"),
 		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20221001preview:SecurityMLAnalyticsSetting"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SecurityMLAnalyticsSetting

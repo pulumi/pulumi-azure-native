@@ -20,7 +20,7 @@ __all__ = [
 @pulumi.output_type
 class ListConnectedEnvironmentsDaprComponentSecretsResult:
     """
-    Dapr component Secrets Collection ARM resource.
+    Dapr component Secrets Collection for ListSecrets Action.
     """
     def __init__(__self__, value=None):
         if value and not isinstance(value, list):
@@ -50,7 +50,7 @@ def list_connected_environments_dapr_component_secrets(component_name: Optional[
                                                        resource_group_name: Optional[str] = None,
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListConnectedEnvironmentsDaprComponentSecretsResult:
     """
-    Dapr component Secrets Collection ARM resource.
+    Dapr component Secrets Collection for ListSecrets Action.
 
 
     :param str component_name: Name of the Dapr Component.
@@ -74,7 +74,7 @@ def list_connected_environments_dapr_component_secrets_output(component_name: Op
                                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListConnectedEnvironmentsDaprComponentSecretsResult]:
     """
-    Dapr component Secrets Collection ARM resource.
+    Dapr component Secrets Collection for ListSecrets Action.
 
 
     :param str component_name: Name of the Dapr Component.

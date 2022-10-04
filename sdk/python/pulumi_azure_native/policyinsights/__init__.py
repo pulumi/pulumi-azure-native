@@ -37,9 +37,12 @@ if typing.TYPE_CHECKING:
     v20210101 = __v20210101
     import pulumi_azure_native.policyinsights.v20211001 as __v20211001
     v20211001 = __v20211001
+    import pulumi_azure_native.policyinsights.v20220901 as __v20220901
+    v20220901 = __v20220901
 else:
     v20180701preview = _utilities.lazy_import('pulumi_azure_native.policyinsights.v20180701preview')
     v20190701 = _utilities.lazy_import('pulumi_azure_native.policyinsights.v20190701')
     v20210101 = _utilities.lazy_import('pulumi_azure_native.policyinsights.v20210101')
     v20211001 = _utilities.lazy_import('pulumi_azure_native.policyinsights.v20211001')
+    v20220901 = _utilities.lazy_import('pulumi_azure_native.policyinsights.v20220901')
 

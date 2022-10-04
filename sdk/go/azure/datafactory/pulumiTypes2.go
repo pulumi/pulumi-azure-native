@@ -11,35 +11,35 @@ import (
 )
 
 type SqlMISource struct {
-	AdditionalColumns            interface{}                         `pulumi:"additionalColumns"`
-	DisableMetricsCollection     interface{}                         `pulumi:"disableMetricsCollection"`
-	MaxConcurrentConnections     interface{}                         `pulumi:"maxConcurrentConnections"`
-	PartitionOption              interface{}                         `pulumi:"partitionOption"`
-	PartitionSettings            *SqlPartitionSettings               `pulumi:"partitionSettings"`
-	ProduceAdditionalTypes       interface{}                         `pulumi:"produceAdditionalTypes"`
-	QueryTimeout                 interface{}                         `pulumi:"queryTimeout"`
-	SourceRetryCount             interface{}                         `pulumi:"sourceRetryCount"`
-	SourceRetryWait              interface{}                         `pulumi:"sourceRetryWait"`
-	SqlReaderQuery               interface{}                         `pulumi:"sqlReaderQuery"`
-	SqlReaderStoredProcedureName interface{}                         `pulumi:"sqlReaderStoredProcedureName"`
-	StoredProcedureParameters    map[string]StoredProcedureParameter `pulumi:"storedProcedureParameters"`
-	Type                         string                              `pulumi:"type"`
+	AdditionalColumns            interface{}           `pulumi:"additionalColumns"`
+	DisableMetricsCollection     interface{}           `pulumi:"disableMetricsCollection"`
+	MaxConcurrentConnections     interface{}           `pulumi:"maxConcurrentConnections"`
+	PartitionOption              interface{}           `pulumi:"partitionOption"`
+	PartitionSettings            *SqlPartitionSettings `pulumi:"partitionSettings"`
+	ProduceAdditionalTypes       interface{}           `pulumi:"produceAdditionalTypes"`
+	QueryTimeout                 interface{}           `pulumi:"queryTimeout"`
+	SourceRetryCount             interface{}           `pulumi:"sourceRetryCount"`
+	SourceRetryWait              interface{}           `pulumi:"sourceRetryWait"`
+	SqlReaderQuery               interface{}           `pulumi:"sqlReaderQuery"`
+	SqlReaderStoredProcedureName interface{}           `pulumi:"sqlReaderStoredProcedureName"`
+	StoredProcedureParameters    interface{}           `pulumi:"storedProcedureParameters"`
+	Type                         string                `pulumi:"type"`
 }
 
 type SqlMISourceResponse struct {
-	AdditionalColumns            interface{}                                 `pulumi:"additionalColumns"`
-	DisableMetricsCollection     interface{}                                 `pulumi:"disableMetricsCollection"`
-	MaxConcurrentConnections     interface{}                                 `pulumi:"maxConcurrentConnections"`
-	PartitionOption              interface{}                                 `pulumi:"partitionOption"`
-	PartitionSettings            *SqlPartitionSettingsResponse               `pulumi:"partitionSettings"`
-	ProduceAdditionalTypes       interface{}                                 `pulumi:"produceAdditionalTypes"`
-	QueryTimeout                 interface{}                                 `pulumi:"queryTimeout"`
-	SourceRetryCount             interface{}                                 `pulumi:"sourceRetryCount"`
-	SourceRetryWait              interface{}                                 `pulumi:"sourceRetryWait"`
-	SqlReaderQuery               interface{}                                 `pulumi:"sqlReaderQuery"`
-	SqlReaderStoredProcedureName interface{}                                 `pulumi:"sqlReaderStoredProcedureName"`
-	StoredProcedureParameters    map[string]StoredProcedureParameterResponse `pulumi:"storedProcedureParameters"`
-	Type                         string                                      `pulumi:"type"`
+	AdditionalColumns            interface{}                   `pulumi:"additionalColumns"`
+	DisableMetricsCollection     interface{}                   `pulumi:"disableMetricsCollection"`
+	MaxConcurrentConnections     interface{}                   `pulumi:"maxConcurrentConnections"`
+	PartitionOption              interface{}                   `pulumi:"partitionOption"`
+	PartitionSettings            *SqlPartitionSettingsResponse `pulumi:"partitionSettings"`
+	ProduceAdditionalTypes       interface{}                   `pulumi:"produceAdditionalTypes"`
+	QueryTimeout                 interface{}                   `pulumi:"queryTimeout"`
+	SourceRetryCount             interface{}                   `pulumi:"sourceRetryCount"`
+	SourceRetryWait              interface{}                   `pulumi:"sourceRetryWait"`
+	SqlReaderQuery               interface{}                   `pulumi:"sqlReaderQuery"`
+	SqlReaderStoredProcedureName interface{}                   `pulumi:"sqlReaderStoredProcedureName"`
+	StoredProcedureParameters    interface{}                   `pulumi:"storedProcedureParameters"`
+	Type                         string                        `pulumi:"type"`
 }
 
 type SqlPartitionSettings struct {
@@ -81,73 +81,73 @@ type SqlServerLinkedServiceResponse struct {
 }
 
 type SqlServerSink struct {
-	DisableMetricsCollection              interface{}                         `pulumi:"disableMetricsCollection"`
-	MaxConcurrentConnections              interface{}                         `pulumi:"maxConcurrentConnections"`
-	PreCopyScript                         interface{}                         `pulumi:"preCopyScript"`
-	SinkRetryCount                        interface{}                         `pulumi:"sinkRetryCount"`
-	SinkRetryWait                         interface{}                         `pulumi:"sinkRetryWait"`
-	SqlWriterStoredProcedureName          interface{}                         `pulumi:"sqlWriterStoredProcedureName"`
-	SqlWriterTableType                    interface{}                         `pulumi:"sqlWriterTableType"`
-	SqlWriterUseTableLock                 interface{}                         `pulumi:"sqlWriterUseTableLock"`
-	StoredProcedureParameters             map[string]StoredProcedureParameter `pulumi:"storedProcedureParameters"`
-	StoredProcedureTableTypeParameterName interface{}                         `pulumi:"storedProcedureTableTypeParameterName"`
-	TableOption                           interface{}                         `pulumi:"tableOption"`
-	Type                                  string                              `pulumi:"type"`
-	UpsertSettings                        *SqlUpsertSettings                  `pulumi:"upsertSettings"`
-	WriteBatchSize                        interface{}                         `pulumi:"writeBatchSize"`
-	WriteBatchTimeout                     interface{}                         `pulumi:"writeBatchTimeout"`
-	WriteBehavior                         interface{}                         `pulumi:"writeBehavior"`
+	DisableMetricsCollection              interface{}        `pulumi:"disableMetricsCollection"`
+	MaxConcurrentConnections              interface{}        `pulumi:"maxConcurrentConnections"`
+	PreCopyScript                         interface{}        `pulumi:"preCopyScript"`
+	SinkRetryCount                        interface{}        `pulumi:"sinkRetryCount"`
+	SinkRetryWait                         interface{}        `pulumi:"sinkRetryWait"`
+	SqlWriterStoredProcedureName          interface{}        `pulumi:"sqlWriterStoredProcedureName"`
+	SqlWriterTableType                    interface{}        `pulumi:"sqlWriterTableType"`
+	SqlWriterUseTableLock                 interface{}        `pulumi:"sqlWriterUseTableLock"`
+	StoredProcedureParameters             interface{}        `pulumi:"storedProcedureParameters"`
+	StoredProcedureTableTypeParameterName interface{}        `pulumi:"storedProcedureTableTypeParameterName"`
+	TableOption                           interface{}        `pulumi:"tableOption"`
+	Type                                  string             `pulumi:"type"`
+	UpsertSettings                        *SqlUpsertSettings `pulumi:"upsertSettings"`
+	WriteBatchSize                        interface{}        `pulumi:"writeBatchSize"`
+	WriteBatchTimeout                     interface{}        `pulumi:"writeBatchTimeout"`
+	WriteBehavior                         interface{}        `pulumi:"writeBehavior"`
 }
 
 type SqlServerSinkResponse struct {
-	DisableMetricsCollection              interface{}                                 `pulumi:"disableMetricsCollection"`
-	MaxConcurrentConnections              interface{}                                 `pulumi:"maxConcurrentConnections"`
-	PreCopyScript                         interface{}                                 `pulumi:"preCopyScript"`
-	SinkRetryCount                        interface{}                                 `pulumi:"sinkRetryCount"`
-	SinkRetryWait                         interface{}                                 `pulumi:"sinkRetryWait"`
-	SqlWriterStoredProcedureName          interface{}                                 `pulumi:"sqlWriterStoredProcedureName"`
-	SqlWriterTableType                    interface{}                                 `pulumi:"sqlWriterTableType"`
-	SqlWriterUseTableLock                 interface{}                                 `pulumi:"sqlWriterUseTableLock"`
-	StoredProcedureParameters             map[string]StoredProcedureParameterResponse `pulumi:"storedProcedureParameters"`
-	StoredProcedureTableTypeParameterName interface{}                                 `pulumi:"storedProcedureTableTypeParameterName"`
-	TableOption                           interface{}                                 `pulumi:"tableOption"`
-	Type                                  string                                      `pulumi:"type"`
-	UpsertSettings                        *SqlUpsertSettingsResponse                  `pulumi:"upsertSettings"`
-	WriteBatchSize                        interface{}                                 `pulumi:"writeBatchSize"`
-	WriteBatchTimeout                     interface{}                                 `pulumi:"writeBatchTimeout"`
-	WriteBehavior                         interface{}                                 `pulumi:"writeBehavior"`
+	DisableMetricsCollection              interface{}                `pulumi:"disableMetricsCollection"`
+	MaxConcurrentConnections              interface{}                `pulumi:"maxConcurrentConnections"`
+	PreCopyScript                         interface{}                `pulumi:"preCopyScript"`
+	SinkRetryCount                        interface{}                `pulumi:"sinkRetryCount"`
+	SinkRetryWait                         interface{}                `pulumi:"sinkRetryWait"`
+	SqlWriterStoredProcedureName          interface{}                `pulumi:"sqlWriterStoredProcedureName"`
+	SqlWriterTableType                    interface{}                `pulumi:"sqlWriterTableType"`
+	SqlWriterUseTableLock                 interface{}                `pulumi:"sqlWriterUseTableLock"`
+	StoredProcedureParameters             interface{}                `pulumi:"storedProcedureParameters"`
+	StoredProcedureTableTypeParameterName interface{}                `pulumi:"storedProcedureTableTypeParameterName"`
+	TableOption                           interface{}                `pulumi:"tableOption"`
+	Type                                  string                     `pulumi:"type"`
+	UpsertSettings                        *SqlUpsertSettingsResponse `pulumi:"upsertSettings"`
+	WriteBatchSize                        interface{}                `pulumi:"writeBatchSize"`
+	WriteBatchTimeout                     interface{}                `pulumi:"writeBatchTimeout"`
+	WriteBehavior                         interface{}                `pulumi:"writeBehavior"`
 }
 
 type SqlServerSource struct {
-	AdditionalColumns            interface{}                         `pulumi:"additionalColumns"`
-	DisableMetricsCollection     interface{}                         `pulumi:"disableMetricsCollection"`
-	MaxConcurrentConnections     interface{}                         `pulumi:"maxConcurrentConnections"`
-	PartitionOption              interface{}                         `pulumi:"partitionOption"`
-	PartitionSettings            *SqlPartitionSettings               `pulumi:"partitionSettings"`
-	ProduceAdditionalTypes       interface{}                         `pulumi:"produceAdditionalTypes"`
-	QueryTimeout                 interface{}                         `pulumi:"queryTimeout"`
-	SourceRetryCount             interface{}                         `pulumi:"sourceRetryCount"`
-	SourceRetryWait              interface{}                         `pulumi:"sourceRetryWait"`
-	SqlReaderQuery               interface{}                         `pulumi:"sqlReaderQuery"`
-	SqlReaderStoredProcedureName interface{}                         `pulumi:"sqlReaderStoredProcedureName"`
-	StoredProcedureParameters    map[string]StoredProcedureParameter `pulumi:"storedProcedureParameters"`
-	Type                         string                              `pulumi:"type"`
+	AdditionalColumns            interface{}           `pulumi:"additionalColumns"`
+	DisableMetricsCollection     interface{}           `pulumi:"disableMetricsCollection"`
+	MaxConcurrentConnections     interface{}           `pulumi:"maxConcurrentConnections"`
+	PartitionOption              interface{}           `pulumi:"partitionOption"`
+	PartitionSettings            *SqlPartitionSettings `pulumi:"partitionSettings"`
+	ProduceAdditionalTypes       interface{}           `pulumi:"produceAdditionalTypes"`
+	QueryTimeout                 interface{}           `pulumi:"queryTimeout"`
+	SourceRetryCount             interface{}           `pulumi:"sourceRetryCount"`
+	SourceRetryWait              interface{}           `pulumi:"sourceRetryWait"`
+	SqlReaderQuery               interface{}           `pulumi:"sqlReaderQuery"`
+	SqlReaderStoredProcedureName interface{}           `pulumi:"sqlReaderStoredProcedureName"`
+	StoredProcedureParameters    interface{}           `pulumi:"storedProcedureParameters"`
+	Type                         string                `pulumi:"type"`
 }
 
 type SqlServerSourceResponse struct {
-	AdditionalColumns            interface{}                                 `pulumi:"additionalColumns"`
-	DisableMetricsCollection     interface{}                                 `pulumi:"disableMetricsCollection"`
-	MaxConcurrentConnections     interface{}                                 `pulumi:"maxConcurrentConnections"`
-	PartitionOption              interface{}                                 `pulumi:"partitionOption"`
-	PartitionSettings            *SqlPartitionSettingsResponse               `pulumi:"partitionSettings"`
-	ProduceAdditionalTypes       interface{}                                 `pulumi:"produceAdditionalTypes"`
-	QueryTimeout                 interface{}                                 `pulumi:"queryTimeout"`
-	SourceRetryCount             interface{}                                 `pulumi:"sourceRetryCount"`
-	SourceRetryWait              interface{}                                 `pulumi:"sourceRetryWait"`
-	SqlReaderQuery               interface{}                                 `pulumi:"sqlReaderQuery"`
-	SqlReaderStoredProcedureName interface{}                                 `pulumi:"sqlReaderStoredProcedureName"`
-	StoredProcedureParameters    map[string]StoredProcedureParameterResponse `pulumi:"storedProcedureParameters"`
-	Type                         string                                      `pulumi:"type"`
+	AdditionalColumns            interface{}                   `pulumi:"additionalColumns"`
+	DisableMetricsCollection     interface{}                   `pulumi:"disableMetricsCollection"`
+	MaxConcurrentConnections     interface{}                   `pulumi:"maxConcurrentConnections"`
+	PartitionOption              interface{}                   `pulumi:"partitionOption"`
+	PartitionSettings            *SqlPartitionSettingsResponse `pulumi:"partitionSettings"`
+	ProduceAdditionalTypes       interface{}                   `pulumi:"produceAdditionalTypes"`
+	QueryTimeout                 interface{}                   `pulumi:"queryTimeout"`
+	SourceRetryCount             interface{}                   `pulumi:"sourceRetryCount"`
+	SourceRetryWait              interface{}                   `pulumi:"sourceRetryWait"`
+	SqlReaderQuery               interface{}                   `pulumi:"sqlReaderQuery"`
+	SqlReaderStoredProcedureName interface{}                   `pulumi:"sqlReaderStoredProcedureName"`
+	StoredProcedureParameters    interface{}                   `pulumi:"storedProcedureParameters"`
+	Type                         string                        `pulumi:"type"`
 }
 
 type SqlServerStoredProcedureActivity struct {
@@ -201,73 +201,73 @@ type SqlServerTableDatasetResponse struct {
 }
 
 type SqlSink struct {
-	DisableMetricsCollection              interface{}                         `pulumi:"disableMetricsCollection"`
-	MaxConcurrentConnections              interface{}                         `pulumi:"maxConcurrentConnections"`
-	PreCopyScript                         interface{}                         `pulumi:"preCopyScript"`
-	SinkRetryCount                        interface{}                         `pulumi:"sinkRetryCount"`
-	SinkRetryWait                         interface{}                         `pulumi:"sinkRetryWait"`
-	SqlWriterStoredProcedureName          interface{}                         `pulumi:"sqlWriterStoredProcedureName"`
-	SqlWriterTableType                    interface{}                         `pulumi:"sqlWriterTableType"`
-	SqlWriterUseTableLock                 interface{}                         `pulumi:"sqlWriterUseTableLock"`
-	StoredProcedureParameters             map[string]StoredProcedureParameter `pulumi:"storedProcedureParameters"`
-	StoredProcedureTableTypeParameterName interface{}                         `pulumi:"storedProcedureTableTypeParameterName"`
-	TableOption                           interface{}                         `pulumi:"tableOption"`
-	Type                                  string                              `pulumi:"type"`
-	UpsertSettings                        *SqlUpsertSettings                  `pulumi:"upsertSettings"`
-	WriteBatchSize                        interface{}                         `pulumi:"writeBatchSize"`
-	WriteBatchTimeout                     interface{}                         `pulumi:"writeBatchTimeout"`
-	WriteBehavior                         interface{}                         `pulumi:"writeBehavior"`
+	DisableMetricsCollection              interface{}        `pulumi:"disableMetricsCollection"`
+	MaxConcurrentConnections              interface{}        `pulumi:"maxConcurrentConnections"`
+	PreCopyScript                         interface{}        `pulumi:"preCopyScript"`
+	SinkRetryCount                        interface{}        `pulumi:"sinkRetryCount"`
+	SinkRetryWait                         interface{}        `pulumi:"sinkRetryWait"`
+	SqlWriterStoredProcedureName          interface{}        `pulumi:"sqlWriterStoredProcedureName"`
+	SqlWriterTableType                    interface{}        `pulumi:"sqlWriterTableType"`
+	SqlWriterUseTableLock                 interface{}        `pulumi:"sqlWriterUseTableLock"`
+	StoredProcedureParameters             interface{}        `pulumi:"storedProcedureParameters"`
+	StoredProcedureTableTypeParameterName interface{}        `pulumi:"storedProcedureTableTypeParameterName"`
+	TableOption                           interface{}        `pulumi:"tableOption"`
+	Type                                  string             `pulumi:"type"`
+	UpsertSettings                        *SqlUpsertSettings `pulumi:"upsertSettings"`
+	WriteBatchSize                        interface{}        `pulumi:"writeBatchSize"`
+	WriteBatchTimeout                     interface{}        `pulumi:"writeBatchTimeout"`
+	WriteBehavior                         interface{}        `pulumi:"writeBehavior"`
 }
 
 type SqlSinkResponse struct {
-	DisableMetricsCollection              interface{}                                 `pulumi:"disableMetricsCollection"`
-	MaxConcurrentConnections              interface{}                                 `pulumi:"maxConcurrentConnections"`
-	PreCopyScript                         interface{}                                 `pulumi:"preCopyScript"`
-	SinkRetryCount                        interface{}                                 `pulumi:"sinkRetryCount"`
-	SinkRetryWait                         interface{}                                 `pulumi:"sinkRetryWait"`
-	SqlWriterStoredProcedureName          interface{}                                 `pulumi:"sqlWriterStoredProcedureName"`
-	SqlWriterTableType                    interface{}                                 `pulumi:"sqlWriterTableType"`
-	SqlWriterUseTableLock                 interface{}                                 `pulumi:"sqlWriterUseTableLock"`
-	StoredProcedureParameters             map[string]StoredProcedureParameterResponse `pulumi:"storedProcedureParameters"`
-	StoredProcedureTableTypeParameterName interface{}                                 `pulumi:"storedProcedureTableTypeParameterName"`
-	TableOption                           interface{}                                 `pulumi:"tableOption"`
-	Type                                  string                                      `pulumi:"type"`
-	UpsertSettings                        *SqlUpsertSettingsResponse                  `pulumi:"upsertSettings"`
-	WriteBatchSize                        interface{}                                 `pulumi:"writeBatchSize"`
-	WriteBatchTimeout                     interface{}                                 `pulumi:"writeBatchTimeout"`
-	WriteBehavior                         interface{}                                 `pulumi:"writeBehavior"`
+	DisableMetricsCollection              interface{}                `pulumi:"disableMetricsCollection"`
+	MaxConcurrentConnections              interface{}                `pulumi:"maxConcurrentConnections"`
+	PreCopyScript                         interface{}                `pulumi:"preCopyScript"`
+	SinkRetryCount                        interface{}                `pulumi:"sinkRetryCount"`
+	SinkRetryWait                         interface{}                `pulumi:"sinkRetryWait"`
+	SqlWriterStoredProcedureName          interface{}                `pulumi:"sqlWriterStoredProcedureName"`
+	SqlWriterTableType                    interface{}                `pulumi:"sqlWriterTableType"`
+	SqlWriterUseTableLock                 interface{}                `pulumi:"sqlWriterUseTableLock"`
+	StoredProcedureParameters             interface{}                `pulumi:"storedProcedureParameters"`
+	StoredProcedureTableTypeParameterName interface{}                `pulumi:"storedProcedureTableTypeParameterName"`
+	TableOption                           interface{}                `pulumi:"tableOption"`
+	Type                                  string                     `pulumi:"type"`
+	UpsertSettings                        *SqlUpsertSettingsResponse `pulumi:"upsertSettings"`
+	WriteBatchSize                        interface{}                `pulumi:"writeBatchSize"`
+	WriteBatchTimeout                     interface{}                `pulumi:"writeBatchTimeout"`
+	WriteBehavior                         interface{}                `pulumi:"writeBehavior"`
 }
 
 type SqlSource struct {
-	AdditionalColumns            interface{}                         `pulumi:"additionalColumns"`
-	DisableMetricsCollection     interface{}                         `pulumi:"disableMetricsCollection"`
-	IsolationLevel               interface{}                         `pulumi:"isolationLevel"`
-	MaxConcurrentConnections     interface{}                         `pulumi:"maxConcurrentConnections"`
-	PartitionOption              interface{}                         `pulumi:"partitionOption"`
-	PartitionSettings            *SqlPartitionSettings               `pulumi:"partitionSettings"`
-	QueryTimeout                 interface{}                         `pulumi:"queryTimeout"`
-	SourceRetryCount             interface{}                         `pulumi:"sourceRetryCount"`
-	SourceRetryWait              interface{}                         `pulumi:"sourceRetryWait"`
-	SqlReaderQuery               interface{}                         `pulumi:"sqlReaderQuery"`
-	SqlReaderStoredProcedureName interface{}                         `pulumi:"sqlReaderStoredProcedureName"`
-	StoredProcedureParameters    map[string]StoredProcedureParameter `pulumi:"storedProcedureParameters"`
-	Type                         string                              `pulumi:"type"`
+	AdditionalColumns            interface{}           `pulumi:"additionalColumns"`
+	DisableMetricsCollection     interface{}           `pulumi:"disableMetricsCollection"`
+	IsolationLevel               interface{}           `pulumi:"isolationLevel"`
+	MaxConcurrentConnections     interface{}           `pulumi:"maxConcurrentConnections"`
+	PartitionOption              interface{}           `pulumi:"partitionOption"`
+	PartitionSettings            *SqlPartitionSettings `pulumi:"partitionSettings"`
+	QueryTimeout                 interface{}           `pulumi:"queryTimeout"`
+	SourceRetryCount             interface{}           `pulumi:"sourceRetryCount"`
+	SourceRetryWait              interface{}           `pulumi:"sourceRetryWait"`
+	SqlReaderQuery               interface{}           `pulumi:"sqlReaderQuery"`
+	SqlReaderStoredProcedureName interface{}           `pulumi:"sqlReaderStoredProcedureName"`
+	StoredProcedureParameters    interface{}           `pulumi:"storedProcedureParameters"`
+	Type                         string                `pulumi:"type"`
 }
 
 type SqlSourceResponse struct {
-	AdditionalColumns            interface{}                                 `pulumi:"additionalColumns"`
-	DisableMetricsCollection     interface{}                                 `pulumi:"disableMetricsCollection"`
-	IsolationLevel               interface{}                                 `pulumi:"isolationLevel"`
-	MaxConcurrentConnections     interface{}                                 `pulumi:"maxConcurrentConnections"`
-	PartitionOption              interface{}                                 `pulumi:"partitionOption"`
-	PartitionSettings            *SqlPartitionSettingsResponse               `pulumi:"partitionSettings"`
-	QueryTimeout                 interface{}                                 `pulumi:"queryTimeout"`
-	SourceRetryCount             interface{}                                 `pulumi:"sourceRetryCount"`
-	SourceRetryWait              interface{}                                 `pulumi:"sourceRetryWait"`
-	SqlReaderQuery               interface{}                                 `pulumi:"sqlReaderQuery"`
-	SqlReaderStoredProcedureName interface{}                                 `pulumi:"sqlReaderStoredProcedureName"`
-	StoredProcedureParameters    map[string]StoredProcedureParameterResponse `pulumi:"storedProcedureParameters"`
-	Type                         string                                      `pulumi:"type"`
+	AdditionalColumns            interface{}                   `pulumi:"additionalColumns"`
+	DisableMetricsCollection     interface{}                   `pulumi:"disableMetricsCollection"`
+	IsolationLevel               interface{}                   `pulumi:"isolationLevel"`
+	MaxConcurrentConnections     interface{}                   `pulumi:"maxConcurrentConnections"`
+	PartitionOption              interface{}                   `pulumi:"partitionOption"`
+	PartitionSettings            *SqlPartitionSettingsResponse `pulumi:"partitionSettings"`
+	QueryTimeout                 interface{}                   `pulumi:"queryTimeout"`
+	SourceRetryCount             interface{}                   `pulumi:"sourceRetryCount"`
+	SourceRetryWait              interface{}                   `pulumi:"sourceRetryWait"`
+	SqlReaderQuery               interface{}                   `pulumi:"sqlReaderQuery"`
+	SqlReaderStoredProcedureName interface{}                   `pulumi:"sqlReaderStoredProcedureName"`
+	StoredProcedureParameters    interface{}                   `pulumi:"storedProcedureParameters"`
+	Type                         string                        `pulumi:"type"`
 }
 
 type SqlUpsertSettings struct {
@@ -442,16 +442,6 @@ type StagingSettingsResponse struct {
 	EnableCompression interface{}                    `pulumi:"enableCompression"`
 	LinkedServiceName LinkedServiceReferenceResponse `pulumi:"linkedServiceName"`
 	Path              interface{}                    `pulumi:"path"`
-}
-
-type StoredProcedureParameter struct {
-	Type  *string     `pulumi:"type"`
-	Value interface{} `pulumi:"value"`
-}
-
-type StoredProcedureParameterResponse struct {
-	Type  *string     `pulumi:"type"`
-	Value interface{} `pulumi:"value"`
 }
 
 type SwitchActivity struct {

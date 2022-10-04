@@ -61,6 +61,9 @@ func NewFileImport(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:securityinsights/v20220801preview:FileImport"),
 		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20221001preview:FileImport"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource FileImport

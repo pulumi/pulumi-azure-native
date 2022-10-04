@@ -21,7 +21,10 @@ if typing.TYPE_CHECKING:
     v20210915preview = __v20210915preview
     import pulumi_azure_native.chaos.v20220701preview as __v20220701preview
     v20220701preview = __v20220701preview
+    import pulumi_azure_native.chaos.v20221001preview as __v20221001preview
+    v20221001preview = __v20221001preview
 else:
     v20210915preview = _utilities.lazy_import('pulumi_azure_native.chaos.v20210915preview')
     v20220701preview = _utilities.lazy_import('pulumi_azure_native.chaos.v20220701preview')
+    v20221001preview = _utilities.lazy_import('pulumi_azure_native.chaos.v20221001preview')
 

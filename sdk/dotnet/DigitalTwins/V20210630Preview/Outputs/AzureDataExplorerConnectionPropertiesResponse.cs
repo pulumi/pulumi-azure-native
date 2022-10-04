@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.DigitalTwins.V20210630Preview.Outputs
         /// </summary>
         public readonly string AdxResourceId;
         /// <summary>
-        /// The name of the Azure Data Explorer table.
+        /// The name of the Azure Data Explorer table. Defaults to AdtPropertyEvents.
         /// </summary>
         public readonly string? AdxTableName;
         /// <summary>

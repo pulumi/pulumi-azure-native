@@ -20,26 +20,11 @@ namespace Pulumi.AzureNative.Synapse.V20210601.Outputs
         /// Indicates whether Dynamic Executor Allocation is enabled or not.
         /// </summary>
         public readonly bool? Enabled;
-        /// <summary>
-        /// The maximum number of executors alloted
-        /// </summary>
-        public readonly int? MaxExecutors;
-        /// <summary>
-        /// The minimum number of executors alloted
-        /// </summary>
-        public readonly int? MinExecutors;
 
         [OutputConstructor]
-        private DynamicExecutorAllocationResponse(
-            bool? enabled,
-
-            int? maxExecutors,
-
-            int? minExecutors)
+        private DynamicExecutorAllocationResponse(bool? enabled)
         {
             Enabled = enabled;
-            MaxExecutors = maxExecutors;
-            MinExecutors = minExecutors;
         }
     }
 }

@@ -1357,9 +1357,7 @@ func (o DynamicExecutorAllocationPtrOutput) MinExecutors() pulumi.IntPtrOutput {
 }
 
 type DynamicExecutorAllocationResponse struct {
-	Enabled      *bool `pulumi:"enabled"`
-	MaxExecutors *int  `pulumi:"maxExecutors"`
-	MinExecutors *int  `pulumi:"minExecutors"`
+	Enabled *bool `pulumi:"enabled"`
 }
 
 type DynamicExecutorAllocationResponseOutput struct{ *pulumi.OutputState }
@@ -1378,14 +1376,6 @@ func (o DynamicExecutorAllocationResponseOutput) ToDynamicExecutorAllocationResp
 
 func (o DynamicExecutorAllocationResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DynamicExecutorAllocationResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-func (o DynamicExecutorAllocationResponseOutput) MaxExecutors() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DynamicExecutorAllocationResponse) *int { return v.MaxExecutors }).(pulumi.IntPtrOutput)
-}
-
-func (o DynamicExecutorAllocationResponseOutput) MinExecutors() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DynamicExecutorAllocationResponse) *int { return v.MinExecutors }).(pulumi.IntPtrOutput)
 }
 
 type DynamicExecutorAllocationResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1419,24 +1409,6 @@ func (o DynamicExecutorAllocationResponsePtrOutput) Enabled() pulumi.BoolPtrOutp
 		}
 		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
-}
-
-func (o DynamicExecutorAllocationResponsePtrOutput) MaxExecutors() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DynamicExecutorAllocationResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxExecutors
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o DynamicExecutorAllocationResponsePtrOutput) MinExecutors() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DynamicExecutorAllocationResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MinExecutors
-	}).(pulumi.IntPtrOutput)
 }
 
 type EncryptionDetails struct {

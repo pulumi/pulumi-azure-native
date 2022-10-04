@@ -87,7 +87,7 @@ export class EnvironmentContainer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20220201preview:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20220501:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20220601preview:EnvironmentContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20220201preview:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20220501:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20220601preview:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20221001:EnvironmentContainer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EnvironmentContainer.__pulumiType, name, resourceInputs, opts);
     }

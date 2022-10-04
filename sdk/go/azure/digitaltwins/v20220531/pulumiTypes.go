@@ -23,6 +23,23 @@ type AzureDataExplorerConnectionProperties struct {
 }
 
 
+func (val *AzureDataExplorerConnectionProperties) Defaults() *AzureDataExplorerConnectionProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AdxTableName) {
+		adxTableName_ := "AdtPropertyEvents"
+		tmp.AdxTableName = &adxTableName_
+	}
+	if isZero(tmp.EventHubConsumerGroup) {
+		eventHubConsumerGroup_ := "$Default"
+		tmp.EventHubConsumerGroup = &eventHubConsumerGroup_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -45,6 +62,20 @@ type AzureDataExplorerConnectionPropertiesArgs struct {
 	EventHubNamespaceResourceId pulumi.StringInput    `pulumi:"eventHubNamespaceResourceId"`
 }
 
+
+func (val *AzureDataExplorerConnectionPropertiesArgs) Defaults() *AzureDataExplorerConnectionPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AdxTableName) {
+		tmp.AdxTableName = pulumi.StringPtr("AdtPropertyEvents")
+	}
+	if isZero(tmp.EventHubConsumerGroup) {
+		tmp.EventHubConsumerGroup = pulumi.StringPtr("$Default")
+	}
+	return &tmp
+}
 func (AzureDataExplorerConnectionPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*AzureDataExplorerConnectionProperties)(nil)).Elem()
 }
@@ -274,6 +305,23 @@ type AzureDataExplorerConnectionPropertiesResponse struct {
 	EventHubEntityPath          string  `pulumi:"eventHubEntityPath"`
 	EventHubNamespaceResourceId string  `pulumi:"eventHubNamespaceResourceId"`
 	ProvisioningState           string  `pulumi:"provisioningState"`
+}
+
+
+func (val *AzureDataExplorerConnectionPropertiesResponse) Defaults() *AzureDataExplorerConnectionPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AdxTableName) {
+		adxTableName_ := "AdtPropertyEvents"
+		tmp.AdxTableName = &adxTableName_
+	}
+	if isZero(tmp.EventHubConsumerGroup) {
+		eventHubConsumerGroup_ := "$Default"
+		tmp.EventHubConsumerGroup = &eventHubConsumerGroup_
+	}
+	return &tmp
 }
 
 type AzureDataExplorerConnectionPropertiesResponseOutput struct{ *pulumi.OutputState }

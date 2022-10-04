@@ -27,7 +27,7 @@ type ListDaprComponentSecretsArgs struct {
 
 
 type ListDaprComponentSecretsResult struct {
-	Value []SecretResponse `pulumi:"value"`
+	Value []DaprSecretResponse `pulumi:"value"`
 }
 
 func ListDaprComponentSecretsOutput(ctx *pulumi.Context, args ListDaprComponentSecretsOutputArgs, opts ...pulumi.InvokeOption) ListDaprComponentSecretsResultOutput {
@@ -68,8 +68,8 @@ func (o ListDaprComponentSecretsResultOutput) ToListDaprComponentSecretsResultOu
 	return o
 }
 
-func (o ListDaprComponentSecretsResultOutput) Value() SecretResponseArrayOutput {
-	return o.ApplyT(func(v ListDaprComponentSecretsResult) []SecretResponse { return v.Value }).(SecretResponseArrayOutput)
+func (o ListDaprComponentSecretsResultOutput) Value() DaprSecretResponseArrayOutput {
+	return o.ApplyT(func(v ListDaprComponentSecretsResult) []DaprSecretResponse { return v.Value }).(DaprSecretResponseArrayOutput)
 }
 
 func init() {

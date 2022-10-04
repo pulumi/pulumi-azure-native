@@ -254,7 +254,7 @@ class AttestationAtResource(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:policyinsights:AttestationAtResource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:policyinsights:AttestationAtResource"), pulumi.Alias(type_="azure-native:policyinsights/v20220901:AttestationAtResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AttestationAtResource, __self__).__init__(
             'azure-native:policyinsights/v20210101:AttestationAtResource',

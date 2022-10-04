@@ -59,6 +59,10 @@ export interface ListContainerAppCustomHostNameAnalysisResult {
      */
     readonly cNameRecords?: string[];
     /**
+     * <code>true</code> if there is a conflict on the Container App's managed environment level custom domain; otherwise, <code>false</code>.
+     */
+    readonly conflictWithEnvironmentCustomDomain: boolean;
+    /**
      * Name of the conflicting Container App on the Managed Environment if it's within the same subscription.
      */
     readonly conflictingContainerAppResourceId: string;

@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.Cache.V20220501.Inputs
         public Input<string>? RdbBackupEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the frequency for creating rdb backup
+        /// Specifies the frequency for creating rdb backup in minutes. Valid values: (15, 30, 60, 360, 720, 1440)
         /// </summary>
         [Input("rdbBackupFrequency")]
         public Input<string>? RdbBackupFrequency { get; set; }

@@ -98,6 +98,10 @@ namespace Pulumi.AzureNative.App.V20220601Preview
         /// </summary>
         public readonly ImmutableArray<string> CNameRecords;
         /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; if there is a conflict on the Container App's managed environment level custom domain; otherwise, &lt;code&gt;false&lt;/code&gt;.
+        /// </summary>
+        public readonly bool ConflictWithEnvironmentCustomDomain;
+        /// <summary>
         /// Name of the conflicting Container App on the Managed Environment if it's within the same subscription.
         /// </summary>
         public readonly string ConflictingContainerAppResourceId;
@@ -136,6 +140,8 @@ namespace Pulumi.AzureNative.App.V20220601Preview
 
             ImmutableArray<string> cNameRecords,
 
+            bool conflictWithEnvironmentCustomDomain,
+
             string conflictingContainerAppResourceId,
 
             Outputs.CustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfo customDomainVerificationFailureInfo,
@@ -154,6 +160,7 @@ namespace Pulumi.AzureNative.App.V20220601Preview
             AlternateCNameRecords = alternateCNameRecords;
             AlternateTxtRecords = alternateTxtRecords;
             CNameRecords = cNameRecords;
+            ConflictWithEnvironmentCustomDomain = conflictWithEnvironmentCustomDomain;
             ConflictingContainerAppResourceId = conflictingContainerAppResourceId;
             CustomDomainVerificationFailureInfo = customDomainVerificationFailureInfo;
             CustomDomainVerificationTest = customDomainVerificationTest;

@@ -508,18 +508,6 @@ const (
 	SsisPackageLocationTypePackageStore  = SsisPackageLocationType("PackageStore")
 )
 
-type StoredProcedureParameterType string
-
-const (
-	StoredProcedureParameterTypeString  = StoredProcedureParameterType("String")
-	StoredProcedureParameterTypeInt     = StoredProcedureParameterType("Int")
-	StoredProcedureParameterTypeInt64   = StoredProcedureParameterType("Int64")
-	StoredProcedureParameterTypeDecimal = StoredProcedureParameterType("Decimal")
-	StoredProcedureParameterTypeGuid    = StoredProcedureParameterType("Guid")
-	StoredProcedureParameterTypeBoolean = StoredProcedureParameterType("Boolean")
-	StoredProcedureParameterTypeDate    = StoredProcedureParameterType("Date")
-)
-
 type SybaseAuthenticationType string
 
 const (

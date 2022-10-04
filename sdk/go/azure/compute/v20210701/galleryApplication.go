@@ -64,6 +64,9 @@ func NewGalleryApplication(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:compute/v20220103:GalleryApplication"),
 		},
+		{
+			Type: pulumi.String("azure-native:compute/v20220303:GalleryApplication"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource GalleryApplication

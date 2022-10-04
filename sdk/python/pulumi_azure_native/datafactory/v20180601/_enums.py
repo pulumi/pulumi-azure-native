@@ -67,7 +67,6 @@ __all__ = [
     'SqlAlwaysEncryptedAkvAuthType',
     'SsisLogLocationType',
     'SsisPackageLocationType',
-    'StoredProcedureParameterType',
     'SybaseAuthenticationType',
     'TeamDeskAuthenticationType',
     'TeradataAuthenticationType',
@@ -638,19 +637,6 @@ class SsisPackageLocationType(str, Enum):
     FILE = "File"
     INLINE_PACKAGE = "InlinePackage"
     PACKAGE_STORE = "PackageStore"
-
-
-class StoredProcedureParameterType(str, Enum):
-    """
-    Stored procedure parameter type.
-    """
-    STRING = "String"
-    INT = "Int"
-    INT64 = "Int64"
-    DECIMAL = "Decimal"
-    GUID = "Guid"
-    BOOLEAN = "Boolean"
-    DATE = "Date"
 
 
 class SybaseAuthenticationType(str, Enum):

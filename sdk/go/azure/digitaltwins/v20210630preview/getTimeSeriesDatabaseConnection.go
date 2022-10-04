@@ -16,7 +16,7 @@ func LookupTimeSeriesDatabaseConnection(ctx *pulumi.Context, args *LookupTimeSer
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupTimeSeriesDatabaseConnectionArgs struct {
@@ -32,6 +32,17 @@ type LookupTimeSeriesDatabaseConnectionResult struct {
 	Properties AzureDataExplorerConnectionPropertiesResponse `pulumi:"properties"`
 	SystemData SystemDataResponse                            `pulumi:"systemData"`
 	Type       string                                        `pulumi:"type"`
+}
+
+
+func (val *LookupTimeSeriesDatabaseConnectionResult) Defaults() *LookupTimeSeriesDatabaseConnectionResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = *tmp.Properties.Defaults()
+
+	return &tmp
 }
 
 func LookupTimeSeriesDatabaseConnectionOutput(ctx *pulumi.Context, args LookupTimeSeriesDatabaseConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupTimeSeriesDatabaseConnectionResultOutput {

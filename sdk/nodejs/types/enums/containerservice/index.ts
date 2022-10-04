@@ -50,6 +50,7 @@ import * as v20220602preview from "./v20220602preview";
 import * as v20220701 from "./v20220701";
 import * as v20220702preview from "./v20220702preview";
 import * as v20220802preview from "./v20220802preview";
+import * as v20220803preview from "./v20220803preview";
 
 export {
     v20151101preview,
@@ -100,6 +101,7 @@ export {
     v20220701,
     v20220702preview,
     v20220802preview,
+    v20220803preview,
 };
 
 export const AgentPoolMode = {

@@ -7002,41 +7002,41 @@ type SqlDWUpsertSettingsResponse struct {
 }
 
 type SqlMISink struct {
-	DisableMetricsCollection              interface{}                         `pulumi:"disableMetricsCollection"`
-	MaxConcurrentConnections              interface{}                         `pulumi:"maxConcurrentConnections"`
-	PreCopyScript                         interface{}                         `pulumi:"preCopyScript"`
-	SinkRetryCount                        interface{}                         `pulumi:"sinkRetryCount"`
-	SinkRetryWait                         interface{}                         `pulumi:"sinkRetryWait"`
-	SqlWriterStoredProcedureName          interface{}                         `pulumi:"sqlWriterStoredProcedureName"`
-	SqlWriterTableType                    interface{}                         `pulumi:"sqlWriterTableType"`
-	SqlWriterUseTableLock                 interface{}                         `pulumi:"sqlWriterUseTableLock"`
-	StoredProcedureParameters             map[string]StoredProcedureParameter `pulumi:"storedProcedureParameters"`
-	StoredProcedureTableTypeParameterName interface{}                         `pulumi:"storedProcedureTableTypeParameterName"`
-	TableOption                           interface{}                         `pulumi:"tableOption"`
-	Type                                  string                              `pulumi:"type"`
-	UpsertSettings                        *SqlUpsertSettings                  `pulumi:"upsertSettings"`
-	WriteBatchSize                        interface{}                         `pulumi:"writeBatchSize"`
-	WriteBatchTimeout                     interface{}                         `pulumi:"writeBatchTimeout"`
-	WriteBehavior                         interface{}                         `pulumi:"writeBehavior"`
+	DisableMetricsCollection              interface{}        `pulumi:"disableMetricsCollection"`
+	MaxConcurrentConnections              interface{}        `pulumi:"maxConcurrentConnections"`
+	PreCopyScript                         interface{}        `pulumi:"preCopyScript"`
+	SinkRetryCount                        interface{}        `pulumi:"sinkRetryCount"`
+	SinkRetryWait                         interface{}        `pulumi:"sinkRetryWait"`
+	SqlWriterStoredProcedureName          interface{}        `pulumi:"sqlWriterStoredProcedureName"`
+	SqlWriterTableType                    interface{}        `pulumi:"sqlWriterTableType"`
+	SqlWriterUseTableLock                 interface{}        `pulumi:"sqlWriterUseTableLock"`
+	StoredProcedureParameters             interface{}        `pulumi:"storedProcedureParameters"`
+	StoredProcedureTableTypeParameterName interface{}        `pulumi:"storedProcedureTableTypeParameterName"`
+	TableOption                           interface{}        `pulumi:"tableOption"`
+	Type                                  string             `pulumi:"type"`
+	UpsertSettings                        *SqlUpsertSettings `pulumi:"upsertSettings"`
+	WriteBatchSize                        interface{}        `pulumi:"writeBatchSize"`
+	WriteBatchTimeout                     interface{}        `pulumi:"writeBatchTimeout"`
+	WriteBehavior                         interface{}        `pulumi:"writeBehavior"`
 }
 
 type SqlMISinkResponse struct {
-	DisableMetricsCollection              interface{}                                 `pulumi:"disableMetricsCollection"`
-	MaxConcurrentConnections              interface{}                                 `pulumi:"maxConcurrentConnections"`
-	PreCopyScript                         interface{}                                 `pulumi:"preCopyScript"`
-	SinkRetryCount                        interface{}                                 `pulumi:"sinkRetryCount"`
-	SinkRetryWait                         interface{}                                 `pulumi:"sinkRetryWait"`
-	SqlWriterStoredProcedureName          interface{}                                 `pulumi:"sqlWriterStoredProcedureName"`
-	SqlWriterTableType                    interface{}                                 `pulumi:"sqlWriterTableType"`
-	SqlWriterUseTableLock                 interface{}                                 `pulumi:"sqlWriterUseTableLock"`
-	StoredProcedureParameters             map[string]StoredProcedureParameterResponse `pulumi:"storedProcedureParameters"`
-	StoredProcedureTableTypeParameterName interface{}                                 `pulumi:"storedProcedureTableTypeParameterName"`
-	TableOption                           interface{}                                 `pulumi:"tableOption"`
-	Type                                  string                                      `pulumi:"type"`
-	UpsertSettings                        *SqlUpsertSettingsResponse                  `pulumi:"upsertSettings"`
-	WriteBatchSize                        interface{}                                 `pulumi:"writeBatchSize"`
-	WriteBatchTimeout                     interface{}                                 `pulumi:"writeBatchTimeout"`
-	WriteBehavior                         interface{}                                 `pulumi:"writeBehavior"`
+	DisableMetricsCollection              interface{}                `pulumi:"disableMetricsCollection"`
+	MaxConcurrentConnections              interface{}                `pulumi:"maxConcurrentConnections"`
+	PreCopyScript                         interface{}                `pulumi:"preCopyScript"`
+	SinkRetryCount                        interface{}                `pulumi:"sinkRetryCount"`
+	SinkRetryWait                         interface{}                `pulumi:"sinkRetryWait"`
+	SqlWriterStoredProcedureName          interface{}                `pulumi:"sqlWriterStoredProcedureName"`
+	SqlWriterTableType                    interface{}                `pulumi:"sqlWriterTableType"`
+	SqlWriterUseTableLock                 interface{}                `pulumi:"sqlWriterUseTableLock"`
+	StoredProcedureParameters             interface{}                `pulumi:"storedProcedureParameters"`
+	StoredProcedureTableTypeParameterName interface{}                `pulumi:"storedProcedureTableTypeParameterName"`
+	TableOption                           interface{}                `pulumi:"tableOption"`
+	Type                                  string                     `pulumi:"type"`
+	UpsertSettings                        *SqlUpsertSettingsResponse `pulumi:"upsertSettings"`
+	WriteBatchSize                        interface{}                `pulumi:"writeBatchSize"`
+	WriteBatchTimeout                     interface{}                `pulumi:"writeBatchTimeout"`
+	WriteBehavior                         interface{}                `pulumi:"writeBehavior"`
 }
 
 func init() {

@@ -33,6 +33,11 @@ func NewTimeSeriesDatabaseConnection(ctx *pulumi.Context,
 	if args.ResourceName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
+	if args.Properties != nil {
+		args.Properties = args.Properties.ToAzureDataExplorerConnectionPropertiesPtrOutput().ApplyT(func(v *AzureDataExplorerConnectionProperties) *AzureDataExplorerConnectionProperties {
+			return v.Defaults()
+		}).(AzureDataExplorerConnectionPropertiesPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:digitaltwins/v20210630preview:TimeSeriesDatabaseConnection"),

@@ -66,6 +66,7 @@ namespace Pulumi.AzureNative.Cache.V20180301
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20201201:PatchSchedule"},
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20210601:PatchSchedule"},
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20220501:PatchSchedule"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20220601:PatchSchedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
