@@ -29,8 +29,6 @@ require (
 	modernc.org/sqlite v1.10.0
 )
 
-require github.com/Azure/go-autorest/autorest/adal v0.9.21
-
 require (
 	github.com/golang/protobuf v1.5.2
 	github.com/google/uuid v1.3.0
@@ -45,6 +43,7 @@ require (
 	github.com/Azure/azure-sdk-for-go/sdk/azidentity v1.0.0 // indirect
 	github.com/Azure/azure-sdk-for-go/sdk/internal v1.0.0 // indirect
 	github.com/Azure/azure-sdk-for-go/sdk/storage/azblob v0.4.1 // indirect
+	github.com/Azure/go-autorest/autorest/adal v0.9.21 // indirect
 	github.com/AzureAD/microsoft-authentication-library-for-go v0.4.0 // indirect
 	github.com/armon/go-metrics v0.4.0 // indirect
 	github.com/armon/go-radix v1.0.0 // indirect
@@ -158,8 +157,8 @@ require (
 	github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51 // indirect
 	github.com/kevinburke/ssh_config v1.1.0 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
-	github.com/manicminer/hamilton v0.44.0 // indirect
-	github.com/manicminer/hamilton-autorest v0.2.0 // indirect
+	github.com/manicminer/hamilton v0.44.0
+	github.com/manicminer/hamilton-autorest v0.2.0
 	github.com/mattn/go-colorable v0.1.12 // indirect
 	github.com/mattn/go-isatty v0.0.14 // indirect
 	github.com/mattn/go-runewidth v0.0.13 // indirect
