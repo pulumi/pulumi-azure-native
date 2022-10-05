@@ -5,14 +5,19 @@ go 1.18
 require (
 	github.com/Azure/azure-sdk-for-go v59.2.0+incompatible
 	github.com/Azure/go-autorest/autorest v0.11.24
+	github.com/Azure/go-autorest/autorest/adal v0.9.21 // indirect
 	github.com/blang/semver v3.5.1+incompatible
 	github.com/brianvoe/gofakeit/v6 v6.16.0
 	github.com/gedex/inflector v0.0.0-20170307190818-16278e9db813
 	github.com/go-openapi/jsonreference v0.19.2
 	github.com/go-openapi/spec v0.19.7
 	github.com/go-openapi/swag v0.19.9
+	github.com/golang/protobuf v1.5.2
+	github.com/google/uuid v1.3.0
+	github.com/hashicorp/go-azure-helpers v0.40.0
 	github.com/hashicorp/go-multierror v1.1.1
 	github.com/hashicorp/hcl/v2 v2.14.0
+	github.com/manicminer/hamilton v0.44.0
 	github.com/olekukonko/tablewriter v0.0.5
 	github.com/pkg/errors v0.9.1
 	github.com/pulumi/pulumi-java/pkg v0.6.0
@@ -29,12 +34,7 @@ require (
 	modernc.org/sqlite v1.10.0
 )
 
-require github.com/Azure/go-autorest/autorest/adal v0.9.21
-
 require (
-	github.com/golang/protobuf v1.5.2
-	github.com/google/uuid v1.3.0
-	github.com/hashicorp/go-azure-helpers v0.40.0
 	google.golang.org/grpc v1.49.0
 	google.golang.org/protobuf v1.28.1
 )
@@ -124,8 +124,7 @@ require (
 	github.com/kevinburke/ssh_config v1.1.0 // indirect
 	github.com/kr/pretty v0.3.0 // indirect
 	github.com/mailru/easyjson v0.0.0-20190626092158-b2ccc519800e // indirect
-	github.com/manicminer/hamilton v0.44.0 // indirect
-	github.com/manicminer/hamilton-autorest v0.2.0 // indirect
+	github.com/manicminer/hamilton-autorest v0.2.0
 	github.com/mattn/go-colorable v0.1.12 // indirect
 	github.com/mattn/go-ieproxy v0.0.1 // indirect
 	github.com/mattn/go-isatty v0.0.14 // indirect

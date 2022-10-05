@@ -18,6 +18,8 @@ import (
 	"strings"
 	"time"
 
+	hamiltonAuth "github.com/manicminer/hamilton-autorest/auth"
+	"github.com/manicminer/hamilton/environments"
 	"github.com/segmentio/encoding/json"
 
 	structpb "github.com/golang/protobuf/ptypes/struct"
@@ -25,7 +27,6 @@ import (
 	"google.golang.org/protobuf/types/known/emptypb"
 
 	"github.com/Azure/go-autorest/autorest"
-	"github.com/Azure/go-autorest/autorest/adal"
 	"github.com/Azure/go-autorest/autorest/azure"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
 	"github.com/google/uuid"
@@ -179,7 +180,10 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	}
 	k.environment = env
 
-	tokenAuth, bearerAuth, err := k.getAuthorizers(authConfig)
+	// The ctx Context given by gRPC is request-scoped and will be canceled after this request. We
+	// need the authorizers to function across requests.
+	authCtx := context.Background()
+	tokenAuth, bearerAuth, err := k.getAuthorizers(authCtx, authConfig)
 	if err != nil {
 		return nil, errors.Wrap(err, "building authorizer")
 	}
@@ -1796,7 +1800,7 @@ func runAzCmd(target interface{}, arg ...string) error {
 	return nil
 }
 
-func (k *azureNativeProvider) getAuthorizers(authConfig *authentication.Config) (tokenAuth autorest.Authorizer,
+func (k *azureNativeProvider) getAuthorizers(ctx context.Context, authConfig *authentication.Config) (tokenAuth autorest.Authorizer,
 	bearerAuth autorest.Authorizer, err error) {
 	buildSender := sender.BuildSender("AzureNative")
 
@@ -1805,18 +1809,16 @@ func (k *azureNativeProvider) getAuthorizers(authConfig *authentication.Config) 
 		return nil, nil, err
 	}
 
+	api := k.autorestEnvToHamiltonEnv().ResourceManager
+
 	endpoint := k.environment.TokenAudience
 
-	// The ctx Context given by gRPC is request-scoped and will be canceled after this request. We
-	// need the authorizers to function across requests.
-	authCtx := context.Background()
-
-	tokenAuth, err = authConfig.GetADALToken(authCtx, buildSender, oauthConfig, endpoint)
+	tokenAuth, err = authConfig.GetMSALToken(ctx, api, buildSender, oauthConfig, endpoint)
 	if err != nil {
 		return nil, nil, err
 	}
 
-	bearerAuth = authConfig.ADALBearerAuthorizerCallback(authCtx, buildSender, oauthConfig)
+	bearerAuth = authConfig.MSALBearerAuthorizerCallback(ctx, api, buildSender, oauthConfig, endpoint)
 	return tokenAuth, bearerAuth, nil
 }
 
@@ -1827,27 +1829,32 @@ func (k *azureNativeProvider) getOAuthToken(ctx context.Context, auth *authentic
 		return "", err
 	}
 
-	authorizer, err := auth.GetADALToken(ctx, buildSender, oauthConfig, endpoint)
+	api := k.autorestEnvToHamiltonEnv().ResourceManager
+
+	authorizer, err := auth.GetMSALToken(ctx, api, buildSender, oauthConfig, endpoint)
 	if err != nil {
 		return "", fmt.Errorf("getting authorization token: %w", err)
 	}
+
+	// go-azure-helpers returns different kinds of Authorizer from different auth methods so we
+	// need to check to choose the right method to get a token.
+	var token string
 	ba, ok := authorizer.(*autorest.BearerAuthorizer)
-	if !ok {
-		return "", fmt.Errorf("converting %T to a BearerAuthorizer", authorizer)
+	if ok {
+		tokenProvider := ba.TokenProvider()
+		token = tokenProvider.OAuthToken()
+	} else {
+		if outer, ok := authorizer.(*hamiltonAuth.Authorizer); ok {
+			t, err := outer.Token()
+			if err != nil {
+				return "", err
+			}
+			token = t.AccessToken
+		}
 	}
-	tokenProvider := ba.TokenProvider()
-	// the ordering is important here, prefer RefresherWithContext if available
-	if refresher, ok := tokenProvider.(adal.RefresherWithContext); ok {
-		err = refresher.EnsureFreshWithContext(ctx)
-	} else if refresher, ok := tokenProvider.(adal.Refresher); ok {
-		err = refresher.EnsureFresh()
-	}
-	if err != nil {
-		return "", fmt.Errorf("error refreshing token from %T", tokenProvider)
-	}
-	token := tokenProvider.OAuthToken()
+
 	if token == "" {
-		return "", fmt.Errorf("empty token from %T", tokenProvider)
+		return "", fmt.Errorf("empty token from %T", authorizer)
 	}
 	return token, nil
 }
@@ -1861,6 +1868,17 @@ func (k *azureNativeProvider) buildOAuthConfig(authConfig *authentication.Config
 		return nil, fmt.Errorf("unable to configure OAuthConfig for tenant %s", authConfig.TenantID)
 	}
 	return oauthConfig, nil
+}
+
+func (k *azureNativeProvider) autorestEnvToHamiltonEnv() environments.Environment {
+	switch k.environment.Name {
+	case azure.USGovernmentCloud.Name:
+		return environments.USGovernmentL4
+	case azure.ChinaCloud.Name:
+		return environments.China
+	default:
+		return environments.Global
+	}
 }
 
 // getUserAgent returns a User Agent string for the current provider configuration.
