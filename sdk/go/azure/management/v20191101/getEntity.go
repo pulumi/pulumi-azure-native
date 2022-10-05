@@ -1,0 +1,97 @@
+
+
+
+package v20191101
+
+import (
+	"context"
+	"reflect"
+
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func GetEntity(ctx *pulumi.Context, args *GetEntityArgs, opts ...pulumi.InvokeOption) (*GetEntityResult, error) {
+	var rv GetEntityResult
+	err := ctx.Invoke("azure-native:management/v20191101:getEntity", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type GetEntityArgs struct {
+	Filter    *string `pulumi:"filter"`
+	GroupName *string `pulumi:"groupName"`
+	Search    *string `pulumi:"search"`
+	Select    *string `pulumi:"select"`
+	Skip      *int    `pulumi:"skip"`
+	Skiptoken *string `pulumi:"skiptoken"`
+	Top       *int    `pulumi:"top"`
+	View      *string `pulumi:"view"`
+}
+
+
+type GetEntityResult struct {
+	Count    int                  `pulumi:"count"`
+	NextLink string               `pulumi:"nextLink"`
+	Value    []EntityInfoResponse `pulumi:"value"`
+}
+
+func GetEntityOutput(ctx *pulumi.Context, args GetEntityOutputArgs, opts ...pulumi.InvokeOption) GetEntityResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetEntityResult, error) {
+			args := v.(GetEntityArgs)
+			r, err := GetEntity(ctx, &args, opts...)
+			var s GetEntityResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
+		}).(GetEntityResultOutput)
+}
+
+type GetEntityOutputArgs struct {
+	Filter    pulumi.StringPtrInput `pulumi:"filter"`
+	GroupName pulumi.StringPtrInput `pulumi:"groupName"`
+	Search    pulumi.StringPtrInput `pulumi:"search"`
+	Select    pulumi.StringPtrInput `pulumi:"select"`
+	Skip      pulumi.IntPtrInput    `pulumi:"skip"`
+	Skiptoken pulumi.StringPtrInput `pulumi:"skiptoken"`
+	Top       pulumi.IntPtrInput    `pulumi:"top"`
+	View      pulumi.StringPtrInput `pulumi:"view"`
+}
+
+func (GetEntityOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEntityArgs)(nil)).Elem()
+}
+
+
+type GetEntityResultOutput struct{ *pulumi.OutputState }
+
+func (GetEntityResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEntityResult)(nil)).Elem()
+}
+
+func (o GetEntityResultOutput) ToGetEntityResultOutput() GetEntityResultOutput {
+	return o
+}
+
+func (o GetEntityResultOutput) ToGetEntityResultOutputWithContext(ctx context.Context) GetEntityResultOutput {
+	return o
+}
+
+func (o GetEntityResultOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v GetEntityResult) int { return v.Count }).(pulumi.IntOutput)
+}
+
+func (o GetEntityResultOutput) NextLink() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEntityResult) string { return v.NextLink }).(pulumi.StringOutput)
+}
+
+func (o GetEntityResultOutput) Value() EntityInfoResponseArrayOutput {
+	return o.ApplyT(func(v GetEntityResult) []EntityInfoResponse { return v.Value }).(EntityInfoResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetEntityResultOutput{})
+}
