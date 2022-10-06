@@ -8,63 +8,63 @@ import * as utilities from "../../utilities";
 export { GetIncidentArgs, GetIncidentResult, GetIncidentOutputArgs } from "./getIncident";
 export const getIncident: typeof import("./getIncident").getIncident = null as any;
 export const getIncidentOutput: typeof import("./getIncident").getIncidentOutput = null as any;
+utilities.lazyLoad(exports, ["getIncident","getIncidentOutput"], () => require("./getIncident"));
 
 export { GetIncidentCommentArgs, GetIncidentCommentResult, GetIncidentCommentOutputArgs } from "./getIncidentComment";
 export const getIncidentComment: typeof import("./getIncidentComment").getIncidentComment = null as any;
 export const getIncidentCommentOutput: typeof import("./getIncidentComment").getIncidentCommentOutput = null as any;
+utilities.lazyLoad(exports, ["getIncidentComment","getIncidentCommentOutput"], () => require("./getIncidentComment"));
 
 export { GetIncidentRelationArgs, GetIncidentRelationResult, GetIncidentRelationOutputArgs } from "./getIncidentRelation";
 export const getIncidentRelation: typeof import("./getIncidentRelation").getIncidentRelation = null as any;
 export const getIncidentRelationOutput: typeof import("./getIncidentRelation").getIncidentRelationOutput = null as any;
+utilities.lazyLoad(exports, ["getIncidentRelation","getIncidentRelationOutput"], () => require("./getIncidentRelation"));
 
 export { GetThreatIntelligenceIndicatorArgs, GetThreatIntelligenceIndicatorResult, GetThreatIntelligenceIndicatorOutputArgs } from "./getThreatIntelligenceIndicator";
 export const getThreatIntelligenceIndicator: typeof import("./getThreatIntelligenceIndicator").getThreatIntelligenceIndicator = null as any;
 export const getThreatIntelligenceIndicatorOutput: typeof import("./getThreatIntelligenceIndicator").getThreatIntelligenceIndicatorOutput = null as any;
+utilities.lazyLoad(exports, ["getThreatIntelligenceIndicator","getThreatIntelligenceIndicatorOutput"], () => require("./getThreatIntelligenceIndicator"));
 
 export { GetWatchlistArgs, GetWatchlistResult, GetWatchlistOutputArgs } from "./getWatchlist";
 export const getWatchlist: typeof import("./getWatchlist").getWatchlist = null as any;
 export const getWatchlistOutput: typeof import("./getWatchlist").getWatchlistOutput = null as any;
+utilities.lazyLoad(exports, ["getWatchlist","getWatchlistOutput"], () => require("./getWatchlist"));
 
 export { GetWatchlistItemArgs, GetWatchlistItemResult, GetWatchlistItemOutputArgs } from "./getWatchlistItem";
 export const getWatchlistItem: typeof import("./getWatchlistItem").getWatchlistItem = null as any;
 export const getWatchlistItemOutput: typeof import("./getWatchlistItem").getWatchlistItemOutput = null as any;
+utilities.lazyLoad(exports, ["getWatchlistItem","getWatchlistItemOutput"], () => require("./getWatchlistItem"));
 
 export { IncidentArgs } from "./incident";
 export type Incident = import("./incident").Incident;
 export const Incident: typeof import("./incident").Incident = null as any;
+utilities.lazyLoad(exports, ["Incident"], () => require("./incident"));
 
 export { IncidentCommentArgs } from "./incidentComment";
 export type IncidentComment = import("./incidentComment").IncidentComment;
 export const IncidentComment: typeof import("./incidentComment").IncidentComment = null as any;
+utilities.lazyLoad(exports, ["IncidentComment"], () => require("./incidentComment"));
 
 export { IncidentRelationArgs } from "./incidentRelation";
 export type IncidentRelation = import("./incidentRelation").IncidentRelation;
 export const IncidentRelation: typeof import("./incidentRelation").IncidentRelation = null as any;
+utilities.lazyLoad(exports, ["IncidentRelation"], () => require("./incidentRelation"));
 
 export { ThreatIntelligenceIndicatorArgs } from "./threatIntelligenceIndicator";
 export type ThreatIntelligenceIndicator = import("./threatIntelligenceIndicator").ThreatIntelligenceIndicator;
 export const ThreatIntelligenceIndicator: typeof import("./threatIntelligenceIndicator").ThreatIntelligenceIndicator = null as any;
+utilities.lazyLoad(exports, ["ThreatIntelligenceIndicator"], () => require("./threatIntelligenceIndicator"));
 
 export { WatchlistArgs } from "./watchlist";
 export type Watchlist = import("./watchlist").Watchlist;
 export const Watchlist: typeof import("./watchlist").Watchlist = null as any;
+utilities.lazyLoad(exports, ["Watchlist"], () => require("./watchlist"));
 
 export { WatchlistItemArgs } from "./watchlistItem";
 export type WatchlistItem = import("./watchlistItem").WatchlistItem;
 export const WatchlistItem: typeof import("./watchlistItem").WatchlistItem = null as any;
-
-utilities.lazyLoad(exports, ["getIncident","getIncidentOutput"], () => require("./getIncident"));
-utilities.lazyLoad(exports, ["getIncidentComment","getIncidentCommentOutput"], () => require("./getIncidentComment"));
-utilities.lazyLoad(exports, ["getIncidentRelation","getIncidentRelationOutput"], () => require("./getIncidentRelation"));
-utilities.lazyLoad(exports, ["getThreatIntelligenceIndicator","getThreatIntelligenceIndicatorOutput"], () => require("./getThreatIntelligenceIndicator"));
-utilities.lazyLoad(exports, ["getWatchlist","getWatchlistOutput"], () => require("./getWatchlist"));
-utilities.lazyLoad(exports, ["getWatchlistItem","getWatchlistItemOutput"], () => require("./getWatchlistItem"));
-utilities.lazyLoad(exports, ["Incident"], () => require("./incident"));
-utilities.lazyLoad(exports, ["IncidentComment"], () => require("./incidentComment"));
-utilities.lazyLoad(exports, ["IncidentRelation"], () => require("./incidentRelation"));
-utilities.lazyLoad(exports, ["ThreatIntelligenceIndicator"], () => require("./threatIntelligenceIndicator"));
-utilities.lazyLoad(exports, ["Watchlist"], () => require("./watchlist"));
 utilities.lazyLoad(exports, ["WatchlistItem"], () => require("./watchlistItem"));
+
 
 // Export enums:
 export * from "../../types/enums/securityinsights/v20210401";

@@ -8,58 +8,58 @@ import * as utilities from "../../utilities";
 export { ClusterArgs } from "./cluster";
 export type Cluster = import("./cluster").Cluster;
 export const Cluster: typeof import("./cluster").Cluster = null as any;
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
 
 export { DataConnectionArgs } from "./dataConnection";
 export type DataConnection = import("./dataConnection").DataConnection;
 export const DataConnection: typeof import("./dataConnection").DataConnection = null as any;
+utilities.lazyLoad(exports, ["DataConnection"], () => require("./dataConnection"));
 
 export { DatabaseArgs } from "./database";
 export type Database = import("./database").Database;
 export const Database: typeof import("./database").Database = null as any;
+utilities.lazyLoad(exports, ["Database"], () => require("./database"));
 
 export { EventGridDataConnectionArgs } from "./eventGridDataConnection";
 export type EventGridDataConnection = import("./eventGridDataConnection").EventGridDataConnection;
 export const EventGridDataConnection: typeof import("./eventGridDataConnection").EventGridDataConnection = null as any;
+utilities.lazyLoad(exports, ["EventGridDataConnection"], () => require("./eventGridDataConnection"));
 
 export { EventHubDataConnectionArgs } from "./eventHubDataConnection";
 export type EventHubDataConnection = import("./eventHubDataConnection").EventHubDataConnection;
 export const EventHubDataConnection: typeof import("./eventHubDataConnection").EventHubDataConnection = null as any;
+utilities.lazyLoad(exports, ["EventHubDataConnection"], () => require("./eventHubDataConnection"));
 
 export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
 export const getCluster: typeof import("./getCluster").getCluster = null as any;
 export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
 
 export { GetDataConnectionArgs, GetDataConnectionResult, GetDataConnectionOutputArgs } from "./getDataConnection";
 export const getDataConnection: typeof import("./getDataConnection").getDataConnection = null as any;
 export const getDataConnectionOutput: typeof import("./getDataConnection").getDataConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getDataConnection","getDataConnectionOutput"], () => require("./getDataConnection"));
 
 export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
 export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
 export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
 
 export { GetEventGridDataConnectionArgs, GetEventGridDataConnectionResult, GetEventGridDataConnectionOutputArgs } from "./getEventGridDataConnection";
 export const getEventGridDataConnection: typeof import("./getEventGridDataConnection").getEventGridDataConnection = null as any;
 export const getEventGridDataConnectionOutput: typeof import("./getEventGridDataConnection").getEventGridDataConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getEventGridDataConnection","getEventGridDataConnectionOutput"], () => require("./getEventGridDataConnection"));
 
 export { GetEventHubDataConnectionArgs, GetEventHubDataConnectionResult, GetEventHubDataConnectionOutputArgs } from "./getEventHubDataConnection";
 export const getEventHubDataConnection: typeof import("./getEventHubDataConnection").getEventHubDataConnection = null as any;
 export const getEventHubDataConnectionOutput: typeof import("./getEventHubDataConnection").getEventHubDataConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getEventHubDataConnection","getEventHubDataConnectionOutput"], () => require("./getEventHubDataConnection"));
 
 export { ListDatabasePrincipalsArgs, ListDatabasePrincipalsResult, ListDatabasePrincipalsOutputArgs } from "./listDatabasePrincipals";
 export const listDatabasePrincipals: typeof import("./listDatabasePrincipals").listDatabasePrincipals = null as any;
 export const listDatabasePrincipalsOutput: typeof import("./listDatabasePrincipals").listDatabasePrincipalsOutput = null as any;
-
-utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
-utilities.lazyLoad(exports, ["DataConnection"], () => require("./dataConnection"));
-utilities.lazyLoad(exports, ["Database"], () => require("./database"));
-utilities.lazyLoad(exports, ["EventGridDataConnection"], () => require("./eventGridDataConnection"));
-utilities.lazyLoad(exports, ["EventHubDataConnection"], () => require("./eventHubDataConnection"));
-utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
-utilities.lazyLoad(exports, ["getDataConnection","getDataConnectionOutput"], () => require("./getDataConnection"));
-utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
-utilities.lazyLoad(exports, ["getEventGridDataConnection","getEventGridDataConnectionOutput"], () => require("./getEventGridDataConnection"));
-utilities.lazyLoad(exports, ["getEventHubDataConnection","getEventHubDataConnectionOutput"], () => require("./getEventHubDataConnection"));
 utilities.lazyLoad(exports, ["listDatabasePrincipals","listDatabasePrincipalsOutput"], () => require("./listDatabasePrincipals"));
+
 
 // Export enums:
 export * from "../../types/enums/kusto/v20190121";

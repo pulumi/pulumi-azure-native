@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { GetPartnerArgs, GetPartnerResult, GetPartnerOutputArgs } from "./getPartner";
 export const getPartner: typeof import("./getPartner").getPartner = null as any;
 export const getPartnerOutput: typeof import("./getPartner").getPartnerOutput = null as any;
+utilities.lazyLoad(exports, ["getPartner","getPartnerOutput"], () => require("./getPartner"));
 
 export { PartnerArgs } from "./partner";
 export type Partner = import("./partner").Partner;
 export const Partner: typeof import("./partner").Partner = null as any;
-
-utilities.lazyLoad(exports, ["getPartner","getPartnerOutput"], () => require("./getPartner"));
 utilities.lazyLoad(exports, ["Partner"], () => require("./partner"));
+
 
 const _module = {
     version: utilities.getVersion(),

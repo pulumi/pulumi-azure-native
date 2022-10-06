@@ -8,58 +8,58 @@ import * as utilities from "../utilities";
 export { ApplicationArgs } from "./application";
 export type Application = import("./application").Application;
 export const Application: typeof import("./application").Application = null as any;
+utilities.lazyLoad(exports, ["Application"], () => require("./application"));
 
 export { ApplicationPackageArgs } from "./applicationPackage";
 export type ApplicationPackage = import("./applicationPackage").ApplicationPackage;
 export const ApplicationPackage: typeof import("./applicationPackage").ApplicationPackage = null as any;
+utilities.lazyLoad(exports, ["ApplicationPackage"], () => require("./applicationPackage"));
 
 export { BatchAccountArgs } from "./batchAccount";
 export type BatchAccount = import("./batchAccount").BatchAccount;
 export const BatchAccount: typeof import("./batchAccount").BatchAccount = null as any;
+utilities.lazyLoad(exports, ["BatchAccount"], () => require("./batchAccount"));
 
 export { CertificateArgs } from "./certificate";
 export type Certificate = import("./certificate").Certificate;
 export const Certificate: typeof import("./certificate").Certificate = null as any;
+utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
 
 export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
 export const getApplication: typeof import("./getApplication").getApplication = null as any;
 export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
+utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
 
 export { GetApplicationPackageArgs, GetApplicationPackageResult, GetApplicationPackageOutputArgs } from "./getApplicationPackage";
 export const getApplicationPackage: typeof import("./getApplicationPackage").getApplicationPackage = null as any;
 export const getApplicationPackageOutput: typeof import("./getApplicationPackage").getApplicationPackageOutput = null as any;
+utilities.lazyLoad(exports, ["getApplicationPackage","getApplicationPackageOutput"], () => require("./getApplicationPackage"));
 
 export { GetBatchAccountArgs, GetBatchAccountResult, GetBatchAccountOutputArgs } from "./getBatchAccount";
 export const getBatchAccount: typeof import("./getBatchAccount").getBatchAccount = null as any;
 export const getBatchAccountOutput: typeof import("./getBatchAccount").getBatchAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getBatchAccount","getBatchAccountOutput"], () => require("./getBatchAccount"));
 
 export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
 export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
 export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
 
 export { GetPoolArgs, GetPoolResult, GetPoolOutputArgs } from "./getPool";
 export const getPool: typeof import("./getPool").getPool = null as any;
 export const getPoolOutput: typeof import("./getPool").getPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getPool","getPoolOutput"], () => require("./getPool"));
 
 export { ListBatchAccountKeysArgs, ListBatchAccountKeysResult, ListBatchAccountKeysOutputArgs } from "./listBatchAccountKeys";
 export const listBatchAccountKeys: typeof import("./listBatchAccountKeys").listBatchAccountKeys = null as any;
 export const listBatchAccountKeysOutput: typeof import("./listBatchAccountKeys").listBatchAccountKeysOutput = null as any;
+utilities.lazyLoad(exports, ["listBatchAccountKeys","listBatchAccountKeysOutput"], () => require("./listBatchAccountKeys"));
 
 export { PoolArgs } from "./pool";
 export type Pool = import("./pool").Pool;
 export const Pool: typeof import("./pool").Pool = null as any;
-
-utilities.lazyLoad(exports, ["Application"], () => require("./application"));
-utilities.lazyLoad(exports, ["ApplicationPackage"], () => require("./applicationPackage"));
-utilities.lazyLoad(exports, ["BatchAccount"], () => require("./batchAccount"));
-utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
-utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
-utilities.lazyLoad(exports, ["getApplicationPackage","getApplicationPackageOutput"], () => require("./getApplicationPackage"));
-utilities.lazyLoad(exports, ["getBatchAccount","getBatchAccountOutput"], () => require("./getBatchAccount"));
-utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
-utilities.lazyLoad(exports, ["getPool","getPoolOutput"], () => require("./getPool"));
-utilities.lazyLoad(exports, ["listBatchAccountKeys","listBatchAccountKeysOutput"], () => require("./listBatchAccountKeys"));
 utilities.lazyLoad(exports, ["Pool"], () => require("./pool"));
+
 
 // Export enums:
 export * from "../types/enums/batch";

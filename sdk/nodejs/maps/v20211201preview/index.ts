@@ -8,33 +8,33 @@ import * as utilities from "../../utilities";
 export { AccountArgs } from "./account";
 export type Account = import("./account").Account;
 export const Account: typeof import("./account").Account = null as any;
+utilities.lazyLoad(exports, ["Account"], () => require("./account"));
 
 export { CreatorArgs } from "./creator";
 export type Creator = import("./creator").Creator;
 export const Creator: typeof import("./creator").Creator = null as any;
+utilities.lazyLoad(exports, ["Creator"], () => require("./creator"));
 
 export { GetAccountArgs, GetAccountResult, GetAccountOutputArgs } from "./getAccount";
 export const getAccount: typeof import("./getAccount").getAccount = null as any;
 export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
 
 export { GetCreatorArgs, GetCreatorResult, GetCreatorOutputArgs } from "./getCreator";
 export const getCreator: typeof import("./getCreator").getCreator = null as any;
 export const getCreatorOutput: typeof import("./getCreator").getCreatorOutput = null as any;
+utilities.lazyLoad(exports, ["getCreator","getCreatorOutput"], () => require("./getCreator"));
 
 export { ListAccountKeysArgs, ListAccountKeysResult, ListAccountKeysOutputArgs } from "./listAccountKeys";
 export const listAccountKeys: typeof import("./listAccountKeys").listAccountKeys = null as any;
 export const listAccountKeysOutput: typeof import("./listAccountKeys").listAccountKeysOutput = null as any;
+utilities.lazyLoad(exports, ["listAccountKeys","listAccountKeysOutput"], () => require("./listAccountKeys"));
 
 export { ListAccountSasArgs, ListAccountSasResult, ListAccountSasOutputArgs } from "./listAccountSas";
 export const listAccountSas: typeof import("./listAccountSas").listAccountSas = null as any;
 export const listAccountSasOutput: typeof import("./listAccountSas").listAccountSasOutput = null as any;
-
-utilities.lazyLoad(exports, ["Account"], () => require("./account"));
-utilities.lazyLoad(exports, ["Creator"], () => require("./creator"));
-utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
-utilities.lazyLoad(exports, ["getCreator","getCreatorOutput"], () => require("./getCreator"));
-utilities.lazyLoad(exports, ["listAccountKeys","listAccountKeysOutput"], () => require("./listAccountKeys"));
 utilities.lazyLoad(exports, ["listAccountSas","listAccountSasOutput"], () => require("./listAccountSas"));
+
 
 // Export enums:
 export * from "../../types/enums/maps/v20211201preview";

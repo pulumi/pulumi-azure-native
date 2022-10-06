@@ -8,33 +8,33 @@ import * as utilities from "../../utilities";
 export { DomainArgs } from "./domain";
 export type Domain = import("./domain").Domain;
 export const Domain: typeof import("./domain").Domain = null as any;
+utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
 
 export { DomainOwnershipIdentifierArgs } from "./domainOwnershipIdentifier";
 export type DomainOwnershipIdentifier = import("./domainOwnershipIdentifier").DomainOwnershipIdentifier;
 export const DomainOwnershipIdentifier: typeof import("./domainOwnershipIdentifier").DomainOwnershipIdentifier = null as any;
+utilities.lazyLoad(exports, ["DomainOwnershipIdentifier"], () => require("./domainOwnershipIdentifier"));
 
 export { GetDomainArgs, GetDomainResult, GetDomainOutputArgs } from "./getDomain";
 export const getDomain: typeof import("./getDomain").getDomain = null as any;
 export const getDomainOutput: typeof import("./getDomain").getDomainOutput = null as any;
+utilities.lazyLoad(exports, ["getDomain","getDomainOutput"], () => require("./getDomain"));
 
 export { GetDomainOwnershipIdentifierArgs, GetDomainOwnershipIdentifierResult, GetDomainOwnershipIdentifierOutputArgs } from "./getDomainOwnershipIdentifier";
 export const getDomainOwnershipIdentifier: typeof import("./getDomainOwnershipIdentifier").getDomainOwnershipIdentifier = null as any;
 export const getDomainOwnershipIdentifierOutput: typeof import("./getDomainOwnershipIdentifier").getDomainOwnershipIdentifierOutput = null as any;
+utilities.lazyLoad(exports, ["getDomainOwnershipIdentifier","getDomainOwnershipIdentifierOutput"], () => require("./getDomainOwnershipIdentifier"));
 
 export { ListDomainRecommendationsArgs, ListDomainRecommendationsResult, ListDomainRecommendationsOutputArgs } from "./listDomainRecommendations";
 export const listDomainRecommendations: typeof import("./listDomainRecommendations").listDomainRecommendations = null as any;
 export const listDomainRecommendationsOutput: typeof import("./listDomainRecommendations").listDomainRecommendationsOutput = null as any;
+utilities.lazyLoad(exports, ["listDomainRecommendations","listDomainRecommendationsOutput"], () => require("./listDomainRecommendations"));
 
 export { ListTopLevelDomainAgreementsArgs, ListTopLevelDomainAgreementsResult, ListTopLevelDomainAgreementsOutputArgs } from "./listTopLevelDomainAgreements";
 export const listTopLevelDomainAgreements: typeof import("./listTopLevelDomainAgreements").listTopLevelDomainAgreements = null as any;
 export const listTopLevelDomainAgreementsOutput: typeof import("./listTopLevelDomainAgreements").listTopLevelDomainAgreementsOutput = null as any;
-
-utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
-utilities.lazyLoad(exports, ["DomainOwnershipIdentifier"], () => require("./domainOwnershipIdentifier"));
-utilities.lazyLoad(exports, ["getDomain","getDomainOutput"], () => require("./getDomain"));
-utilities.lazyLoad(exports, ["getDomainOwnershipIdentifier","getDomainOwnershipIdentifierOutput"], () => require("./getDomainOwnershipIdentifier"));
-utilities.lazyLoad(exports, ["listDomainRecommendations","listDomainRecommendationsOutput"], () => require("./listDomainRecommendations"));
 utilities.lazyLoad(exports, ["listTopLevelDomainAgreements","listTopLevelDomainAgreementsOutput"], () => require("./listTopLevelDomainAgreements"));
+
 
 // Export enums:
 export * from "../../types/enums/domainregistration/v20210301";

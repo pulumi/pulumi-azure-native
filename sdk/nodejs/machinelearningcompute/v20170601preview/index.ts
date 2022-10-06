@@ -8,18 +8,18 @@ import * as utilities from "../../utilities";
 export { GetOperationalizationClusterArgs, GetOperationalizationClusterResult, GetOperationalizationClusterOutputArgs } from "./getOperationalizationCluster";
 export const getOperationalizationCluster: typeof import("./getOperationalizationCluster").getOperationalizationCluster = null as any;
 export const getOperationalizationClusterOutput: typeof import("./getOperationalizationCluster").getOperationalizationClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getOperationalizationCluster","getOperationalizationClusterOutput"], () => require("./getOperationalizationCluster"));
 
 export { ListOperationalizationClusterKeysArgs, ListOperationalizationClusterKeysResult, ListOperationalizationClusterKeysOutputArgs } from "./listOperationalizationClusterKeys";
 export const listOperationalizationClusterKeys: typeof import("./listOperationalizationClusterKeys").listOperationalizationClusterKeys = null as any;
 export const listOperationalizationClusterKeysOutput: typeof import("./listOperationalizationClusterKeys").listOperationalizationClusterKeysOutput = null as any;
+utilities.lazyLoad(exports, ["listOperationalizationClusterKeys","listOperationalizationClusterKeysOutput"], () => require("./listOperationalizationClusterKeys"));
 
 export { OperationalizationClusterArgs } from "./operationalizationCluster";
 export type OperationalizationCluster = import("./operationalizationCluster").OperationalizationCluster;
 export const OperationalizationCluster: typeof import("./operationalizationCluster").OperationalizationCluster = null as any;
-
-utilities.lazyLoad(exports, ["getOperationalizationCluster","getOperationalizationClusterOutput"], () => require("./getOperationalizationCluster"));
-utilities.lazyLoad(exports, ["listOperationalizationClusterKeys","listOperationalizationClusterKeysOutput"], () => require("./listOperationalizationClusterKeys"));
 utilities.lazyLoad(exports, ["OperationalizationCluster"], () => require("./operationalizationCluster"));
+
 
 // Export enums:
 export * from "../../types/enums/machinelearningcompute/v20170601preview";

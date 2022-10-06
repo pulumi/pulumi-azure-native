@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { GetSubscriptionAliasArgs, GetSubscriptionAliasResult, GetSubscriptionAliasOutputArgs } from "./getSubscriptionAlias";
 export const getSubscriptionAlias: typeof import("./getSubscriptionAlias").getSubscriptionAlias = null as any;
 export const getSubscriptionAliasOutput: typeof import("./getSubscriptionAlias").getSubscriptionAliasOutput = null as any;
+utilities.lazyLoad(exports, ["getSubscriptionAlias","getSubscriptionAliasOutput"], () => require("./getSubscriptionAlias"));
 
 export { SubscriptionAliasArgs } from "./subscriptionAlias";
 export type SubscriptionAlias = import("./subscriptionAlias").SubscriptionAlias;
 export const SubscriptionAlias: typeof import("./subscriptionAlias").SubscriptionAlias = null as any;
-
-utilities.lazyLoad(exports, ["getSubscriptionAlias","getSubscriptionAliasOutput"], () => require("./getSubscriptionAlias"));
 utilities.lazyLoad(exports, ["SubscriptionAlias"], () => require("./subscriptionAlias"));
+
 
 // Export enums:
 export * from "../../types/enums/subscription/v20191001preview";

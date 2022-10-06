@@ -8,23 +8,23 @@ import * as utilities from "../../utilities";
 export { GetMyWorkbookArgs, GetMyWorkbookResult, GetMyWorkbookOutputArgs } from "./getMyWorkbook";
 export const getMyWorkbook: typeof import("./getMyWorkbook").getMyWorkbook = null as any;
 export const getMyWorkbookOutput: typeof import("./getMyWorkbook").getMyWorkbookOutput = null as any;
+utilities.lazyLoad(exports, ["getMyWorkbook","getMyWorkbookOutput"], () => require("./getMyWorkbook"));
 
 export { GetWorkbookArgs, GetWorkbookResult, GetWorkbookOutputArgs } from "./getWorkbook";
 export const getWorkbook: typeof import("./getWorkbook").getWorkbook = null as any;
 export const getWorkbookOutput: typeof import("./getWorkbook").getWorkbookOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkbook","getWorkbookOutput"], () => require("./getWorkbook"));
 
 export { MyWorkbookArgs } from "./myWorkbook";
 export type MyWorkbook = import("./myWorkbook").MyWorkbook;
 export const MyWorkbook: typeof import("./myWorkbook").MyWorkbook = null as any;
+utilities.lazyLoad(exports, ["MyWorkbook"], () => require("./myWorkbook"));
 
 export { WorkbookArgs } from "./workbook";
 export type Workbook = import("./workbook").Workbook;
 export const Workbook: typeof import("./workbook").Workbook = null as any;
-
-utilities.lazyLoad(exports, ["getMyWorkbook","getMyWorkbookOutput"], () => require("./getMyWorkbook"));
-utilities.lazyLoad(exports, ["getWorkbook","getWorkbookOutput"], () => require("./getWorkbook"));
-utilities.lazyLoad(exports, ["MyWorkbook"], () => require("./myWorkbook"));
 utilities.lazyLoad(exports, ["Workbook"], () => require("./workbook"));
+
 
 // Export enums:
 export * from "../../types/enums/insights/v20210308";

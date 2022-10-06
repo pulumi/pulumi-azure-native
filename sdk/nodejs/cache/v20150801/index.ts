@@ -8,18 +8,18 @@ import * as utilities from "../../utilities";
 export { GetRedisArgs, GetRedisResult, GetRedisOutputArgs } from "./getRedis";
 export const getRedis: typeof import("./getRedis").getRedis = null as any;
 export const getRedisOutput: typeof import("./getRedis").getRedisOutput = null as any;
+utilities.lazyLoad(exports, ["getRedis","getRedisOutput"], () => require("./getRedis"));
 
 export { ListRedisKeysArgs, ListRedisKeysResult, ListRedisKeysOutputArgs } from "./listRedisKeys";
 export const listRedisKeys: typeof import("./listRedisKeys").listRedisKeys = null as any;
 export const listRedisKeysOutput: typeof import("./listRedisKeys").listRedisKeysOutput = null as any;
+utilities.lazyLoad(exports, ["listRedisKeys","listRedisKeysOutput"], () => require("./listRedisKeys"));
 
 export { RedisArgs } from "./redis";
 export type Redis = import("./redis").Redis;
 export const Redis: typeof import("./redis").Redis = null as any;
-
-utilities.lazyLoad(exports, ["getRedis","getRedisOutput"], () => require("./getRedis"));
-utilities.lazyLoad(exports, ["listRedisKeys","listRedisKeysOutput"], () => require("./listRedisKeys"));
 utilities.lazyLoad(exports, ["Redis"], () => require("./redis"));
+
 
 // Export enums:
 export * from "../../types/enums/cache/v20150801";

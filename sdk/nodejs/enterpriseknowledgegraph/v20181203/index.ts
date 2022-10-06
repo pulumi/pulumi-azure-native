@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { EnterpriseKnowledgeGraphArgs } from "./enterpriseKnowledgeGraph";
 export type EnterpriseKnowledgeGraph = import("./enterpriseKnowledgeGraph").EnterpriseKnowledgeGraph;
 export const EnterpriseKnowledgeGraph: typeof import("./enterpriseKnowledgeGraph").EnterpriseKnowledgeGraph = null as any;
+utilities.lazyLoad(exports, ["EnterpriseKnowledgeGraph"], () => require("./enterpriseKnowledgeGraph"));
 
 export { GetEnterpriseKnowledgeGraphArgs, GetEnterpriseKnowledgeGraphResult, GetEnterpriseKnowledgeGraphOutputArgs } from "./getEnterpriseKnowledgeGraph";
 export const getEnterpriseKnowledgeGraph: typeof import("./getEnterpriseKnowledgeGraph").getEnterpriseKnowledgeGraph = null as any;
 export const getEnterpriseKnowledgeGraphOutput: typeof import("./getEnterpriseKnowledgeGraph").getEnterpriseKnowledgeGraphOutput = null as any;
-
-utilities.lazyLoad(exports, ["EnterpriseKnowledgeGraph"], () => require("./enterpriseKnowledgeGraph"));
 utilities.lazyLoad(exports, ["getEnterpriseKnowledgeGraph","getEnterpriseKnowledgeGraphOutput"], () => require("./getEnterpriseKnowledgeGraph"));
+
 
 // Export enums:
 export * from "../../types/enums/enterpriseknowledgegraph/v20181203";

@@ -8,33 +8,33 @@ import * as utilities from "../../utilities";
 export { ConfigurationAssignmentArgs } from "./configurationAssignment";
 export type ConfigurationAssignment = import("./configurationAssignment").ConfigurationAssignment;
 export const ConfigurationAssignment: typeof import("./configurationAssignment").ConfigurationAssignment = null as any;
+utilities.lazyLoad(exports, ["ConfigurationAssignment"], () => require("./configurationAssignment"));
 
 export { ConfigurationAssignmentParentArgs } from "./configurationAssignmentParent";
 export type ConfigurationAssignmentParent = import("./configurationAssignmentParent").ConfigurationAssignmentParent;
 export const ConfigurationAssignmentParent: typeof import("./configurationAssignmentParent").ConfigurationAssignmentParent = null as any;
+utilities.lazyLoad(exports, ["ConfigurationAssignmentParent"], () => require("./configurationAssignmentParent"));
 
 export { GetConfigurationAssignmentArgs, GetConfigurationAssignmentResult, GetConfigurationAssignmentOutputArgs } from "./getConfigurationAssignment";
 export const getConfigurationAssignment: typeof import("./getConfigurationAssignment").getConfigurationAssignment = null as any;
 export const getConfigurationAssignmentOutput: typeof import("./getConfigurationAssignment").getConfigurationAssignmentOutput = null as any;
+utilities.lazyLoad(exports, ["getConfigurationAssignment","getConfigurationAssignmentOutput"], () => require("./getConfigurationAssignment"));
 
 export { GetConfigurationAssignmentParentArgs, GetConfigurationAssignmentParentResult, GetConfigurationAssignmentParentOutputArgs } from "./getConfigurationAssignmentParent";
 export const getConfigurationAssignmentParent: typeof import("./getConfigurationAssignmentParent").getConfigurationAssignmentParent = null as any;
 export const getConfigurationAssignmentParentOutput: typeof import("./getConfigurationAssignmentParent").getConfigurationAssignmentParentOutput = null as any;
+utilities.lazyLoad(exports, ["getConfigurationAssignmentParent","getConfigurationAssignmentParentOutput"], () => require("./getConfigurationAssignmentParent"));
 
 export { GetMaintenanceConfigurationArgs, GetMaintenanceConfigurationResult, GetMaintenanceConfigurationOutputArgs } from "./getMaintenanceConfiguration";
 export const getMaintenanceConfiguration: typeof import("./getMaintenanceConfiguration").getMaintenanceConfiguration = null as any;
 export const getMaintenanceConfigurationOutput: typeof import("./getMaintenanceConfiguration").getMaintenanceConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getMaintenanceConfiguration","getMaintenanceConfigurationOutput"], () => require("./getMaintenanceConfiguration"));
 
 export { MaintenanceConfigurationArgs } from "./maintenanceConfiguration";
 export type MaintenanceConfiguration = import("./maintenanceConfiguration").MaintenanceConfiguration;
 export const MaintenanceConfiguration: typeof import("./maintenanceConfiguration").MaintenanceConfiguration = null as any;
-
-utilities.lazyLoad(exports, ["ConfigurationAssignment"], () => require("./configurationAssignment"));
-utilities.lazyLoad(exports, ["ConfigurationAssignmentParent"], () => require("./configurationAssignmentParent"));
-utilities.lazyLoad(exports, ["getConfigurationAssignment","getConfigurationAssignmentOutput"], () => require("./getConfigurationAssignment"));
-utilities.lazyLoad(exports, ["getConfigurationAssignmentParent","getConfigurationAssignmentParentOutput"], () => require("./getConfigurationAssignmentParent"));
-utilities.lazyLoad(exports, ["getMaintenanceConfiguration","getMaintenanceConfigurationOutput"], () => require("./getMaintenanceConfiguration"));
 utilities.lazyLoad(exports, ["MaintenanceConfiguration"], () => require("./maintenanceConfiguration"));
+
 
 // Export enums:
 export * from "../../types/enums/maintenance/v20220701preview";

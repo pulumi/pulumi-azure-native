@@ -8,83 +8,83 @@ import * as utilities from "../../utilities";
 export { DatabaseArgs } from "./database";
 export type Database = import("./database").Database;
 export const Database: typeof import("./database").Database = null as any;
+utilities.lazyLoad(exports, ["Database"], () => require("./database"));
 
 export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
 export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
 export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
 
 export { GetManagedDatabaseArgs, GetManagedDatabaseResult, GetManagedDatabaseOutputArgs } from "./getManagedDatabase";
 export const getManagedDatabase: typeof import("./getManagedDatabase").getManagedDatabase = null as any;
 export const getManagedDatabaseOutput: typeof import("./getManagedDatabase").getManagedDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedDatabase","getManagedDatabaseOutput"], () => require("./getManagedDatabase"));
 
 export { GetServerArgs, GetServerResult, GetServerOutputArgs } from "./getServer";
 export const getServer: typeof import("./getServer").getServer = null as any;
 export const getServerOutput: typeof import("./getServer").getServerOutput = null as any;
+utilities.lazyLoad(exports, ["getServer","getServerOutput"], () => require("./getServer"));
 
 export { GetServerAzureADAdministratorArgs, GetServerAzureADAdministratorResult, GetServerAzureADAdministratorOutputArgs } from "./getServerAzureADAdministrator";
 export const getServerAzureADAdministrator: typeof import("./getServerAzureADAdministrator").getServerAzureADAdministrator = null as any;
 export const getServerAzureADAdministratorOutput: typeof import("./getServerAzureADAdministrator").getServerAzureADAdministratorOutput = null as any;
+utilities.lazyLoad(exports, ["getServerAzureADAdministrator","getServerAzureADAdministratorOutput"], () => require("./getServerAzureADAdministrator"));
 
 export { GetSyncGroupArgs, GetSyncGroupResult, GetSyncGroupOutputArgs } from "./getSyncGroup";
 export const getSyncGroup: typeof import("./getSyncGroup").getSyncGroup = null as any;
 export const getSyncGroupOutput: typeof import("./getSyncGroup").getSyncGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getSyncGroup","getSyncGroupOutput"], () => require("./getSyncGroup"));
 
 export { GetSyncMemberArgs, GetSyncMemberResult, GetSyncMemberOutputArgs } from "./getSyncMember";
 export const getSyncMember: typeof import("./getSyncMember").getSyncMember = null as any;
 export const getSyncMemberOutput: typeof import("./getSyncMember").getSyncMemberOutput = null as any;
+utilities.lazyLoad(exports, ["getSyncMember","getSyncMemberOutput"], () => require("./getSyncMember"));
 
 export { GetWorkloadClassifierArgs, GetWorkloadClassifierResult, GetWorkloadClassifierOutputArgs } from "./getWorkloadClassifier";
 export const getWorkloadClassifier: typeof import("./getWorkloadClassifier").getWorkloadClassifier = null as any;
 export const getWorkloadClassifierOutput: typeof import("./getWorkloadClassifier").getWorkloadClassifierOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkloadClassifier","getWorkloadClassifierOutput"], () => require("./getWorkloadClassifier"));
 
 export { GetWorkloadGroupArgs, GetWorkloadGroupResult, GetWorkloadGroupOutputArgs } from "./getWorkloadGroup";
 export const getWorkloadGroup: typeof import("./getWorkloadGroup").getWorkloadGroup = null as any;
 export const getWorkloadGroupOutput: typeof import("./getWorkloadGroup").getWorkloadGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkloadGroup","getWorkloadGroupOutput"], () => require("./getWorkloadGroup"));
 
 export { ManagedDatabaseArgs } from "./managedDatabase";
 export type ManagedDatabase = import("./managedDatabase").ManagedDatabase;
 export const ManagedDatabase: typeof import("./managedDatabase").ManagedDatabase = null as any;
+utilities.lazyLoad(exports, ["ManagedDatabase"], () => require("./managedDatabase"));
 
 export { ServerArgs } from "./server";
 export type Server = import("./server").Server;
 export const Server: typeof import("./server").Server = null as any;
+utilities.lazyLoad(exports, ["Server"], () => require("./server"));
 
 export { ServerAzureADAdministratorArgs } from "./serverAzureADAdministrator";
 export type ServerAzureADAdministrator = import("./serverAzureADAdministrator").ServerAzureADAdministrator;
 export const ServerAzureADAdministrator: typeof import("./serverAzureADAdministrator").ServerAzureADAdministrator = null as any;
+utilities.lazyLoad(exports, ["ServerAzureADAdministrator"], () => require("./serverAzureADAdministrator"));
 
 export { SyncGroupArgs } from "./syncGroup";
 export type SyncGroup = import("./syncGroup").SyncGroup;
 export const SyncGroup: typeof import("./syncGroup").SyncGroup = null as any;
+utilities.lazyLoad(exports, ["SyncGroup"], () => require("./syncGroup"));
 
 export { SyncMemberArgs } from "./syncMember";
 export type SyncMember = import("./syncMember").SyncMember;
 export const SyncMember: typeof import("./syncMember").SyncMember = null as any;
+utilities.lazyLoad(exports, ["SyncMember"], () => require("./syncMember"));
 
 export { WorkloadClassifierArgs } from "./workloadClassifier";
 export type WorkloadClassifier = import("./workloadClassifier").WorkloadClassifier;
 export const WorkloadClassifier: typeof import("./workloadClassifier").WorkloadClassifier = null as any;
+utilities.lazyLoad(exports, ["WorkloadClassifier"], () => require("./workloadClassifier"));
 
 export { WorkloadGroupArgs } from "./workloadGroup";
 export type WorkloadGroup = import("./workloadGroup").WorkloadGroup;
 export const WorkloadGroup: typeof import("./workloadGroup").WorkloadGroup = null as any;
-
-utilities.lazyLoad(exports, ["Database"], () => require("./database"));
-utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
-utilities.lazyLoad(exports, ["getManagedDatabase","getManagedDatabaseOutput"], () => require("./getManagedDatabase"));
-utilities.lazyLoad(exports, ["getServer","getServerOutput"], () => require("./getServer"));
-utilities.lazyLoad(exports, ["getServerAzureADAdministrator","getServerAzureADAdministratorOutput"], () => require("./getServerAzureADAdministrator"));
-utilities.lazyLoad(exports, ["getSyncGroup","getSyncGroupOutput"], () => require("./getSyncGroup"));
-utilities.lazyLoad(exports, ["getSyncMember","getSyncMemberOutput"], () => require("./getSyncMember"));
-utilities.lazyLoad(exports, ["getWorkloadClassifier","getWorkloadClassifierOutput"], () => require("./getWorkloadClassifier"));
-utilities.lazyLoad(exports, ["getWorkloadGroup","getWorkloadGroupOutput"], () => require("./getWorkloadGroup"));
-utilities.lazyLoad(exports, ["ManagedDatabase"], () => require("./managedDatabase"));
-utilities.lazyLoad(exports, ["Server"], () => require("./server"));
-utilities.lazyLoad(exports, ["ServerAzureADAdministrator"], () => require("./serverAzureADAdministrator"));
-utilities.lazyLoad(exports, ["SyncGroup"], () => require("./syncGroup"));
-utilities.lazyLoad(exports, ["SyncMember"], () => require("./syncMember"));
-utilities.lazyLoad(exports, ["WorkloadClassifier"], () => require("./workloadClassifier"));
 utilities.lazyLoad(exports, ["WorkloadGroup"], () => require("./workloadGroup"));
+
 
 // Export enums:
 export * from "../../types/enums/sql/v20190601preview";

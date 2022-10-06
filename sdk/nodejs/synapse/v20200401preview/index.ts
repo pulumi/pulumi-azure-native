@@ -8,23 +8,23 @@ import * as utilities from "../../utilities";
 export { GetSqlDatabaseArgs, GetSqlDatabaseResult, GetSqlDatabaseOutputArgs } from "./getSqlDatabase";
 export const getSqlDatabase: typeof import("./getSqlDatabase").getSqlDatabase = null as any;
 export const getSqlDatabaseOutput: typeof import("./getSqlDatabase").getSqlDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlDatabase","getSqlDatabaseOutput"], () => require("./getSqlDatabase"));
 
 export { GetSqlPoolsV3Args, GetSqlPoolsV3Result, GetSqlPoolsV3OutputArgs } from "./getSqlPoolsV3";
 export const getSqlPoolsV3: typeof import("./getSqlPoolsV3").getSqlPoolsV3 = null as any;
 export const getSqlPoolsV3Output: typeof import("./getSqlPoolsV3").getSqlPoolsV3Output = null as any;
+utilities.lazyLoad(exports, ["getSqlPoolsV3","getSqlPoolsV3Output"], () => require("./getSqlPoolsV3"));
 
 export { SqlDatabaseArgs } from "./sqlDatabase";
 export type SqlDatabase = import("./sqlDatabase").SqlDatabase;
 export const SqlDatabase: typeof import("./sqlDatabase").SqlDatabase = null as any;
+utilities.lazyLoad(exports, ["SqlDatabase"], () => require("./sqlDatabase"));
 
 export { SqlPoolsV3Args } from "./sqlPoolsV3";
 export type SqlPoolsV3 = import("./sqlPoolsV3").SqlPoolsV3;
 export const SqlPoolsV3: typeof import("./sqlPoolsV3").SqlPoolsV3 = null as any;
-
-utilities.lazyLoad(exports, ["getSqlDatabase","getSqlDatabaseOutput"], () => require("./getSqlDatabase"));
-utilities.lazyLoad(exports, ["getSqlPoolsV3","getSqlPoolsV3Output"], () => require("./getSqlPoolsV3"));
-utilities.lazyLoad(exports, ["SqlDatabase"], () => require("./sqlDatabase"));
 utilities.lazyLoad(exports, ["SqlPoolsV3"], () => require("./sqlPoolsV3"));
+
 
 // Export enums:
 export * from "../../types/enums/synapse/v20200401preview";

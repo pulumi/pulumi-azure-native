@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { GetSerialPortArgs, GetSerialPortResult, GetSerialPortOutputArgs } from "./getSerialPort";
 export const getSerialPort: typeof import("./getSerialPort").getSerialPort = null as any;
 export const getSerialPortOutput: typeof import("./getSerialPort").getSerialPortOutput = null as any;
+utilities.lazyLoad(exports, ["getSerialPort","getSerialPortOutput"], () => require("./getSerialPort"));
 
 export { SerialPortArgs } from "./serialPort";
 export type SerialPort = import("./serialPort").SerialPort;
 export const SerialPort: typeof import("./serialPort").SerialPort = null as any;
-
-utilities.lazyLoad(exports, ["getSerialPort","getSerialPortOutput"], () => require("./getSerialPort"));
 utilities.lazyLoad(exports, ["SerialPort"], () => require("./serialPort"));
+
 
 // Export enums:
 export * from "../../types/enums/serialconsole/v20180501";

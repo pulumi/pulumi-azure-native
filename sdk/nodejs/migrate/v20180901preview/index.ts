@@ -8,28 +8,28 @@ import * as utilities from "../../utilities";
 export { GetMigrateProjectArgs, GetMigrateProjectResult, GetMigrateProjectOutputArgs } from "./getMigrateProject";
 export const getMigrateProject: typeof import("./getMigrateProject").getMigrateProject = null as any;
 export const getMigrateProjectOutput: typeof import("./getMigrateProject").getMigrateProjectOutput = null as any;
+utilities.lazyLoad(exports, ["getMigrateProject","getMigrateProjectOutput"], () => require("./getMigrateProject"));
 
 export { GetSolutionArgs, GetSolutionResult, GetSolutionOutputArgs } from "./getSolution";
 export const getSolution: typeof import("./getSolution").getSolution = null as any;
 export const getSolutionOutput: typeof import("./getSolution").getSolutionOutput = null as any;
+utilities.lazyLoad(exports, ["getSolution","getSolutionOutput"], () => require("./getSolution"));
 
 export { GetSolutionConfigArgs, GetSolutionConfigResult, GetSolutionConfigOutputArgs } from "./getSolutionConfig";
 export const getSolutionConfig: typeof import("./getSolutionConfig").getSolutionConfig = null as any;
 export const getSolutionConfigOutput: typeof import("./getSolutionConfig").getSolutionConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getSolutionConfig","getSolutionConfigOutput"], () => require("./getSolutionConfig"));
 
 export { MigrateProjectArgs } from "./migrateProject";
 export type MigrateProject = import("./migrateProject").MigrateProject;
 export const MigrateProject: typeof import("./migrateProject").MigrateProject = null as any;
+utilities.lazyLoad(exports, ["MigrateProject"], () => require("./migrateProject"));
 
 export { SolutionArgs } from "./solution";
 export type Solution = import("./solution").Solution;
 export const Solution: typeof import("./solution").Solution = null as any;
-
-utilities.lazyLoad(exports, ["getMigrateProject","getMigrateProjectOutput"], () => require("./getMigrateProject"));
-utilities.lazyLoad(exports, ["getSolution","getSolutionOutput"], () => require("./getSolution"));
-utilities.lazyLoad(exports, ["getSolutionConfig","getSolutionConfigOutput"], () => require("./getSolutionConfig"));
-utilities.lazyLoad(exports, ["MigrateProject"], () => require("./migrateProject"));
 utilities.lazyLoad(exports, ["Solution"], () => require("./solution"));
+
 
 // Export enums:
 export * from "../../types/enums/migrate/v20180901preview";

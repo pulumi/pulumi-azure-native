@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { GetSupportPlanTypeArgs, GetSupportPlanTypeResult, GetSupportPlanTypeOutputArgs } from "./getSupportPlanType";
 export const getSupportPlanType: typeof import("./getSupportPlanType").getSupportPlanType = null as any;
 export const getSupportPlanTypeOutput: typeof import("./getSupportPlanType").getSupportPlanTypeOutput = null as any;
+utilities.lazyLoad(exports, ["getSupportPlanType","getSupportPlanTypeOutput"], () => require("./getSupportPlanType"));
 
 export { SupportPlanTypeArgs } from "./supportPlanType";
 export type SupportPlanType = import("./supportPlanType").SupportPlanType;
 export const SupportPlanType: typeof import("./supportPlanType").SupportPlanType = null as any;
-
-utilities.lazyLoad(exports, ["getSupportPlanType","getSupportPlanTypeOutput"], () => require("./getSupportPlanType"));
 utilities.lazyLoad(exports, ["SupportPlanType"], () => require("./supportPlanType"));
+
 
 // Export sub-modules:
 import * as v20170515 from "./v20170515";

@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { GetProtectionIntentArgs, GetProtectionIntentResult, GetProtectionIntentOutputArgs } from "./getProtectionIntent";
 export const getProtectionIntent: typeof import("./getProtectionIntent").getProtectionIntent = null as any;
 export const getProtectionIntentOutput: typeof import("./getProtectionIntent").getProtectionIntentOutput = null as any;
+utilities.lazyLoad(exports, ["getProtectionIntent","getProtectionIntentOutput"], () => require("./getProtectionIntent"));
 
 export { ProtectionIntentArgs } from "./protectionIntent";
 export type ProtectionIntent = import("./protectionIntent").ProtectionIntent;
 export const ProtectionIntent: typeof import("./protectionIntent").ProtectionIntent = null as any;
-
-utilities.lazyLoad(exports, ["getProtectionIntent","getProtectionIntentOutput"], () => require("./getProtectionIntent"));
 utilities.lazyLoad(exports, ["ProtectionIntent"], () => require("./protectionIntent"));
+
 
 // Export enums:
 export * from "../../types/enums/recoveryservices/v20170701";

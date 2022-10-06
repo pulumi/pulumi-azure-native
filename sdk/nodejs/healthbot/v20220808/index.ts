@@ -8,18 +8,18 @@ import * as utilities from "../../utilities";
 export { BotArgs } from "./bot";
 export type Bot = import("./bot").Bot;
 export const Bot: typeof import("./bot").Bot = null as any;
+utilities.lazyLoad(exports, ["Bot"], () => require("./bot"));
 
 export { GetBotArgs, GetBotResult, GetBotOutputArgs } from "./getBot";
 export const getBot: typeof import("./getBot").getBot = null as any;
 export const getBotOutput: typeof import("./getBot").getBotOutput = null as any;
+utilities.lazyLoad(exports, ["getBot","getBotOutput"], () => require("./getBot"));
 
 export { ListBotSecretsArgs, ListBotSecretsResult, ListBotSecretsOutputArgs } from "./listBotSecrets";
 export const listBotSecrets: typeof import("./listBotSecrets").listBotSecrets = null as any;
 export const listBotSecretsOutput: typeof import("./listBotSecrets").listBotSecretsOutput = null as any;
-
-utilities.lazyLoad(exports, ["Bot"], () => require("./bot"));
-utilities.lazyLoad(exports, ["getBot","getBotOutput"], () => require("./getBot"));
 utilities.lazyLoad(exports, ["listBotSecrets","listBotSecretsOutput"], () => require("./listBotSecrets"));
+
 
 // Export enums:
 export * from "../../types/enums/healthbot/v20220808";

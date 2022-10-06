@@ -8,183 +8,183 @@ import * as utilities from "../../utilities";
 export { BackupLongTermRetentionPolicyArgs } from "./backupLongTermRetentionPolicy";
 export type BackupLongTermRetentionPolicy = import("./backupLongTermRetentionPolicy").BackupLongTermRetentionPolicy;
 export const BackupLongTermRetentionPolicy: typeof import("./backupLongTermRetentionPolicy").BackupLongTermRetentionPolicy = null as any;
+utilities.lazyLoad(exports, ["BackupLongTermRetentionPolicy"], () => require("./backupLongTermRetentionPolicy"));
 
 export { DatabaseArgs } from "./database";
 export type Database = import("./database").Database;
 export const Database: typeof import("./database").Database = null as any;
+utilities.lazyLoad(exports, ["Database"], () => require("./database"));
 
 export { DatabaseBlobAuditingPolicyArgs } from "./databaseBlobAuditingPolicy";
 export type DatabaseBlobAuditingPolicy = import("./databaseBlobAuditingPolicy").DatabaseBlobAuditingPolicy;
 export const DatabaseBlobAuditingPolicy: typeof import("./databaseBlobAuditingPolicy").DatabaseBlobAuditingPolicy = null as any;
+utilities.lazyLoad(exports, ["DatabaseBlobAuditingPolicy"], () => require("./databaseBlobAuditingPolicy"));
 
 export { DatabaseVulnerabilityAssessmentArgs } from "./databaseVulnerabilityAssessment";
 export type DatabaseVulnerabilityAssessment = import("./databaseVulnerabilityAssessment").DatabaseVulnerabilityAssessment;
 export const DatabaseVulnerabilityAssessment: typeof import("./databaseVulnerabilityAssessment").DatabaseVulnerabilityAssessment = null as any;
+utilities.lazyLoad(exports, ["DatabaseVulnerabilityAssessment"], () => require("./databaseVulnerabilityAssessment"));
 
 export { DatabaseVulnerabilityAssessmentRuleBaselineArgs } from "./databaseVulnerabilityAssessmentRuleBaseline";
 export type DatabaseVulnerabilityAssessmentRuleBaseline = import("./databaseVulnerabilityAssessmentRuleBaseline").DatabaseVulnerabilityAssessmentRuleBaseline;
 export const DatabaseVulnerabilityAssessmentRuleBaseline: typeof import("./databaseVulnerabilityAssessmentRuleBaseline").DatabaseVulnerabilityAssessmentRuleBaseline = null as any;
+utilities.lazyLoad(exports, ["DatabaseVulnerabilityAssessmentRuleBaseline"], () => require("./databaseVulnerabilityAssessmentRuleBaseline"));
 
 export { ExtendedDatabaseBlobAuditingPolicyArgs } from "./extendedDatabaseBlobAuditingPolicy";
 export type ExtendedDatabaseBlobAuditingPolicy = import("./extendedDatabaseBlobAuditingPolicy").ExtendedDatabaseBlobAuditingPolicy;
 export const ExtendedDatabaseBlobAuditingPolicy: typeof import("./extendedDatabaseBlobAuditingPolicy").ExtendedDatabaseBlobAuditingPolicy = null as any;
+utilities.lazyLoad(exports, ["ExtendedDatabaseBlobAuditingPolicy"], () => require("./extendedDatabaseBlobAuditingPolicy"));
 
 export { ExtendedServerBlobAuditingPolicyArgs } from "./extendedServerBlobAuditingPolicy";
 export type ExtendedServerBlobAuditingPolicy = import("./extendedServerBlobAuditingPolicy").ExtendedServerBlobAuditingPolicy;
 export const ExtendedServerBlobAuditingPolicy: typeof import("./extendedServerBlobAuditingPolicy").ExtendedServerBlobAuditingPolicy = null as any;
+utilities.lazyLoad(exports, ["ExtendedServerBlobAuditingPolicy"], () => require("./extendedServerBlobAuditingPolicy"));
 
 export { GetBackupLongTermRetentionPolicyArgs, GetBackupLongTermRetentionPolicyResult, GetBackupLongTermRetentionPolicyOutputArgs } from "./getBackupLongTermRetentionPolicy";
 export const getBackupLongTermRetentionPolicy: typeof import("./getBackupLongTermRetentionPolicy").getBackupLongTermRetentionPolicy = null as any;
 export const getBackupLongTermRetentionPolicyOutput: typeof import("./getBackupLongTermRetentionPolicy").getBackupLongTermRetentionPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getBackupLongTermRetentionPolicy","getBackupLongTermRetentionPolicyOutput"], () => require("./getBackupLongTermRetentionPolicy"));
 
 export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
 export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
 export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
 
 export { GetDatabaseBlobAuditingPolicyArgs, GetDatabaseBlobAuditingPolicyResult, GetDatabaseBlobAuditingPolicyOutputArgs } from "./getDatabaseBlobAuditingPolicy";
 export const getDatabaseBlobAuditingPolicy: typeof import("./getDatabaseBlobAuditingPolicy").getDatabaseBlobAuditingPolicy = null as any;
 export const getDatabaseBlobAuditingPolicyOutput: typeof import("./getDatabaseBlobAuditingPolicy").getDatabaseBlobAuditingPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabaseBlobAuditingPolicy","getDatabaseBlobAuditingPolicyOutput"], () => require("./getDatabaseBlobAuditingPolicy"));
 
 export { GetDatabaseVulnerabilityAssessmentArgs, GetDatabaseVulnerabilityAssessmentResult, GetDatabaseVulnerabilityAssessmentOutputArgs } from "./getDatabaseVulnerabilityAssessment";
 export const getDatabaseVulnerabilityAssessment: typeof import("./getDatabaseVulnerabilityAssessment").getDatabaseVulnerabilityAssessment = null as any;
 export const getDatabaseVulnerabilityAssessmentOutput: typeof import("./getDatabaseVulnerabilityAssessment").getDatabaseVulnerabilityAssessmentOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabaseVulnerabilityAssessment","getDatabaseVulnerabilityAssessmentOutput"], () => require("./getDatabaseVulnerabilityAssessment"));
 
 export { GetDatabaseVulnerabilityAssessmentRuleBaselineArgs, GetDatabaseVulnerabilityAssessmentRuleBaselineResult, GetDatabaseVulnerabilityAssessmentRuleBaselineOutputArgs } from "./getDatabaseVulnerabilityAssessmentRuleBaseline";
 export const getDatabaseVulnerabilityAssessmentRuleBaseline: typeof import("./getDatabaseVulnerabilityAssessmentRuleBaseline").getDatabaseVulnerabilityAssessmentRuleBaseline = null as any;
 export const getDatabaseVulnerabilityAssessmentRuleBaselineOutput: typeof import("./getDatabaseVulnerabilityAssessmentRuleBaseline").getDatabaseVulnerabilityAssessmentRuleBaselineOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabaseVulnerabilityAssessmentRuleBaseline","getDatabaseVulnerabilityAssessmentRuleBaselineOutput"], () => require("./getDatabaseVulnerabilityAssessmentRuleBaseline"));
 
 export { GetExtendedDatabaseBlobAuditingPolicyArgs, GetExtendedDatabaseBlobAuditingPolicyResult, GetExtendedDatabaseBlobAuditingPolicyOutputArgs } from "./getExtendedDatabaseBlobAuditingPolicy";
 export const getExtendedDatabaseBlobAuditingPolicy: typeof import("./getExtendedDatabaseBlobAuditingPolicy").getExtendedDatabaseBlobAuditingPolicy = null as any;
 export const getExtendedDatabaseBlobAuditingPolicyOutput: typeof import("./getExtendedDatabaseBlobAuditingPolicy").getExtendedDatabaseBlobAuditingPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getExtendedDatabaseBlobAuditingPolicy","getExtendedDatabaseBlobAuditingPolicyOutput"], () => require("./getExtendedDatabaseBlobAuditingPolicy"));
 
 export { GetExtendedServerBlobAuditingPolicyArgs, GetExtendedServerBlobAuditingPolicyResult, GetExtendedServerBlobAuditingPolicyOutputArgs } from "./getExtendedServerBlobAuditingPolicy";
 export const getExtendedServerBlobAuditingPolicy: typeof import("./getExtendedServerBlobAuditingPolicy").getExtendedServerBlobAuditingPolicy = null as any;
 export const getExtendedServerBlobAuditingPolicyOutput: typeof import("./getExtendedServerBlobAuditingPolicy").getExtendedServerBlobAuditingPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getExtendedServerBlobAuditingPolicy","getExtendedServerBlobAuditingPolicyOutput"], () => require("./getExtendedServerBlobAuditingPolicy"));
 
 export { GetJobArgs, GetJobResult, GetJobOutputArgs } from "./getJob";
 export const getJob: typeof import("./getJob").getJob = null as any;
 export const getJobOutput: typeof import("./getJob").getJobOutput = null as any;
+utilities.lazyLoad(exports, ["getJob","getJobOutput"], () => require("./getJob"));
 
 export { GetJobAgentArgs, GetJobAgentResult, GetJobAgentOutputArgs } from "./getJobAgent";
 export const getJobAgent: typeof import("./getJobAgent").getJobAgent = null as any;
 export const getJobAgentOutput: typeof import("./getJobAgent").getJobAgentOutput = null as any;
+utilities.lazyLoad(exports, ["getJobAgent","getJobAgentOutput"], () => require("./getJobAgent"));
 
 export { GetJobCredentialArgs, GetJobCredentialResult, GetJobCredentialOutputArgs } from "./getJobCredential";
 export const getJobCredential: typeof import("./getJobCredential").getJobCredential = null as any;
 export const getJobCredentialOutput: typeof import("./getJobCredential").getJobCredentialOutput = null as any;
+utilities.lazyLoad(exports, ["getJobCredential","getJobCredentialOutput"], () => require("./getJobCredential"));
 
 export { GetJobStepArgs, GetJobStepResult, GetJobStepOutputArgs } from "./getJobStep";
 export const getJobStep: typeof import("./getJobStep").getJobStep = null as any;
 export const getJobStepOutput: typeof import("./getJobStep").getJobStepOutput = null as any;
+utilities.lazyLoad(exports, ["getJobStep","getJobStepOutput"], () => require("./getJobStep"));
 
 export { GetJobTargetGroupArgs, GetJobTargetGroupResult, GetJobTargetGroupOutputArgs } from "./getJobTargetGroup";
 export const getJobTargetGroup: typeof import("./getJobTargetGroup").getJobTargetGroup = null as any;
 export const getJobTargetGroupOutput: typeof import("./getJobTargetGroup").getJobTargetGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getJobTargetGroup","getJobTargetGroupOutput"], () => require("./getJobTargetGroup"));
 
 export { GetManagedDatabaseArgs, GetManagedDatabaseResult, GetManagedDatabaseOutputArgs } from "./getManagedDatabase";
 export const getManagedDatabase: typeof import("./getManagedDatabase").getManagedDatabase = null as any;
 export const getManagedDatabaseOutput: typeof import("./getManagedDatabase").getManagedDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedDatabase","getManagedDatabaseOutput"], () => require("./getManagedDatabase"));
 
 export { GetManagedInstanceAdministratorArgs, GetManagedInstanceAdministratorResult, GetManagedInstanceAdministratorOutputArgs } from "./getManagedInstanceAdministrator";
 export const getManagedInstanceAdministrator: typeof import("./getManagedInstanceAdministrator").getManagedInstanceAdministrator = null as any;
 export const getManagedInstanceAdministratorOutput: typeof import("./getManagedInstanceAdministrator").getManagedInstanceAdministratorOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedInstanceAdministrator","getManagedInstanceAdministratorOutput"], () => require("./getManagedInstanceAdministrator"));
 
 export { GetSensitivityLabelArgs, GetSensitivityLabelResult, GetSensitivityLabelOutputArgs } from "./getSensitivityLabel";
 export const getSensitivityLabel: typeof import("./getSensitivityLabel").getSensitivityLabel = null as any;
 export const getSensitivityLabelOutput: typeof import("./getSensitivityLabel").getSensitivityLabelOutput = null as any;
+utilities.lazyLoad(exports, ["getSensitivityLabel","getSensitivityLabelOutput"], () => require("./getSensitivityLabel"));
 
 export { GetServerBlobAuditingPolicyArgs, GetServerBlobAuditingPolicyResult, GetServerBlobAuditingPolicyOutputArgs } from "./getServerBlobAuditingPolicy";
 export const getServerBlobAuditingPolicy: typeof import("./getServerBlobAuditingPolicy").getServerBlobAuditingPolicy = null as any;
 export const getServerBlobAuditingPolicyOutput: typeof import("./getServerBlobAuditingPolicy").getServerBlobAuditingPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getServerBlobAuditingPolicy","getServerBlobAuditingPolicyOutput"], () => require("./getServerBlobAuditingPolicy"));
 
 export { GetServerDnsAliasArgs, GetServerDnsAliasResult, GetServerDnsAliasOutputArgs } from "./getServerDnsAlias";
 export const getServerDnsAlias: typeof import("./getServerDnsAlias").getServerDnsAlias = null as any;
 export const getServerDnsAliasOutput: typeof import("./getServerDnsAlias").getServerDnsAliasOutput = null as any;
+utilities.lazyLoad(exports, ["getServerDnsAlias","getServerDnsAliasOutput"], () => require("./getServerDnsAlias"));
 
 export { GetServerSecurityAlertPolicyArgs, GetServerSecurityAlertPolicyResult, GetServerSecurityAlertPolicyOutputArgs } from "./getServerSecurityAlertPolicy";
 export const getServerSecurityAlertPolicy: typeof import("./getServerSecurityAlertPolicy").getServerSecurityAlertPolicy = null as any;
 export const getServerSecurityAlertPolicyOutput: typeof import("./getServerSecurityAlertPolicy").getServerSecurityAlertPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getServerSecurityAlertPolicy","getServerSecurityAlertPolicyOutput"], () => require("./getServerSecurityAlertPolicy"));
 
 export { JobArgs } from "./job";
 export type Job = import("./job").Job;
 export const Job: typeof import("./job").Job = null as any;
+utilities.lazyLoad(exports, ["Job"], () => require("./job"));
 
 export { JobAgentArgs } from "./jobAgent";
 export type JobAgent = import("./jobAgent").JobAgent;
 export const JobAgent: typeof import("./jobAgent").JobAgent = null as any;
+utilities.lazyLoad(exports, ["JobAgent"], () => require("./jobAgent"));
 
 export { JobCredentialArgs } from "./jobCredential";
 export type JobCredential = import("./jobCredential").JobCredential;
 export const JobCredential: typeof import("./jobCredential").JobCredential = null as any;
+utilities.lazyLoad(exports, ["JobCredential"], () => require("./jobCredential"));
 
 export { JobStepArgs } from "./jobStep";
 export type JobStep = import("./jobStep").JobStep;
 export const JobStep: typeof import("./jobStep").JobStep = null as any;
+utilities.lazyLoad(exports, ["JobStep"], () => require("./jobStep"));
 
 export { JobTargetGroupArgs } from "./jobTargetGroup";
 export type JobTargetGroup = import("./jobTargetGroup").JobTargetGroup;
 export const JobTargetGroup: typeof import("./jobTargetGroup").JobTargetGroup = null as any;
+utilities.lazyLoad(exports, ["JobTargetGroup"], () => require("./jobTargetGroup"));
 
 export { ManagedDatabaseArgs } from "./managedDatabase";
 export type ManagedDatabase = import("./managedDatabase").ManagedDatabase;
 export const ManagedDatabase: typeof import("./managedDatabase").ManagedDatabase = null as any;
+utilities.lazyLoad(exports, ["ManagedDatabase"], () => require("./managedDatabase"));
 
 export { ManagedInstanceAdministratorArgs } from "./managedInstanceAdministrator";
 export type ManagedInstanceAdministrator = import("./managedInstanceAdministrator").ManagedInstanceAdministrator;
 export const ManagedInstanceAdministrator: typeof import("./managedInstanceAdministrator").ManagedInstanceAdministrator = null as any;
+utilities.lazyLoad(exports, ["ManagedInstanceAdministrator"], () => require("./managedInstanceAdministrator"));
 
 export { SensitivityLabelArgs } from "./sensitivityLabel";
 export type SensitivityLabel = import("./sensitivityLabel").SensitivityLabel;
 export const SensitivityLabel: typeof import("./sensitivityLabel").SensitivityLabel = null as any;
+utilities.lazyLoad(exports, ["SensitivityLabel"], () => require("./sensitivityLabel"));
 
 export { ServerBlobAuditingPolicyArgs } from "./serverBlobAuditingPolicy";
 export type ServerBlobAuditingPolicy = import("./serverBlobAuditingPolicy").ServerBlobAuditingPolicy;
 export const ServerBlobAuditingPolicy: typeof import("./serverBlobAuditingPolicy").ServerBlobAuditingPolicy = null as any;
+utilities.lazyLoad(exports, ["ServerBlobAuditingPolicy"], () => require("./serverBlobAuditingPolicy"));
 
 export { ServerDnsAliasArgs } from "./serverDnsAlias";
 export type ServerDnsAlias = import("./serverDnsAlias").ServerDnsAlias;
 export const ServerDnsAlias: typeof import("./serverDnsAlias").ServerDnsAlias = null as any;
+utilities.lazyLoad(exports, ["ServerDnsAlias"], () => require("./serverDnsAlias"));
 
 export { ServerSecurityAlertPolicyArgs } from "./serverSecurityAlertPolicy";
 export type ServerSecurityAlertPolicy = import("./serverSecurityAlertPolicy").ServerSecurityAlertPolicy;
 export const ServerSecurityAlertPolicy: typeof import("./serverSecurityAlertPolicy").ServerSecurityAlertPolicy = null as any;
-
-utilities.lazyLoad(exports, ["BackupLongTermRetentionPolicy"], () => require("./backupLongTermRetentionPolicy"));
-utilities.lazyLoad(exports, ["Database"], () => require("./database"));
-utilities.lazyLoad(exports, ["DatabaseBlobAuditingPolicy"], () => require("./databaseBlobAuditingPolicy"));
-utilities.lazyLoad(exports, ["DatabaseVulnerabilityAssessment"], () => require("./databaseVulnerabilityAssessment"));
-utilities.lazyLoad(exports, ["DatabaseVulnerabilityAssessmentRuleBaseline"], () => require("./databaseVulnerabilityAssessmentRuleBaseline"));
-utilities.lazyLoad(exports, ["ExtendedDatabaseBlobAuditingPolicy"], () => require("./extendedDatabaseBlobAuditingPolicy"));
-utilities.lazyLoad(exports, ["ExtendedServerBlobAuditingPolicy"], () => require("./extendedServerBlobAuditingPolicy"));
-utilities.lazyLoad(exports, ["getBackupLongTermRetentionPolicy","getBackupLongTermRetentionPolicyOutput"], () => require("./getBackupLongTermRetentionPolicy"));
-utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
-utilities.lazyLoad(exports, ["getDatabaseBlobAuditingPolicy","getDatabaseBlobAuditingPolicyOutput"], () => require("./getDatabaseBlobAuditingPolicy"));
-utilities.lazyLoad(exports, ["getDatabaseVulnerabilityAssessment","getDatabaseVulnerabilityAssessmentOutput"], () => require("./getDatabaseVulnerabilityAssessment"));
-utilities.lazyLoad(exports, ["getDatabaseVulnerabilityAssessmentRuleBaseline","getDatabaseVulnerabilityAssessmentRuleBaselineOutput"], () => require("./getDatabaseVulnerabilityAssessmentRuleBaseline"));
-utilities.lazyLoad(exports, ["getExtendedDatabaseBlobAuditingPolicy","getExtendedDatabaseBlobAuditingPolicyOutput"], () => require("./getExtendedDatabaseBlobAuditingPolicy"));
-utilities.lazyLoad(exports, ["getExtendedServerBlobAuditingPolicy","getExtendedServerBlobAuditingPolicyOutput"], () => require("./getExtendedServerBlobAuditingPolicy"));
-utilities.lazyLoad(exports, ["getJob","getJobOutput"], () => require("./getJob"));
-utilities.lazyLoad(exports, ["getJobAgent","getJobAgentOutput"], () => require("./getJobAgent"));
-utilities.lazyLoad(exports, ["getJobCredential","getJobCredentialOutput"], () => require("./getJobCredential"));
-utilities.lazyLoad(exports, ["getJobStep","getJobStepOutput"], () => require("./getJobStep"));
-utilities.lazyLoad(exports, ["getJobTargetGroup","getJobTargetGroupOutput"], () => require("./getJobTargetGroup"));
-utilities.lazyLoad(exports, ["getManagedDatabase","getManagedDatabaseOutput"], () => require("./getManagedDatabase"));
-utilities.lazyLoad(exports, ["getManagedInstanceAdministrator","getManagedInstanceAdministratorOutput"], () => require("./getManagedInstanceAdministrator"));
-utilities.lazyLoad(exports, ["getSensitivityLabel","getSensitivityLabelOutput"], () => require("./getSensitivityLabel"));
-utilities.lazyLoad(exports, ["getServerBlobAuditingPolicy","getServerBlobAuditingPolicyOutput"], () => require("./getServerBlobAuditingPolicy"));
-utilities.lazyLoad(exports, ["getServerDnsAlias","getServerDnsAliasOutput"], () => require("./getServerDnsAlias"));
-utilities.lazyLoad(exports, ["getServerSecurityAlertPolicy","getServerSecurityAlertPolicyOutput"], () => require("./getServerSecurityAlertPolicy"));
-utilities.lazyLoad(exports, ["Job"], () => require("./job"));
-utilities.lazyLoad(exports, ["JobAgent"], () => require("./jobAgent"));
-utilities.lazyLoad(exports, ["JobCredential"], () => require("./jobCredential"));
-utilities.lazyLoad(exports, ["JobStep"], () => require("./jobStep"));
-utilities.lazyLoad(exports, ["JobTargetGroup"], () => require("./jobTargetGroup"));
-utilities.lazyLoad(exports, ["ManagedDatabase"], () => require("./managedDatabase"));
-utilities.lazyLoad(exports, ["ManagedInstanceAdministrator"], () => require("./managedInstanceAdministrator"));
-utilities.lazyLoad(exports, ["SensitivityLabel"], () => require("./sensitivityLabel"));
-utilities.lazyLoad(exports, ["ServerBlobAuditingPolicy"], () => require("./serverBlobAuditingPolicy"));
-utilities.lazyLoad(exports, ["ServerDnsAlias"], () => require("./serverDnsAlias"));
 utilities.lazyLoad(exports, ["ServerSecurityAlertPolicy"], () => require("./serverSecurityAlertPolicy"));
+
 
 // Export enums:
 export * from "../../types/enums/sql/v20170301preview";

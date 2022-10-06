@@ -8,23 +8,23 @@ import * as utilities from "../../utilities";
 export { GetProtectionPolicyArgs, GetProtectionPolicyResult, GetProtectionPolicyOutputArgs } from "./getProtectionPolicy";
 export const getProtectionPolicy: typeof import("./getProtectionPolicy").getProtectionPolicy = null as any;
 export const getProtectionPolicyOutput: typeof import("./getProtectionPolicy").getProtectionPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getProtectionPolicy","getProtectionPolicyOutput"], () => require("./getProtectionPolicy"));
 
 export { GetVaultArgs, GetVaultResult, GetVaultOutputArgs } from "./getVault";
 export const getVault: typeof import("./getVault").getVault = null as any;
 export const getVaultOutput: typeof import("./getVault").getVaultOutput = null as any;
+utilities.lazyLoad(exports, ["getVault","getVaultOutput"], () => require("./getVault"));
 
 export { ProtectionPolicyArgs } from "./protectionPolicy";
 export type ProtectionPolicy = import("./protectionPolicy").ProtectionPolicy;
 export const ProtectionPolicy: typeof import("./protectionPolicy").ProtectionPolicy = null as any;
+utilities.lazyLoad(exports, ["ProtectionPolicy"], () => require("./protectionPolicy"));
 
 export { VaultArgs } from "./vault";
 export type Vault = import("./vault").Vault;
 export const Vault: typeof import("./vault").Vault = null as any;
-
-utilities.lazyLoad(exports, ["getProtectionPolicy","getProtectionPolicyOutput"], () => require("./getProtectionPolicy"));
-utilities.lazyLoad(exports, ["getVault","getVaultOutput"], () => require("./getVault"));
-utilities.lazyLoad(exports, ["ProtectionPolicy"], () => require("./protectionPolicy"));
 utilities.lazyLoad(exports, ["Vault"], () => require("./vault"));
+
 
 // Export enums:
 export * from "../../types/enums/recoveryservices/v20160601";

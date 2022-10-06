@@ -8,23 +8,23 @@ import * as utilities from "../../utilities";
 export { GetQueryArgs, GetQueryResult, GetQueryOutputArgs } from "./getQuery";
 export const getQuery: typeof import("./getQuery").getQuery = null as any;
 export const getQueryOutput: typeof import("./getQuery").getQueryOutput = null as any;
+utilities.lazyLoad(exports, ["getQuery","getQueryOutput"], () => require("./getQuery"));
 
 export { GetQueryPackArgs, GetQueryPackResult, GetQueryPackOutputArgs } from "./getQueryPack";
 export const getQueryPack: typeof import("./getQueryPack").getQueryPack = null as any;
 export const getQueryPackOutput: typeof import("./getQueryPack").getQueryPackOutput = null as any;
+utilities.lazyLoad(exports, ["getQueryPack","getQueryPackOutput"], () => require("./getQueryPack"));
 
 export { QueryArgs } from "./query";
 export type Query = import("./query").Query;
 export const Query: typeof import("./query").Query = null as any;
+utilities.lazyLoad(exports, ["Query"], () => require("./query"));
 
 export { QueryPackArgs } from "./queryPack";
 export type QueryPack = import("./queryPack").QueryPack;
 export const QueryPack: typeof import("./queryPack").QueryPack = null as any;
-
-utilities.lazyLoad(exports, ["getQuery","getQueryOutput"], () => require("./getQuery"));
-utilities.lazyLoad(exports, ["getQueryPack","getQueryPackOutput"], () => require("./getQueryPack"));
-utilities.lazyLoad(exports, ["Query"], () => require("./query"));
 utilities.lazyLoad(exports, ["QueryPack"], () => require("./queryPack"));
+
 
 const _module = {
     version: utilities.getVersion(),

@@ -8,53 +8,53 @@ import * as utilities from "../../utilities";
 export { ConsumerGroupArgs } from "./consumerGroup";
 export type ConsumerGroup = import("./consumerGroup").ConsumerGroup;
 export const ConsumerGroup: typeof import("./consumerGroup").ConsumerGroup = null as any;
+utilities.lazyLoad(exports, ["ConsumerGroup"], () => require("./consumerGroup"));
 
 export { EventHubArgs } from "./eventHub";
 export type EventHub = import("./eventHub").EventHub;
 export const EventHub: typeof import("./eventHub").EventHub = null as any;
+utilities.lazyLoad(exports, ["EventHub"], () => require("./eventHub"));
 
 export { EventHubAuthorizationRuleArgs } from "./eventHubAuthorizationRule";
 export type EventHubAuthorizationRule = import("./eventHubAuthorizationRule").EventHubAuthorizationRule;
 export const EventHubAuthorizationRule: typeof import("./eventHubAuthorizationRule").EventHubAuthorizationRule = null as any;
+utilities.lazyLoad(exports, ["EventHubAuthorizationRule"], () => require("./eventHubAuthorizationRule"));
 
 export { GetConsumerGroupArgs, GetConsumerGroupResult, GetConsumerGroupOutputArgs } from "./getConsumerGroup";
 export const getConsumerGroup: typeof import("./getConsumerGroup").getConsumerGroup = null as any;
 export const getConsumerGroupOutput: typeof import("./getConsumerGroup").getConsumerGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getConsumerGroup","getConsumerGroupOutput"], () => require("./getConsumerGroup"));
 
 export { GetEventHubArgs, GetEventHubResult, GetEventHubOutputArgs } from "./getEventHub";
 export const getEventHub: typeof import("./getEventHub").getEventHub = null as any;
 export const getEventHubOutput: typeof import("./getEventHub").getEventHubOutput = null as any;
+utilities.lazyLoad(exports, ["getEventHub","getEventHubOutput"], () => require("./getEventHub"));
 
 export { GetEventHubAuthorizationRuleArgs, GetEventHubAuthorizationRuleResult, GetEventHubAuthorizationRuleOutputArgs } from "./getEventHubAuthorizationRule";
 export const getEventHubAuthorizationRule: typeof import("./getEventHubAuthorizationRule").getEventHubAuthorizationRule = null as any;
 export const getEventHubAuthorizationRuleOutput: typeof import("./getEventHubAuthorizationRule").getEventHubAuthorizationRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getEventHubAuthorizationRule","getEventHubAuthorizationRuleOutput"], () => require("./getEventHubAuthorizationRule"));
 
 export { GetNamespaceArgs, GetNamespaceResult, GetNamespaceOutputArgs } from "./getNamespace";
 export const getNamespace: typeof import("./getNamespace").getNamespace = null as any;
 export const getNamespaceOutput: typeof import("./getNamespace").getNamespaceOutput = null as any;
+utilities.lazyLoad(exports, ["getNamespace","getNamespaceOutput"], () => require("./getNamespace"));
 
 export { GetNamespaceAuthorizationRuleArgs, GetNamespaceAuthorizationRuleResult, GetNamespaceAuthorizationRuleOutputArgs } from "./getNamespaceAuthorizationRule";
 export const getNamespaceAuthorizationRule: typeof import("./getNamespaceAuthorizationRule").getNamespaceAuthorizationRule = null as any;
 export const getNamespaceAuthorizationRuleOutput: typeof import("./getNamespaceAuthorizationRule").getNamespaceAuthorizationRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getNamespaceAuthorizationRule","getNamespaceAuthorizationRuleOutput"], () => require("./getNamespaceAuthorizationRule"));
 
 export { NamespaceArgs } from "./namespace";
 export type Namespace = import("./namespace").Namespace;
 export const Namespace: typeof import("./namespace").Namespace = null as any;
+utilities.lazyLoad(exports, ["Namespace"], () => require("./namespace"));
 
 export { NamespaceAuthorizationRuleArgs } from "./namespaceAuthorizationRule";
 export type NamespaceAuthorizationRule = import("./namespaceAuthorizationRule").NamespaceAuthorizationRule;
 export const NamespaceAuthorizationRule: typeof import("./namespaceAuthorizationRule").NamespaceAuthorizationRule = null as any;
-
-utilities.lazyLoad(exports, ["ConsumerGroup"], () => require("./consumerGroup"));
-utilities.lazyLoad(exports, ["EventHub"], () => require("./eventHub"));
-utilities.lazyLoad(exports, ["EventHubAuthorizationRule"], () => require("./eventHubAuthorizationRule"));
-utilities.lazyLoad(exports, ["getConsumerGroup","getConsumerGroupOutput"], () => require("./getConsumerGroup"));
-utilities.lazyLoad(exports, ["getEventHub","getEventHubOutput"], () => require("./getEventHub"));
-utilities.lazyLoad(exports, ["getEventHubAuthorizationRule","getEventHubAuthorizationRuleOutput"], () => require("./getEventHubAuthorizationRule"));
-utilities.lazyLoad(exports, ["getNamespace","getNamespaceOutput"], () => require("./getNamespace"));
-utilities.lazyLoad(exports, ["getNamespaceAuthorizationRule","getNamespaceAuthorizationRuleOutput"], () => require("./getNamespaceAuthorizationRule"));
-utilities.lazyLoad(exports, ["Namespace"], () => require("./namespace"));
 utilities.lazyLoad(exports, ["NamespaceAuthorizationRule"], () => require("./namespaceAuthorizationRule"));
+
 
 // Export enums:
 export * from "../../types/enums/eventhub/v20140901";

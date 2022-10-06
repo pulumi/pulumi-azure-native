@@ -8,23 +8,23 @@ import * as utilities from "../../utilities";
 export { GetTemplateSpecArgs, GetTemplateSpecResult, GetTemplateSpecOutputArgs } from "./getTemplateSpec";
 export const getTemplateSpec: typeof import("./getTemplateSpec").getTemplateSpec = null as any;
 export const getTemplateSpecOutput: typeof import("./getTemplateSpec").getTemplateSpecOutput = null as any;
+utilities.lazyLoad(exports, ["getTemplateSpec","getTemplateSpecOutput"], () => require("./getTemplateSpec"));
 
 export { GetTemplateSpecVersionArgs, GetTemplateSpecVersionResult, GetTemplateSpecVersionOutputArgs } from "./getTemplateSpecVersion";
 export const getTemplateSpecVersion: typeof import("./getTemplateSpecVersion").getTemplateSpecVersion = null as any;
 export const getTemplateSpecVersionOutput: typeof import("./getTemplateSpecVersion").getTemplateSpecVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getTemplateSpecVersion","getTemplateSpecVersionOutput"], () => require("./getTemplateSpecVersion"));
 
 export { TemplateSpecArgs } from "./templateSpec";
 export type TemplateSpec = import("./templateSpec").TemplateSpec;
 export const TemplateSpec: typeof import("./templateSpec").TemplateSpec = null as any;
+utilities.lazyLoad(exports, ["TemplateSpec"], () => require("./templateSpec"));
 
 export { TemplateSpecVersionArgs } from "./templateSpecVersion";
 export type TemplateSpecVersion = import("./templateSpecVersion").TemplateSpecVersion;
 export const TemplateSpecVersion: typeof import("./templateSpecVersion").TemplateSpecVersion = null as any;
-
-utilities.lazyLoad(exports, ["getTemplateSpec","getTemplateSpecOutput"], () => require("./getTemplateSpec"));
-utilities.lazyLoad(exports, ["getTemplateSpecVersion","getTemplateSpecVersionOutput"], () => require("./getTemplateSpecVersion"));
-utilities.lazyLoad(exports, ["TemplateSpec"], () => require("./templateSpec"));
 utilities.lazyLoad(exports, ["TemplateSpecVersion"], () => require("./templateSpecVersion"));
+
 
 const _module = {
     version: utilities.getVersion(),

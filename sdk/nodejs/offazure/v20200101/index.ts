@@ -8,23 +8,23 @@ import * as utilities from "../../utilities";
 export { GetHyperVSiteArgs, GetHyperVSiteResult, GetHyperVSiteOutputArgs } from "./getHyperVSite";
 export const getHyperVSite: typeof import("./getHyperVSite").getHyperVSite = null as any;
 export const getHyperVSiteOutput: typeof import("./getHyperVSite").getHyperVSiteOutput = null as any;
+utilities.lazyLoad(exports, ["getHyperVSite","getHyperVSiteOutput"], () => require("./getHyperVSite"));
 
 export { GetSiteArgs, GetSiteResult, GetSiteOutputArgs } from "./getSite";
 export const getSite: typeof import("./getSite").getSite = null as any;
 export const getSiteOutput: typeof import("./getSite").getSiteOutput = null as any;
+utilities.lazyLoad(exports, ["getSite","getSiteOutput"], () => require("./getSite"));
 
 export { HyperVSiteArgs } from "./hyperVSite";
 export type HyperVSite = import("./hyperVSite").HyperVSite;
 export const HyperVSite: typeof import("./hyperVSite").HyperVSite = null as any;
+utilities.lazyLoad(exports, ["HyperVSite"], () => require("./hyperVSite"));
 
 export { SiteArgs } from "./site";
 export type Site = import("./site").Site;
 export const Site: typeof import("./site").Site = null as any;
-
-utilities.lazyLoad(exports, ["getHyperVSite","getHyperVSiteOutput"], () => require("./getHyperVSite"));
-utilities.lazyLoad(exports, ["getSite","getSiteOutput"], () => require("./getSite"));
-utilities.lazyLoad(exports, ["HyperVSite"], () => require("./hyperVSite"));
 utilities.lazyLoad(exports, ["Site"], () => require("./site"));
+
 
 const _module = {
     version: utilities.getVersion(),

@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { AppArgs } from "./app";
 export type App = import("./app").App;
 export const App: typeof import("./app").App = null as any;
+utilities.lazyLoad(exports, ["App"], () => require("./app"));
 
 export { GetAppArgs, GetAppResult, GetAppOutputArgs } from "./getApp";
 export const getApp: typeof import("./getApp").getApp = null as any;
 export const getAppOutput: typeof import("./getApp").getAppOutput = null as any;
-
-utilities.lazyLoad(exports, ["App"], () => require("./app"));
 utilities.lazyLoad(exports, ["getApp","getAppOutput"], () => require("./getApp"));
+
 
 // Export enums:
 export * from "../../types/enums/iotcentral/v20210601";

@@ -8,103 +8,103 @@ import * as utilities from "../../utilities";
 export { DiskArgs } from "./disk";
 export type Disk = import("./disk").Disk;
 export const Disk: typeof import("./disk").Disk = null as any;
+utilities.lazyLoad(exports, ["Disk"], () => require("./disk"));
 
 export { DiskAccessArgs } from "./diskAccess";
 export type DiskAccess = import("./diskAccess").DiskAccess;
 export const DiskAccess: typeof import("./diskAccess").DiskAccess = null as any;
+utilities.lazyLoad(exports, ["DiskAccess"], () => require("./diskAccess"));
 
 export { DiskAccessAPrivateEndpointConnectionArgs } from "./diskAccessAPrivateEndpointConnection";
 export type DiskAccessAPrivateEndpointConnection = import("./diskAccessAPrivateEndpointConnection").DiskAccessAPrivateEndpointConnection;
 export const DiskAccessAPrivateEndpointConnection: typeof import("./diskAccessAPrivateEndpointConnection").DiskAccessAPrivateEndpointConnection = null as any;
+utilities.lazyLoad(exports, ["DiskAccessAPrivateEndpointConnection"], () => require("./diskAccessAPrivateEndpointConnection"));
 
 export { DiskEncryptionSetArgs } from "./diskEncryptionSet";
 export type DiskEncryptionSet = import("./diskEncryptionSet").DiskEncryptionSet;
 export const DiskEncryptionSet: typeof import("./diskEncryptionSet").DiskEncryptionSet = null as any;
+utilities.lazyLoad(exports, ["DiskEncryptionSet"], () => require("./diskEncryptionSet"));
 
 export { GalleryArgs } from "./gallery";
 export type Gallery = import("./gallery").Gallery;
 export const Gallery: typeof import("./gallery").Gallery = null as any;
+utilities.lazyLoad(exports, ["Gallery"], () => require("./gallery"));
 
 export { GalleryApplicationArgs } from "./galleryApplication";
 export type GalleryApplication = import("./galleryApplication").GalleryApplication;
 export const GalleryApplication: typeof import("./galleryApplication").GalleryApplication = null as any;
+utilities.lazyLoad(exports, ["GalleryApplication"], () => require("./galleryApplication"));
 
 export { GalleryApplicationVersionArgs } from "./galleryApplicationVersion";
 export type GalleryApplicationVersion = import("./galleryApplicationVersion").GalleryApplicationVersion;
 export const GalleryApplicationVersion: typeof import("./galleryApplicationVersion").GalleryApplicationVersion = null as any;
+utilities.lazyLoad(exports, ["GalleryApplicationVersion"], () => require("./galleryApplicationVersion"));
 
 export { GalleryImageArgs } from "./galleryImage";
 export type GalleryImage = import("./galleryImage").GalleryImage;
 export const GalleryImage: typeof import("./galleryImage").GalleryImage = null as any;
+utilities.lazyLoad(exports, ["GalleryImage"], () => require("./galleryImage"));
 
 export { GalleryImageVersionArgs } from "./galleryImageVersion";
 export type GalleryImageVersion = import("./galleryImageVersion").GalleryImageVersion;
 export const GalleryImageVersion: typeof import("./galleryImageVersion").GalleryImageVersion = null as any;
+utilities.lazyLoad(exports, ["GalleryImageVersion"], () => require("./galleryImageVersion"));
 
 export { GetDiskArgs, GetDiskResult, GetDiskOutputArgs } from "./getDisk";
 export const getDisk: typeof import("./getDisk").getDisk = null as any;
 export const getDiskOutput: typeof import("./getDisk").getDiskOutput = null as any;
+utilities.lazyLoad(exports, ["getDisk","getDiskOutput"], () => require("./getDisk"));
 
 export { GetDiskAccessArgs, GetDiskAccessResult, GetDiskAccessOutputArgs } from "./getDiskAccess";
 export const getDiskAccess: typeof import("./getDiskAccess").getDiskAccess = null as any;
 export const getDiskAccessOutput: typeof import("./getDiskAccess").getDiskAccessOutput = null as any;
+utilities.lazyLoad(exports, ["getDiskAccess","getDiskAccessOutput"], () => require("./getDiskAccess"));
 
 export { GetDiskAccessAPrivateEndpointConnectionArgs, GetDiskAccessAPrivateEndpointConnectionResult, GetDiskAccessAPrivateEndpointConnectionOutputArgs } from "./getDiskAccessAPrivateEndpointConnection";
 export const getDiskAccessAPrivateEndpointConnection: typeof import("./getDiskAccessAPrivateEndpointConnection").getDiskAccessAPrivateEndpointConnection = null as any;
 export const getDiskAccessAPrivateEndpointConnectionOutput: typeof import("./getDiskAccessAPrivateEndpointConnection").getDiskAccessAPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getDiskAccessAPrivateEndpointConnection","getDiskAccessAPrivateEndpointConnectionOutput"], () => require("./getDiskAccessAPrivateEndpointConnection"));
 
 export { GetDiskEncryptionSetArgs, GetDiskEncryptionSetResult, GetDiskEncryptionSetOutputArgs } from "./getDiskEncryptionSet";
 export const getDiskEncryptionSet: typeof import("./getDiskEncryptionSet").getDiskEncryptionSet = null as any;
 export const getDiskEncryptionSetOutput: typeof import("./getDiskEncryptionSet").getDiskEncryptionSetOutput = null as any;
+utilities.lazyLoad(exports, ["getDiskEncryptionSet","getDiskEncryptionSetOutput"], () => require("./getDiskEncryptionSet"));
 
 export { GetGalleryArgs, GetGalleryResult, GetGalleryOutputArgs } from "./getGallery";
 export const getGallery: typeof import("./getGallery").getGallery = null as any;
 export const getGalleryOutput: typeof import("./getGallery").getGalleryOutput = null as any;
+utilities.lazyLoad(exports, ["getGallery","getGalleryOutput"], () => require("./getGallery"));
 
 export { GetGalleryApplicationArgs, GetGalleryApplicationResult, GetGalleryApplicationOutputArgs } from "./getGalleryApplication";
 export const getGalleryApplication: typeof import("./getGalleryApplication").getGalleryApplication = null as any;
 export const getGalleryApplicationOutput: typeof import("./getGalleryApplication").getGalleryApplicationOutput = null as any;
+utilities.lazyLoad(exports, ["getGalleryApplication","getGalleryApplicationOutput"], () => require("./getGalleryApplication"));
 
 export { GetGalleryApplicationVersionArgs, GetGalleryApplicationVersionResult, GetGalleryApplicationVersionOutputArgs } from "./getGalleryApplicationVersion";
 export const getGalleryApplicationVersion: typeof import("./getGalleryApplicationVersion").getGalleryApplicationVersion = null as any;
 export const getGalleryApplicationVersionOutput: typeof import("./getGalleryApplicationVersion").getGalleryApplicationVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getGalleryApplicationVersion","getGalleryApplicationVersionOutput"], () => require("./getGalleryApplicationVersion"));
 
 export { GetGalleryImageArgs, GetGalleryImageResult, GetGalleryImageOutputArgs } from "./getGalleryImage";
 export const getGalleryImage: typeof import("./getGalleryImage").getGalleryImage = null as any;
 export const getGalleryImageOutput: typeof import("./getGalleryImage").getGalleryImageOutput = null as any;
+utilities.lazyLoad(exports, ["getGalleryImage","getGalleryImageOutput"], () => require("./getGalleryImage"));
 
 export { GetGalleryImageVersionArgs, GetGalleryImageVersionResult, GetGalleryImageVersionOutputArgs } from "./getGalleryImageVersion";
 export const getGalleryImageVersion: typeof import("./getGalleryImageVersion").getGalleryImageVersion = null as any;
 export const getGalleryImageVersionOutput: typeof import("./getGalleryImageVersion").getGalleryImageVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getGalleryImageVersion","getGalleryImageVersionOutput"], () => require("./getGalleryImageVersion"));
 
 export { GetSnapshotArgs, GetSnapshotResult, GetSnapshotOutputArgs } from "./getSnapshot";
 export const getSnapshot: typeof import("./getSnapshot").getSnapshot = null as any;
 export const getSnapshotOutput: typeof import("./getSnapshot").getSnapshotOutput = null as any;
+utilities.lazyLoad(exports, ["getSnapshot","getSnapshotOutput"], () => require("./getSnapshot"));
 
 export { SnapshotArgs } from "./snapshot";
 export type Snapshot = import("./snapshot").Snapshot;
 export const Snapshot: typeof import("./snapshot").Snapshot = null as any;
-
-utilities.lazyLoad(exports, ["Disk"], () => require("./disk"));
-utilities.lazyLoad(exports, ["DiskAccess"], () => require("./diskAccess"));
-utilities.lazyLoad(exports, ["DiskAccessAPrivateEndpointConnection"], () => require("./diskAccessAPrivateEndpointConnection"));
-utilities.lazyLoad(exports, ["DiskEncryptionSet"], () => require("./diskEncryptionSet"));
-utilities.lazyLoad(exports, ["Gallery"], () => require("./gallery"));
-utilities.lazyLoad(exports, ["GalleryApplication"], () => require("./galleryApplication"));
-utilities.lazyLoad(exports, ["GalleryApplicationVersion"], () => require("./galleryApplicationVersion"));
-utilities.lazyLoad(exports, ["GalleryImage"], () => require("./galleryImage"));
-utilities.lazyLoad(exports, ["GalleryImageVersion"], () => require("./galleryImageVersion"));
-utilities.lazyLoad(exports, ["getDisk","getDiskOutput"], () => require("./getDisk"));
-utilities.lazyLoad(exports, ["getDiskAccess","getDiskAccessOutput"], () => require("./getDiskAccess"));
-utilities.lazyLoad(exports, ["getDiskAccessAPrivateEndpointConnection","getDiskAccessAPrivateEndpointConnectionOutput"], () => require("./getDiskAccessAPrivateEndpointConnection"));
-utilities.lazyLoad(exports, ["getDiskEncryptionSet","getDiskEncryptionSetOutput"], () => require("./getDiskEncryptionSet"));
-utilities.lazyLoad(exports, ["getGallery","getGalleryOutput"], () => require("./getGallery"));
-utilities.lazyLoad(exports, ["getGalleryApplication","getGalleryApplicationOutput"], () => require("./getGalleryApplication"));
-utilities.lazyLoad(exports, ["getGalleryApplicationVersion","getGalleryApplicationVersionOutput"], () => require("./getGalleryApplicationVersion"));
-utilities.lazyLoad(exports, ["getGalleryImage","getGalleryImageOutput"], () => require("./getGalleryImage"));
-utilities.lazyLoad(exports, ["getGalleryImageVersion","getGalleryImageVersionOutput"], () => require("./getGalleryImageVersion"));
-utilities.lazyLoad(exports, ["getSnapshot","getSnapshotOutput"], () => require("./getSnapshot"));
 utilities.lazyLoad(exports, ["Snapshot"], () => require("./snapshot"));
+
 
 // Export enums:
 export * from "../../types/enums/compute/v20200930";

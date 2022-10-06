@@ -8,53 +8,53 @@ import * as utilities from "../utilities";
 export { ExtensionArgs } from "./extension";
 export type Extension = import("./extension").Extension;
 export const Extension: typeof import("./extension").Extension = null as any;
+utilities.lazyLoad(exports, ["Extension"], () => require("./extension"));
 
 export { FluxConfigurationArgs } from "./fluxConfiguration";
 export type FluxConfiguration = import("./fluxConfiguration").FluxConfiguration;
 export const FluxConfiguration: typeof import("./fluxConfiguration").FluxConfiguration = null as any;
+utilities.lazyLoad(exports, ["FluxConfiguration"], () => require("./fluxConfiguration"));
 
 export { GetExtensionArgs, GetExtensionResult, GetExtensionOutputArgs } from "./getExtension";
 export const getExtension: typeof import("./getExtension").getExtension = null as any;
 export const getExtensionOutput: typeof import("./getExtension").getExtensionOutput = null as any;
+utilities.lazyLoad(exports, ["getExtension","getExtensionOutput"], () => require("./getExtension"));
 
 export { GetFluxConfigurationArgs, GetFluxConfigurationResult, GetFluxConfigurationOutputArgs } from "./getFluxConfiguration";
 export const getFluxConfiguration: typeof import("./getFluxConfiguration").getFluxConfiguration = null as any;
 export const getFluxConfigurationOutput: typeof import("./getFluxConfiguration").getFluxConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getFluxConfiguration","getFluxConfigurationOutput"], () => require("./getFluxConfiguration"));
 
 export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
 export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
 
 export { GetPrivateLinkScopeArgs, GetPrivateLinkScopeResult, GetPrivateLinkScopeOutputArgs } from "./getPrivateLinkScope";
 export const getPrivateLinkScope: typeof import("./getPrivateLinkScope").getPrivateLinkScope = null as any;
 export const getPrivateLinkScopeOutput: typeof import("./getPrivateLinkScope").getPrivateLinkScopeOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateLinkScope","getPrivateLinkScopeOutput"], () => require("./getPrivateLinkScope"));
 
 export { GetSourceControlConfigurationArgs, GetSourceControlConfigurationResult, GetSourceControlConfigurationOutputArgs } from "./getSourceControlConfiguration";
 export const getSourceControlConfiguration: typeof import("./getSourceControlConfiguration").getSourceControlConfiguration = null as any;
 export const getSourceControlConfigurationOutput: typeof import("./getSourceControlConfiguration").getSourceControlConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getSourceControlConfiguration","getSourceControlConfigurationOutput"], () => require("./getSourceControlConfiguration"));
 
 export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
 
 export { PrivateLinkScopeArgs } from "./privateLinkScope";
 export type PrivateLinkScope = import("./privateLinkScope").PrivateLinkScope;
 export const PrivateLinkScope: typeof import("./privateLinkScope").PrivateLinkScope = null as any;
+utilities.lazyLoad(exports, ["PrivateLinkScope"], () => require("./privateLinkScope"));
 
 export { SourceControlConfigurationArgs } from "./sourceControlConfiguration";
 export type SourceControlConfiguration = import("./sourceControlConfiguration").SourceControlConfiguration;
 export const SourceControlConfiguration: typeof import("./sourceControlConfiguration").SourceControlConfiguration = null as any;
-
-utilities.lazyLoad(exports, ["Extension"], () => require("./extension"));
-utilities.lazyLoad(exports, ["FluxConfiguration"], () => require("./fluxConfiguration"));
-utilities.lazyLoad(exports, ["getExtension","getExtensionOutput"], () => require("./getExtension"));
-utilities.lazyLoad(exports, ["getFluxConfiguration","getFluxConfigurationOutput"], () => require("./getFluxConfiguration"));
-utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
-utilities.lazyLoad(exports, ["getPrivateLinkScope","getPrivateLinkScopeOutput"], () => require("./getPrivateLinkScope"));
-utilities.lazyLoad(exports, ["getSourceControlConfiguration","getSourceControlConfigurationOutput"], () => require("./getSourceControlConfiguration"));
-utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
-utilities.lazyLoad(exports, ["PrivateLinkScope"], () => require("./privateLinkScope"));
 utilities.lazyLoad(exports, ["SourceControlConfiguration"], () => require("./sourceControlConfiguration"));
+
 
 // Export enums:
 export * from "../types/enums/kubernetesconfiguration";

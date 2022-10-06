@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { GetWebTestArgs, GetWebTestResult, GetWebTestOutputArgs } from "./getWebTest";
 export const getWebTest: typeof import("./getWebTest").getWebTest = null as any;
 export const getWebTestOutput: typeof import("./getWebTest").getWebTestOutput = null as any;
+utilities.lazyLoad(exports, ["getWebTest","getWebTestOutput"], () => require("./getWebTest"));
 
 export { WebTestArgs } from "./webTest";
 export type WebTest = import("./webTest").WebTest;
 export const WebTest: typeof import("./webTest").WebTest = null as any;
-
-utilities.lazyLoad(exports, ["getWebTest","getWebTestOutput"], () => require("./getWebTest"));
 utilities.lazyLoad(exports, ["WebTest"], () => require("./webTest"));
+
 
 // Export enums:
 export * from "../../types/enums/insights/v20201005preview";

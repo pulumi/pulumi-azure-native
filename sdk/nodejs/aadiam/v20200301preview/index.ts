@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { GetprivateLinkForAzureAdArgs, GetprivateLinkForAzureAdResult, GetprivateLinkForAzureAdOutputArgs } from "./getprivateLinkForAzureAd";
 export const getprivateLinkForAzureAd: typeof import("./getprivateLinkForAzureAd").getprivateLinkForAzureAd = null as any;
 export const getprivateLinkForAzureAdOutput: typeof import("./getprivateLinkForAzureAd").getprivateLinkForAzureAdOutput = null as any;
+utilities.lazyLoad(exports, ["getprivateLinkForAzureAd","getprivateLinkForAzureAdOutput"], () => require("./getprivateLinkForAzureAd"));
 
 export { PrivateLinkForAzureAdArgs } from "./privateLinkForAzureAd";
 export type PrivateLinkForAzureAd = import("./privateLinkForAzureAd").PrivateLinkForAzureAd;
 export const PrivateLinkForAzureAd: typeof import("./privateLinkForAzureAd").PrivateLinkForAzureAd = null as any;
-
-utilities.lazyLoad(exports, ["getprivateLinkForAzureAd","getprivateLinkForAzureAdOutput"], () => require("./getprivateLinkForAzureAd"));
 utilities.lazyLoad(exports, ["PrivateLinkForAzureAd"], () => require("./privateLinkForAzureAd"));
+
 
 const _module = {
     version: utilities.getVersion(),

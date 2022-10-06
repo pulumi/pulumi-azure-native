@@ -8,23 +8,23 @@ import * as utilities from "../../utilities";
 export { GetSecretArgs, GetSecretResult, GetSecretOutputArgs } from "./getSecret";
 export const getSecret: typeof import("./getSecret").getSecret = null as any;
 export const getSecretOutput: typeof import("./getSecret").getSecretOutput = null as any;
+utilities.lazyLoad(exports, ["getSecret","getSecretOutput"], () => require("./getSecret"));
 
 export { GetVaultArgs, GetVaultResult, GetVaultOutputArgs } from "./getVault";
 export const getVault: typeof import("./getVault").getVault = null as any;
 export const getVaultOutput: typeof import("./getVault").getVaultOutput = null as any;
+utilities.lazyLoad(exports, ["getVault","getVaultOutput"], () => require("./getVault"));
 
 export { SecretArgs } from "./secret";
 export type Secret = import("./secret").Secret;
 export const Secret: typeof import("./secret").Secret = null as any;
+utilities.lazyLoad(exports, ["Secret"], () => require("./secret"));
 
 export { VaultArgs } from "./vault";
 export type Vault = import("./vault").Vault;
 export const Vault: typeof import("./vault").Vault = null as any;
-
-utilities.lazyLoad(exports, ["getSecret","getSecretOutput"], () => require("./getSecret"));
-utilities.lazyLoad(exports, ["getVault","getVaultOutput"], () => require("./getVault"));
-utilities.lazyLoad(exports, ["Secret"], () => require("./secret"));
 utilities.lazyLoad(exports, ["Vault"], () => require("./vault"));
+
 
 // Export enums:
 export * from "../../types/enums/keyvault/v20180214preview";

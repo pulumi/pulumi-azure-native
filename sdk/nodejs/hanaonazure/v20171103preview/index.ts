@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { GetHanaInstanceArgs, GetHanaInstanceResult, GetHanaInstanceOutputArgs } from "./getHanaInstance";
 export const getHanaInstance: typeof import("./getHanaInstance").getHanaInstance = null as any;
 export const getHanaInstanceOutput: typeof import("./getHanaInstance").getHanaInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getHanaInstance","getHanaInstanceOutput"], () => require("./getHanaInstance"));
 
 export { HanaInstanceArgs } from "./hanaInstance";
 export type HanaInstance = import("./hanaInstance").HanaInstance;
 export const HanaInstance: typeof import("./hanaInstance").HanaInstance = null as any;
-
-utilities.lazyLoad(exports, ["getHanaInstance","getHanaInstanceOutput"], () => require("./getHanaInstance"));
 utilities.lazyLoad(exports, ["HanaInstance"], () => require("./hanaInstance"));
+
 
 const _module = {
     version: utilities.getVersion(),

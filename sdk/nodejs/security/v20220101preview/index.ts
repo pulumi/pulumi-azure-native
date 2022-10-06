@@ -8,33 +8,33 @@ import * as utilities from "../../utilities";
 export { GetGovernanceAssignmentArgs, GetGovernanceAssignmentResult, GetGovernanceAssignmentOutputArgs } from "./getGovernanceAssignment";
 export const getGovernanceAssignment: typeof import("./getGovernanceAssignment").getGovernanceAssignment = null as any;
 export const getGovernanceAssignmentOutput: typeof import("./getGovernanceAssignment").getGovernanceAssignmentOutput = null as any;
+utilities.lazyLoad(exports, ["getGovernanceAssignment","getGovernanceAssignmentOutput"], () => require("./getGovernanceAssignment"));
 
 export { GetGovernanceRuleArgs, GetGovernanceRuleResult, GetGovernanceRuleOutputArgs } from "./getGovernanceRule";
 export const getGovernanceRule: typeof import("./getGovernanceRule").getGovernanceRule = null as any;
 export const getGovernanceRuleOutput: typeof import("./getGovernanceRule").getGovernanceRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getGovernanceRule","getGovernanceRuleOutput"], () => require("./getGovernanceRule"));
 
 export { GetSecurityConnectorGovernanceRuleArgs, GetSecurityConnectorGovernanceRuleResult, GetSecurityConnectorGovernanceRuleOutputArgs } from "./getSecurityConnectorGovernanceRule";
 export const getSecurityConnectorGovernanceRule: typeof import("./getSecurityConnectorGovernanceRule").getSecurityConnectorGovernanceRule = null as any;
 export const getSecurityConnectorGovernanceRuleOutput: typeof import("./getSecurityConnectorGovernanceRule").getSecurityConnectorGovernanceRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getSecurityConnectorGovernanceRule","getSecurityConnectorGovernanceRuleOutput"], () => require("./getSecurityConnectorGovernanceRule"));
 
 export { GovernanceAssignmentArgs } from "./governanceAssignment";
 export type GovernanceAssignment = import("./governanceAssignment").GovernanceAssignment;
 export const GovernanceAssignment: typeof import("./governanceAssignment").GovernanceAssignment = null as any;
+utilities.lazyLoad(exports, ["GovernanceAssignment"], () => require("./governanceAssignment"));
 
 export { GovernanceRuleArgs } from "./governanceRule";
 export type GovernanceRule = import("./governanceRule").GovernanceRule;
 export const GovernanceRule: typeof import("./governanceRule").GovernanceRule = null as any;
+utilities.lazyLoad(exports, ["GovernanceRule"], () => require("./governanceRule"));
 
 export { SecurityConnectorGovernanceRuleArgs } from "./securityConnectorGovernanceRule";
 export type SecurityConnectorGovernanceRule = import("./securityConnectorGovernanceRule").SecurityConnectorGovernanceRule;
 export const SecurityConnectorGovernanceRule: typeof import("./securityConnectorGovernanceRule").SecurityConnectorGovernanceRule = null as any;
-
-utilities.lazyLoad(exports, ["getGovernanceAssignment","getGovernanceAssignmentOutput"], () => require("./getGovernanceAssignment"));
-utilities.lazyLoad(exports, ["getGovernanceRule","getGovernanceRuleOutput"], () => require("./getGovernanceRule"));
-utilities.lazyLoad(exports, ["getSecurityConnectorGovernanceRule","getSecurityConnectorGovernanceRuleOutput"], () => require("./getSecurityConnectorGovernanceRule"));
-utilities.lazyLoad(exports, ["GovernanceAssignment"], () => require("./governanceAssignment"));
-utilities.lazyLoad(exports, ["GovernanceRule"], () => require("./governanceRule"));
 utilities.lazyLoad(exports, ["SecurityConnectorGovernanceRule"], () => require("./securityConnectorGovernanceRule"));
+
 
 // Export enums:
 export * from "../../types/enums/security/v20220101preview";

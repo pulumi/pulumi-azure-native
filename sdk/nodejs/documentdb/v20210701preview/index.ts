@@ -8,238 +8,238 @@ import * as utilities from "../../utilities";
 export { CassandraClusterArgs } from "./cassandraCluster";
 export type CassandraCluster = import("./cassandraCluster").CassandraCluster;
 export const CassandraCluster: typeof import("./cassandraCluster").CassandraCluster = null as any;
+utilities.lazyLoad(exports, ["CassandraCluster"], () => require("./cassandraCluster"));
 
 export { CassandraDataCenterArgs } from "./cassandraDataCenter";
 export type CassandraDataCenter = import("./cassandraDataCenter").CassandraDataCenter;
 export const CassandraDataCenter: typeof import("./cassandraDataCenter").CassandraDataCenter = null as any;
+utilities.lazyLoad(exports, ["CassandraDataCenter"], () => require("./cassandraDataCenter"));
 
 export { CassandraResourceCassandraKeyspaceArgs } from "./cassandraResourceCassandraKeyspace";
 export type CassandraResourceCassandraKeyspace = import("./cassandraResourceCassandraKeyspace").CassandraResourceCassandraKeyspace;
 export const CassandraResourceCassandraKeyspace: typeof import("./cassandraResourceCassandraKeyspace").CassandraResourceCassandraKeyspace = null as any;
+utilities.lazyLoad(exports, ["CassandraResourceCassandraKeyspace"], () => require("./cassandraResourceCassandraKeyspace"));
 
 export { CassandraResourceCassandraTableArgs } from "./cassandraResourceCassandraTable";
 export type CassandraResourceCassandraTable = import("./cassandraResourceCassandraTable").CassandraResourceCassandraTable;
 export const CassandraResourceCassandraTable: typeof import("./cassandraResourceCassandraTable").CassandraResourceCassandraTable = null as any;
+utilities.lazyLoad(exports, ["CassandraResourceCassandraTable"], () => require("./cassandraResourceCassandraTable"));
 
 export { CassandraResourceCassandraViewArgs } from "./cassandraResourceCassandraView";
 export type CassandraResourceCassandraView = import("./cassandraResourceCassandraView").CassandraResourceCassandraView;
 export const CassandraResourceCassandraView: typeof import("./cassandraResourceCassandraView").CassandraResourceCassandraView = null as any;
+utilities.lazyLoad(exports, ["CassandraResourceCassandraView"], () => require("./cassandraResourceCassandraView"));
 
 export { DatabaseAccountArgs } from "./databaseAccount";
 export type DatabaseAccount = import("./databaseAccount").DatabaseAccount;
 export const DatabaseAccount: typeof import("./databaseAccount").DatabaseAccount = null as any;
+utilities.lazyLoad(exports, ["DatabaseAccount"], () => require("./databaseAccount"));
 
 export { GetCassandraClusterArgs, GetCassandraClusterResult, GetCassandraClusterOutputArgs } from "./getCassandraCluster";
 export const getCassandraCluster: typeof import("./getCassandraCluster").getCassandraCluster = null as any;
 export const getCassandraClusterOutput: typeof import("./getCassandraCluster").getCassandraClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getCassandraCluster","getCassandraClusterOutput"], () => require("./getCassandraCluster"));
 
 export { GetCassandraDataCenterArgs, GetCassandraDataCenterResult, GetCassandraDataCenterOutputArgs } from "./getCassandraDataCenter";
 export const getCassandraDataCenter: typeof import("./getCassandraDataCenter").getCassandraDataCenter = null as any;
 export const getCassandraDataCenterOutput: typeof import("./getCassandraDataCenter").getCassandraDataCenterOutput = null as any;
+utilities.lazyLoad(exports, ["getCassandraDataCenter","getCassandraDataCenterOutput"], () => require("./getCassandraDataCenter"));
 
 export { GetCassandraResourceCassandraKeyspaceArgs, GetCassandraResourceCassandraKeyspaceResult, GetCassandraResourceCassandraKeyspaceOutputArgs } from "./getCassandraResourceCassandraKeyspace";
 export const getCassandraResourceCassandraKeyspace: typeof import("./getCassandraResourceCassandraKeyspace").getCassandraResourceCassandraKeyspace = null as any;
 export const getCassandraResourceCassandraKeyspaceOutput: typeof import("./getCassandraResourceCassandraKeyspace").getCassandraResourceCassandraKeyspaceOutput = null as any;
+utilities.lazyLoad(exports, ["getCassandraResourceCassandraKeyspace","getCassandraResourceCassandraKeyspaceOutput"], () => require("./getCassandraResourceCassandraKeyspace"));
 
 export { GetCassandraResourceCassandraTableArgs, GetCassandraResourceCassandraTableResult, GetCassandraResourceCassandraTableOutputArgs } from "./getCassandraResourceCassandraTable";
 export const getCassandraResourceCassandraTable: typeof import("./getCassandraResourceCassandraTable").getCassandraResourceCassandraTable = null as any;
 export const getCassandraResourceCassandraTableOutput: typeof import("./getCassandraResourceCassandraTable").getCassandraResourceCassandraTableOutput = null as any;
+utilities.lazyLoad(exports, ["getCassandraResourceCassandraTable","getCassandraResourceCassandraTableOutput"], () => require("./getCassandraResourceCassandraTable"));
 
 export { GetCassandraResourceCassandraViewArgs, GetCassandraResourceCassandraViewResult, GetCassandraResourceCassandraViewOutputArgs } from "./getCassandraResourceCassandraView";
 export const getCassandraResourceCassandraView: typeof import("./getCassandraResourceCassandraView").getCassandraResourceCassandraView = null as any;
 export const getCassandraResourceCassandraViewOutput: typeof import("./getCassandraResourceCassandraView").getCassandraResourceCassandraViewOutput = null as any;
+utilities.lazyLoad(exports, ["getCassandraResourceCassandraView","getCassandraResourceCassandraViewOutput"], () => require("./getCassandraResourceCassandraView"));
 
 export { GetDatabaseAccountArgs, GetDatabaseAccountResult, GetDatabaseAccountOutputArgs } from "./getDatabaseAccount";
 export const getDatabaseAccount: typeof import("./getDatabaseAccount").getDatabaseAccount = null as any;
 export const getDatabaseAccountOutput: typeof import("./getDatabaseAccount").getDatabaseAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabaseAccount","getDatabaseAccountOutput"], () => require("./getDatabaseAccount"));
 
 export { GetGraphResourceGraphArgs, GetGraphResourceGraphResult, GetGraphResourceGraphOutputArgs } from "./getGraphResourceGraph";
 export const getGraphResourceGraph: typeof import("./getGraphResourceGraph").getGraphResourceGraph = null as any;
 export const getGraphResourceGraphOutput: typeof import("./getGraphResourceGraph").getGraphResourceGraphOutput = null as any;
+utilities.lazyLoad(exports, ["getGraphResourceGraph","getGraphResourceGraphOutput"], () => require("./getGraphResourceGraph"));
 
 export { GetGremlinResourceGremlinDatabaseArgs, GetGremlinResourceGremlinDatabaseResult, GetGremlinResourceGremlinDatabaseOutputArgs } from "./getGremlinResourceGremlinDatabase";
 export const getGremlinResourceGremlinDatabase: typeof import("./getGremlinResourceGremlinDatabase").getGremlinResourceGremlinDatabase = null as any;
 export const getGremlinResourceGremlinDatabaseOutput: typeof import("./getGremlinResourceGremlinDatabase").getGremlinResourceGremlinDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getGremlinResourceGremlinDatabase","getGremlinResourceGremlinDatabaseOutput"], () => require("./getGremlinResourceGremlinDatabase"));
 
 export { GetGremlinResourceGremlinGraphArgs, GetGremlinResourceGremlinGraphResult, GetGremlinResourceGremlinGraphOutputArgs } from "./getGremlinResourceGremlinGraph";
 export const getGremlinResourceGremlinGraph: typeof import("./getGremlinResourceGremlinGraph").getGremlinResourceGremlinGraph = null as any;
 export const getGremlinResourceGremlinGraphOutput: typeof import("./getGremlinResourceGremlinGraph").getGremlinResourceGremlinGraphOutput = null as any;
+utilities.lazyLoad(exports, ["getGremlinResourceGremlinGraph","getGremlinResourceGremlinGraphOutput"], () => require("./getGremlinResourceGremlinGraph"));
 
 export { GetMongoDBResourceMongoDBCollectionArgs, GetMongoDBResourceMongoDBCollectionResult, GetMongoDBResourceMongoDBCollectionOutputArgs } from "./getMongoDBResourceMongoDBCollection";
 export const getMongoDBResourceMongoDBCollection: typeof import("./getMongoDBResourceMongoDBCollection").getMongoDBResourceMongoDBCollection = null as any;
 export const getMongoDBResourceMongoDBCollectionOutput: typeof import("./getMongoDBResourceMongoDBCollection").getMongoDBResourceMongoDBCollectionOutput = null as any;
+utilities.lazyLoad(exports, ["getMongoDBResourceMongoDBCollection","getMongoDBResourceMongoDBCollectionOutput"], () => require("./getMongoDBResourceMongoDBCollection"));
 
 export { GetMongoDBResourceMongoDBDatabaseArgs, GetMongoDBResourceMongoDBDatabaseResult, GetMongoDBResourceMongoDBDatabaseOutputArgs } from "./getMongoDBResourceMongoDBDatabase";
 export const getMongoDBResourceMongoDBDatabase: typeof import("./getMongoDBResourceMongoDBDatabase").getMongoDBResourceMongoDBDatabase = null as any;
 export const getMongoDBResourceMongoDBDatabaseOutput: typeof import("./getMongoDBResourceMongoDBDatabase").getMongoDBResourceMongoDBDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getMongoDBResourceMongoDBDatabase","getMongoDBResourceMongoDBDatabaseOutput"], () => require("./getMongoDBResourceMongoDBDatabase"));
 
 export { GetNotebookWorkspaceArgs, GetNotebookWorkspaceResult, GetNotebookWorkspaceOutputArgs } from "./getNotebookWorkspace";
 export const getNotebookWorkspace: typeof import("./getNotebookWorkspace").getNotebookWorkspace = null as any;
 export const getNotebookWorkspaceOutput: typeof import("./getNotebookWorkspace").getNotebookWorkspaceOutput = null as any;
+utilities.lazyLoad(exports, ["getNotebookWorkspace","getNotebookWorkspaceOutput"], () => require("./getNotebookWorkspace"));
 
 export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
 export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
 
 export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
 export const getService: typeof import("./getService").getService = null as any;
 export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
 
 export { GetSqlResourceSqlContainerArgs, GetSqlResourceSqlContainerResult, GetSqlResourceSqlContainerOutputArgs } from "./getSqlResourceSqlContainer";
 export const getSqlResourceSqlContainer: typeof import("./getSqlResourceSqlContainer").getSqlResourceSqlContainer = null as any;
 export const getSqlResourceSqlContainerOutput: typeof import("./getSqlResourceSqlContainer").getSqlResourceSqlContainerOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlResourceSqlContainer","getSqlResourceSqlContainerOutput"], () => require("./getSqlResourceSqlContainer"));
 
 export { GetSqlResourceSqlDatabaseArgs, GetSqlResourceSqlDatabaseResult, GetSqlResourceSqlDatabaseOutputArgs } from "./getSqlResourceSqlDatabase";
 export const getSqlResourceSqlDatabase: typeof import("./getSqlResourceSqlDatabase").getSqlResourceSqlDatabase = null as any;
 export const getSqlResourceSqlDatabaseOutput: typeof import("./getSqlResourceSqlDatabase").getSqlResourceSqlDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlResourceSqlDatabase","getSqlResourceSqlDatabaseOutput"], () => require("./getSqlResourceSqlDatabase"));
 
 export { GetSqlResourceSqlRoleAssignmentArgs, GetSqlResourceSqlRoleAssignmentResult, GetSqlResourceSqlRoleAssignmentOutputArgs } from "./getSqlResourceSqlRoleAssignment";
 export const getSqlResourceSqlRoleAssignment: typeof import("./getSqlResourceSqlRoleAssignment").getSqlResourceSqlRoleAssignment = null as any;
 export const getSqlResourceSqlRoleAssignmentOutput: typeof import("./getSqlResourceSqlRoleAssignment").getSqlResourceSqlRoleAssignmentOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlResourceSqlRoleAssignment","getSqlResourceSqlRoleAssignmentOutput"], () => require("./getSqlResourceSqlRoleAssignment"));
 
 export { GetSqlResourceSqlRoleDefinitionArgs, GetSqlResourceSqlRoleDefinitionResult, GetSqlResourceSqlRoleDefinitionOutputArgs } from "./getSqlResourceSqlRoleDefinition";
 export const getSqlResourceSqlRoleDefinition: typeof import("./getSqlResourceSqlRoleDefinition").getSqlResourceSqlRoleDefinition = null as any;
 export const getSqlResourceSqlRoleDefinitionOutput: typeof import("./getSqlResourceSqlRoleDefinition").getSqlResourceSqlRoleDefinitionOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlResourceSqlRoleDefinition","getSqlResourceSqlRoleDefinitionOutput"], () => require("./getSqlResourceSqlRoleDefinition"));
 
 export { GetSqlResourceSqlStoredProcedureArgs, GetSqlResourceSqlStoredProcedureResult, GetSqlResourceSqlStoredProcedureOutputArgs } from "./getSqlResourceSqlStoredProcedure";
 export const getSqlResourceSqlStoredProcedure: typeof import("./getSqlResourceSqlStoredProcedure").getSqlResourceSqlStoredProcedure = null as any;
 export const getSqlResourceSqlStoredProcedureOutput: typeof import("./getSqlResourceSqlStoredProcedure").getSqlResourceSqlStoredProcedureOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlResourceSqlStoredProcedure","getSqlResourceSqlStoredProcedureOutput"], () => require("./getSqlResourceSqlStoredProcedure"));
 
 export { GetSqlResourceSqlTriggerArgs, GetSqlResourceSqlTriggerResult, GetSqlResourceSqlTriggerOutputArgs } from "./getSqlResourceSqlTrigger";
 export const getSqlResourceSqlTrigger: typeof import("./getSqlResourceSqlTrigger").getSqlResourceSqlTrigger = null as any;
 export const getSqlResourceSqlTriggerOutput: typeof import("./getSqlResourceSqlTrigger").getSqlResourceSqlTriggerOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlResourceSqlTrigger","getSqlResourceSqlTriggerOutput"], () => require("./getSqlResourceSqlTrigger"));
 
 export { GetSqlResourceSqlUserDefinedFunctionArgs, GetSqlResourceSqlUserDefinedFunctionResult, GetSqlResourceSqlUserDefinedFunctionOutputArgs } from "./getSqlResourceSqlUserDefinedFunction";
 export const getSqlResourceSqlUserDefinedFunction: typeof import("./getSqlResourceSqlUserDefinedFunction").getSqlResourceSqlUserDefinedFunction = null as any;
 export const getSqlResourceSqlUserDefinedFunctionOutput: typeof import("./getSqlResourceSqlUserDefinedFunction").getSqlResourceSqlUserDefinedFunctionOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlResourceSqlUserDefinedFunction","getSqlResourceSqlUserDefinedFunctionOutput"], () => require("./getSqlResourceSqlUserDefinedFunction"));
 
 export { GetTableResourceTableArgs, GetTableResourceTableResult, GetTableResourceTableOutputArgs } from "./getTableResourceTable";
 export const getTableResourceTable: typeof import("./getTableResourceTable").getTableResourceTable = null as any;
 export const getTableResourceTableOutput: typeof import("./getTableResourceTable").getTableResourceTableOutput = null as any;
+utilities.lazyLoad(exports, ["getTableResourceTable","getTableResourceTableOutput"], () => require("./getTableResourceTable"));
 
 export { GraphResourceGraphArgs } from "./graphResourceGraph";
 export type GraphResourceGraph = import("./graphResourceGraph").GraphResourceGraph;
 export const GraphResourceGraph: typeof import("./graphResourceGraph").GraphResourceGraph = null as any;
+utilities.lazyLoad(exports, ["GraphResourceGraph"], () => require("./graphResourceGraph"));
 
 export { GremlinResourceGremlinDatabaseArgs } from "./gremlinResourceGremlinDatabase";
 export type GremlinResourceGremlinDatabase = import("./gremlinResourceGremlinDatabase").GremlinResourceGremlinDatabase;
 export const GremlinResourceGremlinDatabase: typeof import("./gremlinResourceGremlinDatabase").GremlinResourceGremlinDatabase = null as any;
+utilities.lazyLoad(exports, ["GremlinResourceGremlinDatabase"], () => require("./gremlinResourceGremlinDatabase"));
 
 export { GremlinResourceGremlinGraphArgs } from "./gremlinResourceGremlinGraph";
 export type GremlinResourceGremlinGraph = import("./gremlinResourceGremlinGraph").GremlinResourceGremlinGraph;
 export const GremlinResourceGremlinGraph: typeof import("./gremlinResourceGremlinGraph").GremlinResourceGremlinGraph = null as any;
+utilities.lazyLoad(exports, ["GremlinResourceGremlinGraph"], () => require("./gremlinResourceGremlinGraph"));
 
 export { ListDatabaseAccountConnectionStringsArgs, ListDatabaseAccountConnectionStringsResult, ListDatabaseAccountConnectionStringsOutputArgs } from "./listDatabaseAccountConnectionStrings";
 export const listDatabaseAccountConnectionStrings: typeof import("./listDatabaseAccountConnectionStrings").listDatabaseAccountConnectionStrings = null as any;
 export const listDatabaseAccountConnectionStringsOutput: typeof import("./listDatabaseAccountConnectionStrings").listDatabaseAccountConnectionStringsOutput = null as any;
+utilities.lazyLoad(exports, ["listDatabaseAccountConnectionStrings","listDatabaseAccountConnectionStringsOutput"], () => require("./listDatabaseAccountConnectionStrings"));
 
 export { ListDatabaseAccountKeysArgs, ListDatabaseAccountKeysResult, ListDatabaseAccountKeysOutputArgs } from "./listDatabaseAccountKeys";
 export const listDatabaseAccountKeys: typeof import("./listDatabaseAccountKeys").listDatabaseAccountKeys = null as any;
 export const listDatabaseAccountKeysOutput: typeof import("./listDatabaseAccountKeys").listDatabaseAccountKeysOutput = null as any;
+utilities.lazyLoad(exports, ["listDatabaseAccountKeys","listDatabaseAccountKeysOutput"], () => require("./listDatabaseAccountKeys"));
 
 export { ListNotebookWorkspaceConnectionInfoArgs, ListNotebookWorkspaceConnectionInfoResult, ListNotebookWorkspaceConnectionInfoOutputArgs } from "./listNotebookWorkspaceConnectionInfo";
 export const listNotebookWorkspaceConnectionInfo: typeof import("./listNotebookWorkspaceConnectionInfo").listNotebookWorkspaceConnectionInfo = null as any;
 export const listNotebookWorkspaceConnectionInfoOutput: typeof import("./listNotebookWorkspaceConnectionInfo").listNotebookWorkspaceConnectionInfoOutput = null as any;
+utilities.lazyLoad(exports, ["listNotebookWorkspaceConnectionInfo","listNotebookWorkspaceConnectionInfoOutput"], () => require("./listNotebookWorkspaceConnectionInfo"));
 
 export { MongoDBResourceMongoDBCollectionArgs } from "./mongoDBResourceMongoDBCollection";
 export type MongoDBResourceMongoDBCollection = import("./mongoDBResourceMongoDBCollection").MongoDBResourceMongoDBCollection;
 export const MongoDBResourceMongoDBCollection: typeof import("./mongoDBResourceMongoDBCollection").MongoDBResourceMongoDBCollection = null as any;
+utilities.lazyLoad(exports, ["MongoDBResourceMongoDBCollection"], () => require("./mongoDBResourceMongoDBCollection"));
 
 export { MongoDBResourceMongoDBDatabaseArgs } from "./mongoDBResourceMongoDBDatabase";
 export type MongoDBResourceMongoDBDatabase = import("./mongoDBResourceMongoDBDatabase").MongoDBResourceMongoDBDatabase;
 export const MongoDBResourceMongoDBDatabase: typeof import("./mongoDBResourceMongoDBDatabase").MongoDBResourceMongoDBDatabase = null as any;
+utilities.lazyLoad(exports, ["MongoDBResourceMongoDBDatabase"], () => require("./mongoDBResourceMongoDBDatabase"));
 
 export { NotebookWorkspaceArgs } from "./notebookWorkspace";
 export type NotebookWorkspace = import("./notebookWorkspace").NotebookWorkspace;
 export const NotebookWorkspace: typeof import("./notebookWorkspace").NotebookWorkspace = null as any;
+utilities.lazyLoad(exports, ["NotebookWorkspace"], () => require("./notebookWorkspace"));
 
 export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
 
 export { ServiceArgs } from "./service";
 export type Service = import("./service").Service;
 export const Service: typeof import("./service").Service = null as any;
+utilities.lazyLoad(exports, ["Service"], () => require("./service"));
 
 export { SqlResourceSqlContainerArgs } from "./sqlResourceSqlContainer";
 export type SqlResourceSqlContainer = import("./sqlResourceSqlContainer").SqlResourceSqlContainer;
 export const SqlResourceSqlContainer: typeof import("./sqlResourceSqlContainer").SqlResourceSqlContainer = null as any;
+utilities.lazyLoad(exports, ["SqlResourceSqlContainer"], () => require("./sqlResourceSqlContainer"));
 
 export { SqlResourceSqlDatabaseArgs } from "./sqlResourceSqlDatabase";
 export type SqlResourceSqlDatabase = import("./sqlResourceSqlDatabase").SqlResourceSqlDatabase;
 export const SqlResourceSqlDatabase: typeof import("./sqlResourceSqlDatabase").SqlResourceSqlDatabase = null as any;
+utilities.lazyLoad(exports, ["SqlResourceSqlDatabase"], () => require("./sqlResourceSqlDatabase"));
 
 export { SqlResourceSqlRoleAssignmentArgs } from "./sqlResourceSqlRoleAssignment";
 export type SqlResourceSqlRoleAssignment = import("./sqlResourceSqlRoleAssignment").SqlResourceSqlRoleAssignment;
 export const SqlResourceSqlRoleAssignment: typeof import("./sqlResourceSqlRoleAssignment").SqlResourceSqlRoleAssignment = null as any;
+utilities.lazyLoad(exports, ["SqlResourceSqlRoleAssignment"], () => require("./sqlResourceSqlRoleAssignment"));
 
 export { SqlResourceSqlRoleDefinitionArgs } from "./sqlResourceSqlRoleDefinition";
 export type SqlResourceSqlRoleDefinition = import("./sqlResourceSqlRoleDefinition").SqlResourceSqlRoleDefinition;
 export const SqlResourceSqlRoleDefinition: typeof import("./sqlResourceSqlRoleDefinition").SqlResourceSqlRoleDefinition = null as any;
+utilities.lazyLoad(exports, ["SqlResourceSqlRoleDefinition"], () => require("./sqlResourceSqlRoleDefinition"));
 
 export { SqlResourceSqlStoredProcedureArgs } from "./sqlResourceSqlStoredProcedure";
 export type SqlResourceSqlStoredProcedure = import("./sqlResourceSqlStoredProcedure").SqlResourceSqlStoredProcedure;
 export const SqlResourceSqlStoredProcedure: typeof import("./sqlResourceSqlStoredProcedure").SqlResourceSqlStoredProcedure = null as any;
+utilities.lazyLoad(exports, ["SqlResourceSqlStoredProcedure"], () => require("./sqlResourceSqlStoredProcedure"));
 
 export { SqlResourceSqlTriggerArgs } from "./sqlResourceSqlTrigger";
 export type SqlResourceSqlTrigger = import("./sqlResourceSqlTrigger").SqlResourceSqlTrigger;
 export const SqlResourceSqlTrigger: typeof import("./sqlResourceSqlTrigger").SqlResourceSqlTrigger = null as any;
+utilities.lazyLoad(exports, ["SqlResourceSqlTrigger"], () => require("./sqlResourceSqlTrigger"));
 
 export { SqlResourceSqlUserDefinedFunctionArgs } from "./sqlResourceSqlUserDefinedFunction";
 export type SqlResourceSqlUserDefinedFunction = import("./sqlResourceSqlUserDefinedFunction").SqlResourceSqlUserDefinedFunction;
 export const SqlResourceSqlUserDefinedFunction: typeof import("./sqlResourceSqlUserDefinedFunction").SqlResourceSqlUserDefinedFunction = null as any;
+utilities.lazyLoad(exports, ["SqlResourceSqlUserDefinedFunction"], () => require("./sqlResourceSqlUserDefinedFunction"));
 
 export { TableResourceTableArgs } from "./tableResourceTable";
 export type TableResourceTable = import("./tableResourceTable").TableResourceTable;
 export const TableResourceTable: typeof import("./tableResourceTable").TableResourceTable = null as any;
-
-utilities.lazyLoad(exports, ["CassandraCluster"], () => require("./cassandraCluster"));
-utilities.lazyLoad(exports, ["CassandraDataCenter"], () => require("./cassandraDataCenter"));
-utilities.lazyLoad(exports, ["CassandraResourceCassandraKeyspace"], () => require("./cassandraResourceCassandraKeyspace"));
-utilities.lazyLoad(exports, ["CassandraResourceCassandraTable"], () => require("./cassandraResourceCassandraTable"));
-utilities.lazyLoad(exports, ["CassandraResourceCassandraView"], () => require("./cassandraResourceCassandraView"));
-utilities.lazyLoad(exports, ["DatabaseAccount"], () => require("./databaseAccount"));
-utilities.lazyLoad(exports, ["getCassandraCluster","getCassandraClusterOutput"], () => require("./getCassandraCluster"));
-utilities.lazyLoad(exports, ["getCassandraDataCenter","getCassandraDataCenterOutput"], () => require("./getCassandraDataCenter"));
-utilities.lazyLoad(exports, ["getCassandraResourceCassandraKeyspace","getCassandraResourceCassandraKeyspaceOutput"], () => require("./getCassandraResourceCassandraKeyspace"));
-utilities.lazyLoad(exports, ["getCassandraResourceCassandraTable","getCassandraResourceCassandraTableOutput"], () => require("./getCassandraResourceCassandraTable"));
-utilities.lazyLoad(exports, ["getCassandraResourceCassandraView","getCassandraResourceCassandraViewOutput"], () => require("./getCassandraResourceCassandraView"));
-utilities.lazyLoad(exports, ["getDatabaseAccount","getDatabaseAccountOutput"], () => require("./getDatabaseAccount"));
-utilities.lazyLoad(exports, ["getGraphResourceGraph","getGraphResourceGraphOutput"], () => require("./getGraphResourceGraph"));
-utilities.lazyLoad(exports, ["getGremlinResourceGremlinDatabase","getGremlinResourceGremlinDatabaseOutput"], () => require("./getGremlinResourceGremlinDatabase"));
-utilities.lazyLoad(exports, ["getGremlinResourceGremlinGraph","getGremlinResourceGremlinGraphOutput"], () => require("./getGremlinResourceGremlinGraph"));
-utilities.lazyLoad(exports, ["getMongoDBResourceMongoDBCollection","getMongoDBResourceMongoDBCollectionOutput"], () => require("./getMongoDBResourceMongoDBCollection"));
-utilities.lazyLoad(exports, ["getMongoDBResourceMongoDBDatabase","getMongoDBResourceMongoDBDatabaseOutput"], () => require("./getMongoDBResourceMongoDBDatabase"));
-utilities.lazyLoad(exports, ["getNotebookWorkspace","getNotebookWorkspaceOutput"], () => require("./getNotebookWorkspace"));
-utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
-utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
-utilities.lazyLoad(exports, ["getSqlResourceSqlContainer","getSqlResourceSqlContainerOutput"], () => require("./getSqlResourceSqlContainer"));
-utilities.lazyLoad(exports, ["getSqlResourceSqlDatabase","getSqlResourceSqlDatabaseOutput"], () => require("./getSqlResourceSqlDatabase"));
-utilities.lazyLoad(exports, ["getSqlResourceSqlRoleAssignment","getSqlResourceSqlRoleAssignmentOutput"], () => require("./getSqlResourceSqlRoleAssignment"));
-utilities.lazyLoad(exports, ["getSqlResourceSqlRoleDefinition","getSqlResourceSqlRoleDefinitionOutput"], () => require("./getSqlResourceSqlRoleDefinition"));
-utilities.lazyLoad(exports, ["getSqlResourceSqlStoredProcedure","getSqlResourceSqlStoredProcedureOutput"], () => require("./getSqlResourceSqlStoredProcedure"));
-utilities.lazyLoad(exports, ["getSqlResourceSqlTrigger","getSqlResourceSqlTriggerOutput"], () => require("./getSqlResourceSqlTrigger"));
-utilities.lazyLoad(exports, ["getSqlResourceSqlUserDefinedFunction","getSqlResourceSqlUserDefinedFunctionOutput"], () => require("./getSqlResourceSqlUserDefinedFunction"));
-utilities.lazyLoad(exports, ["getTableResourceTable","getTableResourceTableOutput"], () => require("./getTableResourceTable"));
-utilities.lazyLoad(exports, ["GraphResourceGraph"], () => require("./graphResourceGraph"));
-utilities.lazyLoad(exports, ["GremlinResourceGremlinDatabase"], () => require("./gremlinResourceGremlinDatabase"));
-utilities.lazyLoad(exports, ["GremlinResourceGremlinGraph"], () => require("./gremlinResourceGremlinGraph"));
-utilities.lazyLoad(exports, ["listDatabaseAccountConnectionStrings","listDatabaseAccountConnectionStringsOutput"], () => require("./listDatabaseAccountConnectionStrings"));
-utilities.lazyLoad(exports, ["listDatabaseAccountKeys","listDatabaseAccountKeysOutput"], () => require("./listDatabaseAccountKeys"));
-utilities.lazyLoad(exports, ["listNotebookWorkspaceConnectionInfo","listNotebookWorkspaceConnectionInfoOutput"], () => require("./listNotebookWorkspaceConnectionInfo"));
-utilities.lazyLoad(exports, ["MongoDBResourceMongoDBCollection"], () => require("./mongoDBResourceMongoDBCollection"));
-utilities.lazyLoad(exports, ["MongoDBResourceMongoDBDatabase"], () => require("./mongoDBResourceMongoDBDatabase"));
-utilities.lazyLoad(exports, ["NotebookWorkspace"], () => require("./notebookWorkspace"));
-utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
-utilities.lazyLoad(exports, ["Service"], () => require("./service"));
-utilities.lazyLoad(exports, ["SqlResourceSqlContainer"], () => require("./sqlResourceSqlContainer"));
-utilities.lazyLoad(exports, ["SqlResourceSqlDatabase"], () => require("./sqlResourceSqlDatabase"));
-utilities.lazyLoad(exports, ["SqlResourceSqlRoleAssignment"], () => require("./sqlResourceSqlRoleAssignment"));
-utilities.lazyLoad(exports, ["SqlResourceSqlRoleDefinition"], () => require("./sqlResourceSqlRoleDefinition"));
-utilities.lazyLoad(exports, ["SqlResourceSqlStoredProcedure"], () => require("./sqlResourceSqlStoredProcedure"));
-utilities.lazyLoad(exports, ["SqlResourceSqlTrigger"], () => require("./sqlResourceSqlTrigger"));
-utilities.lazyLoad(exports, ["SqlResourceSqlUserDefinedFunction"], () => require("./sqlResourceSqlUserDefinedFunction"));
 utilities.lazyLoad(exports, ["TableResourceTable"], () => require("./tableResourceTable"));
+
 
 // Export enums:
 export * from "../../types/enums/documentdb/v20210701preview";

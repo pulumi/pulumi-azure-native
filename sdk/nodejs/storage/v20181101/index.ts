@@ -8,68 +8,68 @@ import * as utilities from "../../utilities";
 export { BlobContainerArgs } from "./blobContainer";
 export type BlobContainer = import("./blobContainer").BlobContainer;
 export const BlobContainer: typeof import("./blobContainer").BlobContainer = null as any;
+utilities.lazyLoad(exports, ["BlobContainer"], () => require("./blobContainer"));
 
 export { BlobContainerImmutabilityPolicyArgs } from "./blobContainerImmutabilityPolicy";
 export type BlobContainerImmutabilityPolicy = import("./blobContainerImmutabilityPolicy").BlobContainerImmutabilityPolicy;
 export const BlobContainerImmutabilityPolicy: typeof import("./blobContainerImmutabilityPolicy").BlobContainerImmutabilityPolicy = null as any;
+utilities.lazyLoad(exports, ["BlobContainerImmutabilityPolicy"], () => require("./blobContainerImmutabilityPolicy"));
 
 export { BlobServicePropertiesArgs } from "./blobServiceProperties";
 export type BlobServiceProperties = import("./blobServiceProperties").BlobServiceProperties;
 export const BlobServiceProperties: typeof import("./blobServiceProperties").BlobServiceProperties = null as any;
+utilities.lazyLoad(exports, ["BlobServiceProperties"], () => require("./blobServiceProperties"));
 
 export { GetBlobContainerArgs, GetBlobContainerResult, GetBlobContainerOutputArgs } from "./getBlobContainer";
 export const getBlobContainer: typeof import("./getBlobContainer").getBlobContainer = null as any;
 export const getBlobContainerOutput: typeof import("./getBlobContainer").getBlobContainerOutput = null as any;
+utilities.lazyLoad(exports, ["getBlobContainer","getBlobContainerOutput"], () => require("./getBlobContainer"));
 
 export { GetBlobContainerImmutabilityPolicyArgs, GetBlobContainerImmutabilityPolicyResult, GetBlobContainerImmutabilityPolicyOutputArgs } from "./getBlobContainerImmutabilityPolicy";
 export const getBlobContainerImmutabilityPolicy: typeof import("./getBlobContainerImmutabilityPolicy").getBlobContainerImmutabilityPolicy = null as any;
 export const getBlobContainerImmutabilityPolicyOutput: typeof import("./getBlobContainerImmutabilityPolicy").getBlobContainerImmutabilityPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getBlobContainerImmutabilityPolicy","getBlobContainerImmutabilityPolicyOutput"], () => require("./getBlobContainerImmutabilityPolicy"));
 
 export { GetBlobServicePropertiesArgs, GetBlobServicePropertiesResult, GetBlobServicePropertiesOutputArgs } from "./getBlobServiceProperties";
 export const getBlobServiceProperties: typeof import("./getBlobServiceProperties").getBlobServiceProperties = null as any;
 export const getBlobServicePropertiesOutput: typeof import("./getBlobServiceProperties").getBlobServicePropertiesOutput = null as any;
+utilities.lazyLoad(exports, ["getBlobServiceProperties","getBlobServicePropertiesOutput"], () => require("./getBlobServiceProperties"));
 
 export { GetManagementPolicyArgs, GetManagementPolicyResult, GetManagementPolicyOutputArgs } from "./getManagementPolicy";
 export const getManagementPolicy: typeof import("./getManagementPolicy").getManagementPolicy = null as any;
 export const getManagementPolicyOutput: typeof import("./getManagementPolicy").getManagementPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getManagementPolicy","getManagementPolicyOutput"], () => require("./getManagementPolicy"));
 
 export { GetStorageAccountArgs, GetStorageAccountResult, GetStorageAccountOutputArgs } from "./getStorageAccount";
 export const getStorageAccount: typeof import("./getStorageAccount").getStorageAccount = null as any;
 export const getStorageAccountOutput: typeof import("./getStorageAccount").getStorageAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getStorageAccount","getStorageAccountOutput"], () => require("./getStorageAccount"));
 
 export { ListStorageAccountKeysArgs, ListStorageAccountKeysResult, ListStorageAccountKeysOutputArgs } from "./listStorageAccountKeys";
 export const listStorageAccountKeys: typeof import("./listStorageAccountKeys").listStorageAccountKeys = null as any;
 export const listStorageAccountKeysOutput: typeof import("./listStorageAccountKeys").listStorageAccountKeysOutput = null as any;
+utilities.lazyLoad(exports, ["listStorageAccountKeys","listStorageAccountKeysOutput"], () => require("./listStorageAccountKeys"));
 
 export { ListStorageAccountSASArgs, ListStorageAccountSASResult, ListStorageAccountSASOutputArgs } from "./listStorageAccountSAS";
 export const listStorageAccountSAS: typeof import("./listStorageAccountSAS").listStorageAccountSAS = null as any;
 export const listStorageAccountSASOutput: typeof import("./listStorageAccountSAS").listStorageAccountSASOutput = null as any;
+utilities.lazyLoad(exports, ["listStorageAccountSAS","listStorageAccountSASOutput"], () => require("./listStorageAccountSAS"));
 
 export { ListStorageAccountServiceSASArgs, ListStorageAccountServiceSASResult, ListStorageAccountServiceSASOutputArgs } from "./listStorageAccountServiceSAS";
 export const listStorageAccountServiceSAS: typeof import("./listStorageAccountServiceSAS").listStorageAccountServiceSAS = null as any;
 export const listStorageAccountServiceSASOutput: typeof import("./listStorageAccountServiceSAS").listStorageAccountServiceSASOutput = null as any;
+utilities.lazyLoad(exports, ["listStorageAccountServiceSAS","listStorageAccountServiceSASOutput"], () => require("./listStorageAccountServiceSAS"));
 
 export { ManagementPolicyArgs } from "./managementPolicy";
 export type ManagementPolicy = import("./managementPolicy").ManagementPolicy;
 export const ManagementPolicy: typeof import("./managementPolicy").ManagementPolicy = null as any;
+utilities.lazyLoad(exports, ["ManagementPolicy"], () => require("./managementPolicy"));
 
 export { StorageAccountArgs } from "./storageAccount";
 export type StorageAccount = import("./storageAccount").StorageAccount;
 export const StorageAccount: typeof import("./storageAccount").StorageAccount = null as any;
-
-utilities.lazyLoad(exports, ["BlobContainer"], () => require("./blobContainer"));
-utilities.lazyLoad(exports, ["BlobContainerImmutabilityPolicy"], () => require("./blobContainerImmutabilityPolicy"));
-utilities.lazyLoad(exports, ["BlobServiceProperties"], () => require("./blobServiceProperties"));
-utilities.lazyLoad(exports, ["getBlobContainer","getBlobContainerOutput"], () => require("./getBlobContainer"));
-utilities.lazyLoad(exports, ["getBlobContainerImmutabilityPolicy","getBlobContainerImmutabilityPolicyOutput"], () => require("./getBlobContainerImmutabilityPolicy"));
-utilities.lazyLoad(exports, ["getBlobServiceProperties","getBlobServicePropertiesOutput"], () => require("./getBlobServiceProperties"));
-utilities.lazyLoad(exports, ["getManagementPolicy","getManagementPolicyOutput"], () => require("./getManagementPolicy"));
-utilities.lazyLoad(exports, ["getStorageAccount","getStorageAccountOutput"], () => require("./getStorageAccount"));
-utilities.lazyLoad(exports, ["listStorageAccountKeys","listStorageAccountKeysOutput"], () => require("./listStorageAccountKeys"));
-utilities.lazyLoad(exports, ["listStorageAccountSAS","listStorageAccountSASOutput"], () => require("./listStorageAccountSAS"));
-utilities.lazyLoad(exports, ["listStorageAccountServiceSAS","listStorageAccountServiceSASOutput"], () => require("./listStorageAccountServiceSAS"));
-utilities.lazyLoad(exports, ["ManagementPolicy"], () => require("./managementPolicy"));
 utilities.lazyLoad(exports, ["StorageAccount"], () => require("./storageAccount"));
+
 
 // Export enums:
 export * from "../../types/enums/storage/v20181101";

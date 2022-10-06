@@ -8,23 +8,23 @@ import * as utilities from "../../utilities";
 export { GetGuestConfigurationAssignmentArgs, GetGuestConfigurationAssignmentResult, GetGuestConfigurationAssignmentOutputArgs } from "./getGuestConfigurationAssignment";
 export const getGuestConfigurationAssignment: typeof import("./getGuestConfigurationAssignment").getGuestConfigurationAssignment = null as any;
 export const getGuestConfigurationAssignmentOutput: typeof import("./getGuestConfigurationAssignment").getGuestConfigurationAssignmentOutput = null as any;
+utilities.lazyLoad(exports, ["getGuestConfigurationAssignment","getGuestConfigurationAssignmentOutput"], () => require("./getGuestConfigurationAssignment"));
 
 export { GetGuestConfigurationHCRPAssignmentArgs, GetGuestConfigurationHCRPAssignmentResult, GetGuestConfigurationHCRPAssignmentOutputArgs } from "./getGuestConfigurationHCRPAssignment";
 export const getGuestConfigurationHCRPAssignment: typeof import("./getGuestConfigurationHCRPAssignment").getGuestConfigurationHCRPAssignment = null as any;
 export const getGuestConfigurationHCRPAssignmentOutput: typeof import("./getGuestConfigurationHCRPAssignment").getGuestConfigurationHCRPAssignmentOutput = null as any;
+utilities.lazyLoad(exports, ["getGuestConfigurationHCRPAssignment","getGuestConfigurationHCRPAssignmentOutput"], () => require("./getGuestConfigurationHCRPAssignment"));
 
 export { GuestConfigurationAssignmentArgs } from "./guestConfigurationAssignment";
 export type GuestConfigurationAssignment = import("./guestConfigurationAssignment").GuestConfigurationAssignment;
 export const GuestConfigurationAssignment: typeof import("./guestConfigurationAssignment").GuestConfigurationAssignment = null as any;
+utilities.lazyLoad(exports, ["GuestConfigurationAssignment"], () => require("./guestConfigurationAssignment"));
 
 export { GuestConfigurationHCRPAssignmentArgs } from "./guestConfigurationHCRPAssignment";
 export type GuestConfigurationHCRPAssignment = import("./guestConfigurationHCRPAssignment").GuestConfigurationHCRPAssignment;
 export const GuestConfigurationHCRPAssignment: typeof import("./guestConfigurationHCRPAssignment").GuestConfigurationHCRPAssignment = null as any;
-
-utilities.lazyLoad(exports, ["getGuestConfigurationAssignment","getGuestConfigurationAssignmentOutput"], () => require("./getGuestConfigurationAssignment"));
-utilities.lazyLoad(exports, ["getGuestConfigurationHCRPAssignment","getGuestConfigurationHCRPAssignmentOutput"], () => require("./getGuestConfigurationHCRPAssignment"));
-utilities.lazyLoad(exports, ["GuestConfigurationAssignment"], () => require("./guestConfigurationAssignment"));
 utilities.lazyLoad(exports, ["GuestConfigurationHCRPAssignment"], () => require("./guestConfigurationHCRPAssignment"));
+
 
 // Export enums:
 export * from "../../types/enums/guestconfiguration/v20220125";

@@ -8,43 +8,43 @@ import * as utilities from "../../utilities";
 export { BackupInstanceArgs } from "./backupInstance";
 export type BackupInstance = import("./backupInstance").BackupInstance;
 export const BackupInstance: typeof import("./backupInstance").BackupInstance = null as any;
+utilities.lazyLoad(exports, ["BackupInstance"], () => require("./backupInstance"));
 
 export { BackupPolicyArgs } from "./backupPolicy";
 export type BackupPolicy = import("./backupPolicy").BackupPolicy;
 export const BackupPolicy: typeof import("./backupPolicy").BackupPolicy = null as any;
+utilities.lazyLoad(exports, ["BackupPolicy"], () => require("./backupPolicy"));
 
 export { BackupVaultArgs } from "./backupVault";
 export type BackupVault = import("./backupVault").BackupVault;
 export const BackupVault: typeof import("./backupVault").BackupVault = null as any;
+utilities.lazyLoad(exports, ["BackupVault"], () => require("./backupVault"));
 
 export { GetBackupInstanceArgs, GetBackupInstanceResult, GetBackupInstanceOutputArgs } from "./getBackupInstance";
 export const getBackupInstance: typeof import("./getBackupInstance").getBackupInstance = null as any;
 export const getBackupInstanceOutput: typeof import("./getBackupInstance").getBackupInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getBackupInstance","getBackupInstanceOutput"], () => require("./getBackupInstance"));
 
 export { GetBackupPolicyArgs, GetBackupPolicyResult, GetBackupPolicyOutputArgs } from "./getBackupPolicy";
 export const getBackupPolicy: typeof import("./getBackupPolicy").getBackupPolicy = null as any;
 export const getBackupPolicyOutput: typeof import("./getBackupPolicy").getBackupPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getBackupPolicy","getBackupPolicyOutput"], () => require("./getBackupPolicy"));
 
 export { GetBackupVaultArgs, GetBackupVaultResult, GetBackupVaultOutputArgs } from "./getBackupVault";
 export const getBackupVault: typeof import("./getBackupVault").getBackupVault = null as any;
 export const getBackupVaultOutput: typeof import("./getBackupVault").getBackupVaultOutput = null as any;
+utilities.lazyLoad(exports, ["getBackupVault","getBackupVaultOutput"], () => require("./getBackupVault"));
 
 export { GetResourceGuardArgs, GetResourceGuardResult, GetResourceGuardOutputArgs } from "./getResourceGuard";
 export const getResourceGuard: typeof import("./getResourceGuard").getResourceGuard = null as any;
 export const getResourceGuardOutput: typeof import("./getResourceGuard").getResourceGuardOutput = null as any;
+utilities.lazyLoad(exports, ["getResourceGuard","getResourceGuardOutput"], () => require("./getResourceGuard"));
 
 export { ResourceGuardArgs } from "./resourceGuard";
 export type ResourceGuard = import("./resourceGuard").ResourceGuard;
 export const ResourceGuard: typeof import("./resourceGuard").ResourceGuard = null as any;
-
-utilities.lazyLoad(exports, ["BackupInstance"], () => require("./backupInstance"));
-utilities.lazyLoad(exports, ["BackupPolicy"], () => require("./backupPolicy"));
-utilities.lazyLoad(exports, ["BackupVault"], () => require("./backupVault"));
-utilities.lazyLoad(exports, ["getBackupInstance","getBackupInstanceOutput"], () => require("./getBackupInstance"));
-utilities.lazyLoad(exports, ["getBackupPolicy","getBackupPolicyOutput"], () => require("./getBackupPolicy"));
-utilities.lazyLoad(exports, ["getBackupVault","getBackupVaultOutput"], () => require("./getBackupVault"));
-utilities.lazyLoad(exports, ["getResourceGuard","getResourceGuardOutput"], () => require("./getResourceGuard"));
 utilities.lazyLoad(exports, ["ResourceGuard"], () => require("./resourceGuard"));
+
 
 // Export enums:
 export * from "../../types/enums/dataprotection/v20220101";

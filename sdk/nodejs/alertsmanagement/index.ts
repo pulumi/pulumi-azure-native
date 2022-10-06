@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { ActionRuleByNameArgs } from "./actionRuleByName";
 export type ActionRuleByName = import("./actionRuleByName").ActionRuleByName;
 export const ActionRuleByName: typeof import("./actionRuleByName").ActionRuleByName = null as any;
+utilities.lazyLoad(exports, ["ActionRuleByName"], () => require("./actionRuleByName"));
 
 export { GetActionRuleByNameArgs, GetActionRuleByNameResult, GetActionRuleByNameOutputArgs } from "./getActionRuleByName";
 export const getActionRuleByName: typeof import("./getActionRuleByName").getActionRuleByName = null as any;
 export const getActionRuleByNameOutput: typeof import("./getActionRuleByName").getActionRuleByNameOutput = null as any;
+utilities.lazyLoad(exports, ["getActionRuleByName","getActionRuleByNameOutput"], () => require("./getActionRuleByName"));
 
 export { GetSmartDetectorAlertRuleArgs, GetSmartDetectorAlertRuleResult, GetSmartDetectorAlertRuleOutputArgs } from "./getSmartDetectorAlertRule";
 export const getSmartDetectorAlertRule: typeof import("./getSmartDetectorAlertRule").getSmartDetectorAlertRule = null as any;
 export const getSmartDetectorAlertRuleOutput: typeof import("./getSmartDetectorAlertRule").getSmartDetectorAlertRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getSmartDetectorAlertRule","getSmartDetectorAlertRuleOutput"], () => require("./getSmartDetectorAlertRule"));
 
 export { SmartDetectorAlertRuleArgs } from "./smartDetectorAlertRule";
 export type SmartDetectorAlertRule = import("./smartDetectorAlertRule").SmartDetectorAlertRule;
 export const SmartDetectorAlertRule: typeof import("./smartDetectorAlertRule").SmartDetectorAlertRule = null as any;
-
-utilities.lazyLoad(exports, ["ActionRuleByName"], () => require("./actionRuleByName"));
-utilities.lazyLoad(exports, ["getActionRuleByName","getActionRuleByNameOutput"], () => require("./getActionRuleByName"));
-utilities.lazyLoad(exports, ["getSmartDetectorAlertRule","getSmartDetectorAlertRuleOutput"], () => require("./getSmartDetectorAlertRule"));
 utilities.lazyLoad(exports, ["SmartDetectorAlertRule"], () => require("./smartDetectorAlertRule"));
+
 
 // Export enums:
 export * from "../types/enums/alertsmanagement";

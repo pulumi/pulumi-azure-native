@@ -8,43 +8,43 @@ import * as utilities from "../../utilities";
 export { GetManagedNetworkArgs, GetManagedNetworkResult, GetManagedNetworkOutputArgs } from "./getManagedNetwork";
 export const getManagedNetwork: typeof import("./getManagedNetwork").getManagedNetwork = null as any;
 export const getManagedNetworkOutput: typeof import("./getManagedNetwork").getManagedNetworkOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedNetwork","getManagedNetworkOutput"], () => require("./getManagedNetwork"));
 
 export { GetManagedNetworkGroupArgs, GetManagedNetworkGroupResult, GetManagedNetworkGroupOutputArgs } from "./getManagedNetworkGroup";
 export const getManagedNetworkGroup: typeof import("./getManagedNetworkGroup").getManagedNetworkGroup = null as any;
 export const getManagedNetworkGroupOutput: typeof import("./getManagedNetworkGroup").getManagedNetworkGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedNetworkGroup","getManagedNetworkGroupOutput"], () => require("./getManagedNetworkGroup"));
 
 export { GetManagedNetworkPeeringPolicyArgs, GetManagedNetworkPeeringPolicyResult, GetManagedNetworkPeeringPolicyOutputArgs } from "./getManagedNetworkPeeringPolicy";
 export const getManagedNetworkPeeringPolicy: typeof import("./getManagedNetworkPeeringPolicy").getManagedNetworkPeeringPolicy = null as any;
 export const getManagedNetworkPeeringPolicyOutput: typeof import("./getManagedNetworkPeeringPolicy").getManagedNetworkPeeringPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedNetworkPeeringPolicy","getManagedNetworkPeeringPolicyOutput"], () => require("./getManagedNetworkPeeringPolicy"));
 
 export { GetScopeAssignmentArgs, GetScopeAssignmentResult, GetScopeAssignmentOutputArgs } from "./getScopeAssignment";
 export const getScopeAssignment: typeof import("./getScopeAssignment").getScopeAssignment = null as any;
 export const getScopeAssignmentOutput: typeof import("./getScopeAssignment").getScopeAssignmentOutput = null as any;
+utilities.lazyLoad(exports, ["getScopeAssignment","getScopeAssignmentOutput"], () => require("./getScopeAssignment"));
 
 export { ManagedNetworkArgs } from "./managedNetwork";
 export type ManagedNetwork = import("./managedNetwork").ManagedNetwork;
 export const ManagedNetwork: typeof import("./managedNetwork").ManagedNetwork = null as any;
+utilities.lazyLoad(exports, ["ManagedNetwork"], () => require("./managedNetwork"));
 
 export { ManagedNetworkGroupArgs } from "./managedNetworkGroup";
 export type ManagedNetworkGroup = import("./managedNetworkGroup").ManagedNetworkGroup;
 export const ManagedNetworkGroup: typeof import("./managedNetworkGroup").ManagedNetworkGroup = null as any;
+utilities.lazyLoad(exports, ["ManagedNetworkGroup"], () => require("./managedNetworkGroup"));
 
 export { ManagedNetworkPeeringPolicyArgs } from "./managedNetworkPeeringPolicy";
 export type ManagedNetworkPeeringPolicy = import("./managedNetworkPeeringPolicy").ManagedNetworkPeeringPolicy;
 export const ManagedNetworkPeeringPolicy: typeof import("./managedNetworkPeeringPolicy").ManagedNetworkPeeringPolicy = null as any;
+utilities.lazyLoad(exports, ["ManagedNetworkPeeringPolicy"], () => require("./managedNetworkPeeringPolicy"));
 
 export { ScopeAssignmentArgs } from "./scopeAssignment";
 export type ScopeAssignment = import("./scopeAssignment").ScopeAssignment;
 export const ScopeAssignment: typeof import("./scopeAssignment").ScopeAssignment = null as any;
-
-utilities.lazyLoad(exports, ["getManagedNetwork","getManagedNetworkOutput"], () => require("./getManagedNetwork"));
-utilities.lazyLoad(exports, ["getManagedNetworkGroup","getManagedNetworkGroupOutput"], () => require("./getManagedNetworkGroup"));
-utilities.lazyLoad(exports, ["getManagedNetworkPeeringPolicy","getManagedNetworkPeeringPolicyOutput"], () => require("./getManagedNetworkPeeringPolicy"));
-utilities.lazyLoad(exports, ["getScopeAssignment","getScopeAssignmentOutput"], () => require("./getScopeAssignment"));
-utilities.lazyLoad(exports, ["ManagedNetwork"], () => require("./managedNetwork"));
-utilities.lazyLoad(exports, ["ManagedNetworkGroup"], () => require("./managedNetworkGroup"));
-utilities.lazyLoad(exports, ["ManagedNetworkPeeringPolicy"], () => require("./managedNetworkPeeringPolicy"));
 utilities.lazyLoad(exports, ["ScopeAssignment"], () => require("./scopeAssignment"));
+
 
 // Export enums:
 export * from "../../types/enums/managednetwork/v20190601preview";

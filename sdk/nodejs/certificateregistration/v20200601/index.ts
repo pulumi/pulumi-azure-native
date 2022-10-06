@@ -8,23 +8,23 @@ import * as utilities from "../../utilities";
 export { AppServiceCertificateOrderArgs } from "./appServiceCertificateOrder";
 export type AppServiceCertificateOrder = import("./appServiceCertificateOrder").AppServiceCertificateOrder;
 export const AppServiceCertificateOrder: typeof import("./appServiceCertificateOrder").AppServiceCertificateOrder = null as any;
+utilities.lazyLoad(exports, ["AppServiceCertificateOrder"], () => require("./appServiceCertificateOrder"));
 
 export { AppServiceCertificateOrderCertificateArgs } from "./appServiceCertificateOrderCertificate";
 export type AppServiceCertificateOrderCertificate = import("./appServiceCertificateOrderCertificate").AppServiceCertificateOrderCertificate;
 export const AppServiceCertificateOrderCertificate: typeof import("./appServiceCertificateOrderCertificate").AppServiceCertificateOrderCertificate = null as any;
+utilities.lazyLoad(exports, ["AppServiceCertificateOrderCertificate"], () => require("./appServiceCertificateOrderCertificate"));
 
 export { GetAppServiceCertificateOrderArgs, GetAppServiceCertificateOrderResult, GetAppServiceCertificateOrderOutputArgs } from "./getAppServiceCertificateOrder";
 export const getAppServiceCertificateOrder: typeof import("./getAppServiceCertificateOrder").getAppServiceCertificateOrder = null as any;
 export const getAppServiceCertificateOrderOutput: typeof import("./getAppServiceCertificateOrder").getAppServiceCertificateOrderOutput = null as any;
+utilities.lazyLoad(exports, ["getAppServiceCertificateOrder","getAppServiceCertificateOrderOutput"], () => require("./getAppServiceCertificateOrder"));
 
 export { GetAppServiceCertificateOrderCertificateArgs, GetAppServiceCertificateOrderCertificateResult, GetAppServiceCertificateOrderCertificateOutputArgs } from "./getAppServiceCertificateOrderCertificate";
 export const getAppServiceCertificateOrderCertificate: typeof import("./getAppServiceCertificateOrderCertificate").getAppServiceCertificateOrderCertificate = null as any;
 export const getAppServiceCertificateOrderCertificateOutput: typeof import("./getAppServiceCertificateOrderCertificate").getAppServiceCertificateOrderCertificateOutput = null as any;
-
-utilities.lazyLoad(exports, ["AppServiceCertificateOrder"], () => require("./appServiceCertificateOrder"));
-utilities.lazyLoad(exports, ["AppServiceCertificateOrderCertificate"], () => require("./appServiceCertificateOrderCertificate"));
-utilities.lazyLoad(exports, ["getAppServiceCertificateOrder","getAppServiceCertificateOrderOutput"], () => require("./getAppServiceCertificateOrder"));
 utilities.lazyLoad(exports, ["getAppServiceCertificateOrderCertificate","getAppServiceCertificateOrderCertificateOutput"], () => require("./getAppServiceCertificateOrderCertificate"));
+
 
 // Export enums:
 export * from "../../types/enums/certificateregistration/v20200601";

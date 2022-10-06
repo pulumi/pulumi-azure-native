@@ -8,73 +8,73 @@ import * as utilities from "../../utilities";
 export { DnsForwardingRulesetArgs } from "./dnsForwardingRuleset";
 export type DnsForwardingRuleset = import("./dnsForwardingRuleset").DnsForwardingRuleset;
 export const DnsForwardingRuleset: typeof import("./dnsForwardingRuleset").DnsForwardingRuleset = null as any;
+utilities.lazyLoad(exports, ["DnsForwardingRuleset"], () => require("./dnsForwardingRuleset"));
 
 export { DnsResolverArgs } from "./dnsResolver";
 export type DnsResolver = import("./dnsResolver").DnsResolver;
 export const DnsResolver: typeof import("./dnsResolver").DnsResolver = null as any;
+utilities.lazyLoad(exports, ["DnsResolver"], () => require("./dnsResolver"));
 
 export { ForwardingRuleArgs } from "./forwardingRule";
 export type ForwardingRule = import("./forwardingRule").ForwardingRule;
 export const ForwardingRule: typeof import("./forwardingRule").ForwardingRule = null as any;
+utilities.lazyLoad(exports, ["ForwardingRule"], () => require("./forwardingRule"));
 
 export { GetDnsForwardingRulesetArgs, GetDnsForwardingRulesetResult, GetDnsForwardingRulesetOutputArgs } from "./getDnsForwardingRuleset";
 export const getDnsForwardingRuleset: typeof import("./getDnsForwardingRuleset").getDnsForwardingRuleset = null as any;
 export const getDnsForwardingRulesetOutput: typeof import("./getDnsForwardingRuleset").getDnsForwardingRulesetOutput = null as any;
+utilities.lazyLoad(exports, ["getDnsForwardingRuleset","getDnsForwardingRulesetOutput"], () => require("./getDnsForwardingRuleset"));
 
 export { GetDnsResolverArgs, GetDnsResolverResult, GetDnsResolverOutputArgs } from "./getDnsResolver";
 export const getDnsResolver: typeof import("./getDnsResolver").getDnsResolver = null as any;
 export const getDnsResolverOutput: typeof import("./getDnsResolver").getDnsResolverOutput = null as any;
+utilities.lazyLoad(exports, ["getDnsResolver","getDnsResolverOutput"], () => require("./getDnsResolver"));
 
 export { GetForwardingRuleArgs, GetForwardingRuleResult, GetForwardingRuleOutputArgs } from "./getForwardingRule";
 export const getForwardingRule: typeof import("./getForwardingRule").getForwardingRule = null as any;
 export const getForwardingRuleOutput: typeof import("./getForwardingRule").getForwardingRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getForwardingRule","getForwardingRuleOutput"], () => require("./getForwardingRule"));
 
 export { GetInboundEndpointArgs, GetInboundEndpointResult, GetInboundEndpointOutputArgs } from "./getInboundEndpoint";
 export const getInboundEndpoint: typeof import("./getInboundEndpoint").getInboundEndpoint = null as any;
 export const getInboundEndpointOutput: typeof import("./getInboundEndpoint").getInboundEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getInboundEndpoint","getInboundEndpointOutput"], () => require("./getInboundEndpoint"));
 
 export { GetOutboundEndpointArgs, GetOutboundEndpointResult, GetOutboundEndpointOutputArgs } from "./getOutboundEndpoint";
 export const getOutboundEndpoint: typeof import("./getOutboundEndpoint").getOutboundEndpoint = null as any;
 export const getOutboundEndpointOutput: typeof import("./getOutboundEndpoint").getOutboundEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getOutboundEndpoint","getOutboundEndpointOutput"], () => require("./getOutboundEndpoint"));
 
 export { GetVirtualNetworkLinkArgs, GetVirtualNetworkLinkResult, GetVirtualNetworkLinkOutputArgs } from "./getVirtualNetworkLink";
 export const getVirtualNetworkLink: typeof import("./getVirtualNetworkLink").getVirtualNetworkLink = null as any;
 export const getVirtualNetworkLinkOutput: typeof import("./getVirtualNetworkLink").getVirtualNetworkLinkOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualNetworkLink","getVirtualNetworkLinkOutput"], () => require("./getVirtualNetworkLink"));
 
 export { InboundEndpointArgs } from "./inboundEndpoint";
 export type InboundEndpoint = import("./inboundEndpoint").InboundEndpoint;
 export const InboundEndpoint: typeof import("./inboundEndpoint").InboundEndpoint = null as any;
+utilities.lazyLoad(exports, ["InboundEndpoint"], () => require("./inboundEndpoint"));
 
 export { ListDnsForwardingRulesetByVirtualNetworkArgs, ListDnsForwardingRulesetByVirtualNetworkResult, ListDnsForwardingRulesetByVirtualNetworkOutputArgs } from "./listDnsForwardingRulesetByVirtualNetwork";
 export const listDnsForwardingRulesetByVirtualNetwork: typeof import("./listDnsForwardingRulesetByVirtualNetwork").listDnsForwardingRulesetByVirtualNetwork = null as any;
 export const listDnsForwardingRulesetByVirtualNetworkOutput: typeof import("./listDnsForwardingRulesetByVirtualNetwork").listDnsForwardingRulesetByVirtualNetworkOutput = null as any;
+utilities.lazyLoad(exports, ["listDnsForwardingRulesetByVirtualNetwork","listDnsForwardingRulesetByVirtualNetworkOutput"], () => require("./listDnsForwardingRulesetByVirtualNetwork"));
 
 export { ListDnsResolverByVirtualNetworkArgs, ListDnsResolverByVirtualNetworkResult, ListDnsResolverByVirtualNetworkOutputArgs } from "./listDnsResolverByVirtualNetwork";
 export const listDnsResolverByVirtualNetwork: typeof import("./listDnsResolverByVirtualNetwork").listDnsResolverByVirtualNetwork = null as any;
 export const listDnsResolverByVirtualNetworkOutput: typeof import("./listDnsResolverByVirtualNetwork").listDnsResolverByVirtualNetworkOutput = null as any;
+utilities.lazyLoad(exports, ["listDnsResolverByVirtualNetwork","listDnsResolverByVirtualNetworkOutput"], () => require("./listDnsResolverByVirtualNetwork"));
 
 export { OutboundEndpointArgs } from "./outboundEndpoint";
 export type OutboundEndpoint = import("./outboundEndpoint").OutboundEndpoint;
 export const OutboundEndpoint: typeof import("./outboundEndpoint").OutboundEndpoint = null as any;
+utilities.lazyLoad(exports, ["OutboundEndpoint"], () => require("./outboundEndpoint"));
 
 export { VirtualNetworkLinkArgs } from "./virtualNetworkLink";
 export type VirtualNetworkLink = import("./virtualNetworkLink").VirtualNetworkLink;
 export const VirtualNetworkLink: typeof import("./virtualNetworkLink").VirtualNetworkLink = null as any;
-
-utilities.lazyLoad(exports, ["DnsForwardingRuleset"], () => require("./dnsForwardingRuleset"));
-utilities.lazyLoad(exports, ["DnsResolver"], () => require("./dnsResolver"));
-utilities.lazyLoad(exports, ["ForwardingRule"], () => require("./forwardingRule"));
-utilities.lazyLoad(exports, ["getDnsForwardingRuleset","getDnsForwardingRulesetOutput"], () => require("./getDnsForwardingRuleset"));
-utilities.lazyLoad(exports, ["getDnsResolver","getDnsResolverOutput"], () => require("./getDnsResolver"));
-utilities.lazyLoad(exports, ["getForwardingRule","getForwardingRuleOutput"], () => require("./getForwardingRule"));
-utilities.lazyLoad(exports, ["getInboundEndpoint","getInboundEndpointOutput"], () => require("./getInboundEndpoint"));
-utilities.lazyLoad(exports, ["getOutboundEndpoint","getOutboundEndpointOutput"], () => require("./getOutboundEndpoint"));
-utilities.lazyLoad(exports, ["getVirtualNetworkLink","getVirtualNetworkLinkOutput"], () => require("./getVirtualNetworkLink"));
-utilities.lazyLoad(exports, ["InboundEndpoint"], () => require("./inboundEndpoint"));
-utilities.lazyLoad(exports, ["listDnsForwardingRulesetByVirtualNetwork","listDnsForwardingRulesetByVirtualNetworkOutput"], () => require("./listDnsForwardingRulesetByVirtualNetwork"));
-utilities.lazyLoad(exports, ["listDnsResolverByVirtualNetwork","listDnsResolverByVirtualNetworkOutput"], () => require("./listDnsResolverByVirtualNetwork"));
-utilities.lazyLoad(exports, ["OutboundEndpoint"], () => require("./outboundEndpoint"));
 utilities.lazyLoad(exports, ["VirtualNetworkLink"], () => require("./virtualNetworkLink"));
+
 
 // Export enums:
 export * from "../../types/enums/network/v20200401preview";

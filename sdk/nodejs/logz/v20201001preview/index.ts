@@ -8,68 +8,68 @@ import * as utilities from "../../utilities";
 export { GetMonitorArgs, GetMonitorResult, GetMonitorOutputArgs } from "./getMonitor";
 export const getMonitor: typeof import("./getMonitor").getMonitor = null as any;
 export const getMonitorOutput: typeof import("./getMonitor").getMonitorOutput = null as any;
+utilities.lazyLoad(exports, ["getMonitor","getMonitorOutput"], () => require("./getMonitor"));
 
 export { GetSubAccountArgs, GetSubAccountResult, GetSubAccountOutputArgs } from "./getSubAccount";
 export const getSubAccount: typeof import("./getSubAccount").getSubAccount = null as any;
 export const getSubAccountOutput: typeof import("./getSubAccount").getSubAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getSubAccount","getSubAccountOutput"], () => require("./getSubAccount"));
 
 export { GetSubAccountTagRuleArgs, GetSubAccountTagRuleResult, GetSubAccountTagRuleOutputArgs } from "./getSubAccountTagRule";
 export const getSubAccountTagRule: typeof import("./getSubAccountTagRule").getSubAccountTagRule = null as any;
 export const getSubAccountTagRuleOutput: typeof import("./getSubAccountTagRule").getSubAccountTagRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getSubAccountTagRule","getSubAccountTagRuleOutput"], () => require("./getSubAccountTagRule"));
 
 export { GetTagRuleArgs, GetTagRuleResult, GetTagRuleOutputArgs } from "./getTagRule";
 export const getTagRule: typeof import("./getTagRule").getTagRule = null as any;
 export const getTagRuleOutput: typeof import("./getTagRule").getTagRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getTagRule","getTagRuleOutput"], () => require("./getTagRule"));
 
 export { ListMonitorMonitoredResourcesArgs, ListMonitorMonitoredResourcesResult, ListMonitorMonitoredResourcesOutputArgs } from "./listMonitorMonitoredResources";
 export const listMonitorMonitoredResources: typeof import("./listMonitorMonitoredResources").listMonitorMonitoredResources = null as any;
 export const listMonitorMonitoredResourcesOutput: typeof import("./listMonitorMonitoredResources").listMonitorMonitoredResourcesOutput = null as any;
+utilities.lazyLoad(exports, ["listMonitorMonitoredResources","listMonitorMonitoredResourcesOutput"], () => require("./listMonitorMonitoredResources"));
 
 export { ListMonitorUserRolesArgs, ListMonitorUserRolesResult, ListMonitorUserRolesOutputArgs } from "./listMonitorUserRoles";
 export const listMonitorUserRoles: typeof import("./listMonitorUserRoles").listMonitorUserRoles = null as any;
 export const listMonitorUserRolesOutput: typeof import("./listMonitorUserRoles").listMonitorUserRolesOutput = null as any;
+utilities.lazyLoad(exports, ["listMonitorUserRoles","listMonitorUserRolesOutput"], () => require("./listMonitorUserRoles"));
 
 export { ListMonitorVMHostsArgs, ListMonitorVMHostsResult, ListMonitorVMHostsOutputArgs } from "./listMonitorVMHosts";
 export const listMonitorVMHosts: typeof import("./listMonitorVMHosts").listMonitorVMHosts = null as any;
 export const listMonitorVMHostsOutput: typeof import("./listMonitorVMHosts").listMonitorVMHostsOutput = null as any;
+utilities.lazyLoad(exports, ["listMonitorVMHosts","listMonitorVMHostsOutput"], () => require("./listMonitorVMHosts"));
 
 export { ListSubAccountMonitoredResourcesArgs, ListSubAccountMonitoredResourcesResult, ListSubAccountMonitoredResourcesOutputArgs } from "./listSubAccountMonitoredResources";
 export const listSubAccountMonitoredResources: typeof import("./listSubAccountMonitoredResources").listSubAccountMonitoredResources = null as any;
 export const listSubAccountMonitoredResourcesOutput: typeof import("./listSubAccountMonitoredResources").listSubAccountMonitoredResourcesOutput = null as any;
+utilities.lazyLoad(exports, ["listSubAccountMonitoredResources","listSubAccountMonitoredResourcesOutput"], () => require("./listSubAccountMonitoredResources"));
 
 export { ListSubAccountVMHostsArgs, ListSubAccountVMHostsResult, ListSubAccountVMHostsOutputArgs } from "./listSubAccountVMHosts";
 export const listSubAccountVMHosts: typeof import("./listSubAccountVMHosts").listSubAccountVMHosts = null as any;
 export const listSubAccountVMHostsOutput: typeof import("./listSubAccountVMHosts").listSubAccountVMHostsOutput = null as any;
+utilities.lazyLoad(exports, ["listSubAccountVMHosts","listSubAccountVMHostsOutput"], () => require("./listSubAccountVMHosts"));
 
 export { MonitorArgs } from "./monitor";
 export type Monitor = import("./monitor").Monitor;
 export const Monitor: typeof import("./monitor").Monitor = null as any;
+utilities.lazyLoad(exports, ["Monitor"], () => require("./monitor"));
 
 export { SubAccountArgs } from "./subAccount";
 export type SubAccount = import("./subAccount").SubAccount;
 export const SubAccount: typeof import("./subAccount").SubAccount = null as any;
+utilities.lazyLoad(exports, ["SubAccount"], () => require("./subAccount"));
 
 export { SubAccountTagRuleArgs } from "./subAccountTagRule";
 export type SubAccountTagRule = import("./subAccountTagRule").SubAccountTagRule;
 export const SubAccountTagRule: typeof import("./subAccountTagRule").SubAccountTagRule = null as any;
+utilities.lazyLoad(exports, ["SubAccountTagRule"], () => require("./subAccountTagRule"));
 
 export { TagRuleArgs } from "./tagRule";
 export type TagRule = import("./tagRule").TagRule;
 export const TagRule: typeof import("./tagRule").TagRule = null as any;
-
-utilities.lazyLoad(exports, ["getMonitor","getMonitorOutput"], () => require("./getMonitor"));
-utilities.lazyLoad(exports, ["getSubAccount","getSubAccountOutput"], () => require("./getSubAccount"));
-utilities.lazyLoad(exports, ["getSubAccountTagRule","getSubAccountTagRuleOutput"], () => require("./getSubAccountTagRule"));
-utilities.lazyLoad(exports, ["getTagRule","getTagRuleOutput"], () => require("./getTagRule"));
-utilities.lazyLoad(exports, ["listMonitorMonitoredResources","listMonitorMonitoredResourcesOutput"], () => require("./listMonitorMonitoredResources"));
-utilities.lazyLoad(exports, ["listMonitorUserRoles","listMonitorUserRolesOutput"], () => require("./listMonitorUserRoles"));
-utilities.lazyLoad(exports, ["listMonitorVMHosts","listMonitorVMHostsOutput"], () => require("./listMonitorVMHosts"));
-utilities.lazyLoad(exports, ["listSubAccountMonitoredResources","listSubAccountMonitoredResourcesOutput"], () => require("./listSubAccountMonitoredResources"));
-utilities.lazyLoad(exports, ["listSubAccountVMHosts","listSubAccountVMHostsOutput"], () => require("./listSubAccountVMHosts"));
-utilities.lazyLoad(exports, ["Monitor"], () => require("./monitor"));
-utilities.lazyLoad(exports, ["SubAccount"], () => require("./subAccount"));
-utilities.lazyLoad(exports, ["SubAccountTagRule"], () => require("./subAccountTagRule"));
 utilities.lazyLoad(exports, ["TagRule"], () => require("./tagRule"));
+
 
 // Export enums:
 export * from "../../types/enums/logz/v20201001preview";

@@ -8,38 +8,38 @@ import * as utilities from "../../utilities";
 export { AccountArgs } from "./account";
 export type Account = import("./account").Account;
 export const Account: typeof import("./account").Account = null as any;
+utilities.lazyLoad(exports, ["Account"], () => require("./account"));
 
 export { ComputePolicyArgs } from "./computePolicy";
 export type ComputePolicy = import("./computePolicy").ComputePolicy;
 export const ComputePolicy: typeof import("./computePolicy").ComputePolicy = null as any;
+utilities.lazyLoad(exports, ["ComputePolicy"], () => require("./computePolicy"));
 
 export { FirewallRuleArgs } from "./firewallRule";
 export type FirewallRule = import("./firewallRule").FirewallRule;
 export const FirewallRule: typeof import("./firewallRule").FirewallRule = null as any;
+utilities.lazyLoad(exports, ["FirewallRule"], () => require("./firewallRule"));
 
 export { GetAccountArgs, GetAccountResult, GetAccountOutputArgs } from "./getAccount";
 export const getAccount: typeof import("./getAccount").getAccount = null as any;
 export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
 
 export { GetComputePolicyArgs, GetComputePolicyResult, GetComputePolicyOutputArgs } from "./getComputePolicy";
 export const getComputePolicy: typeof import("./getComputePolicy").getComputePolicy = null as any;
 export const getComputePolicyOutput: typeof import("./getComputePolicy").getComputePolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getComputePolicy","getComputePolicyOutput"], () => require("./getComputePolicy"));
 
 export { GetFirewallRuleArgs, GetFirewallRuleResult, GetFirewallRuleOutputArgs } from "./getFirewallRule";
 export const getFirewallRule: typeof import("./getFirewallRule").getFirewallRule = null as any;
 export const getFirewallRuleOutput: typeof import("./getFirewallRule").getFirewallRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getFirewallRule","getFirewallRuleOutput"], () => require("./getFirewallRule"));
 
 export { ListStorageAccountSasTokensArgs, ListStorageAccountSasTokensResult, ListStorageAccountSasTokensOutputArgs } from "./listStorageAccountSasTokens";
 export const listStorageAccountSasTokens: typeof import("./listStorageAccountSasTokens").listStorageAccountSasTokens = null as any;
 export const listStorageAccountSasTokensOutput: typeof import("./listStorageAccountSasTokens").listStorageAccountSasTokensOutput = null as any;
-
-utilities.lazyLoad(exports, ["Account"], () => require("./account"));
-utilities.lazyLoad(exports, ["ComputePolicy"], () => require("./computePolicy"));
-utilities.lazyLoad(exports, ["FirewallRule"], () => require("./firewallRule"));
-utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
-utilities.lazyLoad(exports, ["getComputePolicy","getComputePolicyOutput"], () => require("./getComputePolicy"));
-utilities.lazyLoad(exports, ["getFirewallRule","getFirewallRuleOutput"], () => require("./getFirewallRule"));
 utilities.lazyLoad(exports, ["listStorageAccountSasTokens","listStorageAccountSasTokensOutput"], () => require("./listStorageAccountSasTokens"));
+
 
 // Export enums:
 export * from "../../types/enums/datalakeanalytics/v20161101";

@@ -8,23 +8,23 @@ import * as utilities from "../../utilities";
 export { ApplianceArgs } from "./appliance";
 export type Appliance = import("./appliance").Appliance;
 export const Appliance: typeof import("./appliance").Appliance = null as any;
+utilities.lazyLoad(exports, ["Appliance"], () => require("./appliance"));
 
 export { ApplianceDefinitionArgs } from "./applianceDefinition";
 export type ApplianceDefinition = import("./applianceDefinition").ApplianceDefinition;
 export const ApplianceDefinition: typeof import("./applianceDefinition").ApplianceDefinition = null as any;
+utilities.lazyLoad(exports, ["ApplianceDefinition"], () => require("./applianceDefinition"));
 
 export { GetApplianceArgs, GetApplianceResult, GetApplianceOutputArgs } from "./getAppliance";
 export const getAppliance: typeof import("./getAppliance").getAppliance = null as any;
 export const getApplianceOutput: typeof import("./getAppliance").getApplianceOutput = null as any;
+utilities.lazyLoad(exports, ["getAppliance","getApplianceOutput"], () => require("./getAppliance"));
 
 export { GetApplianceDefinitionArgs, GetApplianceDefinitionResult, GetApplianceDefinitionOutputArgs } from "./getApplianceDefinition";
 export const getApplianceDefinition: typeof import("./getApplianceDefinition").getApplianceDefinition = null as any;
 export const getApplianceDefinitionOutput: typeof import("./getApplianceDefinition").getApplianceDefinitionOutput = null as any;
-
-utilities.lazyLoad(exports, ["Appliance"], () => require("./appliance"));
-utilities.lazyLoad(exports, ["ApplianceDefinition"], () => require("./applianceDefinition"));
-utilities.lazyLoad(exports, ["getAppliance","getApplianceOutput"], () => require("./getAppliance"));
 utilities.lazyLoad(exports, ["getApplianceDefinition","getApplianceDefinitionOutput"], () => require("./getApplianceDefinition"));
+
 
 // Export enums:
 export * from "../../types/enums/solutions/v20160901preview";

@@ -8,38 +8,38 @@ import * as utilities from "../../utilities";
 export { ContactArgs } from "./contact";
 export type Contact = import("./contact").Contact;
 export const Contact: typeof import("./contact").Contact = null as any;
+utilities.lazyLoad(exports, ["Contact"], () => require("./contact"));
 
 export { ContactProfileArgs } from "./contactProfile";
 export type ContactProfile = import("./contactProfile").ContactProfile;
 export const ContactProfile: typeof import("./contactProfile").ContactProfile = null as any;
+utilities.lazyLoad(exports, ["ContactProfile"], () => require("./contactProfile"));
 
 export { GetContactArgs, GetContactResult, GetContactOutputArgs } from "./getContact";
 export const getContact: typeof import("./getContact").getContact = null as any;
 export const getContactOutput: typeof import("./getContact").getContactOutput = null as any;
+utilities.lazyLoad(exports, ["getContact","getContactOutput"], () => require("./getContact"));
 
 export { GetContactProfileArgs, GetContactProfileResult, GetContactProfileOutputArgs } from "./getContactProfile";
 export const getContactProfile: typeof import("./getContactProfile").getContactProfile = null as any;
 export const getContactProfileOutput: typeof import("./getContactProfile").getContactProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getContactProfile","getContactProfileOutput"], () => require("./getContactProfile"));
 
 export { GetSpacecraftArgs, GetSpacecraftResult, GetSpacecraftOutputArgs } from "./getSpacecraft";
 export const getSpacecraft: typeof import("./getSpacecraft").getSpacecraft = null as any;
 export const getSpacecraftOutput: typeof import("./getSpacecraft").getSpacecraftOutput = null as any;
+utilities.lazyLoad(exports, ["getSpacecraft","getSpacecraftOutput"], () => require("./getSpacecraft"));
 
 export { ListSpacecraftAvailableContactsArgs, ListSpacecraftAvailableContactsResult, ListSpacecraftAvailableContactsOutputArgs } from "./listSpacecraftAvailableContacts";
 export const listSpacecraftAvailableContacts: typeof import("./listSpacecraftAvailableContacts").listSpacecraftAvailableContacts = null as any;
 export const listSpacecraftAvailableContactsOutput: typeof import("./listSpacecraftAvailableContacts").listSpacecraftAvailableContactsOutput = null as any;
+utilities.lazyLoad(exports, ["listSpacecraftAvailableContacts","listSpacecraftAvailableContactsOutput"], () => require("./listSpacecraftAvailableContacts"));
 
 export { SpacecraftArgs } from "./spacecraft";
 export type Spacecraft = import("./spacecraft").Spacecraft;
 export const Spacecraft: typeof import("./spacecraft").Spacecraft = null as any;
-
-utilities.lazyLoad(exports, ["Contact"], () => require("./contact"));
-utilities.lazyLoad(exports, ["ContactProfile"], () => require("./contactProfile"));
-utilities.lazyLoad(exports, ["getContact","getContactOutput"], () => require("./getContact"));
-utilities.lazyLoad(exports, ["getContactProfile","getContactProfileOutput"], () => require("./getContactProfile"));
-utilities.lazyLoad(exports, ["getSpacecraft","getSpacecraftOutput"], () => require("./getSpacecraft"));
-utilities.lazyLoad(exports, ["listSpacecraftAvailableContacts","listSpacecraftAvailableContactsOutput"], () => require("./listSpacecraftAvailableContacts"));
 utilities.lazyLoad(exports, ["Spacecraft"], () => require("./spacecraft"));
+
 
 // Export enums:
 export * from "../../types/enums/orbital/v20220301";

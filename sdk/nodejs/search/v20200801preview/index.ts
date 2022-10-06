@@ -8,43 +8,43 @@ import * as utilities from "../../utilities";
 export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
 export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
 
 export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
 export const getService: typeof import("./getService").getService = null as any;
 export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
 
 export { GetSharedPrivateLinkResourceArgs, GetSharedPrivateLinkResourceResult, GetSharedPrivateLinkResourceOutputArgs } from "./getSharedPrivateLinkResource";
 export const getSharedPrivateLinkResource: typeof import("./getSharedPrivateLinkResource").getSharedPrivateLinkResource = null as any;
 export const getSharedPrivateLinkResourceOutput: typeof import("./getSharedPrivateLinkResource").getSharedPrivateLinkResourceOutput = null as any;
+utilities.lazyLoad(exports, ["getSharedPrivateLinkResource","getSharedPrivateLinkResourceOutput"], () => require("./getSharedPrivateLinkResource"));
 
 export { ListAdminKeyArgs, ListAdminKeyResult, ListAdminKeyOutputArgs } from "./listAdminKey";
 export const listAdminKey: typeof import("./listAdminKey").listAdminKey = null as any;
 export const listAdminKeyOutput: typeof import("./listAdminKey").listAdminKeyOutput = null as any;
+utilities.lazyLoad(exports, ["listAdminKey","listAdminKeyOutput"], () => require("./listAdminKey"));
 
 export { ListQueryKeyBySearchServiceArgs, ListQueryKeyBySearchServiceResult, ListQueryKeyBySearchServiceOutputArgs } from "./listQueryKeyBySearchService";
 export const listQueryKeyBySearchService: typeof import("./listQueryKeyBySearchService").listQueryKeyBySearchService = null as any;
 export const listQueryKeyBySearchServiceOutput: typeof import("./listQueryKeyBySearchService").listQueryKeyBySearchServiceOutput = null as any;
+utilities.lazyLoad(exports, ["listQueryKeyBySearchService","listQueryKeyBySearchServiceOutput"], () => require("./listQueryKeyBySearchService"));
 
 export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
 
 export { ServiceArgs } from "./service";
 export type Service = import("./service").Service;
 export const Service: typeof import("./service").Service = null as any;
+utilities.lazyLoad(exports, ["Service"], () => require("./service"));
 
 export { SharedPrivateLinkResourceArgs } from "./sharedPrivateLinkResource";
 export type SharedPrivateLinkResource = import("./sharedPrivateLinkResource").SharedPrivateLinkResource;
 export const SharedPrivateLinkResource: typeof import("./sharedPrivateLinkResource").SharedPrivateLinkResource = null as any;
-
-utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
-utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
-utilities.lazyLoad(exports, ["getSharedPrivateLinkResource","getSharedPrivateLinkResourceOutput"], () => require("./getSharedPrivateLinkResource"));
-utilities.lazyLoad(exports, ["listAdminKey","listAdminKeyOutput"], () => require("./listAdminKey"));
-utilities.lazyLoad(exports, ["listQueryKeyBySearchService","listQueryKeyBySearchServiceOutput"], () => require("./listQueryKeyBySearchService"));
-utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
-utilities.lazyLoad(exports, ["Service"], () => require("./service"));
 utilities.lazyLoad(exports, ["SharedPrivateLinkResource"], () => require("./sharedPrivateLinkResource"));
+
 
 // Export enums:
 export * from "../../types/enums/search/v20200801preview";

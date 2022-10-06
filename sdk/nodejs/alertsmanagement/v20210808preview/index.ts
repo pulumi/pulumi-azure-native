@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { AlertProcessingRuleByNameArgs } from "./alertProcessingRuleByName";
 export type AlertProcessingRuleByName = import("./alertProcessingRuleByName").AlertProcessingRuleByName;
 export const AlertProcessingRuleByName: typeof import("./alertProcessingRuleByName").AlertProcessingRuleByName = null as any;
+utilities.lazyLoad(exports, ["AlertProcessingRuleByName"], () => require("./alertProcessingRuleByName"));
 
 export { GetAlertProcessingRuleByNameArgs, GetAlertProcessingRuleByNameResult, GetAlertProcessingRuleByNameOutputArgs } from "./getAlertProcessingRuleByName";
 export const getAlertProcessingRuleByName: typeof import("./getAlertProcessingRuleByName").getAlertProcessingRuleByName = null as any;
 export const getAlertProcessingRuleByNameOutput: typeof import("./getAlertProcessingRuleByName").getAlertProcessingRuleByNameOutput = null as any;
-
-utilities.lazyLoad(exports, ["AlertProcessingRuleByName"], () => require("./alertProcessingRuleByName"));
 utilities.lazyLoad(exports, ["getAlertProcessingRuleByName","getAlertProcessingRuleByNameOutput"], () => require("./getAlertProcessingRuleByName"));
+
 
 // Export enums:
 export * from "../../types/enums/alertsmanagement/v20210808preview";
