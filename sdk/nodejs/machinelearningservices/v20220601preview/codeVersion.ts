@@ -91,7 +91,7 @@ export class CodeVersion extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:CodeVersion" }, { type: "azure-native:machinelearningservices/v20210301preview:CodeVersion" }, { type: "azure-native:machinelearningservices/v20220201preview:CodeVersion" }, { type: "azure-native:machinelearningservices/v20220501:CodeVersion" }, { type: "azure-native:machinelearningservices/v20221001:CodeVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:CodeVersion" }, { type: "azure-native:machinelearningservices/v20210301preview:CodeVersion" }, { type: "azure-native:machinelearningservices/v20220201preview:CodeVersion" }, { type: "azure-native:machinelearningservices/v20220501:CodeVersion" }, { type: "azure-native:machinelearningservices/v20221001:CodeVersion" }, { type: "azure-native:machinelearningservices/v20221001preview:CodeVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CodeVersion.__pulumiType, name, resourceInputs, opts);
     }

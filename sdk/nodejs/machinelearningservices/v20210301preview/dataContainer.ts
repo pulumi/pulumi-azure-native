@@ -87,7 +87,7 @@ export class DataContainer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:DataContainer" }, { type: "azure-native:machinelearningservices/v20220201preview:DataContainer" }, { type: "azure-native:machinelearningservices/v20220501:DataContainer" }, { type: "azure-native:machinelearningservices/v20220601preview:DataContainer" }, { type: "azure-native:machinelearningservices/v20221001:DataContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:DataContainer" }, { type: "azure-native:machinelearningservices/v20220201preview:DataContainer" }, { type: "azure-native:machinelearningservices/v20220501:DataContainer" }, { type: "azure-native:machinelearningservices/v20220601preview:DataContainer" }, { type: "azure-native:machinelearningservices/v20221001:DataContainer" }, { type: "azure-native:machinelearningservices/v20221001preview:DataContainer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataContainer.__pulumiType, name, resourceInputs, opts);
     }

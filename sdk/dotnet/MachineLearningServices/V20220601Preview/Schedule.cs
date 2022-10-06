@@ -65,6 +65,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001:Schedule"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001preview:Schedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
