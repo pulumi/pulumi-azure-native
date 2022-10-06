@@ -7158,40 +7158,46 @@
       "2022-02-01-preview",
       "2022-05-01",
       "2022-06-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-10-01-preview"
     ],
     "BatchEndpoint": [
       "2021-03-01-preview",
       "2022-02-01-preview",
       "2022-05-01",
       "2022-06-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-10-01-preview"
     ],
     "CodeContainer": [
       "2021-03-01-preview",
       "2022-02-01-preview",
       "2022-05-01",
       "2022-06-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-10-01-preview"
     ],
     "CodeVersion": [
       "2021-03-01-preview",
       "2022-02-01-preview",
       "2022-05-01",
       "2022-06-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-10-01-preview"
     ],
     "ComponentContainer": [
       "2022-02-01-preview",
       "2022-05-01",
       "2022-06-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-10-01-preview"
     ],
     "ComponentVersion": [
       "2022-02-01-preview",
       "2022-05-01",
       "2022-06-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-10-01-preview"
     ],
     "Compute": [
       "2021-03-01-preview",
@@ -7200,35 +7206,40 @@
       "2022-02-01-preview",
       "2022-05-01",
       "2022-06-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-10-01-preview"
     ],
     "DataContainer": [
       "2021-03-01-preview",
       "2022-02-01-preview",
       "2022-05-01",
       "2022-06-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-10-01-preview"
     ],
     "DataVersion": [
       "2021-03-01-preview",
       "2022-02-01-preview",
       "2022-05-01",
       "2022-06-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-10-01-preview"
     ],
     "Datastore": [
       "2021-03-01-preview",
       "2022-02-01-preview",
       "2022-05-01",
       "2022-06-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-10-01-preview"
     ],
     "EnvironmentContainer": [
       "2021-03-01-preview",
       "2022-02-01-preview",
       "2022-05-01",
       "2022-06-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-10-01-preview"
     ],
     "EnvironmentSpecificationVersion": [
       "2021-03-01-preview"
@@ -7237,19 +7248,22 @@
       "2022-02-01-preview",
       "2022-05-01",
       "2022-06-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-10-01-preview"
     ],
     "Job": [
       "2021-03-01-preview",
       "2022-02-01-preview",
       "2022-05-01",
       "2022-06-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-10-01-preview"
     ],
     "LabelingJob": [
       "2020-09-01-preview",
       "2021-03-01-preview",
-      "2022-06-01-preview"
+      "2022-06-01-preview",
+      "2022-10-01-preview"
     ],
     "LinkedService": [
       "2020-09-01-preview"
@@ -7295,28 +7309,32 @@
       "2022-02-01-preview",
       "2022-05-01",
       "2022-06-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-10-01-preview"
     ],
     "ModelVersion": [
       "2021-03-01-preview",
       "2022-02-01-preview",
       "2022-05-01",
       "2022-06-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-10-01-preview"
     ],
     "OnlineDeployment": [
       "2021-03-01-preview",
       "2022-02-01-preview",
       "2022-05-01",
       "2022-06-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-10-01-preview"
     ],
     "OnlineEndpoint": [
       "2021-03-01-preview",
       "2022-02-01-preview",
       "2022-05-01",
       "2022-06-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-10-01-preview"
     ],
     "PrivateEndpointConnection": [
       "2020-01-01",
@@ -7336,11 +7354,40 @@
       "2022-02-01-preview",
       "2022-05-01",
       "2022-06-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-10-01-preview"
+    ],
+    "Registry": [
+      "2022-10-01-preview"
+    ],
+    "RegistryCodeContainer": [
+      "2022-10-01-preview"
+    ],
+    "RegistryCodeVersion": [
+      "2022-10-01-preview"
+    ],
+    "RegistryComponentContainer": [
+      "2022-10-01-preview"
+    ],
+    "RegistryComponentVersion": [
+      "2022-10-01-preview"
+    ],
+    "RegistryEnvironmentContainer": [
+      "2022-10-01-preview"
+    ],
+    "RegistryEnvironmentVersion": [
+      "2022-10-01-preview"
+    ],
+    "RegistryModelContainer": [
+      "2022-10-01-preview"
+    ],
+    "RegistryModelVersion": [
+      "2022-10-01-preview"
     ],
     "Schedule": [
       "2022-06-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-10-01-preview"
     ],
     "Workspace": [
       "2018-03-01-preview",
@@ -7365,7 +7412,8 @@
       "2022-02-01-preview",
       "2022-05-01",
       "2022-06-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-10-01-preview"
     ],
     "WorkspaceConnection": [
       "2020-06-01",
@@ -7379,28 +7427,32 @@
       "2022-02-01-preview",
       "2022-05-01",
       "2022-06-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-10-01-preview"
     ],
     "getOnlineDeploymentLogs": [
       "2021-03-01-preview",
       "2022-02-01-preview",
       "2022-05-01",
       "2022-06-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-10-01-preview"
     ],
     "getOnlineEndpointToken": [
       "2021-03-01-preview",
       "2022-02-01-preview",
       "2022-05-01",
       "2022-06-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-10-01-preview"
     ],
     "listBatchEndpointKeys": [
       "2021-03-01-preview",
       "2022-02-01-preview",
       "2022-05-01",
       "2022-06-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-10-01-preview"
     ],
     "listComputeKeys": [
       "2021-03-01-preview",
@@ -7409,7 +7461,8 @@
       "2022-02-01-preview",
       "2022-05-01",
       "2022-06-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-10-01-preview"
     ],
     "listComputeNodes": [
       "2021-03-01-preview",
@@ -7418,14 +7471,16 @@
       "2022-02-01-preview",
       "2022-05-01",
       "2022-06-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-10-01-preview"
     ],
     "listDatastoreSecrets": [
       "2021-03-01-preview",
       "2022-02-01-preview",
       "2022-05-01",
       "2022-06-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-10-01-preview"
     ],
     "listMachineLearningComputeKeys": [
       "2018-03-01-preview",
@@ -7472,7 +7527,8 @@
       "2022-02-01-preview",
       "2022-05-01",
       "2022-06-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-10-01-preview"
     ],
     "listStorageAccountKeys": [
       "2021-01-01",
@@ -7501,7 +7557,8 @@
       "2022-02-01-preview",
       "2022-05-01",
       "2022-06-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-10-01-preview"
     ],
     "listWorkspaceNotebookAccessToken": [
       "2021-01-01",
@@ -7512,7 +7569,8 @@
       "2022-02-01-preview",
       "2022-05-01",
       "2022-06-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-10-01-preview"
     ],
     "listWorkspaceNotebookKeys": [
       "2021-03-01-preview",
@@ -7521,7 +7579,8 @@
       "2022-02-01-preview",
       "2022-05-01",
       "2022-06-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-10-01-preview"
     ],
     "listWorkspaceStorageAccountKeys": [
       "2021-03-01-preview",
@@ -7530,7 +7589,8 @@
       "2022-02-01-preview",
       "2022-05-01",
       "2022-06-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-10-01-preview"
     ]
   },
   "Maintenance": {
