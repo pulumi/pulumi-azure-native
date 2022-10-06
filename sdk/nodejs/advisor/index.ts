@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { GetSuppressionArgs, GetSuppressionResult, GetSuppressionOutputArgs } from "./getSuppression";
 export const getSuppression: typeof import("./getSuppression").getSuppression = null as any;
 export const getSuppressionOutput: typeof import("./getSuppression").getSuppressionOutput = null as any;
+utilities.lazyLoad(exports, ["getSuppression","getSuppressionOutput"], () => require("./getSuppression"));
 
 export { SuppressionArgs } from "./suppression";
 export type Suppression = import("./suppression").Suppression;
 export const Suppression: typeof import("./suppression").Suppression = null as any;
-
-utilities.lazyLoad(exports, ["getSuppression","getSuppressionOutput"], () => require("./getSuppression"));
 utilities.lazyLoad(exports, ["Suppression"], () => require("./suppression"));
+
 
 // Export sub-modules:
 import * as v20160712preview from "./v20160712preview";

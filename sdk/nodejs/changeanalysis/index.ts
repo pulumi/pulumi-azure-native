@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { ConfigurationProfileArgs } from "./configurationProfile";
 export type ConfigurationProfile = import("./configurationProfile").ConfigurationProfile;
 export const ConfigurationProfile: typeof import("./configurationProfile").ConfigurationProfile = null as any;
+utilities.lazyLoad(exports, ["ConfigurationProfile"], () => require("./configurationProfile"));
 
 export { GetConfigurationProfileArgs, GetConfigurationProfileResult, GetConfigurationProfileOutputArgs } from "./getConfigurationProfile";
 export const getConfigurationProfile: typeof import("./getConfigurationProfile").getConfigurationProfile = null as any;
 export const getConfigurationProfileOutput: typeof import("./getConfigurationProfile").getConfigurationProfileOutput = null as any;
-
-utilities.lazyLoad(exports, ["ConfigurationProfile"], () => require("./configurationProfile"));
 utilities.lazyLoad(exports, ["getConfigurationProfile","getConfigurationProfileOutput"], () => require("./getConfigurationProfile"));
+
 
 // Export enums:
 export * from "../types/enums/changeanalysis";

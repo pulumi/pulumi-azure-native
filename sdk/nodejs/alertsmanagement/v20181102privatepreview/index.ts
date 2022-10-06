@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { ActionRuleByNameArgs } from "./actionRuleByName";
 export type ActionRuleByName = import("./actionRuleByName").ActionRuleByName;
 export const ActionRuleByName: typeof import("./actionRuleByName").ActionRuleByName = null as any;
+utilities.lazyLoad(exports, ["ActionRuleByName"], () => require("./actionRuleByName"));
 
 export { GetActionRuleByNameArgs, GetActionRuleByNameResult, GetActionRuleByNameOutputArgs } from "./getActionRuleByName";
 export const getActionRuleByName: typeof import("./getActionRuleByName").getActionRuleByName = null as any;
 export const getActionRuleByNameOutput: typeof import("./getActionRuleByName").getActionRuleByNameOutput = null as any;
-
-utilities.lazyLoad(exports, ["ActionRuleByName"], () => require("./actionRuleByName"));
 utilities.lazyLoad(exports, ["getActionRuleByName","getActionRuleByNameOutput"], () => require("./getActionRuleByName"));
+
 
 // Export enums:
 export * from "../../types/enums/alertsmanagement/v20181102privatepreview";

@@ -8,18 +8,18 @@ import * as utilities from "../utilities";
 export { GetLinkerArgs, GetLinkerResult, GetLinkerOutputArgs } from "./getLinker";
 export const getLinker: typeof import("./getLinker").getLinker = null as any;
 export const getLinkerOutput: typeof import("./getLinker").getLinkerOutput = null as any;
+utilities.lazyLoad(exports, ["getLinker","getLinkerOutput"], () => require("./getLinker"));
 
 export { LinkerArgs } from "./linker";
 export type Linker = import("./linker").Linker;
 export const Linker: typeof import("./linker").Linker = null as any;
+utilities.lazyLoad(exports, ["Linker"], () => require("./linker"));
 
 export { ListLinkerConfigurationsArgs, ListLinkerConfigurationsResult, ListLinkerConfigurationsOutputArgs } from "./listLinkerConfigurations";
 export const listLinkerConfigurations: typeof import("./listLinkerConfigurations").listLinkerConfigurations = null as any;
 export const listLinkerConfigurationsOutput: typeof import("./listLinkerConfigurations").listLinkerConfigurationsOutput = null as any;
-
-utilities.lazyLoad(exports, ["getLinker","getLinkerOutput"], () => require("./getLinker"));
-utilities.lazyLoad(exports, ["Linker"], () => require("./linker"));
 utilities.lazyLoad(exports, ["listLinkerConfigurations","listLinkerConfigurationsOutput"], () => require("./listLinkerConfigurations"));
+
 
 // Export enums:
 export * from "../types/enums/servicelinker";

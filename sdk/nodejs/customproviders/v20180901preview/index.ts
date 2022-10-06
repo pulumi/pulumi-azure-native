@@ -8,23 +8,23 @@ import * as utilities from "../../utilities";
 export { AssociationArgs } from "./association";
 export type Association = import("./association").Association;
 export const Association: typeof import("./association").Association = null as any;
+utilities.lazyLoad(exports, ["Association"], () => require("./association"));
 
 export { CustomResourceProviderArgs } from "./customResourceProvider";
 export type CustomResourceProvider = import("./customResourceProvider").CustomResourceProvider;
 export const CustomResourceProvider: typeof import("./customResourceProvider").CustomResourceProvider = null as any;
+utilities.lazyLoad(exports, ["CustomResourceProvider"], () => require("./customResourceProvider"));
 
 export { GetAssociationArgs, GetAssociationResult, GetAssociationOutputArgs } from "./getAssociation";
 export const getAssociation: typeof import("./getAssociation").getAssociation = null as any;
 export const getAssociationOutput: typeof import("./getAssociation").getAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getAssociation","getAssociationOutput"], () => require("./getAssociation"));
 
 export { GetCustomResourceProviderArgs, GetCustomResourceProviderResult, GetCustomResourceProviderOutputArgs } from "./getCustomResourceProvider";
 export const getCustomResourceProvider: typeof import("./getCustomResourceProvider").getCustomResourceProvider = null as any;
 export const getCustomResourceProviderOutput: typeof import("./getCustomResourceProvider").getCustomResourceProviderOutput = null as any;
-
-utilities.lazyLoad(exports, ["Association"], () => require("./association"));
-utilities.lazyLoad(exports, ["CustomResourceProvider"], () => require("./customResourceProvider"));
-utilities.lazyLoad(exports, ["getAssociation","getAssociationOutput"], () => require("./getAssociation"));
 utilities.lazyLoad(exports, ["getCustomResourceProvider","getCustomResourceProviderOutput"], () => require("./getCustomResourceProvider"));
+
 
 // Export enums:
 export * from "../../types/enums/customproviders/v20180901preview";

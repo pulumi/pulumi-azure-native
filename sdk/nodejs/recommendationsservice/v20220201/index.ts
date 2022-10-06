@@ -8,33 +8,33 @@ import * as utilities from "../../utilities";
 export { AccountArgs } from "./account";
 export type Account = import("./account").Account;
 export const Account: typeof import("./account").Account = null as any;
+utilities.lazyLoad(exports, ["Account"], () => require("./account"));
 
 export { GetAccountArgs, GetAccountResult, GetAccountOutputArgs } from "./getAccount";
 export const getAccount: typeof import("./getAccount").getAccount = null as any;
 export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
 
 export { GetModelingArgs, GetModelingResult, GetModelingOutputArgs } from "./getModeling";
 export const getModeling: typeof import("./getModeling").getModeling = null as any;
 export const getModelingOutput: typeof import("./getModeling").getModelingOutput = null as any;
+utilities.lazyLoad(exports, ["getModeling","getModelingOutput"], () => require("./getModeling"));
 
 export { GetServiceEndpointArgs, GetServiceEndpointResult, GetServiceEndpointOutputArgs } from "./getServiceEndpoint";
 export const getServiceEndpoint: typeof import("./getServiceEndpoint").getServiceEndpoint = null as any;
 export const getServiceEndpointOutput: typeof import("./getServiceEndpoint").getServiceEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getServiceEndpoint","getServiceEndpointOutput"], () => require("./getServiceEndpoint"));
 
 export { ModelingArgs } from "./modeling";
 export type Modeling = import("./modeling").Modeling;
 export const Modeling: typeof import("./modeling").Modeling = null as any;
+utilities.lazyLoad(exports, ["Modeling"], () => require("./modeling"));
 
 export { ServiceEndpointArgs } from "./serviceEndpoint";
 export type ServiceEndpoint = import("./serviceEndpoint").ServiceEndpoint;
 export const ServiceEndpoint: typeof import("./serviceEndpoint").ServiceEndpoint = null as any;
-
-utilities.lazyLoad(exports, ["Account"], () => require("./account"));
-utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
-utilities.lazyLoad(exports, ["getModeling","getModelingOutput"], () => require("./getModeling"));
-utilities.lazyLoad(exports, ["getServiceEndpoint","getServiceEndpointOutput"], () => require("./getServiceEndpoint"));
-utilities.lazyLoad(exports, ["Modeling"], () => require("./modeling"));
 utilities.lazyLoad(exports, ["ServiceEndpoint"], () => require("./serviceEndpoint"));
+
 
 // Export enums:
 export * from "../../types/enums/recommendationsservice/v20220201";

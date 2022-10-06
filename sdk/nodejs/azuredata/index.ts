@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { GetSqlServerArgs, GetSqlServerResult, GetSqlServerOutputArgs } from "./getSqlServer";
 export const getSqlServer: typeof import("./getSqlServer").getSqlServer = null as any;
 export const getSqlServerOutput: typeof import("./getSqlServer").getSqlServerOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlServer","getSqlServerOutput"], () => require("./getSqlServer"));
 
 export { GetSqlServerRegistrationArgs, GetSqlServerRegistrationResult, GetSqlServerRegistrationOutputArgs } from "./getSqlServerRegistration";
 export const getSqlServerRegistration: typeof import("./getSqlServerRegistration").getSqlServerRegistration = null as any;
 export const getSqlServerRegistrationOutput: typeof import("./getSqlServerRegistration").getSqlServerRegistrationOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlServerRegistration","getSqlServerRegistrationOutput"], () => require("./getSqlServerRegistration"));
 
 export { SqlServerArgs } from "./sqlServer";
 export type SqlServer = import("./sqlServer").SqlServer;
 export const SqlServer: typeof import("./sqlServer").SqlServer = null as any;
+utilities.lazyLoad(exports, ["SqlServer"], () => require("./sqlServer"));
 
 export { SqlServerRegistrationArgs } from "./sqlServerRegistration";
 export type SqlServerRegistration = import("./sqlServerRegistration").SqlServerRegistration;
 export const SqlServerRegistration: typeof import("./sqlServerRegistration").SqlServerRegistration = null as any;
-
-utilities.lazyLoad(exports, ["getSqlServer","getSqlServerOutput"], () => require("./getSqlServer"));
-utilities.lazyLoad(exports, ["getSqlServerRegistration","getSqlServerRegistrationOutput"], () => require("./getSqlServerRegistration"));
-utilities.lazyLoad(exports, ["SqlServer"], () => require("./sqlServer"));
 utilities.lazyLoad(exports, ["SqlServerRegistration"], () => require("./sqlServerRegistration"));
+
 
 // Export sub-modules:
 import * as v20170301preview from "./v20170301preview";

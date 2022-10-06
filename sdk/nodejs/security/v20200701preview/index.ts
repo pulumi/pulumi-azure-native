@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { GetSqlVulnerabilityAssessmentBaselineRuleArgs, GetSqlVulnerabilityAssessmentBaselineRuleResult, GetSqlVulnerabilityAssessmentBaselineRuleOutputArgs } from "./getSqlVulnerabilityAssessmentBaselineRule";
 export const getSqlVulnerabilityAssessmentBaselineRule: typeof import("./getSqlVulnerabilityAssessmentBaselineRule").getSqlVulnerabilityAssessmentBaselineRule = null as any;
 export const getSqlVulnerabilityAssessmentBaselineRuleOutput: typeof import("./getSqlVulnerabilityAssessmentBaselineRule").getSqlVulnerabilityAssessmentBaselineRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlVulnerabilityAssessmentBaselineRule","getSqlVulnerabilityAssessmentBaselineRuleOutput"], () => require("./getSqlVulnerabilityAssessmentBaselineRule"));
 
 export { SqlVulnerabilityAssessmentBaselineRuleArgs } from "./sqlVulnerabilityAssessmentBaselineRule";
 export type SqlVulnerabilityAssessmentBaselineRule = import("./sqlVulnerabilityAssessmentBaselineRule").SqlVulnerabilityAssessmentBaselineRule;
 export const SqlVulnerabilityAssessmentBaselineRule: typeof import("./sqlVulnerabilityAssessmentBaselineRule").SqlVulnerabilityAssessmentBaselineRule = null as any;
-
-utilities.lazyLoad(exports, ["getSqlVulnerabilityAssessmentBaselineRule","getSqlVulnerabilityAssessmentBaselineRuleOutput"], () => require("./getSqlVulnerabilityAssessmentBaselineRule"));
 utilities.lazyLoad(exports, ["SqlVulnerabilityAssessmentBaselineRule"], () => require("./sqlVulnerabilityAssessmentBaselineRule"));
+
 
 const _module = {
     version: utilities.getVersion(),

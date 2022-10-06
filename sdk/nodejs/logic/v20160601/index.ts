@@ -8,173 +8,173 @@ import * as utilities from "../../utilities";
 export { AgreementArgs } from "./agreement";
 export type Agreement = import("./agreement").Agreement;
 export const Agreement: typeof import("./agreement").Agreement = null as any;
+utilities.lazyLoad(exports, ["Agreement"], () => require("./agreement"));
 
 export { CertificateArgs } from "./certificate";
 export type Certificate = import("./certificate").Certificate;
 export const Certificate: typeof import("./certificate").Certificate = null as any;
+utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
 
 export { GetAgreementArgs, GetAgreementResult, GetAgreementOutputArgs } from "./getAgreement";
 export const getAgreement: typeof import("./getAgreement").getAgreement = null as any;
 export const getAgreementOutput: typeof import("./getAgreement").getAgreementOutput = null as any;
+utilities.lazyLoad(exports, ["getAgreement","getAgreementOutput"], () => require("./getAgreement"));
 
 export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
 export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
 export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
 
 export { GetIntegrationAccountArgs, GetIntegrationAccountResult, GetIntegrationAccountOutputArgs } from "./getIntegrationAccount";
 export const getIntegrationAccount: typeof import("./getIntegrationAccount").getIntegrationAccount = null as any;
 export const getIntegrationAccountOutput: typeof import("./getIntegrationAccount").getIntegrationAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getIntegrationAccount","getIntegrationAccountOutput"], () => require("./getIntegrationAccount"));
 
 export { GetIntegrationAccountAssemblyArgs, GetIntegrationAccountAssemblyResult, GetIntegrationAccountAssemblyOutputArgs } from "./getIntegrationAccountAssembly";
 export const getIntegrationAccountAssembly: typeof import("./getIntegrationAccountAssembly").getIntegrationAccountAssembly = null as any;
 export const getIntegrationAccountAssemblyOutput: typeof import("./getIntegrationAccountAssembly").getIntegrationAccountAssemblyOutput = null as any;
+utilities.lazyLoad(exports, ["getIntegrationAccountAssembly","getIntegrationAccountAssemblyOutput"], () => require("./getIntegrationAccountAssembly"));
 
 export { GetIntegrationAccountBatchConfigurationArgs, GetIntegrationAccountBatchConfigurationResult, GetIntegrationAccountBatchConfigurationOutputArgs } from "./getIntegrationAccountBatchConfiguration";
 export const getIntegrationAccountBatchConfiguration: typeof import("./getIntegrationAccountBatchConfiguration").getIntegrationAccountBatchConfiguration = null as any;
 export const getIntegrationAccountBatchConfigurationOutput: typeof import("./getIntegrationAccountBatchConfiguration").getIntegrationAccountBatchConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getIntegrationAccountBatchConfiguration","getIntegrationAccountBatchConfigurationOutput"], () => require("./getIntegrationAccountBatchConfiguration"));
 
 export { GetMapArgs, GetMapResult, GetMapOutputArgs } from "./getMap";
 export const getMap: typeof import("./getMap").getMap = null as any;
 export const getMapOutput: typeof import("./getMap").getMapOutput = null as any;
+utilities.lazyLoad(exports, ["getMap","getMapOutput"], () => require("./getMap"));
 
 export { GetPartnerArgs, GetPartnerResult, GetPartnerOutputArgs } from "./getPartner";
 export const getPartner: typeof import("./getPartner").getPartner = null as any;
 export const getPartnerOutput: typeof import("./getPartner").getPartnerOutput = null as any;
+utilities.lazyLoad(exports, ["getPartner","getPartnerOutput"], () => require("./getPartner"));
 
 export { GetRosettaNetProcessConfigurationArgs, GetRosettaNetProcessConfigurationResult, GetRosettaNetProcessConfigurationOutputArgs } from "./getRosettaNetProcessConfiguration";
 export const getRosettaNetProcessConfiguration: typeof import("./getRosettaNetProcessConfiguration").getRosettaNetProcessConfiguration = null as any;
 export const getRosettaNetProcessConfigurationOutput: typeof import("./getRosettaNetProcessConfiguration").getRosettaNetProcessConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getRosettaNetProcessConfiguration","getRosettaNetProcessConfigurationOutput"], () => require("./getRosettaNetProcessConfiguration"));
 
 export { GetSchemaArgs, GetSchemaResult, GetSchemaOutputArgs } from "./getSchema";
 export const getSchema: typeof import("./getSchema").getSchema = null as any;
 export const getSchemaOutput: typeof import("./getSchema").getSchemaOutput = null as any;
+utilities.lazyLoad(exports, ["getSchema","getSchemaOutput"], () => require("./getSchema"));
 
 export { GetSessionArgs, GetSessionResult, GetSessionOutputArgs } from "./getSession";
 export const getSession: typeof import("./getSession").getSession = null as any;
 export const getSessionOutput: typeof import("./getSession").getSessionOutput = null as any;
+utilities.lazyLoad(exports, ["getSession","getSessionOutput"], () => require("./getSession"));
 
 export { GetWorkflowArgs, GetWorkflowResult, GetWorkflowOutputArgs } from "./getWorkflow";
 export const getWorkflow: typeof import("./getWorkflow").getWorkflow = null as any;
 export const getWorkflowOutput: typeof import("./getWorkflow").getWorkflowOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkflow","getWorkflowOutput"], () => require("./getWorkflow"));
 
 export { IntegrationAccountArgs } from "./integrationAccount";
 export type IntegrationAccount = import("./integrationAccount").IntegrationAccount;
 export const IntegrationAccount: typeof import("./integrationAccount").IntegrationAccount = null as any;
+utilities.lazyLoad(exports, ["IntegrationAccount"], () => require("./integrationAccount"));
 
 export { IntegrationAccountAssemblyArgs } from "./integrationAccountAssembly";
 export type IntegrationAccountAssembly = import("./integrationAccountAssembly").IntegrationAccountAssembly;
 export const IntegrationAccountAssembly: typeof import("./integrationAccountAssembly").IntegrationAccountAssembly = null as any;
+utilities.lazyLoad(exports, ["IntegrationAccountAssembly"], () => require("./integrationAccountAssembly"));
 
 export { IntegrationAccountBatchConfigurationArgs } from "./integrationAccountBatchConfiguration";
 export type IntegrationAccountBatchConfiguration = import("./integrationAccountBatchConfiguration").IntegrationAccountBatchConfiguration;
 export const IntegrationAccountBatchConfiguration: typeof import("./integrationAccountBatchConfiguration").IntegrationAccountBatchConfiguration = null as any;
+utilities.lazyLoad(exports, ["IntegrationAccountBatchConfiguration"], () => require("./integrationAccountBatchConfiguration"));
 
 export { ListAgreementContentCallbackUrlArgs, ListAgreementContentCallbackUrlResult, ListAgreementContentCallbackUrlOutputArgs } from "./listAgreementContentCallbackUrl";
 export const listAgreementContentCallbackUrl: typeof import("./listAgreementContentCallbackUrl").listAgreementContentCallbackUrl = null as any;
 export const listAgreementContentCallbackUrlOutput: typeof import("./listAgreementContentCallbackUrl").listAgreementContentCallbackUrlOutput = null as any;
+utilities.lazyLoad(exports, ["listAgreementContentCallbackUrl","listAgreementContentCallbackUrlOutput"], () => require("./listAgreementContentCallbackUrl"));
 
 export { ListIntegrationAccountAssemblyContentCallbackUrlArgs, ListIntegrationAccountAssemblyContentCallbackUrlResult, ListIntegrationAccountAssemblyContentCallbackUrlOutputArgs } from "./listIntegrationAccountAssemblyContentCallbackUrl";
 export const listIntegrationAccountAssemblyContentCallbackUrl: typeof import("./listIntegrationAccountAssemblyContentCallbackUrl").listIntegrationAccountAssemblyContentCallbackUrl = null as any;
 export const listIntegrationAccountAssemblyContentCallbackUrlOutput: typeof import("./listIntegrationAccountAssemblyContentCallbackUrl").listIntegrationAccountAssemblyContentCallbackUrlOutput = null as any;
+utilities.lazyLoad(exports, ["listIntegrationAccountAssemblyContentCallbackUrl","listIntegrationAccountAssemblyContentCallbackUrlOutput"], () => require("./listIntegrationAccountAssemblyContentCallbackUrl"));
 
 export { ListIntegrationAccountCallbackUrlArgs, ListIntegrationAccountCallbackUrlResult, ListIntegrationAccountCallbackUrlOutputArgs } from "./listIntegrationAccountCallbackUrl";
 export const listIntegrationAccountCallbackUrl: typeof import("./listIntegrationAccountCallbackUrl").listIntegrationAccountCallbackUrl = null as any;
 export const listIntegrationAccountCallbackUrlOutput: typeof import("./listIntegrationAccountCallbackUrl").listIntegrationAccountCallbackUrlOutput = null as any;
+utilities.lazyLoad(exports, ["listIntegrationAccountCallbackUrl","listIntegrationAccountCallbackUrlOutput"], () => require("./listIntegrationAccountCallbackUrl"));
 
 export { ListIntegrationAccountKeyVaultKeysArgs, ListIntegrationAccountKeyVaultKeysResult, ListIntegrationAccountKeyVaultKeysOutputArgs } from "./listIntegrationAccountKeyVaultKeys";
 export const listIntegrationAccountKeyVaultKeys: typeof import("./listIntegrationAccountKeyVaultKeys").listIntegrationAccountKeyVaultKeys = null as any;
 export const listIntegrationAccountKeyVaultKeysOutput: typeof import("./listIntegrationAccountKeyVaultKeys").listIntegrationAccountKeyVaultKeysOutput = null as any;
+utilities.lazyLoad(exports, ["listIntegrationAccountKeyVaultKeys","listIntegrationAccountKeyVaultKeysOutput"], () => require("./listIntegrationAccountKeyVaultKeys"));
 
 export { ListMapContentCallbackUrlArgs, ListMapContentCallbackUrlResult, ListMapContentCallbackUrlOutputArgs } from "./listMapContentCallbackUrl";
 export const listMapContentCallbackUrl: typeof import("./listMapContentCallbackUrl").listMapContentCallbackUrl = null as any;
 export const listMapContentCallbackUrlOutput: typeof import("./listMapContentCallbackUrl").listMapContentCallbackUrlOutput = null as any;
+utilities.lazyLoad(exports, ["listMapContentCallbackUrl","listMapContentCallbackUrlOutput"], () => require("./listMapContentCallbackUrl"));
 
 export { ListPartnerContentCallbackUrlArgs, ListPartnerContentCallbackUrlResult, ListPartnerContentCallbackUrlOutputArgs } from "./listPartnerContentCallbackUrl";
 export const listPartnerContentCallbackUrl: typeof import("./listPartnerContentCallbackUrl").listPartnerContentCallbackUrl = null as any;
 export const listPartnerContentCallbackUrlOutput: typeof import("./listPartnerContentCallbackUrl").listPartnerContentCallbackUrlOutput = null as any;
+utilities.lazyLoad(exports, ["listPartnerContentCallbackUrl","listPartnerContentCallbackUrlOutput"], () => require("./listPartnerContentCallbackUrl"));
 
 export { ListSchemaContentCallbackUrlArgs, ListSchemaContentCallbackUrlResult, ListSchemaContentCallbackUrlOutputArgs } from "./listSchemaContentCallbackUrl";
 export const listSchemaContentCallbackUrl: typeof import("./listSchemaContentCallbackUrl").listSchemaContentCallbackUrl = null as any;
 export const listSchemaContentCallbackUrlOutput: typeof import("./listSchemaContentCallbackUrl").listSchemaContentCallbackUrlOutput = null as any;
+utilities.lazyLoad(exports, ["listSchemaContentCallbackUrl","listSchemaContentCallbackUrlOutput"], () => require("./listSchemaContentCallbackUrl"));
 
 export { ListWorkflowCallbackUrlArgs, ListWorkflowCallbackUrlResult, ListWorkflowCallbackUrlOutputArgs } from "./listWorkflowCallbackUrl";
 export const listWorkflowCallbackUrl: typeof import("./listWorkflowCallbackUrl").listWorkflowCallbackUrl = null as any;
 export const listWorkflowCallbackUrlOutput: typeof import("./listWorkflowCallbackUrl").listWorkflowCallbackUrlOutput = null as any;
+utilities.lazyLoad(exports, ["listWorkflowCallbackUrl","listWorkflowCallbackUrlOutput"], () => require("./listWorkflowCallbackUrl"));
 
 export { ListWorkflowRunActionExpressionTracesArgs, ListWorkflowRunActionExpressionTracesResult, ListWorkflowRunActionExpressionTracesOutputArgs } from "./listWorkflowRunActionExpressionTraces";
 export const listWorkflowRunActionExpressionTraces: typeof import("./listWorkflowRunActionExpressionTraces").listWorkflowRunActionExpressionTraces = null as any;
 export const listWorkflowRunActionExpressionTracesOutput: typeof import("./listWorkflowRunActionExpressionTraces").listWorkflowRunActionExpressionTracesOutput = null as any;
+utilities.lazyLoad(exports, ["listWorkflowRunActionExpressionTraces","listWorkflowRunActionExpressionTracesOutput"], () => require("./listWorkflowRunActionExpressionTraces"));
 
 export { ListWorkflowRunActionRepetitionExpressionTracesArgs, ListWorkflowRunActionRepetitionExpressionTracesResult, ListWorkflowRunActionRepetitionExpressionTracesOutputArgs } from "./listWorkflowRunActionRepetitionExpressionTraces";
 export const listWorkflowRunActionRepetitionExpressionTraces: typeof import("./listWorkflowRunActionRepetitionExpressionTraces").listWorkflowRunActionRepetitionExpressionTraces = null as any;
 export const listWorkflowRunActionRepetitionExpressionTracesOutput: typeof import("./listWorkflowRunActionRepetitionExpressionTraces").listWorkflowRunActionRepetitionExpressionTracesOutput = null as any;
+utilities.lazyLoad(exports, ["listWorkflowRunActionRepetitionExpressionTraces","listWorkflowRunActionRepetitionExpressionTracesOutput"], () => require("./listWorkflowRunActionRepetitionExpressionTraces"));
 
 export { ListWorkflowTriggerCallbackUrlArgs, ListWorkflowTriggerCallbackUrlResult, ListWorkflowTriggerCallbackUrlOutputArgs } from "./listWorkflowTriggerCallbackUrl";
 export const listWorkflowTriggerCallbackUrl: typeof import("./listWorkflowTriggerCallbackUrl").listWorkflowTriggerCallbackUrl = null as any;
 export const listWorkflowTriggerCallbackUrlOutput: typeof import("./listWorkflowTriggerCallbackUrl").listWorkflowTriggerCallbackUrlOutput = null as any;
+utilities.lazyLoad(exports, ["listWorkflowTriggerCallbackUrl","listWorkflowTriggerCallbackUrlOutput"], () => require("./listWorkflowTriggerCallbackUrl"));
 
 export { ListWorkflowVersionCallbackUrlArgs, ListWorkflowVersionCallbackUrlResult, ListWorkflowVersionCallbackUrlOutputArgs } from "./listWorkflowVersionCallbackUrl";
 export const listWorkflowVersionCallbackUrl: typeof import("./listWorkflowVersionCallbackUrl").listWorkflowVersionCallbackUrl = null as any;
 export const listWorkflowVersionCallbackUrlOutput: typeof import("./listWorkflowVersionCallbackUrl").listWorkflowVersionCallbackUrlOutput = null as any;
+utilities.lazyLoad(exports, ["listWorkflowVersionCallbackUrl","listWorkflowVersionCallbackUrlOutput"], () => require("./listWorkflowVersionCallbackUrl"));
 
 export { MapArgs } from "./map";
 export type Map = import("./map").Map;
 export const Map: typeof import("./map").Map = null as any;
+utilities.lazyLoad(exports, ["Map"], () => require("./map"));
 
 export { PartnerArgs } from "./partner";
 export type Partner = import("./partner").Partner;
 export const Partner: typeof import("./partner").Partner = null as any;
+utilities.lazyLoad(exports, ["Partner"], () => require("./partner"));
 
 export { RosettaNetProcessConfigurationArgs } from "./rosettaNetProcessConfiguration";
 export type RosettaNetProcessConfiguration = import("./rosettaNetProcessConfiguration").RosettaNetProcessConfiguration;
 export const RosettaNetProcessConfiguration: typeof import("./rosettaNetProcessConfiguration").RosettaNetProcessConfiguration = null as any;
+utilities.lazyLoad(exports, ["RosettaNetProcessConfiguration"], () => require("./rosettaNetProcessConfiguration"));
 
 export { SchemaArgs } from "./schema";
 export type Schema = import("./schema").Schema;
 export const Schema: typeof import("./schema").Schema = null as any;
+utilities.lazyLoad(exports, ["Schema"], () => require("./schema"));
 
 export { SessionArgs } from "./session";
 export type Session = import("./session").Session;
 export const Session: typeof import("./session").Session = null as any;
+utilities.lazyLoad(exports, ["Session"], () => require("./session"));
 
 export { WorkflowArgs } from "./workflow";
 export type Workflow = import("./workflow").Workflow;
 export const Workflow: typeof import("./workflow").Workflow = null as any;
-
-utilities.lazyLoad(exports, ["Agreement"], () => require("./agreement"));
-utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
-utilities.lazyLoad(exports, ["getAgreement","getAgreementOutput"], () => require("./getAgreement"));
-utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
-utilities.lazyLoad(exports, ["getIntegrationAccount","getIntegrationAccountOutput"], () => require("./getIntegrationAccount"));
-utilities.lazyLoad(exports, ["getIntegrationAccountAssembly","getIntegrationAccountAssemblyOutput"], () => require("./getIntegrationAccountAssembly"));
-utilities.lazyLoad(exports, ["getIntegrationAccountBatchConfiguration","getIntegrationAccountBatchConfigurationOutput"], () => require("./getIntegrationAccountBatchConfiguration"));
-utilities.lazyLoad(exports, ["getMap","getMapOutput"], () => require("./getMap"));
-utilities.lazyLoad(exports, ["getPartner","getPartnerOutput"], () => require("./getPartner"));
-utilities.lazyLoad(exports, ["getRosettaNetProcessConfiguration","getRosettaNetProcessConfigurationOutput"], () => require("./getRosettaNetProcessConfiguration"));
-utilities.lazyLoad(exports, ["getSchema","getSchemaOutput"], () => require("./getSchema"));
-utilities.lazyLoad(exports, ["getSession","getSessionOutput"], () => require("./getSession"));
-utilities.lazyLoad(exports, ["getWorkflow","getWorkflowOutput"], () => require("./getWorkflow"));
-utilities.lazyLoad(exports, ["IntegrationAccount"], () => require("./integrationAccount"));
-utilities.lazyLoad(exports, ["IntegrationAccountAssembly"], () => require("./integrationAccountAssembly"));
-utilities.lazyLoad(exports, ["IntegrationAccountBatchConfiguration"], () => require("./integrationAccountBatchConfiguration"));
-utilities.lazyLoad(exports, ["listAgreementContentCallbackUrl","listAgreementContentCallbackUrlOutput"], () => require("./listAgreementContentCallbackUrl"));
-utilities.lazyLoad(exports, ["listIntegrationAccountAssemblyContentCallbackUrl","listIntegrationAccountAssemblyContentCallbackUrlOutput"], () => require("./listIntegrationAccountAssemblyContentCallbackUrl"));
-utilities.lazyLoad(exports, ["listIntegrationAccountCallbackUrl","listIntegrationAccountCallbackUrlOutput"], () => require("./listIntegrationAccountCallbackUrl"));
-utilities.lazyLoad(exports, ["listIntegrationAccountKeyVaultKeys","listIntegrationAccountKeyVaultKeysOutput"], () => require("./listIntegrationAccountKeyVaultKeys"));
-utilities.lazyLoad(exports, ["listMapContentCallbackUrl","listMapContentCallbackUrlOutput"], () => require("./listMapContentCallbackUrl"));
-utilities.lazyLoad(exports, ["listPartnerContentCallbackUrl","listPartnerContentCallbackUrlOutput"], () => require("./listPartnerContentCallbackUrl"));
-utilities.lazyLoad(exports, ["listSchemaContentCallbackUrl","listSchemaContentCallbackUrlOutput"], () => require("./listSchemaContentCallbackUrl"));
-utilities.lazyLoad(exports, ["listWorkflowCallbackUrl","listWorkflowCallbackUrlOutput"], () => require("./listWorkflowCallbackUrl"));
-utilities.lazyLoad(exports, ["listWorkflowRunActionExpressionTraces","listWorkflowRunActionExpressionTracesOutput"], () => require("./listWorkflowRunActionExpressionTraces"));
-utilities.lazyLoad(exports, ["listWorkflowRunActionRepetitionExpressionTraces","listWorkflowRunActionRepetitionExpressionTracesOutput"], () => require("./listWorkflowRunActionRepetitionExpressionTraces"));
-utilities.lazyLoad(exports, ["listWorkflowTriggerCallbackUrl","listWorkflowTriggerCallbackUrlOutput"], () => require("./listWorkflowTriggerCallbackUrl"));
-utilities.lazyLoad(exports, ["listWorkflowVersionCallbackUrl","listWorkflowVersionCallbackUrlOutput"], () => require("./listWorkflowVersionCallbackUrl"));
-utilities.lazyLoad(exports, ["Map"], () => require("./map"));
-utilities.lazyLoad(exports, ["Partner"], () => require("./partner"));
-utilities.lazyLoad(exports, ["RosettaNetProcessConfiguration"], () => require("./rosettaNetProcessConfiguration"));
-utilities.lazyLoad(exports, ["Schema"], () => require("./schema"));
-utilities.lazyLoad(exports, ["Session"], () => require("./session"));
 utilities.lazyLoad(exports, ["Workflow"], () => require("./workflow"));
+
 
 // Export enums:
 export * from "../../types/enums/logic/v20160601";

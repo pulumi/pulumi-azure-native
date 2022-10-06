@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { DomainServiceArgs } from "./domainService";
 export type DomainService = import("./domainService").DomainService;
 export const DomainService: typeof import("./domainService").DomainService = null as any;
+utilities.lazyLoad(exports, ["DomainService"], () => require("./domainService"));
 
 export { GetDomainServiceArgs, GetDomainServiceResult, GetDomainServiceOutputArgs } from "./getDomainService";
 export const getDomainService: typeof import("./getDomainService").getDomainService = null as any;
 export const getDomainServiceOutput: typeof import("./getDomainService").getDomainServiceOutput = null as any;
-
-utilities.lazyLoad(exports, ["DomainService"], () => require("./domainService"));
 utilities.lazyLoad(exports, ["getDomainService","getDomainServiceOutput"], () => require("./getDomainService"));
+
 
 // Export enums:
 export * from "../../types/enums/aad/v20170101";

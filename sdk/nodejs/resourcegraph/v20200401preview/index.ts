@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { GetGraphQueryArgs, GetGraphQueryResult, GetGraphQueryOutputArgs } from "./getGraphQuery";
 export const getGraphQuery: typeof import("./getGraphQuery").getGraphQuery = null as any;
 export const getGraphQueryOutput: typeof import("./getGraphQuery").getGraphQueryOutput = null as any;
+utilities.lazyLoad(exports, ["getGraphQuery","getGraphQueryOutput"], () => require("./getGraphQuery"));
 
 export { GraphQueryArgs } from "./graphQuery";
 export type GraphQuery = import("./graphQuery").GraphQuery;
 export const GraphQuery: typeof import("./graphQuery").GraphQuery = null as any;
-
-utilities.lazyLoad(exports, ["getGraphQuery","getGraphQueryOutput"], () => require("./getGraphQuery"));
 utilities.lazyLoad(exports, ["GraphQuery"], () => require("./graphQuery"));
+
 
 const _module = {
     version: utilities.getVersion(),

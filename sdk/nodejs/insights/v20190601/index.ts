@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { ActionGroupArgs } from "./actionGroup";
 export type ActionGroup = import("./actionGroup").ActionGroup;
 export const ActionGroup: typeof import("./actionGroup").ActionGroup = null as any;
+utilities.lazyLoad(exports, ["ActionGroup"], () => require("./actionGroup"));
 
 export { GetActionGroupArgs, GetActionGroupResult, GetActionGroupOutputArgs } from "./getActionGroup";
 export const getActionGroup: typeof import("./getActionGroup").getActionGroup = null as any;
 export const getActionGroupOutput: typeof import("./getActionGroup").getActionGroupOutput = null as any;
-
-utilities.lazyLoad(exports, ["ActionGroup"], () => require("./actionGroup"));
 utilities.lazyLoad(exports, ["getActionGroup","getActionGroupOutput"], () => require("./getActionGroup"));
+
 
 const _module = {
     version: utilities.getVersion(),

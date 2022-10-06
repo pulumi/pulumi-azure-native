@@ -8,123 +8,123 @@ import * as utilities from "../utilities";
 export { CloudConnectorArgs } from "./cloudConnector";
 export type CloudConnector = import("./cloudConnector").CloudConnector;
 export const CloudConnector: typeof import("./cloudConnector").CloudConnector = null as any;
+utilities.lazyLoad(exports, ["CloudConnector"], () => require("./cloudConnector"));
 
 export { CostAllocationRuleArgs } from "./costAllocationRule";
 export type CostAllocationRule = import("./costAllocationRule").CostAllocationRule;
 export const CostAllocationRule: typeof import("./costAllocationRule").CostAllocationRule = null as any;
+utilities.lazyLoad(exports, ["CostAllocationRule"], () => require("./costAllocationRule"));
 
 export { ExportArgs } from "./export";
 export type Export = import("./export").Export;
 export const Export: typeof import("./export").Export = null as any;
+utilities.lazyLoad(exports, ["Export"], () => require("./export"));
 
 export { GetCloudConnectorArgs, GetCloudConnectorResult, GetCloudConnectorOutputArgs } from "./getCloudConnector";
 export const getCloudConnector: typeof import("./getCloudConnector").getCloudConnector = null as any;
 export const getCloudConnectorOutput: typeof import("./getCloudConnector").getCloudConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getCloudConnector","getCloudConnectorOutput"], () => require("./getCloudConnector"));
 
 export { GetCostAllocationRuleArgs, GetCostAllocationRuleResult, GetCostAllocationRuleOutputArgs } from "./getCostAllocationRule";
 export const getCostAllocationRule: typeof import("./getCostAllocationRule").getCostAllocationRule = null as any;
 export const getCostAllocationRuleOutput: typeof import("./getCostAllocationRule").getCostAllocationRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getCostAllocationRule","getCostAllocationRuleOutput"], () => require("./getCostAllocationRule"));
 
 export { GetExportArgs, GetExportResult, GetExportOutputArgs } from "./getExport";
 export const getExport: typeof import("./getExport").getExport = null as any;
 export const getExportOutput: typeof import("./getExport").getExportOutput = null as any;
+utilities.lazyLoad(exports, ["getExport","getExportOutput"], () => require("./getExport"));
 
 export { GetReportArgs, GetReportResult, GetReportOutputArgs } from "./getReport";
 export const getReport: typeof import("./getReport").getReport = null as any;
 export const getReportOutput: typeof import("./getReport").getReportOutput = null as any;
+utilities.lazyLoad(exports, ["getReport","getReportOutput"], () => require("./getReport"));
 
 export { GetReportByBillingAccountArgs, GetReportByBillingAccountResult, GetReportByBillingAccountOutputArgs } from "./getReportByBillingAccount";
 export const getReportByBillingAccount: typeof import("./getReportByBillingAccount").getReportByBillingAccount = null as any;
 export const getReportByBillingAccountOutput: typeof import("./getReportByBillingAccount").getReportByBillingAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getReportByBillingAccount","getReportByBillingAccountOutput"], () => require("./getReportByBillingAccount"));
 
 export { GetReportByDepartmentArgs, GetReportByDepartmentResult, GetReportByDepartmentOutputArgs } from "./getReportByDepartment";
 export const getReportByDepartment: typeof import("./getReportByDepartment").getReportByDepartment = null as any;
 export const getReportByDepartmentOutput: typeof import("./getReportByDepartment").getReportByDepartmentOutput = null as any;
+utilities.lazyLoad(exports, ["getReportByDepartment","getReportByDepartmentOutput"], () => require("./getReportByDepartment"));
 
 export { GetReportByResourceGroupNameArgs, GetReportByResourceGroupNameResult, GetReportByResourceGroupNameOutputArgs } from "./getReportByResourceGroupName";
 export const getReportByResourceGroupName: typeof import("./getReportByResourceGroupName").getReportByResourceGroupName = null as any;
 export const getReportByResourceGroupNameOutput: typeof import("./getReportByResourceGroupName").getReportByResourceGroupNameOutput = null as any;
+utilities.lazyLoad(exports, ["getReportByResourceGroupName","getReportByResourceGroupNameOutput"], () => require("./getReportByResourceGroupName"));
 
 export { GetScheduledActionArgs, GetScheduledActionResult, GetScheduledActionOutputArgs } from "./getScheduledAction";
 export const getScheduledAction: typeof import("./getScheduledAction").getScheduledAction = null as any;
 export const getScheduledActionOutput: typeof import("./getScheduledAction").getScheduledActionOutput = null as any;
+utilities.lazyLoad(exports, ["getScheduledAction","getScheduledActionOutput"], () => require("./getScheduledAction"));
 
 export { GetScheduledActionByScopeArgs, GetScheduledActionByScopeResult, GetScheduledActionByScopeOutputArgs } from "./getScheduledActionByScope";
 export const getScheduledActionByScope: typeof import("./getScheduledActionByScope").getScheduledActionByScope = null as any;
 export const getScheduledActionByScopeOutput: typeof import("./getScheduledActionByScope").getScheduledActionByScopeOutput = null as any;
+utilities.lazyLoad(exports, ["getScheduledActionByScope","getScheduledActionByScopeOutput"], () => require("./getScheduledActionByScope"));
 
 export { GetSettingArgs, GetSettingResult, GetSettingOutputArgs } from "./getSetting";
 export const getSetting: typeof import("./getSetting").getSetting = null as any;
 export const getSettingOutput: typeof import("./getSetting").getSettingOutput = null as any;
+utilities.lazyLoad(exports, ["getSetting","getSettingOutput"], () => require("./getSetting"));
 
 export { GetViewArgs, GetViewResult, GetViewOutputArgs } from "./getView";
 export const getView: typeof import("./getView").getView = null as any;
 export const getViewOutput: typeof import("./getView").getViewOutput = null as any;
+utilities.lazyLoad(exports, ["getView","getViewOutput"], () => require("./getView"));
 
 export { GetViewByScopeArgs, GetViewByScopeResult, GetViewByScopeOutputArgs } from "./getViewByScope";
 export const getViewByScope: typeof import("./getViewByScope").getViewByScope = null as any;
 export const getViewByScopeOutput: typeof import("./getViewByScope").getViewByScopeOutput = null as any;
+utilities.lazyLoad(exports, ["getViewByScope","getViewByScopeOutput"], () => require("./getViewByScope"));
 
 export { ReportArgs } from "./report";
 export type Report = import("./report").Report;
 export const Report: typeof import("./report").Report = null as any;
+utilities.lazyLoad(exports, ["Report"], () => require("./report"));
 
 export { ReportByBillingAccountArgs } from "./reportByBillingAccount";
 export type ReportByBillingAccount = import("./reportByBillingAccount").ReportByBillingAccount;
 export const ReportByBillingAccount: typeof import("./reportByBillingAccount").ReportByBillingAccount = null as any;
+utilities.lazyLoad(exports, ["ReportByBillingAccount"], () => require("./reportByBillingAccount"));
 
 export { ReportByDepartmentArgs } from "./reportByDepartment";
 export type ReportByDepartment = import("./reportByDepartment").ReportByDepartment;
 export const ReportByDepartment: typeof import("./reportByDepartment").ReportByDepartment = null as any;
+utilities.lazyLoad(exports, ["ReportByDepartment"], () => require("./reportByDepartment"));
 
 export { ReportByResourceGroupNameArgs } from "./reportByResourceGroupName";
 export type ReportByResourceGroupName = import("./reportByResourceGroupName").ReportByResourceGroupName;
 export const ReportByResourceGroupName: typeof import("./reportByResourceGroupName").ReportByResourceGroupName = null as any;
+utilities.lazyLoad(exports, ["ReportByResourceGroupName"], () => require("./reportByResourceGroupName"));
 
 export { ScheduledActionArgs } from "./scheduledAction";
 export type ScheduledAction = import("./scheduledAction").ScheduledAction;
 export const ScheduledAction: typeof import("./scheduledAction").ScheduledAction = null as any;
+utilities.lazyLoad(exports, ["ScheduledAction"], () => require("./scheduledAction"));
 
 export { ScheduledActionByScopeArgs } from "./scheduledActionByScope";
 export type ScheduledActionByScope = import("./scheduledActionByScope").ScheduledActionByScope;
 export const ScheduledActionByScope: typeof import("./scheduledActionByScope").ScheduledActionByScope = null as any;
+utilities.lazyLoad(exports, ["ScheduledActionByScope"], () => require("./scheduledActionByScope"));
 
 export { SettingArgs } from "./setting";
 export type Setting = import("./setting").Setting;
 export const Setting: typeof import("./setting").Setting = null as any;
+utilities.lazyLoad(exports, ["Setting"], () => require("./setting"));
 
 export { ViewArgs } from "./view";
 export type View = import("./view").View;
 export const View: typeof import("./view").View = null as any;
+utilities.lazyLoad(exports, ["View"], () => require("./view"));
 
 export { ViewByScopeArgs } from "./viewByScope";
 export type ViewByScope = import("./viewByScope").ViewByScope;
 export const ViewByScope: typeof import("./viewByScope").ViewByScope = null as any;
-
-utilities.lazyLoad(exports, ["CloudConnector"], () => require("./cloudConnector"));
-utilities.lazyLoad(exports, ["CostAllocationRule"], () => require("./costAllocationRule"));
-utilities.lazyLoad(exports, ["Export"], () => require("./export"));
-utilities.lazyLoad(exports, ["getCloudConnector","getCloudConnectorOutput"], () => require("./getCloudConnector"));
-utilities.lazyLoad(exports, ["getCostAllocationRule","getCostAllocationRuleOutput"], () => require("./getCostAllocationRule"));
-utilities.lazyLoad(exports, ["getExport","getExportOutput"], () => require("./getExport"));
-utilities.lazyLoad(exports, ["getReport","getReportOutput"], () => require("./getReport"));
-utilities.lazyLoad(exports, ["getReportByBillingAccount","getReportByBillingAccountOutput"], () => require("./getReportByBillingAccount"));
-utilities.lazyLoad(exports, ["getReportByDepartment","getReportByDepartmentOutput"], () => require("./getReportByDepartment"));
-utilities.lazyLoad(exports, ["getReportByResourceGroupName","getReportByResourceGroupNameOutput"], () => require("./getReportByResourceGroupName"));
-utilities.lazyLoad(exports, ["getScheduledAction","getScheduledActionOutput"], () => require("./getScheduledAction"));
-utilities.lazyLoad(exports, ["getScheduledActionByScope","getScheduledActionByScopeOutput"], () => require("./getScheduledActionByScope"));
-utilities.lazyLoad(exports, ["getSetting","getSettingOutput"], () => require("./getSetting"));
-utilities.lazyLoad(exports, ["getView","getViewOutput"], () => require("./getView"));
-utilities.lazyLoad(exports, ["getViewByScope","getViewByScopeOutput"], () => require("./getViewByScope"));
-utilities.lazyLoad(exports, ["Report"], () => require("./report"));
-utilities.lazyLoad(exports, ["ReportByBillingAccount"], () => require("./reportByBillingAccount"));
-utilities.lazyLoad(exports, ["ReportByDepartment"], () => require("./reportByDepartment"));
-utilities.lazyLoad(exports, ["ReportByResourceGroupName"], () => require("./reportByResourceGroupName"));
-utilities.lazyLoad(exports, ["ScheduledAction"], () => require("./scheduledAction"));
-utilities.lazyLoad(exports, ["ScheduledActionByScope"], () => require("./scheduledActionByScope"));
-utilities.lazyLoad(exports, ["Setting"], () => require("./setting"));
-utilities.lazyLoad(exports, ["View"], () => require("./view"));
 utilities.lazyLoad(exports, ["ViewByScope"], () => require("./viewByScope"));
+
 
 // Export enums:
 export * from "../types/enums/costmanagement";

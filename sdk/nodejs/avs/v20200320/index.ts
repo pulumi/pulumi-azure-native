@@ -8,48 +8,48 @@ import * as utilities from "../../utilities";
 export { AuthorizationArgs } from "./authorization";
 export type Authorization = import("./authorization").Authorization;
 export const Authorization: typeof import("./authorization").Authorization = null as any;
+utilities.lazyLoad(exports, ["Authorization"], () => require("./authorization"));
 
 export { ClusterArgs } from "./cluster";
 export type Cluster = import("./cluster").Cluster;
 export const Cluster: typeof import("./cluster").Cluster = null as any;
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
 
 export { GetAuthorizationArgs, GetAuthorizationResult, GetAuthorizationOutputArgs } from "./getAuthorization";
 export const getAuthorization: typeof import("./getAuthorization").getAuthorization = null as any;
 export const getAuthorizationOutput: typeof import("./getAuthorization").getAuthorizationOutput = null as any;
+utilities.lazyLoad(exports, ["getAuthorization","getAuthorizationOutput"], () => require("./getAuthorization"));
 
 export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
 export const getCluster: typeof import("./getCluster").getCluster = null as any;
 export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
 
 export { GetHcxEnterpriseSiteArgs, GetHcxEnterpriseSiteResult, GetHcxEnterpriseSiteOutputArgs } from "./getHcxEnterpriseSite";
 export const getHcxEnterpriseSite: typeof import("./getHcxEnterpriseSite").getHcxEnterpriseSite = null as any;
 export const getHcxEnterpriseSiteOutput: typeof import("./getHcxEnterpriseSite").getHcxEnterpriseSiteOutput = null as any;
+utilities.lazyLoad(exports, ["getHcxEnterpriseSite","getHcxEnterpriseSiteOutput"], () => require("./getHcxEnterpriseSite"));
 
 export { GetPrivateCloudArgs, GetPrivateCloudResult, GetPrivateCloudOutputArgs } from "./getPrivateCloud";
 export const getPrivateCloud: typeof import("./getPrivateCloud").getPrivateCloud = null as any;
 export const getPrivateCloudOutput: typeof import("./getPrivateCloud").getPrivateCloudOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateCloud","getPrivateCloudOutput"], () => require("./getPrivateCloud"));
 
 export { HcxEnterpriseSiteArgs } from "./hcxEnterpriseSite";
 export type HcxEnterpriseSite = import("./hcxEnterpriseSite").HcxEnterpriseSite;
 export const HcxEnterpriseSite: typeof import("./hcxEnterpriseSite").HcxEnterpriseSite = null as any;
+utilities.lazyLoad(exports, ["HcxEnterpriseSite"], () => require("./hcxEnterpriseSite"));
 
 export { ListPrivateCloudAdminCredentialsArgs, ListPrivateCloudAdminCredentialsResult, ListPrivateCloudAdminCredentialsOutputArgs } from "./listPrivateCloudAdminCredentials";
 export const listPrivateCloudAdminCredentials: typeof import("./listPrivateCloudAdminCredentials").listPrivateCloudAdminCredentials = null as any;
 export const listPrivateCloudAdminCredentialsOutput: typeof import("./listPrivateCloudAdminCredentials").listPrivateCloudAdminCredentialsOutput = null as any;
+utilities.lazyLoad(exports, ["listPrivateCloudAdminCredentials","listPrivateCloudAdminCredentialsOutput"], () => require("./listPrivateCloudAdminCredentials"));
 
 export { PrivateCloudArgs } from "./privateCloud";
 export type PrivateCloud = import("./privateCloud").PrivateCloud;
 export const PrivateCloud: typeof import("./privateCloud").PrivateCloud = null as any;
-
-utilities.lazyLoad(exports, ["Authorization"], () => require("./authorization"));
-utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
-utilities.lazyLoad(exports, ["getAuthorization","getAuthorizationOutput"], () => require("./getAuthorization"));
-utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
-utilities.lazyLoad(exports, ["getHcxEnterpriseSite","getHcxEnterpriseSiteOutput"], () => require("./getHcxEnterpriseSite"));
-utilities.lazyLoad(exports, ["getPrivateCloud","getPrivateCloudOutput"], () => require("./getPrivateCloud"));
-utilities.lazyLoad(exports, ["HcxEnterpriseSite"], () => require("./hcxEnterpriseSite"));
-utilities.lazyLoad(exports, ["listPrivateCloudAdminCredentials","listPrivateCloudAdminCredentialsOutput"], () => require("./listPrivateCloudAdminCredentials"));
 utilities.lazyLoad(exports, ["PrivateCloud"], () => require("./privateCloud"));
+
 
 // Export enums:
 export * from "../../types/enums/avs/v20200320";

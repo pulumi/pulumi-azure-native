@@ -8,43 +8,43 @@ import * as utilities from "../../utilities";
 export { GetSettingByScopeArgs, GetSettingByScopeResult, GetSettingByScopeOutputArgs } from "./getSettingByScope";
 export const getSettingByScope: typeof import("./getSettingByScope").getSettingByScope = null as any;
 export const getSettingByScopeOutput: typeof import("./getSettingByScope").getSettingByScopeOutput = null as any;
+utilities.lazyLoad(exports, ["getSettingByScope","getSettingByScopeOutput"], () => require("./getSettingByScope"));
 
 export { GetTagInheritanceSettingArgs, GetTagInheritanceSettingResult, GetTagInheritanceSettingOutputArgs } from "./getTagInheritanceSetting";
 export const getTagInheritanceSetting: typeof import("./getTagInheritanceSetting").getTagInheritanceSetting = null as any;
 export const getTagInheritanceSettingOutput: typeof import("./getTagInheritanceSetting").getTagInheritanceSettingOutput = null as any;
+utilities.lazyLoad(exports, ["getTagInheritanceSetting","getTagInheritanceSettingOutput"], () => require("./getTagInheritanceSetting"));
 
 export { GetViewArgs, GetViewResult, GetViewOutputArgs } from "./getView";
 export const getView: typeof import("./getView").getView = null as any;
 export const getViewOutput: typeof import("./getView").getViewOutput = null as any;
+utilities.lazyLoad(exports, ["getView","getViewOutput"], () => require("./getView"));
 
 export { GetViewByScopeArgs, GetViewByScopeResult, GetViewByScopeOutputArgs } from "./getViewByScope";
 export const getViewByScope: typeof import("./getViewByScope").getViewByScope = null as any;
 export const getViewByScopeOutput: typeof import("./getViewByScope").getViewByScopeOutput = null as any;
+utilities.lazyLoad(exports, ["getViewByScope","getViewByScopeOutput"], () => require("./getViewByScope"));
 
 export { SettingByScopeArgs } from "./settingByScope";
 export type SettingByScope = import("./settingByScope").SettingByScope;
 export const SettingByScope: typeof import("./settingByScope").SettingByScope = null as any;
+utilities.lazyLoad(exports, ["SettingByScope"], () => require("./settingByScope"));
 
 export { TagInheritanceSettingArgs } from "./tagInheritanceSetting";
 export type TagInheritanceSetting = import("./tagInheritanceSetting").TagInheritanceSetting;
 export const TagInheritanceSetting: typeof import("./tagInheritanceSetting").TagInheritanceSetting = null as any;
+utilities.lazyLoad(exports, ["TagInheritanceSetting"], () => require("./tagInheritanceSetting"));
 
 export { ViewArgs } from "./view";
 export type View = import("./view").View;
 export const View: typeof import("./view").View = null as any;
+utilities.lazyLoad(exports, ["View"], () => require("./view"));
 
 export { ViewByScopeArgs } from "./viewByScope";
 export type ViewByScope = import("./viewByScope").ViewByScope;
 export const ViewByScope: typeof import("./viewByScope").ViewByScope = null as any;
-
-utilities.lazyLoad(exports, ["getSettingByScope","getSettingByScopeOutput"], () => require("./getSettingByScope"));
-utilities.lazyLoad(exports, ["getTagInheritanceSetting","getTagInheritanceSettingOutput"], () => require("./getTagInheritanceSetting"));
-utilities.lazyLoad(exports, ["getView","getViewOutput"], () => require("./getView"));
-utilities.lazyLoad(exports, ["getViewByScope","getViewByScopeOutput"], () => require("./getViewByScope"));
-utilities.lazyLoad(exports, ["SettingByScope"], () => require("./settingByScope"));
-utilities.lazyLoad(exports, ["TagInheritanceSetting"], () => require("./tagInheritanceSetting"));
-utilities.lazyLoad(exports, ["View"], () => require("./view"));
 utilities.lazyLoad(exports, ["ViewByScope"], () => require("./viewByScope"));
+
 
 // Export enums:
 export * from "../../types/enums/costmanagement/v20221001preview";

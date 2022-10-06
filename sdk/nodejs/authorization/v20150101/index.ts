@@ -8,23 +8,23 @@ import * as utilities from "../../utilities";
 export { GetManagementLockArgs, GetManagementLockResult, GetManagementLockOutputArgs } from "./getManagementLock";
 export const getManagementLock: typeof import("./getManagementLock").getManagementLock = null as any;
 export const getManagementLockOutput: typeof import("./getManagementLock").getManagementLockOutput = null as any;
+utilities.lazyLoad(exports, ["getManagementLock","getManagementLockOutput"], () => require("./getManagementLock"));
 
 export { GetManagementLockAtResourceGroupLevelArgs, GetManagementLockAtResourceGroupLevelResult, GetManagementLockAtResourceGroupLevelOutputArgs } from "./getManagementLockAtResourceGroupLevel";
 export const getManagementLockAtResourceGroupLevel: typeof import("./getManagementLockAtResourceGroupLevel").getManagementLockAtResourceGroupLevel = null as any;
 export const getManagementLockAtResourceGroupLevelOutput: typeof import("./getManagementLockAtResourceGroupLevel").getManagementLockAtResourceGroupLevelOutput = null as any;
+utilities.lazyLoad(exports, ["getManagementLockAtResourceGroupLevel","getManagementLockAtResourceGroupLevelOutput"], () => require("./getManagementLockAtResourceGroupLevel"));
 
 export { ManagementLockArgs } from "./managementLock";
 export type ManagementLock = import("./managementLock").ManagementLock;
 export const ManagementLock: typeof import("./managementLock").ManagementLock = null as any;
+utilities.lazyLoad(exports, ["ManagementLock"], () => require("./managementLock"));
 
 export { ManagementLockAtResourceGroupLevelArgs } from "./managementLockAtResourceGroupLevel";
 export type ManagementLockAtResourceGroupLevel = import("./managementLockAtResourceGroupLevel").ManagementLockAtResourceGroupLevel;
 export const ManagementLockAtResourceGroupLevel: typeof import("./managementLockAtResourceGroupLevel").ManagementLockAtResourceGroupLevel = null as any;
-
-utilities.lazyLoad(exports, ["getManagementLock","getManagementLockOutput"], () => require("./getManagementLock"));
-utilities.lazyLoad(exports, ["getManagementLockAtResourceGroupLevel","getManagementLockAtResourceGroupLevelOutput"], () => require("./getManagementLockAtResourceGroupLevel"));
-utilities.lazyLoad(exports, ["ManagementLock"], () => require("./managementLock"));
 utilities.lazyLoad(exports, ["ManagementLockAtResourceGroupLevel"], () => require("./managementLockAtResourceGroupLevel"));
+
 
 // Export enums:
 export * from "../../types/enums/authorization/v20150101";

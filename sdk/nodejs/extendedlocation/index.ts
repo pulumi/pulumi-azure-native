@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { CustomLocationArgs } from "./customLocation";
 export type CustomLocation = import("./customLocation").CustomLocation;
 export const CustomLocation: typeof import("./customLocation").CustomLocation = null as any;
+utilities.lazyLoad(exports, ["CustomLocation"], () => require("./customLocation"));
 
 export { GetCustomLocationArgs, GetCustomLocationResult, GetCustomLocationOutputArgs } from "./getCustomLocation";
 export const getCustomLocation: typeof import("./getCustomLocation").getCustomLocation = null as any;
 export const getCustomLocationOutput: typeof import("./getCustomLocation").getCustomLocationOutput = null as any;
+utilities.lazyLoad(exports, ["getCustomLocation","getCustomLocationOutput"], () => require("./getCustomLocation"));
 
 export { GetResourceSyncRuleArgs, GetResourceSyncRuleResult, GetResourceSyncRuleOutputArgs } from "./getResourceSyncRule";
 export const getResourceSyncRule: typeof import("./getResourceSyncRule").getResourceSyncRule = null as any;
 export const getResourceSyncRuleOutput: typeof import("./getResourceSyncRule").getResourceSyncRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getResourceSyncRule","getResourceSyncRuleOutput"], () => require("./getResourceSyncRule"));
 
 export { ResourceSyncRuleArgs } from "./resourceSyncRule";
 export type ResourceSyncRule = import("./resourceSyncRule").ResourceSyncRule;
 export const ResourceSyncRule: typeof import("./resourceSyncRule").ResourceSyncRule = null as any;
-
-utilities.lazyLoad(exports, ["CustomLocation"], () => require("./customLocation"));
-utilities.lazyLoad(exports, ["getCustomLocation","getCustomLocationOutput"], () => require("./getCustomLocation"));
-utilities.lazyLoad(exports, ["getResourceSyncRule","getResourceSyncRuleOutput"], () => require("./getResourceSyncRule"));
 utilities.lazyLoad(exports, ["ResourceSyncRule"], () => require("./resourceSyncRule"));
+
 
 // Export enums:
 export * from "../types/enums/extendedlocation";

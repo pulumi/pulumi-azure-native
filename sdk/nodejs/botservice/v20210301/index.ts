@@ -8,47 +8,47 @@ import * as utilities from "../../utilities";
 export { BotArgs } from "./bot";
 export type Bot = import("./bot").Bot;
 export const Bot: typeof import("./bot").Bot = null as any;
+utilities.lazyLoad(exports, ["Bot"], () => require("./bot"));
 
 export { BotConnectionArgs } from "./botConnection";
 export type BotConnection = import("./botConnection").BotConnection;
 export const BotConnection: typeof import("./botConnection").BotConnection = null as any;
+utilities.lazyLoad(exports, ["BotConnection"], () => require("./botConnection"));
 
 export { ChannelArgs } from "./channel";
 export type Channel = import("./channel").Channel;
 export const Channel: typeof import("./channel").Channel = null as any;
+utilities.lazyLoad(exports, ["Channel"], () => require("./channel"));
 
 export { GetBotArgs, GetBotResult, GetBotOutputArgs } from "./getBot";
 export const getBot: typeof import("./getBot").getBot = null as any;
 export const getBotOutput: typeof import("./getBot").getBotOutput = null as any;
+utilities.lazyLoad(exports, ["getBot","getBotOutput"], () => require("./getBot"));
 
 export { GetBotConnectionArgs, GetBotConnectionResult, GetBotConnectionOutputArgs } from "./getBotConnection";
 export const getBotConnection: typeof import("./getBotConnection").getBotConnection = null as any;
 export const getBotConnectionOutput: typeof import("./getBotConnection").getBotConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getBotConnection","getBotConnectionOutput"], () => require("./getBotConnection"));
 
 export { GetChannelArgs, GetChannelResult, GetChannelOutputArgs } from "./getChannel";
 export const getChannel: typeof import("./getChannel").getChannel = null as any;
 export const getChannelOutput: typeof import("./getChannel").getChannelOutput = null as any;
+utilities.lazyLoad(exports, ["getChannel","getChannelOutput"], () => require("./getChannel"));
 
 export { ListBotConnectionServiceProvidersArgs, ListBotConnectionServiceProvidersResult } from "./listBotConnectionServiceProviders";
 export const listBotConnectionServiceProviders: typeof import("./listBotConnectionServiceProviders").listBotConnectionServiceProviders = null as any;
+utilities.lazyLoad(exports, ["listBotConnectionServiceProviders"], () => require("./listBotConnectionServiceProviders"));
 
 export { ListBotConnectionWithSecretsArgs, ListBotConnectionWithSecretsResult, ListBotConnectionWithSecretsOutputArgs } from "./listBotConnectionWithSecrets";
 export const listBotConnectionWithSecrets: typeof import("./listBotConnectionWithSecrets").listBotConnectionWithSecrets = null as any;
 export const listBotConnectionWithSecretsOutput: typeof import("./listBotConnectionWithSecrets").listBotConnectionWithSecretsOutput = null as any;
+utilities.lazyLoad(exports, ["listBotConnectionWithSecrets","listBotConnectionWithSecretsOutput"], () => require("./listBotConnectionWithSecrets"));
 
 export { ListChannelWithKeysArgs, ListChannelWithKeysResult, ListChannelWithKeysOutputArgs } from "./listChannelWithKeys";
 export const listChannelWithKeys: typeof import("./listChannelWithKeys").listChannelWithKeys = null as any;
 export const listChannelWithKeysOutput: typeof import("./listChannelWithKeys").listChannelWithKeysOutput = null as any;
-
-utilities.lazyLoad(exports, ["Bot"], () => require("./bot"));
-utilities.lazyLoad(exports, ["BotConnection"], () => require("./botConnection"));
-utilities.lazyLoad(exports, ["Channel"], () => require("./channel"));
-utilities.lazyLoad(exports, ["getBot","getBotOutput"], () => require("./getBot"));
-utilities.lazyLoad(exports, ["getBotConnection","getBotConnectionOutput"], () => require("./getBotConnection"));
-utilities.lazyLoad(exports, ["getChannel","getChannelOutput"], () => require("./getChannel"));
-utilities.lazyLoad(exports, ["listBotConnectionServiceProviders"], () => require("./listBotConnectionServiceProviders"));
-utilities.lazyLoad(exports, ["listBotConnectionWithSecrets","listBotConnectionWithSecretsOutput"], () => require("./listBotConnectionWithSecrets"));
 utilities.lazyLoad(exports, ["listChannelWithKeys","listChannelWithKeysOutput"], () => require("./listChannelWithKeys"));
+
 
 // Export enums:
 export * from "../../types/enums/botservice/v20210301";

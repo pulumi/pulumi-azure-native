@@ -8,23 +8,23 @@ import * as utilities from "../../utilities";
 export { GetReportConfigArgs, GetReportConfigResult, GetReportConfigOutputArgs } from "./getReportConfig";
 export const getReportConfig: typeof import("./getReportConfig").getReportConfig = null as any;
 export const getReportConfigOutput: typeof import("./getReportConfig").getReportConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getReportConfig","getReportConfigOutput"], () => require("./getReportConfig"));
 
 export { GetReportConfigByResourceGroupNameArgs, GetReportConfigByResourceGroupNameResult, GetReportConfigByResourceGroupNameOutputArgs } from "./getReportConfigByResourceGroupName";
 export const getReportConfigByResourceGroupName: typeof import("./getReportConfigByResourceGroupName").getReportConfigByResourceGroupName = null as any;
 export const getReportConfigByResourceGroupNameOutput: typeof import("./getReportConfigByResourceGroupName").getReportConfigByResourceGroupNameOutput = null as any;
+utilities.lazyLoad(exports, ["getReportConfigByResourceGroupName","getReportConfigByResourceGroupNameOutput"], () => require("./getReportConfigByResourceGroupName"));
 
 export { ReportConfigArgs } from "./reportConfig";
 export type ReportConfig = import("./reportConfig").ReportConfig;
 export const ReportConfig: typeof import("./reportConfig").ReportConfig = null as any;
+utilities.lazyLoad(exports, ["ReportConfig"], () => require("./reportConfig"));
 
 export { ReportConfigByResourceGroupNameArgs } from "./reportConfigByResourceGroupName";
 export type ReportConfigByResourceGroupName = import("./reportConfigByResourceGroupName").ReportConfigByResourceGroupName;
 export const ReportConfigByResourceGroupName: typeof import("./reportConfigByResourceGroupName").ReportConfigByResourceGroupName = null as any;
-
-utilities.lazyLoad(exports, ["getReportConfig","getReportConfigOutput"], () => require("./getReportConfig"));
-utilities.lazyLoad(exports, ["getReportConfigByResourceGroupName","getReportConfigByResourceGroupNameOutput"], () => require("./getReportConfigByResourceGroupName"));
-utilities.lazyLoad(exports, ["ReportConfig"], () => require("./reportConfig"));
 utilities.lazyLoad(exports, ["ReportConfigByResourceGroupName"], () => require("./reportConfigByResourceGroupName"));
+
 
 // Export enums:
 export * from "../../types/enums/costmanagement/v20180531";

@@ -8,23 +8,23 @@ import * as utilities from "../../utilities";
 export { ConfigurationStoreArgs } from "./configurationStore";
 export type ConfigurationStore = import("./configurationStore").ConfigurationStore;
 export const ConfigurationStore: typeof import("./configurationStore").ConfigurationStore = null as any;
+utilities.lazyLoad(exports, ["ConfigurationStore"], () => require("./configurationStore"));
 
 export { GetConfigurationStoreArgs, GetConfigurationStoreResult, GetConfigurationStoreOutputArgs } from "./getConfigurationStore";
 export const getConfigurationStore: typeof import("./getConfigurationStore").getConfigurationStore = null as any;
 export const getConfigurationStoreOutput: typeof import("./getConfigurationStore").getConfigurationStoreOutput = null as any;
+utilities.lazyLoad(exports, ["getConfigurationStore","getConfigurationStoreOutput"], () => require("./getConfigurationStore"));
 
 export { ListConfigurationStoreKeyValueArgs, ListConfigurationStoreKeyValueResult, ListConfigurationStoreKeyValueOutputArgs } from "./listConfigurationStoreKeyValue";
 export const listConfigurationStoreKeyValue: typeof import("./listConfigurationStoreKeyValue").listConfigurationStoreKeyValue = null as any;
 export const listConfigurationStoreKeyValueOutput: typeof import("./listConfigurationStoreKeyValue").listConfigurationStoreKeyValueOutput = null as any;
+utilities.lazyLoad(exports, ["listConfigurationStoreKeyValue","listConfigurationStoreKeyValueOutput"], () => require("./listConfigurationStoreKeyValue"));
 
 export { ListConfigurationStoreKeysArgs, ListConfigurationStoreKeysResult, ListConfigurationStoreKeysOutputArgs } from "./listConfigurationStoreKeys";
 export const listConfigurationStoreKeys: typeof import("./listConfigurationStoreKeys").listConfigurationStoreKeys = null as any;
 export const listConfigurationStoreKeysOutput: typeof import("./listConfigurationStoreKeys").listConfigurationStoreKeysOutput = null as any;
-
-utilities.lazyLoad(exports, ["ConfigurationStore"], () => require("./configurationStore"));
-utilities.lazyLoad(exports, ["getConfigurationStore","getConfigurationStoreOutput"], () => require("./getConfigurationStore"));
-utilities.lazyLoad(exports, ["listConfigurationStoreKeyValue","listConfigurationStoreKeyValueOutput"], () => require("./listConfigurationStoreKeyValue"));
 utilities.lazyLoad(exports, ["listConfigurationStoreKeys","listConfigurationStoreKeysOutput"], () => require("./listConfigurationStoreKeys"));
+
 
 const _module = {
     version: utilities.getVersion(),

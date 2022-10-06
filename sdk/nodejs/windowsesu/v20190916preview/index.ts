@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { GetMultipleActivationKeyArgs, GetMultipleActivationKeyResult, GetMultipleActivationKeyOutputArgs } from "./getMultipleActivationKey";
 export const getMultipleActivationKey: typeof import("./getMultipleActivationKey").getMultipleActivationKey = null as any;
 export const getMultipleActivationKeyOutput: typeof import("./getMultipleActivationKey").getMultipleActivationKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getMultipleActivationKey","getMultipleActivationKeyOutput"], () => require("./getMultipleActivationKey"));
 
 export { MultipleActivationKeyArgs } from "./multipleActivationKey";
 export type MultipleActivationKey = import("./multipleActivationKey").MultipleActivationKey;
 export const MultipleActivationKey: typeof import("./multipleActivationKey").MultipleActivationKey = null as any;
-
-utilities.lazyLoad(exports, ["getMultipleActivationKey","getMultipleActivationKeyOutput"], () => require("./getMultipleActivationKey"));
 utilities.lazyLoad(exports, ["MultipleActivationKey"], () => require("./multipleActivationKey"));
+
 
 // Export enums:
 export * from "../../types/enums/windowsesu/v20190916preview";

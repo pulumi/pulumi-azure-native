@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { GetInstanceDetailsArgs, GetInstanceDetailsResult, GetInstanceDetailsOutputArgs } from "./getInstanceDetails";
 export const getInstanceDetails: typeof import("./getInstanceDetails").getInstanceDetails = null as any;
 export const getInstanceDetailsOutput: typeof import("./getInstanceDetails").getInstanceDetailsOutput = null as any;
+utilities.lazyLoad(exports, ["getInstanceDetails","getInstanceDetailsOutput"], () => require("./getInstanceDetails"));
 
 export { InstanceDetailsArgs } from "./instanceDetails";
 export type InstanceDetails = import("./instanceDetails").InstanceDetails;
 export const InstanceDetails: typeof import("./instanceDetails").InstanceDetails = null as any;
-
-utilities.lazyLoad(exports, ["getInstanceDetails","getInstanceDetailsOutput"], () => require("./getInstanceDetails"));
 utilities.lazyLoad(exports, ["InstanceDetails"], () => require("./instanceDetails"));
+
 
 // Export sub-modules:
 import * as v20210201preview from "./v20210201preview";

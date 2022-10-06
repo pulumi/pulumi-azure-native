@@ -8,33 +8,33 @@ import * as utilities from "../../utilities";
 export { AppServiceEnvironmentArgs } from "./appServiceEnvironment";
 export type AppServiceEnvironment = import("./appServiceEnvironment").AppServiceEnvironment;
 export const AppServiceEnvironment: typeof import("./appServiceEnvironment").AppServiceEnvironment = null as any;
+utilities.lazyLoad(exports, ["AppServiceEnvironment"], () => require("./appServiceEnvironment"));
 
 export { AppServicePlanArgs } from "./appServicePlan";
 export type AppServicePlan = import("./appServicePlan").AppServicePlan;
 export const AppServicePlan: typeof import("./appServicePlan").AppServicePlan = null as any;
+utilities.lazyLoad(exports, ["AppServicePlan"], () => require("./appServicePlan"));
 
 export { AppServicePlanRouteForVnetArgs } from "./appServicePlanRouteForVnet";
 export type AppServicePlanRouteForVnet = import("./appServicePlanRouteForVnet").AppServicePlanRouteForVnet;
 export const AppServicePlanRouteForVnet: typeof import("./appServicePlanRouteForVnet").AppServicePlanRouteForVnet = null as any;
+utilities.lazyLoad(exports, ["AppServicePlanRouteForVnet"], () => require("./appServicePlanRouteForVnet"));
 
 export { GetAppServiceEnvironmentArgs, GetAppServiceEnvironmentResult, GetAppServiceEnvironmentOutputArgs } from "./getAppServiceEnvironment";
 export const getAppServiceEnvironment: typeof import("./getAppServiceEnvironment").getAppServiceEnvironment = null as any;
 export const getAppServiceEnvironmentOutput: typeof import("./getAppServiceEnvironment").getAppServiceEnvironmentOutput = null as any;
+utilities.lazyLoad(exports, ["getAppServiceEnvironment","getAppServiceEnvironmentOutput"], () => require("./getAppServiceEnvironment"));
 
 export { GetAppServicePlanArgs, GetAppServicePlanResult, GetAppServicePlanOutputArgs } from "./getAppServicePlan";
 export const getAppServicePlan: typeof import("./getAppServicePlan").getAppServicePlan = null as any;
 export const getAppServicePlanOutput: typeof import("./getAppServicePlan").getAppServicePlanOutput = null as any;
+utilities.lazyLoad(exports, ["getAppServicePlan","getAppServicePlanOutput"], () => require("./getAppServicePlan"));
 
 export { ListAppServicePlanHybridConnectionKeysArgs, ListAppServicePlanHybridConnectionKeysResult, ListAppServicePlanHybridConnectionKeysOutputArgs } from "./listAppServicePlanHybridConnectionKeys";
 export const listAppServicePlanHybridConnectionKeys: typeof import("./listAppServicePlanHybridConnectionKeys").listAppServicePlanHybridConnectionKeys = null as any;
 export const listAppServicePlanHybridConnectionKeysOutput: typeof import("./listAppServicePlanHybridConnectionKeys").listAppServicePlanHybridConnectionKeysOutput = null as any;
-
-utilities.lazyLoad(exports, ["AppServiceEnvironment"], () => require("./appServiceEnvironment"));
-utilities.lazyLoad(exports, ["AppServicePlan"], () => require("./appServicePlan"));
-utilities.lazyLoad(exports, ["AppServicePlanRouteForVnet"], () => require("./appServicePlanRouteForVnet"));
-utilities.lazyLoad(exports, ["getAppServiceEnvironment","getAppServiceEnvironmentOutput"], () => require("./getAppServiceEnvironment"));
-utilities.lazyLoad(exports, ["getAppServicePlan","getAppServicePlanOutput"], () => require("./getAppServicePlan"));
 utilities.lazyLoad(exports, ["listAppServicePlanHybridConnectionKeys","listAppServicePlanHybridConnectionKeysOutput"], () => require("./listAppServicePlanHybridConnectionKeys"));
+
 
 // Export enums:
 export * from "../../types/enums/web/v20160901";

@@ -8,23 +8,23 @@ import * as utilities from "../../utilities";
 export { ApplicationArgs } from "./application";
 export type Application = import("./application").Application;
 export const Application: typeof import("./application").Application = null as any;
+utilities.lazyLoad(exports, ["Application"], () => require("./application"));
 
 export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
 export const getApplication: typeof import("./getApplication").getApplication = null as any;
 export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
+utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
 
 export { GetSecurityConnectorApplicationArgs, GetSecurityConnectorApplicationResult, GetSecurityConnectorApplicationOutputArgs } from "./getSecurityConnectorApplication";
 export const getSecurityConnectorApplication: typeof import("./getSecurityConnectorApplication").getSecurityConnectorApplication = null as any;
 export const getSecurityConnectorApplicationOutput: typeof import("./getSecurityConnectorApplication").getSecurityConnectorApplicationOutput = null as any;
+utilities.lazyLoad(exports, ["getSecurityConnectorApplication","getSecurityConnectorApplicationOutput"], () => require("./getSecurityConnectorApplication"));
 
 export { SecurityConnectorApplicationArgs } from "./securityConnectorApplication";
 export type SecurityConnectorApplication = import("./securityConnectorApplication").SecurityConnectorApplication;
 export const SecurityConnectorApplication: typeof import("./securityConnectorApplication").SecurityConnectorApplication = null as any;
-
-utilities.lazyLoad(exports, ["Application"], () => require("./application"));
-utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
-utilities.lazyLoad(exports, ["getSecurityConnectorApplication","getSecurityConnectorApplicationOutput"], () => require("./getSecurityConnectorApplication"));
 utilities.lazyLoad(exports, ["SecurityConnectorApplication"], () => require("./securityConnectorApplication"));
+
 
 // Export enums:
 export * from "../../types/enums/security/v20220701preview";

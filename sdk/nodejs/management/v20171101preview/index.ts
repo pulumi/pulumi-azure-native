@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { GetManagementGroupArgs, GetManagementGroupResult, GetManagementGroupOutputArgs } from "./getManagementGroup";
 export const getManagementGroup: typeof import("./getManagementGroup").getManagementGroup = null as any;
 export const getManagementGroupOutput: typeof import("./getManagementGroup").getManagementGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getManagementGroup","getManagementGroupOutput"], () => require("./getManagementGroup"));
 
 export { ManagementGroupArgs } from "./managementGroup";
 export type ManagementGroup = import("./managementGroup").ManagementGroup;
 export const ManagementGroup: typeof import("./managementGroup").ManagementGroup = null as any;
-
-utilities.lazyLoad(exports, ["getManagementGroup","getManagementGroupOutput"], () => require("./getManagementGroup"));
 utilities.lazyLoad(exports, ["ManagementGroup"], () => require("./managementGroup"));
+
 
 const _module = {
     version: utilities.getVersion(),

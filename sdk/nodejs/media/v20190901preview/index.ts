@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { GetMediaGraphArgs, GetMediaGraphResult, GetMediaGraphOutputArgs } from "./getMediaGraph";
 export const getMediaGraph: typeof import("./getMediaGraph").getMediaGraph = null as any;
 export const getMediaGraphOutput: typeof import("./getMediaGraph").getMediaGraphOutput = null as any;
+utilities.lazyLoad(exports, ["getMediaGraph","getMediaGraphOutput"], () => require("./getMediaGraph"));
 
 export { MediaGraphArgs } from "./mediaGraph";
 export type MediaGraph = import("./mediaGraph").MediaGraph;
 export const MediaGraph: typeof import("./mediaGraph").MediaGraph = null as any;
-
-utilities.lazyLoad(exports, ["getMediaGraph","getMediaGraphOutput"], () => require("./getMediaGraph"));
 utilities.lazyLoad(exports, ["MediaGraph"], () => require("./mediaGraph"));
+
 
 const _module = {
     version: utilities.getVersion(),

@@ -8,73 +8,73 @@ import * as utilities from "../../utilities";
 export { BackupShortTermRetentionPolicyArgs } from "./backupShortTermRetentionPolicy";
 export type BackupShortTermRetentionPolicy = import("./backupShortTermRetentionPolicy").BackupShortTermRetentionPolicy;
 export const BackupShortTermRetentionPolicy: typeof import("./backupShortTermRetentionPolicy").BackupShortTermRetentionPolicy = null as any;
+utilities.lazyLoad(exports, ["BackupShortTermRetentionPolicy"], () => require("./backupShortTermRetentionPolicy"));
 
 export { DatabaseArgs } from "./database";
 export type Database = import("./database").Database;
 export const Database: typeof import("./database").Database = null as any;
+utilities.lazyLoad(exports, ["Database"], () => require("./database"));
 
 export { ElasticPoolArgs } from "./elasticPool";
 export type ElasticPool = import("./elasticPool").ElasticPool;
 export const ElasticPool: typeof import("./elasticPool").ElasticPool = null as any;
+utilities.lazyLoad(exports, ["ElasticPool"], () => require("./elasticPool"));
 
 export { GetBackupShortTermRetentionPolicyArgs, GetBackupShortTermRetentionPolicyResult, GetBackupShortTermRetentionPolicyOutputArgs } from "./getBackupShortTermRetentionPolicy";
 export const getBackupShortTermRetentionPolicy: typeof import("./getBackupShortTermRetentionPolicy").getBackupShortTermRetentionPolicy = null as any;
 export const getBackupShortTermRetentionPolicyOutput: typeof import("./getBackupShortTermRetentionPolicy").getBackupShortTermRetentionPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getBackupShortTermRetentionPolicy","getBackupShortTermRetentionPolicyOutput"], () => require("./getBackupShortTermRetentionPolicy"));
 
 export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
 export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
 export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
 
 export { GetElasticPoolArgs, GetElasticPoolResult, GetElasticPoolOutputArgs } from "./getElasticPool";
 export const getElasticPool: typeof import("./getElasticPool").getElasticPool = null as any;
 export const getElasticPoolOutput: typeof import("./getElasticPool").getElasticPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getElasticPool","getElasticPoolOutput"], () => require("./getElasticPool"));
 
 export { GetInstanceFailoverGroupArgs, GetInstanceFailoverGroupResult, GetInstanceFailoverGroupOutputArgs } from "./getInstanceFailoverGroup";
 export const getInstanceFailoverGroup: typeof import("./getInstanceFailoverGroup").getInstanceFailoverGroup = null as any;
 export const getInstanceFailoverGroupOutput: typeof import("./getInstanceFailoverGroup").getInstanceFailoverGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getInstanceFailoverGroup","getInstanceFailoverGroupOutput"], () => require("./getInstanceFailoverGroup"));
 
 export { GetManagedDatabaseVulnerabilityAssessmentArgs, GetManagedDatabaseVulnerabilityAssessmentResult, GetManagedDatabaseVulnerabilityAssessmentOutputArgs } from "./getManagedDatabaseVulnerabilityAssessment";
 export const getManagedDatabaseVulnerabilityAssessment: typeof import("./getManagedDatabaseVulnerabilityAssessment").getManagedDatabaseVulnerabilityAssessment = null as any;
 export const getManagedDatabaseVulnerabilityAssessmentOutput: typeof import("./getManagedDatabaseVulnerabilityAssessment").getManagedDatabaseVulnerabilityAssessmentOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedDatabaseVulnerabilityAssessment","getManagedDatabaseVulnerabilityAssessmentOutput"], () => require("./getManagedDatabaseVulnerabilityAssessment"));
 
 export { GetManagedDatabaseVulnerabilityAssessmentRuleBaselineArgs, GetManagedDatabaseVulnerabilityAssessmentRuleBaselineResult, GetManagedDatabaseVulnerabilityAssessmentRuleBaselineOutputArgs } from "./getManagedDatabaseVulnerabilityAssessmentRuleBaseline";
 export const getManagedDatabaseVulnerabilityAssessmentRuleBaseline: typeof import("./getManagedDatabaseVulnerabilityAssessmentRuleBaseline").getManagedDatabaseVulnerabilityAssessmentRuleBaseline = null as any;
 export const getManagedDatabaseVulnerabilityAssessmentRuleBaselineOutput: typeof import("./getManagedDatabaseVulnerabilityAssessmentRuleBaseline").getManagedDatabaseVulnerabilityAssessmentRuleBaselineOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedDatabaseVulnerabilityAssessmentRuleBaseline","getManagedDatabaseVulnerabilityAssessmentRuleBaselineOutput"], () => require("./getManagedDatabaseVulnerabilityAssessmentRuleBaseline"));
 
 export { GetManagedInstanceKeyArgs, GetManagedInstanceKeyResult, GetManagedInstanceKeyOutputArgs } from "./getManagedInstanceKey";
 export const getManagedInstanceKey: typeof import("./getManagedInstanceKey").getManagedInstanceKey = null as any;
 export const getManagedInstanceKeyOutput: typeof import("./getManagedInstanceKey").getManagedInstanceKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedInstanceKey","getManagedInstanceKeyOutput"], () => require("./getManagedInstanceKey"));
 
 export { InstanceFailoverGroupArgs } from "./instanceFailoverGroup";
 export type InstanceFailoverGroup = import("./instanceFailoverGroup").InstanceFailoverGroup;
 export const InstanceFailoverGroup: typeof import("./instanceFailoverGroup").InstanceFailoverGroup = null as any;
+utilities.lazyLoad(exports, ["InstanceFailoverGroup"], () => require("./instanceFailoverGroup"));
 
 export { ManagedDatabaseVulnerabilityAssessmentArgs } from "./managedDatabaseVulnerabilityAssessment";
 export type ManagedDatabaseVulnerabilityAssessment = import("./managedDatabaseVulnerabilityAssessment").ManagedDatabaseVulnerabilityAssessment;
 export const ManagedDatabaseVulnerabilityAssessment: typeof import("./managedDatabaseVulnerabilityAssessment").ManagedDatabaseVulnerabilityAssessment = null as any;
+utilities.lazyLoad(exports, ["ManagedDatabaseVulnerabilityAssessment"], () => require("./managedDatabaseVulnerabilityAssessment"));
 
 export { ManagedDatabaseVulnerabilityAssessmentRuleBaselineArgs } from "./managedDatabaseVulnerabilityAssessmentRuleBaseline";
 export type ManagedDatabaseVulnerabilityAssessmentRuleBaseline = import("./managedDatabaseVulnerabilityAssessmentRuleBaseline").ManagedDatabaseVulnerabilityAssessmentRuleBaseline;
 export const ManagedDatabaseVulnerabilityAssessmentRuleBaseline: typeof import("./managedDatabaseVulnerabilityAssessmentRuleBaseline").ManagedDatabaseVulnerabilityAssessmentRuleBaseline = null as any;
+utilities.lazyLoad(exports, ["ManagedDatabaseVulnerabilityAssessmentRuleBaseline"], () => require("./managedDatabaseVulnerabilityAssessmentRuleBaseline"));
 
 export { ManagedInstanceKeyArgs } from "./managedInstanceKey";
 export type ManagedInstanceKey = import("./managedInstanceKey").ManagedInstanceKey;
 export const ManagedInstanceKey: typeof import("./managedInstanceKey").ManagedInstanceKey = null as any;
-
-utilities.lazyLoad(exports, ["BackupShortTermRetentionPolicy"], () => require("./backupShortTermRetentionPolicy"));
-utilities.lazyLoad(exports, ["Database"], () => require("./database"));
-utilities.lazyLoad(exports, ["ElasticPool"], () => require("./elasticPool"));
-utilities.lazyLoad(exports, ["getBackupShortTermRetentionPolicy","getBackupShortTermRetentionPolicyOutput"], () => require("./getBackupShortTermRetentionPolicy"));
-utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
-utilities.lazyLoad(exports, ["getElasticPool","getElasticPoolOutput"], () => require("./getElasticPool"));
-utilities.lazyLoad(exports, ["getInstanceFailoverGroup","getInstanceFailoverGroupOutput"], () => require("./getInstanceFailoverGroup"));
-utilities.lazyLoad(exports, ["getManagedDatabaseVulnerabilityAssessment","getManagedDatabaseVulnerabilityAssessmentOutput"], () => require("./getManagedDatabaseVulnerabilityAssessment"));
-utilities.lazyLoad(exports, ["getManagedDatabaseVulnerabilityAssessmentRuleBaseline","getManagedDatabaseVulnerabilityAssessmentRuleBaselineOutput"], () => require("./getManagedDatabaseVulnerabilityAssessmentRuleBaseline"));
-utilities.lazyLoad(exports, ["getManagedInstanceKey","getManagedInstanceKeyOutput"], () => require("./getManagedInstanceKey"));
-utilities.lazyLoad(exports, ["InstanceFailoverGroup"], () => require("./instanceFailoverGroup"));
-utilities.lazyLoad(exports, ["ManagedDatabaseVulnerabilityAssessment"], () => require("./managedDatabaseVulnerabilityAssessment"));
-utilities.lazyLoad(exports, ["ManagedDatabaseVulnerabilityAssessmentRuleBaseline"], () => require("./managedDatabaseVulnerabilityAssessmentRuleBaseline"));
 utilities.lazyLoad(exports, ["ManagedInstanceKey"], () => require("./managedInstanceKey"));
+
 
 // Export enums:
 export * from "../../types/enums/sql/v20171001preview";

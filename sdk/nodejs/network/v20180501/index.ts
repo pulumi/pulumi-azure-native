@@ -8,28 +8,28 @@ import * as utilities from "../../utilities";
 export { GetDnsResourceReferenceByTarResourcesArgs, GetDnsResourceReferenceByTarResourcesResult, GetDnsResourceReferenceByTarResourcesOutputArgs } from "./getDnsResourceReferenceByTarResources";
 export const getDnsResourceReferenceByTarResources: typeof import("./getDnsResourceReferenceByTarResources").getDnsResourceReferenceByTarResources = null as any;
 export const getDnsResourceReferenceByTarResourcesOutput: typeof import("./getDnsResourceReferenceByTarResources").getDnsResourceReferenceByTarResourcesOutput = null as any;
+utilities.lazyLoad(exports, ["getDnsResourceReferenceByTarResources","getDnsResourceReferenceByTarResourcesOutput"], () => require("./getDnsResourceReferenceByTarResources"));
 
 export { GetRecordSetArgs, GetRecordSetResult, GetRecordSetOutputArgs } from "./getRecordSet";
 export const getRecordSet: typeof import("./getRecordSet").getRecordSet = null as any;
 export const getRecordSetOutput: typeof import("./getRecordSet").getRecordSetOutput = null as any;
+utilities.lazyLoad(exports, ["getRecordSet","getRecordSetOutput"], () => require("./getRecordSet"));
 
 export { GetZoneArgs, GetZoneResult, GetZoneOutputArgs } from "./getZone";
 export const getZone: typeof import("./getZone").getZone = null as any;
 export const getZoneOutput: typeof import("./getZone").getZoneOutput = null as any;
+utilities.lazyLoad(exports, ["getZone","getZoneOutput"], () => require("./getZone"));
 
 export { RecordSetArgs } from "./recordSet";
 export type RecordSet = import("./recordSet").RecordSet;
 export const RecordSet: typeof import("./recordSet").RecordSet = null as any;
+utilities.lazyLoad(exports, ["RecordSet"], () => require("./recordSet"));
 
 export { ZoneArgs } from "./zone";
 export type Zone = import("./zone").Zone;
 export const Zone: typeof import("./zone").Zone = null as any;
-
-utilities.lazyLoad(exports, ["getDnsResourceReferenceByTarResources","getDnsResourceReferenceByTarResourcesOutput"], () => require("./getDnsResourceReferenceByTarResources"));
-utilities.lazyLoad(exports, ["getRecordSet","getRecordSetOutput"], () => require("./getRecordSet"));
-utilities.lazyLoad(exports, ["getZone","getZoneOutput"], () => require("./getZone"));
-utilities.lazyLoad(exports, ["RecordSet"], () => require("./recordSet"));
 utilities.lazyLoad(exports, ["Zone"], () => require("./zone"));
+
 
 // Export enums:
 export * from "../../types/enums/network/v20180501";

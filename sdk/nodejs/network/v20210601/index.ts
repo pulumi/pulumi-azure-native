@@ -8,33 +8,33 @@ import * as utilities from "../../utilities";
 export { FrontDoorArgs } from "./frontDoor";
 export type FrontDoor = import("./frontDoor").FrontDoor;
 export const FrontDoor: typeof import("./frontDoor").FrontDoor = null as any;
+utilities.lazyLoad(exports, ["FrontDoor"], () => require("./frontDoor"));
 
 export { GetFrontDoorArgs, GetFrontDoorResult, GetFrontDoorOutputArgs } from "./getFrontDoor";
 export const getFrontDoor: typeof import("./getFrontDoor").getFrontDoor = null as any;
 export const getFrontDoorOutput: typeof import("./getFrontDoor").getFrontDoorOutput = null as any;
+utilities.lazyLoad(exports, ["getFrontDoor","getFrontDoorOutput"], () => require("./getFrontDoor"));
 
 export { GetPolicyArgs, GetPolicyResult, GetPolicyOutputArgs } from "./getPolicy";
 export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;
 export const getPolicyOutput: typeof import("./getPolicy").getPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getPolicy","getPolicyOutput"], () => require("./getPolicy"));
 
 export { GetRulesEngineArgs, GetRulesEngineResult, GetRulesEngineOutputArgs } from "./getRulesEngine";
 export const getRulesEngine: typeof import("./getRulesEngine").getRulesEngine = null as any;
 export const getRulesEngineOutput: typeof import("./getRulesEngine").getRulesEngineOutput = null as any;
+utilities.lazyLoad(exports, ["getRulesEngine","getRulesEngineOutput"], () => require("./getRulesEngine"));
 
 export { PolicyArgs } from "./policy";
 export type Policy = import("./policy").Policy;
 export const Policy: typeof import("./policy").Policy = null as any;
+utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
 
 export { RulesEngineArgs } from "./rulesEngine";
 export type RulesEngine = import("./rulesEngine").RulesEngine;
 export const RulesEngine: typeof import("./rulesEngine").RulesEngine = null as any;
-
-utilities.lazyLoad(exports, ["FrontDoor"], () => require("./frontDoor"));
-utilities.lazyLoad(exports, ["getFrontDoor","getFrontDoorOutput"], () => require("./getFrontDoor"));
-utilities.lazyLoad(exports, ["getPolicy","getPolicyOutput"], () => require("./getPolicy"));
-utilities.lazyLoad(exports, ["getRulesEngine","getRulesEngineOutput"], () => require("./getRulesEngine"));
-utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
 utilities.lazyLoad(exports, ["RulesEngine"], () => require("./rulesEngine"));
+
 
 // Export enums:
 export * from "../../types/enums/network/v20210601";

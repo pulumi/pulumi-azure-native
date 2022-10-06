@@ -8,18 +8,18 @@ import * as utilities from "../../utilities";
 export { CognitiveServicesAccountArgs } from "./cognitiveServicesAccount";
 export type CognitiveServicesAccount = import("./cognitiveServicesAccount").CognitiveServicesAccount;
 export const CognitiveServicesAccount: typeof import("./cognitiveServicesAccount").CognitiveServicesAccount = null as any;
+utilities.lazyLoad(exports, ["CognitiveServicesAccount"], () => require("./cognitiveServicesAccount"));
 
 export { GetCognitiveServicesAccountArgs, GetCognitiveServicesAccountResult, GetCognitiveServicesAccountOutputArgs } from "./getCognitiveServicesAccount";
 export const getCognitiveServicesAccount: typeof import("./getCognitiveServicesAccount").getCognitiveServicesAccount = null as any;
 export const getCognitiveServicesAccountOutput: typeof import("./getCognitiveServicesAccount").getCognitiveServicesAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getCognitiveServicesAccount","getCognitiveServicesAccountOutput"], () => require("./getCognitiveServicesAccount"));
 
 export { ListCognitiveServicesAccountKeysArgs, ListCognitiveServicesAccountKeysResult, ListCognitiveServicesAccountKeysOutputArgs } from "./listCognitiveServicesAccountKeys";
 export const listCognitiveServicesAccountKeys: typeof import("./listCognitiveServicesAccountKeys").listCognitiveServicesAccountKeys = null as any;
 export const listCognitiveServicesAccountKeysOutput: typeof import("./listCognitiveServicesAccountKeys").listCognitiveServicesAccountKeysOutput = null as any;
-
-utilities.lazyLoad(exports, ["CognitiveServicesAccount"], () => require("./cognitiveServicesAccount"));
-utilities.lazyLoad(exports, ["getCognitiveServicesAccount","getCognitiveServicesAccountOutput"], () => require("./getCognitiveServicesAccount"));
 utilities.lazyLoad(exports, ["listCognitiveServicesAccountKeys","listCognitiveServicesAccountKeysOutput"], () => require("./listCognitiveServicesAccountKeys"));
+
 
 // Export enums:
 export * from "../../types/enums/cognitiveservices/v20160201preview";

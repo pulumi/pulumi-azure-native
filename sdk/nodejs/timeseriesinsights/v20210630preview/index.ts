@@ -8,83 +8,83 @@ import * as utilities from "../../utilities";
 export { AccessPolicyArgs } from "./accessPolicy";
 export type AccessPolicy = import("./accessPolicy").AccessPolicy;
 export const AccessPolicy: typeof import("./accessPolicy").AccessPolicy = null as any;
+utilities.lazyLoad(exports, ["AccessPolicy"], () => require("./accessPolicy"));
 
 export { EnvironmentArgs } from "./environment";
 export type Environment = import("./environment").Environment;
 export const Environment: typeof import("./environment").Environment = null as any;
+utilities.lazyLoad(exports, ["Environment"], () => require("./environment"));
 
 export { EventHubEventSourceArgs } from "./eventHubEventSource";
 export type EventHubEventSource = import("./eventHubEventSource").EventHubEventSource;
 export const EventHubEventSource: typeof import("./eventHubEventSource").EventHubEventSource = null as any;
+utilities.lazyLoad(exports, ["EventHubEventSource"], () => require("./eventHubEventSource"));
 
 export { EventSourceArgs } from "./eventSource";
 export type EventSource = import("./eventSource").EventSource;
 export const EventSource: typeof import("./eventSource").EventSource = null as any;
+utilities.lazyLoad(exports, ["EventSource"], () => require("./eventSource"));
 
 export { Gen1EnvironmentArgs } from "./gen1Environment";
 export type Gen1Environment = import("./gen1Environment").Gen1Environment;
 export const Gen1Environment: typeof import("./gen1Environment").Gen1Environment = null as any;
+utilities.lazyLoad(exports, ["Gen1Environment"], () => require("./gen1Environment"));
 
 export { Gen2EnvironmentArgs } from "./gen2Environment";
 export type Gen2Environment = import("./gen2Environment").Gen2Environment;
 export const Gen2Environment: typeof import("./gen2Environment").Gen2Environment = null as any;
+utilities.lazyLoad(exports, ["Gen2Environment"], () => require("./gen2Environment"));
 
 export { GetAccessPolicyArgs, GetAccessPolicyResult, GetAccessPolicyOutputArgs } from "./getAccessPolicy";
 export const getAccessPolicy: typeof import("./getAccessPolicy").getAccessPolicy = null as any;
 export const getAccessPolicyOutput: typeof import("./getAccessPolicy").getAccessPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getAccessPolicy","getAccessPolicyOutput"], () => require("./getAccessPolicy"));
 
 export { GetEnvironmentArgs, GetEnvironmentResult, GetEnvironmentOutputArgs } from "./getEnvironment";
 export const getEnvironment: typeof import("./getEnvironment").getEnvironment = null as any;
 export const getEnvironmentOutput: typeof import("./getEnvironment").getEnvironmentOutput = null as any;
+utilities.lazyLoad(exports, ["getEnvironment","getEnvironmentOutput"], () => require("./getEnvironment"));
 
 export { GetEventHubEventSourceArgs, GetEventHubEventSourceResult, GetEventHubEventSourceOutputArgs } from "./getEventHubEventSource";
 export const getEventHubEventSource: typeof import("./getEventHubEventSource").getEventHubEventSource = null as any;
 export const getEventHubEventSourceOutput: typeof import("./getEventHubEventSource").getEventHubEventSourceOutput = null as any;
+utilities.lazyLoad(exports, ["getEventHubEventSource","getEventHubEventSourceOutput"], () => require("./getEventHubEventSource"));
 
 export { GetEventSourceArgs, GetEventSourceResult, GetEventSourceOutputArgs } from "./getEventSource";
 export const getEventSource: typeof import("./getEventSource").getEventSource = null as any;
 export const getEventSourceOutput: typeof import("./getEventSource").getEventSourceOutput = null as any;
+utilities.lazyLoad(exports, ["getEventSource","getEventSourceOutput"], () => require("./getEventSource"));
 
 export { GetGen1EnvironmentArgs, GetGen1EnvironmentResult, GetGen1EnvironmentOutputArgs } from "./getGen1Environment";
 export const getGen1Environment: typeof import("./getGen1Environment").getGen1Environment = null as any;
 export const getGen1EnvironmentOutput: typeof import("./getGen1Environment").getGen1EnvironmentOutput = null as any;
+utilities.lazyLoad(exports, ["getGen1Environment","getGen1EnvironmentOutput"], () => require("./getGen1Environment"));
 
 export { GetGen2EnvironmentArgs, GetGen2EnvironmentResult, GetGen2EnvironmentOutputArgs } from "./getGen2Environment";
 export const getGen2Environment: typeof import("./getGen2Environment").getGen2Environment = null as any;
 export const getGen2EnvironmentOutput: typeof import("./getGen2Environment").getGen2EnvironmentOutput = null as any;
+utilities.lazyLoad(exports, ["getGen2Environment","getGen2EnvironmentOutput"], () => require("./getGen2Environment"));
 
 export { GetIoTHubEventSourceArgs, GetIoTHubEventSourceResult, GetIoTHubEventSourceOutputArgs } from "./getIoTHubEventSource";
 export const getIoTHubEventSource: typeof import("./getIoTHubEventSource").getIoTHubEventSource = null as any;
 export const getIoTHubEventSourceOutput: typeof import("./getIoTHubEventSource").getIoTHubEventSourceOutput = null as any;
+utilities.lazyLoad(exports, ["getIoTHubEventSource","getIoTHubEventSourceOutput"], () => require("./getIoTHubEventSource"));
 
 export { GetReferenceDataSetArgs, GetReferenceDataSetResult, GetReferenceDataSetOutputArgs } from "./getReferenceDataSet";
 export const getReferenceDataSet: typeof import("./getReferenceDataSet").getReferenceDataSet = null as any;
 export const getReferenceDataSetOutput: typeof import("./getReferenceDataSet").getReferenceDataSetOutput = null as any;
+utilities.lazyLoad(exports, ["getReferenceDataSet","getReferenceDataSetOutput"], () => require("./getReferenceDataSet"));
 
 export { IoTHubEventSourceArgs } from "./ioTHubEventSource";
 export type IoTHubEventSource = import("./ioTHubEventSource").IoTHubEventSource;
 export const IoTHubEventSource: typeof import("./ioTHubEventSource").IoTHubEventSource = null as any;
+utilities.lazyLoad(exports, ["IoTHubEventSource"], () => require("./ioTHubEventSource"));
 
 export { ReferenceDataSetArgs } from "./referenceDataSet";
 export type ReferenceDataSet = import("./referenceDataSet").ReferenceDataSet;
 export const ReferenceDataSet: typeof import("./referenceDataSet").ReferenceDataSet = null as any;
-
-utilities.lazyLoad(exports, ["AccessPolicy"], () => require("./accessPolicy"));
-utilities.lazyLoad(exports, ["Environment"], () => require("./environment"));
-utilities.lazyLoad(exports, ["EventHubEventSource"], () => require("./eventHubEventSource"));
-utilities.lazyLoad(exports, ["EventSource"], () => require("./eventSource"));
-utilities.lazyLoad(exports, ["Gen1Environment"], () => require("./gen1Environment"));
-utilities.lazyLoad(exports, ["Gen2Environment"], () => require("./gen2Environment"));
-utilities.lazyLoad(exports, ["getAccessPolicy","getAccessPolicyOutput"], () => require("./getAccessPolicy"));
-utilities.lazyLoad(exports, ["getEnvironment","getEnvironmentOutput"], () => require("./getEnvironment"));
-utilities.lazyLoad(exports, ["getEventHubEventSource","getEventHubEventSourceOutput"], () => require("./getEventHubEventSource"));
-utilities.lazyLoad(exports, ["getEventSource","getEventSourceOutput"], () => require("./getEventSource"));
-utilities.lazyLoad(exports, ["getGen1Environment","getGen1EnvironmentOutput"], () => require("./getGen1Environment"));
-utilities.lazyLoad(exports, ["getGen2Environment","getGen2EnvironmentOutput"], () => require("./getGen2Environment"));
-utilities.lazyLoad(exports, ["getIoTHubEventSource","getIoTHubEventSourceOutput"], () => require("./getIoTHubEventSource"));
-utilities.lazyLoad(exports, ["getReferenceDataSet","getReferenceDataSetOutput"], () => require("./getReferenceDataSet"));
-utilities.lazyLoad(exports, ["IoTHubEventSource"], () => require("./ioTHubEventSource"));
 utilities.lazyLoad(exports, ["ReferenceDataSet"], () => require("./referenceDataSet"));
+
 
 // Export enums:
 export * from "../../types/enums/timeseriesinsights/v20210630preview";

@@ -8,33 +8,33 @@ import * as utilities from "../../utilities";
 export { ExportArgs } from "./export";
 export type Export = import("./export").Export;
 export const Export: typeof import("./export").Export = null as any;
+utilities.lazyLoad(exports, ["Export"], () => require("./export"));
 
 export { GetExportArgs, GetExportResult, GetExportOutputArgs } from "./getExport";
 export const getExport: typeof import("./getExport").getExport = null as any;
 export const getExportOutput: typeof import("./getExport").getExportOutput = null as any;
+utilities.lazyLoad(exports, ["getExport","getExportOutput"], () => require("./getExport"));
 
 export { GetViewArgs, GetViewResult, GetViewOutputArgs } from "./getView";
 export const getView: typeof import("./getView").getView = null as any;
 export const getViewOutput: typeof import("./getView").getViewOutput = null as any;
+utilities.lazyLoad(exports, ["getView","getViewOutput"], () => require("./getView"));
 
 export { GetViewByScopeArgs, GetViewByScopeResult, GetViewByScopeOutputArgs } from "./getViewByScope";
 export const getViewByScope: typeof import("./getViewByScope").getViewByScope = null as any;
 export const getViewByScopeOutput: typeof import("./getViewByScope").getViewByScopeOutput = null as any;
+utilities.lazyLoad(exports, ["getViewByScope","getViewByScopeOutput"], () => require("./getViewByScope"));
 
 export { ViewArgs } from "./view";
 export type View = import("./view").View;
 export const View: typeof import("./view").View = null as any;
+utilities.lazyLoad(exports, ["View"], () => require("./view"));
 
 export { ViewByScopeArgs } from "./viewByScope";
 export type ViewByScope = import("./viewByScope").ViewByScope;
 export const ViewByScope: typeof import("./viewByScope").ViewByScope = null as any;
-
-utilities.lazyLoad(exports, ["Export"], () => require("./export"));
-utilities.lazyLoad(exports, ["getExport","getExportOutput"], () => require("./getExport"));
-utilities.lazyLoad(exports, ["getView","getViewOutput"], () => require("./getView"));
-utilities.lazyLoad(exports, ["getViewByScope","getViewByScopeOutput"], () => require("./getViewByScope"));
-utilities.lazyLoad(exports, ["View"], () => require("./view"));
 utilities.lazyLoad(exports, ["ViewByScope"], () => require("./viewByScope"));
+
 
 // Export enums:
 export * from "../../types/enums/costmanagement/v20211001";

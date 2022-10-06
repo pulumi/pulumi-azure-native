@@ -8,33 +8,33 @@ import * as utilities from "../utilities";
 export { ElasticSanArgs } from "./elasticSan";
 export type ElasticSan = import("./elasticSan").ElasticSan;
 export const ElasticSan: typeof import("./elasticSan").ElasticSan = null as any;
+utilities.lazyLoad(exports, ["ElasticSan"], () => require("./elasticSan"));
 
 export { GetElasticSanArgs, GetElasticSanResult, GetElasticSanOutputArgs } from "./getElasticSan";
 export const getElasticSan: typeof import("./getElasticSan").getElasticSan = null as any;
 export const getElasticSanOutput: typeof import("./getElasticSan").getElasticSanOutput = null as any;
+utilities.lazyLoad(exports, ["getElasticSan","getElasticSanOutput"], () => require("./getElasticSan"));
 
 export { GetVolumeArgs, GetVolumeResult, GetVolumeOutputArgs } from "./getVolume";
 export const getVolume: typeof import("./getVolume").getVolume = null as any;
 export const getVolumeOutput: typeof import("./getVolume").getVolumeOutput = null as any;
+utilities.lazyLoad(exports, ["getVolume","getVolumeOutput"], () => require("./getVolume"));
 
 export { GetVolumeGroupArgs, GetVolumeGroupResult, GetVolumeGroupOutputArgs } from "./getVolumeGroup";
 export const getVolumeGroup: typeof import("./getVolumeGroup").getVolumeGroup = null as any;
 export const getVolumeGroupOutput: typeof import("./getVolumeGroup").getVolumeGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getVolumeGroup","getVolumeGroupOutput"], () => require("./getVolumeGroup"));
 
 export { VolumeArgs } from "./volume";
 export type Volume = import("./volume").Volume;
 export const Volume: typeof import("./volume").Volume = null as any;
+utilities.lazyLoad(exports, ["Volume"], () => require("./volume"));
 
 export { VolumeGroupArgs } from "./volumeGroup";
 export type VolumeGroup = import("./volumeGroup").VolumeGroup;
 export const VolumeGroup: typeof import("./volumeGroup").VolumeGroup = null as any;
-
-utilities.lazyLoad(exports, ["ElasticSan"], () => require("./elasticSan"));
-utilities.lazyLoad(exports, ["getElasticSan","getElasticSanOutput"], () => require("./getElasticSan"));
-utilities.lazyLoad(exports, ["getVolume","getVolumeOutput"], () => require("./getVolume"));
-utilities.lazyLoad(exports, ["getVolumeGroup","getVolumeGroupOutput"], () => require("./getVolumeGroup"));
-utilities.lazyLoad(exports, ["Volume"], () => require("./volume"));
 utilities.lazyLoad(exports, ["VolumeGroup"], () => require("./volumeGroup"));
+
 
 // Export enums:
 export * from "../types/enums/elasticsan";

@@ -8,43 +8,43 @@ import * as utilities from "../../utilities";
 export { GetManagementLockAtResourceGroupLevelArgs, GetManagementLockAtResourceGroupLevelResult, GetManagementLockAtResourceGroupLevelOutputArgs } from "./getManagementLockAtResourceGroupLevel";
 export const getManagementLockAtResourceGroupLevel: typeof import("./getManagementLockAtResourceGroupLevel").getManagementLockAtResourceGroupLevel = null as any;
 export const getManagementLockAtResourceGroupLevelOutput: typeof import("./getManagementLockAtResourceGroupLevel").getManagementLockAtResourceGroupLevelOutput = null as any;
+utilities.lazyLoad(exports, ["getManagementLockAtResourceGroupLevel","getManagementLockAtResourceGroupLevelOutput"], () => require("./getManagementLockAtResourceGroupLevel"));
 
 export { GetManagementLockAtResourceLevelArgs, GetManagementLockAtResourceLevelResult, GetManagementLockAtResourceLevelOutputArgs } from "./getManagementLockAtResourceLevel";
 export const getManagementLockAtResourceLevel: typeof import("./getManagementLockAtResourceLevel").getManagementLockAtResourceLevel = null as any;
 export const getManagementLockAtResourceLevelOutput: typeof import("./getManagementLockAtResourceLevel").getManagementLockAtResourceLevelOutput = null as any;
+utilities.lazyLoad(exports, ["getManagementLockAtResourceLevel","getManagementLockAtResourceLevelOutput"], () => require("./getManagementLockAtResourceLevel"));
 
 export { GetManagementLockAtSubscriptionLevelArgs, GetManagementLockAtSubscriptionLevelResult, GetManagementLockAtSubscriptionLevelOutputArgs } from "./getManagementLockAtSubscriptionLevel";
 export const getManagementLockAtSubscriptionLevel: typeof import("./getManagementLockAtSubscriptionLevel").getManagementLockAtSubscriptionLevel = null as any;
 export const getManagementLockAtSubscriptionLevelOutput: typeof import("./getManagementLockAtSubscriptionLevel").getManagementLockAtSubscriptionLevelOutput = null as any;
+utilities.lazyLoad(exports, ["getManagementLockAtSubscriptionLevel","getManagementLockAtSubscriptionLevelOutput"], () => require("./getManagementLockAtSubscriptionLevel"));
 
 export { GetManagementLockByScopeArgs, GetManagementLockByScopeResult, GetManagementLockByScopeOutputArgs } from "./getManagementLockByScope";
 export const getManagementLockByScope: typeof import("./getManagementLockByScope").getManagementLockByScope = null as any;
 export const getManagementLockByScopeOutput: typeof import("./getManagementLockByScope").getManagementLockByScopeOutput = null as any;
+utilities.lazyLoad(exports, ["getManagementLockByScope","getManagementLockByScopeOutput"], () => require("./getManagementLockByScope"));
 
 export { ManagementLockAtResourceGroupLevelArgs } from "./managementLockAtResourceGroupLevel";
 export type ManagementLockAtResourceGroupLevel = import("./managementLockAtResourceGroupLevel").ManagementLockAtResourceGroupLevel;
 export const ManagementLockAtResourceGroupLevel: typeof import("./managementLockAtResourceGroupLevel").ManagementLockAtResourceGroupLevel = null as any;
+utilities.lazyLoad(exports, ["ManagementLockAtResourceGroupLevel"], () => require("./managementLockAtResourceGroupLevel"));
 
 export { ManagementLockAtResourceLevelArgs } from "./managementLockAtResourceLevel";
 export type ManagementLockAtResourceLevel = import("./managementLockAtResourceLevel").ManagementLockAtResourceLevel;
 export const ManagementLockAtResourceLevel: typeof import("./managementLockAtResourceLevel").ManagementLockAtResourceLevel = null as any;
+utilities.lazyLoad(exports, ["ManagementLockAtResourceLevel"], () => require("./managementLockAtResourceLevel"));
 
 export { ManagementLockAtSubscriptionLevelArgs } from "./managementLockAtSubscriptionLevel";
 export type ManagementLockAtSubscriptionLevel = import("./managementLockAtSubscriptionLevel").ManagementLockAtSubscriptionLevel;
 export const ManagementLockAtSubscriptionLevel: typeof import("./managementLockAtSubscriptionLevel").ManagementLockAtSubscriptionLevel = null as any;
+utilities.lazyLoad(exports, ["ManagementLockAtSubscriptionLevel"], () => require("./managementLockAtSubscriptionLevel"));
 
 export { ManagementLockByScopeArgs } from "./managementLockByScope";
 export type ManagementLockByScope = import("./managementLockByScope").ManagementLockByScope;
 export const ManagementLockByScope: typeof import("./managementLockByScope").ManagementLockByScope = null as any;
-
-utilities.lazyLoad(exports, ["getManagementLockAtResourceGroupLevel","getManagementLockAtResourceGroupLevelOutput"], () => require("./getManagementLockAtResourceGroupLevel"));
-utilities.lazyLoad(exports, ["getManagementLockAtResourceLevel","getManagementLockAtResourceLevelOutput"], () => require("./getManagementLockAtResourceLevel"));
-utilities.lazyLoad(exports, ["getManagementLockAtSubscriptionLevel","getManagementLockAtSubscriptionLevelOutput"], () => require("./getManagementLockAtSubscriptionLevel"));
-utilities.lazyLoad(exports, ["getManagementLockByScope","getManagementLockByScopeOutput"], () => require("./getManagementLockByScope"));
-utilities.lazyLoad(exports, ["ManagementLockAtResourceGroupLevel"], () => require("./managementLockAtResourceGroupLevel"));
-utilities.lazyLoad(exports, ["ManagementLockAtResourceLevel"], () => require("./managementLockAtResourceLevel"));
-utilities.lazyLoad(exports, ["ManagementLockAtSubscriptionLevel"], () => require("./managementLockAtSubscriptionLevel"));
 utilities.lazyLoad(exports, ["ManagementLockByScope"], () => require("./managementLockByScope"));
+
 
 // Export enums:
 export * from "../../types/enums/authorization/v20170401";

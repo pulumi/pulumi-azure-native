@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { GetLabArgs, GetLabResult, GetLabOutputArgs } from "./getLab";
 export const getLab: typeof import("./getLab").getLab = null as any;
 export const getLabOutput: typeof import("./getLab").getLabOutput = null as any;
+utilities.lazyLoad(exports, ["getLab","getLabOutput"], () => require("./getLab"));
 
 export { GetStudentArgs, GetStudentResult, GetStudentOutputArgs } from "./getStudent";
 export const getStudent: typeof import("./getStudent").getStudent = null as any;
 export const getStudentOutput: typeof import("./getStudent").getStudentOutput = null as any;
+utilities.lazyLoad(exports, ["getStudent","getStudentOutput"], () => require("./getStudent"));
 
 export { LabArgs } from "./lab";
 export type Lab = import("./lab").Lab;
 export const Lab: typeof import("./lab").Lab = null as any;
+utilities.lazyLoad(exports, ["Lab"], () => require("./lab"));
 
 export { StudentArgs } from "./student";
 export type Student = import("./student").Student;
 export const Student: typeof import("./student").Student = null as any;
-
-utilities.lazyLoad(exports, ["getLab","getLabOutput"], () => require("./getLab"));
-utilities.lazyLoad(exports, ["getStudent","getStudentOutput"], () => require("./getStudent"));
-utilities.lazyLoad(exports, ["Lab"], () => require("./lab"));
 utilities.lazyLoad(exports, ["Student"], () => require("./student"));
+
 
 // Export enums:
 export * from "../types/enums/education";

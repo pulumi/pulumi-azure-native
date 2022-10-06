@@ -8,53 +8,53 @@ import * as utilities from "../../utilities";
 export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
 export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
 
 export { GetProtectedItemArgs, GetProtectedItemResult, GetProtectedItemOutputArgs } from "./getProtectedItem";
 export const getProtectedItem: typeof import("./getProtectedItem").getProtectedItem = null as any;
 export const getProtectedItemOutput: typeof import("./getProtectedItem").getProtectedItemOutput = null as any;
+utilities.lazyLoad(exports, ["getProtectedItem","getProtectedItemOutput"], () => require("./getProtectedItem"));
 
 export { GetProtectionContainerArgs, GetProtectionContainerResult, GetProtectionContainerOutputArgs } from "./getProtectionContainer";
 export const getProtectionContainer: typeof import("./getProtectionContainer").getProtectionContainer = null as any;
 export const getProtectionContainerOutput: typeof import("./getProtectionContainer").getProtectionContainerOutput = null as any;
+utilities.lazyLoad(exports, ["getProtectionContainer","getProtectionContainerOutput"], () => require("./getProtectionContainer"));
 
 export { GetProtectionPolicyArgs, GetProtectionPolicyResult, GetProtectionPolicyOutputArgs } from "./getProtectionPolicy";
 export const getProtectionPolicy: typeof import("./getProtectionPolicy").getProtectionPolicy = null as any;
 export const getProtectionPolicyOutput: typeof import("./getProtectionPolicy").getProtectionPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getProtectionPolicy","getProtectionPolicyOutput"], () => require("./getProtectionPolicy"));
 
 export { GetVaultArgs, GetVaultResult, GetVaultOutputArgs } from "./getVault";
 export const getVault: typeof import("./getVault").getVault = null as any;
 export const getVaultOutput: typeof import("./getVault").getVaultOutput = null as any;
+utilities.lazyLoad(exports, ["getVault","getVaultOutput"], () => require("./getVault"));
 
 export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
 
 export { ProtectedItemArgs } from "./protectedItem";
 export type ProtectedItem = import("./protectedItem").ProtectedItem;
 export const ProtectedItem: typeof import("./protectedItem").ProtectedItem = null as any;
+utilities.lazyLoad(exports, ["ProtectedItem"], () => require("./protectedItem"));
 
 export { ProtectionContainerArgs } from "./protectionContainer";
 export type ProtectionContainer = import("./protectionContainer").ProtectionContainer;
 export const ProtectionContainer: typeof import("./protectionContainer").ProtectionContainer = null as any;
+utilities.lazyLoad(exports, ["ProtectionContainer"], () => require("./protectionContainer"));
 
 export { ProtectionPolicyArgs } from "./protectionPolicy";
 export type ProtectionPolicy = import("./protectionPolicy").ProtectionPolicy;
 export const ProtectionPolicy: typeof import("./protectionPolicy").ProtectionPolicy = null as any;
+utilities.lazyLoad(exports, ["ProtectionPolicy"], () => require("./protectionPolicy"));
 
 export { VaultArgs } from "./vault";
 export type Vault = import("./vault").Vault;
 export const Vault: typeof import("./vault").Vault = null as any;
-
-utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
-utilities.lazyLoad(exports, ["getProtectedItem","getProtectedItemOutput"], () => require("./getProtectedItem"));
-utilities.lazyLoad(exports, ["getProtectionContainer","getProtectionContainerOutput"], () => require("./getProtectionContainer"));
-utilities.lazyLoad(exports, ["getProtectionPolicy","getProtectionPolicyOutput"], () => require("./getProtectionPolicy"));
-utilities.lazyLoad(exports, ["getVault","getVaultOutput"], () => require("./getVault"));
-utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
-utilities.lazyLoad(exports, ["ProtectedItem"], () => require("./protectedItem"));
-utilities.lazyLoad(exports, ["ProtectionContainer"], () => require("./protectionContainer"));
-utilities.lazyLoad(exports, ["ProtectionPolicy"], () => require("./protectionPolicy"));
 utilities.lazyLoad(exports, ["Vault"], () => require("./vault"));
+
 
 // Export enums:
 export * from "../../types/enums/recoveryservices/v20210101";

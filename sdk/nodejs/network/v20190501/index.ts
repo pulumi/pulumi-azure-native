@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { FrontDoorArgs } from "./frontDoor";
 export type FrontDoor = import("./frontDoor").FrontDoor;
 export const FrontDoor: typeof import("./frontDoor").FrontDoor = null as any;
+utilities.lazyLoad(exports, ["FrontDoor"], () => require("./frontDoor"));
 
 export { GetFrontDoorArgs, GetFrontDoorResult, GetFrontDoorOutputArgs } from "./getFrontDoor";
 export const getFrontDoor: typeof import("./getFrontDoor").getFrontDoor = null as any;
 export const getFrontDoorOutput: typeof import("./getFrontDoor").getFrontDoorOutput = null as any;
-
-utilities.lazyLoad(exports, ["FrontDoor"], () => require("./frontDoor"));
 utilities.lazyLoad(exports, ["getFrontDoor","getFrontDoorOutput"], () => require("./getFrontDoor"));
+
 
 // Export enums:
 export * from "../../types/enums/network/v20190501";

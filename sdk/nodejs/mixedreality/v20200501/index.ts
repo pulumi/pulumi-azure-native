@@ -8,18 +8,18 @@ import * as utilities from "../../utilities";
 export { GetSpatialAnchorsAccountArgs, GetSpatialAnchorsAccountResult, GetSpatialAnchorsAccountOutputArgs } from "./getSpatialAnchorsAccount";
 export const getSpatialAnchorsAccount: typeof import("./getSpatialAnchorsAccount").getSpatialAnchorsAccount = null as any;
 export const getSpatialAnchorsAccountOutput: typeof import("./getSpatialAnchorsAccount").getSpatialAnchorsAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getSpatialAnchorsAccount","getSpatialAnchorsAccountOutput"], () => require("./getSpatialAnchorsAccount"));
 
 export { ListSpatialAnchorsAccountKeysArgs, ListSpatialAnchorsAccountKeysResult, ListSpatialAnchorsAccountKeysOutputArgs } from "./listSpatialAnchorsAccountKeys";
 export const listSpatialAnchorsAccountKeys: typeof import("./listSpatialAnchorsAccountKeys").listSpatialAnchorsAccountKeys = null as any;
 export const listSpatialAnchorsAccountKeysOutput: typeof import("./listSpatialAnchorsAccountKeys").listSpatialAnchorsAccountKeysOutput = null as any;
+utilities.lazyLoad(exports, ["listSpatialAnchorsAccountKeys","listSpatialAnchorsAccountKeysOutput"], () => require("./listSpatialAnchorsAccountKeys"));
 
 export { SpatialAnchorsAccountArgs } from "./spatialAnchorsAccount";
 export type SpatialAnchorsAccount = import("./spatialAnchorsAccount").SpatialAnchorsAccount;
 export const SpatialAnchorsAccount: typeof import("./spatialAnchorsAccount").SpatialAnchorsAccount = null as any;
-
-utilities.lazyLoad(exports, ["getSpatialAnchorsAccount","getSpatialAnchorsAccountOutput"], () => require("./getSpatialAnchorsAccount"));
-utilities.lazyLoad(exports, ["listSpatialAnchorsAccountKeys","listSpatialAnchorsAccountKeysOutput"], () => require("./listSpatialAnchorsAccountKeys"));
 utilities.lazyLoad(exports, ["SpatialAnchorsAccount"], () => require("./spatialAnchorsAccount"));
+
 
 // Export enums:
 export * from "../../types/enums/mixedreality/v20200501";

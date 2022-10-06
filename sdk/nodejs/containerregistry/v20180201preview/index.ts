@@ -8,43 +8,43 @@ import * as utilities from "../../utilities";
 export { BuildStepArgs } from "./buildStep";
 export type BuildStep = import("./buildStep").BuildStep;
 export const BuildStep: typeof import("./buildStep").BuildStep = null as any;
+utilities.lazyLoad(exports, ["BuildStep"], () => require("./buildStep"));
 
 export { BuildTaskArgs } from "./buildTask";
 export type BuildTask = import("./buildTask").BuildTask;
 export const BuildTask: typeof import("./buildTask").BuildTask = null as any;
+utilities.lazyLoad(exports, ["BuildTask"], () => require("./buildTask"));
 
 export { GetBuildLogLinkArgs, GetBuildLogLinkResult, GetBuildLogLinkOutputArgs } from "./getBuildLogLink";
 export const getBuildLogLink: typeof import("./getBuildLogLink").getBuildLogLink = null as any;
 export const getBuildLogLinkOutput: typeof import("./getBuildLogLink").getBuildLogLinkOutput = null as any;
+utilities.lazyLoad(exports, ["getBuildLogLink","getBuildLogLinkOutput"], () => require("./getBuildLogLink"));
 
 export { GetBuildStepArgs, GetBuildStepResult, GetBuildStepOutputArgs } from "./getBuildStep";
 export const getBuildStep: typeof import("./getBuildStep").getBuildStep = null as any;
 export const getBuildStepOutput: typeof import("./getBuildStep").getBuildStepOutput = null as any;
+utilities.lazyLoad(exports, ["getBuildStep","getBuildStepOutput"], () => require("./getBuildStep"));
 
 export { GetBuildTaskArgs, GetBuildTaskResult, GetBuildTaskOutputArgs } from "./getBuildTask";
 export const getBuildTask: typeof import("./getBuildTask").getBuildTask = null as any;
 export const getBuildTaskOutput: typeof import("./getBuildTask").getBuildTaskOutput = null as any;
+utilities.lazyLoad(exports, ["getBuildTask","getBuildTaskOutput"], () => require("./getBuildTask"));
 
 export { GetRegistryBuildSourceUploadUrlArgs, GetRegistryBuildSourceUploadUrlResult, GetRegistryBuildSourceUploadUrlOutputArgs } from "./getRegistryBuildSourceUploadUrl";
 export const getRegistryBuildSourceUploadUrl: typeof import("./getRegistryBuildSourceUploadUrl").getRegistryBuildSourceUploadUrl = null as any;
 export const getRegistryBuildSourceUploadUrlOutput: typeof import("./getRegistryBuildSourceUploadUrl").getRegistryBuildSourceUploadUrlOutput = null as any;
+utilities.lazyLoad(exports, ["getRegistryBuildSourceUploadUrl","getRegistryBuildSourceUploadUrlOutput"], () => require("./getRegistryBuildSourceUploadUrl"));
 
 export { ListBuildStepBuildArgumentsArgs, ListBuildStepBuildArgumentsResult, ListBuildStepBuildArgumentsOutputArgs } from "./listBuildStepBuildArguments";
 export const listBuildStepBuildArguments: typeof import("./listBuildStepBuildArguments").listBuildStepBuildArguments = null as any;
 export const listBuildStepBuildArgumentsOutput: typeof import("./listBuildStepBuildArguments").listBuildStepBuildArgumentsOutput = null as any;
+utilities.lazyLoad(exports, ["listBuildStepBuildArguments","listBuildStepBuildArgumentsOutput"], () => require("./listBuildStepBuildArguments"));
 
 export { ListBuildTaskSourceRepositoryPropertiesArgs, ListBuildTaskSourceRepositoryPropertiesResult, ListBuildTaskSourceRepositoryPropertiesOutputArgs } from "./listBuildTaskSourceRepositoryProperties";
 export const listBuildTaskSourceRepositoryProperties: typeof import("./listBuildTaskSourceRepositoryProperties").listBuildTaskSourceRepositoryProperties = null as any;
 export const listBuildTaskSourceRepositoryPropertiesOutput: typeof import("./listBuildTaskSourceRepositoryProperties").listBuildTaskSourceRepositoryPropertiesOutput = null as any;
-
-utilities.lazyLoad(exports, ["BuildStep"], () => require("./buildStep"));
-utilities.lazyLoad(exports, ["BuildTask"], () => require("./buildTask"));
-utilities.lazyLoad(exports, ["getBuildLogLink","getBuildLogLinkOutput"], () => require("./getBuildLogLink"));
-utilities.lazyLoad(exports, ["getBuildStep","getBuildStepOutput"], () => require("./getBuildStep"));
-utilities.lazyLoad(exports, ["getBuildTask","getBuildTaskOutput"], () => require("./getBuildTask"));
-utilities.lazyLoad(exports, ["getRegistryBuildSourceUploadUrl","getRegistryBuildSourceUploadUrlOutput"], () => require("./getRegistryBuildSourceUploadUrl"));
-utilities.lazyLoad(exports, ["listBuildStepBuildArguments","listBuildStepBuildArgumentsOutput"], () => require("./listBuildStepBuildArguments"));
 utilities.lazyLoad(exports, ["listBuildTaskSourceRepositoryProperties","listBuildTaskSourceRepositoryPropertiesOutput"], () => require("./listBuildTaskSourceRepositoryProperties"));
+
 
 // Export enums:
 export * from "../../types/enums/containerregistry/v20180201preview";

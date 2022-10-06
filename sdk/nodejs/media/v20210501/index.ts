@@ -8,28 +8,28 @@ import * as utilities from "../../utilities";
 export { GetMediaServiceArgs, GetMediaServiceResult, GetMediaServiceOutputArgs } from "./getMediaService";
 export const getMediaService: typeof import("./getMediaService").getMediaService = null as any;
 export const getMediaServiceOutput: typeof import("./getMediaService").getMediaServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getMediaService","getMediaServiceOutput"], () => require("./getMediaService"));
 
 export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
 export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
 
 export { ListMediaServiceEdgePoliciesArgs, ListMediaServiceEdgePoliciesResult, ListMediaServiceEdgePoliciesOutputArgs } from "./listMediaServiceEdgePolicies";
 export const listMediaServiceEdgePolicies: typeof import("./listMediaServiceEdgePolicies").listMediaServiceEdgePolicies = null as any;
 export const listMediaServiceEdgePoliciesOutput: typeof import("./listMediaServiceEdgePolicies").listMediaServiceEdgePoliciesOutput = null as any;
+utilities.lazyLoad(exports, ["listMediaServiceEdgePolicies","listMediaServiceEdgePoliciesOutput"], () => require("./listMediaServiceEdgePolicies"));
 
 export { MediaServiceArgs } from "./mediaService";
 export type MediaService = import("./mediaService").MediaService;
 export const MediaService: typeof import("./mediaService").MediaService = null as any;
+utilities.lazyLoad(exports, ["MediaService"], () => require("./mediaService"));
 
 export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
-
-utilities.lazyLoad(exports, ["getMediaService","getMediaServiceOutput"], () => require("./getMediaService"));
-utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
-utilities.lazyLoad(exports, ["listMediaServiceEdgePolicies","listMediaServiceEdgePoliciesOutput"], () => require("./listMediaServiceEdgePolicies"));
-utilities.lazyLoad(exports, ["MediaService"], () => require("./mediaService"));
 utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+
 
 // Export enums:
 export * from "../../types/enums/media/v20210501";

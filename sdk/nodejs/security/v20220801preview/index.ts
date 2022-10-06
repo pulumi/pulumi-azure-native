@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { GetSecurityConnectorArgs, GetSecurityConnectorResult, GetSecurityConnectorOutputArgs } from "./getSecurityConnector";
 export const getSecurityConnector: typeof import("./getSecurityConnector").getSecurityConnector = null as any;
 export const getSecurityConnectorOutput: typeof import("./getSecurityConnector").getSecurityConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getSecurityConnector","getSecurityConnectorOutput"], () => require("./getSecurityConnector"));
 
 export { SecurityConnectorArgs } from "./securityConnector";
 export type SecurityConnector = import("./securityConnector").SecurityConnector;
 export const SecurityConnector: typeof import("./securityConnector").SecurityConnector = null as any;
-
-utilities.lazyLoad(exports, ["getSecurityConnector","getSecurityConnectorOutput"], () => require("./getSecurityConnector"));
 utilities.lazyLoad(exports, ["SecurityConnector"], () => require("./securityConnector"));
+
 
 // Export enums:
 export * from "../../types/enums/security/v20220801preview";

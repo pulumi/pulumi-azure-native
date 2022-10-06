@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { CapacityDetailsArgs } from "./capacityDetails";
 export type CapacityDetails = import("./capacityDetails").CapacityDetails;
 export const CapacityDetails: typeof import("./capacityDetails").CapacityDetails = null as any;
+utilities.lazyLoad(exports, ["CapacityDetails"], () => require("./capacityDetails"));
 
 export { GetCapacityDetailsArgs, GetCapacityDetailsResult, GetCapacityDetailsOutputArgs } from "./getCapacityDetails";
 export const getCapacityDetails: typeof import("./getCapacityDetails").getCapacityDetails = null as any;
 export const getCapacityDetailsOutput: typeof import("./getCapacityDetails").getCapacityDetailsOutput = null as any;
-
-utilities.lazyLoad(exports, ["CapacityDetails"], () => require("./capacityDetails"));
 utilities.lazyLoad(exports, ["getCapacityDetails","getCapacityDetailsOutput"], () => require("./getCapacityDetails"));
+
 
 // Export enums:
 export * from "../../types/enums/powerbidedicated/v20171001";

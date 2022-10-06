@@ -8,38 +8,38 @@ import * as utilities from "../../utilities";
 export { GetNamespaceArgs, GetNamespaceResult, GetNamespaceOutputArgs } from "./getNamespace";
 export const getNamespace: typeof import("./getNamespace").getNamespace = null as any;
 export const getNamespaceOutput: typeof import("./getNamespace").getNamespaceOutput = null as any;
+utilities.lazyLoad(exports, ["getNamespace","getNamespaceOutput"], () => require("./getNamespace"));
 
 export { GetNotificationHubArgs, GetNotificationHubResult, GetNotificationHubOutputArgs } from "./getNotificationHub";
 export const getNotificationHub: typeof import("./getNotificationHub").getNotificationHub = null as any;
 export const getNotificationHubOutput: typeof import("./getNotificationHub").getNotificationHubOutput = null as any;
+utilities.lazyLoad(exports, ["getNotificationHub","getNotificationHubOutput"], () => require("./getNotificationHub"));
 
 export { GetNotificationHubPnsCredentialsArgs, GetNotificationHubPnsCredentialsResult, GetNotificationHubPnsCredentialsOutputArgs } from "./getNotificationHubPnsCredentials";
 export const getNotificationHubPnsCredentials: typeof import("./getNotificationHubPnsCredentials").getNotificationHubPnsCredentials = null as any;
 export const getNotificationHubPnsCredentialsOutput: typeof import("./getNotificationHubPnsCredentials").getNotificationHubPnsCredentialsOutput = null as any;
+utilities.lazyLoad(exports, ["getNotificationHubPnsCredentials","getNotificationHubPnsCredentialsOutput"], () => require("./getNotificationHubPnsCredentials"));
 
 export { ListNamespaceKeysArgs, ListNamespaceKeysResult, ListNamespaceKeysOutputArgs } from "./listNamespaceKeys";
 export const listNamespaceKeys: typeof import("./listNamespaceKeys").listNamespaceKeys = null as any;
 export const listNamespaceKeysOutput: typeof import("./listNamespaceKeys").listNamespaceKeysOutput = null as any;
+utilities.lazyLoad(exports, ["listNamespaceKeys","listNamespaceKeysOutput"], () => require("./listNamespaceKeys"));
 
 export { ListNotificationHubKeysArgs, ListNotificationHubKeysResult, ListNotificationHubKeysOutputArgs } from "./listNotificationHubKeys";
 export const listNotificationHubKeys: typeof import("./listNotificationHubKeys").listNotificationHubKeys = null as any;
 export const listNotificationHubKeysOutput: typeof import("./listNotificationHubKeys").listNotificationHubKeysOutput = null as any;
+utilities.lazyLoad(exports, ["listNotificationHubKeys","listNotificationHubKeysOutput"], () => require("./listNotificationHubKeys"));
 
 export { NamespaceArgs } from "./namespace";
 export type Namespace = import("./namespace").Namespace;
 export const Namespace: typeof import("./namespace").Namespace = null as any;
+utilities.lazyLoad(exports, ["Namespace"], () => require("./namespace"));
 
 export { NotificationHubArgs } from "./notificationHub";
 export type NotificationHub = import("./notificationHub").NotificationHub;
 export const NotificationHub: typeof import("./notificationHub").NotificationHub = null as any;
-
-utilities.lazyLoad(exports, ["getNamespace","getNamespaceOutput"], () => require("./getNamespace"));
-utilities.lazyLoad(exports, ["getNotificationHub","getNotificationHubOutput"], () => require("./getNotificationHub"));
-utilities.lazyLoad(exports, ["getNotificationHubPnsCredentials","getNotificationHubPnsCredentialsOutput"], () => require("./getNotificationHubPnsCredentials"));
-utilities.lazyLoad(exports, ["listNamespaceKeys","listNamespaceKeysOutput"], () => require("./listNamespaceKeys"));
-utilities.lazyLoad(exports, ["listNotificationHubKeys","listNotificationHubKeysOutput"], () => require("./listNotificationHubKeys"));
-utilities.lazyLoad(exports, ["Namespace"], () => require("./namespace"));
 utilities.lazyLoad(exports, ["NotificationHub"], () => require("./notificationHub"));
+
 
 // Export enums:
 export * from "../../types/enums/notificationhubs/v20140901";

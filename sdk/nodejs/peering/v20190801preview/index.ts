@@ -8,43 +8,43 @@ import * as utilities from "../../utilities";
 export { GetPeerAsnArgs, GetPeerAsnResult, GetPeerAsnOutputArgs } from "./getPeerAsn";
 export const getPeerAsn: typeof import("./getPeerAsn").getPeerAsn = null as any;
 export const getPeerAsnOutput: typeof import("./getPeerAsn").getPeerAsnOutput = null as any;
+utilities.lazyLoad(exports, ["getPeerAsn","getPeerAsnOutput"], () => require("./getPeerAsn"));
 
 export { GetPeeringArgs, GetPeeringResult, GetPeeringOutputArgs } from "./getPeering";
 export const getPeering: typeof import("./getPeering").getPeering = null as any;
 export const getPeeringOutput: typeof import("./getPeering").getPeeringOutput = null as any;
+utilities.lazyLoad(exports, ["getPeering","getPeeringOutput"], () => require("./getPeering"));
 
 export { GetPeeringServiceArgs, GetPeeringServiceResult, GetPeeringServiceOutputArgs } from "./getPeeringService";
 export const getPeeringService: typeof import("./getPeeringService").getPeeringService = null as any;
 export const getPeeringServiceOutput: typeof import("./getPeeringService").getPeeringServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getPeeringService","getPeeringServiceOutput"], () => require("./getPeeringService"));
 
 export { GetPeeringServicePrefixArgs, GetPeeringServicePrefixResult, GetPeeringServicePrefixOutputArgs } from "./getPeeringServicePrefix";
 export const getPeeringServicePrefix: typeof import("./getPeeringServicePrefix").getPeeringServicePrefix = null as any;
 export const getPeeringServicePrefixOutput: typeof import("./getPeeringServicePrefix").getPeeringServicePrefixOutput = null as any;
+utilities.lazyLoad(exports, ["getPeeringServicePrefix","getPeeringServicePrefixOutput"], () => require("./getPeeringServicePrefix"));
 
 export { PeerAsnArgs } from "./peerAsn";
 export type PeerAsn = import("./peerAsn").PeerAsn;
 export const PeerAsn: typeof import("./peerAsn").PeerAsn = null as any;
+utilities.lazyLoad(exports, ["PeerAsn"], () => require("./peerAsn"));
 
 export { PeeringArgs } from "./peering";
 export type Peering = import("./peering").Peering;
 export const Peering: typeof import("./peering").Peering = null as any;
+utilities.lazyLoad(exports, ["Peering"], () => require("./peering"));
 
 export { PeeringServiceArgs } from "./peeringService";
 export type PeeringService = import("./peeringService").PeeringService;
 export const PeeringService: typeof import("./peeringService").PeeringService = null as any;
+utilities.lazyLoad(exports, ["PeeringService"], () => require("./peeringService"));
 
 export { PeeringServicePrefixArgs } from "./peeringServicePrefix";
 export type PeeringServicePrefix = import("./peeringServicePrefix").PeeringServicePrefix;
 export const PeeringServicePrefix: typeof import("./peeringServicePrefix").PeeringServicePrefix = null as any;
-
-utilities.lazyLoad(exports, ["getPeerAsn","getPeerAsnOutput"], () => require("./getPeerAsn"));
-utilities.lazyLoad(exports, ["getPeering","getPeeringOutput"], () => require("./getPeering"));
-utilities.lazyLoad(exports, ["getPeeringService","getPeeringServiceOutput"], () => require("./getPeeringService"));
-utilities.lazyLoad(exports, ["getPeeringServicePrefix","getPeeringServicePrefixOutput"], () => require("./getPeeringServicePrefix"));
-utilities.lazyLoad(exports, ["PeerAsn"], () => require("./peerAsn"));
-utilities.lazyLoad(exports, ["Peering"], () => require("./peering"));
-utilities.lazyLoad(exports, ["PeeringService"], () => require("./peeringService"));
 utilities.lazyLoad(exports, ["PeeringServicePrefix"], () => require("./peeringServicePrefix"));
+
 
 // Export enums:
 export * from "../../types/enums/peering/v20190801preview";

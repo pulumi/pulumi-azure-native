@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { ADCCatalogArgs } from "./adccatalog";
 export type ADCCatalog = import("./adccatalog").ADCCatalog;
 export const ADCCatalog: typeof import("./adccatalog").ADCCatalog = null as any;
+utilities.lazyLoad(exports, ["ADCCatalog"], () => require("./adccatalog"));
 
 export { GetADCCatalogArgs, GetADCCatalogResult, GetADCCatalogOutputArgs } from "./getADCCatalog";
 export const getADCCatalog: typeof import("./getADCCatalog").getADCCatalog = null as any;
 export const getADCCatalogOutput: typeof import("./getADCCatalog").getADCCatalogOutput = null as any;
-
-utilities.lazyLoad(exports, ["ADCCatalog"], () => require("./adccatalog"));
 utilities.lazyLoad(exports, ["getADCCatalog","getADCCatalogOutput"], () => require("./getADCCatalog"));
+
 
 // Export enums:
 export * from "../../types/enums/datacatalog/v20160330";

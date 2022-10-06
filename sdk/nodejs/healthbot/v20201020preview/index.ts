@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { GetbotArgs } from "./getbot";
 export type Getbot = import("./getbot").Getbot;
 export const Getbot: typeof import("./getbot").Getbot = null as any;
+utilities.lazyLoad(exports, ["Getbot"], () => require("./getbot"));
 
 export { GetgetbotArgs, GetgetbotResult, GetgetbotOutputArgs } from "./getgetbot";
 export const getgetbot: typeof import("./getgetbot").getgetbot = null as any;
 export const getgetbotOutput: typeof import("./getgetbot").getgetbotOutput = null as any;
-
-utilities.lazyLoad(exports, ["Getbot"], () => require("./getbot"));
 utilities.lazyLoad(exports, ["getgetbot","getgetbotOutput"], () => require("./getgetbot"));
+
 
 // Export enums:
 export * from "../../types/enums/healthbot/v20201020preview";

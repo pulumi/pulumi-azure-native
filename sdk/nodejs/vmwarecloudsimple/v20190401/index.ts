@@ -8,33 +8,33 @@ import * as utilities from "../../utilities";
 export { DedicatedCloudNodeArgs } from "./dedicatedCloudNode";
 export type DedicatedCloudNode = import("./dedicatedCloudNode").DedicatedCloudNode;
 export const DedicatedCloudNode: typeof import("./dedicatedCloudNode").DedicatedCloudNode = null as any;
+utilities.lazyLoad(exports, ["DedicatedCloudNode"], () => require("./dedicatedCloudNode"));
 
 export { DedicatedCloudServiceArgs } from "./dedicatedCloudService";
 export type DedicatedCloudService = import("./dedicatedCloudService").DedicatedCloudService;
 export const DedicatedCloudService: typeof import("./dedicatedCloudService").DedicatedCloudService = null as any;
+utilities.lazyLoad(exports, ["DedicatedCloudService"], () => require("./dedicatedCloudService"));
 
 export { GetDedicatedCloudNodeArgs, GetDedicatedCloudNodeResult, GetDedicatedCloudNodeOutputArgs } from "./getDedicatedCloudNode";
 export const getDedicatedCloudNode: typeof import("./getDedicatedCloudNode").getDedicatedCloudNode = null as any;
 export const getDedicatedCloudNodeOutput: typeof import("./getDedicatedCloudNode").getDedicatedCloudNodeOutput = null as any;
+utilities.lazyLoad(exports, ["getDedicatedCloudNode","getDedicatedCloudNodeOutput"], () => require("./getDedicatedCloudNode"));
 
 export { GetDedicatedCloudServiceArgs, GetDedicatedCloudServiceResult, GetDedicatedCloudServiceOutputArgs } from "./getDedicatedCloudService";
 export const getDedicatedCloudService: typeof import("./getDedicatedCloudService").getDedicatedCloudService = null as any;
 export const getDedicatedCloudServiceOutput: typeof import("./getDedicatedCloudService").getDedicatedCloudServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getDedicatedCloudService","getDedicatedCloudServiceOutput"], () => require("./getDedicatedCloudService"));
 
 export { GetVirtualMachineArgs, GetVirtualMachineResult, GetVirtualMachineOutputArgs } from "./getVirtualMachine";
 export const getVirtualMachine: typeof import("./getVirtualMachine").getVirtualMachine = null as any;
 export const getVirtualMachineOutput: typeof import("./getVirtualMachine").getVirtualMachineOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualMachine","getVirtualMachineOutput"], () => require("./getVirtualMachine"));
 
 export { VirtualMachineArgs } from "./virtualMachine";
 export type VirtualMachine = import("./virtualMachine").VirtualMachine;
 export const VirtualMachine: typeof import("./virtualMachine").VirtualMachine = null as any;
-
-utilities.lazyLoad(exports, ["DedicatedCloudNode"], () => require("./dedicatedCloudNode"));
-utilities.lazyLoad(exports, ["DedicatedCloudService"], () => require("./dedicatedCloudService"));
-utilities.lazyLoad(exports, ["getDedicatedCloudNode","getDedicatedCloudNodeOutput"], () => require("./getDedicatedCloudNode"));
-utilities.lazyLoad(exports, ["getDedicatedCloudService","getDedicatedCloudServiceOutput"], () => require("./getDedicatedCloudService"));
-utilities.lazyLoad(exports, ["getVirtualMachine","getVirtualMachineOutput"], () => require("./getVirtualMachine"));
 utilities.lazyLoad(exports, ["VirtualMachine"], () => require("./virtualMachine"));
+
 
 // Export enums:
 export * from "../../types/enums/vmwarecloudsimple/v20190401";

@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { ComponentArgs } from "./component";
 export type Component = import("./component").Component;
 export const Component: typeof import("./component").Component = null as any;
+utilities.lazyLoad(exports, ["Component"], () => require("./component"));
 
 export { GetComponentArgs, GetComponentResult, GetComponentOutputArgs } from "./getComponent";
 export const getComponent: typeof import("./getComponent").getComponent = null as any;
 export const getComponentOutput: typeof import("./getComponent").getComponentOutput = null as any;
-
-utilities.lazyLoad(exports, ["Component"], () => require("./component"));
 utilities.lazyLoad(exports, ["getComponent","getComponentOutput"], () => require("./getComponent"));
+
 
 // Export enums:
 export * from "../../types/enums/insights/v20200202";

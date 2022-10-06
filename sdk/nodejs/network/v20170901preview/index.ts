@@ -7,13 +7,13 @@ import * as utilities from "../../utilities";
 // Export members:
 export { GetTrafficManagerUserMetricsKeyArgs, GetTrafficManagerUserMetricsKeyResult } from "./getTrafficManagerUserMetricsKey";
 export const getTrafficManagerUserMetricsKey: typeof import("./getTrafficManagerUserMetricsKey").getTrafficManagerUserMetricsKey = null as any;
+utilities.lazyLoad(exports, ["getTrafficManagerUserMetricsKey"], () => require("./getTrafficManagerUserMetricsKey"));
 
 export { TrafficManagerUserMetricsKeyArgs } from "./trafficManagerUserMetricsKey";
 export type TrafficManagerUserMetricsKey = import("./trafficManagerUserMetricsKey").TrafficManagerUserMetricsKey;
 export const TrafficManagerUserMetricsKey: typeof import("./trafficManagerUserMetricsKey").TrafficManagerUserMetricsKey = null as any;
-
-utilities.lazyLoad(exports, ["getTrafficManagerUserMetricsKey"], () => require("./getTrafficManagerUserMetricsKey"));
 utilities.lazyLoad(exports, ["TrafficManagerUserMetricsKey"], () => require("./trafficManagerUserMetricsKey"));
+
 
 const _module = {
     version: utilities.getVersion(),

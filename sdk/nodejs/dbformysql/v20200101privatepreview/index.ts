@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { GetServerKeyArgs, GetServerKeyResult, GetServerKeyOutputArgs } from "./getServerKey";
 export const getServerKey: typeof import("./getServerKey").getServerKey = null as any;
 export const getServerKeyOutput: typeof import("./getServerKey").getServerKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getServerKey","getServerKeyOutput"], () => require("./getServerKey"));
 
 export { ServerKeyArgs } from "./serverKey";
 export type ServerKey = import("./serverKey").ServerKey;
 export const ServerKey: typeof import("./serverKey").ServerKey = null as any;
-
-utilities.lazyLoad(exports, ["getServerKey","getServerKeyOutput"], () => require("./getServerKey"));
 utilities.lazyLoad(exports, ["ServerKey"], () => require("./serverKey"));
+
 
 // Export enums:
 export * from "../../types/enums/dbformysql/v20200101privatepreview";

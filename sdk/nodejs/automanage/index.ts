@@ -8,33 +8,33 @@ import * as utilities from "../utilities";
 export { AccountArgs } from "./account";
 export type Account = import("./account").Account;
 export const Account: typeof import("./account").Account = null as any;
+utilities.lazyLoad(exports, ["Account"], () => require("./account"));
 
 export { ConfigurationProfileAssignmentArgs } from "./configurationProfileAssignment";
 export type ConfigurationProfileAssignment = import("./configurationProfileAssignment").ConfigurationProfileAssignment;
 export const ConfigurationProfileAssignment: typeof import("./configurationProfileAssignment").ConfigurationProfileAssignment = null as any;
+utilities.lazyLoad(exports, ["ConfigurationProfileAssignment"], () => require("./configurationProfileAssignment"));
 
 export { ConfigurationProfilePreferenceArgs } from "./configurationProfilePreference";
 export type ConfigurationProfilePreference = import("./configurationProfilePreference").ConfigurationProfilePreference;
 export const ConfigurationProfilePreference: typeof import("./configurationProfilePreference").ConfigurationProfilePreference = null as any;
+utilities.lazyLoad(exports, ["ConfigurationProfilePreference"], () => require("./configurationProfilePreference"));
 
 export { GetAccountArgs, GetAccountResult, GetAccountOutputArgs } from "./getAccount";
 export const getAccount: typeof import("./getAccount").getAccount = null as any;
 export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
 
 export { GetConfigurationProfileAssignmentArgs, GetConfigurationProfileAssignmentResult, GetConfigurationProfileAssignmentOutputArgs } from "./getConfigurationProfileAssignment";
 export const getConfigurationProfileAssignment: typeof import("./getConfigurationProfileAssignment").getConfigurationProfileAssignment = null as any;
 export const getConfigurationProfileAssignmentOutput: typeof import("./getConfigurationProfileAssignment").getConfigurationProfileAssignmentOutput = null as any;
+utilities.lazyLoad(exports, ["getConfigurationProfileAssignment","getConfigurationProfileAssignmentOutput"], () => require("./getConfigurationProfileAssignment"));
 
 export { GetConfigurationProfilePreferenceArgs, GetConfigurationProfilePreferenceResult, GetConfigurationProfilePreferenceOutputArgs } from "./getConfigurationProfilePreference";
 export const getConfigurationProfilePreference: typeof import("./getConfigurationProfilePreference").getConfigurationProfilePreference = null as any;
 export const getConfigurationProfilePreferenceOutput: typeof import("./getConfigurationProfilePreference").getConfigurationProfilePreferenceOutput = null as any;
-
-utilities.lazyLoad(exports, ["Account"], () => require("./account"));
-utilities.lazyLoad(exports, ["ConfigurationProfileAssignment"], () => require("./configurationProfileAssignment"));
-utilities.lazyLoad(exports, ["ConfigurationProfilePreference"], () => require("./configurationProfilePreference"));
-utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
-utilities.lazyLoad(exports, ["getConfigurationProfileAssignment","getConfigurationProfileAssignmentOutput"], () => require("./getConfigurationProfileAssignment"));
 utilities.lazyLoad(exports, ["getConfigurationProfilePreference","getConfigurationProfilePreferenceOutput"], () => require("./getConfigurationProfilePreference"));
+
 
 // Export enums:
 export * from "../types/enums/automanage";

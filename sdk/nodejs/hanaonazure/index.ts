@@ -8,33 +8,33 @@ import * as utilities from "../utilities";
 export { GetHanaInstanceArgs, GetHanaInstanceResult, GetHanaInstanceOutputArgs } from "./getHanaInstance";
 export const getHanaInstance: typeof import("./getHanaInstance").getHanaInstance = null as any;
 export const getHanaInstanceOutput: typeof import("./getHanaInstance").getHanaInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getHanaInstance","getHanaInstanceOutput"], () => require("./getHanaInstance"));
 
 export { GetProviderInstanceArgs, GetProviderInstanceResult, GetProviderInstanceOutputArgs } from "./getProviderInstance";
 export const getProviderInstance: typeof import("./getProviderInstance").getProviderInstance = null as any;
 export const getProviderInstanceOutput: typeof import("./getProviderInstance").getProviderInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getProviderInstance","getProviderInstanceOutput"], () => require("./getProviderInstance"));
 
 export { GetSapMonitorArgs, GetSapMonitorResult, GetSapMonitorOutputArgs } from "./getSapMonitor";
 export const getSapMonitor: typeof import("./getSapMonitor").getSapMonitor = null as any;
 export const getSapMonitorOutput: typeof import("./getSapMonitor").getSapMonitorOutput = null as any;
+utilities.lazyLoad(exports, ["getSapMonitor","getSapMonitorOutput"], () => require("./getSapMonitor"));
 
 export { HanaInstanceArgs } from "./hanaInstance";
 export type HanaInstance = import("./hanaInstance").HanaInstance;
 export const HanaInstance: typeof import("./hanaInstance").HanaInstance = null as any;
+utilities.lazyLoad(exports, ["HanaInstance"], () => require("./hanaInstance"));
 
 export { ProviderInstanceArgs } from "./providerInstance";
 export type ProviderInstance = import("./providerInstance").ProviderInstance;
 export const ProviderInstance: typeof import("./providerInstance").ProviderInstance = null as any;
+utilities.lazyLoad(exports, ["ProviderInstance"], () => require("./providerInstance"));
 
 export { SapMonitorArgs } from "./sapMonitor";
 export type SapMonitor = import("./sapMonitor").SapMonitor;
 export const SapMonitor: typeof import("./sapMonitor").SapMonitor = null as any;
-
-utilities.lazyLoad(exports, ["getHanaInstance","getHanaInstanceOutput"], () => require("./getHanaInstance"));
-utilities.lazyLoad(exports, ["getProviderInstance","getProviderInstanceOutput"], () => require("./getProviderInstance"));
-utilities.lazyLoad(exports, ["getSapMonitor","getSapMonitorOutput"], () => require("./getSapMonitor"));
-utilities.lazyLoad(exports, ["HanaInstance"], () => require("./hanaInstance"));
-utilities.lazyLoad(exports, ["ProviderInstance"], () => require("./providerInstance"));
 utilities.lazyLoad(exports, ["SapMonitor"], () => require("./sapMonitor"));
+
 
 // Export sub-modules:
 import * as v20171103preview from "./v20171103preview";

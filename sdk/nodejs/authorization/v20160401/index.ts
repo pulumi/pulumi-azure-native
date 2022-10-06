@@ -8,23 +8,23 @@ import * as utilities from "../../utilities";
 export { GetPolicyAssignmentArgs, GetPolicyAssignmentResult, GetPolicyAssignmentOutputArgs } from "./getPolicyAssignment";
 export const getPolicyAssignment: typeof import("./getPolicyAssignment").getPolicyAssignment = null as any;
 export const getPolicyAssignmentOutput: typeof import("./getPolicyAssignment").getPolicyAssignmentOutput = null as any;
+utilities.lazyLoad(exports, ["getPolicyAssignment","getPolicyAssignmentOutput"], () => require("./getPolicyAssignment"));
 
 export { GetPolicyDefinitionArgs, GetPolicyDefinitionResult, GetPolicyDefinitionOutputArgs } from "./getPolicyDefinition";
 export const getPolicyDefinition: typeof import("./getPolicyDefinition").getPolicyDefinition = null as any;
 export const getPolicyDefinitionOutput: typeof import("./getPolicyDefinition").getPolicyDefinitionOutput = null as any;
+utilities.lazyLoad(exports, ["getPolicyDefinition","getPolicyDefinitionOutput"], () => require("./getPolicyDefinition"));
 
 export { PolicyAssignmentArgs } from "./policyAssignment";
 export type PolicyAssignment = import("./policyAssignment").PolicyAssignment;
 export const PolicyAssignment: typeof import("./policyAssignment").PolicyAssignment = null as any;
+utilities.lazyLoad(exports, ["PolicyAssignment"], () => require("./policyAssignment"));
 
 export { PolicyDefinitionArgs } from "./policyDefinition";
 export type PolicyDefinition = import("./policyDefinition").PolicyDefinition;
 export const PolicyDefinition: typeof import("./policyDefinition").PolicyDefinition = null as any;
-
-utilities.lazyLoad(exports, ["getPolicyAssignment","getPolicyAssignmentOutput"], () => require("./getPolicyAssignment"));
-utilities.lazyLoad(exports, ["getPolicyDefinition","getPolicyDefinitionOutput"], () => require("./getPolicyDefinition"));
-utilities.lazyLoad(exports, ["PolicyAssignment"], () => require("./policyAssignment"));
 utilities.lazyLoad(exports, ["PolicyDefinition"], () => require("./policyDefinition"));
+
 
 // Export enums:
 export * from "../../types/enums/authorization/v20160401";

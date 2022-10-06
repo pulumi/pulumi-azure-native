@@ -7,5 +7,5 @@ import * as utilities from "../../utilities";
 export { GetRecoveryPointAccessTokenArgs, GetRecoveryPointAccessTokenResult, GetRecoveryPointAccessTokenOutputArgs } from "./getRecoveryPointAccessToken";
 export const getRecoveryPointAccessToken: typeof import("./getRecoveryPointAccessToken").getRecoveryPointAccessToken = null as any;
 export const getRecoveryPointAccessTokenOutput: typeof import("./getRecoveryPointAccessToken").getRecoveryPointAccessTokenOutput = null as any;
-
 utilities.lazyLoad(exports, ["getRecoveryPointAccessToken","getRecoveryPointAccessTokenOutput"], () => require("./getRecoveryPointAccessToken"));
+

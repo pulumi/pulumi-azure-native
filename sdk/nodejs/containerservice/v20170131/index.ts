@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { ContainerServiceArgs } from "./containerService";
 export type ContainerService = import("./containerService").ContainerService;
 export const ContainerService: typeof import("./containerService").ContainerService = null as any;
+utilities.lazyLoad(exports, ["ContainerService"], () => require("./containerService"));
 
 export { GetContainerServiceArgs, GetContainerServiceResult, GetContainerServiceOutputArgs } from "./getContainerService";
 export const getContainerService: typeof import("./getContainerService").getContainerService = null as any;
 export const getContainerServiceOutput: typeof import("./getContainerService").getContainerServiceOutput = null as any;
-
-utilities.lazyLoad(exports, ["ContainerService"], () => require("./containerService"));
 utilities.lazyLoad(exports, ["getContainerService","getContainerServiceOutput"], () => require("./getContainerService"));
+
 
 // Export enums:
 export * from "../../types/enums/containerservice/v20170131";
