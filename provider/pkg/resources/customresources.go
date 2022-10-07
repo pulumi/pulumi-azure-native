@@ -4,6 +4,7 @@ package resources
 
 import (
 	"context"
+
 	"github.com/Azure/azure-sdk-for-go/services/keyvault/2016-10-01/keyvault"
 	"github.com/Azure/azure-sdk-for-go/services/storage/mgmt/2019-04-01/storage"
 	"github.com/Azure/go-autorest/autorest"
@@ -36,11 +37,15 @@ type CustomResource struct {
 }
 
 // BuildCustomResources creates a map of custom resources for given environment parameters.
-func BuildCustomResources(env *azure.Environment, subscriptionID string, bearerAuth autorest.Authorizer,
-	tokenAuth autorest.Authorizer, userAgent string) map[string]*CustomResource {
+func BuildCustomResources(env *azure.Environment,
+	subscriptionID string,
+	bearerAuth autorest.Authorizer,
+	tokenAuth autorest.Authorizer,
+	kvBearerAuth autorest.Authorizer,
+	userAgent string) map[string]*CustomResource {
 
 	kvClient := keyvault.New()
-	kvClient.Authorizer = bearerAuth
+	kvClient.Authorizer = kvBearerAuth
 	kvClient.UserAgent = userAgent
 
 	storageAccountsClient := storage.NewAccountsClientWithBaseURI(env.ResourceManagerEndpoint, subscriptionID)
@@ -64,7 +69,7 @@ func BuildCustomResources(env *azure.Environment, subscriptionID string, bearerA
 }
 
 // featureLookup is a map of custom resource to lookup their capabilities.
-var featureLookup = BuildCustomResources(&azure.Environment{}, "", nil, nil, "")
+var featureLookup = BuildCustomResources(&azure.Environment{}, "", nil, nil, nil, "")
 
 // HasCustomDelete returns true if a custom DELETE operation is defined for a given API path.
 func HasCustomDelete(path string) bool {
