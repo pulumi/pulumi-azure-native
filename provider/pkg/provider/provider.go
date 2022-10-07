@@ -17,6 +17,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/manicminer/hamilton/environments"
 	"github.com/segmentio/encoding/json"
 
 	structpb "github.com/golang/protobuf/ptypes/struct"
@@ -176,19 +177,39 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	}
 	k.environment = env
 
+	env2 := k.autorestEnvToHamiltonEnv()
+
 	// The ctx Context given by gRPC is request-scoped and will be canceled after this request. We
 	// need the authorizers to function across requests.
 	authCtx := context.Background()
-	tokenAuth, bearerAuth, err := k.getAuthorizers(authCtx, authConfig)
+
+	tokenAuth, bearerAuth, err := k.makeAuthorizerFactories(authCtx, authConfig)
 	if err != nil {
-		return nil, errors.Wrap(err, "building authorizer")
+		return nil, fmt.Errorf("auth setup: %w", err)
+	}
+
+	resourceManagerAuth, err := tokenAuth(env2.ResourceManager)
+	if err != nil {
+		return nil, fmt.Errorf("building authorizer for %s: %w", env2.ResourceManager.Endpoint, err)
+	}
+
+	resourceManagerBearerAuth, err := bearerAuth(env2.ResourceManager)
+	if err != nil {
+		return nil, fmt.Errorf("building bearer authorizer for %s: %w", env2.ResourceManager.Endpoint, err)
+	}
+
+	keyVaultBearerAuth, err := tokenAuth(env2.KeyVault)
+	if err != nil {
+		return nil, fmt.Errorf("building authorizer for %s: %w", env2.KeyVault.Endpoint, err)
 	}
 
 	k.subscriptionID = authConfig.SubscriptionID
-	k.client.Authorizer = tokenAuth
+	k.client.Authorizer = resourceManagerAuth
 	k.client.UserAgent = k.getUserAgent()
 
-	k.customResources = resources.BuildCustomResources(&env, k.subscriptionID, bearerAuth, tokenAuth, k.client.UserAgent)
+	k.customResources = resources.BuildCustomResources(&env, k.subscriptionID,
+		resourceManagerBearerAuth, resourceManagerAuth, keyVaultBearerAuth,
+		k.client.UserAgent)
 
 	return &rpc.ConfigureResponse{
 		SupportsPreview: true,
@@ -1811,4 +1832,15 @@ func parseCheckpointObject(obj resource.PropertyMap) resource.PropertyMap {
 	}
 
 	return nil
+}
+
+func (k *azureNativeProvider) autorestEnvToHamiltonEnv() environments.Environment {
+	switch k.environment.Name {
+	case azure.USGovernmentCloud.Name:
+		return environments.USGovernmentL4
+	case azure.ChinaCloud.Name:
+		return environments.China
+	default:
+		return environments.Global
+	}
 }

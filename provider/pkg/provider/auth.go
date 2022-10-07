@@ -11,7 +11,6 @@ import (
 	"strings"
 
 	"github.com/Azure/go-autorest/autorest"
-	"github.com/Azure/go-autorest/autorest/azure"
 	"github.com/hashicorp/go-azure-helpers/authentication"
 	"github.com/hashicorp/go-azure-helpers/sender"
 	"github.com/manicminer/hamilton/environments"
@@ -139,8 +138,11 @@ func runAzCmd(target interface{}, arg ...string) error {
 	return nil
 }
 
-func (k *azureNativeProvider) getAuthorizers(ctx context.Context, authConfig *authentication.Config) (tokenAuth autorest.Authorizer,
-	bearerAuth autorest.Authorizer, err error) {
+type AuthorizerFactory func(api environments.Api) (autorest.Authorizer, error)
+
+func (k *azureNativeProvider) makeAuthorizerFactories(ctx context.Context,
+	authConfig *authentication.Config) (AuthorizerFactory, AuthorizerFactory, error) {
+
 	buildSender := sender.BuildSender("AzureNative")
 
 	oauthConfig, err := k.buildOAuthConfig(authConfig)
@@ -148,17 +150,17 @@ func (k *azureNativeProvider) getAuthorizers(ctx context.Context, authConfig *au
 		return nil, nil, err
 	}
 
-	api := k.autorestEnvToHamiltonEnv().ResourceManager
-
 	endpoint := k.environment.TokenAudience
 
-	tokenAuth, err = authConfig.GetMSALToken(ctx, api, buildSender, oauthConfig, endpoint)
-	if err != nil {
-		return nil, nil, err
+	tokenFactory := func(api environments.Api) (autorest.Authorizer, error) {
+		return authConfig.GetMSALToken(ctx, api, buildSender, oauthConfig, endpoint)
 	}
 
-	bearerAuth = authConfig.MSALBearerAuthorizerCallback(ctx, api, buildSender, oauthConfig, endpoint)
-	return tokenAuth, bearerAuth, nil
+	bearerAuthFactory := func(api environments.Api) (autorest.Authorizer, error) {
+		return authConfig.MSALBearerAuthorizerCallback(ctx, api, buildSender, oauthConfig, endpoint), nil
+	}
+
+	return tokenFactory, bearerAuthFactory, nil
 }
 
 func (k *azureNativeProvider) getOAuthToken(ctx context.Context, auth *authentication.Config, endpoint string) (string, error) {
@@ -207,15 +209,4 @@ func (k *azureNativeProvider) buildOAuthConfig(authConfig *authentication.Config
 		return nil, fmt.Errorf("unable to configure OAuthConfig for tenant %s", authConfig.TenantID)
 	}
 	return oauthConfig, nil
-}
-
-func (k *azureNativeProvider) autorestEnvToHamiltonEnv() environments.Environment {
-	switch k.environment.Name {
-	case azure.USGovernmentCloud.Name:
-		return environments.USGovernmentL4
-	case azure.ChinaCloud.Name:
-		return environments.China
-	default:
-		return environments.Global
-	}
 }
