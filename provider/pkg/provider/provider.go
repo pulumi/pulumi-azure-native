@@ -175,7 +175,7 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	}
 	k.environment = env
 
-	env2 := k.autorestEnvToHamiltonEnv()
+	hamiltonEnv := k.autorestEnvToHamiltonEnv()
 
 	// The ctx Context given by gRPC is request-scoped and will be canceled after this request. We
 	// need the authorizers to function across requests.
@@ -186,19 +186,19 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 		return nil, fmt.Errorf("auth setup: %w", err)
 	}
 
-	resourceManagerAuth, err := tokenAuth(env2.ResourceManager)
+	resourceManagerAuth, err := tokenAuth(hamiltonEnv.ResourceManager)
 	if err != nil {
-		return nil, fmt.Errorf("building authorizer for %s: %w", env2.ResourceManager.Endpoint, err)
+		return nil, fmt.Errorf("building authorizer for %s: %w", hamiltonEnv.ResourceManager.Endpoint, err)
 	}
 
-	resourceManagerBearerAuth, err := bearerAuth(env2.ResourceManager)
+	resourceManagerBearerAuth, err := bearerAuth(hamiltonEnv.ResourceManager)
 	if err != nil {
-		return nil, fmt.Errorf("building bearer authorizer for %s: %w", env2.ResourceManager.Endpoint, err)
+		return nil, fmt.Errorf("building bearer authorizer for %s: %w", hamiltonEnv.ResourceManager.Endpoint, err)
 	}
 
-	keyVaultBearerAuth, err := tokenAuth(env2.KeyVault)
+	keyVaultBearerAuth, err := tokenAuth(hamiltonEnv.KeyVault)
 	if err != nil {
-		return nil, fmt.Errorf("building authorizer for %s: %w", env2.KeyVault.Endpoint, err)
+		return nil, fmt.Errorf("building authorizer for %s: %w", hamiltonEnv.KeyVault.Endpoint, err)
 	}
 
 	k.subscriptionID = authConfig.SubscriptionID
