@@ -1167,8 +1167,8 @@ github.com/mailru/easyjson v0.7.6/go.mod h1:xzfreul335JAWq5oZzymOObrkdz5UnU4kGfJ
 github.com/mailru/easyjson v0.7.7 h1:UGYAvKxe3sBsEDzO8ZeWOSlIQfWFlxbzLZe7hwFURr0=
 github.com/mailru/easyjson v0.7.7/go.mod h1:xzfreul335JAWq5oZzymOObrkdz5UnU4kGfJJLY9Nlc=
 github.com/manicminer/hamilton v0.43.0/go.mod h1:lbVyngC+/nCWuDp8UhC6Bw+bh7jcP/E+YwqzHTmzemk=
-github.com/manicminer/hamilton v0.44.0 h1:mLb4Vxbt2dsAvOpaB7xd/5D8LaTTX6ACwVP4TmW8qwE=
-github.com/manicminer/hamilton v0.44.0/go.mod h1:lbVyngC+/nCWuDp8UhC6Bw+bh7jcP/E+YwqzHTmzemk=
+github.com/manicminer/hamilton v0.50.0 h1:EPne7iH6zbXUPPjP/XZvqXzmqkt1WyF5X1A21uosPM4=
+github.com/manicminer/hamilton v0.50.0/go.mod h1:lbVyngC+/nCWuDp8UhC6Bw+bh7jcP/E+YwqzHTmzemk=
 github.com/manicminer/hamilton-autorest v0.2.0 h1:dDL+t2DrQza0EfNYINYCvXISeNwVqzgVAQh+CH/19ZU=
 github.com/manicminer/hamilton-autorest v0.2.0/go.mod h1:NselDpNTImEmOc/fa41kPg6YhDt/6S95ejWbTGZ6tlg=
 github.com/markbates/oncer v0.0.0-20181203154359-bf2de49a0be2/go.mod h1:Ld9puTsIW75CHf65OeIOkyKbteujpZVXDpWK6YGZbxE=

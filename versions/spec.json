@@ -12462,13 +12462,6 @@
       "SharedPrivateLinkResource",
       "listAdminKey",
       "listQueryKeyBySearchService"
-    ],
-    "2022-09-01": [
-      "PrivateEndpointConnection",
-      "Service",
-      "SharedPrivateLinkResource",
-      "listAdminKey",
-      "listQueryKeyBySearchService"
     ]
   },
   "Security": {

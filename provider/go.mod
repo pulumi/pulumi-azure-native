@@ -11,6 +11,9 @@ require (
 	github.com/go-openapi/jsonreference v0.19.6
 	github.com/go-openapi/spec v0.20.4
 	github.com/go-openapi/swag v0.21.1
+	github.com/golang/protobuf v1.5.2
+	github.com/google/uuid v1.3.0
+	github.com/hashicorp/go-azure-helpers v0.40.0
 	github.com/hashicorp/go-multierror v1.1.1
 	github.com/hashicorp/hcl/v2 v2.15.0
 	github.com/olekukonko/tablewriter v0.0.5
@@ -25,16 +28,10 @@ require (
 	github.com/stretchr/testify v1.8.1
 	github.com/tombuildsstuff/giovanni v0.15.1
 	github.com/zclconf/go-cty v1.12.1
-	gopkg.in/yaml.v3 v3.0.1
-	modernc.org/sqlite v1.10.0
-)
-
-require (
-	github.com/golang/protobuf v1.5.2
-	github.com/google/uuid v1.3.0
-	github.com/hashicorp/go-azure-helpers v0.40.0
 	google.golang.org/grpc v1.51.0
 	google.golang.org/protobuf v1.28.1
+	gopkg.in/yaml.v3 v3.0.1
+	modernc.org/sqlite v1.10.0
 )
 
 require (
@@ -157,7 +154,7 @@ require (
 	github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51 // indirect
 	github.com/kevinburke/ssh_config v1.1.0 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
-	github.com/manicminer/hamilton v0.44.0
+	github.com/manicminer/hamilton v0.50.0
 	github.com/manicminer/hamilton-autorest v0.2.0
 	github.com/mattn/go-colorable v0.1.12 // indirect
 	github.com/mattn/go-isatty v0.0.14 // indirect
@@ -228,3 +225,6 @@ require (
 	modernc.org/token v1.0.0 // indirect
 	sourcegraph.com/sourcegraph/appdash v0.0.0-20211028080628-e2786a622600 // indirect
 )
+
+// replace github.com/hashicorp/go-azure-helpers => /Users/tkappler/pulumi/go-azure-helpers
+// replace github.com/manicminer/hamilton => /Users/tkappler/pulumi/hamilton
