@@ -2,6 +2,14 @@
 
 ## HEAD (Unreleased)
 
+## 1.81.0 (2022-10-13)
+
+- Upgrade to latest version of Azure Rest API Specs.
+  - New resources:
+    - azure-native:securitydevops:AzureDevOpsConnector
+    - azure-native:securitydevops:GitHubConnector
+    - azure-native:syntex:DocumentProcessor
+
 ## 1.80.0 (2022-10-04)
 
 - Upgrade to latest version of Azure Rest API Specs.
