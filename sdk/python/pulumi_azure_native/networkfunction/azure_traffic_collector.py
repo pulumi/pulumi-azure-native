@@ -176,7 +176,7 @@ class AzureTrafficCollector(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_hub"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkfunction/v20210901preview:AzureTrafficCollector"), pulumi.Alias(type_="azure-native:networkfunction/v20220501:AzureTrafficCollector"), pulumi.Alias(type_="azure-native:networkfunction/v20220801:AzureTrafficCollector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkfunction/v20210901preview:AzureTrafficCollector"), pulumi.Alias(type_="azure-native:networkfunction/v20220501:AzureTrafficCollector"), pulumi.Alias(type_="azure-native:networkfunction/v20220801:AzureTrafficCollector"), pulumi.Alias(type_="azure-native:networkfunction/v20221101:AzureTrafficCollector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AzureTrafficCollector, __self__).__init__(
             'azure-native:networkfunction:AzureTrafficCollector',

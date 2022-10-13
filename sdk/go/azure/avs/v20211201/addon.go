@@ -45,6 +45,9 @@ func NewAddon(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:avs/v20210601:Addon"),
 		},
+		{
+			Type: pulumi.String("azure-native:avs/v20220501:Addon"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Addon

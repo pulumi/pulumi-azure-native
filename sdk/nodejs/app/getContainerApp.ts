@@ -77,7 +77,7 @@ export interface GetContainerAppResult {
     /**
      * Outbound IP Addresses for container app.
      */
-    readonly outboundIPAddresses: string[];
+    readonly outboundIpAddresses: string[];
     /**
      * Provisioning state of the Container App.
      */

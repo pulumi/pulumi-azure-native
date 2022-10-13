@@ -325,6 +325,8 @@ if typing.TYPE_CHECKING:
     security = __security
     import pulumi_azure_native.securityandcompliance as __securityandcompliance
     securityandcompliance = __securityandcompliance
+    import pulumi_azure_native.securitydevops as __securitydevops
+    securitydevops = __securitydevops
     import pulumi_azure_native.securityinsights as __securityinsights
     securityinsights = __securityinsights
     import pulumi_azure_native.serialconsole as __serialconsole
@@ -365,6 +367,8 @@ if typing.TYPE_CHECKING:
     subscription = __subscription
     import pulumi_azure_native.synapse as __synapse
     synapse = __synapse
+    import pulumi_azure_native.syntex as __syntex
+    syntex = __syntex
     import pulumi_azure_native.testbase as __testbase
     testbase = __testbase
     import pulumi_azure_native.timeseriesinsights as __timeseriesinsights
@@ -548,6 +552,7 @@ else:
     search = _utilities.lazy_import('pulumi_azure_native.search')
     security = _utilities.lazy_import('pulumi_azure_native.security')
     securityandcompliance = _utilities.lazy_import('pulumi_azure_native.securityandcompliance')
+    securitydevops = _utilities.lazy_import('pulumi_azure_native.securitydevops')
     securityinsights = _utilities.lazy_import('pulumi_azure_native.securityinsights')
     serialconsole = _utilities.lazy_import('pulumi_azure_native.serialconsole')
     servicebus = _utilities.lazy_import('pulumi_azure_native.servicebus')
@@ -568,6 +573,7 @@ else:
     streamanalytics = _utilities.lazy_import('pulumi_azure_native.streamanalytics')
     subscription = _utilities.lazy_import('pulumi_azure_native.subscription')
     synapse = _utilities.lazy_import('pulumi_azure_native.synapse')
+    syntex = _utilities.lazy_import('pulumi_azure_native.syntex')
     testbase = _utilities.lazy_import('pulumi_azure_native.testbase')
     timeseriesinsights = _utilities.lazy_import('pulumi_azure_native.timeseriesinsights')
     videoanalyzer = _utilities.lazy_import('pulumi_azure_native.videoanalyzer')
@@ -2277,6 +2283,22 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "authorization/v20220601",
+  "fqn": "pulumi_azure_native.authorization.v20220601",
+  "classes": {
+   "azure-native:authorization/v20220601:PolicyAssignment": "PolicyAssignment"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "authorization/v20220701preview",
+  "fqn": "pulumi_azure_native.authorization.v20220701preview",
+  "classes": {
+   "azure-native:authorization/v20220701preview:PolicyExemption": "PolicyExemption"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "authorization/v20220801preview",
   "fqn": "pulumi_azure_native.authorization.v20220801preview",
   "classes": {
@@ -2645,6 +2667,30 @@ _utilities.register(
    "azure-native:avs/v20211201:WorkloadNetworkPublicIP": "WorkloadNetworkPublicIP",
    "azure-native:avs/v20211201:WorkloadNetworkSegment": "WorkloadNetworkSegment",
    "azure-native:avs/v20211201:WorkloadNetworkVMGroup": "WorkloadNetworkVMGroup"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "avs/v20220501",
+  "fqn": "pulumi_azure_native.avs.v20220501",
+  "classes": {
+   "azure-native:avs/v20220501:Addon": "Addon",
+   "azure-native:avs/v20220501:Authorization": "Authorization",
+   "azure-native:avs/v20220501:CloudLink": "CloudLink",
+   "azure-native:avs/v20220501:Cluster": "Cluster",
+   "azure-native:avs/v20220501:Datastore": "Datastore",
+   "azure-native:avs/v20220501:GlobalReachConnection": "GlobalReachConnection",
+   "azure-native:avs/v20220501:HcxEnterpriseSite": "HcxEnterpriseSite",
+   "azure-native:avs/v20220501:PlacementPolicy": "PlacementPolicy",
+   "azure-native:avs/v20220501:PrivateCloud": "PrivateCloud",
+   "azure-native:avs/v20220501:ScriptExecution": "ScriptExecution",
+   "azure-native:avs/v20220501:WorkloadNetworkDhcp": "WorkloadNetworkDhcp",
+   "azure-native:avs/v20220501:WorkloadNetworkDnsService": "WorkloadNetworkDnsService",
+   "azure-native:avs/v20220501:WorkloadNetworkDnsZone": "WorkloadNetworkDnsZone",
+   "azure-native:avs/v20220501:WorkloadNetworkPortMirroring": "WorkloadNetworkPortMirroring",
+   "azure-native:avs/v20220501:WorkloadNetworkPublicIP": "WorkloadNetworkPublicIP",
+   "azure-native:avs/v20220501:WorkloadNetworkSegment": "WorkloadNetworkSegment",
+   "azure-native:avs/v20220501:WorkloadNetworkVMGroup": "WorkloadNetworkVMGroup"
   }
  },
  {
@@ -10360,6 +10406,17 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "hybridcompute/v20220811preview",
+  "fqn": "pulumi_azure_native.hybridcompute.v20220811preview",
+  "classes": {
+   "azure-native:hybridcompute/v20220811preview:Machine": "Machine",
+   "azure-native:hybridcompute/v20220811preview:MachineExtension": "MachineExtension",
+   "azure-native:hybridcompute/v20220811preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:hybridcompute/v20220811preview:PrivateLinkScope": "PrivateLinkScope"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "hybridconnectivity",
   "fqn": "pulumi_azure_native.hybridconnectivity",
   "classes": {
@@ -12693,6 +12750,15 @@ _utilities.register(
   "classes": {
    "azure-native:marketplace/v20220301:PrivateStoreCollection": "PrivateStoreCollection",
    "azure-native:marketplace/v20220301:PrivateStoreCollectionOffer": "PrivateStoreCollectionOffer"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "marketplace/v20220901",
+  "fqn": "pulumi_azure_native.marketplace.v20220901",
+  "classes": {
+   "azure-native:marketplace/v20220901:PrivateStoreCollection": "PrivateStoreCollection",
+   "azure-native:marketplace/v20220901:PrivateStoreCollectionOffer": "PrivateStoreCollectionOffer"
   }
  },
  {
@@ -16145,6 +16211,15 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "networkfunction/v20221101",
+  "fqn": "pulumi_azure_native.networkfunction.v20221101",
+  "classes": {
+   "azure-native:networkfunction/v20221101:AzureTrafficCollector": "AzureTrafficCollector",
+   "azure-native:networkfunction/v20221101:CollectorPolicy": "CollectorPolicy"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "notificationhubs",
   "fqn": "pulumi_azure_native.notificationhubs",
   "classes": {
@@ -17479,7 +17554,8 @@ _utilities.register(
    "azure-native:recoveryservices/v20220910:ReplicationRecoveryPlan": "ReplicationRecoveryPlan",
    "azure-native:recoveryservices/v20220910:ReplicationRecoveryServicesProvider": "ReplicationRecoveryServicesProvider",
    "azure-native:recoveryservices/v20220910:ReplicationStorageClassificationMapping": "ReplicationStorageClassificationMapping",
-   "azure-native:recoveryservices/v20220910:ReplicationvCenter": "ReplicationvCenter"
+   "azure-native:recoveryservices/v20220910:ReplicationvCenter": "ReplicationvCenter",
+   "azure-native:recoveryservices/v20220910:Vault": "Vault"
   }
  },
  {
@@ -18303,6 +18379,24 @@ _utilities.register(
    "azure-native:securityandcompliance/v20210308:privateLinkServicesForMIPPolicySync": "PrivateLinkServicesForMIPPolicySync",
    "azure-native:securityandcompliance/v20210308:privateLinkServicesForO365ManagementActivityAPI": "PrivateLinkServicesForO365ManagementActivityAPI",
    "azure-native:securityandcompliance/v20210308:privateLinkServicesForSCCPowershell": "PrivateLinkServicesForSCCPowershell"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "securitydevops",
+  "fqn": "pulumi_azure_native.securitydevops",
+  "classes": {
+   "azure-native:securitydevops:AzureDevOpsConnector": "AzureDevOpsConnector",
+   "azure-native:securitydevops:GitHubConnector": "GitHubConnector"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "securitydevops/v20220901preview",
+  "fqn": "pulumi_azure_native.securitydevops.v20220901preview",
+  "classes": {
+   "azure-native:securitydevops/v20220901preview:AzureDevOpsConnector": "AzureDevOpsConnector",
+   "azure-native:securitydevops/v20220901preview:GitHubConnector": "GitHubConnector"
   }
  },
  {
@@ -21694,6 +21788,22 @@ _utilities.register(
    "azure-native:synapse/v20210601preview:WorkspaceAadAdmin": "WorkspaceAadAdmin",
    "azure-native:synapse/v20210601preview:WorkspaceManagedSqlServerVulnerabilityAssessment": "WorkspaceManagedSqlServerVulnerabilityAssessment",
    "azure-native:synapse/v20210601preview:WorkspaceSqlAadAdmin": "WorkspaceSqlAadAdmin"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "syntex",
+  "fqn": "pulumi_azure_native.syntex",
+  "classes": {
+   "azure-native:syntex:DocumentProcessor": "DocumentProcessor"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "syntex/v20220915preview",
+  "fqn": "pulumi_azure_native.syntex.v20220915preview",
+  "classes": {
+   "azure-native:syntex/v20220915preview:DocumentProcessor": "DocumentProcessor"
   }
  },
  {

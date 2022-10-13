@@ -981,6 +981,8 @@ class ConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RegistryCredentialsArgs']]] registries: Collection of private container registry credentials for containers used by the Container app
         :param pulumi.Input[Sequence[pulumi.Input['SecretArgs']]] secrets: Collection of secrets used by a Container app
         """
+        if active_revisions_mode is None:
+            active_revisions_mode = 'Single'
         if active_revisions_mode is not None:
             pulumi.set(__self__, "active_revisions_mode", active_revisions_mode)
         if dapr is not None:
@@ -1828,8 +1830,12 @@ class DaprArgs:
             pulumi.set(__self__, "app_id", app_id)
         if app_port is not None:
             pulumi.set(__self__, "app_port", app_port)
+        if app_protocol is None:
+            app_protocol = 'http'
         if app_protocol is not None:
             pulumi.set(__self__, "app_protocol", app_protocol)
+        if enabled is None:
+            enabled = False
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
@@ -2706,6 +2712,8 @@ class IngressArgs:
         :param pulumi.Input[Sequence[pulumi.Input['TrafficWeightArgs']]] traffic: Traffic weights for app's revisions
         :param pulumi.Input[Union[str, 'IngressTransportMethod']] transport: Ingress transport protocol
         """
+        if allow_insecure is None:
+            allow_insecure = False
         if allow_insecure is not None:
             pulumi.set(__self__, "allow_insecure", allow_insecure)
         if custom_domains is not None:
@@ -2718,6 +2726,8 @@ class IngressArgs:
             pulumi.set(__self__, "target_port", target_port)
         if traffic is not None:
             pulumi.set(__self__, "traffic", traffic)
+        if transport is None:
+            transport = 'auto'
         if transport is not None:
             pulumi.set(__self__, "transport", transport)
 

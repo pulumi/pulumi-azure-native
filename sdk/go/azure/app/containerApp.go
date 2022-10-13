@@ -22,7 +22,7 @@ type ContainerApp struct {
 	Location                   pulumi.StringOutput                     `pulumi:"location"`
 	ManagedEnvironmentId       pulumi.StringPtrOutput                  `pulumi:"managedEnvironmentId"`
 	Name                       pulumi.StringOutput                     `pulumi:"name"`
-	OutboundIPAddresses        pulumi.StringArrayOutput                `pulumi:"outboundIPAddresses"`
+	OutboundIpAddresses        pulumi.StringArrayOutput                `pulumi:"outboundIpAddresses"`
 	ProvisioningState          pulumi.StringOutput                     `pulumi:"provisioningState"`
 	SystemData                 SystemDataResponseOutput                `pulumi:"systemData"`
 	Tags                       pulumi.StringMapOutput                  `pulumi:"tags"`
@@ -178,8 +178,8 @@ func (o ContainerAppOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerApp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o ContainerAppOutput) OutboundIPAddresses() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ContainerApp) pulumi.StringArrayOutput { return v.OutboundIPAddresses }).(pulumi.StringArrayOutput)
+func (o ContainerAppOutput) OutboundIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ContainerApp) pulumi.StringArrayOutput { return v.OutboundIpAddresses }).(pulumi.StringArrayOutput)
 }
 
 func (o ContainerAppOutput) ProvisioningState() pulumi.StringOutput {

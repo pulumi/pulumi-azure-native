@@ -142,7 +142,7 @@ class GetContainerAppResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="outboundIPAddresses")
+    @pulumi.getter(name="outboundIpAddresses")
     def outbound_ip_addresses(self) -> Sequence[str]:
         """
         Outbound IP Addresses for container app.

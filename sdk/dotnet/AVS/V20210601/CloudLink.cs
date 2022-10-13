@@ -66,6 +66,7 @@ namespace Pulumi.AzureNative.AVS.V20210601
                 {
                     new global::Pulumi.Alias { Type = "azure-native:avs:CloudLink"},
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:CloudLink"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20220501:CloudLink"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

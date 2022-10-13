@@ -55,6 +55,11 @@ export const getReplicationvCenter: typeof import("./getReplicationvCenter").get
 export const getReplicationvCenterOutput: typeof import("./getReplicationvCenter").getReplicationvCenterOutput = null as any;
 utilities.lazyLoad(exports, ["getReplicationvCenter","getReplicationvCenterOutput"], () => require("./getReplicationvCenter"));
 
+export { GetVaultArgs, GetVaultResult, GetVaultOutputArgs } from "./getVault";
+export const getVault: typeof import("./getVault").getVault = null as any;
+export const getVaultOutput: typeof import("./getVault").getVaultOutput = null as any;
+utilities.lazyLoad(exports, ["getVault","getVaultOutput"], () => require("./getVault"));
+
 export { ReplicationFabricArgs } from "./replicationFabric";
 export type ReplicationFabric = import("./replicationFabric").ReplicationFabric;
 export const ReplicationFabric: typeof import("./replicationFabric").ReplicationFabric = null as any;
@@ -105,6 +110,11 @@ export type ReplicationvCenter = import("./replicationvCenter").ReplicationvCent
 export const ReplicationvCenter: typeof import("./replicationvCenter").ReplicationvCenter = null as any;
 utilities.lazyLoad(exports, ["ReplicationvCenter"], () => require("./replicationvCenter"));
 
+export { VaultArgs } from "./vault";
+export type Vault = import("./vault").Vault;
+export const Vault: typeof import("./vault").Vault = null as any;
+utilities.lazyLoad(exports, ["Vault"], () => require("./vault"));
+
 
 // Export enums:
 export * from "../../types/enums/recoveryservices/v20220910";
@@ -133,6 +143,8 @@ const _module = {
                 return new ReplicationStorageClassificationMapping(name, <any>undefined, { urn })
             case "azure-native:recoveryservices/v20220910:ReplicationvCenter":
                 return new ReplicationvCenter(name, <any>undefined, { urn })
+            case "azure-native:recoveryservices/v20220910:Vault":
+                return new Vault(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

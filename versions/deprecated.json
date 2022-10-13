@@ -548,6 +548,7 @@
     "2015-06-01-preview"
   ],
   "SecurityAndCompliance": [],
+  "SecurityDevOps": [],
   "SecurityInsights": [],
   "SerialConsole": [],
   "ServiceBus": [
@@ -630,6 +631,7 @@
     "2020-04-01-preview",
     "2020-12-01"
   ],
+  "Syntex": [],
   "TestBase": [
     "2020-12-16-preview"
   ],

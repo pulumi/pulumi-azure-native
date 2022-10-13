@@ -16,7 +16,7 @@ func LookupConnectedEnvironmentsDaprComponent(ctx *pulumi.Context, args *LookupC
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupConnectedEnvironmentsDaprComponentArgs struct {
@@ -39,6 +39,19 @@ type LookupConnectedEnvironmentsDaprComponentResult struct {
 	SystemData           SystemDataResponse     `pulumi:"systemData"`
 	Type                 string                 `pulumi:"type"`
 	Version              *string                `pulumi:"version"`
+}
+
+
+func (val *LookupConnectedEnvironmentsDaprComponentResult) Defaults() *LookupConnectedEnvironmentsDaprComponentResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IgnoreErrors) {
+		ignoreErrors_ := false
+		tmp.IgnoreErrors = &ignoreErrors_
+	}
+	return &tmp
 }
 
 func LookupConnectedEnvironmentsDaprComponentOutput(ctx *pulumi.Context, args LookupConnectedEnvironmentsDaprComponentOutputArgs, opts ...pulumi.InvokeOption) LookupConnectedEnvironmentsDaprComponentResultOutput {

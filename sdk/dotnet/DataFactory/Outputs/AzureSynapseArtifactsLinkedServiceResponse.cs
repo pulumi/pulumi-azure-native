@@ -45,6 +45,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// Expected value is 'AzureSynapseArtifacts'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The resource ID of the Synapse workspace. The format should be: /subscriptions/{subscriptionID}/resourceGroups/{resourceGroup}/providers/Microsoft.Synapse/workspaces/{workspaceName}. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? WorkspaceResourceId;
 
         [OutputConstructor]
         private AzureSynapseArtifactsLinkedServiceResponse(
@@ -60,7 +64,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            string type)
+            string type,
+
+            object? workspaceResourceId)
         {
             Annotations = annotations;
             Authentication = authentication;
@@ -69,6 +75,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             Endpoint = endpoint;
             Parameters = parameters;
             Type = type;
+            WorkspaceResourceId = workspaceResourceId;
         }
     }
 }

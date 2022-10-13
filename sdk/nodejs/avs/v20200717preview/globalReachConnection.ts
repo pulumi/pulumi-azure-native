@@ -100,7 +100,7 @@ export class GlobalReachConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:avs:GlobalReachConnection" }, { type: "azure-native:avs/v20210101preview:GlobalReachConnection" }, { type: "azure-native:avs/v20210601:GlobalReachConnection" }, { type: "azure-native:avs/v20211201:GlobalReachConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs:GlobalReachConnection" }, { type: "azure-native:avs/v20210101preview:GlobalReachConnection" }, { type: "azure-native:avs/v20210601:GlobalReachConnection" }, { type: "azure-native:avs/v20211201:GlobalReachConnection" }, { type: "azure-native:avs/v20220501:GlobalReachConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GlobalReachConnection.__pulumiType, name, resourceInputs, opts);
     }

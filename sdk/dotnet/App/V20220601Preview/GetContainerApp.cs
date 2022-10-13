@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.App.V20220601Preview
         /// <summary>
         /// Outbound IP Addresses for container app.
         /// </summary>
-        public readonly ImmutableArray<string> OutboundIPAddresses;
+        public readonly ImmutableArray<string> OutboundIpAddresses;
         /// <summary>
         /// Provisioning state of the Container App.
         /// </summary>
@@ -172,7 +172,7 @@ namespace Pulumi.AzureNative.App.V20220601Preview
 
             string name,
 
-            ImmutableArray<string> outboundIPAddresses,
+            ImmutableArray<string> outboundIpAddresses,
 
             string provisioningState,
 
@@ -198,7 +198,7 @@ namespace Pulumi.AzureNative.App.V20220601Preview
             Location = location;
             ManagedEnvironmentId = managedEnvironmentId;
             Name = name;
-            OutboundIPAddresses = outboundIPAddresses;
+            OutboundIpAddresses = outboundIpAddresses;
             ProvisioningState = provisioningState;
             SystemData = systemData;
             Tags = tags;

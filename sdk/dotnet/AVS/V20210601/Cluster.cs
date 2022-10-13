@@ -87,6 +87,7 @@ namespace Pulumi.AzureNative.AVS.V20210601
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20200717preview:Cluster"},
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20210101preview:Cluster"},
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20220501:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -2582,23 +2582,25 @@ type AzureStorageLinkedServiceResponse struct {
 }
 
 type AzureSynapseArtifactsLinkedService struct {
-	Annotations    []interface{}                     `pulumi:"annotations"`
-	Authentication interface{}                       `pulumi:"authentication"`
-	ConnectVia     *IntegrationRuntimeReference      `pulumi:"connectVia"`
-	Description    *string                           `pulumi:"description"`
-	Endpoint       interface{}                       `pulumi:"endpoint"`
-	Parameters     map[string]ParameterSpecification `pulumi:"parameters"`
-	Type           string                            `pulumi:"type"`
+	Annotations         []interface{}                     `pulumi:"annotations"`
+	Authentication      interface{}                       `pulumi:"authentication"`
+	ConnectVia          *IntegrationRuntimeReference      `pulumi:"connectVia"`
+	Description         *string                           `pulumi:"description"`
+	Endpoint            interface{}                       `pulumi:"endpoint"`
+	Parameters          map[string]ParameterSpecification `pulumi:"parameters"`
+	Type                string                            `pulumi:"type"`
+	WorkspaceResourceId interface{}                       `pulumi:"workspaceResourceId"`
 }
 
 type AzureSynapseArtifactsLinkedServiceResponse struct {
-	Annotations    []interface{}                             `pulumi:"annotations"`
-	Authentication interface{}                               `pulumi:"authentication"`
-	ConnectVia     *IntegrationRuntimeReferenceResponse      `pulumi:"connectVia"`
-	Description    *string                                   `pulumi:"description"`
-	Endpoint       interface{}                               `pulumi:"endpoint"`
-	Parameters     map[string]ParameterSpecificationResponse `pulumi:"parameters"`
-	Type           string                                    `pulumi:"type"`
+	Annotations         []interface{}                             `pulumi:"annotations"`
+	Authentication      interface{}                               `pulumi:"authentication"`
+	ConnectVia          *IntegrationRuntimeReferenceResponse      `pulumi:"connectVia"`
+	Description         *string                                   `pulumi:"description"`
+	Endpoint            interface{}                               `pulumi:"endpoint"`
+	Parameters          map[string]ParameterSpecificationResponse `pulumi:"parameters"`
+	Type                string                                    `pulumi:"type"`
+	WorkspaceResourceId interface{}                               `pulumi:"workspaceResourceId"`
 }
 
 type AzureTableDataset struct {

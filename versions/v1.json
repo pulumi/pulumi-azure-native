@@ -1651,6 +1651,10 @@
     "privateLinkServicesForO365ManagementActivityAPI": "2021-03-08",
     "privateLinkServicesForSCCPowershell": "2021-03-08"
   },
+  "SecurityDevOps": {
+    "AzureDevOpsConnector": "2022-09-01-preview",
+    "GitHubConnector": "2022-09-01-preview"
+  },
   "SecurityInsights": {
     "Action": "2020-01-01",
     "AlertRule": "2020-01-01",
@@ -1908,6 +1912,9 @@
     "listIntegrationRuntimeAuthKey": "2021-03-01",
     "listKustoPoolFollowerDatabases": "2021-06-01-preview",
     "listKustoPoolLanguageExtensions": "2021-06-01-preview"
+  },
+  "Syntex": {
+    "DocumentProcessor": "2022-09-15-preview"
   },
   "TestBase": {
     "CustomerEvent": "2022-04-01-preview",

@@ -212,6 +212,7 @@ namespace Pulumi.AzureNative.App.V20220601Preview
 
         public ConnectedEnvironmentsDaprComponentArgs()
         {
+            IgnoreErrors = false;
         }
         public static new ConnectedEnvironmentsDaprComponentArgs Empty => new ConnectedEnvironmentsDaprComponentArgs();
     }

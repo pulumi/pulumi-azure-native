@@ -3988,6 +3988,12 @@ func (val *Configuration) Defaults() *Configuration {
 		return nil
 	}
 	tmp := *val
+	if isZero(tmp.ActiveRevisionsMode) {
+		activeRevisionsMode_ := "Single"
+		tmp.ActiveRevisionsMode = &activeRevisionsMode_
+	}
+	tmp.Dapr = tmp.Dapr.Defaults()
+
 	tmp.Ingress = tmp.Ingress.Defaults()
 
 	return &tmp
@@ -4018,6 +4024,9 @@ func (val *ConfigurationArgs) Defaults() *ConfigurationArgs {
 		return nil
 	}
 	tmp := *val
+	if isZero(tmp.ActiveRevisionsMode) {
+		tmp.ActiveRevisionsMode = pulumi.StringPtr("Single")
+	}
 
 	return &tmp
 }
@@ -4201,6 +4210,12 @@ func (val *ConfigurationResponse) Defaults() *ConfigurationResponse {
 		return nil
 	}
 	tmp := *val
+	if isZero(tmp.ActiveRevisionsMode) {
+		activeRevisionsMode_ := "Single"
+		tmp.ActiveRevisionsMode = &activeRevisionsMode_
+	}
+	tmp.Dapr = tmp.Dapr.Defaults()
+
 	tmp.Ingress = tmp.Ingress.Defaults()
 
 	return &tmp
@@ -6574,6 +6589,23 @@ type Dapr struct {
 }
 
 
+func (val *Dapr) Defaults() *Dapr {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AppProtocol) {
+		appProtocol_ := "http"
+		tmp.AppProtocol = &appProtocol_
+	}
+	if isZero(tmp.Enabled) {
+		enabled_ := false
+		tmp.Enabled = &enabled_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -6591,6 +6623,20 @@ type DaprArgs struct {
 	Enabled     pulumi.BoolPtrInput   `pulumi:"enabled"`
 }
 
+
+func (val *DaprArgs) Defaults() *DaprArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AppProtocol) {
+		tmp.AppProtocol = pulumi.StringPtr("http")
+	}
+	if isZero(tmp.Enabled) {
+		tmp.Enabled = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (DaprArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*Dapr)(nil)).Elem()
 }
@@ -6907,6 +6953,23 @@ type DaprResponse struct {
 	AppPort     *int    `pulumi:"appPort"`
 	AppProtocol *string `pulumi:"appProtocol"`
 	Enabled     *bool   `pulumi:"enabled"`
+}
+
+
+func (val *DaprResponse) Defaults() *DaprResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AppProtocol) {
+		appProtocol_ := "http"
+		tmp.AppProtocol = &appProtocol_
+	}
+	if isZero(tmp.Enabled) {
+		enabled_ := false
+		tmp.Enabled = &enabled_
+	}
+	return &tmp
 }
 
 type DaprResponseOutput struct{ *pulumi.OutputState }
@@ -10161,9 +10224,17 @@ func (val *Ingress) Defaults() *Ingress {
 		return nil
 	}
 	tmp := *val
+	if isZero(tmp.AllowInsecure) {
+		allowInsecure_ := false
+		tmp.AllowInsecure = &allowInsecure_
+	}
 	if isZero(tmp.External) {
 		external_ := false
 		tmp.External = &external_
+	}
+	if isZero(tmp.Transport) {
+		transport_ := "auto"
+		tmp.Transport = &transport_
 	}
 	return &tmp
 }
@@ -10194,8 +10265,14 @@ func (val *IngressArgs) Defaults() *IngressArgs {
 		return nil
 	}
 	tmp := *val
+	if isZero(tmp.AllowInsecure) {
+		tmp.AllowInsecure = pulumi.BoolPtr(false)
+	}
 	if isZero(tmp.External) {
 		tmp.External = pulumi.BoolPtr(false)
+	}
+	if isZero(tmp.Transport) {
+		tmp.Transport = pulumi.StringPtr("auto")
 	}
 	return &tmp
 }
@@ -10394,9 +10471,17 @@ func (val *IngressResponse) Defaults() *IngressResponse {
 		return nil
 	}
 	tmp := *val
+	if isZero(tmp.AllowInsecure) {
+		allowInsecure_ := false
+		tmp.AllowInsecure = &allowInsecure_
+	}
 	if isZero(tmp.External) {
 		external_ := false
 		tmp.External = &external_
+	}
+	if isZero(tmp.Transport) {
+		transport_ := "auto"
+		tmp.Transport = &transport_
 	}
 	return &tmp
 }

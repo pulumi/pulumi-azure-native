@@ -170,6 +170,7 @@ import * as scvmm from "./scvmm";
 import * as search from "./search";
 import * as security from "./security";
 import * as securityandcompliance from "./securityandcompliance";
+import * as securitydevops from "./securitydevops";
 import * as securityinsights from "./securityinsights";
 import * as serialconsole from "./serialconsole";
 import * as servicebus from "./servicebus";
@@ -190,6 +191,7 @@ import * as storsimple from "./storsimple";
 import * as streamanalytics from "./streamanalytics";
 import * as subscription from "./subscription";
 import * as synapse from "./synapse";
+import * as syntex from "./syntex";
 import * as testbase from "./testbase";
 import * as timeseriesinsights from "./timeseriesinsights";
 import * as types from "./types";
@@ -363,6 +365,7 @@ export {
     search,
     security,
     securityandcompliance,
+    securitydevops,
     securityinsights,
     serialconsole,
     servicebus,
@@ -383,6 +386,7 @@ export {
     streamanalytics,
     subscription,
     synapse,
+    syntex,
     testbase,
     timeseriesinsights,
     types,

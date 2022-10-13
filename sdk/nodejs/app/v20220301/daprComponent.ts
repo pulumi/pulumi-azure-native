@@ -98,7 +98,7 @@ export class DaprComponent extends pulumi.CustomResource {
             resourceInputs["componentName"] = args ? args.componentName : undefined;
             resourceInputs["componentType"] = args ? args.componentType : undefined;
             resourceInputs["environmentName"] = args ? args.environmentName : undefined;
-            resourceInputs["ignoreErrors"] = args ? args.ignoreErrors : undefined;
+            resourceInputs["ignoreErrors"] = (args ? args.ignoreErrors : undefined) ?? false;
             resourceInputs["initTimeout"] = args ? args.initTimeout : undefined;
             resourceInputs["metadata"] = args ? args.metadata : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;

@@ -15751,6 +15751,8 @@ class AzureSynapseArtifactsLinkedServiceResponse(dict):
         suggest = None
         if key == "connectVia":
             suggest = "connect_via"
+        elif key == "workspaceResourceId":
+            suggest = "workspace_resource_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AzureSynapseArtifactsLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
@@ -15770,7 +15772,8 @@ class AzureSynapseArtifactsLinkedServiceResponse(dict):
                  authentication: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 workspace_resource_id: Optional[Any] = None):
         """
         Azure Synapse Analytics (Artifacts) linked service.
         :param Any endpoint: https://<workspacename>.dev.azuresynapse.net, Azure Synapse Analytics workspace URL. Type: string (or Expression with resultType string).
@@ -15781,6 +15784,7 @@ class AzureSynapseArtifactsLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Any workspace_resource_id: The resource ID of the Synapse workspace. The format should be: /subscriptions/{subscriptionID}/resourceGroups/{resourceGroup}/providers/Microsoft.Synapse/workspaces/{workspaceName}. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "endpoint", endpoint)
         pulumi.set(__self__, "type", 'AzureSynapseArtifacts')
@@ -15794,6 +15798,8 @@ class AzureSynapseArtifactsLinkedServiceResponse(dict):
             pulumi.set(__self__, "description", description)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if workspace_resource_id is not None:
+            pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
 
     @property
     @pulumi.getter
@@ -15851,6 +15857,14 @@ class AzureSynapseArtifactsLinkedServiceResponse(dict):
         Parameters for linked service.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="workspaceResourceId")
+    def workspace_resource_id(self) -> Optional[Any]:
+        """
+        The resource ID of the Synapse workspace. The format should be: /subscriptions/{subscriptionID}/resourceGroups/{resourceGroup}/providers/Microsoft.Synapse/workspaces/{workspaceName}. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "workspace_resource_id")
 
 
 @pulumi.output_type
@@ -73311,10 +73325,14 @@ class SynapseSparkJobDefinitionActivityResponse(dict):
             suggest = "driver_size"
         elif key == "executorSize":
             suggest = "executor_size"
+        elif key == "filesV2":
+            suggest = "files_v2"
         elif key == "linkedServiceName":
             suggest = "linked_service_name"
         elif key == "numExecutors":
             suggest = "num_executors"
+        elif key == "pythonCodeReference":
+            suggest = "python_code_reference"
         elif key == "targetBigDataPool":
             suggest = "target_big_data_pool"
         elif key == "userProperties":
@@ -73344,9 +73362,11 @@ class SynapseSparkJobDefinitionActivityResponse(dict):
                  executor_size: Optional[Any] = None,
                  file: Optional[Any] = None,
                  files: Optional[Sequence[Any]] = None,
+                 files_v2: Optional[Sequence[Any]] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  num_executors: Optional[int] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
+                 python_code_reference: Optional[Sequence[Any]] = None,
                  target_big_data_pool: Optional['outputs.BigDataPoolParametrizationReferenceResponse'] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
@@ -73363,10 +73383,12 @@ class SynapseSparkJobDefinitionActivityResponse(dict):
         :param Any driver_size: Number of core and memory to be used for driver allocated in the specified Spark pool for the job, which will be used for overriding 'driverCores' and 'driverMemory' of the spark job definition you provide. Type: string (or Expression with resultType string).
         :param Any executor_size: Number of core and memory to be used for executors allocated in the specified Spark pool for the job, which will be used for overriding 'executorCores' and 'executorMemory' of the spark job definition you provide. Type: string (or Expression with resultType string).
         :param Any file: The main file used for the job, which will override the 'file' of the spark job definition you provide. Type: string (or Expression with resultType string).
-        :param Sequence[Any] files: Additional files used for reference in the main definition file, which will override the 'files' of the spark job definition you provide.
+        :param Sequence[Any] files: (Deprecated. Please use pythonCodeReference and filesV2) Additional files used for reference in the main definition file, which will override the 'files' of the spark job definition you provide.
+        :param Sequence[Any] files_v2: Additional files used for reference in the main definition file, which will override the 'jars' and 'files' of the spark job definition you provide.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param int num_executors: Number of executors to launch for this job, which will override the 'numExecutors' of the spark job definition you provide.
         :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param Sequence[Any] python_code_reference: Additional python code files used for reference in the main definition file, which will override the 'pyFiles' of the spark job definition you provide.
         :param 'BigDataPoolParametrizationReferenceResponse' target_big_data_pool: The name of the big data pool which will be used to execute the spark batch job, which will override the 'targetBigDataPool' of the spark job definition you provide.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
@@ -73391,12 +73413,16 @@ class SynapseSparkJobDefinitionActivityResponse(dict):
             pulumi.set(__self__, "file", file)
         if files is not None:
             pulumi.set(__self__, "files", files)
+        if files_v2 is not None:
+            pulumi.set(__self__, "files_v2", files_v2)
         if linked_service_name is not None:
             pulumi.set(__self__, "linked_service_name", linked_service_name)
         if num_executors is not None:
             pulumi.set(__self__, "num_executors", num_executors)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if python_code_reference is not None:
+            pulumi.set(__self__, "python_code_reference", python_code_reference)
         if target_big_data_pool is not None:
             pulumi.set(__self__, "target_big_data_pool", target_big_data_pool)
         if user_properties is not None:
@@ -73495,9 +73521,17 @@ class SynapseSparkJobDefinitionActivityResponse(dict):
     @pulumi.getter
     def files(self) -> Optional[Sequence[Any]]:
         """
-        Additional files used for reference in the main definition file, which will override the 'files' of the spark job definition you provide.
+        (Deprecated. Please use pythonCodeReference and filesV2) Additional files used for reference in the main definition file, which will override the 'files' of the spark job definition you provide.
         """
         return pulumi.get(self, "files")
+
+    @property
+    @pulumi.getter(name="filesV2")
+    def files_v2(self) -> Optional[Sequence[Any]]:
+        """
+        Additional files used for reference in the main definition file, which will override the 'jars' and 'files' of the spark job definition you provide.
+        """
+        return pulumi.get(self, "files_v2")
 
     @property
     @pulumi.getter(name="linkedServiceName")
@@ -73522,6 +73556,14 @@ class SynapseSparkJobDefinitionActivityResponse(dict):
         Activity policy.
         """
         return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter(name="pythonCodeReference")
+    def python_code_reference(self) -> Optional[Sequence[Any]]:
+        """
+        Additional python code files used for reference in the main definition file, which will override the 'pyFiles' of the spark job definition you provide.
+        """
+        return pulumi.get(self, "python_code_reference")
 
     @property
     @pulumi.getter(name="targetBigDataPool")
@@ -73563,11 +73605,11 @@ class SynapseSparkJobReferenceResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 reference_name: str,
+                 reference_name: Any,
                  type: str):
         """
         Synapse spark job reference type.
-        :param str reference_name: Reference spark job name.
+        :param Any reference_name: Reference spark job name. Expression with resultType string.
         :param str type: Synapse spark job reference type.
         """
         pulumi.set(__self__, "reference_name", reference_name)
@@ -73575,9 +73617,9 @@ class SynapseSparkJobReferenceResponse(dict):
 
     @property
     @pulumi.getter(name="referenceName")
-    def reference_name(self) -> str:
+    def reference_name(self) -> Any:
         """
-        Reference spark job name.
+        Reference spark job name. Expression with resultType string.
         """
         return pulumi.get(self, "reference_name")
 

@@ -102,6 +102,7 @@ namespace Pulumi.AzureNative.Authorization
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20200701preview:PolicyExemption"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20220701preview:PolicyExemption"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

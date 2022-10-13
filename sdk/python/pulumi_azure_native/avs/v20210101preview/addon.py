@@ -170,7 +170,7 @@ class Addon(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs:Addon"), pulumi.Alias(type_="azure-native:avs/v20200717preview:Addon"), pulumi.Alias(type_="azure-native:avs/v20210601:Addon"), pulumi.Alias(type_="azure-native:avs/v20211201:Addon")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs:Addon"), pulumi.Alias(type_="azure-native:avs/v20200717preview:Addon"), pulumi.Alias(type_="azure-native:avs/v20210601:Addon"), pulumi.Alias(type_="azure-native:avs/v20211201:Addon"), pulumi.Alias(type_="azure-native:avs/v20220501:Addon")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Addon, __self__).__init__(
             'azure-native:avs/v20210101preview:Addon',

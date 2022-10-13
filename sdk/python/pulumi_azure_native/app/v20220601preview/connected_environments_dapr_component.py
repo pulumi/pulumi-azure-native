@@ -47,6 +47,8 @@ class ConnectedEnvironmentsDaprComponentArgs:
             pulumi.set(__self__, "component_name", component_name)
         if component_type is not None:
             pulumi.set(__self__, "component_type", component_type)
+        if ignore_errors is None:
+            ignore_errors = False
         if ignore_errors is not None:
             pulumi.set(__self__, "ignore_errors", ignore_errors)
         if init_timeout is not None:
@@ -278,6 +280,8 @@ class ConnectedEnvironmentsDaprComponent(pulumi.CustomResource):
             if connected_environment_name is None and not opts.urn:
                 raise TypeError("Missing required property 'connected_environment_name'")
             __props__.__dict__["connected_environment_name"] = connected_environment_name
+            if ignore_errors is None:
+                ignore_errors = False
             __props__.__dict__["ignore_errors"] = ignore_errors
             __props__.__dict__["init_timeout"] = init_timeout
             __props__.__dict__["metadata"] = metadata

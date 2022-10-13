@@ -83,7 +83,7 @@ export class CloudLink extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20210601:CloudLink" }, { type: "azure-native:avs/v20211201:CloudLink" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20210601:CloudLink" }, { type: "azure-native:avs/v20211201:CloudLink" }, { type: "azure-native:avs/v20220501:CloudLink" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CloudLink.__pulumiType, name, resourceInputs, opts);
     }

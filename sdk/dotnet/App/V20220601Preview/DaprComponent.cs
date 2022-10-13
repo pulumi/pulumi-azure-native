@@ -218,6 +218,7 @@ namespace Pulumi.AzureNative.App.V20220601Preview
 
         public DaprComponentArgs()
         {
+            IgnoreErrors = false;
         }
         public static new DaprComponentArgs Empty => new DaprComponentArgs();
     }

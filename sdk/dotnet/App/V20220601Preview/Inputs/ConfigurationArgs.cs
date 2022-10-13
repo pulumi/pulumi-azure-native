@@ -66,6 +66,7 @@ namespace Pulumi.AzureNative.App.V20220601Preview.Inputs
 
         public ConfigurationArgs()
         {
+            ActiveRevisionsMode = "Single";
         }
         public static new ConfigurationArgs Empty => new ConfigurationArgs();
     }

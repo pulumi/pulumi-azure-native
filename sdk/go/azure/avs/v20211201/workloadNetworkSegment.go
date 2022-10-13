@@ -51,6 +51,9 @@ func NewWorkloadNetworkSegment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:avs/v20210601:WorkloadNetworkSegment"),
 		},
+		{
+			Type: pulumi.String("azure-native:avs/v20220501:WorkloadNetworkSegment"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WorkloadNetworkSegment

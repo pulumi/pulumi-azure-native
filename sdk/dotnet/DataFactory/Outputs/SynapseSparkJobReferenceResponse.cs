@@ -17,9 +17,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
     public sealed class SynapseSparkJobReferenceResponse
     {
         /// <summary>
-        /// Reference spark job name.
+        /// Reference spark job name. Expression with resultType string.
         /// </summary>
-        public readonly string ReferenceName;
+        public readonly object ReferenceName;
         /// <summary>
         /// Synapse spark job reference type.
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
         [OutputConstructor]
         private SynapseSparkJobReferenceResponse(
-            string referenceName,
+            object referenceName,
 
             string type)
         {

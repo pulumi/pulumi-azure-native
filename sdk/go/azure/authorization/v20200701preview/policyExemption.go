@@ -46,6 +46,9 @@ func NewPolicyExemption(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:authorization:PolicyExemption"),
 		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20220701preview:PolicyExemption"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PolicyExemption

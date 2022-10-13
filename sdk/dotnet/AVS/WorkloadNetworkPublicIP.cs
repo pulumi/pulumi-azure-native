@@ -79,6 +79,7 @@ namespace Pulumi.AzureNative.AVS
                 {
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:WorkloadNetworkPublicIP"},
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:WorkloadNetworkPublicIP"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20220501:WorkloadNetworkPublicIP"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

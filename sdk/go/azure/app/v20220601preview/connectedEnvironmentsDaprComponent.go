@@ -40,6 +40,9 @@ func NewConnectedEnvironmentsDaprComponent(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if isZero(args.IgnoreErrors) {
+		args.IgnoreErrors = pulumi.BoolPtr(false)
+	}
 	var resource ConnectedEnvironmentsDaprComponent
 	err := ctx.RegisterResource("azure-native:app/v20220601preview:ConnectedEnvironmentsDaprComponent", name, args, &resource, opts...)
 	if err != nil {

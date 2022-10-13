@@ -65,7 +65,9 @@ namespace Pulumi.AzureNative.App.Inputs
 
         public IngressArgs()
         {
+            AllowInsecure = false;
             External = false;
+            Transport = "auto";
         }
         public static new IngressArgs Empty => new IngressArgs();
     }

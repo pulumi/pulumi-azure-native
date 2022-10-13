@@ -79,12 +79,24 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         private InputList<object>? _files;
 
         /// <summary>
-        /// Additional files used for reference in the main definition file, which will override the 'files' of the spark job definition you provide.
+        /// (Deprecated. Please use pythonCodeReference and filesV2) Additional files used for reference in the main definition file, which will override the 'files' of the spark job definition you provide.
         /// </summary>
         public InputList<object> Files
         {
             get => _files ?? (_files = new InputList<object>());
             set => _files = value;
+        }
+
+        [Input("filesV2")]
+        private InputList<object>? _filesV2;
+
+        /// <summary>
+        /// Additional files used for reference in the main definition file, which will override the 'jars' and 'files' of the spark job definition you provide.
+        /// </summary>
+        public InputList<object> FilesV2
+        {
+            get => _filesV2 ?? (_filesV2 = new InputList<object>());
+            set => _filesV2 = value;
         }
 
         /// <summary>
@@ -110,6 +122,18 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// </summary>
         [Input("policy")]
         public Input<Inputs.ActivityPolicyArgs>? Policy { get; set; }
+
+        [Input("pythonCodeReference")]
+        private InputList<object>? _pythonCodeReference;
+
+        /// <summary>
+        /// Additional python code files used for reference in the main definition file, which will override the 'pyFiles' of the spark job definition you provide.
+        /// </summary>
+        public InputList<object> PythonCodeReference
+        {
+            get => _pythonCodeReference ?? (_pythonCodeReference = new InputList<object>());
+            set => _pythonCodeReference = value;
+        }
 
         /// <summary>
         /// Synapse spark job reference.

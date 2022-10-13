@@ -73,7 +73,7 @@ export class ContainerApp extends pulumi.CustomResource {
     /**
      * Outbound IP Addresses for container app.
      */
-    public /*out*/ readonly outboundIPAddresses!: pulumi.Output<string[]>;
+    public /*out*/ readonly outboundIpAddresses!: pulumi.Output<string[]>;
     /**
      * Provisioning state of the Container App.
      */
@@ -121,7 +121,7 @@ export class ContainerApp extends pulumi.CustomResource {
             resourceInputs["latestRevisionFqdn"] = undefined /*out*/;
             resourceInputs["latestRevisionName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["outboundIPAddresses"] = undefined /*out*/;
+            resourceInputs["outboundIpAddresses"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -134,7 +134,7 @@ export class ContainerApp extends pulumi.CustomResource {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["managedEnvironmentId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["outboundIPAddresses"] = undefined /*out*/;
+            resourceInputs["outboundIpAddresses"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;

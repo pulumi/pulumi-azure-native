@@ -49,9 +49,13 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? File;
         /// <summary>
-        /// Additional files used for reference in the main definition file, which will override the 'files' of the spark job definition you provide.
+        /// (Deprecated. Please use pythonCodeReference and filesV2) Additional files used for reference in the main definition file, which will override the 'files' of the spark job definition you provide.
         /// </summary>
         public readonly ImmutableArray<object> Files;
+        /// <summary>
+        /// Additional files used for reference in the main definition file, which will override the 'jars' and 'files' of the spark job definition you provide.
+        /// </summary>
+        public readonly ImmutableArray<object> FilesV2;
         /// <summary>
         /// Linked service reference.
         /// </summary>
@@ -68,6 +72,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// Activity policy.
         /// </summary>
         public readonly Outputs.ActivityPolicyResponse? Policy;
+        /// <summary>
+        /// Additional python code files used for reference in the main definition file, which will override the 'pyFiles' of the spark job definition you provide.
+        /// </summary>
+        public readonly ImmutableArray<object> PythonCodeReference;
         /// <summary>
         /// Synapse spark job reference.
         /// </summary>
@@ -106,6 +114,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             ImmutableArray<object> files,
 
+            ImmutableArray<object> filesV2,
+
             Outputs.LinkedServiceReferenceResponse? linkedServiceName,
 
             string name,
@@ -113,6 +123,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             int? numExecutors,
 
             Outputs.ActivityPolicyResponse? policy,
+
+            ImmutableArray<object> pythonCodeReference,
 
             Outputs.SynapseSparkJobReferenceResponse sparkJob,
 
@@ -131,10 +143,12 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             ExecutorSize = executorSize;
             File = file;
             Files = files;
+            FilesV2 = filesV2;
             LinkedServiceName = linkedServiceName;
             Name = name;
             NumExecutors = numExecutors;
             Policy = policy;
+            PythonCodeReference = pythonCodeReference;
             SparkJob = sparkJob;
             TargetBigDataPool = targetBigDataPool;
             Type = type;

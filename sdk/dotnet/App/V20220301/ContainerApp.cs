@@ -66,8 +66,8 @@ namespace Pulumi.AzureNative.App.V20220301
         /// <summary>
         /// Outbound IP Addresses for container app.
         /// </summary>
-        [Output("outboundIPAddresses")]
-        public Output<ImmutableArray<string>> OutboundIPAddresses { get; private set; } = null!;
+        [Output("outboundIpAddresses")]
+        public Output<ImmutableArray<string>> OutboundIpAddresses { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning state of the Container App.

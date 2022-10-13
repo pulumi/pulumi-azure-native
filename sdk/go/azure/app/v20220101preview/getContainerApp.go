@@ -35,7 +35,7 @@ type LookupContainerAppResult struct {
 	Location                   string                          `pulumi:"location"`
 	ManagedEnvironmentId       *string                         `pulumi:"managedEnvironmentId"`
 	Name                       string                          `pulumi:"name"`
-	OutboundIPAddresses        []string                        `pulumi:"outboundIPAddresses"`
+	OutboundIpAddresses        []string                        `pulumi:"outboundIpAddresses"`
 	ProvisioningState          string                          `pulumi:"provisioningState"`
 	SystemData                 SystemDataResponse              `pulumi:"systemData"`
 	Tags                       map[string]string               `pulumi:"tags"`
@@ -127,8 +127,8 @@ func (o LookupContainerAppResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContainerAppResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o LookupContainerAppResultOutput) OutboundIPAddresses() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupContainerAppResult) []string { return v.OutboundIPAddresses }).(pulumi.StringArrayOutput)
+func (o LookupContainerAppResultOutput) OutboundIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupContainerAppResult) []string { return v.OutboundIpAddresses }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupContainerAppResultOutput) ProvisioningState() pulumi.StringOutput {

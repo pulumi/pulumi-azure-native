@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20211210Preview
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20210610preview:MachineExtension"},
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20220310:MachineExtension"},
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20220510preview:MachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20220811preview:MachineExtension"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

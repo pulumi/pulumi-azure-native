@@ -60,6 +60,7 @@ namespace Pulumi.AzureNative.AVS
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:PlacementPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20220501:PlacementPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

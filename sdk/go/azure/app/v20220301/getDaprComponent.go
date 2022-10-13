@@ -16,7 +16,7 @@ func LookupDaprComponent(ctx *pulumi.Context, args *LookupDaprComponentArgs, opt
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupDaprComponentArgs struct {
@@ -38,6 +38,19 @@ type LookupDaprComponentResult struct {
 	SystemData    SystemDataResponse     `pulumi:"systemData"`
 	Type          string                 `pulumi:"type"`
 	Version       *string                `pulumi:"version"`
+}
+
+
+func (val *LookupDaprComponentResult) Defaults() *LookupDaprComponentResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IgnoreErrors) {
+		ignoreErrors_ := false
+		tmp.IgnoreErrors = &ignoreErrors_
+	}
+	return &tmp
 }
 
 func LookupDaprComponentOutput(ctx *pulumi.Context, args LookupDaprComponentOutputArgs, opts ...pulumi.InvokeOption) LookupDaprComponentResultOutput {

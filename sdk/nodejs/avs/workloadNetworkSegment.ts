@@ -116,7 +116,7 @@ export class WorkloadNetworkSegment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20200717preview:WorkloadNetworkSegment" }, { type: "azure-native:avs/v20210101preview:WorkloadNetworkSegment" }, { type: "azure-native:avs/v20210601:WorkloadNetworkSegment" }, { type: "azure-native:avs/v20211201:WorkloadNetworkSegment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20200717preview:WorkloadNetworkSegment" }, { type: "azure-native:avs/v20210101preview:WorkloadNetworkSegment" }, { type: "azure-native:avs/v20210601:WorkloadNetworkSegment" }, { type: "azure-native:avs/v20211201:WorkloadNetworkSegment" }, { type: "azure-native:avs/v20220501:WorkloadNetworkSegment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkloadNetworkSegment.__pulumiType, name, resourceInputs, opts);
     }

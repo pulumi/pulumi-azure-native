@@ -16,10 +16,10 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     public sealed class SynapseSparkJobReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Reference spark job name.
+        /// Reference spark job name. Expression with resultType string.
         /// </summary>
         [Input("referenceName", required: true)]
-        public Input<string> ReferenceName { get; set; } = null!;
+        public Input<object> ReferenceName { get; set; } = null!;
 
         /// <summary>
         /// Synapse spark job reference type.

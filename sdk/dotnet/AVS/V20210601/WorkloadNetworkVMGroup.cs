@@ -86,6 +86,7 @@ namespace Pulumi.AzureNative.AVS.V20210601
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20200717preview:WorkloadNetworkVMGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20210101preview:WorkloadNetworkVMGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:WorkloadNetworkVMGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20220501:WorkloadNetworkVMGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -65,6 +65,8 @@ namespace Pulumi.AzureNative.App.V20220601Preview.Inputs
 
         public DaprArgs()
         {
+            AppProtocol = "http";
+            Enabled = false;
         }
         public static new DaprArgs Empty => new DaprArgs();
     }

@@ -98,6 +98,7 @@ namespace Pulumi.AzureNative.AVS.V20211201
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20200717preview:WorkloadNetworkDnsZone"},
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20210101preview:WorkloadNetworkDnsZone"},
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:WorkloadNetworkDnsZone"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20220501:WorkloadNetworkDnsZone"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
