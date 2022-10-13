@@ -250,7 +250,7 @@ jobs:
       uses: jaxxstorm/action-install-gh-release@v1.7.1
       with:
         tag: v2.4.0
-        token: ${{ secrets.GITHUB_TOKEN }}
+        repo: GoTestTools/gotestfmt
     - name: Run tests
       run: |
         set -euo pipefail
