@@ -941,6 +941,8 @@ Security:
     listIngestionSettingTokens: 2021-01-15-preview
 SecurityAndCompliance:
   tracking: "2021-03-08"
+SecurityDevOps:
+  tracking: "2022-09-01-preview"
 SecurityInsights:
   tracking: "2020-01-01"
   additions:
@@ -1091,6 +1093,8 @@ Synapse:
     kustoPool: 2021-04-01-preview
     listKustoPoolFollowerDatabases: 2021-06-01-preview
     listKustoPoolLanguageExtensions: 2021-06-01-preview
+Syntex:
+  tracking: "2022-09-15-preview"
 TestBase:
   tracking: 2022-04-01-preview
 TimeSeriesInsights:
