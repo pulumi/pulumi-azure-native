@@ -81,6 +81,28 @@
       "WorkloadNetworkVMGroup",
       "getScriptExecutionLogs",
       "listPrivateCloudAdminCredentials"
+    ],
+    "2022-05-01": [
+      "Addon",
+      "Authorization",
+      "CloudLink",
+      "Cluster",
+      "Datastore",
+      "GlobalReachConnection",
+      "HcxEnterpriseSite",
+      "PlacementPolicy",
+      "PrivateCloud",
+      "ScriptExecution",
+      "WorkloadNetworkDhcp",
+      "WorkloadNetworkDnsService",
+      "WorkloadNetworkDnsZone",
+      "WorkloadNetworkPortMirroring",
+      "WorkloadNetworkPublicIP",
+      "WorkloadNetworkSegment",
+      "WorkloadNetworkVMGroup",
+      "getScriptExecutionLogs",
+      "listClusterZones",
+      "listPrivateCloudAdminCredentials"
     ]
   },
   "Aad": {
@@ -1295,6 +1317,12 @@
     "2022-04-01": [
       "RoleAssignment",
       "RoleDefinition"
+    ],
+    "2022-06-01": [
+      "PolicyAssignment"
+    ],
+    "2022-07-01-preview": [
+      "PolicyExemption"
     ],
     "2022-08-01-preview": [
       "Variable",
@@ -6104,6 +6132,12 @@
       "MachineExtension",
       "PrivateEndpointConnection",
       "PrivateLinkScope"
+    ],
+    "2022-08-11-preview": [
+      "Machine",
+      "MachineExtension",
+      "PrivateEndpointConnection",
+      "PrivateLinkScope"
     ]
   },
   "HybridConnectivity": {
@@ -7437,6 +7471,14 @@
       "listPrivateStoreSubscriptionsContext"
     ],
     "2022-03-01": [
+      "PrivateStore",
+      "PrivateStoreCollection",
+      "PrivateStoreCollectionOffer",
+      "listPrivateStoreNewPlansNotifications",
+      "listPrivateStoreStopSellOffersPlansNotifications",
+      "listPrivateStoreSubscriptionsContext"
+    ],
+    "2022-09-01": [
       "PrivateStore",
       "PrivateStoreCollection",
       "PrivateStoreCollectionOffer",
@@ -10511,6 +10553,10 @@
     "2022-08-01": [
       "AzureTrafficCollector",
       "CollectorPolicy"
+    ],
+    "2022-11-01": [
+      "AzureTrafficCollector",
+      "CollectorPolicy"
     ]
   },
   "NotificationHubs": {
@@ -11281,7 +11327,8 @@
       "ReplicationRecoveryPlan",
       "ReplicationRecoveryServicesProvider",
       "ReplicationStorageClassificationMapping",
-      "ReplicationvCenter"
+      "ReplicationvCenter",
+      "Vault"
     ]
   },
   "RedHatOpenShift": {
@@ -11698,6 +11745,12 @@
       "privateLinkServicesForMIPPolicySync",
       "privateLinkServicesForO365ManagementActivityAPI",
       "privateLinkServicesForSCCPowershell"
+    ]
+  },
+  "SecurityDevOps": {
+    "2022-09-01-preview": [
+      "AzureDevOpsConnector",
+      "GitHubConnector"
     ]
   },
   "SecurityInsights": {
@@ -13789,6 +13842,11 @@
       "listIntegrationRuntimeAuthKey",
       "listKustoPoolFollowerDatabases",
       "listKustoPoolLanguageExtensions"
+    ]
+  },
+  "Syntex": {
+    "2022-09-15-preview": [
+      "DocumentProcessor"
     ]
   },
   "TestBase": {

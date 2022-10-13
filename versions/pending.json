@@ -4,7 +4,8 @@
     "2020-07-17-preview",
     "2021-01-01-preview",
     "2021-06-01",
-    "2021-12-01"
+    "2021-12-01",
+    "2022-05-01"
   ],
   "Aad": [
     "2021-05-01"
@@ -94,6 +95,8 @@
     "2021-11-16-preview",
     "2021-12-01-preview",
     "2022-04-01",
+    "2022-06-01",
+    "2022-07-01-preview",
     "2022-08-01-preview"
   ],
   "Automanage": [
@@ -549,7 +552,8 @@
     "2021-06-10-preview",
     "2021-12-10-preview",
     "2022-03-10",
-    "2022-05-10-preview"
+    "2022-05-10-preview",
+    "2022-08-11-preview"
   ],
   "HybridConnectivity": [],
   "HybridContainerService": [],
@@ -723,7 +727,8 @@
   "Marketplace": [
     "2021-06-01",
     "2021-12-01",
-    "2022-03-01"
+    "2022-03-01",
+    "2022-09-01"
   ],
   "MarketplaceNotifications": [],
   "MarketplaceOrdering": [],
@@ -806,7 +811,8 @@
     "2022-07-01"
   ],
   "NetworkFunction": [
-    "2022-08-01"
+    "2022-08-01",
+    "2022-11-01"
   ],
   "NotificationHubs": [],
   "OffAzure": [
@@ -951,6 +957,7 @@
     "2022-08-01-preview"
   ],
   "SecurityAndCompliance": [],
+  "SecurityDevOps": [],
   "SecurityInsights": [
     "2020-01-01",
     "2021-03-01-preview",
@@ -1073,6 +1080,7 @@
     "2021-06-01",
     "2021-06-01-preview"
   ],
+  "Syntex": [],
   "TestBase": [],
   "TimeSeriesInsights": [
     "2021-03-31-preview",
