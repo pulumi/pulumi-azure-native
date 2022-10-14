@@ -20,7 +20,7 @@ type VirtualMachineScaleSetVMExtension struct {
 	InstanceView                  VirtualMachineExtensionInstanceViewResponsePtrOutput `pulumi:"instanceView"`
 	Name                          pulumi.StringOutput                                  `pulumi:"name"`
 	ProtectedSettings             pulumi.AnyOutput                                     `pulumi:"protectedSettings"`
-	ProtectedSettingsFromKeyVault pulumi.AnyOutput                                     `pulumi:"protectedSettingsFromKeyVault"`
+	ProtectedSettingsFromKeyVault KeyVaultSecretReferenceResponsePtrOutput             `pulumi:"protectedSettingsFromKeyVault"`
 	ProvisioningState             pulumi.StringOutput                                  `pulumi:"provisioningState"`
 	Publisher                     pulumi.StringPtrOutput                               `pulumi:"publisher"`
 	Settings                      pulumi.AnyOutput                                     `pulumi:"settings"`
@@ -116,7 +116,7 @@ type virtualMachineScaleSetVMExtensionArgs struct {
 	InstanceId                    string                               `pulumi:"instanceId"`
 	InstanceView                  *VirtualMachineExtensionInstanceView `pulumi:"instanceView"`
 	ProtectedSettings             interface{}                          `pulumi:"protectedSettings"`
-	ProtectedSettingsFromKeyVault interface{}                          `pulumi:"protectedSettingsFromKeyVault"`
+	ProtectedSettingsFromKeyVault *KeyVaultSecretReference             `pulumi:"protectedSettingsFromKeyVault"`
 	Publisher                     *string                              `pulumi:"publisher"`
 	ResourceGroupName             string                               `pulumi:"resourceGroupName"`
 	Settings                      interface{}                          `pulumi:"settings"`
@@ -135,7 +135,7 @@ type VirtualMachineScaleSetVMExtensionArgs struct {
 	InstanceId                    pulumi.StringInput
 	InstanceView                  VirtualMachineExtensionInstanceViewPtrInput
 	ProtectedSettings             pulumi.Input
-	ProtectedSettingsFromKeyVault pulumi.Input
+	ProtectedSettingsFromKeyVault KeyVaultSecretReferencePtrInput
 	Publisher                     pulumi.StringPtrInput
 	ResourceGroupName             pulumi.StringInput
 	Settings                      pulumi.Input
@@ -209,8 +209,10 @@ func (o VirtualMachineScaleSetVMExtensionOutput) ProtectedSettings() pulumi.AnyO
 	return o.ApplyT(func(v *VirtualMachineScaleSetVMExtension) pulumi.AnyOutput { return v.ProtectedSettings }).(pulumi.AnyOutput)
 }
 
-func (o VirtualMachineScaleSetVMExtensionOutput) ProtectedSettingsFromKeyVault() pulumi.AnyOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetVMExtension) pulumi.AnyOutput { return v.ProtectedSettingsFromKeyVault }).(pulumi.AnyOutput)
+func (o VirtualMachineScaleSetVMExtensionOutput) ProtectedSettingsFromKeyVault() KeyVaultSecretReferenceResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetVMExtension) KeyVaultSecretReferenceResponsePtrOutput {
+		return v.ProtectedSettingsFromKeyVault
+	}).(KeyVaultSecretReferenceResponsePtrOutput)
 }
 
 func (o VirtualMachineScaleSetVMExtensionOutput) ProvisioningState() pulumi.StringOutput {

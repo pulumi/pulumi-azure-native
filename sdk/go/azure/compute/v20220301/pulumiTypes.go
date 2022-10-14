@@ -15874,7 +15874,7 @@ type VirtualMachineExtensionResponse struct {
 	Location                      *string                                      `pulumi:"location"`
 	Name                          string                                       `pulumi:"name"`
 	ProtectedSettings             interface{}                                  `pulumi:"protectedSettings"`
-	ProtectedSettingsFromKeyVault interface{}                                  `pulumi:"protectedSettingsFromKeyVault"`
+	ProtectedSettingsFromKeyVault *KeyVaultSecretReferenceResponse             `pulumi:"protectedSettingsFromKeyVault"`
 	ProvisioningState             string                                       `pulumi:"provisioningState"`
 	Publisher                     *string                                      `pulumi:"publisher"`
 	Settings                      interface{}                                  `pulumi:"settings"`
@@ -15932,8 +15932,10 @@ func (o VirtualMachineExtensionResponseOutput) ProtectedSettings() pulumi.AnyOut
 	return o.ApplyT(func(v VirtualMachineExtensionResponse) interface{} { return v.ProtectedSettings }).(pulumi.AnyOutput)
 }
 
-func (o VirtualMachineExtensionResponseOutput) ProtectedSettingsFromKeyVault() pulumi.AnyOutput {
-	return o.ApplyT(func(v VirtualMachineExtensionResponse) interface{} { return v.ProtectedSettingsFromKeyVault }).(pulumi.AnyOutput)
+func (o VirtualMachineExtensionResponseOutput) ProtectedSettingsFromKeyVault() KeyVaultSecretReferenceResponsePtrOutput {
+	return o.ApplyT(func(v VirtualMachineExtensionResponse) *KeyVaultSecretReferenceResponse {
+		return v.ProtectedSettingsFromKeyVault
+	}).(KeyVaultSecretReferenceResponsePtrOutput)
 }
 
 func (o VirtualMachineExtensionResponseOutput) ProvisioningState() pulumi.StringOutput {
@@ -18417,18 +18419,18 @@ func (o VirtualMachineScaleSetDataDiskResponseArrayOutput) Index(i pulumi.IntInp
 }
 
 type VirtualMachineScaleSetExtensionType struct {
-	AutoUpgradeMinorVersion       *bool       `pulumi:"autoUpgradeMinorVersion"`
-	EnableAutomaticUpgrade        *bool       `pulumi:"enableAutomaticUpgrade"`
-	ForceUpdateTag                *string     `pulumi:"forceUpdateTag"`
-	Name                          *string     `pulumi:"name"`
-	ProtectedSettings             interface{} `pulumi:"protectedSettings"`
-	ProtectedSettingsFromKeyVault interface{} `pulumi:"protectedSettingsFromKeyVault"`
-	ProvisionAfterExtensions      []string    `pulumi:"provisionAfterExtensions"`
-	Publisher                     *string     `pulumi:"publisher"`
-	Settings                      interface{} `pulumi:"settings"`
-	SuppressFailures              *bool       `pulumi:"suppressFailures"`
-	Type                          *string     `pulumi:"type"`
-	TypeHandlerVersion            *string     `pulumi:"typeHandlerVersion"`
+	AutoUpgradeMinorVersion       *bool                    `pulumi:"autoUpgradeMinorVersion"`
+	EnableAutomaticUpgrade        *bool                    `pulumi:"enableAutomaticUpgrade"`
+	ForceUpdateTag                *string                  `pulumi:"forceUpdateTag"`
+	Name                          *string                  `pulumi:"name"`
+	ProtectedSettings             interface{}              `pulumi:"protectedSettings"`
+	ProtectedSettingsFromKeyVault *KeyVaultSecretReference `pulumi:"protectedSettingsFromKeyVault"`
+	ProvisionAfterExtensions      []string                 `pulumi:"provisionAfterExtensions"`
+	Publisher                     *string                  `pulumi:"publisher"`
+	Settings                      interface{}              `pulumi:"settings"`
+	SuppressFailures              *bool                    `pulumi:"suppressFailures"`
+	Type                          *string                  `pulumi:"type"`
+	TypeHandlerVersion            *string                  `pulumi:"typeHandlerVersion"`
 }
 
 
@@ -18443,18 +18445,18 @@ type VirtualMachineScaleSetExtensionTypeInput interface {
 }
 
 type VirtualMachineScaleSetExtensionTypeArgs struct {
-	AutoUpgradeMinorVersion       pulumi.BoolPtrInput     `pulumi:"autoUpgradeMinorVersion"`
-	EnableAutomaticUpgrade        pulumi.BoolPtrInput     `pulumi:"enableAutomaticUpgrade"`
-	ForceUpdateTag                pulumi.StringPtrInput   `pulumi:"forceUpdateTag"`
-	Name                          pulumi.StringPtrInput   `pulumi:"name"`
-	ProtectedSettings             pulumi.Input            `pulumi:"protectedSettings"`
-	ProtectedSettingsFromKeyVault pulumi.Input            `pulumi:"protectedSettingsFromKeyVault"`
-	ProvisionAfterExtensions      pulumi.StringArrayInput `pulumi:"provisionAfterExtensions"`
-	Publisher                     pulumi.StringPtrInput   `pulumi:"publisher"`
-	Settings                      pulumi.Input            `pulumi:"settings"`
-	SuppressFailures              pulumi.BoolPtrInput     `pulumi:"suppressFailures"`
-	Type                          pulumi.StringPtrInput   `pulumi:"type"`
-	TypeHandlerVersion            pulumi.StringPtrInput   `pulumi:"typeHandlerVersion"`
+	AutoUpgradeMinorVersion       pulumi.BoolPtrInput             `pulumi:"autoUpgradeMinorVersion"`
+	EnableAutomaticUpgrade        pulumi.BoolPtrInput             `pulumi:"enableAutomaticUpgrade"`
+	ForceUpdateTag                pulumi.StringPtrInput           `pulumi:"forceUpdateTag"`
+	Name                          pulumi.StringPtrInput           `pulumi:"name"`
+	ProtectedSettings             pulumi.Input                    `pulumi:"protectedSettings"`
+	ProtectedSettingsFromKeyVault KeyVaultSecretReferencePtrInput `pulumi:"protectedSettingsFromKeyVault"`
+	ProvisionAfterExtensions      pulumi.StringArrayInput         `pulumi:"provisionAfterExtensions"`
+	Publisher                     pulumi.StringPtrInput           `pulumi:"publisher"`
+	Settings                      pulumi.Input                    `pulumi:"settings"`
+	SuppressFailures              pulumi.BoolPtrInput             `pulumi:"suppressFailures"`
+	Type                          pulumi.StringPtrInput           `pulumi:"type"`
+	TypeHandlerVersion            pulumi.StringPtrInput           `pulumi:"typeHandlerVersion"`
 }
 
 func (VirtualMachineScaleSetExtensionTypeArgs) ElementType() reflect.Type {
@@ -18528,8 +18530,10 @@ func (o VirtualMachineScaleSetExtensionTypeOutput) ProtectedSettings() pulumi.An
 	return o.ApplyT(func(v VirtualMachineScaleSetExtensionType) interface{} { return v.ProtectedSettings }).(pulumi.AnyOutput)
 }
 
-func (o VirtualMachineScaleSetExtensionTypeOutput) ProtectedSettingsFromKeyVault() pulumi.AnyOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetExtensionType) interface{} { return v.ProtectedSettingsFromKeyVault }).(pulumi.AnyOutput)
+func (o VirtualMachineScaleSetExtensionTypeOutput) ProtectedSettingsFromKeyVault() KeyVaultSecretReferencePtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetExtensionType) *KeyVaultSecretReference {
+		return v.ProtectedSettingsFromKeyVault
+	}).(KeyVaultSecretReferencePtrOutput)
 }
 
 func (o VirtualMachineScaleSetExtensionTypeOutput) ProvisionAfterExtensions() pulumi.StringArrayOutput {
@@ -18798,20 +18802,20 @@ func (o VirtualMachineScaleSetExtensionProfileResponsePtrOutput) ExtensionsTimeB
 }
 
 type VirtualMachineScaleSetExtensionResponse struct {
-	AutoUpgradeMinorVersion       *bool       `pulumi:"autoUpgradeMinorVersion"`
-	EnableAutomaticUpgrade        *bool       `pulumi:"enableAutomaticUpgrade"`
-	ForceUpdateTag                *string     `pulumi:"forceUpdateTag"`
-	Id                            string      `pulumi:"id"`
-	Name                          *string     `pulumi:"name"`
-	ProtectedSettings             interface{} `pulumi:"protectedSettings"`
-	ProtectedSettingsFromKeyVault interface{} `pulumi:"protectedSettingsFromKeyVault"`
-	ProvisionAfterExtensions      []string    `pulumi:"provisionAfterExtensions"`
-	ProvisioningState             string      `pulumi:"provisioningState"`
-	Publisher                     *string     `pulumi:"publisher"`
-	Settings                      interface{} `pulumi:"settings"`
-	SuppressFailures              *bool       `pulumi:"suppressFailures"`
-	Type                          string      `pulumi:"type"`
-	TypeHandlerVersion            *string     `pulumi:"typeHandlerVersion"`
+	AutoUpgradeMinorVersion       *bool                            `pulumi:"autoUpgradeMinorVersion"`
+	EnableAutomaticUpgrade        *bool                            `pulumi:"enableAutomaticUpgrade"`
+	ForceUpdateTag                *string                          `pulumi:"forceUpdateTag"`
+	Id                            string                           `pulumi:"id"`
+	Name                          *string                          `pulumi:"name"`
+	ProtectedSettings             interface{}                      `pulumi:"protectedSettings"`
+	ProtectedSettingsFromKeyVault *KeyVaultSecretReferenceResponse `pulumi:"protectedSettingsFromKeyVault"`
+	ProvisionAfterExtensions      []string                         `pulumi:"provisionAfterExtensions"`
+	ProvisioningState             string                           `pulumi:"provisioningState"`
+	Publisher                     *string                          `pulumi:"publisher"`
+	Settings                      interface{}                      `pulumi:"settings"`
+	SuppressFailures              *bool                            `pulumi:"suppressFailures"`
+	Type                          string                           `pulumi:"type"`
+	TypeHandlerVersion            *string                          `pulumi:"typeHandlerVersion"`
 }
 
 type VirtualMachineScaleSetExtensionResponseOutput struct{ *pulumi.OutputState }
@@ -18852,8 +18856,10 @@ func (o VirtualMachineScaleSetExtensionResponseOutput) ProtectedSettings() pulum
 	return o.ApplyT(func(v VirtualMachineScaleSetExtensionResponse) interface{} { return v.ProtectedSettings }).(pulumi.AnyOutput)
 }
 
-func (o VirtualMachineScaleSetExtensionResponseOutput) ProtectedSettingsFromKeyVault() pulumi.AnyOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetExtensionResponse) interface{} { return v.ProtectedSettingsFromKeyVault }).(pulumi.AnyOutput)
+func (o VirtualMachineScaleSetExtensionResponseOutput) ProtectedSettingsFromKeyVault() KeyVaultSecretReferenceResponsePtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetExtensionResponse) *KeyVaultSecretReferenceResponse {
+		return v.ProtectedSettingsFromKeyVault
+	}).(KeyVaultSecretReferenceResponsePtrOutput)
 }
 
 func (o VirtualMachineScaleSetExtensionResponseOutput) ProvisionAfterExtensions() pulumi.StringArrayOutput {

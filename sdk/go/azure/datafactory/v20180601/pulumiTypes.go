@@ -5500,6 +5500,7 @@ type FactoryGitHubConfiguration struct {
 	ClientId            *string             `pulumi:"clientId"`
 	ClientSecret        *GitHubClientSecret `pulumi:"clientSecret"`
 	CollaborationBranch string              `pulumi:"collaborationBranch"`
+	DisablePublish      *bool               `pulumi:"disablePublish"`
 	HostName            *string             `pulumi:"hostName"`
 	LastCommitId        *string             `pulumi:"lastCommitId"`
 	RepositoryName      string              `pulumi:"repositoryName"`
@@ -5512,6 +5513,7 @@ type FactoryGitHubConfigurationResponse struct {
 	ClientId            *string                     `pulumi:"clientId"`
 	ClientSecret        *GitHubClientSecretResponse `pulumi:"clientSecret"`
 	CollaborationBranch string                      `pulumi:"collaborationBranch"`
+	DisablePublish      *bool                       `pulumi:"disablePublish"`
 	HostName            *string                     `pulumi:"hostName"`
 	LastCommitId        *string                     `pulumi:"lastCommitId"`
 	RepositoryName      string                      `pulumi:"repositoryName"`
@@ -5767,6 +5769,7 @@ func (o FactoryIdentityResponsePtrOutput) UserAssignedIdentities() pulumi.MapOut
 type FactoryVSTSConfiguration struct {
 	AccountName         string  `pulumi:"accountName"`
 	CollaborationBranch string  `pulumi:"collaborationBranch"`
+	DisablePublish      *bool   `pulumi:"disablePublish"`
 	LastCommitId        *string `pulumi:"lastCommitId"`
 	ProjectName         string  `pulumi:"projectName"`
 	RepositoryName      string  `pulumi:"repositoryName"`
@@ -5778,6 +5781,7 @@ type FactoryVSTSConfiguration struct {
 type FactoryVSTSConfigurationResponse struct {
 	AccountName         string  `pulumi:"accountName"`
 	CollaborationBranch string  `pulumi:"collaborationBranch"`
+	DisablePublish      *bool   `pulumi:"disablePublish"`
 	LastCommitId        *string `pulumi:"lastCommitId"`
 	ProjectName         string  `pulumi:"projectName"`
 	RepositoryName      string  `pulumi:"repositoryName"`

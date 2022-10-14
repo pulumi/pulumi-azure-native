@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20221001.Outputs
         /// <summary>
         /// Location for the underlying compute
         /// </summary>
-        public readonly string ComputeLocation;
+        public readonly string? ComputeLocation;
         /// <summary>
         /// The type of compute
         /// Expected value is 'DataFactory'.
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20221001.Outputs
         /// <summary>
         /// Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
         /// </summary>
-        public readonly bool DisableLocalAuth;
+        public readonly bool? DisableLocalAuth;
         /// <summary>
         /// Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20221001.Outputs
 
         [OutputConstructor]
         private DataFactoryResponse(
-            string computeLocation,
+            string? computeLocation,
 
             string computeType,
 
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20221001.Outputs
 
             string? description,
 
-            bool disableLocalAuth,
+            bool? disableLocalAuth,
 
             bool isAttachedCompute,
 

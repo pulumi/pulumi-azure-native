@@ -11,10 +11,12 @@ import (
 )
 
 type AKS struct {
-	ComputeType string               `pulumi:"computeType"`
-	Description *string              `pulumi:"description"`
-	Properties  *AKSSchemaProperties `pulumi:"properties"`
-	ResourceId  *string              `pulumi:"resourceId"`
+	ComputeLocation  *string              `pulumi:"computeLocation"`
+	ComputeType      string               `pulumi:"computeType"`
+	Description      *string              `pulumi:"description"`
+	DisableLocalAuth *bool                `pulumi:"disableLocalAuth"`
+	Properties       *AKSSchemaProperties `pulumi:"properties"`
+	ResourceId       *string              `pulumi:"resourceId"`
 }
 
 
@@ -29,11 +31,11 @@ func (val *AKS) Defaults() *AKS {
 }
 
 type AKSResponse struct {
-	ComputeLocation    string                       `pulumi:"computeLocation"`
+	ComputeLocation    *string                      `pulumi:"computeLocation"`
 	ComputeType        string                       `pulumi:"computeType"`
 	CreatedOn          string                       `pulumi:"createdOn"`
 	Description        *string                      `pulumi:"description"`
-	DisableLocalAuth   bool                         `pulumi:"disableLocalAuth"`
+	DisableLocalAuth   *bool                        `pulumi:"disableLocalAuth"`
 	IsAttachedCompute  bool                         `pulumi:"isAttachedCompute"`
 	ModifiedOn         string                       `pulumi:"modifiedOn"`
 	Properties         *AKSSchemaResponseProperties `pulumi:"properties"`
@@ -139,10 +141,12 @@ type AksNetworkingConfigurationResponse struct {
 }
 
 type AmlCompute struct {
-	ComputeType string                `pulumi:"computeType"`
-	Description *string               `pulumi:"description"`
-	Properties  *AmlComputeProperties `pulumi:"properties"`
-	ResourceId  *string               `pulumi:"resourceId"`
+	ComputeLocation  *string               `pulumi:"computeLocation"`
+	ComputeType      string                `pulumi:"computeType"`
+	Description      *string               `pulumi:"description"`
+	DisableLocalAuth *bool                 `pulumi:"disableLocalAuth"`
+	Properties       *AmlComputeProperties `pulumi:"properties"`
+	ResourceId       *string               `pulumi:"resourceId"`
 }
 
 
@@ -304,11 +308,11 @@ func (val *AmlComputePropertiesResponse) Defaults() *AmlComputePropertiesRespons
 }
 
 type AmlComputeResponse struct {
-	ComputeLocation    string                        `pulumi:"computeLocation"`
+	ComputeLocation    *string                       `pulumi:"computeLocation"`
 	ComputeType        string                        `pulumi:"computeType"`
 	CreatedOn          string                        `pulumi:"createdOn"`
 	Description        *string                       `pulumi:"description"`
-	DisableLocalAuth   bool                          `pulumi:"disableLocalAuth"`
+	DisableLocalAuth   *bool                         `pulumi:"disableLocalAuth"`
 	IsAttachedCompute  bool                          `pulumi:"isAttachedCompute"`
 	ModifiedOn         string                        `pulumi:"modifiedOn"`
 	Properties         *AmlComputePropertiesResponse `pulumi:"properties"`
@@ -3116,10 +3120,12 @@ func (o ComponentVersionResponseOutput) Tags() pulumi.StringMapOutput {
 }
 
 type ComputeInstance struct {
-	ComputeType string                     `pulumi:"computeType"`
-	Description *string                    `pulumi:"description"`
-	Properties  *ComputeInstanceProperties `pulumi:"properties"`
-	ResourceId  *string                    `pulumi:"resourceId"`
+	ComputeLocation  *string                    `pulumi:"computeLocation"`
+	ComputeType      string                     `pulumi:"computeType"`
+	Description      *string                    `pulumi:"description"`
+	DisableLocalAuth *bool                      `pulumi:"disableLocalAuth"`
+	Properties       *ComputeInstanceProperties `pulumi:"properties"`
+	ResourceId       *string                    `pulumi:"resourceId"`
 }
 
 
@@ -3274,11 +3280,11 @@ func (val *ComputeInstancePropertiesResponse) Defaults() *ComputeInstancePropert
 }
 
 type ComputeInstanceResponse struct {
-	ComputeLocation    string                             `pulumi:"computeLocation"`
+	ComputeLocation    *string                            `pulumi:"computeLocation"`
 	ComputeType        string                             `pulumi:"computeType"`
 	CreatedOn          string                             `pulumi:"createdOn"`
 	Description        *string                            `pulumi:"description"`
-	DisableLocalAuth   bool                               `pulumi:"disableLocalAuth"`
+	DisableLocalAuth   *bool                              `pulumi:"disableLocalAuth"`
 	IsAttachedCompute  bool                               `pulumi:"isAttachedCompute"`
 	ModifiedOn         string                             `pulumi:"modifiedOn"`
 	Properties         *ComputeInstancePropertiesResponse `pulumi:"properties"`
@@ -3913,17 +3919,19 @@ func (o DataContainerResponseOutput) Tags() pulumi.StringMapOutput {
 }
 
 type DataFactory struct {
-	ComputeType string  `pulumi:"computeType"`
-	Description *string `pulumi:"description"`
-	ResourceId  *string `pulumi:"resourceId"`
+	ComputeLocation  *string `pulumi:"computeLocation"`
+	ComputeType      string  `pulumi:"computeType"`
+	Description      *string `pulumi:"description"`
+	DisableLocalAuth *bool   `pulumi:"disableLocalAuth"`
+	ResourceId       *string `pulumi:"resourceId"`
 }
 
 type DataFactoryResponse struct {
-	ComputeLocation    string                  `pulumi:"computeLocation"`
+	ComputeLocation    *string                 `pulumi:"computeLocation"`
 	ComputeType        string                  `pulumi:"computeType"`
 	CreatedOn          string                  `pulumi:"createdOn"`
 	Description        *string                 `pulumi:"description"`
-	DisableLocalAuth   bool                    `pulumi:"disableLocalAuth"`
+	DisableLocalAuth   *bool                   `pulumi:"disableLocalAuth"`
 	IsAttachedCompute  bool                    `pulumi:"isAttachedCompute"`
 	ModifiedOn         string                  `pulumi:"modifiedOn"`
 	ProvisioningErrors []ErrorResponseResponse `pulumi:"provisioningErrors"`
@@ -3932,18 +3940,20 @@ type DataFactoryResponse struct {
 }
 
 type DataLakeAnalytics struct {
-	ComputeType string                             `pulumi:"computeType"`
-	Description *string                            `pulumi:"description"`
-	Properties  *DataLakeAnalyticsSchemaProperties `pulumi:"properties"`
-	ResourceId  *string                            `pulumi:"resourceId"`
+	ComputeLocation  *string                            `pulumi:"computeLocation"`
+	ComputeType      string                             `pulumi:"computeType"`
+	Description      *string                            `pulumi:"description"`
+	DisableLocalAuth *bool                              `pulumi:"disableLocalAuth"`
+	Properties       *DataLakeAnalyticsSchemaProperties `pulumi:"properties"`
+	ResourceId       *string                            `pulumi:"resourceId"`
 }
 
 type DataLakeAnalyticsResponse struct {
-	ComputeLocation    string                                     `pulumi:"computeLocation"`
+	ComputeLocation    *string                                    `pulumi:"computeLocation"`
 	ComputeType        string                                     `pulumi:"computeType"`
 	CreatedOn          string                                     `pulumi:"createdOn"`
 	Description        *string                                    `pulumi:"description"`
-	DisableLocalAuth   bool                                       `pulumi:"disableLocalAuth"`
+	DisableLocalAuth   *bool                                      `pulumi:"disableLocalAuth"`
 	IsAttachedCompute  bool                                       `pulumi:"isAttachedCompute"`
 	ModifiedOn         string                                     `pulumi:"modifiedOn"`
 	Properties         *DataLakeAnalyticsSchemaResponseProperties `pulumi:"properties"`
@@ -3973,10 +3983,12 @@ type DataPathAssetReferenceResponse struct {
 }
 
 type Databricks struct {
-	ComputeType string                `pulumi:"computeType"`
-	Description *string               `pulumi:"description"`
-	Properties  *DatabricksProperties `pulumi:"properties"`
-	ResourceId  *string               `pulumi:"resourceId"`
+	ComputeLocation  *string               `pulumi:"computeLocation"`
+	ComputeType      string                `pulumi:"computeType"`
+	Description      *string               `pulumi:"description"`
+	DisableLocalAuth *bool                 `pulumi:"disableLocalAuth"`
+	Properties       *DatabricksProperties `pulumi:"properties"`
+	ResourceId       *string               `pulumi:"resourceId"`
 }
 
 type DatabricksProperties struct {
@@ -3990,11 +4002,11 @@ type DatabricksPropertiesResponse struct {
 }
 
 type DatabricksResponse struct {
-	ComputeLocation    string                        `pulumi:"computeLocation"`
+	ComputeLocation    *string                       `pulumi:"computeLocation"`
 	ComputeType        string                        `pulumi:"computeType"`
 	CreatedOn          string                        `pulumi:"createdOn"`
 	Description        *string                       `pulumi:"description"`
-	DisableLocalAuth   bool                          `pulumi:"disableLocalAuth"`
+	DisableLocalAuth   *bool                         `pulumi:"disableLocalAuth"`
 	IsAttachedCompute  bool                          `pulumi:"isAttachedCompute"`
 	ModifiedOn         string                        `pulumi:"modifiedOn"`
 	Properties         *DatabricksPropertiesResponse `pulumi:"properties"`
@@ -5794,10 +5806,12 @@ type GridSamplingAlgorithmResponse struct {
 }
 
 type HDInsight struct {
-	ComputeType string               `pulumi:"computeType"`
-	Description *string              `pulumi:"description"`
-	Properties  *HDInsightProperties `pulumi:"properties"`
-	ResourceId  *string              `pulumi:"resourceId"`
+	ComputeLocation  *string              `pulumi:"computeLocation"`
+	ComputeType      string               `pulumi:"computeType"`
+	Description      *string              `pulumi:"description"`
+	DisableLocalAuth *bool                `pulumi:"disableLocalAuth"`
+	Properties       *HDInsightProperties `pulumi:"properties"`
+	ResourceId       *string              `pulumi:"resourceId"`
 }
 
 type HDInsightProperties struct {
@@ -5813,11 +5827,11 @@ type HDInsightPropertiesResponse struct {
 }
 
 type HDInsightResponse struct {
-	ComputeLocation    string                       `pulumi:"computeLocation"`
+	ComputeLocation    *string                      `pulumi:"computeLocation"`
 	ComputeType        string                       `pulumi:"computeType"`
 	CreatedOn          string                       `pulumi:"createdOn"`
 	Description        *string                      `pulumi:"description"`
-	DisableLocalAuth   bool                         `pulumi:"disableLocalAuth"`
+	DisableLocalAuth   *bool                        `pulumi:"disableLocalAuth"`
 	IsAttachedCompute  bool                         `pulumi:"isAttachedCompute"`
 	ModifiedOn         string                       `pulumi:"modifiedOn"`
 	Properties         *HDInsightPropertiesResponse `pulumi:"properties"`
@@ -7167,10 +7181,12 @@ type JobServiceResponse struct {
 }
 
 type Kubernetes struct {
-	ComputeType string                `pulumi:"computeType"`
-	Description *string               `pulumi:"description"`
-	Properties  *KubernetesProperties `pulumi:"properties"`
-	ResourceId  *string               `pulumi:"resourceId"`
+	ComputeLocation  *string               `pulumi:"computeLocation"`
+	ComputeType      string                `pulumi:"computeType"`
+	Description      *string               `pulumi:"description"`
+	DisableLocalAuth *bool                 `pulumi:"disableLocalAuth"`
+	Properties       *KubernetesProperties `pulumi:"properties"`
+	ResourceId       *string               `pulumi:"resourceId"`
 }
 
 
@@ -7318,11 +7334,11 @@ func (val *KubernetesPropertiesResponse) Defaults() *KubernetesPropertiesRespons
 }
 
 type KubernetesResponse struct {
-	ComputeLocation    string                        `pulumi:"computeLocation"`
+	ComputeLocation    *string                       `pulumi:"computeLocation"`
 	ComputeType        string                        `pulumi:"computeType"`
 	CreatedOn          string                        `pulumi:"createdOn"`
 	Description        *string                       `pulumi:"description"`
-	DisableLocalAuth   bool                          `pulumi:"disableLocalAuth"`
+	DisableLocalAuth   *bool                         `pulumi:"disableLocalAuth"`
 	IsAttachedCompute  bool                          `pulumi:"isAttachedCompute"`
 	ModifiedOn         string                        `pulumi:"modifiedOn"`
 	Properties         *KubernetesPropertiesResponse `pulumi:"properties"`
@@ -10989,10 +11005,12 @@ func (val *SweepJobResponse) Defaults() *SweepJobResponse {
 }
 
 type SynapseSpark struct {
-	ComputeType string                  `pulumi:"computeType"`
-	Description *string                 `pulumi:"description"`
-	Properties  *SynapseSparkProperties `pulumi:"properties"`
-	ResourceId  *string                 `pulumi:"resourceId"`
+	ComputeLocation  *string                 `pulumi:"computeLocation"`
+	ComputeType      string                  `pulumi:"computeType"`
+	Description      *string                 `pulumi:"description"`
+	DisableLocalAuth *bool                   `pulumi:"disableLocalAuth"`
+	Properties       *SynapseSparkProperties `pulumi:"properties"`
+	ResourceId       *string                 `pulumi:"resourceId"`
 }
 
 type SynapseSparkProperties struct {
@@ -11009,11 +11027,11 @@ type SynapseSparkProperties struct {
 }
 
 type SynapseSparkResponse struct {
-	ComputeLocation    string                          `pulumi:"computeLocation"`
+	ComputeLocation    *string                         `pulumi:"computeLocation"`
 	ComputeType        string                          `pulumi:"computeType"`
 	CreatedOn          string                          `pulumi:"createdOn"`
 	Description        *string                         `pulumi:"description"`
-	DisableLocalAuth   bool                            `pulumi:"disableLocalAuth"`
+	DisableLocalAuth   *bool                           `pulumi:"disableLocalAuth"`
 	IsAttachedCompute  bool                            `pulumi:"isAttachedCompute"`
 	ModifiedOn         string                          `pulumi:"modifiedOn"`
 	Properties         *SynapseSparkResponseProperties `pulumi:"properties"`
@@ -12046,10 +12064,12 @@ type UsernamePasswordAuthTypeWorkspaceConnectionPropertiesResponse struct {
 }
 
 type VirtualMachine struct {
-	ComputeType string                          `pulumi:"computeType"`
-	Description *string                         `pulumi:"description"`
-	Properties  *VirtualMachineSchemaProperties `pulumi:"properties"`
-	ResourceId  *string                         `pulumi:"resourceId"`
+	ComputeLocation  *string                         `pulumi:"computeLocation"`
+	ComputeType      string                          `pulumi:"computeType"`
+	Description      *string                         `pulumi:"description"`
+	DisableLocalAuth *bool                           `pulumi:"disableLocalAuth"`
+	Properties       *VirtualMachineSchemaProperties `pulumi:"properties"`
+	ResourceId       *string                         `pulumi:"resourceId"`
 }
 
 type VirtualMachineImage struct {
@@ -12061,11 +12081,11 @@ type VirtualMachineImageResponse struct {
 }
 
 type VirtualMachineResponse struct {
-	ComputeLocation    string                                  `pulumi:"computeLocation"`
+	ComputeLocation    *string                                 `pulumi:"computeLocation"`
 	ComputeType        string                                  `pulumi:"computeType"`
 	CreatedOn          string                                  `pulumi:"createdOn"`
 	Description        *string                                 `pulumi:"description"`
-	DisableLocalAuth   bool                                    `pulumi:"disableLocalAuth"`
+	DisableLocalAuth   *bool                                   `pulumi:"disableLocalAuth"`
 	IsAttachedCompute  bool                                    `pulumi:"isAttachedCompute"`
 	ModifiedOn         string                                  `pulumi:"modifiedOn"`
 	Properties         *VirtualMachineSchemaResponseProperties `pulumi:"properties"`

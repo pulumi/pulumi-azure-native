@@ -64,7 +64,7 @@ export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
     /**
      * The extensions protected settings that are passed by reference, and consumed from key vault
      */
-    public readonly protectedSettingsFromKeyVault!: pulumi.Output<any | undefined>;
+    public readonly protectedSettingsFromKeyVault!: pulumi.Output<outputs.compute.v20220301.KeyVaultSecretReferenceResponse | undefined>;
     /**
      * The provisioning state, which only appears in the response.
      */
@@ -180,7 +180,7 @@ export interface VirtualMachineScaleSetVMExtensionArgs {
     /**
      * The extensions protected settings that are passed by reference, and consumed from key vault
      */
-    protectedSettingsFromKeyVault?: any;
+    protectedSettingsFromKeyVault?: pulumi.Input<inputs.compute.v20220301.KeyVaultSecretReferenceArgs>;
     /**
      * The name of the extension handler publisher.
      */

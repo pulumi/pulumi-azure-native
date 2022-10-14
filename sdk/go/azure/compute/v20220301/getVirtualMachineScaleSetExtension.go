@@ -28,20 +28,20 @@ type LookupVirtualMachineScaleSetExtensionArgs struct {
 
 
 type LookupVirtualMachineScaleSetExtensionResult struct {
-	AutoUpgradeMinorVersion       *bool       `pulumi:"autoUpgradeMinorVersion"`
-	EnableAutomaticUpgrade        *bool       `pulumi:"enableAutomaticUpgrade"`
-	ForceUpdateTag                *string     `pulumi:"forceUpdateTag"`
-	Id                            string      `pulumi:"id"`
-	Name                          *string     `pulumi:"name"`
-	ProtectedSettings             interface{} `pulumi:"protectedSettings"`
-	ProtectedSettingsFromKeyVault interface{} `pulumi:"protectedSettingsFromKeyVault"`
-	ProvisionAfterExtensions      []string    `pulumi:"provisionAfterExtensions"`
-	ProvisioningState             string      `pulumi:"provisioningState"`
-	Publisher                     *string     `pulumi:"publisher"`
-	Settings                      interface{} `pulumi:"settings"`
-	SuppressFailures              *bool       `pulumi:"suppressFailures"`
-	Type                          string      `pulumi:"type"`
-	TypeHandlerVersion            *string     `pulumi:"typeHandlerVersion"`
+	AutoUpgradeMinorVersion       *bool                            `pulumi:"autoUpgradeMinorVersion"`
+	EnableAutomaticUpgrade        *bool                            `pulumi:"enableAutomaticUpgrade"`
+	ForceUpdateTag                *string                          `pulumi:"forceUpdateTag"`
+	Id                            string                           `pulumi:"id"`
+	Name                          *string                          `pulumi:"name"`
+	ProtectedSettings             interface{}                      `pulumi:"protectedSettings"`
+	ProtectedSettingsFromKeyVault *KeyVaultSecretReferenceResponse `pulumi:"protectedSettingsFromKeyVault"`
+	ProvisionAfterExtensions      []string                         `pulumi:"provisionAfterExtensions"`
+	ProvisioningState             string                           `pulumi:"provisioningState"`
+	Publisher                     *string                          `pulumi:"publisher"`
+	Settings                      interface{}                      `pulumi:"settings"`
+	SuppressFailures              *bool                            `pulumi:"suppressFailures"`
+	Type                          string                           `pulumi:"type"`
+	TypeHandlerVersion            *string                          `pulumi:"typeHandlerVersion"`
 }
 
 func LookupVirtualMachineScaleSetExtensionOutput(ctx *pulumi.Context, args LookupVirtualMachineScaleSetExtensionOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualMachineScaleSetExtensionResultOutput {
@@ -107,10 +107,10 @@ func (o LookupVirtualMachineScaleSetExtensionResultOutput) ProtectedSettings() p
 	return o.ApplyT(func(v LookupVirtualMachineScaleSetExtensionResult) interface{} { return v.ProtectedSettings }).(pulumi.AnyOutput)
 }
 
-func (o LookupVirtualMachineScaleSetExtensionResultOutput) ProtectedSettingsFromKeyVault() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupVirtualMachineScaleSetExtensionResult) interface{} {
+func (o LookupVirtualMachineScaleSetExtensionResultOutput) ProtectedSettingsFromKeyVault() KeyVaultSecretReferenceResponsePtrOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScaleSetExtensionResult) *KeyVaultSecretReferenceResponse {
 		return v.ProtectedSettingsFromKeyVault
-	}).(pulumi.AnyOutput)
+	}).(KeyVaultSecretReferenceResponsePtrOutput)
 }
 
 func (o LookupVirtualMachineScaleSetExtensionResultOutput) ProvisionAfterExtensions() pulumi.StringArrayOutput {

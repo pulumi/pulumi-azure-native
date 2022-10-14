@@ -6122,7 +6122,7 @@ class VirtualMachineExtensionResponse(dict):
                  instance_view: Optional['outputs.VirtualMachineExtensionInstanceViewResponse'] = None,
                  location: Optional[str] = None,
                  protected_settings: Optional[Any] = None,
-                 protected_settings_from_key_vault: Optional[Any] = None,
+                 protected_settings_from_key_vault: Optional['outputs.KeyVaultSecretReferenceResponse'] = None,
                  publisher: Optional[str] = None,
                  settings: Optional[Any] = None,
                  suppress_failures: Optional[bool] = None,
@@ -6140,7 +6140,7 @@ class VirtualMachineExtensionResponse(dict):
         :param 'VirtualMachineExtensionInstanceViewResponse' instance_view: The virtual machine extension instance view.
         :param str location: Resource location
         :param Any protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-        :param Any protected_settings_from_key_vault: The extensions protected settings that are passed by reference, and consumed from key vault
+        :param 'KeyVaultSecretReferenceResponse' protected_settings_from_key_vault: The extensions protected settings that are passed by reference, and consumed from key vault
         :param str publisher: The name of the extension handler publisher.
         :param Any settings: Json formatted public settings for the extension.
         :param bool suppress_failures: Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
@@ -6258,7 +6258,7 @@ class VirtualMachineExtensionResponse(dict):
 
     @property
     @pulumi.getter(name="protectedSettingsFromKeyVault")
-    def protected_settings_from_key_vault(self) -> Optional[Any]:
+    def protected_settings_from_key_vault(self) -> Optional['outputs.KeyVaultSecretReferenceResponse']:
         """
         The extensions protected settings that are passed by reference, and consumed from key vault
         """
@@ -7734,7 +7734,7 @@ class VirtualMachineScaleSetExtensionResponse(dict):
                  force_update_tag: Optional[str] = None,
                  name: Optional[str] = None,
                  protected_settings: Optional[Any] = None,
-                 protected_settings_from_key_vault: Optional[Any] = None,
+                 protected_settings_from_key_vault: Optional['outputs.KeyVaultSecretReferenceResponse'] = None,
                  provision_after_extensions: Optional[Sequence[str]] = None,
                  publisher: Optional[str] = None,
                  settings: Optional[Any] = None,
@@ -7750,7 +7750,7 @@ class VirtualMachineScaleSetExtensionResponse(dict):
         :param str force_update_tag: If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
         :param str name: The name of the extension.
         :param Any protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-        :param Any protected_settings_from_key_vault: The extensions protected settings that are passed by reference, and consumed from key vault
+        :param 'KeyVaultSecretReferenceResponse' protected_settings_from_key_vault: The extensions protected settings that are passed by reference, and consumed from key vault
         :param Sequence[str] provision_after_extensions: Collection of extension names after which this extension needs to be provisioned.
         :param str publisher: The name of the extension handler publisher.
         :param Any settings: Json formatted public settings for the extension.
@@ -7849,7 +7849,7 @@ class VirtualMachineScaleSetExtensionResponse(dict):
 
     @property
     @pulumi.getter(name="protectedSettingsFromKeyVault")
-    def protected_settings_from_key_vault(self) -> Optional[Any]:
+    def protected_settings_from_key_vault(self) -> Optional['outputs.KeyVaultSecretReferenceResponse']:
         """
         The extensions protected settings that are passed by reference, and consumed from key vault
         """

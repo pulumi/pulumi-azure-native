@@ -82,7 +82,7 @@ export interface GetVirtualMachineExtensionResult {
     /**
      * The extensions protected settings that are passed by reference, and consumed from key vault
      */
-    readonly protectedSettingsFromKeyVault?: any;
+    readonly protectedSettingsFromKeyVault?: outputs.compute.v20220301.KeyVaultSecretReferenceResponse;
     /**
      * The provisioning state, which only appears in the response.
      */

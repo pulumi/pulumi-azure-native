@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -57,7 +60,7 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
     /**
      * The extensions protected settings that are passed by reference, and consumed from key vault
      */
-    public readonly protectedSettingsFromKeyVault!: pulumi.Output<any | undefined>;
+    public readonly protectedSettingsFromKeyVault!: pulumi.Output<outputs.compute.v20220301.KeyVaultSecretReferenceResponse | undefined>;
     /**
      * Collection of extension names after which this extension needs to be provisioned.
      */
@@ -169,7 +172,7 @@ export interface VirtualMachineScaleSetExtensionArgs {
     /**
      * The extensions protected settings that are passed by reference, and consumed from key vault
      */
-    protectedSettingsFromKeyVault?: any;
+    protectedSettingsFromKeyVault?: pulumi.Input<inputs.compute.v20220301.KeyVaultSecretReferenceArgs>;
     /**
      * Collection of extension names after which this extension needs to be provisioned.
      */

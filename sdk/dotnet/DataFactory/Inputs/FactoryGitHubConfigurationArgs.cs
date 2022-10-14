@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string> CollaborationBranch { get; set; } = null!;
 
         /// <summary>
+        /// Disable manual publish operation in ADF studio to favor automated publish.
+        /// </summary>
+        [Input("disablePublish")]
+        public Input<bool>? DisablePublish { get; set; }
+
+        /// <summary>
         /// GitHub Enterprise host name. For example: `https://github.mydomain.com`
         /// </summary>
         [Input("hostName")]

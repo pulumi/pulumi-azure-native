@@ -36,7 +36,7 @@ type LookupVirtualMachineExtensionResult struct {
 	Location                      *string                                      `pulumi:"location"`
 	Name                          string                                       `pulumi:"name"`
 	ProtectedSettings             interface{}                                  `pulumi:"protectedSettings"`
-	ProtectedSettingsFromKeyVault interface{}                                  `pulumi:"protectedSettingsFromKeyVault"`
+	ProtectedSettingsFromKeyVault *KeyVaultSecretReferenceResponse             `pulumi:"protectedSettingsFromKeyVault"`
 	ProvisioningState             string                                       `pulumi:"provisioningState"`
 	Publisher                     *string                                      `pulumi:"publisher"`
 	Settings                      interface{}                                  `pulumi:"settings"`
@@ -119,8 +119,10 @@ func (o LookupVirtualMachineExtensionResultOutput) ProtectedSettings() pulumi.An
 	return o.ApplyT(func(v LookupVirtualMachineExtensionResult) interface{} { return v.ProtectedSettings }).(pulumi.AnyOutput)
 }
 
-func (o LookupVirtualMachineExtensionResultOutput) ProtectedSettingsFromKeyVault() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupVirtualMachineExtensionResult) interface{} { return v.ProtectedSettingsFromKeyVault }).(pulumi.AnyOutput)
+func (o LookupVirtualMachineExtensionResultOutput) ProtectedSettingsFromKeyVault() KeyVaultSecretReferenceResponsePtrOutput {
+	return o.ApplyT(func(v LookupVirtualMachineExtensionResult) *KeyVaultSecretReferenceResponse {
+		return v.ProtectedSettingsFromKeyVault
+	}).(KeyVaultSecretReferenceResponsePtrOutput)
 }
 
 func (o LookupVirtualMachineExtensionResultOutput) ProvisioningState() pulumi.StringOutput {

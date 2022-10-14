@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.Compute.V20220301
         /// The extensions protected settings that are passed by reference, and consumed from key vault
         /// </summary>
         [Output("protectedSettingsFromKeyVault")]
-        public Output<object?> ProtectedSettingsFromKeyVault { get; private set; } = null!;
+        public Output<Outputs.KeyVaultSecretReferenceResponse?> ProtectedSettingsFromKeyVault { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state, which only appears in the response.
@@ -191,7 +191,7 @@ namespace Pulumi.AzureNative.Compute.V20220301
         /// The extensions protected settings that are passed by reference, and consumed from key vault
         /// </summary>
         [Input("protectedSettingsFromKeyVault")]
-        public Input<object>? ProtectedSettingsFromKeyVault { get; set; }
+        public Input<Inputs.KeyVaultSecretReferenceArgs>? ProtectedSettingsFromKeyVault { get; set; }
 
         /// <summary>
         /// The name of the extension handler publisher.

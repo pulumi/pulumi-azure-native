@@ -138,7 +138,7 @@ class GetVirtualMachineExtensionResult:
 
     @property
     @pulumi.getter(name="protectedSettingsFromKeyVault")
-    def protected_settings_from_key_vault(self) -> Optional[Any]:
+    def protected_settings_from_key_vault(self) -> Optional['outputs.KeyVaultSecretReferenceResponse']:
         """
         The extensions protected settings that are passed by reference, and consumed from key vault
         """

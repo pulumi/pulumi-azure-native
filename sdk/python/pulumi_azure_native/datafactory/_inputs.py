@@ -31476,6 +31476,7 @@ class FactoryGitHubConfigurationArgs:
                  type: pulumi.Input[str],
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input['GitHubClientSecretArgs']] = None,
+                 disable_publish: Optional[pulumi.Input[bool]] = None,
                  host_name: Optional[pulumi.Input[str]] = None,
                  last_commit_id: Optional[pulumi.Input[str]] = None):
         """
@@ -31488,6 +31489,7 @@ class FactoryGitHubConfigurationArgs:
                Expected value is 'FactoryGitHubConfiguration'.
         :param pulumi.Input[str] client_id: GitHub bring your own app client id.
         :param pulumi.Input['GitHubClientSecretArgs'] client_secret: GitHub bring your own app client secret information.
+        :param pulumi.Input[bool] disable_publish: Disable manual publish operation in ADF studio to favor automated publish.
         :param pulumi.Input[str] host_name: GitHub Enterprise host name. For example: `https://github.mydomain.com`
         :param pulumi.Input[str] last_commit_id: Last commit id.
         """
@@ -31500,6 +31502,8 @@ class FactoryGitHubConfigurationArgs:
             pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
             pulumi.set(__self__, "client_secret", client_secret)
+        if disable_publish is not None:
+            pulumi.set(__self__, "disable_publish", disable_publish)
         if host_name is not None:
             pulumi.set(__self__, "host_name", host_name)
         if last_commit_id is not None:
@@ -31591,6 +31595,18 @@ class FactoryGitHubConfigurationArgs:
         pulumi.set(self, "client_secret", value)
 
     @property
+    @pulumi.getter(name="disablePublish")
+    def disable_publish(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Disable manual publish operation in ADF studio to favor automated publish.
+        """
+        return pulumi.get(self, "disable_publish")
+
+    @disable_publish.setter
+    def disable_publish(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_publish", value)
+
+    @property
     @pulumi.getter(name="hostName")
     def host_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -31663,6 +31679,7 @@ class FactoryVSTSConfigurationArgs:
                  repository_name: pulumi.Input[str],
                  root_folder: pulumi.Input[str],
                  type: pulumi.Input[str],
+                 disable_publish: Optional[pulumi.Input[bool]] = None,
                  last_commit_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
@@ -31674,6 +31691,7 @@ class FactoryVSTSConfigurationArgs:
         :param pulumi.Input[str] root_folder: Root folder.
         :param pulumi.Input[str] type: Type of repo configuration.
                Expected value is 'FactoryVSTSConfiguration'.
+        :param pulumi.Input[bool] disable_publish: Disable manual publish operation in ADF studio to favor automated publish.
         :param pulumi.Input[str] last_commit_id: Last commit id.
         :param pulumi.Input[str] tenant_id: VSTS tenant id.
         """
@@ -31683,6 +31701,8 @@ class FactoryVSTSConfigurationArgs:
         pulumi.set(__self__, "repository_name", repository_name)
         pulumi.set(__self__, "root_folder", root_folder)
         pulumi.set(__self__, "type", 'FactoryVSTSConfiguration')
+        if disable_publish is not None:
+            pulumi.set(__self__, "disable_publish", disable_publish)
         if last_commit_id is not None:
             pulumi.set(__self__, "last_commit_id", last_commit_id)
         if tenant_id is not None:
@@ -31760,6 +31780,18 @@ class FactoryVSTSConfigurationArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disablePublish")
+    def disable_publish(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Disable manual publish operation in ADF studio to favor automated publish.
+        """
+        return pulumi.get(self, "disable_publish")
+
+    @disable_publish.setter
+    def disable_publish(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_publish", value)
 
     @property
     @pulumi.getter(name="lastCommitId")

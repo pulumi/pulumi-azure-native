@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string CollaborationBranch;
         /// <summary>
+        /// Disable manual publish operation in ADF studio to favor automated publish.
+        /// </summary>
+        public readonly bool? DisablePublish;
+        /// <summary>
         /// Last commit id.
         /// </summary>
         public readonly string? LastCommitId;
@@ -56,6 +60,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string collaborationBranch,
 
+            bool? disablePublish,
+
             string? lastCommitId,
 
             string projectName,
@@ -70,6 +76,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         {
             AccountName = accountName;
             CollaborationBranch = collaborationBranch;
+            DisablePublish = disablePublish;
             LastCommitId = lastCommitId;
             ProjectName = projectName;
             RepositoryName = repositoryName;

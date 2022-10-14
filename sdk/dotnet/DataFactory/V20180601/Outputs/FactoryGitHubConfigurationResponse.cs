@@ -33,6 +33,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string CollaborationBranch;
         /// <summary>
+        /// Disable manual publish operation in ADF studio to favor automated publish.
+        /// </summary>
+        public readonly bool? DisablePublish;
+        /// <summary>
         /// GitHub Enterprise host name. For example: `https://github.mydomain.com`
         /// </summary>
         public readonly string? HostName;
@@ -64,6 +68,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string collaborationBranch,
 
+            bool? disablePublish,
+
             string? hostName,
 
             string? lastCommitId,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             ClientId = clientId;
             ClientSecret = clientSecret;
             CollaborationBranch = collaborationBranch;
+            DisablePublish = disablePublish;
             HostName = hostName;
             LastCommitId = lastCommitId;
             RepositoryName = repositoryName;

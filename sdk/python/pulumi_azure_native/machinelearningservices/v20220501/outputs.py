@@ -179,14 +179,10 @@ class AKSResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "computeLocation":
-            suggest = "compute_location"
-        elif key == "computeType":
+        if key == "computeType":
             suggest = "compute_type"
         elif key == "createdOn":
             suggest = "created_on"
-        elif key == "disableLocalAuth":
-            suggest = "disable_local_auth"
         elif key == "isAttachedCompute":
             suggest = "is_attached_compute"
         elif key == "modifiedOn":
@@ -195,6 +191,10 @@ class AKSResponse(dict):
             suggest = "provisioning_errors"
         elif key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "computeLocation":
+            suggest = "compute_location"
+        elif key == "disableLocalAuth":
+            suggest = "disable_local_auth"
         elif key == "resourceId":
             suggest = "resource_id"
 
@@ -210,54 +210,48 @@ class AKSResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 compute_location: str,
                  compute_type: str,
                  created_on: str,
-                 disable_local_auth: bool,
                  is_attached_compute: bool,
                  modified_on: str,
                  provisioning_errors: Sequence['outputs.ErrorResponseResponse'],
                  provisioning_state: str,
+                 compute_location: Optional[str] = None,
                  description: Optional[str] = None,
+                 disable_local_auth: Optional[bool] = None,
                  properties: Optional['outputs.AKSSchemaResponseProperties'] = None,
                  resource_id: Optional[str] = None):
         """
         A Machine Learning compute based on AKS.
-        :param str compute_location: Location for the underlying compute
         :param str compute_type: The type of compute
                Expected value is 'AKS'.
         :param str created_on: The time at which the compute was created.
-        :param bool disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The time at which the compute was last modified.
         :param Sequence['ErrorResponseResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
+        :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
+        :param bool disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
         :param 'AKSSchemaResponseProperties' properties: AKS properties
         :param str resource_id: ARM resource id of the underlying compute
         """
-        pulumi.set(__self__, "compute_location", compute_location)
         pulumi.set(__self__, "compute_type", 'AKS')
         pulumi.set(__self__, "created_on", created_on)
-        pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         pulumi.set(__self__, "is_attached_compute", is_attached_compute)
         pulumi.set(__self__, "modified_on", modified_on)
         pulumi.set(__self__, "provisioning_errors", provisioning_errors)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if compute_location is not None:
+            pulumi.set(__self__, "compute_location", compute_location)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if disable_local_auth is not None:
+            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
-
-    @property
-    @pulumi.getter(name="computeLocation")
-    def compute_location(self) -> str:
-        """
-        Location for the underlying compute
-        """
-        return pulumi.get(self, "compute_location")
 
     @property
     @pulumi.getter(name="computeType")
@@ -275,14 +269,6 @@ class AKSResponse(dict):
         The time at which the compute was created.
         """
         return pulumi.get(self, "created_on")
-
-    @property
-    @pulumi.getter(name="disableLocalAuth")
-    def disable_local_auth(self) -> bool:
-        """
-        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
-        """
-        return pulumi.get(self, "disable_local_auth")
 
     @property
     @pulumi.getter(name="isAttachedCompute")
@@ -317,12 +303,28 @@ class AKSResponse(dict):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="computeLocation")
+    def compute_location(self) -> Optional[str]:
+        """
+        Location for the underlying compute
+        """
+        return pulumi.get(self, "compute_location")
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
         The description of the Machine Learning compute.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[bool]:
+        """
+        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+        """
+        return pulumi.get(self, "disable_local_auth")
 
     @property
     @pulumi.getter
@@ -964,14 +966,10 @@ class AmlComputeResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "computeLocation":
-            suggest = "compute_location"
-        elif key == "computeType":
+        if key == "computeType":
             suggest = "compute_type"
         elif key == "createdOn":
             suggest = "created_on"
-        elif key == "disableLocalAuth":
-            suggest = "disable_local_auth"
         elif key == "isAttachedCompute":
             suggest = "is_attached_compute"
         elif key == "modifiedOn":
@@ -980,6 +978,10 @@ class AmlComputeResponse(dict):
             suggest = "provisioning_errors"
         elif key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "computeLocation":
+            suggest = "compute_location"
+        elif key == "disableLocalAuth":
+            suggest = "disable_local_auth"
         elif key == "resourceId":
             suggest = "resource_id"
 
@@ -995,54 +997,48 @@ class AmlComputeResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 compute_location: str,
                  compute_type: str,
                  created_on: str,
-                 disable_local_auth: bool,
                  is_attached_compute: bool,
                  modified_on: str,
                  provisioning_errors: Sequence['outputs.ErrorResponseResponse'],
                  provisioning_state: str,
+                 compute_location: Optional[str] = None,
                  description: Optional[str] = None,
+                 disable_local_auth: Optional[bool] = None,
                  properties: Optional['outputs.AmlComputePropertiesResponse'] = None,
                  resource_id: Optional[str] = None):
         """
         An Azure Machine Learning compute.
-        :param str compute_location: Location for the underlying compute
         :param str compute_type: The type of compute
                Expected value is 'AmlCompute'.
         :param str created_on: The time at which the compute was created.
-        :param bool disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The time at which the compute was last modified.
         :param Sequence['ErrorResponseResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
+        :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
+        :param bool disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
         :param 'AmlComputePropertiesResponse' properties: Properties of AmlCompute
         :param str resource_id: ARM resource id of the underlying compute
         """
-        pulumi.set(__self__, "compute_location", compute_location)
         pulumi.set(__self__, "compute_type", 'AmlCompute')
         pulumi.set(__self__, "created_on", created_on)
-        pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         pulumi.set(__self__, "is_attached_compute", is_attached_compute)
         pulumi.set(__self__, "modified_on", modified_on)
         pulumi.set(__self__, "provisioning_errors", provisioning_errors)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if compute_location is not None:
+            pulumi.set(__self__, "compute_location", compute_location)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if disable_local_auth is not None:
+            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
-
-    @property
-    @pulumi.getter(name="computeLocation")
-    def compute_location(self) -> str:
-        """
-        Location for the underlying compute
-        """
-        return pulumi.get(self, "compute_location")
 
     @property
     @pulumi.getter(name="computeType")
@@ -1060,14 +1056,6 @@ class AmlComputeResponse(dict):
         The time at which the compute was created.
         """
         return pulumi.get(self, "created_on")
-
-    @property
-    @pulumi.getter(name="disableLocalAuth")
-    def disable_local_auth(self) -> bool:
-        """
-        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
-        """
-        return pulumi.get(self, "disable_local_auth")
 
     @property
     @pulumi.getter(name="isAttachedCompute")
@@ -1102,12 +1090,28 @@ class AmlComputeResponse(dict):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="computeLocation")
+    def compute_location(self) -> Optional[str]:
+        """
+        Location for the underlying compute
+        """
+        return pulumi.get(self, "compute_location")
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
         The description of the Machine Learning compute.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[bool]:
+        """
+        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+        """
+        return pulumi.get(self, "disable_local_auth")
 
     @property
     @pulumi.getter
@@ -4448,14 +4452,10 @@ class ComputeInstanceResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "computeLocation":
-            suggest = "compute_location"
-        elif key == "computeType":
+        if key == "computeType":
             suggest = "compute_type"
         elif key == "createdOn":
             suggest = "created_on"
-        elif key == "disableLocalAuth":
-            suggest = "disable_local_auth"
         elif key == "isAttachedCompute":
             suggest = "is_attached_compute"
         elif key == "modifiedOn":
@@ -4464,6 +4464,10 @@ class ComputeInstanceResponse(dict):
             suggest = "provisioning_errors"
         elif key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "computeLocation":
+            suggest = "compute_location"
+        elif key == "disableLocalAuth":
+            suggest = "disable_local_auth"
         elif key == "resourceId":
             suggest = "resource_id"
 
@@ -4479,54 +4483,48 @@ class ComputeInstanceResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 compute_location: str,
                  compute_type: str,
                  created_on: str,
-                 disable_local_auth: bool,
                  is_attached_compute: bool,
                  modified_on: str,
                  provisioning_errors: Sequence['outputs.ErrorResponseResponse'],
                  provisioning_state: str,
+                 compute_location: Optional[str] = None,
                  description: Optional[str] = None,
+                 disable_local_auth: Optional[bool] = None,
                  properties: Optional['outputs.ComputeInstancePropertiesResponse'] = None,
                  resource_id: Optional[str] = None):
         """
         An Azure Machine Learning compute instance.
-        :param str compute_location: Location for the underlying compute
         :param str compute_type: The type of compute
                Expected value is 'ComputeInstance'.
         :param str created_on: The time at which the compute was created.
-        :param bool disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The time at which the compute was last modified.
         :param Sequence['ErrorResponseResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
+        :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
+        :param bool disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
         :param 'ComputeInstancePropertiesResponse' properties: Properties of ComputeInstance
         :param str resource_id: ARM resource id of the underlying compute
         """
-        pulumi.set(__self__, "compute_location", compute_location)
         pulumi.set(__self__, "compute_type", 'ComputeInstance')
         pulumi.set(__self__, "created_on", created_on)
-        pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         pulumi.set(__self__, "is_attached_compute", is_attached_compute)
         pulumi.set(__self__, "modified_on", modified_on)
         pulumi.set(__self__, "provisioning_errors", provisioning_errors)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if compute_location is not None:
+            pulumi.set(__self__, "compute_location", compute_location)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if disable_local_auth is not None:
+            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
-
-    @property
-    @pulumi.getter(name="computeLocation")
-    def compute_location(self) -> str:
-        """
-        Location for the underlying compute
-        """
-        return pulumi.get(self, "compute_location")
 
     @property
     @pulumi.getter(name="computeType")
@@ -4544,14 +4542,6 @@ class ComputeInstanceResponse(dict):
         The time at which the compute was created.
         """
         return pulumi.get(self, "created_on")
-
-    @property
-    @pulumi.getter(name="disableLocalAuth")
-    def disable_local_auth(self) -> bool:
-        """
-        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
-        """
-        return pulumi.get(self, "disable_local_auth")
 
     @property
     @pulumi.getter(name="isAttachedCompute")
@@ -4586,12 +4576,28 @@ class ComputeInstanceResponse(dict):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="computeLocation")
+    def compute_location(self) -> Optional[str]:
+        """
+        Location for the underlying compute
+        """
+        return pulumi.get(self, "compute_location")
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
         The description of the Machine Learning compute.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[bool]:
+        """
+        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+        """
+        return pulumi.get(self, "disable_local_auth")
 
     @property
     @pulumi.getter
@@ -5238,14 +5244,10 @@ class DataFactoryResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "computeLocation":
-            suggest = "compute_location"
-        elif key == "computeType":
+        if key == "computeType":
             suggest = "compute_type"
         elif key == "createdOn":
             suggest = "created_on"
-        elif key == "disableLocalAuth":
-            suggest = "disable_local_auth"
         elif key == "isAttachedCompute":
             suggest = "is_attached_compute"
         elif key == "modifiedOn":
@@ -5254,6 +5256,10 @@ class DataFactoryResponse(dict):
             suggest = "provisioning_errors"
         elif key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "computeLocation":
+            suggest = "compute_location"
+        elif key == "disableLocalAuth":
+            suggest = "disable_local_auth"
         elif key == "resourceId":
             suggest = "resource_id"
 
@@ -5269,50 +5275,44 @@ class DataFactoryResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 compute_location: str,
                  compute_type: str,
                  created_on: str,
-                 disable_local_auth: bool,
                  is_attached_compute: bool,
                  modified_on: str,
                  provisioning_errors: Sequence['outputs.ErrorResponseResponse'],
                  provisioning_state: str,
+                 compute_location: Optional[str] = None,
                  description: Optional[str] = None,
+                 disable_local_auth: Optional[bool] = None,
                  resource_id: Optional[str] = None):
         """
         A DataFactory compute.
-        :param str compute_location: Location for the underlying compute
         :param str compute_type: The type of compute
                Expected value is 'DataFactory'.
         :param str created_on: The time at which the compute was created.
-        :param bool disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The time at which the compute was last modified.
         :param Sequence['ErrorResponseResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
+        :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
+        :param bool disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
         :param str resource_id: ARM resource id of the underlying compute
         """
-        pulumi.set(__self__, "compute_location", compute_location)
         pulumi.set(__self__, "compute_type", 'DataFactory')
         pulumi.set(__self__, "created_on", created_on)
-        pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         pulumi.set(__self__, "is_attached_compute", is_attached_compute)
         pulumi.set(__self__, "modified_on", modified_on)
         pulumi.set(__self__, "provisioning_errors", provisioning_errors)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if compute_location is not None:
+            pulumi.set(__self__, "compute_location", compute_location)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if disable_local_auth is not None:
+            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
-
-    @property
-    @pulumi.getter(name="computeLocation")
-    def compute_location(self) -> str:
-        """
-        Location for the underlying compute
-        """
-        return pulumi.get(self, "compute_location")
 
     @property
     @pulumi.getter(name="computeType")
@@ -5332,14 +5332,6 @@ class DataFactoryResponse(dict):
         return pulumi.get(self, "created_on")
 
     @property
-    @pulumi.getter(name="disableLocalAuth")
-    def disable_local_auth(self) -> bool:
-        """
-        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
-        """
-        return pulumi.get(self, "disable_local_auth")
-
-    @property
     @pulumi.getter(name="isAttachedCompute")
     def is_attached_compute(self) -> bool:
         """
@@ -5372,12 +5364,28 @@ class DataFactoryResponse(dict):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="computeLocation")
+    def compute_location(self) -> Optional[str]:
+        """
+        Location for the underlying compute
+        """
+        return pulumi.get(self, "compute_location")
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
         The description of the Machine Learning compute.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[bool]:
+        """
+        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+        """
+        return pulumi.get(self, "disable_local_auth")
 
     @property
     @pulumi.getter(name="resourceId")
@@ -5396,14 +5404,10 @@ class DataLakeAnalyticsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "computeLocation":
-            suggest = "compute_location"
-        elif key == "computeType":
+        if key == "computeType":
             suggest = "compute_type"
         elif key == "createdOn":
             suggest = "created_on"
-        elif key == "disableLocalAuth":
-            suggest = "disable_local_auth"
         elif key == "isAttachedCompute":
             suggest = "is_attached_compute"
         elif key == "modifiedOn":
@@ -5412,6 +5416,10 @@ class DataLakeAnalyticsResponse(dict):
             suggest = "provisioning_errors"
         elif key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "computeLocation":
+            suggest = "compute_location"
+        elif key == "disableLocalAuth":
+            suggest = "disable_local_auth"
         elif key == "resourceId":
             suggest = "resource_id"
 
@@ -5427,53 +5435,47 @@ class DataLakeAnalyticsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 compute_location: str,
                  compute_type: str,
                  created_on: str,
-                 disable_local_auth: bool,
                  is_attached_compute: bool,
                  modified_on: str,
                  provisioning_errors: Sequence['outputs.ErrorResponseResponse'],
                  provisioning_state: str,
+                 compute_location: Optional[str] = None,
                  description: Optional[str] = None,
+                 disable_local_auth: Optional[bool] = None,
                  properties: Optional['outputs.DataLakeAnalyticsSchemaResponseProperties'] = None,
                  resource_id: Optional[str] = None):
         """
         A DataLakeAnalytics compute.
-        :param str compute_location: Location for the underlying compute
         :param str compute_type: The type of compute
                Expected value is 'DataLakeAnalytics'.
         :param str created_on: The time at which the compute was created.
-        :param bool disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The time at which the compute was last modified.
         :param Sequence['ErrorResponseResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
+        :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
+        :param bool disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
         :param str resource_id: ARM resource id of the underlying compute
         """
-        pulumi.set(__self__, "compute_location", compute_location)
         pulumi.set(__self__, "compute_type", 'DataLakeAnalytics')
         pulumi.set(__self__, "created_on", created_on)
-        pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         pulumi.set(__self__, "is_attached_compute", is_attached_compute)
         pulumi.set(__self__, "modified_on", modified_on)
         pulumi.set(__self__, "provisioning_errors", provisioning_errors)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if compute_location is not None:
+            pulumi.set(__self__, "compute_location", compute_location)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if disable_local_auth is not None:
+            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
-
-    @property
-    @pulumi.getter(name="computeLocation")
-    def compute_location(self) -> str:
-        """
-        Location for the underlying compute
-        """
-        return pulumi.get(self, "compute_location")
 
     @property
     @pulumi.getter(name="computeType")
@@ -5493,14 +5495,6 @@ class DataLakeAnalyticsResponse(dict):
         return pulumi.get(self, "created_on")
 
     @property
-    @pulumi.getter(name="disableLocalAuth")
-    def disable_local_auth(self) -> bool:
-        """
-        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
-        """
-        return pulumi.get(self, "disable_local_auth")
-
-    @property
     @pulumi.getter(name="isAttachedCompute")
     def is_attached_compute(self) -> bool:
         """
@@ -5533,12 +5527,28 @@ class DataLakeAnalyticsResponse(dict):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="computeLocation")
+    def compute_location(self) -> Optional[str]:
+        """
+        Location for the underlying compute
+        """
+        return pulumi.get(self, "compute_location")
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
         The description of the Machine Learning compute.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[bool]:
+        """
+        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+        """
+        return pulumi.get(self, "disable_local_auth")
 
     @property
     @pulumi.getter
@@ -5719,14 +5729,10 @@ class DatabricksResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "computeLocation":
-            suggest = "compute_location"
-        elif key == "computeType":
+        if key == "computeType":
             suggest = "compute_type"
         elif key == "createdOn":
             suggest = "created_on"
-        elif key == "disableLocalAuth":
-            suggest = "disable_local_auth"
         elif key == "isAttachedCompute":
             suggest = "is_attached_compute"
         elif key == "modifiedOn":
@@ -5735,6 +5741,10 @@ class DatabricksResponse(dict):
             suggest = "provisioning_errors"
         elif key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "computeLocation":
+            suggest = "compute_location"
+        elif key == "disableLocalAuth":
+            suggest = "disable_local_auth"
         elif key == "resourceId":
             suggest = "resource_id"
 
@@ -5750,54 +5760,48 @@ class DatabricksResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 compute_location: str,
                  compute_type: str,
                  created_on: str,
-                 disable_local_auth: bool,
                  is_attached_compute: bool,
                  modified_on: str,
                  provisioning_errors: Sequence['outputs.ErrorResponseResponse'],
                  provisioning_state: str,
+                 compute_location: Optional[str] = None,
                  description: Optional[str] = None,
+                 disable_local_auth: Optional[bool] = None,
                  properties: Optional['outputs.DatabricksPropertiesResponse'] = None,
                  resource_id: Optional[str] = None):
         """
         A DataFactory compute.
-        :param str compute_location: Location for the underlying compute
         :param str compute_type: The type of compute
                Expected value is 'Databricks'.
         :param str created_on: The time at which the compute was created.
-        :param bool disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The time at which the compute was last modified.
         :param Sequence['ErrorResponseResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
+        :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
+        :param bool disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
         :param 'DatabricksPropertiesResponse' properties: Properties of Databricks
         :param str resource_id: ARM resource id of the underlying compute
         """
-        pulumi.set(__self__, "compute_location", compute_location)
         pulumi.set(__self__, "compute_type", 'Databricks')
         pulumi.set(__self__, "created_on", created_on)
-        pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         pulumi.set(__self__, "is_attached_compute", is_attached_compute)
         pulumi.set(__self__, "modified_on", modified_on)
         pulumi.set(__self__, "provisioning_errors", provisioning_errors)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if compute_location is not None:
+            pulumi.set(__self__, "compute_location", compute_location)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if disable_local_auth is not None:
+            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
-
-    @property
-    @pulumi.getter(name="computeLocation")
-    def compute_location(self) -> str:
-        """
-        Location for the underlying compute
-        """
-        return pulumi.get(self, "compute_location")
 
     @property
     @pulumi.getter(name="computeType")
@@ -5815,14 +5819,6 @@ class DatabricksResponse(dict):
         The time at which the compute was created.
         """
         return pulumi.get(self, "created_on")
-
-    @property
-    @pulumi.getter(name="disableLocalAuth")
-    def disable_local_auth(self) -> bool:
-        """
-        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
-        """
-        return pulumi.get(self, "disable_local_auth")
 
     @property
     @pulumi.getter(name="isAttachedCompute")
@@ -5857,12 +5853,28 @@ class DatabricksResponse(dict):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="computeLocation")
+    def compute_location(self) -> Optional[str]:
+        """
+        Location for the underlying compute
+        """
+        return pulumi.get(self, "compute_location")
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
         The description of the Machine Learning compute.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[bool]:
+        """
+        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+        """
+        return pulumi.get(self, "disable_local_auth")
 
     @property
     @pulumi.getter
@@ -6596,14 +6608,10 @@ class HDInsightResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "computeLocation":
-            suggest = "compute_location"
-        elif key == "computeType":
+        if key == "computeType":
             suggest = "compute_type"
         elif key == "createdOn":
             suggest = "created_on"
-        elif key == "disableLocalAuth":
-            suggest = "disable_local_auth"
         elif key == "isAttachedCompute":
             suggest = "is_attached_compute"
         elif key == "modifiedOn":
@@ -6612,6 +6620,10 @@ class HDInsightResponse(dict):
             suggest = "provisioning_errors"
         elif key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "computeLocation":
+            suggest = "compute_location"
+        elif key == "disableLocalAuth":
+            suggest = "disable_local_auth"
         elif key == "resourceId":
             suggest = "resource_id"
 
@@ -6627,54 +6639,48 @@ class HDInsightResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 compute_location: str,
                  compute_type: str,
                  created_on: str,
-                 disable_local_auth: bool,
                  is_attached_compute: bool,
                  modified_on: str,
                  provisioning_errors: Sequence['outputs.ErrorResponseResponse'],
                  provisioning_state: str,
+                 compute_location: Optional[str] = None,
                  description: Optional[str] = None,
+                 disable_local_auth: Optional[bool] = None,
                  properties: Optional['outputs.HDInsightPropertiesResponse'] = None,
                  resource_id: Optional[str] = None):
         """
         A HDInsight compute.
-        :param str compute_location: Location for the underlying compute
         :param str compute_type: The type of compute
                Expected value is 'HDInsight'.
         :param str created_on: The time at which the compute was created.
-        :param bool disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The time at which the compute was last modified.
         :param Sequence['ErrorResponseResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
+        :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
+        :param bool disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
         :param 'HDInsightPropertiesResponse' properties: HDInsight compute properties
         :param str resource_id: ARM resource id of the underlying compute
         """
-        pulumi.set(__self__, "compute_location", compute_location)
         pulumi.set(__self__, "compute_type", 'HDInsight')
         pulumi.set(__self__, "created_on", created_on)
-        pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         pulumi.set(__self__, "is_attached_compute", is_attached_compute)
         pulumi.set(__self__, "modified_on", modified_on)
         pulumi.set(__self__, "provisioning_errors", provisioning_errors)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if compute_location is not None:
+            pulumi.set(__self__, "compute_location", compute_location)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if disable_local_auth is not None:
+            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
-
-    @property
-    @pulumi.getter(name="computeLocation")
-    def compute_location(self) -> str:
-        """
-        Location for the underlying compute
-        """
-        return pulumi.get(self, "compute_location")
 
     @property
     @pulumi.getter(name="computeType")
@@ -6692,14 +6698,6 @@ class HDInsightResponse(dict):
         The time at which the compute was created.
         """
         return pulumi.get(self, "created_on")
-
-    @property
-    @pulumi.getter(name="disableLocalAuth")
-    def disable_local_auth(self) -> bool:
-        """
-        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
-        """
-        return pulumi.get(self, "disable_local_auth")
 
     @property
     @pulumi.getter(name="isAttachedCompute")
@@ -6734,12 +6732,28 @@ class HDInsightResponse(dict):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="computeLocation")
+    def compute_location(self) -> Optional[str]:
+        """
+        Location for the underlying compute
+        """
+        return pulumi.get(self, "compute_location")
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
         The description of the Machine Learning compute.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[bool]:
+        """
+        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+        """
+        return pulumi.get(self, "disable_local_auth")
 
     @property
     @pulumi.getter
@@ -7501,14 +7515,10 @@ class KubernetesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "computeLocation":
-            suggest = "compute_location"
-        elif key == "computeType":
+        if key == "computeType":
             suggest = "compute_type"
         elif key == "createdOn":
             suggest = "created_on"
-        elif key == "disableLocalAuth":
-            suggest = "disable_local_auth"
         elif key == "isAttachedCompute":
             suggest = "is_attached_compute"
         elif key == "modifiedOn":
@@ -7517,6 +7527,10 @@ class KubernetesResponse(dict):
             suggest = "provisioning_errors"
         elif key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "computeLocation":
+            suggest = "compute_location"
+        elif key == "disableLocalAuth":
+            suggest = "disable_local_auth"
         elif key == "resourceId":
             suggest = "resource_id"
 
@@ -7532,54 +7546,48 @@ class KubernetesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 compute_location: str,
                  compute_type: str,
                  created_on: str,
-                 disable_local_auth: bool,
                  is_attached_compute: bool,
                  modified_on: str,
                  provisioning_errors: Sequence['outputs.ErrorResponseResponse'],
                  provisioning_state: str,
+                 compute_location: Optional[str] = None,
                  description: Optional[str] = None,
+                 disable_local_auth: Optional[bool] = None,
                  properties: Optional['outputs.KubernetesPropertiesResponse'] = None,
                  resource_id: Optional[str] = None):
         """
         A Machine Learning compute based on Kubernetes Compute.
-        :param str compute_location: Location for the underlying compute
         :param str compute_type: The type of compute
                Expected value is 'Kubernetes'.
         :param str created_on: The time at which the compute was created.
-        :param bool disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The time at which the compute was last modified.
         :param Sequence['ErrorResponseResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
+        :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
+        :param bool disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
         :param 'KubernetesPropertiesResponse' properties: Properties of Kubernetes
         :param str resource_id: ARM resource id of the underlying compute
         """
-        pulumi.set(__self__, "compute_location", compute_location)
         pulumi.set(__self__, "compute_type", 'Kubernetes')
         pulumi.set(__self__, "created_on", created_on)
-        pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         pulumi.set(__self__, "is_attached_compute", is_attached_compute)
         pulumi.set(__self__, "modified_on", modified_on)
         pulumi.set(__self__, "provisioning_errors", provisioning_errors)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if compute_location is not None:
+            pulumi.set(__self__, "compute_location", compute_location)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if disable_local_auth is not None:
+            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
-
-    @property
-    @pulumi.getter(name="computeLocation")
-    def compute_location(self) -> str:
-        """
-        Location for the underlying compute
-        """
-        return pulumi.get(self, "compute_location")
 
     @property
     @pulumi.getter(name="computeType")
@@ -7597,14 +7605,6 @@ class KubernetesResponse(dict):
         The time at which the compute was created.
         """
         return pulumi.get(self, "created_on")
-
-    @property
-    @pulumi.getter(name="disableLocalAuth")
-    def disable_local_auth(self) -> bool:
-        """
-        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
-        """
-        return pulumi.get(self, "disable_local_auth")
 
     @property
     @pulumi.getter(name="isAttachedCompute")
@@ -7639,12 +7639,28 @@ class KubernetesResponse(dict):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="computeLocation")
+    def compute_location(self) -> Optional[str]:
+        """
+        Location for the underlying compute
+        """
+        return pulumi.get(self, "compute_location")
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
         The description of the Machine Learning compute.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[bool]:
+        """
+        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+        """
+        return pulumi.get(self, "disable_local_auth")
 
     @property
     @pulumi.getter
@@ -11878,14 +11894,10 @@ class SynapseSparkResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "computeLocation":
-            suggest = "compute_location"
-        elif key == "computeType":
+        if key == "computeType":
             suggest = "compute_type"
         elif key == "createdOn":
             suggest = "created_on"
-        elif key == "disableLocalAuth":
-            suggest = "disable_local_auth"
         elif key == "isAttachedCompute":
             suggest = "is_attached_compute"
         elif key == "modifiedOn":
@@ -11894,6 +11906,10 @@ class SynapseSparkResponse(dict):
             suggest = "provisioning_errors"
         elif key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "computeLocation":
+            suggest = "compute_location"
+        elif key == "disableLocalAuth":
+            suggest = "disable_local_auth"
         elif key == "resourceId":
             suggest = "resource_id"
 
@@ -11909,53 +11925,47 @@ class SynapseSparkResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 compute_location: str,
                  compute_type: str,
                  created_on: str,
-                 disable_local_auth: bool,
                  is_attached_compute: bool,
                  modified_on: str,
                  provisioning_errors: Sequence['outputs.ErrorResponseResponse'],
                  provisioning_state: str,
+                 compute_location: Optional[str] = None,
                  description: Optional[str] = None,
+                 disable_local_auth: Optional[bool] = None,
                  properties: Optional['outputs.SynapseSparkResponseProperties'] = None,
                  resource_id: Optional[str] = None):
         """
         A SynapseSpark compute.
-        :param str compute_location: Location for the underlying compute
         :param str compute_type: The type of compute
                Expected value is 'SynapseSpark'.
         :param str created_on: The time at which the compute was created.
-        :param bool disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The time at which the compute was last modified.
         :param Sequence['ErrorResponseResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
+        :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
+        :param bool disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
         :param str resource_id: ARM resource id of the underlying compute
         """
-        pulumi.set(__self__, "compute_location", compute_location)
         pulumi.set(__self__, "compute_type", 'SynapseSpark')
         pulumi.set(__self__, "created_on", created_on)
-        pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         pulumi.set(__self__, "is_attached_compute", is_attached_compute)
         pulumi.set(__self__, "modified_on", modified_on)
         pulumi.set(__self__, "provisioning_errors", provisioning_errors)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if compute_location is not None:
+            pulumi.set(__self__, "compute_location", compute_location)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if disable_local_auth is not None:
+            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
-
-    @property
-    @pulumi.getter(name="computeLocation")
-    def compute_location(self) -> str:
-        """
-        Location for the underlying compute
-        """
-        return pulumi.get(self, "compute_location")
 
     @property
     @pulumi.getter(name="computeType")
@@ -11973,14 +11983,6 @@ class SynapseSparkResponse(dict):
         The time at which the compute was created.
         """
         return pulumi.get(self, "created_on")
-
-    @property
-    @pulumi.getter(name="disableLocalAuth")
-    def disable_local_auth(self) -> bool:
-        """
-        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
-        """
-        return pulumi.get(self, "disable_local_auth")
 
     @property
     @pulumi.getter(name="isAttachedCompute")
@@ -12015,12 +12017,28 @@ class SynapseSparkResponse(dict):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="computeLocation")
+    def compute_location(self) -> Optional[str]:
+        """
+        Location for the underlying compute
+        """
+        return pulumi.get(self, "compute_location")
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
         The description of the Machine Learning compute.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[bool]:
+        """
+        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+        """
+        return pulumi.get(self, "disable_local_auth")
 
     @property
     @pulumi.getter
@@ -13706,14 +13724,10 @@ class VirtualMachineResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "computeLocation":
-            suggest = "compute_location"
-        elif key == "computeType":
+        if key == "computeType":
             suggest = "compute_type"
         elif key == "createdOn":
             suggest = "created_on"
-        elif key == "disableLocalAuth":
-            suggest = "disable_local_auth"
         elif key == "isAttachedCompute":
             suggest = "is_attached_compute"
         elif key == "modifiedOn":
@@ -13722,6 +13736,10 @@ class VirtualMachineResponse(dict):
             suggest = "provisioning_errors"
         elif key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "computeLocation":
+            suggest = "compute_location"
+        elif key == "disableLocalAuth":
+            suggest = "disable_local_auth"
         elif key == "resourceId":
             suggest = "resource_id"
 
@@ -13737,53 +13755,47 @@ class VirtualMachineResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 compute_location: str,
                  compute_type: str,
                  created_on: str,
-                 disable_local_auth: bool,
                  is_attached_compute: bool,
                  modified_on: str,
                  provisioning_errors: Sequence['outputs.ErrorResponseResponse'],
                  provisioning_state: str,
+                 compute_location: Optional[str] = None,
                  description: Optional[str] = None,
+                 disable_local_auth: Optional[bool] = None,
                  properties: Optional['outputs.VirtualMachineSchemaResponseProperties'] = None,
                  resource_id: Optional[str] = None):
         """
         A Machine Learning compute based on Azure Virtual Machines.
-        :param str compute_location: Location for the underlying compute
         :param str compute_type: The type of compute
                Expected value is 'VirtualMachine'.
         :param str created_on: The time at which the compute was created.
-        :param bool disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The time at which the compute was last modified.
         :param Sequence['ErrorResponseResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
+        :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
+        :param bool disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
         :param str resource_id: ARM resource id of the underlying compute
         """
-        pulumi.set(__self__, "compute_location", compute_location)
         pulumi.set(__self__, "compute_type", 'VirtualMachine')
         pulumi.set(__self__, "created_on", created_on)
-        pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         pulumi.set(__self__, "is_attached_compute", is_attached_compute)
         pulumi.set(__self__, "modified_on", modified_on)
         pulumi.set(__self__, "provisioning_errors", provisioning_errors)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if compute_location is not None:
+            pulumi.set(__self__, "compute_location", compute_location)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if disable_local_auth is not None:
+            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
-
-    @property
-    @pulumi.getter(name="computeLocation")
-    def compute_location(self) -> str:
-        """
-        Location for the underlying compute
-        """
-        return pulumi.get(self, "compute_location")
 
     @property
     @pulumi.getter(name="computeType")
@@ -13801,14 +13813,6 @@ class VirtualMachineResponse(dict):
         The time at which the compute was created.
         """
         return pulumi.get(self, "created_on")
-
-    @property
-    @pulumi.getter(name="disableLocalAuth")
-    def disable_local_auth(self) -> bool:
-        """
-        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
-        """
-        return pulumi.get(self, "disable_local_auth")
 
     @property
     @pulumi.getter(name="isAttachedCompute")
@@ -13843,12 +13847,28 @@ class VirtualMachineResponse(dict):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="computeLocation")
+    def compute_location(self) -> Optional[str]:
+        """
+        Location for the underlying compute
+        """
+        return pulumi.get(self, "compute_location")
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
         The description of the Machine Learning compute.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[bool]:
+        """
+        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+        """
+        return pulumi.get(self, "disable_local_auth")
 
     @property
     @pulumi.getter

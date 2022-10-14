@@ -29991,6 +29991,8 @@ class FactoryGitHubConfigurationResponse(dict):
             suggest = "client_id"
         elif key == "clientSecret":
             suggest = "client_secret"
+        elif key == "disablePublish":
+            suggest = "disable_publish"
         elif key == "hostName":
             suggest = "host_name"
         elif key == "lastCommitId":
@@ -30015,6 +30017,7 @@ class FactoryGitHubConfigurationResponse(dict):
                  type: str,
                  client_id: Optional[str] = None,
                  client_secret: Optional['outputs.GitHubClientSecretResponse'] = None,
+                 disable_publish: Optional[bool] = None,
                  host_name: Optional[str] = None,
                  last_commit_id: Optional[str] = None):
         """
@@ -30027,6 +30030,7 @@ class FactoryGitHubConfigurationResponse(dict):
                Expected value is 'FactoryGitHubConfiguration'.
         :param str client_id: GitHub bring your own app client id.
         :param 'GitHubClientSecretResponse' client_secret: GitHub bring your own app client secret information.
+        :param bool disable_publish: Disable manual publish operation in ADF studio to favor automated publish.
         :param str host_name: GitHub Enterprise host name. For example: `https://github.mydomain.com`
         :param str last_commit_id: Last commit id.
         """
@@ -30039,6 +30043,8 @@ class FactoryGitHubConfigurationResponse(dict):
             pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
             pulumi.set(__self__, "client_secret", client_secret)
+        if disable_publish is not None:
+            pulumi.set(__self__, "disable_publish", disable_publish)
         if host_name is not None:
             pulumi.set(__self__, "host_name", host_name)
         if last_commit_id is not None:
@@ -30100,6 +30106,14 @@ class FactoryGitHubConfigurationResponse(dict):
         GitHub bring your own app client secret information.
         """
         return pulumi.get(self, "client_secret")
+
+    @property
+    @pulumi.getter(name="disablePublish")
+    def disable_publish(self) -> Optional[bool]:
+        """
+        Disable manual publish operation in ADF studio to favor automated publish.
+        """
+        return pulumi.get(self, "disable_publish")
 
     @property
     @pulumi.getter(name="hostName")
@@ -30213,6 +30227,8 @@ class FactoryVSTSConfigurationResponse(dict):
             suggest = "repository_name"
         elif key == "rootFolder":
             suggest = "root_folder"
+        elif key == "disablePublish":
+            suggest = "disable_publish"
         elif key == "lastCommitId":
             suggest = "last_commit_id"
         elif key == "tenantId":
@@ -30236,6 +30252,7 @@ class FactoryVSTSConfigurationResponse(dict):
                  repository_name: str,
                  root_folder: str,
                  type: str,
+                 disable_publish: Optional[bool] = None,
                  last_commit_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
@@ -30247,6 +30264,7 @@ class FactoryVSTSConfigurationResponse(dict):
         :param str root_folder: Root folder.
         :param str type: Type of repo configuration.
                Expected value is 'FactoryVSTSConfiguration'.
+        :param bool disable_publish: Disable manual publish operation in ADF studio to favor automated publish.
         :param str last_commit_id: Last commit id.
         :param str tenant_id: VSTS tenant id.
         """
@@ -30256,6 +30274,8 @@ class FactoryVSTSConfigurationResponse(dict):
         pulumi.set(__self__, "repository_name", repository_name)
         pulumi.set(__self__, "root_folder", root_folder)
         pulumi.set(__self__, "type", 'FactoryVSTSConfiguration')
+        if disable_publish is not None:
+            pulumi.set(__self__, "disable_publish", disable_publish)
         if last_commit_id is not None:
             pulumi.set(__self__, "last_commit_id", last_commit_id)
         if tenant_id is not None:
@@ -30309,6 +30329,14 @@ class FactoryVSTSConfigurationResponse(dict):
         Expected value is 'FactoryVSTSConfiguration'.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="disablePublish")
+    def disable_publish(self) -> Optional[bool]:
+        """
+        Disable manual publish operation in ADF studio to favor automated publish.
+        """
+        return pulumi.get(self, "disable_publish")
 
     @property
     @pulumi.getter(name="lastCommitId")

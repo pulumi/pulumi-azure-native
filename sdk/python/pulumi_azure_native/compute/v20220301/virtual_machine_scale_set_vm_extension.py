@@ -25,7 +25,7 @@ class VirtualMachineScaleSetVMExtensionArgs:
                  force_update_tag: Optional[pulumi.Input[str]] = None,
                  instance_view: Optional[pulumi.Input['VirtualMachineExtensionInstanceViewArgs']] = None,
                  protected_settings: Optional[Any] = None,
-                 protected_settings_from_key_vault: Optional[Any] = None,
+                 protected_settings_from_key_vault: Optional[pulumi.Input['KeyVaultSecretReferenceArgs']] = None,
                  publisher: Optional[pulumi.Input[str]] = None,
                  settings: Optional[Any] = None,
                  suppress_failures: Optional[pulumi.Input[bool]] = None,
@@ -42,7 +42,7 @@ class VirtualMachineScaleSetVMExtensionArgs:
         :param pulumi.Input[str] force_update_tag: How the extension handler should be forced to update even if the extension configuration has not changed.
         :param pulumi.Input['VirtualMachineExtensionInstanceViewArgs'] instance_view: The virtual machine extension instance view.
         :param Any protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-        :param Any protected_settings_from_key_vault: The extensions protected settings that are passed by reference, and consumed from key vault
+        :param pulumi.Input['KeyVaultSecretReferenceArgs'] protected_settings_from_key_vault: The extensions protected settings that are passed by reference, and consumed from key vault
         :param pulumi.Input[str] publisher: The name of the extension handler publisher.
         :param Any settings: Json formatted public settings for the extension.
         :param pulumi.Input[bool] suppress_failures: Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
@@ -176,14 +176,14 @@ class VirtualMachineScaleSetVMExtensionArgs:
 
     @property
     @pulumi.getter(name="protectedSettingsFromKeyVault")
-    def protected_settings_from_key_vault(self) -> Optional[Any]:
+    def protected_settings_from_key_vault(self) -> Optional[pulumi.Input['KeyVaultSecretReferenceArgs']]:
         """
         The extensions protected settings that are passed by reference, and consumed from key vault
         """
         return pulumi.get(self, "protected_settings_from_key_vault")
 
     @protected_settings_from_key_vault.setter
-    def protected_settings_from_key_vault(self, value: Optional[Any]):
+    def protected_settings_from_key_vault(self, value: Optional[pulumi.Input['KeyVaultSecretReferenceArgs']]):
         pulumi.set(self, "protected_settings_from_key_vault", value)
 
     @property
@@ -270,7 +270,7 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
                  instance_id: Optional[pulumi.Input[str]] = None,
                  instance_view: Optional[pulumi.Input[pulumi.InputType['VirtualMachineExtensionInstanceViewArgs']]] = None,
                  protected_settings: Optional[Any] = None,
-                 protected_settings_from_key_vault: Optional[Any] = None,
+                 protected_settings_from_key_vault: Optional[pulumi.Input[pulumi.InputType['KeyVaultSecretReferenceArgs']]] = None,
                  publisher: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  settings: Optional[Any] = None,
@@ -291,7 +291,7 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
         :param pulumi.Input[str] instance_id: The instance ID of the virtual machine.
         :param pulumi.Input[pulumi.InputType['VirtualMachineExtensionInstanceViewArgs']] instance_view: The virtual machine extension instance view.
         :param Any protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-        :param Any protected_settings_from_key_vault: The extensions protected settings that are passed by reference, and consumed from key vault
+        :param pulumi.Input[pulumi.InputType['KeyVaultSecretReferenceArgs']] protected_settings_from_key_vault: The extensions protected settings that are passed by reference, and consumed from key vault
         :param pulumi.Input[str] publisher: The name of the extension handler publisher.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param Any settings: Json formatted public settings for the extension.
@@ -331,7 +331,7 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
                  instance_id: Optional[pulumi.Input[str]] = None,
                  instance_view: Optional[pulumi.Input[pulumi.InputType['VirtualMachineExtensionInstanceViewArgs']]] = None,
                  protected_settings: Optional[Any] = None,
-                 protected_settings_from_key_vault: Optional[Any] = None,
+                 protected_settings_from_key_vault: Optional[pulumi.Input[pulumi.InputType['KeyVaultSecretReferenceArgs']]] = None,
                  publisher: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  settings: Optional[Any] = None,
@@ -461,7 +461,7 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="protectedSettingsFromKeyVault")
-    def protected_settings_from_key_vault(self) -> pulumi.Output[Optional[Any]]:
+    def protected_settings_from_key_vault(self) -> pulumi.Output[Optional['outputs.KeyVaultSecretReferenceResponse']]:
         """
         The extensions protected settings that are passed by reference, and consumed from key vault
         """

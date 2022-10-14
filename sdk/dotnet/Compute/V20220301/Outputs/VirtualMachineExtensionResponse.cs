@@ -51,7 +51,7 @@ namespace Pulumi.AzureNative.Compute.V20220301.Outputs
         /// <summary>
         /// The extensions protected settings that are passed by reference, and consumed from key vault
         /// </summary>
-        public readonly object? ProtectedSettingsFromKeyVault;
+        public readonly Outputs.KeyVaultSecretReferenceResponse? ProtectedSettingsFromKeyVault;
         /// <summary>
         /// The provisioning state, which only appears in the response.
         /// </summary>
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.Compute.V20220301.Outputs
 
             object? protectedSettings,
 
-            object? protectedSettingsFromKeyVault,
+            Outputs.KeyVaultSecretReferenceResponse? protectedSettingsFromKeyVault,
 
             string provisioningState,
 

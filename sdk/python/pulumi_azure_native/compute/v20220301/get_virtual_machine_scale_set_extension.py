@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 
 __all__ = [
     'GetVirtualMachineScaleSetExtensionResult',
@@ -115,7 +116,7 @@ class GetVirtualMachineScaleSetExtensionResult:
 
     @property
     @pulumi.getter(name="protectedSettingsFromKeyVault")
-    def protected_settings_from_key_vault(self) -> Optional[Any]:
+    def protected_settings_from_key_vault(self) -> Optional['outputs.KeyVaultSecretReferenceResponse']:
         """
         The extensions protected settings that are passed by reference, and consumed from key vault
         """

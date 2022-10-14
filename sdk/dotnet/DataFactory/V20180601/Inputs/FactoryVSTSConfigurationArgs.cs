@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string> CollaborationBranch { get; set; } = null!;
 
         /// <summary>
+        /// Disable manual publish operation in ADF studio to favor automated publish.
+        /// </summary>
+        [Input("disablePublish")]
+        public Input<bool>? DisablePublish { get; set; }
+
+        /// <summary>
         /// Last commit id.
         /// </summary>
         [Input("lastCommitId")]

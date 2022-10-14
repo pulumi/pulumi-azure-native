@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.Compute.V20220301.Inputs
         /// The extensions protected settings that are passed by reference, and consumed from key vault
         /// </summary>
         [Input("protectedSettingsFromKeyVault")]
-        public Input<object>? ProtectedSettingsFromKeyVault { get; set; }
+        public Input<Inputs.KeyVaultSecretReferenceArgs>? ProtectedSettingsFromKeyVault { get; set; }
 
         [Input("provisionAfterExtensions")]
         private InputList<string>? _provisionAfterExtensions;
