@@ -94,6 +94,9 @@ func NewUser(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20211201preview:User"),
 		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20220401preview:User"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource User

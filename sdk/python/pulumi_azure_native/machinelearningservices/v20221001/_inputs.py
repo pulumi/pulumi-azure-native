@@ -14802,7 +14802,7 @@ class ScriptReferenceArgs:
         Script reference
         :param pulumi.Input[str] script_arguments: Optional command line arguments passed to the script to run.
         :param pulumi.Input[str] script_data: The location of scripts in the mounted volume.
-        :param pulumi.Input[str] script_source: The storage source of the script: inline, workspace.
+        :param pulumi.Input[str] script_source: The storage source of the script: workspace.
         :param pulumi.Input[str] timeout: Optional time period passed to timeout command.
         """
         if script_arguments is not None:
@@ -14842,7 +14842,7 @@ class ScriptReferenceArgs:
     @pulumi.getter(name="scriptSource")
     def script_source(self) -> Optional[pulumi.Input[str]]:
         """
-        The storage source of the script: inline, workspace.
+        The storage source of the script: workspace.
         """
         return pulumi.get(self, "script_source")
 

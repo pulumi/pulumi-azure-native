@@ -190,6 +190,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:ProductApi"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:ProductApi"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ProductApi"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:ProductApi"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

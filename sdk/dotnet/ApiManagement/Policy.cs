@@ -77,6 +77,7 @@ namespace Pulumi.AzureNative.ApiManagement
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:Policy"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:Policy"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:Policy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:Policy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

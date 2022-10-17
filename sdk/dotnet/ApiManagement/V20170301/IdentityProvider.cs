@@ -108,6 +108,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:IdentityProvider"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:IdentityProvider"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:IdentityProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:IdentityProvider"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

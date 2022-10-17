@@ -90,6 +90,9 @@ func NewIdentityProvider(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20210801:IdentityProvider"),
 		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20220401preview:IdentityProvider"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource IdentityProvider

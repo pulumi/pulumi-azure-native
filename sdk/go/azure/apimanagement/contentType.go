@@ -56,6 +56,9 @@ func NewContentType(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20211201preview:ContentType"),
 		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20220401preview:ContentType"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ContentType

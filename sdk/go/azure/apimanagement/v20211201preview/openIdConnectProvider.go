@@ -88,6 +88,9 @@ func NewOpenIdConnectProvider(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20210801:OpenIdConnectProvider"),
 		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20220401preview:OpenIdConnectProvider"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource OpenIdConnectProvider

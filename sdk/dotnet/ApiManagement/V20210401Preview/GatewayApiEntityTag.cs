@@ -186,6 +186,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:GatewayApiEntityTag"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:GatewayApiEntityTag"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:GatewayApiEntityTag"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:GatewayApiEntityTag"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

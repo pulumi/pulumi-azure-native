@@ -97,6 +97,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:Logger"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:Logger"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:Logger"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:Logger"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -44,6 +44,9 @@ func NewPolicyFragment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:apimanagement:PolicyFragment"),
 		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20220401preview:PolicyFragment"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PolicyFragment

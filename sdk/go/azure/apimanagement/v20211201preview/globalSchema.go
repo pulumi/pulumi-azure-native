@@ -47,6 +47,9 @@ func NewGlobalSchema(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20210801:GlobalSchema"),
 		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20220401preview:GlobalSchema"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource GlobalSchema

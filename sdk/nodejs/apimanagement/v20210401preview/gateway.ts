@@ -85,7 +85,7 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Gateway" }, { type: "azure-native:apimanagement/v20191201:Gateway" }, { type: "azure-native:apimanagement/v20191201preview:Gateway" }, { type: "azure-native:apimanagement/v20200601preview:Gateway" }, { type: "azure-native:apimanagement/v20201201:Gateway" }, { type: "azure-native:apimanagement/v20210101preview:Gateway" }, { type: "azure-native:apimanagement/v20210801:Gateway" }, { type: "azure-native:apimanagement/v20211201preview:Gateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Gateway" }, { type: "azure-native:apimanagement/v20191201:Gateway" }, { type: "azure-native:apimanagement/v20191201preview:Gateway" }, { type: "azure-native:apimanagement/v20200601preview:Gateway" }, { type: "azure-native:apimanagement/v20201201:Gateway" }, { type: "azure-native:apimanagement/v20210101preview:Gateway" }, { type: "azure-native:apimanagement/v20210801:Gateway" }, { type: "azure-native:apimanagement/v20211201preview:Gateway" }, { type: "azure-native:apimanagement/v20220401preview:Gateway" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Gateway.__pulumiType, name, resourceInputs, opts);
     }

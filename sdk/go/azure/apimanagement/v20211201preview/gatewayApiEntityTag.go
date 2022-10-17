@@ -80,6 +80,9 @@ func NewGatewayApiEntityTag(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20210801:GatewayApiEntityTag"),
 		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20220401preview:GatewayApiEntityTag"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource GatewayApiEntityTag
