@@ -1729,7 +1729,16 @@ func (k *azureNativeProvider) getAuthConfig() (*authentication.Config, error) {
 		SupportsAuxiliaryTenants:       len(auxTenants) > 0,
 	}
 
-	return builder.Build()
+	authConf, err := builder.Build()
+
+	if authConf != nil &&
+		err != nil &&
+		strings.Contains(err.Error(), "1 error occurred") &&
+		strings.Contains(err.Error(), "Subscription ID must be configured when authenticating as a Service Principal") {
+		return authConf, nil
+	}
+
+	return authConf, err
 }
 
 func getAzVersion() (*goversion.Version, error) {
