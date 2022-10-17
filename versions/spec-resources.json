@@ -236,7 +236,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "ApiDiagnostic": [
       "2017-03-01",
@@ -250,7 +251,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "ApiDiagnosticLogger": [
       "2017-03-01",
@@ -268,7 +270,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "ApiIssueAttachment": [
       "2017-03-01",
@@ -282,7 +285,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "ApiIssueComment": [
       "2017-03-01",
@@ -296,7 +300,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "ApiManagementService": [
       "2016-07-07",
@@ -312,7 +317,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "ApiOperation": [
       "2016-07-07",
@@ -328,7 +334,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "ApiOperationPolicy": [
       "2017-03-01",
@@ -342,7 +349,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "ApiOperationsPolicy": [
       "2016-10-10"
@@ -360,7 +368,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "ApiRelease": [
       "2017-03-01",
@@ -374,7 +383,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "ApiSchema": [
       "2017-03-01",
@@ -388,7 +398,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "ApiTagDescription": [
       "2019-01-01",
@@ -399,7 +410,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "ApiVersionSet": [
       "2017-03-01",
@@ -413,7 +425,17 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
+    ],
+    "Authorization": [
+      "2022-04-01-preview"
+    ],
+    "AuthorizationAccessPolicy": [
+      "2022-04-01-preview"
+    ],
+    "AuthorizationProvider": [
+      "2022-04-01-preview"
     ],
     "AuthorizationServer": [
       "2016-07-07",
@@ -429,7 +451,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "Backend": [
       "2016-07-07",
@@ -445,7 +468,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "Cache": [
       "2018-06-01-preview",
@@ -457,7 +481,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "Certificate": [
       "2016-07-07",
@@ -473,7 +498,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "ContentItem": [
       "2019-12-01",
@@ -482,7 +508,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "ContentType": [
       "2019-12-01",
@@ -491,7 +518,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "Diagnostic": [
       "2017-03-01",
@@ -505,7 +533,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "DiagnosticLogger": [
       "2017-03-01",
@@ -523,7 +552,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "Gateway": [
       "2019-12-01",
@@ -533,7 +563,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "GatewayApiEntityTag": [
       "2019-12-01",
@@ -543,7 +574,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "GatewayCertificateAuthority": [
       "2020-06-01-preview",
@@ -551,7 +583,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "GatewayHostnameConfiguration": [
       "2019-12-01",
@@ -561,11 +594,13 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "GlobalSchema": [
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "Group": [
       "2016-07-07",
@@ -581,7 +616,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "GroupUser": [
       "2017-03-01",
@@ -595,7 +631,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "IdentityProvider": [
       "2016-07-07",
@@ -611,7 +648,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "Logger": [
       "2016-07-07",
@@ -627,7 +665,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "NamedValue": [
       "2019-12-01",
@@ -637,7 +676,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "NotificationRecipientEmail": [
       "2017-03-01",
@@ -651,7 +691,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "NotificationRecipientUser": [
       "2017-03-01",
@@ -665,7 +706,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "OpenIdConnectProvider": [
       "2016-07-07",
@@ -681,7 +723,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "Policy": [
       "2017-03-01",
@@ -695,15 +738,18 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "PolicyFragment": [
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "PrivateEndpointConnectionByName": [
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "Product": [
       "2016-07-07",
@@ -719,7 +765,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "ProductApi": [
       "2017-03-01",
@@ -733,7 +780,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "ProductGroup": [
       "2017-03-01",
@@ -747,7 +795,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "ProductPolicy": [
       "2016-10-10",
@@ -762,7 +811,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "Property": [
       "2016-07-07",
@@ -789,7 +839,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "Tag": [
       "2017-03-01",
@@ -803,7 +854,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "TagByApi": [
       "2017-03-01",
@@ -817,7 +869,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "TagByOperation": [
       "2017-03-01",
@@ -831,7 +884,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "TagByProduct": [
       "2017-03-01",
@@ -845,7 +899,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "TagDescription": [
       "2017-03-01",
@@ -869,7 +924,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "getApiManagementServiceDomainOwnershipIdentifier": [
       "2020-06-01-preview",
@@ -877,7 +933,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "getApiManagementServiceSsoToken": [
       "2016-10-10",
@@ -892,7 +949,11 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
+    ],
+    "getAuthorizationLoginLinkPost": [
+      "2022-04-01-preview"
     ],
     "getUserSharedAccessToken": [
       "2016-10-10",
@@ -907,7 +968,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "listAuthorizationServerSecrets": [
       "2019-12-01",
@@ -917,7 +979,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "listDelegationSettingSecrets": [
       "2019-12-01",
@@ -936,7 +999,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "listIdentityProviderSecrets": [
       "2019-12-01",
@@ -946,7 +1010,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "listNamedValue": [
       "2019-12-01",
@@ -956,7 +1021,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "listOpenIdConnectProviderSecrets": [
       "2019-12-01",
@@ -966,10 +1032,12 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "listPolicyFragmentReferences": [
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "listSubscriptionSecrets": [
       "2019-12-01",
@@ -979,7 +1047,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ],
     "listTenantAccessGitSecrets": [
       "2019-12-01",
@@ -993,7 +1062,8 @@
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-04-01-preview"
     ]
   },
   "App": {
