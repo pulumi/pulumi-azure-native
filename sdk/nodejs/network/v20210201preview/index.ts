@@ -80,6 +80,11 @@ export const getNspAssociation: typeof import("./getNspAssociation").getNspAssoc
 export const getNspAssociationOutput: typeof import("./getNspAssociation").getNspAssociationOutput = null as any;
 utilities.lazyLoad(exports, ["getNspAssociation","getNspAssociationOutput"], () => require("./getNspAssociation"));
 
+export { GetNspLinkArgs, GetNspLinkResult, GetNspLinkOutputArgs } from "./getNspLink";
+export const getNspLink: typeof import("./getNspLink").getNspLink = null as any;
+export const getNspLinkOutput: typeof import("./getNspLink").getNspLinkOutput = null as any;
+utilities.lazyLoad(exports, ["getNspLink","getNspLinkOutput"], () => require("./getNspLink"));
+
 export { GetNspProfileArgs, GetNspProfileResult, GetNspProfileOutputArgs } from "./getNspProfile";
 export const getNspProfile: typeof import("./getNspProfile").getNspProfile = null as any;
 export const getNspProfileOutput: typeof import("./getNspProfile").getNspProfileOutput = null as any;
@@ -170,6 +175,11 @@ export type NspAssociation = import("./nspAssociation").NspAssociation;
 export const NspAssociation: typeof import("./nspAssociation").NspAssociation = null as any;
 utilities.lazyLoad(exports, ["NspAssociation"], () => require("./nspAssociation"));
 
+export { NspLinkArgs } from "./nspLink";
+export type NspLink = import("./nspLink").NspLink;
+export const NspLink: typeof import("./nspLink").NspLink = null as any;
+utilities.lazyLoad(exports, ["NspLink"], () => require("./nspLink"));
+
 export { NspProfileArgs } from "./nspProfile";
 export type NspProfile = import("./nspProfile").NspProfile;
 export const NspProfile: typeof import("./nspProfile").NspProfile = null as any;
@@ -223,6 +233,8 @@ const _module = {
                 return new NspAccessRule(name, <any>undefined, { urn })
             case "azure-native:network/v20210201preview:NspAssociation":
                 return new NspAssociation(name, <any>undefined, { urn })
+            case "azure-native:network/v20210201preview:NspLink":
+                return new NspLink(name, <any>undefined, { urn })
             case "azure-native:network/v20210201preview:NspProfile":
                 return new NspProfile(name, <any>undefined, { urn })
             case "azure-native:network/v20210201preview:SecurityAdminConfiguration":

@@ -4352,30 +4352,36 @@
       "2021-07-05-preview",
       "2021-08-11-preview",
       "2021-09-15-preview",
-      "2022-07-01-preview"
+      "2022-07-01-preview",
+      "2022-10-01-preview"
     ],
     "experiments": [
       "2021-09-15-preview",
-      "2022-07-01-preview"
+      "2022-07-01-preview",
+      "2022-10-01-preview"
     ],
     "locations": [
       "2021-09-15-preview",
-      "2022-07-01-preview"
+      "2022-07-01-preview",
+      "2022-10-01-preview"
     ],
     "locations/targettypes": [
       "2021-09-15-preview",
-      "2022-07-01-preview"
+      "2022-07-01-preview",
+      "2022-10-01-preview"
     ],
     "operations": [
       "2021-07-01-preview",
       "2021-07-05-preview",
       "2021-08-11-preview",
       "2021-09-15-preview",
-      "2022-07-01-preview"
+      "2022-07-01-preview",
+      "2022-10-01-preview"
     ],
     "targets": [
       "2021-09-15-preview",
-      "2022-07-01-preview"
+      "2022-07-01-preview",
+      "2022-10-01-preview"
     ]
   },
   "classiccompute": {

@@ -296,7 +296,8 @@
     "2022-07-01",
     "2022-07-02-preview",
     "2022-08-02-preview",
-    "2022-08-03-preview"
+    "2022-08-03-preview",
+    "2022-09-02-preview"
   ],
   "CostManagement": [
     "2019-01-01",
@@ -712,7 +713,8 @@
   "ManagedNetwork": [],
   "ManagedServices": [
     "2020-02-01-preview",
-    "2022-01-01-preview"
+    "2022-01-01-preview",
+    "2022-10-01"
   ],
   "Management": [
     "2020-10-01",

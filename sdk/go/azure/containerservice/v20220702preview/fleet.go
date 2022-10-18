@@ -38,6 +38,9 @@ func NewFleet(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:containerservice/v20220602preview:Fleet"),
 		},
+		{
+			Type: pulumi.String("azure-native:containerservice/v20220902preview:Fleet"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Fleet

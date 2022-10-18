@@ -3386,6 +3386,21 @@
       "listManagedClusterAdminCredentials",
       "listManagedClusterMonitoringUserCredentials",
       "listManagedClusterUserCredentials"
+    ],
+    "2022-09-02-preview": [
+      "AgentPool",
+      "Fleet",
+      "FleetMember",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "ManagedClusterSnapshot",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listFleetCredentials",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
     ]
   },
   "CostManagement": {
@@ -7435,6 +7450,10 @@
     "2022-01-01-preview": [
       "RegistrationAssignment",
       "RegistrationDefinition"
+    ],
+    "2022-10-01": [
+      "RegistrationAssignment",
+      "RegistrationDefinition"
     ]
   },
   "Management": {
@@ -10013,6 +10032,7 @@
       "NetworkSecurityPerimeter",
       "NspAccessRule",
       "NspAssociation",
+      "NspLink",
       "NspProfile",
       "SecurityAdminConfiguration",
       "SecurityUserConfiguration",

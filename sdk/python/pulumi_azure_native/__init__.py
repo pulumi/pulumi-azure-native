@@ -5770,6 +5770,22 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "containerservice/v20220902preview",
+  "fqn": "pulumi_azure_native.containerservice.v20220902preview",
+  "classes": {
+   "azure-native:containerservice/v20220902preview:AgentPool": "AgentPool",
+   "azure-native:containerservice/v20220902preview:Fleet": "Fleet",
+   "azure-native:containerservice/v20220902preview:FleetMember": "FleetMember",
+   "azure-native:containerservice/v20220902preview:MaintenanceConfiguration": "MaintenanceConfiguration",
+   "azure-native:containerservice/v20220902preview:ManagedCluster": "ManagedCluster",
+   "azure-native:containerservice/v20220902preview:ManagedClusterSnapshot": "ManagedClusterSnapshot",
+   "azure-native:containerservice/v20220902preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:containerservice/v20220902preview:Snapshot": "Snapshot",
+   "azure-native:containerservice/v20220902preview:TrustedAccessRoleBinding": "TrustedAccessRoleBinding"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "costmanagement",
   "fqn": "pulumi_azure_native.costmanagement",
   "classes": {
@@ -12606,6 +12622,15 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "managedservices/v20221001",
+  "fqn": "pulumi_azure_native.managedservices.v20221001",
+  "classes": {
+   "azure-native:managedservices/v20221001:RegistrationAssignment": "RegistrationAssignment",
+   "azure-native:managedservices/v20221001:RegistrationDefinition": "RegistrationDefinition"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "management",
   "fqn": "pulumi_azure_native.management",
   "classes": {
@@ -15692,6 +15717,7 @@ _utilities.register(
    "azure-native:network/v20210201preview:NetworkSecurityPerimeter": "NetworkSecurityPerimeter",
    "azure-native:network/v20210201preview:NspAccessRule": "NspAccessRule",
    "azure-native:network/v20210201preview:NspAssociation": "NspAssociation",
+   "azure-native:network/v20210201preview:NspLink": "NspLink",
    "azure-native:network/v20210201preview:NspProfile": "NspProfile",
    "azure-native:network/v20210201preview:SecurityAdminConfiguration": "SecurityAdminConfiguration",
    "azure-native:network/v20210201preview:SecurityUserConfiguration": "SecurityUserConfiguration",

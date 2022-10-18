@@ -50,6 +50,9 @@ func NewRegistrationDefinition(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:managedservices/v20200201preview:RegistrationDefinition"),
 		},
+		{
+			Type: pulumi.String("azure-native:managedservices/v20221001:RegistrationDefinition"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource RegistrationDefinition

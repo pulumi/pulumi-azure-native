@@ -97,7 +97,7 @@ export class FleetMember extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerservice/v20220602preview:FleetMember" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerservice/v20220602preview:FleetMember" }, { type: "azure-native:containerservice/v20220902preview:FleetMember" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FleetMember.__pulumiType, name, resourceInputs, opts);
     }

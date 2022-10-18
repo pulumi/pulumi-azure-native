@@ -155,7 +155,7 @@ class RegistrationDefinition(pulumi.CustomResource):
             __props__.__dict__["scope"] = scope
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:managedservices:RegistrationDefinition"), pulumi.Alias(type_="azure-native:managedservices/v20180601preview:RegistrationDefinition"), pulumi.Alias(type_="azure-native:managedservices/v20190401preview:RegistrationDefinition"), pulumi.Alias(type_="azure-native:managedservices/v20190901:RegistrationDefinition"), pulumi.Alias(type_="azure-native:managedservices/v20200201preview:RegistrationDefinition"), pulumi.Alias(type_="azure-native:managedservices/v20220101preview:RegistrationDefinition")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:managedservices:RegistrationDefinition"), pulumi.Alias(type_="azure-native:managedservices/v20180601preview:RegistrationDefinition"), pulumi.Alias(type_="azure-native:managedservices/v20190401preview:RegistrationDefinition"), pulumi.Alias(type_="azure-native:managedservices/v20190901:RegistrationDefinition"), pulumi.Alias(type_="azure-native:managedservices/v20200201preview:RegistrationDefinition"), pulumi.Alias(type_="azure-native:managedservices/v20220101preview:RegistrationDefinition"), pulumi.Alias(type_="azure-native:managedservices/v20221001:RegistrationDefinition")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RegistrationDefinition, __self__).__init__(
             'azure-native:managedservices/v20190601:RegistrationDefinition',

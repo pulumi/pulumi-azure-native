@@ -75,7 +75,7 @@ export class RegistrationAssignment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:managedservices:RegistrationAssignment" }, { type: "azure-native:managedservices/v20180601preview:RegistrationAssignment" }, { type: "azure-native:managedservices/v20190401preview:RegistrationAssignment" }, { type: "azure-native:managedservices/v20190601:RegistrationAssignment" }, { type: "azure-native:managedservices/v20200201preview:RegistrationAssignment" }, { type: "azure-native:managedservices/v20220101preview:RegistrationAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managedservices:RegistrationAssignment" }, { type: "azure-native:managedservices/v20180601preview:RegistrationAssignment" }, { type: "azure-native:managedservices/v20190401preview:RegistrationAssignment" }, { type: "azure-native:managedservices/v20190601:RegistrationAssignment" }, { type: "azure-native:managedservices/v20200201preview:RegistrationAssignment" }, { type: "azure-native:managedservices/v20220101preview:RegistrationAssignment" }, { type: "azure-native:managedservices/v20221001:RegistrationAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RegistrationAssignment.__pulumiType, name, resourceInputs, opts);
     }

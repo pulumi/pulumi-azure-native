@@ -173,7 +173,7 @@ class TrustedAccessRoleBinding(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerservice:TrustedAccessRoleBinding"), pulumi.Alias(type_="azure-native:containerservice/v20220502preview:TrustedAccessRoleBinding"), pulumi.Alias(type_="azure-native:containerservice/v20220602preview:TrustedAccessRoleBinding"), pulumi.Alias(type_="azure-native:containerservice/v20220702preview:TrustedAccessRoleBinding"), pulumi.Alias(type_="azure-native:containerservice/v20220802preview:TrustedAccessRoleBinding"), pulumi.Alias(type_="azure-native:containerservice/v20220803preview:TrustedAccessRoleBinding")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerservice:TrustedAccessRoleBinding"), pulumi.Alias(type_="azure-native:containerservice/v20220502preview:TrustedAccessRoleBinding"), pulumi.Alias(type_="azure-native:containerservice/v20220602preview:TrustedAccessRoleBinding"), pulumi.Alias(type_="azure-native:containerservice/v20220702preview:TrustedAccessRoleBinding"), pulumi.Alias(type_="azure-native:containerservice/v20220802preview:TrustedAccessRoleBinding"), pulumi.Alias(type_="azure-native:containerservice/v20220803preview:TrustedAccessRoleBinding"), pulumi.Alias(type_="azure-native:containerservice/v20220902preview:TrustedAccessRoleBinding")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TrustedAccessRoleBinding, __self__).__init__(
             'azure-native:containerservice/v20220402preview:TrustedAccessRoleBinding',
