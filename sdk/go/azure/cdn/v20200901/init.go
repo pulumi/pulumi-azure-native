@@ -1,0 +1,72 @@
+
+
+
+package v20200901
+
+import (
+	"fmt"
+
+	"github.com/blang/semver"
+	"github.com/pulumi/pulumi-azure-native/sdk/go/azure"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type module struct {
+	version semver.Version
+}
+
+func (m *module) Version() semver.Version {
+	return m.version
+}
+
+func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
+	switch typ {
+	case "azure-native:cdn/v20200901:AFDCustomDomain":
+		r = &AFDCustomDomain{}
+	case "azure-native:cdn/v20200901:AFDEndpoint":
+		r = &AFDEndpoint{}
+	case "azure-native:cdn/v20200901:AFDOrigin":
+		r = &AFDOrigin{}
+	case "azure-native:cdn/v20200901:AFDOriginGroup":
+		r = &AFDOriginGroup{}
+	case "azure-native:cdn/v20200901:CustomDomain":
+		r = &CustomDomain{}
+	case "azure-native:cdn/v20200901:Endpoint":
+		r = &Endpoint{}
+	case "azure-native:cdn/v20200901:Origin":
+		r = &Origin{}
+	case "azure-native:cdn/v20200901:OriginGroup":
+		r = &OriginGroup{}
+	case "azure-native:cdn/v20200901:Policy":
+		r = &Policy{}
+	case "azure-native:cdn/v20200901:Profile":
+		r = &Profile{}
+	case "azure-native:cdn/v20200901:Route":
+		r = &Route{}
+	case "azure-native:cdn/v20200901:Rule":
+		r = &Rule{}
+	case "azure-native:cdn/v20200901:RuleSet":
+		r = &RuleSet{}
+	case "azure-native:cdn/v20200901:Secret":
+		r = &Secret{}
+	case "azure-native:cdn/v20200901:SecurityPolicy":
+		r = &SecurityPolicy{}
+	default:
+		return nil, fmt.Errorf("unknown resource type: %s", typ)
+	}
+
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
+	return
+}
+
+func init() {
+	version, err := azure.PkgVersion()
+	if err != nil {
+		version = semver.Version{Major: 1}
+	}
+	pulumi.RegisterResourceModule(
+		"azure-native",
+		"cdn/v20200901",
+		&module{version},
+	)
+}
