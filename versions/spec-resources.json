@@ -4541,47 +4541,58 @@
   "DevCenter": {
     "AttachedNetworkByDevCenter": [
       "2022-08-01-preview",
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2022-10-12-preview"
     ],
     "Catalog": [
       "2022-08-01-preview",
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2022-10-12-preview"
     ],
     "DevBoxDefinition": [
       "2022-08-01-preview",
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2022-10-12-preview"
     ],
     "DevCenter": [
       "2022-08-01-preview",
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2022-10-12-preview"
     ],
     "EnvironmentType": [
       "2022-08-01-preview",
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2022-10-12-preview"
     ],
     "Gallery": [
       "2022-08-01-preview",
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2022-10-12-preview"
     ],
     "NetworkConnection": [
       "2022-08-01-preview",
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2022-10-12-preview"
     ],
     "Pool": [
       "2022-08-01-preview",
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2022-10-12-preview"
     ],
     "Project": [
       "2022-08-01-preview",
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2022-10-12-preview"
     ],
     "ProjectEnvironmentType": [
       "2022-08-01-preview",
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2022-10-12-preview"
     ],
     "Schedule": [
       "2022-08-01-preview",
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2022-10-12-preview"
     ]
   },
   "DevHub": {

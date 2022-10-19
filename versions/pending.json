@@ -421,7 +421,9 @@
     "2022-02-10-preview",
     "2022-04-01-preview"
   ],
-  "DevCenter": [],
+  "DevCenter": [
+    "2022-10-12-preview"
+  ],
   "DevHub": [],
   "DevOps": [],
   "DevSpaces": [],
