@@ -1,0 +1,124 @@
+
+
+
+package v20180701
+
+import (
+	"context"
+	"reflect"
+
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupAzureFirewall(ctx *pulumi.Context, args *LookupAzureFirewallArgs, opts ...pulumi.InvokeOption) (*LookupAzureFirewallResult, error) {
+	var rv LookupAzureFirewallResult
+	err := ctx.Invoke("azure-native:network/v20180701:getAzureFirewall", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupAzureFirewallArgs struct {
+	AzureFirewallName string `pulumi:"azureFirewallName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+}
+
+
+type LookupAzureFirewallResult struct {
+	ApplicationRuleCollections []AzureFirewallApplicationRuleCollectionResponse `pulumi:"applicationRuleCollections"`
+	Etag                       string                                           `pulumi:"etag"`
+	Id                         *string                                          `pulumi:"id"`
+	IpConfigurations           []AzureFirewallIPConfigurationResponse           `pulumi:"ipConfigurations"`
+	Location                   *string                                          `pulumi:"location"`
+	Name                       string                                           `pulumi:"name"`
+	NetworkRuleCollections     []AzureFirewallNetworkRuleCollectionResponse     `pulumi:"networkRuleCollections"`
+	ProvisioningState          string                                           `pulumi:"provisioningState"`
+	Tags                       map[string]string                                `pulumi:"tags"`
+	Type                       string                                           `pulumi:"type"`
+}
+
+func LookupAzureFirewallOutput(ctx *pulumi.Context, args LookupAzureFirewallOutputArgs, opts ...pulumi.InvokeOption) LookupAzureFirewallResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupAzureFirewallResult, error) {
+			args := v.(LookupAzureFirewallArgs)
+			r, err := LookupAzureFirewall(ctx, &args, opts...)
+			var s LookupAzureFirewallResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
+		}).(LookupAzureFirewallResultOutput)
+}
+
+type LookupAzureFirewallOutputArgs struct {
+	AzureFirewallName pulumi.StringInput `pulumi:"azureFirewallName"`
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupAzureFirewallOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAzureFirewallArgs)(nil)).Elem()
+}
+
+
+type LookupAzureFirewallResultOutput struct{ *pulumi.OutputState }
+
+func (LookupAzureFirewallResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAzureFirewallResult)(nil)).Elem()
+}
+
+func (o LookupAzureFirewallResultOutput) ToLookupAzureFirewallResultOutput() LookupAzureFirewallResultOutput {
+	return o
+}
+
+func (o LookupAzureFirewallResultOutput) ToLookupAzureFirewallResultOutputWithContext(ctx context.Context) LookupAzureFirewallResultOutput {
+	return o
+}
+
+func (o LookupAzureFirewallResultOutput) ApplicationRuleCollections() AzureFirewallApplicationRuleCollectionResponseArrayOutput {
+	return o.ApplyT(func(v LookupAzureFirewallResult) []AzureFirewallApplicationRuleCollectionResponse {
+		return v.ApplicationRuleCollections
+	}).(AzureFirewallApplicationRuleCollectionResponseArrayOutput)
+}
+
+func (o LookupAzureFirewallResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAzureFirewallResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+func (o LookupAzureFirewallResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAzureFirewallResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupAzureFirewallResultOutput) IpConfigurations() AzureFirewallIPConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v LookupAzureFirewallResult) []AzureFirewallIPConfigurationResponse { return v.IpConfigurations }).(AzureFirewallIPConfigurationResponseArrayOutput)
+}
+
+func (o LookupAzureFirewallResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAzureFirewallResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupAzureFirewallResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAzureFirewallResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupAzureFirewallResultOutput) NetworkRuleCollections() AzureFirewallNetworkRuleCollectionResponseArrayOutput {
+	return o.ApplyT(func(v LookupAzureFirewallResult) []AzureFirewallNetworkRuleCollectionResponse {
+		return v.NetworkRuleCollections
+	}).(AzureFirewallNetworkRuleCollectionResponseArrayOutput)
+}
+
+func (o LookupAzureFirewallResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAzureFirewallResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+func (o LookupAzureFirewallResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupAzureFirewallResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func (o LookupAzureFirewallResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAzureFirewallResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupAzureFirewallResultOutput{})
+}
