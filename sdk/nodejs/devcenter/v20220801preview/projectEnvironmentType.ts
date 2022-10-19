@@ -127,7 +127,7 @@ export class ProjectEnvironmentType extends pulumi.CustomResource {
             resourceInputs["userRoleAssignments"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter:ProjectEnvironmentType" }, { type: "azure-native:devcenter/v20220901preview:ProjectEnvironmentType" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter:ProjectEnvironmentType" }, { type: "azure-native:devcenter/v20220901preview:ProjectEnvironmentType" }, { type: "azure-native:devcenter/v20221012preview:ProjectEnvironmentType" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProjectEnvironmentType.__pulumiType, name, resourceInputs, opts);
     }

@@ -633,7 +633,7 @@ class ContentKeyPolicyFairPlayConfigurationArgs:
                  offline_rental_configuration: Optional[pulumi.Input['ContentKeyPolicyFairPlayOfflineRentalConfigurationArgs']] = None):
         """
         Specifies a configuration for FairPlay licenses.
-        :param pulumi.Input[str] ask: The key that must be used as FairPlay Application Secret key.
+        :param pulumi.Input[str] ask: The key that must be used as FairPlay Application Secret key. This needs to be base64 encoded.
         :param pulumi.Input[str] fair_play_pfx: The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key).
         :param pulumi.Input[str] fair_play_pfx_password: The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
@@ -655,7 +655,7 @@ class ContentKeyPolicyFairPlayConfigurationArgs:
     @pulumi.getter
     def ask(self) -> pulumi.Input[str]:
         """
-        The key that must be used as FairPlay Application Secret key.
+        The key that must be used as FairPlay Application Secret key. This needs to be base64 encoded.
         """
         return pulumi.get(self, "ask")
 

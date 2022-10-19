@@ -2221,7 +2221,8 @@
       "2021-01-01",
       "2021-06-01",
       "2022-01-01",
-      "2022-06-01"
+      "2022-06-01",
+      "2022-10-01"
     ],
     "batchaccounts": [
       "2014-05-01-privatepreview",
@@ -2241,7 +2242,8 @@
       "2021-01-01",
       "2021-06-01",
       "2022-01-01",
-      "2022-06-01"
+      "2022-06-01",
+      "2022-10-01"
     ],
     "batchaccounts/certificates": [
       "2017-09-01",
@@ -2255,11 +2257,13 @@
       "2021-01-01",
       "2021-06-01",
       "2022-01-01",
-      "2022-06-01"
+      "2022-06-01",
+      "2022-10-01"
     ],
     "batchaccounts/detectors": [
       "2022-01-01",
-      "2022-06-01"
+      "2022-06-01",
+      "2022-10-01"
     ],
     "batchaccounts/pools": [
       "2017-09-01",
@@ -2273,7 +2277,8 @@
       "2021-01-01",
       "2021-06-01",
       "2022-01-01",
-      "2022-06-01"
+      "2022-06-01",
+      "2022-10-01"
     ],
     "locations": [
       "2015-09-01",
@@ -2291,7 +2296,8 @@
       "2021-01-01",
       "2021-06-01",
       "2022-01-01",
-      "2022-06-01"
+      "2022-06-01",
+      "2022-10-01"
     ],
     "locations/accountoperationresults": [
       "2014-05-01-privatepreview",
@@ -2311,7 +2317,8 @@
       "2021-01-01",
       "2021-06-01",
       "2022-01-01",
-      "2022-06-01"
+      "2022-06-01",
+      "2022-10-01"
     ],
     "locations/checknameavailability": [
       "2017-05-01",
@@ -2326,12 +2333,14 @@
       "2021-01-01",
       "2021-06-01",
       "2022-01-01",
-      "2022-06-01"
+      "2022-06-01",
+      "2022-10-01"
     ],
     "locations/cloudserviceskus": [
       "2021-06-01",
       "2022-01-01",
-      "2022-06-01"
+      "2022-06-01",
+      "2022-10-01"
     ],
     "locations/quotas": [
       "2015-09-01",
@@ -2349,12 +2358,14 @@
       "2021-01-01",
       "2021-06-01",
       "2022-01-01",
-      "2022-06-01"
+      "2022-06-01",
+      "2022-10-01"
     ],
     "locations/virtualmachineskus": [
       "2021-06-01",
       "2022-01-01",
-      "2022-06-01"
+      "2022-06-01",
+      "2022-10-01"
     ],
     "operations": [
       "2015-09-01",
@@ -2372,7 +2383,8 @@
       "2021-01-01",
       "2021-06-01",
       "2022-01-01",
-      "2022-06-01"
+      "2022-06-01",
+      "2022-10-01"
     ]
   },
   "billing": {
@@ -9905,90 +9917,111 @@
   "devcenter": {
     "": [
       "2022-08-01-preview",
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2022-10-12-preview"
     ],
     "devcenters": [
       "2022-08-01-preview",
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2022-10-12-preview"
     ],
     "devcenters/attachednetworks": [
       "2022-08-01-preview",
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2022-10-12-preview"
     ],
     "devcenters/catalogs": [
       "2022-08-01-preview",
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2022-10-12-preview"
     ],
     "devcenters/devboxdefinitions": [
       "2022-08-01-preview",
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2022-10-12-preview"
     ],
     "devcenters/environmenttypes": [
       "2022-08-01-preview",
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2022-10-12-preview"
     ],
     "devcenters/galleries": [
       "2022-08-01-preview",
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2022-10-12-preview"
     ],
     "devcenters/galleries/images": [
       "2022-08-01-preview",
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2022-10-12-preview"
     ],
     "devcenters/galleries/images/versions": [
       "2022-08-01-preview",
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2022-10-12-preview"
     ],
     "devcenters/images": [
       "2022-08-01-preview",
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2022-10-12-preview"
     ],
     "locations": [
       "2022-08-01-preview",
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2022-10-12-preview"
     ],
     "locations/operationstatuses": [
       "2022-08-01-preview",
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2022-10-12-preview"
     ],
     "networkconnections": [
       "2022-08-01-preview",
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2022-10-12-preview"
     ],
     "networkconnections/healthchecks": [
       "2022-08-01-preview",
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2022-10-12-preview"
     ],
     "operations": [
       "2022-08-01-preview",
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2022-10-12-preview"
     ],
     "projects": [
       "2022-08-01-preview",
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2022-10-12-preview"
     ],
     "projects/allowedenvironmenttypes": [
       "2022-09-01-preview"
     ],
     "projects/attachednetworks": [
       "2022-08-01-preview",
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2022-10-12-preview"
     ],
     "projects/devboxdefinitions": [
       "2022-08-01-preview",
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2022-10-12-preview"
     ],
     "projects/environmenttypes": [
       "2022-08-01-preview",
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2022-10-12-preview"
     ],
     "projects/pools": [
       "2022-08-01-preview",
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2022-10-12-preview"
     ],
     "projects/pools/schedules": [
       "2022-08-01-preview",
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2022-10-12-preview"
     ]
   },
   "devhub": {
@@ -11862,6 +11895,14 @@
       "2022-05-11",
       "2022-05-26",
       "2022-06-01"
+    ]
+  },
+  "graph": {
+    "": [
+      "2022-07-29-preview"
+    ],
+    "azureadapplication": [
+      "2022-07-29-preview"
     ]
   },
   "guestconfiguration": {
@@ -28582,7 +28623,14 @@
       "2020-04-01-preview"
     ],
     "workspaces/sqlpools": [
-      "2020-04-01-preview"
+      "2019-06-01-preview",
+      "2020-04-01-preview",
+      "2020-12-01",
+      "2021-03-01",
+      "2021-04-01-preview",
+      "2021-05-01",
+      "2021-06-01",
+      "2021-06-01-preview"
     ]
   },
   "syntex": {

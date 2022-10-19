@@ -7901,6 +7901,24 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "devcenter/v20221012preview",
+  "fqn": "pulumi_azure_native.devcenter.v20221012preview",
+  "classes": {
+   "azure-native:devcenter/v20221012preview:AttachedNetworkByDevCenter": "AttachedNetworkByDevCenter",
+   "azure-native:devcenter/v20221012preview:Catalog": "Catalog",
+   "azure-native:devcenter/v20221012preview:DevBoxDefinition": "DevBoxDefinition",
+   "azure-native:devcenter/v20221012preview:DevCenter": "DevCenter",
+   "azure-native:devcenter/v20221012preview:EnvironmentType": "EnvironmentType",
+   "azure-native:devcenter/v20221012preview:Gallery": "Gallery",
+   "azure-native:devcenter/v20221012preview:NetworkConnection": "NetworkConnection",
+   "azure-native:devcenter/v20221012preview:Pool": "Pool",
+   "azure-native:devcenter/v20221012preview:Project": "Project",
+   "azure-native:devcenter/v20221012preview:ProjectEnvironmentType": "ProjectEnvironmentType",
+   "azure-native:devcenter/v20221012preview:Schedule": "Schedule"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "devhub",
   "fqn": "pulumi_azure_native.devhub",
   "classes": {

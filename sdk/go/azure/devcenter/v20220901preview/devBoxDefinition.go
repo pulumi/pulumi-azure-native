@@ -57,6 +57,9 @@ func NewDevBoxDefinition(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:devcenter/v20220801preview:DevBoxDefinition"),
 		},
+		{
+			Type: pulumi.String("azure-native:devcenter/v20221012preview:DevBoxDefinition"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DevBoxDefinition

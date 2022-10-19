@@ -73,6 +73,7 @@ namespace Pulumi.AzureNative.DevCenter
                 {
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220801preview:EnvironmentType"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:EnvironmentType"},
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221012preview:EnvironmentType"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

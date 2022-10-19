@@ -72,6 +72,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:devcenter:Gallery"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:Gallery"},
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221012preview:Gallery"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.Media.V20220801.Outputs
     public sealed class ContentKeyPolicyFairPlayConfigurationResponse
     {
         /// <summary>
-        /// The key that must be used as FairPlay Application Secret key.
+        /// The key that must be used as FairPlay Application Secret key. This needs to be base64 encoded.
         /// </summary>
         public readonly string Ask;
         /// <summary>
