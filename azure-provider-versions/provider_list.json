@@ -2635,35 +2635,6 @@
     ]
   },
   {
-    "namespace": "Microsoft.AzureSphereGen2",
-    "resourceTypes": [
-      {
-        "resourceType": "catalogs/certificates",
-        "apiVersions": [
-          "2022-09-01-privatepreview"
-        ]
-      },
-      {
-        "resourceType": "locations",
-        "apiVersions": [
-          "2022-09-01-privatepreview"
-        ]
-      },
-      {
-        "resourceType": "locations/operationStatuses",
-        "apiVersions": [
-          "2022-09-01-privatepreview"
-        ]
-      },
-      {
-        "resourceType": "operations",
-        "apiVersions": [
-          "2022-09-01-privatepreview"
-        ]
-      }
-    ]
-  },
-  {
     "namespace": "Microsoft.AzureStack",
     "resourceTypes": [
       {

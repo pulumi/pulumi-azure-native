@@ -4160,6 +4160,12 @@
       "BackupVault",
       "DppResourceGuardProxy",
       "ResourceGuard"
+    ],
+    "2022-10-01-preview": [
+      "BackupInstance",
+      "BackupPolicy",
+      "BackupVault",
+      "ResourceGuard"
     ]
   },
   "DataShare": {
@@ -12513,6 +12519,14 @@
       "listSignalRKeys"
     ],
     "2022-02-01": [
+      "SignalR",
+      "SignalRCustomCertificate",
+      "SignalRCustomDomain",
+      "SignalRPrivateEndpointConnection",
+      "SignalRSharedPrivateLinkResource",
+      "listSignalRKeys"
+    ],
+    "2022-08-01-preview": [
       "SignalR",
       "SignalRCustomCertificate",
       "SignalRCustomDomain",
