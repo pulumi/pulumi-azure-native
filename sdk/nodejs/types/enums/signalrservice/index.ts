@@ -11,6 +11,7 @@ import * as v20210601preview from "./v20210601preview";
 import * as v20210901preview from "./v20210901preview";
 import * as v20211001 from "./v20211001";
 import * as v20220201 from "./v20220201";
+import * as v20220801preview from "./v20220801preview";
 
 export {
     v20180301preview,
@@ -22,6 +23,7 @@ export {
     v20210901preview,
     v20211001,
     v20220201,
+    v20220801preview,
 };
 
 export const ACLAction = {

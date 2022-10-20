@@ -1950,23 +1950,6 @@
       "2022-09-01-preview"
     ]
   },
-  "azurespheregen2": {
-    "": [
-      "2022-09-01-privatepreview"
-    ],
-    "catalogs/certificates": [
-      "2022-09-01-privatepreview"
-    ],
-    "locations": [
-      "2022-09-01-privatepreview"
-    ],
-    "locations/operationstatuses": [
-      "2022-09-01-privatepreview"
-    ],
-    "operations": [
-      "2022-09-01-privatepreview"
-    ]
-  },
   "azurestack": {
     "": [
       "2016-01-01",

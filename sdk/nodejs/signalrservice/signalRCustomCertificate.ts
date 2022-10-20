@@ -110,7 +110,7 @@ export class SignalRCustomCertificate extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:signalrservice/v20220201:SignalRCustomCertificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:signalrservice/v20220201:SignalRCustomCertificate" }, { type: "azure-native:signalrservice/v20220801preview:SignalRCustomCertificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SignalRCustomCertificate.__pulumiType, name, resourceInputs, opts);
     }

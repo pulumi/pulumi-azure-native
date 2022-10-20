@@ -6971,6 +6971,17 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "dataprotection/v20221001preview",
+  "fqn": "pulumi_azure_native.dataprotection.v20221001preview",
+  "classes": {
+   "azure-native:dataprotection/v20221001preview:BackupInstance": "BackupInstance",
+   "azure-native:dataprotection/v20221001preview:BackupPolicy": "BackupPolicy",
+   "azure-native:dataprotection/v20221001preview:BackupVault": "BackupVault",
+   "azure-native:dataprotection/v20221001preview:ResourceGuard": "ResourceGuard"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "datashare",
   "fqn": "pulumi_azure_native.datashare",
   "classes": {
@@ -19882,6 +19893,18 @@ _utilities.register(
    "azure-native:signalrservice/v20220201:SignalRCustomDomain": "SignalRCustomDomain",
    "azure-native:signalrservice/v20220201:SignalRPrivateEndpointConnection": "SignalRPrivateEndpointConnection",
    "azure-native:signalrservice/v20220201:SignalRSharedPrivateLinkResource": "SignalRSharedPrivateLinkResource"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "signalrservice/v20220801preview",
+  "fqn": "pulumi_azure_native.signalrservice.v20220801preview",
+  "classes": {
+   "azure-native:signalrservice/v20220801preview:SignalR": "SignalR",
+   "azure-native:signalrservice/v20220801preview:SignalRCustomCertificate": "SignalRCustomCertificate",
+   "azure-native:signalrservice/v20220801preview:SignalRCustomDomain": "SignalRCustomDomain",
+   "azure-native:signalrservice/v20220801preview:SignalRPrivateEndpointConnection": "SignalRPrivateEndpointConnection",
+   "azure-native:signalrservice/v20220801preview:SignalRSharedPrivateLinkResource": "SignalRSharedPrivateLinkResource"
   }
  },
  {

@@ -77,6 +77,7 @@ namespace Pulumi.AzureNative.SignalRService.V20220201
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice:SignalRCustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20220801preview:SignalRCustomDomain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
